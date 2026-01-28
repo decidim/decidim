@@ -89,7 +89,9 @@ lt:
         youtube_handler: '„YouTube“ tvarkyklė'
       participatory_space_private_user:
         email: El. paštas
-        name: Pavadinimas
+        name: Vardas
+      participatory_space_private_user_csv_import:
+        file: Rinkmena
       scope:
         code: Kodas
         name: Pavadinimas
@@ -360,16 +362,9 @@ lt:
             'false': Oficializuota
             'true': Neoficializuota
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Pakvietimas priimtas
-            values:
-              'false': Nepriimtas
-              'true': Priimtas
           user_invitation_sent_at_not_null:
-            label: Pakvietimas išsiųstas
             values:
               'false': Neišsiųstas
-              'true': Išsiųstas
         private_space_eq:
           label: Privatus
           values:
@@ -671,7 +666,6 @@ lt:
           participants_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie dalyvavo bet kurioje sąraše nurodytoje pasirinktoje dalyvaujamojo proceso erdvėje.
           recipients_count: Šis naujienlaiškis bus išsiųstas <strong id='recipients_count'>%{count}</strong> naudotojams.
           select_spaces: Pasirinkite naujienlaiškio segmentacijos vietas
-          send_to_all_users: Siųsti visiems naudotojams
           title: Pasirinkti gavėjus, kuriems išsiųsti
           warning: "<strong>Dėmesio:</strong> Šis naujienlaiškis bus išsiųstas tik tiems dalyviams, kurie savo pranešimų nuostatose aktyvino<em> „noriu gauti naujienlaiškius“</em>."
         send:
@@ -741,16 +735,14 @@ lt:
         destroy:
           error: Ištrinant privatų dalyvį iš dalyvaujamosios erdvės kilo problema.
           success: Dalyvaujamojo proceso erdvės privataus dalyvio prieiga panaikinta.
+        edit:
+          update: Atnaujinti
         index:
-          import_via_csv: Importuoti iš CSV
           title: Dalyvaujamosios erdvės privatus dalyvis
         new:
           create: Sukurti
           title: Naujas dalyvaujamosios erdvės privatus dalyvis.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Skaitant CSV failą kilo problema. Prašau įsitikinkite kad sekėte instrukcijas.
-          success: CSV rinkmena įkelta, dalyviams siunčiame kvietimą e. laišku. Tai gali užtrukti.
         new:
           csv_upload:
             title: Įkelkite savo CSV rinkmeną
@@ -760,12 +752,6 @@ lt:
             empty: Neturite privačių dalyvių.
             explanation: Turite %{count} privačių dalyvių.
             title: Ištrinti privačius dalyvius
-          example_file: 'Pavyzdinė rinkmena:'
-          explanation: 'Įkelkite CSV dokumentą. Jis turi turėti du stulpelius su naudotojų el. paštu pirmajame ir vardu paskutiniąjame. Dokumente neturėtų būti laukų pavadinimų ir šių simbolių naudotojų varduose "<>?%&^*#@()[]=+:;"{}\|".'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          upload: Įkelti
       reminders:
         create:
           error: Kuriant priminimus iškilo problema.
@@ -891,7 +877,6 @@ lt:
           last_day: Paskutinė diena
           last_month: Praėjusį mėnesį
           last_week: Praėjusią savaitę
-          no_users_count_statistics_yet: Dar nėra dalyvių skaičiaus statistinių duomenų.
           participants: Dalyviai
     forms:
       errors:

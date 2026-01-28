@@ -89,6 +89,8 @@ zh-TW:
       participatory_space_private_user:
         email: 電子郵件
         name: 名稱
+      participatory_space_private_user_csv_import:
+        file: 檔案
       scope:
         code: 代碼
         name: 名稱
@@ -357,16 +359,9 @@ zh-TW:
             'false': 官方化
             'true': 非官方化
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: 邀請已接受
-            values:
-              'false': 未接受
-              'true': 已接受
           user_invitation_sent_at_not_null:
-            label: 已發送邀請
             values:
               'false': 未發送
-              'true': 已送出
         private_space_eq:
           label: 私人的
           values:
@@ -656,7 +651,6 @@ zh-TW:
           participants_help: 發送通訊給所有在列表中任何選定的參與空間中參與過的已確認使用者。
           recipients_count: 此通訊將發送給<strong id='recipients_count'>%{count}</strong>位使用者。
           select_spaces: 選擇要將通訊進行分割的空間
-          send_to_all_users: 傳送給所有使用者
           title: 選擇要傳送的收件人
           warning: "<strong>注意：</strong>此通訊將僅傳送給已在其通知設定中啟用<em>我想收到通訊</em>的使用者。"
         send:
@@ -723,16 +717,14 @@ zh-TW:
         destroy:
           error: 刪除參與空間的私人參與者時發生問題。
           success: 成功刪除參與空間的私人參與者訪問權限。
+        edit:
+          update: 更新
         index:
-          import_via_csv: 透過 CSV 匯入
           title: 參與空間私有參與者
         new:
           create: 建立
           title: 新的參與空間私人參與者。
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: 讀取 CSV 檔案時發生問題。請確保您已按照指示進行操作。
-          success: CSV檔案上傳成功，我們正在發送邀請電子郵件給參與者。這可能需要一些時間。
         new:
           csv_upload:
             title: 請上傳您的 CSV 檔案。
@@ -742,12 +734,6 @@ zh-TW:
             empty: 您沒有私人參與者。
             explanation: 您有 %{count} 位私人參與者。
             title: 刪除私人參與者
-          example_file: '示例文件:'
-          explanation: '請上傳您的 CSV 檔案。檔案的第一欄應為電子郵件，最後一欄應為要添加到參與空間的使用者的名稱，檔案中不應包含標題。請避免在使用者名稱中使用無效字元，例如 <>?%&^*#@()[]=+:;"{}\|。'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          upload: 上傳
       reminders:
         create:
           error: 在創建提醒時遇到問題。
@@ -869,7 +855,6 @@ zh-TW:
           last_day: 過去 1 天
           last_month: 上個月
           last_week: 上週
-          no_users_count_statistics_yet: 目前還沒有使用者統計數據。
           participants: 參與者
     forms:
       errors:

@@ -38,6 +38,7 @@
         actions:
           destroy: Avbryt sorteringen
           edit: Editar
+          new_sortition: Ny sortering
           show: Sorterings detaljer
         models:
           sortition:

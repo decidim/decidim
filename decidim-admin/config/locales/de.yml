@@ -36,7 +36,7 @@ de:
       id: ID
       newsletter:
         body: Haupttext
-        send_to_all_users: An alle Benutzenden senden
+        send_to_all_users: An alle Teilnehmende senden
         send_to_followers: An Follower senden
         send_to_participants: An Teilnehmende senden
         subject: Betreff
@@ -93,7 +93,7 @@ de:
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
         youtube_handler: YouTube-Handler
       participatory_space_private_user:
-        email: E-Mail
+        email: Email
         name: Name
       participatory_space_private_user_csv_import:
         file: Datei
@@ -394,7 +394,7 @@ de:
         form:
           domain_too_short: Domain zu kurz
         update:
-          error: Liste der zulässigen externen Domains konnte nicht aktualisiert werden
+          error: Das Aktualisieren der Liste der zulässigen externen Domains ist fehlgeschlagen.
           success: Die Liste der zulässigen externen Domains wurde erfolgreich aktualisiert.
       exports:
         export_as: "%{name} als %{export_format}"
@@ -432,16 +432,9 @@ de:
             'false': Offizialisiert
             'true': Nicht offiziell
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Einladung akzeptiert
-            values:
-              'false': Nicht akzeptiert
-              'true': Akzeptiert
           user_invitation_sent_at_not_null:
-            label: Einladung versendet
             values:
-              'false': Nicht versendet
-              'true': Versendet
+              'false': Nicht gesendet
         private_space_eq:
           label: Privat
           values:
@@ -810,7 +803,7 @@ de:
           select_users_for_participatory_space: Newsletter an einen oder mehrere partizipative Bereiche senden
           select_users_general: Plattformweiter Newsletter senden
           select_verification_types: Verifizierungsmethoden auswählen
-          send_to_all_users: An alle Benutzer senden
+          send_to_all_users: An alle Benutzenden senden
           send_to_verified_users: An verifizierte Teilnehmende senden
           title: Empfänger auswählen
           verified_users_help: Sendet einen Newsletter an alle bestätigten und verifizierten Teilnehmenden über jede ausgewählte Verifikationsmethode.
@@ -927,10 +920,7 @@ de:
           title: Privates Mitglied des partiziaptiven Bereichs bearbeiten.
           update: Aktualisieren
         index:
-          import_via_csv: Aus CSV-Datein importieren
-          publish_all: Alle veröffentlichen
           title: Participatory Space privater Benutzer
-          unpublish_all: Alle Veröffentlichungen aufheben
         new:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
@@ -944,9 +934,6 @@ de:
           error: Beim Aktualisieren des privaten Teilnehmenden für diesen Beteiligungsbereich ist ein Problem aufgetreten.
           success: Privater Teilnehmende für diesen partizipativen Raum erfolgreich erstellt
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
-          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
         new:
           csv_upload:
             title: Laden Sie Ihre CSV-Datei hoch
@@ -956,13 +943,7 @@ de:
             empty: Sie haben keine private Teilnehmende.
             explanation: Sie haben %{count} private Teilnehmende.
             title: Alle private Teilnehmende entfernen
-          example_file: 'Beispieldatei:'
-          explanation: 'Laden Sie Ihre CSV-Datei mit den Teilnehmenden, die Sie zum Prozess hinzufügen möchten, hoch. Sie muss zwei Spalten (ohne Kopfzeile) haben, mit der E-Mail-Adresse in der ersten Spalte und dem Namen in der zweiten Spalte der Datei. Verwenden Sie keine ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen der Teilnehmenden.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Private Teilnehmende via CSV importieren
-          upload: Hochladen
       reminders:
         create:
           error: Beim Erstellen dieser Erinnerungen ist ein Problem aufgetreten.
@@ -1271,7 +1252,6 @@ de:
           last_day: Letzter Tag
           last_month: Letzter Monat
           last_week: Letzte Woche
-          no_users_count_statistics_yet: Es gibt noch keine Nutzendestatistiken.
           participants: Teilnehmer
     forms:
       errors:

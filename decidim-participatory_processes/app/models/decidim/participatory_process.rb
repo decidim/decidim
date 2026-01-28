@@ -216,7 +216,7 @@ module Decidim
       base = %w(title short_description description id)
       return base unless auth_object&.admin?
 
-      base + %w(private_space published_at decidim_participatory_process_group_id)
+      base + %w(private_space published_at created_at decidim_participatory_process_group_id)
     end
 
     def self.ransackable_associations(_auth_object = nil)

@@ -41,6 +41,7 @@ fr-CA:
       admin:
         census:
           edit:
+            choose_census: Choisissez le type de recensement que vous souhaitez utiliser pour cette élection
             created_at: Créée le
             identifier: Identifiant de l'utilisateur
           preview:
@@ -64,6 +65,7 @@ fr-CA:
             title: Questions
           questions_table:
             answer: Réponses
+            total: Total
             votes: Votes
             votes_count:
               one: 1 vote
@@ -72,6 +74,7 @@ fr-CA:
             publish_button: Publier les résultats
             title: Résultats
           status:
+            census: 'Recensement:'
             results_availability:
               after_end: Résultats disponibles après la fin de l'élection
               per_question: Résultats disponibles par question
@@ -81,6 +84,8 @@ fr-CA:
           create:
             invalid: Il y a eu un problème lors de la création de l'élection.
             success: Élection créée avec succès.
+          dashboard:
+            subtitle: 'Étape finale: éxaminez vos détails. Des modifications peuvent toujours être apportées avant de publier. Une fois publiée, vous serez toujours en mesure de mettre à jour la description de l''élection.'
           edit:
             title: Modifier l'élection
           form:
@@ -143,6 +148,9 @@ fr-CA:
         internal_users:
           already_have_an_account?: Vous avez déjà un compte?
           are_you_new?: Nouveau participant ?
+          info_html: |
+            Vous pouvez restreindre la participation à l'élection aux participants qui ont une autorisation.<br>
+            Notez que les participants devront satisfaire aux autorisations sélectionnées pour voter. Laisser toutes les cases à cocher vides permettra à toute personne enregistrée de voter.
           internal_type_title: Autorisations supplémentaires requises pour voter (facultatif)
           sign_in_description: Connectez-vous pour voter durant cette élection
           sign_up_description: Créer un compte pour voter durant cette élection
@@ -150,9 +158,6 @@ fr-CA:
           authorization_options_invalid: Malheureusement, bien que vous ayez toutes les autorisations requises, certaines d'entre elles ne sont pas valides pour cette élection.
           exit_button: Quitter l'isoloir
           invalid: Vous n'êtes pas autorisé(e) à voter pour cette élection.
-          missing: Votre compte utilisateur ne présente pas certaines autorisations requises. Veuillez vérifier les informations et réessayer.
-          not_authorized: 'L''autorisation "%{adapter}" ne correspond pas aux conditions requises.'
-          not_granted: 'L''autorisation "%{adapter}" n''est pas accordée.'
           resume_with_method: Reprendre la vérification avec %{name}
           verify_with_method: Vérifier avec %{name}
         token_csv:
@@ -185,6 +190,7 @@ fr-CA:
           state_values:
             finished: Terminées
             ongoing: En cours
+            scheduled: Programmé
         orders:
           end_at: Date de fin
           label: Trier par
@@ -195,6 +201,7 @@ fr-CA:
           title: Questions de l'élection
         show:
           active_voting_until: 'Vote actif jusqu''au : %{end_date}'
+          edit_vote_button: Modifier le vote
           vote_button: Voter
           voted: Vous avez déjà voté. Vous pouvez voter à nouveau, seul votre dernier vote sera prise en compte.
           votes_count:
@@ -207,6 +214,10 @@ fr-CA:
             per_question: Les résultats sont disponibles par question. Vous pouvez voir les résultats pour chaque question après que le vote soit activé et que les résultats soient publiés.
             real_time: Les résultats sont disponibles en temps réel. Vous pouvez voir les résultats en cours de vote.
           title: Résultats
+          total: 'TOTAL :'
+          total_votes:
+            one: 1 vote
+            other: "%{count} votes"
       models:
         election:
           fields:
@@ -249,7 +260,8 @@ fr-CA:
           cast_vote: Exprimer votre vote
           next: Suivant
         receipt:
-          description: Vous pouvez voter à nouveau à tout moment tant que la période de vote est ouverte. Votre vote précédent sera écrasé par le nouveau.
+          description: Vous pouvez voter à nouveau à tout moment pendant que la période de vote est ouverte. Votre vote précédent sera écrasé par le nouveau.
+          edit_vote: Modifier votre vote
           exit_button: Quitter l'isoloir
           title: Vos votes ont été exprimés avec succès
     metadata:

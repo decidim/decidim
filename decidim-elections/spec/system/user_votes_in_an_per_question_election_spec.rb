@@ -73,6 +73,19 @@ describe "Dashboard" do
     it_behaves_like "a per question votable election with already voted questions"
   end
 
+  context "when editing votes from receipt page" do
+    let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, question_type: "single_option", election:, position: 1) }
+    let!(:question2) { create(:election_question, :with_response_options, :voting_enabled, election:, position: 2) }
+
+    before do
+      login_as user, scope: :user
+      visit election_path
+    end
+
+    it_behaves_like "a per question votable election with edit from receipt"
+    it_behaves_like "a per question votable election with edit from receipt when all questions enabled"
+  end
+
   context "when the election is real time" do
     let(:election) { create(:election, :published, :ongoing, :with_internal_users_census, :real_time, :with_questions) }
 
@@ -89,5 +102,14 @@ describe "Dashboard" do
       visit new_election_vote_path
       expect(page).to have_current_path(new_election_normal_vote_path)
     end
+  end
+
+  context "when admin closes question voting while user is viewing the question" do
+    before do
+      login_as user, scope: :user
+      visit election_path
+    end
+
+    it_behaves_like "a per question votable election with automatic redirect when question closes"
   end
 end

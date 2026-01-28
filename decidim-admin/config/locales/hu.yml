@@ -36,7 +36,6 @@ hu:
       id: ID
       newsletter:
         body: Szöveg
-        send_to_all_users: Küldés az összes felhasználónak
         send_to_followers: Küldés a követőknek
         send_to_participants: Küldés a résztvevőknek
         subject: Tárgy
@@ -94,6 +93,8 @@ hu:
       participatory_space_private_user:
         email: Email
         name: Név
+      participatory_space_private_user_csv_import:
+        file: Fájl
       scope:
         code: Kód
         name: Név
@@ -271,7 +272,6 @@ hu:
       block_user:
         new:
           action: Fiók blokkolása és igazolás küldése
-          already_reported_html: Ezt a műveletet folytatva elrejti a résztvevők összes tartalmát is.
           description: Egy felhasználó letiltása használhatatlanná teszi a fiókját. Az indoklásban megadhat bármilyen iránymutatást arra vonatkozóan, hogy miként lehetne feloldani a felhasználó blokkolását.
           justification: Indoklás
           title: '%{name} felhasználó blokkolása'
@@ -349,7 +349,6 @@ hu:
         form:
           domain_too_short: Túl rövid domain név
         update:
-          error: Nem sikerült frissíteni az engedélyezett külső tartományok listáját
           success: Az engedélyezett külső tartományok listája sikeresen frissült.
       exports:
         export_as: "%{name} mint %{export_format}"
@@ -387,16 +386,9 @@ hu:
             'false': Hivatalos
             'true': Nem hivatalos
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Meghívás elfogadva
-            values:
-              'false': Nincs elfogadva
-              'true': Elfogadva
           user_invitation_sent_at_not_null:
-            label: Meghívó kiküldve
             values:
-              'false': Nincs elküldve
-              'true': Elküldve
+              'false': Nem került elküldésre
         private_space_eq:
           label: Magán
           values:
@@ -693,7 +685,7 @@ hu:
           participants_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi terek bármelyikében részt vett valamilyen folyamatban.
           recipients_count: Ezt a hírlevelet <strong id='recipients_count'>%{count}</strong> felhasználónak küldjük ki.
           select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
-          send_to_all_users: Küldés mindenkinek
+          send_to_all_users: Küldés az összes felhasználónak
           title: Címzettek kiválasztása
           warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
         send:
@@ -775,16 +767,14 @@ hu:
         destroy:
           error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
+        edit:
+          update: Frissítés
         index:
-          import_via_csv: Importálás CSV -ből
           title: Részvételi tér privát felhasználója
         new:
           create: Létrehozás
           title: Új részvételi tér privát felhasználója.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Probléma adódott a CSV fájl beolvasásával. Kérjük, győződjön meg róla, hogy követte az utasításokat.
-          success: A CSV fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
         new:
           csv_upload:
             title: Töltse fel a CSV fájlját
@@ -794,12 +784,6 @@ hu:
             empty: Nincsenek privát résztvevők.
             explanation: '%{count} privát résztvevője van.'
             title: Privát felhasználók törlése
-          example_file: 'Példa fájl:'
-          explanation: 'Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, a fájl első oszlopában az e-mail címmel, a fájl utolsó oszlopában pedig a nevével azoknak a felhasználóknak, akiket hozzá szeretne adni a részvételi térhez, fejlécek nélkül. Kerülje az olyan érvénytelen karakterek használatát, mint a `<>?%&^*#@()[]=+:;"{}\|` a felhasználói névben.'
-          explanation_example: |
-            ohn.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          upload: Feltölt
       reminders:
         create:
           error: Hiba történt a bejegyzés létrehozása során.
@@ -926,7 +910,6 @@ hu:
           last_day: Utolsó nap
           last_month: Előző hónap
           last_week: Előző hét
-          no_users_count_statistics_yet: Még nincsenek felhasználói statisztikák.
           participants: Résztvevők
     forms:
       errors:

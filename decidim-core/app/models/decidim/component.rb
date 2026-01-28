@@ -100,11 +100,14 @@ module Decidim
     def resource_description; end
 
     def can_participate_in_space?(user)
+      return false unless published?
+      return false unless participatory_space.published?
       return true unless participatory_space.try(:private_space?)
       return false unless user
 
       participatory_space.can_participate?(user)
     end
+    alias can_participate? can_participate_in_space?
 
     def private_non_transparent_space?
       return false unless participatory_space.respond_to?(:private_space?)

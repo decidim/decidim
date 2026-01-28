@@ -57,6 +57,11 @@ lv:
         welcome_notification_body: Sveiciena paziņojuma pamatteksts
         welcome_notification_subject: Sveiciena paziņojuma temats
         youtube_handler: YouTube apdarinātājs
+      participatory_space_private_user:
+        email: E-pasts
+        name: Nosaukums
+      participatory_space_private_user_csv_import:
+        file: Fails
       scope:
         code: Kods
         name: Nosaukums
@@ -217,6 +222,10 @@ lv:
           values:
             'false': Piešķirts oficiāls statuss
             'true': Nav piešķirts oficiāls statuss
+        participatory_space_private_users:
+          user_invitation_sent_at_not_null:
+            values:
+              'false': Nav nosūtīts
         private_space_eq:
           label: Privāts
           values:
@@ -401,7 +410,6 @@ lv:
           participants_help: Nosūta informatīvo biļetenu visiem apstiprinātajiem lietotājiem, kuri ir piedalījušies jebkurā no sarakstā atzīmētajām līdzdalības telpām.
           recipients_count: Šis informatīvais biļetens tiks nosūtīts <strong id='recipients_count'>%{count}</strong> lietotājiem.
           select_spaces: Izvēlieties telpas, lai segmentētu informatīvo biļetenu
-          send_to_all_users: Nosūtīt visiem lietotājiem
           title: Izvēlieties adresātus, kuriem nosūtīt
           warning: "<strong>Uzmanību:</strong> šis informatīvais biļetens tiks nosūtīts tikai tiem lietotājiem, kuri savos paziņojumu iestatījumos ir aktivizējuši <em>Vēlos saņemt informatīvos biļetenus</em>."
         show:
@@ -450,6 +458,8 @@ lv:
         destroy:
           error: Dzēšot privāto dalībnieku no šīs līdzdalības telpas, radās problēma.
           success: Privāto dalībnieku piekļuve līdzdalības telpai ir veiksmīgi dzēsta.
+        edit:
+          update: Atjaunināt
         index:
           title: Līdzdalības telpas privāts dalībnieks
         new:
@@ -459,7 +469,6 @@ lv:
         new:
           csv_upload:
             title: Augšupielādējiet savu CSV failu
-          upload: Augšupielādēt
       resource_permissions:
         edit:
           submit: Iesniegt

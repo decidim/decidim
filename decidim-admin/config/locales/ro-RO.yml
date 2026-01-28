@@ -36,7 +36,6 @@ ro:
       id: ID
       newsletter:
         body: Conținut
-        send_to_all_users: Trimiteți către toți utilizatorii
         send_to_followers: Trimiteți către urmăritori
         send_to_participants: Trimiteți către participanți
         subject: Titlu
@@ -92,6 +91,8 @@ ro:
       participatory_space_private_user:
         email: E-mail
         name: Nume
+      participatory_space_private_user_csv_import:
+        file: Fișier
       scope:
         code: Cod
         name: Nume
@@ -136,7 +137,7 @@ ro:
         participatory_space_private_user_csv_import:
           attributes:
             file:
-              malformed: Fișier de import malformat, vă rugăm să citiți instrucțiunile cu atenție și asigurați-vă că fișierul este codificat UTF-8.
+              malformed: Fişier de import malformat, vă rugăm să citiţi instrucţiunile cu atenţie şi asiguraţi-vă că fişierul este codificat UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -272,7 +273,6 @@ ro:
           justification: Justificare
         new:
           action: Blochează contul și trimite justificarea
-          already_reported_html: Continuând cu această acțiune veți ascunde de asemenea conținutul participanților.
           description: Blocarea unui utilizator va face contul său inutilizabil. Poți să furnizezi în justificarea ta orice instrucțiuni cu privire la modul în care vei lua în considerare deblocarea utilizatorului.
           justification: Justificare
           title: Blochează utilizatorul %{name}
@@ -367,16 +367,9 @@ ro:
             'false': Verificat
             'true': Neverificat
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitație acceptată
-            values:
-              'false': Neacceptat
-              'true': Acceptat
           user_invitation_sent_at_not_null:
-            label: Invitaţie trimisă
             values:
-              'false': Nu s-a trimis
-              'true': Trimis
+              'false': Nu a fost trimis
         private_space_eq:
           label: Privat
           values:
@@ -746,16 +739,14 @@ ro:
         destroy:
           error: A apărut o eroare la ștergerea unui participant privat pentru acest spațiu participativ.
           success: Accesul la spațiul participativ a participantului privat a fost șters cu succes.
+        edit:
+          update: Actualizează
         index:
-          import_via_csv: Importă din fișier CSV
           title: Participant privat pentru spațiul participativ
         new:
-          create: Crează
+          create: Creează
           title: Participant privat nou pentru spațiul participativ.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: A apărut o eroare la citirea fișierului CSV. Vă rugăm să vă asigurați că ați urmat instrucțiunile.
-          success: Fișier-ul CSV a fost încărcat cu succes, trimitem câte un e-mail participanților cu invitația. Acest lucru ar putea dura puțin timp.
         new:
           csv_upload:
             title: Încarcă fișierul tău CSV
@@ -765,12 +756,6 @@ ro:
             empty: Nu aveți niciun participant privat.
             explanation: Aveți %{count} participanți privați.
             title: Ștergere participanți privați
-          example_file: 'Exemplu de fişier:'
-          explanation: 'Încărcă fişierul tău CSV. Trebuie să aibă două coloane cu e-mail în prima coloană a fișierului și numele în ultima coloană (e-mail, numele) pentru utilizatorii pe care doriţi să îi adăugaţi în spaţiul participativ, fără antet. Evită folosirea caracterelor invalide, cum ar fi `<>?%&^*#@()[]=+:;"{}\<unk> ` în numele utilizatorului.'
-          explanation_example: |
-            ion.popescu@example.org%{csv_col_sep}Ion Popescu
-            maria.popescu@example.org%{csv_col_sep}Maria Popescu
-          upload: Încarcă
       reminders:
         create:
           error: A apărut o eroare la crearea de memento-uri.
@@ -928,7 +913,6 @@ ro:
           last_day: Ultima zi
           last_month: Ultima lună
           last_week: Ultima săptămână
-          no_users_count_statistics_yet: Încă nu există statistici privind numărul de utilizatori.
           participants: Participanți
     forms:
       errors:

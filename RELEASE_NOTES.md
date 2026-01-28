@@ -63,6 +63,12 @@ bin/rails decidim:verifications:revoke:sms # see "3.4. SMS authorization changes
 bin/rails decidim_surveys:upgrade:fix_survey_permissions # see "3.5. Permission rename in surveys module"
 bin/rails decidim:upgrade:user_groups:remove # see "3.6. User Groups removal"
 bin/rails decidim:upgrade:fix_action_log # see "3.8. Fix incorrect ActionLog entries"
+# skip this command if you have run it before:
+bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+echo "/public/sw.js*" >> .gitignore
+bin/rails decidim:upgrade:remove_deleted_users_left_data
+bin/rails decidim:upgrade:fix_deleted_private_follows
+bin/rails data:migrate
 ```
 
 Update your shakapacker version in your `package.json` file for "2.3 Shakapacker upgrade".<br>
@@ -172,6 +178,36 @@ The Polls feature within the Meetings module (`decidim-meetings`) will be remove
 
 You can read more about this change on PR [#15298](https://github.com/decidim/decidim/pull/15298).
 
+### 2.5. Old private exports are now expired
+
+Due to some data consistency issues with the private exports, we have decided to expire all the previously generated files. Users are able to request and receive a new private export file.
+
+if you are upgrading from a lover version like 0.30, and you have already ran this command, you can skip this step.
+
+Run the following command to expire all the private exports:
+
+```console
+bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+```
+
+You can read more about this change on PR [#15020](https://github.com/decidim/decidim/pull/15020).
+
+### 2.6. Add data migrations
+
+At the moment we are adding this gem so we can start doing data migrations for fixes when v0.33.0 is released. You can read more about this at [Data migrations doc](https://docs.decidim.org/en/develop/develop/guide_data_migrations.html).
+
+You can read more about this change on PR [#15501](https://github.com/decidim/decidim/pull/15501).
+
+### 2.7. Fix gitignore for ServiceWorker related files
+
+We detected a bug where some dynamic files are not added to the gitignore, so they could be committed to the repository. For fixing it, you need to add them to your gitignore file:
+
+```bash
+echo "/public/sw.js*" >> .gitignore
+```
+
+You can read more about this change on PR [#15601](https://github.com/decidim/decidim/pull/15601).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
@@ -244,6 +280,9 @@ You can read more about this change on PR [#14940](https://github.com/decidim/de
 
 ### 3.6. User Groups removal
 
+> [!WARNING]
+> We have detected a bug related to the authorship of the UserGroups activity. This was already happening in versions before v0.31.0, and we plan on fixing this for v0.31.1. See [#15448](https://github.com/decidim/decidim/issues/15448) for more details.
+
 As part of our efforts to simplify the experience for organizations, the "User Groups" feature has been deprecated. All previously existing User Groups has been converted into regular participants able to sign in providing the email and a password. The users with access to the email associated with the User Group will be able to set a password.
 
 There are some tasks to notify users affected by the changes, transfer authorships and remove deprecated references to groups. All of them can be executed in a main task:
@@ -285,6 +324,30 @@ bin/rails decidim:upgrade:fix_action_log
 ```
 
 You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
+
+### 3.9. Remove user data left behind by `Decidim::DestroyAccount`
+
+When a user deletes their account and the `Decidim::DestroyAccount` command is executed, certain related data such as authorizations, versions, private exports, access grants, access tokens, notifications, and reminders were left behind. To fix this issue, we've added a new rake task to clean up the leftover data for previously deleted users.
+
+```ruby
+bin/rails decidim:upgrade:remove_deleted_users_left_data
+```
+
+You can read more about this change on PR [#14731](https://github.com/decidim/decidim/pull/14731).
+
+### 3.10. Remove the follows of former private users
+
+To delete the follows of ex private users of non transparent assemblies or processes, run
+
+```console
+bin/rails decidim:upgrade:fix_deleted_private_follows
+```
+
+You can read more about this change on PR [#12878](https://github.com/decidim/decidim/pull/12878).
+
+### 3.11. [[TITLE OF THE ACTION]]
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 ## 4. Scheduled tasks
 

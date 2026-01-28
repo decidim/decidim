@@ -143,9 +143,10 @@ en:
           new:
             create: Import proposals to projects
             default_budget: Default budget
-            import_all_accepted_proposals: Import all accepted proposals
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             origin_component_id: Origin component
+            proposal_states: Proposal States
+            proposal_states_help: Select one or more proposal states to import into projects. By selecting none, you will import all published proposals that have not already been imported in other budgets from this component.
             select_component: Please select a component
             title: Import proposals to projects
         reminders:

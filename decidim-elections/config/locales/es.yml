@@ -45,7 +45,6 @@ es:
             choose_census: Elige el tipo de censo que quieres vincular esta elección
             created_at: Creado el
             identifier: Identificador de usuaria
-            title: Tipo de censo
           preview:
             title:
               one: La vista previa de la lista está limitada a %{count} registro.
@@ -81,6 +80,7 @@ es:
           questions_table:
             answer: Respuestas
             percentage: Porcentaje
+            total: Total
             votes: Votos
             votes_count:
               one: 1 voto
@@ -200,9 +200,6 @@ es:
           authorization_options_invalid: Lamentablemente, aunque tienes todas las autorizaciones necesarias, algunas de ellas no son válidas para estas elecciones.
           exit_button: Salir de la cabina de votación
           invalid: No tienes autorización para votar en estas elecciones.
-          missing: Tu cuenta de usuaria no dispone de algunas de las autorizaciones necesarias. Por favor, revisa la información e inténtalo de nuevo.
-          not_authorized: 'La autorización de "%{adapter}" no coincide con las condiciones requeridas.'
-          not_granted: 'La autorización de "%{adapter}" no está concedida.'
           resume_with_method: Reanudar la verificación con %{name}
           verify_with_method: Verificar con %{name}
         token_csv:
@@ -247,6 +244,7 @@ es:
           title: Preguntas de la elección
         show:
           active_voting_until: 'Votación activa hasta: %{end_date}'
+          edit_vote_button: Editar el voto
           vote_button: Votar
           voted: Ya has votado. Puedes votar de nuevo, esto borrará tu voto anterior y, solo se contará tu última votación.
           votes_count:
@@ -259,6 +257,10 @@ es:
             per_question: Los resultados están disponibles por pregunta. Puedes ver los resultados de cada pregunta una vez que se habilite la votación y se publiquen los resultados.
             real_time: Los resultados están disponibles en tiempo real. Puedes ver los resultados mientras la votación está en curso.
           title: Resultados
+          total: 'TOTAL:'
+          total_votes:
+            one: 1 voto
+            other: "%{count} votos"
       models:
         election:
           fields:
@@ -304,6 +306,7 @@ es:
           next: Siguiente
         receipt:
           description: Puedes votar de nuevo en cualquier momento mientras el período de votación esté abierto. Tu voto anterior será sustituido por el nuevo.
+          edit_vote: Edita tu voto
           exit_button: Salir de la cabina de votación
           title: Tu voto se ha emitido correctamente
     metadata:

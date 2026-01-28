@@ -36,7 +36,6 @@ bg:
       id: ID
       newsletter:
         body: Тяло
-        send_to_all_users: Изпращане до всички потребители
         send_to_followers: Изпращане до последователите
         send_to_participants: Изпращане до участниците
         subject: Тема
@@ -94,6 +93,8 @@ bg:
       participatory_space_private_user:
         email: Имейл
         name: Име
+      participatory_space_private_user_csv_import:
+        file: Файл
       scope:
         code: Код
         name: Име
@@ -271,7 +272,6 @@ bg:
       block_user:
         new:
           action: Блокирайте акаунта и изпратете обосновка
-          already_reported_html: Продължавайки с това действие, вие също ще скриете съдържанието за всички участници.
           description: Блокирането на потребител ще направи акаунта му неизползваем. Можете да предоставите във вашата обосновка всякакви насоки относно начините, по които бихте обмислили деблокирането на потребителя.
           justification: Обосновка
           title: Блокиране на потребител %{name}
@@ -361,7 +361,6 @@ bg:
         form:
           domain_too_short: Домейнът е твърде кратък
         update:
-          error: Неуспешно актуализиране на списъка с разрешени външни домейни
           success: Списъкът с разрешени външни домейни е актуализиран успешно.
       exports:
         export_as: "%{name} като %{export_format}"
@@ -399,16 +398,9 @@ bg:
             'false': Официализирано
             'true': Неофициализирано
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Поканата е приета
-            values:
-              'false': Не се приема
-              'true': Прието
           user_invitation_sent_at_not_null:
-            label: Поканата е изпратена
             values:
               'false': Не е изпратено
-              'true': Изпратено
         private_space_eq:
           label: Частни
           values:
@@ -712,6 +704,7 @@ bg:
           participants_help: Изпраща бюлетина до всички потвърдени потребители, които са участвали в някое от избраните пространства за участие в списъка.
           recipients_count: Този бюлетин ще бъде изпратен на <strong id='recipients_count'>%{count}</strong> потребители.
           select_spaces: Изберете пространства, за да сегментирате бюлетина
+          send_to_all_users: Изпращане до всички потребители
           title: Изберете получатели, на които да бъде изпратено
           warning: "<strong>Внимание:</strong> Този бюлетин ще бъде изпратен само на потребители, които са включили <em>Искам да получавам бюлетини</em> в настройките си за известия."
         send:
@@ -794,16 +787,14 @@ bg:
         destroy:
           error: Възникна проблем при изтриването на частен участник за това пространство за участие.
           success: Достъпът на частния участник до пространството за участие беше премахнат успешно.
+        edit:
+          update: Актуализация
         index:
-          import_via_csv: Импортиране чрез CSV
           title: Пространство за участие на частен участник
         new:
           create: Създаване
           title: Ново пространство за участие на частен участник.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Възникна проблем при четенето на CSV файла. Моля, уверете се, че сте следвали инструкциите.
-          success: Файлът във формат CSV беше качен успешно; изпращаме имейл с покана на участниците. Това може да отнеме известно време.
         new:
           csv_upload:
             title: Качете своя CSV файл
@@ -813,13 +804,7 @@ bg:
             empty: Нямате частни участници.
             explanation: Имате %{count} частни участници.
             title: Изтрийте частни участници
-          example_file: 'Примерен файл:'
-          explanation: Качете своя файл във формат CSV. Трябва да съдържа две колони — електронната поща в първата колона и името в последната колона от файла (електронна поща, име) — за потребителите, които искате да добавите в пространството за участие, без заглавки.
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Импортирайте частни участници чрез CSV
-          upload: Качване
       reminders:
         create:
           error: Възникна проблем при създаването на напомняния.
@@ -986,7 +971,6 @@ bg:
           last_day: Предният ден
           last_month: Миналия месец
           last_week: Последната седмица
-          no_users_count_statistics_yet: Все още няма статистика за броя на потребителите.
           participants: Участници
     forms:
       errors:

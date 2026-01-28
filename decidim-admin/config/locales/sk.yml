@@ -59,6 +59,11 @@ sk:
         welcome_notification_body: Telo textu úvodného privítania
         welcome_notification_subject: Predmet textu úvodného privítania
         youtube_handler: YouTube handler
+      participatory_space_private_user:
+        email: E-mail
+        name: Názov
+      participatory_space_private_user_csv_import:
+        file: Súbor
       scope:
         code: Kód
         name: Názov
@@ -219,6 +224,10 @@ sk:
           values:
             'false': Oficiálni
             'true': Neoficiálni
+        participatory_space_private_users:
+          user_invitation_sent_at_not_null:
+            values:
+              'false': Neodoslané
         private_space_eq:
           label: Súkromné
           values:
@@ -401,7 +410,6 @@ sk:
           participants_help: Poslať spravodaj všetkým potvrdeným účastníkom, ktorí participovali na niektorom z participatívnych priestorov na zozname.
           recipients_count: Tento spravodaj bude zasielaný <strong id='recipients_count'>%{count}</strong> používateľom.
           select_spaces: Vyberte skupiny pre rozdelenie spravodaja
-          send_to_all_users: Poslať všetkým účastníkom
           title: Vyberte príjemcov
           warning: "<strong>Pozor:</strong> Tento spravodaj bude odoslaný len účastníkom, ktorí aktivovali možnosť <em>Chcem dostávať spravodaje</em> vo svojich nastaveniach."
         show:
@@ -454,6 +462,8 @@ sk:
         destroy:
           error: Pri vymazaní súkromného používateľa pre tento participačný priestor došlo k chybe.
           success: Participatívny priestor bol zneprístupnený súkromnému užívateľovi.
+        edit:
+          update: Aktualizovať
         index:
           title: Súkromný účastník participatívneho priestoru
         new:
@@ -463,7 +473,6 @@ sk:
         new:
           csv_upload:
             title: Nahrať súbor CSV
-          upload: Nahrať
       resource_permissions:
         edit:
           submit: Potvrdiť

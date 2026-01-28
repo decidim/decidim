@@ -117,6 +117,11 @@ FactoryBot.define do
       Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name }
     end
 
+    # we do not want machine translation here
+    short_name do
+      Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name.gsub(/\s+/, "")[0, 12] }
+    end
+
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
     twitter_handler { Faker::Hipster.word }
@@ -204,6 +209,14 @@ FactoryBot.define do
     password_updated_at { Time.current }
     previous_passwords { [] }
     extended_data { {} }
+
+    trait :malicious do
+      after :create do |user|
+        # rubocop:disable Rails/SkipsModelValidations
+        user.update_column(:name, "user_#{user.id}\n<script>alert('name')</script>")
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+    end
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -864,6 +877,18 @@ FactoryBot.define do
     scopes { "profile" }
   end
 
+  factory :oauth_access_grant, class: "Doorkeeper::AccessGrant" do
+    transient do
+      skip_injection { false }
+      organization { create(:organization) }
+    end
+    resource_owner_id { create(:user, organization: application.organization, skip_injection:).id }
+    application { create(:oauth_application, organization:, skip_injection:) }
+    redirect_uri { "https://app.com/callback" }
+    expires_in { 100 }
+    scopes { "public write" }
+  end
+
   factory :private_export, class: "Decidim::PrivateExport" do
     transient do
       skip_injection { false }
@@ -871,9 +896,14 @@ FactoryBot.define do
     end
     expires_at { 1.week.from_now }
     attached_to { create(:user, organization:, skip_injection:) }
-    export_type { "dummy" }
+    export_type { "download_your_data" }
     content_type { "application/zip" }
-    file_size { 10.kilobytes }
+    file_size { 208.bytes }
+    file { Decidim::Dev.test_file("dummy-export.zip", "application/zip") }
+
+    trait :expired do
+      expires_at { 1.week.ago }
+    end
   end
 
   factory :searchable_resource, class: "Decidim::SearchableResource" do

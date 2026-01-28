@@ -29,6 +29,7 @@ module Decidim
         allow(controller).to receive(:current_participatory_space).and_return(component.participatory_space)
         allow(controller).to receive(:current_component).and_return(component)
         allow(controller).to receive(:election_vote_path).and_return(election_vote_path)
+        allow(controller).to receive(:second_election_vote_path).and_return(second_election_vote_path)
         allow(controller).to receive(:new_election_vote_path).and_return(new_election_vote_path)
         allow(controller).to receive(:election_path).and_return(election_path)
         allow(controller).to receive(:waiting_election_votes_path).and_return(waiting_election_votes_path)
@@ -66,6 +67,47 @@ module Decidim
             expect(controller).to receive(:redirect_to).with(action: :show, id: second_question)
             get :show, params: params
             expect(response).to have_http_status(:ok)
+          end
+
+          context "when json format is requested" do
+            it "returns voting_enabled true when question is enabled" do
+              get :show, params: params.merge(id: question.id), format: :json
+              expect(response).to have_http_status(:ok)
+              json_response = JSON.parse(response.body)
+              expect(json_response["voting_enabled"]).to be(true)
+              expect(json_response["redirect_url"]).to be_nil
+            end
+
+            it "returns voting_enabled false with redirect_url when question voting is disabled" do
+              question.update(voting_enabled_at: nil)
+              allow(controller).to receive(:url_for).with(action: :show, id: second_question).and_return(second_election_vote_path)
+              get :show, params: params.merge(id: question.id), format: :json
+              expect(response).to have_http_status(:ok)
+              json_response = JSON.parse(response.body)
+              expect(json_response["voting_enabled"]).to be(false)
+              expect(json_response["redirect_url"]).to eq(second_election_vote_path)
+            end
+
+            it "returns redirect_url to next question when current question has published results" do
+              question.update(published_results_at: Time.current)
+              allow(controller).to receive(:url_for).with(action: :show, id: second_question).and_return(second_election_vote_path)
+              get :show, params: params.merge(id: question.id), format: :json
+              expect(response).to have_http_status(:ok)
+              json_response = JSON.parse(response.body)
+              expect(json_response["voting_enabled"]).to be(false)
+              expect(json_response["redirect_url"]).to eq(second_election_vote_path)
+            end
+
+            it "returns redirect_url to waiting room when no enabled questions available" do
+              question.update(published_results_at: Time.current)
+              second_question.update(voting_enabled_at: nil)
+              allow(controller).to receive(:url_for).with(action: :waiting).and_return(waiting_election_votes_path)
+              get :show, params: params.merge(id: question.id), format: :json
+              expect(response).to have_http_status(:ok)
+              json_response = JSON.parse(response.body)
+              expect(json_response["voting_enabled"]).to be(false)
+              expect(json_response["redirect_url"]).to eq(waiting_election_votes_path)
+            end
           end
         end
       end
@@ -118,13 +160,22 @@ module Decidim
           end
 
           it "casts the votes and redirects to the receipt page if successful" do
-            # ensure there are no pending votes
-            allow(controller).to receive(:votes_buffer).and_return({ question.id.to_s => [question.response_options.first.id], second_question.id.to_s => [second_question.response_options.first.id] })
+            session[:votes_buffer] = { question.id.to_s => [question.response_options.first.id.to_s], second_question.id.to_s => [second_question.response_options.first.id.to_s] }
 
             expect(controller).to receive(:redirect_to).with(action: :receipt)
-            patch :update, params: params.merge(id: question.id, response: { question.id.to_s => [question.response_options.first.id] })
+            patch :update, params: params.merge(id: second_question.id, response: { second_question.id.to_s => [second_question.response_options.first.id] })
             expect(session[:voter_uid]).to eq(user.to_global_id.to_s)
             expect(flash[:notice]).to eq(I18n.t("votes.cast.success", scope: "decidim.elections"))
+          end
+
+          it "clears subsequent questions from buffer when updating a previous question" do
+            session[:votes_buffer] = { question.id.to_s => [question.response_options.first.id.to_s], second_question.id.to_s => [second_question.response_options.first.id.to_s] }
+
+            expect(controller).to receive(:redirect_to).with(action: :show, id: second_question)
+            patch :update, params: params.merge(id: question.id, response: { question.id.to_s => [question.response_options.second.id] })
+
+            expect(session[:votes_buffer]).not_to have_key(second_question.id.to_s)
+            expect(session[:votes_buffer][question.id.to_s]).to eq([question.response_options.second.id.to_s])
           end
         end
       end
@@ -217,12 +268,19 @@ module Decidim
 
               it_behaves_like "a redirect to the waiting room", :receipt
 
-              it "renders the receipt page" do
-                expect(controller.send(:votes_buffer)).to receive(:clear)
-                expect(controller.send(:session_attributes)).to receive(:clear)
+              it "renders the receipt page without clearing session" do
+                expect(controller.send(:votes_buffer)).not_to receive(:clear)
+                expect(controller.send(:session_attributes)).not_to receive(:clear)
                 get :receipt, params: params
                 expect(response).to have_http_status(:ok)
                 expect(subject).to render_template(:receipt)
+              end
+
+              it "clears session when exit param is present" do
+                expect(controller.send(:votes_buffer)).to receive(:clear)
+                expect(controller.send(:session_attributes)).to receive(:clear)
+                get :receipt, params: params.merge(exit: true)
+                expect(response).to redirect_to(election_path)
               end
             end
           end

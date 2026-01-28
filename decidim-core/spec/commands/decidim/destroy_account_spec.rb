@@ -3,10 +3,9 @@
 require "spec_helper"
 
 module Decidim
-  describe DestroyAccount do
+  describe DestroyAccount, :versioning => true do
     let(:command) { described_class.new(form) }
     let(:user) { create(:user, :confirmed) }
-    let!(:identity) { create(:identity, user:) }
     let(:valid) { true }
     let(:data) do
       {
@@ -62,41 +61,109 @@ module Decidim
         expect(user.notifications_sending_frequency).to eq("none")
       end
 
-      it "destroys the current user avatar" do
-        command.call
-        expect(user.reload.avatar).not_to be_present
-      end
-
-      it "deletes user's identities" do
-        expect do
-          command.call
-        end.to change(Identity, :count).by(-1)
-      end
-
-      it "deletes the follows" do
-        other_user = create(:user)
-        create(:follow, followable: user, user: other_user)
-        create(:follow, followable: other_user, user:)
-
-        expect do
-          command.call
-        end.to change(Follow, :count).by(-2)
-      end
-
-      it "deletes participatory space private user" do
-        create(:participatory_space_private_user, user:)
-
-        expect do
-          command.call
-        end.to change(ParticipatorySpacePrivateUser, :count).by(-1)
-      end
-
       context "when user is admin" do
         let(:user) { create(:user, :confirmed, :admin) }
 
         it "removes admin role" do
           command.call
           expect(user.reload.admin).to be_falsey
+        end
+      end
+
+      it "destroys the current user avatar" do
+        command.call
+        expect(user.reload.avatar).not_to be_present
+      end
+
+      context "when removing associated records" do
+        it "deletes user's access tokens" do
+          create(:oauth_access_token, resource_owner_id: user.id)
+
+          expect { command.call }.to change(::Doorkeeper::AccessToken, :count).by(-1)
+        end
+
+        it "deletes user's access grants" do
+          create(:oauth_access_grant, organization: user.organization, resource_owner_id: user.id)
+
+          expect { command.call }.to change(::Doorkeeper::AccessGrant, :count).by(-1)
+        end
+
+        it "deletes user's notifications" do
+          create(:notification, user:)
+
+          expect { command.call }.to change(Decidim::Notification, :count).by(-1)
+        end
+
+        it "deletes user's reminders" do
+          create(:reminder, user:)
+
+          expect { command.call }.to change(Decidim::Reminder, :count).by(-1)
+        end
+
+        it "deletes user's private exports" do
+          create(:private_export, attached_to: user)
+
+          expect { command.call }.to change(Decidim::PrivateExport, :count).by(-1)
+        end
+
+        it "deletes user's identities" do
+          create(:identity, user:)
+
+          expect { command.call }.to change(Decidim::Identity, :count).by(-1)
+        end
+
+        it "deletes user's versions" do
+          expect(user.reload.versions.count).to eq(1)
+          command.call
+          expect(user.reload.versions.count).to eq(0)
+        end
+
+        it "deletes the follows" do
+          other_user = create(:user)
+          create(:follow, followable: user, user: other_user)
+          create(:follow, followable: other_user, user:)
+
+          expect { command.call }.to change(Follow, :count).by(-2)
+        end
+
+        it "preserves the authorizations" do
+          create(:authorization, :granted, user:, unique_id: "12345678X")
+          create(:authorization, :granted, user:, unique_id: "A12345678")
+
+          expect { command.call }.not_to change(Decidim::Authorization, :count)
+        end
+
+        it "deletes participatory space private user" do
+          create(:participatory_space_private_user, user:)
+
+          expect { command.call }.to change(ParticipatorySpacePrivateUser, :count).by(-1)
+        end
+
+        it "deletes user likes" do
+          component = create(:dummy_component, organization: user.organization)
+          resource = create(:dummy_resource, component:)
+          create(:like, author: user, resource:)
+
+          expect(resource.likes.count).to eq(1)
+          expect { command.call }.to change(Like, :count).by(-1)
+          expect(resource.likes.count).to eq(0)
+        end
+
+        it "deletes user's badges" do
+          Decidim::Gamification::BadgeScore.find_or_create_by(user:, badge_name: :followers)
+
+          expect { command.call }.to change(Decidim::Gamification::BadgeScore, :count).by(-1)
+        end
+
+        it "deletes user's reports status" do
+          form_params = {
+            reason: "spam",
+            details: "some details about the report"
+          }
+          form = ReportForm.from_params(form_params).with_context(current_user: user)
+          Decidim::CreateUserReport.call(form, user)
+
+          expect { command.call }.to change(Decidim::UserModeration, :count).by(-1)
         end
       end
     end

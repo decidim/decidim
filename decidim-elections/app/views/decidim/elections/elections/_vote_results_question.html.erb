@@ -9,5 +9,9 @@
     <% question.response_options.each_with_index do |option, index| %>
       <%= render "decidim/elections/elections/vote_results_option", option: %>
     <% end %>
+    <div class="py-4 flex justify-between items-center">
+      <span><%= t("decidim.elections.elections.vote_results.total") %></span>
+      <span data-question-total-votes-text="<%= question.id %>"><%= t("total_votes", scope: "decidim.elections.elections.vote_results", count: question.total_votes) %></span>
+    </div>
   </div>
 </div>

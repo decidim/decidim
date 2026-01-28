@@ -1,5 +1,62 @@
 # Changelog
 
+## [0.31.0](https://github.com/decidim/decidim/tree/0.31.0)
+
+### Added
+
+- **decidim-elections**: Backport 'Display the description of each question in the voting booth' to v0.31 [\#15458](https://github.com/decidim/decidim/pull/15458)
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-admin**, **decidim-core**: Backport 'Fix visibility type in action log for menu_hide action' to v0.31 [\#15444](https://github.com/decidim/decidim/pull/15444)
+- **decidim-admin**, **decidim-elections**: Backport 'UI adjustments for Elections part 2' to v0.31 [\#15453](https://github.com/decidim/decidim/pull/15453)
+- **decidim-api**: Backport 'Change spec on decidim-api that removes the views directory' to v0.31 [\#15456](https://github.com/decidim/decidim/pull/15456)
+- **decidim-core**, **decidim-elections**: Backport 'Disable start/end time when election is published' to v0.31 [\#15452](https://github.com/decidim/decidim/pull/15452)
+- **decidim-elections**: Backport 'Display the description of each question in the voting booth' to v0.31 [\#15458](https://github.com/decidim/decidim/pull/15458)
+- **decidim-comments**, **decidim-core**: Backport 'Fix missing `reportable_content_url` method' to v0.31 [\#15454](https://github.com/decidim/decidim/pull/15454)
+- Backport 'Lock graphql-ws to stable version' to v0.31 [\#15474](https://github.com/decidim/decidim/pull/15474)
+- **decidim-generators**: Backport 'Remove github directory in newly generated apps' to v0.31 [\#15477](https://github.com/decidim/decidim/pull/15477)
+- **decidim-core**: Backport 'Add local `app/views` to `Cell::ViewModel` view paths' to v0.31 [\#15480](https://github.com/decidim/decidim/pull/15480)
+- **decidim-admin**: Backport 'Do not update the weight when updating the component form' to v0.31 [\#15493](https://github.com/decidim/decidim/pull/15493)
+- **decidim-core**, **decidim-dev**: Backport 'Fix flaky specs on private exports' to v0.31 [\#15504](https://github.com/decidim/decidim/pull/15504)
+- **decidim-core**, **decidim-dev**: Backport 'Fix production alert error for deprecated js components' to v0.31 [\#15510](https://github.com/decidim/decidim/pull/15510)
+- **decidim-core**: Backport 'Search & filter in mobile responsive view' to v0.31 [\#15520](https://github.com/decidim/decidim/pull/15520)
+- **decidim-blogs**: Backport 'Order posts by publication date' to v0.31 [\#15521](https://github.com/decidim/decidim/pull/15521)
+- **decidim-core**: Backport 'Prevent shakapacker related flakys in CI' to v0.31 [\#15513](https://github.com/decidim/decidim/pull/15513)
+- **decidim-core**: Backport 'Fix markers displayed in meeting page' to v0.31 [\#15517](https://github.com/decidim/decidim/pull/15517)
+- **decidim-admin**, **decidim-assemblies**: Backport 'Fix JS lint warning about absolute path with import statement' to v0.31 [\#15498](https://github.com/decidim/decidim/pull/15498)
+- **decidim-accountability**, **decidim-admin**, **decidim-blogs**, **decidim-budgets**, **decidim-collaborative_texts**, **decidim-debates**, **decidim-elections**, **decidim-meetings**, **decidim-pages**, **decidim-proposals**, **decidim-surveys**: Backport 'Fix for process admins accessing some components' to v0.31 [\#15531](https://github.com/decidim/decidim/pull/15531)
+- **decidim-accountability**, **decidim-admin**, **decidim-ai**, **decidim-api**, **decidim-assemblies**, **decidim-blogs**, **decidim-budgets**, **decidim-collaborative_texts**, **decidim-comments**, **decidim-conferences**, **decidim-core**, **decidim-debates**, **decidim-demographics**, **decidim-dev**, **decidim-elections**, **decidim-forms**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-pages**, **decidim-participatory processes**, **decidim-proposals**, **decidim-sortitions**, **decidim-surveys**, **decidim-templates**, **decidim-verifications**: Backport 'Add data-migrate gem' to v0.31 [\#15527](https://github.com/decidim/decidim/pull/15527)
+- **decidim-meetings**: Backport 'Use same card for Meeting always' to v0.31 [\#15545](https://github.com/decidim/decidim/pull/15545)
+- **decidim-core**: Backport 'Fix links in footer when using the organizations' description' to v0.31 [\#15542](https://github.com/decidim/decidim/pull/15542)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-core**, **decidim-initiatives**, **decidim-participatory processes**: Backport 'Fix duplicated participatory spaces in open data exports' to v0.31 [\#15549](https://github.com/decidim/decidim/pull/15549)
+- **decidim-conferences**: Backport 'Add missing i18n string in Conference program page' to v0.31 [\#15553](https://github.com/decidim/decidim/pull/15553)
+- **decidim-conferences**: Backport 'Use taxonomies instead of categories for the conferences' program' to v0.31 [\#15562](https://github.com/decidim/decidim/pull/15562)
+- **decidim-core**: Backport 'Fix strong tags color in footer organization description' to v0.31 [\#15559](https://github.com/decidim/decidim/pull/15559)
+- **decidim-admin**, **decidim-core**: Backport 'Fix table filter names disappear on hover in admin panel' to v0.31 [\#15557](https://github.com/decidim/decidim/pull/15557)
+- **decidim-meetings**: Backport 'Fix reminder default value in legacy meetings' to v0.31 [\#15551](https://github.com/decidim/decidim/pull/15551)
+- **decidim-comments**, **decidim-core**: Backport 'Fix references for legacy UserGroups in Comments' to v0.31 [\#15556](https://github.com/decidim/decidim/pull/15556)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- Add deprecation notes for modules in v0.31 [\#15441](https://github.com/decidim/decidim/pull/15441)
+- **decidim-api**: Backport 'Change spec on decidim-api that removes the views directory' to v0.31 [\#15456](https://github.com/decidim/decidim/pull/15456)
+- **decidim-core**: Backport 'Prevent shakapacker related flakys in CI' to v0.31 [\#15513](https://github.com/decidim/decidim/pull/15513)
+- **decidim-admin**, **decidim-assemblies**: Backport 'Fix JS lint warning about absolute path with import statement' to v0.31 [\#15498](https://github.com/decidim/decidim/pull/15498)
+- Add warning regarding a User Group activity bug [\#15558](https://github.com/decidim/decidim/pull/15558)
+
 ## [0.31.0.rc2](https://github.com/decidim/decidim/tree/0.31.0.rc2)
 
 ### Added

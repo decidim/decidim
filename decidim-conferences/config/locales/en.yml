@@ -443,6 +443,8 @@ en:
           no_slots_available: No slots available
           registration: Registration
       conference_program:
+        program_item:
+          other_category: Other
         show:
           program: Program
       conference_registration_mailer:

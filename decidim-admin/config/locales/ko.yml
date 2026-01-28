@@ -29,7 +29,6 @@ ko:
         content: 내용
       id: 아이디
       newsletter:
-        send_to_all_users: 모든 유저에게 보내기
         send_to_followers: 팔로워들에게 보내기
         send_to_participants: 참여자들에게 보내기
         subject: 주제
@@ -71,6 +70,8 @@ ko:
       participatory_space_private_user:
         email: 이메일
         name: 이름
+      participatory_space_private_user_csv_import:
+        file: 파일
       scope:
         code: 코드
         name: 이름
@@ -311,7 +312,7 @@ ko:
         participatory_space_private_users:
           user_invitation_sent_at_not_null:
             values:
-              'true': 전송됨
+              'false': 전송되지 않음
         private_space_eq:
           label: 비공개
           values:
@@ -504,6 +505,7 @@ ko:
           participants_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
           recipients_count: 이 뉴스레터는 <strong id='receiveners_count'>% {count}/strong> 사용자에게 발송됩니다.
           select_spaces: 뉴스레터를 분할할 공간 선택
+          send_to_all_users: 모든 유저에게 보내기
           title: 전송 받는 사람 선택
           warning: "<strong>주의:/strong>이 뉴스레터는 알림 설정에서 <em>I want to received newsletter</em>을 활성화한 사용자에게만 발송됩니다."
         send:
@@ -533,6 +535,8 @@ ko:
           show: 표시
           title: 참가자의 이메일 주소 보기
       participatory_space_private_users:
+        edit:
+          update: 업데이트
         new:
           create: 생성
       participatory_space_private_users_csv_imports:
@@ -543,7 +547,6 @@ ko:
             empty: 비공개 참가자가 없습니다.
             explanation: '%{count} 개의 비공개 참가자가 있습니다.'
             title: 비공개 참가자 삭제
-          example_file: '예제 파일:'
       reminders:
         create:
           error: 리마인더를 만드는 중 문제가 발생했습니다.

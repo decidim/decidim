@@ -1,6 +1,21 @@
 <% if current_user %>
   <% if @form.in_census? && @form.invalid? %>
     <%= cell "decidim/announcement", title: t(".invalid"), body: t(".authorization_options_invalid"), callout_class: "alert" %>
+    <% cell("decidim/authorization_modal", @form.authorization_status).verifications.each do |verification| %>
+      <div class="authorization-modal__verification">
+          <% verification[:messages].each do |msg| %>
+            <p><%= msg %></p>
+          <% end %>
+
+          <% if verification[:fields].present? %>
+            <ul>
+              <% verification[:fields].each do |field| %>
+                <li><%= field %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+    <% end %>
     <%= link_to t(".exit_button"), exit_path, class: "button button__secondary button__lg w-full mt-12" %>
     <%= render "decidim/elections/censuses/submit_button", form: form, disabled: true %>
   <% else %>

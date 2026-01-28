@@ -45,7 +45,6 @@ eu:
             choose_census: Hautatu hauteskunde hauetarako erabili nahi duzun errolda-mota
             created_at: Sortze-data
             identifier: Parte-hartzailearen identifikatzailea
-            title: Errolda-mota
           preview:
             title:
               one: Aurrebistaren zerrenda erregistro batera mugatuta dago.
@@ -81,6 +80,7 @@ eu:
           questions_table:
             answer: Erantzunak
             percentage: Ehunekoa
+            total: Guztira
             votes: Babesak
             votes_count:
               one: Boto 1
@@ -181,7 +181,7 @@ eu:
           unpublish: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea despublikatu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea eguneratu du %{space_name} espazioan"
         question:
-          update: "%{user_name} -k eguneratu ditu %{resource_name} aukerako galderak"
+          update: "%{user_name} parte-hartzaileak eguneratu ditu %{resource_name} aukerako galderak"
       censuses:
         census_ready_html: Erroldako datuak kargatuta daude eta prest daude % <b>%{election_title}{@eleccion_title}</b> bozketan erabiltzeko.
         census_size_html:
@@ -201,9 +201,6 @@ eu:
           authorization_options_invalid: Zoritxarrez, nahiz eta baimen guztiak dituzun, batzuk ez dira baliozkoak hautapen honetarako.
           exit_button: Irten bozkatzeko kabinatik
           invalid: Ez duzu baimenik aukeraketa honetan bozkatzeko.
-          missing: Zure erabiltzaileak ez ditu behar diren baimen batzuk. Mesedez, begiratu informazioa eta saiatu berriro.
-          not_authorized: '"%{adapter}" baimena ez dator bat eskatutako baldintzekin.'
-          not_granted: '"%{adapter}" baimena ez dago emanda.'
           resume_with_method: Egiaztapena berrartu %{name} erabiliz
           verify_with_method: Egiaztatu %{name} izenaz
         token_csv:
@@ -249,6 +246,7 @@ eu:
           title: Aukeraketaren galderak
         show:
           active_voting_until: 'Bozketa aktibo %{end_date} arte'
+          edit_vote_button: Editatu botoak
           vote_button: Eman babesa
           voted: Bozkatu duzu. Berriz bozkatu dezakezu, zure azken botoa baino ez da kontuan hartuko.
           votes_count:
@@ -261,6 +259,10 @@ eu:
             per_question: Emaitzak kontsulta daitezke galderaren arabera. Galdera bakoitzaren emaitzak ikus ditzakezu botoa eman eta emaitzak argitaratu ondoren.
             real_time: Emaitzak denbora errealean daude eskuragarri. Emaitzak ikus ditzakezu bozketa egiten den bitartean.
           title: Emaitzak
+          total: 'GUZTIRA:'
+          total_votes:
+            one: Bozka 1
+            other: "%{count} bozka"
       models:
         election:
           fields:
@@ -305,7 +307,8 @@ eu:
           cast_vote: Eman botoa
           next: Hurrengoa
         receipt:
-          description: Edozein unetan eman dezakezu botoa berriro, bozkatzeko epea irekita dagoen bitartean. Zure boto berriak aurrekoa gainidatziko du.
+          description: Bozkatzeko epea zabalik dagoen bitartean edozein unetan eman daiteke berriro botoa. Zure aurreko botoa berriaz gainidatziko da.
+          edit_vote: Zure botoa editau
           exit_button: Irten bozkatzeko kabinatik
           title: Zure botoak zuzen eman dira
     metadata:

@@ -120,6 +120,7 @@ ru:
           attachments: Прикрепленные файлы
           components: Составляющие
           moderations: Действия по модерации
+          private_users: Члены президиума
       models:
         assembly:
           fields:

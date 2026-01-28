@@ -36,7 +36,6 @@ sq:
       id: ID
       newsletter:
         body: Trupi i mesazhit
-        send_to_all_users: Dërgo të gjithë përdoruesve
         send_to_followers: Dërgo ndjekësve
         send_to_participants: Dërgo pjesëmarrësve
         subject: Tema
@@ -87,8 +86,9 @@ sq:
         welcome_notification_subject: Tema e njoftimit të mirëseardhjes
         youtube_handler: Emri i përdoruesit Youtube
       participatory_space_private_user:
-        email: Email
         name: Emri
+      participatory_space_private_user_csv_import:
+        file: Skeda
       scope:
         code: Kodi
         name: Emri
@@ -241,16 +241,9 @@ sq:
         officialized_at_null:
           label: Gjendja
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Ftesa u pranua
-            values:
-              'false': E papranuar
-              'true': Pranuar
           user_invitation_sent_at_not_null:
-            label: Ftesa u dërguan
             values:
               'false': Nuk është dërguar
-              'true': Dërguar
         private_space_eq:
           label: Private
           values:
@@ -420,6 +413,7 @@ sq:
           all_users_help: Dërgo buletinin te të gjithë përdoruesit e konfirmuar.
           confirm_deliver: A je i sigurt që do ta dërgosh këtë buletin? Veprimi nuk mund të anulohet.
           deliver: Dërgo buletinin
+          send_to_all_users: Dërgo të gjithë përdoruesve
         show:
           preview: Parapamje
           subject: Tema
@@ -434,6 +428,11 @@ sq:
       organization:
         form:
           social_handlers: Rrjetet sociale
+      participatory_space_private_users:
+        edit:
+          update: Përditëso
+        new:
+          create: Krijo
       resource_permissions:
         edit:
           title: Github

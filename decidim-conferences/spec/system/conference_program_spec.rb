@@ -39,8 +39,10 @@ describe "Conference program" do
   context "when there are some conference meetings" do
     let!(:conference_speakers) { create_list(:conference_speaker, 3, :with_meeting, conference:, meetings_component: component) }
     let(:meetings) { Decidim::ConferenceMeeting.where(component:) }
+    let(:taxonomy) { create(:taxonomy, parent: create(:taxonomy, organization:), organization:) }
 
     before do
+      meetings.each { |meeting| meeting.update(taxonomies: [taxonomy]) }
       visit decidim_conferences.conference_conference_program_path(conference, component)
     end
 
@@ -77,6 +79,12 @@ describe "Conference program" do
         meetings.each do |meeting|
           expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(Decidim::ConferenceMeetingPresenter.new(meeting).title))
         end
+      end
+    end
+
+    it "has the taxonomy name" do
+      within "[data-conference-program-day]" do
+        expect(page).to have_content(translated_attribute(taxonomy.name))
       end
     end
   end

@@ -45,7 +45,6 @@ ca:
             choose_census: Tria el tipus de cens que vols vincular a aquesta elecció
             created_at: Creada el
             identifier: Identificador d'usuària
-            title: Tipus de cens
           preview:
             title:
               one: La vista prèvia de la llista està limitada a %{count} registre.
@@ -81,6 +80,7 @@ ca:
           questions_table:
             answer: Respostes
             percentage: Percentatge
+            total: Total
             votes: Vots
             votes_count:
               one: 1 vot
@@ -200,9 +200,6 @@ ca:
           authorization_options_invalid: Malauradament, tot i que tens totes les autoritzacions necessàries, algunes no són vàlides per a aquestes eleccions.
           exit_button: Sortir de la cabina de votació
           invalid: No tens autorització per votar en aquestes eleccions.
-          missing: El vostre compte d'usuària no disposa d'algunes de les autoritzacions necessàries. Revisa la informació i torna-ho a provar.
-          not_authorized: 'L''autorització de "%{adapter}" no coincideix amb les condicions necessàries.'
-          not_granted: 'L''autorització de "%{adapter}" no està concedida.'
           resume_with_method: Reprendre la verificació amb %{name}
           verify_with_method: Verificar amb %{name}
         token_csv:
@@ -247,6 +244,7 @@ ca:
           title: Preguntes de l'elecció
         show:
           active_voting_until: 'Votació activa fins: %{end_date}'
+          edit_vote_button: Edita el vot
           vote_button: Votar
           voted: Ja has votat. Pots tornar a votar, això esborrarà el teu vot anterior i, només s'explicarà la teva última votació.
           votes_count:
@@ -259,6 +257,10 @@ ca:
             per_question: Els resultats estan disponibles per pregunta. Pots veure els resultats de cada pregunta una vegada que s'habiliti la votació i es publiquin els resultats.
             real_time: Els resultats estan disponibles a temps real. Podeu veure els resultats mentre la votació està en curs.
           title: Resultats
+          total: 'TOTAL:'
+          total_votes:
+            one: 1 vot
+            other: "%{count} vots"
       models:
         election:
           fields:
@@ -304,6 +306,7 @@ ca:
           next: Següent
         receipt:
           description: Pots tornar a votar en qualsevol moment mentre el període de votació estigui obert. El teu vot anterior serà substituït pel nou.
+          edit_vote: Edita el teu vot
           exit_button: Sortir de la cabina de votació
           title: El teu vot s'ha emès correctament
     metadata:

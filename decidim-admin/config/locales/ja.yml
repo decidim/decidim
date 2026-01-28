@@ -36,7 +36,7 @@ ja:
       id: ID
       newsletter:
         body: 本文
-        send_to_all_users: すべてのユーザーに送信
+        send_to_all_users: 全参加者に送信
         send_to_followers: フォロワーに送信
         send_to_participants: 参加者に送信
         subject: 件名
@@ -126,6 +126,9 @@ ja:
         show_in_footer: フッターに表示
         title: タイトル
         weight: 順番の位置
+      taxonomy:
+        item_name: アイテム名
+        parent_id: 親
       user_group_csv_verification:
         file: ファイル
     errors:
@@ -294,13 +297,13 @@ ja:
       block_user:
         bulk_new:
           action: アカウントをブロックして理由を送信
-          already_reported_html: この操作を続けると、すべての参加者のコンテンツも非表示になります。
+          already_reported_html: この操作を続行すると、参加者のコンテンツもすべて非表示になります。
           description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
           justification: 判定理由
           title: ユーザーをブロック
         new:
           action: アカウントをブロックして理由を送信
-          already_reported_html: このアクションを続けると、参加者のすべてのコンテンツも非表示になります。
+          already_reported_html: この操作を続行すると、参加者のコンテンツもすべて非表示になります。
           description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
           justification: 判定理由
           title: ユーザー %{name} をブロックする
@@ -393,7 +396,7 @@ ja:
         form:
           domain_too_short: ドメインが短すぎます
         update:
-          error: 許可された外部ドメインのリストを更新できませんでした
+          error: 許可された外部ドメインのリストを更新できませんでした。
           success: 許可された外部ドメインのリストを更新しました。
       exports:
         export_as: "%{name} を %{export_format} 形式で取得"
@@ -437,9 +440,9 @@ ja:
               'false': 未承認
               'true': 承認済み
           user_invitation_sent_at_not_null:
-            label: 招待状の送信
+            label: 招待状を送信しました
             values:
-              'false': 未送信
+              'false': 送信されていません
               'true': 送信済み
         private_space_eq:
           label: プライベート
@@ -940,8 +943,8 @@ ja:
           success: 参加型スペースのプライベート参加者を更新しました
       participatory_space_private_users_csv_imports:
         create:
-          invalid: CSVファイルの読み込み中に問題が発生しました。手順を確認してください。
-          success: CSVファイルは正常にアップロードされました。参加者に招待メールを送信しています。しばらくお待ちください。
+          invalid: CSVファイルの読み込み中に問題が発生しました。指示に従って正しく操作されているかご確認ください。
+          success: CSVファイルのアップロードが完了しました。参加者に招待メールを送信中です。完了までしばらくお待ちください。
         new:
           csv_upload:
             title: CSVファイルをアップロード
@@ -951,8 +954,8 @@ ja:
             empty: プライベートの参加者はいません。
             explanation: '%{count} 人のプライベート参加者がいます。'
             title: プライベート参加者を削除
-          example_file: 'サンプルファイル:'
-          explanation: 'CSV ファイルをアップロードします。 CSVにはヘッダをつけず、最初のカラムにはメールアドレスを、次のカラムにはユーザー名を入れた2カラムのCSVとして、参加スペースに追加したいユーザーの情報を並べてください。 ユーザー名には `<>?%&^*#@()[]=+:;"{}\|`のような無効な文字を使用しないでください。'
+          example_file: 'サンプルファイル：'
+          explanation: "CSVファイルをアップロードしてください。ファイルには2つの列が必要で、1列目にはメールアドレス、最後の列には参加スペースに追加したいユーザーの名前を入力してください。ヘッダー行は不要です。ユーザー名には、`<>?%&^*#@()[]=+:;\"{}\\|`などの無効な文字を使用しないでください。\n"
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -1263,7 +1266,7 @@ ja:
           last_day: 直近24時間
           last_month: 直近1ヶ月間
           last_week: 直近1週間
-          no_users_count_statistics_yet: ユーザー数の統計情報はまだありません。
+          no_users_count_statistics_yet: 参加者数の統計データはまだありません。
           participants: 参加者
     forms:
       errors:

@@ -112,6 +112,7 @@ id:
           attachments: Lampiran
           components: Komponen
           moderations: Moderasi
+          private_users: Anggota
       models:
         assembly:
           fields:

@@ -91,9 +91,9 @@ module Decidim
 
       def posts
         @posts ||= if current_user&.admin?
-                     Post.where(component: current_component)
+                     Post.where(component: current_component).published_at_desc
                    else
-                     Post.published.where(component: current_component)
+                     Post.published.where(component: current_component).published_at_desc
                    end
       end
 
@@ -101,7 +101,7 @@ module Decidim
       def posts_most_commented
         @posts_most_commented ||= posts.joins(:comments).group(:id)
                                        .select("count(decidim_comments_comments.id) as counter")
-                                       .select("decidim_blogs_posts.*").order("counter DESC").created_at_desc.limit(7)
+                                       .select("decidim_blogs_posts.*").order("counter DESC").published_at_desc.limit(7)
       end
     end
   end

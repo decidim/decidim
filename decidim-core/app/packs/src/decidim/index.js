@@ -70,16 +70,21 @@ const deprecate = (element, targetController, oldSyntax) => {
     return;
   }
 
-  console.warn(element)
   console.warn(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - data-controller="${targetController}" - ${window.location.href}`)
-  // eslint-disable-next-line no-alert
-  alert(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - data-controller="${targetController}"`)
+
+  if (typeof window.Decidim.dev !== "undefined" && window.Decidim.dev === true) {
+    // eslint-disable-next-line no-alert
+    alert(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - data-controller="${targetController}"`)
+  }
 }
 
 const deprecationMessage = (element, oldSyntax, newSyntax) => {
   console.warn(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
-  // eslint-disable-next-line no-alert
-  alert(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
+
+  if (typeof window.Decidim.dev !== "undefined" && window.Decidim.dev === true) {
+    // eslint-disable-next-line no-alert
+    alert(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
+  }
 }
 
 window.deprecate = deprecate;

@@ -57,6 +57,12 @@ module Decidim
         Decidim.icons.register(name: "filter-line", icon: "filter-line", category: "system", description: "", engine: :admin)
       end
 
+      initializer "decidim_admin.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_admin.mime_types" do |_app|
         # Required for importer example downloads
         Mime::Type.register Decidim::Admin::Import::Readers::XLSX::MIME_TYPE, :xlsx

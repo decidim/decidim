@@ -40,6 +40,9 @@ ru:
     admin:
       actions:
         new_initiative_type: Добавить вид почина
+      filters:
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Искать %{collection} по названию, описанию, ID или имени автора
       menu:
         information: Сведения
         initiatives: Почины
