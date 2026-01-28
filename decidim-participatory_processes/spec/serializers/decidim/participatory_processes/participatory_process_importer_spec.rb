@@ -34,7 +34,7 @@ module Decidim::ParticipatoryProcesses
           "start_date" => "2022-08-01",
           "end_date" => "2023-08-01",
           "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
-          "private_space" => false,
+          "access_mode" => "open",
           "participatory_process_group" => group_data
         }
       end
@@ -63,7 +63,7 @@ module Decidim::ParticipatoryProcesses
         expect(subject.start_date).to eq(Date.parse(import_data["start_date"]))
         expect(subject.end_date).to eq(Date.parse(import_data["end_date"]))
         expect(subject.announcement).to eq(import_data["announcement"])
-        expect(subject.private_space).to eq(import_data["private_space"])
+        expect(subject.access_mode).to eq(import_data["access_mode"])
         expect(subject.participatory_process_group).to be_a(Decidim::ParticipatoryProcessGroup)
       end
 
