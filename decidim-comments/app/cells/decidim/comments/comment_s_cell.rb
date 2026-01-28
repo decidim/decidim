@@ -12,7 +12,7 @@ module Decidim
       private
 
       def title
-        resource_link_text
+        decidim_sanitize(model.formatted_body, strip_tags: true)
       end
 
       def resource_path
