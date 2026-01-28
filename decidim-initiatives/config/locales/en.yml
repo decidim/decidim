@@ -259,7 +259,13 @@ en:
           edit:
             accept: Accept initiative
             confirm: Are you sure?
-            confirm_send_to_technical_validation: Are you sure?
+            confirm_accept: Are you sure you want to accept it?
+            confirm_discard: Are you sure you want to discard it?
+            confirm_export_votes: Are you sure you want to export the votes?
+            confirm_publish: Are you sure you want to publish it?
+            confirm_reject: Are you sure you want to reject it?
+            confirm_send_to_technical_validation: Are you sure you want to send it to technical validation?
+            confirm_unpublish: Are you sure you want to unpublish it?
             discard: Discard the initiative
             export_pdf_signatures: Export PDF of signatures
             export_votes: Export signatures

@@ -114,6 +114,119 @@
                       <%= link %>
                     </li>
                   <% end %>
+
+                  <% if allowed_to? :send_to_technical_validation, :initiative, initiative: initiative %>
+                    <hr>
+
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin_initiatives.send_to_technical_validation_initiative_path(initiative),
+                                  class: "dropdown__button",
+                                  data: { confirm: t("confirm_send_to_technical_validation", scope: "decidim.initiatives.admin.initiatives.edit") } do %>
+                        <%= icon "arrow-right-line" %>
+                        <%= t("send_to_technical_validation", scope: "decidim.initiatives.admin.initiatives.edit") %>
+                      <% end %>
+                    </li>
+                  <% elsif initiative.created? %>
+                    <hr>
+
+                    <li class="dropdown__item">
+                      <div class="dropdown__button-disabled">
+                        <%= icon "arrow-right-line", class: "text-gray" %>
+                        <span><%= t("send_to_technical_validation", scope: "decidim.initiatives.admin.initiatives.edit") %></span>
+                      </div>
+                    </li>
+                  <% end %>
+
+                  <% if allowed_to? :publish, :initiative, initiative: initiative %>
+                    <hr>
+
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin_initiatives.publish_initiative_path(initiative),
+                                  method: :post,
+                                  class: "dropdown__button",
+                                  data: { confirm: t("confirm_publish", scope: "decidim.initiatives.admin.initiatives.edit") } do %>
+                        <%= icon "check-double-line" %>
+                        <%= t("actions.publish", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+
+                    <hr>
+                  <% end %>
+
+                  <% if allowed_to? :unpublish, :initiative, initiative: initiative %>
+                    <hr>
+
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin_initiatives.unpublish_initiative_path(initiative),
+                                  method: :delete,
+                                  class: "dropdown__button",
+                                  data: { confirm: t("confirm_unpublish", scope: "decidim.initiatives.admin.initiatives.edit") } do %>
+                        <%= icon "notification-3-line" %>
+                        <%= t("actions.unpublish", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <% if allowed_to? :accept, :initiative, initiative: initiative %>
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin_initiatives.accept_initiative_path(initiative),
+                                  method: :post,
+                                  class: "dropdown__button",
+                                  data: { confirm: t("confirm_accept", scope: "decidim.initiatives.admin.initiatives.edit") } do %>
+                        <%= icon "check-line" %>
+                        <%= t("accept", scope: "decidim.initiatives.admin.initiatives.edit") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <% if allowed_to? :reject, :initiative, initiative: initiative %>
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin_initiatives.reject_initiative_path(initiative),
+                                  method: :delete,
+                                  class: "dropdown__button",
+                                  data: { confirm: t("confirm_reject", scope: "decidim.initiatives.admin.initiatives.edit") } do %>
+                        <%= icon "close-line" %>
+                        <%= t("reject", scope: "decidim.initiatives.admin.initiatives.edit") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <% if allowed_to? :discard, :initiative, initiative: initiative %>
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin_initiatives.discard_initiative_path(initiative),
+                                  method: :delete,
+                                  class: "dropdown__button",
+                                  data: { confirm: t("confirm_discard", scope: "decidim.initiatives.admin.initiatives.edit") } do %>
+                        <%= icon "delete-bin-line" %>
+                        <%= t("discard", scope: "decidim.initiatives.admin.initiatives.edit") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <% if allowed_to? :export_votes, :initiative, initiative: initiative %>
+                    <hr>
+
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin_initiatives.export_votes_initiative_path(initiative, format: :csv),
+                                  class: "dropdown__button",
+                                  data: { confirm: t("confirm_export_votes", scope: "decidim.initiatives.admin.initiatives.edit") } do %>
+                        <%= icon "download-cloud-2-line" %>
+                        <%= t("export_votes", scope: "decidim.initiatives.admin.initiatives.edit") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <% if allowed_to? :export_pdf_signatures, :initiative, initiative: initiative %>
+                    <hr>
+
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin_initiatives.export_pdf_signatures_initiative_path(initiative, format: :pdf),
+                                  class: "dropdown__button" do %>
+                        <%= icon "file-3-line" %>
+                        <%= t("export_pdf_signatures", scope: "decidim.initiatives.admin.initiatives.edit") %>
+                      <% end %>
+                    </li>
+                  <% end %>
                 </ul>
               </div>
 
