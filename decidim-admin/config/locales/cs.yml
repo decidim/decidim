@@ -138,6 +138,9 @@ cs:
         show_in_footer: Zobrazit v zápatí
         title: Titul
         weight: Pozice v řazení
+      taxonomy:
+        item_name: Název položky
+        parent_id: Nadřazený
       user_group_csv_verification:
         file: Soubor
     errors:
