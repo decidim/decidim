@@ -203,7 +203,6 @@ cs:
       front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
       opens_in_new_tab: Otevře se v nové kartě
-      secondary_menu: Sekundární menu
       skip_button: Přeskočit na hlavní obsah
     account:
       blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
