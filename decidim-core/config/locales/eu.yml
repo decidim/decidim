@@ -179,7 +179,6 @@ eu:
       front_page_link: Zoaz orri nagusira
       logo: "%{organization} erakundaren logo ofiziala"
       opens_in_new_tab: Ireki beste fitxa batean
-      secondary_menu: Bigarren mailako menua
       skip_button: Eduki nagusira joan
     account:
       blocked: Kontu hau blokeatu egin da erabilera-terminoak eta -baldintzak urratu direlako
