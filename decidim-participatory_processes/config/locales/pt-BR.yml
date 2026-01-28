@@ -284,9 +284,11 @@ pt-BR:
         export: "%{user_name} exportou o processo participativo %{resource_name}"
         import: "%{user_name} importou o processo participativo %{resource_name}"
         publish: "%{user_name} publicou o %{resource_name} processo participativo"
+        publish_all_members: ""
         restore: "%{user_name} restaurou o processo participativo %{resource_name}"
         soft_delete: "%{user_name} moveu o processo participativo %{resource_name} para a lixeira"
         unpublish: "%{user_name} não publicado o %{resource_name} processo participativo"
+        unpublish_all_members: "%{user_name} não publicado todos os membros do processo participativo %{resource_name}"
         update: "%{user_name} atualizou o processo participativo %{resource_name}"
       participatory_process_group:
         create: "%{user_name} criou o grupo de processo participativo %{resource_name}"
