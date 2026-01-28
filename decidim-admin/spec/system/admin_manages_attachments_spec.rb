@@ -8,27 +8,7 @@ module Decidim::Admin
     let!(:participatory_process) { create(:participatory_process, organization:) }
     let!(:admin) { create(:user, :admin, :confirmed, organization:) }
     let!(:attachment) { create(:attachment, attached_to: participatory_process) }
-    let(:form) do
-      instance_double(
-        AttachmentForm,
-        title: {
-          en: "",
-          ca: "",
-          es: ""
-        },
-        description: {
-          en: "",
-          ca: "",
-          es: ""
-        },
-        file:,
-        link: nil,
-        attachment_collection: nil,
-        current_user: user,
-        weight: 2
-      )
-    end
-
+    
     before do
       switch_to_host(organization.host)
       login_as admin, scope: :user
