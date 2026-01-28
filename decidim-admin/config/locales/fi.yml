@@ -138,6 +138,9 @@ fi:
         show_in_footer: Näytä alatunnisteessa
         title: Otsikko
         weight: Järjestysnumero
+      taxonomy:
+        item_name: Asian nimi
+        parent_id: Vanhempi
       user_group_csv_verification:
         file: Tiedosto
     errors:

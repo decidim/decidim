@@ -217,7 +217,7 @@ de:
           back: Zurück
           continue: Weiter
           disallowed: Sie dürfen Ihre Antworten nicht bearbeiten.
-          submit: einreichen
+          submit: Absenden
       user_answers_serializer:
         body: Antwort
         completion: Abschluss

@@ -17,6 +17,7 @@ sv:
       surveys:
         actions:
           answer: Svar
+        name: Enkäter
         settings:
           global:
             announcement: Meddelande

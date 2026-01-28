@@ -291,7 +291,9 @@ fr-CA:
         export: "%{user_name} a exporté la concertation %{resource_name}"
         import: "%{user_name} a importé la concertation %{resource_name}"
         publish: "%{user_name} a publié la concertation %{resource_name}"
+        publish_all_members: "%{user_name} a publié tous les membres du processus participatif %{resource_name}"
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
+        unpublish_all_members: "%{user_name} a dépublié tous les membres du processus participatif %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
       participatory_process_group:
         create: "%{user_name} a créé le groupe de concertations %{resource_name}"

@@ -1,0 +1,6 @@
+---
+"no":
+  decidim:
+    api:
+      errors:
+        recursion_limit_exceeded_error: For mange rekursjoner oppdaget i spørringen

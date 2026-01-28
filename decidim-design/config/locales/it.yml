@@ -1,1 +1,12 @@
+---
 it:
+  decidim:
+    design:
+      components:
+        accordions:
+          usage_p_1_html: 1. Un wrapper <code>div</code>, con il data-attribute <code>data-component="accordion"</code>, su tutti i trigger e pannelli disponibili.
+      helpers:
+        context_description: Questa cella mostra alcune informazioni su un utente. È un aiuto visivo per identificare il creatore di risorse/contenuto. Il passaggio con il mouse mostra un suggerimento con ulteriori informazioni e link al suo profilo.
+        dropdowns_usage_description_html: 1. Un elemento utilizzabile dall'utente, con gli attributi dati <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
+        sortition_l: sortition_l
+        sortitions: Sorteggi

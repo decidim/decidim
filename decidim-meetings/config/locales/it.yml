@@ -259,6 +259,13 @@ it:
         meetings_poll:
           form:
             title: Modifica questionario per %{questionnaire_for}
+        poll:
+          form:
+            announcement_html:
+            - Quando una domanda riceve risposte o viene pubblicata/chiusa, non può più essere modificata.
+            - 
+            - 
+            - 
         registrations:
           edit:
             save: Salva

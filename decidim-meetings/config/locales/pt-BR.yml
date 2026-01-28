@@ -2,6 +2,8 @@
 pt-BR:
   activemodel:
     attributes:
+      answer:
+        add_documents: Adicionar documentos
       close_meeting:
         attendees_count: Número de Participantes
         attending_organizations: Lista de organizações que participaram
@@ -9,11 +11,11 @@ pt-BR:
         closing_report: Minutos
         closing_visible: É visível
         contributions_count: Número de contribuições
-        proposal_ids: Propostas criadas na reunião
+        proposal_ids: Propostas criadas no evento
         video_url: URL do vídeo
       meeting:
         address: Endereço
-        available_slots: Slots disponíveis para esta reunião
+        available_slots: Slots disponíveis para este evento
         customize_registration_email: Personalizar e-mail de registro
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
@@ -26,10 +28,10 @@ pt-BR:
         iframe_embed_type_html: Apenas alguns serviços permitem o "Embed na página de reunião" ou "Abrir na página de eventos ao vivo". Observe que com a opção "Incorporar na página de reunião" em mobilizações, como a tela herda diferentes dimensões, na verdade funcionará como um "Abrir na página de eventos ao vivo".
         location: Localização
         location_hints: Dicas de localização
-        online_meeting_url: URL da reunião on-line
+        online_meeting_url: URL do evento on-line
         organizer_gid: Criar como
         organizer_id: Organizador
-        private_meeting: Reunião privada
+        private_meeting: Evento privado
         registration_email_custom_content: Registro de conteúdo personalizado do e-mail
         registration_form_enabled: Formulário de inscrição ativado
         registration_terms: Termos de registro
@@ -71,17 +73,21 @@ pt-BR:
             email:
               already_invited: Este endereço de e-mail já foi convidado.
     models:
-      decidim/meetings/close_meeting_event: Reunião fechada
+      decidim/meetings/close_meeting_event: Evento fechado
       decidim/meetings/create_meeting_event: Encontro
       decidim/meetings/meeting_registrations_enabled_event: Registros habilitados
       decidim/meetings/meeting_registrations_over_percentage_event: Inscrições acima do limite
       decidim/meetings/upcoming_meeting_event: Próximo encontro
-      decidim/meetings/update_meeting_event: Reunião atualizada
+      decidim/meetings/update_meeting_event: Evento atualizado
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Foi discutido neste evento: %{link}'
       decidim/meetings/meeting:
-        one: Reunião
-        other: Reuniões
+        one: Evento
+        other: Eventos
       decidim/meetings/minutes:
         one: Ata
         other: Atas
@@ -90,6 +96,9 @@ pt-BR:
         other: Registros
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Eventos
       filters:
         accepted_at_not_null:
           label: Aceitou
@@ -107,6 +116,8 @@ pt-BR:
             values:
               'false': Passado
               'true': Próximos
+          taxonomies_part_of_contains:
+            label: Taxonomia
           with_any_origin:
             label: Origem
             values:
@@ -114,7 +125,7 @@ pt-BR:
               participants: Participante
               user_group: Grupo de Usuários
           with_any_type:
-            label: Tipo de reunião
+            label: Tipo de evento
             values:
               hybrid: Híbrido
               in_person: Presencialmente
@@ -133,34 +144,62 @@ pt-BR:
             'true': Enviado
       meeting_copies:
         create:
-          error: Ocorreu um erro ao duplicar esta reunião.
-          success: Reunião duplicada com sucesso.
+          error: Ocorreu um erro ao duplicar este evento.
+          success: Evento duplicado com sucesso.
         new:
           copy: cópia de
-          title: Reunião duplicada
+          title: Evento duplicado
     components:
       meetings:
         actions:
           comment: Comentário
           join: Junte-se
+          reply_poll: Responder enquete
         name: Reuniões
         settings:
           global:
             announcement: Anúncio
+            clear_all: Limpar tudo
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             creation_enabled_for_participants: Os participantes podem criar reuniões
             default_registration_terms: Termos de registro padrão
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             enable_pads_creation: Ativar criação de blocos
             maps_enabled: Mapas ativados
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             registration_code_enabled: Código de registro habilitado
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada encontro
+            taxonomy_filters: Selecione filtros para o componente
+            taxonomy_filters_add: Adicionar filtro
             terms_and_conditions_url_for_meeting_creators: URL de Termos e condições para criadores da reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled_for_participants: Criação de reunião por participantes habilitada
             creation_enabled_for_user_groups: Criação de reunião por grupos de usuários habilitados
+    download_your_data:
+      help:
+        invites:
+          accepted_at: A data e hora em que este convite foi aceito
+          created_at: A data e hora em que este convite foi criado
+          id: O identificador único para esse convite
+          meeting: A reunião onde esse convite aconteceu
+          rejected_at: A data e hora em que este convite foi rejeitado
+          sent_at: A data e hora em que esse convite foi enviado
+          updated_at: A data e hora em que este convite foi atualizado pela última vez
+        registrations:
+          code: O código de registro
+          created_at: A data e hora em que esta inscrição foi criada
+          id: O identificador exclusivo do registo
+          meeting: A reunião em que o usuário se registrou
+          public_participation: Se esta participação foi mostrada publicamente
+          updated_at: Data e hora da última atualização desta inscrição
+          user: O usuário que fez o registro
+          validated_at: A data e hora em que esta inscrição foi validada
+      show:
+        meeting_comments: Exportação de comentários do evento
+        meetings: Exportação de eventos
     events:
       meetings:
         meeting_closed:
@@ -228,6 +267,8 @@ pt-BR:
         attachment_collections: Pastas
         attachments: Anexos
         close: Fechar
+        confirm_delete_meeting: Tem certeza de que deseja excluir este evento?
+        deleted_meetings_info: Eventos excluídos podem ser restauradas do lixo.
         edit: Editar
         invalid_destroy:
           proposals_count:
@@ -238,6 +279,7 @@ pt-BR:
         preview: Visualização
         registrations: Inscrições
         title: Ações
+        view_deleted_meetings: Ver eventos excluídos
       admin:
         agenda:
           agenda_item:
@@ -302,6 +344,8 @@ pt-BR:
           close:
             invalid: Houve um problema ao encerrar esta reunião.
             success: Reunião encerrada com sucesso.
+          component:
+            unlink: Desvincular
           create:
             invalid: Houve um problema ao criar esta reunião.
             success: Reunião criada com sucesso. Note que ainda não foi publicada, você precisa publicá-la manualmente.
@@ -320,7 +364,22 @@ pt-BR:
             select_a_registration_type: Por favor, selecione um tipo de registro
             select_an_iframe_access_level: Por favor, selecione um nível de acesso iframe
           index:
+            linked_meeting_warning_html: Este evento deve ser editado de <br><a href="%{href}">%{name}</a>
+            published: Publicado
             title: Reuniões
+            unpublished: Despublicado
+          linked_spaces:
+            assign: Atribuir
+            link_a_space: Vincular um espaço
+            private_meeting_warning: Espaços vinculados não serão aplicados se o evento for privado e não transparente.
+            private_space_warning: Espaços vinculados não serão aplicados quando o evento pertencer a um espaço privado não transparente.
+            select: Selecione um espaço
+            table:
+              actions: Ações
+              component: Espaços vinculados
+            title: Espaços vinculados
+          manage_trash:
+            title: Eventos excluídos
           new:
             create: Criar
             title: Criar reunião
@@ -349,9 +408,18 @@ pt-BR:
           update:
             invalid: Houve um problema ao atualizar essa enquete de reunião.
             success: Enquete da reunião atualizada com sucesso.
+        poll:
+          form:
+            announcement_html:
+            - 
+            - Você pode adicionar uma pergunta a qualquer momento.
+            - A enquete será fechada quando os resultados de todas as questões criadas forem publicados.
+            - Acesse a <a href='%{admin_link}'>página de administração da enquete</a> para enviar perguntas e publicar resultados.
         registrations:
           edit:
             save: Salvar
+            validate: Validar
+            validate_registration_code: Confirmar código de registro
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
@@ -367,6 +435,9 @@ pt-BR:
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
+          validate_registration_code:
+            invalid: Este código de registro é inválido.
+            success: Código de registro validado com sucesso.
       admin_log:
         invite:
           create: "%{user_name} convidados %{attendee_name} a participar de %{resource_name} reunião no espaço %{space_name}"
@@ -377,6 +448,8 @@ pt-BR:
           create: "%{user_name} criou a reunião %{resource_name} no espaço %{space_name}"
           delete: "%{user_name} eliminou a reunião %{resource_name} no espaço %{space_name}"
           export_registrations: "%{user_name} exportou os registros da reunião %{resource_name} no espaço %{space_name}"
+          restore: "%{user_name} restaurou o evento%{resource_name} no espaço %{space_name}"
+          soft_delete: "%{user_name} moveu o evento %{resource_name} no espaço %{space_name} para a lixeira"
           update: "%{user_name} atualizou a reunião %{resource_name} no espaço %{space_name}"
           value_types:
             organizer_presenter:
@@ -403,6 +476,7 @@ pt-BR:
           body: A reunião <a href="%{meeting_path}">"%{meeting_title}"</a> está pendente para ser fechada. Adicione um relatório da reunião usando o botão "Fechar reunião".
           greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Olá %{username},
+          subject: Agora você pode fechar o evento "%{meeting_title}" com um relatório
       conference_venues: Locais de conferência
       content_blocks:
         upcoming_meetings:
@@ -419,6 +493,7 @@ pt-BR:
       iframe_embed_type:
         embed_in_meeting_page: Incorporar na página da reunião
         none: Nenhum
+        open_in_live_event_page: Abrir na página de eventos ao vivo
         open_in_new_tab: Abrir URL em uma nova aba
       last_activity:
         meeting_updated: 'Reunião atualizada:'
@@ -501,14 +576,19 @@ pt-BR:
           see_all_withdrawn: Veja todas as reuniões retiradas
           text_banner: Você está vendo a lista de reuniões retiradas por seus autores. %{go_back_link}.
         meeting:
+          close_meeting: Fechar
           edit_close_meeting: Editar relatório da reunião
+          edit_meeting: Editar
           join_meeting: Participe da reunião
+          reply_poll: Responder enquete
+          view_poll: Ver enquete
         meetings:
           no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui você pode encontrar todas as reuniões anteriores listadas.
         new:
           back: Voltar
           create: Criar
+          title: Criar nova reunião
         registration_confirm:
           cancel: Cancelar
           confirm: confirme
@@ -525,6 +605,7 @@ pt-BR:
           micro_camera_permissions_warning: Quando você clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e participará na videoconferência
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
+          redirect_notice: Este evento faz parte de outro espaço, por isso você foi movido para %{current_space_name}. <br>Se preferir, você pode voltar para <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Seu código de registro
           registration_state:
             validated: VALIDADO
@@ -535,6 +616,7 @@ pt-BR:
           visit_finished: Ver reunião anterior
           withdraw_btn_hint: Você pode retirar sua reunião se mudar de ideia. A reunião não é excluída, ela aparecerá na lista de reuniões retiradas.
           withdraw_confirmation_html: Tem certeza de que deseja retirar esta reunião?<br><br><strong>esta ação não pode ser cancelada!</strong>
+          withdraw_meeting: Retirar
         update:
           invalid: Houve um problema ao atualizar a reunião.
           success: Você atualizou a reunião com sucesso.
@@ -556,10 +638,24 @@ pt-BR:
             id: ID
             map: Mapa
             official_meeting: Reunião oficial
+            published: Publicado
             start_time: Data de início
+            taxonomies: Taxonomias
             title: Título
       polls:
+        answers:
+          index:
+            administrate: Administrar
+            title: Enquete
+          index_admin:
+            back_to_meeting: Voltar ao evento
+            title: Administrar enquete
+            view_poll: Ver enquete
         questions:
+          closed_question:
+            announcement: As respostas para esta pergunta foram fechadas.
+            question: Pergunta
+            question_results: Resultados
           index:
             empty_questions: Durante esta reunião, algumas perguntas serão enviadas e você poderá respondê-las. Elas serão exibidas aqui.
           index_admin:
@@ -570,6 +666,10 @@ pt-BR:
             results: Resultados
             send: Enviar
             sent: Enviado
+            statuses:
+              closed: Resultados enviados (fechados)
+              published: Enviado (aberto)
+              unpublished: Pendente de envio
           published_question:
             max_choices_alert: Há muitas opções selecionadas
             question: Pergunta
@@ -610,12 +710,76 @@ pt-BR:
         transparent: Transparente
         withdraw: Retirado
       withdraw:
+        error: Houve um problema ao retirar o evento.
         success: A reunião foi retirada com sucesso.
     metrics:
       meetings:
         description: Número de reuniões criadas
         object: reuniões
         title: Reuniões
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Se este comentário foi um favorito, contra ou neutro
+          author: O nome do usuário que fez este comentário
+          body: O comentário em si
+          commentable_id: A identificação única do comentário
+          commentable_type: O tipo do comentário (se for um resultado, uma proposta, etc.)
+          comments: Os dados dos comentários do evento
+          created_at: A data em que este comentário foi criado
+          id: O Id para este comentário
+          locale: A localidade (linguagem) que o usuário teve ao deixar este comentário
+          root_commentable_url: A URL do recurso ligado a este comentário
+        meetings:
+          address: O endereço do evento, caso seja em pessoa e tenha um local físico
+          attachments: O número de anexos neste evento
+          attendees: O número de pessoas que presentes neste evento
+          attending_organizations: As organizações que participam do evento
+          audio_url: Gravação de áudio do evento
+          author: Os dados para o autor deste evento
+          available_slots: O número de slots disponíveis em um evento
+          closed_at: A data em que o evento fechou
+          closing_report: Relatório do evento fechado
+          closing_visible: A visibilidade do evento
+          comments: Os dados dos comentários do evento
+          component: O componente ao qual pertence o evento
+          contributions: O número de contribuições feitas pelos participantes neste evento
+          created_at: A data em que o evento foi criada
+          customize_registration_email: A capacidade de permitir um email personalizado no registro
+          decidim_author_type: Tipo de autor do autor do evento
+          description: A descrição do evento
+          end_time: A data e a hora em que este evento termina
+          follows_count: O número de seguir que o evento tem
+          id: O identificador único do evento
+          iframe_access_level: O nível de acesso iframe do evento
+          latitude: A latitude do evento
+          location: A localização do evento
+          location_hints: Uma dica sobre a localização em que o evento está acontecendo
+          longitude: A longitude do evento
+          online_meeting_url: O URL do evento online
+          organizations: As organizações que participam deste evento
+          participatory_space: A que espaço (por exemplo, Processo participativo, ou Assembléia) este evento pertence
+          private_meeting: Indique se o evento é privado ou não
+          published: Quando o evento for publicado
+          reference: O identificador único do recurso nesta plataforma
+          registration_form_enabled: Se o formulário de registro foi habilitado ou não
+          registration_terms: Os termos acordados antes da participação do evento
+          registration_type: O tipo de registro do evento
+          registration_url: URL do registro do evento
+          registrations_enabled: Se os registros foram permitidos
+          related_proposals: As propostas relacionadas a este evento
+          related_results: Os resultados relacionados a este evento
+          reserved_slots: O número de slots reservados que o evento tem
+          start_time: A data e hora em que este evento começa
+          taxonomies: As taxonomias a que este evento pertence
+          title: O título do evento
+          transparent: Visibilidade do evento para não membros
+          type_of_meeting: O tipo de evento
+          updated_at: O horário em que o evento foi atualizado pela última vez
+          url: A URL do evento
+          video_url: Gravação de vídeo do evento
+          withdrawn: Se este evento foi retirado
+          withdrawn_at: Quando este evento for retirada
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reuniões anteriores
@@ -629,6 +793,7 @@ pt-BR:
         meeting_proposal: 'Propostas relacionadas:'
         proposal_meeting: 'Reuniões relacionadas:'
     statistics:
+      attendees_count: Participantes do evento
       meetings_count: Reuniões
   devise:
     mailer:

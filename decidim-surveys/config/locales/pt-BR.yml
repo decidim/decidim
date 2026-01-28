@@ -13,11 +13,17 @@ pt-BR:
         one: Resposta
         other: Respostas
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: Pesquisas
     components:
       surveys:
         actions:
           answer: Responda
+        name: Pesquisas
         settings:
+          announcement: Avisos
           global:
             announcement: Anúncio
           step:
@@ -42,20 +48,93 @@ pt-BR:
     statistics:
       answers_count: Respostas
     surveys:
+      actions:
+        answers_alert: Excluir as respostas na publicação está ativo para esta pesquisa. Existem respostas %{answers_count} que serão destruídas se você continuar.
+        confirm_destroy: Tem certeza de que deseja excluir isso?
+        destroy: Destruir
+        edit: Editar
+        manage_questions: Gerenciar perguntas
+        new_survey: Nova pesquisa
+        preview: Pré-visualização
+        title: Ações
       admin:
+        answers:
+          index:
+            title: "%{total} Respostas totais"
+          show:
+            title: 'Resposta #%{number}'
         exports:
           survey_user_answers: Avalie as respostas dos usuários
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} resposta"
+              other: "%{count} respostas"
+            description: |-
+              Ao publicar as respostas das perguntas, você as tornará visíveis ao público.
+              Você pode selecionar as respostas que deseja publicar clicando na caixa de seleção ao lado de cada pergunta.
+              Você só pode publicar os seguintes tipos de pergunta: "Opção única", "Opção múltipla", "Matriz (opção única)", "Matriz (opção múltipla)" e "Classificação".
+            status:
+              not_published: Não publicado
+              published: Publicado
+            title: Publicar respostas
         surveys:
+          create:
+            invalid: Ocorreu um problema ao criar a pesquisa.
+            success: Pesquisa criada com sucesso.
+          destroy:
+            success: Pesquisa excluída com sucesso.
           edit:
             title: Editar questionário
+          index:
+            title: Pesquisas
+          publish:
+            invalid: Houve um problema na publicação desta pesquisa.
+            success: Pesquisa publicada com sucesso.
+          unpublish:
+            invalid: Houve um problema ao cancelar a publicação desta pesquisa.
+            success: Pesquisa não publicada com sucesso.
           update:
             invalid: Houve erros ao salvar a pesquisa.
             success: Pesquisa salva com sucesso.
+      admin_log:
+        survey:
+          create: "%{user_name} Criou a pesquisa %{resource_name} no espaço %{space_name} como uma pesquisa"
+          delete: "%{user_name} Excluiu a pesquisa %{resource_name} no espaço %{space_name} como uma pesquisa"
+          publish: "%{user_name} Publicou a pesquisa %{resource_name} no espaço %{space_name}"
+          unpublish: "%{user_name} Deixou de publicar a pesquisa %{resource_name} no espaço %{space_name}"
+          update: "%{user_name} Atualizou a pesquisa %{resource_name} no espaço %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Pesquisas
+      last_activity:
+        new_survey: 'Nova pesquisa:'
       models:
         survey:
           fields:
             answers: Respostas
+            questions: Questões
+            status: Estado
+            title: Titulo
+          status:
+            closed: Fechado
+            open: Aberto
       surveys:
         answer:
           invalid: Houve erros ao responder a pesquisa.
           success: Pesquisa respondida com sucesso.
+        count:
+          surveys_count:
+            one: "%{count} Pesquisa"
+            other: "%{count} Pesquisas"
+        filters:
+          all: Todos
+          state_values:
+            closed: Fechado
+            open: Aberto
+        no_surveys_warning: Nenhuma pesquisa corresponde aos seus critérios de busca ou não há nenhuma pesquisa disponível.
+        show:
+          closed: Fechado
+          open: Aberto
+          questions: Questões

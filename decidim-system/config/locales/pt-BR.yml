@@ -32,17 +32,27 @@ pt-BR:
           attributes:
             redirect_uri:
               must_be_ssl: O URI de redirecionamento deve ser um URI com SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Você precisa definir a variável de ambiente SECRET_KEY_BASE para ser capaz de salvar este campo
   decidim:
     system:
       actions:
         confirm_destroy: Deseja mesmo excluir isso?
         destroy: Excluir
         edit: Editar
+        new_admin: Novo administrador
+        new_oauth_application: Novo aplicação OAUTH
+        new_organization: Nova organização
         save: Salvar
         title: Ações
       admins:
         create:
           error: Ocorreu um erro ao criar um novo administrador.
+          success: Administrador criado com sucesso.
+        destroy:
+          success: Administrador excluído com sucesso.
         edit:
           title: Edit admin
           update: Atualizar
@@ -53,12 +63,16 @@ pt-BR:
           title: Novo administrador
         update:
           error: Ocorreu um erro ao atualizar este administrador.
+          success: Administrador atualizado com sucesso.
       dashboard:
         show:
+          admins: Administradores
           current_organizations: Organizações atuais
+          system_checks: Verificações de sistema
       default_pages:
         placeholders:
           content: Adicione conteúdo significativo à página estática %{page} no painel do administrador.
+          summary: Por favor, adicione um resumo significativo à página estática %{page} no painel do administrador.
           title: Título padrão para %{page}
         terms-of-service: Termos de serviço
       devise:
@@ -79,7 +93,7 @@ pt-BR:
       menu:
         admins: Administradores
         dashboard: painel de controle
-        oauth_applications: Aplicações OAuth
+        oauth_applications: Aplicativos OAuth
         organizations: Organizações
       models:
         admin:
@@ -97,6 +111,7 @@ pt-BR:
           actions:
             save_and_invite: Criar organização e convidar admin
           fields:
+            content_security_policy: Política de segurança de conteúdo
             created_at: Criado em
             file_upload_settings: Configurações de upload de arquivo
             name: Nome
@@ -130,7 +145,58 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar uma nova organização.
           error_invitation: Ocorreu um erro ao criar uma nova organização. Revise o nome do administrador da organização.
+          success_html: |
+            <p>
+            Organização criada com sucesso.
+
+            </p>
+            <ol>
+            <li>Talvez seja necessário atualizar o código do seu aplicativo, pois para permitir solicitações para %{host} você precisa adicionar o seguinte à sua configuração de ambiente (ou seja, <code>config/environment/production.rb</code>) ou ao seu <code>config/application.rb</code>:
+            <p>config.hosts << "%{host}"</p>
+            </li>
+            <li>
+            Após isso, você poderá acessar sua plataforma através de <a href="http://%{host}">http://%{host}</a>
+            </li>
+            <li>
+            Enviamos um e-mail para <b>%{email}</b> que você precisa confirmar.
+            </li>
+            </ol>
+        csp_settings:
+          connect_src: Conectar src
+          connect_src_hint: |
+            A diretiva connect-src restringe os URLs que podem ser carregados usando elementos <script>.
+            A plataforma adicionará 'self', mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          default_src: Default src
+          default_src_hint: |
+            A diretiva default-src é a política padrão para carregar conteúdo como JavaScript, imagens, CSS, fontes, solicitações AJAX, frames e mídia HTML5.
+            A plataforma adicionará "'self' 'unsafe-inline'", mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          font_src: Font src
+          font_src_hint: |
+            A diretiva font-src restringe os URLs que podem ser carregados usando @font-face.
+            A plataforma adicionará 'self', mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          frame_src: Frame src
+          frame_src_hint: |
+            A diretiva frame-src restringe os URLs que podem ser carregados usando os elementos <frame>, <iframe> e <object>.
+            A plataforma adicionará 'self', mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          img_src: Img src
+          img_src_hint: |
+            A diretiva img-src restringe os URLs que podem ser carregados usando os elementos <img>, <image>, <picture> e <svg>.
+            A plataforma adicionará 'self', mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          media_src: Src de mídia
+          media_src_hint: |
+            A diretiva media-src restringe os URLs que podem ser carregados usando os elementos <video>, <audio> e <source>.
+            A plataforma adicionará 'self', mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          script_src: Script src
+          script_src_hint: |
+            A diretiva script-src restringe os URLs que podem ser carregados usando elementos <script>.
+            A plataforma adicionará "'self' 'unsafe-inline' 'unsafe-eval'", mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          style_src: Estilo src
+          style_src_hint: |
+            A diretiva style-src restringe os URLs que podem ser carregados usando elementos <style>.
+            A plataforma adicionará "'self' 'unsafe-inline'", mas permite que você adicione mais. Deixe em branco se não tiver certeza.
         edit:
+          confirm_resend_invitation: Tem certeza de que deseja reenviar o convite?
+          resend_invitation: Reenviar convite
           secondary_hosts_hint: Insira cada um deles em uma nova linha
           title: Editar organização
         file_upload_settings:
@@ -180,10 +246,13 @@ pt-BR:
             api_key: Chave da API
             api_secret: Senha API
         resend_invitation:
+          error: Houve um problema ao enviar o convite.
           success: O convite remete com sucesso.
         smtp_settings:
           fieldsets:
             sender: Remetente
+          instructions:
+            from_label: 'O remetente do e-mail será: "nome-da-sua-organização <your-organization@example.org>". Deixe em branco para usar o mesmo nome definido para a organização.'
           placeholder:
             from_email: sua-organização@exemplo.org
             from_label: nome-da-organizacao
@@ -200,11 +269,18 @@ pt-BR:
           our_getting_started_guide: nosso guia inicial
         organizations_list:
           confirm_resend_invitation: Tem certeza de que deseja excluir este aplicativo?
+          resend_invitation: Reenviar convite
       system_checks:
         active_job_queue:
           decidim_documentation: Documentação do Decidim
+          error: A fila de ActiveJob não está configurada. Esta não é uma configuração recomendada para produção. Leia mais em %{error_extra}.
+          success: A fila do ActiveJob está configurada corretamente.
+        secret_key:
+          error: 'A chave secreta não está definida corretamente. Salve-a na variável de ambiente SECRET_KEY_BASE e reinicie o servidor: %{error_extra}'
+          success: A chave secreta está configurada corretamente.
       titles:
         dashboard: painel de controle
+        decidim: Decidim
   layouts:
     decidim:
       system:

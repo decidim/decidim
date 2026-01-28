@@ -138,6 +138,9 @@ de:
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
         weight: Reihenfolge
+      taxonomy:
+        item_name: Elementbezeichnung
+        parent_id: Übergeordnetes Element
       user_group_csv_verification:
         file: Datei
     errors:
@@ -440,9 +443,16 @@ de:
             'false': Offizialisiert
             'true': Nicht offiziell
         participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Einladung akzeptiert
+            values:
+              'false': Nicht akzeptiert
+              'true': Akzeptiert
           user_invitation_sent_at_not_null:
+            label: Einladung versendet
             values:
               'false': Nicht gesendet
+              'true': Versendet
         private_space_eq:
           label: Privat
           values:
@@ -943,7 +953,10 @@ de:
           title: Privates Mitglied des partiziaptiven Bereichs bearbeiten.
           update: Aktualisieren
         index:
+          import_via_csv: Aus CSV importieren
+          publish_all: Alle veröffentlichen
           title: Participatory Space privater Benutzer
+          unpublish_all: Alle Veröffentlichungen aufheben
         new:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
@@ -957,6 +970,9 @@ de:
           error: Beim Aktualisieren des privaten Teilnehmenden für diesen Beteiligungsbereich ist ein Problem aufgetreten.
           success: Privater Teilnehmende für diesen partizipativen Raum erfolgreich erstellt
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
+          success: CSV-Datei wurde erfolgreich hochgeladen. Wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
         new:
           csv_upload:
             title: Laden Sie Ihre CSV-Datei hoch
@@ -966,7 +982,13 @@ de:
             empty: Sie haben keine private Teilnehmende.
             explanation: Sie haben %{count} private Teilnehmende.
             title: Alle private Teilnehmende entfernen
+          example_file: 'Beispieldatei:'
+          explanation: 'Laden Sie Ihre CSV-Datei mit den Teilnehmenden, die Sie zum Prozess hinzufügen möchten, hoch. Sie muss zwei Spalten (ohne Kopfzeile) haben, mit der E-Mail-Adresse in der ersten Spalte und dem Namen in der zweiten Spalte der Datei. Verwenden Sie keine ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen der Teilnehmenden.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Private Teilnehmende via CSV importieren
+          upload: Hochladen
       reminders:
         create:
           error: Beim Erstellen dieser Erinnerungen ist ein Problem aufgetreten.
@@ -977,7 +999,7 @@ de:
           submit: Senden
       resource_permissions:
         edit:
-          submit: einreichen
+          submit: Absenden
           title: Berechtigungen bearbeiten
         options_form:
           ephemeral_warning: Um diese Autorisierungsmethode zu aktivieren, müssen Sie alle bestehenden Autorisierungen <a href="%{path}“>zurücknehmen</a>. Dadurch wird das Risiko von Überprüfungskonflikten minimiert. Alle Berechtigungen dieses Typs werden in der Organisation automatisch entzogen, wenn Sie Änderungen einreichen, die diese Methode hinzufügen oder ihre Konfiguration verändern, nachdem sie hinzugefügt wurde.
@@ -1275,11 +1297,13 @@ de:
           verify_via_csv: Überprüfen Sie über CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Beispieldatei:'
           explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
           explanation_example: |
             acme@example.org
             bubba.gump@example.org
           title: Laden Sie Ihre CSV-Datei hoch
+          upload: Hochladen
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
@@ -1300,6 +1324,7 @@ de:
           last_day: Letzter Tag
           last_month: Letzter Monat
           last_week: Letzte Woche
+          no_users_count_statistics_yet: Es gibt noch keine Statistiken über die Teilnehmenden.
           participants: Teilnehmer
     forms:
       errors:

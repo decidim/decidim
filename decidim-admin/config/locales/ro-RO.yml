@@ -149,11 +149,11 @@ ro:
         participatory_space_private_user_csv_import:
           attributes:
             file:
-              malformed: Fişier de import malformat, vă rugăm să citiţi instrucţiunile cu atenţie şi asiguraţi-vă că fişierul este codificat UTF-8.
+              malformed: Fișier de import malformat, vă rugăm să citiți instrucțiunile cu atenție și asigurați-vă că fișierul este codificat UTF-8.
         user_group_csv_verification:
           attributes:
             file:
-              malformed: Fişier de import malformat, vă rugăm să citiţi instrucţiunile cu atenţie şi asiguraţi-vă că fişierul este codificat UTF-8.
+              malformed: Fișier de import malformat, vă rugăm să citiți instrucțiunile cu atenție și asigurați-vă că fișierul este codificat UTF-8.
       new_import:
         attributes:
           file:
@@ -667,7 +667,7 @@ ro:
             title: Detalii raportare
       newsletter_templates:
         index:
-          preview_template: Previzualizează
+          preview_template: Previzualizați
           title: Modele de buletine informative
           use_template: Utilizează acest model
         show:
@@ -716,7 +716,7 @@ ro:
         send:
           no_recipients: Niciun destinatar pentru această selecție.
         show:
-          preview: Previzualizează
+          preview: Previzualizați
           select_recipients_to_deliver: Selectează destinatarii pentru trimitere
           subject: Subiect
         update:
@@ -782,7 +782,7 @@ ro:
           homepage_highlighted_content_banner_title: Banner pentru conținut evidențiat
           images:
             layout_appearance_title: Editează aspectul aranjării în pagină
-            preview: Previzualizează
+            preview: Previzualizați
           omnipresent_banner_appearance_title: Editează banner-ul omniprezent
       participatory_space_private_users:
         create:
@@ -941,6 +941,7 @@ ro:
         dashboard: Panou de administrare
         impersonatable_users: Participanți gestionabili
         impersonations: Gestionarea participanților
+        menu: Meniu
         metrics: Indicatori
         panel: Administrator
         participants: Participanți
