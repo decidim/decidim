@@ -292,9 +292,11 @@ de:
         export: "%{user_name} hat den Beteiligungsprozess %{resource_name} exportiert"
         import: "%{user_name} hat den Beteiligungsprozess %{resource_name} importiert"
         publish: "%{user_name} hat den Partizipationsprozess %{resource_name} veröffentlicht"
+        publish_all_members: "%{user_name} hat alle Mitglieder des Partizipationsprozesses %{resource_name} veröffentlicht"
         restore: "%{user_name} hat den Beteiligungsprozess %{resource_name} wiederhergestellt"
         soft_delete: "%{user_name} hat den Beteiligungsprozess %{resource_name} in den Papierkorb verschoben"
         unpublish: "%{user_name} hat den Partizipationsprozess %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        unpublish_all_members: "%{user_name} hat die Veräffentlichung aller Mitglieder des Partizipationsprozesses %{resource_name} aufgehoben"
         update: "%{user_name} hat den Partizipationsprozess %{resource_name} aktualisiert"
       participatory_process_group:
         create: "%{user_name} hat die Partizipationsprozess-Gruppe %{resource_name} erstellt"
