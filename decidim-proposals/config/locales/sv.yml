@@ -195,7 +195,7 @@ sv:
               hours: Timmar
               minutes: Minuter
             geocoding_enabled: Aktivera visning på karta
-            minimum_votes_per_user: Minsta antal röster per användare
+            minimum_votes_per_user: Minsta antal röster per deltagare
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
@@ -213,14 +213,14 @@ sv:
               hours: Timmar
               minutes: Minuter
             proposal_length: Maximal längd på förslagets innehåll
-            proposal_limit: Förslagsgräns per deltagare
+            proposal_limit: Max antal lagda förslag per deltagare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
             proposal_wizard_step_2_help_text: Hjälptext för steget ”Publicera” i förslagsguiden
             resources_permissions_enabled: Behörigheter kan ställas in för varje förslag
             taxonomy_filters: Välj filter för komponenten
             taxonomy_filters_add: Lägg till filter
-            threshold_per_proposal: Minst antal stöd per förslag
-            vote_limit: Antal röster per deltagare
+            threshold_per_proposal: Antal röster ett förslag behöver få för att gå vidare
+            vote_limit: Max antal röster per deltagare
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
             amendment_creation_enabled_help: Deltagare kan ändra förslag.
@@ -703,7 +703,7 @@ sv:
         new:
           add_file: Lägg till fil
           edit_file: Redigera fil
-          send: Fortsätt
+          send: Spara
         new_collaborative_draft_button:
           new_collaborative_draft: Nytt gemensamt utkast
         orders:
@@ -726,6 +726,7 @@ sv:
             error: Kunde inte avvisas som samarbetspartner, försök igen senare.
             success: "@%{user} har avvisats som medskapare."
         show:
+          edit: Redigera
           final_proposal: Färdigt förslag
           final_proposal_help_text: Detta utkast är klart. Du kan se det slutliga förslaget
           hidden_authors_count:
@@ -874,6 +875,7 @@ sv:
         show:
           answer: Svara
           changes_at_title: Ändring till %{title}
+          edit_proposal: Redigera
           estimated_cost: Beräknad kostnad
           hidden_likes_count:
             one: och %{count} person till
@@ -903,11 +905,15 @@ sv:
             other: Röster
         voting_rules:
           can_accumulate_votes_beyond_threshold:
-            description: Varje förslag kan få mer än %{limit} röster
+            description: Förslag kan få fler än gränsen på %{limit} röster
+          minimum_votes_per_user:
+            description: Du behöver rösta på %{votes} till förslag för att din röst ska räknas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
+          success: Din röst har tagits emot
           threshold_per_proposal:
             description: Förslag behöver få minst %{limit} röster för accepteras.
+          title: Regler för omröstning
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
             votes: Saknar %{number} röster
