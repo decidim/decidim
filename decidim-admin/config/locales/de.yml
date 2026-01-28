@@ -138,6 +138,9 @@ de:
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
         weight: Reihenfolge
+      taxonomy:
+        item_name: Elementbezeichnung
+        parent_id: Übergeordnetes Element
       user_group_csv_verification:
         file: Datei
     errors:
