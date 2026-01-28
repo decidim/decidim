@@ -1,4 +1,4 @@
-<% previous_item = breadcrumb_items[-2] if breadcrumb_items.size > 1 %>
+<% previous_item = breadcrumb_items.reject(&:empty?)[-2] if breadcrumb_items.size > 1 %>
 <div class="menu-bar__breadcrumb-mobile__dropdown-trigger">
   <span class="inline-block w-full overflow-hidden text-ellipsis align-middle">
       <span class="cursor-pointer truncate flex items-center gap-x-2">
