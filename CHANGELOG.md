@@ -92,7 +92,6 @@ Nothing.
 
 ### Unsorted
 
-- 387a30d87b Fix proposal import with other proposals states in budgets [\#](https://github.com/decidim/decidim/pull/) || 
 - 387a30d87b Fix proposal import with other proposals states in budgets [\#15846](https://github.com/decidim/decidim/pull/15846)
 
 ## [0.31.0](https://github.com/decidim/decidim/tree/0.31.0)
