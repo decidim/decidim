@@ -887,7 +887,7 @@ sv:
           email_intro: |-
             Din %{resource_type} är inte längre synlig.<br>
             Detta hände därför att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar automatiskt att återställas.
-          email_outro: Du har fått det här meddelandet eftersom du är en författare till %{resource_type}.
+          email_outro: Du har fått det här meddelandet eftersom du är författare till %{resource_type}.
           email_subject: Din %{resource_type} är inte längre synlig
           notification_title: |-
             Din %{resource_type} är inte längre synlig.<br>
@@ -1282,7 +1282,7 @@ sv:
     pad_iframe:
       disclaimer: Innehållet i anteckningarna är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
       explanation: Använd den här anteckningsytan för att gemensamt ta anteckningar under mötet så att det går lättare att skriva protokollet efteråt.
-      pad: Memo
+      pad: Anteckningar
     pages:
       home:
         extended:
@@ -1542,7 +1542,7 @@ sv:
     version:
       show:
         back_to_resource: Gå tillbaka
-        changes_at_title: Ändringar på "%{title}"
+        changes_at_title: Ändringar av "%{title}"
         number_of_versions: Versioner
         version_created_at: Version skapad
     versions:
