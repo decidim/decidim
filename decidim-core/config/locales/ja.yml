@@ -108,10 +108,10 @@ ja:
     formats:
       decidim_short: "%Y/%m/%d"
       decidim_short_dashed: "%Y-%m-%d"
-      decidim_short_with_month_name_short: "%Y %b %d"
+      decidim_short_with_month_name_short: "%Y年%-m月%-d日"
       decidim_with_day_and_month_name: "%Y %b %d %A"
-      decidim_with_month_name: "%Y %B %d"
-      decidim_with_month_name_short: "%b %d"
+      decidim_with_month_name: "%Y年%-m月%-d日"
+      decidim_with_month_name_short: "%-m月%-d日"
       help:
         date_format: 'フォーマット: dd/mm/yyyy'
       order: d-m-y
@@ -1833,6 +1833,8 @@ ja:
         subject: '%{organization} を管理するために招待されています'
       invite_collaborator:
         subject: あなたは %{organization} で共同作業に招待されています
+      invite_private_user:
+        subject: 非公開の参加型プロセス %{organization} に招待されています
       organization_admin_invitation_instructions:
         subject: '%{organization} を管理するために招待されています'
       password_change:
@@ -2213,16 +2215,16 @@ ja:
       day_of_year: "%y.%m.%d"
       ddmm: "%m/%d"
       ddmmyyyy: "%Y/%m/%d"
-      decidim_day_of_year: "%Y %B %d"
+      decidim_day_of_year: "%Y年%-m月%-d日"
       decidim_short: "%Y/%m/%d %H:%M"
       default: "%Y %d %b (%a) %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%Y %B %d, %I:%M %p"
+            accept_until_format: "%Y/%m/%d %I:%M %p"
       help:
         time_format: 'フォーマット: hh:mm'
-      long: "%B %d, %Y %H:%M"
+      long: "%Y/%m/%d %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%Y年%m月%d日 %H:%M"
       short: "%Y/%m/%d %H:%M"

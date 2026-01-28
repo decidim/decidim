@@ -37,6 +37,7 @@ cs:
         census:
           edit:
             created_at: Vytvořeno v
+            identifier: Identifikátor uživatele
         dashboard:
           calendar:
             end_at: 'Čas ukončení:'
@@ -72,6 +73,8 @@ cs:
             start_question_button: Povolit hlasování
             title: Výsledky
           status:
+            results_availability:
+              real_time: Výsledky jsou dostupné v reálném čase
             title: Stav voleb
         elections:
           create:
@@ -114,6 +117,9 @@ cs:
           edit_questions:
             new_question: Nová otázka
             title: Otázky
+          form:
+            errors:
+              at_least_one_question: Je vyžadována alespoň jedna otázka.
         statuses:
           publish_results:
             invalid: Při publikování výsledků došlo k chybě.

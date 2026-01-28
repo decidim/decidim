@@ -1,0 +1,8 @@
+---
+fi-pl:
+  decidim:
+    api:
+      errors:
+        introspection_disabled: Rajapintamallin tarkastelu ei ole käytössä tälle pyynnölle
+        recursion_limit_exceeded_error: Rajapintakyselyssä on liikaa rekursiivisia kyselyitä
+        too_many_aliases_error: Rajapintakysely käyttää liian monta alias-nimitystä. Kyselyssä on %{size} aliasta, mutta maksimissaan %{limit} on sallittu.
