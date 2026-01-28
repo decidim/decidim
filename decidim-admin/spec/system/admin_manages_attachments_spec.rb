@@ -8,7 +8,7 @@ module Decidim::Admin
     let!(:participatory_process) { create(:participatory_process, organization:) }
     let!(:admin) { create(:user, :admin, :confirmed, organization:) }
     let!(:attachment) { create(:attachment, attached_to: participatory_process) }
-    
+
     before do
       switch_to_host(organization.host)
       login_as admin, scope: :user
