@@ -4,7 +4,9 @@
       <%= render partial: "layouts/decidim/header/menu_form_search_mobile" %>
     </div>
     <%= mobile_breadcrumb_root_menu.render %>
-    <%= render partial: "layouts/decidim/header/mobile_language_choose" %>
+    <div class="menu-bar__language-chooser-mobile">
+      <%= render partial: "layouts/decidim/header/main_language_chooser", locals: { id: "dropdown-menu-language-chooser-mobile" } %>
+    </div>
   </div>
   <div class="menu-bar__main-dropdown__bottom">
     <div class="menu-bar__main-dropdown__bottom-left">
