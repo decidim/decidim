@@ -38,7 +38,7 @@ sv:
           notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
     statistics:
       responses: 'Svar:'
-      surveys_count_tooltip: Antalet tillgängliga undersökningar och svar som samlats in.
+      surveys_count_tooltip: Antalet enkäter och svar som samlats in.
     surveys:
       actions:
         responses: Svar
