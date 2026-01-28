@@ -54,7 +54,7 @@ module Decidim
             created_by: attributes["created_by"],
             meta_scope: attributes["meta_scope"],
             announcement: attributes["announcement"],
-            access_mode: attributes["access_mode"]
+            access_mode: resolve_access_mode(attributes)
           )
           @imported_assembly.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
           @imported_assembly.attached_uploader(:banner_image).remote_url = attributes["remote_banner_image_url"] if attributes["remote_banner_image_url"].present?
@@ -132,6 +132,15 @@ module Decidim
         end
       rescue StandardError
         nil
+      end
+
+      def resolve_access_mode(attributes)
+        return attributes["access_mode"] if attributes["access_mode"].present?
+
+        return "restricted" if attributes["private_space"] == true
+        return "transparent" if attributes["is_transparent"] == true
+
+        "open"
       end
     end
   end

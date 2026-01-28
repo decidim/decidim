@@ -40,7 +40,7 @@ module Decidim
             start_date: attributes["start_date"],
             end_date: attributes["end_date"],
             announcement: attributes["announcement"],
-            access_mode: attributes["access_mode"],
+            access_mode: resolve_access_mode(attributes),
             participatory_process_group: process_group
           )
           @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
@@ -160,6 +160,15 @@ module Decidim
         end
       rescue StandardError
         nil
+      end
+
+      def resolve_access_mode(attributes)
+        return attributes["access_mode"] if attributes["access_mode"].present?
+
+        return "restricted" if attributes["private_space"] == true
+        return "transparent" if attributes["is_transparent"] == true
+
+        "open"
       end
     end
   end
