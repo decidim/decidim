@@ -13,6 +13,34 @@ shared_examples "comments" do
     expect_no_js_errors
   end
 
+  context "when user name is improperly formatted" do
+    let!(:user) { create(:user, :malicious, :confirmed, organization:) }
+    let(:user_group) { create(:user_group, :verified, organization:) }
+    let!(:user_group_membership) { create(:user_group_membership, user:, user_group:) }
+
+    before do
+      # rubocop:disable Rails/SkipsModelValidations
+      comments.each do |comment|
+        comment.author.update_column(:name, "user_#{comment.author.id}\n<script>alert('name')</script>") if comment.author.is_a?(Decidim::UserBaseEntity)
+      end
+      # rubocop:enable Rails/SkipsModelValidations
+    end
+
+    it "properly displays the user name" do
+      login_as user, scope: :user
+      visit resource_path
+
+      within "#add-comment-anchor" do
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          expect(page).to have_css("p.comment__as-author-name")
+          within "p.comment__as-author-name" do
+            expect(page).to have_content("user_#{user.id} alert('name')")
+          end
+        end
+      end
+    end
+  end
+
   it "shows the list of comments for the resource" do
     visit resource_path
 
@@ -21,7 +49,7 @@ shared_examples "comments" do
 
     within "#comments" do
       comments.each do |comment|
-        expect(page).to have_content comment.author.name
+        expect(page).to have_content decidim_sanitize_translated(comment.author.name).gsub("\n", " ")
         expect(page).to have_content comment.body.values.first
       end
     end
@@ -707,19 +735,21 @@ shared_examples "comments" do
 
     context "when the user has verified organizations" do
       let(:user_group) { create(:user_group, :verified, organization:) }
+      let!(:user_group_membership) { create(:user_group_membership, user:, user_group:) }
       let(:content) { "This is a new comment" }
 
-      before do
-        create(:user_group_membership, user:, user_group:)
-      end
-
       it "adds new comment as a user group" do
+        organization.update!(user_groups_enabled: true)
         visit resource_path
 
         within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          click_on "Your profile"
+          choose "comment[user_group_id]"
+
           field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
           field.set " "
           field.native.send_keys content
+
           click_on "Publish comment"
         end
 
