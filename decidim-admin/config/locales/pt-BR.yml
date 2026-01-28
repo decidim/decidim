@@ -138,6 +138,9 @@ pt-BR:
         show_in_footer: Mostrar no rodapé
         title: Título
         weight: Posição do pedido
+      taxonomy:
+        item_name: Nome do item
+        parent_id: Parente
       user_group_csv_verification:
         file: Arquivo
     errors:
