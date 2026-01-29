@@ -16,7 +16,7 @@ This page provides an overview of the security procedures followed by the Mainta
 . We will send a notification to the Decidim Devs Matrix chat room. We will not mention the vulnerability, just that there is a new version with a security fix. See below the `Template for the Decidim Devs chat room message`.
 . We will wait the grace period (2 or 4 months depending on the severity) before disclosing the vulnerability.
 . We will add a comment for other Maintainers to keep track of when the Security Advisory will be published. See below the `Template for the Security Advisory messages`.
-. We will update the metadata of the Security Advisory with the versions that have this fix.
+. We will update the metadata of the Security Advisory with the versions that have this fix (the "Patched versions" in GitHub UI).
 . We will add to the Internal Decidim calendar the date when the Security Advisory will be published.
 . After the grace period, we will publish the Security Advisory.
 . Once the Security Advisory is published, then the release note message is updated with the link to the published page.
