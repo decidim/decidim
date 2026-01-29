@@ -18,6 +18,7 @@ This page provides an overview of the security procedures followed by the Mainta
 . We will add a comment for other Maintainers to keep track of when the Security Advisory will be published. See below the `Template for the Security Advisory messages`
 . We will add to the Internal Decidim calendar the date when the Security Advisory will be published.
 . After the grace period, we will publish the Security Advisory.
+. Once the Security Advisory is published, then the release note message is updated with the link to the published page.
 
 == Template for the Release Notes
 
@@ -58,7 +59,7 @@ XXX
 
 [source,markdown]
 ----
-Two versions with the fix has been published today: v0.XXX.XXX and v0.XXX.XXX.
+Two versions with the fix have been published today: v0.XXX.XXX and v0.XXX.XXX.
 
 This security vulnerability will be published on XXX according to our security policy
 ----
