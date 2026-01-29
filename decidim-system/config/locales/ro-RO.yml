@@ -254,7 +254,7 @@ ro:
           script_src: Script src
           script_src_hint: |
             Directiva script-src restricționează URL-urile care pot fi încărcate folosind elementele <script>.
-            Platforma va adăuga 'self' 'unsafe-inline' 'nesigur'', dar vă permite să adăugați mai multe. Lăsați-l necompletat dacă nu sunteți sigur.
+            Platforma va adăuga 'self', 'unsafe-inline', 'unsafe-eval', dar vă permite să adăugați mai multe. Lăsați-l necompletat dacă nu sunteți sigur.
           style_src: Style src
           style_src_hint: |
             Directiva privind style-src restricționează URL-urile care pot fi încărcate folosind elementele <style>.
