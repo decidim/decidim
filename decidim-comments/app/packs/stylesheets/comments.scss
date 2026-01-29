@@ -461,6 +461,46 @@
   }
 }
 
+.show-replies-button,
+.load-more-replies,
+.load-more-comments {
+  @apply flex items-center justify-center my-2;
+
+  .button {
+    @apply border-0 rounded px-2 py-1 transition-colors;
+
+    &:hover:not(:disabled) {
+      @apply bg-secondary/10 no-underline;
+    }
+
+    &:disabled {
+      @apply opacity-100 bg-transparent text-secondary no-underline;
+    }
+  }
+}
+
+.show-replies-button {
+  .button {
+    svg:first-of-type {
+      @apply block;
+    }
+
+    svg:last-of-type {
+      @apply hidden;
+    }
+
+    &[aria-expanded="true"] {
+      svg:first-of-type {
+        @apply hidden;
+      }
+
+      svg:last-of-type {
+        @apply block;
+      }
+    }
+  }
+}
+
 .publish-comment-button {
   @apply ml-auto md:relative fixed inset-x-0 bottom-0 z-30 md:z-0 flex flex-row items-center md:items-end md:justify-end font-semibold justify-around bg-white md:bg-transparent gap-4 md:gap-0 p-4 md:p-0 shadow-inner md:shadow-none first:[&>*]:grow md:first:[&>*]:grow-0 h-14 md:h-fit first:[&>button]:py-3;
 }
