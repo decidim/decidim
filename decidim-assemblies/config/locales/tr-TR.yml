@@ -132,6 +132,8 @@ tr:
           attachment_files: Dosyalar
           attachments: Ekler
           components: Bileşenler
+          info: Bu meclis hakkında
+          landing_page:
           moderations: Yönetim
       models:
         assembly:
@@ -162,6 +164,8 @@ tr:
       titles:
         assemblies: Kurullar
         assemblies_types: Kurul türleri
+      tooltips:
+        deleted_assemblies_info: Bir meclis yalnızca eğer statüsü "Yayınlanmamış" ise silinebilir.
     admin_log:
       assembly:
         create: "%{user_name} %{resource_name} kurulu oluşturdu"
@@ -193,11 +197,17 @@ tr:
             duration_help: Bu kurulun süresi sınırlıysa, bitiş tarihini seçin. Aksi takdirde belirsiz görünecektir.
             images: Resimler
             metadata: Meta veri
+            no_taxonomy_filters_found: Kategori filtresi bulunamadı.
             other: Diğer
             select_a_created_by: tarafından oluşturulanı seçin
             select_parent_assembly: Bağlı olduğu kurulu seçin
             social_handlers: Sosyal
             title: Genel bilgi
+            visibility: Görünürlük
+        assembly_members:
+          form:
+            explanation: 'Görüntü kılavuzu:'
+            non_user_avatar_help: Üye olarak yayınlamadan önce kişilerin onayını almalısınız.
         content_blocks:
           highlighted_assemblies:
             max_results: Gösterilecek maksimum öğe miktarı
@@ -244,6 +254,7 @@ tr:
       assemblies:
         create_assembly_member:
           email_intro: <a href="%{resource_url}">%{resource_name} </a> kurulun bir yöneticisi sizi üyelerinden biri olarak ekledi.
+          email_outro: Bu bildirimi bir toplantıya davet edildiğiniz için aldınız. Katkıda bulunmak için <a href="%{resource_url}"> kurul sayfasını </a> kontrol edin!
           email_subject: '%{resource_name} kuruluna üye olmak için davet edildiniz!'
           notification_title: <a href="%{resource_path}">%{resource_name}</a> Kurulu üyesi olarak kaydoldunuz. Katkıda bulunmak için <a href="%{resource_path}">kurul sayfasını</a> kontrol edin!
       assembly:
@@ -266,6 +277,10 @@ tr:
           not_found: 'Kurul türü veritabanında bulunamadı (ID: %{id})'
     menu:
       assemblies: Kurullar
+    open_data:
+      help:
+        assemblies:
+          decidim_scope_id: Meclisin kapsamı
     participatory_processes:
       show:
         related_assemblies: İlgili kurullar

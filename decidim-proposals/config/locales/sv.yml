@@ -178,8 +178,8 @@ sv:
             default_sort_order_help: Automatiskt betyder att om röstning är aktiverat kommer förslagen sorteras slumpmässigt, och om röstning är avstängt kommer de att sorteras efter mest valda.
             default_sort_order_options:
               automatic: Automatisk
-              most_commented: Mest kommenterade
-              most_followed: Mest följda
+              most_commented: Flest kommentarer
+              most_followed: Flest följare
               most_liked: Mest gillade
               most_voted: Flest röster
               random: Slumpvis
@@ -192,7 +192,7 @@ sv:
               hours: Timmar
               minutes: Minuter
             geocoding_enabled: Aktivera visning på karta
-            minimum_votes_per_user: Minsta antal röster per användare
+            minimum_votes_per_user: Minsta antal röster per deltagare
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
@@ -210,14 +210,14 @@ sv:
               hours: Timmar
               minutes: Minuter
             proposal_length: Maximal längd på förslagets innehåll
-            proposal_limit: Förslagsgräns per deltagare
+            proposal_limit: Max antal lagda förslag per deltagare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
             proposal_wizard_step_2_help_text: Hjälptext för steget ”Publicera” i förslagsguiden
             resources_permissions_enabled: Behörigheter kan ställas in för varje förslag
             taxonomy_filters: Välj filter för komponenten
             taxonomy_filters_add: Lägg till filter
-            threshold_per_proposal: Minst antal stöd per förslag
-            vote_limit: Antal röster per deltagare
+            threshold_per_proposal: Antal röster ett förslag behöver få för att gå vidare
+            vote_limit: Max antal röster per deltagare
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
             amendment_creation_enabled_help: Deltagare kan ändra förslag.
@@ -239,8 +239,8 @@ sv:
             default_sort_order_help: Automatiskt betyder att om röstning är aktiverat kommer förslagen sorteras slumpmässigt, och om röstning är avstängt kommer de att sorteras efter mest valda.
             default_sort_order_options:
               automatic: Automatisk
-              most_commented: Mest kommenterade
-              most_followed: Mest följda
+              most_commented: Flest kommentarer
+              most_followed: Flest följare
               most_liked: Mest gillade
               most_voted: Flest röster
               random: Slumpvis
@@ -251,8 +251,8 @@ sv:
             proposal_answering_enabled: Aktivera svar på förslag
             publish_answers_immediately: Publicera svar på förslag omedelbart
             publish_answers_immediately_help_html: 'Tänk på att om du svarar på förslag som inte är aktiverade, kommer du att behöva publicera dem manuellt genom att välja dem och använda åtgärden för publicering. För mer information om hur det här fungerar, se <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
-            votes_blocked: Röster blockerade
-            votes_enabled: Röster aktiverade
+            votes_blocked: Stäng av röstning
+            votes_enabled: Aktivera röstning
             votes_hidden: Dölj antal röster (om röster är aktiverade, kommer antalet röster att döljas)
     download_your_data:
       show:
@@ -296,17 +296,17 @@ sv:
         coauthor_rejected_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> har avböjt din inbjudan att bli medförfattare till förslaget <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} har blivit accepterad som medskapare till <a href="%{resource_url}">%{resource_title}</a> det gemensamma utkastet.'
-          email_outro: Du har fått det här meddelandet eftersom du är en medskapare av <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: '%{requester_name} har blivit godkänd som medförfattare till det gemensamma utkastet <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Du har fått det här meddelandet eftersom du är författare till <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} har fått tillgång till och är accepterad som medskapare till %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>fått tillgång till och accepterats som medskapare till</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} har avvisats som medskapare av <a href="%{resource_url}">%{resource_title}</a> samarbetsutkastet.'
+          email_intro: '%{requester_name} har avvisats som medförfattare till <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Du har fått det här meddelandet eftersom du är en medskapare av <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} har avvisats från att få tillgång till det gemensamma utkastet %{resource_title} som medskapare."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>avvisats från att få tillgång till</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a> som medskapare.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} begärde åtkomst som medskapare. Du kan <strong>acceptera eller avvisa begäran</strong> från <a href="%{resource_url}">%{resource_title}</a>, sidan för det gemensamma utkastet.'
+          email_intro: '%{requester_name} har begärt att bli medförfattare. Du kan <strong>acceptera eller avvisa begäran</strong> från sidan för det gemensamma utkastet, <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Du har fått det här meddelandet eftersom du är en medskapare av <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} begärde tillgång att bidra till %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> begärde tillgång för att få bidra till det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>. <strong>Godkänn eller avvisa begäran</strong>.
@@ -446,7 +446,10 @@ sv:
         title: Åtgärder
       admin:
         actions:
+          confirm_delete_proposal: Är du säker på att du vill ta bort förslaget?
+          deleted_proposals_info: Borttagna förslag kan återställas från papperskorgen.
           preview: Förhandsvisa
+          view_deleted_proposals: Visa borttagna förslag
         evaluation_assignments:
           create:
             invalid: 'Problem: Utvärderaren kunde inte få förslag.'
@@ -562,6 +565,7 @@ sv:
             assign_to_evaluator: Tilldelad en utvärderare
             assign_to_evaluator_button: Tilldelad
             cancel: Avbryt
+            change_taxonomies: Ändra kategorier
             merge: Slå samman till ett nytt
             no_templates_available: Ingen mall tillgänglig
             publish: Publicera
@@ -653,15 +657,15 @@ sv:
             error: Det gick inte att publicera det gemensamma utkastet.
             irreversible_action_modal:
               body: Efter att utkastet har publicerats som ett förslag går det inte längre att redigera utkastet. Förslaget kommer inte acceptera nya författare eller tillägg.
-              cancel: Dra tillbaka
+              cancel: Avbryt
               ok: Publicera som ett förslag
               title: Följande åtgärd kan inte ångras
             success: Det gemensamma utkastet har publicerats som ett förslag.
           withdraw:
             error: Det gick inte att stänga det gemensamma utkastet.
             irreversible_action_modal:
-              body: Efter att utkastet har publicerats som ett förslag går det inte längre att redigera utkastet. Förslaget kommer inte acceptera nya författare eller tillägg.
-              cancel: Dra tillbaka
+              body: Efter att utkastet dragits tillbaka går det inte längre att redigera.
+              cancel: Avbryt
               ok: Dra tillbaka det gemensamma utkastet
               title: Det går inte att ångra denna åtgärd
             success: Det gemensamma utkastet har dragits tillbaka.
@@ -696,7 +700,7 @@ sv:
         new:
           add_file: Lägg till fil
           edit_file: Redigera fil
-          send: Fortsätt
+          send: Spara
         new_collaborative_draft_button:
           new_collaborative_draft: Nytt gemensamt utkast
         orders:
@@ -719,6 +723,7 @@ sv:
             error: Kunde inte avvisas som samarbetspartner, försök igen senare.
             success: "@%{user} har avvisats som medskapare."
         show:
+          edit: Redigera
           final_proposal: Färdigt förslag
           final_proposal_help_text: Detta utkast är klart. Du kan se det slutliga förslaget
           hidden_authors_count:
@@ -778,6 +783,7 @@ sv:
             published_answer: Publicerat svar
             published_at: Publicerad
             state: Status
+            taxonomies: Kategorier
             title: Titel
             votes: Röster
         proposal_state:
@@ -798,6 +804,8 @@ sv:
           description: Koordinaterna uppdateras när du klickar på knappen 'Förhandsgranska'. Adressen ändras dock inte.
           instructions: Du kan flytta markören på kartan.
         edit:
+          add_attachments: Lägg till bilagor
+          attachment_legend: Lägg till ett dokument eller en bild
           back: Tillbaka
           send: Skicka
           title: Redigera förslag
@@ -819,7 +827,7 @@ sv:
           search: Sök
           state: Status
           type: Typ
-          voted: Röstade
+          voted: Röstat på
         index:
           click_here: Se alla förslag
           collaborative_drafts_list: Visa gemensamma utkast
@@ -837,10 +845,10 @@ sv:
           title: Skapa ett nytt förslag
         orders:
           label: 'Ordna förslag efter:'
-          most_commented: Mest kommenterade
-          most_followed: Mest följda
+          most_commented: Flest kommentarer
+          most_followed: Flest följare
           most_liked: Mest gillade
-          most_voted: Mest röstade
+          most_voted: Flest röster
           random: Slumpvis
           recent: Senaste
           with_more_authors: Med flera författare
@@ -864,6 +872,7 @@ sv:
         show:
           answer: Svara
           changes_at_title: Ändring till %{title}
+          edit_proposal: Redigera
           estimated_cost: Beräknad kostnad
           hidden_likes_count:
             one: och %{count} person till
@@ -882,7 +891,7 @@ sv:
         update:
           title: Uppdatera förslag
         vote_button:
-          already_voted: Röstade
+          already_voted: Röstat
           already_voted_hover: Dra tillbaka röst
           maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar
@@ -893,11 +902,15 @@ sv:
             other: Röster
         voting_rules:
           can_accumulate_votes_beyond_threshold:
-            description: Varje förslag kan få mer än %{limit} röster
+            description: Förslag kan få fler än gränsen på %{limit} röster
+          minimum_votes_per_user:
+            description: Du behöver rösta på %{votes} till förslag för att din röst ska räknas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
+          success: Din röst har tagits emot
           threshold_per_proposal:
             description: Förslag behöver få minst %{limit} röster för accepteras.
+          title: Regler för omröstning
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
             votes: Saknar %{number} röster

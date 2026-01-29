@@ -9,50 +9,174 @@ ro:
         one: Sondaj
         few: Sondaje
         other: Sondaje
+      decidim/surveys/survey_response:
+        one: Răspuns
+        few: Răspunsuri
+        other: Răspunsuri
   decidim:
     admin:
+      actions:
+        confirm_unpublish_survey: Sunteți sigur că doriți să anulați publicarea acestui chestionar?
+        see_survey: Vedeți sondajul
+      admin_log:
+        changeset:
+          surveys: sondaje
       menu:
         surveys_menu:
           main: Principal
           questions: Întrebări
+          responses: Răspunsuri
           settings: Setări
     components:
       surveys:
+        actions:
+          respond: Răspundeți
+        name: Sondaje
         settings:
+          announcement: Anunț
           global:
-            announcement: Anunţ
+            announcement: Anunț
           step:
-            announcement: Anunţ
+            announcement: Anunț
     events:
       surveys:
         survey_closed:
           email_intro: Sondajul %{resource_title} din %{participatory_space_title} a fost închis.
-          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
-          email_subject: În %{participatory_space_title} s-a încheiat un sondaj
+          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+          email_subject: Un sondaj s-a încheiat în %{participatory_space_title}
           notification_title: Sondajul <a href="%{resource_path}">%{resource_title}</a> din <a href="%{participatory_space_url}">%{participatory_space_title}</a> s-a încheiat.
         survey_opened:
-          email_intro: 'Sondajul %{resource_title} din %{participatory_space_title} este acum deschis. Poți participa la acesta din această pagină:'
-          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
-          email_subject: Un nou sondaj în %{participatory_space_title}
-          notification_title: Sondajul <a href="%{resource_path}">%{resource_title}</a> din <a href="%{participatory_space_url}">%{participatory_space_title}</a> este acum deschis.
+          email_intro: 'Sondajul %{resource_title} din %{participatory_space_title} a început. Poți participa la acesta din această pagină:'
+          email_outro: Ați primit această notificare deoarece urmărești „%{participatory_space_title}”. Puteți anula aceste notificări de la link-ul anterior.
+          email_subject: Un sondaj nou în %{participatory_space_title}
+          notification_title: Sondajul <a href="%{resource_path}">%{resource_title}</a> din <a href="%{participatory_space_url}">%{participatory_space_title}</a> a început.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: Conținutul răspunsului
+          created_at: Data și ora când a fost creat răspunsul
+          id: Identificator unic pentru răspunsurile sondajului
+          ip_hash: Semnătura adresei IP a respondentului pentru confidențialitate
+          question: Întrebarea la care s-a răspuns
+          registered: Participant înregistrat
+          unregistered: Participant neînregistrat
+          user_status: Starea participantului care a trimis răspunsul
     statistics:
       responses: 'Răspunsuri:'
+      responses_count: Răspunsuri
       surveys_count_tooltip: Numărul de sondaje disponibile și răspunsuri care au fost colectate.
     surveys:
       actions:
+        confirm_destroy: Sunteți sigur că doriți să eliminați asta?
+        destroy: Eliminați
+        edit: Modificați
         manage_questions: Întrebări
+        new_survey: Sondaj nou
+        preview: Previzualizați
+        responses: Răspunsuri
+        responses_alert: Ștergerea răspunsurilor la publicare este activă pentru acest sondaj. Există în prezent %{responses_count} răspunsuri care vor fi eliminate în momentul publicării.
+        title: Acțiuni
       admin:
+        exports:
+          survey_user_responses: Răspunsuri ale participantului la sondaj
+        publish_responses:
+          index:
+            description: |-
+              Prin publicarea răspunsurilor la întrebări, acestea vor fi vizibile pentru public.
+              Puteți selecta răspunsurile pe care doriți să le publicați făcând clic pe caseta de selectare de lângă fiecare întrebare.
+              Puteți publica numai următoarele tipuri de întrebări: "opțiune unică", "opțiune multiplă", "matrice (opțiune unică)", "matrice (opțiune multiplă)" și "Sortare".
+            responses:
+              one: "%{count} răspuns"
+              few: "%{count} răspunsuri"
+              other: "%{count} răspunsuri"
+            status:
+              not_published: Nepublicat
+              published: Publicat
+            title: Publicați răspunsuri
         questions:
           surveys:
             edit:
               title: Întrebări
+        responses:
+          index:
+            no_responses: Nu există răspunsuri încă
+            title: "%{total} răspunsuri în total"
+          show:
+            title: 'Răspuns #%{number}'
         settings:
           surveys:
             edit:
               title: Setări
         surveys:
+          create:
+            invalid: A apărut o eroare la crearea sondajului.
+            success: Sondajul a fost creat cu succes.
+          destroy:
+            success: Sondajul a fost eliminat cu succes.
+          edit:
+            title: Modificați sondajul
+          index:
+            title: Sondaje
+          new:
+            title: Sondaj nou
+          publish:
+            invalid: A apărut o problemă la publicarea acestui sondaj.
+            success: Sondajul a fost publicat cu succes.
+          unpublish:
+            invalid: A apărut o problemă la anularea publicării acestui sondaj.
+            success: Sondajul a fost retras cu succes de la publicare.
           update:
-            invalid: A apărut o eroare la salvarea sondajului.
-            success: Sondajul a fost salvat cu succes.
+            invalid: A apărut o eroare la actualizarea sondajului.
+            success: Sondajul a fost actualizat cu succes.
+      admin_log:
+        survey:
+          create: "%{user_name} a creat sondajul %{resource_name} în spațiul %{space_name}"
+          delete: "%{user_name} a eliminat sondajul %{resource_name} în spațiul %{space_name}"
+          publish: "%{user_name} a publicat sondajul %{resource_name} în spațiul participativ %{space_name}"
+          unpublish: "%{user_name} a anulat publicarea sondajului %{resource_name} din spațiul participativ %{space_name}"
+          update: "%{user_name} a actualizat sondajul %{resource_name} din spațiul %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Sondaje
       last_activity:
         new_survey: 'Sondaj nou:'
+      models:
+        survey:
+          fields:
+            published: Publicat
+            questions: Întrebări
+            responses: Răspunsuri
+            status: Stare
+            title: Titlu
+          published:
+            published: Publicat
+            unpublished: Nepublicat
+          status:
+            closed: Închis
+            open: Deschis
+      survey_confirmation_mailer:
+        confirmation:
+          body: Ați răspuns cu succes la sondajul %{questionnaire_title} din %{participatory_space}
+          subject: Confirmarea răspunsurilor la sondajul %{questionnaire_tile}
+        export_name: Răspunsuri la sondaj
+      surveys:
+        count:
+          surveys_count:
+            one: "%{count} sondaj"
+            few: "%{count} sondaje"
+            other: "%{count} sondaje"
+        filters:
+          all: Toate
+          state_values:
+            closed: Închise
+            open: Deschise
+        no_surveys_warning: Nici un sondaj nu corespunde criteriilor de căutare sau nu există nici un sondaj deschis.
+        response:
+          invalid: A apărut o problemă la completarea sondajului.
+          spam_detected: A apărut o problemă la completarea formularului. Poate că ați fost prea rapid(ă), puteți încerca din nou?
+          success: Răspunsul pentru sondaj a fost înregistrat cu succes.
+        show:
+          closed: Închise
+          open: Deschise
+          questions: întrebări

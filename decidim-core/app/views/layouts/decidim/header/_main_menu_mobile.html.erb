@@ -8,7 +8,17 @@
 <div aria-hidden="true" class="md:hidden border-r border-gray-6 h-full"></div>
 
 <div id="dropdown-menu-main-mobile" class="main-bar__links-mobile__dropdown main-bar__links-mobile__dropdown-before" aria-hidden="true">
-  <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown_mobile", locals: { id: "breadcrumb-main-dropdown-mobile" } %>
+  <div id="breadcrumb-main-dropdown-mobile" class="menu-bar__main-dropdown">
+    <div class="menu-bar__main-dropdown__top">
+      <div class="mb-8">
+        <%= render partial: "layouts/decidim/header/menu_form_search_mobile" %>
+      </div>
+      <%= mobile_breadcrumb_root_menu.render %>
+      <div class="menu-bar__language-chooser-mobile">
+        <%= render partial: "layouts/decidim/header/main_language_chooser", locals: { id: "dropdown-menu-language-chooser-mobile" } %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <%= render partial: "layouts/decidim/header/main_links_mobile_item_account" %>

@@ -9,7 +9,9 @@ ro:
         developer_group: Grup promotor
         document: Document
         domain: Domeniu
-        end_date: Data de încheiere
+        duplicate_categories: Categorii duplicate
+        end_date: Dată de sfârșit
+        has_members: Acest spațiu are membri
         hero_image: Imagine pentru pagina principală
         import_attachments: Importă atașamente
         import_categories: Importă categorii
@@ -85,8 +87,8 @@ ro:
         confirm_destroy: Confirmă ștergerea
         destroy: Șterge
         duplicate: Duplică
-        edit: Editează
-        import_process: Importă
+        edit: Modificați
+        import_process: Importați
         new_process: Proces nou
         new_process_group: Grup nou de proces
         new_process_step: Etapă nouă
@@ -158,9 +160,9 @@ ro:
           error: A apărut o problemă la importul acestui proces participativ.
           success: Procesul participativ a fost importat cu succes.
         new:
-          import: Importă
-          select: Selectează datele pe care dorești să le imporți
-          title: Importă procesul participativ
+          import: Importați
+          select: Selectați ce date doriți să importați
+          title: Importați procesul participativ
       participatory_process_publications:
         create:
           error: A apărut o problemă la publicarea acestui proces participativ.
@@ -180,21 +182,21 @@ ro:
         destroy:
           error:
             active_step: Nu se poți șterge etapa activă.
-            last_step: Nu se poți șterge ultima etapă a unui proces.
+            last_step: Nu se puteți șterge ultima etapă a unui proces.
           success: Etapa procesului participativ a fost ştearsă cu succes.
         edit:
           title: Editează etapa procesului participativ
-          update: Actualizează
+          update: Actualizați
         index:
           steps_title: Etape
         new:
           create: Creează
           title: Etapă nouă a procesului participativ
         ordering:
-          error: A apărut o problemă la reordonarea acestor etape ale procesului participativ.
+          error: A apărut o problemă la reordonarea etapelor acestui procesului participativ.
         update:
           error: A apărut o problemă la actualizarea acestei etape a procesului participativ.
-          success: Etapa procesul participativ a fost actualizată cu succes.
+          success: Etapa procesului participativ a fost actualizată cu succes.
       participatory_process_user_roles:
         create:
           error: A apărut o problemă la adăugarea unui participant pentru acest proces participativ.
@@ -296,6 +298,11 @@ ro:
       processes: Procese participative
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promovat de
+          participatory_scope: Ce se decide
+          participatory_structure: Cum se decide
+          target: Cine participă
         html_1:
           name: Primul bloc HTML
         html_2:
@@ -333,17 +340,19 @@ ro:
             visibility: Vizibilitate
         participatory_process_imports:
           form:
-            document_legend: Adaugă un document
+            document_legend: Adaugați un document
         participatory_processes:
           form:
             announcement_help: Textul pe care îl introduci aici va fi afișat utilizatorului chiar sub informațiile procesului.
             duration: Durată
+            has_members_help: Veți putea crea și publica membri
             images: Imagini
             metadata: Metadate
+            private_notice: Face spațiul invizibil pentru vizitatori și vizibil doar pentru membri (cu excepția cazului în care este de asemenea transparent)
             related_processes: Procese asociate
-            select_process_group: Selectează un grup de proces
+            select_process_group: Selectați un grup de procese
             taxonomies: Taxonomii
-            title: Informaţii generale
+            title: Informații generale
       content_blocks:
         highlighted_processes:
           name: Procese evidențiate
@@ -357,6 +366,13 @@ ro:
             active_spaces: Procese participative active
             see_all_spaces: Vedeți tot
       participatory_processes:
+        description:
+          developer_group: Grup de promotori
+          local_area: Zona organizației
+          meta_scope: Domeniu de interes
+          participatory_scope: Ce se decide
+          participatory_structure: Cum se decide
+          target: Cine participă
         filters:
           all_types: Toate tipurile
           counters:
@@ -376,6 +392,7 @@ ro:
               one: 1 proces viitor
               few: "%{count} procese viitoare"
               other: "%{count} procese viitoare"
+          date: Dată
           explanations:
             no_active: Niciun proces activ.
             no_active_nor_upcoming: Nu există procese active sau viitoare.
@@ -386,7 +403,7 @@ ro:
             all: Toate
             past: Anterioare
             upcoming: Viitoare
-          see: Vezi
+          see: Vedeți
         show:
           title: Despre acest proces
       show:
@@ -410,5 +427,5 @@ ro:
           active_step: 'Etapa curentă:'
           more_info: Mai multe informații
           more_info_about: Mai multe informații despre procesul %{resource_name}
-          take_part: Participă
-          take_part_in: Participă la procesul %{resource_name}
+          take_part: Participați
+          take_part_in: Participați la procesul %{resource_name}

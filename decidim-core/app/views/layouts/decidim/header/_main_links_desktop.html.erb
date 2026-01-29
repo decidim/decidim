@@ -47,6 +47,16 @@
   </button>
 
   <div id="dropdown-menu-main-desktop" class="main-bar__links-desktop__dropdown main-bar__links-desktop__dropdown-before" aria-hidden="true">
-    <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown_desktop", locals: { id: "breadcrumb-main-dropdown-desktop" } %>
+    <div id="breadcrumb-main-dropdown-desktop" class="menu-bar__main-dropdown menu-bar__dropdown-desktop">
+      <button id="main-dropdown-summary-desktop-close" class="main-bar__links-desktop__trigger"
+              data-controller="dropdown"
+              data-target="dropdown-menu-main-desktop">
+        <%= icon "close-line" %><span><%= t("close", scope: "layouts.decidim.header") %></span>
+      </button>
+      <%= breadcrumb_root_menu.render %>
+      <div class="menu-bar__main-dropdown__left">
+        <%= cell("decidim/highlighted_participatory_process", menu_highlighted_participatory_process) %>
+      </div>
+    </div>
   </div>
 </div>

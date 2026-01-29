@@ -25,6 +25,7 @@ ca:
         duration: Durada
         facebook: Facebook
         github: GitHub
+        has_members: Aquest espai de participació té membres
         hero_image: Imatge de portada
         import_attachments: Importar arxius adjunts
         import_categories: Importar categories
@@ -248,11 +249,13 @@ ca:
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
+            has_members_help: Podràs crear i publicar membres
             images: Imatges
             included_at_help: Selecciona la data en què es va afegir aquesta assemblea a la plataforma. No necessàriament ha de ser la mateixa que la data de creació.
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             other: Altre
+            private_notice: Fa que l'espai de participació no sigui visible per a les visitants i només ho sigui per a les usuàries membre (a no ser que també sigui transparent)
             select_a_created_by: Selecciona una creadora
             select_parent_assembly: Selecciona una assemblea mare
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'

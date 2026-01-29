@@ -801,7 +801,6 @@ cs:
           follows_count: Počet sledujících které schůzka má
           id: Jedinečný identifikátor sschůzky
           iframe_access_level: Úroveň přístupu k iframe na schůzce
-          iframe_embed_type: Typ iframe vložený do schůzky
           latitude: Zeměpisná šířka schůzky
           location: Místo schůzky
           location_hints: Nápověda k místu, kde se schůzka koná

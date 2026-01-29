@@ -14,6 +14,7 @@ ja:
         duplicate_landing_page_blocks: ランディングページブロックを複製
         duplicate_steps: ステップを複製
         end_date: 終了日
+        has_members: このスペースにはメンバーがいます
         hero_image: ホーム画像
         import_attachments: 添付ファイルをインポート
         import_categories: カテゴリをインポート
@@ -504,9 +505,11 @@ ja:
             announcement_help: ここに入力したテキストは、参加型プロセス情報のすぐ下にユーザーに表示されます。
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 期間
+            has_members_help: メンバーを作成し、公開することができます
             images: 画像
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
+            private_notice: 訪問者にはスペースを非表示にし、メンバーのみ表示します（透明化している場合を除きます）
             related_processes: 関連する参加型プロセス
             select_process_group: 参加型プロセス グループを選択
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
@@ -802,7 +805,7 @@ ja:
         member_menu_item: メンバー
       participatory_processes:
         index:
-          promoted_processes: ハイライトされた参加型プロセス
+          promoted_processes: 注目の参加型プロセス
         participatory_process:
           active_step: '現在のフェーズ:'
           more_info: 詳細情報
