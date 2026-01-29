@@ -86,8 +86,8 @@ module Decidim
         formatted_body
       end
 
-      def replies
-        SortedComments.for(model, order_by: order)
+      def total_replies_count
+        model.comment_threads.not_hidden.not_deleted.count
       end
 
       def order

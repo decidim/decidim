@@ -1,5 +1,6 @@
 (function() {
-  var rootCommentableId = <%== "comments-for-#{commentable.commentable_type.demodulize}-#{commentable.id}".to_json %>;
+  <% root_resource = commentable.is_a?(Decidim::Comments::Comment) ? commentable.root_commentable : commentable %>
+  var rootCommentableId = <%== "comments-for-#{root_resource.commentable_type.demodulize}-#{root_resource.id}".to_json %>;
 
   var $comments = $("#" + rootCommentableId);
   var component = $comments.data("comments");
@@ -32,4 +33,15 @@
 
   // Update the comments count
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
+
+  // Add or update load more comments button
+  var loadMoreContainer = $comments.find("[data-load-more-comments-wrapper]");
+  <% if @has_more_comments %>
+    if (loadMoreContainer.length === 0) {
+      var loadMoreHtml = '<%== j(render partial: "decidim/comments/comments/load_more_comments", locals: { commentable: commentable, order: order, offset: @comments.size }).strip %>';
+      $comments.find(".comment-threads").after(loadMoreHtml);
+    }
+  <% else %>
+    loadMoreContainer.remove();
+  <% end %>
 }());

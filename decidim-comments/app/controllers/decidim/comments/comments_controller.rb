@@ -13,28 +13,32 @@ module Decidim
       before_action :set_commentable, except: [:destroy, :update]
       before_action :ensure_commentable!, except: [:destroy, :update]
 
-      helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment
+      helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment, :load_more?, :comments_offset
 
       def index
         enforce_permission_to(:read, :comment, commentable:)
 
-        @comments = SortedComments.for(
+        @sorted_comments_query = SortedComments.new(
           commentable,
           order_by: order,
-          after: params.fetch(:after, 0).to_i
+          offset: comments_offset
         )
+        @comments = @sorted_comments_query.query
         @comments = @comments.reject do |comment|
           next if comment.depth < 1
           next if !comment.deleted? && !comment.hidden?
 
           comment.commentable.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.blank?
         end
+        @has_more_comments = @sorted_comments_query.has_more?
         @comments_count = commentable.comments_count
 
         respond_to do |format|
           format.js do
             if reload?
               render :reload
+            elsif load_more?
+              render :load_more_comments
             else
               render :index
             end
@@ -185,6 +189,14 @@ module Decidim
 
       def reload?
         params.fetch(:reload, 0).to_i == 1
+      end
+
+      def load_more?
+        params.fetch(:load_more, 0).to_i == 1
+      end
+
+      def comments_offset
+        params.fetch(:offset, 0).to_i
       end
 
       def root_depth
