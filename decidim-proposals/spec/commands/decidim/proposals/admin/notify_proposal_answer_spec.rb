@@ -41,7 +41,7 @@ module Decidim
           subject
         end
 
-        it "notifies the proposal to authors" do
+        it "sends a notification to the proposal authors" do
           expect(Decidim::EventsManager)
             .to receive(:publish)
             .with(
@@ -83,7 +83,7 @@ module Decidim
           end
 
           context "when the creator_author needs to be notified" do
-            it "notifies the proposal to creator_author" do
+            it "notifies the proposal creator_author" do
               expect(Decidim::EventsManager)
                 .to receive(:publish)
                 .with(
