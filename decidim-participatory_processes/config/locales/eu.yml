@@ -14,6 +14,7 @@ eu:
         duplicate_landing_page_blocks: Bikoiztu lurreratze-orrien blokeak
         duplicate_steps: Bikoiztu urratsak
         end_date: Bukaera-data
+        has_members: Partaidetza-espazio honek kideak ditu
         hero_image: Orri nagusiko irudia
         import_attachments: Inportatu eranskinak
         import_categories: Inportatu kategoriak
@@ -66,7 +67,7 @@ eu:
             document:
               allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
     models:
-      decidim/participatory_process_step_activated_event: Urratsera aktibatuta
+      decidim/participatory_process_step_activated_event: Fasea aktibatuta
       decidim/participatory_process_step_changed_event: Pasartea aldatu da
   activerecord:
     models:
@@ -312,7 +313,7 @@ eu:
       participatory_process:
         role_assigned:
           email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> partaidetza-prozesuan.'
-          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizu "%{resource_title}" espazioan.
+          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizulako "%{resource_title}" espazioan.
           email_subject: '%{role} rola esleitu zaizu hemen "%{resource_title}".'
           notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> partaidetza-prozesuan.'
         step_activated:
@@ -508,9 +509,11 @@ eu:
             announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
+            has_members_help: Kideak sortu eta argitaratu ahal izango dituzu
             images: Irudiak
             metadata: Metadatuak
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
+            private_notice: Bisitarientzat eta bazkideentzat soilik (gardena bada izan ezik) ez da partaidetza-espazioa ikusten
             related_processes: Elkarrekin lotutako prozesuak
             select_process_group: Prozesu-talde bat hautatu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'

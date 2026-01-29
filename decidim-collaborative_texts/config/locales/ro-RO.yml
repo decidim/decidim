@@ -5,17 +5,26 @@ ro:
       collaborative_texts:
         document:
           body: Conținut
+          draft: Schiță
           title: Titlu
           version_number: Număr versiune
+        suggestion:
+          original: Text original
+          replace: Înlocuire
         version:
           body: Conținut
+          draft: Ciornă
           version_number: Număr versiune
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Nu puteți șterge acest document
     collaborative_texts:
       actions:
         confirm_delete_document: Sigur doriți să ștergeți acest document?
         deleted_document_info: Documentul șters poate fi restaurat din gunoi.
         edit: Modificați
+        manage: Configurare
         new: Text nou
         title: Acțiuni
         view_deleted_documents: Vizualizați documentele șterse
@@ -24,7 +33,14 @@ ro:
           create:
             invalid: A apărut o problemă la crearea documentului.
             success: Documentul a fost creat cu succes.
+          draft_options:
+            accepting_suggestions: Activați sugestiile în versiunea următoare
+            accepting_suggestions_help: Activarea sugestiilor va începe o nouă rundă de sugestii pentru acest document. Sugestiile actuale nu vor fi vizibile în noua versiune.
+            draft: Versiune ciornă
           edit:
+            draft: Versiune ciornă
+            previous_versions: Versiuni anterioare
+            public_version: Versiune publică
             title: Actualizați texte colaborative
             update: Actualizați
           edit_settings:
@@ -37,6 +53,8 @@ ro:
           new:
             create: Creați
             title: Creați texte colaborative
+          non_draft_options:
+            enable_suggestions: Activați sugestiile
           publish:
             invalid: A apărut o problemă la publicarea acestui document.
             success: Documentul a fost publicat cu succes.
@@ -49,20 +67,32 @@ ro:
           update_settings:
             invalid: A apărut o eroare la actualizarea documentului.
             success: Document actualizat cu succes.
+        index:
+          published: Publicate
+          unpublished: Nepublicate
       admin_log:
         document:
-          create: "%{user_name} a creat postarea %{resource_name} în %{space_name}"
-          delete: "%{user_name} a creat postarea %{resource_name} în %{space_name}"
-          publish: "%{user_name} a creat postarea %{resource_name} în %{space_name}"
+          create: "%{user_name} a creat textul colaborativ %{resource_name} în %{space_name}"
+          delete: "%{user_name} a eliminat textul colaborativ %{resource_name} în %{space_name}"
+          publish: "%{user_name} a publicat textul colaborativ %{resource_name} în %{space_name}"
           restore: "%{user_name} a restaurat postarea %{resource_name} din %{space_name}"
-          soft_delete: "%{user_name} a mutat postarea %{resource_name} din %{space_name}"
+          soft_delete: "%{user_name} a mutat la gunoi textul colaborativ %{resource_name} din %{space_name}"
           unpublish: "%{user_name} a nepublicat %{resource_name} în %{space_name}"
-          update: "%{user_name} a actualizat postarea %{resource_name} în %{space_name}"
+          update: "%{user_name} a actualizat textul colaborativ %{resource_name} în %{space_name}"
         version:
-          delete: "%{user_name} a șters versiunea text colaborativă %{resource_name} din %{space_name}"
-          update: "%{user_name} a actualizat versiunea text colaborativ %{resource_name} în %{space_name}"
+          delete: "%{user_name} a eliminat versiunea de text colaborativ %{resource_name} din %{space_name}"
+          update: "%{user_name} a actualizat versiunea de text colaborativ %{resource_name} în %{space_name}"
       document:
-        cancel: Anulează
+        cancel: Anulați
+        consolidate:
+          confirm: Această acțiune va consolida toate sugestiile acceptate într-o nouă versiune a documentului. Sugestiile neacceptate vor fi transferate noii versiuni pentru a fi revizuite în continuare. Această acțiune va menține starea sugestiilor activate.
+          new: Consolidați sugestiile acceptate
+        controls_label: Controale privind sugestiile
+        draft_counter: Ciorna va fuziona %{applied} sugestii aplicate și va anula %{pending} sugestii în așteptare.
+        index: Index
+        rollout:
+          new: Creați o nouă versiune ca ciornă
+        save: Sugerați modificări
       documents:
         index:
           count:

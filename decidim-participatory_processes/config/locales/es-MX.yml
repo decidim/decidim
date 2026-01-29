@@ -14,6 +14,7 @@ es-MX:
         duplicate_landing_page_blocks: Duplicar los bloques de contenido de la página de inicio
         duplicate_steps: Duplicar las fases
         end_date: Fecha de finalización
+        has_members: Este espacio de participación tiene miembros
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
@@ -508,9 +509,11 @@ es-MX:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
+            has_members_help: Podrás crear y publicar miembros
             images: Imágenes
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
+            private_notice: Hace que el espacio de participación no sea visible para las visitantes y sólo lo sea para las usuarias miembro (excepto si también es transparente)
             related_processes: Procesos relacionados
             select_process_group: Seleccione un grupo de proceso
             slug_help_html: 'Los nombres cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'

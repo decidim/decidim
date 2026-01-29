@@ -17,6 +17,7 @@ sv:
       surveys:
         actions:
           respond: Besvara
+        name: Enkäter
         settings:
           global:
             announcement: Meddelande
@@ -47,7 +48,7 @@ sv:
           user_status: Status för användaren som skickade svaret
     statistics:
       responses: 'Svar:'
-      surveys_count_tooltip: Antalet tillgängliga undersökningar och svar som samlats in.
+      surveys_count_tooltip: Antalet enkäter och svar som samlats in.
     surveys:
       actions:
         responses: Svar

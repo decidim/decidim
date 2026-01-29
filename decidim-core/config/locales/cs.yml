@@ -203,7 +203,6 @@ cs:
       front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
       opens_in_new_tab: Otevře se v nové kartě
-      secondary_menu: Sekundární menu
       skip_button: Přeskočit na hlavní obsah
     account:
       blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
@@ -1278,6 +1277,7 @@ cs:
         success: Nastavení Zpravodaje bylo úspěšně aktualizováno.
     newsletters_opt_in_mailer:
       notify:
+        body_1: Zpracování osobních údajů a jejich ochrana jsou pro nás všechny stále důležitější. Díky obecnému nařízení o ochraně osobních údajů (GDPR) z 25. května 2018 mají jednotlivci lepší kontrolu nad svými osobními údaji. Z tohoto důvodu potřebujeme váš „souhlas“ s tím, abychom vám i nadále zasílali relevantní informace o aktivitách %{organization_name}.
         body_2: 'Jak nám můžete dát svůj souhlas? Stačí kliknout na následující tlačítko:'
         body_3: S tímto souhlasem budete moci pokračovat v přijímání informací o službách platformy. Pokud naopak nedostaneme pozitivní potvrzení z vašeho hlediska, přestaneme vám posílat naše zprávy. Pokud potvrdíte, že chcete být stále informováni, máte vždy možnost kdykoli zrušit.
         button: Ano, chci i nadále přijímat relevantní informace
@@ -1291,9 +1291,13 @@ cs:
         same_language: Obsah byl zveřejněn ve vašem preferovaném jazyce (%{language}), proto se v tomto e-mailu nezobrazuje automatický překlad.
         translated_text: 'Automaticky přeložený text:'
     notifications:
+      action_error: Při aktualizaci nastavení oznámení došlo k chybě.
       no_notifications: Zatím žádné oznámení.
       show:
+        deleted: Obsah byl autorem odstraněn.
         missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
+        moderated: Obsah byl skrytý moderováním.
+        not_available: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
     notifications_digest_mailer:
       header:
         daily: Denní výběr oznámení
@@ -1302,6 +1306,7 @@ cs:
       hello: Dobrý den %{name},
       intro:
         daily: 'Toto jsou oznámení z posledního dne založená na aktivitě, kterou máte:'
+        real_time: 'Toto je oznámení o aktivitě, kterou sledujete:'
         weekly: 'Toto jsou oznámení z minulého týdne založená na aktivitě, kterou máte:'
       outro: Obdrželi jste tato oznámení, protože sledujete tento obsah nebo jeho autory. Můžete je zrušit z jejich příslušných stránek.
       see_more: Zobrazit další oznámení
@@ -1441,7 +1446,9 @@ cs:
           title: Jak tyto soubory otevřít a pracovat s nimi
         license:
           body_1_html: Tato databáze %{organization_name} je k dispozici pod %{link_database}. Jakákoli práva v jednotlivém obsahu databáze jsou licencována pod %{link_contents}.
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Licence obsahu databáze
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Open Database License
           title: Licence
         title: Otevřená data
@@ -1464,6 +1471,7 @@ cs:
         footer_sub_hero:
           footer_sub_hero_body_html: Vytvořme otevřenější, transparentnější a více spolupracující společnost.<br /> Připojte se, účastněte se a rozhodujte.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
+          register: Vytvořit účet
         hero:
           participate: Účastnit se
           participate_title: Účast na procesech platformy
@@ -1471,6 +1479,7 @@ cs:
         statistics:
           headline: Statistiky
         sub_hero:
+          register: Vytvořit účet
           register_title: Vytvořit účet
       index:
         standalone_pages: Stránky

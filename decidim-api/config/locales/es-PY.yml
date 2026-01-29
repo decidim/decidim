@@ -3,10 +3,13 @@ es-PY:
   decidim:
     api:
       errors:
+        introspection_disabled: La introspección está desactivada para esta solicitud
         invalid_locale: Se ha proporcionado una configuración regional no válida
         locale_argument_error: Se ha producido un error mientras se gestionaban internamente los datos de i18n
         not_found: "%{type} no encontrado"
         permission_not_set: No se ha establecido el permiso para este %{type}
+        recursion_limit_exceeded_error: Se han detectado demasiadas consultas recurrentes
+        too_many_aliases_error: Has utilizado demasiados alias (nicknames). Has usado %{size} alias, pero se permite un máximo de %{limit}.
         unauthorized_field: No puedes ver o editar el campo %{field} en %{type} porque no tienes permiso
         unauthorized_mutation: No tienes permiso para realizar esta mutación
         unauthorized_object: No puedes ver o editar este %{type} porque no tienes permisos

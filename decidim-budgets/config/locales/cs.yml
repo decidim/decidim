@@ -146,7 +146,6 @@ cs:
           new:
             create: Návrhy na projekty
             default_budget: Výchozí rozpočet
-            import_all_accepted_proposals: Importovat všechny přijaté návrhy
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             origin_component_id: Původ komponenty
             select_component: Vyberte součást

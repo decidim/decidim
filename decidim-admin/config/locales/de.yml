@@ -33,6 +33,11 @@ de:
       help_section:
         content: Inhalt
       id: ID
+      member:
+        email: E-Mail
+        name: Name
+      member_csv_import:
+        file: Datei
       newsletter:
         body: Haupttext
         send_to_all_users: An alle Teilnehmende senden
@@ -120,10 +125,17 @@ de:
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
         weight: Reihenfolge
+      taxonomy:
+        item_name: Elementbezeichnung
+        parent_id: Übergeordnetes Element
       user_group_csv_verification:
         file: Datei
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
         newsletter:
           attributes:
             base:
@@ -179,6 +191,8 @@ de:
         export: Exportieren
         export-selection: Auswahl exportieren
         import: Importieren
+        member:
+          new: Neues Mitglied
         menu_hidden: Im Menü ausblenden
         moderate: Moderationen verwalten
         newsletter:
@@ -404,6 +418,17 @@ de:
           values:
             'false': 'Nein'
             'true': 'Ja'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Einladung akzeptiert
+            values:
+              'false': Nicht akzeptiert
+              'true': Akzeptiert
+          user_invitation_sent_at_not_null:
+            label: Einladung versendet
+            values:
+              'false': Nicht versendet
+              'true': Versendet
         moderated_users:
           reports_reason_eq:
             label: Grund der Meldung
@@ -551,10 +576,53 @@ de:
             explanation: Verwaltete Benutzer können zu Standardbenutzern heraufgestuft werden. Das bedeutet, dass sie zu der Anwendung eingeladen werden und nicht in der Lage sind, sie erneut zu repräsentieren. Der eingeladene Benutzer erhält eine E-Mail, um Ihre Einladung anzunehmen.
             new_managed_user_promotion: Neue verwaltete Benutzerwerbung
             promote: Fördern
+      members:
+        create:
+          error: Beim Hinzufügen eines Mitglieds zu diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Zugriff für das Mitglied erfolgreich erstellt.
+        destroy:
+          error: Beim Entfernen eines Mitglieds zu diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Zugriff für das Mitglied erfolgreich gelöscht.
+        edit:
+          title: Mitglied bearbeiten
+          update: Aktualisieren
+        index:
+          import_via_csv: Aus CSV importieren
+          publish_all: Alle veröffentlichen
+          title: Mitglied
+          unpublish_all: Alle Veröffentlichungen aufheben
+        new:
+          create: Erstellen
+          title: Neues Mitglied
+        publish_all:
+          error: Beim Veröffentlichen der Mitglieder in diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Alle Mitglieder für diesen partizipativen Bereich erfolgreich veröffentlicht
+        unpublish_all:
+          error: Beim Aufheben der Veröffentlichen der Mitglieder in diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Die Veröffentlichung der Mitglieder für diesen partizipativen Bereich wurde erfolgreich aufgehoben
+        update:
+          error: Beim Aktualisieren eines Mitglieds in diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Mitglied wurde erfolgreich aktualisiert
       members_csv_imports:
+        create:
+          invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
+          success: CSV-Datei wurde erfolgreich hochgeladen. Wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
         new:
           csv_upload:
             title: Laden Sie Ihre CSV-Datei hoch
+          destroy:
+            button: Alle Mitglieder löschen
+            confirm: Sind Sie sicher, dass Sie alle Mitglieder entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
+            empty: Sie haben noch keine Mitglieder.
+            explanation: Sie haben %{count} Mitglieder.
+            title: Mitglieder löschen
+          example_file: 'Beispieldatei:'
+          explanation: 'Laden Sie Ihre CSV-Datei mit den Teilnehmenden, die Sie zum Prozess hinzufügen möchten, hoch. Sie muss zwei Spalten (ohne Kopfzeile) haben, mit der E-Mail-Adresse in der ersten Spalte und dem Namen in der zweiten Spalte der Datei. Verwenden Sie keine ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen der Teilnehmenden.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Mitglieder via CSV importieren
+          upload: Hochladen
       menu:
         admin_log: Admin-Aktivitätsprotokoll
         admins: Admins
@@ -613,6 +681,8 @@ de:
             reason: Grund
             started_at: Fing an bei
             user: Benutzer
+        member:
+          name: Mitglied
         newsletter:
           fields:
             created_at: Erstellt am
@@ -905,7 +975,7 @@ de:
           submit: Senden
       resource_permissions:
         edit:
-          submit: einreichen
+          submit: Absenden
           title: Berechtigungen bearbeiten
         options_form:
           ephemeral_warning: Um diese Autorisierungsmethode zu aktivieren, müssen Sie alle bestehenden Autorisierungen <a href="%{path}“>zurücknehmen</a>. Dadurch wird das Risiko von Überprüfungskonflikten minimiert. Alle Berechtigungen dieses Typs werden in der Organisation automatisch entzogen, wenn Sie Änderungen einreichen, die diese Methode hinzufügen oder ihre Konfiguration verändern, nachdem sie hinzugefügt wurde.
@@ -1203,6 +1273,7 @@ de:
           last_day: Letzter Tag
           last_month: Letzter Monat
           last_week: Letzte Woche
+          no_users_count_statistics_yet: Es gibt noch keine Statistiken über die Teilnehmenden.
           participants: Teilnehmer
     forms:
       errors:

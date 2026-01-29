@@ -143,6 +143,8 @@ sv:
         new:
           authorize: Skicka
           authorize_with: Verifiera med %{authorizer}
+        onboarding_pending:
+          completed_verifications: Du har blivit auktoriserad, nu kan du %{action} i %{resource_name}
         renew_modal:
           cancel: Avbryt
           continue: Fortsätt

@@ -9,15 +9,12 @@ services:
     - ../:/workspaces/decidim:cached
     - bundle-cache:/usr/local/bundle
     - node-modules-cache:/workspaces/decidim/node_modules
+    ports:
+      - "${DEVCONTAINER_APP_PORT:-3000}:3000"
     command: sleep infinity
     depends_on:
-      - selenium
       - redis
       - postgres
-
-  selenium:
-    image: selenium/standalone-chromium
-    restart: unless-stopped
 
   redis:
     image: redis:7.2

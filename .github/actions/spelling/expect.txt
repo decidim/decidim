@@ -139,6 +139,7 @@ cobertura
 codecov
 codefor
 CODEOWNERS
+codespace
 codeql
 coditramuntana
 commentables
@@ -222,6 +223,7 @@ doesnot
 doggotrainer
 Dokku
 Dota
+dotfiles
 douban
 downvoted
 downvotes
