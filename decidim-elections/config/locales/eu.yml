@@ -6,6 +6,11 @@ eu:
       token_csv:
         file: Fitxategia
         remove_all: Ezabatu egungo errolda-datu guztiak
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Bozketa
+        other: Bozketak
   decidim:
     admin:
       menu:
