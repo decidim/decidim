@@ -1165,6 +1165,12 @@ en:
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
+          not_found: Access mode %{id} not found
         area_presenter:
           not_found: 'The area was not found on the database (ID: %{id})'
         area_type_presenter:

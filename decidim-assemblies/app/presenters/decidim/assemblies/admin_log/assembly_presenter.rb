@@ -44,7 +44,7 @@ module Decidim
             closing_date: :date,
             closing_date_reason: :i18n,
             internal_organisation: :i18n,
-            access_mode: :integer,
+            access_mode: :access_mode,
             special_features: :i18n,
             twitter_handler: :string,
             facebook_handler: :string,

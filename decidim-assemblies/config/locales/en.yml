@@ -460,3 +460,7 @@ en:
             other: "%{count} assemblies"
       assembly_navigation:
         assembly_member_menu_item: Members
+    log:
+      value_types:
+        access_mode_presenter:
+          not_found: Access mode %{id} not found
