@@ -25,6 +25,7 @@ de:
         duration: Aktiv bis
         facebook: Facebook
         github: GitHub
+        has_members: Dieser Bereich hat Mitglieder
         hero_image: Hauptbild
         import_attachments: Anhänge importieren
         import_categories: Kategorien importieren
@@ -170,6 +171,7 @@ de:
           components: Komponenten
           info: Über dieses Gremium
           landing_page: Startseiten-Layout
+          members: Mitglieder
           moderations: Moderationen
           see_assembly: Gremium ansehen
       models:
@@ -217,9 +219,11 @@ de:
         export: "%{user_name} hat das Gremium %{resource_name} exportiert"
         import: "%{user_name} hat das Gremium %{resource_name} importiert"
         publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"
+        publish_all_members: "%{user_name} hat alle Mitglieder des Gremiums %{resource_name} veröffentlicht"
         restore: "%{user_name} hat das Gremium %{resource_name} wiederhergestellt"
         soft_delete: "%{user_name} hat das Gremium %{resource_name} in den Papierkorb verschoben"
         unpublish: "%{user_name} hat das Gremium %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        unpublish_all_members: "%{user_name} hat die Veröffentlichung aller Mitglieder des Gremiums %{resource_name} aufgehoben"
         update: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
       assembly_member:
         create: "%{user_name} hat das Mitglied %{resource_name} im Gremium %{space_name} erstellt"
@@ -245,6 +249,7 @@ de:
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Aktiv bis
             duration_help: Wenn die Dauer dieses Gremiums begrenzt ist, dann wählen Sie hier das Enddatum aus. Andernfalls wird das Datum als unbestimmt angezeigt.
+            has_members_help: Sie können Mitglieder erstellen und veröffentlichen
             images: Bilder
             included_at_help: Wählen Sie das Datum aus, an dem dieses Gremium zur Plattform hinzugefügt wurde. Das Datum muss nicht zwingend mit dem Gründungsdatum übereinstimmen.
             metadata: Metadaten

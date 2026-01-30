@@ -584,6 +584,7 @@ eu:
           error: Arazo bat dago partaidetza-espazio horretarako kide bat ezabatzeko.
           success: Kidearen sarbidea behar bezala suntsitu da.
         edit:
+          title: Kidea aldatu
           update: Egunaratu
         index:
           import_via_csv: CSV fitxategi baten bidez inportatu
@@ -592,6 +593,7 @@ eu:
           unpublish_all: Desargitaratu guztiak
         new:
           create: Sortu
+          title: Beste kide bat
         publish_all:
           error: Arazo bat izan da partaidetza-espazio horretarako kide bat gehitzeko.
           success: Partaidetza-espazio honetarako kide guztiak arrakastaz argitaratu dira

@@ -25,6 +25,7 @@ ja:
         duration: 持続期間
         facebook: Facebook
         github: GitHub
+        has_members: このスペースにはメンバーがいます
         hero_image: ホーム画像
         import_attachments: 添付ファイルをインポート
         import_categories: カテゴリをインポート
@@ -245,11 +246,13 @@ ja:
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 持続期間
             duration_help: この参加スペースの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
+            has_members_help: メンバーを作成し、公開することができます
             images: 画像
             included_at_help: この参加スペースがプラットフォームに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             other: その他
+            private_notice: 訪問者にはスペースを非表示にし、メンバーのみ表示します（透明化している場合を除きます）
             select_a_created_by: 作成者を選択してください
             select_parent_assembly: 親参加スペースを選択
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
@@ -308,7 +311,7 @@ ja:
         extra_data:
           name: 種別と期間
         highlighted_assemblies:
-          name: ハイライトされた参加スペース
+          name: 注目の参加スペース
         related_assemblies:
           name: 関連する参加スペース
       created_by:
@@ -436,7 +439,7 @@ ja:
           more_info: 詳細情報
           take_part: 参加する
         index:
-          promoted_assemblies: ハイライトされた参加スペース
+          promoted_assemblies: 注目の参加スペース
         metadata:
           children_item:
             other: "%{count} 個の参加スペース"

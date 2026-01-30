@@ -131,7 +131,7 @@ ro:
         user_group_csv_verification:
           attributes:
             file:
-              malformed: Fişier de import malformat, vă rugăm să citiţi instrucţiunile cu atenţie şi asiguraţi-vă că fişierul este codificat UTF-8.
+              malformed: Fișier de import malformat, vă rugăm să citiți instrucțiunile cu atenție și asigurați-vă că fișierul este codificat UTF-8.
       new_import:
         attributes:
           file:
@@ -477,6 +477,11 @@ ro:
             explanation: Participanții gestionați pot fi promovați drept participanți standard. Înseamnă că vor fi invitați în aplicație și nu vei mai putea să îi gestionezi din nou. Participantul invitat va primi un e-mail pentru a accepta invitația ta.
             new_managed_user_promotion: Promovarea unui nou participant gestionat
             promote: Promovează
+      members:
+        edit:
+          title: Editare membru
+        new:
+          title: Membru nou
       members_csv_imports:
         new:
           csv_upload:
@@ -615,7 +620,7 @@ ro:
             title: Detalii raportare
       newsletter_templates:
         index:
-          preview_template: Previzualizează
+          preview_template: Previzualizați
           title: Modele de buletine informative
           use_template: Utilizează acest model
         show:
@@ -664,7 +669,7 @@ ro:
         send:
           no_recipients: Niciun destinatar pentru această selecție.
         show:
-          preview: Previzualizează
+          preview: Previzualizați
           select_recipients_to_deliver: Selectează destinatarii pentru trimitere
           subject: Subiect
         update:
@@ -849,6 +854,7 @@ ro:
         dashboard: Panou de administrare
         impersonatable_users: Participanți gestionabili
         impersonations: Gestionarea participanților
+        menu: Meniu
         panel: Administrator
         participants: Participanți
         scope_types: Tipuri de domeniu

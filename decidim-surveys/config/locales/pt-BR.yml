@@ -8,10 +8,30 @@ pt-BR:
       decidim/surveys/survey:
         one: Enquete
         other: Enquetes
+      decidim/surveys/survey_response:
+        one: Resposta
+        other: Respostas
   decidim:
+    admin:
+      actions:
+        confirm_unpublish_survey: Tem certeza de que deseja remover esta pesquisa da publicação?
+        see_survey: Veja a pesquisa
+      admin_log:
+        changeset:
+          surveys: Pesquisas
+      menu:
+        surveys_menu:
+          main: Principal
+          questions: Questões
+          responses: Respostas
+          settings: Configurações
     components:
       surveys:
+        actions:
+          respond: Responder
+        name: Pesquisas
         settings:
+          announcement: Avisos
           global:
             announcement: Anúncio
           step:
@@ -28,11 +48,131 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Uma nova pesquisa em %{participatory_space_title}
           notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: O conteúdo da resposta
+          created_at: Carimbo de data/hora em que a resposta foi criada
+          id: Identificador único para a resposta da pesquisa
+          ip_hash: Endereço IP criptografado do respondente para fins de privacidade
+          question: A pergunta respondida
+          registered: Participante inscrito
+          unregistered: Participante não registrado
+          user_status: '''Estado'' do usuário que enviou a resposta'
+    statistics:
+      responses: 'Respostas:'
+      responses_count: Respostas
+      surveys_count_tooltip: O número de pesquisas disponíveis e respostas coletadas.
     surveys:
+      actions:
+        confirm_destroy: Tem certeza de que deseja excluir isso?
+        destroy: Destruir
+        edit: Editar
+        manage_questions: Questões
+        new_survey: Nova pesquisa
+        preview: Pré-visualização
+        responses: Respostas
+        responses_alert: A opção "Excluir respostas na publicação" está ativa para esta pesquisa. Atualmente, existem %{responses_count} respostas excluídas se você continuar.
+        title: Ações
       admin:
+        exports:
+          survey_user_responses: Respostas dos participantes da pesquisa
+        publish_responses:
+          index:
+            description: |-
+              Ao publicar as respostas das perguntas, você as tornará visíveis ao público.
+              Você pode selecionar as respostas que deseja publicar clicando na caixa de seleção ao lado de cada pergunta.
+              Você só pode publicar os seguintes tipos de pergunta: "Opção única", "Opção múltipla", "Matriz (opção única)", "Matriz (opção múltipla)" e "Classificação".
+            responses:
+              one: "%{count} Resposta"
+              other: "%{count} Respostas"
+            status:
+              not_published: Não publicado
+              published: Publicado
+            title: Publicar respostas
+        questions:
+          surveys:
+            edit:
+              title: Questões
+        responses:
+          index:
+            no_responses: Ainda não há respostas
+            title: "%{total} Respostas totais"
+          show:
+            title: 'Resposta #%{número}'
+        settings:
+          surveys:
+            edit:
+              title: Configurações
         surveys:
+          create:
+            invalid: Ocorreu um problema ao criar a pesquisa.
+            success: Pesquisa criada com sucesso.
+          destroy:
+            success: Pesquisa excluída com sucesso.
           edit:
             title: Editar questionário
+          index:
+            title: Pesquisas
+          new:
+            title: Nova pesquisa
+          publish:
+            invalid: Houve um problema na publicação desta pesquisa.
+            success: Pesquisa publicada com sucesso.
+          unpublish:
+            invalid: Houve um problema ao cancelar a publicação desta pesquisa.
+            success: Pesquisa não publicada com sucesso.
           update:
             invalid: Houve erros ao salvar a pesquisa.
             success: Pesquisa salva com sucesso.
+      admin_log:
+        survey:
+          create: "%{user_name} Criou a pesquisa %{resource_name} no espaço %{space_name} como uma pesquisa"
+          delete: "%{user_name} Excluiu a pesquisa %{resource_name} no espaço %{space_name} como uma pesquisa"
+          publish: "%{user_name} Publicou a pesquisa %{resource_name} no espaço %{space_name}"
+          unpublish: "%{user_name} Deixou de publicar a pesquisa %{resource_name} no espaço %{space_name}"
+          update: "%{user_name} Atualizou a pesquisa %{resource_name} no espaço %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Pesquisas
+      last_activity:
+        new_survey: 'Nova pesquisa:'
+      models:
+        survey:
+          fields:
+            published: Publicado
+            questions: Questões
+            responses: Respostas
+            status: Estado
+            title: Titulo
+          published:
+            published: Publicado
+            unpublished: Não publicado
+          status:
+            closed: Fechado
+            open: Aberto
+      survey_confirmation_mailer:
+        confirmation:
+          body: Você respondeu com sucesso à pesquisa %{questionnaire_title} no prazo de %{participatory_space}
+          subject: Confirmação de resposta ao questionário %{questionnaire_title}
+        export_name: Respostas da pesquisa
+      surveys:
+        count:
+          surveys_count:
+            one: "%{count} Pesquisa"
+            other: "%{count} Pesquisas"
+        filters:
+          all: Todos
+          state_values:
+            closed: Fechado
+            open: Aberto
+        no_surveys_warning: Nenhuma pesquisa corresponde aos seus critérios de busca ou não há nenhuma pesquisa disponível.
+        response:
+          invalid: Houve um problema ao responder à pesquisa.
+          spam_detected: Ocorreu um problema ao preencher o formulário. Talvez você tenha respondido muito rápido. Pode tentar novamente?
+          success: A pesquisa foi respondida com sucesso.
+        show:
+          closed: Fechado
+          open: Aberto
+          questions: Questões

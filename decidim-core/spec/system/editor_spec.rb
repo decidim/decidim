@@ -1119,7 +1119,9 @@ describe "Editor" do
     context "when resizing an image" do
       let(:image) { create(:editor_image, organization:) }
       let(:image_src) { image.attached_uploader(:file).path }
-      let(:dimensions) { MiniMagick::Image.read(image.file.blob.download).dimensions }
+      let(:vips_image) { Vips::Image.new_from_buffer(image.file.blob.download, "") }
+      let(:width) { vips_image.width }
+      let(:height) { vips_image.height }
       let(:editor_content) do
         <<~HTML
           <div class="editor-content-image" data-image="">
@@ -1137,30 +1139,27 @@ describe "Editor" do
         context "with right side controls" do
           it "allows resizing the image" do
             drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 50)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 50}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 50}"></div>))
           end
 
           it "removes the width attribute when resizing back to original width or above it" do
             drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 100)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
 
             drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 500)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
           end
 
           it "shows and updates image sizes" do
-            width = dimensions[0]
-            height = dimensions[1]
-
             expect(page).to have_css("[data-image-resizer-dimension-value='#{width}']", visible: :all)
             expect(page).to have_css("[data-image-resizer-dimension-value='#{height}']", visible: :all)
 
@@ -1173,21 +1172,21 @@ describe "Editor" do
         context "with left side controls" do
           it "allows resizing the image" do
             drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 50)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 50}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 50}"></div>))
           end
 
           it "removes the width attribute when resizing back to original width or above it" do
             drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 100)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
 
             drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 500)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))

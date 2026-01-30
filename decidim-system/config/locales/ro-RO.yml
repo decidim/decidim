@@ -3,12 +3,15 @@ ro:
     attributes:
       oauth_application:
         name: Numele aplicației OAuth
-        organization_logo: Sigla organizației (pătrat)
+        organization_logo: Logoul organizației (pătrat)
         organization_name: Organizație
         organization_url: URL-ul organizației
         redirect_uri: URI de redirectionare
+        refresh_tokens: Tokenuri de reîmprospătare
+        refresh_tokens_enabled: Tokenurile de reîmprospătare sunt activate
+        scopes: Scopul de autentificare disponibile
       organization:
-        address: SMTP hostname
+        address: Hostname SMTP
         from_email: Adresă de e-mail
         from_label: Etichetă
         password: Parolă
@@ -20,10 +23,10 @@ ro:
           default: Tipuri MIME implicite
         allowed_file_extensions:
           admin: Extensii fişiere administrator
-          default: Extensii de fișier implicite
-          image: Extensiile fişierului imagine
+          default: Extensii implicite de fișier
+          image: Extensiile fișierului imagine
         maximum_file_size:
-          avatar: Dimensiune avatar fişier
+          avatar: Dimensiune fișier avatar
           default: Dimensiunea implicită a fișierului
     errors:
       models:
@@ -31,55 +34,103 @@ ro:
           attributes:
             redirect_uri:
               must_be_ssl: URL-ul de redirecționare trebuie să fie un URL SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Trebuie să definiți variabila de mediu SECRET_KEY_BASE pentru a putea salva acest câmp.
   decidim:
     system:
       actions:
-        confirm_destroy: Sigur dorești să ştergi acest element?
-        destroy: Ștergere
-        edit: Editare
+        api_user:
+          hidden_secret: Codul secret este ascuns
+          hide_secret: Ascundeți codul secret
+          secret_can_not_be_shown: codul secret pentru API poate fi văzut sau copiat numai după creare
+          show_secret: Arătați codul secret
+          shown_secret: Codul secret este vizibil
+        api_users:
+          create: Creați
+          new: Utilizator API nou
+          remove: Eliminați utilizatorul API
+        confirm_destroy: Sigur dorești să eliminați acest element?
+        confirm_refresh_api_secret: Sunteți sigur că doriți să reîmprospătați secretul pentru acest utilizator API? După reîmprospătare, vechiul secret va fi invalid și nu va mai putea fi folosit.
+        confirm_remove_api_user: Sigur doriți să eliminați acest utilizator API?
+        copied: Copiat
+        copy_secret: Copiați codul secret
+        copy_secret_clarification: Copiați codul secret în clipboard
+        destroy: Eliminați
+        edit: Modificați
         new_admin: Administrator nou
-        new_oauth_application: Aplicație nouă OUATH
+        new_oauth_application: Aplicație nouă OAuth
         new_organization: Organizație nouă
-        save: Salvează
+        refresh_secret: Codul secret pentru reîmprospătare
+        save: Actualizați
         title: Acțiuni
       admins:
         create:
           error: A apărut o problemă la crearea unui administrator nou.
-          success: Administratorul a fost creat.
+          success: Administratorul creat cu succes.
         destroy:
-          success: Administratorul a fost șters.
+          success: Administratorul eliminat cu succes.
         edit:
-          title: Editare admin
+          title: Modificați admin
           update: Actualizare
         index:
           title: Administratori
         new:
-          create: Creează
+          create: Creați
           title: Administrator nou
         update:
           error: A apărut o eroare la actualizarea administratorului.
           success: Administratorul a fost actualizat.
+      api_user:
+        create:
+          error: A apărut o eroare la crearea utilizatorului API.
+          success: Utilizator API creat cu succes. Secretul pentru utilizator este vizibil doar după creare. Vă rugăm copiați-l și păstrați-l în siguranță înainte de a părăsi această pagină!
+        destroy:
+          success: Utilizator API a fost eliminat cu succes.
+        refresh:
+          error: Ceva nu a mers bine! Vă rugăm să încercați din nou mai târziu.
+          success: Secret reîmprospătat cu succes. Secretul pentru utilizator este vizibil doar după creare. Vă rugăm să îl copiați și să îl păstrați în siguranță înainte de a părăsi această pagină!
+      api_users:
+        index:
+          explanation_html: |
+            <p>Utilizatorii API permit dezvoltatorilor de integrări să adauge conturi de utilizator de mașini administrative la sistem. Acești utilizatori de mașini pot acționa ca administratori pe platformă pentru a efectua actualizări pe care administratorii obișnuiți le-ar efectua prin intermediul panoului de administrare. Un caz de utilizare tipic este o platformă de gestionare externă în care un script automat ar efectua sarcini administrative cu platforma fără ca un utilizator real să fie nevoit să se autentifice la sistem. De exemplu, un sistem de automatizare ar putea dori să trimită răspunsuri la propuneri, caz în care avem nevoie de un utilizator de integrare pentru a efectua această sarcină în cadrul acestei platforme.</p>
+            <p>Principala diferență dintre aceste conturi și conturile de administrator normale este că acești utilizatori sunt meniți să fie utilizați de mașini și, prin urmare, cerințele lor privind parola sunt diferite. Acești utilizatori nu trebuie să își actualizeze în mod regulat parola, iar schimbarea parolei contului se poate face într-un mod gestionat atunci când este necesar.</p>
+            <p>Aceste acreditări sunt destinate a fi utilizate de mașini. Aplicațiile orientate către participanți ar trebui integrate cu <a href="%{oauth_link}">aplicațiile OAuth</a>.</p>
+          manage: Gestionați utilizatorii API
+        new:
+          select_organization: Selectați o organizație
+          title: Creare utilizator API nou
       dashboard:
         show:
           admins: Administratori
           current_organizations: Organizații curente
+          system_checks: Verificări de sistem
       default_pages:
         placeholders:
-          content: Vă rugăm să adăugaţi conţinut semnificativ paginii statice %{page} de pe tabloul de bord al administratorului.
-          summary: Vă rugăm să adăugați un conținut semnificativ pe pagina statistică %{page} din tabloul de bord al administratorului.
+          content: Vă rugăm să adaugați conținut semnificativ în pagina %{page} de pe tabloul de bord al administratorului.
+          summary: Vă rugăm să adăugați un conținut semnificativ în pagina statică %{page} din tabloul de bord al administratorului.
           title: Titlul implicit pentru %{page}
         terms-of-service: Condiții de utilizare
       devise:
         passwords:
           edit:
             change_your_password: Schimbați parola
-            minimum_characters: "(%{minimum} caractere minim)"
+            minimum_characters: "(minimum %{minimum} caractere)"
           new:
-            forgot_your_password: Ați uitat parola
-            send_me_reset_password_instructions: Trimiteți-mi Instrucțiuni de resetare a parolei
+            forgot_your_password: Ați uitat parola?
+            send_me_reset_password_instructions: Trimiteți-mi instrucțiunile de resetare a parolei
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Nu ați primit instrucțiunile de confirmare?
+            did_not_receive_unlock_instructions?: Nu ați primit instrucțiuni de deblocare?
+            forgot_your_password?: Ați uitat parola?
+            log_in: Autentificare
+            sign_up: Creați un cont
       menu:
         admins: Administratori
-        dashboard: Panou
+        api_credentials: Credențiale API
+        dashboard: Panou de administrare
         oauth_applications: Aplicații OAuth
         organizations: Organizații
       models:
@@ -89,6 +140,15 @@ ro:
             email: E-mail
           validations:
             email_uniqueness: un alt administrator cu același e-mail există deja
+        api_user:
+          fields:
+            created_at: Creat la
+            key: Cheie
+            name: Nume
+            organization: Organizație
+            secret: Cheie secretă
+          validations:
+            name_uniqueness: Există deja un utilizator API cu acest nume.
         oauth_application:
           fields:
             created_at: Creat la
@@ -96,12 +156,13 @@ ro:
             organization_name: Organizație
         organization:
           actions:
-            save_and_invite: Creează grupul de lucru și invită un administrator
+            save_and_invite: Creați organizație și invitați administrator
           fields:
+            content_security_policy: Politică de securitate conținut
             created_at: Creat la
-            file_upload_settings: Setări pentru încărcarea fișierului
+            file_upload_settings: Setări pentru încărcarea fișierelor
             name: Nume
-            omniauth_settings: Setări Omniauth
+            omniauth_settings: Setări Oauth
             smtp_settings: Setări SMTP
       oauth_applications:
         create:
@@ -111,35 +172,107 @@ ro:
           error: A apărut o problemă la eliminarea acestei aplicații.
           success: Aplicație eliminată cu succes.
         edit:
-          save: Salveaza
-          title: Editați aplicația
+          save: Actualizați
+          title: Modificați aplicația
         form:
+          application_type:
+            confidential:
+              explanation: Aplicațiile care pot autentifica în siguranță cu serverul de autorizare, de exemplu, având posibilitatea de a păstra confidențialitatea clientului înregistrat în siguranță. De obicei, o aplicație care rulează pe un server unde detaliile utilizatorului sunt stocate.
+              name: Confidențial
+            public:
+              explanation: Aplicații care nu pot utiliza codurile secretele ale clienților înregistrați, cum ar fi aplicațiile care rulează într-un browser sau pe un dispozitiv mobil.
+              name: Nume public
+          application_type_help_html: 'Tipul de client OAuth definit de <a href="%{client_type_link}" target="_blank">RFC 6749 Secțiunea 2.1</a>. Clienții publici trebuie să implementeze fluxul PKCE așa cum este definit de <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
+          refresh_tokens_help_html: 'Tokenele de reîmprospătare sunt utile în cazul în care tokenul are nevoie de o durată de viață mai lungă decât cea atribuită tokenul de acces. Rețineți că <strong>tokenurile de reîmprospătare trebuie utilizate cu atenție</strong>, deoarece pot slăbi securitatea utilizatorilor. '
+          scopes_explanation:
+            "api:read": Permite utilizatorului să efectueze operațiuni de interogare API prin GraphQL.
+            "api:write": Permite utilizatorului să efectueze operațiuni de modificare API prin GraphQL.
+            profile: Oferă acces la detaliile propriului profilul al utilizatorului. Aveți nevoie numai de acest scop de autentificare în cazul în care aplicația OAuth este folosită doar ca furnizor de identitate sau ca serviciu de autentificare.
+            user: Abilitatea de a acționa ca utilizator conectat folosind credențiale ca parte requestului către GraphQL API. Acest lucru este necesar pentru toate operațiunile de api:write sau api:read care necesită informații despre utilizatorul curent.
+          scopes_help_html: |
+            Scopurile de autentificare selectate vor fi disponibile pentru aplicațiile conectate, pentru a le solicita în timpul procesului de autorizare. Utilizatorului i se vor prezenta detalii despre solicitarea de autorizare atunci când se conectează utilizând OAuth.
+            <br>
+            Diferite scopuri de autentificare oferă funcții diferite pentru utilizatorul autentificat, utilizând token-urile de acces acordate.
+            <br>
+            <strong>Notă</strong>: Dacă trebuie doar să autentificați utilizatorii pentru aplicațiile externe, aveți nevoie doar de scopul de autentificare al <strong>profilului</strong>. Aplicațiile care interacționează cu API-ul Decidim necesită și alte scopuri de autentificare.
           select_organization: Selectați o organizație
         index:
-          confirm_delete: Sigur dorești să ștergi această aplicație?
+          confirm_delete: Sigur dorești să eliminați această aplicație?
           title: Aplicații OAuth
         new:
-          save: Salveaza
-          title: Adăugați o aplicație nouă
+          save: Actualizați
+          title: Aplicație nouă
         update:
           error: A apărut o eroare la actualizarea acestei aplicații.
           success: Aplicație actualizată cu succes.
       organizations:
         advanced_settings:
-          hide: Ascunde setările avansate
-          show: Arată setările avansate
+          hide: Ascundeți setările avansate
+          show: Arătați setările avansate
         create:
-          error: A apărut o problemă la crearea unei noi organizații.
+          error: A apărut o problemă la crearea unei organizații noi.
+          error_invitation: A apărut o eroare la crearea unei organizații noi. Examinați numele administratorului organizației.
+          success_html: |
+            <p>Organizația a fost creată cu succes.</p>
+            <ol>
+            <li>Este posibil să fie nevoie să actualizați codul aplicației, deoarece pentru a permite solicitări către %{host} trebuie să adăugați următoarele la
+            configurația mediului (de exemplu, <code>config/environment/production.rb</code>) sau la <code>config/application.rb</code>:
+            <p> config.hosts << "%{host}" </p>
+            </li>
+            <li>
+            După ce ați terminat, veți putea accesa platforma dvs. prin <a href="https://%{host}">https://%{host}</a>
+            </li>
+            <li>
+            Am trimis un e-mail la <b>%{email}</b> pe care trebuie să îl confirmați.
+            </li>
+            </ol>
+        csp_settings:
+          connect_src: Connect src
+          connect_src_hint: |
+            Directiva connect-src restricționează URL-urile care pot fi încărcate folosind elementele <script>.
+            Platforma va adăuga "self", dar vă permite să adăugați mai multe, lăsați-o necompletată dacă nu sunteți sigur.
+          default_src: Default src
+          default_src_hint: |
+            Directiva "default-src" este politica implicită pentru încărcarea de conținut, cum ar fi JavaScript, Imagini, CSS, Fonturi, cereri AJAX, frames, Media HTML5.
+            Platforma va adăuga "'self' 'unsafe-inline'', dar vă permite să adăugați și mai multe. Lăsați necompletat dacă nu sunteți sigur.
+          font_src: Font src
+          font_src_hint: |
+            Directiva font-src restricționează URL-urile care pot fi încărcate folosind "@font-face".
+            Platforma va adăuga "self", dar vă permite să adăugați mai multe, lăsați-o necompletată dacă nu sunteți sigur.
+          frame_src: Frame src
+          frame_src_hint: |
+            Directiva cadru restricționează URL-urile care pot fi încărcate folosind elementele <frame>, <iframe> și <object>.
+            Platforma va adăuga "self", dar vă permite să adăugați mai multe, lăsați-o necompletată dacă nu sunteți sigur.
+          img_src: Img src
+          img_src_hint: |
+            Directiva "img-src" restricționează URL-urile care pot fi încărcate folosind elementele <img>, <image>, <picture> și <svg>.
+            Platforma va adăuga "self", dar vă permite să adăugați mai multe, lăsați-o necompletată dacă nu sunteți sigur.
+          media_src: Media src
+          media_src_hint: |
+            Directiva media-src restricționează URL-urile care pot fi încărcate folosind elementele <video>, <audio> și <source>.
+            Platforma va adăuga "self", dar vă permite să adăugați mai multe, lăsați-o necompletată dacă nu sunteți sigur.
+          script_src: Script src
+          script_src_hint: |
+            Directiva script-src restricționează URL-urile care pot fi încărcate folosind elementele <script>.
+            Platforma va adăuga 'self' 'unsafe-inline' 'nesigur'', dar vă permite să adăugați mai multe. Lăsați-l necompletat dacă nu sunteți sigur.
+          style_src: Style src
+          style_src_hint: |
+            Directiva privind style-src restricționează URL-urile care pot fi încărcate folosind elementele <style>.
+            Platforma va adăuga 'self' 'unsafe-inline'', dar vă permite să adăugați și mai multe. Lăsați necompletat dacă nu sunteți sigur.
         edit:
-          secondary_hosts_hint: Introduceți fiecare dintre ele într-o linie nouă
+          confirm_resend_invitation: Sunteți sigur că doriți retrimiteți invitația?
+          resend_invitation: Retrimiteți invitația
+          secondary_hosts_hint: Introduceți câte una pe linie
+          short_name_hint: Nume scurt folosit pentru Aplicația Web Progresiv. Trebuie să aibă maxim 12 caractere.
+          title: Modificați organizația
         file_upload_settings:
           content_types:
-            admin_hint: Aceste tipuri MIME sunt permise pentru secțiunea de administrare încărcare. Utilizatorii administratori ar trebui să fie conștienți de riscurile la încărcarea unor formate de document, astfel încât să vă puteți aștepta ca acestea să fie mai prudente cu încărcările de fișiere.
+            admin_hint: Aceste tipuri MIME sunt permise pentru încărcare în secțiunea de administrare. Utilizatorii administratori ar trebui să fie conștienți de riscurile încărcării unor formate de fișier, astfel încât să vă puteți aștepta ca aceștia să fie mai prudente cu încărcările de fișiere.
             default_hint: Aceste tipuri MIME sunt permise implicit pentru toți utilizatorii.
             intro_html: Adaugă metacaractere cu caracterul asterisc pentru tipurile MIME, ex. <code>image/*</code>.
             title: Tipuri MIME permise
           file_extensions:
-            admin_hint: Aceste extensii de fișiere sunt permise pentru secțiunea de administrare încărcare. Utilizatorii administratori ar trebui să fie conștienți de riscurile la încărcarea unor formate de document, astfel încât să vă puteți aștepta ca acestea să fie mai prudente cu încărcările de fișiere.
+            admin_hint: Aceste extensii de fișiere sunt permise pentru încărcare în secțiunea de administrare. Utilizatorii administratori ar trebui să fie conștienți de riscurile la încărcarea unor formate de fișier, astfel încât să vă puteți aștepta ca aceștia să fie mai prudenți cu încărcările de fișiere.
             default_hint: Aceste extensii de fișiere sunt permise implicit pentru toți utilizatorii.
             image_hint: Aceste extensii de fișiere sunt permise pentru orice fel de încărcare de imagini.
             title: Extensii de fișiere permise
@@ -148,44 +281,76 @@ ro:
             default_hint: Megabytes (MB). Această limită de dimensiune a fișierului este cea implicită utilizată pentru toate încărcările fișierelor, cu excepția cazului în care se specifică altfel.
             title: Mărimea maximă a fișierului
           intro: |
-            Te rugăm să fii extrem de prudent când iei în considerare schimbarea acestor setări. Cu cât permiți, cu atât mai bine.
-            Permițând anumite extensii de fișiere sau tipuri MIME poate expune utilizatorii de sistem la riscuri de securitate și poate afecta accesibilitatea site-ului.
+            Vă rugăm să fiți extrem de prudent când luați în considerare schimbarea acestor setări. Cu cât permiteți mai puțin, cu atât mai bine.
+            Permițând anumite extensii de fișiere sau tipuri MIME poate expune utilizatorii sistemului la riscuri de securitate și poate afecta accesibilitatea site-ului.
+        header_snippets_help_html: Folosiți acest câmp pentru a adăuga HTML, CSS, Javascript extra în secțiunea head. Cea mai comună utilizare este integrarea serviciilor terțe care necesită extra JavaScript sau CSS. De asemenea, o puteți folosi pentru a adăuga meta tag-uri suplimentare în HTML. Reţineţi că acest conținut va fi randat doar în paginile publice, nu în secţiunea de administrare. În cazul în care codul interacționează cu API externe sau nu respectă ghidul privind securitatea aplicației; Politica de securitate a conținutului va trebui modificată. Citește mai multe despre <a href="https://docs.decidim.org/en/develop/customize/content_security_policy">pe site-ul de documentației</a>.
         index:
           title: Organizații
         new:
+          default: Implicit?
+          enabled: Activat
+          locale: Setări regionale
+          organization_admin_email_hint: Vom trimite un e-mail la această adresă pentru a o putea confirma și a vă configura parola.
+          reference_prefix_hint: Prefixul de referință este folosit pentru a identifica în mod unic resursele din toate organizațiile.
+          secondary_hosts_hint: Introduceți câte una pe linie.
+          short_name_hint: Nume scurt folosit pentru Aplicația Web Progresiv. Trebuie să aibă maxim 12 caractere.
           title: Organizație nouă
         omniauth_settings:
           decidim:
             client_id: ID client
-            client_secret: Client secret
+            client_secret: Codul secret al clientului
             site_url: URL-ul site-ului
           enabled: Activat
           enabled_by_default: Acest furnizor este activat în mod implicit. Poate fi editat dar nu dezactivat.
           facebook:
             app_id: ID Aplicație
-            app_secret: Secret aplicație
+            app_secret: Codul secret al aplicației
           google_oauth2:
             client_id: ID client
-            client_secret: Client secret
+            client_secret: Codul secret al clientului
           icon: Iconiță
           icon_path: Calea pictogramei
           twitter:
             api_key: Cheie API
-            api_secret: API secret
+            api_secret: Codul secret pentru API
+        resend_invitation:
+          error: A apărut o eroare la trimiterea invitației.
+          success: Invitație trimisă cu succes.
         smtp_settings:
           fieldsets:
             sender: Expeditor
+          instructions:
+            from_label: 'Expeditorul de e-mail va fi: "numele-organizației-dvs <organizație@exemplu.org>". Lăsați necompletat pentru a utiliza același nume ca cel definit pentru organizație.'
           placeholder:
             from_email: organizație@exemplu.org
-            from_label: numele tău de organizatorie
+            from_label: numele-organizației-dvs
         update:
           error: A apărut o eroare la actualizarea acestei organizații.
           success: Organizația a fost actualizată.
         users_registration_mode:
           disabled: Accesul se poate face doar cu conturi externe
+          enabled: Permiteți participanților să creeze un cont și să se autentifice
+          existing: Nu permiteți participanților să creeze un cont, dar permiteți participanților existenți să se autentifice
       shared:
         notices:
-          no_organization_warning_html: Trebuie să creezi o organizație pentru a începe. Asigură-te că ai citit %{guide} înainte de a continua.
+          no_organization_warning_html: Trebuie să creați o organizație pentru a începe. Asigurați-vă că ați citit %{guide} înainte de a continua.
           our_getting_started_guide: ghidul nostru de început
+        organizations_list:
+          confirm_resend_invitation: Sunteți sigur că doriți retrimiteți invitația?
+          resend_invitation: Retrimiteți invitația
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Documentație Decidim
+          error: ActiveJob nu este configurat. Aceasta nu este o configurare recomandată pentru producție. Citiți mai multe la %{error_extra}.
+          success: ActiveJob este configurat corect.
+        secret_key:
+          error: 'Cheia secretă nu este definită corect. Vă rugăm să salvați în variabila de mediu SECRET_KEY_BASE și să reporniți serverul: %{error_extra}'
+          success: Cheia secretă este configurată corect.
       titles:
-        dashboard: Panou
+        dashboard: Panou de administrare
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Deconectare

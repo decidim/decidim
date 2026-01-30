@@ -422,7 +422,7 @@ eu:
             title: Izenburua
             up: Gora
           services:
-            add_service: Gehitu zerbitzua
+            add_service: Zerbitzua gehitu
             services: Zerbitzuak
           unpublish:
             invalid: Arazo bat egon da topaketa hau desargitaratzean.
@@ -782,7 +782,7 @@ eu:
         meetings:
           address: Topaketaren helbidea, baldin eta aurrez aurre badago eta kokapen fisikoa badu
           attachments: Topaketa honetako atxikipen kopurua
-          attendees: Zenbat jende bildu da topaketa honetan?
+          attendees: Bilera horretara joan den pertsona kopurua
           attending_organizations: Topaketan izan diren erakundeak
           audio_url: Topaketaren audiograbazioa
           author: Topaketa honen egilearen data
@@ -801,7 +801,7 @@ eu:
           follows_count: Topaketa honek duen jarraitzaile kopurua
           id: Topaketaren identifikatzaile bakarra
           iframe_access_level: Topaketaren sarrera maila
-          iframe_embed_type: Topaketan agertu zen "Iframe" mota
+          iframe_embed_type: Iframe mota bileran txertatuta
           latitude: Topaketaren latitudea
           location: Topaketaren kokapena
           location_hints: Kokapenaren xehetasuna, topaketa egin zen lekuaren barruan

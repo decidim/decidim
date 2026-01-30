@@ -7,14 +7,56 @@ pt-BR:
       questionnaire_question:
         mandatory: Obrigatório
         max_characters: Limite de caracteres (deixe para 0 se não houver limite)
+      response:
+        body: Resposta
+        choices: Escolhas
+        selected_choices: Escolhas selecionadas
+    errors:
+      models:
+        questionnaire:
+          request_invalid: Houve um problema ao lidar com a solicitação. Por favor, tente novamente.
+        response:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Precisa ser reanexado
+            body:
+              too_long: é muito longo
+            choices:
+              missing: não estão completos
+              too_many: Você pode escolher um máximo de %{count}.
   decidim:
+    download_your_data:
+      help:
+        responses:
+          id: O identificador único da resposta
+          question: A pergunta respondida
+          questionnaire: O formulário respondido
+          response: A resposta para a pergunta
+          user: O usuário que respondeu ao formulário
+      show:
+        responses: Exportação de respostas
+        survey_user_responses: Respostas do usuário da pesquisa
     forms:
       admin:
         models:
           components:
+            allow_editing_responses: Permitir que usuários registrados editem suas próprias respostas à pesquisa
+            allow_responses: Permitir respostas
+            allow_unregistered: Permitir que usuários não registrados respondam à pesquisa
+            allow_unregistered_help: Se ativo, nenhum login será necessário para responder à pesquisa. Isso pode levar a dados ruins ou não confiáveis e será mais vulnerável a ataques automatizados. Usar com cuidado! Lembre-se de que um usuário pode responder à mesma pesquisa várias vezes, usando diferentes navegadores ou a função "navegação privada" de seu navegador.
+            announcement: Anúncio
+            clean_after_publish: Excluir respostas ao publicar a pesquisa
             description: Descrição
+            ends_at: Respostas aceitas até
+            ends_at_help: Deixe em branco para nenhuma data específica
+            starts_at: Respostas aceitas de
+            starts_at_help: Deixe em branco para nenhuma data específica
             tos: Termos de serviço
         questionnaires:
+          actions:
+            back: Voltar para respostas
+            publish_responses: Publicar respostas
+            show: Respostas
           display_condition:
             condition_question: Questão
             condition_type: Condição
@@ -22,16 +64,26 @@ pt-BR:
               equal: Igual
               match: Incluir texto
               not_equal: Diferente
+              not_responded: Não respondeu
+              responded: Respondeu
             condition_value: Incluir texto
             display_condition: Exibir condição
             mandatory: Esta condição precisa ser sempre satisfeita independentemente do status de outras condições
             remove: Remover
+            response_option: Opção de resposta
             save_warning: Lembre-se de salvar o formulário antes de configurar condições de exibição
             select_condition_question: Selecione uma pergunta
             select_condition_type: Selecione um tipo de condição
+            select_response_option: Selecionar opção de resposta
           edit:
             save: Salvar
             title: Editar questionário
+          edit_questions:
+            add_question: Adicionar pergunta
+            add_separator: Adicionar separador
+            add_title_and_description: Adicionar título e descrição
+            save: Salvar
+            title: Perguntas
           form:
             add_question: Adicionar pergunta
             collapse: Recolher todas as questões
@@ -46,6 +98,7 @@ pt-BR:
             add_display_condition: Adicionar condição de exibição
             add_display_condition_info: Salve o formulário para configurar condições de exibição
             add_matrix_row: Adicionar linha
+            add_response_option: Adicionar opção de resposta
             any: Qualquer
             collapse: Recolher
             description: Descrição
@@ -53,9 +106,35 @@ pt-BR:
             question: Questão
             remove: Remover
             statement: Declaração
+          questions_form:
+            already_responded_warning: O formulário já foi respondido por alguns usuários então você não pode modificar suas perguntas.
+            collapse: Recolher todas as perguntas
+            expand: Expandir todas as perguntas
+            unpublished_warning: O formulário não foi publicado. Você pode modificar suas perguntas, mas ao fazê-lo apagará as respostas atuais.
+            update:
+              success: Perguntas da pesquisa salvas com sucesso.
+          response_option:
+            free_text: Texto livre
+            remove: Excluir
+            response_option: Opção de resposta
+            statement: Instrução
           responses:
             actions:
+              back: Voltar para respostas
+              export: Exportar
+              next: Próximo &rsaquo;
+              previous: "&lsaquo; Anterior"
               show: Mostrar respostas
+            empty: Ainda não há respostas
+            export:
+              response:
+                title: 'Resposta #%{number}'
+            export_response:
+              title: pesquisa_respostas_do_usuário_%{token}
+            index:
+              title: "Total de respostas de %{total}"
+            show:
+              title: 'Resposta #%{number}'
           separator:
             remove: Remover
             separator: Separador
@@ -70,8 +149,14 @@ pt-BR:
             invalid: Houve erros ao salvar o questionário.
             success: Formulário salvo com sucesso.
       admin_log:
+        question:
+          publish_responses: "%{user_name} publicou as respostas da pergunta %{resource_name} no espaço %{space_name}"
+          unpublish_responses: "%{user_name} não publicou as respostas da pergunta %{resource_name} no espaço %{space_name}"
         questionnaire:
           update: "%{user_name} atualizou o questionário %{resource_name}"
+      errors:
+        response:
+          body: Corpo não pode estar em branco
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -79,28 +164,67 @@ pt-BR:
           resize_to_fit: Esta imagem será redimensionada para caber %{dimensions}.
       question_types:
         files: Arquivos
+        long_response: Resposta longa
         matrix_multiple: Matriz (Múltipla opção)
         matrix_single: Matriz (opção única)
         multiple_option: Opção múltipla
+        short_response: Resposta curta
         single_option: Opção única
         sorting: Classificação
         title_and_description: Título e descrição
+      questionnaire_response_presenter:
+        download_attachment: Baixar anexo
       questionnaires:
         question:
           max_choices: 'Escolhas máximas: %{n}'
+        response:
+          invalid: Houve um problema ao responder o formulário.
+          max_choices_alert: Há muitas opções selecionadas
+          success: Formulário respondido com sucesso.
         show:
           current_step: Passo %{step}
+          empty: Nenhuma pergunta configurada para este formulário ainda.
           of_total_steps: de %{total_steps}
           questionnaire_closed:
+            body: O formulário está fechado e não pode ser respondido.
             title: Questionário fechado
+          questionnaire_for_members:
+            body: O formulário está disponível apenas para membros
+            title: Formulário fechado
           questionnaire_js_disabled:
             body: Algumas das funcionalidades deste formulário serão desativadas. Para melhorar sua experiência, por favor ative o JavaScript no seu navegador.
             title: JavaScript está desativado
           questionnaire_not_published:
             body: Este formulário ainda não foi publicado.
+          questionnaire_responded:
+            body: Você já respondeu a este formulário.
+            title: Já respondido
+          questionnaire_responded_edit:
+            body: Você já respondeu a este formulário. %{link}
+            edit: Edite suas respostas
+          response_questionnaire:
+            already_have_an_account?: Já tem uma conta?
+            are_you_new?: Usuário novo?
+            sign_in_description: Faça ‘login’ para participar da pesquisa
+            sign_up_description: Crie uma conta de participante para responder à pesquisa
+            title: Responda ao formulário
           tos_agreement: Ao participar você aceita seus Termos de Serviço
       step_navigation:
         show:
+          are_you_sure_edit_guest: Se você quiser poder editar suas respostas posteriormente, precisará fazer ‘login’ ou criar uma conta.
+          are_you_sure_no_edit: Esta ação não pode ser desfeita e você não poderá editar suas respostas. Tem certeza?
           back: Voltar
           continue: Continuar
+          disallowed: Você não tem permissão para editar suas respostas.
           submit: Enviar
+      user_responses_serializer:
+        body: Resposta
+        completion: Conclusão
+        created_at: Respondeu em
+        id: ID resposta
+        ip_hash: IP 'Hash'
+        question: Pergunta
+        registered: Registrado
+        session_token: Identificador do usuário
+        unregistered: Não registrado
+        user_status: '''Status'' do usuário'

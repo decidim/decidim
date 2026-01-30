@@ -142,9 +142,10 @@ fi-pl:
           new:
             create: Tuo ehdotuksia suunnitelmiin
             default_budget: Oletusbudjetti
-            import_all_accepted_proposals: Tuo kaikki hyväksytyt ehdotukset
             no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             origin_component_id: Lähdekomponentti
+            proposal_states: Ehdotusten tilat
+            proposal_states_help: Valitse yksi tai useampi ehdotusten tila, joiden perusteella ehdotuksia tuodaan projekteiksi. Mikäli et valitse yhtään tilaa, kaikki julkaistut ehdotukset tuodaan, jos niitä ei ole aikaisemmin tuotu tämän komponentin budjetteihin.
             select_component: Valitse komponentti
             title: Tuo ehdotuksia projekteiksi
         reminders:
