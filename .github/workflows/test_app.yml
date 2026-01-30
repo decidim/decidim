@@ -70,6 +70,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+      - run: |
+          sudo apt-get update && sudo apt-get install libvips libvips-tools
+        name: Install libvips
+        shell: "bash"
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
@@ -126,7 +130,7 @@ jobs:
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
-      - uses: qltysh/qlty-action/coverage@v1
+      - uses: qltysh/qlty-action/coverage@v2
         with:
           token: ${{secrets.QLTY_COVERAGE_TOKEN}}
           files: coverage/coverage.xml

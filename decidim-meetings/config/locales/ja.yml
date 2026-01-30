@@ -793,7 +793,7 @@ ja:
           follows_count: ミーティングのフォロー数
           id: ミーティングの固有ID
           iframe_access_level: ミーティングのiframeアクセスレベル
-          iframe_embed_type: ミーティングに埋め込まれた iframe のタイプ
+          iframe_embed_type: ミーティングに埋め込まれたiframeの種類
           latitude: ミーティングの緯度
           location: ミーティングの場所
           location_hints: ミーティングが行われている場所のヒント

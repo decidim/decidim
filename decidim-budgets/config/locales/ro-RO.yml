@@ -77,6 +77,8 @@ ro:
           new:
             create: Importă propuneri în proiecte
             no_components: Nu există alte componente de propuneri în acest spațiu participativ pentru a importa propunerile în proiecte.
+            proposal_states: Stări ale propunerii
+            proposal_states_help: Selectați una sau mai multe stări de propunere pentru a importa în proiecte. Prin neselectarea vreuneia, veți importa toate propunerile publicate care nu au fost deja importate în alte bugete din această componentă.
             select_component: Te rugăm selectează o componentă
       admin_log:
         budget:

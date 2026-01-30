@@ -146,6 +146,9 @@ sv:
             nickname: Användarnamn
             postal_code: Postnummer
             timestamp: Tidsstämpel
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Alla initiativ
       titles:
         initiatives: Initiativ
         initiatives_types: Typer av initiativ
@@ -269,7 +272,7 @@ sv:
           edit:
             update: Uppdatera
           form:
-            comments: Mest kommenterade
+            comments: Flest kommentarer
             date: Senaste
             publication_date: Senast publicerade
             random: Slumpvis
@@ -452,7 +455,7 @@ sv:
           no_initiatives_warning: Inga initiativ matchar dina sökkriterier.
         orders:
           label: 'Sortera initiativ efter:'
-          most_commented: Mest kommenterade
+          most_commented: Flest kommentarer
           most_voted: Flest underskrifter
           random: Slumpvis
           recent: Senaste

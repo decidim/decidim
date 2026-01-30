@@ -21,9 +21,9 @@ eu:
             guided: Input gidatua
             guided_help: Laguntza-testua
             guided_readonly: Input desgaitua
-            guided_rich: Input gidatu aberastua
-            guided_rich_help_html: HTML<strong>ayuda</strong> testua
-            guided_rich_readonly_html: HTML<strong>laguntza</strong>testua input desgaiturako
+            guided_rich: Sarrera aberats gidatua
+            guided_rich_help_html: HTML<strong>laguntza </strong> testua
+            guided_rich_readonly_html: HTML <strong>laguntza</strong> desaktibatutako testua sartzeko
             readonly_attribute: Soilik irakurtzeko atributua
             test: Proba bat
             test_add: Testa erantsi
@@ -46,12 +46,12 @@ eu:
     dummy:
       admin:
         exports:
-          dummies: Probak
+          dummies: Alegiazko parte-hartzaileak
     gamification:
       badges:
         test:
           conditions:
-            - Erabili probako ingurunea erabakitzeko.
+            - Erabili probako ingurune bat Decidim-erako.
           description: Parte-hartzaileek garaikur hau lortzen dute probak sortzeagatik.
           description_another: Parte-hartzaile honek %{score} proba egin ditu.
           description_own: '%{score} proba sortu dituzu.'
@@ -64,6 +64,6 @@ eu:
         dummy_resource_dummy: ' Honekin lotutako proba'
     statistics:
       bar: Bar
-      dummies_count_high: Dummies altua
-      dummies_count_medium: Dummies ertainak
+      dummies_count_high: Alegiazko parte-hartzaileen gehieneko kopurua
+      dummies_count_medium: Alegiazko parte-hartzaileen batez bestekoa
       foo: Foo

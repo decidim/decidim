@@ -28,7 +28,6 @@ en:
       initiatives_type:
         area_enabled: Enable authors to choose the area for their initiative
         attachments_enabled: Enable attachments
-        banner_image: Banner image
         child_scope_threshold_enabled: Enable child scope signatures
         collect_user_extra_fields: Collect participant personal data on signature
         comments_enabled: Enable comments

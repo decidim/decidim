@@ -210,6 +210,7 @@ describe "Amend Proposal", versioning: true do
             expect(page).to have_content("Log in")
             switch_to_host(component.organization.host)
             login_as user, scope: :user
+            sleep 1
             visit proposal_path
             expect(page).to have_content(proposal_title)
             find("#dropdown-trigger-resource-#{proposal.id}").click

@@ -260,9 +260,9 @@ eu:
             confirm: Ziur zaude?
             confirm_send_to_technical_validation: Ziur zaude?
             discard: Ekimena baztertu
-            export_pdf_signatures: Esportatu sinaduren PDF
+            export_pdf_signatures: Esportatu sinaduren PDF fitxetagia
             export_votes: Esportatu sinadurak
-            reject: Ukatu ekimena
+            reject: Ekimena ukatu
             send_to_technical_validation: Baliozkotze teknikorako bidali
             success: Ekimena baliozkotze teknikora bidali da.
             update: Eguneratu
@@ -385,7 +385,7 @@ eu:
         fill_data:
           confirm_discard: Ziur zaude ekimen hau baztertu nahi duzula?
           continue: Jarraitu
-          discard: Kendu ekimena
+          discard: Ekimena kendu
           fill_data_help: "<ul> <li>Berrikusi zure ekimenaren edukia. Zure izenburua ulertzen erraza da? Zure ekimenaren helburua argi dago?</li> <li>Sinadura mota aukeratu behar duzu.</li> <li>aurrez aurre, linean edo biak konbinatuta. Zein da ekimenaren eremu geografikoa? </li> </ul>"
           more_information: Informazio gehiago
           select_area: Hautatu arlo bat
@@ -393,7 +393,7 @@ eu:
         finish:
           back: Atzera
           callout_text_created: Zorionak! Zure ekimena zuzen sortu da.
-          callout_text_validating: Zure ekimena zuzen bidali da balidazio teknikora.
+          callout_text_validating: Zure ekimena balidazio teknikora zuzen bidali da.
           go_to_initiatives: Ekimenetara joan
           publish_helper_text_html: "Gogoan izan zure ekimena argitaratzeko teknikoki baliozkotu behar dela, administratzaile batek berrikus dezan.\n"
         previous_form:
@@ -409,7 +409,7 @@ eu:
         select_initiative_type:
           back: Back
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
-          consult_existing_initiatives: Kontsultatu lehendik dauden ekimenak
+          consult_existing_initiatives: Lehendik dauden ekimenak konsultatu
           continue: Jarraitu
           more_information: Informazio gehiago
           new: Beste ekimen bat sortu
@@ -433,7 +433,7 @@ eu:
         discard: Kendu ekimena
         export_pdf_signatures: Sinadurak PDF batera esportatu
         export_votes: Sinadurak esportatu
-        reject: Ukatu ekimena
+        reject: Ekimena ukatu
         title: Ekimena editatu
         update: Eguneratu
       events:
@@ -458,10 +458,10 @@ eu:
           email_subject: "%{applicant_nickname} k zure ekimenarekin bat egin nahi du"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> k eskatu du <a href="%{resource_url}">%{resource_title}</a> zure ekimenaren batzorde bultzatzailearekin bat egitea. Eskaera onartzeko edo ukatzeko, egin klik hemen <a href="%{resource_url}/edit">aquí</a>.
       form:
-        add_attachments: Gehitu eranskinak
+        add_attachments: Eranskinak gehitu
         add_image: Irudia gehitu
-        attachment_legend: Gehitu dokumentu bat edo irudi bat
-        edit_attachments: Editatu eranskinak
+        attachment_legend: Dokumentu bat edo irudi bat gehitu
+        edit_attachments: Eranskinak editatu
         edit_image: Editatu irudia
         image_legend: "(Aukerakoa) Gehitu irudi bat"
       index:
@@ -686,10 +686,10 @@ eu:
       initiative:
         actions:
           comment: Iruzkindu
-          vote_comment: Bozkatu iruzkina
+          vote_comment: Iruzkina bozkatu
       initiatives_type:
         actions:
-          create: Sortu ekimen bat
+          create: Ekimen bat sortu
           title: Ekintzak
     statistics:
       initiatives_count: Ekimenak
@@ -703,7 +703,7 @@ eu:
         select_initiative_type: Aukeratu
       initiative_signature_creation_header:
         help_information_html: '%{iniciative_autor}-k sustatzen duen %<strong>{iniciative_title}</strong> ekimena sinatzeko, beharrezkoa da informazio jakin bat ematea, sinatzen duen ekimena legez loteslea izan dadin. Ez da zuri buruzko informaziorik argitaratuko.'
-        verify_your_identity: Egiaztatu zure nortasuna
+        verify_your_identity: Zure nortasuna egiaztatu
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Ez dago ekimenik oraindik!

@@ -16,13 +16,6 @@ Decidim.register_component(:surveys) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Forms::Response"]
 
-  component.on(:before_destroy) do |instance|
-    survey = Decidim::Surveys::Survey.find_by(decidim_component_id: instance.id)
-    survey_responses_for_component = Decidim::Forms::Response.where(questionnaire: survey.questionnaire)
-
-    raise "Cannot destroy this component when there are survey responses" if survey_responses_for_component.any?
-  end
-
   component.register_resource(:survey) do |resource|
     resource.model_class_name = "Decidim::Surveys::Survey"
     resource.card = "decidim/surveys/survey"

@@ -13,14 +13,7 @@ module Decidim
             label: "Processes",
             url: "/processes",
             active: true
-          },
-          {
-            label: { ca: "Hola mon", es: "Hola mundo", en: "Hello world" },
-            url: "/processes/hello-world",
-            dropdown_cell: "decidim/participatory_processes/process_dropdown_metadata",
-            resource: participatory_process
           }
-
         ]
       end
 

@@ -14,6 +14,7 @@ ca-IT:
         duplicate_landing_page_blocks: Duplicar els blocs de contingut de la pàgina d'inici
         duplicate_steps: Duplicar les fases
         end_date: Data de finalització
+        has_members: Aquest espai de participació té membres
         hero_image: Imatge de portada
         import_attachments: Importar arxius adjunts
         import_categories: Importar categories
@@ -508,9 +509,11 @@ ca-IT:
             announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació del procés.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
+            has_members_help: Podràs crear i publicar membres
             images: Imatges
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
+            private_notice: Fa que l'espai de participació no sigui visible per a les visitants i només ho sigui per a les usuàries membre (a no ser que també sigui transparent)
             related_processes: Processos relacionats
             select_process_group: Selecciona un grup de processos
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'

@@ -721,7 +721,7 @@ eu:
         accepted: Onartuta
         evaluating: Ebaluatzen
         not_answered: Erantzun gabe
-        rejected: Ukatua
+        rejected: Bazteruta
         withdrawn: Kendu
       application_helper:
         filter_origin_values:
