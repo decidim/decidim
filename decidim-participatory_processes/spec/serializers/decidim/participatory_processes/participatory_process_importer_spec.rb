@@ -141,8 +141,8 @@ module Decidim::ParticipatoryProcesses
             super().merge("access_mode" => nil, "private_space" => true, "is_transparent" => true)
           end
 
-          it "prioritizes private_space to restricted" do
-            expect(subject.access_mode).to eq("restricted")
+          it "prioritizes access_mode to transparent" do
+            expect(subject.access_mode).to eq("transparent")
           end
         end
 

@@ -165,8 +165,8 @@ module Decidim
       def resolve_access_mode(attributes)
         return attributes["access_mode"] if attributes["access_mode"].present?
 
-        return "restricted" if attributes["private_space"] == true
         return "transparent" if attributes["is_transparent"] == true
+        return "restricted" if attributes["private_space"] == true
 
         "open"
       end

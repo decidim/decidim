@@ -78,7 +78,7 @@ shared_examples "access mode restricted participatory spaces" do
       it "shows the privacy warning in attachments admin" do
         visit restricted_participatory_space_attachment_path
         within "#attachments" do
-          expect(page).to have_content("Any participant could share this document to others")
+          expect(page).to have_content(I18n.t("decidim.admin.attachments.attachments_privacy_warning.message"))
         end
       end
     end

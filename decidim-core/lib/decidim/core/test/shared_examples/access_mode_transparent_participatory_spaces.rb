@@ -15,7 +15,7 @@ shared_examples "access mode transparent participatory spaces" do
 
     it "lists all the spaces" do
       within css_class_selector do
-        within "#{css_class_selector} h2" do
+        within "h2" do
           expect(page).to have_content("2")
         end
 
@@ -42,9 +42,9 @@ shared_examples "access mode transparent participatory spaces" do
         visit participatory_space_index_path
       end
 
-      it "lists all the assemblies" do
+      it "lists all the spaces" do
         within css_class_selector do
-          within "#{css_class_selector} h2" do
+          within "h2" do
             expect(page).to have_content("2")
           end
 

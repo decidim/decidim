@@ -8,7 +8,7 @@ module Decidim
 
         def perform(decidim_user_id, space)
           return unless space.respond_to?(:restricted?) && space.restricted?
-          return if space.respond_to?(:transparent) && space.transparent?
+          return if space.respond_to?(:transparent?) && space.transparent?
 
           user = Decidim::User.find_by(id: decidim_user_id)
 
