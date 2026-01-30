@@ -6,6 +6,11 @@ fr-CA:
       token_csv:
         file: Fichier
         remove_all: Supprimer toutes les données de recensement actuelles
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Élection
+        other: Élections
   decidim:
     admin:
       menu:
