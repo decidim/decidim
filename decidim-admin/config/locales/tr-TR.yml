@@ -387,6 +387,7 @@ tr:
             'false': 'Hayır'
             'true': 'Evet'
         last_sign_in_at_present:
+          label: Daha önce giriş yaptınız mı
           values:
             'false': 'Hayır'
             'true': 'Evet'
@@ -530,6 +531,11 @@ tr:
             explanation: Yönetilen kullanıcılar standart kullanıcılara yükseltilebilir. Bu, uygulamaya davet edilecekleri anlamına gelir ve onları tekrar taklit edemezsiniz. Davet edilen kullanıcı davetinizi kabul etmek için bir e-posta alacak.
             new_managed_user_promotion: Yeni yönetilen kullanıcı tanıtımı
             promote: Desteklemek
+      members:
+        create:
+          error: Bu katılımcı alan için bir üye eklenirken hata oluştu.
+        update:
+          error: Bu katılımcı alan için bir üyeyi güncellerken bir hata oluştu.
       members_csv_imports:
         new:
           csv_upload:
@@ -873,6 +879,7 @@ tr:
         form:
           automatic: Otomatik
           custom: Özel
+          custom_token: Kelimeyi özelleştir
           expires_at: Son Geçerlilik Tarihi
           'false': 'Hayır'
           never_expire: Asla
@@ -917,10 +924,12 @@ tr:
         destroy:
           success: Sayfa başarıyla yok edildi
         edit:
+          last_notable_change: 'Son önemli değişiklik: %{tos_version_formatted}'
           title: Sayfayı düzenle
           update: Güncelleştirme
         form:
           none: Yok
+          slug_help_html: 'Burada tam bağlantıları değil, kısmi yolları kullanınız. Harfleri, sayıları, kesik çizgileri, taksimleri kabul eder ve bir harf ile başlamak zorundadır. Örnek: %{url}'
         index:
           last_notable_change: Son önemli değişiklik
         new:
@@ -967,10 +976,14 @@ tr:
         participants: Kullanıcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
+        taxonomy_filters: '"%{taxonomy} için kategori filtreleri'
       tooltips:
         cannot_edit_taxonomy_filter: Bu kategori filtresi düzenlenemiyor
         deleted_attachment_collections_info: Bu klasör ek dosyalar içerdiğinden silinemiyor.
         deleted_component_info: Bu bileşen sadece durumu 'Yayınlanmamış' ise silinebilir.
+      trash_management:
+        restore:
+          invalid: '%{resource_name} geri yüklenirken bir hata oluştu.'
       users:
         create:
           error: Bu kullanıcıyı davet ederken bir hata oluştu.
@@ -993,6 +1006,10 @@ tr:
           last_week: Geçen hafta
           no_users_count_statistics_yet: Henüz katılımcı sayısı istatistiği yok.
           participants: Katılımcılar
+    forms:
+      errors:
+        impersonate_user:
+          reason: Yönetilmeyen bir katılımcıyla ilgili bir işlem yaparken gerekçe belirtilmesi zorunludur.
     moderations:
       actions:
         expand: Genişlet
@@ -1002,6 +1019,17 @@ tr:
         title: Eylemler
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Bazı kaynakları gizlerken bir hata oluştu: %{errored}'
+              invalid: Kolaylaştırıcı seçilmedi.
+              success: Kaynaklar başarıyla gizlendi.
+            ignore:
+              invalid: Kullanıcı kolaylaştırıcısı seçilmedi.
+              success: Katılımcıların bildirilmesi başarıyla kaldırıldı.
+            unreport:
+              failed: 'Bazı kaynakların bildirilmesini kaldırırken bir hata oluştu: %{errored}'
+              success: Kaynakların engellenmesi başarıyla kaldırıldı.
           hide:
             invalid: Kaynağı gizleyen bir sorun oluştu.
             success: Kaynak başarıyla gizlendi.
@@ -1016,6 +1044,7 @@ tr:
           fields:
             hidden_at: Gizli
             participatory_space: Katılımcı alanı
+            report_count: Bildirilme sayısı
             reportable_type: Türü
             reported_content_url: Raporlanan içerik URL'si
             visit_url: URL'yi ziyaret et

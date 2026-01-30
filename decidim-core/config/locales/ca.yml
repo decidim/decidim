@@ -179,7 +179,6 @@ ca:
       front_page_link: Anar a la pàgina principal
       logo: "Logo oficial de %{organization}"
       opens_in_new_tab: Obrir en una pestanya nova
-      secondary_menu: Menú secundari
       skip_button: Vés al contingut principal
     account:
       blocked: Aquest compte ha estat bloquejat degut a una violació dels termes i condicions d'ús
@@ -769,6 +768,7 @@ ca:
         participatory_space_members:
           created_at: La data i l'hora en què es va crear aquesta membre
           id: L'identificador únic d'aquesta membre
+          participatory_space: A quin espai de participació pertany aquesta membre
           published: Si aquesta membre està publicada o no
           role: El rol que té aquesta membre
           updated_at: La data de la darrera actualització d'aquesta membre

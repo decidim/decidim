@@ -142,7 +142,6 @@ de:
           new:
             create: Importieren Sie Vorschläge in Projekte
             default_budget: Standardbudget
-            import_all_accepted_proposals: Alle akzeptierten Vorschläge importieren
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             origin_component_id: Ursprungskomponente
             select_component: Bitte wählen Sie eine Komponente aus
@@ -326,7 +325,7 @@ de:
       prompt: Budget auswählen
       vote_reminder_mailer:
         vote_reminder:
-          email_budgets: 'Bereiche, in denen Sie eine unvollendete Abstimmung haben:'
+          email_budgets: 'In diesen Bereichen haben Sie die Abstimmung noch nicht abgeschlossen:'
           email_intro: Sie haben Ihre begonnene Abstimmung zur Verteilung des partizipativen Budgets noch nicht abgeschlossen.
           email_link: Mit der Abstimmung fortfahren
           email_outro: Denken Sie daran, die Abstimmung vollständig abzuschließen. Wählen Sie dazu den gewünschten Vorschlag oder die gewünschten Vorschläge aus, denen Sie Ihre Stimme geben möchten. Bestätigen Sie anschliessend Ihre Auswahl, indem Sie auf "Abstimmen" klicken.

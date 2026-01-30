@@ -179,7 +179,6 @@ es-MX:
       front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
       opens_in_new_tab: Abrir en una pestaña nueva
-      secondary_menu: Menú secundario
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
@@ -772,6 +771,7 @@ es-MX:
         participatory_space_members:
           created_at: La fecha y hora en que se creó esta miembro
           id: El identificador único de esta miembro
+          participatory_space: A qué espacio de participación pertenece esta miembro
           published: Si esta miembro está publicada o no
           role: El rol tiene que esta miembro
           updated_at: La fecha de la última actualización de esta miembro

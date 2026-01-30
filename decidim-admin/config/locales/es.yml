@@ -584,6 +584,7 @@ es:
           error: Se ha producido un error al eliminar a una participante privada para este espacio de participación.
           success: Acceso como miembro eliminado correctamente.
         edit:
+          title: Editar miembro
           update: Actualizar
         index:
           import_via_csv: Importar vía csv
@@ -592,6 +593,7 @@ es:
           unpublish_all: Despublicar todas
         new:
           create: Crear
+          title: Nueva miembro
         publish_all:
           error: Se ha producido un error al publicar todas las miembros de este espacio de participación.
           success: Se han publicado correctamente todas las miembros de este espacio de participación

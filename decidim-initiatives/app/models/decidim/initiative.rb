@@ -184,14 +184,6 @@ module Decidim
       [:with_any_state, :with_any_type, :with_any_scope, :with_any_area]
     end
 
-    # Public: Overrides participatory space's banner image with the banner image defined
-    # for the initiative type.
-    #
-    # Returns Decidim::BannerImageUploader
-    def banner_image
-      type.attached_uploader(:banner_image)
-    end
-
     # Public: Whether the object's comments are visible or not.
     def commentable?
       type.comments_enabled?
