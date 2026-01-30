@@ -1,4 +1,8 @@
 zh-CN:
+  activerecord:
+    models:
+      decidim/elections/election:
+        other: 选举
   decidim:
     admin:
       menu:
