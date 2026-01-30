@@ -16,8 +16,8 @@ module Decidim
       end
 
       initializer "decidim_collaborative_texts.register_icons" do
-        Decidim.icons.register(name: "Decidim::CollaborativeTexts::CollaborativeText", icon: "draft-line", description: "Collaborative texts", category: "activity",
-                               engine: :CollaborativeTexts)
+        Decidim.icons.register(name: "Decidim::CollaborativeTexts::Document", icon: "draft-line", description: "Collaborative texts", category: "activity",
+                               engine: :collaborative_texts)
       end
 
       initializer "decidim_collaborative_texts.data_migrate", after: "decidim_core.data_migrate" do
