@@ -6,6 +6,11 @@ es:
       token_csv:
         file: Archivo
         remove_all: Eliminar todos los datos del censo actual
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Votación
+        other: Votaciones
   decidim:
     admin:
       menu:
