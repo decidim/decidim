@@ -1,4 +1,10 @@
 lv:
+  activerecord:
+    models:
+      decidim/elections/election:
+        zero: Vēlēšanas
+        one: Vēlēšanas
+        other: Vēlēšanas
   decidim:
     admin:
       menu:
