@@ -27,7 +27,7 @@ shared_examples "access mode restricted participatory spaces" do
     end
   end
 
-  context "when user is logged in and is not an participatory space member" do
+  context "when user is logged in and is not a participatory space member" do
     context "when the user is not admin" do
       before do
         switch_to_host(organization.host)
@@ -78,7 +78,7 @@ shared_examples "access mode restricted participatory spaces" do
       it "shows the privacy warning in attachments admin" do
         visit restricted_participatory_space_attachment_path
         within "#attachments" do
-          expect(page).to have_content(I18n.t("decidim.admin.attachments.attachments_privacy_warning.message"))
+          expect(page).to have_content(I18n.t("decidim.admin.attachments_privacy_warning.message"))
         end
       end
     end

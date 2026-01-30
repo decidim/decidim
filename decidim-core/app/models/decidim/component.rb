@@ -105,7 +105,6 @@ module Decidim
       return false unless participatory_space.published?
 
       return true unless participatory_space.respond_to?(:restricted?) && participatory_space.restricted?
-      return true unless participatory_space.respond_to?(:transparent?) && participatory_space.transparent?
       return false unless user
 
       participatory_space.can_participate?(user)
