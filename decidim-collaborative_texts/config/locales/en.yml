@@ -18,7 +18,7 @@ en:
           version_number: Version number
   activerecord:
     models:
-      decidim/collaborative_texts/collaborative_text:
+      decidim/collaborative_texts/document:
         one: Collaborative text
         other: Collaborative texts
   decidim:
