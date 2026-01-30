@@ -6,6 +6,10 @@ ja:
       token_csv:
         file: ファイル
         remove_all: 現在のセンサスデータをすべて削除する
+  activerecord:
+    models:
+      decidim/elections/election:
+        other: 選挙
   decidim:
     admin:
       menu:
