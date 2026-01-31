@@ -10,7 +10,6 @@ is-IS:
       initiatives_committee_member:
         user: Nefndarmaður
       initiatives_type:
-        banner_image: Banner image
         description: Lýsing
         title: Titill
       organization_data:
