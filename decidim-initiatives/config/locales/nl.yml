@@ -19,7 +19,6 @@ nl:
       initiatives_type:
         area_enabled: Sta auteurs toe het gebied te kiezen voor hun initiatief
         attachments_enabled: Bijlagen inschakelen
-        banner_image: Banner afbeelding
         collect_user_extra_fields: Persoonlijke gebruikersgegevens verzamelen bij ondertekening
         custom_signature_end_date_enabled: Sta auteurs toe het einde van de handtekeningperiode te kiezen
         description: Beschrijving
