@@ -202,7 +202,7 @@ describe Decidim::ActionLog do
 
     context "when the user cannot participate" do
       before do
-        action_log.participatory_space.private_space = true
+        action_log.participatory_space.access_mode = :restricted
         action_log.participatory_space.save!
         expect(user).to receive(:id)
       end
