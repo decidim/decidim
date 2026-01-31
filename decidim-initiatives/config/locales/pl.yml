@@ -27,7 +27,6 @@ pl:
       initiatives_type:
         area_enabled: Pozwól autorom na wybór kategorii dla ich inicjatyw
         attachments_enabled: Pozwól na załączniki
-        banner_image: Baner
         child_scope_threshold_enabled: Włącz podpisy dla elementów podrzędnych
         collect_user_extra_fields: Zbierz dane osobowe użytkowników przy zbiórce podpisów
         comments_enabled: Włącz komentarze
