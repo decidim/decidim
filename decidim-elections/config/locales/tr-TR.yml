@@ -1,5 +1,10 @@
 ---
 tr:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Seçim
+        other: Seçimler
   decidim:
     admin:
       menu:
