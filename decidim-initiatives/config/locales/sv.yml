@@ -27,7 +27,6 @@ sv:
       initiatives_type:
         area_enabled: Gör det möjligt för författarna att välja område för sina initiativ
         attachments_enabled: Aktivera bilagor
-        banner_image: Bannerbild
         child_scope_threshold_enabled: Aktivera underskrifter för underliggande indelningar
         collect_user_extra_fields: Samla in deltagarens personuppgifter vid underskrift
         comments_enabled: Aktivera kommentarer
