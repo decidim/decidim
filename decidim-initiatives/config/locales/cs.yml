@@ -27,7 +27,6 @@ cs:
       initiatives_type:
         area_enabled: Povolit autorům vybrat tematickou oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
-        banner_image: Obrázek banneru
         child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
         collect_user_extra_fields: Shromažďovat osobní údaje účastníků při podpisu
         comments_enabled: Povolit komentáře
