@@ -27,7 +27,6 @@ ja:
       initiatives_type:
         area_enabled: 作成者がイニシアチブの領域を選択できるようにする
         attachments_enabled: 添付ファイルを有効化
-        banner_image: バナー画像
         child_scope_threshold_enabled: 下層スコープの署名を有効にする
         collect_user_extra_fields: 署名に参加者の個人データを収集する
         comments_enabled: コメントを有効にする
