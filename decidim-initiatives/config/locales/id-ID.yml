@@ -17,7 +17,6 @@ id:
       initiatives_committee_member:
         user: anggota Komite
       initiatives_type:
-        banner_image: Gambar spanduk
         collect_user_extra_fields: Kumpulkan data pribadi pengguna pada tanda tangan
         description: Deskripsi
         extra_fields_legal_information: Informasi hukum tentang pengumpulan data pribadi
