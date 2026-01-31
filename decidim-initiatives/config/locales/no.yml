@@ -20,7 +20,6 @@
       initiatives_type:
         area_enabled: Muliggjør at forfattere velger område for sitt initiativ
         attachments_enabled: Aktiver vedlegg
-        banner_image: Bannerafbeelding
         child_scope_threshold_enabled: Aktiver signaturer for barnetema
         collect_user_extra_fields: Samle deltakerens personlige data ved signatur
         custom_signature_end_date_enabled: Muliggjør at forfattere kan velge slutten av signaturinnsamlingsperioden
