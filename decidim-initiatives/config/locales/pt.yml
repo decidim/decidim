@@ -20,7 +20,6 @@ pt:
       initiatives_type:
         area_enabled: Permitir que os autores escolham a área da sua iniciativa
         attachments_enabled: Permitir anexos
-        banner_image: Imagem da faixa
         child_scope_threshold_enabled: Activar âmbito descendente de assinaturas
         collect_user_extra_fields: Coletar dados pessoais do participante na assinatura
         custom_signature_end_date_enabled: Permitir que os autores escolham o fim do período de recolha de assinaturas
