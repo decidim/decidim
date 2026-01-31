@@ -20,7 +20,9 @@ export default class extends Controller {
 
     this.menuButton.addEventListener("click", this.handleButtonClick)
     document.addEventListener("keydown", this.handleKeydown)
-    this.closeButton.addEventListener("click", this.handleDocumentClick)
+    if (this.closeButton) {
+      this.closeButton.addEventListener("click", this.handleDocumentClick)
+    }
   }
 
   disconnect() {
@@ -30,11 +32,13 @@ export default class extends Controller {
 
     this.menuButton.removeEventListener("click", this.handleButtonClick)
     document.removeEventListener("keydown", this.handleKeydown)
-    this.closeButton.removeEventListener("click", this.handleDocumentClick)
+    if (this.closeButton) {
+      this.closeButton.removeEventListener("click", this.handleDocumentClick)
+    }
   }
 
   handleButtonClick() {
-    if (this.isHidden()) {
+    if (!this.isHidden()) {
       return;
     }
 

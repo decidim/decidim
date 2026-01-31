@@ -2,10 +2,21 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    const dropdownMobileDiv = document.querySelector("#dropdown-menu-account-mobile");
+    this.dropdownMobileDiv = document.querySelector("#dropdown-menu-account-mobile");
 
-    this.element.addEventListener("click", () => {
-      dropdownMobileDiv.setAttribute("aria-modal", "true")
-    })
+    this.handleClick = this.handleClick.bind(this);
+    this.element.addEventListener("click", this.handleClick);
   }
+
+  disconnect() {
+    this.element.removeEventListener("click", this.handleClick)
+  }
+
+  handleClick() {
+    if (!this.dropdownMobileDiv) {
+      return;
+    }
+    this.dropdownMobileDiv.setAttribute("aria-modal", "true")
+  }
+
 }
