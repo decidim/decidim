@@ -4,7 +4,7 @@
 <% breadcrumb_items.each_with_index do |item, i| %>
   <% next if item.blank? %>
 
-  <% item_label = translated_attribute(item[:label]) %>
+  <% item_label = decidim_sanitize_admin(translated_attribute(item[:label]), { strip_tags: true }) %>
   <span aria-hidden="true"><%= icon "arrow-right-s-line" %></span>
   <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class: "menu-bar__breadcrumb-desktop__dropdown-wrapper menu-bar__breadcrumb-desktop__dropdown-trigger", "aria-current": (item[:active] ? "page" : nil)) do %>
     <%# This block is executed if the condition is false %>
