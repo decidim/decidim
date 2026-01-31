@@ -4,6 +4,13 @@ cs:
     attributes:
       token_csv:
         file: Soubor
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Volby
+        few: Voleb
+        many: Voleb
+        other: Volby
   decidim:
     admin:
       menu:
