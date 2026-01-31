@@ -27,7 +27,6 @@ eu:
       initiatives_type:
         area_enabled: Gaitu egileak beren ekimenerako arloa aukeratzeko
         attachments_enabled: Gaitu eranskinak
-        banner_image: Banner irudia
         child_scope_threshold_enabled: Gaitu sinadurak eremuaren arabera
         collect_user_extra_fields: Bildu parte-hartzailearen datu pertsonalak sinaduraz
         comments_enabled: Gaitu iruzkinak
