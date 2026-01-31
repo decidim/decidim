@@ -933,7 +933,7 @@ sv:
             description: Du kan skapa upp till %{limit} förslag.
           success: Din röst har tagits emot
           threshold_per_proposal:
-            description: Förslag behöver få minst %{limit} röster för accepteras.
+            description: Förslag behöver få minst %{limit} röster för att gå vidare.
           title: Regler för omröstning
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
