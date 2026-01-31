@@ -27,7 +27,6 @@ fr-CA:
       initiatives_type:
         area_enabled: Permettre aux auteurs de choisir la zone pour leur initiative
         attachments_enabled: Autoriser les pièces jointes
-        banner_image: Image d'en-tête
         child_scope_threshold_enabled: Activer les signatures de portée enfant
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         comments_enabled: Activer les commentaires
