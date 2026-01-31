@@ -1,5 +1,10 @@
 ---
 el:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Εκλογή
+        other: Εκλογές
   decidim:
     admin:
       menu:
