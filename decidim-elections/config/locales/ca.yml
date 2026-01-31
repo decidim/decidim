@@ -5,6 +5,11 @@ ca:
       token_csv:
         file: Arxiu
         remove_all: Eliminar totes les dades del cens actual
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Votació
+        other: Votacions
   decidim:
     admin:
       menu:
