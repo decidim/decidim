@@ -5,6 +5,11 @@ sv:
       token_csv:
         file: Fil
         remove_all: Ta bort all aktuell folkräkningsdata
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Val
+        other: Val
   decidim:
     admin:
       menu:
