@@ -1,1 +1,158 @@
+---
 pt-BR:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Corpo
+          draft: Rascunho
+          title: Título
+          version_number: Número da versão
+        suggestion:
+          nodes: DOM nodes
+          original: Texto original
+          replace: Substituição
+        version:
+          body: Corpo
+          draft: Rascunho
+          version_number: Número da versão
+  decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Não é possível excluir este documento
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Tem certeza de que deseja excluir este documento?
+        deleted_document_info: Documento excluído pode ser restaurado da lixeira.
+        edit: Editar
+        manage: Configurar
+        new: Novo texto
+        title: Ações
+        view_deleted_documents: Visualizar documentos excluídos
+      admin:
+        documents:
+          create:
+            invalid: Houve um problema ao criar o documento.
+            success: Documento criado com sucesso.
+          draft_options:
+            accepting_suggestions: Habilitar sugestões na próxima versão
+            accepting_suggestions_help: Habilitar as sugestões iniciarão uma nova rodada de sugestões para este documento. As sugestões atuais não ficarão visíveis na nova versão.
+            draft: Versão do rascunho
+            draft_help_html: Uma versão rascunho não é pública e pode ser editada pelos administradores. Remova o status de rascunho para tornar este conteúdo público. <strong>Observe que, enquanto a versão rascunho estiver ativa, os participantes verão a versão anterior e não poderão fazer sugestões.</strong>
+          edit:
+            document_has_suggestions_html: <a href="%{url}">Este documento contém sugestões</a> e não pode ser editado diretamente. Por favor, aceite ou rejeite as sugestões para gerar uma nova versão de rascunho que possa ser editada.
+            draft: Versão do rascunho
+            previous_versions: Versões anteriores
+            public_version: Versão pública
+            title: Editar textos colaborativos
+            update: Atualização
+            version: Versão %{version_number}, criada em %{created_at} recebeu sugestões %{suggestions_count}.
+          edit_settings:
+            title: Configurar textos colaborativos
+            update: Atualizar
+          index:
+            title: Textos colaborativos
+          manage_trash:
+            title: Documentos excluídos
+          new:
+            create: Criar
+            title: Criar textos colaborativos
+          non_draft_options:
+            create_draft: Descartar sugestões e criar uma nova versão de rascunho
+            draft_help_html: Uma versão rascunho não é pública e pode ser editada pelos administradores. Remova o status de rascunho para tornar este conteúdo público. <strong>Observe que, enquanto a versão rascunho estiver ativa, os participantes verão a versão anterior e não poderão fazer sugestões.</strong>
+            enable_suggestions: Ativar sugestões
+            enable_suggestions_help: Permitir sugestões permitirá que os participantes façam sugestões nesta versão.
+          publish:
+            invalid: Ocorreu um erro ao publicar este documento.
+            success: Documento publicado com sucesso.
+          unpublish:
+            invalid: Ocorreu um erro ao cancelar a publicação deste documento.
+            success: Documento despublicado com sucesso.
+          update:
+            invalid: Houve um problema ao atualizar o documento.
+            success: Documento atualizado com sucesso.
+          update_settings:
+            invalid: Houve um problema ao atualizar o documento.
+            success: Documento atualizado com sucesso.
+        index:
+          published: Publicado
+          unpublished: Despublicado
+      admin_log:
+        document:
+          create: "%{user_name} criou o texto colaborativo %{resource_name} em %{space_name}"
+          delete: "%{user_name} excluiu o texto colaborativo %{resource_name} do %{space_name}"
+          publish: "%{user_name} publicou o texto colaborativo %{resource_name} em %{space_name}"
+          restore: "%{user_name} restaurou o texto colaborativo %{resource_name} em %{space_name}"
+          soft_delete: "%{user_name} moveu o texto colaborativo %{resource_name} em %{space_name} para a lixeira"
+          unpublish: "%{user_name} despublicou o texto colaborativo %{resource_name} em %{space_name}"
+          update: "%{user_name} atualizou o texto colaborativo %{resource_name} em %{space_name}"
+        suggestion:
+          create: "%{user_name} sugeriu alterações ao texto colaborativo %{resource_name} em %{space_name}"
+        version:
+          delete: "%{user_name} excluiu a versão do texto colaborativo %{resource_name} do %{space_name}"
+          update: "%{user_name} atualizou a versão do texto colaborativo %{resource_name} em %{space_name}"
+      document:
+        apply: Aplicar
+        cancel: Cancelar
+        consolidate:
+          confirm: Esta ação consolidará todas as sugestões aceites em uma nova versão do documento. Sugestões não aceitas serão transferidas para a nova versão para uma nova revisão. Esta ação irá manter as sugestões habilitadas status.
+          new: Consolidar sugestões aceitas
+        consolidate_counter: Consolidar irá mesclar as sugestões %{applied} aplicadas e mover as sugestões %{pending} pendentes para a nova versão.
+        controls_label: Controles de sugestão
+        draft_counter: O rascunho irá mesclar as sugestões %{applied} aplicadas e descartar as sugestões %{pending} pendentes.
+        index: Índice
+        restore: Restaurar
+        rollout:
+          confirm: Esta ação criará uma nova versão rascunho do documento e você será redirecionado para a página de edição para refinos finais. A versão atual permanecerá pública e as sugestões serão desativadas.
+          invalid: Ocorreu um erro ao criar uma nova versão do documento (%{errors}).
+          new: Elabore uma nova versão
+        save: Sugerir alterações
+        status:
+          accepting_suggestions: Para sugerir alterações, selecione ou clique duas vezes no texto que deseja editar e clique no botão 'Sugerir alterações'.
+          draft: Este documento está atualmente em revisão pelos administradores. As sugestões não são permitidas neste momento, mas você pode ver as sugestões feitas por outros participantes.
+          not_accepting_suggestions: Sugestões não são permitidas no momento.
+          selection_active: Uma seleção está ativa. Cancele a seleção atual para fazer uma nova.
+        suggestions_count: "Sugestões de %{count}"
+        toggle: Mostrar/ocultar sugestões
+      documents:
+        index:
+          count:
+            one: "%{count} texto colaborativo"
+            other: "%{count} textos colaborativos"
+          empty: Ainda não há textos colaborativos.
+        show:
+          contributors: Colaboradores
+      models:
+        collaborative_text:
+          fields:
+            published: Publicados
+            suggestions: Aceitar sugestões
+            title: Título
+      suggestion:
+        add_html: <span class="type">Adicionar:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Excluir:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Substituir:</span> <span class="text">%{text}</span>
+      suggestions:
+        create:
+          invalid: Houve um problema ao criar a sugestão.
+          success: Sugestão criada com sucesso.
+        errors:
+          blank_changeset: O conjunto de alterações não pode ficar em branco.
+          invalid_nodes: Nós selecionados inválidos.
+    components:
+      collaborative_texts:
+        actions:
+          create: Criar
+          destroy: Destruir
+          update: Atualizar
+        name: Textos colaborativos
+        settings:
+          global:
+            announcement: Anúncio
+            comments_blocked: Comentários bloqueados
+          step:
+            announcement: Anúncio
+    statistics:
+      all_collaborative_texts_count: Todos os textos colaborativos
+      collaborative_texts_count: Textos colaborativos
+      collaborative_texts_count_tooltip: Número de textos colaborativos

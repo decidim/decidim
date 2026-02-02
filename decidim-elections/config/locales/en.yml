@@ -7,6 +7,11 @@ en:
       token_csv:
         file: File
         remove_all: Remove all current census data
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Election
+        other: Elections
   decidim:
     admin:
       menu:

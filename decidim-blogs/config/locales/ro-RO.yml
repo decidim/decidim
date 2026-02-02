@@ -20,6 +20,8 @@ ro:
       admin_log:
         changeset:
           posts: Postări
+      tooltips:
+        deleted_posts_info: Nu se poate șterge această postare
     blogs:
       actions:
         author_id: Creeați postare ca
@@ -106,6 +108,7 @@ ro:
           comment: Comentați
           create: Creați
           destroy: Ștergeți
+          like: Apreciere
           update: Actualizați
         name: Blog
         settings:
@@ -122,6 +125,8 @@ ro:
           step:
             announcement: Anunț
             comments_blocked: Comentarii blocate
+            likes_blocked: Aprecieri blocate
+            likes_enabled: Aprecieri activate
     events:
       blogs:
         post_created:
@@ -150,6 +155,7 @@ ro:
           created_at: Data la care acestă postare a fost creată
           follows_count: Numărul de urmăritori al acestei postări
           id: Identificatorul unic al acestei postări
+          likes_count: Numărul de aprecieri pe care le are această postare
           participatory_space: Cărui spațiu (de exemplu, proces participativ sau adunare) aparține această postare
           published_at: Data la care acestă postare a fost publicată
           title: Titlul postării

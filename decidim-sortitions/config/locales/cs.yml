@@ -154,3 +154,4 @@ cs:
             other: "%{count} losování"
     statistics:
       sortitions_count: Losování
+      sortitions_count_tooltip: Počet náhodných výběrů provedených pro rozhodování.

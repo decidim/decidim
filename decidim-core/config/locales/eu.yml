@@ -2049,7 +2049,7 @@ eu:
     required: Nahitaezkoa da
     required_explanation: "* Nahitaez bete beharreko eremuak batez daude markatuta"
   invisible_captcha:
-    sentence_for_humans: Gizaki bat bazara, ez egin kasu eremu honi
+    sentence_for_humans: Gizakia bazara, ez jaramonik egin eremu horri
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, birbidali.
   layouts:
     decidim:
@@ -2188,7 +2188,7 @@ eu:
     fallback: ez da zuzena
     name_included_in_password: zure izenaren antzekoa da
     nickname_included_in_password: zure ezizenaren antzekoegia da
-    not_enough_unique_characters: ez da nahikoa karaktere berezirik
+    not_enough_unique_characters: ez ditu nahikoa karaktere berezi
     password_not_allowed: ez da onartzen
     password_repeated: Ezin da erabili pasahitz zaharra
     password_too_common: oso ohikoa da
