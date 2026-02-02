@@ -173,7 +173,7 @@ module Decidim
 
       return base unless auth_object&.admin?
 
-      base + %w(published_at state decidim_area_id type_id)
+      base + %w(published_at created_at state decidim_area_id type_id)
     end
 
     def self.ransackable_associations(_auth_object = nil)
@@ -182,14 +182,6 @@ module Decidim
 
     def self.ransackable_scopes(_auth_object = nil)
       [:with_any_state, :with_any_type, :with_any_scope, :with_any_area]
-    end
-
-    # Public: Overrides participatory space's banner image with the banner image defined
-    # for the initiative type.
-    #
-    # Returns Decidim::BannerImageUploader
-    def banner_image
-      type.attached_uploader(:banner_image)
     end
 
     # Public: Whether the object's comments are visible or not.

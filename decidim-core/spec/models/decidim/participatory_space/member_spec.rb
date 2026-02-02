@@ -27,7 +27,7 @@ module Decidim::ParticipatorySpace
         build(
           :member,
           user:,
-          privatable_to: participatory_process
+          participatory_space: participatory_process
         )
       end
 

@@ -85,9 +85,6 @@ zh-TW:
         welcome_notification_body: 歡迎通知內容
         welcome_notification_subject: 歡迎通知主旨
         youtube_handler: YouTube 處理器
-      participatory_space_private_user:
-        email: 電子郵件
-        name: 名稱
       scope:
         code: 代碼
         name: 名稱
@@ -128,10 +125,6 @@ zh-TW:
           attributes:
             official_img_footer:
               allowed_file_content_types: 圖片有誤
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: 匯入檔案格式有誤，請小心閱讀教學並且確認檔案是使用 UTF-8 編碼
         user_group_csv_verification:
           attributes:
             file:
@@ -169,8 +162,6 @@ zh-TW:
         import: 匯入
         newsletter:
           new: 新電子報
-        participatory_space_private_user:
-          new: 新參與空間私有使用者
         per_page: 每頁
         share: 分享
         user:
@@ -355,17 +346,6 @@ zh-TW:
           values:
             'false': 官方化
             'true': 非官方化
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: 邀請已接受
-            values:
-              'false': 未接受
-              'true': 已接受
-          user_invitation_sent_at_not_null:
-            label: 已發送邀請
-            values:
-              'false': 未發送
-              'true': 已送出
         private_space_eq:
           label: 私人的
           values:
@@ -479,6 +459,10 @@ zh-TW:
             explanation: 受管理的參與者可以晉升為標準參與者。這意味著他們將受邀加入應用程式，您將無法再對其進行管理。被邀請的參與者將收到一封電子郵件，以接受您的邀請。
             new_managed_user_promotion: 晉升新的受管理參與者
             promote: 推廣
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: 請上傳您的 CSV 檔案。
       menu:
         admin_log: 管理員活動日誌
         admins: 管理員
@@ -536,8 +520,6 @@ zh-TW:
             sent_to: 發送至
             subject: 主旨
           name: 電子報
-        participatory_space_private_user:
-          name: 參與空間私有參與者
         scope:
           fields:
             name: 名稱
@@ -715,38 +697,6 @@ zh-TW:
         update:
           error: 更新此組織時發生問題。
           success: 組織更新成功
-      participatory_space_private_users:
-        create:
-          error: 在此參與空間中添加私人參與者時出現問題。
-          success: 成功建立參與空間的私人參與者訪問權限。
-        destroy:
-          error: 刪除參與空間的私人參與者時發生問題。
-          success: 成功刪除參與空間的私人參與者訪問權限。
-        index:
-          import_via_csv: 透過 CSV 匯入
-          title: 參與空間私有參與者
-        new:
-          create: 建立
-          title: 新的參與空間私人參與者。
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: 讀取 CSV 檔案時發生問題。請確保您已按照指示進行操作。
-          success: CSV檔案上傳成功，我們正在發送邀請電子郵件給參與者。這可能需要一些時間。
-        new:
-          csv_upload:
-            title: 請上傳您的 CSV 檔案。
-          destroy:
-            button: 刪除所有私人參與者
-            confirm: 您確定要刪除所有私人參與者嗎？此操作無法撤銷，您將無法恢復它們。
-            empty: 您沒有私人參與者。
-            explanation: 您有 %{count} 位私人參與者。
-            title: 刪除私人參與者
-          example_file: '示例文件:'
-          explanation: '請上傳您的 CSV 檔案。檔案的第一欄應為電子郵件，最後一欄應為要添加到參與空間的使用者的名稱，檔案中不應包含標題。請避免在使用者名稱中使用無效字元，例如 <>?%&^*#@()[]=+:;"{}\|。'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          upload: 上傳
       reminders:
         create:
           error: 在創建提醒時遇到問題。

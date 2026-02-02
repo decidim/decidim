@@ -56,7 +56,7 @@ module Decidim
 
       def user_can_read_members?
         return unless permission_action.subject == :space_member
-        return unless process.private_space?
+        return unless process.has_members?
 
         toggle_allow(user.admin? || can_manage_process?(role: :admin) || can_manage_process?(role: :collaborator))
       end

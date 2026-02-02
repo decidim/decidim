@@ -139,6 +139,7 @@ cobertura
 codecov
 codefor
 CODEOWNERS
+codespace
 codeql
 coditramuntana
 commentables
@@ -222,10 +223,12 @@ doesnot
 doggotrainer
 Dokku
 Dota
+dotfiles
 douban
 downvoted
 downvotes
 downvoting
+DPG
 draggables
 dragula
 drinkform
@@ -281,6 +284,8 @@ evanfuture
 evt
 Exampledocument
 exitstatus
+Existente
+EXISTINGCITY
 faketoken
 Fal
 fcell
@@ -465,6 +470,7 @@ libpq
 libreadline
 libreoffice
 libretranslate
+libvips
 libyaml
 Liddel
 lighthouserc
@@ -530,6 +536,7 @@ misogi
 mlat
 mlon
 Mobi
+moby
 modals
 modernizrrc
 modestbranding
@@ -547,6 +554,7 @@ msword
 multichoice
 multifield
 multitenant
+mycity
 myengine
 mypass
 myprovider
@@ -654,6 +662,7 @@ PGVERSION
 Phargo
 phoe
 pinterest
+pids
 Placeholdit
 plantuml
 plataforma

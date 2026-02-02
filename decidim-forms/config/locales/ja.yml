@@ -188,8 +188,8 @@ ja:
           questionnaire_closed:
             body: フォームが閉じられているため、応答できません。
             title: フォームを閉じました
-          questionnaire_for_private_users:
-            body: このフォームはプライベートユーザーのみ利用できます
+          questionnaire_for_members:
+            body: フォームはメンバーのみ利用可能です
             title: フォームを閉じました
           questionnaire_js_disabled:
             body: このフォームのいくつかの機能は無効になります。あなたのエクスペリエンスを向上させるために、ブラウザでJavaScriptを有効にしてください。

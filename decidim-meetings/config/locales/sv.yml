@@ -7,7 +7,7 @@ sv:
         audio_url: Ljud-URL
         closing_report: Protokoll
         closing_visible: Är synlig
-        contributions_count: Antal bidrag
+        contributions_count: Antal inlägg
         proposal_ids: Förslag som skapades på mötet
         video_url: Video-URL
       meeting:
@@ -611,7 +611,7 @@ sv:
           confirm: Bekräfta
         show:
           attendees: Antal deltagare
-          contributions: Antal bidrag
+          contributions: Antal inlägg
           join: Anmäl dig
           join_waitlist: Gå med i väntelistan
           leave: Dra tillbaka din anmälan
@@ -621,10 +621,10 @@ sv:
           link_available_soon: Länk kommer snart
           link_closed: Länken till mötet kommer finnas tillgänglig några minuter innan det börjar
           live_event: Mötet pågår just nu
-          meeting_minutes: Mötesprotokoll
+          meeting_minutes: Sammanfattning av mötet
           micro_camera_permissions_warning: När du klickar på knappen nedan kommer du att bli ombedd att godkänna att webbplatsen använder din mikrofon och/eller kamera och du kommer att ansluta till videokonferensen
           no_slots_available: Inga platser kvar
-          organizations: Delta i organisationer
+          organizations: Deltagande organisationer
           pending_address: Platsen kommer att meddelas snart.
           redirect_notice: Mötet är en del av ett annat utrymme, så du har flyttats till %{current_space_name}. <br>Om du vill kan du gå tillbaka till <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_and_qr_code: Anmälan och QR-kod

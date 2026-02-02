@@ -86,9 +86,6 @@ lt:
         welcome_notification_body: Pasisveikinimo pranešimo tekstas
         welcome_notification_subject: Pasisveikinimo pranešimo antraštė
         youtube_handler: '„YouTube“ tvarkyklė'
-      participatory_space_private_user:
-        email: El. paštas
-        name: Pavadinimas
       scope:
         code: Kodas
         name: Pavadinimas
@@ -129,10 +126,6 @@ lt:
           attributes:
             official_img_footer:
               allowed_file_content_types: Netinkama vaizdo rinkmena
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Blogai suformuotas importo failas, prašome atidžiai perskaityti instrukcijas ir įsitikinkite, kad failas yra UTF-8 koduotėje.
         user_group_csv_verification:
           attributes:
             file:
@@ -170,8 +163,6 @@ lt:
         import: Importuoti
         newsletter:
           new: Naujas naujienlaiškis
-        participatory_space_private_user:
-          new: Naujas dalyvaujamosios erdvės privatus naudotojas
         per_page: Per puslapį
         send_me_a_test_email: Siųsti man bandomąjį el. laišką
         share: Dalintis
@@ -358,17 +349,6 @@ lt:
           values:
             'false': Oficializuota
             'true': Neoficializuota
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Pakvietimas priimtas
-            values:
-              'false': Nepriimtas
-              'true': Priimtas
-          user_invitation_sent_at_not_null:
-            label: Pakvietimas išsiųstas
-            values:
-              'false': Neišsiųstas
-              'true': Išsiųstas
         private_space_eq:
           label: Privatus
           values:
@@ -494,6 +474,10 @@ lt:
             explanation: Tvarkomi dalyviai gali būti paaukštinti į standartinius dalyvius. Tai reiškia, kad jie bus pakviesti į platformą ir nebegalėsite jų tvarkyti. Pakviesti naudotojai gaus kvietimą prisijungti el. paštu.
             new_managed_user_promotion: Naujas tvarkomo naudotojo paaukštinimas
             promote: Paaukštinti
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Įkelkite savo CSV rinkmeną
       menu:
         admin_log: Administratoriaus veiklos žurnalas
         admins: Administratoriai
@@ -551,8 +535,6 @@ lt:
             sent_to: Išsiųsta
             subject: Tema
           name: Naujienlaiškis
-        participatory_space_private_user:
-          name: Dalivaujamosios erdvės privatus dalyvis
         scope:
           fields:
             name: Vardas
@@ -733,38 +715,6 @@ lt:
         update:
           error: Atnaujinant šią organizaciją iškilo problema.
           success: Organizacija atnaujinta.
-      participatory_space_private_users:
-        create:
-          error: Pridedant privatų dalyvį į šia dalyvaujamają erdvę kilo problema.
-          success: Dalyvaujamosios erdvės privataus dalyvio prieiga buvo sukurta sėkmingai.
-        destroy:
-          error: Ištrinant privatų dalyvį iš dalyvaujamosios erdvės kilo problema.
-          success: Dalyvaujamojo proceso erdvės privataus dalyvio prieiga panaikinta.
-        index:
-          import_via_csv: Importuoti iš CSV
-          title: Dalyvaujamosios erdvės privatus dalyvis
-        new:
-          create: Sukurti
-          title: Naujas dalyvaujamosios erdvės privatus dalyvis.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Skaitant CSV failą kilo problema. Prašau įsitikinkite kad sekėte instrukcijas.
-          success: CSV rinkmena įkelta, dalyviams siunčiame kvietimą e. laišku. Tai gali užtrukti.
-        new:
-          csv_upload:
-            title: Įkelkite savo CSV rinkmeną
-          destroy:
-            button: Ištrinti visus privačius dalyvius
-            confirm: Ar tikrai norite ištrinti visus privačius dalyvius? Atlikus šį veiksmą nebebus įmanoma sugražinti šių dalyvių į platformą.
-            empty: Neturite privačių dalyvių.
-            explanation: Turite %{count} privačių dalyvių.
-            title: Ištrinti privačius dalyvius
-          example_file: 'Pavyzdinė rinkmena:'
-          explanation: 'Įkelkite CSV dokumentą. Jis turi turėti du stulpelius su naudotojų el. paštu pirmajame ir vardu paskutiniąjame. Dokumente neturėtų būti laukų pavadinimų ir šių simbolių naudotojų varduose "<>?%&^*#@()[]=+:;"{}\|".'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          upload: Įkelti
       reminders:
         create:
           error: Kuriant priminimus iškilo problema.

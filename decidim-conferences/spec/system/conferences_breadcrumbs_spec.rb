@@ -31,4 +31,46 @@ describe "Conferences Breadcrumb" do
       expect(page).to have_content(translated(component.name))
     end
   end
+
+  describe "with a program" do
+    let(:meetings_component) { create(:meeting_component, :published, participatory_space:) }
+    let!(:meeting) { create(:meeting, :published, latitude:, longitude:, component: meetings_component, start_time: 1.day.from_now) }
+
+    let(:latitude) { 40.7504928941818 }
+    let(:longitude) { -73.993466492276 }
+    let(:geocoder_request_url) { "https://nominatim.openstreetmap.org/reverse?accept-language=en&addressdetails=1&format=json&lat=#{latitude}&lon=#{longitude}" }
+    let(:geocoder_response) { File.read(Decidim::Dev.asset("geocoder_result_osm.json")) }
+
+    before do
+      stub_request(:get, geocoder_request_url).with(
+        headers: {
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+          "User-Agent" => "Ruby"
+        }
+      ).to_return(body: geocoder_response)
+    end
+
+    scenario "shows breadcrumb with conference and program" do
+      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component, locale: I18n.locale)
+
+      within ".menu-bar" do
+        expect(page).to have_content("Conferences")
+        expect(page).to have_content(translated(participatory_space.title))
+        expect(page).to have_content("Program")
+      end
+    end
+
+    scenario "shows breadcrumb with conference, program, and meeting" do
+      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component, locale: I18n.locale)
+      click_on decidim_sanitize_translated(meeting.title)
+
+      within ".menu-bar" do
+        expect(page).to have_content("Conferences")
+        expect(page).to have_content(translated(participatory_space.title))
+        expect(page).to have_content("Program")
+        expect(page).to have_content(translated_attribute(meeting.title))
+      end
+    end
+  end
 end

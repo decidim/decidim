@@ -89,11 +89,6 @@ ar:
         welcome_notification_body: محتوى إشعار الترحيب
         welcome_notification_subject: موضوع إشعار الترحيب
         youtube_handler: مُعرّف حساب يوتيوب
-      participatory_space_private_user:
-        email: البريد الإلكتروني
-        name: الإسم
-      participatory_space_private_user_csv_import:
-        file: ملف
       scope:
         code: الشفرة
         name: الاسم
@@ -135,10 +130,6 @@ ar:
           attributes:
             official_img_footer:
               allowed_file_content_types: ملف صورة غير صالح
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: خطأ في ملفّ الاستيراد، يرجى قراءة التعليمات بعناية والتأكد من أن ترميز الملف هو UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -342,17 +333,6 @@ ar:
           values:
             'false': Officialized
             'true': غير رسمي
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: تم قبول الدعوة
-            values:
-              'false': لم يتم القبول
-              'true': تم قبوله
-          user_invitation_sent_at_not_null:
-            label: تم إرسال الدعوة
-            values:
-              'false': لم يتم الارسال
-              'true': تم الإرسال
         private_space_eq:
           label: خاص
           values:
@@ -444,6 +424,10 @@ ar:
             explanation: يمكن ترقية المشاركين المدارين إلى مشاركين عاديين. يعني ذلك أنه سيتم دعوتهم إلى التطبيق ولن تتمكن من إدارته مرة أخرى. سيتلقى المشارك المدعو رسالة بريد إلكتروني لقبول دعوتك.
             new_managed_user_promotion: ترويج مشارك جديد مُدار
             promote: تروج \ يشجع \ يعزز \ ينمى \ يطور
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: قم بتحميل ملف CSV الخاص بك
       menu:
         admin_log: سجل نشاط المسؤول
         admins: المدراء
@@ -498,8 +482,6 @@ ar:
             sent_to: أُرسِلت إلى
             subject: موضوع
           name: النشرة الإخبارية
-        participatory_space_private_user:
-          name: المشاركة الفضاء المشارك الخاص
         scope:
           fields:
             name: اسم
@@ -657,28 +639,6 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
           success: تم تحديث المنظمة بنجاح.
-      participatory_space_private_users:
-        create:
-          error: حدثت مشكلة أثناء إضافة مشارك خاص لهذه المساحة التشاركية.
-          success: المشاركة الفضاء الفضاء المشترك وصول خلق بنجاح.
-        destroy:
-          error: حدثت مشكلة في حذف مشارك خاص لهذه المساحة التشاركية.
-          success: المشاركة الفضاء الفضاء وصول المشاركين دمرت بنجاح.
-        index:
-          title: المشاركة الفضاء المشارك الخاص
-        new:
-          create: إنشاء
-          title: مشارك جديد الفضاء الخاص المشارك.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: قم بتحميل ملف CSV الخاص بك
-          destroy:
-            button: حذف جميع المشاركين الخاصين
-            empty: ليس لديك أي مشاركين خاصين.
-            explanation: لديك %{count} مشاركين خاصين.
-            title: حذف جميع المشاركين الخاصين
-          upload: حمّل
       reminders:
         new:
           submit: إرسال

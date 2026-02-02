@@ -783,7 +783,7 @@ fr-CA:
           end_time: La date et l'heure de fin de cette rencontre
           follows_count: Le nombre de personnes qui suivent cette rencontre
           id: L'identifiant unique de la rencontre
-          iframe_embed_type: Le type d'iframe inclus dans la rencontre
+          iframe_embed_type: Le type d'iframe intégré dans la réunion
           latitude: La latitude de la rencontre
           location: La localisation de la rencontre
           location_hints: Un indice de l'endroit où se déroule la rencontre

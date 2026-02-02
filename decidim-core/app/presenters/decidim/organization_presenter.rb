@@ -7,6 +7,10 @@ module Decidim
       translated_attribute(name).html_safe
     end
 
+    def html_short_name
+      translated_attribute(short_name).html_safe
+    end
+
     def translated_description
       ActionView::Base.full_sanitizer.sanitize(translated_attribute(description)).html_safe
     end

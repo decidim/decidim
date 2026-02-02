@@ -32,6 +32,7 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 1.3. Run these commands
 
 ```console
+sudo apt install libvips libvips-tools # or the alternative installation process for your operating system. See "3.5. Replace image processing with imagemagick to libvips"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
@@ -94,7 +95,7 @@ At the moment we are adding this gem so we can start doing data migrations for f
 
 You can read more about this change on PR [#15501](https://github.com/decidim/decidim/pull/15501).
 
-#### 2.4. Fix gitignore for ServiceWorker related files
+### 2.4. Fix gitignore for ServiceWorker related files
 
 We detected a bug where some dynamic files are not added to the gitignore, so they could be committed to the repository. For fixing it, you need to add them to your gitignore file:
 
@@ -104,7 +105,17 @@ echo "/public/sw.js*" >> .gitignore
 
 You can read more about this change on PR [#15601](https://github.com/decidim/decidim/pull/15601).
 
-### 2.5. Add locale to the url
+### 2.5. Data migration for organization short_name
+
+A new data migration has been added to populate the `short_name` field for existing organizations. This field is required for the PWA (Progressive Web App) manifest to properly display the application name on mobile devices' home screens.
+
+The migration automatically generates a short_name for each organization based on its name by removing spaces and truncating to 12 characters maximum. Organizations with names that result in less than 3 characters after processing will not have a short_name set and will need to be configured manually through the admin panel.
+
+This migration runs automatically when executing `bin/rails data:migrate` as part of the upgrade process.
+
+You can read more about this change on PR [#15729](https://github.com/decidim/decidim/pull/15729).
+
+### 2.6. Add locale to the url
 
 For a long time Decidim has been using internally the user browser to detect the language of the user. This has been changed to use the locale of the url instead.
 
@@ -119,7 +130,7 @@ It also enables the users of multi language platforms to share the links to the 
 
 You can read more about this change on PR [#14432](https://github.com/decidim/decidim/pull/14432).
 
-### 2.6. [[TITLE OF THE ACTION]]
+### 2.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -165,7 +176,23 @@ Back in [#15534](https://github.com/decidim/decidim/pull/15534) we upgraded webp
 
 You can read more about this change on PR [#15534](https://github.com/decidim/decidim/pull/15534), [#15674](https://github.com/decidim/decidim/pull/15674).
 
-### 3.5. [[TITLE OF THE ACTION]]
+### 3.5. Replace ImageMagick with libvips for image processing
+
+We have upgraded our image processor within the application to libvips for speed and low memory usage.
+
+Support for `.ico` favicon files has been removed. Applications that relied on ICO favicons must migrate to one of the supported Libvips image formats.
+
+In order to install please run the following command:
+
+```bash
+sudo apt install libvips libvips-tools
+```
+
+This works for Ubuntu Linux, other operating systems would need to do other command/package.
+
+You can read more about this change on PR [#15670](https://github.com/decidim/decidim/pull/15670).
+
+### 3.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

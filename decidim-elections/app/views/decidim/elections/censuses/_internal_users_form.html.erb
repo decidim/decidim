@@ -17,7 +17,7 @@
         </div>
     <% end %>
     <%= link_to t(".exit_button"), exit_path, class: "button button__secondary button__lg w-full mt-12" %>
-    <%= render "decidim/elections/censuses/submit_button", form: form, disabled: true %>
+    <%= render "decidim/elections/censuses/submit_button", form:, disabled: true %>
   <% else %>
     <% redirect_url = new_election_vote_path(election) %>
     <div class="verification__container">
@@ -54,7 +54,7 @@
         <% end %>
       <% end %>
     </div>
-    <%= render "decidim/elections/censuses/submit_button", form: form %>
+    <%= render "decidim/elections/censuses/submit_button", form: %>
     <% end %>
 <% else %>
   <%= render partial: "decidim/devise/shared/login_boxes", locals: { scope: "decidim.elections.censuses.internal_users" } %>

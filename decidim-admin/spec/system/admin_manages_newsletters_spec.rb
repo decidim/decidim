@@ -475,7 +475,7 @@ describe "Admin manages newsletters" do
         let!(:members) do
           create_list(:member, 30) do |member|
             member.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
-            member.privatable_to = participatory_process
+            member.participatory_space = participatory_process
             member.save!
           end
         end

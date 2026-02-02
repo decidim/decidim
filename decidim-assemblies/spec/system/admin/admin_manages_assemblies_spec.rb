@@ -12,7 +12,7 @@ describe "Admin manages assemblies" do
   let(:model_name) { assembly.class.model_name }
 
   context "when conditionally displaying member menu entry" do
-    let!(:my_space) { create(:assembly, organization:, private_space:) }
+    let!(:my_space) { create(:assembly, organization:, has_members:) }
 
     before do
       switch_to_host(organization.host)
@@ -21,20 +21,20 @@ describe "Admin manages assemblies" do
       click_on translated(my_space.title)
     end
 
-    context "when the participatory space is private" do
-      let(:private_space) { true }
+    context "when the participatory space has members" do
+      let(:has_members) { true }
 
-      it "hides the member menu entry" do
+      it "shows the member menu entry" do
         within_admin_sidebar_menu do
           expect(page).to have_content("Members")
         end
       end
     end
 
-    context "when the participatory space is public" do
-      let(:private_space) { false }
+    context "when the participatory space has not members" do
+      let(:has_members) { false }
 
-      it "shows the member menu entry" do
+      it "hides the member menu entry" do
         within_admin_sidebar_menu do
           expect(page).to have_no_content("Members")
         end

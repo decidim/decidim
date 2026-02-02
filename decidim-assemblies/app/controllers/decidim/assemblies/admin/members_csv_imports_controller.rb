@@ -13,7 +13,7 @@ module Decidim
           members_path(current_assembly)
         end
 
-        def privatable_to
+        def participatory_space
           current_assembly
         end
       end

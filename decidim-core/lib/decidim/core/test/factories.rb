@@ -117,6 +117,11 @@ FactoryBot.define do
       Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name }
     end
 
+    # we do not want machine translation here
+    short_name do
+      Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name.gsub(/\s+/, "")[0, 12] }
+    end
+
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
     twitter_handler { Faker::Hipster.word }
@@ -205,6 +210,14 @@ FactoryBot.define do
     previous_passwords { [] }
     extended_data { {} }
 
+    trait :malicious do
+      after :create do |user|
+        # rubocop:disable Rails/SkipsModelValidations
+        user.update_column(:name, "user_#{user.id}\n<script>alert('name')</script>")
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+    end
+
     trait :confirmed do
       confirmed_at { Time.current }
     end
@@ -282,7 +295,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     user
-    privatable_to { create(:participatory_process, organization: user.organization, skip_injection:) }
+    participatory_space { create(:participatory_process, organization: user.organization, skip_injection:) }
 
     role { generate_localized_title(:role, skip_injection:) }
 
@@ -300,7 +313,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     user
-    privatable_to { create(:assembly, organization: user.organization, skip_injection:) }
+    participatory_space { create(:assembly, organization: user.organization, skip_injection:) }
   end
 
   factory :identity, class: "Decidim::Identity" do
