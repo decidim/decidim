@@ -42,7 +42,7 @@ describe ReplaceLegacyFieldsToAccessModeForAssemblies do
                     "sets access_mode to transparent",
                     false,
                     true,
-                    "transparent"
+                    "open"
 
     it_behaves_like "converts legacy fields to access mode",
                     "with public space and not transparent",

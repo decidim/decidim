@@ -7,7 +7,7 @@ class ReplaceLegacyFieldsToAccessModeForAssemblies < ActiveRecord::Migration[7.2
       Decidim::Assembly.find_each do |assembly|
         mode = if assembly.private_space && !assembly.is_transparent
                  :restricted
-               elsif assembly.is_transparent
+               elsif assembly.private_space && assembly.is_transparent
                  :transparent
                else
                  :open
