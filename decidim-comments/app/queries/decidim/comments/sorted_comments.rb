@@ -4,10 +4,7 @@ module Decidim
   module Comments
     # A class used to find comments for a commentable resource
     class SortedComments < Decidim::Query
-      # Default number of comments to load at once
       DEFAULT_COMMENTS_LIMIT = 20
-      # Default number of replies to load at once
-      DEFAULT_REPLIES_LIMIT = 10
 
       attr_reader :commentable
 
@@ -82,7 +79,7 @@ module Decidim
       end
 
       def default_limit
-        commentable.is_a?(Comment) ? DEFAULT_REPLIES_LIMIT : DEFAULT_COMMENTS_LIMIT
+        DEFAULT_COMMENTS_LIMIT
       end
 
       def apply_limit(scope)
