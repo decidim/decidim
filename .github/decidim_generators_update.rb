@@ -2,9 +2,11 @@
 # frozen_string_literal: true
 
 # This script updates the decidim-generators Gemfile.lock to be in sync with the Gemfile.lock in the root.
-
 require "English"
 require "open3"
+
+base_sha, head_sha = ARGV
+abort "Usage: #{$PROGRAM_NAME} BASE_SHA HEAD_SHA" unless base_sha && head_sha
 
 sha_re = /\A[0-9a-f]{7,40}\z/i
 abort "Invalid SHA input" unless base_sha.match?(sha_re) && head_sha.match?(sha_re)
