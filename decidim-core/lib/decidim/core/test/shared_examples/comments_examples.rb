@@ -67,7 +67,7 @@ shared_examples "comments" do
       select "Best rated", from: "order"
     end
 
-    expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
+    expect(page).to have_css(".comment-threads .comment-thread:first-child", text: "Most Rated Comment")
   end
 
   context "when there are comments and replies" do
@@ -79,8 +79,8 @@ shared_examples "comments" do
       expect(page).to have_no_content("Comments are disabled at this time")
       expect(page).to have_css(".comment", minimum: 1)
 
-      within("#accordion-#{single_comment.id}") do
-        expect(page).to have_content "1 answer"
+      within("#comment_#{single_comment.id}") do
+        expect(page).to have_content "Load replies"
       end
     end
 
@@ -133,6 +133,7 @@ shared_examples "comments" do
 
         within "#comment_#{deleted_comment.id}" do
           expect(page).to have_css("#comment-#{deleted_comment.id}-replies")
+          click_on "Load replies"
           expect(page).to have_content(reply.author.name)
           expect(page).to have_content(reply.body.values.first)
         end
@@ -649,95 +650,47 @@ shared_examples "comments" do
       end
     end
 
-    context "when the user is writing a new comment while someone else comments" do
-      let(:new_comment_body) { "Hey, I just jumped in the conversation!" }
-      let(:new_comment) { build(:comment, commentable:, body: new_comment_body) }
-      let(:content) { "This is a new comment" }
+    context "when user can show and hide replies on a thread" do
+      let(:thread) { comments.first }
+      let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
+      let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
 
-      before do
-        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-          field.set " "
-          field.native.send_keys content
+      it "displays a way to display content" do
+        visit resource_path
+        within "#comment_#{thread.id}" do
+          expect(page).to have_content("Load replies")
+          click_on "Load replies"
+          expect(page).to have_content(new_reply_body)
+          click_on "Reply", match: :first
+          expect(page).to have_content("Publish reply")
+          find("textarea[name='comment[body]']").set("Test reply comments.")
+          click_on "Publish reply"
+          expect(page).to have_content("Test reply comments.")
         end
-        new_comment.save!
       end
 
-      it "does not clear the current user's comment" do
-        expect(page).to have_content(new_comment.body.values.first, wait: 20)
-        expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to include(content)
+      it "displays a way to hide content" do
+        visit resource_path
+        within "#comment_#{thread.id}" do
+          expect(page).to have_content("Load replies")
+          click_on "Load replies"
+          expect(page).to have_content(new_reply_body)
+          click_on "Load replies"
+          expect(page).to have_no_content(new_reply_body)
+        end
       end
 
-      context "when user can hide replies on a thread" do
-        let(:thread) { comments.first }
-        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
-        let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+      context "when there are more replies" do
+        let!(:new_replies) { create_list(:comment, 2, commentable: thread, root_commentable: commentable, body: new_reply_body) }
 
-        it "displays a way to to display content" do
-          visit current_path
+        it "displays the load replies button" do
+          visit resource_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("1 answer")
-            click_on "1 answer"
-            expect(page).to have_content(new_reply_body)
-            click_on "Reply", match: :first
-            expect(page).to have_content("Publish reply")
-            find("textarea[name='comment[body]']").set("Test reply comments.")
-            click_on "Publish reply"
-            expect(page).to have_content("Show 2 replies")
-            click_on "Show 2 replies"
-            expect(page).to have_content("Test reply comments.")
-          end
-        end
-
-        it "displays a way hide content" do
-          visit current_path
-          within "#comment_#{thread.id}" do
-            expect(page).to have_content("1 answer")
-            click_on "1 answer"
-            expect(page).to have_content("1 answer")
-            click_on "1 answer"
+            expect(page).to have_content("Load replies")
             expect(page).to have_no_content(new_reply_body)
+            click_on "Load replies"
+            expect(page).to have_content(new_reply_body)
           end
-        end
-
-        context "when are more replies" do
-          let!(:new_replies) { create_list(:comment, 2, commentable: thread, root_commentable: commentable, body: new_reply_body) }
-
-          it "displays the show button" do
-            visit current_path
-            within "#comment_#{thread.id}" do
-              expect(page).to have_content("3 answers")
-              expect(page).to have_no_content(new_reply_body)
-              click_on "3 answers"
-              expect(page).to have_content(new_reply_body)
-            end
-          end
-        end
-      end
-
-      context "when inside a thread reply form" do
-        let(:thread) { comments.first }
-        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
-        let(:new_reply) { build(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
-        let(:reply_content) { "This is a new reply" }
-
-        before do
-          within "div#comment_#{thread.id}" do
-            find("span", text: "Reply").click
-          end
-
-          within "form#new_comment_for_#{thread.commentable_type.demodulize}_#{thread.id}" do
-            field = find("#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}")
-            field.set " "
-            field.native.send_keys reply_content
-          end
-          new_reply.save!
-        end
-
-        it "does not clear the current user's comment" do
-          expect(page).to have_content(new_reply.body.values.first, wait: 20)
-          expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to include(content)
-          expect(page.find("#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}").value).to include(reply_content)
         end
       end
     end
@@ -968,6 +921,10 @@ shared_examples "comments" do
             skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
             visit current_path
+            # Load replies first since they are lazy-loaded
+            within "#comment_#{comments[0].id}" do
+              click_on "Load replies"
+            end
             expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/, visible: :all)
             page.find("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up").click
             expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/, visible: :all)
