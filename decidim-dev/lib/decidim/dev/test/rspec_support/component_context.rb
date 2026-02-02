@@ -177,8 +177,12 @@ shared_context "when publishes and unpublishes component" do
       expect(component.reload).not_to be_published
     end
   end
+end
 
+shared_context "when cycling through publication states" do
   include_context "when managing a component as an admin" do
+    let(:title) { translated(current_component.name) }
+
     it "cycles through unpublished and published states successfully" do
       visit decidim_admin_participatory_processes.components_path(participatory_process)
       within ".sidebar-menu" do
@@ -205,4 +209,5 @@ shared_context "when publishes and unpublishes component" do
       expect(page).to have_content("The component has been successfully published")
     end
   end
+
 end

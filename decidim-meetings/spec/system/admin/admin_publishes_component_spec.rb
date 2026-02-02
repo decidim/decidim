@@ -7,4 +7,5 @@ describe "Admin publishes component" do
   let!(:resource) { create(:meeting, :published, component:) }
 
   include_context "when publishes and unpublishes component"
+  include_context "when cycling through publication states"
 end

@@ -9,6 +9,7 @@ describe "Admin publishes component" do
     let!(:resource) { create(:budget, component:) }
 
     include_context "when publishes and unpublishes component"
+    include_context "when cycling through publication states"
   end
 
   context "with a project" do
@@ -16,5 +17,6 @@ describe "Admin publishes component" do
     let!(:resource) { create(:project, budget:) }
 
     include_context "when publishes and unpublishes component"
+    include_context "when cycling through publication states"
   end
 end

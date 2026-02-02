@@ -7,4 +7,5 @@ describe "Admin publishes component" do
   let!(:resource) { create(:election, :with_token_csv_census, :published, component:) }
 
   include_context "when publishes and unpublishes component"
+  include_context "when cycling through publication states"
 end
