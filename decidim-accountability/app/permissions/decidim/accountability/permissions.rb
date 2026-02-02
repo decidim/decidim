@@ -18,11 +18,7 @@ module Decidim
       def public_read_result_action?
         return unless permission_action.action == :read && permission_action.subject == :result
 
-        if result && !result.deleted?
-          allow!
-        else
-          disallow!
-        end
+        toggle_allow(result && !result.deleted?)
       end
 
       def result

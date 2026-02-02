@@ -48,11 +48,7 @@ module Decidim
       def public_action_allowed?
         return unless permission_action.subject == :project && permission_action.action == :read
 
-        if project && !project.deleted? && !project.budget.deleted?
-          allow!
-        else
-          disallow!
-        end
+        toggle_allow(project && !project.deleted? && !project.budget.deleted?)
       end
 
       def can_vote?(active_allow)
