@@ -63,13 +63,13 @@ module Decidim
         #
         # @return Hash
         def local_context(object, context)
-          context[:current_participatory_space] =
+          context[:current_participatory_space] ||=
             if object.respond_to?(:participatory_space)
               object.participatory_space
             elsif object.is_a?(Decidim::Participable)
               object
             end
-          context[:current_component] =
+          context[:current_component] ||=
             if object.is_a?(Decidim::Component)
               object
             elsif object.respond_to?(:component)
