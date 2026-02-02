@@ -120,6 +120,8 @@
              class="comment-reply hidden">
         </div>
       </div>
+    <% elsif can_reply? %>
+      <div id="comment-<%= model.id %>-replies" class="comment-reply"></div>
     <% end %>
   <% end %>
   <% if current_user.present? %>
