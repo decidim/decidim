@@ -18,7 +18,11 @@
           </span>
         <% end %>
       </h2>
-      <%= render :order_control unless two_columns_layout? %>
+      <% if two_columns_layout? %>
+        <div class="md:hidden"><%= render :order_control %></div>
+      <% else %>
+        <%= render :order_control %>
+      <% end %>
     </div>
     <%= single_comment_warning %>
     <%= blocked_comments_warning %>

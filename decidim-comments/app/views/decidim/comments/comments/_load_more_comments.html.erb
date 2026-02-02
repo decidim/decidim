@@ -5,6 +5,9 @@
      data-load-more-comments-order-value="<%= order %>"
      data-load-more-comments-offset-value="<%= offset %>"
      data-load-more-comments-per-page-value="<%= Decidim::Comments::SortedComments::DEFAULT_COMMENTS_LIMIT %>"
+     <% if local_assigns[:alignment].present? %>
+     data-load-more-comments-alignment-value="<%= alignment %>"
+     <% end %>
      class="load-more-comments">
   <button type="button"
           data-load-more-comments-target="button"

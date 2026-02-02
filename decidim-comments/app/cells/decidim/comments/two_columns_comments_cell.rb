@@ -6,12 +6,11 @@ module Decidim
     class TwoColumnsCommentsCell < Decidim::Comments::CommentsCell
       def call
         initialize_comments
-        @interleaved_comments = interleave_comments(@sorted_comments_in_favor, @sorted_comments_against)
         render :show
       end
 
-      def render_column(top_comment, comments, icon_name, title)
-        set_column_variables(top_comment, comments, icon_name, title)
+      def render_column(top_comment, comments, icon_name, title, alignment, has_more)
+        set_column_variables(top_comment, comments, icon_name, title, alignment, has_more)
         render :column
       end
 
@@ -21,14 +20,19 @@ module Decidim
         if model.closed?
           load_closed_comments
         else
-          @sorted_comments_in_favor = comments_in_favor
-          @sorted_comments_against = comments_against
+          @sorted_comments_in_favor = comments_in_favor_query.query
+          @sorted_comments_against = comments_against_query.query
         end
+
+        @has_more_in_favor = comments_in_favor_query.has_more?
+        @has_more_against = comments_against_query.has_more?
+
+        load_mobile_comments
       end
 
       def load_closed_comments
-        @top_comment_in_favor, @sorted_comments_in_favor = sorted_comments(comments_in_favor)
-        @top_comment_against, @sorted_comments_against = sorted_comments(comments_against)
+        @top_comment_in_favor, @sorted_comments_in_favor = sorted_comments(comments_in_favor_query.query)
+        @top_comment_against, @sorted_comments_against = sorted_comments(comments_against_query.query)
       end
 
       def sorted_comments(comments)
@@ -45,41 +49,27 @@ module Decidim
           .first
       end
 
-      def interleave_comments(comments_in_favor, comments_against)
-        interleave_top_comments + interleave_remaining_comments(comments_in_favor, comments_against)
+      def comments_in_favor_query
+        @comments_in_favor_query ||= SortedComments.new(model, order_by: order, alignment: 1, offset: 0)
       end
 
-      def interleave_top_comments
-        return [] unless model.closed?
-
-        Array(@top_comment_in_favor) + Array(@top_comment_against)
+      def comments_against_query
+        @comments_against_query ||= SortedComments.new(model, order_by: order, alignment: -1, offset: 0)
       end
 
-      def interleave_remaining_comments(comments_in_favor, comments_against)
-        interleaved = []
-        max_length = [comments_in_favor.size, comments_against.size].max
-
-        max_length.times do |i|
-          interleaved << comments_in_favor[i] if comments_in_favor[i]
-          interleaved << comments_against[i] if comments_against[i]
-        end
-
-        interleaved
+      def load_mobile_comments
+        @sorted_comments_query = SortedComments.new(model, order_by: order, offset: 0)
+        @mobile_comments = @sorted_comments_query.query
+        @has_more_mobile = @sorted_comments_query.has_more?
       end
 
-      def comments_in_favor
-        @comments_in_favor ||= model.comments.positive.order(:created_at)
-      end
-
-      def comments_against
-        @comments_against ||= model.comments.negative.order(:created_at)
-      end
-
-      def set_column_variables(top_comment, comments, icon_name, title)
+      def set_column_variables(top_comment, comments, icon_name, title, alignment, has_more)
         @top_comment = top_comment
         @comments = comments
         @icon_name = icon_name
         @title = title
+        @alignment = alignment
+        @has_more = has_more
       end
     end
   end

@@ -29,6 +29,7 @@ module Decidim
       #           :order_by - The string order_by to sort by ( optional )
       #           :limit - The number of items to load ( optional )
       #           :offset - The number of items to skip ( optional )
+      #           :alignment - Filter by alignment: 1 (in_favor), -1 (against), 0 (neutral) ( optional )
       def initialize(commentable, options = {})
         options[:order_by] ||= "older"
         @commentable = commentable
@@ -99,7 +100,9 @@ module Decidim
         id = @options[:id]
         return Comment.where(root_commentable: commentable, id:) if id.present?
 
-        Comment.where(commentable:)
+        scope = Comment.where(commentable:)
+        scope = scope.where(alignment: @options[:alignment]) if @options[:alignment].present?
+        scope
       end
 
       def order_by_older(scope)

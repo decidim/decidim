@@ -7,7 +7,8 @@ export default class extends Controller {
       commentableGid: String,
       order: String,
       offset: Number,
-      perPage: Number
+      perPage: Number,
+      alignment: Number
     }
   }
 
@@ -64,6 +65,10 @@ export default class extends Controller {
       offset: this.offsetValue,
       load_more: 1
     });
+
+    if (this.hasAlignmentValue && this.alignmentValue !== undefined) {
+      params.append("alignment", this.alignmentValue);
+    }
 
     return `${this.urlValue}?${params.toString()}`;
   }

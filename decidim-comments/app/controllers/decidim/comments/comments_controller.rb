@@ -13,7 +13,7 @@ module Decidim
       before_action :set_commentable, except: [:destroy, :update]
       before_action :ensure_commentable!, except: [:destroy, :update]
 
-      helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment, :load_more?, :comments_offset
+      helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment, :load_more?, :comments_offset, :alignment
 
       def index
         enforce_permission_to(:read, :comment, commentable:)
@@ -21,7 +21,8 @@ module Decidim
         @sorted_comments_query = SortedComments.new(
           commentable,
           order_by: order,
-          offset: comments_offset
+          offset: comments_offset,
+          alignment:
         )
         @comments = @sorted_comments_query.query
         @comments = @comments.reject do |comment|
@@ -201,6 +202,13 @@ module Decidim
 
       def root_depth
         params.fetch(:root_depth, 0).to_i
+      end
+
+      def alignment
+        value = params.fetch(:alignment, nil)
+        return nil if value.blank?
+
+        value.to_i
       end
 
       def commentable_path

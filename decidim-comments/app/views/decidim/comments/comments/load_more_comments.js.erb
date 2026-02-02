@@ -1,61 +1,78 @@
 (function() {
   <% root_resource = commentable.is_a?(Decidim::Comments::Comment) ? commentable.root_commentable : commentable %>
   <% is_loading_replies = commentable.is_a?(Decidim::Comments::Comment) %>
-  var rootCommentableId = <%== "comments-for-#{root_resource.commentable_type.demodulize}-#{root_resource.id}".to_json %>;
+  <% new_offset = comments_offset + @comments.size %>
 
-  var $comments = $("#" + rootCommentableId);
+  var commentsContainer = document.getElementById(<%== "comments-for-#{root_resource.commentable_type.demodulize}-#{root_resource.id}".to_json %>);
+  var $comments = $(commentsContainer);
   var component = $comments.data("comments");
 
-  var commentsIds = [];
-<% @comments.each do |comment| %>
-  var commentId = <%= comment.id.to_json %>;
-  commentsIds.push(commentId);
-  var commentHtml = '<%== j(render comment).strip %>';
-  var inReplyTo = <%== (reply?(comment) ? comment.commentable.id : nil).to_json %>;
+  <% if is_loading_replies %>
+    var targetContainer = document.getElementById("comment-<%= commentable.id %>-replies");
+    var loadMoreWrapper = document.querySelector("[data-load-more-replies-wrapper='<%= commentable.id %>']");
+  <% else %>
+    <% if alignment.present? %>
+      var targetContainer = commentsContainer.querySelector(<%== ".comments-section__#{alignment == 1 ? 'in-favor' : 'against'}".to_json %>);
+    <% else %>
+      var targetContainer = commentsContainer.querySelector("#mobileContainer") || commentsContainer.querySelector(".comment-threads");
+    <% end %>
+      var loadMoreWrapper = targetContainer ? targetContainer.querySelector("[data-load-more-comments-wrapper]") : null;
+  <% end %>
 
-  var $comment = $("#comment_" + commentId);
-  if (1 > $comment.length) {
-    if (inReplyTo) {
-      component.addReply(inReplyTo, commentHtml);
-    } else {
-      component.addThread(commentHtml);
-    }
-  }
-<% end %>
+  // Insert comments
+  var commentsIds = [];
+  <% @comments.each do |comment| %>
+    (function() {
+      var commentId = <%= comment.id.to_json %>;
+      var commentHtml = '<%== j(render comment).strip %>';
+      var inReplyTo = <%== (reply?(comment) ? comment.commentable.id : nil).to_json %>;
+
+      commentsIds.push(commentId);
+      var existingComment = targetContainer ? targetContainer.querySelector("#comment_" + commentId) : null;
+      if (!existingComment) {
+        if (inReplyTo) {
+          component.addReply(inReplyTo, commentHtml);
+        } else if (loadMoreWrapper) {
+          loadMoreWrapper.insertAdjacentHTML("beforebegin", commentHtml);
+        } else {
+          component.addThread(commentHtml, <%= alignment.present? ? alignment : "null" %>);
+        }
+      }
+    })();
+  <% end %>
+
   if (commentsIds.length) {
     component.lastCommentId = <%= @comments.last&.id || 0 %>;
-
-    Rails.fire(document, "comments:loaded", {
-      commentsIds: commentsIds
-    });
+    Rails.fire(document, "comments:loaded", { commentsIds: commentsIds });
   }
 
+  // Update load more button
   <% if is_loading_replies %>
-    var loadMoreWrapper = $("[data-load-more-replies-wrapper='<%= commentable.id %>']");
-    var repliesContainer = $("#comment-<%= commentable.id %>-replies");
     <% if @has_more_comments %>
-      <% new_offset = comments_offset + @comments.size %>
-      if (loadMoreWrapper.length === 0) {
+      if (!loadMoreWrapper && targetContainer) {
         var loadMoreHtml = '<%== j(render partial: "decidim/comments/comments/load_more_replies", locals: { comment: commentable, order: order, offset: new_offset, total_count: @sorted_comments_query.total_count }).strip %>';
-        repliesContainer.append(loadMoreHtml);
-      } else {
-        var newOffset = <%= new_offset %>;
-        loadMoreWrapper.attr("data-load-more-replies-offset-value", newOffset);
-        loadMoreWrapper.find("[data-load-more-replies-target='button']").prop("disabled", false).removeClass("loading");
-        loadMoreWrapper.find("[data-load-more-replies-target='spinner']").addClass("hidden");
+        targetContainer.insertAdjacentHTML("beforeend", loadMoreHtml);
+      } else if (loadMoreWrapper) {
+        loadMoreWrapper.setAttribute("data-load-more-replies-offset-value", <%= new_offset %>);
+        var btn = loadMoreWrapper.querySelector("[data-load-more-replies-target='button']");
+        var spin = loadMoreWrapper.querySelector("[data-load-more-replies-target='spinner']");
+        if (btn) { btn.disabled = false; btn.classList.remove("loading"); }
+        if (spin) { spin.classList.add("hidden"); }
       }
     <% else %>
-      loadMoreWrapper.remove();
+      if (loadMoreWrapper) { loadMoreWrapper.remove(); }
     <% end %>
   <% else %>
-    var loadMoreWrapper = $comments.find("[data-load-more-comments-wrapper]");
     <% if @has_more_comments %>
-      var newOffset = <%= comments_offset + @comments.size %>;
-      loadMoreWrapper.attr("data-load-more-comments-offset-value", newOffset);
-      loadMoreWrapper.find("[data-load-more-comments-target='button']").prop("disabled", false).removeClass("loading");
-      loadMoreWrapper.find("[data-load-more-comments-target='spinner']").addClass("hidden");
+      if (loadMoreWrapper) {
+        loadMoreWrapper.setAttribute("data-load-more-comments-offset-value", <%= new_offset %>);
+        var btn = loadMoreWrapper.querySelector("[data-load-more-comments-target='button']");
+        var spin = loadMoreWrapper.querySelector("[data-load-more-comments-target='spinner']");
+        if (btn) { btn.disabled = false; btn.classList.remove("loading"); }
+        if (spin) { spin.classList.add("hidden"); }
+      }
     <% else %>
-      loadMoreWrapper.remove();
+      if (loadMoreWrapper) { loadMoreWrapper.remove(); }
     <% end %>
   <% end %>
 }());
