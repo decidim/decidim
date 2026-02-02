@@ -86,10 +86,6 @@ module Decidim
         formatted_body
       end
 
-      def total_replies_count
-        model.comment_threads.not_hidden.not_deleted.count
-      end
-
       def order
         options[:order] || "older"
       end
