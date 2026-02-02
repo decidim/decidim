@@ -30,19 +30,19 @@ export default class extends Controller {
       return;
     }
 
-    if (!this.loadedValue) {
-      // First time - load replies via AJAX
-      await this.loadReplies();
-    } else {
+    if (this.loadedValue) {
       // Already loaded - just toggle visibility
       this.toggleVisibility();
+    } else {
+      // First time - load replies via AJAX
+      await this.loadReplies();
     }
   }
 
   /**
    * Load replies via AJAX
    * @private
-   * @returns {Promise<void>}
+   * @returns {Promise<void>} A promise that resolves when replies are loaded
    */
   async loadReplies() {
     this.loading = true;
@@ -75,10 +75,10 @@ export default class extends Controller {
    */
   buildUrl() {
     const params = new URLSearchParams({
-      commentable_gid: this.commentGidValue,
-      order: this.orderValue,
-      offset: 0,
-      load_more: 1
+      "commentable_gid": this.commentGidValue,
+      "order": this.orderValue,
+      "offset": 0,
+      "load_more": 1
     });
 
     return `${this.urlValue}?${params.toString()}`;
@@ -111,7 +111,9 @@ export default class extends Controller {
    */
   getCSRFToken() {
     const tokenElement = document.querySelector('meta[name="csrf-token"]');
-    return tokenElement ? tokenElement.getAttribute("content") : null;
+    return tokenElement
+      ? tokenElement.getAttribute("content")
+      : null;
   }
 
   /**

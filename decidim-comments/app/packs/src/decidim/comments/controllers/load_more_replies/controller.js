@@ -59,10 +59,10 @@ export default class extends Controller {
    */
   buildUrl() {
     const params = new URLSearchParams({
-      commentable_gid: this.commentGidValue,
-      order: this.orderValue,
-      offset: this.offsetValue,
-      load_more: 1
+      "commentable_gid": this.commentGidValue,
+      "order": this.orderValue,
+      "offset": this.offsetValue,
+      "load_more": 1
     });
 
     return `${this.urlValue}?${params.toString()}`;
@@ -95,7 +95,9 @@ export default class extends Controller {
    */
   getCSRFToken() {
     const tokenElement = document.querySelector('meta[name="csrf-token"]');
-    return tokenElement ? tokenElement.getAttribute("content") : null;
+    return tokenElement
+      ? tokenElement.getAttribute("content")
+      : null;
   }
 
   /**

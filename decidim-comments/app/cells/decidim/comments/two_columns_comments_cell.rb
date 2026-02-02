@@ -9,10 +9,12 @@ module Decidim
         render :show
       end
 
+      # rubocop:disable Metrics/ParameterLists
       def render_column(top_comment, comments, icon_name, title, alignment, has_more)
         set_column_variables(top_comment, comments, icon_name, title, alignment, has_more)
         render :column
       end
+      # rubocop:enable Metrics/ParameterLists
 
       private
 
@@ -63,6 +65,7 @@ module Decidim
         @has_more_mobile = @sorted_comments_query.has_more?
       end
 
+      # rubocop:disable Metrics/ParameterLists
       def set_column_variables(top_comment, comments, icon_name, title, alignment, has_more)
         @top_comment = top_comment
         @comments = comments
@@ -71,6 +74,7 @@ module Decidim
         @alignment = alignment
         @has_more = has_more
       end
+      # rubocop:enable Metrics/ParameterLists
     end
   end
 end

@@ -12,7 +12,7 @@
     var loadMoreWrapper = document.querySelector("[data-load-more-replies-wrapper='<%= commentable.id %>']");
   <% else %>
     <% if alignment.present? %>
-      var targetContainer = commentsContainer.querySelector(<%== ".comments-section__#{alignment == 1 ? 'in-favor' : 'against'}".to_json %>);
+      var targetContainer = commentsContainer.querySelector(<%== ".comments-section__#{alignment == 1 ? "in-favor" : "against"}".to_json %>);
     <% else %>
       var targetContainer = commentsContainer.querySelector("#mobileContainer") || commentsContainer.querySelector(".comment-threads");
     <% end %>
@@ -35,7 +35,7 @@
         } else if (loadMoreWrapper) {
           loadMoreWrapper.insertAdjacentHTML("beforebegin", commentHtml);
         } else {
-          component.addThread(commentHtml, <%= alignment.present? ? alignment : "null" %>);
+          component.addThread(commentHtml, <%= alignment.presence || "null" %>);
         }
       }
     })();
@@ -50,7 +50,7 @@
   <% if is_loading_replies %>
     <% if @has_more_comments %>
       if (!loadMoreWrapper && targetContainer) {
-        var loadMoreHtml = '<%== j(render partial: "decidim/comments/comments/load_more_replies", locals: { comment: commentable, order: order, offset: new_offset, total_count: @sorted_comments_query.total_count }).strip %>';
+        var loadMoreHtml = '<%== j(render partial: "decidim/comments/comments/load_more_replies", locals: { comment: commentable, order:, offset: new_offset, total_count: @sorted_comments_query.total_count }).strip %>';
         targetContainer.insertAdjacentHTML("beforeend", loadMoreHtml);
       } else if (loadMoreWrapper) {
         loadMoreWrapper.setAttribute("data-load-more-replies-offset-value", <%= new_offset %>);

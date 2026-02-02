@@ -60,13 +60,13 @@ export default class extends Controller {
    */
   buildUrl() {
     const params = new URLSearchParams({
-      commentable_gid: this.commentableGidValue,
-      order: this.orderValue,
-      offset: this.offsetValue,
-      load_more: 1
+      "commentable_gid": this.commentableGidValue,
+      "order": this.orderValue,
+      "offset": this.offsetValue,
+      "load_more": 1
     });
 
-    if (this.hasAlignmentValue && this.alignmentValue !== undefined) {
+    if (this.hasAlignmentValue && typeof this.alignmentValue !== "undefined") {
       params.append("alignment", this.alignmentValue);
     }
 
@@ -100,7 +100,9 @@ export default class extends Controller {
    */
   getCSRFToken() {
     const tokenElement = document.querySelector('meta[name="csrf-token"]');
-    return tokenElement ? tokenElement.getAttribute("content") : null;
+    return tokenElement
+      ? tokenElement.getAttribute("content")
+      : null;
   }
 
   /**

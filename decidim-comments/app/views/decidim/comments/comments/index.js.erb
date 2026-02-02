@@ -7,7 +7,7 @@
 
   // Find target container: desktop column, mobile container, or standard single-column
   <% if alignment.present? %>
-    var targetContainer = commentsContainer.querySelector(<%== ".comments-section__#{alignment == 1 ? 'in-favor' : 'against'}".to_json %>);
+    var targetContainer = commentsContainer.querySelector(<%== ".comments-section__#{alignment == 1 ? "in-favor" : "against"}".to_json %>);
   <% else %>
     var targetContainer = commentsContainer.querySelector("#mobileContainer") || commentsContainer.querySelector(".comment-threads");
   <% end %>
@@ -58,7 +58,7 @@
   // Handle load more button
   <% if @has_more_comments %>
   if (targetContainer && !targetContainer.querySelector("[data-load-more-comments-wrapper]")) {
-    var loadMoreHtml = '<%== j(render partial: "decidim/comments/comments/load_more_comments", locals: { commentable: commentable, order: order, offset: @comments.size, alignment: alignment.presence }).strip %>';
+    var loadMoreHtml = '<%== j(render partial: "decidim/comments/comments/load_more_comments", locals: { commentable:, order:, offset: @comments.size, alignment: alignment.presence }).strip %>';
     targetContainer.insertAdjacentHTML("beforeend", loadMoreHtml);
   }
   <% else %>
