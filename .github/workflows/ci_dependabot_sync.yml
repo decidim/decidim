@@ -10,6 +10,9 @@ on:
     paths:
       - 'Gemfile.lock'
 
+env:
+  RUBY_VERSION: 3.4.7
+
 jobs:
   sync-lockfiles:
     runs-on: ubuntu-latest
@@ -26,7 +29,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4.7'
+          ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: false
 
       - name: Install root dependencies
