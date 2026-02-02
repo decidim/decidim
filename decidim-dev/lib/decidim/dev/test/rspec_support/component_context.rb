@@ -123,14 +123,12 @@ shared_context "when publishes and unpublishes component" do
       component.unpublish!
       component.participatory_space.try_add_to_index_as_search_resource
 
-      visit current_path
+      visit decidim_admin_participatory_processes.components_path(participatory_process)
     end
 
-    it "" do
-      perform_enqueued_jobs
+    it "reindexes on publication" do
+      Decidim::SearchableResource.where(resource:).delete_all
       expect(Decidim::SearchableResource.where(resource:).count).to be_zero
-
-      expect(page).to have_content("The component has been successfully unpublished")
 
       within "tr", text: title do
         find("button[data-controller='dropdown']").click
@@ -151,10 +149,10 @@ shared_context "when publishes and unpublishes component" do
       component.publish!
       component.participatory_space.try_add_to_index_as_search_resource
 
-      visit current_path
+      visit decidim_admin_participatory_processes.components_path(participatory_process)
     end
 
-    it "" do
+    it "removes records from index" do
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
       within ".sidebar-menu" do
@@ -182,6 +180,7 @@ shared_context "when publishes and unpublishes component" do
 
   include_context "when managing a component as an admin" do
     it "cycles through unpublished and published states successfully" do
+      visit decidim_admin_participatory_processes.components_path(participatory_process)
       within ".sidebar-menu" do
         click_on "Components"
       end

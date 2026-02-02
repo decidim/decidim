@@ -5,8 +5,9 @@ require "spec_helper"
 describe "Admin publishes component" do
   let(:manifest_name) { "budgets" }
 
-  contexts "with a budget" do
+  context "with a budget" do
     let!(:resource) { create(:budget, component:) }
+
     include_context "when publishes and unpublishes component"
   end
 
