@@ -53,7 +53,7 @@ describe Decidim::PublicActivities do
 
     context "with follows" do
       let(:resource) { create(:dummy_resource, component:) }
-      let(:restricted_resource) { create(:dummy_resource, component:) }
+      let(:restricted_resource) { create(:dummy_resource, component: restricted_component) }
 
       let(:options) { { user:, current_user:, follows: Decidim::Follow.where(user:) } }
       let!(:follows) { [resource, restricted_resource].map { |f| create(:follow, followable: f, user:) } }

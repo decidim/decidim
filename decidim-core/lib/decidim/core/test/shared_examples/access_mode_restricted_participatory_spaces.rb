@@ -15,7 +15,7 @@ shared_examples "access mode restricted participatory spaces" do
 
     it "does not list the restricted participatory space" do
       within css_class_selector do
-        within "#{css_class_selector} h2" do
+        within "h2" do
           expect(page).to have_content("1")
         end
 
@@ -37,7 +37,7 @@ shared_examples "access mode restricted participatory spaces" do
 
       it "does not list the restricted participatory space" do
         within css_class_selector do
-          within "#{css_class_selector} h2" do
+          within "h2" do
             expect(page).to have_content("1")
           end
 
@@ -58,7 +58,7 @@ shared_examples "access mode restricted participatory spaces" do
 
       it "lists restricted participatory spaces" do
         within css_class_selector do
-          within "#{css_class_selector} h2" do
+          within "h2" do
             expect(page).to have_content("2")
           end
 
@@ -93,7 +93,7 @@ shared_examples "access mode restricted participatory spaces" do
 
     it "lists restricted participatory spaces" do
       within css_class_selector do
-        within "#{css_class_selector} h2" do
+        within "h2" do
           expect(page).to have_content("2")
         end
 

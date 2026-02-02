@@ -307,7 +307,7 @@ shared_examples "with resource visibility" do
   end
 
   context "when space is published but restricted" do
-    let!(:participatory_process) { create(process_space_factory, :restricted, :with_steps, organization: current_organization) }
+    let!(:participatory_process) { create(process_space_factory, :published, :restricted, :with_steps, organization: current_organization) }
 
     context "when component is published" do
       let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
