@@ -31,9 +31,6 @@ shared_examples_for "commentable interface" do
             ...dataFragment
             comments {
               ...dataFragment
-              comments {
-                ...dataFragment
-              }
             }
           }
         }

@@ -10,7 +10,7 @@
 module Decidim
   module Api
     class RecursionAnalyzer < GraphQL::Analysis::AST::Analyzer
-      IGNORED_FIELDS = %w(node edges nodes ofType comments).freeze
+      IGNORED_FIELDS = %w(node edges nodes ofType).freeze
       RECURSION_THRESHOLD = 2
 
       def initialize(query)
