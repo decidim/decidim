@@ -129,6 +129,10 @@ ro:
           other: "%{count} comentarii"
         top_comment_label: Cele mai votate
       down_vote_button:
+        label:
+          one: Buton dezaprobare. O dezaprobare
+          few: Buton dezaprobare. %{count} dezaprobări
+          other: Buton dezaprobare. %{count} dezaprobări
         text: Nu sunt de acord cu acest comentariu
       edit_comment_modal_form:
         close: Închideți
@@ -139,6 +143,10 @@ ro:
           submit: Actualizați
         title: Modificați comentariul dumneavoastră
       up_vote_button:
+        label:
+          one: Buton apreciere. %{count} apreciază
+          few: Buton apreciere. %{count} apreciază
+          other: Buton apreciere. %{count} apreciază
         text: Sunt de acord cu acest comentariu
     download_your_data:
       help:

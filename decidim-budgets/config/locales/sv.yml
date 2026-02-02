@@ -142,7 +142,6 @@ sv:
           new:
             create: Importera förslag till projekt
             default_budget: Förvald budget
-            import_all_accepted_proposals: Importera alla godkända förslag
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
             origin_component_id: Ursprungskomponent
             select_component: Välj en komponent

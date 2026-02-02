@@ -7,30 +7,43 @@ pt-BR:
         published_at: Horário da publicação
         title: Título
     models:
-      decidim/blogs/create_post_event: Nova postagem no blog
+      decidim/blogs/create_post_event: Nova postagem no ‘blog’
   activerecord:
     models:
       decidim/blogs/post:
         one: Postagem
         other: Postagens
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Postagens
+      tooltips:
+        deleted_posts_info: Não é possível excluir este post
     blogs:
       actions:
         author_id: Criar publicação como
+        confirm_delete_post: Deseja mesmo excluir este post?
+        deleted_posts_info: Postagens excluídas podem ser restaurados da lixeira.
         edit: Editar
         new: Nova postagem
         title: Ações
+        view_deleted_posts: Ver propostas excluídas
       admin:
         posts:
           create:
             invalid: Houve um problema ao criar esta postagem.
             success: Post criado com sucesso.
+          destroy:
+            success: Postagem excluída com sucesso.
           edit:
             save: Atualizar
             title: Editar publicação
           index:
             not_published_yet: Não publicado.
             title: Postagens
+          manage_trash:
+            title: Postagens excluídas
           new:
             create: Criar
             title: Criar post
@@ -39,9 +52,11 @@ pt-BR:
             success: Post salvo com sucesso.
       admin_log:
         post:
-          create: "%{user_name} criou a publicação no blog %{resource_name} do %{space_name}"
-          delete: "O %{user_name} excluiu a publicação no blog %{resource_name} do %{space_name}"
-          update: "%{user_name} atualizou a publicação no blog %{resource_name} do %{space_name}"
+          create: "%{user_name} Criou a publicação no ‘blog’ %{resource_name} do %{space_name}"
+          delete: "O %{user_name} excluiu a publicação no ‘blog’ %{resource_name} do %{space_name}"
+          restore: "%{user_name} restaurou a postagem do blog %{resource_name} no %{space_name}"
+          soft_delete: "%{user_name} moveu a postagem do blog %{resource_name} no %{space_name} para a lixeira"
+          update: "%{user_name} Atualizou a publicação no ‘blog’ %{resource_name} do %{space_name}"
       content_blocks:
         highlighted_posts:
           last_published: Último publicado
@@ -56,29 +71,60 @@ pt-BR:
             body: Corpo
             official_blog_post: Publicação oficial
             published_at: Horário da publicação
+            taxonomies: Taxonomias
             title: Título
       posts:
+        edit:
+          add_attachments: Adicionar anexos
+          attachment_legend: Adicionar um documento ou uma imagem
+          back: Voltar à postagem
+          button: Atualizar
+          edit_attachments: Editar anexos
+          title: Editar postagem
+        form:
+          author_id: Autor
+          body: Corpo
+          title: Título
         index:
           count:
             one: "%{count} publicação"
             other: "%{count} publicações"
           empty: Não existem publicações ainda.
+          new_post: Nova postagem
+        menu_actions:
+          button_destroy: Excluir postagem
+          button_destroy_confirm: Tem certeza que deseja excluir esta postagem?
+          button_edit: Editar postagem
+        new:
+          back: Voltar às postagens
+          button: Criar
+          title: Criar nova postagem
     components:
       blogs:
         actions:
           comment: Comentário
           create: Criar
           destroy: Excluir
+          like: Curti
           update: Atualizar
+          vote_comment: Vote no comentário
         name: Blog
         settings:
           global:
             announcement: Anúncio
+            attachments_allowed: Permitir anexos
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            creation_enabled_for_participants: Os usuários podem criar postagens
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
+            taxonomy_filters: Selecione filtros para o componente
+            taxonomy_filters_add: Adicionar filtro
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
+            likes_blocked: Curtidas bloqueadas
+            likes_enabled: Curtidas ativadas
     events:
       blogs:
         post_created:
@@ -86,5 +132,33 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode deixar de segui-lo no link anterior.
           email_subject: Nova postagem publicada em %{participatory_space_title}
           notification_title: A postagem <a href="%{resource_path}">%{resource_title}</a> foi publicada em %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Se este comentário foi um favorito, contra ou neutro
+          author: O nome do usuário que fez este comentário
+          body: O comentário em si
+          commentable_id: A identificação única do comentável
+          commentable_type: O tipo do comentário (se foi um resultado, uma proposta, etc.)
+          created_at: A data em que este comentário foi criado
+          depth: O lugar onde este comentário está nos três comentários (se for uma resposta ou uma resposta de uma resposta)
+          id: O ID deste comentário
+          locale: O idioma (localidade) que o participante tinha ao deixar este comentário
+          root_commentable_url: O URL do recurso relacionado a este comentário
+        posts:
+          author: Informações do autor
+          body: O corpo da postagem
+          comments_count: O número de comentários que esta publicação recebeu
+          component: O componente ao qual a postagem pertence
+          created_at: A data em que esta publicação foi criada
+          follows_count: O número de seguidores que esta publicação tem
+          id: O identificador único desta publicação
+          likes_count: O número de curtidas que esta publicação tem
+          participatory_space: A que espaço (por exemplo, Processo Participativo ou Assembleia) pertence esta publicação
+          published_at: A data em que esta postagem foi publicada
+          title: O título da postagem
+          updated_at: Última data em que esta publicação foi atualizada
+          url: O URL para esta postagem
     statistics:
       posts_count: Postagens
+      posts_count_tooltip: O número de atualizações ou posts de ‘blog’, publicados.

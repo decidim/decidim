@@ -14,6 +14,7 @@ de:
         duplicate_landing_page_blocks: Startseiten-Blöcke duplizieren
         duplicate_steps: Schritte duplizieren
         end_date: Enddatum
+        has_members: Dieser Bereich hat Mitglieder
         hero_image: Hauptbild
         import_attachments: Anhänge importieren
         import_categories: Kategorien importieren
@@ -115,6 +116,7 @@ de:
           components: Komponenten
           info: Über diesen Prozess
           landing_page: Startseiten-Layout
+          members: Mitglieder
           moderations: Moderationen
           process_admins: Benutzer verarbeiten
           steps: Schritte
@@ -281,9 +283,11 @@ de:
         export: "%{user_name} hat den Beteiligungsprozess %{resource_name} exportiert"
         import: "%{user_name} hat den Beteiligungsprozess %{resource_name} importiert"
         publish: "%{user_name} hat den Partizipationsprozess %{resource_name} veröffentlicht"
+        publish_all_members: "%{user_name} hat alle Mitglieder des Partizipationsprozesses %{resource_name} veröffentlicht"
         restore: "%{user_name} hat den Beteiligungsprozess %{resource_name} wiederhergestellt"
         soft_delete: "%{user_name} hat den Beteiligungsprozess %{resource_name} in den Papierkorb verschoben"
         unpublish: "%{user_name} hat den Partizipationsprozess %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        unpublish_all_members: "%{user_name} hat die Veräffentlichung aller Mitglieder des Partizipationsprozesses %{resource_name} aufgehoben"
         update: "%{user_name} hat den Partizipationsprozess %{resource_name} aktualisiert"
       participatory_process_group:
         create: "%{user_name} hat die Partizipationsprozess-Gruppe %{resource_name} erstellt"
@@ -339,6 +343,7 @@ de:
         participatory_processes:
           announcement: Die Ankündigungsinformationen (Banner)
           area: Der Bereich, in dem der Prozess stattfindet,
+          component_settings: Die Komponenteneinstellungen des Prozesses
           created_at: Erstellungsdatum dieses Bereichs
           description: Eine ausführliche Beschreibung des Prozesses
           developer_group: Die Entwicklergruppe des Prozesses. Dies ist die Organisation, die den Prozess fördert.
@@ -504,9 +509,11 @@ de:
             announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Prozessinformationen angezeigt.
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Dauer
+            has_members_help: Sie können Mitglieder erstellen und veröffentlichen
             images: Bilder
             metadata: Metadaten
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
+            private_notice: Macht den Raum unsichtbar für externe Besuchende und zugänglich nur für Mitglieder – außer wenn er gleichzeitig transparent ist
             related_processes: Ähnliche Beteiligungsprozesse
             select_process_group: Wählen Sie eine Prozessgruppe aus
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
@@ -555,6 +562,9 @@ de:
         title: Beteiligungsprozesse
       last_activity:
         new_participatory_process: 'Neuer Beteiligungsprozess:'
+      members:
+        index:
+          title: Mitglieder
       pages:
         home:
           highlighted_processes:

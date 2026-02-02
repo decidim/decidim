@@ -38,8 +38,6 @@ describe "Admin manages initiatives types" do
 
       select("Online", from: "Signature type")
 
-      dynamically_attach_file(:initiatives_type_banner_image, Decidim::Dev.asset("city2.jpeg"))
-
       click_on "Create"
 
       expect(page).to have_admin_callout("A new initiative type has been successfully created")

@@ -7,6 +7,19 @@ require "decidim/faker/localized"
 module Decidim
   # Base class to be inherited from the different modules' seeds classes
   class Seeds
+    SEEDS_CONFIG = {
+      comments_count: { slow: 6, fast: 2 },
+      comments_nested_probability: { slow: 0.5, fast: 0.2 },
+      comments_vote_skip_probability: { slow: 0.5, fast: 0.7 },
+      comments_votes_count: { slow: 12, fast: 3 },
+      surveys_responses_count: { slow: 200, fast: 20 },
+      surveys_response_options_count: { slow: 3, fast: 2 },
+      surveys_matrix_rows_count: { slow: 3, fast: 2 },
+      initiatives_votes_count: { slow: 50, fast: 10 },
+      accountability_statuses_count: { slow: 5, fast: 3 },
+      accountability_taxonomies_count: { slow: 2, fast: 1 }
+    }.freeze
+
     protected
 
     def slow_seeds?
@@ -15,6 +28,10 @@ module Decidim
 
     def number_of_records
       slow_seeds? ? rand(3..5) : 1
+    end
+
+    def config_value(key)
+      slow_seeds? ? SEEDS_CONFIG[key][:slow] : SEEDS_CONFIG[key][:fast]
     end
 
     def organization

@@ -1,6 +1,10 @@
 ro:
   activemodel:
     attributes:
+      milestone:
+        description: Descriere
+        entry_date: Data
+        title: Titlu
       result:
         decidim_accountability_status_id: Stare
         decidim_category_id: Categorie
@@ -9,7 +13,7 @@ ro:
         end_date: Data de sfârșit
         progress: Progres
         start_date: Data de început
-        subresults: Subrezultate
+        subresults: Rezultate
         title: Titlu
         updated_at: Ultima actualizare
       status:
@@ -25,7 +29,11 @@ ro:
       decidim:
         accountability:
           result:
-            budget_text: Acest rezultat %{link} a fost inclus
+            budget_text: Rezultatul %{link} a fost inclus
+            meetings_ids: 'În cadrul acestei ședințe: %{link}'
+            project_ids: 'A fost inclus în acest proiect: %{link}'
+            proposal_ids: 'A fost adăugat la această propunere: %{link}'
+            text: 'A fost adăugat la acest rezultat: %{link}'
       decidim/accountability/result:
         one: Rezultat
         few: Rezultate
@@ -33,46 +41,147 @@ ro:
   decidim:
     accountability:
       actions:
+        add_milestone: Adaugați obiectiv nou
+        add_result: Adăugați rezultat
+        confirm_delete_result: Sunteți sigur că doriți să eliminați acest rezultat?
         confirm_destroy: Sunteți sigur că doriți să ștergeți %{name}?
+        deleted_results_info: Rezultatele șterse pot fi restaurate din gunoi.
         destroy: Ștergeți
-        edit: Actualizare
+        edit: Modificați
+        import: Importați rezultate dintr-o altă componentă
         import_csv: Importați rezultate dintr-un fișier CSV
+        new_milestone: Reper nou
         new_result: Rezultat nou
         new_status: Stare nouă
         preview: Previzualizare
         title: Acțiuni
+        view_deleted_results: Vizualizați rezultatele eliminate
       admin:
         exports:
           result_comments: Comentarii
           results: Rezultate
+        import_components:
+          create:
+            invalid: A apărut o problemă la importul rezultatelor, vă rugăm să urmați instrucțiunile cu atenție și să vă asigurați că ați selectat proiecte pentru implementare.
+          filters:
+            new_items_projects:
+              one: Va fi importat 1 proiect selectat
+              few: "Vor fi importate %{count} proiecte selectate"
+              other: "Vor fi importate %{count} proiecte selectate"
+            new_items_proposals:
+              one: O propunere va fi importată
+              few: "Vor fi importate %{count} propuneri"
+              other: "Vor fi importate %{count} propuneri"
+            proposal_state: Starea propunerilor
+            select_state: Selectați starea
+          form:
+            create: Import
+            no_components: Nu există componente în acest spațiu participativ de importat.
+            origin_component_id: Componenta de origine
+            select_component: Selectează o componentă
+          new:
+            success:
+              one: 1 rezultat în așteptare pentru a fi importat. Veți fi notificat prin e-mail, odată ce importul a fost finalizat.
+              few: "%{count} rezultate în așteptare pentru a fi importate. Veți fi notificat prin e-mail, odată ce importul a fost finalizat."
+              other: "%{count} rezultate în așteptare pentru a fi importate. Veți fi notificat prin e-mail, odată ce importul a fost finalizat."
+            title: Importați rezultate dintr-o altă componentă
         import_results:
           new:
             download_export: Descărcați Exportul în format CSV
             import: Importați
+            info: |
+              <p>Vă recomandăm să urmați acești pași:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Creați stările pentru rezultatele</a> pe care doriți să le adăugați</li>
+              <li><a href='%{link_new_result}' target='_blank'>Creați cel puțin un rezultat manual</a> prin intermediul acestui panou de administrare înainte de a utiliza Importul, pentru a înțelege mai bine formatul și ce trebuie să completați.</li>
+              <li>%{link_export_csv}</li>
+              <li>Efectuați modificările local. Puteți modifica doar următoarele coloane ale fișierului CSV (restul vor fi ignorate):</li>
+              <ul>
+              <li><b>taxonomii/id-uri:</b> ID-uri pentru taxonomii (dacă sunt mai multe, separați-le prin virgulă)</li>
+              <li><b>parent/id:</b> ID-ul părintelui (pentru rezultatele corelate). Opțional</li>
+              <li><b>title/en:</b> Titlu în limba engleză. Acesta va depinde de configurația lingvistică a platformei dvs.</li>
+              <li><b>description/en:</b> Descriere în limba engleză. Aceasta va depinde de configurația lingvistică a platformei dvs.</li>
+              <li><b>start_date:</b> data la care rezultatul începe execuția (format AAAA-LL-ZZ)</li>
+              <li><b>end_date:</b> data la care rezultatul se termină execuția (format AAAA-LL-ZZ)</li>
+              <li><b>status/id:</b> ID-ul stării pentru acest rezultat</li>
+              <li><b>progress:</b> Procentul (de la 0 la 100) al execuției</li>
+              <li><b>proposals_ids:</b> ID-ul intern al propunerilor aferente (separate prin virgulă). Se convertește automat în <span class='attribute-name'>proposal_url</span></li>
+              </ul>
+              </li>
+              </ol>
             title: Importați rezultate dintr-un fișier CSV
         imports:
           create:
             invalid: A apărut o problemă la importul rezultatelor.
+            success: Importarea fișierului a început. În câteva minute veți primi un e-mail cu rezultatul importului.
+        milestones:
+          create:
+            invalid: A apărut o problemă la crearea acestui reper.
+            success: Reperul a fost creat cu succes.
+          destroy:
+            success: Reperul a fost eliminat cu succes.
+          edit:
+            title: Modificați obiectivul
+            update: Actualizați reperul
+          index:
+            title: Repere
+          new:
+            create: Creați un reper
+            title: Reper nou
+          update:
+            invalid: A apărut o problemă la actualizarea acestui reper.
+            success: Reperul a fost actualizat cu succes.
         models:
           result:
             name: Rezultat
           status:
             name: Stare
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Schimbați data
+              end_date: Dată de sfârșit
+              start_date: Dată de începere
+            dropdown:
+              actions: Acțiuni
+              change_dates: Schimbați datele
+              change_status: Schimbați starea
+              change_taxonomies: Schimbați taxonomia
+            status_form:
+              change_status: Schimbați starea
+              status: Stare
+            submit_buttons:
+              cancel: Anulați
+            taxonomies_form:
+              change_taxonomies: Schimbați taxonomia
           create:
             invalid: A apărut o problemă la crearea acestui rezultat.
             success: Rezultatul a fost creat.
           edit:
-            title: Actualizare rezultat
-            update: Actualizare rezultat
+            title: Modificați rezultatul
+            update: Actualizați rezultatul
           index:
+            selected: Selectat
             title: Rezultate
+          manage_trash:
+            title: Rezultate eliminate
           new:
             create: Creați un rezultat nou
             title: Rezultat nou
           update:
             invalid: A apărut o eroare la actualizarea acestui rezultat.
             success: Rezultatul a fost actualizat.
+          update_dates:
+            invalid: A apărut o eroare la actualizarea datelor acestui rezultat
+            success: Datele rezultatului actualizate cu succes
+          update_status:
+            invalid: A apărut o eroare la actualizarea stării rezultatelor
+            success: Starea rezultatelor a fost actualizată
+          update_taxonomies:
+            invalid: Nu s-au putut actualiza taxonomiile %{taxonomies} pentru rezultatele %{results}
+            select_a_result: Selectați un rezultat
+            select_a_taxonomy: Selectați o taxonomie
+            success: Actualizare cu succes a taxonomiilor %{taxonomies} pentru rezultatele %{results}
         shared:
           subnav:
             statuses: Stări
@@ -83,55 +192,77 @@ ro:
           destroy:
             success: Starea a fost ștearsă.
           edit:
-            title: Actualizare stare
-            update: Actualizare stare
+            title: Modificați stare
+            update: Actualizați stare
           index:
             title: Stări
           new:
-            create: Creează stare
+            create: Creați stare
             title: Stare nouă
           update:
             invalid: A apărut o eroare la actualizarea acestei stări.
             success: Starea a fost actualizată.
       admin_log:
+        milestones:
+          create: "%{user_name} a creat reperul %{resource_name}"
+          delete: "%{user_name} a eliminat reperul %{resource_name}"
+          update: "%{user_name} a actualizat reperul %{resource_name}"
         result:
           create: "%{user_name} a creat rezultatul %{resource_name} în %{space_name}"
           delete: "%{user_name} a șters rezultatul %{resource_name} din %{space_name}"
+          restore: "%{user_name} a restaurat rezultatul %{resource_name} din %{space_name}"
+          soft_delete: "%{user_name} a mutat la gunoi rezultatul %{resource_name} din %{space_name}"
           update: "%{user_name} a actualizat rezultatul %{resource_name} din %{space_name}"
         status:
-          create: "%{user_name} a creat starea resursei %{resource_name}"
-          delete: "%{user_name} a șters starea resursei %{resource_name}"
-          update: "%{user_name} a actualizat starea %{resource_name}"
+          create: "%{user_name} a creat o stare %{resource_name}"
+          delete: "%{user_name} a eliminat starea resursei %{resource_name}"
+          update: "%{user_name} a actualizat starea resursei %{resource_name}"
         value_types:
           parent_presenter:
-            not_found: 'Elementul-părinte nu a fost găsit în baza de date (ID: %{id})'
+            not_found: 'Elementul părinte nu a fost găsit în baza de date (ID: %{id})'
       content_blocks:
         highlighted_results:
           results: Rezultate
+      creation:
+        text: Rezultatul a fost creat
       import_mailer:
         import:
           errors: Erori
           errors_present: A apărut o problemă la importul rezultatelor.
           row_number: Rând
-          subject: Importare cu succes a rezultatelor
+          subject: Import cu succes a rezultatelor
           success: Rezultate importate. Puteți revizui rezultatele în interfața de administrare.
       import_projects_mailer:
         import:
           added_projects:
             one: Un rezultat a fost importat din proiecte.
-            few: "Rezultatele au fost importate din proiecte."
+            few: "%{count} rezultate au fost importate din proiecte."
             other: "%{count} rezultate au fost importate din proiecte."
           subject: Importul de proiecte a avut succes
+          success: Proiecte importate cu succes ca rezultate în componenta %{component_name}. Puteți analiza rezultatele în interfața de administrare.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Un rezultat a fost importat din propuneri
+            few: "%{count} rezultate au fost importate din propuneri."
+            other: "%{count} rezultate au fost importate din propuneri."
+          subject: Propunerile au fost importate cu succes
+          success: Propuneri importate cu succes ca rezultate în componenta %{component_name}. Puteți analiza rezultatele în interfața de administrare.
       last_activity:
         new_result: 'Rezultat nou:'
       models:
+        milestone:
+          fields:
+            entry_date: Data
+            title: Titlu
         result:
           fields:
             created_at: Creat
-            end_date: Data de sfârșit
+            end_date: Dată de sfârșit
             progress: Progres
-            start_date: Data de început
+            start_date: Dată de începere
             status: Stare
+            taxonomies: Taxonomii
             title: Titlu
         status:
           fields:
@@ -146,12 +277,14 @@ ro:
             few: "%{count} rezultate"
             other: "%{count} rezultate"
         home_header:
-          global_status: Stare execuție globală
+          global_status: Stare globală de execuție
+        milestones:
+          title: Repere
         no_results: Nu există proiecte
         root_taxonomies:
           title: 'Vizualizare după:'
         search:
-          search: Caută acțiuni
+          search: Cautați acțiuni
         show:
           stats:
             back_to_resource: Înapoi la rezultat
@@ -160,37 +293,86 @@ ro:
         results:
           status_id_eq:
             label: Stare
+          taxonomies_part_of_contains:
+            label: Taxonomie
+      tooltips:
+        deleted_results_info: Nu puteți elimina acest rezultat
     components:
       accountability:
         actions:
           comment: Comentariu
+          vote_comment: Votați comentariul
         name: Responsabilitate
         settings:
           global:
+            clear_all: Eliminați tot
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor (Lăsați 0 pentru valoarea implicită)
             default_taxonomy: Taxonomie implicită
             default_taxonomy_help: Selectați ce taxonomie doriți să afișați implicit. Dacă nu este selectată nicio taxonomie, rezultatele vor fi afișate într-un format de listă.
-            display_progress_enabled: Afișare progres
+            define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
+            display_progress_enabled: Afișați progres
+            geocoding_enabled: Hărți activate
             intro: Introducere
+            no_taxonomy_filters_found: Nu am găsit nici un filtru de taxonomie.
+            taxonomy_filters: Selectați filtrele pentru componentă
+            taxonomy_filters_add: Adaugați filtru
           step:
             comments_blocked: Comentarii blocate
           visualization: Vizualizare
+    download_your_data:
+      show:
+        result_comments: Export al comentariilor rezultatelor
+        results: Export rezultate
     events:
       accountability:
         proposal_linked:
           email_intro: 'Propunerea "%{proposal_title}" a fost inclusă într-un rezultat. O puteți vedea de pe această pagină:'
-          email_outro: Ați primit această notificare deoarece urmați "%{proposal_title}". Puteți înceta să primiți notificări urmând linkul anterior.
-          email_subject: O actualizare la %{proposal_title}
+          email_outro: Ați primit această notificare deoarece urmăriți "%{proposal_title}". Puteți înceta să primiți notificări urmând linkul anterior.
+          email_subject: O actualizare a %{proposal_title}
           notification_title: Propunerea <a href="%{proposal_path}">%{proposal_title}</a> a fost inclusă în rezultatul <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
           email_intro: 'Rezultatul "%{resource_title}", care include propunerea "%{proposal_title}", este acum %{progress}% complet. Îl puteți vedea de pe această pagină:'
-          email_outro: Ai primit această notificare deoarece urmărești „%{proposal_title}” și această propunere este inclusă în rezultatul „%{resource_title}”. Poți înceta să primești notificări urmând link-ul anterior.
-          email_subject: O actualizare la progresul %{resource_title}
+          email_outro: Ați primit această notificare deoarece urmăriți „%{proposal_title}”, iar această propunere este inclusă în rezultatul „%{resource_title}”. Puteți înceta să primiți notificări urmând link-ul anterior.
+          email_subject: O actualizare privind progresul a %{resource_title}
           notification_title: Rezultatul <a href="%{resource_path}">%{resource_title}</a>, care include propunerea <a href="%{proposal_path}">%{proposal_title}</a>, este acum %{progress}% complet.
+    open_data:
+      help:
+        result_comments:
+          alignment: În cazul în care acest comentariu a fost favorabil, contrar sau neutru
+          author: Numele participantului care a făcut acest comentariu
+          body: Comentariul în sine
+          commentable_id: Id-ul unic al comentariului
+          commentable_type: Tipul resursei comentate (dacă este întâlnire, propunere etc.)
+          created_at: Data când acest comentariu a fost creat
+          depth: Locul în care acest comentariu este în arborele de comentarii (dacă este un răspuns sau un răspuns la un răspuns)
+          id: Id-ul unic al comentariului
+          locale: Localizarea (limba) pe care participantul a folosit-o atunci când a lăsat acest comentariu
+          root_commentable_url: URL-ul resursei unde a fost lăsat acest comentariu
+        results:
+          address: Adresa rezultatului (dacă există)
+          children_count: Numărul rezultatelor copii
+          comments_count: Numărul de comentarii pe care le are acest rezultat
+          component: Componenta căreia îi aparține rezultatul
+          created_at: Data când acest rezultat a fost creat
+          description: Descrierea rezultatului
+          end_date: Data la care încetează este terminat rezultatul și execuția încetează
+          id: Identificatorul unic al acestui rezultat
+          latitude: Latitudinea rezultatului în cazul în care acesta are o localizare fizică
+          longitude: Longitudinea rezultatului în cazul în care are o localizare fizică
+          parent: Rezultatul părinte (dacă există) al rezultatului
+          progress: Procentul de execuție al rezultatului
+          proposal_urls: URL-urile propunerilor care sunt incluse în acest rezultat
+          reference: Referința unică a rezultatului
+          start_date: Data la care începe execuția rezultatului
+          status: Starea actuală a acestui rezultat
+          taxonomies: Taxonomiile rezultatului
+          title: Titlul rezultatului
+          updated_at: Ultima dată când acest rezultat a fost actualizat
+          url: URL-ul unde acest rezultat poate fi găsit
     participatory_spaces:
       highlighted_results:
-        see_all: Vezi toate rezultatele
+        see_all: Vedeți toate rezultatele
     resource_links:
       included_projects:
         result_project: Proiecte incluse în acest rezultat

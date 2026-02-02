@@ -179,7 +179,6 @@ eu:
       front_page_link: Zoaz orri nagusira
       logo: "%{organization} erakundaren logo ofiziala"
       opens_in_new_tab: Ireki beste fitxa batean
-      secondary_menu: Bigarren mailako menua
       skip_button: Eduki nagusira joan
     account:
       blocked: Kontu hau blokeatu egin da erabilera-terminoak eta -baldintzak urratu direlako
@@ -269,7 +268,7 @@ eu:
       member:
         create: "%{user_name} parte-hartzaileak %{resource_name} baliabidera kide izateko gonbidatu du"
         create_via_csv: "%{user_name} -k %{resource_name} CSV bidez gonbidatu du kide izateko"
-        delete: "%{user_name} -k %{resource_name} parte-hartzailea kendu du kide bezala"
+        delete: "%{user_name} parte-hartzailek %{resource_name} kendu du kide bezala"
       moderation:
         bulk_hide: "%{user_name} parte-hartzaileak %{reported_count} baliabide ezkutatu du"
         bulk_unhide: "%{user_name} parte-hartzaileak berriro erakutsi du %{reported_count} baliabide"
@@ -770,6 +769,7 @@ eu:
         participatory_space_members:
           created_at: Kide hori sortu zen eguna eta ordua
           id: The unique identifier of this member
+          participatory_space: Kide hori zein espaziotakoa den
           published: Parte-hartzaile pribatu hori argitaratuta dagoen ala ez
           role: Kide horrek duen rola
           updated_at: Kide hori azken aldiz eguneratu zen eguna eta ordua
@@ -2044,7 +2044,7 @@ eu:
     required: Nahitaezkoa da
     required_explanation: "* Nahitaez bete beharreko eremuak batez daude markatuta"
   invisible_captcha:
-    sentence_for_humans: Gizaki bat bazara, ez egin kasu eremu honi
+    sentence_for_humans: Gizakia bazara, ez jaramonik egin eremu horri
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, birbidali.
   layouts:
     decidim:
@@ -2183,7 +2183,7 @@ eu:
     fallback: ez da zuzena
     name_included_in_password: zure izenaren antzekoa da
     nickname_included_in_password: zure ezizenaren antzekoegia da
-    not_enough_unique_characters: ez da nahikoa karaktere berezirik
+    not_enough_unique_characters: ez ditu nahikoa karaktere berezi
     password_repeated: Ezin da erabili pasahitz zaharra
     password_too_common: oso ohikoa da
     password_too_long: luzeegia da

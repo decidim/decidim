@@ -686,6 +686,7 @@ de:
       initiative:
         actions:
           comment: Kommentieren
+          vote_comment: Kommentar bewerten
       initiatives_type:
         actions:
           create: Initiative erstellen

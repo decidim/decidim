@@ -54,7 +54,7 @@ jobs:
       - name: Get npm cache directory path
         id: npm-cache-dir-path
         run: echo "dir=$(npm get cache)-lint" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         id: npm-cache
         with:
           path: ${{ steps.npm-cache-dir-path.outputs.dir }}

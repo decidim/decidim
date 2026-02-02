@@ -3,10 +3,21 @@ pt-BR:
     attributes:
       account:
         delete_reason: Motivo para excluir sua conta
+      attachment:
+        documents: Documentos
+        image: Imagem
+        photos: Fotos
       common:
         created_at: Criado em
+      component:
+        taxonomy_filters: Filtros de taxonomia
+      content_block_attachment:
+        background_image: Imagem de fundo
+        main_image: Imagem principal
       conversation:
         body: Corpo
+      editor_image:
+        file: Arquivo
       group:
         about: Sobre
         avatar: Avatar
@@ -15,14 +26,22 @@ pt-BR:
         name: Nome
         nickname: Nome de usuário
         phone: Telefone
+      import:
+        file: Arquivo
       message:
         body: Corpo
       report:
         details: Comentários adicionais
       taxonomy:
         name: Nome da taxonomia
+      taxonomy_filter:
+        internal_name: Rótulo Interno
+        name: Etiqueta
+        root_taxonomy_id: Da taxonomia
+        space_filter: Filtro disponível para
       user:
         about: Sobre
+        avatar: Foto de perfil
         email: O seu email
         encrypted_password: Senha
         locale: Local
@@ -34,6 +53,12 @@ pt-BR:
         personal_url: URL pessoal
         remove_avatar: Excluir avatar
         tos_agreement: Acordo de Termos de Serviço
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: O apelido deve ser minúsculo e não conter espaços
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
@@ -48,6 +73,7 @@ pt-BR:
       decidim/promoted_to_admin_event: Promovido a administrador do grupo
       decidim/removed_from_group: Removido do grupo
       decidim/resource_hidden_event: Conteúdo ocultado
+      decidim/resource_liked_event: Recurso curtido
       decidim/welcome_notification_event: Mensagem de boas-vindas
   activerecord:
     attributes:
@@ -56,14 +82,22 @@ pt-BR:
         with_participatory_space: Espaço participativo
       decidim/user:
         current_password: Senha atual
+        email: Endereço de e-mail
         name: Nome de usuário
         password: Senha
         password_confirmation: Confirmação de senha
         remember_me: Lembrar-me
     models:
+      decidim:
+        history:
+          one: História
+          other: Histórico
       decidim/amendment:
         one: Emenda
         other: Emendas
+      decidim/like:
+        one: Curti
+        other: Curtidas
       decidim/user:
         one: Nenhum usuário
         other: Comercial
@@ -133,7 +167,11 @@ pt-BR:
         one: 1 segundo
         other: "%{count} segundos"
     widget:
+      label:
+        date: Selecione a data para %{label}
+        time: Selecione o horário para %{label}
       picker:
+        date_button: Abra o seletor de calendário para %{label}
         time_button: Abrir seletor para %{label}
   decidim:
     accessibility:
@@ -155,8 +193,11 @@ pt-BR:
         leaving_authorizations_behind: Alguns dados vinculados à sua autorização serão salvos para segurança. Se você criar outra conta e autorizar novamente, estes dados serão recuperados para sua nova conta.
       destroy:
         error: Ocorreu um erro ao cancelar a sua conta.
+        inactive_account_removal_reason: Conta removida após %{inactivity_period} dias de inatividade
         success: Sua conta foi excluída.
       download_your_data_export:
+        export_expired: A exportação expirou. Tente gerar uma nova exportação.
+        export_not_found: A exportação que você acessou não existe, ou você não tem permissão para baixa-lá
         file_no_exists: O arquivo não existe
         notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
       email_change:
@@ -211,6 +252,8 @@ pt-BR:
         delete: "%{user_name} removeu o componente %{resource_name} do espaço %{space_name}"
         export_component: "%{user_name} exportou %{resource_name} %{component_name} em %{space_name} como %{format_name}"
         publish: "%{user_name} publicou o componente %{resource_name} no espaço %{space_name}"
+        restore: "%{user_name} restaurou o %{resource_name} componente no %{space_name} espaço"
+        soft_delete: "%{user_name} Moveu para o lixo o %{resource_name} componente no %{space_name} espaço"
         unpublish: "%{user_name} despublicou o componente %{resource_name} do espaço %{space_name}"
         update_permissions_with_space: "%{user_name} atualizou as permissões de %{resource_name} no %{space_name}"
       contextual_help_section:
@@ -222,7 +265,14 @@ pt-BR:
         results: resultados
       impersonation_log:
         manage: "%{user_name} gerenciou %{resource_name} porque %{reason}"
+      member:
+        create: "%{user_name} convide %{resource_name} para ser um membro"
+        create_via_csv: "%{user_name} Convide %{resource_name} via CSV para ser um membro"
+        delete: "%{user_name} Participante removido %{resource_name} como membro"
       moderation:
+        bulk_hide: "%{user_name} Ocultou %{reported_count} recursos"
+        bulk_unhide: "%{user_name} Desocultou %{reported_count} recursos"
+        bulk_unreport: "%{user_name} Recursos não declarados %{reported_count}"
         hide: "%{user_name} Escondeu um recurso de tipo %{resource_type} no %{space_name} espaço"
         unreport: "%{user_name} Não declarou um recurso de tipo %{resource_type} no %{space_name} espaço"
       newsletter:
@@ -248,12 +298,36 @@ pt-BR:
         create: "%{user_name} criou o tipo de escopo %{resource_name}"
         delete: "%{user_name} excluiu o tipo de escopo %{resource_name}"
         update: "%{user_name} atualizou o tipo de escopo %{resource_name}"
+      share_token:
+        create: "%{user_name} Criou um link de acesso em %{space_name}"
+        create_with_space: "%{user_name} Criou um link de acesso para%{resource_name} no %{space_name}"
+        delete: "%{user_name} Deletou um link de acesso em %{space_name}"
+        delete_with_space: "%{user_name} Deletou um link de acesso para%{resource_name} no %{space_name}"
+        update: "%{user_name} Atualizou um link de acesso em %{space_name}"
+        update_with_space: "%{user_name} Atualizou um link de acesso para%{resource_name} no %{space_name}"
       static_page:
         create: "%{user_name} criou o %{resource_name} página estática"
         delete: "%{user_name} apagou o %{resource_name} página estática"
         update: "%{user_name} atualizou o %{resource_name} página estática"
+      taxonomy:
+        create: "%{user_name} Criou uma %{resource_name} taxonomia"
+        create_with_parent: "%{user_name} Criou uma %{resource_name} taxonomia na %{parent_taxonomy} taxonomia"
+        delete: "%{user_name} Deletou uma %{resource_name} taxonomia"
+        delete_with_parent: "%{user_name} Deletou uma %{resource_name} taxonomia na %{parent_taxonomy} taxonomia"
+        update: "%{user_name} Atualizou uma %{resource_name} taxonomia"
+        update_with_parent: "%{user_name} Atualizou uma %{resource_name} taxonomia na %{parent_taxonomy} taxonomia"
+      taxonomy_filter:
+        create: "%{user_name} Criou um filtro %{resource_name}"
+        create_with_filter_info: '%{user_name} Criou um filtro %{resource_name} baseado na taxonomia %{taxonomy_name} com%{filter_items_count} com itens'
+        delete: "%{user_name} Deletou um filtro %{resource_name}"
+        delete_with_filter_info: '%{user_name} Deletou um filtro %{resource_name} baseado na taxonomia %{taxonomy_name} com%{filter_items_count} com itens'
+        update: "%{user_name} Atualizou um filtro %{resource_name}"
+        update_with_filter_info: '%{user_name} Atualizou um filtro %{resource_name} baseado na taxonomia %{taxonomy_name} com%{filter_items_count} com itens'
       user:
         block: "%{user_name} bloqueou o usuário %{resource_name}"
+        bulk_block: "%{user_name} Bloqueou %{blocked_count} usuário"
+        bulk_ignore: "%{user_name} Não declarou %{unreported_users_count} usuário"
+        bulk_unblock: "%{user_name} Desbloqueou %{unblocked_count} usuário"
         invite: "%{user_name} convidou o usuário %{resource_name} com papel: %{role}"
         officialize: "%{user_name} oficializou o usuário %{resource_name}"
         promote: "%{user_name} promoveu %{resource_name}"
@@ -264,12 +338,17 @@ pt-BR:
         unofficialize: "%{user_name} não oficializado o usuário %{resource_name}"
       user_group:
         block: "%{user_name} bloqueou o grupo de usuários %{resource_name}"
+        bulk_block: "%{user_name} Bloqueou %{blocked_count} usuários"
+        bulk_ignore: "%{user_name} Não declarou %{unreported_users_count} usuários"
+        bulk_unblock: "%{user_name} Desbloqueou %{unblocked_count} usuários"
         reject: "%{user_name} rejeitou o %{resource_name} verificação do grupo de usuários"
         unblock: "%{user_name} desbloqueou o grupo de usuários %{resource_name}"
         verify: "%{user_name} verificado o %{resource_name} grupo de usuários"
         verify_via_csv: "%{user_name} verificou o %{resource_name} grupo de usuários por meio de um arquivo CSV"
       user_moderation:
         unreport: "%{user_name} removeu a denuncia %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>TERMOS DE SERVIÇO DO ADMINISTRADOR</h2><p>Confiamos que você já tenha recebido a palestra de praxe do administrador de sistemas local. Geralmente, ela se resume a estes três pontos:</p><ol><li>Respeite a privacidade dos outros.</li><li>Pense antes de clicar.</li><li>Grandes poderes trazem grandes responsabilidades.</li></ol>"
     alert:
       dismiss: Limpar notificação
     amendments:
@@ -351,6 +430,7 @@ pt-BR:
         visit_link: Visitar Link
       documents:
         component_documents:
+          dummy:
           meetings: Documentos de reuniões
         documents: Documentos
         related_documents: Documentos relacionados
@@ -365,6 +445,9 @@ pt-BR:
       comments:
         one: comentário
         other: comentários
+      likes:
+        one: curtir
+        other: curtidas
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -381,7 +464,15 @@ pt-BR:
           postal_code: Código postal
         name: Exemplo de autorização
       dummy_authorization_workflow:
+        explanation: Fluxo de autorização fictício
         name: Fluxo de trabalho de autorização falsa
+      ephemeral_dummy_authorization_handler:
+        explanation: Obtenha a verificação inserindo um número de documento que termine com "X".
+        fields:
+          allowed_postal_codes: Códigos postais permitidos (separados por vírgulas)
+          document_number: Número do documento
+          postal_code: Código Postal
+        name: Exemplo de autorização efêmero
       errors:
         duplicate_authorization: Um usuário já está autorizado com os mesmos dados. Um administrador entrará em contato para verificar suas informações.
       expired_at: Expirou em %{timestamp}
@@ -415,9 +506,12 @@ pt-BR:
         ok:
           title: Você foi autorizado nesta página. Recarregue a página para executar sua ação.
         pending:
+          explanation: Para realizar esta ação, você precisa estar autorizado com "%{authorization}", mas sua autorização ainda está em andamento.
+          resume: Verifique o progresso da sua autorização "%{authorization}".
           title: A autorização ainda está em progresso
         unauthorized:
           explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
+          invalid_field: "%{field} Valor %{value} não é válido."
           ok: Ok
           title: Não autorizado
         unconfirmed:
@@ -462,11 +556,14 @@ pt-BR:
             amendments_enabled: Alterações ativadas
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo de comentários
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             dummy_global_attribute1: Dummy Atributo 1
             dummy_global_attribute2: Dummy Attribute 2
             dummy_global_translatable_text: Texto Tradutor Falso
             enable_pads_creation: Ativar criação de blocos
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             resources_permissions_enabled: Permissões de recursos ativadas
+            taxonomy_filters: Selecione os filtros para o componente
           step:
             amendment_creation_enabled: Criação de alteração ativada
             amendment_promotion_enabled: Promoção de alteração ativada
@@ -476,6 +573,8 @@ pt-BR:
             dummy_step_attribute1: Dummy Step Attribute 1
             dummy_step_attribute2: Dummy Step Attribute 2
             dummy_step_translatable_text: Texto traduzível de Etapa falso
+      pagination:
+        page_title: "%{component_name} Página %{current_page} de %{total_pages}"
     contact: Contato
     content_blocks:
       announcement:
@@ -489,11 +588,25 @@ pt-BR:
         description: Descrição
       footer_sub_hero:
         name: Rodapé do sub-herói banner
+      hero:
+        name: Imagem de destaque e CTA
       hero_settings_form:
         background_image: Imagem de fundo
+        cta_button_path: URL do botão de chamada à ação
+        cta_button_path_help: 'Você pode sobrescrever para onde o botão de Chamada para Ação CTA da página inicial direciona. Use caminhos parciais, não URLs completas. São aceitos letras, números, hífens e barras, e o valor deve começar com uma letra. O botão de Chamada para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
+        cta_button_text: Texto do botão de chamada à ação
+        cta_button_text_help: Você pode alterar o texto do botão de chamada para ação na página inicial para cada idioma disponível em sua organização. Caso não seja definido, o valor padrão será utilizado. O botão de chamada para ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
         welcome_text: Texto de boas-vindas
       highlighted_content_banner:
         name: Banner de conteúdo destacado
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Legenda do botão de ação
+        action_button_title:
+        action_button_url:
+        background_image: Imagem de fundo
+        short_description: Descrição curta
+        subtitle: Subtitulo
+        title: Título
       highlighted_elements_settings_form:
         components:
           all: Todos
@@ -545,6 +658,8 @@ pt-BR:
           all: Tudo
         filter_scope_values:
           all: Tudo
+        filter_taxonomy_values:
+          all: tudo
     devise:
       omniauth_registrations:
         create:
@@ -574,25 +689,44 @@ pt-BR:
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
         new:
+          are_you_new?: Ainda não se registrou?
           register: Criar uma conta
           sign_in_disabled: Você pode acessar com uma conta externa.
           sign_up_disabled: A Criação de Conta está desabilitada, você pode usar um usuário que já existe para acessar.
         user:
+          ephemeral_session_closed: Sua sessão como convidado terminou
           timed_out: Você ficou inativo por muito tempo e foi automaticamente desconectado do serviço. Se você deseja continuar usando o serviço, entre novamente.
       shared:
         newsletter_modal:
           buttons:
             check: Verificar e continuar
             uncheck: Manter desmarcado
+          notice: |-
+            <p>Olá, tem certeza de que não deseja receber o boletim informativo?
+
+            Por favor, considere marcar a caixa de seleção do boletim informativo abaixo.
+
+            É muito importante para nós que você receba e-mails ocasionais com anúncios importantes.
+            Você pode alterar isso a qualquer momento na sua página de configurações de notificações.</p>
+            <p>Se você não marcar a caixa, poderá perder informações relevantes sobre novas oportunidades de participação na plataforma.<br>
+            Se você ainda preferir não receber boletins informativos, nós entendemos perfeitamente a sua decisão.</p>
+            <p>Obrigado por ler!</p>
           title: Notificações de newsletter
+        omniauth_buttons:
+          or: ou
         password_fields:
           hidden_password: Sua senha está oculta
           hide_password: Ocultar Senha
           show_password: Mostrar senha
+          shown_password:
         placeholder_email: oi@exemplo.org
+    documents:
+      one: "%{count} Documento"
+      other: "%{count} Documentos"
     doorkeeper:
       authorizations:
         new:
+          api_read: Leia o conteúdo através da API
           authorize: Autorizar aplicativo
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
@@ -608,15 +742,118 @@ pt-BR:
     download_your_data:
       export:
         ready: pronto
+      help:
+        core:
+          description: Estes são os arquivos com os dados pessoais, contribuições e atividades do usuário %{user_name}
+          title: Baixe os seus arquivos de dados em %{organization}
+        follows:
+          created_at: A data e hora em que o seguimento foi criado
+          followable: O recurso ou espaço que está sendo acompanhado
+          id: O identificador único deste seguimento
+          updated_at: A data e a hora em que o seguimento foi atualizado pela última vez
+        identities:
+          created_at: Data e hora de criação da identidade
+          id: O identificador único desta identidade
+          provider: O fornecedor desta identidade
+          uid: O identificador único desta identidade
+          updated_at: A data e a hora em que a identidade foi atualizada pela última vez
+          user: O usuário ao qual esta identidade pertence
+        messaging_conversations:
+          created_at: A data em que esta conversa foi criada
+          id: O identificador único desta conversa
+          messages: As mensagens dessa conversa
+          updated_at: A data em que esta conversa foi atualizada pela última vez
+        notifications:
+          created_at: A data e a hora em que a notificação foi criada
+          event_class: A classe do evento que desencadeou a notificação
+          event_name: O nome do evento que desencadeou a notificação
+          extra: Informações adicionais desta notificação
+          id: O identificador único desta notificação
+          resource_type: O tipo de recurso ao qual a notificação está relacionada
+          updated_at: A data e a hora em que a notificação foi atualizada pela última vez
+        participatory_space_members:
+          created_at: A data e a hora em que este membro foi criado
+          id: O identificador único deste membro
+          participatory_space: A que espaço este membro pertence
+          published: Se este membro é publicado ou não
+          role: O papel que este membro desempenha
+          updated_at: A data e a hora da última atualização deste membro
+        reports:
+          created_at: A data e a hora em que este relatório foi criado
+          details: Os detalhes deste relatório
+          id: O identificador único deste relatório
+          locale: A linguagem deste relatório
+          moderation: A moderação que este relatório tem
+          reason: O motivo deste relatório
+          updated_at: Data e hora da última atualização deste relatório
+        users:
+          about: Descrição do perfil deste participante
+          accepted_tos_version: A data em que os Termos de Serviço desta plataforma foram aceitos pelo usuário
+          admin: Se este usuário é um administrador
+          confirmation_sent_at: A data e a hora em que a confirmação foi enviada
+          confirmed_at: A data e a hora em que este usuário foi confirmado
+          created_at: A data e a hora em que este usuário foi criado
+          current_sign_in_at: A data e a hora do ‘login’ atual
+          current_sign_in_ip: O endereço IP do ‘login’ atual
+          delete_reason: O motivo apresentado para a exclusão deste usuário
+          deleted_at: A data e a hora em que este usuário foi excluído
+          email: O endereço de mensagem eletrônica deste usuário
+          followers_count: O número de participantes que seguem este usuário
+          following_count: O número de participantes que este usuário está seguindo
+          id: O identificador único deste usuário
+          invitation_accepted_at: A data e a hora em que o convite foi aceito
+          invitation_created_at: A data e a hora em que este usuário foi convidado
+          invitation_sent_at: A data e a hora em que o convite foi enviado
+          invitations_count: O número de convites enviados a este usuário
+          invited_by: O usuário que convidou este usuário
+          last_sign_in_at: A data e hora do acesso anterior
+          last_sign_in_ip: O endereço de IP do acesso anterior
+          locale: A localidade (idioma) que este usuário selecionou
+          managed: Se esse usuário é gerenciado por outro usuário
+          name: O nome do usuário
+          newsletter_notifications_at: A data e hora que este participante se inscreveu para receber uma notícia
+          nickname: O apelido deste usuário
+          notification_settings: As configurações de notificações que este usuário selecionou
+          notifications_sending_frequency: A frequência das notificações que este usuário recebe
+          officialized_as: O nome da oficialização (Concelheiro, Prefeito, etc.)
+          officialized_at: A data e hora em que este usuário foi oficializado
+          organization: A organização a que este usuário pertence
+          password_updated_at: A data em que sua senha foi alterada pela última vez
+          personal_url: A URL pessoal deste usuário
+          remember_created_at: A data e hora em que o usuário foi selecionado para ser lembrado
+          reset_password_sent_at: A data e hora em que a redefinição de senha foi enviada
+          roles: O papel que este usuário tem, se tiver algum
+          sign_in_count: O número de vezes que este usuário iniciou acesso
+          type: O tipo deste usuário
+          unconfirmed_email: O endereço de email que esse usuário ainda não confirmou
+          updated_at: A data e hora que este usuário foi atualizado pela última vez
+      show:
+        action: Ação
+        download: Baixar arquivo
+        download_data: Baixar dados
+        download_data_description_1: Aqui você pode encontrar todos os arquivos disponíveis para sua conta. Esses arquivos .zip estarão disponíveis por duas semanas antes de serem excluídos.
+        download_data_description_2: Você pode solicitar um arquivo .zip com o envio dos seus dados pessoais.
+        download_your_data: Dados Pessoais
+        expiration: Expiração
+        expired: Já expirado
+        explanation:
+          body_1: Estes arquivos são conjuntos de dados exportados da sua atividade nesta plataforma, como propostas ou comentários. Eles fornecem dados robustos e estruturados que podem ser usados para análise, pesquisa ou integração com outras ferramentas
+          body_2: Esses arquivos estão no formato CSV (Valores separados por Vírgula), é um formato de arquivo amplamente usado que pode ser aberto e processado por uma variedade de aplicativos de software, incluindo programas de planilha, editores de texto e ferramentas de análise de dados.
+          title: O que são esses arquivos?
+        files_to_download: Arquivos para baixar
+        request_data: Solicitação
+        type: Tipo de Download
     editor_images:
       create:
         error: Erro ao carregar a imagem.
         success: Imagem carregada com sucesso.
       drag_and_drop_help: Adicione imagens arrastando e soltando ou colando-as.
+    ephemeral_user: Visitante
     errors:
       files:
         file_cannot_be_processed: O arquivo não pode ser processado
         file_resolution_too_large: A resolução do arquivo é muito grande
+        not_inside_organization: O arquivo não está anexado a nenhuma organização.
       internal_server_error:
         copied: Texto copiado!
         copy_error_message_clarification: Copiar mensagem de erro para área de transferência
@@ -679,6 +916,11 @@ pt-BR:
             email_outro: Você recebeu esta notificação porque está seguindo %{amendable_title}. Você pode parar de receber notificações após o link anterior.
             email_subject: Uma alteração rejeitada por %{amendable_title} %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">alteração</a> criado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitado por <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'Uma emenda foi publicada para %{amendable_title}. Você pode ver a partir desta página:'
+            email_outro: Você recebeu essa notificação porque você é autor de %{amendable_title}.
+            email_subject: Uma emenda de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Um novo documento foi adicionado a %{resource_title}. Você pode vê-lo a partir desta página:'
@@ -707,7 +949,19 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
           email_subject: Você atingiu o nível %{current_level} na medalha %{badge_name}!
           notification_title: Bom trabalho! Você atingiu o nível %{current_level} na medalha <a href="%{resource_path}">%{badge_name}</a>!
+      nickname_event:
+        notification_body: Temos corrigido a forma que os nomes de usuário são utilizados para que não haja duplicados, e por isso excluímos a regra de sensibilidade de maiúsculas e minúsculas. <br/> Seu nome de usuário foi criado depois de um usuário com o mesmo nome, então renomeamos automaticamente. Pode mudar seu nome de usuário em <a href="%{link_to_account_settings}"> suas configurações de conta </a>.
+      notification_event:
+        notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            O seu %{resource_type} não está mais visível.<br> Isso aconteceu porque a proposta, reunião, debate ou comentário que você respondeu foi moderado. Se voltar a ficar disponível, o seu comentário será restaurado automaticamente.
+          email_outro: Você recebeu está notificação porque você é autor do %{resource_type} afetado.
+          email_subject: Seu %{resource_type} não está mais visível
+          notification_title: |-
+            Seu %{resource_type} não está mais visível. <br> 
+             Isso aconteceu porque a proposta, reunião, debate ou comentário que você respondeu foi moderado. Se voltar a ficar disponível, o seu comentário será restaurado automaticamente.<i>%{resource_content}</i>
         resource_hidden:
           email_intro: Um administrador removeu seu %{resource_type} porque ele foi reportado como %{report_reasons}.
           email_outro: Você recebeu esta notificação porque você é um autor do conteúdo removido.
@@ -715,6 +969,14 @@ pt-BR:
           notification_title: |-
             Um administrador removeu seu %{resource_type} porque ele foi reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, que você está seguindo, acabou de curtir "%{resource_title}" e pensamos que pode interessar você. Confira e contribua:'
+        email_outro: Você recebeu está notificação porque está seguindo %{liker_nickname}. Você pode parar de receber notificações após o link anterior.
+        email_subject: "%{liker_nickname} Realizou uma nova curtida"
+        notification_title: O <a href="%{resource_path}">%{resource_title}</a> %{resource_type} foi curtido por <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
+      resources:
+        soft_deleted:
+          notification_title: Um administrador excluiu seu "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: O <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
@@ -728,7 +990,11 @@ pt-BR:
           notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
       download_your_data_export:
+        click_button_html: Clique no link a seguir para baixar seus dados.<br/>O arquivo estará disponível para baixar até %{date}.
         download: Download
+      export:
+        click_button_html: Seu baixar está pronto. <br/>O arquivo estará disponível para baixar até %{date}.
+        download: Baixar
       subject: Sua exportação "%{name}" está pronta
     filters:
       linked_classes:
@@ -763,10 +1029,16 @@ pt-BR:
       create:
         button: Seguir
         error: Ocorreu um erro ao seguir este recurso.
+        participatory_space: Seguindo<span>%{resource_name}</span>
       destroy:
         button: Parar de seguir
         error: Ocorreu um erro ao seguir esse recurso.
     forms:
+      attachment_link:
+        explanation: Orientações para links de anexos
+        help_messages:
+          - Somente formatos de URL válidos são aceites.
+          - Observe que os links devem ser públicos para que todos os participantes possam acessá-los.
       errors:
         decidim/user:
           password: Senha muito curta.
@@ -776,12 +1048,14 @@ pt-BR:
         file:
           explanation: 'Orientação para o arquivo:'
           message_1: Tem que ser uma imagem ou um documento.
+          message_2: Se for uma imagem, de preferência uma imagem horizontal sem texto. A plataforma recorta a imagem.
         icon:
           explanation: 'Orientação para o ícone:'
           message_1: Deve ser uma imagem quadrada.
           message_2: O tamanho recomendado para esta imagem é 512x512.
         image:
           explanation: 'Orientação da imagem:'
+          message_1: De preferência, uma imagem na horizontal, sem texto.
           message_2: O serviço recorta a imagem.
       file_validation:
         allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
@@ -805,6 +1079,7 @@ pt-BR:
           title_required: Título é obrigatório!
           uploaded: Carregado
           validating: Validando...
+          validation_error: Erro de validação! Verifique se o arquivo possui a extensão ou o tamanho permitidos.
         select_file: Selecione um arquivo
       upload_help:
         dropzone: Solte os arquivos aqui ou clique no botão para carregar
@@ -841,10 +1116,24 @@ pt-BR:
         default_page:
           content: "<p>Em %{organization} você pode participar e decidir sobre diferentes tópicos, através dos espaços que você vê no menu superior: Processos, Assembleias, Iniciativas, Consultas.</p> <p>Dentro de cada um você encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar de debates, priorizar projetos a serem implementados, participar de reuniões presenciais e outras ações.</p>\n"
           title: O que posso fazer em %{organization}?
+        description: Leia mais sobre %{organization}.
+        title: Em geral
     last_activities:
       all: Todos os tipos de atividade
       index:
         last_activity: Última atividade
+      name: Últimas atividades
+      no_activities_warning: Não há resultados para essa categoria de atividade.
+    like_buttons_cell:
+      already_liked: Desfazer a curtida
+      like: Curtida
+    likes_list:
+      liked_by:
+        one: Curtido por %{visible}
+        other: Curtido por %{visible} e %{others}
+      others: "%{count} Mais"
+      title: Curtido por
+      you: Você
     linked_resource_from:
       included_in: Incluído em
     links:
@@ -861,11 +1150,14 @@ pt-BR:
         create_with_space: "%{user_name} criado %{resource_name} em %{space_name}"
         delete: "%{user_name} excluído %{resource_name}"
         delete_with_space: "%{user_name} excluído %{resource_name} em %{space_name}"
+        publish: "%{user_name} Publicou %{resource_name}"
         publish_with_space: "%{user_name} publicou %{resource_name} em %{space_name}"
         unknown_action: "%{user_name} executou alguma ação em %{resource_name}"
         unknown_action_with_space: "%{user_name} executou alguma ação em %{resource_name} em %{space_name}"
         unpublish_with_space: "%{user_name} despublicou %{resource_name} de %{space_name}"
         update: "%{user_name} atualizado %{resource_name}"
+        update_filters: "%{user_name} Atualizou os filtros de %{resource_name}"
+        update_filters_with_space: "%{user_name} Atualizou os filtros de %{resource_name} em %{space_name}"
         update_permissions_with_space: "%{user_name} atualizou as permissões de %{resource_name} no %{space_name}"
         update_with_space: "%{user_name} atualizado %{resource_name} em %{space_name}"
       value_types:
@@ -877,6 +1169,10 @@ pt-BR:
           not_found: 'O âmbito não foi encontrado no banco de dados (ID: %{id})'
         scope_type_presenter:
           not_found: 'O tipo de âmbito não foi encontrado no banco de dados (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'A taxonomia não foi encontrada no banco de dados (ID: %{id})'
+    machine_translations:
+      automatic: Tradução automática em %{locale_name}
     managed_users:
       expired_session: A sessão de representação atual expirou.
     map:
@@ -906,6 +1202,9 @@ pt-BR:
           add_users_placeholder: Buscar...
           modal_title: Nova conversa
           no_results: Nenhum resultado
+          participant_with_disabled_message_reception: Este participante não deseja receber mensagens privadas.
+          participants:
+            title: Participantes
         create:
           error: Conversa não iniciada. Tente mais tarde.
         error_modal:
@@ -924,6 +1223,7 @@ pt-BR:
         show:
           back: Voltar para todas as conversas
           chat_with: Conversa com
+          deleted_accounts: Não é possível manter uma conversa com contas excluídas.
           not_allowed: Este usuário não aceita mensagens diretas.
           title: Conversa com %{usernames}
         start:
@@ -936,9 +1236,12 @@ pt-BR:
         active: Ativo
         finished: 'Concluído: %{end_date}'
         not_started: Não iniciado ainda
+        remaining: "%{time_distance} Restante"
     newsletter_mailer:
       newsletter:
         no_reply_notice: Este email foi enviado de uma caixa postal que não pode receber emails. Favor não responder esta mensagem.
+        note: Você recebeu esta mensagem eletrônica porque está inscrito nos boletins informativos da %{organization_name}. Você pode alterar suas configurações na sua <a href="%{link}">página de notificações</a>.
+        see_on_website: Não consegue visualizar esta mensagem eletrônica corretamente? Veja-o no <a href="%{link}" target="_blank" class="see-on-website">site</a>.
         unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
@@ -961,9 +1264,12 @@ pt-BR:
         main_image: Imagem principal
     newsletters:
       unsubscribe:
+        check_subscription_html: Se você quiser voltar a recebê-los, pode reativar sua assinatura a qualquer momento na <a href="%{link}" target="_blank">página de configurações</a>.
         error: Ocorreu um erro ao se desinscrever.
+        subscription_preferences: Atualizamos suas preferências de assinatura e você não receberá mais boletins da %{organization_name}.
         success: Você está inscrito com sucesso.
         token_error: O link expirou.
+        unsubscribe: Cancelar inscrição no boletim informativo
     newsletters_opt_in:
       unauthorized: Desculpe, este link não está mais disponível.
       update:
@@ -971,6 +1277,7 @@ pt-BR:
         success: Configurações de boletim informativo atualizadas com sucesso.
     newsletters_opt_in_mailer:
       notify:
+        body_1: O processamento e a proteção de dados pessoais estão se tornando cada vez mais importantes para todos nós. Com o Regulamento Geral de Proteção de Dados (RGPD) de 25 de maio de 2018, os indivíduos têm maior controle sobre seus dados pessoais. Por esse motivo, precisamos da sua autorização para continuar enviando informações relevantes sobre as atividades da %{organization_name}.
         body_2: 'Como você pode nos dar seu consentimento? Basta clicar no seguinte botão:'
         body_3: Com esse consentimento, você poderá continuar recebendo informações sobre os serviços da plataforma. Se, pelo contrário, não recebermos uma confirmação positiva da sua parte, deixaremos de lhe enviar as nossas mensagens. Se você confirmar que deseja continuar sendo informado, sempre terá a opção de cancelar a qualquer momento.
         button: Sim, quero continuar recebendo informações relevantes
@@ -979,20 +1286,27 @@ pt-BR:
         subject: Você deseja continuar recebendo informações relevantes sobre %{organization_name}?
     notification_mailer:
       event_received:
+        no_translation_available: 'Lamentamos, mas não foi possível recuperar a tradução automática após o envio da mensagem eletrônica. Você pode conferir a tradução do texto original no seguinte link: %{link}.'
         original_text: 'Texto original:'
         same_language: O conteúdo foi publicado em seu idioma preferido (%{language}), e é por isso que nenhuma tradução automática é exibida neste e-mail.
         translated_text: 'Texto traduzido automaticamente:'
     notifications:
+      action_error: Ocorreu um problema ao atualizar as configurações de notificação.
       no_notifications: Não há notificações.
       show:
+        deleted: O conteúdo foi removido pelo autor.
         missing_event: Ops, esta notificação pertence a um item que não está mais disponível. Você pode descartá-lo.
+        moderated: O conteúdo foi ocultado por meio da moderação.
+        not_available: Ops, esta notificação pertence a um “item” que não está mais disponível. Você pode descartá-la.
     notifications_digest_mailer:
       header:
         daily: Resumo de Notificação Diário
+        real_time: Tempo real
         weekly: Resumo de Notificação Semanal
       hello: Olá %{name},
       intro:
         daily: 'Estas são as notificações do último dia com base na atividade que você está seguindo:'
+        real_time: 'Esta é uma notificação sobre a atividade que você está acompanhando:'
         weekly: 'Estas são as notificações da última semana com base na atividade que você está seguindo:'
       outro: Você recebeu essas notificações porque está seguindo este conteúdo ou seus autores. Você pode deixar de segui-las em suas respectivas páginas.
       see_more: Ver mais notificações
@@ -1005,6 +1319,7 @@ pt-BR:
         assigned_to_proposal: Quero receber um e-mail quando alguém me atribuir uma proposta para avaliar
         direct_messages: Receber mensagens diretas de qualquer pessoa
         email_on_moderations: Quero receber um e-mail toda vez que algo ou alguém for denunciado por moderação.
+        evaluators: Avaliadores
         everything_followed: Tudo que eu sigo
         newsletter_notifications: Quero receber boletins informativos
         newsletters: boletins informativos
@@ -1017,6 +1332,7 @@ pt-BR:
           weekly: Semanalmente
         notifications_sending_frequency: Com que frequência deseja receber o e-mail de notificações?
         own_activity: Minha atividade, como quando alguém comenta minha proposta ou me menciona
+        push_notifications: Notificações instantâneas
         push_notifications_reminder: Para receber notificações da plataforma, primeiro você precisará autorizá-las nas configurações do seu navegador.
         receive_notifications_about: Quero receber notificações sobre
         update_notifications_settings: Guardar alterações
@@ -1026,11 +1342,123 @@ pt-BR:
     offline:
       name: Desconectado
       show:
+        message_1: Parece que você está offline no momento.
+        message_2: Por favor, tente novamente mais tarde.
         retry: Tentar de novo
+    onboarding_action_message:
+      click_link: Clique aqui
+      cta_html: <a href="%{path}">%{link_text}</a> Para %{action} no %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Sua autorização foi concedida com sucesso. <br/>  Você iniciou uma sessão como convidado e agora pode participar.
+      expired_authorization_active_title: Sua autorização expirou.
+      finish_authorization_process: Você pode concluir o processo de autorização
+      incomplete_authorization_active_title: Sua verificação não foi concluída com todas as informações necessárias.
+      pending_authorization_active_message: Por favor, preencha o formulário para prosseguir com esta ação.
+      pending_authorization_active_title: Precisamos verificar sua identidade.
+      pending_ephemeral_authorization: Por favor, verifique sua identidade para prosseguir.
     open_data:
+      help:
+        core:
+          components: Componentes
+          description: Este arquivo ZIP contém arquivos para estudo e pesquisa sobre esta plataforma de participação.
+          generated_on_date: Gerado em %{date}
+          main: Essencial
+          resources:
+            one: "%{count} Recurso"
+            other: "%{count} Recursos"
+          spaces: Espaços
+          title: Abra os arquivos de dados para %{organization}
+        moderated_users:
+          about: O campo "Sobre" do usuário
+          block_reasons: O motivo pelo qual o usuário administrador bloqueou o usuário
+          blocked_at: Data e hora em que o usuário foi bloqueado
+          blocking_user: O nome do usuário que realizou o bloqueio
+          details: Os detalhes dos relatórios
+          reasons: Segue uma lista dos motivos pelos quais o perfil foi denunciado
+          user_id: O ID exclusivo do usuário denunciado
+        moderations:
+          hidden_at: Data e hora em que o conteúdo foi ocultado
+          id: O identificador único da moderação
+          report_count: O número de vezes relatado
+          reportable_id: O identificador único do ‘item’ reportável
+          reportable_type: Tipo de informação a ser relatada
+          reported_content: O conteúdo relatado
+          reported_url: O URL do recurso relatado
+          reports: Uma lista dos motivos pelos quais o recurso foi denunciado
+        taxonomies:
+          children_count: A contagem de crianças que esta taxonomia possui
+          created_at: A data em que esta taxonomia foi criada
+          filter_items_count: O número de filtros de itens que estão usando esta taxonomia
+          filters_count: O número de filtros que utilizam esta taxonomia
+          id: O identificador único desta taxonomia
+          is_root: Verdadeiro se esta taxonomia não tiver nenhum pai
+          name: O nome desta taxonomia
+          parent_id: Os identificadores únicos desta taxonomia principal (se houver)
+          part_of: Utilizado para detectar se esta taxonomia faz parte de outra taxonomia
+          taxonomizations_count: A contagem dos recursos que utilizam esta taxonomia
+          updated_at: A data em que esta taxonomia foi atualizada pela última vez
+          weight: A ordem em que esta taxonomia é apresentada
+        users:
+          about: O texto "Sobre o usuário"
+          avatar_url: O avatar do "usuário"
+          badge: O crachá do "usuário"
+          deleted: Se o usuário foi excluído ou não
+          direct_messages_enabled: Se o usuário permite mensagens diretas
+          groups: O id e nome do grupo de usuários
+          id: O único identificador deste usuário
+          name: O nome de exibição do usuário
+          nickname: O nome de usuário deste usuário
+          profile_url: A Url do perfil
+      index:
+        description: Bem-vindo a %{organization_name} página de Dados Abertos. Aqui, você encontrará arquivos de dados que são regulamente gerados a partir de vários processos deliberados e de governança dentro de %{organization_name}. Estes ficheiros são disponibilizados para promover a transparência, acessibilidade e a colaboração. Abaixo, você encontrará informações detalhadas sobre o que são esses arquivos, como abrir e trabalhar com eles, e uma descrição do conteúdo e estrutura de cada arquivo.
+        detailed:
+          body_1: 'Abaixo está uma descrição de cada conjunto de dados, incluindo seu esquema (estrutura) e o tipo de informação que contém:'
+          components: Componentes
+          spaces: Espaços participativos
+          title: Explicação detalhada de cada arquivo
+        download:
+          components: Componentes
+          core: Essencial
+          spaces: Espaços participativos
+          title: Baixar recursos
+        download_open_data: Baixe todos os arquivos de dados abertos
+        download_resource: Baixar %{resource_name} no formato CSV
+        explanation:
+          body_1: Esses arquivos são conjuntos de dados exportados dos processos participativos da %{organization_name}, como propostas, comentários e reuniões. Eles fornecem dados brutos e estruturados que podem ser usados ​​para análise, pesquisa ou integração com outras ferramentas. Os dados são atualizados automaticamente a cada 24 horas, garantindo que você tenha acesso às informações mais recentes.
+          body_2: Esses arquivos estão no formato CSV (Valores Separados por Vírgula), um formato amplamente utilizado que pode ser aberto e processado por diversos aplicativos de ‘software’, incluindo planilhas eletrônicas, editores de texto e ferramentas de análise de dados.
+          title: O que são esses arquivos?
+        how_to:
+          step_1:
+            body_html: Clique nos links fornecidos abaixo para baixar os arquivos CSV para seu computador.
+            title: 1. Baixar os arquivos
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Planilha de Aplicações </b>: É possível abrir arquivos CSV usando aplicações como Microsoft Excel, Google Sheets, ou LibreOffice Calc. Basta abrir o aplicativo, depois selecione "Abrir" no menu do arquivo, e escolha o arquivo CSV baixado.</li>
+              <li><b>Editores de Texto</b>: os arquivos CSV também podem ser abertos em qualquer editor de texto, como Notepad ou Sublime Text. Isso irá exibir os dados brutos, com cada linha representando uma linha e cada valor separado por uma vírgula.</li>
+              <li><b>Análise de Dados</b>: Se você está familiarizado com ferramentas de análise de dados como Python (com pandas), R, ou SQL databases, você pode importar esses arquivos CSV diretamente para processamento e análise.</li>
+              </ul>
+            title: 2. Abra os arquivos
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrar e classificar</b>: Em aplicações de planilha você pode filtrar e classificar os dados para se concentrar em subconjuntos específicos de informações.</li>
+              <li><b>Análise</b>: Use os dados para realizar várias análises, como a contagem do número de propostas, a análise das tendências nos comentários ou a avaliação da participação nas reuniões.</li>
+              <li><b>Visualização</b>: Você pode criar gráficos, gráficos e outras visualizações para ajudar a interpretar os dados.</li>
+              </ul>
+            title: 3. Trabalhando com dados
+          title: Como abrir e trabalhar com esses arquivos
+        license:
+          body_1_html: Este %{organization_name} banco de dados é disponibilizado sob o %{link_database}. Quaisquer direitos em conteúdos individuais do banco de dados são licenciados sob o %{link_contents}.
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Licença de Conteúdo Base
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Abrir Licença do Banco
+          title: Licença
+        title: Dados Abertos
       not_available_yet: Os arquivos Open Data ainda não estão disponíveis. Tente novamente em alguns minutos.
     pad_iframe:
       disclaimer: O conteúdo deste bloco é escrito por usuários registrados e expressa suas opiniões. %{organization} não pode ser responsabilizado pelo seu conteúdo.
+      explanation: Use esse bloco para fazer anotações colaborativos durante a reunião, para que seja fácil escrever o minuto depois.
       pad: Almofada
     pages:
       home:
@@ -1046,11 +1474,15 @@ pt-BR:
         footer_sub_hero:
           footer_sub_hero_body_html: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
+          register: Criar uma conta
         hero:
           participate: Participar
           participate_title: Participe dos processos da plataforma
           welcome: Bem-vindo ao %{organization}!
+        statistics:
+          headline: Estatísticas
         sub_hero:
+          register: Criar uma conta
           register_title: Criar uma conta
       index:
         standalone_pages: Páginas
@@ -1058,16 +1490,42 @@ pt-BR:
         title: Ajuda
         topics: Tópicos
       terms_of_service:
+        accept:
+          error: Houve um problema ao aceitar os termos do serviço.
+          success: Ótimo! Você aceitou os termos de serviço.
         form:
           agreement: Concordo com estes termos
+          legend: Concordo com os termos de serviço
         refuse:
+          modal_body: Se recusar, você não poderá usar a plataforma, você pode <a href="%{download_your_data_path}"> baixar seus dados</a> e/ou <a href="%{delete_path}"> excluir sua conta </a>.
           modal_btn_continue: Aceite os termos e continue
           modal_btn_exit: Vou revisá-lo mais tarde
           modal_button: Recuse os termos
+          modal_title: Você realmente recusa os termos de serviço atualizados?
         required_review:
           alert: Atualizamos nossos Termos de Serviço, revise-os.
           body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviço. Caso contrário, você não poderá usar a plataforma.
           title: 'Obrigatório: Revise as atualizações dos nossos termos de serviço'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Nossos registros indicam que você criou uma conta %{organization_name} em <strong>%{date_account_creation}</strong> e não estão ativos desde <strong>%{date_last_connection}</strong>.</p>
+          <p>Para proteger sua privacidade, esta conta foi agendada para exclusão automática em <strong>%{days} dias</strong>.</p>
+          <p>Se quiser manter a sua conta %{organization_name}, simplesmente %{login_url} antes desta vez, e sua conta será preservada.<p>
+        greetings_html: |
+          Atenciosamente,<br>
+          %{organization_name}
+        hello_html: Prezado <strong>%{username}</strong>,
+        log_in: iniciar sessão
+        never_logged_in: nunca iniciou sessão
+        subject: Aviso de conta inativa
+      removal_notification:
+        body: Sua conta %{organization_name} foi excluída devido a inatividade.
+        greetings_html: |
+          Atenciosamente,<br>
+          %{organization_name}
+        hello: Prezado %{username},
+        subject: Conta inativa excluída
     passwords:
       update:
         error: Houve um problema ao atualizar a senha.
@@ -1091,7 +1549,29 @@ pt-BR:
           edit_profile: Editar perfil
           message: Mensagem
           resend_email_confirmation_instructions: Reenviar instruções de confirmação
+    qr:
+      show:
+        scan: Digitalizar código QR
+        title: Código QR para %{resource_title}
     reported_mailer:
+      hidden_automatically:
+        content: Conteúdo denunciado
+        details: Detalhes
+        hello: Olá %{name},
+        manage_moderations: Gerenciar moderadores
+        participatory_space: Espaço participativo
+        reason: Razão
+        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado automaticamente.</p>
+        subject: Um recurso foi ocultado automaticamente
+      hidden_manually:
+        content: Conteúdo relatado
+        details: Detalhes
+        hello: Olá, %{name}
+        manage_moderations: Gerenciar moderações
+        participatory_space: Espaço participativo
+        reason: Razão
+        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado por %{moderator}.</p>
+        subject: Um recurso foi ocultado por %{moderator}
       report:
         authors: Autores
         content: Conteúdo denunciado
@@ -1107,17 +1587,31 @@ pt-BR:
         subject: Um recurso foi relatado
     reports:
       create:
+        error: Ocorreu um problema ao gerar o relatório. Por favor, tente novamente.
         success: O relatório foi criado com sucesso e será revisto por um administrador.
+      hide:
+        success: Este recurso foi ocultado.
+      parent_hidden:
+        report_details: O recurso principal estava oculto
+    resource:
+      controls_label: Controles de recursos
+    resource_autocomplete:
+      help: Digite para pesquisar propostas
+    resource_likes:
+      create:
+        error: Houve um problema durante a ação de curtir.
     scopes:
       global: Âmbito global
       prompt: Selecione um âmbito
     search:
       name: Pesquisar
       results: Procurar resultados
+      results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
       term_input_placeholder: Pesquisa
     searches:
       filters:
         jump_to: 'Pule para:'
+        resource: "%{rótulo} entre %{coleção}"
         search: Pesquisa
         state:
           active: Ativo
@@ -1134,6 +1628,10 @@ pt-BR:
       selfxss_warning:
         description: Este recurso de navegador é destinado a desenvolvedores e você não deve colar nada aqui se você for solicitado a fazê-lo. Colar conteúdo nesta janela pode comprometer sua privacidade e dar aos hackers acesso à sua conta.
         title: Pare!
+    share_widget:
+      download: Baixar
+      print: Imprimir pôster
+      qr_code: Código QR
     shared:
       confirm_modal:
         cancel: Cancelar
@@ -1141,6 +1639,8 @@ pt-BR:
         ok: OK
         title: Confirmar
       confirm_unload: Esta página contém alterações não salvas. Tem certeza que deseja sair desta página?
+      embed:
+        title: Conteúdo de vídeo incorporado
       filter_form_help:
         help: O formulário abaixo filtra os resultados da busca dinamicamente quando as condições de busca são alteradas.
         skip: Pular para os resultados
@@ -1148,6 +1648,9 @@ pt-BR:
         already_reported: Este conteúdo já foi relatado e será revisto por um administrador.
         close: Fechar
         description: Este conteúdo é impróprio?
+        does_not_belong: Contém atividades ilegais, ameaças de suicídio, informações pessoais ou algo que você considere inadequado para %{organization_name}.
+        hide: Esconder
+        hide_content: Ocultar este conteúdo
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
         reason: Motivo
         report: Denunciar
@@ -1155,10 +1658,14 @@ pt-BR:
         title: Reportar um problema
       flag_user_modal:
         already_reported: Este conteúdo já foi reportado e será revisado por um administrador.
+        block: Bloquear este participante
+        description: O que há de inapropriado neste participante?
+        does_not_belong: Contém atividades ilegais, ameaças de suicídio, informações pessoais ou algo que você considere inadequado para %{organization_name}.
         hide: Ocultar todo o conteúdo
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
         report: Denunciar
         spam: Contém clickbait, publicidade, fraudes ou scripts bots.
+        title: Denunciar participante inadequado
       floating_help:
         help: Ajuda
       follow_button:
@@ -1180,18 +1687,29 @@ pt-BR:
         copy_share_link: Copiar
         copy_share_link_clarification: Copiar link para área de transferência
         copy_share_link_copied: Copiado!
+        copy_share_link_cta: Ou copie o 'link'
         copy_share_link_message: Link copiado para área de transferência.
         share: Compartilhar
         share_link: Partilhar link
         share_to: Compartilhar com %{service}
     statistics:
       comments_count: Comentários
+      comments_count_tooltip: Número total de comentários publicados neste espaço.
       followers_count: Seguidores
+      followers_count_tooltip: O número de usuários que acompanham qualquer parte deste espaço para se manterem atualizados.
       headline: Estatísticas
+      likes_count: Curtidas
       no_stats: Ainda não há estatísticas.
       pages_count: Páginas
       participants_count: Participantes
+      participants_count_tooltip: O número de usuários únicos que interagiram neste espaço, seja enviando propostas, participando de reuniões, votando ou juntando-se a discussões.
+      surveys_count: Formulários
       users_count: Participantes
+      users_count_tooltip: Número total de usuários que se cadastraram e confirmaram suas contas por e-mail.
+    tags:
+      filter_results_for_taxonomy: 'Filtrar resultados para: %{resource}'
+    taxonomies:
+      prompt: Por favor, selecione uma opção
     translation_bar:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não está 100% correto."
       show_original: Exibir texto original
@@ -1203,6 +1721,36 @@ pt-BR:
     user_conversations:
       index:
         time_ago: "%{time} atrás"
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'Estamos entrando em contato para informá-lo sobre uma atualização importante do Grupo de Usuários do qual você é membro: <strong>%{group_name}</strong>.'
+        body_2: Como parte dos nossos esforços para simplificar a experiência para as organizações, o recurso "Grupos de Usuários" está sendo desativado. Seu perfil de Grupo de Usuários foi convertido em um perfil de participante comum.
+        greeting: Prezado %{name},
+        instructions_1: Se você tiver acesso a essa conta de e-mail, verifique sua caixa de entrada para obter as instruções.
+        instructions_2: Caso contrário, um dos seus colegas que tenha acesso precisará definir a senha e compartilhar as credenciais de ‘login’ com você.
+        instructions_intro: Os membros do grupo agora compartilharão o acesso a este perfil usando credenciais de ‘login’ compartilhadas (e-mail e senha). Enviamos instruções para %{email} para definir uma nova senha para o perfil.
+        instructions_title: "<strong>O que isso significa para você</strong>"
+        subject: Atualização importante sobre o seu perfil de grupo
+      notify_deprecation_to_owner:
+        body_1: Estamos entrando em contato para informar sobre uma atualização importante referente ao seu perfil de grupo em %{organization_name}.
+        body_2: Como parte de nossos esforços para simplificar e melhorar a experiência para organizações como a sua, estamos desativando o recurso "Grupos de Usuários". Seu grupo, <strong>%{name}</strong>, foi convertido em uma conta normal.
+        body_3: Para continuar acessando sua conta e compartilhar o acesso, precisamos que você defina uma senha. Após definida, você poderá compartilhar as credenciais de ‘login’ (e-mail e senha) com qualquer pessoa.
+        greeting: Prezado %{name},
+        instructions_1: 'Clique no link abaixo para definir sua senha:'
+        instructions_2: 'Compartilhe as credenciais de ‘login’ (e-mail: %{email} e a nova senha) com seus colegas.'
+        instructions_title: "<strong>O que você precisa fazer</strong>"
+        set_password: Defina sua senha
+        subject: Atualização importante sobre o seu perfil de grupo
+      notify_user_group_patched:
+        body_1_html: Estamos entrando em contato para informar sobre uma atualização importante referente ao seu perfil de grupo em %{organization_name}.
+        body_2_html: Como parte de nossos esforços para simplificar e melhorar a experiência para organizações como a sua, estamos desativando o recurso "Grupos de Usuários". Seu grupo, <strong>%{name}</strong>, foi convertido em uma conta normal.
+        body_3_html: Para continuar acessando sua conta e compartilhando o acesso, precisamos que você defina um novo e-mail e senha. Observe que todos os membros do seu grupo receberão este e-mail. Para garantir o acesso contínuo, será necessário que todos concordem internamente com as credenciais compartilhadas (e-mail e senha) que serão utilizadas por todos.
+        greeting: Prezado %{name},
+        instructions_1_html: 'Utilize as seguintes credenciais temporárias para fazer ‘login’: <br><br> Nome de usuário: <strong>%{email}</strong> <br> Senha: <strong>%{password}</strong><br><br>'
+        instructions_2_html: Defina um novo endereço de e-mail e uma nova senha.
+        instructions_3_html: Compartilhe as credenciais de ‘login’ escolhidas com seus colegas para que todo o grupo possa continuar acessando a conta.
+        instructions_title_html: "<strong>O que você precisa fazer</strong>"
+        subject: Atualização importante sobre o seu perfil de grupo
     user_report_mailer:
       notify:
         body_1: O usuário %{user} foi denunciado por %{token}
@@ -1214,6 +1762,12 @@ pt-BR:
     user_update_mailer:
       notify:
         body_1: Estamos enviando esta mensagem para informá-lo sobre uma atualização da sua conta.
+        body_2: Caso você não tenha realizado essa atualização, faça ‘login’ na sua conta para alterar sua senha. Se não conseguir fazer ‘login’, entre em contato com o suporte da plataforma.
+        greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Olá %{user}
+        main_body: 'Os seguintes detalhes foram alterados: %{updates}.'
+        update_fields: "%{updates} E %{last_update}"
+      subject: Sua conta foi atualizada
     version:
       show:
         back_to_resource: Voltar
@@ -1229,6 +1783,7 @@ pt-BR:
       show:
         version_index: Versão %{index}
     welcome_notification:
+      default_body: <p>Olá {{name}}, obrigado por se juntar à {{organization}} e seja bem-vindo!</p><ul><li>Se você quiser ter uma ideia rápida do que pode fazer aqui, dê uma olhada na seção <a href="{{help_url}}">Ajuda</a>.</li><li>Depois de lê-la, você receberá seu primeiro distintivo. Aqui está uma <a href="{{badges_url}}">lista de todos os distintivos</a> que você pode obter ao participar da {{organization}}</li><li>Por último, mas não menos importante, junte-se a outras pessoas, compartilhe com elas a experiência de estar engajado e participar da {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, apresente argumentos para convencer, ouça e leia para se convencer, expresse suas ideias de forma concreta e direta, responda com paciência e decisão, defenda suas ideias e mantenha a mente aberta para colaborar e se juntar às ideias de outras pessoas.</li></ul>
       default_subject: Obrigado por se juntar a {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1251,9 +1806,12 @@ pt-BR:
       last_attempt: Você tem mais uma tentativa antes que sua conta seja bloqueada.
       locked: Sua conta está bloqueada.
       not_found_in_database: '%{authentication_keys} inválido ou senha.'
+      timeout: Sua sessão expirou. Faça ‘login’ novamente para continuar.
+      unauthenticated: Você precisa fazer ‘login’ ou criar uma conta antes de continuar.
     invitations:
       edit:
         header: Termine de criar sua conta
+        nickname_help: Seu apelido em %{organization}. Pode conter apenas letras, números, '-' e '_'.
         submit_button: Salvar
         subtitle: Se você aceitar o convite, defina seu apelido e senha.
       invitation_removed: Seu convite foi removido.
@@ -1280,28 +1838,42 @@ pt-BR:
         accept_until: Este convite será devido em %{due_date}.
         decline: Negar convite
         hello: Olá %{email},
+        ignore: |-
+          Se você não deseja aceitar o convite, ignore este e-mail.<br />
+          Sua conta não será criada até que você acesse o link acima e defina seu apelido e senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
+        invited_you_as_member: "%{invited_by} Convidou você para participar do %{application}. Você pode aceitar o convite pelo link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
+        someone_invited_you_as_member: Você recebeu um convite para participar do %{application} e pode aceitá-lo através do link abaixo.
         subject: Instruções de convite
       invite_admin:
         subject: Você foi convidado a gerenciar %{organization}
+      invite_collaborator:
+        subject: Você foi convidado a colaborar em %{organization}
+      invite_member:
+        subject: Você foi convidado para um processo participativo privado em %{organization}
       organization_admin_invitation_instructions:
         subject: Você foi convidado a gerenciar %{organization}
       password_change:
         greeting: Olá %{recipient}!
+        message: Estamos entrando em contato com você para notificá-lo de que sua senha foi alterada.
         subject: A senha mudou
       reset_password_instructions:
         action: Mudar minha senha
         greeting: Olá %{recipient}!
         instruction: Alguém solicitou um link para alterar sua senha, e você pode fazer isso através do link abaixo.
+        instruction_2: Se você não solicitou isso, ignore este email.
+        instruction_3: Sua senha não será alterada até que você acesse o link acima e crie uma.
         subject: Redefinir instruções de senha
       unlock_instructions:
         action: Desbloquear minha conta
         greeting: Olá %{recipient}!
         instruction: 'Clique no link abaixo para desbloquear sua conta:'
+        message: Sua conta foi bloqueada devido a uma quantidade excessiva de tentativas de acesso incorretas.
         subject: Desbloquear instruções
     omniauth_callbacks:
+      add_tos_errors: Os termos de serviço devem ser aceitos para criar uma conta.
       failure: Não foi possível autenticá-lo de %{kind} porque "%{reason}".
       success: Autenticado com êxito a partir de %{kind} conta.
     passwords:
@@ -1309,10 +1881,14 @@ pt-BR:
         change_my_password: Mudar minha senha
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
+        old_password_help: Para confirmar as alterações à sua conta, por favor, forneça a sua senha atual.
+        password_help: "O mínimo de caracteres %{minimum_characters}, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu e-mail."
+        password_help_admin: "Mínimo de caracteres %{minimum_characters}, não deve ser muito comum (por exemplo, 123456) deve ser diferente do seu apelido e seu email e deve ser diferente das senhas antigas."
         title: Senha alterada
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
+      no_token: Você não pode acessar esta página sem precisar de um email de redefinição de senha. Se você veio de um email de redefinição de senha, verifique se você usou a URL completa fornecida.
       send_instructions: Você receberá um e-mail com instruções sobre como redefinir sua senha em alguns minutos.
       send_paranoid_instructions: Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um link de recuperação de senha em seu endereço de e-mail em alguns minutos.
       updated: Sua senha foi alterada com sucesso. Agora você está conectado.
@@ -1371,9 +1947,13 @@ pt-BR:
       link:
         bubbleMenu:
           edit: Editar
+          remove: Excluir
+          url: URL
         hrefLabel: Link URL
+        targetLabel: Destino
         targets:
           blank: Nova aba
+          default: Defeito (mesma guia)
       videoEmbed:
         titleLabel: Título
         urlLabel: URL do vídeo
@@ -1385,11 +1965,26 @@ pt-BR:
       close: Fechar modal
     toolbar:
       control:
+        blockquote: Bloco de citação
         bold: Negrito
+        bulletList: Lista não ordenada
+        codeBlock: Bloco de código
+        common:
+          eraseStyles: Apagar estilos
+        hardBreak: Quebra de linha
+        heading: Estilo do texto
         image: Imagem
         indent:
           indent: Indentar
+          outdent: Desdentar
         italic: Itálico
+        link: Link
+        orderedList: Lista ordenada
+        underline: Sublinhar
+        videoEmbed: Vídeo incorporado
+      textStyle:
+        heading: Cabeçalho %level%
+        normal: Normal
     upload:
       uploadedFile: Arquivo carregado
   emojis:
@@ -1398,18 +1993,26 @@ pt-BR:
     categories:
       activity: Atividade
       custom: Personalizar
+      flags: Bandeiras
+      foods: Comida e Bebida
+      frequent: Usados com frequência
       nature: Animais e Natureza
+      objects: Objetos
+      people: Carinhas e Pessoas
       places: Viagens e Lugares
       search: Resultados da Pesquisa
       symbols: Símbolos
     pick: Escolher um emoji…
     search: Pesquisar
     search_no_results_1: Ah não!
+    search_no_results_2: Não foi possível encontrar esse emoji
     skins:
       '1': Padrão
       '2': Claro
       '3': Luz média
+      '4': Médio
       '5': Médio-Escuro
+      '6': Escuro
       choose: Escolha um tom de pele
   errors:
     messages:
@@ -1417,8 +2020,10 @@ pt-BR:
       already_confirmed: já foi confirmada, tente fazer login
       blank: não pode estar em branco
       cannot_be_blank: não pode estar em branco
+      confirmation: não corresponde %{attribute}
       confirmation_period_expired: precisa ser confirmado dentro de %{period}, solicite um novo
       content_type_allowlist_error: o tipo de arquivo não é válido
+      cycle_detected: O pai de um escopo não pode ser um de seus descendentes
       empty: não pode estar vazio
       expired: expirou, solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
@@ -1504,23 +2109,34 @@ pt-BR:
         edit: Editar
       footer:
         cc_by_license: Licença Creative Commons
+        current_organization_img: "%{organization} (Voltar para a página inicial)"
         data_consent_settings: Configurações de cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
+        help: Ajuda
         log_in: Iniciar sessão
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
+        open_data: Dado Aberto
         resources: Recursos
         sign_up: Criar uma conta
+        social_media: Mídias sociais
         terms_of_service: Termos de serviço
       header:
+        back: Voltar
+        close: Fechar
+        confirm_close_ephemeral_session: Se você sair da sessão, ela será encerrada temporariamente. No entanto, todo o seu progresso e atividades serão salvos. Se você concluiu sua atividade, clique em OK.
+        confirm_title_close_ephemeral_session: Antes de sair desta página…
         log_in: Iniciar sessão
         main_menu: Menu principal
         user_menu: Menu de usuários
       impersonation_warning:
         close_session: Fechar sessão
         description_html: Você está representando o usuário <b>%{user_name}</b>.
+        expire_time_html: Sua sessão expirará em <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minutos</b>.
       language_chooser:
         choose_language: Escolher idioma
+      navigation:
+        aria_label: 'Menu de navegação: %{title} '
       notifications_dashboard:
         mark_all_as_read: Marcar tudo como lido
         mark_as_read: Marcar como lida
@@ -1547,6 +2163,8 @@ pt-BR:
         profile: Minha conta
         public_profile: Meu perfil público
         title: Links do perfil
+        unread_conversations: Você tem notificações não lidas
+        unread_notifications: Você tem notificações não lidas
       user_profile:
         account: Conta
         authorizations: Autorizações
@@ -1558,6 +2176,11 @@ pt-BR:
   locale:
     name: Português brasileiro
     name_with_error: Português brasileiro (erro!)
+  number:
+    currency:
+      format:
+        format: "%rs%n"
+        format_html: "<span>%rs</span> %n"
   password_validator:
     denied: foi negado
     domain_included_in_password: é muito semelhante a este nome de domínio
@@ -1610,6 +2233,8 @@ pt-BR:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
@@ -1621,8 +2246,10 @@ pt-BR:
         time_format: 'Formato: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%d %B, %Y as %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %: z)"
   versions:
     directions:
       left: Exclusões
@@ -1634,6 +2261,7 @@ pt-BR:
       option_split: Lado-por lado
       option_unescaped: Abandonado
       option_unified: Unificado
+      toggle: Alternar visualização
   views:
     pagination:
       next: Próxima

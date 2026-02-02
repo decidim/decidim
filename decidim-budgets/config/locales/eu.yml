@@ -142,9 +142,10 @@ eu:
           new:
             create: Inportatu proiektuetarako proposamenak
             default_budget: Aurrekontu lehenetsia
-            import_all_accepted_proposals: Inportatu onartutako proposamen guztiak 
             no_components: Ez dago proposamen osagairik parte hartzeko espazio honetan proposamenak proiektuetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
+            proposal_states: Proposamenen egoera
+            proposal_states_help: Hautatu proposamen-egoera bat edo gehiago, proiektuetara inportatzeko. Bat ere hautatzen ez baduzu, osagai honetako beste aurrekontu batzuetan inportatu ez diren argitaratutako proposamen guztiak inportatuko dituzu.
             select_component: Meesedez, hautatu osagaia
             title: Inportatu proiektuetarako proposamenak
         reminders:
