@@ -3,10 +3,11 @@ eu:
   decidim:
     api:
       errors:
-        invalid_locale: Baliozkoa ez den eskualde-konfigurazioa eman da
-        locale_argument_error: Errorea gertatu da i18n datuen barne-kudeaketa egiten zen bitartean
-        not_found: "%{mota} ez da aurkitu"
+        invalid_locale: Eskualde-konfigurazioa ez da baliozkoa
+        locale_argument_error: Akats bat bat gertatu da i18n datuak barnetik aldatzean
+        not_found: "%{type} ez da aurkitu"
         permission_not_set: Ez da baimenik ezarri %{type} honetarako
-        unauthorized_field: Ezin duzu editatu %{field} eremua hemen %{type} ez daukazulako baimenik
-        unauthorized_mutation: Ez duzu baimenik aldaketa hau egiteko
-        unauthorized_object: Ezin duzu ikusi edo editatu %{field} eremua ez daukazulako baimenik
+        too_many_aliases_error: Ezizen gehiegi erabiltzen dira. %{size} ezizen erabili dituzu, baina %{limit} onartuta daude.
+        unauthorized_field: Ezin da %{field} %{type} eremua %{type} motan ikusi edo editatu, baimenik ez duzulako
+        unauthorized_mutation: Aldaketa hau egiteko baimenik ez duzu
+        unauthorized_object: Ezin da %{type} hau ikusi edo editatu, baimenik ez duzulako

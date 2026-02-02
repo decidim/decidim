@@ -248,7 +248,7 @@ eu:
           author: Iruzkin hau egin duen parte-hartzailearen izena
           body: Iruzkin bera
           commentable_id: Iruzkingarriaren identifikazio bakarra
-          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          commentable_type: Komentagarri mota (emaitza izan bada, proposamena, etab.)
           created_at: Zein datatan sortu da iruzkin hau
           depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
           id: Identifikazioa iruzkin honetarako

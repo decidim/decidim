@@ -176,6 +176,7 @@ cs:
           components: Komponenty
           info: O tomto shromáždění
           landing_page: Rozložení vstupní strany
+          members: Členové
           moderations: Moderování
           see_assembly: Zobrazit shromáždění
       models:

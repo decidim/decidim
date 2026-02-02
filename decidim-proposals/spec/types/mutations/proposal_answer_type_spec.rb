@@ -63,8 +63,8 @@ module Decidim
 
       shared_examples "manage proposal answer mutation examples" do
         context "when proposal answering disabled" do
-          it "throws Decidim::Api::Errors::UnauthorizedFieldError" do
-            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, "You cannot view or edit answer field on Answer because you do not have permission")
+          it "throws Decidim::Api::Errors::MutationNotAuthorizedError" do
+            expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
           end
         end
 
@@ -125,8 +125,8 @@ module Decidim
       end
 
       context "with normal user" do
-        it "throws Decidim::Api::Errors::UnauthorizedFieldError" do
-          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, "You cannot view or edit answer field on Answer because you do not have permission")
+        it "throws Decidim::Api::Errors::MutationNotAuthorizedError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
         end
       end
 

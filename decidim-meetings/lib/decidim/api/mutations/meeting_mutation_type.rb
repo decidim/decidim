@@ -9,6 +9,7 @@ module Decidim
       description "A meeting which includes its available mutations"
 
       field :close, mutation: Decidim::Meetings::CloseMeetingType, description: "Closes a meeting"
+      field :update, mutation: Decidim::Meetings::UpdateMeetingType, description: "Updates a meeting"
       field :withdraw, mutation: Decidim::Meetings::WithdrawMeetingType, description: "Withdraws a meeting"
     end
   end

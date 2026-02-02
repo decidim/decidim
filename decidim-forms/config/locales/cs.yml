@@ -185,6 +185,8 @@ cs:
           questionnaire_closed:
             body: Formulář je uzavřen a nelze jej odpovědět.
             title: Dotazník byl uzavřen
+          questionnaire_for_members:
+            title: Formulář uzavřen
           questionnaire_js_disabled:
             body: Některé funkce tohoto formuláře budou zakázány. Pro zlepšení použití formuláře povolte JavaScript ve vašem prohlížeči.
             title: JavaScript je zakázán

@@ -139,6 +139,7 @@ cobertura
 codecov
 codefor
 CODEOWNERS
+codespace
 codeql
 coditramuntana
 commentables
@@ -222,10 +223,12 @@ doesnot
 doggotrainer
 Dokku
 Dota
+dotfiles
 douban
 downvoted
 downvotes
 downvoting
+DPG
 draggables
 dragula
 drinkform
@@ -533,6 +536,7 @@ misogi
 mlat
 mlon
 Mobi
+moby
 modals
 modernizrrc
 modestbranding
@@ -658,6 +662,7 @@ PGVERSION
 Phargo
 phoe
 pinterest
+pids
 Placeholdit
 plantuml
 plataforma
