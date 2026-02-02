@@ -38,7 +38,7 @@
         if (inReplyTo) {
           component.addReply(inReplyTo, commentHtml);
         } else {
-          targetContainer.insertAdjacentHTML("beforeend", commentHtml);
+          component.addThread(commentHtml, <%= alignment.presence || "null" %>);
         }
       }
     })();
