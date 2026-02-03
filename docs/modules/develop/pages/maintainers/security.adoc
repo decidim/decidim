@@ -62,5 +62,5 @@ XXX
 ----
 Two versions with the fix have been published today: v0.XXX.XXX and v0.XXX.XXX.
 
-This security vulnerability will be published on XXX according to our security policy
+This security vulnerability will be published on XXX according to our security policy.
 ----
