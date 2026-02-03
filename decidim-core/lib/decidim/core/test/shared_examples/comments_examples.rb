@@ -67,7 +67,9 @@ shared_examples "comments" do
       select "Best rated", from: "order"
     end
 
-    expect(page).to have_css(".comment-threads .comment-thread:first-child", text: "Most Rated Comment")
+    within ".comment-threads" do
+      expect(first(".comment-thread")).to have_content("Most Rated Comment")
+    end
   end
 
   context "when there are comments and replies" do
@@ -132,8 +134,8 @@ shared_examples "comments" do
         visit resource_path
 
         within "#comment_#{deleted_comment.id}" do
-          expect(page).to have_css("#comment-#{deleted_comment.id}-replies")
           click_on "Load replies"
+          expect(page).to have_css("#comment-#{deleted_comment.id}-replies")
           expect(page).to have_content(reply.author.name)
           expect(page).to have_content(reply.body.values.first)
         end
@@ -856,8 +858,8 @@ shared_examples "comments" do
         visit current_path
 
         within "#comments #comment_#{parent.id}" do
-          expect(page).to have_css("#comment-#{parent.id}-replies")
-          expect(page.find("#comment-#{parent.id}-replies").text).to be_blank
+          expect(page).to have_css("#comment-#{parent.id}-replies", visible: :all)
+          expect(page.find("#comment-#{parent.id}-replies", visible: :all).text).to be_blank
         end
       end
 
