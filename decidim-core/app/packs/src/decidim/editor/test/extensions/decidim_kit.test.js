@@ -37,7 +37,6 @@ describe("DecidimKit", () => {
         "link",
         "decidimKit",
         "starterKit",
-        "history",
         "horizontalRule",
         "italic",
         "listItem",
