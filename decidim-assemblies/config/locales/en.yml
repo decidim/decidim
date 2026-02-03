@@ -267,6 +267,9 @@ en:
         assembly_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        imports:
+          hero_image_not_found: The hero image could not be imported because it wasn't found. URL was %{url} - Error %{error}
+          banner_image_not_found: The banner image could not be imported because it wasn't found. URL was %{url} - Error %{error}
         assembly_imports:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'

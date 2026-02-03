@@ -177,6 +177,8 @@ en:
         update:
           error: There was a problem updating this participatory process group.
           success: Participatory process group successfully updated.
+      imports:
+        hero_image_not_found: The hero image could not be imported because it wasn't found. URL was %{url} - Error %{error}
       participatory_process_imports:
         create:
           error: There was a problem importing this participatory process.
