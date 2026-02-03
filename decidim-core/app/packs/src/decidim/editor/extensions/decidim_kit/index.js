@@ -45,7 +45,8 @@ export default Extension.create({
         orderedList: false,
         codeBlock: false,
         link: false,
-        underline: false
+        underline: false,
+        trailingNode: false
       }),
       CharacterCount.configure(this.options.characterCount),
       Link.configure({ openOnClick: false, ...this.options.link }),
