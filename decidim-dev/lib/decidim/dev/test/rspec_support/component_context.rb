@@ -209,5 +209,4 @@ shared_context "when cycling through publication states" do
       expect(page).to have_content("The component has been successfully published")
     end
   end
-
 end
