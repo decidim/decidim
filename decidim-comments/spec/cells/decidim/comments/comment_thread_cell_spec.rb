@@ -36,8 +36,9 @@ module Decidim::Comments
           allow(resource_locator).to receive(:path).and_return("/dummies")
         end
 
-        it "renders the reply" do
-          expect(subject).to have_css(".comment-reply .comment", count: 10)
+        it "renders the load replies button and container for lazy-loaded replies" do
+          expect(subject).to have_css(".comment-reply")
+          expect(subject).to have_css("[data-action='click->show-replies#toggle']")
           expect(subject).to have_css("[aria-label='Comment thread started by #{comment.author.name} on 01/02/2018 12:30']")
         end
 

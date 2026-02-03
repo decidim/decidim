@@ -68,7 +68,7 @@ shared_examples "comments" do
     end
 
     within ".comment-threads" do
-      expect(first(".comment-thread")).to have_content("Most Rated Comment")
+      expect(page).to have_css(".comment-thread:first-child", text: "Most Rated Comment")
     end
   end
 
