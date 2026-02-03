@@ -16,6 +16,10 @@ ja:
           body: 本文
           draft: 下書き
           version_number: バージョン番号
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        other: コラボレーションテキスト
   decidim:
     admin:
       tooltips:
