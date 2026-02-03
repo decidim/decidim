@@ -67,9 +67,8 @@ shared_examples "comments" do
       select "Best rated", from: "order"
     end
 
-    within ".comment-threads" do
-      expect(page).to have_css(".comment-thread:first-child", text: "Most Rated Comment")
-    end
+    expect(page).to have_no_css(".loading-comments", visible: :visible)
+    expect(page).to have_css(".comment-threads .comment-thread", text: "Most Rated Comment")
   end
 
   context "when there are comments and replies" do
