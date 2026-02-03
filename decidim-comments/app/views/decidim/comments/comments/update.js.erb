@@ -1,25 +1,15 @@
 document.addEventListener("turbo:load", () => {
-  var rootCommentableId = <%== "comments-for-#{@commentable.class.name.demodulize}-#{@commentable.id}".to_json %>;
-  var $comments = $("#" + rootCommentableId);
-  var config = $comments.data("decidim-comments");
-  var component = $comments.data("comments");
-
-  component.unmountComponent();
-
   var commentHtml = '<%== j(render partial: "edited_comment", locals: { comment: @comment }).strip %>';
   var commentId = <%= @comment.id.to_json %>;
   var $comment = $("#comment_<%= @comment.id %>");
 
-  var $edit_modal = document.getElementById(`editCommentModal${commentId}`)
+  var $edit_modal = document.getElementById(`editCommentModal${commentId}`);
 
-  if ($edit_modal !== undefined) {
-    $edit_modal.remove()
+  if ($edit_modal) {
+    $edit_modal.remove();
   }
 
   $comment.replaceWith(commentHtml);
-
-  // Re-create the component
-  component.mountComponent();
 
   Rails.fire(document, "comments:loaded", {
     commentsIds: [commentId]
