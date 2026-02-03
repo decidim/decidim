@@ -36,6 +36,7 @@ cs:
         census:
           edit:
             created_at: Vytvořeno v
+            identifier: Identifikátor uživatele
         dashboard:
           calendar:
             end_at: 'Čas ukončení:'
@@ -71,6 +72,8 @@ cs:
             start_question_button: Povolit hlasování
             title: Výsledky
           status:
+            results_availability:
+              real_time: Výsledky jsou dostupné v reálném čase
             title: Stav voleb
         elections:
           create:
@@ -113,6 +116,9 @@ cs:
           edit_questions:
             new_question: Nová otázka
             title: Otázky
+          form:
+            errors:
+              at_least_one_question: Je vyžadována alespoň jedna otázka.
         statuses:
           publish_results:
             invalid: Při publikování výsledků došlo k chybě.
@@ -123,6 +129,9 @@ cs:
           publish: "%{user_name} zveřejnil volby %{resource_name} v %{space_name}"
           restore: "%{user_name} obnovil volby %{resource_name} v %{space_name}"
           update: "%{user_name} aktualizoval volby %{resource_name} v %{space_name}"
+      census_checks:
+        show:
+          title: Byl jste úspěšně ověřen
       censuses:
         internal_users:
           already_have_an_account?: Již máte účet?
@@ -176,6 +185,7 @@ cs:
         questions:
           title: Volební otázky
         show:
+          check_census_button: Zkontrolujte, zda mohu hlasovat
           vote_button: Hlasovat
         vote_results:
           subtitle:

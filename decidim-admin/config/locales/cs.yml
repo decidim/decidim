@@ -33,6 +33,11 @@ cs:
       help_section:
         content: Obsah
       id: ID
+      member:
+        email: E-mail
+        name: Název
+      member_csv_import:
+        file: Soubor
       newsletter:
         body: Tělo
         send_to_all_users: Poslat všem účastníkům
@@ -120,10 +125,17 @@ cs:
         show_in_footer: Zobrazit v zápatí
         title: Titul
         weight: Pozice v řazení
+      taxonomy:
+        item_name: Název položky
+        parent_id: Nadřazený
       user_group_csv_verification:
         file: Soubor
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
         newsletter:
           attributes:
             base:
@@ -179,6 +191,8 @@ cs:
         export: Exportovat
         export-selection: Exportovat výběr
         import: Importovat
+        member:
+          new: Nový člen
         menu_hidden: Skrýt v menu
         moderate: Spravovat moderace
         newsletter:
@@ -406,6 +420,17 @@ cs:
           values:
             'false': 'Ne'
             'true': 'Ano'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Pozvánka přijata
+            values:
+              'false': Nepřijato
+              'true': Přijato
+          user_invitation_sent_at_not_null:
+            label: Pozvánka odeslána
+            values:
+              'false': Neodesláno
+              'true': Odesláno
         moderated_users:
           reports_reason_eq:
             label: Důvod hlášení
@@ -561,10 +586,37 @@ cs:
             explanation: Spravovaní uživatelé mohou být povýšeni na standardní uživatele. Znamená to, že budou pozváni do aplikace a nebudete je moci znovu předstírat. Pozvaný uživatel obdrží e-mail, ve kterém přijme vaši pozvánku.
             new_managed_user_promotion: Nová spravovaná podpora pro uživatele
             promote: Podporovat
+      members:
+        create:
+          error: Při přidávání člena do tohoto participačního prostoru došlo k chybě.
+          success: Přístup člena byl úspěšně vytvořen.
+        destroy:
+          error: Při mazání člena pro tento participační prostor došlo k chybě.
+        edit:
+          title: Upravit člena
+          update: Aktualizovat
+        index:
+          import_via_csv: Importovat přes CSV
+          publish_all: Publikovat vše
+          title: Člen
+          unpublish_all: Zrušit publikování všech
+        new:
+          create: Vytvořit
+          title: Nový člen
+        publish_all:
+          error: Při publikování všech členů tohoto participačního prostoru došlo k chybě.
       members_csv_imports:
         new:
           csv_upload:
             title: Nahrát soubor CSV
+          destroy:
+            button: Odstranit všechny členy
+            confirm: Opravdu chcete odstranit všechny členy? Tuto akci nelze vrátit zpět, nebudete ji moci obnovit.
+            empty: Nemáte žádné členy.
+            title: Smazat členy
+          example_file: 'Příklad souboru:'
+          title: Importovat členy přes CSV
+          upload: Nahrát
       menu:
         admin_log: Protokol aktivity správce
         admins: Administrátoři
@@ -623,6 +675,8 @@ cs:
             reason: Důvod
             started_at: Začalo v
             user: Účastník
+        member:
+          name: Člen
         newsletter:
           fields:
             created_at: Vytvořeno v

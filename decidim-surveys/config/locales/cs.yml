@@ -44,6 +44,11 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Nový průzkum v %{participatory_space_title}
           notification_title: Průzkum <a href="%{resource_path}">%{resource_title}</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a> je nyní otevřený.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: Obsah odpovědi
+          created_at: Časové razítko, kdy byla odpověď vytvořena
     statistics:
       responses: 'Odpovědi:'
       responses_count: Odpovědi

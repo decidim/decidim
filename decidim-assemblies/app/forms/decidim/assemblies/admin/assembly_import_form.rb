@@ -31,6 +31,7 @@ module Decidim
         attribute :import_components, Boolean, default: true
         attribute :document, Decidim::Attributes::Blob
 
+        validates :document, presence: true
         validates :document, file_content_type: { allow: ACCEPTED_TYPES.values }
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, translatable_presence: true

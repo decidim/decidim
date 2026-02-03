@@ -25,8 +25,7 @@ module Decidim
             area_enabled: false,
             comments_enabled:,
             promoting_committee_enabled:,
-            minimum_committee_members:,
-            banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg")
+            minimum_committee_members:
           }
         end
         let(:context) do

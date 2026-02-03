@@ -25,6 +25,7 @@ eu:
         duration: Iraupena
         facebook: Facebook
         github: GitHub
+        has_members: Partaidetza-espazio honek kideak ditu
         hero_image: Hasierako orriko irudia
         import_attachments: Inportatu erantsitako fitxategiak
         import_categories: Inportatu kategoriak
@@ -248,11 +249,13 @@ eu:
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
+            has_members_help: Kideak sortu eta argitaratu ahal izango dituzu
             images: Irudiak
             included_at_help: Hautatu zein egunetan gehitu zen batzar hori plataformara. Ez du zertan sortze-data bera izan.
             metadata: Metadata
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             other: Beste bat
+            private_notice: Bisitarientzat eta bazkideentzat solikik (gardena bada izan ezik) ez da partaidetza-espazioa ikusten
             select_a_created_by: Hautatu egilea
             select_parent_assembly: Hautatu batzar nagusia
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
