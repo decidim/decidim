@@ -16,6 +16,11 @@ ca:
           body: Cos del text
           draft: Esborrany
           version_number: Número de versió
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Text col·laboratiu
+        other: Textos col·laboratius
   decidim:
     admin:
       tooltips:
