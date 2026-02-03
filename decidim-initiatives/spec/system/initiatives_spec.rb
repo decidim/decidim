@@ -194,6 +194,8 @@ describe "Initiatives" do
 
     context "when user does not have pending initiatives" do
       let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:other_user) { create(:user, :confirmed, organization:) }
+      let!(:other_user_pending_initiative) { create(:initiative, :created, author: other_user, organization:) }
 
       before do
         switch_to_host(organization.host)
@@ -203,6 +205,10 @@ describe "Initiatives" do
 
       it "does not display the pending initiatives section" do
         expect(page).to have_no_css("#pending_initiatives")
+      end
+
+      it "does not display other users' pending initiatives" do
+        expect(page).to have_no_content(translated(other_user_pending_initiative.title, locale: :en))
       end
     end
   end
