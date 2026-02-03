@@ -2,7 +2,7 @@
   <div class="card pt-4" id="processes">
     <div class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :title, autofocus: true %>
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
 
       <div class="row column">
@@ -32,7 +32,6 @@
         </div>
       </div>
 
-      </div>
     </div>
   </div>
 </div>
