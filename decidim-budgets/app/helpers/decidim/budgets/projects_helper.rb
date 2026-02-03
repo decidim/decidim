@@ -117,9 +117,16 @@ module Decidim
       def filter_sections
         @filter_sections ||= begin
           items = []
-          items.append(method: :with_any_status, collection: filter_status_values, label: t("decidim.budgets.projects.filters.status"), id: "status") if voting_finished?
+          if voting_finished?
+            items.append(method: :with_any_status,
+                         name: "[with_any_status]",
+                         collection: filter_status_values,
+                         label: t("decidim.budgets.projects.filters.status"),
+                         id: "status")
+          end
           current_component.available_taxonomy_filters.each do |taxonomy_filter|
-            items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+            items.append(method: :with_any_taxonomies,
+                         name: "[with_any_taxonomies][#{taxonomy_filter.root_taxonomy_id}]",
                          collection: filter_taxonomy_values_for(taxonomy_filter),
                          label: decidim_sanitize_translated(taxonomy_filter.name),
                          id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
