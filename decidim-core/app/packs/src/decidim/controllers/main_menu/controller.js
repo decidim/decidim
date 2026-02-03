@@ -1,14 +1,20 @@
 import { Controller } from "@hotwired/stimulus"
 
-
-const CLOSE_BUTTON_ID = "main-dropdown-summary-desktop-close"
 const OPEN_DELAY_MS = 50
 
+/**
+ * Main menu dropdown controller and traps page scroll while the menu is open.
+ *
+ * Expected markup:
+ * - The controller element has a `data-target` attribute with the menu container id.
+ * - The menu container uses `aria-hidden="true|false"` for visibility.
+ * - An optional close button exists with id `main-dropdown-summary-desktop-close`.
+ */
 export default class extends Controller {
   connect() {
     this.menuButton = this.element
     this.menuContainer = document.getElementById(this.element.dataset.target)
-    this.closeButton = document.getElementById(CLOSE_BUTTON_ID)
+    this.closeButton = document.getElementById(this.element.dataset.closeButton)
 
     if (!this.menuContainer) {
       return;
@@ -73,11 +79,13 @@ export default class extends Controller {
 
   openMenu() {
     document.body.style.overflow = "hidden"
+    this.element.setAttribute("aria-expanded", "true")
     this.menuContainer.setAttribute("aria-hidden", "false")
   }
 
   closeMenu() {
     document.body.style.overflow = "scroll"
+    this.element.setAttribute("aria-expanded", "false")
     this.menuContainer.setAttribute("aria-hidden", "true")
   }
 }

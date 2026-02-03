@@ -41,7 +41,8 @@
     </div>
   <% end %>
   <button id="main-dropdown-summary-desktop" class="main-bar__links-desktop__trigger"
-          data-controller="dropdown main-menu"
+          data-controller="main-menu"
+          data-close-button="main-dropdown-summary-desktop-close"
           data-target="dropdown-menu-main-desktop" aria-expanded="false">
     <%= icon "menu-line" %><span><%= t("menu", scope: "decidim.admin.titles") %></span>
   </button>
