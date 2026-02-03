@@ -76,7 +76,11 @@ module Decidim
     # Note: Validation errors are now displayed in the main form area, not inside the modal.
     def input_validation_field
       object_name = form.object.present? ? "#{form.object.model_name.param_key}[#{add_attribute}_validation]" : "#{add_attribute}_validation"
-      check_box_tag object_name, 1, attachments.present?, class: "reset-defaults", hidden: true, label: false, required: required?
+      check_box_tag object_name, 1, attachments.present?, class: "reset-defaults", hidden: true, label: false, required: required?, id: validation_field_id
+    end
+
+    def validation_field_id
+      "#{attribute}_validation"
     end
 
     def explanation

@@ -372,7 +372,7 @@ module Decidim
         options
       ).call
 
-      upload_cell + error_and_help_text(attribute, options)
+      upload_cell + error_and_help_text(attribute, options) + (options[:required] ? abide_error_element(attribute, for: "#{attribute}_validation") : "")
     end
 
     def max_file_size(record, attribute)
@@ -628,19 +628,23 @@ module Decidim
     # does it.
     #
     # attribute - The name of the attribute of the field.
+    # options - A Hash of options:
+    #           :for - The ID of the input field this error is for (adds data-form-error-for attribute)
     #
     # Returns a String.
-    def abide_error_element(attribute)
+    def abide_error_element(attribute, options = {})
       defaults = []
       defaults << :"decidim.forms.errors.#{object.class.model_name.i18n_key}.#{attribute}"
       defaults << :"decidim.forms.errors.#{attribute}"
       defaults << :"forms.errors.#{attribute}"
       defaults << :"decidim.forms.errors.error"
 
-      options = { count: 1, default: defaults }
+      i18n_options = { count: 1, default: defaults }
 
-      text = I18n.t(defaults.shift, **options)
-      content_tag(:span, text, class: "form-error")
+      text = I18n.t(defaults.shift, **i18n_options)
+      tag_options = { class: "form-error" }
+      tag_options[:"data-form-error-for"] = options[:for] if options[:for]
+      content_tag(:span, text, tag_options)
     end
 
     def tab_element_class_for(type, index)
