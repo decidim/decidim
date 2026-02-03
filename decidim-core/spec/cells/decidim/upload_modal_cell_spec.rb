@@ -66,6 +66,12 @@ describe Decidim::UploadModalCell, type: :cell do
     it "renders the required field indicator" do
       expect(subject).to have_css("label .label-required", text: "Required field")
     end
+
+    it "does not render error or help text inside the modal" do
+      # Error and help text should be rendered outside the modal by the form builder
+      expect(subject).to have_no_css(".form-error")
+      expect(subject).to have_no_css(".help-text")
+    end
   end
 
   context "when attachment is present" do

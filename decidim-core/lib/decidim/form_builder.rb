@@ -366,11 +366,13 @@ module Decidim
         button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
       }.merge(options)
 
-      ::Decidim::ViewModel.cell(
+      upload_cell = ::Decidim::ViewModel.cell(
         "decidim/upload_modal",
         self,
         options
       ).call
+
+      upload_cell + error_and_help_text(attribute, options)
     end
 
     def max_file_size(record, attribute)

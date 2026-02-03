@@ -808,6 +808,34 @@ module Decidim
           end
         end
       end
+
+      context "with errors on the field" do
+        let(:attributes) { {} }
+        let(:output) { builder.upload :image, attributes }
+
+        before do
+          allow(resource).to receive(:errors).and_return(image: ["can't be blank"])
+        end
+
+        it "renders error and help text after the upload cell" do
+          expect(parsed.css(".form-error")).not_to be_empty
+          expect(parsed.css(".help-text")).not_to be_empty
+        end
+
+        it "renders the error message" do
+          expect(parsed.css(".form-error").text).to include("can't be blank")
+        end
+      end
+
+      context "with help_text option" do
+        let(:attributes) { { help_text: "Upload a valid image file" } }
+        let(:output) { builder.upload :image, attributes }
+
+        it "renders help text after the upload cell" do
+          expect(parsed.css(".help-text")).not_to be_empty
+          expect(parsed.css(".help-text").text).to include("Upload a valid image file")
+        end
+      end
     end
 
     describe "#data_picker" do
