@@ -120,10 +120,10 @@ shared_context "when publishes and unpublishes component" do
 
   context "when component is unpublished" do
     before do
-      component.unpublish!
-      component.participatory_space.try_add_to_index_as_search_resource
+      current_component.unpublish!
+      current_component.participatory_space.try_add_to_index_as_search_resource
 
-      visit decidim_admin_participatory_processes.components_path(participatory_process)
+      visit decidim_admin_participatory_processes.components_path(current_component.participatory_space)
     end
 
     it "reindexes on publication" do
@@ -146,10 +146,10 @@ shared_context "when publishes and unpublishes component" do
 
   context "when component is published" do
     before do
-      component.publish!
-      component.participatory_space.try_add_to_index_as_search_resource
+      current_component.publish!
+      current_component.participatory_space.try_add_to_index_as_search_resource
 
-      visit decidim_admin_participatory_processes.components_path(participatory_process)
+      visit decidim_admin_participatory_processes.components_path(current_component.participatory_space)
     end
 
     it "removes records from index" do
@@ -174,7 +174,7 @@ shared_context "when publishes and unpublishes component" do
       perform_enqueued_jobs
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_zero
-      expect(component.reload).not_to be_published
+      expect(current_component.reload).not_to be_published
     end
   end
 end
@@ -184,7 +184,8 @@ shared_context "when cycling through publication states" do
     let(:title) { translated(current_component.name) }
 
     it "cycles through unpublished and published states successfully" do
-      visit decidim_admin_participatory_processes.components_path(participatory_process)
+      visit decidim_admin_participatory_processes.components_path(current_component.participatory_space)
+
       within ".sidebar-menu" do
         click_on "Components"
       end
