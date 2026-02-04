@@ -81,8 +81,7 @@ export default class extends Controller {
   }
 
   openMenu() {
-    // eslint-disable-next-line no-undefined
-    if (this.previousBodyOverflow === undefined) {
+    if (typeof this.previousBodyOverflow === "undefined") {
       this.previousBodyOverflow = document.body.style.overflow;
     }
     document.body.style.overflow = "hidden"
@@ -92,7 +91,6 @@ export default class extends Controller {
 
   closeMenu() {
     document.body.style.overflow = this.previousBodyOverflow ?? ""
-    document.body.style.overflow = "scroll"
     this.element.setAttribute("aria-expanded", "false")
     this.menuContainer.setAttribute("aria-hidden", "true")
   }
