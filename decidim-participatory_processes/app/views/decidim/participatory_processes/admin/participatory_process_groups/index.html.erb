@@ -52,7 +52,7 @@
                   <% end %>
 
                   <li class="dropdown__item">
-                    <%= link_to decidim_participatory_processes.participatory_process_group_path(group), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
+                    <%= link_to decidim_participatory_processes.participatory_process_group_path(group, locale: current_locale), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
                       <%= icon "eye-line" %> <%= t("actions.preview", scope: "decidim.admin") %>
                     <% end %>
                   </li>

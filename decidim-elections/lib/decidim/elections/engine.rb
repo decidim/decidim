@@ -28,6 +28,10 @@ module Decidim
         get "/", to: redirect("elections", status: 301)
       end
 
+      initializer "decidim_elections.register_icons" do
+        Decidim.icons.register(name: "Decidim::Elections::Election", icon: "file-paper-2-line", description: "Elections", category: "activity", engine: :elections)
+      end
+
       initializer "decidim_elections.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/views") # for partials
@@ -47,7 +51,7 @@ module Decidim
           manifest.voter_form_partial = "decidim/elections/censuses/token_csv_form"
           manifest.after_update_command = "Decidim::Elections::Admin::Censuses::TokenCsv"
           manifest.user_query do |election|
-            Decidim::Elections::Voter.where(election: election)
+            Decidim::Elections::Voter.where(election:)
           end
         end
 

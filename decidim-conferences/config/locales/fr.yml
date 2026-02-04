@@ -605,6 +605,10 @@ fr:
         title: Médias et liens
     menu:
       conferences: Conférences
+    open_data:
+      help:
+        conferences:
+          component_settings: Paramètres de fonctionnalité de l'espace conférences
     statistics:
       conferences_count: Conférences
       conferences_count_tooltip: Le nombre de conférences publiées.

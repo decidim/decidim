@@ -32,6 +32,7 @@ module Decidim
       def mounted_params
         {
           :host => organization.host,
+          :locale => I18n.locale,
           :"#{underscored_name}_slug" => slug
         }
       end

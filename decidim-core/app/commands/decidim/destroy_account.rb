@@ -28,7 +28,7 @@ module Decidim
         destroy_user_badges
         destroy_user_likes
         destroy_user_reports
-        destroy_participatory_space_private_user
+        destroy_member
         delegate_destroy_to_participatory_spaces
       end
 
@@ -101,8 +101,8 @@ module Decidim
       Decidim::Follow.where(user: current_user).find_each(&:destroy)
     end
 
-    def destroy_participatory_space_private_user
-      Decidim::ParticipatorySpacePrivateUser.where(user: current_user).find_each(&:destroy)
+    def destroy_member
+      Decidim::ParticipatorySpace::Member.where(user: current_user).find_each(&:destroy)
     end
 
     def delegate_destroy_to_participatory_spaces

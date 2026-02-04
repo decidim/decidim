@@ -80,6 +80,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+      - run: |
+          sudo apt-get update && sudo apt-get install libvips libvips-tools
+        name: Install libvips
+        shell: "bash"
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
@@ -90,14 +94,14 @@ jobs:
       - name: Get npm cache directory path
         id: npm-cache-dir-path
         run: echo "dir=$(npm get cache)-${{ env.DECIDIM_MODULE }}" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         id: npm-cache
         with:
           path: ${{ steps.npm-cache-dir-path.outputs.dir }}
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         id: app-cache
         with:
           path: ./Gemfile.lock
@@ -111,7 +115,7 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
-      - uses: qltysh/qlty-action/coverage@v1
+      - uses: qltysh/qlty-action/coverage@v2
         with:
           token: ${{secrets.QLTY_COVERAGE_TOKEN}}
           verbose: true

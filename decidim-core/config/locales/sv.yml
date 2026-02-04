@@ -162,7 +162,6 @@ sv:
       front_page_link: Gå till startsidan
       logo: "%{organization}s logotyp"
       opens_in_new_tab: Öppnas i en ny flik
-      secondary_menu: Sekundär meny
       skip_button: Gå till innehåll
     account:
       blocked: Detta konto har blockerats på grund av brott mot användarvillkoren
@@ -266,10 +265,6 @@ sv:
       organization:
         update: "%{user_name} uppdaterade organisationsinställningarna"
         update_external_domain: "%{user_name} uppdaterade organisationens externa domäner"
-      participatory_space_private_user:
-        create: "%{user_name} uppmanade %{resource_name} att vara en privat deltagare"
-        create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV-fil"
-        delete: "%{user_name} tog deltagaren %{resource_name} som en privat deltagare"
       scope:
         create: "%{user_name} skapade indelningen %{resource_name}"
         create_with_parent: "%{user_name} skapade indelningen %{resource_name} inom %{parent_scope}"
@@ -648,7 +643,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress.
         new:
           complete_profile: Komplettera profil
-          nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
+          nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla små bokstäver a-z, siffror, '-' och '_'.
           sign_up: Var god slutför din profil
           subtitle: Slutför registreringen genom att fylla i följande formulär
           username_help: Offentligt namn som visas i dina inlägg. Du kan ange ett annat namn än ditt eget, om du vill vara anonym.
@@ -734,13 +729,8 @@ sv:
           created_at: Datum och tid då identiteten skapades
           id: Unikt id för identiteten
           provider: Leverantören av identiteten
-        participatory_space_private_users:
-          created_at: Datum och tid när den privata användaren skapades
-          id: Unikt id för den privata användaren
-          privatable_to: Till vilken plats den privata användaren tillhör
-          published: Om den privata användaren är publicerad eller inte
-          role: Den privata användarens roll
-          updated_at: Datum och tid när den privata användaren senast uppdaterades
+        messaging_conversations:
+          updated_at: Datum när denna konversation senast uppdaterades
         reports:
           created_at: Datum och tid för när rapporteringen skapades
           details: Mer information om rapporteringen
@@ -750,7 +740,7 @@ sv:
           reason: Anledning till rapporteringen
           updated_at: Datum och tid för när rapporteringen senast uppdaterades
         users:
-          about: Presentation av användaren
+          about: Profilbeskrivningen för denna deltagare
           accepted_tos_version: Det datum då användarvillkoren godkändes av användaren
           admin: Om användaren är administratör
           confirmation_sent_at: Datum och tid då bekräftelsen skickades
@@ -770,8 +760,9 @@ sv:
           locale: Användarens valda språk
           managed: Om användare hanteras av en annan användare
           name: Namnet på användaren
-          newsletter_notifications_at: Datum och tid när användaren senast fick ett nyhetsbrev
+          newsletter_notifications_at: Datum och tid när denna deltagare prenumererade på att få ett nyhetsbrev
           nickname: Användarens användarnamn
+          officialized_as: Officiantens titel (kommunalråd, borgmästare, etc)
     editor_images:
       create:
         error: Fel vid uppladdning av bild.
@@ -781,7 +772,7 @@ sv:
       files:
         file_cannot_be_processed: Filen kan inte bearbetas
         file_resolution_too_large: Filupplösningen är för stor
-        not_inside_organization: Filen är inte kopplad till någon organisation
+        not_inside_organization: Filen är inte kopplad till någon organisation.
       internal_server_error:
         copied: Texten har kopierats!
         copy_error_message_clarification: Kopiera felmeddelandet till urklipp
@@ -881,7 +872,7 @@ sv:
           email_intro: |-
             Din %{resource_type} är inte längre synlig.<br>
             Detta hände därför att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar automatiskt att återställas.
-          email_outro: Du har fått det här meddelandet eftersom du är en författare till %{resource_type}.
+          email_outro: Du har fått det här meddelandet eftersom du är författare till %{resource_type}.
           email_subject: Din %{resource_type} är inte längre synlig
           notification_title: |-
             Din %{resource_type} är inte längre synlig.<br>
@@ -969,6 +960,7 @@ sv:
         file:
           explanation: 'Instruktioner för fil:'
           message_1: Måste vara en bild eller ett dokument.
+          message_2: Om det är en bild så använd helst en landskapsbild som inte har någon text. Plattformen beskär bilden.
         icon:
           explanation: 'Instruktioner för ikon:'
           message_1: Måste vara en kvadratisk bild.
@@ -999,6 +991,7 @@ sv:
           title_required: Titel måste fyllas i!
           uploaded: Uppladdad
           validating: Validerar...
+          validation_error: Valideringsfel! Kontrollera att filen har en tillåten filtyp eller storlek.
         select_file: Välj fil
       upload_help:
         dropzone: Släpp filer här eller klicka på knappen för att ladda upp
@@ -1208,8 +1201,10 @@ sv:
       action_error: Det gick inte att uppdatera inställningen för meddelanden.
       no_notifications: Inga meddelanden ännu.
       show:
+        deleted: Innehållet har tagits bort av författaren.
         missing_event: Hoppsan, det här meddelandet tillhör ett objekt som inte längre är tillgängligt. Du kan kasta det.
-        moderated: Innehåll modererat
+        moderated: Innehållet har dolts av moderator.
+        not_available: Hoppsan, det här meddelandet tillhör ett objekt som inte längre är tillgängligt. Du kan kasta det.
     notifications_digest_mailer:
       header:
         daily: Dagligt sammandrag
@@ -1217,6 +1212,7 @@ sv:
       hello: Hej %{name},
       intro:
         daily: 'Det här är meddelandena från senaste dagen baserat på aktiviteterna du följer:'
+        real_time: 'Detta är en notis om aktiviteten du följer:'
         weekly: 'Det här är meddelandena från senaste veckan baserat på aktiviteterna du följer:'
       outro: Du har fått de här meddelandena eftersom du följer det här innehållet eller dess författare. Du kan sluta följa dem från deras respektive sidor.
       see_more: Visa fler meddelanden
@@ -1262,11 +1258,15 @@ sv:
           resources:
             one: "%{count} Resurs"
             other: "%{count} Resurser"
+      index:
+        license:
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     pad_iframe:
       disclaimer: Innehållet i anteckningarna är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
       explanation: Använd den här anteckningsytan för att gemensamt ta anteckningar under mötet så att det går lättare att skriva protokollet efteråt.
-      pad: Memo
+      pad: Anteckningar
     pages:
       home:
         extended:
@@ -1281,7 +1281,7 @@ sv:
         footer_sub_hero:
           footer_sub_hero_body_html: Låt oss skapa ett mer öppet, transparent och deltagande samhälle.<br /> Gå med, delta och fatta beslut.
           footer_sub_hero_headline: Välkommen till %{organization} deltagarplattform.
-          register: Registrera dig
+          register: Skapa ett konto
         hero:
           participate: Delta
           participate_title: Delta i plattformens processer
@@ -1289,7 +1289,7 @@ sv:
         statistics:
           headline: Statistik
         sub_hero:
-          register: Registrera
+          register: Skapa ett konto
           register_title: Skapa ett konto
       index:
         standalone_pages: Sidor
@@ -1493,8 +1493,11 @@ sv:
       pages_count: Sidor
       participants_count: Deltagare
       participants_count_tooltip: Antalet unika användare som har interagerat i detta område genom att lägga fram förslag, delta i möten, rösta eller delta i diskussioner.
+      surveys_count: Enkäter
       users_count: Deltagare
       users_count_tooltip: Det totala antalet användare som har registrerat sig och bekräftat sitt konto via e-post.
+    tags:
+      filter_results_for_taxonomy: 'Filtrera resultat: %{resource}'
     translation_bar:
       help_text: "<strong>Obs:</strong> Innehåll kan ha översatts automatiskt och inte vara 100% korrekt."
       show_original: Visa originaltexten
@@ -1523,7 +1526,7 @@ sv:
     version:
       show:
         back_to_resource: Gå tillbaka
-        changes_at_title: Ändringar på "%{title}"
+        changes_at_title: Ändringar av "%{title}"
         number_of_versions: Versioner
         version_created_at: Version skapad
     versions:
@@ -1563,7 +1566,7 @@ sv:
     invitations:
       edit:
         header: Slutför skapandet av ditt konto
-        nickname_help: Ditt användarnamn för %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
+        nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla små bokstäver a-z, siffror, '-' och '_'.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
       invitation_removed: Din inbjudan har tagits bort.
@@ -1594,17 +1597,13 @@ sv:
           Om du inte vill godkänna inbjudan kan du ignorera detta e-postmeddelande.<br />
           Ditt konto kommer bara att skapas om du öppnar länken ovan och anger ditt användarnamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
-        invited_you_as_private_user: "%{invited_by} har bjudit in dig som privat deltagare till %{application}. Du kan godkänna detta via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan.
-        someone_invited_you_as_private_user: Någon har bjudit in dig som privatperson till %{application}, du kan godkänna detta via länken nedan.
         subject: Anvisningar om inbjudningar
       invite_admin:
         subject: Du har blivit inbjuden att hantera %{organization}
       invite_collaborator:
         subject: Du har blivit inbjuden att samarbeta på %{organization}
-      invite_private_user:
-        subject: Du har blivit inbjuden till en privat deltagarprocess på %{organization}
       organization_admin_invitation_instructions:
         subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
@@ -1883,6 +1882,8 @@ sv:
         expire_time_html: Din session löper ut om <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minuter</b>.
       language_chooser:
         choose_language: Välj språk
+      navigation:
+        aria_label: 'Navigation menu: %{title}'
       notifications_dashboard:
         mark_all_as_read: Markera allt som läst
         mark_as_read: Markera som läst

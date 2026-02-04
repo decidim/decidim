@@ -21,6 +21,12 @@ module Decidim
       include_examples "referable interface"
       include_examples "followable interface"
 
+      shared_examples "unauthorized Project" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Project because you do not have permissions")
+        end
+      end
+
       describe "id" do
         let(:query) { "{ id }" }
 
@@ -155,9 +161,7 @@ module Decidim
         let(:model) { create(:project, budget:) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Project"
       end
 
       context "when participatory space is not published" do
@@ -167,9 +171,7 @@ module Decidim
         let(:model) { create(:project, budget:) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Project"
       end
 
       context "when component is not published" do
@@ -177,9 +179,7 @@ module Decidim
         let(:model) { create(:project, component:) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Project"
       end
 
       context "when budget is not visible" do
@@ -189,10 +189,11 @@ module Decidim
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns all the required fields" do
+        before do
           allow(model).to receive(:visible?).and_return(false)
-          expect(response).to be_nil
         end
+
+        it_behaves_like "unauthorized Project"
       end
     end
   end

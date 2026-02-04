@@ -162,6 +162,7 @@ fi:
           comment: Kommentoi
           join: Liity mukaan
           reply_poll: Vastaa mielipidetiedusteluun
+          vote_comment: Äänestä kommenttia
         name: Tapaamiset
         settings:
           global:

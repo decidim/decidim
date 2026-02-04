@@ -14,6 +14,7 @@ eu:
         duplicate_landing_page_blocks: Bikoiztu lurreratze-orrien blokeak
         duplicate_steps: Bikoiztu urratsak
         end_date: Bukaera-data
+        has_members: Partaidetza-espazio honek kideak ditu
         hero_image: Orri nagusiko irudia
         import_attachments: Inportatu eranskinak
         import_categories: Inportatu kategoriak
@@ -66,7 +67,7 @@ eu:
             document:
               allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
     models:
-      decidim/participatory_process_step_activated_event: Urratsera aktibatuta
+      decidim/participatory_process_step_activated_event: Fasea aktibatuta
       decidim/participatory_process_step_changed_event: Pasartea aldatu da
   activerecord:
     models:
@@ -78,7 +79,7 @@ eu:
         other: Partaidetza-prozesuen taldeak
       decidim/participatory_process_step:
         one: Step
-        other: Urratsak
+        other: Faseak
   decidim:
     admin:
       actions:
@@ -115,8 +116,8 @@ eu:
           components: Osagaiak
           info: Prozesu honi buruz
           landing_page: Lurreratze-orrien antolaketa
+          members: Kideak
           moderations: Moderazioak
-          private_users: Kideak
           process_admins: Prozesuaren parte-hartzaileak
           steps: Prozesuaren faseak
       models:
@@ -282,9 +283,11 @@ eu:
         export: "%{user_name} parte-hartzaileak esportatu du %{resource_name} partaidetza-prozesua"
         import: "%{user_name} parte-hartzaileak inportatu du %{resource_name} partaidetza-prozesua"
         publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} partaidetza-prozesua"
+        publish_all_members: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesuko kide guztiak argitaratu ditu"
         restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} partaidetza-prozesua"
         soft_delete: "%{user_name} parte-hartzaileak zaborrontzira eraman du %{resource_name} partaidetza-prozesua"
         unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} partaidetza-prozesua"
+        unpublish_all_members: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesuko kide guztiak desargitaratu ditu"
         update: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesua eguneratu du"
       participatory_process_group:
         create: "%{user_name} parte-hartzaileak sortu du %{resource_name} partaidetza-prozesuen multzoa"
@@ -310,7 +313,7 @@ eu:
       participatory_process:
         role_assigned:
           email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> partaidetza-prozesuan.'
-          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizu "%{resource_title}" espazioan.
+          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizulako "%{resource_title}" espazioan.
           email_subject: '%{role} rola esleitu zaizu hemen "%{resource_title}".'
           notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> partaidetza-prozesuan.'
         step_activated:
@@ -340,6 +343,7 @@ eu:
         participatory_processes:
           announcement: Informazioa iragarpenaz (deia)
           area: Prozesua zein arlotan gertatzen ari da
+          component_settings: Prozesuaren osagaien konfigurazioa
           created_at: Zein datatan sortu zen espazio hau
           description: Prozesuaren deskribapen luzea
           developer_group: Prozesuaren talde garatzailea. Hau da prozesua sustatzen duen erakundea.
@@ -505,10 +509,11 @@ eu:
             announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
+            has_members_help: Kideak sortu eta argitaratu ahal izango dituzu
             images: Irudiak
             metadata: Metadatuak
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            private_notice: Kiak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
+            private_notice: Bisitarientzat eta bazkideentzat soilik (gardena bada izan ezik) ez da partaidetza-espazioa ikusten
             related_processes: Elkarrekin lotutako prozesuak
             select_process_group: Prozesu-talde bat hautatu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
@@ -557,6 +562,9 @@ eu:
         title: Partaidetza-prozesuak
       last_activity:
         new_participatory_process: 'Beste partaidetza-prozesu bat:'
+      members:
+        index:
+          title: Kideak
       pages:
         home:
           highlighted_processes:
@@ -603,9 +611,6 @@ eu:
           type: Mota
         show:
           title: Prozesu honi buruz
-      participatory_space_private_users:
-        index:
-          title: Kideak
       show:
         belongs_to_group: Prozesu hau nori dagokio
         private_space: Prozesu pribatua da

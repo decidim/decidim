@@ -29,7 +29,7 @@ module Decidim
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :collaborative_texts).i18n_name,
           manifest_name: :collaborative_texts,
           published_at: Time.current,
-          participatory_space: participatory_space
+          participatory_space:
         }
 
         Decidim.traceability.perform_action!(

@@ -28,6 +28,8 @@ module Decidim
 
       attr_reader :form
 
+      delegate :debate, to: :form
+
       def close_debate
         @debate = Decidim.traceability.perform_action!(
           :close,

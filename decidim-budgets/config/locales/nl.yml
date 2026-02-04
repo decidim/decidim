@@ -73,7 +73,6 @@ nl:
           new:
             create: Voorstellen importeren in projecten
             default_budget: Standaard budget
-            import_all_accepted_proposals: Alle geaccepteerde voorstellen importeren
             no_components: Er zijn geen andere voorstelonderdelen in deze participatieruimte om voorstellen in projecten te kunnen importeren.
             origin_component_id: Oorsprong component
             select_component: Selecteer een component

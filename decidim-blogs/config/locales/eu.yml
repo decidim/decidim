@@ -107,6 +107,7 @@ eu:
           destroy: Ezabatu
           like: Atsegin dut
           update: Eguneratu
+          vote_comment: Bozkatu iruzkina
         name: Bloga
         settings:
           global:

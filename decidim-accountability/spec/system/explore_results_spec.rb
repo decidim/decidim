@@ -6,7 +6,7 @@ describe "Explore results", :versioning do
   include_context "with a component"
 
   let(:manifest_name) { "accountability" }
-  let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
+  let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
   let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
   let(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
   let!(:other_taxonomy) { create(:taxonomy, parent: taxonomy.parent, organization:) }
@@ -148,17 +148,13 @@ describe "Explore results", :versioning do
     end
 
     describe "index" do
-      let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
+      let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
 
       before do
         visit path
       end
 
       it "shows all results for the given process and taxonomy" do
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-        end
-
         within("#results") do
           expect(page).to have_css(".card__list", count: results_count)
 
@@ -170,7 +166,7 @@ describe "Explore results", :versioning do
     end
 
     describe "show" do
-      let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id) }
+      let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
       let(:results_count) { 1 }
       let(:result) { results.first }
 
@@ -179,10 +175,6 @@ describe "Explore results", :versioning do
       end
 
       it "shows all result info" do
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-          expect(page).to have_content(translated(result.title))
-        end
         expect(page).to have_i18n_content(result.title)
         expect(page).to have_i18n_content(result.description, strip_tags: true)
         expect(page).to have_content(result.reference)
@@ -278,12 +270,6 @@ describe "Explore results", :versioning do
         it "the result is mentioned in the subresult page" do
           click_on translated(first_subresult.title)
           expect(page).to have_i18n_content(result.title)
-
-          within(".menu-bar") do
-            expect(page).to have_content(translated(component.name))
-            expect(page).to have_content(translated(result.title))
-            expect(page).to have_content(translated(first_subresult.title))
-          end
         end
 
         it "a banner links back to the result" do

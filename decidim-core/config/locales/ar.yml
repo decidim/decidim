@@ -202,10 +202,6 @@ ar:
       organization:
         update: "قام %{user_name} بتحديث إعدادات المنظمة"
         update_external_domain: "قام %{user_name} بتحديث النطاقات الخارجية للمنظمة external domains"
-      participatory_space_private_user:
-        create: "%{user_name} مدعو %{resource_name} ليكون مشاركًا خاصًا"
-        create_via_csv: "%{user_name} دعا %{resource_name} عبر CSV ليكون مشاركا خاصا"
-        delete: "%{user_name} أزال المشارك %{resource_name} كمشارك خاص"
       scope:
         create: "%{user_name} خلق نطاق %{resource_name}"
         create_with_parent: "إنشاء %{user_name} النطاق %{resource_name} داخل النطاق %{parent_scope}"
@@ -881,7 +877,6 @@ ar:
       hello: مرحبا %{name}،
       intro:
         daily: 'هذه هي إخطارات اليوم الأخير بناءً على النشاط الذي تتابعه:'
-        real_time: 'هذا تنبيه عن النشاط الذي تتبعّه:'
         weekly: 'هذه هي إخطارات الأسبوع الأخير بناءً على النشاط الذي تتابعه:'
       outro: لقد تلقيت هذه الإشعارات لأنك تتبع هذا المحتوى أو مؤلفيه. يمكنك إلغاء متابعتها من صفحات كل منهم.
       see_more: عرض المزيد من الإشعارات
@@ -930,13 +925,10 @@ ar:
           proposals_explanation: تقديم مقترحات ، ودعم المقترحات الحالية وتعزيز التغييرات التي تريد رؤيتها.
         footer_sub_hero:
           footer_sub_hero_headline: مرحبًا بكم على المنصة التشاركية لـ %{organization}.
-          register: تسجيل
         hero:
           participate: مشاركة
           participate_title: المشاركة في مسارات المنصة
           welcome: مرحبًا بكم على %{organization}!
-        sub_hero:
-          register: تسجيل
       index:
         standalone_pages: صفحات
         subheading: انتقل من خلال صفحات المساعدة من %{name}
@@ -1140,10 +1132,8 @@ ar:
         decline: رفض الدعوة
         hello: مرحبا %{email}،
         invited_you_as_admin: "%{invited_by} دعاك كمشرف لـ %{application}. يمكنك قبول ذلك من خلال الرابط أدناه."
-        invited_you_as_private_user: "تلقيت دعوة من %{invited_by} كمشارك خاص لـ %{application}يمكنك قبول ذلك من خلال الرابط أدناه."
         someone_invited_you: دعاك شخص ما إلى %{application}. يمكنك قبول ذلك من خلال الرابط أدناه.
         someone_invited_you_as_admin: قام شخص ما بدعوتك كمسؤول لـ %{application}، يمكنك قبولها من خلال الرابط أدناه.
-        someone_invited_you_as_private_user: قام شخص ما بدعوتك كمشارك خاص بقيمة %{application}، ويمكنك قبولها من خلال الرابط أدناه.
         subject: تعليمات الدعوة
       password_change:
         greeting: مرحبا %{recipient}!

@@ -406,7 +406,7 @@ Faker/DeprecatedArguments:
         - days
         - period
         - format
-    Faker::Twitter:
+    Faker::X:
       user:
         - include_status
         - include_email

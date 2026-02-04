@@ -11,6 +11,12 @@ module Decidim
 
       include_examples "timestamps interface"
 
+      shared_examples "unauthorized User object" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this User because you do not have permissions")
+        end
+      end
+
       describe "id" do
         let(:query) { "{ id }" }
 
@@ -56,17 +62,13 @@ module Decidim
           context "when user reporting deleted his account" do
             let!(:model) { create(:report, moderation:, user: create(:user, :confirmed, :deleted, organization: moderation.reportable.organization), details: "Testing reason", locale: "en") }
 
-            it "returns nil" do
-              expect(response["user"]).to be_nil
-            end
+            it_behaves_like "unauthorized User object"
           end
 
           context "when user reporting got blocked" do
             let!(:model) { create(:report, moderation:, user: create(:user, :confirmed, :blocked, organization: moderation.reportable.organization), details: "Testing reason", locale: "en") }
 
-            it "returns nil" do
-              expect(response["user"]).to be_nil
-            end
+            it_behaves_like "unauthorized User object"
           end
         end
       end

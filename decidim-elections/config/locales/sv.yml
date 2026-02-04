@@ -1,6 +1,8 @@
 sv:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Maximalt antal val
       token_csv:
         file: Fil
         remove_all: Ta bort all aktuell folkräkningsdata
@@ -60,11 +62,16 @@ sv:
             title: Frågor
           questions_table:
             answer: Svar
+            total: Totalt
             votes: Röster
+            votes_count:
+              one: 1 röst
+              other: "%{count} röster"
           results:
             publish_button: Publicera resultat
             title: Resultat
           status:
+            allow_census_check_before_start: Tillåt användare att kontrollera om de kan rösta innan valet börjar
             census: 'Folkräkning:'
             results_availability:
               after_end: Resultat tillgängliga efter valets slut
@@ -103,6 +110,8 @@ sv:
           publish:
             invalid: Det gick inte att publicera valet.
             success: Valet publicerades.
+          toggle_census_check:
+            error: Det gick inte att aktivera kontrollen av folkräkningen.
           unpublish:
             invalid: Det gick inte att ta bort valet.
             success: Valet togs bort.
@@ -121,6 +130,11 @@ sv:
           soft_delete: "%{user_name} Flyttade valet %{resource_name} i %{space_name} till papperskorgen"
           unpublish: "%{user_name} Tog bort valet %{resource_name} i %{space_name}"
           update: "%{user_name} Uppdaterade valet %{resource_name} i %{space_name}"
+      census_checks:
+        show:
+          description: Detta innebär att direkt när valet har startat kan ni rösta i det.
+          exit_button: Avsluta folkräkningskontrollen
+          title: Du har blivit auktoriserad
       censuses:
         internal_users:
           already_have_an_account?: Har du redan ett konto?
@@ -136,9 +150,6 @@ sv:
           authorization_options_invalid: Tyvärr – ni har alla tillstånd som krävs, men en del av dem är inte giltiga för detta val.
           exit_button: Lämna valbåset
           invalid: Du har inte behörighet att rösta i detta val.
-          missing: Din användare saknar vissa nödvändiga tillstånd. Kontrollera informationen och försök igen.
-          not_authorized: '"%{adapter}" tillståndet matchar inte de obligatoriska villkoren.'
-          not_granted: '"%{adapter}" behörighet beviljas inte.'
           resume_with_method: Återuppta verifieringen med %{name}
           verify_with_method: Verifiera med %{name}
         token_csv:
@@ -182,6 +193,9 @@ sv:
           subtitle: 'Detta är frågorna för denna omröstningsprocess:'
         show:
           active_voting_until: 'Aktiv röstning till: %{end_date}'
+          check_census_button: Kontrollera om jag kan rösta
+          check_census_explanation: Detta val har ännu inte börjat, men du kan kontrollera om du är med i folkräkningen.
+          edit_vote_button: Redigera röst
           vote_button: Rösta
           voted: Du har redan röstat. Om du röstar igen kommer bara den senaste rösten att räknas.
           votes_count:
@@ -194,6 +208,10 @@ sv:
             per_question: Resultat finns tillgängliga per fråga. Du kan se resultaten för varje fråga efter att röstning har aktiverats och resultaten är publicerade.
             real_time: Resultaten är tillgängliga i realtid. Du kan se resultaten medan omröstningen pågår.
           title: Resultat
+          total: 'TOTAL:'
+          total_votes:
+            one: 1 röst
+            other: "%{count} röster"
       models:
         election:
           fields:
@@ -233,9 +251,13 @@ sv:
         question:
           back: Tillbaka
           cast_vote: Rösta
+          max_choices: 'Max val: %{count}'
+          max_choices_alert: Du har valt för många alternativ. Avmarkera några för att fortsätta.
+          max_choices_exceeded: Du kan inte välja mer än %{max} alternativ. Gå tillbaka och justera ditt val.
           next: Nästa
         receipt:
           description: Du kan rösta igen så länge omröstningsperioden pågår. En ny omröstning kommer att skriva över den gamla.
+          edit_vote: Redigera din röst
           exit_button: Lämna valbåset
           title: Tack, din röst är mottagen
     metadata:

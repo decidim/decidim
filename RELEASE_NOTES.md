@@ -32,9 +32,11 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 1.3. Run these commands
 
 ```console
+sudo apt install libvips libvips-tools # or the alternative installation process for your operating system. See "3.5. Replace image processing with imagemagick to libvips"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+bin/rails decidim:upgrade:encryption
 # skip this command if you have run it before:
 bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 echo "/public/sw.js*" >> .gitignore
@@ -93,7 +95,7 @@ At the moment we are adding this gem so we can start doing data migrations for f
 
 You can read more about this change on PR [#15501](https://github.com/decidim/decidim/pull/15501).
 
-#### 2.4. Fix gitignore for ServiceWorker related files
+### 2.4. Fix gitignore for ServiceWorker related files
 
 We detected a bug where some dynamic files are not added to the gitignore, so they could be committed to the repository. For fixing it, you need to add them to your gitignore file:
 
@@ -103,7 +105,32 @@ echo "/public/sw.js*" >> .gitignore
 
 You can read more about this change on PR [#15601](https://github.com/decidim/decidim/pull/15601).
 
-### 2.5. [[TITLE OF THE ACTION]]
+### 2.5. Data migration for organization short_name
+
+A new data migration has been added to populate the `short_name` field for existing organizations. This field is required for the PWA (Progressive Web App) manifest to properly display the application name on mobile devices' home screens.
+
+The migration automatically generates a short_name for each organization based on its name by removing spaces and truncating to 12 characters maximum. Organizations with names that result in less than 3 characters after processing will not have a short_name set and will need to be configured manually through the admin panel.
+
+This migration runs automatically when executing `bin/rails data:migrate` as part of the upgrade process.
+
+You can read more about this change on PR [#15729](https://github.com/decidim/decidim/pull/15729).
+
+### 2.6. Add locale to the url
+
+For a long time Decidim has been using internally the user browser to detect the language of the user. This has been changed to use the locale of the url instead.
+
+This improves the user experience by allowing the platform to send emails with the correct language, linking any resource to the correct language preferred by the user.
+
+It also enables the users of multi language platforms to share the links to the resources within their own language.
+
+```text
+    /en/processes/here-slug/f/57/elections/5 # if seen in english
+    /ca/processes/here-slug/f/57/elections/5 # if seen in catalan
+```
+
+You can read more about this change on PR [#14432](https://github.com/decidim/decidim/pull/14432).
+
+### 2.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -143,7 +170,29 @@ bin/rails decidim:upgrade:fix_deleted_private_follows
 
 You can read more about this change on PR [#12878](https://github.com/decidim/decidim/pull/12878).
 
-### 3.4. [[TITLE OF THE ACTION]]
+### 3.4. webpack-dev-server upgrade
+
+Back in [#15534](https://github.com/decidim/decidim/pull/15534) we upgraded webpack-dev-server to version 5.2.2. In order to successfully upgrade you need to edit your `config/shakapacker.yml` and remove the `https` option under `dev_server` key.
+
+You can read more about this change on PR [#15534](https://github.com/decidim/decidim/pull/15534), [#15674](https://github.com/decidim/decidim/pull/15674).
+
+### 3.5. Replace ImageMagick with libvips for image processing
+
+We have upgraded our image processor within the application to libvips for speed and low memory usage.
+
+Support for `.ico` favicon files has been removed. Applications that relied on ICO favicons must migrate to one of the supported Libvips image formats.
+
+In order to install please run the following command:
+
+```bash
+sudo apt install libvips libvips-tools
+```
+
+This works for Ubuntu Linux, other operating systems would need to do other command/package.
+
+You can read more about this change on PR [#15670](https://github.com/decidim/decidim/pull/15670).
+
+### 3.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -162,7 +211,43 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 
 ## 5. Changes in APIs
 
-### 5.1. [[TITLE OF THE CHANGE]]
+### 5.1. Encryption mechanism changes
+
+As we have upgraded Rails from 7.0 we have improved the security of the application by upgrading the encryption mechanism from SHA1 to SHA256.
+
+All the previously encrypted attributes can be decoded, but on the next record change, the new data will be saved as SHA256. To manually upgrade authorization data, or the initiative votes metadata, you will need to run the below task.
+
+```bash
+bin/rails decidim:upgrade:encryption
+```
+
+If you need to update any data generated by a 3rd party module, you could create a rake task like the one below:
+
+```ruby
+# frozen_string_literal: true
+
+namespace :myapp do
+  namespace :upgrade do
+    task encryption: :environment do
+      Decidim::Namespace::Model.find_each do |instance|
+        decrypted = Decidim::AttributeEncryptor.decrypt(instance.encrypted_attribute)
+
+        instance.encrypted_attribute = Decidim::AttributeEncryptor.encrypt(decrypted)
+        instance.save!
+      end
+    end
+  end
+end
+
+Rake::Task["decidim:upgrade:encryption"].enhance do
+  Rake::Task["myapp:upgrade:encryption"].invoke
+end
+
+```
+
+You can read more about this change on PR [#14800](https://github.com/decidim/decidim/pull/14800).
+
+### 5.2. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 

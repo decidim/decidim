@@ -12,8 +12,16 @@ Decidim.register_component(:debates) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Debates::Debate"]
 
-  component.on(:before_destroy) do |instance|
-    raise StandardError, "Cannot remove this component" if Decidim::Debates::Debate.where(component: instance).any?
+  component.on(:publish) do |instance|
+    Decidim::Debates::Debate.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Debates::Debate.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
+    end
   end
 
   component.settings(:global) do |settings|

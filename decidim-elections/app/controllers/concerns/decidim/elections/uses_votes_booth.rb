@@ -49,10 +49,16 @@ module Decidim
 
       # Shows the receipt page
       def receipt
+        if params[:exit].present?
+          votes_buffer.clear
+          session_attributes.clear
+          return redirect_to(exit_path)
+        end
+
         enforce_permission_to(:create, :vote, election:)
 
-        votes_buffer.clear
-        session_attributes.clear
+        votes_buffer.clear unless election.per_question?
+
         return redirect_to(exit_path) unless election.votes.exists?(voter_uid: session[:voter_uid])
 
         render "decidim/elections/votes/receipt"
@@ -85,7 +91,7 @@ module Decidim
 
       def previous_responses
         @previous_responses ||= election.questions.to_h do |question|
-          [question.id.to_s, question.votes.where(voter_uid: voter_uid).pluck(:response_option_id).map(&:to_s)]
+          [question.id.to_s, question.votes.where(voter_uid:).pluck(:response_option_id).map(&:to_s)]
         end
       end
     end
