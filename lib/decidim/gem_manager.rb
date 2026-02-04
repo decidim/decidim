@@ -69,7 +69,7 @@ module Decidim
 
         replace_file(
           gemspec_file,
-          /version = "[^"]*"/,
+          /(?<!required_ruby_)version = "[^"]*"/,
           "version = \"#{version}\""
         )
       end
