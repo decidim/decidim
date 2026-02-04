@@ -461,9 +461,10 @@ describe "Admin manages organization" do
         it "keeps right cursor position when using backspace after empty list item" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, "bcd", :left, :left, :left]
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :enter, :enter, :backspace, :backspace, :backspace, :backspace, :backspace, :backspace, "a"]
+          # cspell:disable-next-line
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List itemabcd</p></li></ul>".to_s.gsub("\n", "")) # spell-checker:disable-line
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List itemabcd</p></li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right cursor position when using backspace after list item with text" do
