@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Accountability::Admin::ImportResultsJob do
+describe Decidim::Accountability::Admin::ImportProjectsJob do
   subject { described_class }
 
   let(:user) { create(:user, organization:) }
@@ -60,7 +60,7 @@ describe Decidim::Accountability::Admin::ImportResultsJob do
     end
 
     it "triggers deliver_now" do
-      allow(Decidim::Accountability::ImportResultsMailer)
+      allow(Decidim::Accountability::ImportProjectsMailer)
         .to receive(:import)
         .with(current_user, current_component, projects.count)
         .and_return(mailer)

@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     module Admin
-      class ImportResultsJob < ApplicationJob
+      class ImportProjectsJob < ApplicationJob
         queue_as :default
 
         def perform(projects, component, user)
@@ -19,7 +19,7 @@ module Decidim
 
             copy_attachments(original_project, new_result)
           end.compact
-          Decidim::Accountability::ImportResultsMailer.import(user, component, projects.count).deliver_now
+          Decidim::Accountability::ImportProjectsMailer.import(user, component, projects.count).deliver_now
         end
 
         private

@@ -34,7 +34,7 @@ module Decidim
 
         def job_class
           if manifest_name == "budgets"
-            ImportResultsJob
+            ImportProjectsJob
           elsif manifest_name == "proposals"
             ImportProposalsJob
           else
