@@ -1161,6 +1161,7 @@ shared_examples "comments with two columns" do
   let!(:user) { create(:user, :confirmed, organization:) }
 
   before do
+    switch_to_host(organization.host)
     login_as user, scope: :user
   end
 
@@ -1255,6 +1256,7 @@ shared_examples "comments with two columns" do
     let!(:newer_against_comment) { create(:comment, :against, commentable:, created_at: 1.day.ago) }
 
     it "shows the comments in two columns sorted by creation date in ascending order" do
+      resize_window_to_desktop
       visit resource_path
 
       within(".comments-two-columns") do
@@ -1264,6 +1266,7 @@ shared_examples "comments with two columns" do
     end
 
     it "allows the user to add a new comment at the end of the respective column" do
+      resize_window_to_desktop
       visit resource_path
 
       add_new_comment("In favor", "This is a new comment in favor")
@@ -1274,6 +1277,7 @@ shared_examples "comments with two columns" do
     end
 
     it "disables the publish button until 'in favor' or 'against' is selected" do
+      resize_window_to_desktop
       visit resource_path
 
       expect(page).to have_button("Publish comment", disabled: true)
@@ -1293,12 +1297,18 @@ shared_examples "comments with two columns" do
       visit resource_path
 
       within(".comment-threads") do
-        comments = all(".comment-thread")
+        expect(page).to have_css(".comment-thread", minimum: 4)
 
-        expect(comments[0]).to have_content(oldest_in_favor_comment.body["en"])
-        expect(comments[1]).to have_content(oldest_against_comment.body["en"])
-        expect(comments[2]).to have_content(older_in_favor_comment.body["en"])
-        expect(comments[3]).to have_content(newer_against_comment.body["en"])
+        expected_order = [
+          oldest_against_comment,
+          oldest_in_favor_comment,
+          older_in_favor_comment,
+          newer_against_comment
+        ]
+
+        expected_order.each_with_index do |comment, index|
+          expect(all(".comment-thread")[index]).to have_content(comment.body["en"])
+        end
       end
 
       resize_window_to_desktop
@@ -1320,6 +1330,7 @@ shared_examples "comments with two columns" do
     let!(:latest_comment_against) { create(:comment, :against, commentable:, created_at: 1.day.ago, up_votes_count: 1) }
 
     before do
+      resize_window_to_desktop
       visit resource_path
     end
 
