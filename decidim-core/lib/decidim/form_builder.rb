@@ -372,7 +372,11 @@ module Decidim
         options
       ).call
 
-      upload_cell + error_and_help_text(attribute, options) + (options[:required] ? abide_error_element(attribute, for: "#{attribute}_validation") : "")
+      options_without_help = options.dup
+      options_without_help.delete(:help)
+      options_without_help.delete(:help_text)
+
+      upload_cell + error_and_help_text(attribute, options_without_help) + (options[:required] ? abide_error_element(attribute, for: "#{attribute}_validation") : "")
     end
 
     def max_file_size(record, attribute)
