@@ -28,7 +28,15 @@ module Decidim
       private
 
       def cache_hash
-        [I18n.locale, highlighted_spaces.map(&:cache_key_with_version)].join(Decidim.cache_key_separator)
+        [
+          I18n.locale,
+          highlighted_spaces.map do |space|
+            [
+              space.cache_key_with_version,
+              space.try(:active_step)&.cache_key_with_version
+            ].compact
+          end
+        ].flatten.join(Decidim.cache_key_separator)
       end
 
       def section_class
