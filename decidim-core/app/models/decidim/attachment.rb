@@ -9,7 +9,7 @@ module Decidim
     include Traceable
 
     before_save :set_content_type_and_size, if: :attached?
-    before_validation :set_link_content_type_and_size, if: :link?
+    before_validation :set_link_content_type_and_size, if: :editable_link?
 
     translatable_fields :title, :description
     belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
@@ -67,6 +67,13 @@ module Decidim
     # Returns Boolean.
     def link?
       link.present?
+    end
+
+    # Whether this attachment is a link that can be edited or not.
+    #
+    # Returns Boolean.
+    def editable_link?
+      !destroyed? && !frozen? && link?
     end
 
     # Whether this attachment has a file or not.
