@@ -126,8 +126,8 @@ updates:
   - package-ecosystem: "npm"
     directory: "/packages/stylelint-config"
     schedule:
-      interval: "friday"
-      day: "monday"
+      interval: "weekly"
+      day: "friday"
       time: "04:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
