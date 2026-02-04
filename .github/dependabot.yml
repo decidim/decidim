@@ -126,7 +126,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/packages/stylelint-config"
     schedule:
-      interval: "weekly"
+      interval: "friday"
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
