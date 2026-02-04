@@ -176,6 +176,7 @@ cuenta
 Cugat
 customise
 Customising
+CVEs
 cweek
 cyclomatic
 danline
