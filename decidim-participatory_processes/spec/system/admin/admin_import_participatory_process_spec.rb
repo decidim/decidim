@@ -11,6 +11,18 @@ describe "Admin imports participatory process" do
     visit decidim_admin_participatory_processes.participatory_processes_path
   end
 
+  context "when viewing the import page" do
+    before do
+      within_admin_menu do
+        click_on "Import"
+      end
+    end
+
+    it "displays the import help text" do
+      expect(page).to have_content("This import feature allows you to create a new participatory process from an exported JSON file")
+    end
+  end
+
   context "with context" do
     before "Imports the process with the basic fields" do
       within_admin_menu do
