@@ -922,7 +922,7 @@ shared_examples "comments" do
             skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
             visit current_path
-            # Load replies first since they are lazy-loaded
+
             within "#comment_#{comments[0].id}" do
               click_on "Load replies"
             end
