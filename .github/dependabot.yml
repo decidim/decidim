@@ -95,7 +95,7 @@ updates:
     directory: "/packages/eslint-config"
     schedule:
       interval: "weekly"
-      day: "monday"
+      day: "wednesday"
       time: "06:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
