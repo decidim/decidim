@@ -81,6 +81,7 @@ export default class extends Controller {
   }
 
   openMenu() {
+    // eslint-disable-next-line no-undefined
     if (this.previousBodyOverflow === undefined) {
       this.previousBodyOverflow = document.body.style.overflow;
     }
