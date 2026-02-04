@@ -29,8 +29,8 @@ describe "Mobile header" do
       click_on(id: "dc-dialog-accept")
     end
 
-    it "has a sticky header" do
-      expect(page).to have_css("#sticky-header-container")
+    it "has a header" do
+      expect(page).to have_css("#header-container")
     end
 
     context "when user view the header" do
