@@ -78,7 +78,7 @@ updates:
     directory: "/packages/core"
     schedule:
       interval: "daily"
-      time: "06:00"
+      time: "03:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
     labels:
