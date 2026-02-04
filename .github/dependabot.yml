@@ -111,7 +111,7 @@ updates:
     directory: "/packages/browserslist-config"
     schedule:
       interval: "weekly"
-      day: "monday"
+      day: "thursday"
       time: "06:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
