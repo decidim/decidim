@@ -96,7 +96,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "wednesday"
-      time: "06:00"
+      time: "01:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
     labels:
@@ -128,7 +128,7 @@ updates:
     schedule:
       interval: "friday"
       day: "monday"
-      time: "06:00"
+      time: "04:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
     labels:
@@ -144,7 +144,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-      time: "06:00"
+      time: "02:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
     labels:
@@ -159,8 +159,8 @@ updates:
     directory: "/packages/prettier-config"
     schedule:
       interval: "weekly"
-      day: "monday"
-      time: "06:00"
+      day: "tuesday"
+      time: "02:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
     labels:
@@ -175,8 +175,8 @@ updates:
     directory: "/packages/webpacker"
     schedule:
       interval: "weekly"
-      day: "monday"
-      time: "06:00"
+      day: "wednesday"
+      time: "05:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
     labels:
