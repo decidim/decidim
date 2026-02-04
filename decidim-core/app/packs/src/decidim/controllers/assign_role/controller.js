@@ -8,9 +8,14 @@ import { Controller } from "@hotwired/stimulus"
  */
 export default class extends Controller {
   connect() {
+    const role = this.element.dataset.role
+
+    if (!role) {
+      return
+    }
 
     this.timeoutId = setTimeout(() => {
-      this.element.setAttribute("role", this.element.dataset.role)
+      this.element.setAttribute("role", role)
     }, 300)
   }
 

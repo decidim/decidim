@@ -41,6 +41,9 @@ export default class extends Controller {
     if (this.closeButton) {
       this.closeButton.removeEventListener("click", this.handleDocumentClick)
     }
+    if (!this.isHidden()) {
+      this.closeMenu();
+    }
   }
 
   handleButtonClick() {
@@ -78,12 +81,16 @@ export default class extends Controller {
   }
 
   openMenu() {
+    if (this.previousBodyOverflow === undefined) {
+      this.previousBodyOverflow = document.body.style.overflow;
+    }
     document.body.style.overflow = "hidden"
     this.element.setAttribute("aria-expanded", "true")
     this.menuContainer.setAttribute("aria-hidden", "false")
   }
 
   closeMenu() {
+    document.body.style.overflow = this.previousBodyOverflow ?? ""
     document.body.style.overflow = "scroll"
     this.element.setAttribute("aria-expanded", "false")
     this.menuContainer.setAttribute("aria-hidden", "true")
