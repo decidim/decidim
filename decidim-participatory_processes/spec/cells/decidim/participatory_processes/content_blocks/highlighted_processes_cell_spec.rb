@@ -55,6 +55,19 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCel
       end
     end
 
+    context "when parent process is touched via step update" do
+      it "generates a different hash when process is touched" do
+        old_hash = cell(content_block.cell, content_block).send(:cache_hash)
+        process = processes.first
+
+        travel_to(1.second.from_now) do
+          process.update(updated_at: Time.current)
+        end
+
+        expect(cell(content_block.cell, content_block).send(:cache_hash)).not_to eq(old_hash)
+      end
+    end
+
     context "when current locale change" do
       let(:alt_locale) { :ca }
 
