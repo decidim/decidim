@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    this.dropdownMobileDiv = document.querySelector("#dropdown-menu-account-mobile");
+    this.dropdownMobileDiv = document.getElementById(this.element.dataset.target);
 
     this.handleClick = this.handleClick.bind(this);
     this.element.addEventListener("click", this.handleClick);
