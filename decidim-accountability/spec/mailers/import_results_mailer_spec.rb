@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Accountability
-    describe ImportProjectsMailer do
+    describe ImportResultsMailer do
       let(:user) { create(:user, organization:) }
       let(:organization) { create(:organization) }
       let(:participatory_space) { create(:participatory_process, organization:) }
@@ -18,7 +18,7 @@ module Decidim
 
       context "with a valid user" do
         before do
-          allow(Decidim::Accountability::Admin::ImportProjectsJob).to receive(:perform_now).with(user, budget_component, projects.count)
+          allow(Decidim::Accountability::Admin::ImportResultsJob).to receive(:perform_now).with(user, budget_component, projects.count)
         end
 
         let(:mail) { described_class.import(user, current_component, some_amount) }

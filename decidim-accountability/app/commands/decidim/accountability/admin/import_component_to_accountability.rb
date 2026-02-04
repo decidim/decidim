@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     module Admin
-      # A command with all the business logic when an admin imports projects from
+      # A command with all the business logic when an admin imports results from
       # one component to accountability.
       class ImportComponentToAccountability < Decidim::Command
         attr_reader :form
@@ -34,7 +34,7 @@ module Decidim
 
         def job_class
           if manifest_name == "budgets"
-            ImportProjectsJob
+            ImportResultsJob
           elsif manifest_name == "proposals"
             ImportProposalsJob
           else

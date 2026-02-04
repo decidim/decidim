@@ -3,12 +3,12 @@
 module Decidim
   module Accountability
     # This mailer sends a notification email containing the result of importing
-    # Cprojects to the results.
-    class ImportProjectsMailer < Decidim::ApplicationMailer
+    # results from one component to accountability.
+    class ImportResultsMailer < Decidim::ApplicationMailer
       include Decidim::TranslatableAttributes
       helper Decidim::TranslationsHelper
 
-      # Public: Sends a notification email with the result of projects import selected projects to Accountability
+      # Public: Sends a notification email with the result of importing results
       #
       # user   - The user to be notified.
       #
@@ -20,7 +20,7 @@ module Decidim
         @projects = projects
 
         with_user(user) do
-          mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.accountability.import_projects_mailer.import.subject"))
+          mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.accountability.import_results_mailer.import.subject"))
         end
       end
     end
