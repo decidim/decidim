@@ -6,7 +6,6 @@ MIN_LENGTH_THRESHOLD = 12
 
 SINGLE_WORD_ANTI_PATTERNS = %w(
   successfully
-  successfully.
   problem
   error
   warning
