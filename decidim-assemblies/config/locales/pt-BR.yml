@@ -268,6 +268,7 @@ pt-BR:
             slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para essa assembleia. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         assembly_imports:
           form:
+            document_legend: Adicionar um documento
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_members:
           form:
