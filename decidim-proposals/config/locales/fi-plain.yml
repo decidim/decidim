@@ -52,7 +52,6 @@ fi-pl:
         file: Tiedosto
       proposals_import:
         import_proposals: Tuo ehdotuksia
-        keep_answers: Säilytä tilat ja vastaukset
         keep_authors: Säilytä alkuperäiset laatijat
     errors:
       models:
@@ -689,7 +688,6 @@ fi-pl:
             create: Tuo ehdotuksia
             no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
-            select_states: Tarkista tuotavien ehdotusten tilat
             title: Tuo ehdotuksia toisesta komponentista
         proposals_merges:
           create:
