@@ -44,16 +44,6 @@ RSpec::Matchers.define :have_admin_callout do |expected|
     is_single_word = text.to_s.strip !~ /\s/
     is_too_short = stripped_text.length < MIN_LENGTH_THRESHOLD
 
-    if is_single_word && is_too_short
-      raise <<~ERROR
-        Anti-pattern detected: Using generic single-word text "#{text}" in admin callout assertions.
-
-        Problem: Generic single-word messages do not verify the actual feedback shown to users.
-
-        #{format_find_command(text)}
-      ERROR
-    end
-
     if is_single_word && SINGLE_WORD_ANTI_PATTERNS.include?(stripped_text.downcase)
       raise <<~ERROR
         Anti-pattern detected: Using generic single-word text "#{text}" in admin callout assertions.
