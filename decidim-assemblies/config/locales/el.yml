@@ -209,6 +209,9 @@ el:
             select_parent_assembly: Επιλέξτε «Γονική συνέλευση»
             social_handlers: Μέσα κοινωνικής δικτύωσης
             title: Γενικές πληροφορίες
+        assembly_imports:
+          form:
+            document_legend: Προσθήκη εγγράφου
         assembly_members:
           form:
             explanation: 'Οδηγίες για την εικόνα:'
