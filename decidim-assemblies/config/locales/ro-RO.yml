@@ -214,6 +214,9 @@ ro:
             social_handlers: Rețele de socializare
             taxonomies: Taxonomii
             title: Informaţii generale
+        assembly_imports:
+          form:
+            document_legend: Adaugă un document
         assembly_members:
           form:
             explanation: 'Îndrumare pentru imagine:'
