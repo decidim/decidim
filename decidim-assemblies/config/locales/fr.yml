@@ -267,6 +267,7 @@ fr:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_imports:
           form:
+            document_legend: Ajouter un document
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
@@ -279,6 +280,7 @@ fr:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Cette fonction d'importation vous permet de créer une nouvelle assemblée à partir d'un fichier JSON exporté. Vous pouvez exporter une assemblée depuis une autre organisation ou depuis cette même organisation. L'assemblée importée inclura ses paramètres, composants et pièces jointes (si sélectionnés).
       assemblies:
         description:
           area_name: Périmètre d'assemblée
