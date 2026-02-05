@@ -3,83 +3,83 @@
 require "spec_helper"
 
 RSpec.describe "have_admin_callout matcher" do
-  describe "antipattern detection" do
-    context "with single-word antipatterns" do
+  describe "anti-pattern detection" do
+    context "with single-word anti-patterns" do
       it "fails for 'successfully'" do
         expect do
           matcher = have_admin_callout("successfully")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for 'problem'" do
         expect do
           matcher = have_admin_callout("problem")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for 'error'" do
         expect do
           matcher = have_admin_callout("error")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for 'warning'" do
         expect do
           matcher = have_admin_callout("warning")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for 'Done' (capitalized)" do
         expect do
           matcher = have_admin_callout("Done")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for 'OK'" do
         expect do
           matcher = have_admin_callout("OK")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for 'created'" do
         expect do
           matcher = have_admin_callout("created")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for 'updated'" do
         expect do
           matcher = have_admin_callout("updated")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for 'deleted'" do
         expect do
           matcher = have_admin_callout("deleted")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for 'published'" do
         expect do
           matcher = have_admin_callout("published")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for 'unpublished'" do
         expect do
           matcher = have_admin_callout("unpublished")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
     end
 
@@ -88,28 +88,28 @@ RSpec.describe "have_admin_callout matcher" do
         expect do
           matcher = have_admin_callout("Error")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for strings with punctuation like 'Error!'" do
         expect do
           matcher = have_admin_callout("Error!")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for short multi-word strings like 'Error now'" do
         expect do
           matcher = have_admin_callout("Error now")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
 
       it "fails for 'Bad data'" do
         expect do
           matcher = have_admin_callout("Bad data")
           matcher.matches?(Object.new)
-        end.to raise_error(/Antipattern detected/)
+        end.to raise_error(/Anti-pattern detected/)
       end
     end
 

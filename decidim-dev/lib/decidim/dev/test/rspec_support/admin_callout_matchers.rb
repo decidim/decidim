@@ -4,7 +4,7 @@ require "decidim/dev/test/rspec_support/helpers"
 
 MIN_LENGTH_THRESHOLD = 12
 
-SINGLE_WORD_ANTIPATTERNS = %w(
+SINGLE_WORD_ANTI_PATTERNS = %w(
   successfully
   successfully.
   problem
@@ -47,7 +47,7 @@ RSpec::Matchers.define :have_admin_callout do |expected|
 
     if is_single_word && is_too_short
       raise <<~ERROR
-        Antipattern detected: Using generic single-word text "#{text}" in admin callout assertions.
+        Anti-pattern detected: Using generic single-word text "#{text}" in admin callout assertions.
 
         Problem: Generic single-word messages don't verify the actual feedback shown to users.
 
@@ -55,9 +55,9 @@ RSpec::Matchers.define :have_admin_callout do |expected|
       ERROR
     end
 
-    if is_single_word && SINGLE_WORD_ANTIPATTERNS.include?(stripped_text.downcase)
+    if is_single_word && SINGLE_WORD_ANTI_PATTERNS.include?(stripped_text.downcase)
       raise <<~ERROR
-        Antipattern detected: Using generic single-word text "#{text}" in admin callout assertions.
+        Anti-pattern detected: Using generic single-word text "#{text}" in admin callout assertions.
 
         Problem: Generic single-word messages don't verify the actual feedback shown to users.
         Single-word messages like "successfully" or "problem" are too vague.
@@ -70,7 +70,7 @@ RSpec::Matchers.define :have_admin_callout do |expected|
 
     if is_too_short
       raise <<~ERROR
-        Antipattern detected: Using very short text "#{text}" (#{stripped_text.length} chars) in admin callout assertions.
+        Anti-pattern detected: Using very short text "#{text}" (#{stripped_text.length} chars) in admin callout assertions.
 
         Problem: Very short messages are likely generic and don't provide meaningful feedback.
         Messages should be at least #{MIN_LENGTH_THRESHOLD} characters to convey useful information.
