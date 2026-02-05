@@ -149,5 +149,51 @@ RSpec.describe "have_admin_callout matcher" do
         end.to raise_error(/Meeting successfully published/)
       end
     end
+
+    context "boundary cases" do
+      it "validates 12 characters without raising" do
+        expect do
+          matcher = have_admin_callout("123456789012")
+          matcher.send(:validate_text, "123456789012")
+        end.not_to raise_error
+      end
+
+      it "fails for 11 characters" do
+        expect do
+          matcher = have_admin_callout("12345678901")
+          matcher.matches?(Object.new)
+        end.to raise_error(/Anti-pattern detected/)
+      end
+    end
+
+    context "valid strings pass validation" do
+      it "validates 'Meeting successfully published' without raising" do
+        expect do
+          matcher = have_admin_callout("Meeting successfully published")
+          matcher.send(:validate_text, "Meeting successfully published")
+        end.not_to raise_error
+      end
+
+      it "validates 'Budget successfully created' without raising" do
+        expect do
+          matcher = have_admin_callout("Budget successfully created")
+          matcher.send(:validate_text, "Budget successfully created")
+        end.not_to raise_error
+      end
+
+      it "validates 'There was a problem saving the form' without raising" do
+        expect do
+          matcher = have_admin_callout("There was a problem saving the form")
+          matcher.send(:validate_text, "There was a problem saving the form")
+        end.not_to raise_error
+      end
+
+      it "validates 'Your changes have been saved successfully' without raising" do
+        expect do
+          matcher = have_admin_callout("Your changes have been saved successfully")
+          matcher.send(:validate_text, "Your changes have been saved successfully")
+        end.not_to raise_error
+      end
+    end
   end
 end
