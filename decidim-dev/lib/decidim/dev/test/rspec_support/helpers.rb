@@ -53,12 +53,6 @@ module Decidim
       expect(page).to have_css(".main-bar #trigger-dropdown-account")
     end
 
-    def have_admin_callout(text)
-      within_flash_messages do
-        have_content text
-      end
-    end
-
     def stub_get_request_with_format(rq_url, rs_format)
       stub_request(:get, rq_url)
         .with(
