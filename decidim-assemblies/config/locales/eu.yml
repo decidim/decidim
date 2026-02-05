@@ -268,6 +268,7 @@ eu:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         assembly_imports:
           form:
+            document_legend: Gehitu dokumentu bat
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         assembly_members:
           form:
@@ -280,6 +281,7 @@ eu:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Inportazio ezaugarri honek aukera ematen du JSON fitxategi esportatu batetik beste batzar bat sortzeko. Beste erakunde bateko edo erakunde bereko batzar bat esporta dezakezu. Inportatutako batzarrak barne hartuko ditu bere ezarpenak, osagaiak eta eranskinak (aukeratuz gero).
       assemblies:
         description:
           area_name: Arloa
