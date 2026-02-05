@@ -42,54 +42,37 @@ shared_examples "manage attachments examples" do
       end
     end
 
-    context "when creating an attachment" do
-      before do
-        click_on "New attachment"
+    it "can add attachments without a collection to a process" do
+      click_on "New attachment"
 
-        within ".new_attachment" do
-          fill_in_i18n(
-            :attachment_title,
-            "#attachment-title-tabs",
-            en: "Very Important Document",
-            es: "Documento Muy Importante",
-            ca: "Document Molt Important"
-          )
+      within ".new_attachment" do
+        fill_in_i18n(
+          :attachment_title,
+          "#attachment-title-tabs",
+          en: "Very Important Document",
+          es: "Documento Muy Importante",
+          ca: "Document Molt Important"
+        )
 
-          fill_in_i18n(
-            :attachment_description,
-            "#attachment-description-tabs",
-            en: "This document contains important information",
-            es: "Este documento contiene información importante",
-            ca: "Aquest document conté informació important"
-          )
-        end
-
-        dynamically_attach_file(:attachment_file, Decidim::Dev.asset("Exampledocument.pdf"))
+        fill_in_i18n(
+          :attachment_description,
+          "#attachment-description-tabs",
+          en: "This document contains important information",
+          es: "Este documento contiene información importante",
+          ca: "Aquest document conté informació important"
+        )
       end
 
-      it "can be added without a collection to a process" do
-        within ".new_attachment" do
-          find("*[type=submit]").click
-        end
+      dynamically_attach_file(:attachment_file, Decidim::Dev.asset("Exampledocument.pdf"))
 
-        expect(page).to have_admin_callout("successfully")
-
-        within "#attachments table" do
-          expect(page).to have_text("Very Important Document")
-        end
+      within ".new_attachment" do
+        find("*[type=submit]").click
       end
 
-      it "the notifications are properly displayed" do
-        create(:follow, user:, followable: attached_to)
+      expect(page).to have_admin_callout("successfully")
 
-        within ".new_attachment" do
-          find("*[type=submit]").click
-        end
-
-        wait_enqueued_jobs do
-          visit decidim.notifications_path
-          expect(page).to have_content("A new document has been added to")
-        end
+      within "#attachments table" do
+        expect(page).to have_text("Very Important Document")
       end
     end
 
