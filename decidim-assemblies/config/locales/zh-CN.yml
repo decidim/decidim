@@ -183,6 +183,9 @@ zh-CN:
             select_parent_assembly: 选择父程序集
             social_handlers: 社交活动
             title: 一般信息
+        assembly_imports:
+          form:
+            document_legend: 添加文档
         content_blocks:
           highlighted_assemblies:
             max_results: 显示元素的最大数量
