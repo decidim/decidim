@@ -95,7 +95,7 @@ describe "Vote Proposal", slow: true do
     end
 
     context "when likes does not interfere" do
-      shared_context "when displays the vote button" do |likes_enabled:, likes_blocked:|
+      shared_examples "when displays the vote button" do |likes_enabled:, likes_blocked:|
         before do
           component.update!(
             step_settings: {
