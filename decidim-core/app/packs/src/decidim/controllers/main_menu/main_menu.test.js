@@ -19,7 +19,9 @@ describe("MainMenuController", () => {
       >
         Menu
       </button>
-      <div id="main-menu-container" aria-hidden="true"></div>
+      <div id="main-menu-container" aria-hidden="true">
+        <div id="main-menu-item"></div>
+      </div>
       <button id="main-menu-close">Close</button>
     `
   }
@@ -63,7 +65,7 @@ describe("MainMenuController", () => {
 
       expect(buttonSpy).toHaveBeenCalledWith("click", controller.handleButtonClick)
       expect(documentSpy).toHaveBeenCalledWith("keydown", controller.handleKeydown)
-      expect(closeSpy).toHaveBeenCalledWith("click", controller.handleDocumentClick)
+      expect(closeSpy).toHaveBeenCalledWith("click", controller.handleCloseButtonClick)
     })
 
     it("returns early when menu container is missing", async () => {
@@ -134,11 +136,30 @@ describe("MainMenuController", () => {
     })
   })
 
-  describe("handleDocumentClick", () => {
+  describe("handleContainerClick", () => {
+    it("closes the menu when clicking the container", () => {
+      controller.openMenu()
+
+      controller.handleContainerClick({ target: menuContainer })
+
+      expect(menuContainer.getAttribute("aria-hidden")).toBe("true")
+    })
+
+    it("does not close the menu when clicking inside the container", () => {
+      const childItem = document.getElementById("main-menu-item")
+      controller.openMenu()
+
+      controller.handleContainerClick({ target: childItem })
+
+      expect(menuContainer.getAttribute("aria-hidden")).toBe("false")
+    })
+  })
+
+  describe("handleCloseButtonClick", () => {
     it("closes the menu when open", () => {
       controller.openMenu()
 
-      controller.handleDocumentClick()
+      controller.handleCloseButtonClick()
 
       expect(menuContainer.getAttribute("aria-hidden")).toBe("true")
     })
@@ -156,7 +177,7 @@ describe("MainMenuController", () => {
 
       expect(buttonSpy).toHaveBeenCalledWith("click", controller.handleButtonClick)
       expect(documentSpy).toHaveBeenCalledWith("keydown", controller.handleKeydown)
-      expect(closeSpy).toHaveBeenCalledWith("click", controller.handleDocumentClick)
+      expect(closeSpy).toHaveBeenCalledWith("click", controller.handleCloseButtonClick)
       expect(menuContainer.getAttribute("aria-hidden")).toBe("true")
       expect(document.body.style.overflow).toBe("scroll")
     })

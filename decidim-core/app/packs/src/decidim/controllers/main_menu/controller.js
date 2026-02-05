@@ -20,14 +20,18 @@ export default class extends Controller {
       return;
     }
 
+    this.handleContainerClick = this.handleContainerClick.bind(this)
     this.handleButtonClick = this.handleButtonClick.bind(this)
     this.handleKeydown = this.handleKeydown.bind(this)
-    this.handleDocumentClick = this.handleDocumentClick.bind(this)
+    this.handleCloseButtonClick = this.handleCloseButtonClick.bind(this)
 
     this.menuButton.addEventListener("click", this.handleButtonClick)
+    this.menuContainer.addEventListener("click", this.handleContainerClick)
+
+
     document.addEventListener("keydown", this.handleKeydown)
     if (this.closeButton) {
-      this.closeButton.addEventListener("click", this.handleDocumentClick)
+      this.closeButton.addEventListener("click", this.handleCloseButtonClick)
     }
   }
 
@@ -37,13 +41,25 @@ export default class extends Controller {
     }
 
     this.menuButton.removeEventListener("click", this.handleButtonClick)
+    this.menuContainer.removeEventListener("click", this.handleContainerClick)
     document.removeEventListener("keydown", this.handleKeydown)
     if (this.closeButton) {
-      this.closeButton.removeEventListener("click", this.handleDocumentClick)
+      this.closeButton.removeEventListener("click", this.handleCloseButtonClick)
     }
     if (!this.isHidden()) {
       this.closeMenu();
     }
+  }
+
+
+  handleContainerClick(event) {
+    if (this.isHidden()) {
+      return;
+    }
+    if (event.target !== this.menuContainer) {
+      return;
+    }
+    this.closeMenu()
   }
 
   handleButtonClick() {
@@ -68,7 +84,7 @@ export default class extends Controller {
     this.closeMenu()
   }
 
-  handleDocumentClick() {
+  handleCloseButtonClick() {
     if (this.isHidden()) {
       return;
     }
@@ -87,11 +103,13 @@ export default class extends Controller {
     document.body.style.overflow = "hidden"
     this.element.setAttribute("aria-expanded", "true")
     this.menuContainer.setAttribute("aria-hidden", "false")
+    this.menuContainer.setAttribute("aria-modal", "true")
   }
 
   closeMenu() {
     document.body.style.overflow = this.previousBodyOverflow ?? ""
     this.element.setAttribute("aria-expanded", "false")
     this.menuContainer.setAttribute("aria-hidden", "true")
+    this.menuContainer.removeAttribute("aria-modal")
   }
 }
