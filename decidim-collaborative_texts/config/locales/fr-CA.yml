@@ -15,6 +15,11 @@ fr-CA:
           body: Corps de texte
           draft: Brouillon
           version_number: Numéro de version
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Texte collaboratif
+        other: Textes collaboratifs
   decidim:
     admin:
       tooltips:
