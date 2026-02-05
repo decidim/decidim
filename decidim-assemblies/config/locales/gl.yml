@@ -194,6 +194,9 @@ gl:
             select_parent_assembly: Seleccione o conxunto primario
             social_handlers: Social
             title: Información xeral
+        assembly_imports:
+          form:
+            document_legend: Engadir un documento
         assembly_members:
           form:
             explanation: 'Instrucións para a imaxe:'
