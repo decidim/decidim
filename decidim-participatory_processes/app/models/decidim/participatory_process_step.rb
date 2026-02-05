@@ -11,7 +11,7 @@ module Decidim
 
     translatable_fields :title, :description
 
-    belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: "Decidim::ParticipatoryProcess"
+    belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: "Decidim::ParticipatoryProcess", touch: true
     has_one :organization, through: :participatory_process
 
     alias participatory_space participatory_process

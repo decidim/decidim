@@ -149,5 +149,67 @@ describe "Initiatives" do
         expect(page).to have_content("21")
       end
     end
+
+    context "when user has pending initiatives" do
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:pending_initiative) { create(:initiative, :created, author: user, organization:) }
+      let!(:validating_initiative) { create(:initiative, :validating, author: user, organization:) }
+
+      before do
+        switch_to_host(organization.host)
+        login_as user, scope: :user
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
+      end
+
+      it "displays the pending initiatives section" do
+        expect(page).to have_css("#pending_initiatives")
+      end
+
+      it "displays the title for pending initiatives" do
+        within "#pending_initiatives" do
+          expect(page).to have_content("Draft & Pending initiatives")
+        end
+      end
+
+      it "displays the description for pending initiatives" do
+        within "#pending_initiatives" do
+          expect(page).to have_content("These initiatives are not public yet. Please review them and submit them for technical validation so they can be made public.")
+        end
+      end
+
+      it "lists the pending initiatives" do
+        within "#pending_initiatives" do
+          expect(page).to have_content(translated(pending_initiative.title, locale: :en))
+          expect(page).to have_content(translated(validating_initiative.title, locale: :en))
+        end
+      end
+
+      it "does not display pending initiatives in the main list" do
+        within "#initiatives" do
+          expect(page).to have_no_content(translated(pending_initiative.title, locale: :en))
+          expect(page).to have_no_content(translated(validating_initiative.title, locale: :en))
+        end
+      end
+    end
+
+    context "when user does not have pending initiatives" do
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:other_user) { create(:user, :confirmed, organization:) }
+      let!(:other_user_pending_initiative) { create(:initiative, :created, author: other_user, organization:) }
+
+      before do
+        switch_to_host(organization.host)
+        login_as user, scope: :user
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
+      end
+
+      it "does not display the pending initiatives section" do
+        expect(page).to have_no_css("#pending_initiatives")
+      end
+
+      it "does not display other users' pending initiatives" do
+        expect(page).to have_no_content(translated(other_user_pending_initiative.title, locale: :en))
+      end
+    end
   end
 end
