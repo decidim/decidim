@@ -16,6 +16,11 @@ sv:
           body: Text
           draft: Utkast
           version_number: Version
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Gemensamt skapad text
+        other: Gemensamt skapade texter
   decidim:
     admin:
       tooltips:
