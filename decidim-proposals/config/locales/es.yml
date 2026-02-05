@@ -52,7 +52,6 @@ es:
         file: Archivo
       proposals_import:
         import_proposals: Importar propuestas
-        keep_answers: Mantener estado y respuestas
         keep_authors: Mantener autoría original
     errors:
       models:
@@ -689,7 +688,6 @@ es:
             create: Importar propuestas
             no_components: No hay otros componentes de propuestas en este espacio participativo desde donde importarlas.
             select_component: Selecciona un componente
-            select_states: Comprueba los estados de las propuestas a importar
             title: Importar propuestas desde otro componente
         proposals_merges:
           create:
