@@ -215,6 +215,9 @@ lt:
             select_parent_assembly: Pasirinkti pagrindinę asamblėją
             social_handlers: Socialiniai
             title: Bendroji informacija
+        assembly_imports:
+          form:
+            document_legend: Pridėti dokumentą
         assembly_members:
           form:
             explanation: 'Paveikslėliui skirtos gairės:'
