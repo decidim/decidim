@@ -52,7 +52,6 @@ sv:
         file: Fil
       proposals_import:
         import_proposals: Importera förslag
-        keep_answers: Behåll status och svar
         keep_authors: Behåll originalförfattare
     errors:
       models:
@@ -612,7 +611,6 @@ sv:
             create: Importera förslag
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
             select_component: Välj en komponent
-            select_states: Kontrollera status för förslagen som ska importeras
             title: Importera förslag från en annan komponent
         proposals_merges:
           create:
