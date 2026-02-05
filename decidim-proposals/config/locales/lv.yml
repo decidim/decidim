@@ -259,7 +259,6 @@ lv:
             create: Importēt priekšlikumus
             no_components: Šajā līdzdalības telpā nav citu priekšlikumu komentāru, no kuriem importēt priekšlikumus.
             select_component: Lūdzu, izvēlieties komponentu
-            select_states: Pārbaudiet importējamo priekšlikumu statusu
         proposals_merges:
           create:
             success: Visi priekšlikumi ir veiksmīgi apvienoti vienā jaunā priekšlikumā.
