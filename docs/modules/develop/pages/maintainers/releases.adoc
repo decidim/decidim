@@ -61,7 +61,7 @@ NOTE: When you bump the version, the generator tests will fail because the gems 
 . Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems.
 . Once all the gems are published:
 .. Re-run the failed generators tests at the release branch.
-.. Always check if there are any pending security CVE's that needs to be published. If there are, then follow the instructions in the xref:develop:maintainers/security.adoc[Security] page.
+.. Always check if there are any pending security CVEs that needs to be published. If there are, then follow the instructions in the xref:develop:maintainers/security.adoc[Security] page.
 .. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
 . Update Decidim's Docker repository as explained in the Docker images section below.
 . Update Crowdin synchronization configuration with GitHub:
