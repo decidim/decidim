@@ -52,7 +52,6 @@ ja:
         file: ファイル
       proposals_import:
         import_proposals: 提案をインポート
-        keep_answers: ステータスと回答を保持
         keep_authors: オリジナルの作者を保持
     errors:
       models:
@@ -681,7 +680,6 @@ ja:
             create: 提案をインポート
             no_components: この参加スペースには他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
-            select_states: インポートする提案のステータスを確認してください
             title: 別のコンポーネントから提案をインポート
         proposals_merges:
           create:
