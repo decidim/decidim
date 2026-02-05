@@ -147,6 +147,9 @@ lb:
             name: Name
     assemblies:
       admin:
+        assembly_imports:
+          form:
+            document_legend: Dokument hinzufügen
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
