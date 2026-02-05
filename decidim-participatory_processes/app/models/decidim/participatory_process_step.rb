@@ -9,6 +9,8 @@ module Decidim
     include Traceable
     include Loggable
 
+    delegate :can_participate?, to: :participatory_process
+
     translatable_fields :title, :description
 
     belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: "Decidim::ParticipatoryProcess", touch: true
