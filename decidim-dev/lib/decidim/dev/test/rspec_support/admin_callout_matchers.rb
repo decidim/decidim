@@ -49,7 +49,7 @@ RSpec::Matchers.define :have_admin_callout do |expected|
       raise <<~ERROR
         Anti-pattern detected: Using generic single-word text "#{text}" in admin callout assertions.
 
-        Problem: Generic single-word messages don't verify the actual feedback shown to users.
+        Problem: Generic single-word messages do not verify the actual feedback shown to users.
 
         #{format_find_command(text)}
       ERROR
@@ -59,7 +59,7 @@ RSpec::Matchers.define :have_admin_callout do |expected|
       raise <<~ERROR
         Anti-pattern detected: Using generic single-word text "#{text}" in admin callout assertions.
 
-        Problem: Generic single-word messages don't verify the actual feedback shown to users.
+        Problem: Generic single-word messages do not verify the actual feedback shown to users.
         Single-word messages like "successfully" or "problem" are too vague.
 
         Example: "Meeting successfully published" is better than just "successfully"
@@ -72,7 +72,7 @@ RSpec::Matchers.define :have_admin_callout do |expected|
       raise <<~ERROR
         Anti-pattern detected: Using very short text "#{text}" (#{stripped_text.length} chars) in admin callout assertions.
 
-        Problem: Very short messages are likely generic and don't provide meaningful feedback.
+        Problem: Very short messages are likely generic and do not provide meaningful feedback.
         Messages should be at least #{MIN_LENGTH_THRESHOLD} characters to convey useful information.
 
         Examples of proper messages:
