@@ -28,7 +28,6 @@
         origin_component_id: Komponent å kopiere forslagene fra
       proposals_import:
         import_proposals: Importer forslag
-        keep_answers: Behold status og svar
         keep_authors: Behold originale forfattere
     errors:
       models:
@@ -322,7 +321,6 @@
             create: Importer forslag
             no_components: Det er ingen andre forslags komponetner i dette deltaker området å importere forslagene fra.
             select_component: Velg en komponent
-            select_states: Sjekk statusen til forslagene som skal importeres
         proposals_merges:
           create:
             success: Slo sammen forslagene til et nytt ett.
