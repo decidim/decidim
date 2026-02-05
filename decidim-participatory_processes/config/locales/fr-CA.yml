@@ -449,6 +449,7 @@ fr-CA:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Cette fonction d'importation vous permet de créer un nouveau processus participatif à partir d'un fichier JSON exporté. Vous pouvez exporter un processus depuis une autre organisation ou depuis cette même organisation. Le processus importé inclura ses paramètres, composants et pièces jointes (si sélectionnés).
         participatory_process_duplicates:
           form:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
