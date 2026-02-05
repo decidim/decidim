@@ -2,10 +2,14 @@ pt-BR:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Assembleias Relacionadas
         available_slots: Vagas disponíveis
         banner_image: Imagem de banner
         decidim_scope_id: Escopo
         description: Descrição
+        duplicate_categories: Categorias duplicadas
+        duplicate_components: Componentes duplicados
+        duplicate_features: Recursos duplicados
         end_date: Data final
         hero_image: Imagem inicial
         location: Localização
@@ -55,11 +59,14 @@ pt-BR:
         personal_url: URL pessoal
         position: Posição
         short_bio: Perfil curto
+        twitter_handle: X handler
         user_id: Usuário
       conference_user_role:
         email: O email
         name: Nome
         role: Função
+      partner:
+        logo: Logotipo
     errors:
       models:
         conference_registration_invite:
@@ -81,6 +88,7 @@ pt-BR:
     admin:
       actions:
         confirm: confirme
+        confirm_delete_conference: Tem certeza de que deseja excluir esta conferência? Se mudar de ideia, você pode restaurá-la mais tarde.
         new_conference: Nova conferência
         new_conference_user_role: Novo usuário da conferência
         new_media_link: Novo link de mídia
@@ -88,6 +96,12 @@ pt-BR:
         new_registration_type: Novo tipo de registro
         new_speaker: Novo Pregador
         send_diplomas: Envie certificados de participação
+        view_deleted_conferences: Ver conferências excluídas
+      conference_duplicates:
+        new:
+          duplicate: Duplicado
+          select: Selecione quais dados você gostaria de duplicar
+          title: Conferência duplicada
       conference_publications:
         create:
           error: Ocorreu um erro ao publicar esta conferência.
@@ -106,11 +120,13 @@ pt-BR:
         destroy:
           success: Alto-falante excluído com sucesso para esta conferência.
         edit:
+          title: Atualize o orador da conferência
           update: Atualizar
         index:
           conference_speakers_title: Alto-falantes da conferência
         new:
           create: Crio
+          title: Novo orador da conferência
         publish:
           invalid: Ocorreu um problema ao publicar esta reunião.
           success: Alto-falante excluído com sucesso para esta conferência.
@@ -127,11 +143,13 @@ pt-BR:
         destroy:
           success: Usuário removido com sucesso desta conferência.
         edit:
+          title: Atualize o usuário da conferência
           update: Atualizar
         index:
           conference_admins_title: Administradores da conferência
         new:
           create: Crio
+          title: Novo administrador da conferência
         update:
           error: Houve um erro ao atualizar um usuário para esta conferência.
           success: Usuário atualizado com sucesso para esta conferência.
@@ -144,25 +162,45 @@ pt-BR:
         exports:
           registrations: Inscrições
         form:
+          duration: Duração
           images: Fotos
+          metadata: Metadados
+          registrations: Inscrições
+          related_spaces: Espaços relacionados
           title: Informação geral
+          visibility: Visibilidade
         index:
           published: Publicados
           unpublished: Despublicado
+        manage_trash:
+          title: Conferências excluídas
         new:
           create: Crio
+          title: Nova conferência
         update:
           error: Houve um erro ao atualizar esta conferência.
           success: Conferência atualizada com sucesso.
+      conferences_duplicates:
+        create:
+          error: Houve um erro ao duplicar esta conferência.
+          success: Conferência duplicada com sucesso.
       media_links:
         create:
           error: Ocorreu um erro ao criar um novo link de mídia.
+          success: Link de mídia criado com sucesso.
+        destroy:
+          success: Link de mídia excluído com sucesso.
         edit:
+          title: Atualizar link de mídia
           update: Atualizar
+        index:
+          media_links_title: Links de mídia
         new:
           create: Criar
+          title: Criar link de mídia
         update:
           error: Houve um erro ao atualizar este link de mídia.
+          success: Link de mídia atualizado com sucesso.
       menu:
         conferences: Conferências
         conferences_submenu:
@@ -173,24 +211,32 @@ pt-BR:
           conference_admins: Administradores da conferência
           conference_invites: Convites
           conference_speakers: caixas de som
+          diploma: Certificado de participação
           info: Links sobre esta conferência
+          media_links: Links de mídia
           moderations: Moderações
           partners: Parceiros
+          registration_types: Tipos de registro
           registrations: Inscrições
+          see_conference: Ver conferência
+          user_registrations: Inscrições de usuários
       models:
         conference:
           fields:
+            actions: Ações
             created_at: Criado em
             published: Publicados
             title: Título
         conference_speaker:
           fields:
+            actions: Ações
             affiliation: Afiliação
             full_name: Nome completo
             position: Posição
           name: Conferência Palestrante
         conference_user_role:
           fields:
+            actions: Ações
             email: O email
             name: Nome
             role: Função
@@ -198,14 +244,18 @@ pt-BR:
           roles:
             admin: Administrador
             collaborator: Colaborador
+            evaluator: Avaliador
             moderator: Moderador
         media_link:
           fields:
+            actions: Ações
             date: Encontro
             link: Link
             title: Título
+          name: Link da mídia
         partner:
           fields:
+            actions: Ações
             link: Link
             logo: Logotipo
             name: Nome
@@ -216,6 +266,7 @@ pt-BR:
             main_promotor: Principais promotores
         registration_type:
           fields:
+            actions: Ações
             conference_meetings: Reuniões da conferência
             price: Preço
             registrations_count: Contagem de registros
@@ -229,6 +280,7 @@ pt-BR:
         destroy:
           success: Alto-falante excluído com sucesso para esta conferência.
         edit:
+          title: Atualizar parceiro
           update: Atualizar
         new:
           create: Criar
@@ -250,6 +302,7 @@ pt-BR:
         destroy:
           success: Tipo de registro removido com sucesso desta conferência.
         edit:
+          title: Atualizar tipo de registro
           update: Atualizar
         new:
           create: Crio
@@ -257,13 +310,21 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar um tipo de registro para esta conferência.
           success: Tipo de registro atualizado com sucesso para esta conferência.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Todas as conferências
       titles:
         conferences: Conferências
+        conferences_deleted: Conferências excluídas
+      tooltips:
+        deleted_conferences_info: As conferências só podem ser excluídas se o status for "Não publicado".
     admin_log:
       conference:
         create: "%{user_name} criou a conferência %{resource_name}"
         publish: "%{user_name} publicou a conferencia%{resource_name}"
+        restore: "%{user_name} restaurou a conferência %{resource_name}"
         send_conference_diplomas: "%{user_name} enviou certificados de participação para os %{resource_name} participantes da conferência"
+        soft_delete: "%{user_name} movido para a lixeira da conferência %{resource_name}"
         unpublish: "%{user_name} despublicou a conferencia%{resource_name}"
         update: "%{user_name} Atualizou a conferência %{resource_name}"
         update_diploma: "%{user_name} atualizou a configuração dos certificados de participação para %{resource_name} conferência"
@@ -300,6 +361,9 @@ pt-BR:
         title: caixas de som
     conferences:
       admin:
+        conference_duplicates:
+          form:
+            slug_help_html: 'Os slugs de URL são usados para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Houve um problema ao convidar o usuário para participar da conferência.
@@ -331,16 +395,20 @@ pt-BR:
         conferences:
           form:
             available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis.
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             registrations_count:
               one: Houve 1 registro.
               other: Houve %{count} inscrições.
             slug_help_html: 'Os slugs de URL são usados para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
+            taxonomies: Taxonomias
         content_blocks:
           highlighted_conferences:
             max_results: Quantidade máxima de elementos para mostrar
         diplomas:
           edit:
             save: Salve 
+            title: Certificado de participação
         invite_join_conference_mailer:
           invite:
             decline: Recusar convite '%{conference_title}'
@@ -360,6 +428,7 @@ pt-BR:
             diploma_html: Você encontrará o certificado de participação para a conferência <a href="%{url}">%{title}</a> nos anexos.
           diploma_user:
             attendance_verified_by: Atendimento verificado por
+            certificate_of_attendance: Certificado de participação
             certificate_of_attendance_description: Certifica-se que <strong>%{user}</strong> participou e participou nos <strong>%{title}</strong> realizados em <strong>%{location}</strong> em <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Houve um problema ao enviar os certificados de participação da conferência.
@@ -373,6 +442,8 @@ pt-BR:
           no_slots_available: Não há slots disponíveis
           registration: Cadastro
       conference_program:
+        program_item:
+          other_category: Outros
         show:
           program: Programa
       conference_registration_mailer:
@@ -406,6 +477,11 @@ pt-BR:
       conference_speaker_cell:
         personal_url:
           personal_website: Site pessoal
+      conference_speakers:
+        index:
+          speakers:
+            one: Palestrante
+            other: caixas de som
       conferences:
         partners:
           collaborators: Parceiros
@@ -424,6 +500,8 @@ pt-BR:
           name: Conferências destacadas
       index:
         title: Conferências
+      last_activity:
+        new_conference: 'Nova conferência:'
       mailer:
         conference_registration_mailer:
           confirmation:
@@ -450,6 +528,7 @@ pt-BR:
             sent: Enviei
         conference_registration:
           fields:
+            actions: Ações
             email: O email
             name: Nome
             registration_type: Tipo de Registro
@@ -474,6 +553,25 @@ pt-BR:
         objectives: Objetivos
         related_assemblies: Assembleias Relacionadas
         related_participatory_processes: Processos participativos relacionados
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: A data em que o convite de conferência foi aceito
+          conference: A conferência para onde este convite foi enviado
+          confirmed_at: A data em que este convite foi confirmado
+          created_at: A data em que este convite foi criado
+          id: O identificador único do convite de conferência
+          registration_type: O tipo de registro para esta conferência que foi enviado
+          rejected_at: A data em que o convite para conferência foi rejeitado
+          sent_at: A data em que o convite desta conferência foi enviado
+          updated_at: A data em que este convite foi atualizado pela última vez
+        conference_registrations:
+          conference: A conferência a que isto pertence
+          confirmed_at: A data em que este registro foi confirmado
+          created_at: A data em que esta inscrição foi criada
+          id: O identificador exclusivo dos registros de conferência
+          registration_type: O tipo de registro que pertence a
+          updated_at: A data da última atualização desta inscrição
     events:
       conferences:
         conference_registration_confirmed:
@@ -521,8 +619,36 @@ pt-BR:
         title: Mídia e Links
     menu:
       conferences: Conferências
+    open_data:
+      help:
+        conferences:
+          component_settings: Configurações do componente do espaço de conferência
+          created_at: A data em que esta comunidade foi criada
+          decidim_scope_id: O escopo da conferência
+          description: Uma longa descrição da conferência
+          end_date: A data em que esta conferência termina.
+          follows_count: O número de usuários que seguem este espaço
+          id: O identificador único dessa conferência
+          location: Local da conferência. Onde esta conferência será realizada.
+          objectives: Quais são os objetivos desta conferência. Qual é a meta.
+          promoted: Se a conferência é promovida ou não
+          published_at: A data em que esta comunidade foi publicada
+          reference: A referência única do espaço
+          remote_banner_image_url: A URL da imagem do banner da conferência
+          remote_hero_image_url: URL da imagem do herói da conferência
+          scope: O escopo da conferência
+          scopes_enabled: Clima os escopos estão ativados ou não
+          short_description: Uma breve descrição da conferência
+          slogan: O slogan para esta conferência
+          slug: O slug de conferência (usado para fins de identificação, para a URL)
+          start_date: A data de início desta conferência.
+          taxonomies: As taxonomias da conferência
+          title: O título da conferência
+          updated_at: A última data em que este espaço foi atualizado
+          url: A URL do espaço
     statistics:
       conferences_count: Conferências
+      conferences_count_tooltip: O número de conferências publicadas.
   devise:
     mailer:
       join_conference:

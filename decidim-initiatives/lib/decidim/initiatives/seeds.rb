@@ -48,8 +48,7 @@ module Decidim
         Decidim::InitiativesType.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 5),
           description: Decidim::Faker::Localized.sentence(word_count: 25),
-          organization:,
-          banner_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil # Keep after organization
+          organization:
         )
       end
 

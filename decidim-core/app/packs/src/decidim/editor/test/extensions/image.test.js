@@ -28,24 +28,7 @@ describe("Image", () => {
   let uploadFilePath = "/path/to/image.jpg";
   let uploadDialogElement = null;
   let editorInnerHTML = (dim, src, alt) => {
-    return `
-    <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
-      <div data-image-resizer-wrapper="">
-        <button type="button" data-image-resizer-control="top-left"></button>
-        <button type="button" data-image-resizer-control="top-right"></button>
-        <button type="button" data-image-resizer-control="bottom-left"></button>
-        <button type="button" data-image-resizer-control="bottom-right"></button>
-        <div data-image-resizer-dimensions="">
-          <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="${dim}"></span>
-          ×
-          <span data-image-resizer-dimension="height" data-image-resizer-dimension-value="${dim}"></span>
-        </div>
-        <div class="editor-content-image" data-image="">
-          <img src="${src}" alt="${alt}">
-        </div>
-      </div>
-    </div>
-  `
+    return `<div data-image-resizer="" class="ProseMirror-selectednode" draggable="true"><div data-image-resizer-wrapper=""><button type="button" data-image-resizer-control="top-left"></button><button type="button" data-image-resizer-control="top-right"></button><button type="button" data-image-resizer-control="bottom-left"></button><button type="button" data-image-resizer-control="bottom-right"></button><div data-image-resizer-dimensions=""><span data-image-resizer-dimension="width" data-image-resizer-dimension-value="${dim}"></span>×<span data-image-resizer-dimension="height" data-image-resizer-dimension-value="${dim}"></span></div><div class="editor-content-image" data-image=""><img src="${src}" alt="${alt}"></div></div></div>`;
   }
 
   const updateFile = async (path, alt) => {
@@ -62,6 +45,10 @@ describe("Image", () => {
 
     await sleep(0);
   }
+
+  const normalizeHTML = (html) => {
+    return html.replace(/<p><br class="ProseMirror-trailingBreak"><\/p>/g, "").replace(/<p><\/p>/g, "");
+  };
 
   beforeEach(() => {
     document.body.innerHTML = "";
@@ -109,7 +96,8 @@ describe("Image", () => {
   it("editing setting the image through the dialog", async () => {
     editorElement.focus();
     await updateContent(editorElement,
-      '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>'
+      '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>',
+      editor
     );
 
     editor.commands.imageDialog();
@@ -117,7 +105,7 @@ describe("Image", () => {
     await updateFile("/path/to/image_updated.jpg", "Updated text")
     expect(editorElement.classList.contains("dialog-open")).toBe(false);
 
-    expect(editorElement.innerHTML).toMatchHtml(editorInnerHTML("null", "/path/to/image_updated.jpg", "Updated text"));
+    expect(normalizeHTML(editorElement.innerHTML)).toMatchHtml(editorInnerHTML("null", "/path/to/image_updated.jpg", "Updated text"));
     expect(editor.getHTML()).toMatchHtml(`
       <div class="editor-content-image" data-image=""><img src="/path/to/image_updated.jpg" alt="Updated text"></div>
     `);
@@ -126,16 +114,26 @@ describe("Image", () => {
   it("allows double clicking the image", async () => {
     editorElement.focus();
     await updateContent(editorElement,
-      '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>'
+      '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>',
+      editor
     );
 
     jest.spyOn(uploadDialogElement.dialog, "open");
 
     // Position calculations do not work with JSDom / Jest
-    editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 1, inside: -1 });
-    editorElement.dispatchEvent(new MouseEvent("mousedown", { button: 0, clientX: 10, clientY: 10 }));
-    editorElement.dispatchEvent(new MouseEvent("mousedown", { button: 0, clientX: 10, clientY: 10 }));
-    await updateFile("/path/to/image_updated.jpg", "Updated text")
+    editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 0, inside: 0 });
+
+    const mockEvent = new MouseEvent("dblclick", {
+      button: 0,
+      clientX: 10,
+      clientY: 10
+    });
+
+    editor.view.someProp("handleDoubleClick", (click) => click(editor.view, 0, mockEvent));
+
+    await sleep(0);
+
+    await updateFile("/path/to/image_updated.jpg", "Updated text");
 
     expect(uploadDialogElement.dialog.open).toHaveBeenCalled();
     expect(editor.getHTML()).toMatchHtml(`
@@ -283,9 +281,9 @@ describe("Image", () => {
       });
 
       editorElement.focus();
-      await updateContent(editorElement,
-        '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>'
-      );
+
+      editor.commands.setImage({ src: "/path/to/image.jpg", alt: "Test text" });
+      await sleep(0);
     });
     describe("with mouse", () => behavesLikeImageResizer("mouse"));
 

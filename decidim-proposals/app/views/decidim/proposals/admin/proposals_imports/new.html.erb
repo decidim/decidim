@@ -16,10 +16,14 @@
                 <%= f.select :origin_component_id, @form.origin_components_collection, prompt: t(".select_component") %>
               </div>
               <div class="row column">
-                <%= f.label t(".select_states") %>
-                <%= f.collection_check_boxes :states, @form.states_collection, :token, :title do |b| %>
-                  <div>
-                    <%= b.label { b.check_box + translated_attribute(b.text) } %>
+                <label class="ml-4"><%= t(".select_states") %></label>
+                <% if @form.available_states.any? %>
+                  <div class="row column">
+                    <%= f.collection_check_boxes :states, @form.available_states, :token, ->(a) { translated_attribute(a.title) } do |builder| %>
+                    <div>
+                      <%= builder.label { builder.check_box + builder.text } %>
+                    </div>
+                    <% end %>
                   </div>
                 <% end %>
               </div>
@@ -28,9 +32,6 @@
               </div>
               <div class="row column">
                 <%= f.check_box :keep_answers %>
-              </div>
-              <div class="row column">
-                <%= f.check_box :import_proposals %>
               </div>
             </div>
           </div>

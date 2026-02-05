@@ -17,6 +17,10 @@ pt-BR:
         scope_id: Escopo
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Foi adicionado a este orçamento: %{link}'
       decidim/budgets/budget:
         one: Orçamento
         other: Orçamentos
@@ -25,6 +29,9 @@ pt-BR:
         other: Projetos
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projetos
       filters:
         projects:
           selected_at_null:
@@ -32,15 +39,25 @@ pt-BR:
             values:
               'false': Selecionado para implementação
               'true': Não selecionado para implementação
+          taxonomies_part_of_contains:
+            label: Taxonomia
+      tooltips:
+        deleted_projects_info: Não é possível excluir este projeto
     budgets:
       actions:
+        confirm_delete_budget: Tem certeza de que deseja excluir este orçamento?
+        confirm_delete_project: Tem certeza que deseja excluir este projeto?
+        deleted_budgets_info: Orçamentos excluídos podem ser restaurados da lixeira.
         edit: Editar
+        edit_projects: Adicionar projetos
         import: Importar propostas para os projetos
         new_budget: Novo orçamento
         new_project: Novo projeto
         preview: Pré-visualização
         send_voting_reminders: Enviar lembretes de votação
         title: Ações
+        view_deleted_budgets: Ver orçamentos excluídos
+        view_deleted_projects: Ver projetos excluídos
       admin:
         budgets:
           create:
@@ -55,6 +72,8 @@ pt-BR:
             title: Orçamentos
             users_with_finished_orders: Usuários com votos finalizados
             users_with_pending_orders: Usuários com votos pendentes
+          manage_trash:
+            title: Orçamentos excluídos
           new:
             create: Criar orçamento
             title: Novo orçamento
@@ -78,6 +97,7 @@ pt-BR:
             cancel: Cancelar
             change_budget: Alterar orçamento
             change_selected: Alterar estado selecionado
+            change_taxonomies: Alterar taxonomias
             deselect_implementation: Desselecionar da implementação
             finished_orders: Votos finais
             pending_orders: Votações pendentes
@@ -89,6 +109,8 @@ pt-BR:
             title: Projetos
             update: Atualizar
             update_budget_button: Atualizar orçamento do projeto
+          manage_trash:
+            title: Projetos excluídos
           new:
             create: Criar
             title: Novo projeto
@@ -96,10 +118,23 @@ pt-BR:
             invalid: Houve um problema ao atualizar este projeto.
             success: Projeto atualizado com sucesso.
           update_budget:
+            invalid: 'Esses projetos já estão no mesmo orçamento ou seus orçamentos são mais que o máximo permitido: %{errored}.'
             select_a_project: Por favor, selecione um projeto.
+            success: 'Projetos atualizados com sucesso para o orçamento %{subject_name}: %{successful}.'
           update_selected:
+            invalid:
+              selected: 'Estes projetos já foram selecionados para a implementação: %{errored}.'
+              unselected: 'Estes projetos já foram desselecionados da implementação: %{errored}.'
             select_a_project: Por favor, selecione um projeto.
             select_a_selection: Por favor, selecione um estado de implementação.
+            success:
+              selected: 'Estes projetos foram selecionados com sucesso para a implementação: %{successful}.'
+              unselected: 'Estes projetos foram desselecionados da implementação com sucesso: %{successful}.'
+          update_taxonomies:
+            invalid: 'Taxonomias %{taxonomies} já estão atribuídas a esses projetos: %{errored}.'
+            select_a_project: Por favor, selecione um projeto.
+            select_a_taxonomy: Por favor, selecione uma taxonomia.
+            success: 'Projetos atualizados com sucesso para as taxonomias %{taxonomies}: %{successful}.'
         proposals_imports:
           create:
             invalid: Houve um problema ao importar as propostas para projetos.
@@ -107,9 +142,10 @@ pt-BR:
           new:
             create: Importar propostas para projetos
             default_budget: Orçamento padrão
-            import_all_accepted_proposals: Importar todas as propostas aceitas
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas para projetos.
             origin_component_id: Componente de origem
+            proposal_states: Estados da proposta
+            proposal_states_help: Selecione um ou mais estados da proposta para importar para os projetos. Selecionando nenhuma, você importará todas as propostas publicadas que não foram já importadas para outros orçamentos deste componente.
             select_component: Selecione um componente
             title: Importar propostas para os projetos
         reminders:
@@ -122,10 +158,14 @@ pt-BR:
         budget:
           create: "%{user_name} criou o orçamento %{resource_name} no espaço %{space_name}"
           delete: "%{user_name} excluiu o orçamento %{resource_name} no espaço %{space_name}"
+          restore: "%{user_name} restaurou o orçamento %{resource_name} em %{space_name}"
+          soft_delete: "%{user_name} moveu o orçamento %{resource_name} em %{space_name} para a lixeira"
           update: "%{user_name} atualizou o orçamento %{resource_name} no espaço %{space_name}"
         project:
           create: "%{user_name} criou o projeto %{resource_name} no espaço %{space_name}"
           delete: "%{user_name} excluiu o projeto %{resource_name} no espaço %{space_name}"
+          restore: "%{user_name} restaurou o projeto %{resource_name} em %{space_name}"
+          soft_delete: "%{user_name} moveu o projeto %{resource_name} em %{space_name} para a lixeira"
           update: "%{user_name} atualizou o projeto %{resource_name} no espaço %{space_name}"
       budget_information_modal:
         back_to: Voltar para %{component_name}
@@ -137,6 +177,7 @@ pt-BR:
         cancel_order:
           more_than_one: exclua seu voto em %{name} e comece de novo
           only_one: exclua seu voto e comece novamente.
+        completed: Concluído
         count:
           one: "Orçamento em %{count}"
           other: "%{count} Orçamentos"
@@ -144,6 +185,7 @@ pt-BR:
         finished_message: Você terminou o processo de votação. Obrigado por participar!
         highlighted_cta: Votar em %{name}
         if_change_opinion: Se você mudou de ideia, você pode
+        incomplete: Incompleto
         orders:
           highest_cost: Custo mais alto
           label: Ordenar orçamentos por
@@ -151,10 +193,14 @@ pt-BR:
           random: Ordem aleatória
         progress: Terminar votação
         remove_vote: Remover voto
+        see_projects: Ver projetos
+        see_results: Ver resultados
         show: Ver projetos
         vote: Voto
         voted_budgets: Orçamentos votados
         voted_on: Você votou em %{links}.
+      creation:
+        text: Eles foram adicionados a este orçamento
       last_activity:
         new_vote_at: Nova votação sobre orçamentação em
       limit_announcement:
@@ -169,11 +215,26 @@ pt-BR:
         project:
           fields:
             map: Mapa
+            taxonomies: Taxonomias
             title: Título
       order:
         status:
+          continue_voting: Continuar votando
+          download_vote: Baixe seu voto
+          pending_to_vote_budgets:
+            one: Você pode votar em outro orçamento
+            other: Você pode votar em outros orçamentos
+          share_text: "Acabei de votar nos meus projetos favoritos em %{space_name}! 🎉 Vote agora: %{component_url}"
+          share_vote: Compartilhe seu voto
           title: Seu voto foi aceito com sucesso
+          view_votes:
+            one: Visualizar voto
+            other: Ver votos
+          votes_count:
+            one: Seu voto para %{budget_name} já foi registrado.
+            other: Seus votos %{count} para %{budget_name} já foram registrados.
       order_pdf:
+        text: Você votou em %{space_name}, para os seguintes projetos
         title: Seu voto foi aceito com sucesso.
       order_summary_mailer:
         order_summary:
@@ -181,6 +242,7 @@ pt-BR:
           subject: Você votou no espaço participativo %{space_name}
           voted_on_space: Você votou no orçamento %{budget_name} para o espaço participativo %{space_name}.
       projects:
+        back_to_budgets: Voltar aos orçamentos
         budget_confirm:
           are_you_sure: Se mudar de ideia, você pode mudar de voto mais tarde.
           cancel: Cancelar
@@ -198,6 +260,7 @@ pt-BR:
             title: Máximo de projetos excedido
         budget_summary:
           are_you_sure: Deseja mesmo cancelar o seu voto?
+          cancel_order: Exclua seu voto
           checked_out:
             description: Você já votou no orçamento. Se você mudou de ideia, você pode apagar seu voto %{cancel_link}.
             title: Votação do orçamento concluída
@@ -225,6 +288,14 @@ pt-BR:
           dynamic_help:
             minimum_reached: Você atingiu o mínimo para poder votar
           minimum: Mínimo
+          minimum_projects_rule:
+            description: "<b>Selecione pelo menos %{minimum_number} projetos</b> você quer e vote de acordo com suas preferências."
+          projects_rule:
+            description: "<b>Selecione no mínimo %{minimum_number} e no máximo %{maximum_number} projetos que você deseja e vote de acordo com suas preferências.</b>."
+          projects_rule_maximum_only:
+            description: "<b>Selecione até %{maximum_number} projetos</b> você quer e vote de acordo com suas preferências."
+          vote_threshold_percent_rule:
+            description: "<b>Atribua pelo menos %{minimum_budget}</b> aos projetos que você deseja e vote de acordo com suas preferências."
         orders:
           highest_cost: Custo mais alto
           label: Ordenar projetos por
@@ -249,8 +320,10 @@ pt-BR:
           added: Adicionado
           all: Todos
         projects_for: Projetos para %{name}
+        select_projects: Adicionar projetos
         show:
           budget: Orçamento
+          votes: Votos
       prompt: Selecione o orçamento
       vote_reminder_mailer:
         vote_reminder:
@@ -266,12 +339,15 @@ pt-BR:
         actions:
           comment: Comentar
           vote: Voto
+          vote_comment: Vote no comentário
         name: Orçamentos
         settings:
           global:
             announcement: Anúncio
+            clear_all: Limpar tudo
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             form:
               errors:
                 budget_voting_rule_only_one: Apenas uma regra de votação deve estar habilitada.
@@ -279,8 +355,11 @@ pt-BR:
             geocoding_enabled: Mapas ativados
             landing_page_content: Página inicial dos orçamentos
             more_information_modal: Modal de mais informação
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             projects_per_page: Projetos por página
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada projeto
+            taxonomy_filters: Selecione filtros para o componente
+            taxonomy_filters_add: Adicionar filtro
             title: Título
             total_budget: Orçamento total
             vote_minimum_budget_projects_number: Número mínimo de projetos para votar
@@ -290,6 +369,11 @@ pt-BR:
             vote_selected_projects_maximum: Quantidade máxima de projetos a serem selecionados
             vote_selected_projects_minimum: Quantidade mínima de projetos a serem selecionados
             vote_threshold_percent: Porcentagem do limiar de voto
+            voting_rule: Regra de votação
+            voting_rule_choices:
+              minimum_projects: Número mínimo de projetos para votação
+              selected_projects: Número mínimo e máximo de projetos a serem votados
+              threshold_percent: Porcentagem de orçamento mínimo
             workflow: Fluxo de Trabalho
             workflow_choices:
               all: 'Votar em todos: permite que os participantes votem em todos os orçamentos.'
@@ -308,6 +392,43 @@ pt-BR:
               disabled: Votação desativada
               enabled: Votação habilitada
               finished: Votação finalizada
+    download_your_data:
+      help:
+        orders:
+          budget: O orçamento com o qual a ordem está relacionada
+          checked_out_at: A data e hora em que o pedido foi verificado
+          component: O componente com o qual a ordem está relacionada
+          created_at: A data e hora em que o pedido foi criado
+          id: O identificador exclusivo do pedido
+          projects: Os projetos em que a ordem foi votada
+          updated_at: A data e hora em que o pedido foi atualizado
+      show:
+        projects: Exportação de projetos
+    open_data:
+      help:
+        projects:
+          address: O endereço do projeto (se houver)
+          budget: Dados relativos ao orçamento (por exemplo, "2021 orçamento") do projeto
+          budget_amount: O montante total do orçamento para este projeto
+          comments: O número de comentários que este projeto recebeu
+          component: O componente ao qual o projeto pertence
+          confirmed_votes: O número de votos confirmados que este projeto recebeu
+          created_at: Data e hora em que o projeto foi criado
+          description: A descrição do projeto
+          follows_count: O número de seguir o projeto tem
+          id: O identificador exclusivo do projeto
+          latitude: A latitude do projeto, caso tenha uma localização física
+          longitude: A longitude do projeto, caso ele tenha um local físico
+          participatory_space: A que espaço (por exemplo, Processo participativo, ou montagem) este projeto pertence
+          reference: A referência exclusiva do projeto
+          related_proposal_titles: Os títulos das propostas relacionadas
+          related_proposal_urls: As URLs das propostas relacionadas
+          related_proposals: As propostas relacionadas a este projeto
+          selected_at: O momento em que o projeto foi selecionado
+          taxonomies: As taxonomias do projeto
+          title: O título do projeto
+          updated_at: A última data em que o projeto foi atualizado
+          url: A URL do projeto
     orders:
       checkout:
         error: Ocorreu um erro ao processar seu voto.
@@ -319,5 +440,7 @@ pt-BR:
         project_proposal: Propostas incluídas neste projeto
     statistics:
       orders_count: Suportes
+      projects_count: Orçamentos
+      projects_count_tooltip: O número de projectos de orçamentação participativa e o total de votos expressos sobre eles.
   index:
     confirmed_orders_count: Contagem de votos

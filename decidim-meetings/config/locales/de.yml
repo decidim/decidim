@@ -162,6 +162,7 @@ de:
           comment: Kommentieren
           join: Beitreten
           reply_poll: Umfrage beantworten
+          vote_comment: Kommentar bewerten
         name: Veranstaltungen
         settings:
           global:
@@ -330,6 +331,7 @@ de:
           update:
             invalid: Beim Aktualisieren des Traktandums ist ein Problem aufgetreten.
             success: Traktandum erfolgreich aktualisiert.
+        deprecation_warning_polls_html: "⚠️ <b>Warnung zur Entfernung.</b> Die Umfragefunktion bei Veranstaltungen wird in einer zukünftigen, noch zu bestimmenden Version entfernt werden. Organisationen, die Veranstaltungsumfragen nutzen, sollten die Verwendung externer Wahlwerkzeuge planen (zum Beispiel durch Jitsi) oder zu anderen Wahlmechanismen migireren, die in Decidim verfügbar sind, wie zum Beispiel das neue Wahlmodul (`decidim-elections`)."
         exports:
           meeting_comments: Kommentare
           meetings: Veranstaltungen
@@ -799,7 +801,7 @@ de:
           follows_count: Die Anzahl der Folgen, die das Meeting hat
           id: Die eindeutige Bezeichnung der Veranstaltung
           iframe_access_level: Die iFrame-Zugriffsebene der Veranstaltung
-          iframe_embed_type: Die Art des iFrames, der in diese Veranstaltung eingebettet ist
+          iframe_embed_type: Die Art des iFrames, das in diese Veranstaltung eingebettet ist
           latitude: Der Breitengrad des Veranstaltungsorts
           location: Der Ort der Veranstaltung
           location_hints: Ein Hinweis auf den Ort, an dem die Veranstaltung stattfindet

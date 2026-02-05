@@ -28,14 +28,10 @@ header {
     #flash-messages-container {
       @apply mt-40 md:mt-0;
     }
-
-    #menu-bar-container {
-      @apply mt-[140px] md:mt-0;
-    }
   }
 
-  #sticky-header-container {
-    @apply fixed w-full top-0 z-40 bg-white md:relative transition-top duration-300;
+  #header-container {
+    @apply w-full z-40 bg-white;
   }
 
   .main-bar {

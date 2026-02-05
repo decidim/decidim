@@ -632,6 +632,7 @@ cs:
     open_data:
       help:
         conferences:
+          component_settings: Nastavení komponent v konferenčním prostoru
           created_at: Datum, kdy byl tento prostor vytvořen
           decidim_scope_id: Rozsah konference
           description: Dlouhý popis konference

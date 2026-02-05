@@ -162,7 +162,6 @@ sv:
       front_page_link: Gå till startsidan
       logo: "%{organization}s logotyp"
       opens_in_new_tab: Öppnas i en ny flik
-      secondary_menu: Sekundär meny
       skip_button: Gå till innehåll
     account:
       blocked: Detta konto har blockerats på grund av brott mot användarvillkoren
@@ -644,7 +643,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress.
         new:
           complete_profile: Komplettera profil
-          nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
+          nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla små bokstäver a-z, siffror, '-' och '_'.
           sign_up: Var god slutför din profil
           subtitle: Slutför registreringen genom att fylla i följande formulär
           username_help: Offentligt namn som visas i dina inlägg. Du kan ange ett annat namn än ditt eget, om du vill vara anonym.
@@ -873,7 +872,7 @@ sv:
           email_intro: |-
             Din %{resource_type} är inte längre synlig.<br>
             Detta hände därför att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar automatiskt att återställas.
-          email_outro: Du har fått det här meddelandet eftersom du är en författare till %{resource_type}.
+          email_outro: Du har fått det här meddelandet eftersom du är författare till %{resource_type}.
           email_subject: Din %{resource_type} är inte längre synlig
           notification_title: |-
             Din %{resource_type} är inte längre synlig.<br>
@@ -992,6 +991,7 @@ sv:
           title_required: Titel måste fyllas i!
           uploaded: Uppladdad
           validating: Validerar...
+          validation_error: Valideringsfel! Kontrollera att filen har en tillåten filtyp eller storlek.
         select_file: Välj fil
       upload_help:
         dropzone: Släpp filer här eller klicka på knappen för att ladda upp
@@ -1266,7 +1266,7 @@ sv:
     pad_iframe:
       disclaimer: Innehållet i anteckningarna är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
       explanation: Använd den här anteckningsytan för att gemensamt ta anteckningar under mötet så att det går lättare att skriva protokollet efteråt.
-      pad: Memo
+      pad: Anteckningar
     pages:
       home:
         extended:
@@ -1493,8 +1493,11 @@ sv:
       pages_count: Sidor
       participants_count: Deltagare
       participants_count_tooltip: Antalet unika användare som har interagerat i detta område genom att lägga fram förslag, delta i möten, rösta eller delta i diskussioner.
+      surveys_count: Enkäter
       users_count: Deltagare
       users_count_tooltip: Det totala antalet användare som har registrerat sig och bekräftat sitt konto via e-post.
+    tags:
+      filter_results_for_taxonomy: 'Filtrera resultat: %{resource}'
     translation_bar:
       help_text: "<strong>Obs:</strong> Innehåll kan ha översatts automatiskt och inte vara 100% korrekt."
       show_original: Visa originaltexten
@@ -1523,7 +1526,7 @@ sv:
     version:
       show:
         back_to_resource: Gå tillbaka
-        changes_at_title: Ändringar på "%{title}"
+        changes_at_title: Ändringar av "%{title}"
         number_of_versions: Versioner
         version_created_at: Version skapad
     versions:
@@ -1563,7 +1566,7 @@ sv:
     invitations:
       edit:
         header: Slutför skapandet av ditt konto
-        nickname_help: Ditt användarnamn för %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
+        nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla små bokstäver a-z, siffror, '-' och '_'.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
       invitation_removed: Din inbjudan har tagits bort.

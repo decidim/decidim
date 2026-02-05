@@ -183,7 +183,7 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
 export const createNodeView = (self) => {
   return ({ node }) => {
     const dom = document.createElement("span");
-    dom.textContent = self.options.renderLabel({ options: self.options, node });
+    dom.textContent = self.options.renderText({ options: self.options, node });
 
     const { id, label } = node.attrs;
     dom.dataset.suggestion = node.type.name;
