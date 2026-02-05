@@ -204,6 +204,9 @@ tr:
             social_handlers: Sosyal
             title: Genel bilgi
             visibility: Görünürlük
+        assembly_imports:
+          form:
+            document_legend: Bir belge ekle
         assembly_members:
           form:
             explanation: 'Görüntü kılavuzu:'
