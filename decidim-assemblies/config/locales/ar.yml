@@ -217,6 +217,9 @@ ar:
             select_parent_assembly: حدد الجمعية الأصلية
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
+        assembly_imports:
+          form:
+            document_legend: إضافة وثيقة
         assembly_members:
           form:
             explanation: 'إرشادات للصورة:'
