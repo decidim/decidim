@@ -1,1 +1,7 @@
 sr:
+  decidim:
+    events:
+      initiatives:
+        milestone_completed:
+          follower:
+            notification_title: Inicijativa <a href="%{resource_path}">%{resource_title}</a> je postigla %{percentage}% potpisa.
