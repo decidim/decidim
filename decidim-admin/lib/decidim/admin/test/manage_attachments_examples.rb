@@ -189,7 +189,7 @@ shared_examples "manage attachments examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Attachment destroyed successfully")
 
       expect(page).to have_no_content(translated(attachment_with_link.title, locale: :en))
     end
