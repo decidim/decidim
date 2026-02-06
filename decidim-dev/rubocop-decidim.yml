@@ -27,3 +27,9 @@ inherit_from:
   - config/rubocop/factory_bot/disabled.yml
   - config/rubocop/yard/configuration.yml
   - config/rubocop/disabled.yml
+
+Decidim/AdminCalloutAntipattern:
+  Enabled: true
+  Include:
+    - "**/spec/**/*"
+    - "**/test/**/*"
