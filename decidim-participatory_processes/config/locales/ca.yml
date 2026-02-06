@@ -14,6 +14,7 @@ ca:
         duplicate_landing_page_blocks: Duplicar els blocs de contingut de la pàgina d'inici
         duplicate_steps: Duplicar les fases
         end_date: Data de finalització
+        has_members: Aquest espai de participació té membres
         hero_image: Imatge de portada
         import_attachments: Importar arxius adjunts
         import_categories: Importar categories
@@ -115,8 +116,8 @@ ca:
           components: Components
           info: Quant a aquest procés
           landing_page: Disposició de la pàgina de destinació
+          members:
           moderations: Moderacions
-          private_users: Membres
           process_admins: Administradores del procés
           steps: Fases del procés
       models:
@@ -282,9 +283,11 @@ ca:
         export: "%{user_name} ha exportat el procés participatiu %{resource_name}"
         import: "%{user_name} ha importat el procés participatiu %{resource_name}"
         publish: "%{user_name} ha publicat el procés participatiu %{resource_name}"
+        publish_all_members: "%{user_name} va publicar a totes les membres del procés participatiu %{resource_name}"
         restore: "%{user_name} ha restaurat el procés participatiu \"%{resource_name}\""
         soft_delete: "%{user_name} ha enviat a la paperera el procés participatiu \"%{resource_name}\""
         unpublish: "%{user_name} ha despublicat el procés participatiu %{resource_name}"
+        unpublish_all_members: "%{user_name} va despublicar a totes les membres del procés participatiu %{resource_name}"
         update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
       participatory_process_group:
         create: "%{user_name} ha creat el grup de processos participatius %{resource_name}"
@@ -506,10 +509,11 @@ ca:
             announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació del procés.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
+            has_members_help: Podràs crear i publicar membres
             images: Imatges
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
-            private_notice: Podràs administrar les membres un cop haguis configurar l'espai com a privat
+            private_notice: Fa que l'espai de participació no sigui visible per a les visitants i només ho sigui per a les usuàries membre (a no ser que també sigui transparent)
             related_processes: Processos relacionats
             select_process_group: Selecciona un grup de processos
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -558,6 +562,9 @@ ca:
         title: Processos participatius
       last_activity:
         new_participatory_process: 'Nou procés participatiu:'
+      members:
+        index:
+          title: Membres
       pages:
         home:
           highlighted_processes:
@@ -604,9 +611,6 @@ ca:
           type: Tipus
         show:
           title: Quant a aquest procés
-      participatory_space_private_users:
-        index:
-          title: Membres
       show:
         belongs_to_group: Aquest procés pertany a
         private_space: Aquest és un procés privat

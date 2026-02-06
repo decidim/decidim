@@ -166,7 +166,7 @@ describe "Meeting live event access" do
       let(:participatory_space) { assembly }
       let(:admin) { create(:user, :confirmed, :admin, organization:) }
       let(:member) { create(:user, :confirmed, organization:) }
-      let!(:assembly_member) { create(:assembly_member, user: member, privatable_to: assembly) }
+      let!(:assembly_member) { create(:assembly_member, user: member, participatory_space: assembly) }
 
       context "when user is not signed in" do
         it "does not show the meeting link embedded" do

@@ -94,9 +94,6 @@ bg:
           of_total_steps: от %{total_steps}
           questionnaire_closed:
             title: Формулярът е затворен
-          questionnaire_for_private_users:
-            body: Формулярът е налице само за частни потребители
-            title: Формулярът е затворен
           questionnaire_js_disabled:
             body: Някои от функциите на формуляра ще бъдат деактивирани. За да подобрите практическата си работа, моля, активирайте JavaScript в браузъра си.
             title: JavaScript е деактивиран

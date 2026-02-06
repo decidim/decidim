@@ -15,8 +15,8 @@ module Decidim
         let(:document_versions) { [build(:collaborative_text_version)] }
         let(:params) do
           {
-            title: title,
-            body: body
+            title:,
+            body:
           }
         end
         let(:title) { "A nice test document" }
@@ -69,7 +69,7 @@ module Decidim
           describe "POST #create" do
             it "creates a new document and redirects to index" do
               expect do
-                post :create, params: params
+                post :create, params:
               end.to change(Document, :count).by(1)
               expect(response).to redirect_to(documents_path)
               expect(flash[:notice]).to eq("Document successfully created.")
@@ -80,7 +80,7 @@ module Decidim
 
               it "does not create a document" do
                 expect do
-                  post :create, params: params
+                  post :create, params:
                 end.not_to change(Document, :count)
                 expect(response).to render_template(:new)
                 expect(flash.now[:alert]).to eq("There was a problem creating the document.")
@@ -98,7 +98,7 @@ module Decidim
 
           describe "PATCH #update" do
             it "updates the document and redirects to index" do
-              patch :update, params: { id: collaborative_text_document.id, title: "Updated Title", body: body }
+              patch :update, params: { id: collaborative_text_document.id, title: "Updated Title", body: }
               expect(response).to redirect_to(documents_path)
             end
           end
@@ -121,7 +121,7 @@ module Decidim
               let(:title) { "" }
 
               it "does not update the document settings" do
-                patch :update_settings, params: { id: collaborative_text_document.id, title: "", body: body }
+                patch :update_settings, params: { id: collaborative_text_document.id, title: "", body: }
                 expect(response).to render_template(:edit_settings)
                 expect(flash.now[:alert]).to eq("There was a problem updating the document.")
               end

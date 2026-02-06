@@ -801,7 +801,7 @@ ca:
           follows_count: El número de seguidores que té la trobada
           id: L'identificador únic de la trobada
           iframe_access_level: El nivell d'accés de la sala de videoconferències de la trobada
-          iframe_embed_type: El tipus de visualització de la sala de videoconferències de la trobada
+          iframe_embed_type: El tipus de visualització de la sala de videoconferències dins de l'espai web amb la informació de la trobada
           latitude: La latitud del lloc de trobada
           location: La localització de la trobada
           location_hints: Detall d'ubicació dins del lloc on es va celebrar la trobada

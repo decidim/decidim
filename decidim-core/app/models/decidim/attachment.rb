@@ -130,5 +130,12 @@ module Decidim
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::AttachmentPresenter
     end
+
+    def can_participate?(user)
+      return true unless attached_to
+      return true unless attached_to.respond_to?(:can_participate?)
+
+      attached_to.can_participate?(user)
+    end
   end
 end

@@ -139,8 +139,6 @@ nl:
         import: Importeren
         newsletter:
           new: Nieuwe nieuwsbrief
-        participatory_space_private_user:
-          new: Nieuwe privégebruiker van de inspraakruimte
         per_page: Per pagina
         share: Deel
         user:
@@ -302,17 +300,6 @@ nl:
           values:
             'false': Gevalideerd
             'true': Niet gevalideerd
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Uitnodiging geaccepteerd
-            values:
-              'false': Niet geaccepteerd
-              'true': Geaccepteerd
-          user_invitation_sent_at_not_null:
-            label: Uitnodiging verzonden
-            values:
-              'false': Niet verzonden
-              'true': Verzonden
         private_space_eq:
           label: Privé
           values:
@@ -425,6 +412,10 @@ nl:
             explanation: Beheerde deelnemers kunnen worden gepromoveerd tot standaarddeelnemers. Dit betekent dat ze worden uitgenodigd voor de toepassing en dat u ze niet meer kunt beheren. De uitgenodigde deelnemer ontvangt een e-mail om uw uitnodiging te accepteren.
             new_managed_user_promotion: Nieuwe promotie voor beheerde deelnemers
             promote: Promoten
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Upload uw CSV-bestand
       menu:
         admin_log: Admin activiteitenlogboek
         admins: Admins
@@ -479,8 +470,6 @@ nl:
             sent_to: Verzonden aan
             subject: Onderwerp
           name: Nieuwsbrief
-        participatory_space_private_user:
-          name: Participerende ruimte privé deelnemer
         scope:
           fields:
             name: Naam
@@ -644,29 +633,6 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
           success: Organisatie is succesvol bijgewerkt.
-      participatory_space_private_users:
-        create:
-          error: Er is een probleem opgetreden bij het toevoegen van een privédeelnemer aan deze deelruimte.
-          success: De toegang van de privé deelnemer voor de burgerinspraak is succesvol aangemaakt.
-        destroy:
-          error: Er was een probleem met het verwijderen van een privé-deelnemer voor deze participatieruimte.
-          success: De toegang van de privé deelnemer voor burgerinspraak is met succes verwijderd.
-        index:
-          import_via_csv: Importeren via csv
-          title: Participerende ruimte voor privé deelnemer
-        new:
-          create: creëren
-          title: Nieuwe privé deelnemer burgerinspraak.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Upload uw CSV-bestand
-          destroy:
-            button: Verwijder alle privé deelnemers
-            empty: Je hebt geen privé deelnemers.
-            explanation: Je hebt %{count} privédeelnemers.
-            title: Verwijder privé deelnemer
-          upload: Upload
       reminders:
         create:
           error: Er is een probleem opgetreden bij het maken van herinneringen.

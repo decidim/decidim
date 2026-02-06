@@ -20,7 +20,7 @@ module Decidim
 
           next if questionnaire.questionnaire_for.allow_responses
 
-          rand(200).times { create_responses!(questionnaire:) }
+          rand(0..config_value(:surveys_responses_count)).times { create_responses!(questionnaire:) }
         end
       end
 
@@ -90,7 +90,7 @@ module Decidim
             position: index + 2
           )
 
-          3.times do
+          config_value(:surveys_response_options_count).times do
             question.response_options.create!(body: Decidim::Faker::Localized.sentence)
           end
 
@@ -114,7 +114,7 @@ module Decidim
             position: index
           )
 
-          3.times do |position|
+          config_value(:surveys_matrix_rows_count).times do |position|
             question.response_options.create!(body: Decidim::Faker::Localized.sentence)
             question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence, position:)
           end

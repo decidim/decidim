@@ -21,7 +21,7 @@ module Decidim
         end
 
         def info_url
-          decidim.page_path("democratic-quality-indicators")
+          decidim.page_path("democratic-quality-indicators", locale: I18n.locale)
         end
       end
     end

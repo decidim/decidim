@@ -36,7 +36,7 @@ module Decidim
       end
 
       context "when the organization has a favicon" do
-        let(:favicon_path) { Decidim::Dev.asset("icon.ico") }
+        let(:favicon_path) { Decidim::Dev.asset("icon.png") }
 
         before do
           organization.favicon.attach(io: File.open(favicon_path), filename: File.basename(favicon_path))

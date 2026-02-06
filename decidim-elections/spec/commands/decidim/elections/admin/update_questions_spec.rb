@@ -25,7 +25,7 @@ module Decidim
         let(:second_question_second_option) { second_question.response_options.second }
 
         let(:context_params) do
-          { current_organization: organization, current_user: current_user }
+          { current_organization: organization, current_user: }
         end
 
         context "when updating an existing question" do
@@ -180,7 +180,7 @@ module Decidim
 
         context "when the form is invalid" do
           let(:form) do
-            double("Form", invalid?: true, current_user: current_user, current_organization: organization, questions: [])
+            double("Form", invalid?: true, current_user:, current_organization: organization, questions: [])
           end
           let(:command) { described_class.new(form, election) }
 

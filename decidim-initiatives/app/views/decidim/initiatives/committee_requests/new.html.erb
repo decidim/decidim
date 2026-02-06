@@ -5,8 +5,6 @@
                            url: initiative_url(current_initiative.id, locale: current_locale)
                          }) %>
 
-<% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).url %>
-
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
     <h2 class="title-decorator inline-block text-left"><%= translated_attribute(current_initiative.title) %></h2>

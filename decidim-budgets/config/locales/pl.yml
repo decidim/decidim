@@ -106,7 +106,6 @@ pl:
           new:
             create: Importuj propozycje do projektów
             default_budget: Domyślny budżet
-            import_all_accepted_proposals: Importuj wszystkie zaakceptowane propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów do zaimportowania propozycji jako projektów.
             origin_component_id: Źródłowy komponent
             select_component: Wybierz komponent

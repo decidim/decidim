@@ -136,9 +136,10 @@ fr:
           new:
             create: Importer des propositions dans des projets
             default_budget: Budget par défaut
-            import_all_accepted_proposals: Importer toutes les propositions acceptées
             no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
             origin_component_id: Composant d'origine
+            proposal_states: Statuts de proposition
+            proposal_states_help: Sélectionnez un ou plusieurs statuts de proposition à importer dans les projets. Si vous n'en sélectionnez aucun, vous importerez toutes les propositions publiées qui n'ont pas déjà été importées dans d'autres budgets à partir de cette fonctionnalité.
             select_component: Veuillez sélectionner un module
             title: Importer des propositions dans des projets
         reminders:

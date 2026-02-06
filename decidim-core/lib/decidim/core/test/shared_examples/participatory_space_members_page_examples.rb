@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 shared_examples "participatory space members page examples" do
-  let(:user1) { create(:user, organization: privatable_to.organization) }
-  let(:user2) { create(:user, organization: privatable_to.organization) }
-  let(:user3) { create(:user, organization: privatable_to.organization) }
+  let(:user1) { create(:user, organization: participatory_space.organization) }
+  let(:user2) { create(:user, organization: participatory_space.organization) }
+  let(:user3) { create(:user, organization: participatory_space.organization) }
 
   before do
     request.env["decidim.current_organization"] = organization
@@ -18,9 +18,9 @@ shared_examples "participatory space members page examples" do
     end
 
     context "when participatory space has members" do
-      let!(:member1) { create(:member, privatable_to:, user: user1, published: true) }
-      let!(:member2) { create(:member, privatable_to:, user: user2, published: true) }
-      let!(:non_published) { create(:member, privatable_to:, user: user3, published: false) }
+      let!(:member1) { create(:member, participatory_space:, user: user1, published: true) }
+      let!(:member2) { create(:member, participatory_space:, user: user2, published: true) }
+      let!(:non_published) { create(:member, participatory_space:, user: user3, published: false) }
 
       context "when user has permissions" do
         it "displays list of members" do

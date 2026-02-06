@@ -25,6 +25,7 @@ fr-CA:
         duration: Durée
         facebook: Facebook
         github: GitHub
+        has_members: Cet espace a des membres
         hero_image: Image de la page d'accueil
         import_attachments: Importer les pièces jointes
         import_categories: Importer les catégories
@@ -169,8 +170,8 @@ fr-CA:
           attachments: Documents liés
           components: Composants
           info: À propos de cette assemblée
+          members: Membres
           moderations: Modérations
-          private_users: Membres
           see_assembly: Voir l'assemblée
       models:
         assembly:
@@ -217,9 +218,11 @@ fr-CA:
         export: "%{user_name} a exporté l'assemblée %{resource_name}"
         import: "%{user_name} a importé l'assemblée %{resource_name}"
         publish: "%{user_name} a publié l'assemblée %{resource_name}"
+        publish_all_members: "%{user_name} a publié tous les membres de l'assemblée %{resource_name}"
         restore: "%{user_name} a restauré l'assemblée %{resource_name}"
         soft_delete: "%{user_name} a déplacé dans la corbeille l'assemblée %{resource_name}"
         unpublish: "%{user_name} a dépublié l'assemblée %{resource_name}"
+        unpublish_all_members: "%{user_name} a dépublié tous les membres de l'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour l'assemblée %{resource_name}"
       assembly_member:
         create: "%{user_name} a créé le membre %{resource_name} membre dans l'assemblée %{space_name}"
@@ -245,12 +248,13 @@ fr-CA:
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
+            has_members_help: Vous pourrez créer et publier des membres
             images: Images
             included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à la plateforme. Elle ne doit pas nécessairement être identique à la date de création.
             metadata: Métadonnées
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             other: Autre
-            private_notice: Vous serez en mesure de gérer les participants privés après l'avoir défini comme privé
+            private_notice: Rend l'espace non visible pour les visiteurs et visible seulement pour les membres (sauf s'il est également transparent)
             select_a_created_by: Sélectionnez un créateur
             select_parent_assembly: Sélectionnez l'assemblée parente
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'

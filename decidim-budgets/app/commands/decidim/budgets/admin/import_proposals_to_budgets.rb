@@ -68,7 +68,17 @@ module Decidim
         end
 
         def proposals
-          Decidim::Proposals::Proposal.where(component: origin_component).published.not_hidden.not_withdrawn.accepted.order(:published_at)
+          proposals = Decidim::Proposals::Proposal.where(component: origin_component).published.not_hidden.not_withdrawn
+
+          if form.internal_states.present?
+            if form.internal_states.include?("not_answered")
+              proposals.not_answered.or(proposals.where(id: proposals.only_status(form.internal_states).pluck(:id)))
+            else
+              proposals.only_status(form.internal_states)
+            end
+          else
+            proposals
+          end.order(:published_at)
         end
 
         def origin_component

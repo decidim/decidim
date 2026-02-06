@@ -76,6 +76,7 @@ ro:
         active: Activ
         finished: Terminat
         not_started: Nu a început
+        unpublished: Nepublicate
       votes:
         confirm:
           title: Confirmă votul tău

@@ -121,9 +121,6 @@ ro:
           of_total_steps: din %{total_steps}
           questionnaire_closed:
             title: Formular închis
-          questionnaire_for_private_users:
-            body: Chestionarul este disponibil doar pentru utilizatorii privați
-            title: Chestionar închis
           questionnaire_js_disabled:
             body: Unele dintre funcționalitățile acestui chestionar vor fi dezactivate. Pentru a îți îmbunătăți experiența, te rugăm să activezi JavaScript în browser-ul tău.
             title: JavaScript este dezactivat

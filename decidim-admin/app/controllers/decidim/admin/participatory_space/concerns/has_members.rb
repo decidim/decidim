@@ -8,15 +8,15 @@ module Decidim
         # manage the members for a given type, you should create a new
         # controller and include this concern.
         #
-        # The only requirement is to define a `privatable_to` method that
-        # returns an instance of the model to relate the member to.
+        # It takes the current_participatory_space that is defined
+        # in the controller, so there is no need to define any method
         module HasMembers
           extend ActiveSupport::Concern
 
           included do
             include Decidim::Admin::ParticipatorySpace::Concerns::MembersFilterable
             helper PaginateHelper
-            helper_method :privatable_to, :members
+            helper_method :members
 
             # rubocop:disable Rails/LexicallyScopedActionFilter
             before_action :set_member, only: [:edit, :update, :destroy, :resend_invitation]
@@ -30,7 +30,7 @@ module Decidim
 
             def new
               enforce_permission_to :create, :space_member
-              @form = form(MemberForm).from_params({}, privatable_to:)
+              @form = form(MemberForm).from_params({})
               render template: "decidim/admin/members/new"
             end
 
@@ -42,7 +42,7 @@ module Decidim
 
             def update
               enforce_permission_to :update, :space_member, member: @member
-              @form = form(MemberForm).from_params(params, privatable_to:)
+              @form = form(MemberForm).from_params(params)
 
               UpdateMember.call(@form, @member) do
                 on(:ok) do
@@ -59,7 +59,7 @@ module Decidim
 
             def create
               enforce_permission_to :create, :space_member
-              @form = form(MemberForm).from_params(params, privatable_to:)
+              @form = form(MemberForm).from_params(params)
 
               CreateMember.call(@form, current_participatory_space) do
                 on(:ok) do
@@ -134,24 +134,18 @@ module Decidim
             end
 
             # Public: Returns a String or Object that will be passed to `redirect_to` after
-            # destroying a member. By default it redirects to the privatable_to.
+            # destroying a member. By default it redirects to the participatory_space.
             #
             # It can be redefined at controller level if you need to redirect elsewhere.
             def after_destroy_path
-              privatable_to
-            end
-
-            # Public: The only method to be implemented at the controller. You need to
-            # return the object where the attachment will be attached to.
-            def privatable_to
-              raise NotImplementedError
+              members_path(current_participatory_space)
             end
 
             def collection
               # there is an unidentified corner case where Decidim::User
               # may have been destroyed, but the related Member
               # remains in the database. That is why filtering by not null users
-              @collection ||= privatable_to
+              @collection ||= current_participatory_space
                               .members
                               .includes(:user).where.not("decidim_users.id" => nil)
             end

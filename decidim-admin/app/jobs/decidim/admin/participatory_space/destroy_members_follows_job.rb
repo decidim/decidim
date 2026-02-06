@@ -19,7 +19,7 @@ module Decidim
 
           return if space.respond_to?(:can_participate?) && space.can_participate?(user)
 
-          follows = Decidim::Follow.where(user: user)
+          follows = Decidim::Follow.where(user:)
           follows.where(followable: space).destroy_all
 
           destroy_children_follows(follows, space)

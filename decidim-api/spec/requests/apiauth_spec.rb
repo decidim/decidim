@@ -15,12 +15,12 @@ RSpec.describe "Api authentication" do
   context "with api user" do
     let(:key) { "dummykey123456" }
     let(:secret) { "decidim123456789" }
-    let!(:user) { create(:api_user, organization: organization, api_key: key, api_secret: secret) }
+    let!(:user) { create(:api_user, organization:, api_key: key, api_secret: secret) }
     let(:params) do
       {
         api_user: {
-          key: key,
-          secret: secret
+          key:,
+          secret:
         }
       }
     end
@@ -35,7 +35,7 @@ RSpec.describe "Api authentication" do
     end
 
     it "signs in" do
-      post sign_in_path, params: params
+      post(sign_in_path, params:)
       expect(response.headers["Authorization"]).to be_present
       expect(response.body["jwt_token"]).to be_present
       parsed_response_body = JSON.parse(response.body)
@@ -51,7 +51,7 @@ RSpec.describe "Api authentication" do
     end
 
     it "signs out" do
-      post sign_in_path, params: params
+      post(sign_in_path, params:)
       expect(response).to have_http_status(:ok)
       authorization = response.headers["Authorization"]
       original_count = Decidim::Api::JwtDenylist.count
@@ -61,7 +61,7 @@ RSpec.describe "Api authentication" do
 
     context "when signed in" do
       before do
-        post sign_in_path, params: params
+        post sign_in_path, params:
       end
 
       it "can use token to post to api" do
@@ -78,7 +78,7 @@ RSpec.describe "Api authentication" do
 
     context "when not signed in" do
       it "does not return session details" do
-        post "/api", params: { query: query }
+        post "/api", params: { query: }
         parsed_response = JSON.parse(response.body)
         expect(parsed_response).to match("data" => { "session" => nil })
       end
@@ -87,7 +87,7 @@ RSpec.describe "Api authentication" do
 
   context "with normal user" do
     let(:password) { "decidim123456789" }
-    let!(:user) { create(:user, :confirmed, organization: organization, password:) }
+    let!(:user) { create(:user, :confirmed, organization:, password:) }
     let(:params) do
       {
         user: {
@@ -98,7 +98,7 @@ RSpec.describe "Api authentication" do
     end
 
     it "does not authenticate user" do
-      post sign_in_path, params: params
+      post(sign_in_path, params:)
 
       parsed_response = JSON.parse(response.body)
       anonymized_key = parsed_response["api_key"]

@@ -9,8 +9,8 @@ describe "Private Assemblies" do
   let!(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
   let!(:other_user2) { create(:user, :confirmed, organization:) }
-  let!(:assembly_member) { create(:assembly_member, user: other_user, privatable_to: private_assembly) }
-  let!(:assembly_member2) { create(:assembly_member, user: other_user2, privatable_to: private_assembly) }
+  let!(:assembly_member) { create(:assembly_member, user: other_user, participatory_space: private_assembly) }
+  let!(:assembly_member2) { create(:assembly_member, user: other_user2, participatory_space: private_assembly) }
 
   context "when there are private assemblies" do
     context "and the assembly is transparent" do

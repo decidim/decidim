@@ -801,7 +801,7 @@ es:
           follows_count: El número de seguidoras que tiene el encuentro
           id: El identificador único del encuentro
           iframe_access_level: El nivel de acceso de la sala de videoconferencias del encuentro
-          iframe_embed_type: El tipo de visualización de la sala de videoconferencias del encuentro
+          iframe_embed_type: El tipo de visualización de la sala de videoconferencias dentro del espacio web con la información del encuentro
           latitude: La latitud del lugar de encuentro
           location: La localización del encuentro
           location_hints: Detalle de ubicación dentro del lugar donde se celebró el encuentro

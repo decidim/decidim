@@ -324,8 +324,6 @@ bs:
             sent_to: Poslato
             subject: Naslov
           name: Bilten
-        participatory_space_private_user:
-          name: Privatni učesnik prostora za diskusiju
         scope:
           fields:
             name: Ime

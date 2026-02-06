@@ -139,8 +139,6 @@ pt:
         import: Importar
         newsletter:
           new: Novo boletim informativo
-        participatory_space_private_user:
-          new: Novo utilizador privado do espaço participativo
         per_page: Por página
         share: Partilhar
       area_types:
@@ -296,17 +294,6 @@ pt:
           values:
             'false': Oficializado
             'true': Não oficializado
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Convite aceite
-            values:
-              'false': Não aceite
-              'true': Aceite
-          user_invitation_sent_at_not_null:
-            label: Convite enviado
-            values:
-              'false': Não enviado
-              'true': Enviado
         private_space_eq:
           label: Privado
           values:
@@ -390,6 +377,10 @@ pt:
             explanation: Os participantes geridos podem ser promovidos para participantes padrão. Isto significa que eles serão convidados para a aplicação e não poderá geri-los novamente. O participante convidado receberá um e-mail para aceitar o seu convite.
             new_managed_user_promotion: Nova promoção de usuário participante gerido
             promote: Destacar
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Envie o seu ficheiro CSV
       menu:
         admin_log: Registo de atividade de administração
         admins: Administradores
@@ -446,8 +437,6 @@ pt:
             sent_to: Enviado para
             subject: Assunto
           name: Boletim Informativo
-        participatory_space_private_user:
-          name: Participante privado de espaço participativo
         scope:
           fields:
             name: Nome
@@ -622,24 +611,6 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar esta organização.
           success: Organização atualizada corretamente.
-      participatory_space_private_users:
-        create:
-          error: Ocorreu um problema ao adicionar um participante privado neste espaço participativo.
-          success: Acesso ao espaço participativo de participante privado criado corretamente.
-        destroy:
-          error: Houve um problema ao eliminar um participante privado deste espaço participativo.
-          success: Espaço participativo acesso de usuário privado destruído com sucesso.
-        index:
-          import_via_csv: Importar via CSV
-          title: Espaço participativo de participante privado
-        new:
-          create: Criar
-          title: Novo participante privado do Espaço Participativo.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Envie o seu ficheiro CSV
-          upload: Carregar
       resource_permissions:
         edit:
           submit: Submeter
