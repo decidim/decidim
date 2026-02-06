@@ -7,14 +7,19 @@ This page provides an overview of the security procedures followed by the Mainta
 .. an explanation of the issue, without giving much details about the vulnerability.
 .. the metadata necessary, such as affected releases and severity.
 .. we will not give a step by step explanation on how to exploit the vulnerability.
+.. internally, we leave the instructions for other Maintainers in the comments of the Security Advisory (so it is reproducible, both the bug and the fix when there is any).
 . The issue will be handled privately (on a private fork) until a fix is ready.
 . Once the fix is ready, we will open a PR to the `develop` branch with the fix.
 . We will do the backports to the https://github.com/decidim/decidim/blob/develop/SECURITY.md[supported versions].
 . We will release a new version with the fix.
 . On the Release Notes of the versions with the fix, we will add a note about the vulnerability with a reference to the CVE or the GitHub Security Advisory ID if there is not any ID. See below the `Template for the Release Notes`.
-. We will send a notification to the Decidim Devs Matrix chat room. We will not mention the vulnerability, just that there is a new version with a security fix. See below the `Template for the Decidim Devs chat room message`
+. We will send a notification to the Decidim Devs Matrix chat room. We will not mention the vulnerability, just that there is a new version with a security fix. See below the `Template for the Decidim Devs chat room message`.
 . We will wait the grace period (2 or 4 months depending on the severity) before disclosing the vulnerability.
+. We will add a comment for other Maintainers to keep track of when the Security Advisory will be published. See below the `Template for the Security Advisory messages`.
+. We will update the metadata of the Security Advisory with the versions that have this fix (the "Patched versions" in GitHub UI).
+. We will add to the Internal Decidim calendar the date when the Security Advisory will be published.
 . After the grace period, we will publish the Security Advisory.
+. Once the Security Advisory is published, then the release note message is updated with the link to the published page.
 
 == Template for the Release Notes
 
@@ -49,4 +54,13 @@ XXX
 [0] https://github.com/decidim/decidim/releases/tag/v0.XXX.XXX
 [1] https://github.com/decidim/decidim/releases/tag/v0.XXX.XXX
 [2] https://github.com/decidim/decidim/blob/develop/SECURITY.md
+----
+
+== Template for the Security Advisory messages
+
+[source,markdown]
+----
+Two versions with the fix have been published today: v0.XXX.XXX and v0.XXX.XXX.
+
+This security vulnerability will be published on XXX according to our security policy.
 ----

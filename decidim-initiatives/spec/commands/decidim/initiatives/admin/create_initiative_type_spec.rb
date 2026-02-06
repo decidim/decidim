@@ -16,7 +16,7 @@ module Decidim
           let(:organization) { create(:organization) }
           let(:user) { create(:user, organization:) }
           let!(:initiative_type) do
-            build(:initiatives_type, banner_image: nil, organization:)
+            build(:initiatives_type, organization:)
           end
           let(:form) do
             form_klass

@@ -15,6 +15,11 @@ module Decidim
         get "/", to: redirect("documents", status: 301)
       end
 
+      initializer "decidim_collaborative_texts.register_icons" do
+        Decidim.icons.register(name: "Decidim::CollaborativeTexts::Document", icon: "draft-line", description: "Collaborative texts", category: "activity",
+                               engine: :collaborative_texts)
+      end
+
       initializer "decidim_collaborative_texts.data_migrate", after: "decidim_core.data_migrate" do
         DataMigrate.configure do |config|
           config.data_migrations_path << root.join("db/data").to_s

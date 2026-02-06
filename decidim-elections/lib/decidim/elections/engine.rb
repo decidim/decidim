@@ -28,6 +28,10 @@ module Decidim
         get "/", to: redirect("elections", status: 301)
       end
 
+      initializer "decidim_elections.register_icons" do
+        Decidim.icons.register(name: "Decidim::Elections::Election", icon: "file-paper-2-line", description: "Elections", category: "activity", engine: :elections)
+      end
+
       initializer "decidim_elections.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/views") # for partials
