@@ -46,7 +46,7 @@ module RuboCop
         private
 
         def antipattern_text?(text)
-          stripped_text = text.gsub(/[[:punct:]]/, "")
+          stripped_text = text.gsub(/[[:punct:]\s]/, "")
           is_single_word = text.strip !~ /\s/
           is_too_short = stripped_text.length < MIN_LENGTH_THRESHOLD
 
