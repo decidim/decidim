@@ -336,7 +336,7 @@ sr:
         static_page:
           fields:
             created_at: Kreirano na
-            title: Naslov
+            title: Naziv
         user:
           fields:
             created_at: Datum kreiranja
