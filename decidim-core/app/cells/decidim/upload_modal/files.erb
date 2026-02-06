@@ -25,7 +25,7 @@
         <% is_persisted_attachment = attachment.is_a?(Decidim::Attachment) && attachment.persisted? %>
         <% attachment_blob = blob(attachment) %>
 
-        <div class="attachment-details" <% if is_persisted_attachment %>data-attachment-id="<%= attachment.id %>"<% end %> data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded" data-hidden-field="<%= attachment_blob&.signed_id %>">
+        <div class="attachment-details"<% if is_persisted_attachment %> data-attachment-id="<%= attachment.id %>"<% end %> data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded" data-hidden-field="<%= attachment_blob&.signed_id %>">
           <% if file_attachment_path(attachment) && attachment_blob&.image? %>
             <div><%= image_tag(file_attachment_path(attachment), alt: "") %></div>
           <% elsif uploader_default_image_path(attribute).present? %>
