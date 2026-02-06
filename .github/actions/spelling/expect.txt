@@ -176,6 +176,7 @@ cuenta
 Cugat
 customise
 Customising
+CVEs
 cweek
 cyclomatic
 danline
@@ -422,6 +423,7 @@ isbn
 iseq
 isready
 Italiano
+itemabcd
 ivan
 Jaskolski
 Jaume

@@ -11,14 +11,6 @@ FactoryBot.define do
     title { generate_localized_title(:initiatives_type_title, skip_injection:) }
     description { generate_localized_description(:initiatives_type_description, skip_injection:) }
     organization
-    # Keep banner_image after organization
-    banner_image do
-      ActiveStorage::Blob.create_and_upload!(
-        io: File.open(Decidim::Dev.test_file("city2.jpeg", "image/jpeg")),
-        filename: "city2.jpeg",
-        content_type: "image/jpeg"
-      ).signed_id
-    end
     signature_type { :online }
     attachments_enabled { true }
     undo_online_signatures_enabled { true }

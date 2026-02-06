@@ -260,13 +260,14 @@ describe "Editor" do
       )
     end
 
-    it "link" do
+    it "link" do # rubocop:disable RSpec/ExampleLength
       click_toggle("link")
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://decidim.org"
         select "New tab", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.5
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -277,11 +278,13 @@ describe "Editor" do
       within prosemirror_selector do
         find("a").double_click
       end
+      sleep 0.5
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://docs.decidim.org"
         select "Default (same tab)", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.2
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -291,11 +294,13 @@ describe "Editor" do
 
       # Test that editing works also when re-clicking the link toolbar button
       click_toggle("link")
+      sleep 0.5
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://try.decidim.org"
         select "New tab", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.5
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -596,6 +601,7 @@ describe "Editor" do
           fill_in "Link URL", with: "https://demo.decidim.org"
           find("[data-input='href'] input").native.send_keys [:enter]
         end
+        sleep 0.5
         expect_value(
           <<~HTML
             <p>Hello, world!</p>

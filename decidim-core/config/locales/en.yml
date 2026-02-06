@@ -1061,6 +1061,9 @@ en:
           explanation: 'Guidance for image:'
           message_1: Preferably a landscape image that does not have any text.
           message_2: The service crops the image.
+        import_file:
+          explanation: 'Guidance for import file:'
+          message_1: Has to be a JSON document downloaded through the export feature.
       file_validation:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
         max_file_dimension: 'Maximum file dimensions: %{resolution} pixels'
