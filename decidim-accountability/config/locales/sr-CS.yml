@@ -9,7 +9,7 @@ sr:
         decidim_category_id: Kategorija
         decidim_scope_id: Opseg
         description: Opis
-        end_date: Krajnji datum
+        end_date: Datum završetka
         progress: Naprеdak
         start_date: Datum početka
         title: Naslov
@@ -24,6 +24,10 @@ sr:
       decidim/accountability/result_progress_updated_event: Rezultati napretka ažurirani
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            project_ids: 'Uvršteno je u ovaj projekat: %{link}'
       decidim/accountability/result:
         one: Rezultat
         few: Rezultati
@@ -78,9 +82,12 @@ sr:
           parent_presenter:
             not_found: 'Ovaj roditelj nije pronađen u bazi podataka (ID: %{id})'
       models:
+        milestone:
+          fields:
+            title: Naslov
         result:
           fields:
-            end_date: Krajnji datum
+            end_date: Datum završetka
             progress: Napredak
             start_date: Datum početka
             status: Stanje
