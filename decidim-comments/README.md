@@ -1,8 +1,24 @@
-# Decidim::Comments
+# decidim-comments
 
 The Comments module adds the ability to include comments to any resource which can be commentable by users.
 
-## Usage
+This is a module oriented for developers, as a building block to be used by other modules.
+
+## Installation
+
+Add this line to your module's gemspec:
+
+```ruby
+s.add_dependency "decidim-comments", Decidim::YourModule.version
+```
+
+And then execute:
+
+```bash
+bundle
+```
+
+## Usage on another modules
 
 The Comments component is exposed as a Rails helper:
 
@@ -20,20 +36,6 @@ Finally, add the comments javascript module like this:
 
 ```javascript
 import "src/decidim/comments/comments";
-```
-
-## Installation
-
-Add this line to your application's Gemfile.
-
-```ruby
-gem 'decidim-comments'
-```
-
-And then execute:
-
-```bash
-bundle
 ```
 
 ## How to contribute

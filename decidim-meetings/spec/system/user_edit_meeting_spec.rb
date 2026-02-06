@@ -28,6 +28,55 @@ describe "User edit meeting" do
     stub_geocoding(meeting.address, [latitude, longitude])
   end
 
+  describe "editing meeting with empty description" do
+    before do
+      login_as user, scope: :user
+      organization.update(rich_text_editor_in_public_views: true)
+    end
+
+    it "when WYSIWYG is active" do
+      new_description = "Dummy description"
+      visit_component
+      click_on translated(meeting.title)
+      find("#dropdown-trigger-resource-#{meeting.id}").click
+      click_on "Edit"
+
+      expect(page).to have_content "Edit Your Meeting"
+
+      within "form.meetings_form" do
+        fill_in :meeting_title, with: "Dummy title2"
+        first(".tiptap.ProseMirror").set(new_description)
+        select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+
+        click_on "Update"
+      end
+
+      within ".flash__message" do
+        expect(page).to have_content("You have updated the meeting successfully.")
+      end
+
+      expect(page).to have_content("Dummy title2")
+      expect(page).to have_content(new_description)
+
+      find("#dropdown-trigger-resource-#{meeting.id}").click
+      click_on "Edit"
+
+      expect(page).to have_content "Edit Your Meeting"
+
+      within "form.meetings_form" do
+        fill_in :meeting_title, with: "Dummy title3"
+        new_description.length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+        select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+
+        click_on "Update"
+      end
+
+      within ".flash__message" do
+        expect(page).to have_content("There was a problem updating the meeting")
+      end
+    end
+  end
+
   describe "editing my own meeting" do
     let(:new_title) { "This is my meeting new title" }
     let(:new_description) { "This is my meeting new body" }

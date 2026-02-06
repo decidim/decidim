@@ -50,12 +50,6 @@
       <hr>
 
       <li class="dropdown__item">
-        <%= dropdown_resource_permissions_link(project) %>
-      </li>
-
-      <hr>
-
-      <li class="dropdown__item">
         <% if allowed_to? :soft_delete, :project, trashable_deleted_resource: project %>
           <%= link_to soft_delete_budget_project_path(project.budget, project), method: :patch, data: { confirm: t("actions.confirm_delete_project", scope: "decidim.budgets") }, class: "dropdown__button" do %>
             <%= icon "delete-bin-line" %>

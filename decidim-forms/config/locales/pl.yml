@@ -15,8 +15,6 @@ pl:
             description: Opis
             tos: Warunki uczestnictwa
         questionnaires:
-          actions:
-            back: Powrót do pytań
           display_condition:
             condition_question: Pytanie
             condition_type: Warunek
@@ -51,29 +49,23 @@ pl:
             any: Dowolny
             collapse: Zwiń
             description: Opis
-            down: Na dół
             expand: Rozwiń
             question: Pytanie
             remove: Usuń
             statement: Komunikat
-            up: W górę
           responses:
             actions:
               show: Pokaż odpowiedzi
           separator:
-            down: Na dół
             remove: Usuń
             separator: Separator
-            up: W górę
           title_and_description:
             collapse: Zwiń
             description: Opis
-            down: W dół
             expand: Rozwiń
             remove: Usuń
             title: Tytuł
             title_and_description: Tytuł i opis
-            up: W górę
           update:
             invalid: Podczas zapisywania formularza wystąpił błąd.
             success: Formularz został zapisany.
@@ -101,9 +93,6 @@ pl:
           empty: Nie skonfigurowano jeszcze żadnych pytań dla tego formularza.
           of_total_steps: z %{total_steps}
           questionnaire_closed:
-            title: Formularz został zamknięty
-          questionnaire_for_private_users:
-            body: Formularz jest dostępny tylko dla użytkowników prywatnych
             title: Formularz został zamknięty
           questionnaire_js_disabled:
             body: Niektóre funkcje tego formularza zostaną wyłączone. Aby strona dostarczała lepszych doświadczeń, włącz obsługę JavaScript w przeglądarce.

@@ -27,32 +27,6 @@
   "stylelint": {
     "extends": "@decidim/stylelint-config"
   },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "testEnvironmentOptions": {
-      "url": "https://decidim.dev/"
-    },
-    "setupFiles": [
-      "<rootDir>/decidim-core/spec/js/entry_test.js",
-      "raf/polyfill"
-    ],
-    "moduleFileExtensions": [
-      "js"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "decidim-core/app/packs",
-      "decidim-collaborative_texts/app/packs"
-    ],
-    "moduleNameMapper": {
-      "\\.(scss|css|less)$": "identity-obj-proxy"
-    },
-    "transform": {
-      "\\.yml$": "yaml-jest",
-      "\\.js$": "babel-jest"
-    },
-    "testRegex": "\\.(test|spec)\\.js$"
-  },
   "dependencies": {
     "@decidim/browserslist-config": "file:packages/browserslist-config",
     "@decidim/core": "file:packages/core",

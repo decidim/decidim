@@ -33,7 +33,6 @@ module Decidim
       pages
       proposals
       surveys
-      sortitions
       blogs
     ).freeze
 

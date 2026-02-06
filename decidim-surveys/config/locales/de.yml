@@ -14,6 +14,7 @@ de:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Sind Sie sicher, dass Sie die Veröffentlichung dieser Umfrage aufheben möchten?
         see_survey: Umfrage anzeigen
       admin_log:
         changeset:
@@ -26,6 +27,8 @@ de:
           settings: Einstellungen
     components:
       surveys:
+        actions:
+          respond: Antworten
         name: Umfragen
         settings:
           announcement: Ankündigung
@@ -38,14 +41,26 @@ de:
         survey_closed:
           email_intro: Die Umfrage %{resource_title} in %{participatory_space_title} wurde geschlossen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Eine Umfrage ist in %{participatory_space_title}
+          email_subject: Eine Umfrage wurde auf «%{participatory_space_title}» abgeschlossen
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist beendet.
         survey_opened:
           email_intro: 'Die Umfrage %{resource_title} in %{participatory_space_title} ist jetzt geöffnet. Sie können auf dieser Seite teilnehmen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine neue Umfrage in %{participatory_space_title}
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: Der Inhalt der Antwort
+          created_at: Das Erstellungsdatum des Ergebnisses
+          id: Eindeutige Bezeichnung für die Antwort der Umfrage
+          ip_hash: Gehashte IP-Adresse des Befragten zum Schutz der Privatsphäre
+          question: Die beantwortete Frage
+          registered: Registrierter Teilnehmender
+          unregistered: Nicht registrierter Teilnehmender
+          user_status: Status der Benutzenden, die Antworten eingereicht haben
     statistics:
+      responses: 'Antworten:'
       responses_count: Antworten
       surveys_count_tooltip: Die Anzahl der verfügbaren Umfragen und abgegebenen Antworten.
     surveys:
@@ -98,6 +113,8 @@ de:
             title: Umfrage bearbeiten
           index:
             title: Umfragen
+          new:
+            title: Neue Umfrage
           publish:
             invalid: Beim Veröffentlichen dieser Umfrage ist ein Problem aufgetreten.
             success: Umfrage erfolgreich veröffentlicht.
@@ -123,10 +140,13 @@ de:
       models:
         survey:
           fields:
+            published: Veröffentlicht
             questions: Fragen
             responses: Antworten
             status: Status
             title: Titel
+          published:
+            published: Veröffentlicht
           status:
             closed: Geschlossen
             open: Offen

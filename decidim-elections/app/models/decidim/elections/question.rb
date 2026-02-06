@@ -9,6 +9,7 @@ module Decidim
       belongs_to :election, class_name: "Decidim::Elections::Election", inverse_of: :questions
 
       has_many :response_options, class_name: "Decidim::Elections::ResponseOption", dependent: :destroy, inverse_of: :question
+      has_many :votes, class_name: "Decidim::Elections::Vote", dependent: :restrict_with_error, inverse_of: :question
 
       translatable_fields :body, :description
 
@@ -27,13 +28,14 @@ module Decidim
       end
 
       def max_votable_options
+        return max_choices if max_choices.present? && question_type == "multiple_option"
         return response_options.size if question_type == "multiple_option"
 
         1
       end
 
       def sibling_questions
-        @sibling_questions ||= election.per_question? ? election.questions.enabled : election.questions
+        @sibling_questions ||= election.per_question? ? election.questions.enabled.unpublished_results : election.questions
       end
 
       def next_question
@@ -49,7 +51,7 @@ module Decidim
       end
 
       def voting_enabled?
-        voting_enabled_at.present?
+        !published_results? && voting_enabled_at.present?
       end
 
       def can_enable_voting?
@@ -63,16 +65,7 @@ module Decidim
       end
 
       def publishable_results?
-        return false if published_results?
-
-        case election.results_availability
-        when "per_question"
-          voting_enabled?
-        when "after_end"
-          election.ready_to_publish_results?
-        else
-          false
-        end
+        !published_results? && election.per_question? && voting_enabled?
       end
 
       # returns the selected responses for this question, ensuring that the responses are
@@ -83,6 +76,10 @@ module Decidim
         response_ids = Array(response_ids)
 
         response_options.where(id: response_ids.take(max_votable_options))
+      end
+
+      def total_votes
+        @total_votes ||= response_options.sum(&:votes_count)
       end
 
       private

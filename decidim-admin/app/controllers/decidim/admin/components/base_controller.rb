@@ -31,7 +31,7 @@ module Decidim
           enforce_permission_to :read, :component, component: current_component
         end
 
-        before_action :set_component_breadcrumb_item
+        before_action :set_breadcrumb_items
 
         def permissions_context
           super.merge(
@@ -68,7 +68,7 @@ module Decidim
           false
         end
 
-        def set_component_breadcrumb_item
+        def set_breadcrumb_items
           context_breadcrumb_items << {
             label: t("components", scope: "decidim.admin.menu"),
             url: parent_path,

@@ -8,6 +8,20 @@ module Decidim
     let(:organization) { create(:organization) }
     let(:user) { build(:user, :confirmed, organization:) }
 
+    describe "name" do
+      subject { presenter.name }
+
+      context "when is valid" do
+        it { is_expected.to eq(user.name) }
+      end
+
+      context "when is not valid" do
+        let(:user) { build(:user, name: "John\r<script>alert('name')</script>") }
+
+        it { is_expected.to eq("John\ralert('name')") }
+      end
+    end
+
     describe "#nickname" do
       subject { presenter.nickname }
 

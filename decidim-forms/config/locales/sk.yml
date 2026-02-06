@@ -24,11 +24,9 @@ sk:
           question:
             any: Akékoľvek
             description: Popis
-            down: Nadol
             question: Otázka
             remove: Odstrániť
             statement: Prehlásenie
-            up: Hore
           update:
             invalid: Vyskytol sa problém s ukladaním formulára.
       question_types:
@@ -41,9 +39,6 @@ sk:
         show:
           questionnaire_closed:
             title: Formulár je uzavretý.
-          questionnaire_for_private_users:
-            body: Formulár je otvorený len pre súkromných používateľov
-            title: Formulár je uzavretý
           tos_agreement: Účasťou súhlasíte s našimi Podmienkami použitia
       step_navigation:
         show:

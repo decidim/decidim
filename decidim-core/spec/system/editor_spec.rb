@@ -31,7 +31,17 @@ describe "Editor" do
       api_path: "/api",
       messages: {
         editor: I18n.t("editor"),
-        selfxssWarning: I18n.t("decidim.security.selfxss_warning")
+        selfxssWarning: I18n.t("decidim.security.selfxss_warning"),
+        characterCounter: {
+          charactersAtLeast: {
+            one: I18n.t("forms.length_validator.minimum.one", count: "%count%", default: "forms.length_validator.minimum.other"),
+            other: I18n.t("forms.length_validator.minimum.other", count: "%count%")
+          },
+          charactersLeft: {
+            one: I18n.t("decidim.components.add_comment_form.remaining_characters_1", count: "%count%"),
+            other: I18n.t("decidim.components.add_comment_form.remaining_characters", count: "%count%")
+          }
+        }
       }
     }
     editor_wrapper = form.editor(:body, toolbar: features, **editor_options)
@@ -66,6 +76,7 @@ describe "Editor" do
           <meta name="csrf-token" content="abcdef0123456789">
           #{meta_context}
           #{stylesheet_pack_tag "decidim_core", media: "all"}
+          #{javascript_pack_tag "decidim_core", defer: false}
         </head>
         <body>
           <header>
@@ -73,7 +84,6 @@ describe "Editor" do
           </header>
           #{content_wrapper}
           <footer>Decidim</footer>
-          #{javascript_pack_tag "decidim_core", defer: false}
           <script>
             Decidim.config.set(#{js_configs.to_json});
             window.isTestEnvironment = true;
@@ -250,28 +260,31 @@ describe "Editor" do
       )
     end
 
-    it "link" do
+    it "link" do # rubocop:disable RSpec/ExampleLength
       click_toggle("link")
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://decidim.org"
         select "New tab", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.5
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <p>Another <a target="_blank" href="https://decidim.org">paragraph.</a></p>
+          <p>Another <a href="https://decidim.org" target="_blank">paragraph.</a></p>
         HTML
       )
 
       within prosemirror_selector do
         find("a").double_click
       end
+      sleep 0.5
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://docs.decidim.org"
         select "Default (same tab)", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.2
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -281,15 +294,17 @@ describe "Editor" do
 
       # Test that editing works also when re-clicking the link toolbar button
       click_toggle("link")
+      sleep 0.5
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://try.decidim.org"
         select "New tab", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.5
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <p>Another <a target="_blank" href="https://try.decidim.org">paragraph.</a></p>
+          <p>Another <a href="https://try.decidim.org" target="_blank">paragraph.</a></p>
         HTML
       )
 
@@ -586,6 +601,7 @@ describe "Editor" do
           fill_in "Link URL", with: "https://demo.decidim.org"
           find("[data-input='href'] input").native.send_keys [:enter]
         end
+        sleep 0.5
         expect_value(
           <<~HTML
             <p>Hello, world!</p>
@@ -1109,7 +1125,9 @@ describe "Editor" do
     context "when resizing an image" do
       let(:image) { create(:editor_image, organization:) }
       let(:image_src) { image.attached_uploader(:file).path }
-      let(:dimensions) { MiniMagick::Image.read(image.file.blob.download).dimensions }
+      let(:vips_image) { Vips::Image.new_from_buffer(image.file.blob.download, "") }
+      let(:width) { vips_image.width }
+      let(:height) { vips_image.height }
       let(:editor_content) do
         <<~HTML
           <div class="editor-content-image" data-image="">
@@ -1127,30 +1145,27 @@ describe "Editor" do
         context "with right side controls" do
           it "allows resizing the image" do
             drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 50)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 50}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 50}"></div>))
           end
 
           it "removes the width attribute when resizing back to original width or above it" do
             drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 100)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
 
             drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 500)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
           end
 
           it "shows and updates image sizes" do
-            width = dimensions[0]
-            height = dimensions[1]
-
             expect(page).to have_css("[data-image-resizer-dimension-value='#{width}']", visible: :all)
             expect(page).to have_css("[data-image-resizer-dimension-value='#{height}']", visible: :all)
 
@@ -1163,21 +1178,21 @@ describe "Editor" do
         context "with left side controls" do
           it "allows resizing the image" do
             drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 50)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 50}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 50}"></div>))
           end
 
           it "removes the width attribute when resizing back to original width or above it" do
             drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 100)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
 
             drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 500)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
@@ -1264,7 +1279,7 @@ describe "Editor" do
     it "allows selecting resource mentions with a slash" do
       allow(Decidim::SearchableResource).to receive(:where).with(
         resource_type: %w(Decidim::Proposals::Proposal),
-        organization: organization,
+        organization:,
         decidim_participatory_space: participatory_space,
         locale: I18n.locale
       ).and_return(double(
@@ -1369,7 +1384,7 @@ describe "Editor" do
           select "New tab", from: "Target"
           find("button[data-action='save']").click
         end
-        expect_value(%(<p>Hello, <a target="_blank" href="https://docs.decidim.org">world</a>!</p>))
+        expect_value(%(<p>Hello, <a href="https://docs.decidim.org" target="_blank">world</a>!</p>))
 
         # Should show the bubble menu after the link is closed
         within ".editor" do

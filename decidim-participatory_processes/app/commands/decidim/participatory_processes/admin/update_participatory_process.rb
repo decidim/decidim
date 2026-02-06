@@ -9,7 +9,7 @@ module Decidim
         fetch_file_attributes :hero_image
 
         fetch_form_attributes :title, :subtitle, :weight, :slug, :promoted,
-                              :taxonomizations, :private_space, :developer_group, :local_area,
+                              :taxonomizations, :has_members, :private_space, :developer_group, :local_area,
                               :target, :participatory_scope, :participatory_structure,
                               :meta_scope, :start_date, :end_date, :participatory_process_group,
                               :announcement

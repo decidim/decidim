@@ -2,7 +2,7 @@ import { mergeAttributes } from "@tiptap/core";
 import Image from "@tiptap/extension-image";
 import { Plugin } from "prosemirror-state";
 
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 import { fileNameToTitle } from "src/decidim/editor/utilities/file";
 import createNodeView from "src/decidim/editor/extensions/image/node_view";
 
@@ -172,13 +172,16 @@ export default Image.extend({
             return true;
           },
 
-          handleDoubleClick() {
-            if (!editor.isActive("image")) {
-              return false;
+          handleDoubleClick(view, pos) {
+            const { state } = view;
+            const node = state.doc.nodeAt(pos);
+
+            if (node && node.type.name === "image") {
+              editor.chain().focus().imageDialog().run();
+              return true;
             }
 
-            editor.chain().focus().imageDialog().run();
-            return true;
+            return false;
           },
 
           handleDOMEvents: {

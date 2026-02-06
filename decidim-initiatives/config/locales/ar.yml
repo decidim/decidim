@@ -68,7 +68,6 @@ ar:
         initiatives:
           fields:
             created_at: أنشئت في
-            id: هوية شخصية
             state: الحالة
             supports_count: توقيعات
             title: المبادرات

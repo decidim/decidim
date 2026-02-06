@@ -6,7 +6,12 @@ module Decidim
   #
   class UserPresenter < SimpleDelegator
     include ActionView::Helpers::UrlHelper
-    include Decidim::TranslatableAttributes
+    include Decidim::SanitizeHelper
+
+    # name sanitized
+    def name
+      decidim_sanitize_translated(__getobj__.name)
+    end
 
     #
     # nickname presented in a twitter-like style

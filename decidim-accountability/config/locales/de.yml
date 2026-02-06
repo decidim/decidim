@@ -40,6 +40,8 @@ de:
   decidim:
     accountability:
       actions:
+        add_milestone: Meilenstein hinzufügen
+        add_result: Ergebnis hinzufügen
         confirm_delete_result: Sind Sie sicher, dass Sie dieses Ergebnis löschen wollen?
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         deleted_results_info: Gelöschte Ergebnisse können aus dem Papierkorb wiederhergestellt werden.
@@ -111,6 +113,20 @@ de:
         milestones:
           create:
             invalid: Beim Erstellen dieses Meilensteins ist ein Problem aufgetreten.
+            success: Meilenstein erfolgreich erstellt.
+          destroy:
+            success: Meilenstein erfolgreich gelöscht.
+          edit:
+            title: Meilenstein bearbeiten
+            update: Meilenstein aktualisieren
+          index:
+            title: Meilensteine
+          new:
+            create: Meilenstein erstellen
+            title: Neuer Meilenstein
+          update:
+            invalid: Beim Aktualisieren dieses Meilensteins ist ein Problem aufgetreten.
+            success: Meilenstein erfolgreich aktualisiert.
         models:
           result:
             name: Ergebnis
@@ -183,6 +199,10 @@ de:
             invalid: Beim Aktualisieren dieses Status ist ein Problem aufgetreten.
             success: Status erfolgreich aktualisiert.
       admin_log:
+        milestones:
+          create: "%{user_name} hat den Meilenstein %{resource_name} erstellt"
+          delete: "%{user_name} hat den Meilenstein %{resource_name} gelöscht"
+          update: "%{user_name} hat den Meilenstein %{resource_name} aktualisiert"
         result:
           create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} gelöscht"
@@ -225,11 +245,14 @@ de:
       last_activity:
         new_result: 'Neues Ergebnis:'
       models:
+        milestone:
+          fields:
+            entry_date: Datum
+            title: Titel
         result:
           fields:
             created_at: Erstellt am
             end_date: Enddatum
-            id: ID
             progress: Fortschritt
             start_date: Startdatum
             status: Status
@@ -248,6 +271,8 @@ de:
             other: "%{count} Ergebnisse"
         home_header:
           global_status: Globaler Umsetzungsstatus
+        milestones:
+          title: Meilensteine
         no_results: Es gibt keine Projekte
         root_taxonomies:
           title: 'Anzeigen nach:'
@@ -263,10 +288,13 @@ de:
             label: Status
           taxonomies_part_of_contains:
             label: Klassifizierung
+      tooltips:
+        deleted_results_info: Dieses Ergebnis kann nicht gelöscht werden
     components:
       accountability:
         actions:
           comment: Kommentieren
+          vote_comment: Kommentar bewerten
         name: Rechenschaftspflicht
         settings:
           global:
@@ -292,12 +320,12 @@ de:
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Der Vorschlag "%{proposal_title}" wurde in ein Ergebnis aufgenommen. Sie können das auf dieser Seite sehen:'
+          email_intro: 'Der Vorschlag "%{proposal_title}" wurde in ein Ergebnis aufgenommen. Sehen Sie es sich auf dieser Seite an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine Aktualisierung auf %{proposal_title}
           notification_title: Der Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> wurde im Ergebnis <a href="%{resource_path}">%{resource_title}</a> aufgenommen.
         result_progress_updated:
-          email_intro: 'Das Ergebnis "%{resource_title}", das den Vorschlag "%{proposal_title}" enthält, ist jetzt zu %{progress}% abgeschlossen. Sie können das auf dieser Seite sehen:'
+          email_intro: 'Das Ergebnis "%{resource_title}", das den Vorschlag "%{proposal_title}" enthält, ist jetzt zu %{progress}% abgeschlossen. Sehen Sie es sich auf dieser Seite an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen und dieser Vorschlag in das Ergebnis "%{resource_title}" aufgenommen wurde. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Fortschritt von %{resource_title} aktualisiert
           notification_title: Das Ergebnis <a href="%{resource_path}">%{resource_title}</a>, das den Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> enthält, ist jetzt zu %{progress}% abgeschlossen.

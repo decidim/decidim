@@ -19,6 +19,7 @@ lt:
             announcement: Pranešimas
     elections:
       actions:
+        preview: Peržiūra
         title: Veiksmai
       admin:
         census:
@@ -59,6 +60,30 @@ lt:
         statuses:
           publish_results:
             invalid: Skelbiant rezultatus iškilo problema.
+      censuses:
+        token_csv_form:
+          email: El. paštas
+      elections:
+        count:
+          elections_count:
+            one: "%{count} rinkimai"
+            few: "%{count} rinkimai"
+            many: "%{count} rinkimai"
+            other: "%{count} rinkimai"
+        filters:
+          all: Visi
+          state: Būsena
+          state_values:
+            finished: Užbaigta
+            ongoing: Vykstantys
+        orders:
+          recent: Paskutiniai
+        questions:
+          title: Rinkimų klausimai
+        show:
+          vote_button: Balsuoti
+        vote_results:
+          title: Rezultatai
       models:
         election:
           fields:
@@ -68,6 +93,17 @@ lt:
       status:
         active: Aktyvūs
         finished: Užbaigta
+        not_started: Nepradėta
         ongoing: Vykstantys
+      votes:
+        confirm:
+          title: Patvirtinkite savo balsą
+        question:
+          back: Atgal
+          next: Kita
     statistics:
       elections_count: Rinkimai
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Uždaryti

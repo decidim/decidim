@@ -41,7 +41,7 @@
           <ul class="dropdown dropdown__bottom divide-y divide-gray-3">
             <% unless reloaded? %>
               <li class="dropdown__item">
-                <%= cell("decidim/report_button", model, only_button: true, button_classes: "dropdown__button flex flex-row-reverse", modal_id: "flagModalComment#{model.id}") %>
+                <%= cell("decidim/report_button", model, only_button: true, button_classes: "dropdown__button", modal_id: "flagModalComment#{model.id}") %>
               </li>
             <% end %>
             <li class="dropdown__item">

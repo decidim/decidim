@@ -137,13 +137,14 @@ module Decidim
       describe "#reported_content_url" do
         subject { comment.reported_content_url }
 
-        let(:url_format) { "http://%{host}:%{port}/processes/%{slug}/f/%{component_id}/dummy_resources/%{resource_id}#comment_%{comment_id}" }
+        let(:url_format) { "http://%{host}:%{port}/%{locale}/processes/%{slug}/f/%{component_id}/dummy_resources/%{resource_id}#comment_%{comment_id}" }
 
         it "returns the resource URL" do
           expect(subject).to eq(
             format(
               url_format,
               host: commentable.organization.host,
+              locale: I18n.locale,
               port: Capybara.server_port,
               slug: commentable.participatory_space.slug,
               component_id: commentable.component.id,

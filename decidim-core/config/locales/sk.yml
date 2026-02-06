@@ -113,9 +113,6 @@ sk:
         update: "%{user_name} aktualizoval %{resource_name} aplikáciu OAuth"
       organization:
         update: "%{user_name} aktualizoval nastavenia organizácie"
-      participatory_space_private_user:
-        create: "%{user_name} pozval %{resource_name} aby sa stal súkromným používateľom"
-        delete: "%{user_name} odstránil užívateľa %{resource_name} ako súkromného účastníka"
       scope:
         create: "%{user_name} vytvoril %{resource_name} rozsah"
         create_with_parent: "%{user_name} vytvoril%{resource_name} rozsah vnútri rozsahu%{parent_scope}"
@@ -522,7 +519,6 @@ sk:
     managed_users:
       expired_session: Aktuálna platnosť zosúhlasenia už vypršala.
     menu:
-      help: Pomoc
       home: Domov
     messaging:
       conversation_mailer:
@@ -575,10 +571,8 @@ sk:
       unsubscribe:
         success: Úspešne ste odhlásení.
         token_error: Platnosť odkazu vypršala.
-        unsubscribe: Odhlásiť odber
     newsletters_opt_in_mailer:
       notify:
-        body_1: Spracovanie osobných údajov a ich ochrana sú pre nás všetkých stále dôležitejšie. S novým všeobecným nariadením o ochrane osobných údajov (GDPR) z 25. mája 2018 majú jednotlivci lepšiu kontrolu nad svojimi osobnými údajmi. Z tohto dôvodu potrebujeme vaše "OK" pre pokračovanie v zasielanie relevantných informácií o aktivitách%{organization_name}.
         body_2: 'Ako nám môžete dať svoj súhlas? Stačí kliknúť na nasledujúce tlačidlo: '
         body_3: S týmto súhlasom budete môcť pokračovať v prijímaní informácií o službách platformy. Pokiaľ naopak nedostaneme pozitívne potvrdenie z vášho hľadiska, prestaneme vám posielať naše správy. Ak potvrdíte, že chcete byť stále informovaný, máte vždy možnosť kedykoľvek zrušiť.
         button: Áno, chcem aj naďalej prijímať relevantné informácie
@@ -617,12 +611,9 @@ sk:
           proposals_explanation: Urobiť návrhy, podporiť existujúce a podporovať zmeny, ktoré chcete vidieť.
         footer_sub_hero:
           footer_sub_hero_headline: Vitajte na%{organization} participatívnej platforme.
-          register: Registrovať
         hero:
           participate: zúčastniť sa
           welcome: Vitajte na%{organization}!
-        sub_hero:
-          register: Registrovať
       index:
         standalone_pages: Stránky
         subheading: Prechádzajte stránky pomocníka%{name}
@@ -740,10 +731,8 @@ sk:
         decline: Odmietnuť pozvaním
         hello: Dobrý deň%{email},
         invited_you_as_admin: "%{invited_by} vás pozval ako administrátora na %{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu."
-        invited_you_as_private_user: "%{invited_by} vás pozval ako súkromného užívateľa na %{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu."
         someone_invited_you: Niekto vás pozval na%{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu.
         someone_invited_you_as_admin: Niekto Vás pozval ako administrátora%{application}, môžete ho prijať pomocou nižšie uvedeného odkazu.
-        someone_invited_you_as_private_user: Niekto vás pozval ako private_user%{application}, môžete ho prijať pomocou nižšie uvedeného odkazu.
         subject: Pokyny k pozvánkam
       password_change:
         greeting: Dobrý deň, %{recipient}!
@@ -837,7 +826,6 @@ sk:
       impersonation_warning:
         close_session: Zatvoriť sedenie
         description_html: Spravujete účastníka <b>%{user_name} </ b>.
-        expire_time_html: Platnosť vašej relácie vyprší za <b> <span class = "minutes">%{minutes} </ span> </ b>.
       notifications_dashboard:
         mark_all_as_read: Označiť všetko ako prečítané
       user_menu:
@@ -862,7 +850,6 @@ sk:
     fallback: nie je platný
     name_included_in_password: je príliš podobné vášmu menu
     not_enough_unique_characters: nemá dostatok jedinečných znakov
-    password_not_allowed: nie je povolené
     password_too_common: je príliš bežné
     password_too_long: je to moc dlhé
     password_too_short: je príliš krátke

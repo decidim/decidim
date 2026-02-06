@@ -24,7 +24,7 @@
     <%= render "decidim/meetings/admin/poll/response_option_template", form: question_form, editable: true, template_id: "response-option-template-dummy" %>
   <% end %>
 
-  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
+  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0" data-draggable-table data-sort-url="#" data-draggable-handle=".card-divider" id="questionnaire-questions-list">
     <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questionnaire[questions][]", question do |question_form| %>
         <%= render "decidim/meetings/admin/poll/question",
@@ -44,6 +44,6 @@
 
 <script>
   document.addEventListener("turbo:load", function () {
-    window.Decidim.createEditableForm()
-  })
+    window.Decidim.createEditableForm();
+  });
 </script>

@@ -6,9 +6,9 @@
     <% i18n_scope = "#{f.object.class.i18n_scope}.attributes.#{settings_form.object.model_name.i18n_key}.allowed_file_extensions" %>
 
     <%= field_set_tag f.label(t(".file_extensions.title"), nil, for: nil), class: "border-2 border-background p-4 form__wrapper" do %>
-      <%= extensions_form.text_field :default, class: "js-tags-container mt-4", label: t("default", scope: i18n_scope), help_text: t(".file_extensions.default_hint") %>
-      <%= extensions_form.text_field :image, class: "js-tags-container mt-4", label: t("image", scope: i18n_scope), help_text: t(".file_extensions.image_hint") %>
-      <%= extensions_form.text_field :admin, class: "js-tags-container mt-4", label: t("admin", scope: i18n_scope), help_text: t(".file_extensions.admin_hint") %>
+      <%= extensions_form.text_field :default, data: { controller: "input-tags" }, class: "mt-4", label: t("default", scope: i18n_scope), help_text: t(".file_extensions.default_hint") %>
+      <%= extensions_form.text_field :image, data: { controller: "input-tags" }, class: "mt-4", label: t("image", scope: i18n_scope), help_text: t(".file_extensions.image_hint") %>
+      <%= extensions_form.text_field :admin, data: { controller: "input-tags" }, class: "mt-4", label: t("admin", scope: i18n_scope), help_text: t(".file_extensions.admin_hint") %>
     <% end %>
   <% end %>
 
@@ -17,8 +17,8 @@
 
     <%= field_set_tag f.label(t(".content_types.title"), nil, for: nil), class: "border-2 border-background p-4 form__wrapper" do %>
       <p class="help-text"><%= t(".content_types.intro_html") %></p>
-      <%= extensions_form.text_field :default, class: "js-tags-container mt-4", label: t("default", scope: i18n_scope), help_text: t(".content_types.default_hint") %>
-      <%= extensions_form.text_field :admin, class: "js-tags-container mt-4", label: t("admin", scope: i18n_scope), help_text: t(".content_types.admin_hint") %>
+      <%= extensions_form.text_field :default, data: { controller: "input-tags" }, class: "mt-4", label: t("default", scope: i18n_scope), help_text: t(".content_types.default_hint") %>
+      <%= extensions_form.text_field :admin, data: { controller: "input-tags" }, class: "mt-4", label: t("admin", scope: i18n_scope), help_text: t(".content_types.admin_hint") %>
     <% end %>
   <% end %>
 

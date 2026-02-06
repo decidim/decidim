@@ -34,7 +34,7 @@ module Decidim
       private
 
       def document
-        @document ||= documents.find(params[:id])
+        @document ||= documents.find_by(id: params[:id])
       end
 
       def presenter
@@ -51,6 +51,16 @@ module Decidim
 
       def paginate_documents
         @paginate_documents ||= paginate(documents.enabled_desc)
+      end
+
+      def add_breadcrumb_item
+        return {} if document.blank?
+
+        {
+          label: translated_attribute(document.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).document_path(document),
+          active: false
+        }
       end
     end
   end

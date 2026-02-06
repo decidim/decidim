@@ -2,7 +2,7 @@ import data from "@emoji-mart/data"
 import i18nEn from "@emoji-mart/data/i18n/en.json"
 import { Picker } from "emoji-mart"
 
-import * as i18n from "src/decidim/i18n";
+import * as i18n from "src/decidim/refactor/moved/i18n";
 import { screens } from "tailwindcss/defaultTheme"
 
 class EmojiI18n {

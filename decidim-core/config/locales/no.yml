@@ -127,10 +127,6 @@
         update: "%{user_name} oppdaterte %{resource_name} OAuth applikasjonen"
       organization:
         update: "%{user_name} oppdaterte organisasjonens innstillinger"
-      participatory_space_private_user:
-        create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
-        create_via_csv: "%{user_name} inviterte %{resource_name} via CSV til å være privat deltaker"
-        delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
       scope:
         create: "%{user_name} laget temaet %{resource_name}"
         create_with_parent: "%{user_name} lagde %{resource_name} temaet inni %{parent_scope} temaet"
@@ -608,7 +604,6 @@
         latlng_text: 'breddegrad: %{latitude}, lengdegrad: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Hjelp
       home: Hjem
     messaging:
       conversation_mailer:
@@ -670,10 +665,8 @@
       unsubscribe:
         success: Du har avsluttet ditt abonnement.
         token_error: Lenken er utløpt.
-        unsubscribe: Avslutt abonnement
     newsletters_opt_in_mailer:
       notify:
-        body_1: Behandlingen av personopplysninger og deres beskyttelse blir stadig viktigere for oss alle. Med den nye General Data Protection Regulation (GDPR) av 25. mai 2018, har enkeltpersoner bedre kontroll over personopplysningene sine. Av denne grunn trenger vi din "OK" for å fortsette å sende relevant informasjon om aktivitetene til %{organization_name}.
         body_2: 'Hvordan kan du gi oss ditt samtykke? Bare klikk på følgende knapp:'
         body_3: Med dette samtykket vil du kunne fortsette å motta informasjon om tjenestene til plattformen. Hvis vi ikke mottar en positiv bekreftelse fra din side, vil vi slutte å sende deg meldingene våre. Hvis du bekrefter at du ønsker å bli informert, har du alltid muligheten til å kansellere når som helst.
         button: Ja, jeg vil fortsette å motta relevant informasjon
@@ -722,12 +715,9 @@
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
-          register: Registrer deg
         hero:
           participate: Delta
           welcome: Velkommen til %{organization}!
-        sub_hero:
-          register: Registrer deg
       index:
         standalone_pages: Sider
         subheading: Naviger gjennom hjelpesidene til %{name}
@@ -916,10 +906,8 @@
         decline: Avvis invitasjon
         hello: Hei %{email},
         invited_you_as_admin: "%{invited_by} har invitert deg som en admin av %{application}. Du kan godta via lenken nedenfor."
-        invited_you_as_private_user: "%{invited_by} har invitert deg som en privat deltaker av %{application}. Du kan godta via lenken nedenfor."
         someone_invited_you: Noen har invitert deg til %{application}. Du kan godta det via lenken nedenfor.
         someone_invited_you_as_admin: Noen har invitert deg som en administrator av %{application}, du kan godta det via lenken nedenfor.
-        someone_invited_you_as_private_user: Noen har invitert deg som privat deltaker av %{application}, du kan godta det via lenken nedenfor.
         subject: Invitasjonsinstruksjoner
       password_change:
         greeting: Hei %{recipient}!
@@ -1019,7 +1007,6 @@
       impersonation_warning:
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
-        expire_time_html: Økten din går ut om <b><span class="minutes">%{minutes}</span> minutter</b>.
       language_chooser:
         choose_language: Velg språk
       notifications_dashboard:
@@ -1059,7 +1046,6 @@
     name_included_in_password: er for likt navnet ditt
     nickname_included_in_password: er for likt kallenavnet ditt
     not_enough_unique_characters: har ikke nok unike tegn
-    password_not_allowed: er ikke tillatt
     password_too_common: er for vanlig
     password_too_long: er for lang
     password_too_short: er for kort

@@ -10,7 +10,8 @@ describe "Explore versions", versioning: true do
     decidim_participatory_process_accountability.result_path(
       participatory_process_slug: participatory_process.slug,
       component_id: component.id,
-      id: result.id
+      id: result.id,
+      locale: I18n.locale
     )
   end
   let!(:result) do

@@ -10,17 +10,17 @@ module Decidim
       helper_method :current_token, :resource, :resource_title, :share_tokens_path
 
       def index
-        enforce_permission_to :read, :share_tokens
+        enforce_permission_to :read, :share_token
         @share_tokens = filtered_collection
       end
 
       def new
-        enforce_permission_to :create, :share_tokens
+        enforce_permission_to :create, :share_token
         @form = form(ShareTokenForm).instance
       end
 
       def create
-        enforce_permission_to :create, :share_tokens
+        enforce_permission_to :create, :share_token
         @form = form(ShareTokenForm).from_params(params, resource:)
 
         CreateShareToken.call(@form) do
@@ -37,12 +37,12 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to(:update, :share_tokens, share_token: current_token)
+        enforce_permission_to(:update, :share_token, share_token: current_token)
         @form = form(ShareTokenForm).from_model(current_token)
       end
 
       def update
-        enforce_permission_to(:update, :share_tokens, share_token: current_token)
+        enforce_permission_to(:update, :share_token, share_token: current_token)
         @form = form(ShareTokenForm).from_params(params, resource:)
 
         UpdateShareToken.call(@form, current_token) do
@@ -59,7 +59,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to(:destroy, :share_tokens, share_token: current_token)
+        enforce_permission_to(:destroy, :share_token, share_token: current_token)
 
         DestroyShareToken.call(current_token, current_user) do
           on(:ok) do

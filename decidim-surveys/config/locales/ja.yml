@@ -12,6 +12,7 @@ ja:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: このアンケートを非公開にしますか？
         see_survey: アンケートを見る
       admin_log:
         changeset:
@@ -45,6 +46,17 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} での新しいアンケート'
           notification_title: <a href="%{resource_path}">%{resource_title}の</a> <a href="%{participatory_space_url}">%{participatory_space_title}のアンケート</a> が公開されました。
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: 回答の内容
+          created_at: 回答が作成されたタイムスタンプ
+          id: アンケート回答の固有ID
+          ip_hash: プライバシー保護のためにハッシュ化された回答者のIPアドレス
+          question: 回答された質問
+          registered: 登録済みの参加者
+          unregistered: 未登録の参加者
+          user_status: 回答を提出したユーザーのステータス
     statistics:
       responses: '応答：'
       responses_count: 回答
@@ -57,6 +69,7 @@ ja:
         manage_questions: 質問
         new_survey: 新しいアンケート
         preview: プレビュー
+        responses: 回答
         responses_alert: このアンケートでは、公開時に回答を削除する設定が有効になっています。現在%{responses_count}件の回答があり、続行するとそれらは削除されます。
         title: アクション
       admin:
@@ -98,6 +111,8 @@ ja:
             title: アンケートを編集
           index:
             title: アンケート
+          new:
+            title: 新しいアンケート
           publish:
             invalid: このアンケートを公開する際に問題が発生しました。
             success: アンケートを公開しました。
@@ -123,10 +138,14 @@ ja:
       models:
         survey:
           fields:
+            published: 公開済み
             questions: 質問
             responses: 回答
             status: ステータス
             title: タイトル
+          published:
+            published: 公開済み
+            unpublished: 未公開
           status:
             closed: 終了済
             open: 公開

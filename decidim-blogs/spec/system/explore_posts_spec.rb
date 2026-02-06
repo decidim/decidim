@@ -37,6 +37,12 @@ describe "Explore posts" do
         visit_component
       end
 
+      it "shows the correct information in breadcrumb" do
+        within(".menu-bar") do
+          expect(page).to have_content(translated(component.name))
+        end
+      end
+
       it "shows the component name in the sidebar" do
         within("aside") do
           expect(page).to have_content(translated(component.name))

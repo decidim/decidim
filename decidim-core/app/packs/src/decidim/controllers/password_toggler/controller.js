@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import icon from "src/decidim/icon"
+import icon from "src/decidim/refactor/moved/icon"
 
 /**
  * PasswordToggler Stimulus Controller

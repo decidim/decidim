@@ -23,7 +23,7 @@
       </div>
 
     <div class="row">
-      <div class="columns slug">
+      <div class="columns" data-controller="slug">
         <%= form.text_field :slug, help_text: t(".slug_help_html", url: decidim_form_slug_url(:assemblies, form.object.slug)) %>
       </div>
       </div>
@@ -199,6 +199,10 @@
 
       <div class="row column">
         <%= form.check_box :promoted %>
+      </div>
+
+      <div class="row column" id="has_members">
+        <%= form.check_box :has_members, help_text: t(".has_members_help") %>
       </div>
 
       <div class="row column" id="private_space">

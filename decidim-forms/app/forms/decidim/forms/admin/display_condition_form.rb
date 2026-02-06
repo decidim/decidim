@@ -39,7 +39,7 @@ module Decidim
         end
 
         def questions_for_select(questionnaire, id)
-          questionnaire.questions.map do |question|
+          questionnaire.questions.not_separator.map do |question|
             [
               question.translated_body,
               question.id,

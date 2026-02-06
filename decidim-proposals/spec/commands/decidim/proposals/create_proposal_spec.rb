@@ -142,6 +142,28 @@ module Decidim
             end
           end
         end
+
+        describe "when geocoding is enabled" do
+          let(:component) { create(:proposal_component, :with_geocoding_enabled) }
+          let(:form_params) do
+            {
+              title: "A reasonable proposal title",
+              body: "A reasonable proposal body",
+              address: "Barcelona",
+              latitude: 41.394897,
+              longitude: 2.153088
+            }
+          end
+
+          it "saves geocoding data" do
+            expect { command.call }.to broadcast(:ok)
+            proposal = Decidim::Proposals::Proposal.last
+
+            expect(proposal.address).to eq(form_params[:address])
+            expect(proposal.latitude).to eq(form_params[:latitude])
+            expect(proposal.longitude).to eq(form_params[:longitude])
+          end
+        end
       end
     end
   end

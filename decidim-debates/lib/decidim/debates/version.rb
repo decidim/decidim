@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-debates version.
   module Debates
     def self.version
-      "0.31.0.dev"
+      "0.32.0.dev"
     end
   end
 end

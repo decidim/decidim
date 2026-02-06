@@ -1,9 +1,7 @@
 <% if report.details.blank? %>
   <%= t(".reasons.#{report.reason}") %>
 <% else %>
-  <span
-    data-tooltip
-    title="<%= report.details&.truncate(250) %>">
-      <%= t(".reasons.#{report.reason}") %>
+  <span title="<%= report.details&.truncate(250) %>">
+      <%= with_tooltip(t(".reasons.#{report.reason}")) { t(".reasons.#{report.reason}") } %>
   </span>
 <% end %>

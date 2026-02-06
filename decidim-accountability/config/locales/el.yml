@@ -119,7 +119,6 @@ el:
           fields:
             created_at: Δημιουργήθηκε
             end_date: Ημερομηνία λήξης
-            id: Αναγνωριστικό ID
             progress: Πρόοδος
             start_date: Ημερομηνία έναρξης
             status: Κατάσταση

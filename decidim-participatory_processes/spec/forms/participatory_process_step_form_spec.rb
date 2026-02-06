@@ -24,11 +24,9 @@ module Decidim
         end
         let(:start_date) { nil }
         let(:end_date) { nil }
-        let(:cta_path) { nil }
         let(:attributes) do
           {
             "participatory_process_step" => {
-              "cta_path" => cta_path,
               "title_en" => title[:en],
               "title_es" => title[:es],
               "title_ca" => title[:ca],
@@ -62,18 +60,6 @@ module Decidim
         end
 
         context "when everything is OK" do
-          it { is_expected.to be_valid }
-        end
-
-        context "when cta_path is a full URL" do
-          let(:cta_path) { "http://example.org" }
-
-          it { is_expected.not_to be_valid }
-        end
-
-        context "when cta_path is a valid path" do
-          let(:cta_path) { "processes/my-process/" }
-
           it { is_expected.to be_valid }
         end
 

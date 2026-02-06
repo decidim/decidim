@@ -81,7 +81,7 @@ shared_examples_for "has questionnaire" do
         see_questionnaire_questions
         within "label.response-questionnaire__question-label" do
           expect(page).to have_content(translated_attribute(question.body).to_s)
-          within "span.label-required.has-tip" do
+          within "span.label-required" do
             expect(page).to have_content("*")
             expect(page).to have_content("Required field")
           end
@@ -283,8 +283,9 @@ shared_examples_for "has questionnaire" do
         accept_confirm { click_on "Submit" }
       end
 
-      it "shows errors without submitting the form" do
-        expect(page).to have_no_css ".alert.flash"
+      it "submits the form and shows errors" do
+        expect(page).to have_css ".alert.flash"
+        expect(page).to have_admin_callout(callout_failure)
         different_error = I18n.t("decidim.forms.questionnaires.response.max_choices_alert")
         expect(different_error).to eq("There are too many choices selected")
         expect(page).to have_no_content(different_error)

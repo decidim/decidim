@@ -106,7 +106,17 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
       suggestionItem.textContent = label;
       suggestion.append(suggestionItem);
 
-      suggestionItem.addEventListener("click", () => selectItem(idx));
+      suggestionItem.addEventListener("click", (ev) => {
+        ev.preventDefault();
+
+        if (currentRange) {
+          // Increase the current range by 1 since the ENTER key would do the
+          // same when doing the selection through keyboard.
+          currentRange.to += 1;
+        }
+
+        selectItem(idx);
+      });
     });
   }
 
@@ -173,7 +183,7 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
 export const createNodeView = (self) => {
   return ({ node }) => {
     const dom = document.createElement("span");
-    dom.textContent = self.options.renderLabel({ options: self.options, node });
+    dom.textContent = self.options.renderText({ options: self.options, node });
 
     const { id, label } = node.attrs;
     dom.dataset.suggestion = node.type.name;

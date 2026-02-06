@@ -2,9 +2,9 @@
 
 You can add JavaScript code by multiple ways in Decidim:
 
-== Webpacker
+== Shakapacker
 
-Decidim uses Webpack (via Webpacker) to compile assets, including javascript.
+Decidim uses Webpack (via Shakapacker) to compile assets, including javascript.
 
 During the generation of a decidim app, the file `app/packs/src/decidim/decidim_application.js` is created and hooked to Decidim packs, so any javascript written there is compiled within Decidim assets. For example to create a new alert just add:
 

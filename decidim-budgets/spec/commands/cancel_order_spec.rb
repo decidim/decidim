@@ -50,5 +50,21 @@ module Decidim::Budgets
         expect { subject.call }.to broadcast(:invalid)
       end
     end
+
+    context "and the voting is disabled" do
+      let!(:component) { create(:budgets_component, :with_votes_disabled, organization: user.organization) }
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
+    context "and the voting is finished" do
+      let!(:component) { create(:budgets_component, :with_voting_finished, organization: user.organization) }
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
   end
 end

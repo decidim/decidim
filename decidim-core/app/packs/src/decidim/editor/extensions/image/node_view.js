@@ -1,6 +1,6 @@
 import { DOMSerializer } from "prosemirror-model";
 
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 
 const createControl = (position, label) => {
   const el = document.createElement("button");

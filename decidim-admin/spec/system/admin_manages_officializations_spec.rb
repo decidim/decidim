@@ -66,6 +66,23 @@ describe "Admin manages officializations" do
     end
   end
 
+  describe "when user's nickname is blank" do
+    let!(:user) { create(:user, :managed, organization:, nickname: "") }
+
+    before do
+      within_admin_sidebar_menu do
+        click_on "Participants"
+      end
+    end
+
+    it "has no user link" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        expect(page).to have_content(user.name)
+        expect(page).to have_no_link(user.name)
+      end
+    end
+  end
+
   describe "officializating users" do
     context "when not yet officialized" do
       let!(:user) { create(:user, organization:) }

@@ -42,6 +42,7 @@ module Decidim
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:private_space) { true }
+        let(:has_members) { true }
         let(:purpose_of_action) do
           {
             en: "Purpose of action",
@@ -129,6 +130,7 @@ module Decidim
               "banner_image" => attachment,
               "slug" => slug,
               "private_space" => private_space,
+              "has_members" => has_members,
               "purpose_of_action_en" => purpose_of_action[:en],
               "purpose_of_action_es" => purpose_of_action[:es],
               "purpose_of_action_ca" => purpose_of_action[:ca],
@@ -163,6 +165,18 @@ module Decidim
               "taxonomies" => [taxonomies.first.id, taxonomies.second.id]
             }
           }
+        end
+
+        context "when has_members is true" do
+          let(:has_members) { true }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when has_members is false" do
+          let(:has_members) { false }
+
+          it { is_expected.to be_valid }
         end
 
         context "when everything is OK" do

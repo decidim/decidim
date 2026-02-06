@@ -31,7 +31,7 @@ end
 shared_examples "versions controller" do
   let(:base_params) do
     if resource.is_a?(Decidim::Participable)
-      { :"#{resource.model_name.singular_route_key}_slug" => resource.slug }
+      { :"#{resource.model_name.singular_route_key}_slug" => resource.slug, :locale => I18n.locale }
     else
       { :"#{resource.model_name.singular_route_key}_id" => resource.id }
     end

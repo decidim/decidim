@@ -808,6 +808,46 @@ module Decidim
           end
         end
       end
+
+      context "with errors on the field" do
+        let(:attributes) { {} }
+        let(:output) { builder.upload :image, attributes }
+
+        before do
+          allow(resource).to receive(:errors).and_return(image: ["cannot be blank"])
+        end
+
+        it "renders error and help text after the upload cell" do
+          expect(parsed.css(".form-error")).not_to be_empty
+        end
+
+        it "renders the error message" do
+          expect(parsed.css(".form-error").text).to include("cannot be blank")
+        end
+      end
+
+      context "with help_text option" do
+        let(:attributes) { { help_text: "Upload a valid image file" } }
+        let(:output) { builder.upload :image, attributes }
+
+        it "renders help text after the upload cell" do
+          expect(parsed.css(".help-text")).not_to be_empty
+          expect(parsed.css(".help-text").text).to include("Upload a valid image file")
+        end
+      end
+
+      context "when the field is required" do
+        let(:attributes) { { required: true } }
+        let(:output) { builder.upload :image, attributes }
+
+        it "renders the HTML5 validation error element outside the modal" do
+          expect(parsed.css("span.form-error")).not_to be_empty
+        end
+
+        it "renders the error element with data-form-error-for linking to the validation field" do
+          expect(parsed.css("span.form-error[data-form-error-for='image_validation']")).not_to be_empty
+        end
+      end
     end
 
     describe "#data_picker" do

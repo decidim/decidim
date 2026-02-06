@@ -129,7 +129,7 @@ module Decidim
         return unless @form.send_to_private_members
         return [] if private_spaces.blank?
 
-        Decidim::ParticipatorySpacePrivateUser.private_user_ids_for_participatory_spaces(private_spaces)
+        Decidim::ParticipatorySpace::Member.member_ids_for_participatory_spaces(private_spaces)
       end
     end
   end

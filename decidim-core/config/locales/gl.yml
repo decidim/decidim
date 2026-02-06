@@ -109,9 +109,6 @@ gl:
         update: "%{user_name} actualizou a aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizou a configuración da organización"
-      participatory_space_private_user:
-        create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
-        delete: "%{user_name} eliminou o usuario %{resource_name} como usuario privado"
       scope:
         create: "O %{user_name} creou o alcance %{resource_name}"
         create_with_parent: "%{user_name} creou o alcance %{resource_name} no ámbito %{parent_scope}"
@@ -500,7 +497,6 @@ gl:
     managed_users:
       expired_session: A sesión de suplantación actual caducou.
     menu:
-      help: Axuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -526,10 +522,8 @@ gl:
       unsubscribe:
         success: Estás desubscrito con éxito.
         token_error: A ligazón caducou.
-        unsubscribe: Anular a suscripción
     newsletters_opt_in_mailer:
       notify:
-        body_1: O procesamento de datos persoais ea súa protección é cada vez máis importante para todos. Coa nova norma xeral de protección de datos (GDPR) do 25 de maio de 2018, os individuos teñen un mellor control sobre os seus datos persoais. Por este motivo necesitamos o "OK" para seguir enviando información relevante sobre as actividades do %{organization_name}.
         body_2: 'Como nos pode dar o seu consentimento? Só tes que premer no seguinte botón:'
         body_3: Con este consentimento poderás seguir recibindo información sobre os servizos da plataforma. Se, pola contra, non recibimos unha confirmación positiva da súa parte, deixaremos de enviarlle as nosas mensaxes. Se confirma que quere manter informado, sempre terá a opción de cancelar en calquera momento.
         button: Si, quero seguir recibindo información relevante
@@ -576,12 +570,9 @@ gl:
           proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
         footer_sub_hero:
           footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
-          register: Rexistrarse
         hero:
           participate: Participar
           welcome: Benvido a %{organization}.
-        sub_hero:
-          register: Rexistrarse
       index:
         standalone_pages: Páxinas
         subheading: Navega polas páxinas de axuda de %{name}
@@ -709,10 +700,8 @@ gl:
         decline: Declina a invitación
         hello: Ola %{email},
         invited_you_as_admin: "%{invited_by} invitoute como administrador de %{application}. Podes aceptalo a través da seguinte ligazón."
-        invited_you_as_private_user: "%{invited_by} convidoute como usuario privado de %{application}. Podes aceptalo a través da seguinte ligazón."
         someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.
         someone_invited_you_as_admin: Alguén te convidou como administrador de %{application}, podes aceptalo a través da seguinte ligazón.
-        someone_invited_you_as_private_user: Alguén te convidou como usuario privado de %{application}, podes aceptalo a través da seguinte ligazón.
         subject: Instrucións de invitación
       password_change:
         greeting: Ola %{recipient}!
@@ -801,7 +790,6 @@ gl:
       impersonation_warning:
         close_session: Pechar sesión
         description_html: Estás a suplantar o usuario <b>%{user_name}</b>.
-        expire_time_html: A túa sesión caducará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marca todo como lido
       user_menu:
@@ -827,7 +815,6 @@ gl:
     name_included_in_password: é moi similar ao teu nome
     nickname_included_in_password: é moi semellante ao teu alcume
     not_enough_unique_characters: non ten suficientes caracteres únicos
-    password_not_allowed: non está permitido
     password_too_common: é moi común
     password_too_long: é demasiado longo
     password_too_short: é demasiado curto

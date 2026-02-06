@@ -24,12 +24,14 @@ describe "Admin publish and unpublish documents" do
     expect(page).to have_content("Configure")
 
     within "tr", text: title do
+      expect(page).to have_content("Unpublished")
       find("button[data-controller='dropdown']").click
       click_on "Publish"
     end
     expect(page).to have_admin_callout "Document successfully published"
 
     within "tr", text: title do
+      expect(page).to have_content("Published")
       find("button[data-controller='dropdown']").click
       click_on "Unpublish"
     end

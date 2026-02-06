@@ -102,7 +102,6 @@ hu:
         initiatives:
           fields:
             created_at: 'Létrehozva:'
-            id: ID
             published_at: Publikálás ideje
             state: Állapot
             supports_count: Aláírások

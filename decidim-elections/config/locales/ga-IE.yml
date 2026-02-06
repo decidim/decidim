@@ -13,6 +13,7 @@ ga:
           update: Nuashonraigh
     elections:
       actions:
+        preview: Réamhamharc
         title: Gníomhartha
       admin:
         dashboard:
@@ -33,6 +34,22 @@ ga:
         questions:
           edit_questions:
             title: Ceisteanna
+      censuses:
+        token_csv_form:
+          email: Seoladh ríomhphoist
+      elections:
+        filters:
+          all: Uile
+          state: Stádas
+          state_values:
+            finished: Críochnaithe
+            ongoing: Leanúnach
+        orders:
+          recent: Is Déanaí
+        show:
+          vote_button: Vótáil
+        vote_results:
+          title: Torthaí
       models:
         election:
           fields:
@@ -43,3 +60,11 @@ ga:
         active: Gníomhach
         finished: Críochnaithe
         ongoing: Leanúnach
+      votes:
+        question:
+          back: Ar Ais
+          next: I ndiaidh
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Dún

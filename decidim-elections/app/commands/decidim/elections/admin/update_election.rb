@@ -9,7 +9,7 @@ module Decidim
 
         def initialize(form, election)
           super
-          @attached_to = election unless election.published?
+          @attached_to = election
         end
 
         private
@@ -17,14 +17,14 @@ module Decidim
         alias election resource
 
         def attributes
-          election.published? ? published_election_attributes : unpublished_election_attributes
+          election.started? ? started_election_attributes : not_started_election_attributes
         end
 
-        def published_election_attributes
+        def started_election_attributes
           { description: parsed_description }
         end
 
-        def unpublished_election_attributes
+        def not_started_election_attributes
           {
             title: parsed_title,
             description: parsed_description,
@@ -43,14 +43,11 @@ module Decidim
         end
 
         def run_after_hooks
-          return if election.published?
-
           create_gallery if process_gallery?
           photo_cleanup!
         end
 
         def run_before_hooks
-          return if election.published?
           return unless process_gallery?
 
           build_gallery
