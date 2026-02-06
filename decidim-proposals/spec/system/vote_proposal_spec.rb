@@ -108,7 +108,7 @@ describe "Vote Proposal", slow: true do
           )
         end
 
-        it "likes_enabled is #{likes_enabled} and likes_blocked is #{likes_blocked}" do
+        it "works when likes_enabled is #{likes_enabled} and likes_blocked is #{likes_blocked}" do
           visit resource_locator(proposal).path
           expect(page).to have_css("#proposal-#{proposal.id}-vote-button")
           within "#proposal-#{proposal.id}-vote-button" do
