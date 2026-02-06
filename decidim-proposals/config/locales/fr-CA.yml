@@ -54,7 +54,7 @@ fr-CA:
         file: Fichier
       proposals_import:
         import_proposals: Importer des propositions
-        keep_answers: Garder l'état et les réponses
+        keep_answers: Conserver les états et les réponses
         keep_authors: Gardez les auteurs originaux
       valuation_assignment:
         admin_log:
@@ -616,7 +616,7 @@ fr-CA:
             create: Importer des propositions
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
-            select_states: Vérifiez l'état des propositions à importer
+            select_states: Importer uniquement des propositions avec ces états. Si aucun n'est sélectionné, toutes les propositions seront importées.
             title: Importer des propositions depuis une autre fonctionnalité
         proposals_merges:
           create:
