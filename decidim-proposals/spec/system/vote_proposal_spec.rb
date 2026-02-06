@@ -94,7 +94,7 @@ describe "Vote Proposal", slow: true do
              participatory_space: participatory_process)
     end
 
-    context "when likes does not interfere" do
+    context "with different likes configurations" do
       shared_examples "displaying the vote button correctly" do |likes_enabled:, likes_blocked:|
         before do
           component.update!(
