@@ -471,6 +471,7 @@ ro:
           recent: Cele mai recente
           recently_published: Cel mai recent publicat
         pending_initiatives:
+          description: Aceste inițiative nu sunt încă publice. Examinați-le și prezentați-le pentru validare tehnică, astfel încât să poată fi făcute publice.
           title: Inițiative create și în așteptare
         print:
           address: Adresă
