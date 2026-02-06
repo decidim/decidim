@@ -629,7 +629,7 @@ module Decidim
       return "".html_safe if text == false
 
       required = options.is_a?(Hash) && options.delete(:required)
-      text = attribute.to_s.humanize if text.nil? || text == true
+      text = default_label_text(object, attribute) if text.nil? || text == true
       if show_required
         text +=
           if required
@@ -646,7 +646,7 @@ module Decidim
              else
                text
              end
-      "<p class='text-lg font-semibold'>#{text}</p>".html_safe
+      content_tag(:p, text.html_safe, class: "text-lg font-semibold")
     end
     # rubocop:enable Metrics/PerceivedComplexity
     # rubocop:enable Metrics/CyclomaticComplexity
