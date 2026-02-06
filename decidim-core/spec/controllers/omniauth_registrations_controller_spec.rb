@@ -36,7 +36,7 @@ module Decidim
 
         context "when the given resource is a user" do
           context "and is an admin" do
-            let(:user) { build(:user, :admin, sign_in_count: 1, organization:) }
+            let(:user) { build(:user, :confirmed, :admin, sign_in_count: 1, organization:) }
 
             before do
               controller.store_location_for(user, account_path)

@@ -46,7 +46,7 @@ module Decidim
     # User entities (user groups) that have their profile visible on the
     # platform from the user's own perspective. This includes also blocked users
     # because the decision to hide their profile has been made by someone else.
-    scope :profile_published, -> { confirmed.where(deleted_at: nil, managed: false) }
+    scope :profile_published, -> { confirmed.not_deleted.where(managed: false) }
 
     scope :blocked, -> { where(blocked: true) }
     scope :not_blocked, -> { where(blocked: false) }
