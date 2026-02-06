@@ -33,7 +33,13 @@ module RuboCop
           return unless node.method_name == :have_admin_callout
 
           first_argument = node.first_argument
-          return unless first_argument&.str_type?
+          return unless first_argument
+
+          if first_argument.nil_type?
+            add_offense(first_argument, message: MSG)
+            return
+          end
+          return unless first_argument.str_type?
 
           text = first_argument.value
           return unless antipattern_text?(text)
@@ -44,6 +50,9 @@ module RuboCop
         private
 
         def antipattern_text?(text)
+          return true if text.nil?
+          return true if text.empty?
+
           stripped_text = text.gsub(/[[:punct:]\s]/, "")
           is_single_word = text.strip !~ /\s/
           is_too_short = stripped_text.length < MIN_LENGTH_THRESHOLD
