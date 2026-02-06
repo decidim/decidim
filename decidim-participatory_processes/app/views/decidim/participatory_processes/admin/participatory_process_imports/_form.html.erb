@@ -1,8 +1,12 @@
 <div class="form__wrapper">
   <div class="card pt-4" id="processes">
     <div class="card-section">
+      <div class="row column mb-4">
+        <%= cell("decidim/announcement", { body: t("decidim.participatory_processes.admin.new_import.help_html") }, callout_class: "info") %>
+      </div>
+
       <div class="row column">
-        <%= form.translated :text_field, :title, autofocus: true %>
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
 
       <div class="row column">
@@ -10,7 +14,7 @@
       </div>
 
       <div class="row column">
-        <%= form.upload :document, label: t(".document_legend"), button_class: "button button__sm button__transparent-secondary" %>
+        <%= form.upload :document, label: t(".document_legend"), button_class: "button button__sm button__transparent-secondary", help_i18n_scope: "decidim.forms.file_help.import_file", help_i18n_messages: ["message_1"] %>
       </div>
 
       <div class="card-divider">
@@ -32,7 +36,6 @@
         </div>
       </div>
 
-      </div>
     </div>
   </div>
 </div>
