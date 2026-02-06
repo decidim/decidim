@@ -8,7 +8,7 @@ ro:
         locale_argument_error: A apărut o eroare la procesarea datelor privind traducerea
         not_found: "%{type} nu a fost găsit"
         permission_not_set: Permisiunile nu au fost setate pentru acest %{type}
-        recursion_limit_exceeded_error: Prea multe recursii detectate în interogare
+        recursion_limit_exceeded_error: Prea multe recursiuni detectate în interogare
         too_many_aliases_error: Prea multe aliasuri folosite. Ați folosit aliasuri %{size}, dar %{limit} sunt permise.
         unauthorized_field: Nu puteți vizualiza sau actualiza câmpul %{field} pentru %{type} deoarece nu aveți permisiuni
         unauthorized_mutation: Nu aveți permisiunile necesare pentru a efectua această acțiune
