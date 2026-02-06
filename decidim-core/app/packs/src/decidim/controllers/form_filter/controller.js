@@ -213,6 +213,12 @@ export default class extends Controller {
     this.changeEvents = false;
     this._clearForm();
 
+    // Prevent filtering again on anchor link "Skip to main content", "Skip map", or "Skip to results"
+    const filterSkipValues = [...document.querySelectorAll("[data-skip-to-content]")].map((el) => el.hash);
+    if (filterSkipValues.includes(window.location.hash)) {
+      return;
+    }
+
     const filterParams = this._parseLocationFilterValues();
     const currentOrder = this._parseLocationOrderValue();
 

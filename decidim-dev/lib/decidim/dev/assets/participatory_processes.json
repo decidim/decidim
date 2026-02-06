@@ -105,9 +105,6 @@
         },
         "start_date": "2019-09-02",
         "end_date": "2019-12-02",
-        "cta_path": null,
-        "cta_text": {
-        },
         "active": true,
         "position": 0
       }

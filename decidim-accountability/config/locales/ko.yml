@@ -119,7 +119,6 @@ ko:
           fields:
             created_at: 생성됨
             end_date: 종료 날짜
-            id: 아이디
             progress: 진행 상황
             start_date: 시작 날짜
             status: 상태

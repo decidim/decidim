@@ -233,7 +233,6 @@ it:
           fields:
             created_at: Creato
             end_date: Data di fine
-            id: ID
             progress: Avanzamento
             start_date: Data di inizio
             status: Stato

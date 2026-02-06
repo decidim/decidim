@@ -39,13 +39,15 @@ module Decidim
 
       after_save :update_parent_progress, if: -> { parent_id.present? }
 
-      searchable_fields(
-        scope_id: :decidim_scope_id,
-        participatory_space: { component: :participatory_space },
-        A: :title,
-        D: :description,
-        datetime: :start_date
-      )
+      searchable_fields({
+                          scope_id: :decidim_scope_id,
+                          participatory_space: { component: :participatory_space },
+                          A: :title,
+                          D: :description,
+                          datetime: :start_date
+                        },
+                        index_on_create: ->(result) { result.visible? },
+                        index_on_update: ->(result) { result.visible? })
 
       geocoded_by :address
 
@@ -103,16 +105,14 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :description]
 
       def self.ransackable_attributes(auth_object = nil)
-        base = %w(search_text title description)
+        base = %w(id_string id search_text title description)
 
         return base unless auth_object&.admin?
 
-        base + %w(id_string created_at id progress)
+        base + %w(created_at progress)
       end
 
-      def self.ransackable_associations(auth_object = nil)
-        return [] unless auth_object&.admin?
-
+      def self.ransackable_associations(_auth_object = nil)
         %w(taxonomies status)
       end
 

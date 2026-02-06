@@ -109,9 +109,6 @@ gl:
         update: "%{user_name} actualizou a aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizou a configuración da organización"
-      participatory_space_private_user:
-        create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
-        delete: "%{user_name} eliminou o usuario %{resource_name} como usuario privado"
       scope:
         create: "O %{user_name} creou o alcance %{resource_name}"
         create_with_parent: "%{user_name} creou o alcance %{resource_name} no ámbito %{parent_scope}"
@@ -500,7 +497,6 @@ gl:
     managed_users:
       expired_session: A sesión de suplantación actual caducou.
     menu:
-      help: Axuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -574,12 +570,9 @@ gl:
           proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
         footer_sub_hero:
           footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
-          register: Rexistrarse
         hero:
           participate: Participar
           welcome: Benvido a %{organization}.
-        sub_hero:
-          register: Rexistrarse
       index:
         standalone_pages: Páxinas
         subheading: Navega polas páxinas de axuda de %{name}
@@ -707,10 +700,8 @@ gl:
         decline: Declina a invitación
         hello: Ola %{email},
         invited_you_as_admin: "%{invited_by} invitoute como administrador de %{application}. Podes aceptalo a través da seguinte ligazón."
-        invited_you_as_private_user: "%{invited_by} convidoute como usuario privado de %{application}. Podes aceptalo a través da seguinte ligazón."
         someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.
         someone_invited_you_as_admin: Alguén te convidou como administrador de %{application}, podes aceptalo a través da seguinte ligazón.
-        someone_invited_you_as_private_user: Alguén te convidou como usuario privado de %{application}, podes aceptalo a través da seguinte ligazón.
         subject: Instrucións de invitación
       password_change:
         greeting: Ola %{recipient}!
@@ -824,7 +815,6 @@ gl:
     name_included_in_password: é moi similar ao teu nome
     nickname_included_in_password: é moi semellante ao teu alcume
     not_enough_unique_characters: non ten suficientes caracteres únicos
-    password_not_allowed: non está permitido
     password_too_common: é moi común
     password_too_long: é demasiado longo
     password_too_short: é demasiado curto

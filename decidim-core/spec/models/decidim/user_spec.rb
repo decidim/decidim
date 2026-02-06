@@ -151,6 +151,7 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
+      # See UploaderImageDimensionsValidator#validate_image_size
       context "when the file is a malicious image" do
         let(:avatar_path) { Decidim::Dev.asset("malicious.jpg") }
         let(:user) do
@@ -203,6 +204,27 @@ module Decidim
       it "sends them asynchronously" do
         create(:user)
         expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
+      end
+    end
+
+    describe "scopes" do
+      let!(:user_group) { create(:user, organization:, extended_data: { group: true }) }
+      let!(:user_group_not_set) { create(:user, organization:, extended_data: { group: false }) }
+      let!(:not_set_user) { create(:user, organization:, extended_data: {}) }
+
+      describe ".user_group" do
+        it "finds the user group" do
+          expect(described_class.user_group).to eq([user_group])
+          expect(described_class.user_group.length).to eq(1)
+        end
+      end
+
+      describe ".not_user_group" do
+        it "finds the required users" do
+          expect(described_class.not_user_group).to include(user_group_not_set)
+          expect(described_class.not_user_group).to include(not_set_user)
+          expect(described_class.not_user_group).not_to include(user_group)
+        end
       end
     end
 

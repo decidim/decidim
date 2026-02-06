@@ -13,3 +13,16 @@ shared_examples "fingerprint" do
     end
   end
 end
+
+shared_examples "consistent fingerprint" do
+  include_context("with a component")
+
+  it "shows the fingerprint source with correct spacing" do
+    visit(resource_locator(fingerprintable).path)
+    click_on("Check fingerprint")
+
+    within ".fingerprint-modal" do
+      expect(page).to(have_content(fingerprintable.body.to_json))
+    end
+  end
+end

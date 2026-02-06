@@ -115,7 +115,7 @@ module Decidim
           short_bio: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
-          twitter_handle: ::Faker::Twitter.unique.screen_name,
+          twitter_handle: ::Faker::X.unique.screen_name,
           personal_url: ::Faker::Internet.url,
           published_at: Time.current,
           conference:

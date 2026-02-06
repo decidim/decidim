@@ -172,13 +172,16 @@ export default Image.extend({
             return true;
           },
 
-          handleDoubleClick() {
-            if (!editor.isActive("image")) {
-              return false;
+          handleDoubleClick(view, pos) {
+            const { state } = view;
+            const node = state.doc.nodeAt(pos);
+
+            if (node && node.type.name === "image") {
+              editor.chain().focus().imageDialog().run();
+              return true;
             }
 
-            editor.chain().focus().imageDialog().run();
-            return true;
+            return false;
           },
 
           handleDOMEvents: {

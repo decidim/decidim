@@ -11,8 +11,10 @@ fi:
         domain: Toimintaympäristö
         duplicate_categories: Kopioi aihepiirit
         duplicate_components: Kopioi komponentit
+        duplicate_landing_page_blocks: Kopioi laskeutumissivun sisältölohkot
         duplicate_steps: Kopioi vaiheet
         end_date: Päättymispäivä
+        has_members: Tässä tilassa on jäseniä
         hero_image: Etusivun kuva
         import_attachments: Tuo liitteitä
         import_categories: Kopioi aihepiirejä
@@ -114,8 +116,8 @@ fi:
           components: Komponentit
           info: Tietoa tästä prosessista
           landing_page: Laskeutumissivun asettelu
+          members: Jäsenet
           moderations: Moderoinnit
-          private_users: Jäsenet
           process_admins: Prosessin hallintakäyttäjät
           steps: Vaiheet
       models:
@@ -204,12 +206,6 @@ fi:
             last_step: Prosessin viimeistä vaihetta ei voi poistaa.
           success: Osallistumisprosessin vaiheen poisto onnistui.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Osallistumisprosessin toimintopainike (call to action) on poistettu käytöstä uuden ulkoasun myötä.
-              Voit muuttaa tätä asetusta <b>Laskeutumssivun asetusten kautta</b> käyttämällä sisältölohkoa nimeltä <b>Pääkuva</b>.
-              Asetus on jätetty tähän paikkaan muuttaaksesi toimintopainikkeet (call to action) sellaiseksi kuin haluat. Kentät <i>toimintopainikkeen (call to action) polulle</i> ja <i>toimintopainikkeen (call to action) tekstille</i> poistetaan seuraavassa versiossa.
-            title: Käytöstä poistettu CTA (call to action)
           title: Muokkaa osallistumisprosessin vaihetta
           update: Päivitä
         index:
@@ -287,9 +283,11 @@ fi:
         export: "%{user_name} vei osallistumisprosessin %{resource_name}"
         import: "%{user_name} toi osallistumisprosessin %{resource_name}"
         publish: "%{user_name} julkaisi osallistumisprosessin %{resource_name}"
+        publish_all_members: "%{user_name} julkaisi osallistumisprosessin %{resource_name} jäsenet"
         restore: "%{user_name} palautti osallistumisprosessin %{resource_name}"
         soft_delete: "%{user_name} siirsi osallistumisprosessin %{resource_name} roskakoriin"
         unpublish: "%{user_name} perui osallistumisprosessin %{resource_name} julkaisun"
+        unpublish_all_members: "%{user_name} perui osallistumisprosessin %{resource_name} jäsenten julkaisun"
         update: "%{user_name} päivitti osallistumisprosessin %{resource_name}"
       participatory_process_group:
         create: "%{user_name} loi osallistumisprosessien ryhmän %{resource_name}"
@@ -345,6 +343,7 @@ fi:
         participatory_processes:
           announcement: Ilmoituksen sisältö
           area: Alue, jota prosessi koskee
+          component_settings: Prosessin komponenttiasetukset
           created_at: Tilan luontiaika
           description: Prosessin pitkä kuvaus
           developer_group: Prosessin kehittäjäryhmä, joka edistää tämän prosessin toteutumista.
@@ -505,19 +504,16 @@ fi:
           form:
             document_legend: Lisää asiakirja
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Käytä osittaisia ​​polkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, väliviivat ja kauttaviivat. Arvon täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näytetä. Esimerkki: %{url}'
-            cta_text_help: Jos asetusta ei ole asetettu, painiketta ei näytetä.
         participatory_processes:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
+            has_members_help: Voit luoda ja julkaista jäseniä
             images: Kuvat
             metadata: Metatiedot
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
+            private_notice: Piilottaa osallistumistilan verkkosivuston vierailijoiden näkyvistä (ellei osallistumistila ole myös läpinäkyvä)
             related_processes: Liittyvät prosessit
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
@@ -566,6 +562,9 @@ fi:
         title: Osallistumisprosessit
       last_activity:
         new_participatory_process: 'Uusi osallistumisprosessi:'
+      members:
+        index:
+          title: Jäsenet
       pages:
         home:
           highlighted_processes:
@@ -592,8 +591,8 @@ fi:
               one: 1 prosessi
               other: "%{count} prosessia"
             past:
-              one: 1 aikaisempi prosessi
-              other: "%{count} aikaisempaa prosessia"
+              one: 1 päättynyt prosessi
+              other: "%{count} päättynyttä prosessia"
             upcoming:
               one: 1 tuleva prosessi
               other: "%{count} tulevaa prosessia"
@@ -606,15 +605,12 @@ fi:
           names:
             active: Aktiiviset
             all: Kaikki
-            past: Menneet
+            past: Päättyneet
             upcoming: Tulevat
           see: Näytä
           type: Tyyppi
         show:
           title: Tietoa tästä prosessista
-      participatory_space_private_users:
-        index:
-          title: Jäsenet
       show:
         belongs_to_group: Tämä prosessi kuuluu ryhmään
         private_space: Tämä on yksityinen prosessi

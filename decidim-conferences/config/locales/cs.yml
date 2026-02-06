@@ -450,6 +450,8 @@ cs:
           no_slots_available: Žádné sloty nejsou k dispozici
           registration: Registrace
       conference_program:
+        program_item:
+          other_category: Ostatní
         show:
           program: Program
       conference_registration_mailer:
@@ -630,6 +632,7 @@ cs:
     open_data:
       help:
         conferences:
+          component_settings: Nastavení komponent v konferenčním prostoru
           created_at: Datum, kdy byl tento prostor vytvořen
           decidim_scope_id: Rozsah konference
           description: Dlouhý popis konference

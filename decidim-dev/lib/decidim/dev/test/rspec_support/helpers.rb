@@ -33,8 +33,8 @@ module Decidim
     end
 
     def within_language_menu(options = {})
-      within(options[:admin] ? ".language-choose" : "footer") do
-        find(options[:admin] ? "#admin-menu-trigger" : "#trigger-dropdown-language-chooser").click
+      within(options[:admin] ? ".language-choose" : "header") do
+        find(options[:admin] ? "#admin-menu-trigger" : "#trigger-dropdown-menu-language-chooser-desktop").click
         yield
       end
     end

@@ -16,6 +16,12 @@ module Decidim
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
+      initializer "decidim_forms.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_forms.authorization_transfer" do
         config.to_prepare do
           Decidim::AuthorizationTransfer.register(:forms) do |transfer|

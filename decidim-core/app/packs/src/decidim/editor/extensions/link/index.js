@@ -28,10 +28,17 @@ export default Link.extend({
       ...this.parent?.(),
       allowTargetControl: false,
       HTMLAttributes: {
-        target: "_blank",
         class: null
       }
     }
+  },
+
+  renderHTML({ HTMLAttributes }) {
+    const attrs = { ...HTMLAttributes };
+    if (attrs.target === "") {
+      Reflect.deleteProperty(attrs, "target");
+    }
+    return ["a", attrs, 0];
   },
 
   addCommands() {

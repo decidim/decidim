@@ -9,7 +9,7 @@ module Decidim
 
     included do
       around_action :switch_locale
-      helper_method :current_locale, :available_locales, :default_locale
+      helper_method :current_locale, :available_locales, :default_locale, :canonical_url
 
       # Sets the locale for the current session.
       # Saves current locale in a session variable in case some links are locale-orphaned
@@ -21,6 +21,7 @@ module Decidim
         else
           locale = default_locale
         end
+
         I18n.with_locale(locale, &)
       end
 
@@ -98,6 +99,38 @@ module Decidim
           langs_and_qs.any? { |locale, _q| locale.to_s[0..1] == available.to_s[0..1] }
         end
         lang == "*" ? nil : lang
+      end
+
+      def canonical_url(desired_url, target_locale = default_locale)
+        uri = URI(desired_url)
+
+        path_segments = uri.path.split("/").compact_blank
+        locale_segment = path_segments.first
+
+        query = uri.query.to_s.gsub(/locale=[a-zA-Z-]{2,5}/, "")
+
+        if available_locales.include?(locale_segment)
+          # Replace the locale segment with current_locale
+          path_segments[0] = if available_locales.include?(target_locale)
+                               target_locale
+                             else
+                               default_locale
+                             end
+
+          uri.path = "/#{path_segments.join("/")}"
+
+          if query.present?
+            params = URI.decode_www_form(query)
+            uri.query = URI.encode_www_form(params)
+          else
+            uri.query = nil
+          end
+        else
+          params = URI.decode_www_form(query) << ["locale", target_locale]
+          uri.query = URI.encode_www_form(params)
+        end
+
+        uri.to_s
       end
       # rubocop: enable Metrics/CyclomaticComplexity
       # rubocop: enable Metrics/PerceivedComplexity

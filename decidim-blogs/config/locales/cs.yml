@@ -111,6 +111,7 @@ cs:
           destroy: Smazat
           like: Líbí se mi
           update: Aktualizovat
+          vote_comment: Komentář hlasování
         name: Blog
         settings:
           global:

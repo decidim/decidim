@@ -32,6 +32,7 @@ fr:
         actions:
           comment: Commenter
           create: Créer un débat
+          vote_comment: Vote sur le commentaire
         name: Débats
         settings:
           global:

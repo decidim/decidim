@@ -6,7 +6,7 @@
   }
 
   [data-content] {
-    @apply relative flex flex-col flex-1;
+    @apply relative flex flex-col flex-1 border-t-neutral-100 border-t;
   }
 }
 

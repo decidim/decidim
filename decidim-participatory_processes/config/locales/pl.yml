@@ -191,13 +191,6 @@ pl:
             last_step: Nie można usunąć ostatniego etapu procesu.
           success: Etap procesu partycypacyjnego został usunięty.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Konfigurowanie CTA w fazie procesu partycypacyjnego jest przestarzałe wraz z nowym projektem.
-              Teraz odbywa się to na <b>Stronie startowej</b>, używając bloku treści <b>Bohatera i obrazu</b>.
-              Zostawiliśmy to tutaj, aby można było dokonać potrzebnych migracji CTA. Pola <i>Ścieżka CTA</i>
-              i <i>Tekst CTA</i> zostaną usunięte w następnej wersji.
-            title: Przestarzałe CTA
           title: Edytuj etap procesu partycypacyjnego
           update: Aktualizuj
         index:
@@ -381,10 +374,6 @@ pl:
           form:
             document_legend: Dodaj dokument
             slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Użyj ścieżek częściowych, a nie pełnych adresów URL. Można używać liter, cyfr, łączników i ukośników, przy czym należy rozpocząć od litery. Przycisk nie zostanie wyświetlony, jeżeli nie zostanie to ustawione. Przykład: %{url}'
-            cta_text_help: Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany.
         participatory_processes:
           form:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.

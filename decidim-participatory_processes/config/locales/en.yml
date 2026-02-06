@@ -15,6 +15,7 @@ en:
         duplicate_landing_page_blocks: Duplicate landing page blocks
         duplicate_steps: Duplicate steps
         end_date: End date
+        has_members: This space has members
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -116,8 +117,8 @@ en:
           components: Components
           info: About this process
           landing_page: Landing page layout
+          members: Members
           moderations: Moderations
-          private_users: Members
           process_admins: Process admins
           steps: Phases
       models:
@@ -206,13 +207,6 @@ en:
             last_step: Cannot delete the last phase of a process.
           success: Participatory process phase successfully deleted.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Configuring the CTA through the Phase of the participatory process is deprecated with the new design.
-              Now this is done in the <b>Landing Page</b>, using the <b>Hero and image</b> content block.
-              We have left it here for you to migrate the CTAs that you need. The fields <i>Call to action path</i> and
-              <i>Call to action text</i> will be removed in the next version.
-            title: CTA deprecated
           title: Edit participatory process phase
           update: Update
         index:
@@ -290,9 +284,11 @@ en:
         export: "%{user_name} exported the %{resource_name} participatory process"
         import: "%{user_name} imported the %{resource_name} participatory process"
         publish: "%{user_name} published the %{resource_name} participatory process"
+        publish_all_members: "%{user_name} published all members of the %{resource_name} participatory process"
         restore: "%{user_name} restored the %{resource_name} participatory process"
         soft_delete: "%{user_name} trashed the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        unpublish_all_members: "%{user_name} unpublished all members of the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_group:
         create: "%{user_name} created the %{resource_name} participatory process group"
@@ -348,6 +344,7 @@ en:
         participatory_processes:
           announcement: The announcement (callout) information
           area: The area where the process is taking place
+          component_settings: The component settings of the process
           created_at: The date this space was created
           description: A long description of the process
           developer_group: The developer group of the process. This is the organization that is promoting the process.
@@ -496,6 +493,7 @@ en:
         new_import:
           accepted_types:
             json: JSON
+          help_html: This import feature allows you to create a new participatory process from an exported JSON file. You can export a process from another organization or from this same organization. The imported process will include its settings, components, and attachments (if selected).
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -508,19 +506,16 @@ en:
           form:
             document_legend: Add a document
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
-            cta_text_help: If not set, the button will not be shown.
         participatory_processes:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
+            has_members_help: You will be able to create and publish members
             images: Images
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
-            private_notice: You will be able to manage members after setting it as private
+            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
             related_processes: Related processes
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -569,6 +564,9 @@ en:
         title: Participatory processes
       last_activity:
         new_participatory_process: 'New participatory process:'
+      members:
+        index:
+          title: Members
       pages:
         home:
           highlighted_processes:
@@ -615,9 +613,6 @@ en:
           type: Type
         show:
           title: About this process
-      participatory_space_private_users:
-        index:
-          title: Members
       show:
         belongs_to_group: This process belongs to
         private_space: This is a private process

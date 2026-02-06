@@ -65,6 +65,9 @@ fr-CA:
           update_settings:
             invalid: Un problème est survenu lors de la mise à jour du document.
             success: Document mis à jour avec succès.
+        index:
+          published: Publié
+          unpublished: Non publié
       admin_log:
         document:
           create: "%{user_name} a créé le texte collaboratif %{resource_name} dans %{space_name}"
@@ -98,6 +101,7 @@ fr-CA:
       models:
         collaborative_text:
           fields:
+            published: Publié
             suggestions: Accepter les suggestions
             title: Titre
       suggestions:

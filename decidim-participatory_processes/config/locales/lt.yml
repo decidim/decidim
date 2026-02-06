@@ -349,9 +349,6 @@ lt:
         participatory_process_imports:
           form:
             document_legend: Pridėti dokumentą
-        participatory_process_steps:
-          form:
-            cta_text_help: Jei nenustatyta, mygtukas nebus matomas.
         participatory_processes:
           form:
             announcement_help: Čia įrašytas tekstas naudotojui bus rodomas iš karto po informacijos apie procesą.

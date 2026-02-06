@@ -525,7 +525,6 @@ lt:
           fields:
             closed: Uždaryta
             end_time: Pabaigos data
-            id: ID
             map: Žemėlapis
             official_meeting: Oficialus susirinkimas
             start_time: Pradžios data

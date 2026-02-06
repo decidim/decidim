@@ -28,6 +28,7 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
+      # See UploaderImageDimensionsValidator#validate_image_size
       context "when the file is a malicious image" do
         subject do
           build(
@@ -46,7 +47,7 @@ module Decidim
 
         it "shows the correct error" do
           expect(subject.valid?).to be(false)
-          expect(subject.errors[:file]).to contain_exactly("File cannot be processed")
+          expect(subject.errors[:file]).to contain_exactly("File resolution is too large")
         end
       end
     end

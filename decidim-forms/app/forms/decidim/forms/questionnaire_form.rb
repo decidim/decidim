@@ -41,18 +41,15 @@ module Decidim
 
       # Public: Splits responses by step, keeping the separator.
       #
-      # Returns an array of steps. Each step is a list of the questions in that
-      # step, including the separator.
+      # Returns an array of steps. Splits responses at each separator.
+      # Allowing only steps with questions to be counted, excluding the separators.
       def responses_by_step
-        @responses_by_step ||=
-          begin
-            steps = responses.chunk_while do |a, b|
-              !a.question.separator? || b.question.separator?
-            end.to_a
-
-            steps = [[]] if steps == []
-            steps
+        @responses_by_step ||= begin
+          steps = responses.slice_before { |response| response.question.separator? }.map do |group|
+            group.reject { |response| response.question.separator? }
           end
+          steps.reject(&:empty?)
+        end
       end
 
       def total_steps

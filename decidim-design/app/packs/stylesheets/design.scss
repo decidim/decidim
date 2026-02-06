@@ -72,7 +72,8 @@
   @apply pb-10 border-b border-background;
 }
 
-.design__heading__description {
+.design__heading__description,
+.design__section {
   @apply mt-10 text-gray-2 text-md font-normal [&>*+*]:mt-4 [&_a]:underline;
 }
 

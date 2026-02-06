@@ -22,10 +22,12 @@ end
 def fill_in_votes
   expect(page).to have_current_path(election_vote_path(election.questions.first))
   expect(page).to have_content(translated_attribute(election.questions.first.body))
+  expect(page).to have_content(strip_tags(translated_attribute(election.questions.first.description)))
   choose translated_attribute(election.questions.first.response_options.first.body)
   click_on "Next"
   expect(page).to have_current_path(election_vote_path(election.questions.second))
   expect(page).to have_content(translated_attribute(election.questions.second.body))
+  expect(page).to have_content(strip_tags(translated_attribute(election.questions.second.description)))
   check translated_attribute(election.questions.second.response_options.first.body)
   check translated_attribute(election.questions.second.response_options.second.body)
   click_on "Next"
@@ -42,7 +44,7 @@ def fill_in_votes
   click_on "Exit the voting booth"
   expect(page).to have_current_path(election_path)
   expect(page).to have_content("You have already voted.")
-  expect(election.votes.where(voter_uid: voter_uid).size).to eq(3)
+  expect(election.votes.where(voter_uid:).size).to eq(3)
 end
 
 shared_examples "a votable election" do
@@ -50,7 +52,7 @@ shared_examples "a votable election" do
     click_on "Vote"
 
     fill_in_votes
-    click_on "Vote"
+    click_on "Edit vote"
     expect(page).to have_current_path(election_vote_path(election.questions.first))
   end
 end
@@ -129,7 +131,7 @@ shared_examples "a csv token votable election" do
     fill_in "Token", with: election.voters.first.data["token"]
     click_on "Access"
     fill_in_votes
-    click_on "Vote"
+    click_on "Edit vote"
     expect(page).to have_current_path(new_election_vote_path)
     fill_in "Email", with: election.voters.first.data["email"]
     fill_in "Token", with: election.voters.first.data["token"]
@@ -161,13 +163,14 @@ shared_examples "a csv token votable election" do
     click_on "Exit the voting booth"
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
-    expect(election.votes.where(voter_uid: voter_uid).size).to eq(2)
+    expect(election.votes.where(voter_uid:).size).to eq(2)
   end
 end
 
 shared_examples "an editable votable election" do
   it "Allows the user to edit the vote" do
-    click_on "Vote"
+    expect(page).to have_link("Edit vote")
+    click_on "Edit vote"
     expect(page).to have_current_path(election_vote_path(election.questions.first))
     expect(find("input[value='#{election.questions.first.response_options.first.id}']")).to be_checked
     expect(find("input[value='#{election.questions.first.response_options.second.id}']")).not_to be_checked
@@ -183,12 +186,13 @@ shared_examples "an editable votable election" do
     click_on "Exit the voting booth"
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
-    expect(election.votes.where(voter_uid: voter_uid).size).to eq(3)
+    expect(election.votes.where(voter_uid:).size).to eq(3)
   end
 end
 
 shared_examples "a csv token editable votable election" do
   it "Allows the user to edit the vote" do
+    expect(page).to have_link("Vote")
     click_on "Vote"
     expect(page).to have_current_path(new_election_vote_path)
     expect(page).to have_content("Verify your identity")
@@ -210,6 +214,6 @@ shared_examples "a csv token editable votable election" do
     click_on "Exit the voting booth"
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
-    expect(election.votes.where(voter_uid: voter_uid).size).to eq(3)
+    expect(election.votes.where(voter_uid:).size).to eq(3)
   end
 end

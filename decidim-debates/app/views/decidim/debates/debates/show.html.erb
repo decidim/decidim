@@ -38,7 +38,7 @@ edit_link(
     <div class="layout-author <%= "has_status" if debate.closed? %>">
       <div class="relative flex items-center justify-center w-full">
         <div class="w-10/12 flex items-center gap-4">
-          <%= cell "decidim/author", debate_presenter.author, skip_profile_link: true %>
+          <%= cell "decidim/author", debate_presenter.author %>
         </div>
         <%= render "decidim/shared/resource_actions", resource: debate do %>
           <%= render "decidim/debates/debates/debate_actions" %>

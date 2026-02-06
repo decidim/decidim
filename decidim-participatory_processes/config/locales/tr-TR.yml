@@ -304,9 +304,6 @@ tr:
         participatory_process_imports:
           form:
             document_legend: Doküman Ekle
-        participatory_process_steps:
-          form:
-            cta_text_help: Ayarlanmazsa, düğme gösterilmeyecektir.
         participatory_processes:
           form:
             announcement_help: Buraya girdiğiniz metin, işlem bilgilerinin hemen altındaki kullanıcıya gösterilecektir.

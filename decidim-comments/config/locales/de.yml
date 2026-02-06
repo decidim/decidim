@@ -66,7 +66,7 @@ de:
       comment:
         alignment:
           against: Gegen
-          in_favor: Zugunsten
+          in_favor: Dafür
         answers:
           one: "%{count} Antwort"
           other: "%{count} Antworten"

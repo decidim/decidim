@@ -43,7 +43,7 @@ module Decidim
 
         return permission_action unless process
 
-        user_can_read_private_users?
+        user_can_read_members?
 
         moderator_action?
         collaborator_action?
@@ -54,9 +54,9 @@ module Decidim
 
       private
 
-      def user_can_read_private_users?
-        return unless permission_action.subject == :space_private_user
-        return unless process.private_space?
+      def user_can_read_members?
+        return unless permission_action.subject == :space_member
+        return unless process.has_members?
 
         toggle_allow(user.admin? || can_manage_process?(role: :admin) || can_manage_process?(role: :collaborator))
       end
@@ -154,7 +154,7 @@ module Decidim
                       permission_action.subject == :space_area &&
                       context.fetch(:space_name, nil) == :processes
 
-        toggle_allow(user.admin? || user_has_any_role?(user, process, broad_check: true) || has_manageable_processes?)
+        toggle_allow(user.admin? || has_manageable_processes?)
       end
 
       # Only organization admins can manage process groups.
@@ -212,7 +212,7 @@ module Decidim
       # Collaborators can only preview their own processes.
       def collaborator_action?
         return unless can_manage_process?(role: :collaborator)
-        return if permission_action.subject == :space_private_user
+        return if permission_action.subject == :space_member
 
         allow! if permission_action.action == :preview
       end

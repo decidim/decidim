@@ -8,7 +8,7 @@
   }
 
   &__code {
-    @apply block max-h-24 overflow-auto border border-gray-3 bg-background p-2 break-all;
+    @apply block max-h-24 overflow-auto border border-gray-3 bg-background p-2 break-words whitespace-pre-wrap;
   }
 
   a {

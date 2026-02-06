@@ -33,7 +33,7 @@
     <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-dummy" %>
     <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-dummy" %>
   <% end %>
-  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
+  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0" data-draggable-table data-sort-url="#" data-draggable-handle=".card-divider" id="questionnaire-questions-list">
     <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questions[questions][]", question do |question_form| %>
         <% if question.separator? %>

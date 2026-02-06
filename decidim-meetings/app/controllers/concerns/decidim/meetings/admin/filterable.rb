@@ -45,10 +45,6 @@ module Decidim
             }
           end
 
-          def search_field_predicate
-            :id_string_or_title_cont
-          end
-
           def meeting_types
             Meeting::TYPE_OF_MEETING
           end

@@ -326,48 +326,67 @@ describe "Admin manages meetings polls" do
       end
     end
 
-    it "can reorder published or closed questions" do
-      visit questionnaire_edit_path
-      within "#questionnaire_question_#{unpublished_question.id}-field" do
-        expect(page).to have_content("Remove")
-        expect(page).to have_content("Down")
-        expect(page).to have_no_content("Up")
-      end
+    context "when re-ordering questions" do
+      it "allows the use of drag & drop sorting" do
+        visit questionnaire_edit_path
+        expand_all_questions
 
-      within "#questionnaire_question_#{published_question.id}-field" do
-        expect(page).to have_no_content("Remove")
-        expect(page).to have_content("Down")
-        expect(page).to have_content("Up")
-      end
+        question_cards = all(".questionnaire-question")
 
-      within "#questionnaire_question_#{closed_question.id}-field" do
-        expect(page).to have_no_content("Remove")
-        expect(page).to have_no_content("Down")
-        expect(page).to have_content("Up")
-      end
+        within question_cards[0] do
+          expect(find("##{find_nested_form_field_locator("body_en")}").value).to eq(translated_attribute(unpublished_question.body))
+        end
+        within question_cards[1] do
+          expect(find("##{find_nested_form_field_locator("body_en")}").value).to eq(translated_attribute(published_question.body))
+        end
+        within question_cards[2] do
+          expect(find("##{find_nested_form_field_locator("body_en")}").value).to eq(translated_attribute(closed_question.body))
+        end
 
-      within "#questionnaire_question_#{closed_question.id}-field" do
-        click_on "Up"
-        click_on "Up"
-      end
+        # Simulate drag and drop: move second question to first position
+        page.execute_script(<<~JS)
+          var questions = document.querySelectorAll('.questionnaire-question');
+          var container = questions[0].parentNode;
+          var second = questions[1];
+          var first = questions[0];
 
-      within "#questionnaire_question_#{unpublished_question.id}-field" do
-        click_on "Down"
-      end
+          container.insertBefore(second, first);
+          var updatedQuestions = container.querySelectorAll('.questionnaire-question');
 
-      click_on "Save"
+          updatedQuestions.forEach(function(question, index) {
+            var positionInput = question.querySelector('input[name$="[position]"]');
+            if (positionInput) positionInput.value = index;
+          });
+        JS
 
-      expand_all_questions
+        sleep 0.5
 
-      within ".questionnaire-question:last-of-type" do
-        expect(page).to have_css("#questionnaire_question_#{unpublished_question.id}-button")
+        question_cards = all(".questionnaire-question")
+        within question_cards[0] do
+          expect(find("##{find_nested_form_field_locator("body_en")}").value).to eq(translated_attribute(published_question.body))
+        end
+        within question_cards[1] do
+          expect(find("##{find_nested_form_field_locator("body_en")}").value).to eq(translated_attribute(unpublished_question.body))
+        end
+        within question_cards[2] do
+          expect(find("##{find_nested_form_field_locator("body_en")}").value).to eq(translated_attribute(closed_question.body))
+        end
+
+        click_on "Save"
+        expand_all_questions
+
+        # Reloads and checks persisted order
+        question_cards = all(".questionnaire-question")
+        within question_cards[0] do
+          expect(find("##{find_nested_form_field_locator("body_en")}").value).to eq(translated_attribute(published_question.body))
+        end
+        within question_cards[1] do
+          expect(find("##{find_nested_form_field_locator("body_en")}").value).to eq(translated_attribute(unpublished_question.body))
+        end
+        within question_cards[2] do
+          expect(find("##{find_nested_form_field_locator("body_en")}").value).to eq(translated_attribute(closed_question.body))
+        end
       end
-      within ".questionnaire-question:first-of-type" do
-        expect(page).to have_css("#questionnaire_question_#{closed_question.id}-button")
-      end
-      expect(unpublished_question.reload.position).to eq(2)
-      expect(published_question.reload.position).to eq(1)
-      expect(closed_question.reload.position).to eq(0)
     end
   end
 

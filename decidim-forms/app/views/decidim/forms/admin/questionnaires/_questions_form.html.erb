@@ -40,7 +40,7 @@
     <%= cell("decidim/announcement", t(".already_responded_warning"), callout_class: "warning" ) %>
   <% end %>
 
-  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
+  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0" data-draggable-table data-sort-url="#" data-draggable-handle=".card-divider" id="questionnaire-questions-list">
     <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questions[questions][]", question do |question_form| %>
         <% if question.separator? %>
@@ -73,7 +73,7 @@
 <%= append_javascript_pack_tag "decidim_forms_admin" %>
 
 <% if questionnaire.questions_editable? %>
-  <script>
+   <script>
     document.addEventListener("turbo:load", function () {
       window.Decidim.createEditableForm();
     });

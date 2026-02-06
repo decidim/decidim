@@ -29,10 +29,10 @@ module Decidim
       end
 
       it "executes a query" do
-        post :create, params: { query: "{ __schema { queryType { name } } }" }
+        post :create, params: { query: "{ organization { name { translations { locale text } } } }" }
 
         parsed_response = JSON.parse(response.body)["data"]
-        expect(parsed_response["__schema"]["queryType"]["name"]).to eq("Query")
+        expect(parsed_response["organization"]["name"]["translations"]).to include("locale" => "en", "text" => translated(organization.name))
       end
 
       context "with force sign in enabled" do

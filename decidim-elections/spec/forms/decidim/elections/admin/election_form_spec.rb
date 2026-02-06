@@ -144,5 +144,89 @@ module Decidim::Elections
         expect(form.manual_start).to be true
       end
     end
+
+    describe "dates validation for published elections" do
+      let(:election) { create(:election, :published, component:, start_at: 3.days.from_now, end_at: 4.days.from_now) }
+      let(:context) do
+        {
+          current_organization: organization,
+          current_component: component,
+          election:
+        }
+      end
+
+      context "when election is published and not started" do
+        context "and start_at is set in the past" do
+          let(:start_at) { 1.day.ago }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to start_at" do
+            subject.valid?
+            expect(subject.errors[:start_at]).not_to be_empty
+          end
+        end
+
+        context "and end_at is set in the past" do
+          let(:end_at) { 1.day.ago }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to end_at" do
+            subject.valid?
+            expect(subject.errors[:end_at]).not_to be_empty
+          end
+        end
+
+        context "and both dates are in the future" do
+          let(:start_at) { 1.day.from_now }
+          let(:end_at) { 2.days.from_now }
+
+          it { is_expected.to be_valid }
+        end
+      end
+
+      context "when election is published and already started (ongoing)" do
+        let(:election) { create(:election, :published, :ongoing, component:) }
+        let(:start_at) { election.start_at }
+        let(:end_at) { election.end_at }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "when election is not published" do
+        let(:election) { create(:election, component:, start_at: 3.days.from_now, end_at: 4.days.from_now) }
+
+        context "and start_at is set in the past" do
+          let(:start_at) { 1.day.ago }
+          let(:end_at) { 2.days.from_now }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "and end_at is set in the past" do
+          let(:start_at) { 2.days.ago }
+          let(:end_at) { 1.day.ago }
+
+          it { is_expected.to be_valid }
+        end
+      end
+
+      context "when creating a new election (no election in context)" do
+        let(:context) do
+          {
+            current_organization: organization,
+            current_component: component
+          }
+        end
+
+        context "and start_at is set in the past" do
+          let(:start_at) { 1.day.ago }
+          let(:end_at) { 2.days.from_now }
+
+          it { is_expected.to be_valid }
+        end
+      end
+    end
   end
 end

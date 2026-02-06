@@ -10,10 +10,10 @@
     <table class="table-list">
       <thead>
         <tr>
-          <th><%= t("models.status.fields.key", scope: "decidim.accountability") %></th>
-          <th><%= t("models.status.fields.name", scope: "decidim.accountability") %></th>
+          <th><%= sort_link(query, :key, t("models.status.fields.key", scope: "decidim.accountability")) %></th>
+          <th><%= sort_link(query, :name, t("models.status.fields.name", scope: "decidim.accountability")) %></th>
           <th><%= t("models.status.fields.description", scope: "decidim.accountability") %></th>
-          <th><%= t("models.status.fields.progress", scope: "decidim.accountability") %></th>
+          <th><%= sort_link(query, :progress, t("models.status.fields.progress", scope: "decidim.accountability")) %></th>
           <th><%= t("actions.title", scope: "decidim.accountability") %></th>
         </tr>
       </thead>

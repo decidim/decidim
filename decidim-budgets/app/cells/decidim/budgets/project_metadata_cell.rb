@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Budgets::ProjectsHelper
 
       delegate :selected?, to: :model
-      delegate :show_votes_count?, :resource_added?, to: :controller
+      delegate :resource_added?, to: :controller
 
       alias project model
 
@@ -18,6 +18,10 @@ module Decidim
       end
 
       private
+
+      def show_votes_count?
+        model.component.current_settings.show_votes?
+      end
 
       def project_items
         [status_item] + taxonomy_items + [budget_amount]

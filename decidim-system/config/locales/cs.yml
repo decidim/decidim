@@ -87,6 +87,12 @@ cs:
         refresh:
           error: Něco se pokazilo! Zkuste to prosím znovu později.
           success: Tajný klíč byl úspěšně obnoven. Tajný klíč pro uživatele je viditelný pouze po vytvoření. Zkopírujte jej a uložte jej bezpečně před opuštěním této stránky!
+      api_users:
+        index:
+          manage: Správa uživatelů API
+        new:
+          select_organization: Vyberte vaši organizaci
+          title: Vytvořit nového uživatele API
       dashboard:
         show:
           admins: Administrátoři
@@ -115,6 +121,7 @@ cs:
             sign_up: Vytvořit účet
       menu:
         admins: Správci
+        api_credentials: API pověření
         dashboard: Ovládací panel
         oauth_applications: Žádosti OAuth
         organizations: Organizace
@@ -127,9 +134,11 @@ cs:
             email_uniqueness: jiný admin se stejnou e-mailovou adresou již existuje
         api_user:
           fields:
+            created_at: Vytvořeno v
             key: Klíč
             name: Název
             organization: Organizace
+            secret: Tajné
           validations:
             name_uniqueness: Uživatel API s tímto jménem již existuje.
         oauth_application:
@@ -159,6 +168,9 @@ cs:
           title: Upravit žádost
         form:
           application_type:
+            confidential:
+              explanation: Aplikace, které se mohou bezpečně autentizovat s autorizačním serverem, například udržovat registrované klienty zabezpečené. Obvykle aplikace běžící na serveru, kde je uložen tajný kód klienta.
+              name: Důvěrné
             public:
               name: Veřejné
           select_organization: Vybrat organizaci

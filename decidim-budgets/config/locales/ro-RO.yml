@@ -77,6 +77,8 @@ ro:
           new:
             create: Importă propuneri în proiecte
             no_components: Nu există alte componente de propuneri în acest spațiu participativ pentru a importa propunerile în proiecte.
+            proposal_states: Stări ale propunerii
+            proposal_states_help: Selectați una sau mai multe stări de propunere pentru a importa în proiecte. Prin neselectarea vreuneia, veți importa toate propunerile publicate care nu au fost deja importate în alte bugete din această componentă.
             select_component: Te rugăm selectează o componentă
       admin_log:
         budget:
@@ -109,7 +111,6 @@ ro:
             total_budget: Buget total
         project:
           fields:
-            id: ID
             title: Titlu
       order:
         status:
@@ -218,13 +219,6 @@ ro:
               disabled: Votare dezactivată
               enabled: Votare activată
               finished: Votare terminată
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Bugetul %{resource_title} este acum activ pentru %{participatory_space_title}. Îl poți vizualiza pe această pagină:'
-          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula abonarea de la link-ul anterior.
-          email_subject: Bugetul %{resource_title} este în prezent activ pentru %{participatory_space_title}.
-          notification_title: Bugetul <a href="%{resource_path}">%{resource_title}</a> este activ pentru %{participatory_space_title}.
     resource_links:
       included_proposals:
         project_proposal: Propuneri incluse în acest proiect

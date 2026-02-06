@@ -20,20 +20,38 @@ pt-BR:
         changeset:
           comments: Comentários
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comentários ativados
+            end_time: Comentários ativados até
+            start_time: Comentários ativados de
+      comment_thread:
+        accessibility_label: Tópico de comentário iniciado por %{full_name} em %{date}
       comments:
         create:
           error: Houveram erros ao criar o comentário.
+        delete:
+          error: O comentário não pode ser excluído.
         update:
           error: Houve um erro ao atualizar o comentário.
+      comments_title: Comentário
+      last_activity:
+        new_comment: 'Novo comentário:'
       votes:
         create:
           error: Houve erros ao votar o comentário.
     components:
       add_comment_form:
+        account_message: Faça o acesso ou crie uma conta para adicionar o seu comentário.
+        add_comment: Adicionar comentário
         form:
           body:
             label: Comente
             placeholder: O que você pensa sobre isso?
+          form_error: O texto é obrigatório e não pode ser maior que %{length} caracteres.
+          submit_reply: Publicar resposta
+          submit_root_comment: Publicar comentário
         opinion:
           label: Sua opinião sobre este tópico
           negative: Negativo
@@ -49,12 +67,22 @@ pt-BR:
         alignment:
           against: Contra
           in_favor: A favor
+        answers:
+          one: "%{count} resposta"
+          other: "%{count} respostas"
+        cancel_reply: Cancelar resposta
+        comment_label: Comentário %{comment_id}
+        comment_label_reply: Comentário %{comment_id} (responder ao comentário %{parent_comment_id})
         confirm_destroy: Tem certeza que deseja excluir este comentário?
+        controls_label: Controles de comentários
         delete: Deletar
         deleted_at: Comentário excluído em %{date}
         deleted_user: Usuário excluído
         edit: Editar
         edited: Editado
+        hide_replies:
+          one: Ocultar resposta
+          other: Ocultar {count} respostas
         moderated_at: Comentário moderado em %{date}
         reply: Resposta
         report:
@@ -64,6 +92,7 @@ pt-BR:
           description: Este conteúdo é impróprio?
           details: Comentários adicionais
           reasons:
+            does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou outra coisa que você acha que não pertence ao %{organization_name}.
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou script bots.
           title: Reportar conteúdo impróprio
@@ -71,6 +100,7 @@ pt-BR:
           one: Mostrar resposta
           other: Mostrar %{count} respostas
         single_comment_link_title: Obter o link
+        sort_by: 'Classificar por: '
       comment_order_selector:
         order:
           best_rated: Melhores avaliações
@@ -79,15 +109,23 @@ pt-BR:
           recent: Recente
         title: 'Ordenar por:'
       comments:
+        against: Contra
         blocked_comments_for_unauthorized_user_warning: Você precisa ser verificado para comentar neste momento, mas pode ler os anteriores.
         blocked_comments_for_user_warning: Você não pode comentar neste momento, mas pode ler os anteriores.
+        blocked_comments_warning: Comentários estão atualmente desativados, somente administradores podem responder ou postar novos.
         comment_details_title: Detalhes do comentário
+        in_favor: A favor
         loading: Carregando comentários ...
+        single_comment_warning: <a href="%{url}">Ver todos os comentários</a>
         single_comment_warning_title: Você está vendo um único comentário
         title:
           one: "%{count} comentário"
           other: "%{count} comentários"
+        top_comment_label: Mais votado
       down_vote_button:
+        label:
+          one: Botão "Não gostei". %{count} não gostei
+          other: Botão "Não gostei". %{count} não gostaram
         text: Eu discordo deste comentário
       edit_comment_modal_form:
         close: Fechar
@@ -98,7 +136,29 @@ pt-BR:
           submit: Enviar
         title: Editar seu comentário
       up_vote_button:
+        label:
+          one: Botão "Gostei". %{count} gostei
+          other: Botão "Gostei". %{count} gostaram
         text: Eu concordo com este comentário
+    download_your_data:
+      help:
+        comment_votes:
+          comment: A identificação do comentário votado
+          created_at: A data em que esta votação foi criada
+          id: A identificação da votação
+          updated_at: A data da última atualização desta votação
+          weight: O peso da votação (1 a favor do voto, -1 contra o voto)
+        comments:
+          alignment: Se este comentário foi um favorito, contra ou neutro
+          author: O nome do usuário que fez este comentário
+          body: O comentário em si
+          commentable_id: A identificação única do cometário
+          commentable_type: O tipo do comentário (se for um resultado, uma proposta, etc.)
+          created_at: A data em que este comentário foi criado
+          depth: O lugar onde este comentário está nos três comentários (se for uma resposta ou uma resposta de uma resposta)
+          id: O identificador para este comentário
+          locale: A localidade (linguagem) que o usuário teve ao deixar este comentário
+          root_commentable_url: A URL do recurso ligado a este comentário
     events:
       comments:
         comment_by_followed_user:
@@ -131,3 +191,6 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque você foi mencionado em %{resource_title}.
           email_subject: Você foi mencionado em %{resource_title}
           notification_title: Você foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+  errors:
+    messages:
+      cannot_have_comments: não pode ter comentários

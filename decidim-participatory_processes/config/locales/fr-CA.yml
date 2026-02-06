@@ -11,8 +11,10 @@ fr-CA:
         domain: Domaine
         duplicate_categories: Dupliquer les catégories
         duplicate_components: Dupliquer les composants
+        duplicate_landing_page_blocks: Dupliquer les blocs de page d'accueil
         duplicate_steps: Dupliquer les étapes
         end_date: Date de fin
+        has_members: Cet espace a des membres
         hero_image: Image de la page d'accueil
         import_attachments: Importer les pièces jointes
         import_categories: Importer les catégories
@@ -112,8 +114,8 @@ fr-CA:
           attachments: Documents liés
           components: Fonctionnalités
           info: A propos de cette concertation
+          members:
           moderations: Modérations
-          private_users: Membres
           process_admins: Administrateurs de la concertation
           steps: Étapes
       models:
@@ -202,12 +204,6 @@ fr-CA:
             last_step: Vous ne pouvez pas supprimer la dernière étape d'une concertation.
           success: L'étape de la concertation a été supprimée avec succès.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Configurer le bouton d'action depuis l'étape de concertation ne fonctionne plus dans le nouveau design.
-              Cela est maintenant fait via la <b>page d'accueil</b> de la concertation, en utilisant le bloc de contenu<b>Hero et image</b>.
-              Nous l'avons laissé ici pour migrer les boutons d'actions dont vous avez besoin. Les champs <i>Chemin d'appel à l'action</i> et <i>Texte d'appel à l'action</i> seront supprimés dans une prochaine version.
-            title: Bouton d'action obsolète
           title: Modifier l'étape de la concertation
           update: Mettre à jour
         index:
@@ -285,7 +281,9 @@ fr-CA:
         export: "%{user_name} a exporté la concertation %{resource_name}"
         import: "%{user_name} a importé la concertation %{resource_name}"
         publish: "%{user_name} a publié la concertation %{resource_name}"
+        publish_all_members: "%{user_name} a publié tous les membres du processus participatif %{resource_name}"
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
+        unpublish_all_members: "%{user_name} a dépublié tous les membres du processus participatif %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
       participatory_process_group:
         create: "%{user_name} a créé le groupe de concertations %{resource_name}"
@@ -339,6 +337,7 @@ fr-CA:
     open_data:
       help:
         participatory_processes:
+          component_settings: Les paramètres de fonctionnalité de la concertation
           updated_at: La dernière date de mise à jour de cet espace
           url: L'URL de l'espace
     participatory_process_groups:
@@ -457,19 +456,16 @@ fr-CA:
           form:
             document_legend: Ajouter un document
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Utilisez ici des chemins partiels, pas des URL complètes. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple : %{url}'
-            cta_text_help: Si non défini, le bouton ne sera pas affiché.
         participatory_processes:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
+            has_members_help: Vous pourrez créer et publier des membres
             images: Images
             metadata: Métadonnées
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
-            private_notice: Vous serez en mesure de gérer les membres après l'avoir défini comme privé
+            private_notice: Rend l'espace non visible pour les visiteurs et visible seulement pour les membres (sauf s'il est également transparent)
             related_processes: Concertations liées
             select_process_group: Sélectionnez un groupe de concertations
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
@@ -501,6 +497,9 @@ fr-CA:
         title: Concertations
       last_activity:
         new_participatory_process: 'Nouveau processus participatif:'
+      members:
+        index:
+          title: Membres
       pages:
         home:
           highlighted_processes:
@@ -547,9 +546,6 @@ fr-CA:
           type: Type
         show:
           title: A propos de cette concertation
-      participatory_space_private_users:
-        index:
-          title: Membres
       show:
         belongs_to_group: Cette concertation appartient à
         private_space: Ceci est une concertation privée

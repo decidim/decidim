@@ -1,4 +1,6 @@
 /* eslint-disable require-jsdoc */
+/* eslint max-lines: ["error", 310] */
+
 import icon from "src/decidim/refactor/moved/icon"
 import { changeHourDisplay, changeMinuteDisplay, formatDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute, updateTimeValue, updateInputValue } from "src/decidim/datepicker/datepicker_functions"
 import { timeKeyDownListener, timeBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners";
@@ -14,12 +16,19 @@ export default function generateTimePicker(input, row, formats) {
   time.setAttribute("id", `${input.id}_time`);
   time.setAttribute("type", "text");
   time.setAttribute("aria-label", input.dataset.timeLabel);
+  if (input.attributes.disabled) {
+    time.setAttribute("disabled", input.attributes.disabled);
+  };
 
   const clock = document.createElement("button");
   clock.innerHTML = icon("time-line")
   clock.setAttribute("class", "datepicker__clock-button");
   clock.setAttribute("type", "button");
   clock.setAttribute("aria-label", input.dataset.buttonTimeLabel);
+  if (input.attributes.disabled) {
+    clock.setAttribute("disabled", input.attributes.disabled);
+  };
+
 
   timeColumn.appendChild(time);
   timeColumn.appendChild(clock);

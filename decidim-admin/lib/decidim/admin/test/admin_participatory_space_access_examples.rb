@@ -75,3 +75,21 @@ shared_examples "admin participatory space access" do
     end
   end
 end
+
+shared_examples "admin menu shows only assigned space" do |space_name:, other_spaces: []|
+  before do
+    switch_to_host(organization.host)
+    login_as role, scope: :user
+    visit target_path
+  end
+
+  context "and does not show unassigned spaces" do
+    it "shows only the assigned space" do
+      expect(page).to have_content(space_name)
+
+      other_spaces.each do |other_space|
+        expect(page).to have_no_content(other_space)
+      end
+    end
+  end
+end

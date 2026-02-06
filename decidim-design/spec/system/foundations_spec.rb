@@ -11,7 +11,7 @@ describe "Foundations" do
   end
 
   context "when on accessibility page" do
-    it_behaves_like "showing the design page", "Accessibility", "Web Content Accessibility Guidelines (WCAG) 2.1"
+    it_behaves_like "showing the design page", "Accessibility", "Web Content Accessibility Guidelines (WCAG)"
   end
 
   # TBD: fix `undefined method `cards_table' for` exception
