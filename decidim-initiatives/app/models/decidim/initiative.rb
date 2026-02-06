@@ -433,7 +433,7 @@ module Decidim
       Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
     end
 
-    # Public: Initiatives don't have user roles like other participatory spaces.
+    # Public: Initiatives do not have user roles like other participatory spaces.
     # Returns an empty relation.
     def user_roles(_role_name = nil)
       self.class.none
