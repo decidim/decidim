@@ -54,12 +54,12 @@ module RuboCop
           return true if text.empty?
 
           stripped_text = text.gsub(/[[:punct:]\s]/, "")
-          is_single_word = text.strip !~ /\s/
-          is_too_short = stripped_text.length < MIN_LENGTH_THRESHOLD
+          single_word = text.strip !~ /\s/
+          too_short = stripped_text.length < MIN_LENGTH_THRESHOLD
 
-          return true if is_single_word && is_too_short
-          return true if is_single_word && SINGLE_WORD_ANTI_PATTERNS.include?(stripped_text.downcase)
-          return true if is_too_short
+          return true if single_word && too_short
+          return true if single_word && SINGLE_WORD_ANTI_PATTERNS.include?(stripped_text.downcase)
+          return true if too_short
 
           false
         end
