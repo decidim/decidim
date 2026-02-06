@@ -6,8 +6,6 @@ module RuboCop
   module Cop
     module Decidim
       class AdminCalloutAntipattern < RuboCop::Cop::Base
-        extend AutoCorrector
-
         MIN_LENGTH_THRESHOLD = 12
         SINGLE_WORD_ANTI_PATTERNS = %w(
           successfully
