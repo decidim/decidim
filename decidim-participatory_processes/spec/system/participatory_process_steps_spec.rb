@@ -44,7 +44,7 @@ describe "Participatory Process Steps" do
         switch_to_host(organization.host)
       end
 
-      it "activates the step" do
+      it "triggers a notification" do
         wait_enqueued_jobs do
           visit decidim.notifications_path
           expect(page).to have_content("phase is now active for")
