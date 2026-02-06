@@ -71,13 +71,16 @@ module Decidim
     end
 
     # By default FoundationRailsHelper adds form errors next to input, but since input is in the modal
-    # and modal is hidden by default, we need to add an additional validation field to the form.
+    # and modal is hidden by default, we add a hidden checkbox field to handle HTML5 validation.
     # This should only be necessary when file is required by the form.
+    # Note: Validation errors are now displayed in the main form area, not inside the modal.
     def input_validation_field
       object_name = form.object.present? ? "#{form.object.model_name.param_key}[#{add_attribute}_validation]" : "#{add_attribute}_validation"
-      input = check_box_tag object_name, 1, attachments.present?, class: "reset-defaults", hidden: true, label: false, required: required?
-      message = form.send(:abide_error_element, add_attribute) + form.send(:error_and_help_text, add_attribute)
-      input + message
+      check_box_tag object_name, 1, attachments.present?, class: "reset-defaults", hidden: true, label: false, required: required?, id: validation_field_id
+    end
+
+    def validation_field_id
+      "#{attribute}_validation"
     end
 
     def explanation
