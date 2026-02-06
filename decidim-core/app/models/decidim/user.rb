@@ -79,8 +79,8 @@ module Decidim
                         B: :nickname,
                         datetime: :created_at
                       },
-                      index_on_create: ->(user) { !user.hidden? },
-                      index_on_update: ->(user) { !user.hidden? })
+                      index_on_create: ->(user) { user.visible? },
+                      index_on_update: ->(user) { user.visible? })
 
     before_save :ensure_encrypted_password
     before_save :save_password_change
