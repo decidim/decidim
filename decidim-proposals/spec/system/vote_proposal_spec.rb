@@ -117,9 +117,9 @@ describe "Vote Proposal", slow: true do
         end
       end
 
-      it_behaves_like "when displays the vote button", likes_enabled: true, likes_blocked: true
-      it_behaves_like "when displays the vote button", likes_enabled: true, likes_blocked: false
-      it_behaves_like "when displays the vote button", likes_enabled: false, likes_blocked: false
+      it_behaves_like "displaying the vote button correctly", likes_enabled: true, likes_blocked: true
+      it_behaves_like "displaying the vote button correctly", likes_enabled: true, likes_blocked: false
+      it_behaves_like "displaying the vote button correctly", likes_enabled: false, likes_blocked: false
     end
 
     context "when the user is not logged in" do
