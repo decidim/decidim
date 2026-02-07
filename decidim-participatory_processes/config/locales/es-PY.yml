@@ -492,6 +492,7 @@ es-PY:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Esta función de importación te permite crear un nuevo proceso participativo a partir de un archivo JSON exportado. Puedes exportar un proceso particpativo desde otra organización o desde esta misma organización. El proceso participativo importado incluirá sus ajustes, componentes y archivos adjuntos (si se seleccionan).
         participatory_process_duplicates:
           form:
             slug_help_html: 'Los segmentos de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
