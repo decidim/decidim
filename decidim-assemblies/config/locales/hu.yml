@@ -232,6 +232,9 @@ hu:
             social_handlers: Social
             title: Általános információ
             visibility: Láthatóság
+        assembly_imports:
+          form:
+            document_legend: Dokumentum hozzáadása
         assembly_members:
           form:
             explanation: 'Útmutató a képhez:'
