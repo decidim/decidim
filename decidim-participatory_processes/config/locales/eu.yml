@@ -430,6 +430,7 @@ eu:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Inportazio honek aukera ematen du beste prozesu parte-hartzaile bat sortzeko esportatutako JSON fitxategi batetik abiatuta. Prozesu bat esportatu dezakezu beste erakunde batetik edo erakunde horretatik bertatik. Inportatutako prozesuak bere konfigurazioak, osagaiak eta eranskinak barne hartuko ditu (aukeratuz gero).
         participatory_process_copies:
           form:
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
