@@ -429,6 +429,7 @@ ca:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Aquesta funció d'importació et permet crear un nou procés participatiu a partir d'un fitxer JSON exportat. Pots exportar un procés participatiu d'una altra organització o de la mateixa organització. El procés participatiu importat inclourà la seva configuració, els components i els fitxers adjunts (si s'han seleccionat).
         participatory_process_copies:
           form:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
