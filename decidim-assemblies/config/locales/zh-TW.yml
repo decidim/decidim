@@ -214,6 +214,9 @@ zh-TW:
             select_parent_assembly: 選擇父組件
             social_handlers: 社群
             title: 基本資訊
+        assembly_imports:
+          form:
+            document_legend: 添加文檔
         assembly_members:
           form:
             explanation: '圖像的指導'
