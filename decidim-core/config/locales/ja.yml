@@ -1038,6 +1038,9 @@ ja:
           explanation: '画像のガイダンス:'
           message_1: テキストを含まない横長の画像をお勧めします。
           message_2: システムが画像を切り抜きます。
+        import_file:
+          explanation: 'インポートファイルのガイダンス：'
+          message_1: エクスポート機能を使用してダウンロードした JSON ドキュメントである必要があります。
       file_validation:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
         max_file_dimension: '最大ファイルサイズ: %{resolution} ピクセル'
