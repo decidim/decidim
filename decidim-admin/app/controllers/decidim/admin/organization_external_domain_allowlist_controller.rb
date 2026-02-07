@@ -25,7 +25,7 @@ module Decidim
           end
           on(:invalid) do
             flash[:notice] = t("domain_allowlist.update.error", scope: "decidim.admin")
-            render action: "edit"
+            render action: "edit", status: :unprocessable_entity
           end
         end
       end

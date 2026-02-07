@@ -1,10 +1,9 @@
 import { Extension } from "@tiptap/core";
 
-import { EmojiButton } from "src/decidim/input_emoji";
-
 const createEmojiButton = (editor) => {
   const { view: { dom } } = editor;
-  return new EmojiButton(dom);
+
+  return dom.setAttribute("data-controller", "emoji");
 }
 
 export default Extension.create({

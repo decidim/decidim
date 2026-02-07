@@ -49,7 +49,7 @@ shared_examples "manage registration types examples" do
 
     it "updates a conference registration types" do
       within "#registration_types tr", text: translated(registration_type.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -73,7 +73,7 @@ shared_examples "manage registration types examples" do
 
     it "deletes the conference registration type" do
       within "#registration_types tr", text: translated(registration_type.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 

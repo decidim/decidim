@@ -17,7 +17,7 @@
 
     &.is-active > a,
     & > a:hover {
-      @apply underline [&>svg]:text-secondary bg-white border;
+      @apply [&>svg]:text-secondary bg-white border;
     }
 
     &.is-active > a {
@@ -42,7 +42,7 @@
 
         &.is-active > a,
         & > a:hover {
-          @apply underline [&>svg]:text-secondary bg-white;
+          @apply [&>svg]:text-secondary bg-white;
         }
       }
     }

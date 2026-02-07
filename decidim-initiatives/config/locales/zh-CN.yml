@@ -80,7 +80,6 @@ zh-CN:
         initiatives:
           fields:
             created_at: 创建于
-            id: ID
             published_at: 发布于
             state: 状态
             supports_count: 签名

@@ -55,9 +55,9 @@ module Decidim
         return unless request.referer
 
         path = URI(request.referer).path
-        @focus_mode_origin = if path.match?(%r{/focus/projects/\d+$})
+        @focus_mode_origin = if path.match?(%r{/budgets/\d+/projects/\d+$})
                                "show"
-                             elsif path.match?(%r{/focus/projects$})
+                             elsif path.match?(%r{/budgets/\d+/projects$})
                                "index"
                              else
                                "unknown"

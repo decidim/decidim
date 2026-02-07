@@ -11,8 +11,13 @@ describe "Admin manages debates" do
   end
 
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
 
-  it_behaves_like "manage debates"
+  it_behaves_like "manage debates" do
+    it_behaves_like "access permissions form" do
+      let!(:row_text) { translated(debate.title) }
+    end
+  end
   it_behaves_like "manage taxonomy filters in settings"
   it_behaves_like "manage announcements"
   it_behaves_like "export debates"

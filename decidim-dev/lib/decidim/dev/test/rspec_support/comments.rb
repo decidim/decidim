@@ -3,7 +3,7 @@
 module CommentsHelpers
   def have_comment_from(user, text, opts = {})
     within "#comments" do
-      have_content(user.name, **opts).and have_content(text, **opts)
+      have_content(decidim_sanitize_translated(user.name).gsub("\n", " "), **opts).and have_content(text, **opts)
     end
   end
 

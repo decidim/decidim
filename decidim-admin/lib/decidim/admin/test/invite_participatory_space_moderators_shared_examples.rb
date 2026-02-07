@@ -29,8 +29,8 @@ shared_examples "inviting participatory space moderators" do
 
       within ".table-list" do
         within("tr", text: translated(participatory_space.title)) do
-          find("button[data-component='dropdown']").click
-          click_on "Moderate"
+          find("button[data-controller='dropdown']").click
+          click_on "Manage moderations"
         end
       end
 
@@ -61,8 +61,8 @@ shared_examples "inviting participatory space moderators" do
       within ".table-list" do
         expect(page).to have_i18n_content(participatory_space.title)
         within("tr", text: translated(participatory_space.title)) do
-          find("button[data-component='dropdown']").click
-          click_on "Moderate"
+          find("button[data-controller='dropdown']").click
+          click_on "Manage moderations"
         end
       end
 

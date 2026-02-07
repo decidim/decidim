@@ -10,9 +10,6 @@ sq:
         closing_date: Data e mbylljes
         closing_date_reason: Arsyeja e datës së mbylljes
         composition: Përbërja
-        copy_categories: Kopjo kategoritë
-        copy_components: Kopjo komponentet
-        copy_features: Kopjo veçoritë
         created_by: Krijuar nga
         created_by_other: Krijuar nga tjetër
         creation_date: Data e krijimit
@@ -93,15 +90,6 @@ sq:
         update:
           error: Ndodhi një gabim gjatë përditësimit të asamblesë.
           success: Asambleja u përditësua me sukses.
-      assemblies_copies:
-        create:
-          error: Ndodhi një gabim gjatë duplikimit të asamblesë.
-          success: Asambleja e duplikua me sukses.
-      assembly_copies:
-        new:
-          copy: Kopjo
-          select: Zgjidh cilën të dhënë dëshiron të duplikosh
-          title: Dupliko asamblenë
       assembly_imports:
         create:
           error: Ndodhi një gabim gjatë importimit të asamblesë.
@@ -225,9 +213,6 @@ sq:
             social_handlers: Rrjete sociale
             title: Informacion i përgjithshëm
             visibility: Vizibiliteti
-        assembly_copies:
-          form:
-            slug_help_html: 'Për gjenerimin e URL së kësaj asambleje përdoren URL slugs. Pranohen vetëm gërma, numra dhe viza horizontale, dhe duhet të fillojë me gërmë. Shembull: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'Për gjenerimin e URL së kësaj asambleje përdoren URL slugs. Pranohen vetëm gërma, numra dhe viza horizontale, dhe duhet të fillojë me gërmë. Shembull: %{url}'

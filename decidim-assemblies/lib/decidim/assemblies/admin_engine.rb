@@ -19,7 +19,7 @@ module Decidim
         constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
           resources :assemblies, param: :slug, except: [:show, :destroy] do
             resource :publish, controller: "assembly_publications", only: [:create, :destroy]
-            resources :copies, controller: "assembly_copies", only: [:new, :create]
+            resources :duplicates, controller: "assembly_duplicates", only: [:new, :create]
             resources :user_roles, controller: "assembly_user_roles" do
               member do
                 post :resend_invitation, to: "assembly_user_roles#resend_invitation"
@@ -81,12 +81,12 @@ module Decidim
               resources :reports, controller: "moderations/reports", only: [:index, :show]
             end
 
-            resources :participatory_space_private_users, controller: "participatory_space_private_users" do
+            resources :members, controller: "members" do
               member do
-                post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
+                post :resend_invitation, to: "members#resend_invitation"
               end
               collection do
-                resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
+                resource :members_csv_imports, only: [:new, :create], path: "csv_import" do
                   delete :destroy_all
                 end
                 post :publish_all

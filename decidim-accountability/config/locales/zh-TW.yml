@@ -26,8 +26,6 @@ zh-TW:
   decidim:
     accountability:
       actions:
-        attachment_collections: 資料夾
-        attachments: 附件
         confirm_destroy: 確定要刪除 %{name} ？
         destroy: 刪除
         edit: 編輯
@@ -119,7 +117,6 @@ zh-TW:
           fields:
             created_at: 建立時間
             end_date: 結束日期
-            id: 編號
             progress: 進度
             start_date: 開始日期
             status: 狀態

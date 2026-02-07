@@ -25,6 +25,12 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Debates::Debate", icon: "discuss-line", description: "Debate", category: "activity", engine: :debates)
       end
 
+      initializer "decidim_debates.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_debates.settings_changes" do
         config.to_prepare do
           Decidim::SettingsChange.subscribe "debates" do |changes|
@@ -73,7 +79,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_debates.webpacker.assets_path" do
+      initializer "decidim_debates.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
@@ -91,6 +97,12 @@ module Decidim
             Decidim::Debates::HideAllCreatedByAuthorJob.perform_later(**data)
           end
         end
+      end
+
+      initializer "decidim_debates.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Debates::DebatesMutationType
+        )
       end
     end
   end

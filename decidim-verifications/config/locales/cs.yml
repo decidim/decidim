@@ -288,6 +288,7 @@ cs:
           pending_authorizations:
             index:
               address: Adresa
+              already_sent: Poštovní dopis již byl odeslán a nemůže být znovu označen jako odeslaný.
               letter_sent_at: Dopis zaslaný na
               mark_as_sent: Označit jako odesláno
               not_yet_sent: Dosud nebyla odeslána

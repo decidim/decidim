@@ -14,7 +14,6 @@ kaa:
   decidim:
     accountability:
       actions:
-        attachment_collections: Papkalar
         destroy: Óshiriw
         edit: Ózgeris kirgiziw
         preview: Aldınnan kóriw

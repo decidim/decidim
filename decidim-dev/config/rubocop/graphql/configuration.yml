@@ -1,0 +1,29 @@
+plugins: rubocop-graphql
+
+GraphQL:
+  Enabled: true
+  Include:
+    - "**/lib/decidim/api/**/*"
+  Exclude:
+    - "**/lib/decidim/api/test/**/*"
+    - "**/lib/decidim/api/functions/*"
+    - "spec/**/*"
+    - "test/**/*"
+
+GraphQL/ObjectDescription:
+  Exclude:
+    - "**/lib/decidim/api/engine.rb"
+    - "**/lib/decidim/api/schema.rb"
+    - "**/lib/decidim/api/graphiql/config.rb"
+    - "**/lib/decidim/api/graphql_permissions.rb"
+    - "**/lib/decidim/api/functions/*"
+    - "**/lib/decidim/api/errors/*"
+    - "decidim-api/lib/decidim/api/alias_analyzer.rb"
+    - "decidim-api/lib/decidim/api/introspection_analyzer.rb"
+    - "decidim-api/lib/decidim/api/recursion_analyzer.rb"
+    - "decidim-api/spec/lib/decidim/api/recursion_analyzer_spec.rb"
+    - "spec/**/*"
+    - "test/**/*"
+
+GraphQL/ExtractType:
+  Enabled: false

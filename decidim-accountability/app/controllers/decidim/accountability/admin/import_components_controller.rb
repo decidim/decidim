@@ -22,7 +22,7 @@ module Decidim
 
             on(:invalid) do
               flash[:alert] = I18n.t("import_components.create.invalid", scope: "decidim.accountability.admin")
-              render action: "new"
+              render action: "new", status: :unprocessable_entity
             end
           end
         end

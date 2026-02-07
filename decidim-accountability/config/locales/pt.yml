@@ -36,8 +36,6 @@ pt:
   decidim:
     accountability:
       actions:
-        attachment_collections: Pastas
-        attachments: Anexos
         confirm_destroy: Tem certeza de que deseja eliminar este %{name}?
         destroy: Eliminar
         edit: Editar
@@ -105,7 +103,6 @@ pt:
           fields:
             created_at: Criado em
             end_date: Data final
-            id: ID
             progress: Progresso
             start_date: Data de início
             status: Estado

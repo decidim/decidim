@@ -4,11 +4,12 @@ module Decidim
   module Elections
     module Admin
       class ElectionsController < Admin::ApplicationController
+        helper Decidim::Elections::Admin::ElectionsHelper
         include Decidim::Admin::HasTrashableResources
         include Decidim::ApplicationHelper
         include Decidim::Elections::Admin::Filterable
 
-        helper_method :elections
+        helper_method :elections, :election, :election_questions, :per_question_waiting?
 
         def index
           enforce_permission_to :read, :election
@@ -34,13 +35,13 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.create.invalid", scope: "decidim.elections.admin")
-              render action: "new"
+              render action: "new", status: :unprocessable_entity
             end
           end
         end
 
         def edit
-          enforce_permission_to(:update, :election, election:)
+          enforce_permission_to :update, :election, election:
           @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
         end
 
@@ -52,34 +53,34 @@ module Decidim
           UpdateElection.call(@form, election) do
             on(:ok) do
               flash[:notice] = I18n.t("elections.update.success", scope: "decidim.elections.admin")
-              redirect_to edit_questions_election_path(election)
+              redirect_to election.published? ? dashboard_election_path(election) : edit_questions_election_path(election)
             end
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.update.invalid", scope: "decidim.elections.admin")
-              render action: "edit"
+              render action: "edit", status: :unprocessable_entity
             end
           end
         end
 
         def publish
-          enforce_permission_to(:update, :election, election:)
+          enforce_permission_to(:publish, :election, election:)
 
           PublishElection.call(election, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("elections.publish.success", scope: "decidim.elections.admin")
-              redirect_to elections_path
+              redirect_to dashboard_election_path(election)
             end
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.publish.invalid", scope: "decidim.elections.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end
 
         def unpublish
-          enforce_permission_to(:update, :election, election:)
+          enforce_permission_to(:unpublish, :election, election:)
 
           Decidim::Elections::Admin::UnpublishElection.call(election, current_user) do
             on(:ok) do
@@ -89,16 +90,54 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.unpublish.invalid", scope: "decidim.elections.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end
 
-        def dashboard_page
-          election
+        def dashboard
+          enforce_permission_to(:dashboard, :election, election:)
+
+          respond_to do |format|
+            format.html { render :dashboard }
+            format.json do
+              render json: election.presenter.to_json(admin: true) # Admins see all votes, not just the published results
+            end
+          end
+        end
+
+        def update_status
+          enforce_permission_to(:update, :election, election:)
+
+          status_action = params[:status_action]
+          UpdateElectionStatus.call(status_action, election) do
+            on(:ok) do
+              flash[:notice] = I18n.t("statuses.#{status_action}.success", scope: "decidim.elections.admin")
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("statuses.unknown", scope: "decidim.elections.admin")
+            end
+          end
+          redirect_to dashboard_election_path(election)
+        end
+
+        def toggle_census_check
+          enforce_permission_to(:update, :election, election:)
+
+          value = ActiveModel::Type::Boolean.new.cast(params[:allow_census_check_before_start])
+          election.update!(allow_census_check_before_start: value)
+
+          render json: { success: true, allow_census_check_before_start: election.allow_census_check_before_start }
+        rescue StandardError
+          render json: { success: false, error: I18n.t("elections.toggle_census_check.error", scope: "decidim.elections.admin") }, status: :unprocessable_entity
         end
 
         private
+
+        def per_question_waiting?
+          @per_question_waiting ||= election.per_question? && !election.finished? && election.questions.unpublished_results.enabled.none?
+        end
 
         def elections
           @elections ||= filtered_collection
@@ -122,6 +161,10 @@ module Decidim
 
         def election
           @election ||= elections.find(params[:id])
+        end
+
+        def election_questions
+          @election_questions ||= election.questions.includes(:response_options)
         end
       end
     end

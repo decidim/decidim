@@ -132,16 +132,11 @@ gl:
         attachment:
           new: Novo anexo
         browse: Buscar
-        export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        manage: Xestionar
         newsletter:
           new: Novo boletín
-        participatory_space_private_user:
-          new: Novo usuario privado do espazo participativo
         per_page: Por páxina
-        permissions: Permisos
         share: Compartir
         user:
           new: Novo administrador
@@ -298,17 +293,6 @@ gl:
           values:
             'false': Oficializado
             'true': Non oficializado
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitación aceptada
-            values:
-              'false': Non aceptada
-              'true': Aceptada
-          user_invitation_sent_at_not_null:
-            label: Invitación enviada
-            values:
-              'false': Sen enviar
-              'true': Enviada
         private_space_eq:
           label: Privado
           values:
@@ -414,6 +398,10 @@ gl:
             explanation: Os usuarios xestionados poden ser promocionados a usuarios estándar. Isto significa que serán invitados á aplicación e non poderás suplantarlles de novo. O usuario invitado recibirá un correo electrónico para aceptar a túa invitación.
             new_managed_user_promotion: Nova promoción de usuarios xestionados
             promote: Promover
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Carga o teu ficheiro CSV
       menu:
         admin_log: Rexistro de actividade do administrador
         admins: Administradores
@@ -468,8 +456,6 @@ gl:
             sent_to: Enviado a
             subject: Asunto
           name: Boletín informativo
-        participatory_space_private_user:
-          name: Espazo participativo usuario privado
         scope:
           fields:
             name: Nome
@@ -500,9 +486,11 @@ gl:
         index:
           actions:
             block: Bloquear usuario
+            bulk_actions:
+              unreport:
+                title: Desfacer denuncia
             title: Accións
             unblock: Desbloquear usuario
-            unreport: Desfacer denuncia
           name: Nome
           nickname: Alcume
           reason: Motivo
@@ -594,7 +582,6 @@ gl:
         index:
           actions: Accións
           badge: Insignia
-          block: Bloquear usuario
           created_at: Creado en
           name: Nome
           nickname: Alcume
@@ -603,9 +590,7 @@ gl:
           officialized: Oficializado
           reofficialize: Reofficializar
           reports: Informes
-          show_email: Amosar enderezo de correo
           status: Estado
-          unblock: Desbloquear usuario
           unofficialize: Non oficializar
         new:
           badge: Insignia de oficialización
@@ -631,24 +616,6 @@ gl:
         update:
           error: Produciuse un erro ao actualizar esta organización.
           success: A organización actualizouse con éxito.
-      participatory_space_private_users:
-        create:
-          error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
-          success: O acceso ao usuario privado do espazo participativo creouse con éxito.
-        destroy:
-          error: Produciuse un erro ao eliminar un usuario privado deste espazo participativo.
-          success: O acceso ao usuario privado do espazo participativo foi destruído con éxito.
-        index:
-          import_via_csv: Importar a través de CSV
-          title: Espazo participativo usuario privado
-        new:
-          create: Crear
-          title: Novo usuario privado do espazo participativo.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Carga o teu ficheiro CSV
-          upload: Subir
       reminders:
         create:
           error: Produciuse un problema ao crear os recordatorios.
@@ -713,8 +680,6 @@ gl:
           error: Produciuse un erro ao actualizar este tema.
           success: Tema actualizado correctamente
       static_pages:
-        actions:
-          view: Ver páxina pública
         create:
           error: Produciuse un erro ao crear unha nova páxina.
           success: Páxina creada con éxito.
@@ -774,8 +739,6 @@ gl:
         hide: Ocultar
         not_hidden: Non escondido
         title: Accións
-        unhide: Unhide
-        unreport: Non informar
       admin:
         reportable:
           hide:

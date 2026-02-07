@@ -2,12 +2,8 @@ lt:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Susijusios Asamblėjos
         available_slots: Laisvos vietos
         banner_image: Reklamjuostės paveikslėlis
-        copy_categories: Kopijuoti kategorijas
-        copy_components: Kopijuoti komponentus
-        copy_features: Kopijuoti požymius
         decidim_scope_id: Apimtis
         description: Aprašymas
         end_date: Pabaigos data
@@ -92,11 +88,6 @@ lt:
       actions:
         confirm: Patvirtinti
         send_diplomas: Siųsti dalyvavimo konferencijoje pažymėjimus
-      conference_copies:
-        new:
-          copy: Kopijuoti
-          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
-          title: Dubliuoti konferenciją
       conference_publications:
         create:
           error: Publikuojant šią konferenciją iškilo problema.
@@ -147,19 +138,15 @@ lt:
         exports:
           registrations: Registracijos
         form:
+          images: Paveikslėliai
           title: Bendroji informacija
         index:
           published: Publikuota
         new:
           create: Sukurti
-          title: Konferencija
         update:
           error: Atnaujinant šią konferenciją iškilo problema.
           success: Konferencija atnaujinta.
-      conferences_copies:
-        create:
-          error: Dubliuojant šią konferenciją iškilo problema.
-          success: Konferencija dubliuota.
       media_links:
         create:
           error: Kuriant naują multimedijos nuorodą iškilo problema.

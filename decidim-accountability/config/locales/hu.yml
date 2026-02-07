@@ -27,8 +27,6 @@ hu:
   decidim:
     accountability:
       actions:
-        attachment_collections: Mappák
-        attachments: Csatolmányok
         confirm_destroy: 'Biztosan törölni szeretnéd ezt: %{name}?'
         destroy: Törlés
         edit: Szerkesztés
@@ -126,7 +124,6 @@ hu:
           fields:
             created_at: Létrehozva
             end_date: Befejezés dátuma
-            id: ID
             progress: Folyamat
             start_date: Kezdő dátum
             status: Állapot

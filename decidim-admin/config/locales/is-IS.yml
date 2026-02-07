@@ -109,12 +109,11 @@ is-IS:
         attachment:
           new: Nýtt viðhengi
         browse: Skoða
+        export: Útflutningur
         import: Flytja inn
-        manage: Stjórna
         newsletter:
           new: Nýtt fréttabréf
         per_page: Á hveri síðu
-        permissions: Heimildir
         share: Deila
       area_types:
         create:
@@ -360,9 +359,6 @@ is-IS:
           youtube: Youtube
         update:
           success: Skipulag uppfærður með góðum árangri.
-      participatory_space_private_users:
-        new:
-          create: Búa til
       resource_permissions:
         edit:
           title: Breyta heimildum
@@ -392,8 +388,6 @@ is-IS:
         update:
           success: Gildissvið uppfært með góðum árangri
       static_pages:
-        actions:
-          view: Skoðaðu opinbera síðu
         create:
           success: Síða búin til með góðum árangri.
         destroy:
@@ -427,7 +421,6 @@ is-IS:
         hide: Fela
         not_hidden: Ekki falið
         title: Aðgerðir
-        unreport: Unreport
       admin:
         reportable:
           hide:

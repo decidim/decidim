@@ -1,4 +1,4 @@
-(() => {
+document.addEventListener("turbo:load", () => {
   const getButtons = document.querySelectorAll("button.question--collapse");
 
   setTimeout(() => {
@@ -18,4 +18,4 @@
     document.querySelectorAll("[id$=field] button.question--collapse[aria-expanded='false']").
       forEach((button) => button.click());
   });
-})();
+});

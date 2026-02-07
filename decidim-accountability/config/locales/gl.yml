@@ -27,8 +27,6 @@ gl:
   decidim:
     accountability:
       actions:
-        attachment_collections: Cartafoles
-        attachments: Ficheiros anexos
         confirm_destroy: Estás seguro de que queres eliminar este %{name}?
         destroy: Eliminar
         edit: Editar
@@ -89,7 +87,6 @@ gl:
           fields:
             created_at: Creado
             end_date: Data de finalización
-            id: ID
             progress: Progreso
             start_date: Data de inicio
             status: Estado

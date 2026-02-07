@@ -2,12 +2,8 @@ ar:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: الجمعيات ذات الصلة
         available_slots: المواعيد المتاحة
         banner_image: صورة بانر
-        copy_categories: نسخ الفئات
-        copy_components: نسخ المكونات
-        copy_features: نسخ الميزات
         decidim_scope_id: نطاق
         description: وصف
         end_date: تاريخ الانتهاء
@@ -91,11 +87,6 @@ ar:
         new_conference: مؤتمر جديد
         new_partner: شريك جديد
         send_diplomas: إرسال شهادات الحضور
-      conference_copies:
-        new:
-          copy: نسخ
-          select: حدد البيانات التي ترغب في تكرارها
-          title: مؤتمر مكرر
       conference_publications:
         create:
           error: كانت هناك مشكلة في نشر هذا المؤتمر.
@@ -144,19 +135,15 @@ ar:
         exports:
           registrations: التسجيلات
         form:
+          images: صور
           title: معلومات عامة
         index:
           published: نشرت
         new:
           create: إنشاء
-          title: مؤتمر
         update:
           error: حدثت مشكلة أثناء تحديث هذا المؤتمر.
           success: تم تحديث المؤتمر بنجاح.
-      conferences_copies:
-        create:
-          error: كانت هناك مشكلة في تكرار هذا المؤتمر.
-          success: تم تكرار المؤتمر بنجاح.
       media_links:
         create:
           error: حدثت مشكلة أثناء إنشاء رابط وسائط جديد.

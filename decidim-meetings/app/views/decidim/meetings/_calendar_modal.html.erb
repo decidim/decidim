@@ -15,6 +15,7 @@
     <div class="meeting-list__modal-input">
       <input id="urlCalendarUrl" type="text" title="<%= t(".calendar_url") %>" value="<%= "#{path}" %>" readonly>
       <button
+        data-controller="clipboard-copy"
         data-clipboard-copy="#urlCalendarUrl"
         data-clipboard-copy-label="<%= t(".copy_calendar_url_copied") %>"
         data-clipboard-copy-message="<%= t(".copy_calendar_url_message") %>"

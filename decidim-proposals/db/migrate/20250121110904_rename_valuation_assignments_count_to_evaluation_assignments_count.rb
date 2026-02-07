@@ -8,7 +8,7 @@ class RenameValuationAssignmentsCountToEvaluationAssignmentsCount < ActiveRecord
       dir.up do
         Decidim::Proposals::Proposal.reset_column_information
         Decidim::Proposals::Proposal.unscoped.find_each do |record|
-          Decidim::Proposals::Proposal.reset_counters(record.id, :evaluation_assignments)
+          Decidim::Proposals::Proposal.unscoped.reset_counters(record.id, :evaluation_assignments)
         end
       end
     end

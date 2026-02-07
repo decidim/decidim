@@ -107,9 +107,8 @@ sl:
       actions:
         add: Dodaj
         browse: Brskaj
-        manage: Uredi
+        export: Izvozi
         per_page: Na stran
-        permissions: Dovoljenja
       filters:
         state_eq:
           values:

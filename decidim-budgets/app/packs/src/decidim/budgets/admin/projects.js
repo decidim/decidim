@@ -1,5 +1,5 @@
 /* eslint-disable no-invalid-this */
-$(() => {
+document.addEventListener("turbo:load", () => {
   const selectedResourcesCount = () => {
     return $(".table-list .js-check-all-resources:checked").length
   }

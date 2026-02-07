@@ -236,6 +236,11 @@ ro:
           conditions:
             - Răsfoiește paginile și petrece puțin timp citind propunerile altora
             - 
+          description_another: Acest participant a votat %{score} propuneri.
+          description_own: Ați votat %{score} propuneri.
+          name: Voturi pentru propunere
+          unearned_another: Acest participant nu a votat încă nicio propunere.
+          unearned_own: Încă nu ați votat nicio propunere.
         proposals:
           conditions:
             - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
@@ -245,6 +250,7 @@ ro:
           description_own: Ai creat %{score} propuneri.
           name: Propuneri
           next_level_in: Creează încă %{score} propuneri pentru a atinge nivelul următor!
+          unearned_another: Acest participant nu a creat nicio propunere încă.
           unearned_own: Nu ai creat încă nicio propunere.
     participatory_spaces:
       highlighted_proposals:
@@ -518,6 +524,8 @@ ro:
       invite_coauthors:
         create:
           success: "%{author_name} a fost invitat cu succes să fie coautor."
+      last_activity:
+        new_proposal: 'Propunere nouă:'
       models:
         proposal:
           fields:

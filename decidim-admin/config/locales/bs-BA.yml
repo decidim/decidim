@@ -107,9 +107,7 @@ bs:
       actions:
         add: Dodaj
         browse: Pregledaj
-        manage: Upravljaj
         per_page: Po stranici
-        permissions: Dozvole
       area_types:
         create:
           error: Nastao je problem pri stvaranju novog tipa oblasti.
@@ -326,8 +324,6 @@ bs:
             sent_to: Poslato
             subject: Naslov
           name: Bilten
-        participatory_space_private_user:
-          name: Privatni učesnik prostora za diskusiju
         scope:
           fields:
             name: Ime
@@ -421,7 +417,6 @@ bs:
           officialize: Ozvaniči
           officialized: Ozvaničen
           reofficialize: Ponovo ozvaniči
-          show_email: Prikaži adresu e-pošte
           status: Status
           unofficialize: Razreši zvaničnog statusa
         new:

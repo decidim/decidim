@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const selectInitiativeType = document.getElementById("select-initiative-type");
 
   if (selectInitiativeType) {

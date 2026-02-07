@@ -2,12 +2,8 @@ pl:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Powiązane zespoły
         available_slots: Dostępne terminy
         banner_image: Baner
-        copy_categories: Skopiuj kategorie
-        copy_components: Skopiuj komponenty
-        copy_features: Skopiuj funkcje
         decidim_scope_id: Zakres
         description: Opis
         end_date: Data zakończenia
@@ -99,11 +95,6 @@ pl:
         new_registration_type: Nowy typ rejestracji
         new_speaker: Nowy mówca
         send_diplomas: Wyślij certyfikaty uczestnictwa
-      conference_copies:
-        new:
-          copy: Kopiuj
-          select: Wybierz dane, które chcesz zduplikować
-          title: Zduplikuj konferencję
       conference_publications:
         create:
           error: Wystąpił błąd podczas publikowania tej konferencji.
@@ -160,20 +151,16 @@ pl:
         exports:
           registrations: Rejestracje
         form:
+          images: Zdjęcia
           title: Informacje ogólne
         index:
           published: Opublikowane
           unpublished: Nieopublikowane
         new:
           create: Utwórz
-          title: Konferencja
         update:
           error: Wystąpił błąd podczas aktualizowania konferencji.
           success: Konferencja została zaktualizowana pomyślnie.
-      conferences_copies:
-        create:
-          error: Wystąpił błąd podczas duplikowania konferencji.
-          success: Konferencja zduplikowana pomyślnie.
       media_links:
         create:
           error: Podczas tworzenia nowego linku do multimediów wystąpił błąd.
@@ -321,9 +308,6 @@ pl:
         title: Prelegenci
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tej konferencji. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         conference_invites:
           create:
             error: Podczas zapraszania użytkownika do udziału w konferencji wystąpił błąd.

@@ -30,19 +30,8 @@ describe "Admin orders projects" do
   before do
     visit_component_admin
     within "tr", text: translated_attribute(budget.title) do
-      find("button[data-component='dropdown']").click
-      click_on "Manage projects"
-    end
-  end
-
-  it "orders projects by ID" do
-    ordered_projects = projects.sort_by(&:id).reverse
-
-    click_on "ID"
-    rows = page.all("tbody tr")
-
-    rows.each_with_index do |row, i|
-      expect(row).to have_text(translated(ordered_projects[i].title))
+      find("button[data-controller='dropdown']").click
+      click_on "Add projects"
     end
   end
 

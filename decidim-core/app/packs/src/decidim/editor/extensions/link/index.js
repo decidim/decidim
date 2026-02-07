@@ -1,7 +1,7 @@
 import Link from "@tiptap/extension-link";
 import { Plugin } from "prosemirror-state";
 
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 import InputDialog from "src/decidim/editor/common/input_dialog";
 import createBubbleMenu from "src/decidim/editor/extensions/link/bubble_menu";
 
@@ -28,10 +28,17 @@ export default Link.extend({
       ...this.parent?.(),
       allowTargetControl: false,
       HTMLAttributes: {
-        target: "_blank",
         class: null
       }
     }
+  },
+
+  renderHTML({ HTMLAttributes }) {
+    const attrs = { ...HTMLAttributes };
+    if (attrs.target === "") {
+      Reflect.deleteProperty(attrs, "target");
+    }
+    return ["a", attrs, 0];
   },
 
   addCommands() {

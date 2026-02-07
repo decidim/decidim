@@ -23,7 +23,7 @@ edit_link(
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debates_path, commentable: debate } do %>
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator">
-      <%== present(debate).title(links: true, html_escape: true) %>
+      <%== present(debate).title(html_escape: true) %>
     </h1>
 
     <% debate_presenter = debate.presenter %>
@@ -38,7 +38,7 @@ edit_link(
     <div class="layout-author <%= "has_status" if debate.closed? %>">
       <div class="relative flex items-center justify-center w-full">
         <div class="w-10/12 flex items-center gap-4">
-          <%= cell "decidim/author", debate_presenter.author, skip_profile_link: true %>
+          <%= cell "decidim/author", debate_presenter.author %>
         </div>
         <%= render "decidim/shared/resource_actions", resource: debate do %>
           <%= render "decidim/debates/debates/debate_actions" %>

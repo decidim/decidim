@@ -7,7 +7,7 @@ describe "Admin manages participatory process components" do
 
   it_behaves_like "manage process components"
 
-  describe "Soft delete" do
+  describe "Move to trash" do
     let(:admin_resource_path) { decidim_admin_participatory_processes.components_path(participatory_process) }
     let(:trash_path) { decidim_admin_participatory_processes.manage_trash_components_path(participatory_process) }
     let(:title) { { en: "My component" } }

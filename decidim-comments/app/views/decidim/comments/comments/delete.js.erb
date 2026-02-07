@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const deleteDataHtml = '<%== j(render partial: "delete", locals: { comment: @comment }).strip %>';
   const rootCommentableId = <%== "comments-for-#{@comment.root_commentable.commentable_type.demodulize}-#{@comment.root_commentable.id}".to_json %>;
   const commentId = <%= @comment.id.to_json %>;
@@ -11,7 +11,7 @@ $(() => {
     $(`#comment_${commentId} > [data-comment-footer] > .comment__${section}`).remove();
   });
   $(`#comment_${commentId} > .comment__header`).remove();
-  $(`#comment_${commentId} > [data-additional-reply]`).remove();
+  $(`#comment_${commentId} > [data-comment-footer] > [data-additional-reply]`).remove();
 
   $commentReply.remove();
   $content.replaceWith(deleteDataHtml);
@@ -21,3 +21,5 @@ $(() => {
 
   $(".comments-count", $(`#${rootCommentableId}`)).text(<%== t("decidim.components.comments.title", count: @comment.root_commentable.comments_count).to_json %>);
 });
+
+document.dispatchEvent(new CustomEvent("turbo:load"));

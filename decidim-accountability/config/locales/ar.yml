@@ -40,8 +40,6 @@ ar:
   decidim:
     accountability:
       actions:
-        attachment_collections: الحافظات
-        attachments: المرفقات
         confirm_delete_result: هل تريد بالتأكيد حذف هذه النتيجة؟
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
         deleted_results_info: يمكن استعادة النتائج المحذوفة من سلة المهملات.
@@ -184,7 +182,6 @@ ar:
           fields:
             created_at: تم الإنشاء
             end_date: تاريخ الانتهاء
-            id: المعرف ID
             progress: تقدم
             start_date: تاريخ البدء
             status: الحالة

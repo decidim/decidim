@@ -21,10 +21,7 @@ ar:
   decidim:
     budgets:
       actions:
-        attachment_collections: المجلدات
-        attachments: مرفقات
         edit: تعديل
-        edit_projects: إدارة المشاريع
         import: استيراد مقترحات للمشاريع
         preview: معاينة
         title: أفعال
@@ -36,8 +33,6 @@ ar:
         exports:
           projects: المشاريع
         models:
-          budget:
-            name: الميزانية
           project:
             name: مشروع
         projects:

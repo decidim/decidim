@@ -7,6 +7,10 @@ nl:
           election_questions: vragen
     components:
       elections:
+        actions:
+          create: Creëren
+          destroy: Vernietig
+          update: Bijwerken
         name: Verkiezingen
         settings:
           global:
@@ -15,16 +19,35 @@ nl:
             announcement: Mededeling
     elections:
       actions:
+        preview: Voorvertoning
         title: acties
       admin:
         census:
           edit:
             created_at: Aangemaakt op
+        dashboard:
+          census:
+            title: Kiezerslijst
+          main:
+            labels:
+              description: Beschrijving
+          questions:
+            labels:
+              answers: Antwoorden
+            title: vragen
+          questions_table:
+            answer: Antwoorden
+            votes: Stemmen
+          results:
+            title: Resultaten
+          status:
+            title: Verkiezingsstatus
         elections:
           edit:
             title: Bewerken van verkiezing
           form:
             add_images: Afbeeldingen toevoegen
+            publish: Publiceren
           index:
             title: Verkiezingen
           new:
@@ -33,9 +56,37 @@ nl:
           edit_questions:
             new_question: Nieuwe vraag
             title: vragen
+      censuses:
+        token_csv_form:
+          email: E-mail
+      elections:
+        count:
+          elections_count:
+            one: "%{count} verkiezing"
+            other: "%{count} verkiezingen"
+        filters:
+          state: Status
+        show:
+          vote_button: Stemming
+        vote_results:
+          title: Resultaten
       models:
         election:
           fields:
+            census: Kiezerslijst
+            status: Status
             title: Aanspreektitel
+      status:
+        not_started: Niet begonnen
+      votes:
+        confirm:
+          title: Bevestig uw stem
+        question:
+          back: Terug
+          next: Volgende
     statistics:
       elections_count: Verkiezingen
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Afsluiten

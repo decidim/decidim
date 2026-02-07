@@ -2,11 +2,7 @@ id:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Rakitan Terkait
         banner_image: Gambar spanduk
-        copy_categories: Salin kategori
-        copy_components: Salin komponen
-        copy_features: Salin fitur
         decidim_scope_id: Cakupan
         description: Deskripsi
         hero_image: Gambar rumah
@@ -37,11 +33,6 @@ id:
       actions:
         confirm: Memastikan
         send_diplomas: Kirim sertifikat kehadiran
-      conference_copies:
-        new:
-          copy: Salinan
-          select: Pilih data mana yang ingin Anda gandakan
-          title: Konferensi duplikat
       conference_publications:
         create:
           error: Terjadi kesalahan saat mempublikasikan konferensi ini.
@@ -90,19 +81,15 @@ id:
         exports:
           registrations: Pendaftaran
         form:
+          images: Foto
           title: Informasi Umum
         index:
           published: Diterbitkan
         new:
           create: Membuat
-          title: Konferensi
         update:
           error: Ada kesalahan saat memperbarui konferensi ini.
           success: Konferensi berhasil diperbarui.
-      conferences_copies:
-        create:
-          error: Ada kesalahan saat menduplikasi konferensi ini.
-          success: Konferensi berhasil digandakan.
       media_links:
         create:
           error: Terjadi kesalahan saat membuat tautan media baru.

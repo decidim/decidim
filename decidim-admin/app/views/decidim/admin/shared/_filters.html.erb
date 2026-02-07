@@ -1,7 +1,7 @@
 <div class="filters__section">
   <div class="fcell">
     <% dropdown_id = "top-#{SecureRandom.uuid}" %>
-    <a href="#" class="button button__xs button__transparent-secondary" data-component="dropdown" data-target="dropdown-filters-<%= dropdown_id %>">
+    <a href="#" class="button button__xs button__transparent-secondary" data-controller="dropdown" data-target="dropdown-filters-<%= dropdown_id %>">
       <%= t("filter_label", scope: "decidim.admin.filters") %>
       <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
       <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>

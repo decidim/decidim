@@ -56,6 +56,7 @@ describe "Admin manages proposals evaluators" do
       end
 
       it "displays log" do
+        sleep 1
         visit decidim_admin.root_path
         expect(page).to have_content("assigned the #{translated(proposal.title)} proposal to a evaluator")
       end
@@ -202,7 +203,7 @@ describe "Admin manages proposals evaluators" do
 
       visit current_path
       within "tr", text: translated(proposal.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Answer proposal"
       end
     end

@@ -33,9 +33,14 @@ de:
       help_section:
         content: Inhalt
       id: ID
+      member:
+        email: E-Mail
+        name: Name
+      member_csv_import:
+        file: Datei
       newsletter:
         body: Haupttext
-        send_to_all_users: An alle Benutzenden senden
+        send_to_all_users: An alle Teilnehmende senden
         send_to_followers: An Follower senden
         send_to_participants: An Teilnehmende senden
         subject: Betreff
@@ -48,6 +53,7 @@ de:
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
         default_locale: Standardgebietsschema
         description: Beschreibung
+        enable_machine_translations: Maschinelle Übersetzungen aktivieren
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
         enable_participatory_space_filters: Bereichs- und Gebietsfilter aktivieren
         facebook_handler: Facebook-Handler
@@ -90,11 +96,6 @@ de:
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
         youtube_handler: YouTube-Handler
-      participatory_space_private_user:
-        email: E-Mail
-        name: Name
-      participatory_space_private_user_csv_import:
-        file: Datei
       scope:
         code: Code
         name: Name
@@ -124,10 +125,17 @@ de:
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
         weight: Reihenfolge
+      taxonomy:
+        item_name: Elementbezeichnung
+        parent_id: Übergeordnetes Element
       user_group_csv_verification:
         file: Datei
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
         newsletter:
           attributes:
             base:
@@ -136,10 +144,6 @@ de:
           attributes:
             official_img_footer:
               allowed_file_content_types: Ungültige Bilddatei
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
         user_group_csv_verification:
           attributes:
             file:
@@ -166,12 +170,17 @@ de:
   decidim:
     admin:
       actions:
+        actions: Aktionen
+        actions_label: Aktionen für %{resource}
         add: Hinzufügen
         attachment:
           new: Neuer Anhang
         attachment_collection:
           new: Neuer Ordner für Dateianhänge
+        attachment_collections: Ordner hinzufügen
+        attachments: Anhang hinzufügen
         browse: Durchsuchen
+        configure: Konfigurieren
         confirm_delete_component: |
           Sind Sie sicher, dass Sie diese Komponente löschen möchten?<br>
           Diese Komponente enthält:<br>
@@ -179,21 +188,22 @@ de:
             <li class="font-bold">%{resources_count} Ressourcen</li>
           </ul>
           Wenn Sie Ihre Meinung ändern, können Sie es später wiederherstellen.
-        export: Alles exportieren
+        export: Exportieren
         export-selection: Auswahl exportieren
         import: Importieren
-        manage: Verwalten
+        member:
+          new: Neues Mitglied
+        menu_hidden: Im Menü ausblenden
+        moderate: Moderationen verwalten
         newsletter:
           new: Neuer Newsletter
-        participatory_space_private_user:
-          new: Neuer privater Benutzer
         per_page: Pro Seite
-        permissions: Berechtigungen
+        permissions: Berechtigungen verwalten
         restore: Wiederherstellen
         send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
-        share_tokens: Zugangslinks
-        soft_delete: Vorläufiges Löschen
+        share_tokens: Linkfreigabe
+        soft_delete: In Papierkorb verschieben
         user:
           new: Neuer Administrator
         view_deleted_components: Gelöschte Komponenten ansehen
@@ -344,6 +354,8 @@ de:
       conflicts:
         attempts: Versuche
         'false': 'Nein'
+        index:
+          text: Duchsuche nach aktueller E-Mail-Adresse, Name oder Spitzname
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
         title: Überprüfungskonflikte
@@ -384,7 +396,7 @@ de:
         form:
           domain_too_short: Domain zu kurz
         update:
-          error: Liste der zulässigen externen Domains konnte nicht aktualisiert werden
+          error: Das Aktualisieren der Liste der zulässigen externen Domains ist fehlgeschlagen.
           success: Die Liste der zulässigen externen Domains wurde erfolgreich aktualisiert.
       exports:
         export_as: "%{name} als %{export_format}"
@@ -406,6 +418,17 @@ de:
           values:
             'false': 'Nein'
             'true': 'Ja'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Einladung akzeptiert
+            values:
+              'false': Nicht akzeptiert
+              'true': Akzeptiert
+          user_invitation_sent_at_not_null:
+            label: Einladung versendet
+            values:
+              'false': Nicht versendet
+              'true': Versendet
         moderated_users:
           reports_reason_eq:
             label: Grund der Meldung
@@ -421,17 +444,6 @@ de:
           values:
             'false': Offizialisiert
             'true': Nicht offiziell
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Einladung akzeptiert
-            values:
-              'false': Nicht akzeptiert
-              'true': Akzeptiert
-          user_invitation_sent_at_not_null:
-            label: Einladung versendet
-            values:
-              'false': Nicht versendet
-              'true': Versendet
         private_space_eq:
           label: Privat
           values:
@@ -445,7 +457,11 @@ de:
         remove_all: Alle entfernen
         search_label: Suche
         search_placeholder:
+          name_or_nickname_or_email_cont: Durchsuche %{collection} nach E-Mail, Name oder Spitzname
           report_count_eq: Anzahl Meldungen
+          reported_id_string_or_reported_content_cont: Durchsuche %{collection} nach gemoldener ID oder Inhalt
+          title_cont: Duchsuche %{collection} nach Titel
+          user_name_or_user_nickname_or_user_email_cont: Duchsuche %{collection} nach E-Mail-Adresse, Name oder Spitzname
         state_eq:
           label: Status
           values:
@@ -507,7 +523,7 @@ de:
         and: und
         data_errors:
           duplicate_headers:
-            detail: Bitte überprüfen Sie, dass die Datei benötigte Spalten oder Kopfzeilen nur einmal enthält.
+            detail: Bitte überprüfen Sie, dass die Datei die benötigten Spalten oder Kopfzeilen nur einmal enthält.
             message:
               one: Spalte %{columns} duplizieren.
               other: Spalten %{columns} duplizieren.
@@ -544,6 +560,7 @@ de:
       logs:
         filters:
           participatory_space: Partizipativen Raum finden
+          text: Duchsuche nach E-Mail-Adresse, Name oder Spitzname
           user: Benutzer*in
         logs_list:
           no_logs_yet: Es gibt noch keine Protokolle.
@@ -559,6 +576,53 @@ de:
             explanation: Verwaltete Benutzer können zu Standardbenutzern heraufgestuft werden. Das bedeutet, dass sie zu der Anwendung eingeladen werden und nicht in der Lage sind, sie erneut zu repräsentieren. Der eingeladene Benutzer erhält eine E-Mail, um Ihre Einladung anzunehmen.
             new_managed_user_promotion: Neue verwaltete Benutzerwerbung
             promote: Fördern
+      members:
+        create:
+          error: Beim Hinzufügen eines Mitglieds zu diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Zugriff für das Mitglied erfolgreich erstellt.
+        destroy:
+          error: Beim Entfernen eines Mitglieds zu diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Zugriff für das Mitglied erfolgreich gelöscht.
+        edit:
+          title: Mitglied bearbeiten
+          update: Aktualisieren
+        index:
+          import_via_csv: Aus CSV importieren
+          publish_all: Alle veröffentlichen
+          title: Mitglied
+          unpublish_all: Alle Veröffentlichungen aufheben
+        new:
+          create: Erstellen
+          title: Neues Mitglied
+        publish_all:
+          error: Beim Veröffentlichen der Mitglieder in diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Alle Mitglieder für diesen partizipativen Bereich erfolgreich veröffentlicht
+        unpublish_all:
+          error: Beim Aufheben der Veröffentlichen der Mitglieder in diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Die Veröffentlichung der Mitglieder für diesen partizipativen Bereich wurde erfolgreich aufgehoben
+        update:
+          error: Beim Aktualisieren eines Mitglieds in diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Mitglied wurde erfolgreich aktualisiert
+      members_csv_imports:
+        create:
+          invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
+          success: CSV-Datei wurde erfolgreich hochgeladen. Wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
+        new:
+          csv_upload:
+            title: Laden Sie Ihre CSV-Datei hoch
+          destroy:
+            button: Alle Mitglieder löschen
+            confirm: Sind Sie sicher, dass Sie alle Mitglieder entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
+            empty: Sie haben noch keine Mitglieder.
+            explanation: Sie haben %{count} Mitglieder.
+            title: Mitglieder löschen
+          example_file: 'Beispieldatei:'
+          explanation: 'Laden Sie Ihre CSV-Datei mit den Teilnehmenden, die Sie zum Prozess hinzufügen möchten, hoch. Sie muss zwei Spalten (ohne Kopfzeile) haben, mit der E-Mail-Adresse in der ersten Spalte und dem Namen in der zweiten Spalte der Datei. Verwenden Sie keine ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen der Teilnehmenden.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Mitglieder via CSV importieren
+          upload: Hochladen
       menu:
         admin_log: Admin-Aktivitätsprotokoll
         admins: Admins
@@ -570,6 +634,7 @@ de:
         content: Gemeldeter Inhalt
         external_domain_allowlist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
+        homepage: Homepage-Layout
         impersonations: Identitätswechsel
         insights: Einblicke
         manage: Verwalten
@@ -616,6 +681,8 @@ de:
             reason: Grund
             started_at: Fing an bei
             user: Benutzer
+        member:
+          name: Mitglied
         newsletter:
           fields:
             created_at: Erstellt am
@@ -624,8 +691,6 @@ de:
             sent_to: Gesendet an
             subject: Gegenstand
           name: Newsletter
-        participatory_space_private_user:
-          name: Participatory Space privater Benutzer
         scope:
           fields:
             name: Name
@@ -674,7 +739,7 @@ de:
               update_moderated_user_button: Gemeldete Teilnehmende zurückweisen
             title: Aktionen
             unblock: Blockierung des Benutzers aufheben
-            unreport: Meldung Rückgängig machen
+            unreport: Meldung rückgängig machen
           cancel: Abbrechen
           name: Name
           nickname: Spitzname
@@ -698,10 +763,10 @@ de:
               title: Verbergen
               update_moderation_button: Ausgewählte Ressourcen verbergen
             unhide:
-              title: Einblenden
+              title: Erneut einblenden
               update_moderation_button: Ausgewählte Ressourcen einblenden
             unreport:
-              title: Meldung zurückweisen
+              title: Meldung rückgängig machen
               update_moderation_button: Meldung ausgewählter Ressourcen aufheben
           cancel: Abbrechen
           selected: ausgewählt
@@ -790,7 +855,7 @@ de:
           select_conferences: Konferenzen auswählen
           select_initiatives: Initiativen auswählen
           select_participatory_processes: Beteiligungsprozesse auswählen
-          select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
+          select_spaces: Bereiche zum Segmentieren des Newsletters auswählen
           select_users_for_participatory_space: Newsletter an einen oder mehrere partizipative Bereiche senden
           select_users_general: Plattformweiter Newsletter senden
           select_verification_types: Verifizierungsmethoden auswählen
@@ -829,7 +894,7 @@ de:
         index:
           actions: Aktionen
           badge: Abzeichen
-          block: Benutzer blockieren
+          block: Blockieren
           created_at: Erstellt am
           name: Name
           nickname: Spitzname
@@ -838,9 +903,10 @@ de:
           officialized: Offizialisiert
           reofficialize: Reoffizialisieren
           reports: Berichte
+          send_message: Nachricht senden
           show_email: E-Mail-Adresse anzeigen
           status: Status
-          unblock: Blockierung des Users aufheben
+          unblock: Blockierung aufheben
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen
@@ -899,53 +965,6 @@ de:
         form:
           add: Zur erlaubten Liste hinzufügen
           title: Liste erlaubter externer Domains
-      participatory_space_private_users:
-        create:
-          error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Participatory Space Privater Benutzerzugriff erfolgreich erstellt.
-        destroy:
-          error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Privater Zugriff zum partizipativen Raum erfolgreich gelöscht.
-        edit:
-          title: Privates Mitglied des partiziaptiven Bereichs bearbeiten.
-          update: Aktualisieren
-        index:
-          import_via_csv: Aus CSV-Datein importieren
-          publish_all: Alle veröffentlichen
-          title: Participatory Space privater Benutzer
-          unpublish_all: Alle Veröffentlichungen aufheben
-        new:
-          create: Erstellen
-          title: Neuer privater Benutzer des Participatory Space.
-        publish_all:
-          error: Es gab ein Problem bei der Veröffentlichung aller privaten Teilnehmenden für diesen partizipativen Bereich.
-          success: Alle privaten Teilnehmenden erfolgreich für diesen partizipativen Bereich veröffentlicht
-        unpublish_all:
-          error: Es gab ein Problem beim Entfernen aller privaten Teilnehmenden für diesen partizipativen Bereich.
-          success: Alle privaten Teilnehmenden für diesen teilnehmenden Raum erfolgreich zurückgezogen
-        update:
-          error: Beim Aktualisieren des privaten Teilnehmenden für diesen Beteiligungsbereich ist ein Problem aufgetreten.
-          success: Privater Teilnehmende für diesen partizipativen Raum erfolgreich erstellt
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
-          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
-        new:
-          csv_upload:
-            title: CSV-Datei hochladen
-          destroy:
-            button: Alle private Teilnehmende auswählen
-            confirm: Sind Sie sicher, dass Sie alle private Teilnehmende entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
-            empty: Sie haben keine private Teilnehmende.
-            explanation: Sie haben %{count} private Teilnehmende.
-            title: Alle private Teilnehmende entfernen
-          example_file: 'Beispieldatei:'
-          explanation: 'Laden Sie Ihre CSV-Datei mit den Teilnehmenden, die Sie zum Prozess hinzufügen möchten, hoch. Sie muss zwei Spalten (ohne Kopfzeile) haben, mit der E-Mail-Adresse in der ersten Spalte und dem Namen in der zweiten Spalte der Datei. Verwenden Sie keine ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen der Teilnehmenden.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Private Teilnehmende via CSV importieren
-          upload: Hochladen
       reminders:
         create:
           error: Beim Erstellen dieser Erinnerungen ist ein Problem aufgetreten.
@@ -956,7 +975,7 @@ de:
           submit: Senden
       resource_permissions:
         edit:
-          submit: einreichen
+          submit: Absenden
           title: Berechtigungen bearbeiten
         options_form:
           ephemeral_warning: Um diese Autorisierungsmethode zu aktivieren, müssen Sie alle bestehenden Autorisierungen <a href="%{path}“>zurücknehmen</a>. Dadurch wird das Risiko von Überprüfungskonflikten minimiert. Alle Berechtigungen dieses Typs werden in der Organisation automatisch entzogen, wenn Sie Änderungen einreichen, die diese Methode hinzufügen oder ihre Konfiguration verändern, nachdem sie hinzugefügt wurde.
@@ -1067,7 +1086,7 @@ de:
           success: Thema erfolgreich aktualisiert
       static_pages:
         actions:
-          view: Öffentliche Seite anzeigen
+          view: Anzeigen
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
@@ -1095,9 +1114,9 @@ de:
       taxonomies:
         actions:
           actions: Aktionen
-          destroy: Klassifizierung & Elemente löschen
-          edit: Klassifizierung & Elemente bearbeiten
-          filters: Filter verwalten
+          destroy: Löschen
+          edit: Bearbeiten
+          filters: Filter anwenden
         breadcrumb:
           edit: Klassifizierung bearbeiten
           new: Neue Klassifizierung
@@ -1223,6 +1242,9 @@ de:
         taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
         users: Administratoren
       tooltips:
+        cannot_destroy_taxonomy_filter: Klassifizierungsfilter kann nicht gelöscht werden
+        cannot_edit_taxonomy_filter: Klassifizierungsfilter kann nicht bearbeitet werden
+        deleted_attachment_collections_info: Dieser Ordner kann nicht gelöscht werden, da er Anhänge hat.
         deleted_component_info: Diese Komponente kann nur gelöscht werden, wenn der Status 'Nicht veröffentlicht' ist.
       trash_management:
         restore:
@@ -1251,7 +1273,7 @@ de:
           last_day: Letzter Tag
           last_month: Letzter Monat
           last_week: Letzte Woche
-          no_users_count_statistics_yet: Es gibt noch keine Nutzendestatistiken.
+          no_users_count_statistics_yet: Es gibt noch keine Statistiken über die Teilnehmenden.
           participants: Teilnehmer
     forms:
       errors:
@@ -1265,8 +1287,8 @@ de:
         not_hidden: Nicht versteckt
         parent_hidden: Sie können diese Ressource nicht anzeigen, da die übergeordnete Ressource ausgeblendet ist.
         title: Aktionen
-        unhide: Einblenden
-        unreport: Nicht melden
+        unhide: Erneut einblenden
+        unreport: Meldung rückgängig machen
       admin:
         reportable:
           bulk_action:

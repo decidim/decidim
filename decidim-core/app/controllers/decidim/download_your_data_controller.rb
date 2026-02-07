@@ -43,7 +43,10 @@ module Decidim
     def download_file
       enforce_permission_to(:download, :user, current_user:)
 
-      if private_export.expired?
+      if private_export.blank?
+        flash[:error] = t("decidim.account.download_your_data_export.export_not_found")
+        redirect_to download_your_data_path
+      elsif private_export.expired?
         flash[:error] = t("decidim.account.download_your_data_export.export_expired")
         redirect_to download_your_data_path
       elsif private_export.file.attached?
@@ -57,7 +60,7 @@ module Decidim
     private
 
     def private_export
-      @private_export ||= current_user.private_exports.find(params[:uuid])
+      @private_export ||= current_user.private_exports.where(uuid: params[:uuid]).first
     end
 
     def help_definitions

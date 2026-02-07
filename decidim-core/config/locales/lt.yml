@@ -246,10 +246,6 @@ lt:
       organization:
         update: "%{user_name} atnaujino organizacijos nustatymus"
         update_external_domain: "%{user_name} atnaujino organizacijos išorinius domenus"
-      participatory_space_private_user:
-        create: "%{user_name} pakvietė %{resource_name} būti privačiu dalyviu"
-        create_via_csv: "%{user_name} pakvietė %{resource_name} per CSV tapti privačiu dalyviu"
-        delete: "%{user_name} pašalino %{resource_name} dalyvį iš privačių dalyvių"
       scope:
         create: "%{user_name} sukūrė %{resource_name} sritį"
         create_with_parent: "%{user_name} sukūrė %{resource_name} sritį %{parent_scope} srityje"
@@ -502,8 +498,6 @@ lt:
         description: Aprašymas
       footer_sub_hero:
         name: Apatinės dalies reklamjuostė
-      global_menu:
-        name: Globalus meniu
       hero_settings_form:
         background_image: Foninis paveikslėlis
         welcome_text: Pasveikinimo tekstas
@@ -900,7 +894,6 @@ lt:
         latlng_text: 'platuma: %{latitude}, ilguma: %{longitude}'
         map_service_brand: 'OpenStreetMap: Žemėlapis'
     menu:
-      help: Pagalba
       home: Pagrindinis
     messaging:
       conversation_mailer:
@@ -978,18 +971,15 @@ lt:
         main_image: Pagrindinis atvaizdas
     newsletters:
       unsubscribe:
-        check_subscription: Jei norite pakeisti savo parinktis, galite tai padaryti <a href="%{link}" target="_blank">konfigūracijos puslapyje</a>.
         error: Atsisakant prenumeratos iškilo problema.
         success: Jūs atsisakėte prenumeratos.
         token_error: Nuorodos galiojimo laikas baigėsi.
-        unsubscribe: Atsisakyti prenumeratos
     newsletters_opt_in:
       update:
         error: Išsaugant naujienlaiškių nuostatas iškilo problema.
         success: Naujienlaiškio nuostatos atnaujintos.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Asmens duomenų tvarkymas ir jų apsauga mums visiems tampa vis svarbesni. 2018 m. gegužės 25 d. priėmus naują Bendrąjį duomenų apsaugos reglamentą (BDAR), asmenys geriau kontroliuoja savo asmens duomenis. Dėl šios priežasties jums reikia spustelėti „Gerai“, kad galėtume ir toliau siųsti reikiamą informaciją apie %{organization_name} veiklą.
         body_2: 'Kaip duoti sutikimą? Spustelkite ant šio mygtuko:'
         body_3: Davę šį sutikimą galėsite ir toliau gauti informaciją apie platformos paslaugas. Kita vertus, jeigu negausime Jūsų sutikimo, Jums nebesiųsime pranešimų. Patvirtinę, kad norite ir toliau gauti informaciją, visada turėsite galimybę bet kuriuo metu sutikimą atšaukti.
         button: Taip, aš noriu ir toliau gauti aktualią informaciją
@@ -1066,13 +1056,10 @@ lt:
           proposals_explanation: Teikite pasiūlymus, remkite esamus ir skatinkite pakeitimus, kuriuos norite matyti.
         footer_sub_hero:
           footer_sub_hero_headline: Sveiki atvykę į %{organization} dalyvavimo platformą.
-          register: Registruotis
         hero:
           participate: Dalyvauti
           participate_title: Dalyvauti platformos procesuose
           welcome: Sveiki atvykę į %{organization}!
-        sub_hero:
-          register: Registruotis
       index:
         standalone_pages: Puslapiai
         subheading: Naršyti %{name} pagalbos puslapiuose
@@ -1308,17 +1295,13 @@ lt:
           Jei nenorite priimti kvietimo, nekreipkite dėmesio į šį e. laišką. <br />
           jūsų paskyra nebus sukurta tol, kol nespustelėsite pirmiau pateiktos nuorodos ir nenustatysite savo naudotojo vardo ir slaptažodžio.
         invited_you_as_admin: "%{invited_by} pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
-        invited_you_as_private_user: "%{invited_by} pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
         someone_invited_you: Kažkas pakvietė jus į %{application}. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         someone_invited_you_as_admin: Kažkas pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
-        someone_invited_you_as_private_user: Kažkas pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         subject: Kvietimo nurodymai
       invite_admin:
         subject: Esate pakviestas tvarkyti %{organization}
       invite_collaborator:
         subject: Esate pakviesta(-s) bendradarbiauti %{organization}
-      invite_private_user:
-        subject: Esate pakviesta(-s) į %{organization} uždarą dalyvaujamąjį procesą
       organization_admin_invitation_instructions:
         subject: Esate pakviesta(-s) tvarkyti %{organization}
       password_change:
@@ -1553,7 +1536,6 @@ lt:
       impersonation_warning:
         close_session: Uždaryti seansą
         description_html: Jūs administruojate dalyvį <b>%{user_name}</b>.
-        expire_time_html: Jūsų seansas baigsis po <b><span class="minutes">%{minutes}</span> minučių</b>.
       language_chooser:
         choose_language: Pasirinkti kalbą
       notifications_dashboard:
@@ -1598,7 +1580,6 @@ lt:
     name_included_in_password: per daug panašus į jūsų vardą, pavardę
     nickname_included_in_password: yra per daug panašus į jūsų slapyvardį
     not_enough_unique_characters: neturi pakankamai unikalių simbolių
-    password_not_allowed: draudžiama
     password_repeated: seno slaptažodžio naudoti negalima
     password_too_common: per daug įprastas
     password_too_long: per ilgas

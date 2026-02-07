@@ -25,7 +25,7 @@ shared_examples_for "manage questionnaire responses" do
 
     it "shows the response admin link" do
       within "tr", text: decidim_sanitize_translated(survey.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Questions"
       end
       expect(page).to have_content("Responses")
@@ -34,7 +34,7 @@ shared_examples_for "manage questionnaire responses" do
     context "and managing responses page" do
       before do
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Questions"
         end
         click_on "Responses"
@@ -53,7 +53,7 @@ shared_examples_for "manage questionnaire responses" do
 
       it "has a detail link" do
         within "tr", text: decidim_sanitize_translated(response1.body) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           expect(page).to have_link("Show responses")
         end
       end
@@ -62,7 +62,7 @@ shared_examples_for "manage questionnaire responses" do
         expect(page).to have_link(response1.body)
         expect(page).to have_link(response2.body)
         within "tr", text: decidim_sanitize_translated(response1.body) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           expect(page).to have_link("Export")
         end
       end
@@ -87,7 +87,7 @@ shared_examples_for "manage questionnaire responses" do
 
         it "shows the responses page with custom body" do
           within "tr", text: decidim_sanitize_translated(response1.session_token) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             new_window = window_opened_by { click_on "Show responses" }
             page.within_window(new_window) do
               within "#responses" do
@@ -105,7 +105,7 @@ shared_examples_for "manage questionnaire responses" do
 
       before do
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Questions"
         end
         click_on "Responses"

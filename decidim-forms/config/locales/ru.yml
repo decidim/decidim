@@ -15,10 +15,8 @@ ru:
             remove: Удалить
           question:
             any: Любые
-            down: Вниз
             question: Вопрос
             remove: Удалить
-            up: Вверх
           update:
             invalid: При попытке сохранить форму произошли ошибки.
       question_types:
@@ -27,9 +25,6 @@ ru:
       questionnaires:
         show:
           questionnaire_closed:
-            title: Форма закрыта
-          questionnaire_for_private_users:
-            body: Форма доступна только для частных пользователей
             title: Форма закрыта
       step_navigation:
         show:

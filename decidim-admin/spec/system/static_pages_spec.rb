@@ -17,12 +17,12 @@ describe "Content pages" do
     let(:decidim_page) { decidim_pages.first }
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim.pages_path }
+      let(:target_path) { decidim.pages_path(locale: I18n.locale) }
     end
 
     context "when requesting the pages path" do
       before do
-        visit decidim.pages_path
+        visit decidim.pages_path(locale: I18n.locale)
       end
 
       it "shows the list of topics" do
@@ -41,7 +41,7 @@ describe "Content pages" do
           find("button[role=button]").click
 
           expect(page).to have_css(
-            "a[href=\"#{decidim.page_path(decidim_page)}\"]",
+            "a[href=\"#{decidim.page_path(decidim_page, locale: I18n.locale)}\"]",
             text: page_title
           )
         end
@@ -136,7 +136,7 @@ describe "Content pages" do
 
       it "can delete them" do
         within "tr", text: translated(topic.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           accept_confirm { click_on "Delete" }
         end
 
@@ -208,7 +208,7 @@ describe "Content pages" do
       context "when displaying the page form" do
         before do
           within "tr", text: translated(decidim_page.title) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Edit"
           end
         end
@@ -218,7 +218,7 @@ describe "Content pages" do
 
       it "can edit them" do
         within "tr", text: translated(decidim_page.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
 
@@ -249,7 +249,7 @@ describe "Content pages" do
 
       it "can delete them" do
         within "tr", text: translated(decidim_page.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           accept_confirm { click_on "Delete" }
         end
 
@@ -263,8 +263,8 @@ describe "Content pages" do
       it "can visit them" do
         new_window = window_opened_by do
           within "tr", text: translated(decidim_page.title) do
-            find("button[data-component='dropdown']").click
-            click_on "View public page"
+            find("button[data-controller='dropdown']").click
+            click_on "View"
           end
         end
 

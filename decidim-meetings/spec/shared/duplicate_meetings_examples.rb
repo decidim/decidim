@@ -23,7 +23,7 @@ shared_examples "duplicate meetings" do
     visit meetings_path
 
     within "tr", text: translated(meeting.title) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Duplicate"
     end
     click_on "Copy"

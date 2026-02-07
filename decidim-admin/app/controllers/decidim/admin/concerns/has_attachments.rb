@@ -39,7 +39,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("attachments.create.error", scope: "decidim.admin")
-                render template: "decidim/admin/attachments/new"
+                render template: "decidim/admin/attachments/new", status: :unprocessable_entity
               end
             end
           end
@@ -64,7 +64,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("attachments.update.error", scope: "decidim.admin")
-                render template: "decidim/admin/attachments/edit"
+                render template: "decidim/admin/attachments/edit", status: :unprocessable_entity
               end
             end
           end

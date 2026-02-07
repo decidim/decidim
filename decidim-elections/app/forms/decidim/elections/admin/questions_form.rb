@@ -11,7 +11,6 @@ module Decidim
         def map_model(model)
           self.questions = model.questions
                                 .includes(:response_options)
-                                .order(:position)
                                 .map do |question|
             Decidim::Elections::Admin::QuestionForm.from_model(question)
           end

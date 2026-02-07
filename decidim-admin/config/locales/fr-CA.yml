@@ -33,9 +33,14 @@ fr-CA:
       help_section:
         content: Contenu
       id: ID
+      member:
+        email: Email
+        name: Nom
+      member_csv_import:
+        file: Fichier
       newsletter:
         body: Corps de texte
-        send_to_all_users: Envoyer à tous les utilisateurs
+        send_to_all_users: Envoyer à tous les participants
         send_to_followers: Envoyer aux abonnés
         send_to_participants: Envoyer aux participants
         subject: Objet
@@ -90,11 +95,6 @@ fr-CA:
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
         youtube_handler: Gestionnaire YouTube
-      participatory_space_private_user:
-        email: Email
-        name: Nom
-      participatory_space_private_user_csv_import:
-        file: Fichier
       scope:
         code: Code
         name: Titre
@@ -124,10 +124,17 @@ fr-CA:
         show_in_footer: Montrer dans le pied de page
         title: Titre
         weight: Rang
+      taxonomy:
+        item_name: Nom de l’élément
+        parent_id: Parent
       user_group_csv_verification:
         file: Fichier
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
         newsletter:
           attributes:
             base:
@@ -136,10 +143,6 @@ fr-CA:
           attributes:
             official_img_footer:
               allowed_file_content_types: Fichier image invalide
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -173,7 +176,10 @@ fr-CA:
           new: Nouvelle pièce jointe
         attachment_collection:
           new: Nouveau dossier
+        attachment_collections: Ajouter un dossier
+        attachments: Ajouter une pièce jointe
         browse: Parcourir
+        configure: Configurer
         confirm_delete_component: |
           Êtes-vous sûr de vouloir supprimer cette fonctionnalité ?<br>
           Cette fonctionnalité contient :<br>
@@ -181,21 +187,22 @@ fr-CA:
             <li class="font-bold">%{resources_count} ressources</li>
           </ul>
           Si vous changez d'avis, vous pourrez annuler cette action plus tard.
-        export: Tout exporter
+        export: Exporter
         export-selection: Exporter la sélection
         import: Importer
-        manage: Gérer
+        member:
+          new: Nouveau membre
+        menu_hidden: Masquer dans le menu
+        moderate: Gérer les modérations
         newsletter:
           new: Nouvelle newsletter
-        participatory_space_private_user:
-          new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
-        permissions: Autorisations
+        permissions: Gérer les permissions
         restore: Restaurer
         send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
-        share_tokens: Liens d'accès
-        soft_delete: Placer dans la corbeille
+        share_tokens: Partager le lien
+        soft_delete: Déplacer vers la corbeille
         user:
           new: Nouvel administrateur
         view_deleted_components: Voir les composants supprimés
@@ -287,13 +294,13 @@ fr-CA:
       block_user:
         bulk_new:
           action: Bloquer le compte et envoyer la justification
-          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus des participants bloqués.
+          already_reported_html: En poursuivant cette action, vous cacherez également tout le contenu du participant.
           description: Bloquer des participants rendra son compte inutilisable, vous pouvez fournir dans votre justification les conditions de déblocage de ces participants.
           justification: Justification
           title: Bloquer des participants
         new:
           action: Bloquer le compte et envoyer la justification
-          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus du participant.
+          already_reported_html: En poursuivant cette action, vous cacherez également tout le contenu du participant.
           description: Bloquer un utilisateur rendra son compte inutilisable. Vous devriez fournir dans votre justification des actions à effectuer par ce dernier pour envisager le déblocage.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
@@ -387,7 +394,7 @@ fr-CA:
         form:
           domain_too_short: Le nom de domaine est trop court
         update:
-          error: Impossible de mettre à jour la liste des domaines externes autorisés
+          error: Impossible de mettre à jour la liste des domaines externes autorisés.
           success: La liste des domaines externes autorisés a été mise à jour avec succès.
       exports:
         export_as: "%{name} en format %{export_format}"
@@ -409,6 +416,17 @@ fr-CA:
           values:
             'false': 'Non'
             'true': 'Oui'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Invitation acceptée
+            values:
+              'false': Non acceptée
+              'true': Acceptée
+          user_invitation_sent_at_not_null:
+            label: Invitation envoyée
+            values:
+              'false': Non envoyée
+              'true': Envoyée
         moderated_users:
           reports_reason_eq:
             label: Raison du signalement
@@ -424,17 +442,6 @@ fr-CA:
           values:
             'false': Validé
             'true': Non validé
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitation acceptée
-            values:
-              'false': Non acceptée
-              'true': Acceptée
-          user_invitation_sent_at_not_null:
-            label: Invitation envoyée
-            values:
-              'false': Non envoyée
-              'true': Envoyée
         private_space_eq:
           label: Privé
           values:
@@ -470,7 +477,9 @@ fr-CA:
             message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
             message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
           import_csv:
+            explanation: 'Prérequis pour le fichier :'
             message_1: Les fichiers CSV sont pris en charge
+            message_2: ".csv avec les données des emails"
       help_sections:
         error: Un problème est survenu lors de la mise à jour des sections d’aide.
         form:
@@ -565,6 +574,53 @@ fr-CA:
             explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
             new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
             promote: Promouvoir
+      members:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un membre pour cet espace participatif.
+          success: Accès membre créé avec succès.
+        destroy:
+          error: Un problème est survenu lors de la suppression d'un membre pour cet espace participatif.
+          success: Accès membre supprimé avec succès.
+        edit:
+          title: Modifier le membre
+          update: Mettre à jour
+        index:
+          import_via_csv: Importer via CSV
+          publish_all: Tout publier
+          title: Membre
+          unpublish_all: Tout dépublier
+        new:
+          create: Créer
+          title: Nouveau membre
+        publish_all:
+          error: Un problème est survenu lors de la publication de tous les membres de cet espace participatif.
+          success: Tous les membres ont été publiés avec succès pour cet espace participatif
+        unpublish_all:
+          error: Une erreur s'est produite lors de la dépublication de tous les membres de cet espace participatif.
+          success: Tous les membres de cet espace participatif ont été dépubliés avec succès
+        update:
+          error: Un problème est survenu lors de la mise à jour du membre pour cet espace participatif.
+          success: Membre mis à jour avec succès
+      members_csv_imports:
+        create:
+          invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
+          success: Fichier CSV transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
+        new:
+          csv_upload:
+            title: Téléchargez votre fichier CSV
+          destroy:
+            button: Supprimer tous les membres
+            confirm: Êtes-vous sûr(e) de vouloir supprimer tous les membres ? Cette action ne peut pas être annulée, vous ne pourrez pas les récupérer.
+            empty: Vous n'avez aucun membre.
+            explanation: Vus avez %{count} membres.
+            title: Supprimer les membres
+          example_file: 'Fichier d''exemple :'
+          explanation: 'Téléchargez votre fichier CSV. Il doit comporter deux colonnes, sans en-têtes, avec l''email dans la première colonne et le nom dans la dernière colonne du fichier des utilisateurs que vous voulez ajouter à l''espace participatif. Évitez d''utiliser des caractères invalides comme `<>?%&^*#@()[]=+:;"{}\|` dans le nom d''utilisateur.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importer des membres via CSV
+          upload: Charger
       menu:
         admin_log: Journal d'activité personnel
         admins: Administrateurs
@@ -623,6 +679,8 @@ fr-CA:
             reason: Raison
             started_at: Commencé le
             user: Utilisateur
+        member:
+          name: Membre
         newsletter:
           fields:
             created_at: Créée le
@@ -631,8 +689,6 @@ fr-CA:
             sent_to: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
-        participatory_space_private_user:
-          name: Utilisateur de l'espace participatif
         scope:
           fields:
             name: Titre
@@ -681,7 +737,7 @@ fr-CA:
               update_moderated_user_button: Annuler les signalements
             title: Actions
             unblock: Débloquer l'utilisateur
-            unreport: Annuler le signalement
+            unreport: Annuler le rapport
           cancel: Annuler
           name: Nom
           nickname: Pseudonyme
@@ -705,10 +761,10 @@ fr-CA:
               title: Masquer
               update_moderation_button: Masquer les ressources sélectionnées
             unhide:
-              title: Afficher
+              title: Annuler le masquage
               update_moderation_button: Afficher les ressources sélectionnées
             unreport:
-              title: Annuler le signalement
+              title: Annuler le rapport
               update_moderation_button: Annuler le signalement des ressources sélectionnées
           cancel: Annuler
           selected: sélectionné
@@ -836,7 +892,7 @@ fr-CA:
         index:
           actions: Actions
           badge: Badge
-          block: Bloquer l'utilisateur
+          block: Bloquer
           created_at: Créée le
           name: Nom
           nickname: Pseudonyme
@@ -845,9 +901,10 @@ fr-CA:
           officialized: Validé
           reofficialize: De nouveau validé
           reports: Signalements
-          show_email: Montrer les adresses e-mail
+          send_message: Envoyer le message
+          show_email: Afficher l'e-mail
           status: Statut
-          unblock: Débloquer l'utilisateur
+          unblock: Débloquer
           unofficialize: Invalider
         new:
           badge: Badge de validation
@@ -901,58 +958,11 @@ fr-CA:
         external_domain:
           down: Descendre
           external_domain: Domaine externe
-          remove: Retirer
+          remove: Supprimer
           up: Monter
         form:
           add: Ajouter à la liste autorisée
           title: Liste des domaines externes autorisés
-      participatory_space_private_users:
-        create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
-          success: L'accès utilisateur à l'espace participatif privé a été créé avec succès.
-        destroy:
-          error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
-          success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
-        edit:
-          title: Modifier le participant privé de l'espace participatif.
-          update: Mettre à jour
-        index:
-          import_via_csv: Importer via csv
-          publish_all: Tout publier
-          title: Utilisateur privé de l'espace participatif
-          unpublish_all: Tout dépublier
-        new:
-          create: Créer
-          title: Nouvel utilisateur privé de l'espace participatif.
-        publish_all:
-          error: Une erreur s'est produite lors de la publication de tous les participants privés pour cet espace participatif.
-          success: Tous les participants privés ont été publiés avec succès pour cet espace participatif
-        unpublish_all:
-          error: Une erreur s'est produite lors de la dépublication de tous les participants privés pour cet espace participatif.
-          success: Tous les participants privés ont été dépubliés avec succès pour cet espace participatif
-        update:
-          error: Une erreur s'est produite lors de la mise à jour du participant privé pour cet espace participatif.
-          success: Participant privé de l'espace participatif mis à jour avec succès
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
-          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants.
-        new:
-          csv_upload:
-            title: Téléchargez votre fichier CSV
-          destroy:
-            button: Supprimer tous les utilisateurs privés
-            confirm: Êtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action est irréversible, vous ne pourrez pas les récupérer.
-            empty: Vous n'avez aucun utilisateur privé.
-            explanation: Vous avez %{count} utilisateurs privés.
-            title: Supprimer les utilisateurs privés
-          example_file: 'Fichier d''exemple :'
-          explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec les emails dans la première colonne, et dans la seconde colonne les noms des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}Jean Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Importer des participants privés via CSV
-          upload: Télécharger
       reminders:
         create:
           error: Il y a eu un problème lors de la création des rappels.
@@ -1074,7 +1084,7 @@ fr-CA:
           success: Sujet mis à jour avec succès
       static_pages:
         actions:
-          view: Voir la page publique
+          view: Afficher
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle page.
           success: Page créée avec succès.
@@ -1102,13 +1112,19 @@ fr-CA:
       taxonomies:
         actions:
           actions: Actions
-          destroy: Supprimer la taxonomie et les éléments
-          edit: Modifier la taxonomie et les éléments
-          filters: Gérer les filtres
+          destroy: Supprimer
+          edit: Modifier
+          filters: Appliquer les filtres
         breadcrumb:
           edit: Modifier la taxonomie
           new: Nouvelle taxonomie
         count: Ressources associées
+        edit:
+          update: Mettre à jour
+        filters:
+          search_placeholder: Rechercher
+        index:
+          new_taxonomy: Nouvelle taxonomie
         total_filters: Filtres
       taxonomy_filters:
         breadcrumb:
@@ -1143,6 +1159,7 @@ fr-CA:
           save: Enregistrer
         show:
           items_count: "%{count} éléments"
+          remove: Supprimer
         taxonomies_select:
           filters: Filtres
       titles:
@@ -1195,7 +1212,7 @@ fr-CA:
           last_day: Hier
           last_month: Le mois dernier
           last_week: La semaine dernière
-          no_users_count_statistics_yet: Il n'y a pas encore de statistiques du nombre d'utilisateurs.
+          no_users_count_statistics_yet: Il n'y a pas encore de statistiques sur le nombre de participants.
           participants: Participants
     forms:
       errors:
@@ -1209,8 +1226,8 @@ fr-CA:
         not_hidden: Visibles
         parent_hidden: Vous ne pouvez pas rendre visible cette ressource car son parent est toujours caché.
         title: Actions
-        unhide: Afficher
-        unreport: Annuler le signalement
+        unhide: Annuler le masquage
+        unreport: Annuler le rapport
       admin:
         reportable:
           hide:

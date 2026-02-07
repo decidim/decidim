@@ -17,14 +17,14 @@ module Decidim
       UpdateNotificationsSettings.call(@notifications_settings) do
         on(:ok) do
           flash.now[:notice] = t("notifications_settings.update.success", scope: "decidim")
+          render action: :show
         end
 
         on(:invalid) do
           flash.now[:alert] = t("notifications_settings.update.error", scope: "decidim")
+          render action: :show, status: :unprocessable_entity
         end
       end
-
-      render action: :show
     end
   end
 end

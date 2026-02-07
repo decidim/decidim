@@ -2,9 +2,10 @@
 
 module Decidim
   module Proposals
-    class ProposalsMutationType < Decidim::Api::Types::BaseObject
+    class ProposalsMutationType < Decidim::Core::ComponentType
       description "A proposals of a component."
 
+      field :create_proposal, mutation: Decidim::Proposals::CreateProposalType, description: "Creates a proposal"
       field :proposal, type: Decidim::Proposals::ProposalMutationType, description: "Mutates a proposal", null: true do
         argument :id, GraphQL::Types::ID, "The ID of the proposal", required: true
       end

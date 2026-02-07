@@ -27,8 +27,6 @@ bg:
   decidim:
     accountability:
       actions:
-        attachment_collections: Папки
-        attachments: Прикачени файлове
         confirm_destroy: Сигурни ли сте, че искате да изтриете това %{name}?
         destroy: Изтрий
         edit: Редактирай
@@ -126,7 +124,6 @@ bg:
           fields:
             created_at: Създаден
             end_date: Крайна дата
-            id: ID
             progress: Напредък
             start_date: Начална дата
             status: Статус

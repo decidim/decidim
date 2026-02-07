@@ -1,5 +1,5 @@
 <div class="form__wrapper">
-  <div class="card" data-component="accordion" id="accordion-title">
+  <div class="card" data-controller="accordion" id="accordion-title">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-title" type="button">
         <%= icon "arrow-right-s-line" %>
@@ -16,7 +16,7 @@
     </div>
   </div>
   <% if form.object.settings? %>
-    <div class="card" data-component="accordion" id="accordion-global_settings">
+    <div class="card" data-controller="accordion" id="accordion-global_settings">
       <div class="card-divider">
         <button class="card-divider-button" data-open="true" data-controls="panel-global_settings" type="button">
           <%= icon "arrow-right-s-line" %>
@@ -44,7 +44,7 @@
     </div>
   <% end %>
   <% if current_participatory_space.has_steps? %>
-    <div class="card" data-component="accordion" id="accordion-step_settings">
+    <div class="card" data-controller="accordion" id="accordion-step_settings">
       <div class="card-divider">
         <button class="card-divider-button" data-open="true" data-controls="panel-step_settings" type="button">
           <%= icon "arrow-right-s-line" %>
@@ -82,7 +82,7 @@
       </div>
     </div>
   <% elsif form.object.default_step_settings? %>
-    <div class="card" data-component="accordion" id="accordion-default_step_settings">
+    <div class="card" data-controller="accordion" id="accordion-default_step_settings">
       <div class="card-divider">
         <button class="card-divider-button" data-open="true" data-controls="panel-default_step_settings" type="button">
           <%= icon "arrow-right-s-line" %>

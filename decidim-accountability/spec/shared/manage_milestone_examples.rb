@@ -7,7 +7,7 @@ RSpec.shared_examples "manage milestone" do
     visit current_path
 
     within("tr", text: translated_attribute(milestone.title)) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 

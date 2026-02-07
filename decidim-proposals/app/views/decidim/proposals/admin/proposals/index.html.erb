@@ -22,6 +22,11 @@
     <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/unassign_from_evaluator" %>
   </div>
   <%= admin_filter_selector(filter_prefix_key) %>
+
+  <% if component_settings.collaborative_drafts_enabled? %>
+    <div class="flash warning"><%= t("deprecation_warning_collaborative_drafts_html", scope: "decidim.proposals.admin") %></div>
+  <% end %>
+
   <div class="table-stacked mt-8">
     <table class="table-list">
       <%= render partial: "proposals-thead" %>
@@ -35,7 +40,7 @@
   </div>
   <% if allowed_to? :manage_trash, :proposal, participatory_space: current_participatory_space %>
     <div class="card mt-4">
-      <%= link_to manage_trash_proposals_path, class: "flex items-center underline text-secondary" do %>
+      <%= link_to manage_trash_proposals_path, class: "flex items-center  text-secondary" do %>
         <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
         <%= t("actions.view_deleted_proposals", scope: "decidim.proposals.admin") %>
         <span class="ml-2">

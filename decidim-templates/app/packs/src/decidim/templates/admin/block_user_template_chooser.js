@@ -1,5 +1,5 @@
 // Choose a Block User Message template, get it by AJAX and add the Template in the justification textarea
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const blockTemplateChooser = document.getElementById("block_template_chooser");
   if (blockTemplateChooser) {
     blockTemplateChooser.addEventListener("change", () => {

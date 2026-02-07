@@ -1,5 +1,5 @@
 <div class="form__wrapper">
-  <div class="card" data-component="accordion" id="accordion-title">
+  <div class="card" data-controller="accordion" id="accordion-title">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-title" type="button">
         <%= icon "arrow-right-s-line" %>
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="card" data-component="accordion" id="accordion-settings">
+  <div class="card" data-controller="accordion" id="accordion-settings">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-settings" type="button">
         <%= icon "arrow-right-s-line" %>
@@ -50,10 +50,10 @@
                             disabled: !@form.signature_type_updatable?,
                             "data-scope-selector": "initiative_decidim_scope_id",
                             "data-scope-id": form.object.decidim_scope_id.to_s,
-                            "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
+                            "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url(locale: I18n.locale),
                             "data-signature-types-selector": "initiative_signature_type",
                             "data-signature-type": current_initiative.signature_type,
-                            "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
+                            "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url(locale: I18n.locale)
                           } %>
         </div>
         <% end %>
@@ -110,7 +110,7 @@
       <% end %>
     </div>
   </div>
-  <div class="card" data-component="accordion" id="accordion-homepage_attachments">
+  <div class="card" data-controller="accordion" id="accordion-homepage_attachments">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-homepage_attachments" type="button">
         <%= icon "arrow-right-s-line" %>

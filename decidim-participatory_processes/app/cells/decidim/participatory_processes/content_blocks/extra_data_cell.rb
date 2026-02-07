@@ -11,7 +11,7 @@ module Decidim
         private
 
         def extra_data_items
-          [step_item, dates_item, group_item].compact
+          [dates_item, step_item, group_item].compact
         end
 
         def active_step_name
@@ -50,7 +50,7 @@ module Decidim
             icon: "archive-line",
             text: link_to(
               decidim_escape_translated(participatory_process_group.title).html_safe,
-              decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+              decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
             )
           }
         end

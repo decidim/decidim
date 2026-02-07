@@ -1,6 +1,6 @@
 <%= decidim_modal id: "socialShare", class: "share-modal" do %>
   <div data-dialog-container>
-    <h2 tabindex="-1" data-dialog-title><%= t("share", scope: "decidim.shared.share_modal") %></h2>
+    <h2 id="dialog-title-social-share-modal" tabindex="-1" data-dialog-title><%= t("share", scope: "decidim.shared.share_modal") %></h2>
 
     <div>
 
@@ -23,6 +23,7 @@
         <input id="urlShareLink" type="text" title="<%= t("share_link" , scope: "decidim.shared.share_modal") %>" value="<%= resource_url %>" readonly>
         <button type="button"
                 class="button button__sm button__text-secondary"
+                data-controller="clipboard-copy"
                 data-clipboard-copy="#urlShareLink"
                 data-clipboard-copy-label="<%= t("copy_share_link_copied", scope: "decidim.shared.share_modal") %>"
                 data-clipboard-copy-message="<%= t("copy_share_link_message", scope: "decidim.shared.share_modal") %>"

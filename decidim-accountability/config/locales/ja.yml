@@ -39,8 +39,8 @@ ja:
   decidim:
     accountability:
       actions:
-        attachment_collections: フォルダー
-        attachments: 添付ファイル
+        add_milestone: マイルストーンを追加
+        add_result: 結果を追加
         confirm_delete_result: この結果を削除してもよろしいですか？
         confirm_destroy: この %{name} を削除してもよろしいですか？
         deleted_results_info: 削除された結果はゴミ箱から復元できます。
@@ -48,7 +48,6 @@ ja:
         edit: 編集
         import: 別のコンポーネントから結果をインポート
         import_csv: CSVファイルから結果をインポート
-        milestones: マイルストーン
         new_milestone: 新しいマイルストーン
         new_result: 新しい結果
         new_status: 新しいステータス
@@ -248,7 +247,6 @@ ja:
           fields:
             created_at: 作成日時
             end_date: 終了日
-            id: ID
             progress: 進捗状況
             start_date: 開始日
             status: ステータス
@@ -289,6 +287,7 @@ ja:
       accountability:
         actions:
           comment: コメント
+          vote_comment: コメントに投票
         name: アカウンタビリティ
         settings:
           global:
@@ -359,7 +358,7 @@ ja:
           url: この結果が見つかるURL
     participatory_spaces:
       highlighted_results:
-        see_all: すべての結果を見る (%{count})
+        see_all: すべての結果を見る
     resource_links:
       included_projects:
         result_project: この結果に含まれるプロジェクト

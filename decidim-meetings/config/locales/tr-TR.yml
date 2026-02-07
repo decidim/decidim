@@ -126,8 +126,6 @@ tr:
     meetings:
       actions:
         agenda: Gündem
-        attachment_collections: Klasörler
-        attachments: Ekler
         close: Kapat
         edit: Düzenle
         invalid_destroy:

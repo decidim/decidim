@@ -1,12 +1,12 @@
 <% add_decidim_meta_tags(
   title: translated_attribute(current_participatory_space.title),
   description: translated_attribute(current_participatory_space.short_description),
-  url: assembly_url(current_participatory_space),
+  url: assembly_url(current_participatory_space, locale: I18n.locale),
   resource: current_participatory_space) %>
 
 <%
 edit_link(
-  resource_locator(current_participatory_space).edit,
+  decidim_admin_assemblies.edit_assembly_landing_page_path(current_participatory_space),
   :update,
   :assembly,
   assembly: current_participatory_space
@@ -34,6 +34,6 @@ edit_link(
   </div>
 
   <section class="participatory-space__block-reference">
-    <%= resource_reference(current_participatory_space) %>
+    <p><%= resource_reference(current_participatory_space) %></p>
   </section>
 </main>

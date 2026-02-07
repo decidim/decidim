@@ -96,7 +96,7 @@ fi-pl:
           type_id_eq:
             label: Tyyppi
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hae kohteesta %{collection} otsikon, kuvauksen, ID-numeron tai tekijän nimen perusteella
+          title_or_description_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen tai laatijan nimen perusteella
       initiatives_settings:
         update:
           error: Aloitteiden asetusten päivittäminen epäonnistui.
@@ -118,7 +118,6 @@ fi-pl:
         initiatives:
           fields:
             created_at: Luontiaika
-            id: ID
             published_at: Julkaisuaika
             state: Maakunta/osavaltio
             supports_count: Allekirjoituksia
@@ -448,11 +447,6 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi aloite käyttäjältä %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on luonut aloitteen <a href="%{resource_path}">%{resource_title}</a>.
-        like_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, jota seuraat, on tykännyt seuraavasta aloitteesta. Voit osallistua keskusteluun:"
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: '%{author_nickname} on tykännyt aloitteesta'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> tykkäsi aloitteesta <a href="%{resource_path}">%{resource_title}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} hylkäsi hakemuksesi kannatuskomitean jäseneksi aloitteelle %{resource_title}."
           email_outro: 'Tämä ilmoitus on lähetetty sinulle, koska olet tehnyt hakemuksen aloitteelle: %{resource_title}.'
@@ -692,6 +686,7 @@ fi-pl:
       initiative:
         actions:
           comment: Kommentoi
+          vote_comment: Äänestä kommenttia
       initiatives_type:
         actions:
           create: Luo aloite

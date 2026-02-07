@@ -88,7 +88,6 @@ it:
         initiatives:
           fields:
             created_at: Creato il
-            id: ID
             published_at: Pubblicato il
             state: Stato
             supports_count: Firme

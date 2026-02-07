@@ -7,7 +7,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.add_item :conferences,
                         I18n.t("menu.conferences", scope: "decidim"),
-                        decidim_conferences.conferences_path,
+                        decidim_conferences.conferences_path(locale: current_locale),
                         position: 2.8,
                         if: Decidim::Conference.where(organization: current_organization).published.any?,
                         active: :inclusive
@@ -18,7 +18,7 @@ module Decidim
         Decidim.menu :mobile_menu do |menu|
           menu.add_item :conferences,
                         I18n.t("menu.conferences", scope: "decidim"),
-                        decidim_conferences.conferences_path,
+                        decidim_conferences.conferences_path(locale: current_locale),
                         position: 2.8,
                         if: Decidim::Conference.where(organization: current_organization).published.any?,
                         active: :inclusive
@@ -29,7 +29,7 @@ module Decidim
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :conferences,
                         I18n.t("menu.conferences", scope: "decidim"),
-                        decidim_conferences.conferences_path,
+                        decidim_conferences.conferences_path(locale: current_locale),
                         position: 50,
                         if: Decidim::Conference.where(organization: current_organization).published.any?,
                         active: :inclusive
@@ -173,7 +173,7 @@ module Decidim
                         decidim_admin_conferences.conference_share_tokens_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.conference_share_tokens_path(current_participatory_space)),
                         icon_name: "share-line",
-                        if: allowed_to?(:read, :share_tokens, current_participatory_space:)
+                        if: allowed_to?(:read, :share_token, current_participatory_space:)
         end
       end
 

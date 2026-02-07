@@ -2,12 +2,8 @@ bg:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Свързани събрания
         available_slots: Налични слотове
         banner_image: Банер изображение
-        copy_categories: Копиране на категориите
-        copy_components: Копиране на компонентите
-        copy_features: Копиране на функциите
         decidim_scope_id: Обхват
         description: Описание
         end_date: Крайна дата
@@ -93,11 +89,6 @@ bg:
         new_registration_type: Нов тип регистрация
         new_speaker: Нов говорител
         send_diplomas: Изпращане на сертификати за присъствие
-      conference_copies:
-        new:
-          copy: Копиране
-          select: Изберете кои данни искате да дублирате
-          title: Дублиране на конференцията
       conference_publications:
         create:
           error: Възникна проблем при публикуването на тази конференция.
@@ -154,20 +145,16 @@ bg:
         exports:
           registrations: Регистрации
         form:
+          images: Изображения
           title: Основна информация
         index:
           published: Публикувано
           unpublished: Непубликувано
         new:
           create: Създаване
-          title: Конференция
         update:
           error: Възникна проблем при актуализирането на тази конференция.
           success: Конференцията беше актуализирана успешно.
-      conferences_copies:
-        create:
-          error: Възникна проблем при дублирането на тази конференция.
-          success: Конференцията беше дублирана успешно.
       media_links:
         create:
           error: Възникна проблем при създаването на нов медия линк.
@@ -315,9 +302,6 @@ bg:
         title: Говорители
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help_html: 'Използват се променливи полета за URL адрес, за да се генерират URL адреси, които водят към тази конференция. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
         conference_invites:
           create:
             error: Възникна проблем при изпращането на покана на участника да се присъедини към конференцията.

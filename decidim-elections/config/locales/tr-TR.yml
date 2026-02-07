@@ -6,6 +6,8 @@ tr:
           election_questions: Sorular
     components:
       elections:
+        actions:
+          destroy: Yok et
         name: Seçimler
         settings:
           global:
@@ -14,11 +16,24 @@ tr:
             announcement: Duyuru
     elections:
       actions:
+        preview: Önizleme
         title: Eylemler
       admin:
+        dashboard:
+          main:
+            labels:
+              description: Açıklama
+          questions:
+            labels:
+              answers: Cevaplar
+            title: Sorular
+          questions_table:
+            answer: Cevaplar
         elections:
           edit:
             title: Seçimi düzenle
+          form:
+            publish: Yayınla
           index:
             title: Seçimler
           new:
@@ -27,7 +42,39 @@ tr:
           edit_questions:
             new_question: Yeni soru
             title: Sorular
+      censuses:
+        token_csv_form:
+          email: E-posta
+      elections:
+        count:
+          elections_count:
+            one: "%{count} seçim"
+            other: "%{count} seçim"
+        filters:
+          all: Tümü
+          state: Statü
+          state_values:
+            finished: Bitti
+        orders:
+          recent: En son
+        questions:
+          title: Seçim soruları
+        show:
+          vote_button: Oy ver
       models:
         election:
           fields:
+            status: Statü
             title: Başlık
+      status:
+        active: Aktif
+        finished: Bitti
+      votes:
+        confirm:
+          title: Oyunu onayla
+        question:
+          next: Sonraki
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Kapat

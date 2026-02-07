@@ -10,6 +10,7 @@ module Decidim
     # overwrite `BasePresenter#user_presenter` to return your custom user presenter.
     # The only requirement for custom renderers is that they should respond to `present`.
     class UserPresenter
+      include Decidim::SanitizeHelper
       # Public: Initializes the presenter.
       #
       # user - An instance of Decidim::User
@@ -60,7 +61,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_user_name
-        extra["name"].html_safe
+        decidim_sanitize_translated(extra["name"]).html_safe
       end
 
       # Private: Presents the nickname of the user performing the action.

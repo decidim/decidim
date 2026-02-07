@@ -4,9 +4,6 @@ zh-TW:
       participatory_process:
         announcement: 公告
         area_id: 區域
-        copy_categories: 複製類別
-        copy_components: 複製組件
-        copy_steps: 複製步驟
         decidim_area_id: 區域
         description: 說明
         developer_group: 促銷團隊
@@ -79,13 +76,11 @@ zh-TW:
     admin:
       actions:
         activate: 啟動
-        configure: 配置
         confirm_destroy: 確認刪除
         destroy: 刪除
         duplicate: 重複
         edit: 編輯
         import_process: 匯入
-        moderate: 管理
         new_process: 新的程序
         new_process_group: 新的程序群組
         new_process_step: 新階段
@@ -139,11 +134,6 @@ zh-TW:
           fields:
             invitation_accepted_at: 邀請已接受時間
             invitation_sent_at: 邀請已發送時間
-      participatory_process_copies:
-        new:
-          copy: 複製
-          select: 請選擇您想要複製的資料
-          title: 重複的參與性流程
       participatory_process_groups:
         destroy:
           success: 參與式流程組成功刪除。
@@ -231,10 +221,6 @@ zh-TW:
         update:
           error: 更新此參與程序時出現問題。
           success: 參與程序已成功更新。
-      participatory_processes_copies:
-        create:
-          error: 複製參與流程時發生問題。
-          success: 成功複製參與過程。
       participatory_processes_group:
         create:
           error: 創建新參與程序群組時出現問題。
@@ -337,9 +323,6 @@ zh-TW:
         participatory_process_imports:
           form:
             document_legend: 添加文檔
-        participatory_process_steps:
-          form:
-            cta_text_help: 如果未設置，按鈕將不會顯示。
         participatory_processes:
           form:
             announcement_help: 您在此處輸入的文字將顯示至使用者的正下方程序信息

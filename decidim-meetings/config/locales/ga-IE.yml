@@ -41,8 +41,6 @@ ga:
     meetings:
       actions:
         agenda: Clár
-        attachment_collections: Fillteáin
-        attachments: Ceangaltáin
         close: Dún
         edit: Eagar
         preview: Réamhamharc

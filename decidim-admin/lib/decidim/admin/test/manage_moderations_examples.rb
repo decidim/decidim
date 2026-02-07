@@ -27,7 +27,7 @@ shared_examples "sorted moderations" do
       click_on link_text
     end
     all("tbody tr").each_with_index do |row, _index|
-      expect(row.find("td:nth-child(2)")).to have_content(reportables.first.id)
+      expect(row.find("td:nth-child(2)")).to have_content(reportables.first.class.model_name.human)
     end
   end
 end
@@ -82,8 +82,8 @@ shared_examples "manage moderations" do
 
     it "user can un-report a resource" do
       within "tr[data-id=\"#{moderation.id}\"]" do
-        find("button[data-component='dropdown']").click
-        click_on "Unreport"
+        find("button[data-controller='dropdown']").click
+        click_on "Undo the report"
       end
 
       expect(page).to have_admin_callout("Resource successfully unreported")
@@ -91,7 +91,7 @@ shared_examples "manage moderations" do
 
     it "user can hide a resource" do
       within "tr[data-id=\"#{moderation.id}\"]" do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Hide"
       end
 
@@ -107,8 +107,8 @@ shared_examples "manage moderations" do
         click_on "Reports count"
 
         all("tbody tr").each_with_index do |row, index|
-          reportable_id = moderations_ordered_by_report_count_asc[index].reportable.id
-          expect(row.find("td:nth-child(2)")).to have_content(reportable_id)
+          reportable_type = moderations_ordered_by_report_count_asc[index].reportable.class.model_name.human
+          expect(row.find("td:nth-child(2)")).to have_content(reportable_type)
         end
       end
     end
@@ -134,7 +134,7 @@ shared_examples "manage moderations" do
 
     it "user can see moderation details" do
       within "tr[data-id=\"#{moderation.id}\"]" do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Expand"
       end
 
@@ -192,8 +192,8 @@ shared_examples "manage moderations" do
 
     it "user cannot unreport them" do
       within "tr[data-id=\"#{hidden_moderations.first.id}\"]" do
-        find("button[data-component='dropdown']").click
-        expect(page).to have_no_css("a", text: "Unreport")
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_no_css("a", text: "Undo the report")
       end
     end
 
@@ -237,7 +237,7 @@ shared_examples "manage moderations" do
     it "user can hide them" do
       moderation_id = moderations.first.id
       within "tr[data-id=\"#{moderation_id}\"]" do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Hide"
       end
 

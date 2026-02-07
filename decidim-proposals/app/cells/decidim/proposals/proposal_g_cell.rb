@@ -41,7 +41,7 @@ module Decidim
       end
 
       def resource_image_path
-        model.attachments.first&.url
+        model.photo&.url
       end
 
       private

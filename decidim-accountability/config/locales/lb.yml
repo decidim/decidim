@@ -27,8 +27,6 @@ lb:
   decidim:
     accountability:
       actions:
-        attachment_collections: Dossier
-        attachments: Unhäng
         confirm_destroy: Sidd Dir sécher datt Dir dësen %{name} läsche wëllt?
         destroy: Läschen
         edit: Editéieren
@@ -89,7 +87,6 @@ lb:
           fields:
             created_at: Erstellt am
             end_date: Enddatum
-            id: ID
             progress: Fortschritt
             start_date: Startdatum
             status: Status

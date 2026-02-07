@@ -49,7 +49,7 @@
             </td>
             <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
               <% if (allowed_to?(:invite, :admin_user, user: user) && user.invited_to_sign_up?) || (allowed_to? :destroy, :admin_user, user: user) %>
-                <button type="button" data-component="dropdown" data-target="actions-user-<%= user.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: user.name) %>">
+                <button type="button" data-controller="dropdown" data-target="actions-user-<%= user.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: user.name) %>">
                   <%= icon "more-fill", class: "text-secondary" %>
                 </button>
 

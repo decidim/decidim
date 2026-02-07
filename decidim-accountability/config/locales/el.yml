@@ -27,8 +27,6 @@ el:
   decidim:
     accountability:
       actions:
-        attachment_collections: Φάκελοι
-        attachments: Συνημμένα
         confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το όνομα %{name};
         destroy: Διαγραφή
         edit: Επεξεργασία
@@ -121,7 +119,6 @@ el:
           fields:
             created_at: Δημιουργήθηκε
             end_date: Ημερομηνία λήξης
-            id: Αναγνωριστικό ID
             progress: Πρόοδος
             start_date: Ημερομηνία έναρξης
             status: Κατάσταση

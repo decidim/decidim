@@ -120,8 +120,6 @@ ru:
     meetings:
       actions:
         agenda: Повестка дня
-        attachment_collections: Папки
-        attachments: Прикрепленные файлы
         close: Закрыть
         edit: Редактировать
         preview: Предпросмотр

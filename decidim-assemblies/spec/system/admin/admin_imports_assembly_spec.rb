@@ -11,6 +11,18 @@ describe "Admin imports assembly" do
     visit decidim_admin_assemblies.assemblies_path
   end
 
+  context "when viewing the import page" do
+    before do
+      within_admin_menu do
+        click_on "Import"
+      end
+    end
+
+    it "displays the import help text" do
+      expect(page).to have_content("This import feature allows you to create a new assembly from an exported JSON file")
+    end
+  end
+
   context "when importing the assembly with basic fields" do
     before do
       stub_get_request_with_format(
@@ -55,14 +67,14 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Unpublished")
 
       within "tr", text: "Import assembly" do
-        find("button[data-component='dropdown']").click
-        click_on "Configure"
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
       end
 
       within_admin_sidebar_menu do
         click_on "Components"
       end
-      expect(Decidim::Assembly.last.components.size).to eq(9)
+      expect(Decidim::Assembly.last.components.size).to eq(8)
       within ".table-list" do
         Decidim::Assembly.last.components.each do |component|
           expect(page).to have_content(translated(component.name))

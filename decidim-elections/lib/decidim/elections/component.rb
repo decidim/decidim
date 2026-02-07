@@ -8,7 +8,7 @@ Decidim.register_component(:elections) do |component|
   component.icon_key = "draft-line"
   component.permissions_class_name = "Decidim::Elections::Permissions"
 
-  component.actions = %w(create update destroy)
+  component.actions = %w()
 
   component.register_stat :elections_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
     elections = Decidim::Elections::Election.where(component: components).not_hidden
@@ -21,6 +21,12 @@ Decidim.register_component(:elections) do |component|
 
   component.settings(:step) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
+  end
+
+  component.register_resource(:election) do |resource|
+    resource.model_class_name = "Decidim::Elections::Election"
+    resource.card = "decidim/elections/election"
+    resource.searchable = true
   end
 
   component.seeds do |participatory_space|

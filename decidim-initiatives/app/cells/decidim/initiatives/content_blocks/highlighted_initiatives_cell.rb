@@ -19,7 +19,7 @@ module Decidim
         end
 
         def all_path
-          Decidim::Initiatives::Engine.routes.url_helpers.initiatives_path
+          Decidim::Initiatives::Engine.routes.url_helpers.initiatives_path(locale: current_locale)
         end
 
         private

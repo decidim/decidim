@@ -132,7 +132,7 @@ describe "Admin manages newsletters" do
         visit decidim_admin.newsletters_path
 
         within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           perform_enqueued_jobs do
             click_on "Send me a test email"
           end
@@ -150,7 +150,7 @@ describe "Admin manages newsletters" do
     it "allows a newsletter to be updated" do
       visit decidim_admin.newsletters_path
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -472,15 +472,15 @@ describe "Admin manages newsletters" do
     context "when private members are selected" do
       context "with private members" do
         let!(:participatory_process) { create(:participatory_process, organization:, skip_injection: true, private_space: true) }
-        let!(:private_users) do
-          create_list(:participatory_space_private_user, 30) do |private_user|
-            private_user.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
-            private_user.privatable_to = participatory_process
-            private_user.save!
+        let!(:members) do
+          create_list(:member, 30) do |member|
+            member.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
+            member.participatory_space = participatory_process
+            member.save!
           end
         end
 
-        let(:recipients_count) { private_users.size }
+        let(:recipients_count) { members.size }
 
         it "sends to private members", :slow do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
@@ -545,7 +545,7 @@ describe "Admin manages newsletters" do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 

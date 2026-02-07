@@ -44,7 +44,7 @@ module Decidim
           @copied_meeting = Decidim.traceability.create!(
             Meeting,
             form.current_user,
-            taxonomies: form.taxonomies,
+            taxonomizations: form.taxonomizations,
             title: parsed_title,
             description: parsed_description,
             end_time: form.end_time,
@@ -70,7 +70,7 @@ module Decidim
             registration_url: form.registration_url,
             reminder_enabled: form.reminder_enabled,
             send_reminders_before_hours: form.send_reminders_before_hours,
-            reminder_message_custom_content: form.reminder_message_custom_content,
+            reminder_message_custom_content: form.reminder_message_custom_content || meeting.reminder_message_custom_content,
             **fields_from_meeting
           )
         end

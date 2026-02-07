@@ -33,7 +33,7 @@ module Decidim
         user_can_read_current_assembly?
         user_can_create_assembly?
         user_can_export_assembly?
-        user_can_copy_assembly?
+        user_can_duplicate_assembly?
         user_can_upload_images_in_assembly?
 
         # org admins and space admins can do everything in the admin section
@@ -41,7 +41,7 @@ module Decidim
 
         return permission_action unless assembly
 
-        user_can_read_private_users?
+        user_can_read_members?
 
         moderator_action?
         collaborator_action?
@@ -53,9 +53,9 @@ module Decidim
 
       private
 
-      def user_can_read_private_users?
-        return unless permission_action.subject == :space_private_user
-        return unless assembly.private_space?
+      def user_can_read_members?
+        return unless permission_action.subject == :space_member
+        return unless assembly.has_members?
 
         toggle_allow(user.admin? || can_manage_assembly?(role: :admin) || can_manage_assembly?(role: :collaborator))
       end
@@ -172,8 +172,8 @@ module Decidim
         toggle_allow(user.admin? || admin_assembly?)
       end
 
-      def user_can_copy_assembly?
-        return unless permission_action.action == :copy &&
+      def user_can_duplicate_assembly?
+        return unless permission_action.action == :duplicate &&
                       permission_action.subject == :assembly
 
         toggle_allow(user.admin? || admin_assembly?)
@@ -222,7 +222,7 @@ module Decidim
       # Collaborators can read/preview everything inside their assembly.
       def collaborator_action?
         return unless can_manage_assembly?(role: :collaborator)
-        return if permission_action.subject == :space_private_user
+        return if permission_action.subject == :space_member
 
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
@@ -250,7 +250,7 @@ module Decidim
           :assembly,
           :assembly_user_role,
           :export_space,
-          :share_tokens,
+          :share_token,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -268,7 +268,7 @@ module Decidim
           :assembly,
           :assembly_user_role,
           :export_space,
-          :share_tokens,
+          :share_token,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed

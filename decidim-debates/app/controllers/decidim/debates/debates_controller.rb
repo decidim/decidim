@@ -35,7 +35,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("debates.create.invalid", scope: "decidim.debates")
-            render action: "new"
+            render action: "new", status: :unprocessable_entity
           end
         end
       end
@@ -63,7 +63,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("debates.update.invalid", scope: "decidim.debates")
-            render :edit
+            render :edit, status: :unprocessable_entity
           end
         end
       end
@@ -124,6 +124,16 @@ module Decidim
 
       def tab_panel_items
         @tab_panel_items ||= attachments_tab_panel_items(debate)
+      end
+
+      def add_breadcrumb_item
+        return {} if debate.blank?
+
+        {
+          label: translated_attribute(debate.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).debate_path(debate),
+          active: false
+        }
       end
     end
   end

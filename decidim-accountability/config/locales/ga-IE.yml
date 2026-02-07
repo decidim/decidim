@@ -15,8 +15,6 @@ ga:
   decidim:
     accountability:
       actions:
-        attachment_collections: Fillteáin
-        attachments: Ceangaltáin
         destroy: Scrios
         edit: Eagar
         preview: Réamhamharc
@@ -54,7 +52,6 @@ ga:
           fields:
             created_at: Cruthaithe
             end_date: Dáta deiridh
-            id: ID
             progress: Forás
             status: Stádas
             title: Teideal

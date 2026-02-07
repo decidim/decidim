@@ -2,7 +2,7 @@
 
 def visit_registrations_attendees_page
   within "tr", text: translated(meeting.title) do
-    find("button[data-component='dropdown']").click
+    find("button[data-controller='dropdown']").click
     click_on "Registrations"
   end
   click_on "View registrations"
@@ -62,7 +62,7 @@ shared_examples "manage registrations attendees" do
       it "can mark user as attendee" do
         within "tr", text: registration.user.email do
           expect(page).to have_content "Not attended"
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Mark as attendee"
         end
 

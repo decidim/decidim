@@ -325,9 +325,9 @@ describe Decidim::Assemblies::Permissions do
     )
   end
 
-  context "when copying an assembly" do
+  context "when duplicating an assembly" do
     let(:action) do
-      { scope: :admin, action: :copy, subject: :assembly }
+      { scope: :admin, action: :duplicate, subject: :assembly }
     end
 
     it_behaves_like(
@@ -429,11 +429,11 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :assembly
       it_behaves_like "allows any action on subject", :assembly_user_role
 
-      context "when private assembly" do
-        let(:assembly) { create(:assembly, organization:, private_space: true) }
+      context "when assembly has members" do
+        let(:assembly) { create(:assembly, organization:, has_members: true) }
         let!(:context) { { current_participatory_space: assembly } }
 
-        it_behaves_like "allows any action on subject", :space_private_user
+        it_behaves_like "allows any action on subject", :space_member
       end
     end
 
@@ -463,11 +463,11 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :assembly
       it_behaves_like "allows any action on subject", :assembly_user_role
 
-      context "when private assembly" do
-        let(:assembly) { create(:assembly, organization:, private_space: true) }
+      context "when assembly has members" do
+        let(:assembly) { create(:assembly, organization:, has_members: true) }
         let!(:context) { { current_participatory_space: assembly } }
 
-        it_behaves_like "allows any action on subject", :space_private_user
+        it_behaves_like "allows any action on subject", :space_member
       end
     end
   end
@@ -553,9 +553,9 @@ describe Decidim::Assemblies::Permissions do
         it { is_expected.to be(false) }
       end
 
-      context "and action is :copy" do
+      context "and action is :duplicate" do
         let(:action) do
-          { scope: :admin, action: :copy, subject: :assembly }
+          { scope: :admin, action: :duplicate, subject: :assembly }
         end
 
         it { is_expected.to be(false) }
@@ -581,9 +581,9 @@ describe Decidim::Assemblies::Permissions do
         it { is_expected.to be(true) }
       end
 
-      context "and action is :copy" do
+      context "and action is :duplicate" do
         let(:action) do
-          { scope: :admin, action: :copy, subject: :assembly }
+          { scope: :admin, action: :duplicate, subject: :assembly }
         end
 
         it { is_expected.to be(true) }
@@ -609,9 +609,9 @@ describe Decidim::Assemblies::Permissions do
         it { is_expected.to be(true) }
       end
 
-      context "and action is :copy" do
+      context "and action is :duplicate" do
         let(:action) do
-          { scope: :admin, action: :copy, subject: :assembly }
+          { scope: :admin, action: :duplicate, subject: :assembly }
         end
 
         it { is_expected.to be(true) }

@@ -86,7 +86,6 @@
         initiatives:
           fields:
             created_at: Opprettet på
-            id: ID
             published_at: Publisert i
             state: Status
             supports_count: Underskrifter

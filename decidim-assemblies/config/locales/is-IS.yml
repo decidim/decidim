@@ -9,9 +9,6 @@ is-IS:
         closing_date: Lokadagur
         closing_date_reason: Lokadagsetning ástæða
         composition: Samsetning
-        copy_categories: Afrita flokka
-        copy_components: Afrita hluti
-        copy_features: Afrita eiginleika
         created_by: Búið til af
         created_by_other: Búið til af öðrum
         creation_date: Dagsetning búin til
@@ -75,11 +72,6 @@ is-IS:
         new:
           create: Búa til
           title: Ný samkoma
-      assembly_copies:
-        new:
-          copy: Afrita
-          select: Veldu hvaða gögn þú vilt afrita
-          title: Afrit samkoma
       assembly_imports:
         new:
           import: Flytja inn

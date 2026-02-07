@@ -5,19 +5,13 @@ module Decidim
     class ComponentMutationType < GraphQL::Schema::Union
       description "A component mutation."
 
-      possible_types Decidim::Proposals::ProposalsMutationType,
-                     Decidim::Budgets::BudgetsMutationType,
-                     Decidim::Accountability::AccountabilityMutationType
+      possible_types(*Decidim::MutationRegistry.instance.mutation_types)
 
       def self.resolve_type(obj, _ctx)
-        case obj.manifest_name
-        when "proposals"
-          Decidim::Proposals::ProposalsMutationType
-        when "budgets"
-          Decidim::Budgets::BudgetsMutationType
-        when "accountability"
-          Decidim::Accountability::AccountabilityMutationType
-        end
+        mod = obj.manifest_name.camelize
+        "Decidim::#{mod}::#{mod}MutationType".constantize
+      rescue NameError
+        raise GraphQL::ExecutionError, "Mutation type not found for #{mod}"
       end
     end
   end

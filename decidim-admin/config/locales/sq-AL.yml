@@ -35,7 +35,6 @@ sq:
       id: ID
       newsletter:
         body: Trupi i mesazhit
-        send_to_all_users: Dërgo të gjithë përdoruesve
         send_to_followers: Dërgo ndjekësve
         send_to_participants: Dërgo pjesëmarrësve
         subject: Tema
@@ -85,9 +84,6 @@ sq:
         welcome_notification_body: Përmbajtja e njoftimit të mirëseardhjes
         welcome_notification_subject: Tema e njoftimit të mirëseardhjes
         youtube_handler: Emri i përdoruesit Youtube
-      participatory_space_private_user:
-        email: Email
-        name: Emri
       scope:
         code: Kodi
         name: Emri
@@ -137,12 +133,10 @@ sq:
         attachment:
           new: Shtojcë e re
         browse: Shfleto
-        export: Eksporto të gjitha
         import: Importo
         newsletter:
           new: Newsletter i ri
         per_page: Për faqe
-        permissions: Lejet
         send_me_a_test_email: Më dërgo një email prove
         share: Shpërndaj
         user:
@@ -241,17 +235,6 @@ sq:
             label: Tipi
         officialized_at_null:
           label: Gjendja
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Ftesa u pranua
-            values:
-              'false': E papranuar
-              'true': Pranuar
-          user_invitation_sent_at_not_null:
-            label: Ftesa u dërguan
-            values:
-              'false': Nuk është dërguar
-              'true': Dërguar
         private_space_eq:
           label: Private
           values:
@@ -421,13 +404,13 @@ sq:
           all_users_help: Dërgo buletinin te të gjithë përdoruesit e konfirmuar.
           confirm_deliver: A je i sigurt që do ta dërgosh këtë buletin? Veprimi nuk mund të anulohet.
           deliver: Dërgo buletinin
+          send_to_all_users: Dërgo të gjithë përdoruesve
         show:
           preview: Parapamje
           subject: Tema
       officializations:
         index:
           actions: Veprimet
-          block: Blloko përdoruesin
           created_at: Krijuar më
           name: Emri
           nickname: Nofka

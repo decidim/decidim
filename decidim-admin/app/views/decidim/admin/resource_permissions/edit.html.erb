@@ -7,7 +7,7 @@
     </h1>
   </div>
 
-  <%= form_for @permissions_form, url: url_for(action: :update, **resource_params), html: { class: "form form-defaults" }, method: "put" do |permissions_form| %>
+  <%= decidim_form_for @permissions_form, url: url_for(action: :update, **resource_params), html: { class: "form form-defaults" }, method: "put" do |permissions_form| %>
     <div class="form__wrapper">
       <%= permissions_form.fields_for :permissions, permissions_form.object do |action_permission_form| %>
         <% action_permission_form.object.permissions.each do |action, permission| %>

@@ -3,7 +3,7 @@ import Toc from "src/decidim/collaborative_texts/toc";
 
 window.CollaborativeTextsDocuments = window.CollaborativeTextsDocuments || {};
 window.CollaborativeTextsToc = window.CollaborativeTextsToc || {};
-window.document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const documents = window.document.querySelectorAll("[data-collaborative-texts-document]");
   const tableOfContents = window.document.querySelectorAll("[data-collaborative-texts-toc]");
   documents.forEach((doc) => {

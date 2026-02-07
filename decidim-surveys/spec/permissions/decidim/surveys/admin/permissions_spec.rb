@@ -77,4 +77,12 @@ describe Decidim::Surveys::Admin::Permissions do
 
     it { is_expected.to be true }
   end
+
+  context "when previewing a survey questionnaire as a process admin" do
+    let(:action) do
+      { scope: :admin, action: :preview, subject: :questionnaire }
+    end
+
+    it { is_expected.to be true }
+  end
 end

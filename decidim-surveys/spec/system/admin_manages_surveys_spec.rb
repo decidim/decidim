@@ -14,6 +14,7 @@ describe "Admin manages surveys" do
   let!(:survey) { create(:survey, :published, :clean_after_publish, component:, questionnaire:) }
 
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
 
   it_behaves_like "manage questionnaires"
   it_behaves_like "manage questionnaire responses"
@@ -23,7 +24,7 @@ describe "Admin manages surveys" do
   context "with a new survey" do
     before do
       within "tr", text: decidim_sanitize_translated(survey.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Questions"
       end
     end
@@ -56,9 +57,13 @@ describe "Admin manages surveys" do
     context "when the survey has responses" do
       let!(:response) { create(:response, question:, questionnaire:) }
 
+      it_behaves_like "access permissions form" do
+        let!(:row_text) { decidim_sanitize_translated(survey.title) }
+      end
+
       it "shows warning message" do
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Questions"
         end
         expect(page).to have_content("The form is not published")
@@ -66,7 +71,7 @@ describe "Admin manages surveys" do
 
       it "allows editing questions" do
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Questions"
         end
         click_on "Expand all"
@@ -74,9 +79,17 @@ describe "Admin manages surveys" do
         expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
       end
 
+      it "shows the unpublish modal" do
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Unpublish"
+          expect(accept_confirm).to eq("Are you sure you want to unpublish this survey?")
+        end
+      end
+
       it "deletes responses after published" do
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Questions"
         end
         click_on "Expand all"
@@ -90,16 +103,26 @@ describe "Admin manages surveys" do
         all("a", text: translated_attribute(component.name))[0].click
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
-          click_on "Unpublish"
+          find("button[data-controller='dropdown']").click
+          accept_confirm { click_on "Unpublish" }
         end
+
         expect(page).to have_admin_callout "Survey successfully unpublished"
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
+          expect(page).to have_content "Unpublished"
+        end
+
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-controller='dropdown']").click
           accept_confirm { click_on("Publish") }
         end
+
         expect(page).to have_admin_callout "Survey successfully published"
+
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          expect(page).to have_content "Published"
+        end
         expect(questionnaire.responses).to be_empty
       end
 
@@ -122,12 +145,12 @@ describe "Admin manages surveys" do
               all("a", text: translated_attribute(component.name))[0].click
 
               within "tr", text: decidim_sanitize_translated(survey.title) do
-                find("button[data-component='dropdown']").click
-                click_on "Unpublish"
+                find("button[data-controller='dropdown']").click
+                accept_confirm { click_on "Unpublish" }
               end
 
               within "tr", text: decidim_sanitize_translated(survey.title) do
-                find("button[data-component='dropdown']").click
+                find("button[data-controller='dropdown']").click
                 click_on "Publish"
               end
 
@@ -140,7 +163,7 @@ describe "Admin manages surveys" do
               all("a", text: translated_attribute(component.name))[0].click
 
               within "tr", text: decidim_sanitize_translated(survey.title) do
-                find("button[data-component='dropdown']").click
+                find("button[data-controller='dropdown']").click
                 click_on "Edit"
               end
 
@@ -319,6 +342,35 @@ describe "Admin manages surveys" do
     end
   end
 
+  context "when the survey has responses or more" do
+    let!(:question) do
+      create(:questionnaire_question, questionnaire:)
+    end
+    let!(:response) { create(:response, questionnaire:, question:) }
+
+    before do
+      visit manage_questionnaire_path
+    end
+
+    it "allows access to responses" do
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_link("Responses")
+      end
+    end
+  end
+
+  context "when the survey has no responses" do
+    let!(:question) { create(:questionnaire_question, questionnaire:) }
+
+    it "does not show the Responses button" do
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_no_link("Responses")
+      end
+    end
+  end
+
   context "when updates the questionnaire" do
     let(:description) do
       {
@@ -353,6 +405,10 @@ describe "Admin manages surveys" do
 
   def questionnaire_public_path
     main_component_path(component)
+  end
+
+  def manage_questionnaire_path
+    Decidim::EngineRouter.admin_proxy(component).surveys_path
   end
 
   private

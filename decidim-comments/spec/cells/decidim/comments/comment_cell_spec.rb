@@ -24,7 +24,7 @@ module Decidim::Comments
         expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
         expect(subject).to have_css(".comment__content")
         expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
-        expect(subject).to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
+        expect(subject).to have_css("a[href='/en/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
         expect(subject).to have_content(comment.body.values.first)
         expect(subject).to have_content(created_at.strftime("%d/%m/%Y"))
         expect(subject).to have_content(comment.author.name)
@@ -84,7 +84,7 @@ module Decidim::Comments
           expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
           expect(subject).to have_css(".comment__content")
           expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
-          expect(subject).to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
+          expect(subject).to have_css("a[href='/en/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
           expect(subject).to have_content("Edited")
           expect(subject).to have_content(comment.body.values.first)
           expect(subject).to have_content(created_at.strftime("%d/%m/%Y"))
@@ -270,13 +270,13 @@ module Decidim::Comments
         end
 
         it "renders an action_authorized button" do
-          expect(subject).to have_css("[data-onboarding-action=\"vote_comment\"]")
+          expect(subject).to have_css("[data-onboarding-action-value=\"vote_comment\"]")
         end
       end
 
       context "when commentable has no permissions set for the vote_comment action" do
         it "renders a plain button" do
-          expect(subject).to have_no_css("[data-onboarding-action=\"vote_comment\"]")
+          expect(subject).to have_no_css("[data-onboarding-action-value=\"vote_comment\"]")
         end
       end
     end

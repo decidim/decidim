@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const toggleBackdrop = () => {
     const progressSummaryButton = document.getElementById("progress-summary-button");
     const backdrop = document.getElementById("progress-summary-backdrop");

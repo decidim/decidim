@@ -21,6 +21,12 @@ module Decidim
         end
       end
 
+      initializer "decidim_demographics.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_demographics.user_menu" do
         Decidim.menu :user_menu do |menu|
           menu.add_item :demographics,
@@ -33,7 +39,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_demographics.webpacker.assets_path" do
+      initializer "decidim_demographics.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end

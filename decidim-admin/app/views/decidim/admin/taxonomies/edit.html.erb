@@ -71,6 +71,16 @@
           setDrawerContent(data.body.innerHTML)
         }
       });
+
+      form.addEventListener("ajax:error", function(evt) {
+        var [data, _status, xhr] = event.detail;
+        if(xhr.responseURL.indexOf(location.pathname) > -1) {
+          location.href = xhr.responseURL;
+        } else {
+          setDrawerContent(data.body.innerHTML)
+        }
+      });
+
     }
 
     drawerButtons.forEach(function(button) {

@@ -30,8 +30,6 @@ pl:
   decidim:
     accountability:
       actions:
-        attachment_collections: Foldery
-        attachments: Załączniki
         confirm_destroy: Czy na pewno chcesz usunąć %{name}?
         destroy: Usuń
         edit: Edytuj
@@ -131,7 +129,6 @@ pl:
           fields:
             created_at: Utworzono
             end_date: Data zakończenia
-            id: ID
             progress: Postęp
             start_date: Data rozpoczęcia
             status: Status

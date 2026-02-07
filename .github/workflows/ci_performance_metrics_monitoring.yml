@@ -16,10 +16,9 @@ on:
       - "decidim-dev/**"
 
 env:
-  FAST_SEEDS: "true"
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 3.3.4
+  RUBY_VERSION: 3.4.7
   NODE_VERSION: 22.14.0
   NODE_ENV: "test"
   RAILS_ENV: development
@@ -61,12 +60,14 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
-      DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+      - run: |
+          sudo apt-get update && sudo apt-get install libvips libvips-tools
+        name: Install libvips
+        shell: "bash"
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
@@ -77,7 +78,7 @@ jobs:
       - name: Get npm cache directory path
         id: npm-cache-dir-path
         run: echo "dir=$(npm get cache)-${{ env.DECIDIM_MODULE }}" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         id: npm-cache
         with:
           path: ${{ steps.npm-cache-dir-path.outputs.dir }}

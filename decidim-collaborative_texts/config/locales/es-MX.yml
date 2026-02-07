@@ -25,7 +25,7 @@ es-MX:
         confirm_delete_document: '¿Seguro que quieres eliminar este documento?'
         deleted_document_info: Los documentos eliminados se pueden restaurar desde papelera.
         edit: Editar
-        manage: Gestionar
+        manage: Configurar
         new: Nuevo texto
         title: Acciones
         view_deleted_documents: Ver los documentos eliminados
@@ -74,6 +74,9 @@ es-MX:
           update_settings:
             invalid: Se ha producido un error al actualizar el documento.
             success: Documento actualizado correctamente.
+        index:
+          published: Publicado
+          unpublished: Despublicado
       admin_log:
         document:
           create: "%{user_name} creó el texto colaborativo \"%{resource_name}\" en %{space_name}"
@@ -122,6 +125,7 @@ es-MX:
       models:
         collaborative_text:
           fields:
+            published: Publicado
             suggestions: Aceptar la(s) sugerencia(s)
             title: Título
       suggestion:
@@ -137,6 +141,10 @@ es-MX:
           invalid_nodes: Nodos seleccionados inválidos.
     components:
       collaborative_texts:
+        actions:
+          create: Crear
+          destroy: Destruir
+          update: Actualizar
         name: Textos colaborativos
         settings:
           global:

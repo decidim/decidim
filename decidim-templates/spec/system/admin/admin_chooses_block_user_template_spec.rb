@@ -23,7 +23,7 @@ describe "Admin chooses user block templates when blocking user" do
     before do
       visit decidim_admin.moderated_users_path
       within "tr", text: user.name do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Block User"
       end
     end

@@ -38,8 +38,6 @@ describe "Admin manages initiatives types" do
 
       select("Online", from: "Signature type")
 
-      dynamically_attach_file(:initiatives_type_banner_image, Decidim::Dev.asset("city2.jpeg"))
-
       click_on "Create"
 
       expect(page).to have_admin_callout("A new initiative type has been successfully created")
@@ -52,7 +50,7 @@ describe "Admin manages initiatives types" do
   context "when updating an initiative type" do
     it "updates the initiative type" do
       within "tr", text: translated(initiatives_type.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Configure"
       end
 
@@ -86,7 +84,7 @@ describe "Admin manages initiatives types" do
   context "when deleting an initiative type" do
     it "deletes the initiative type" do
       within "tr", text: translated(initiatives_type.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm do
           click_on "Delete"
         end

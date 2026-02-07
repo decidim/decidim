@@ -59,6 +59,7 @@ module Decidim
   autoload :AdminFilter, "decidim/admin_filter"
   autoload :AdminFiltersRegistry, "decidim/admin_filters_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
+  autoload :MutationRegistry, "decidim/mutation_registry"
   autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :UrlOptionResolver, "decidim/url_option_resolver"
@@ -73,9 +74,7 @@ module Decidim
   autoload :Searchable, "decidim/searchable"
   autoload :FilterableResource, "decidim/filterable_resource"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
-  autoload :QueryExtensions, "decidim/query_extensions"
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
-  autoload :HasPrivateUsers, "decidim/has_private_users"
   autoload :ViewModel, "decidim/view_model"
   autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
   autoload :Fingerprintable, "decidim/fingerprintable"
@@ -132,6 +131,12 @@ module Decidim
   autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
   autoload :ApiResponseHelper, "decidim/api_response_helper"
   autoload :ResourceHelper, "decidim/resource_helper"
+  autoload :TooltipHelper, "decidim/tooltip_helper"
+  autoload :FormFactory, "decidim/form_factory"
+
+  module ParticipatorySpace
+    autoload :HasMembers, "decidim/participatory_space/has_members"
+  end
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
