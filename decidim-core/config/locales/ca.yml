@@ -1053,6 +1053,9 @@ ca:
           explanation: 'Instruccions per a la imatge:'
           message_1: Preferiblement una imatge apaïsada que no tingui cap text.
           message_2: El servei retalla la imatge.
+        import_file:
+          explanation: 'Instruccions per al fitxer d''importació:'
+          message_1: Ha de ser un document JSON descarregat mitjançant la funció d'exportació.
       file_validation:
         allowed_file_extensions: 'Tipus de fitxers admesos: %{extensions}'
         max_file_dimension: 'Mides máximes de l''arxiu: %{resolution} pixels'
