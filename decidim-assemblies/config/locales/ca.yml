@@ -280,6 +280,7 @@ ca:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Aquesta funció d'importació et permet crear una nova assemblea a partir d'un fitxer JSON exportat. Pots exportar una assemblea d'una altra organització o de la mateixa organització. L'assemblea importada inclourà la seva configuració, els components i els fitxers adjunts (si s'han seleccionat).
       assemblies:
         description:
           area_name: Àrea
