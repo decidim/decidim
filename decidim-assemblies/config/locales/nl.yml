@@ -205,6 +205,9 @@ nl:
             select_parent_assembly: Selecteer de hoofdgroep
             social_handlers: sociaal
             title: Algemene informatie
+        assembly_imports:
+          form:
+            document_legend: Document toevoegen
         assembly_members:
           form:
             explanation: 'Eigenschappen afbeelding:'
