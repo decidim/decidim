@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/mutation_context"
 
 module Decidim::Budgets
   describe UpdateBudgetType, type: :graphql do
@@ -53,8 +52,7 @@ module Decidim::Budgets
 
     context "with normal user" do
       it "returns nil" do
-        budget = response["updateBudget"]
-        expect(budget).to be_nil
+        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
       end
     end
 

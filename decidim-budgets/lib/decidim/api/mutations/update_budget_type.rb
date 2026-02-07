@@ -18,23 +18,27 @@ module Decidim
           decidim_scope_id: budget.scope&.id
         )
 
-        form = Admin::BudgetForm.from_params(form_attrs).with_context(
-          current_component: object,
-          current_organization: object.organization,
-          current_user: context[:current_user]
-        )
+        form = form(Admin::BudgetForm).from_params(form_attrs)
 
         Admin::UpdateBudget.call(form, budget) do
-          on(:ok, resource) { return resource }
+          on(:ok, resource) do
+            return resource
+          end
 
           on(:invalid) do
-            return GraphQL::ExecutionError.new(form.errors.full_messages.join(", "))
+            return GraphQL::ExecutionError.new(
+              form.errors.full_messages.join(", ")
+            )
           end
         end
       end
 
       def authorized?(attributes:, id:)
-        super && allowed_to?(:update, :budget, budget(id), context, scope: :admin)
+        unless super && allowed_to?(:update, :budget, budget(id), context, scope: :admin)
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
+
+        true
       end
 
       private

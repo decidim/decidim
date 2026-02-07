@@ -21,11 +21,7 @@ module Decidim
           taxonomies: project.taxonomies.map(&:id)
         )
 
-        form = Admin::ProjectForm.from_params(form_attrs).with_context(
-          current_component: object.component,
-          current_organization: object.organization,
-          current_user: context[:current_user]
-        )
+        form = form(Admin::ProjectForm).from_params(form_attrs)
 
         Admin::UpdateProject.call(form, project) do
           on(:ok, resource) do
@@ -33,15 +29,17 @@ module Decidim
           end
 
           on(:invalid) do
-            return GraphQL::ExecutionError.new(
-              form.errors.full_messages.join(", ")
-            )
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
         end
       end
 
       def authorized?(attributes:, id:)
-        super && allowed_to?(:update, :project, project(id), context, scope: :admin)
+        unless super && allowed_to?(:update, :project, project(id), { project: project(id), current_user: }, scope: :admin)
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
+
+        true
       end
 
       private

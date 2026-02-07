@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/mutation_context"
 
 module Decidim::Budgets
   describe CreateProjectType, type: :graphql do
@@ -9,7 +8,7 @@ module Decidim::Budgets
 
     let(:root_klass) { BudgetMutationType }
     let(:locale) { "en" }
-    let!(:organization) { create(:organization) }
+    let!(:organization) { current_organization }
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:budgets_component, participatory_space: participatory_process) }
     let(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
@@ -31,8 +30,8 @@ module Decidim::Budgets
             title: { en: title_en },
             description: { en: description_en },
             budgetAmount: budget_amount,
-            latitude: latitude,
-            longitude: longitude,
+            latitude:,
+            longitude:,
             proposalIds: [proposal.id],
             taxonomies: [taxonomy_id]
           }
@@ -78,7 +77,7 @@ module Decidim::Budgets
     end
 
     it "does not create project for unauthorized user" do
-      expect(response["createProject"]).to be_nil
+      expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
     end
   end
 end

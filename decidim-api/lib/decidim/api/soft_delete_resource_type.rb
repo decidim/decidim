@@ -19,13 +19,7 @@ module Decidim
           end
 
           on(:invalid) do
-            return GraphQL::ExecutionError.new(
-              I18n.t(
-                "soft_delete.invalid",
-                scope: "decidim.admin.trash_management",
-                resource_name: human_readable_resource_name
-              )
-            )
+            raise Decidim::Api::Errors::ValidationError, message
           end
         end
       end
@@ -38,6 +32,10 @@ module Decidim
 
       def trashable_deleted_resource_type
         raise NotImplementedError, "Return the type of the deleted resource (symbol)"
+      end
+
+      def message
+        I18n.t("soft_delete.invalid", scope: "decidim.admin.trash_management", resource_name: human_readable_resource_name)
       end
     end
   end

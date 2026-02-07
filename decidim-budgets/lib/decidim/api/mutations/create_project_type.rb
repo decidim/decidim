@@ -11,13 +11,7 @@ module Decidim
       argument :attributes, ProjectAttributes, description: "input attributes to create a project", required: true
 
       def resolve(attributes:)
-        form = Admin::ProjectForm.from_params(attributes.to_h)
-                                 .with_context(
-                                   current_component: object.component,
-                                   current_organization: object.organization,
-                                   current_user: context[:current_user],
-                                   budget: object
-                                 )
+        form = form(Admin::ProjectForm).from_params(attributes.to_h, budget: object)
 
         Admin::CreateProject.call(form) do
           on(:ok, resource) do
@@ -33,7 +27,15 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        super && allowed_to?(:create, :project, object, context, scope: :admin)
+        unless super && allowed_to?(:create, :project, object, { current_user: }, scope: :admin)
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
+
+        true
+      end
+
+      def self.permission_chain(object)
+        super.unshift(Decidim::Budgets::Admin::Permissions)
       end
     end
   end
