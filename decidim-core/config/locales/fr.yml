@@ -1013,6 +1013,9 @@ fr:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image au format paysage ne contenant pas de texte.
           message_2: Le service recadre l'image.
+        import_file:
+          explanation: 'Instructions pour le fichier d''importation :'
+          message_1: Doit être un document JSON téléchargé via la fonction d'exportation.
       file_validation:
         allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
         max_file_dimension: 'Dimensions de fichier maximales : %{resolution} pixels'
