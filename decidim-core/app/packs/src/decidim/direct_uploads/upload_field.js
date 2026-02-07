@@ -79,7 +79,7 @@ const updateActiveUploads = (modal) => {
     const template = `
       <div ${attachmentIdOrHiddenField} data-filename="${escapeQuotes(file.name)}" data-title="${escapeQuotes(title)}">
         ${(/image/).test(file.type) && "<div><img src=\"data:,\" role=\"presentation\" /></div>" || ""}
-        <span>${escapeHtml(title)}</span>
+        <p>${escapeHtml(title)}</p>
         ${hidden}
       </div>
     `
