@@ -552,6 +552,7 @@ ca:
           recent: Més recents
           recently_published: Publicada més recentment
         pending_initiatives:
+          description: Aquestes iniciatives no són públiques encara. Si us plau, revisa-les i envieu-les a validació tècnica, si s'escau, per tal que aquestes puguin fer-se públiques.
           title: Esborranys i iniciatives pendents
         print:
           address: Adreça
