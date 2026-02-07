@@ -15,10 +15,20 @@ Decidim.register_component(:budgets) do |component|
 
   component.query_type = "Decidim::Budgets::BudgetsType"
 
-  component.actions = %w(vote comment)
+  component.actions = %w(vote comment vote_comment)
 
-  component.on(:before_destroy) do |instance|
-    raise StandardError, "Cannot remove this component" if Decidim::Budgets::Budget.where(component: instance).any?
+  component.on(:publish) do |instance|
+    Decidim::Budgets::Budget.where(component: instance).find_each do |budget|
+      Decidim::UpdateSearchIndexesJob.perform_later([budget])
+      Decidim::UpdateSearchIndexesJob.perform_later(budget.projects)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Budgets::Budget.where(component: instance).find_each do |budget|
+      Decidim::RemoveSearchIndexesJob.perform_later([budget])
+      Decidim::RemoveSearchIndexesJob.perform_later(budget.projects)
+    end
   end
 
   component.register_resource(:budget) do |resource|

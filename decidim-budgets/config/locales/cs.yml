@@ -146,7 +146,6 @@ cs:
           new:
             create: Návrhy na projekty
             default_budget: Výchozí rozpočet
-            import_all_accepted_proposals: Importovat všechny přijaté návrhy
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             origin_component_id: Původ komponenty
             select_component: Vyberte součást
@@ -221,7 +220,6 @@ cs:
             total_budget: Celkový rozpočet
         project:
           fields:
-            id: ID
             map: Mapa
             taxonomies: Taxonomie
             title: Titul
@@ -304,6 +302,8 @@ cs:
           dynamic_help:
             minimum_reached: Dosáhli jste minima, abyste mohli hlasovat
           minimum: Minimum
+          minimum_projects_rule:
+            description: "<b>Vyberte alespoň %{minimum_number} projektů</b>, které chcete a hlasujete podle vašich preferencí."
         orders:
           highest_cost: Nejvyšší náklady
           label: Seřadit projekty podle

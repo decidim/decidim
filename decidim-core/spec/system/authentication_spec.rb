@@ -415,7 +415,7 @@ describe "Authentication" do
   end
 
   context "when confirming the account" do
-    let!(:user) { create(:user, organization:) }
+    let!(:user) { create(:user, :malicious, organization:) }
 
     before do
       perform_enqueued_jobs { user.confirm }

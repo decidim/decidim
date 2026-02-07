@@ -10,6 +10,7 @@ describe "Admin invite" do
   let(:params) do
     {
       name: "Gotham City",
+      short_name: "GothamCity",
       reference_prefix: "JKR",
       host: "decide.lvh.me",
       organization_admin_name: "Fiorello Henry La Guardia",

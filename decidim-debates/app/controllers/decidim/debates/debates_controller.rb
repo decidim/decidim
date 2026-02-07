@@ -125,6 +125,16 @@ module Decidim
       def tab_panel_items
         @tab_panel_items ||= attachments_tab_panel_items(debate)
       end
+
+      def add_breadcrumb_item
+        return {} if debate.blank?
+
+        {
+          label: translated_attribute(debate.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).debate_path(debate),
+          active: false
+        }
+      end
     end
   end
 end

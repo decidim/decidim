@@ -41,8 +41,12 @@ de:
             votes: Stimmen
           results:
             publish_button: Resultate veröffentlichen
+            results_availability:
+              real_time: Ergebnisse werden laufend während der Wahl angezeigt.
+            start_question_button: Abstimmung aktivieren
             title: Resultate
           status:
+            census: 'Erhebung:'
             title: Wahlstatus
         elections:
           edit:

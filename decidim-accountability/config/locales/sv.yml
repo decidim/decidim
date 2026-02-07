@@ -254,7 +254,6 @@ sv:
           fields:
             created_at: Skapad
             end_date: Slutdatum
-            id: ID
             progress: Genomförande
             start_date: Startdatum
             status: Status

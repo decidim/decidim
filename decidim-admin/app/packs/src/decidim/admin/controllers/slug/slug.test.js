@@ -1,7 +1,7 @@
 /* global jest */
 
 import { Application } from "@hotwired/stimulus"
-import SlugController from "./controller"
+import SlugController from "src/decidim/admin/controllers/slug/controller"
 
 describe("SlugController", () => {
   let application = null;

@@ -2,9 +2,9 @@
 
 def do_action(action)
   if [:show, :confirm, :waiting, :receipt].include?(action)
-    get action, params: params
+    get(action, params:)
   else
-    patch action, params: params
+    patch action, params:
   end
 end
 
@@ -39,7 +39,7 @@ end
 shared_examples "an authenticated vote controller" do
   describe "GET new" do
     it "renders the new vote form" do
-      get :new, params: params
+      get(:new, params:)
       expect(response).to have_http_status(:ok)
       expect(assigns(:form)).to be_a(Decidim::Elections::Censuses::InternalUsersForm)
       expect(subject).to render_template("decidim/elections/votes/new")
@@ -52,7 +52,7 @@ shared_examples "an authenticated vote controller" do
 
       it "redirects to the question path" do
         expect(controller).to receive(:redirect_to).with(action: :show, id: question)
-        get :new, params: params
+        get(:new, params:)
 
         expect(controller.send(:session_authenticated?)).to be true
         expect(response).to render_template("decidim/elections/votes/new")
@@ -63,7 +63,7 @@ shared_examples "an authenticated vote controller" do
   describe "POST create" do
     it "renders the new form with errors when the form is invalid" do
       expect(controller).to receive(:redirect_to).with(action: :new)
-      post :create, params: params
+      post(:create, params:)
 
       expect(controller.send(:session_authenticated?)).to be false
       expect(controller.send(:voter_uid)).to be_nil
@@ -77,7 +77,7 @@ shared_examples "an authenticated vote controller" do
 
       it "creates the session credentials and redirects to form again" do
         expect(controller).to receive(:redirect_to).with(action: :show, id: question)
-        post :create, params: params
+        post(:create, params:)
 
         expect(session[:session_attributes]).to be_present
         expect(controller.send(:session_authenticated?)).to be true

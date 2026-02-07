@@ -11,7 +11,7 @@ module Decidim
     # - Array each element should be a text field symbol, all values will be concatenated.
     # - Symbol when mapping is direct.
     #
-    # @param declared_fields: A Hash with the mappings between a SearchableResource attributes and
+    # @param declared_fields [Hash] - A Hash with the mappings between a SearchableResource attributes and
     #    any given model. Mapped fields are:
     # - scope_id: The field where the scope is set in the model, if any.
     # - participatory_space: The field where the ParticipatorySpace is set in the model.
@@ -24,14 +24,13 @@ module Decidim
     # A: :title,
     # D: [:description, :address],
     # datetime: :start_time}
-    #
     def initialize(declared_fields)
       @declared_fields = declared_fields.with_indifferent_access
       @conditions = { create: true, update: true }
     end
 
-    # @param action: currently supports :create, :update
-    # @param condition: a boolean or a Proc that will receive the Searchable and will return a boolean.
+    # @param action [Symbol] currently supports :create, :update
+    # @param condition [TrueClass, FalseClass] a boolean or a Proc that will receive the Searchable and will return a boolean.
     def set_index_condition(action, condition)
       @conditions[action] = condition
     end

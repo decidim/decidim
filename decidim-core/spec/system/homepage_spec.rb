@@ -200,11 +200,11 @@ describe "Homepage" do
 
               expect(page).to have_link(
                 static_page_topic1_page2.topic.title["en"],
-                href: "/pages/#{static_page_topic1_page2.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page2.slug}"
               )
               expect(page).to have_no_link(
                 static_page_topic1_page1.title["en"],
-                href: "/pages/#{static_page_topic1_page1.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page1.slug}"
               )
             end
           end
@@ -228,19 +228,19 @@ describe "Homepage" do
 
               expect(page).to have_link(
                 static_page_topic1_page2.topic.title["en"],
-                href: "/pages/#{static_page_topic1_page2.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page2.slug}"
               )
               expect(page).to have_link(
                 static_page_topic1_page1.topic.title["en"],
-                href: "/pages/#{static_page_topic1_page1.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page1.slug}"
               )
               expect(page).to have_link(
                 static_page_topic2_page1.topic.title["en"],
-                href: "/pages/#{static_page_topic2_page1.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic2_page1.slug}"
               )
               expect(page).to have_no_link(
                 static_page_topic2_page2.title["en"],
-                href: "/pages/#{static_page_topic2_page2.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic2_page2.slug}"
               )
             end
           end
@@ -269,7 +269,6 @@ describe "Homepage" do
 
           before do
             visit current_path
-            find_by_id("main-dropdown-summary").hover
           end
 
           it "does not show last activity section on menu bar main dropdown" do
@@ -285,7 +284,6 @@ describe "Homepage" do
 
           before do
             visit current_path
-            find_by_id("main-dropdown-summary").hover
           end
 
           it "does not show last activity section on menu bar main dropdown" do

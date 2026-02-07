@@ -48,7 +48,7 @@ sv:
         form:
           body:
             label: Kommentera
-            placeholder: Vad tycker du om detta?
+            placeholder: Vad tycker du?
           form_error: Texten är obligatorisk och får inte vara längre än %{length} tecken.
           submit_reply: Publicera svar
           submit_root_comment: Publicera kommentar
@@ -103,10 +103,10 @@ sv:
         sort_by: 'Sortera efter: '
       comment_order_selector:
         order:
-          best_rated: Bästa betyg
+          best_rated: Högst betyg
           most_discussed: Mest diskuterade
-          older: Äldsta
-          recent: Senaste
+          older: Gamla
+          recent: Nya
         title: 'Sortera efter:'
       comments:
         against: Mot

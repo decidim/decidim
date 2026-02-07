@@ -505,7 +505,6 @@ el:
           fields:
             closed: Κλειστό
             end_time: Ημερομηνία λήξης
-            id: ID
             map: Χάρτης
             official_meeting: Επίσημη συνάντηση
             start_time: Ημερομηνία έναρξης

@@ -141,8 +141,6 @@ ja:
             values:
               state_not_published: 未回答
               state_published: 回答済み
-        search_placeholder:
-          id_string_or_title_cont: '%{collection} をIDまたはタイトルで検索'
       tooltips:
         cannot_edit_proposal_info: この提案は参加者によって作成されたか投票されているため編集できません
         deleted_proposal_states_info: 提案に割り当てられているため、この提案状態は削除できません

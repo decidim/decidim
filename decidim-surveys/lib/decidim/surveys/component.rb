@@ -16,13 +16,6 @@ Decidim.register_component(:surveys) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Forms::Response"]
 
-  component.on(:before_destroy) do |instance|
-    survey = Decidim::Surveys::Survey.find_by(decidim_component_id: instance.id)
-    survey_responses_for_component = Decidim::Forms::Response.where(questionnaire: survey.questionnaire)
-
-    raise "Cannot destroy this component when there are survey responses" if survey_responses_for_component.any?
-  end
-
   component.register_resource(:survey) do |resource|
     resource.model_class_name = "Decidim::Surveys::Survey"
     resource.card = "decidim/surveys/survey"
@@ -69,6 +62,23 @@ Decidim.register_component(:surveys) do |component|
     exports.formats %w(CSV JSON Excel FormPDF)
 
     exports.serializer Decidim::Forms::UserResponsesSerializer
+  end
+
+  component.exports :published_survey_user_responses do |exports|
+    exports.collection do |component|
+      survey = Decidim::Surveys::Survey.find_by(component:)
+
+      Decidim::Forms::Response
+        .joins(:question)
+        .where(questionnaire: survey.questionnaire)
+        .where.not(decidim_forms_questions: { question_type: %w(separator title_and_description) })
+        .where.not(decidim_forms_questions: { survey_responses_published_at: nil })
+        .includes(:question, :choices, :user)
+    end
+
+    exports.formats []
+    exports.include_in_open_data = true
+    exports.serializer Decidim::Surveys::UserResponsesSerializer
   end
 
   component.seeds do |participatory_space|

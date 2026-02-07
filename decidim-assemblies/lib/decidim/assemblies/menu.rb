@@ -7,7 +7,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim"),
-                        decidim_assemblies.assemblies_path,
+                        decidim_assemblies.assemblies_path(locale: current_locale),
                         position: 2.2,
                         if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
                         active: :inclusive
@@ -18,7 +18,7 @@ module Decidim
         Decidim.menu :mobile_menu do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim"),
-                        decidim_assemblies.assemblies_path,
+                        decidim_assemblies.assemblies_path(locale: current_locale),
                         position: 2.2,
                         if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
                         active: :inclusive
@@ -29,7 +29,7 @@ module Decidim
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim"),
-                        decidim_assemblies.assemblies_path,
+                        decidim_assemblies.assemblies_path(locale: current_locale),
                         position: 20,
                         if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
                         active: :inclusive
@@ -122,11 +122,11 @@ module Decidim
                         icon_name: "user-settings-line",
                         if: allowed_to?(:read, :assembly_user_role, assembly: current_participatory_space)
 
-          menu.add_item :participatory_space_private_users,
-                        I18n.t("private_users", scope: "decidim.admin.menu.assemblies_submenu"),
-                        decidim_admin_assemblies.participatory_space_private_users_path(current_participatory_space),
-                        icon_name: "spy-line",
-                        if: allowed_to?(:read, :space_private_user, current_participatory_space:)
+          menu.add_item :members,
+                        I18n.t("members", scope: "decidim.admin.menu.assemblies_submenu"),
+                        decidim_admin_assemblies.members_path(current_participatory_space),
+                        icon_name: "user-settings-line",
+                        if: allowed_to?(:read, :space_member, current_participatory_space:)
 
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.assemblies_submenu"),

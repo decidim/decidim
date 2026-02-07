@@ -48,7 +48,7 @@ module Decidim
       end
 
       def post
-        @post ||= Post.find_by(id: id)
+        @post ||= Post.find_by(id:)
       end
 
       def participatory_space_manifest

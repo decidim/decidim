@@ -116,10 +116,10 @@ export default class extends Controller {
   changeStyleOfSelectedElement() {
     this.element.addEventListener("click", function(event) {
       event.target.parentNode.parentNode.querySelectorAll("a").forEach((link) => {
-        link.parentNode.classList.remove("dropdown__item-hovered")
+        link.parentNode.classList.remove("dropdown__item-opened");
       })
 
-      event.target.parentNode.classList.add("dropdown__item-hovered")
+      event.target.parentNode.classList.add("dropdown__item-opened")
     })
   }
 }

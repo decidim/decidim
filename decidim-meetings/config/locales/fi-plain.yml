@@ -162,6 +162,7 @@ fi-pl:
           comment: Kommentoi
           join: Liity mukaan
           reply_poll: Vastaa mielipidetiedusteluun
+          vote_comment: Äänestä kommenttia
         name: Tapahtumat
         settings:
           global:
@@ -677,7 +678,6 @@ fi-pl:
           fields:
             closed: Suljettu
             end_time: Päättymispäivä
-            id: ID
             map: Kartta
             official_meeting: Virallinen tapahtuma
             published: Julkaistu

@@ -145,8 +145,6 @@ es-PY:
             values:
               state_not_published: Sin respuesta
               state_published: Respondidas
-        search_placeholder:
-          id_string_or_title_cont: Buscar %{collection} por ID o título
       tooltips:
         cannot_edit_proposal_info: No se puede editar esta propuesta ya que ha sido creada por un participante o ha recibido algún voto
         deleted_proposal_states_info: No se puede eliminar este estado de respuesta porque hay propuestas asignadas a este estado

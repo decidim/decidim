@@ -10,7 +10,7 @@ module Decidim
       let(:model) { create(:budget, :with_projects) }
 
       it_behaves_like "traceable interface" do
-        let(:author) { create(:user, :admin, organization: model.component.organization) }
+        let(:author) { create(:user, :admin, :confirmed, organization: model.component.organization) }
       end
 
       describe "id" do
