@@ -1056,6 +1056,9 @@ es-PY:
           explanation: 'Instrucciones para la imagen:'
           message_1: Preferiblemente una imagen apaisada que no tenga ningún texto.
           message_2: El servicio recorta la imagen.
+        import_file:
+          explanation: 'Guía para el archivo de importación:'
+          message_1: Tiene que ser un documento JSON descargado a través de la función de exportación.
       file_validation:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
         max_file_dimension: 'Medidas máximas de archivo: %{resolution} píxeles'
