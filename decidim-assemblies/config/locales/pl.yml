@@ -247,6 +247,7 @@ pl:
             slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         assembly_imports:
           form:
+            document_legend: Dodaj dokument
             slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         assembly_members:
           form:
