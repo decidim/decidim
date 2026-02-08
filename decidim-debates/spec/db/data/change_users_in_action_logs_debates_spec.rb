@@ -75,7 +75,6 @@ describe ChangeUsersInActionLogsDebates do
                                         user_id: user.id,
                                         user_type: "Decidim::User",
                                         resource_type: "Decidim::Debates::Debate",
-
                                         resource_id: debate3.id,
                                         action: "create",
                                         visibility: "public-only",
@@ -97,8 +96,28 @@ describe ChangeUsersInActionLogsDebates do
                                         user_id: admin.id,
                                         user_type: "Decidim::User",
                                         resource_type: "Decidim::Debates::Debate",
-
                                         resource_id: debate4.id,
+                                        action: "create",
+                                        visibility: "public-only",
+                                        extra: {
+                                          "user" => {
+                                            "ip" => "127.0.0.1",
+                                            "name" => "Dummy user",
+                                            "nickname" => "dummy"
+                                          },
+                                          "resource" => {},
+                                          "component" => {},
+                                          "participatory_space" => {}
+                                        },
+                                        created_at: Time.current,
+                                        updated_at: Time.current
+                                      },
+                                      {
+                                        decidim_organization_id: organization.id,
+                                        user_id: admin.id,
+                                        user_type: "Decidim::User",
+                                        resource_type: "Decidim::Debates::Debate",
+                                        resource_id: 999_999,
                                         action: "create",
                                         visibility: "public-only",
                                         extra: {
