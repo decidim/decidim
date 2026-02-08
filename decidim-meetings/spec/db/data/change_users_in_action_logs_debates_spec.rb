@@ -2,9 +2,9 @@
 
 require "spec_helper"
 
-require "../../../db/data/20260208135003_change_users_in_action_logs_meetings"
+require "./db/data/20260208135003_change_users_in_action_logs_meetings"
 
-describe ChangeUsersInActionLogsDebates do
+describe ChangeUsersInActionLogsMeetings do
   let(:migrator) do
     described_class.new.tap do |m|
       m.verbose = false

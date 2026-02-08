@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-require "../../../db/data/20260208135002_change_users_in_action_logs_debates"
+require "./db/data/20260208135002_change_users_in_action_logs_debates"
 
 describe ChangeUsersInActionLogsDebates do
   let(:migrator) do
