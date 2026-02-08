@@ -1,0 +1,69 @@
+@use "sass:color";
+
+// base styles
+$select-ns: "ts" !default;
+$select-font-family: inherit !default;
+$select-font-smoothing: inherit !default;
+$select-font-size: 13px !default;
+$select-line-height: 18px !default;
+
+$select-color-text: #303030 !default;
+$select-color-border: #d0d0d0 !default;
+$select-color-highlight: rgba(125, 168, 208, 0.2) !default;
+$select-color-input: #fff !default;
+$select-color-input-full: $select-color-input !default;
+$select-color-disabled: #fafafa !default;
+$select-color-item: #f2f2f2 !default;
+$select-color-item-text: $select-color-text !default;
+$select-color-item-border: #d0d0d0 !default;
+$select-color-item-active: #e8e8e8 !default;
+$select-color-item-active-text: $select-color-text !default;
+$select-color-item-active-border: #cacaca !default;
+$select-color-dropdown: #fff !default;
+$select-color-dropdown-border: $select-color-border !default;
+$select-color-dropdown-border-top: #f0f0f0 !default;
+$select-color-dropdown-item-active: #f5fafd !default;
+$select-color-dropdown-item-active-text: #495c68 !default;
+$select-color-dropdown-item-create-text: rgba(
+  color.channel($select-color-text, "red"),
+  color.channel($select-color-text, "green"),
+  color.channel($select-color-text, "blue"),
+  0.5
+) !default;
+$select-color-dropdown-item-create-active-text: $select-color-dropdown-item-active-text !default;
+$select-color-optgroup: $select-color-dropdown !default;
+$select-color-optgroup-text: $select-color-text !default;
+$select-lighten-disabled-item: 30% !default;
+$select-lighten-disabled-item-text: 30% !default;
+$select-lighten-disabled-item-border: 30% !default;
+$select-opacity-disabled: 0.5 !default;
+
+$select-shadow-input: none !default;
+$select-shadow-input-focus: none !default;
+$select-border-width: 1px !default;
+$select-border: $select-border-width solid $select-color-border !default;
+$select-dropdown-border: 1px solid $select-color-dropdown-border !default;
+$select-border-radius: 3px !default;
+
+$select-width-item-border: 0px !default;
+$select-max-height-dropdown: 200px !default;
+
+$select-padding-x: 8px !default;
+$select-padding-y: 8px !default;
+$select-padding-item-x: 6px !default;
+$select-padding-item-y: 2px !default;
+$select-padding-dropdown-item-x: $select-padding-x !default;
+$select-padding-dropdown-item-y: 5px !default;
+$select-margin-item-x: 3px !default;
+$select-margin-item-y: 3px !default;
+
+$select-arrow-size: 5px !default;
+$select-arrow-color: #808080 !default;
+$select-arrow-offset: 15px !default;
+
+$select-caret-margin: 0px 4px !default;
+$select-caret-margin-rtl: 0px 4px 0px -2px !default;
+
+$select-spinner-size: 30px !default;
+$select-spinner-border-size: 5px !default;
+$select-spinner-border-color: $select-color-border !default;

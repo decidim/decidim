@@ -1,0 +1,119 @@
+/**
+ * tom-select.css (v2.2.2)
+ * Copyright (c) contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+ * file except in compliance with the License. You may obtain a copy of the License at:
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ *
+ */
+
+@use "stylesheets/decidim/vendor/tom_select/variables" as *;
+@use "stylesheets/decidim/vendor/tom_select/plugins/drag_drop";
+@use "stylesheets/decidim/vendor/tom_select/plugins/checkbox_options";
+@use "stylesheets/decidim/vendor/tom_select/plugins/clear_button";
+@use "stylesheets/decidim/vendor/tom_select/plugins/dropdown_header";
+@use "stylesheets/decidim/vendor/tom_select/plugins/dropdown_input";
+@use "stylesheets/decidim/vendor/tom_select/plugins/input_autogrow";
+@use "stylesheets/decidim/vendor/tom_select/plugins/optgroup_columns";
+@use "stylesheets/decidim/vendor/tom_select/plugins/remove_button";
+@use "stylesheets/decidim/vendor/tom_select/items";
+@use "stylesheets/decidim/vendor/tom_select/dropdown";
+
+:root {
+  --ts-pr-clear-button: 0;
+  --ts-pr-caret: 0;
+  --ts-pr-min: 0.75rem;
+}
+
+@mixin selectize-vertical-gradient($color-top, $color-bottom) {
+  background-color: mix($color-top, $color-bottom, 60%);
+  background-image: linear-gradient(to bottom, $color-top, $color-bottom);
+  background-repeat: repeat-x;
+}
+
+.#{$select-ns}-wrapper.single {
+  .#{$select-ns}-control {
+    &,
+    input {
+      cursor: pointer;
+    }
+  }
+}
+
+.#{$select-ns}-control {
+  padding-right: Max(
+    var(--ts-pr-min),
+    calc(var(--ts-pr-clear-button) + var(--ts-pr-caret))
+  ) !important;
+}
+
+@mixin ts-caret() {
+  .#{$select-ns}-wrapper.single {
+    .#{$select-ns}-control {
+      --ts-pr-caret: 2rem;
+
+      &:after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: $select-arrow-offset;
+        margin-top: round(-0.5 * $select-arrow-size);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: $select-arrow-size $select-arrow-size 0 $select-arrow-size;
+        border-color: $select-arrow-color transparent transparent transparent;
+      }
+    }
+
+    &.dropdown-active .#{$select-ns}-control::after {
+      margin-top: $select-arrow-size * -0.8;
+      border-width: 0 $select-arrow-size $select-arrow-size $select-arrow-size;
+      border-color: transparent transparent $select-arrow-color transparent;
+    }
+
+    &.input-active .#{$select-ns}-control,
+    &.input-active .#{$select-ns}-control input {
+      cursor: text;
+    }
+  }
+}
+
+.#{$select-ns}-wrapper {
+  position: relative;
+}
+
+.#{$select-ns}-dropdown,
+.#{$select-ns}-control,
+.#{$select-ns}-control input {
+  color: $select-color-text;
+  font-family: $select-font-family;
+  font-size: $select-font-size;
+  line-height: $select-line-height;
+  font-smoothing: $select-font-smoothing;
+}
+
+.#{$select-ns}-control,
+.#{$select-ns}-wrapper.single.input-active .#{$select-ns}-control {
+  background: $select-color-input;
+  cursor: text;
+}
+
+.ts-hidden-accessible {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  //height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
