@@ -16,7 +16,7 @@ describe ChangeUsersInActionLogsDebates do
     let(:user) { create(:user, organization:) }
     let(:group) { create(:user, organization:, extended_data: { group: true }) }
     let(:admin) { create(:user, :admin, :confirmed, organization:) }
-    let!(:component) { create(:debate_component, organization:) }
+    let!(:component) { create(:debates_component, organization:) }
     let!(:debate1) { create(:debate, component:, author: group) }
     let!(:debate2) { create(:debate, component:, author: group) }
     let!(:debate3) { create(:debate, component:, author: user) }
