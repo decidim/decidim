@@ -77,7 +77,15 @@ module.exports = { // eslint-disable-line
     "media-feature-name-no-unknown": true,
     "no-empty-source": true,
     "no-invalid-double-slash-comments": true,
-    "property-no-unknown": true,
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "font-smoothing",
+          "overflow-scrolling"
+        ]
+      }
+    ],
     "rule-empty-line-before": [
       "always-multi-line",
       {

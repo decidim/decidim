@@ -47,7 +47,7 @@
 }
 
 .#{$select-ns}-control {
-  padding-right: Max(
+  padding-right: max(
     var(--ts-pr-min),
     calc(var(--ts-pr-clear-button) + var(--ts-pr-caret))
   ) !important;
@@ -58,7 +58,7 @@
     .#{$select-ns}-control {
       --ts-pr-caret: 2rem;
 
-      &:after {
+      &::after {
         content: " ";
         display: block;
         position: absolute;

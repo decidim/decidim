@@ -23,6 +23,7 @@
       #{$select-padding-y} - #{$select-padding-item-y} - #{$select-margin-item-y} -
         #{$select-width-item-border}
     );
+
     padding: $padding-top $padding-x $padding-bottom;
   }
 
@@ -97,6 +98,7 @@
     line-height: inherit !important;
     user-select: auto !important;
     box-shadow: none !important;
+
     &:focus {
       outline: none !important;
     }
