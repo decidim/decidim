@@ -13,13 +13,15 @@ class ChangeUsersInActionLogsDebates < ActiveRecord::Migration[7.2]
 
   def up
     ActionLog.where(resource_type: "Decidim::Debates::Debate").find_each do |action_log|
+      next unless action_log.resource
+
       author = action_log.resource.author
 
       next unless author.is_a?(Decidim::User)
       next unless author.group?
 
       action_log.user_id = author.id
-      action_log.extra["user"].merge!("name" => author.name, :nickname => author.nickname)
+      action_log.extra["user"].merge!("name" => author.name, "nickname" => author.nickname)
       action_log.save!
     end
   end

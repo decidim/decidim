@@ -43,22 +43,8 @@ describe ChangeUsersInActionLogsComments do
                                             "nickname" => "dummy"
                                           },
                                           "resource" => {},
-                                          "component" => {
-                                            "title" => {
-                                              "ca" => "Propostes",
-                                              "en" => "Proposals",
-                                              "es" => "Propuestas"
-                                            },
-                                            "manifest_name" => "proposals"
-                                          },
-                                          "participatory_space" => {
-                                            "title" => {
-                                              "ca" => "Quisquam dicta provident vel mollitia.",
-                                              "en" => "Fuga voluptatem omnis est iure.",
-                                              "machine_translations" => { "es" => "Corporis ullam fugit adipisci quam." }
-                                            },
-                                            "manifest_name" => "participatory_processes"
-                                          }
+                                          "component" => {},
+                                          "participatory_space" => {}
                                         },
                                         created_at: Time.current,
                                         updated_at: Time.current
@@ -78,22 +64,8 @@ describe ChangeUsersInActionLogsComments do
                                             "nickname" => "dummy"
                                           },
                                           "resource" => {},
-                                          "component" => {
-                                            "title" => {
-                                              "ca" => "Propostes",
-                                              "en" => "Proposals",
-                                              "es" => "Propuestas"
-                                            },
-                                            "manifest_name" => "proposals"
-                                          },
-                                          "participatory_space" => {
-                                            "title" => {
-                                              "ca" => "Quisquam dicta provident vel mollitia.",
-                                              "en" => "Fuga voluptatem omnis est iure.",
-                                              "machine_translations" => { "es" => "Corporis ullam fugit adipisci quam." }
-                                            },
-                                            "manifest_name" => "participatory_processes"
-                                          }
+                                          "component" => {},
+                                          "participatory_space" => {}
                                         },
                                         created_at: Time.current,
                                         updated_at: Time.current
@@ -113,22 +85,8 @@ describe ChangeUsersInActionLogsComments do
                                             "nickname" => "dummy"
                                           },
                                           "resource" => {},
-                                          "component" => {
-                                            "title" => {
-                                              "ca" => "Propostes",
-                                              "en" => "Proposals",
-                                              "es" => "Propuestas"
-                                            },
-                                            "manifest_name" => "proposals"
-                                          },
-                                          "participatory_space" => {
-                                            "title" => {
-                                              "ca" => "Quisquam dicta provident vel mollitia.",
-                                              "en" => "Fuga voluptatem omnis est iure.",
-                                              "machine_translations" => { "es" => "Corporis ullam fugit adipisci quam." }
-                                            },
-                                            "manifest_name" => "participatory_processes"
-                                          }
+                                          "component" => {},
+                                          "participatory_space" => {}
                                         },
                                         created_at: Time.current,
                                         updated_at: Time.current
@@ -148,22 +106,8 @@ describe ChangeUsersInActionLogsComments do
                                             "nickname" => "dummy"
                                           },
                                           "resource" => {},
-                                          "component" => {
-                                            "title" => {
-                                              "ca" => "Propostes",
-                                              "en" => "Proposals",
-                                              "es" => "Propuestas"
-                                            },
-                                            "manifest_name" => "proposals"
-                                          },
-                                          "participatory_space" => {
-                                            "title" => {
-                                              "ca" => "Quisquam dicta provident vel mollitia.",
-                                              "en" => "Fuga voluptatem omnis est iure.",
-                                              "machine_translations" => { "es" => "Corporis ullam fugit adipisci quam." }
-                                            },
-                                            "manifest_name" => "participatory_processes"
-                                          }
+                                          "component" => {},
+                                          "participatory_space" => {}
                                         },
                                         created_at: Time.current,
                                         updated_at: Time.current
