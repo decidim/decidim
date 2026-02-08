@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChangeUsersInActionLogsPosts < ActiveRecord::Migration[7.2]
+class ChangeUsersInActionLogsProposals < ActiveRecord::Migration[7.2]
   class ActionLog < ApplicationRecord
     self.table_name = :decidim_action_logs
 
@@ -12,8 +12,8 @@ class ChangeUsersInActionLogsPosts < ActiveRecord::Migration[7.2]
   end
 
   def up
-    ActionLog.where(resource_type: "Decidim::Blogs::Post").find_each do |action_log|
-      author = action_log.resource.author
+    ActionLog.where(resource_type: "Decidim::Proposals::Proposal").find_each do |action_log|
+      author = action_log.resource.creator_author
 
       next unless author.is_a?(Decidim::User)
       next unless author.group?
