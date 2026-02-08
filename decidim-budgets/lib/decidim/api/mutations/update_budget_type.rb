@@ -7,22 +7,15 @@ module Decidim
       type Decidim::Budgets::BudgetType
 
       argument :attributes, BudgetAttributes, description: "input attributes to update a budget", required: true
-      argument :id, GraphQL::Types::ID, "The ID of the budget", required: true
 
-      def resolve(attributes:, id:) # rubocop:disable Lint/UnusedMethodArgument
-        form_attrs = attributes.to_h.reverse_merge(
-          weight: budget.weight,
-          title: budget.title,
-          description: budget.description,
-          total_budget: budget.total_budget,
-          decidim_scope_id: budget.scope&.id
-        )
+      def resolve(attributes:)
+        params = extract_from(attributes)
 
-        form = form(Admin::BudgetForm).from_params(form_attrs)
+        form = form(Admin::BudgetForm).from_params(params)
 
-        Admin::UpdateBudget.call(form, budget) do
+        Admin::UpdateBudget.call(form, object) do
           on(:ok, resource) do
-            return resource
+            return resource.reload
           end
 
           on(:invalid) do
@@ -33,8 +26,8 @@ module Decidim
         end
       end
 
-      def authorized?(attributes:, id:)
-        unless super && allowed_to?(:update, :budget, budget(id), context, scope: :admin)
+      def authorized?(attributes:)
+        unless super && allowed_to?(:update, :budget, object, { current_user:, budget: object }, scope: :admin)
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 
@@ -43,11 +36,25 @@ module Decidim
 
       private
 
-      def budget(id = nil)
-        context[:budget] ||= begin
-          id ||= arguments[:id]
-          Decidim::Budgets::Budget.find_by(id:, component: object)
-        end
+      def extract_from(attributes)
+        validate_locales_on_field(attributes, :title)
+        validate_locales_on_field(attributes, :description)
+
+        attributes = attributes.to_h.reverse_merge(
+          weight: object.weight,
+          total_budget: object.total_budget,
+          decidim_scope_id: object.scope&.id
+        )
+
+        attributes.to_h[:title] = attributes.to_h.fetch(:title, {}).reverse_merge(object.title)
+        attributes.to_h[:description] = attributes.to_h.fetch(:description, {}).reverse_merge(object.description)
+
+        attributes
+      end
+
+      def validate_locales_on_field(attributes, field)
+        locales = attributes.to_h.fetch(field, []).keys.collect(&:to_s) - available_locales
+        raise I18n::InvalidLocale, "#{locales.join(", ")} are not valid locales" if locales.size.positive?
       end
     end
   end

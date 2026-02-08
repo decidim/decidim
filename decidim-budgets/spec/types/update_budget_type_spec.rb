@@ -7,17 +7,24 @@ module Decidim::Budgets
     include_context "with a graphql class mutation"
 
     let(:locale) { "en" }
-    let(:model) { create(:budgets_component) }
-    let(:root_klass) { BudgetsMutationType }
-    let!(:budget) { create(:budget, component: model, total_budget: 1_000) }
+    let(:current_component) { create(:budgets_component, organization: current_organization) }
+    let!(:component) { current_component }
+
+    let(:type_class) { Decidim::Budgets::UpdateBudgetType }
+    let(:root_klass) { BudgetMutationType }
+    let(:root_value) { model }
+
+    let!(:model) { create(:budget, component: current_component, total_budget: 1_000) }
     let(:title_en) { Faker::Lorem.sentence(word_count: 3) }
     let(:description_en) { Faker::Lorem.paragraph(sentence_count: 2) }
     let(:resource_class) { Decidim::Budgets::Budget }
     let(:total_budget) { 1234 }
+    let(:budget_id) { model.id }
     let(:variables) do
       {
+        component_id: current_component.id,
+        budget_id:,
         input: {
-          id: budget.id,
           attributes: {
             title: { en: title_en },
             description: { en: description_en },
@@ -29,7 +36,7 @@ module Decidim::Budgets
 
     let(:query) do
       <<~GRAPHQL
-        mutation($input: UpdateBudgetInput!) {
+        mutation( $input: UpdateBudgetInput!) {
           updateBudget(input: $input) {
             id
             title {

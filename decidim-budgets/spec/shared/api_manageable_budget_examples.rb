@@ -1,12 +1,58 @@
 # frozen_string_literal: true
 
 shared_examples "API updatable budget" do
-  it "updates fields" do
-    updated_budget = response["updateBudget"]
-    expect(updated_budget["id"].to_i).to eq(budget.id)
-    expect(updated_budget["title"]["translation"]).to eq(title_en)
-    expect(updated_budget["description"]["translation"]).to eq(description_en)
-    expect(updated_budget["total_budget"]).to eq(total_budget)
+  context "when updating a budget" do
+    it "updates fields" do
+      updated_budget = response["updateBudget"]
+      expect(updated_budget["id"].to_i).to eq(model.id)
+      expect(updated_budget["title"]["translation"]).to eq(title_en)
+      expect(updated_budget["description"]["translation"]).to eq(description_en)
+      expect(updated_budget["total_budget"]).to eq(total_budget)
+    end
+
+    context "when performing a partial update" do
+      let(:variables) do
+        {
+          component_id: current_component.id,
+          budget_id:,
+          input: {
+            attributes: {
+              title: { "es" => "El título en español" },
+              description: { en: description_en },
+              totalBudget: total_budget
+            }
+          }
+        }
+      end
+
+      it "updates only specified fields" do
+        updated_budget = response["updateBudget"]
+        expect(updated_budget["id"].to_i).to eq(model.id)
+        expect(updated_budget["title"]["translation"]).to eq(translated(model.title))
+      end
+    end
+  end
+
+  context "when having invalid arguments" do
+    context "when having invalid locale" do
+      let(:variables) do
+        {
+          component_id: current_component.id,
+          budget_id: model.id,
+          input: {
+            attributes: {
+              title: { "en" => title_en, "tlh" => "Foo bar" },
+              description: { en: description_en },
+              totalBudget: total_budget
+            }
+          }
+        }
+      end
+
+      it "raises an error" do
+        expect { response }.to raise_error(Decidim::Api::Errors::InvalidLocaleError, /Invalid locale provided/)
+      end
+    end
   end
 end
 
