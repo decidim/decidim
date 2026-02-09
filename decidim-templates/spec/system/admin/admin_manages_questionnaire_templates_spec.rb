@@ -61,7 +61,7 @@ describe "Admin manages questionnaire templates" do
         click_on "Save", match: :first
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Template created successfully.")
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(Decidim::Templates::Template.last.id)
@@ -89,7 +89,7 @@ describe "Admin manages questionnaire templates" do
       end
 
       click_on "Save"
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Template updated successfully.")
     end
 
     context "when the questionnaire is not already responded" do
@@ -148,7 +148,7 @@ describe "Admin manages questionnaire templates" do
         find("*[type=submit]", match: :first).click
       end
 
-      expect(page).to have_admin_callout("problem")
+      expect(page).to have_admin_callout("There was a problem creating this template.")
     end
   end
 
@@ -173,7 +173,7 @@ describe "Admin manages questionnaire templates" do
         page.find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Template updated successfully.")
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
@@ -203,7 +203,7 @@ describe "Admin manages questionnaire templates" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("problem")
+      expect(page).to have_admin_callout("There was a problem updating this template.")
     end
   end
 
@@ -220,7 +220,7 @@ describe "Admin manages questionnaire templates" do
         click_on "Duplicate"
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Template copied successfully.")
       expect(page).to have_content(template.name["en"], count: 2)
     end
   end
@@ -262,7 +262,7 @@ describe "Admin manages questionnaire templates" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Template updated successfully.")
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
@@ -284,7 +284,7 @@ describe "Admin manages questionnaire templates" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Template deleted successfully.")
       expect(page).to have_no_i18n_content(template.name)
     end
   end

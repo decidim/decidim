@@ -30,7 +30,7 @@ describe "Organization admins" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Participant successfully invited.")
 
       within "table" do
         expect(page).to have_content("New admin")
@@ -48,7 +48,7 @@ describe "Organization admins" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Participant successfully invited.")
 
       within "table" do
         expect(page).to have_content("New user manager")

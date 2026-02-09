@@ -90,7 +90,7 @@ describe "Admin manages demographic questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Survey questions successfully saved.")
 
       visit_manage_questions_and_expand_all
 
@@ -143,7 +143,7 @@ describe "Admin manages demographic questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Survey questions successfully saved.")
 
       visit_manage_questions_and_expand_all
 
@@ -461,7 +461,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -523,7 +523,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Survey questions successfully saved.")
 
         click_on "Questions"
 
@@ -558,7 +558,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -607,7 +607,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Survey questions successfully saved.")
 
         click_on "Questions"
 
@@ -677,7 +677,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -740,7 +740,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -1033,7 +1033,7 @@ describe "Admin manages demographic questions" do
           sleep 0.5
 
           click_on "Save"
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_admin_callout("Survey questions successfully saved.")
 
           visit_manage_questions_and_expand_all
 

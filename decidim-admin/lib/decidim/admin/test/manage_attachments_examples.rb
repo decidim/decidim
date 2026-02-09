@@ -69,7 +69,7 @@ shared_examples "manage attachments examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Attachment created successfully.")
 
       within "#attachments table" do
         expect(page).to have_text("Very Important Document")
@@ -105,7 +105,7 @@ shared_examples "manage attachments examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Attachment created successfully.")
 
       within "#attachments table" do
         expect(page).to have_text("Very Important Document")
@@ -141,7 +141,7 @@ shared_examples "manage attachments examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Attachment created successfully.")
 
       within "#attachments table" do
         expect(page).to have_text("Document inside a collection")
@@ -177,7 +177,7 @@ shared_examples "manage attachments examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Attachment destroyed successfully.")
 
       expect(page).to have_no_content(translated(attachment.title, locale: :en))
     end
@@ -202,7 +202,7 @@ shared_examples "manage attachments examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Attachment updated successfully.")
 
       within "#attachments table" do
         expect(page).to have_text("This is a nice photo")
