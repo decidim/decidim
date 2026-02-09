@@ -173,7 +173,7 @@ shared_examples_for "add display conditions" do
 
           click_on "Save"
 
-          expect(page).to have_admin_callout("Survey questions successfully saved.")
+          expect(page).to have_admin_callout("Form successfully saved.")
         end
       end
     end

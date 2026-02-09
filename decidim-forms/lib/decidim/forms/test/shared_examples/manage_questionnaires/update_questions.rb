@@ -21,7 +21,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("Survey questions successfully saved.")
+      expect(page).to have_admin_callout("Form successfully saved.")
 
       visit_manage_questions_and_expand_all
 
@@ -83,7 +83,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("Survey questions successfully saved.")
+      expect(page).to have_admin_callout("Form successfully saved.")
 
       click_on "Questions"
 
@@ -118,7 +118,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("Survey questions successfully saved.")
+      expect(page).to have_admin_callout("Form successfully saved.")
 
       visit_manage_questions_and_expand_all
 
@@ -167,7 +167,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("Survey questions successfully saved.")
+      expect(page).to have_admin_callout("Form successfully saved.")
 
       click_on "Questions"
 
@@ -237,7 +237,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("Survey questions successfully saved.")
+      expect(page).to have_admin_callout("Form successfully saved.")
 
       visit_manage_questions_and_expand_all
 
@@ -300,7 +300,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("Survey questions successfully saved.")
+      expect(page).to have_admin_callout("Form successfully saved.")
 
       visit_manage_questions_and_expand_all
 
@@ -592,7 +592,7 @@ shared_examples_for "update questions" do
         sleep 0.5
 
         click_on "Save"
-        expect(page).to have_admin_callout("Survey questions successfully saved.")
+        expect(page).to have_admin_callout("Form successfully saved.")
 
         visit_manage_questions_and_expand_all
 
