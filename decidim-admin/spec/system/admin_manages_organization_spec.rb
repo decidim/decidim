@@ -429,18 +429,18 @@ describe "Admin manages organization" do
           )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
         end
 
-        it "deletes empty list item when pressing backspace and starts new paragraph" do
-          find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :backspace, :enter], "Another paragraph"
+        it "allows removing empty list item with backspace" do
+          find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, "test", :left, :left, :left, :left, :backspace]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3test</p></li></ul>".gsub("\n", ""))
         end
 
         it "deletes linebreaks (and smartbreaks) using the backspace" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :enter, :enter, :backspace, :backspace, :backspace, :backspace]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item</p></li></ul>".gsub("\n", ""))
         end
 
         it "keeps right cursor position when using the backspace" do
@@ -448,14 +448,14 @@ describe "Admin manages organization" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :backspace, :backspace, "a"]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3</p></li><li><p>abc</p></li></ul>".to_s.gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3abc</p></li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right format when using the backspace" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :backspace, "abc", :left, :left, :left, :backspace]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3abc</p></li></ul>".to_s.gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item abc</p></li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right cursor position when using backspace after empty list item" do
@@ -463,7 +463,7 @@ describe "Admin manages organization" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :enter, :enter, :backspace, :backspace, :backspace, :backspace, :backspace, :backspace, "a"]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3</p></li><li><p>abcd</p></li></ul>".to_s.gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List itemabcd</p></li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right cursor position when using backspace after list item with text" do
@@ -471,7 +471,7 @@ describe "Admin manages organization" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :backspace, :backspace, :enter, :enter, :backspace, :backspace, :backspace, :backspace, "b"]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3</p></li><li><p>abcd</p></li></ul>".to_s.gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item bcd</p></li></ul>".to_s.gsub("\n", ""))
         end
 
         it "does not delete characters below when pressing backspace" do

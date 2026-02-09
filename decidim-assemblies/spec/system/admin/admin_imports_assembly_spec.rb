@@ -11,6 +11,18 @@ describe "Admin imports assembly" do
     visit decidim_admin_assemblies.assemblies_path
   end
 
+  context "when viewing the import page" do
+    before do
+      within_admin_menu do
+        click_on "Import"
+      end
+    end
+
+    it "displays the import help text" do
+      expect(page).to have_content("This import feature allows you to create a new assembly from an exported JSON file")
+    end
+  end
+
   context "when importing the assembly with basic fields" do
     before do
       stub_get_request_with_format(
