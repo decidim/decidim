@@ -25,9 +25,8 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
     end
 
     let(:component) { create(:surveys_component) }
-    let(:component2) { create(:surveys_component) }
     let(:survey) { create(:survey, component: component) }
-    let(:survey2) { create(:survey, component: component2) }
+    let(:survey2) { create(:survey, component: component) }
     let!(:survey_responses) { create_list(:response, 3, questionnaire: survey.questionnaire) }
     let!(:other_survey_responses) { create_list(:response, 4, questionnaire: survey2.questionnaire) }
     let(:organization) { component.participatory_space.organization }
