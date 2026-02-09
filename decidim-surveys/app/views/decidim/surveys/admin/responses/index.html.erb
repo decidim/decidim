@@ -4,7 +4,7 @@
   <h1 class="item_show__header-title">
     <%= t ".title", total: @total %>
     <% if @survey.questionnaire.responses.any? %>
-      <%= export_dropdown(current_component, @survey.questionnaire.id) if allowed_to? :export_responses, :questionnaire %>
+      <%= export_dropdown(current_component, @survey.id) if allowed_to? :export_responses, :questionnaire %>
     <% end %>
   </h1>
 </div>
