@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     # This mailer sends a notification email containing the result of importing
-    # projects from one component to accountability.
+    # projects from one budget component to accountability.
     class ImportProjectsMailer < Decidim::ApplicationMailer
       include Decidim::TranslatableAttributes
       helper Decidim::TranslationsHelper
