@@ -170,7 +170,7 @@ module Decidim
 
         @imported_process.attached_uploader(:hero_image).remote_url = url
       rescue OpenURI::HTTPError, Errno::ENOENT, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-        @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_not_found", url:, error: e.message)
+        @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_error", url:, error: e.message)
       end
 
       def import_group_hero_image(group, url)
@@ -178,7 +178,7 @@ module Decidim
 
         group.attached_uploader(:hero_image).remote_url = url
       rescue OpenURI::HTTPError, Errno::ENOENT, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-        @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_not_found", url:, error: e.message)
+        @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_error", url:, error: e.message)
       end
     end
   end

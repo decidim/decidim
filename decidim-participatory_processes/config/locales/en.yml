@@ -523,7 +523,7 @@ en:
             title: General Information
             visibility: Visibility
         imports:
-          hero_image_not_found: The hero image could not be imported because it wasn't found. URL was <a href="%{url}">%{url}</a> - Error %{error}
+          hero_image_error: The hero image could not be imported due to an error. URL was <a href="%{url}">%{url}</a> - Error %{error}
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
