@@ -114,14 +114,14 @@ module Decidim::Assemblies
         end
       end
 
-      context "when hero image URL returns 505 error" do
+      context "when hero image URL returns 500 error" do
         let(:hero_image_url) { "http://example.com/server-error-hero.jpg" }
 
         before do
           stub_request(:get, hero_image_url)
-            .to_return(status: 505, body: "Internal Server Error")
+            .to_return(status: 500, body: "Internal Server Error")
           stub_request(:head, hero_image_url)
-            .to_return(status: 505, body: "Internal Server Error")
+            .to_return(status: 500, body: "Internal Server Error")
         end
 
         it "imports the assembly successfully" do
@@ -192,8 +192,8 @@ module Decidim::Assemblies
         before do
           stub_request(:get, hero_image_url).to_return(status: 404)
           stub_request(:head, hero_image_url).to_return(status: 404)
-          stub_request(:get, banner_image_url).to_return(status: 505)
-          stub_request(:head, banner_image_url).to_return(status: 505)
+          stub_request(:get, banner_image_url).to_return(status: 500)
+          stub_request(:head, banner_image_url).to_return(status: 500)
         end
 
         it "imports the assembly successfully" do
@@ -273,9 +273,9 @@ module Decidim::Assemblies
           end
         end
 
-        context "when remote file is not accessible (505)" do
+        context "when remote file is not accessible (500)" do
           before do
-            stub_request(:head, remote_file_url).to_return(status: 505)
+            stub_request(:head, remote_file_url).to_return(status: 500)
           end
 
           it "gracefully skips the attachment" do

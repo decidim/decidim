@@ -203,7 +203,7 @@ module Decidim::ParticipatoryProcesses
         end
       end
 
-      context "when hero image URL returns 505 error" do
+      context "when hero image URL returns 500 error" do
         let(:import_data) do
           {
             "subtitle" => Decidim::Faker::Localized.sentence(word_count: 3),
@@ -228,9 +228,9 @@ module Decidim::ParticipatoryProcesses
 
         before do
           stub_request(:get, hero_image_url)
-            .to_return(status: 505, body: "Internal Server Error")
+            .to_return(status: 500, body: "Internal Server Error")
           stub_request(:head, hero_image_url)
-            .to_return(status: 505, body: "Internal Server Error")
+            .to_return(status: 500, body: "Internal Server Error")
         end
 
         it "imports the process successfully" do
@@ -346,9 +346,9 @@ module Decidim::ParticipatoryProcesses
           end
         end
 
-        context "when remote file is not accessible (505)" do
+        context "when remote file is not accessible (500)" do
           before do
-            stub_request(:head, remote_file_url).to_return(status: 505)
+            stub_request(:head, remote_file_url).to_return(status: 500)
           end
 
           it "gracefully skips the attachment" do
