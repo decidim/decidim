@@ -88,7 +88,7 @@ shared_examples "manage posts" do |audit_check: true|
         accept_confirm { click_on "Move to trash" }
       end
 
-      expect(page).to have_admin_callout("Post deleted successfully.")
+      expect(page).to have_admin_callout("Post successfully deleted.")
 
       within "table" do
         expect(page).to have_no_content(translated(post1.title))

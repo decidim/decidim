@@ -37,7 +37,7 @@ describe "Admin manages area types" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("Area type successfully created.")
+    expect(page).to have_admin_callout("Area type created successfully.")
 
     within "table" do
       expect(page).to have_content(translated(attributes[:name]))
@@ -81,7 +81,7 @@ describe "Admin manages area types" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Area type successfully updated.")
+      expect(page).to have_admin_callout("Area type updated successfully.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:name]))

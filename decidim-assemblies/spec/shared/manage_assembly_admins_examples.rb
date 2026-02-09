@@ -111,7 +111,7 @@ shared_examples "manage assembly admins examples" do
           click_on "Resend invitation"
         end
 
-        expect(page).to have_admin_callout("Invitation resent successfully.")
+        expect(page).to have_admin_callout("Invitation successfully resent.")
       end
     end
   end

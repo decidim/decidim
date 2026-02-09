@@ -89,7 +89,7 @@ describe "Admin manages questionnaire templates" do
       end
 
       click_on "Save"
-      expect(page).to have_admin_callout("Template updated successfully.")
+      expect(page).to have_admin_callout("Form successfully saved.")
     end
 
     context "when the questionnaire is not already responded" do
@@ -262,7 +262,7 @@ describe "Admin manages questionnaire templates" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Template updated successfully.")
+      expect(page).to have_admin_callout("Form successfully saved.")
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)

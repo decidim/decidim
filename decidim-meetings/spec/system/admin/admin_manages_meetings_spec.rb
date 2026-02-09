@@ -379,7 +379,7 @@ describe "Admin manages meetings" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("Meeting successfully updated.")
+    expect(page).to have_admin_callout("Meeting successfully created.")
 
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))
@@ -565,7 +565,7 @@ describe "Admin manages meetings" do
         accept_confirm { click_on "Move to trash" }
       end
 
-      expect(page).to have_admin_callout("Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.")
+      expect(page).to have_admin_callout("Meeting successfully deleted.")
 
       within "table" do
         expect(page).to have_no_content(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
