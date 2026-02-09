@@ -152,7 +152,7 @@ module Decidim
 
         it "allows overriding already set values" do
           form = subject.from_params(params)
-          expect(form.current_participatory_space).to eq("overriden")
+          expect(form.current_participatory_space).to eq("overridden")
         end
       end
     end
