@@ -119,7 +119,7 @@ describe "Content pages" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("Topic updated successfully")
+        expect(page).to have_admin_callout("Topic updated successfully.")
         expect(page).to have_css(".table-stacked", text: "New title")
       end
     end

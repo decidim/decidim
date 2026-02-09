@@ -112,7 +112,7 @@ shared_examples "manage admin members examples" do
           click_on "Resend invitation"
         end
 
-        expect(page).to have_admin_callout("Invitation successfully resent")
+        expect(page).to have_admin_callout("Invitation successfully resent.")
       end
     end
   end

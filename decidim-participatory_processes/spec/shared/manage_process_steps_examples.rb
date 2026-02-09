@@ -75,7 +75,7 @@ shared_examples "manage process steps examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("Participatory phase successfully updated.")
+    expect(page).to have_admin_callout("Participatory process phase successfully updated.")
 
     within "#steps table" do
       expect(page).to have_content(translated(attributes[:title]))

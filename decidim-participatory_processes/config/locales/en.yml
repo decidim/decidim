@@ -218,7 +218,7 @@ en:
           error: There was a problem in reordering these phases of the participatory process.
         update:
           error: There was a problem updating this phase of the participatory process.
-          success: Participatory phase successfully updated.
+          success: Participatory process phase successfully updated.
       participatory_process_user_roles:
         create:
           error: There was a problem adding a participant for this participatory process.

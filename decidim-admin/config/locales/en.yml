@@ -1084,7 +1084,7 @@ en:
           title: New topic
         update:
           error: There was a problem updating this topic.
-          success: Topic updated successfully
+          success: Topic updated successfully.
       static_pages:
         actions:
           view: View
