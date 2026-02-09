@@ -5,7 +5,7 @@
       <%= t("decidim.admin.titles.initiatives") %>
 
       <% if allowed_to? :export, :initiatives %>
-        <div class="flex align-middle gap-x-4 ml-auto">
+        <div class="flex items-center gap-x-4 ml-auto">
           <%= export_dropdowns(query) %>
         </div>
       <% end %>
