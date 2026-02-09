@@ -21,7 +21,7 @@ class ChangeUsersInActionLogsInitiatives < ActiveRecord::Migration[7.2]
       next unless author.group?
 
       action_log.user_id = author.id
-      action_log.extra["user"].merge!("name" => author.name, :nickname => author.nickname)
+      action_log.extra["user"].merge!("name" => author.name, "nickname" => author.nickname)
       action_log.save!
     end
   end
