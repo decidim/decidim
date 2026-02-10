@@ -186,7 +186,6 @@ pl:
           new: Nowy folder załącznika
         browse: Przeglądaj
         export: Eksportuj wszystko
-        export-selection: Eksportuj wybrane
         import: Importuj
         manage: Zarządzanie
         newsletter:
