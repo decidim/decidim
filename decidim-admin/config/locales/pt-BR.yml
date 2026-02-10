@@ -189,7 +189,7 @@ pt-BR:
           </ul>
           Se você trocar de ideia, pode restaurar-lá mais tarde.
         export: Exportar
-        export-selection: Exportar selecionado
+        export_all: Exportar tudo
         import: Importar
         member:
           new: Novo membro
