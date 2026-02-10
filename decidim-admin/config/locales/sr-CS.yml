@@ -114,6 +114,7 @@ sr:
         add: Dodaj
         browse: Prеglеdaj
         export: Izvezi
+        export_selection: Izvezi izabrano
         per_page: Po stranici
       area_types:
         create:
@@ -348,7 +349,7 @@ sr:
         static_page:
           fields:
             created_at: Kreirano na
-            title: Naslov
+            title: Naziv
         user:
           fields:
             created_at: Datum kreiranja
