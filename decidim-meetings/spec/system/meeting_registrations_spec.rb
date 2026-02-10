@@ -184,7 +184,7 @@ describe "Meeting registrations" do
           end
 
           within_flash_messages do
-            expect(page).to have_content("successfully")
+            expect(page).to have_admin_callout("successfully")
           end
 
           expect(page).to have_css(".button", text: "Cancel your registration")
@@ -208,7 +208,7 @@ describe "Meeting registrations" do
             click_on "Confirm"
           end
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_admin_callout("successfully")
 
           expect(page).to have_no_text("19 slots remaining")
           find("#dropdown-trigger-resource-#{meeting.id}").click
@@ -234,7 +234,7 @@ describe "Meeting registrations" do
           end
 
           within_flash_messages do
-            expect(page).to have_content("successfully")
+            expect(page).to have_admin_callout("successfully")
           end
 
           expect(page).to have_css(".button", text: "Cancel your registration")
@@ -339,7 +339,7 @@ describe "Meeting registrations" do
         end
 
         within_flash_messages do
-          expect(page).to have_content("successfully")
+          expect(page).to have_admin_callout("successfully")
         end
 
         expect(page).to have_css(".button", text: "Register")

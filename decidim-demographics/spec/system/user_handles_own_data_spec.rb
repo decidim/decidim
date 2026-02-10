@@ -43,7 +43,7 @@ describe "user submits demographic data" do
       click_on "Save data"
 
       within ".success.flash" do
-        expect(page).to have_content("successfully")
+        expect(page).to have_admin_callout("successfully")
       end
 
       expect(page).to have_button("Delete data")
@@ -57,7 +57,7 @@ describe "user submits demographic data" do
       click_on "Save data"
 
       within ".success.flash" do
-        expect(page).to have_content("successfully")
+        expect(page).to have_admin_callout("successfully")
       end
       sleep(1)
 

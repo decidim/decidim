@@ -45,7 +45,7 @@ describe "Admin manages initiative publication" do
           click_on "OK"
         end
 
-        expect(page).to have_content("successfully")
+        expect(page).to have_admin_callout("successfully")
 
         visit public_collection_path
 
@@ -76,7 +76,7 @@ describe "Admin manages initiative publication" do
           click_on "OK"
         end
 
-        expect(page).to have_content("successfully")
+        expect(page).to have_admin_callout("successfully")
 
         visit public_collection_path
 

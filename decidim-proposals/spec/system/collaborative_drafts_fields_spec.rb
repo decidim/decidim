@@ -58,7 +58,7 @@ describe "Collaborative drafts" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_admin_callout("successfully")
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
@@ -81,7 +81,7 @@ describe "Collaborative drafts" do
 
             click_on "Publish"
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_admin_callout("successfully")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
@@ -140,7 +140,7 @@ describe "Collaborative drafts" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_admin_callout("successfully")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
@@ -238,7 +238,7 @@ describe "Collaborative drafts" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_admin_callout("successfully")
 
             within "#panel-images" do
               expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)

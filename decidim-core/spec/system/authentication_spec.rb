@@ -894,7 +894,7 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("successfully")
+        expect(page).to have_admin_callout("successfully")
         expect_current_user_to_be(user)
         expect(page).to have_no_content("Wrong user")
       end

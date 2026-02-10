@@ -446,7 +446,7 @@ describe "Admin manages meetings" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:title]))

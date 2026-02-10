@@ -154,7 +154,7 @@ shared_examples "proposals wizards" do |options|
           accept_confirm
 
           within_flash_messages do
-            expect(page).to have_content "successfully"
+            expect(page).to have_admin_callout("successfully")
           end
           within "#wizard-steps" do
             expect(page).to have_css("[data-active]", text: "Create your proposal")

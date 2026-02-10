@@ -109,7 +109,7 @@ describe "Respond a survey" do
       accept_confirm { click_on "Submit" }
 
       within ".success.flash" do
-        expect(page).to have_content("successfully")
+        expect(page).to have_admin_callout("successfully")
       end
 
       # Unregistered users are tracked with their session_id so they will not be allowed to repeat easily

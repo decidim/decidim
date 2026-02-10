@@ -113,7 +113,7 @@ describe "User creates meeting" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_admin_callout("successfully")
           expect(page).to have_content(meeting_title)
           expect(page).to have_content(meeting_description)
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))

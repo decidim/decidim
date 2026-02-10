@@ -84,7 +84,7 @@ describe "Private Space Respond a survey" do
           accept_confirm { click_on "Submit" }
 
           within ".success.flash" do
-            expect(page).to have_content("successfully")
+            expect(page).to have_admin_callout("successfully")
           end
 
           expect(page).to have_content("You have already responded this form.")
@@ -149,7 +149,7 @@ describe "Private Space Respond a survey" do
           accept_confirm { click_on "Submit" }
 
           within ".success.flash" do
-            expect(page).to have_content("successfully")
+            expect(page).to have_admin_callout("successfully")
           end
 
           expect(page).to have_content("You have already responded this form.")

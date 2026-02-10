@@ -79,7 +79,7 @@ describe "Account" do
         end
 
         within_flash_messages do
-          expect(page).to have_content("successfully")
+          expect(page).to have_admin_callout("successfully")
         end
 
         user.reload
@@ -185,7 +185,7 @@ describe "Account" do
           find("*[type=submit]").click
         end
         within_flash_messages do
-          expect(page).to have_content("successfully")
+          expect(page).to have_admin_callout("successfully")
         end
         expect(user.reload.encrypted_password).not_to eq(encrypted_password)
         expect(page).to have_no_field("user[password]", with: "", type: "password")
@@ -291,7 +291,7 @@ describe "Account" do
         end
 
         within_flash_messages do
-          expect(page).to have_content("successfully")
+          expect(page).to have_admin_callout("successfully")
         end
       end
 
@@ -313,7 +313,7 @@ describe "Account" do
           end
 
           within_flash_messages do
-            expect(page).to have_content("successfully")
+            expect(page).to have_admin_callout("successfully")
           end
         end
       end
@@ -337,7 +337,7 @@ describe "Account" do
         click_on "Yes, I want to delete my account"
 
         within_flash_messages do
-          expect(page).to have_content("successfully")
+          expect(page).to have_admin_callout("successfully")
         end
 
         click_on("Log in", match: :first)
@@ -400,7 +400,7 @@ describe "Account" do
           end
 
           within_flash_messages do
-            expect(page).to have_content("successfully")
+            expect(page).to have_admin_callout("successfully")
           end
 
           find_by_id("allow_push_notifications", visible: false).execute_script("this.checked = true")

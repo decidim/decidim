@@ -25,7 +25,7 @@ describe "Manage admins" do
         end
 
         within ".success.flash" do
-          expect(page).to have_content("successfully")
+          expect(page).to have_admin_callout("successfully")
         end
 
         within "table" do
@@ -65,7 +65,7 @@ describe "Manage admins" do
         end
 
         within ".success.flash" do
-          expect(page).to have_content("successfully")
+          expect(page).to have_admin_callout("successfully")
         end
 
         within "table" do
@@ -98,7 +98,7 @@ describe "Manage admins" do
     end
 
     within ".success.flash" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_admin_callout("successfully")
     end
 
     within "table" do
