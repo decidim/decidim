@@ -280,6 +280,7 @@ es-PY:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Esta función de importación te permite crear una nueva asamblea a partir de un archivo JSON exportado. Puedes exportar una asamblea desde otra organización o desde esta misma organización. La asamblea importada incluirá sus ajustes, componentes y archivos adjuntos (si se seleccionan).
       assemblies:
         description:
           area_name: Área
