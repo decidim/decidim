@@ -69,7 +69,7 @@ describe "show", js: true do
       it "shows a limited list with a toggle" do
         within "#panel-participants" do
           expect(page).to have_css("[data-participants-item]", count: 15, visible: :all)
-          expect(page).to have_text("Show more")
+          expect(page).to have_text(I18n.t("show_more", scope: "decidim.meetings.public_participants_list"))
         end
       end
 
@@ -79,10 +79,10 @@ describe "show", js: true do
           expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 12)
           toggle.click
           expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 15)
-          expect(toggle).to have_text("Show less")
+          expect(toggle).to have_text(I18n.t("show_less", scope: "decidim.meetings.public_participants_list"))
           toggle.click
           expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 12)
-          expect(toggle).to have_text("Show more")
+          expect(toggle).to have_text(I18n.t("show_more", scope: "decidim.meetings.public_participants_list"))
         end
       end
 
@@ -112,10 +112,10 @@ describe "show", js: true do
             expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 8)
             toggle.click
             expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 15)
-            expect(toggle).to have_text("Show less")
+            expect(toggle).to have_text(I18n.t("show_less", scope: "decidim.meetings.public_participants_list"))
             toggle.click
             expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 8)
-            expect(toggle).to have_text("Show more")
+            expect(toggle).to have_text(I18n.t("show_more", scope: "decidim.meetings.public_participants_list"))
           end
         end
       end
