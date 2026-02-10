@@ -189,7 +189,7 @@ ja:
           </ul>
           気が変わった場合は、後で元に戻せます。
         export: エクスポート
-        export-selection: 選択したものをエクスポート
+        export_all: 全てエクスポート
         import: インポート
         member:
           new: 新規メンバー
