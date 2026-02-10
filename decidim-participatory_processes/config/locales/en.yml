@@ -490,6 +490,8 @@ en:
             all: All
             max_results: Maximum amount of elements to show
             selection_criteria: Selection criteria
+        imports:
+          hero_image_error: The hero image could not be imported due to an error. URL was <a href="%{url}">%{url}</a> - Error %{error}
         new_import:
           accepted_types:
             json: JSON
@@ -522,8 +524,6 @@ en:
             taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
-        imports:
-          hero_image_error: The hero image could not be imported due to an error. URL was <a href="%{url}">%{url}</a> - Error %{error}
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
