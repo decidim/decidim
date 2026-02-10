@@ -22,9 +22,11 @@
     <div class="upload-modal__files" data-active-uploads="<%= modal_id %>">
       <% attachments.each do |attachment| %>
         <% next if [Array, Hash].any? { |klass| attachment.is_a? klass } %>
+        <% is_persisted_attachment = attachment.is_a?(Decidim::Attachment) && attachment.persisted? %>
+        <% attachment_blob = blob(attachment) %>
 
-        <div class="attachment-details" data-attachment-id="<%= attachment.id %>" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
-          <% if file_attachment_path(attachment) && blob(attachment).image? %>
+        <div class="attachment-details"<% if is_persisted_attachment %> data-attachment-id="<%= attachment.id %>"<% end %> data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded" data-hidden-field="<%= attachment_blob&.signed_id %>">
+          <% if file_attachment_path(attachment) && attachment_blob&.image? %>
             <div><%= image_tag(file_attachment_path(attachment), alt: "") %></div>
           <% elsif uploader_default_image_path(attribute).present? %>
             <div><%= image_tag uploader_default_image_path(attribute) %></div>
@@ -32,13 +34,15 @@
 
           <% if has_title? %>
             <span><%= title_for(attachment) %></span>
-            <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: attachment.id %>
           <% else %>
-            <% if blob(attachment).image? %>
+            <% if attachment_blob&.image? %>
               <span><%= title_for(attachment) %></span>
             <% else %>
               <%= link_to title_for(attachment), file_attachment_path(attachment), class: "w-full break-all mb-2" %>
             <% end %>
+          <% end %>
+          <% if attachment_blob.present? %>
+            <%= form.hidden_field attribute, value: attachment_blob.signed_id, id: "hidden_#{attribute}_#{attachment_blob.id}" %>
           <% end %>
         </div>
       <% end %>
