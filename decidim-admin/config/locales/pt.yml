@@ -141,7 +141,7 @@ pt:
         browse: Explorar
         configure: Configurar
         export: Exportar
-        export-selection: Exportar selecção
+        export_all: Exportar tudo
         import: Importar
         newsletter:
           new: Novo boletim informativo
