@@ -414,12 +414,12 @@ GEM
       railties (>= 5.0.0)
     faker (3.5.3)
       i18n (>= 1.8.11, < 2)
-    faraday (2.13.4)
+    faraday (2.14.1)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
-    faraday-net_http (3.4.1)
-      net-http (>= 0.5.0)
+    faraday-net_http (3.4.2)
+      net-http (~> 0.5)
     fast-stemmer (1.0.2)
     ffi (1.17.2-x86_64-linux-gnu)
     fiber-storage (1.0.1)
@@ -498,7 +498,7 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.13.1)
+    json (2.18.1)
     jwt (2.10.2)
       base64
     kaminari (1.2.2)
@@ -550,8 +550,8 @@ GEM
     msgpack (1.8.0)
     multi_xml (0.7.2)
       bigdecimal (~> 3.1)
-    net-http (0.6.0)
-      uri
+    net-http (0.9.1)
+      uri (>= 0.11.1)
     net-imap (0.5.10)
       date
       net-protocol
@@ -859,7 +859,7 @@ GEM
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
     uniform_notifier (1.17.0)
-    uri (1.0.3)
+    uri (1.1.1)
     useragent (0.16.11)
     valid_email2 (7.0.13)
       activemodel (>= 6.0)
