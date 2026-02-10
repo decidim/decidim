@@ -143,7 +143,7 @@ module Decidim
 
         @imported_assembly.attached_uploader(:hero_image).remote_url = url
       rescue OpenURI::HTTPError, Errno::ENOENT, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-        @warnings << I18n.t("decidim.assemblies.admin.imports.hero_image_error", url:, error: e.message)
+        @warnings << I18n.t("decidim.assemblies.admin.imports.hero_image_error", error: e.message)
       end
 
       def import_banner_image(url)
@@ -151,7 +151,7 @@ module Decidim
 
         @imported_assembly.attached_uploader(:banner_image).remote_url = url
       rescue OpenURI::HTTPError, Errno::ENOENT, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-        @warnings << I18n.t("decidim.assemblies.admin.imports.banner_image_error", url:, error: e.message)
+        @warnings << I18n.t("decidim.assemblies.admin.imports.banner_image_error", error: e.message)
       end
     end
   end
