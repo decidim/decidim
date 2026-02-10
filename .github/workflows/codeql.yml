@@ -42,7 +42,7 @@ jobs:
         - language: ruby
           build-mode: none
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - uses: ruby/setup-ruby@v1
