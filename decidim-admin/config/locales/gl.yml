@@ -151,7 +151,6 @@ gl:
           new: Novo anexo
         browse: Buscar
         export: Exportar todo
-        export-selection: Exportar selección
         import: Importar
         manage: Xestionar
         newsletter:
