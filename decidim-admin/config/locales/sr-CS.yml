@@ -42,7 +42,7 @@ sr:
         github_handler: Administrator GitHub-a
         header_snippets: Fragmenti zaglavlja
         highlighted_content_banner_action_subtitle: Podnastlov dugmeta akcije
-        highlighted_content_banner_action_title: Naslov dugmeta akcije
+        highlighted_content_banner_action_title: Naziv dugmeta akcije
         highlighted_content_banner_action_url: Link dugmeta akcije
         highlighted_content_banner_enabled: Prikaži istaknut baner sadržaja
         highlighted_content_banner_image: Slika
@@ -123,6 +123,7 @@ sr:
       actions:
         add: Dodaj
         browse: Prеglеdaj
+        export-selection: Izvezi izabrano
         manage: Upravljaj
         per_page: Po stranici
         permissions: Dozvole
@@ -369,7 +370,7 @@ sr:
         static_page:
           fields:
             created_at: Kreirano na
-            title: Naslov
+            title: Naziv
         user:
           fields:
             created_at: Datum kreiranja
