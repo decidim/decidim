@@ -4,7 +4,6 @@ require "spec_helper"
 
 describe "Organizations" do
   let(:admin) { create(:admin) }
-  let(:available_locales) { %w(en ca es fr it) }
 
   shared_examples "form hiding advanced settings" do
     it "hides advanced settings" do
@@ -17,10 +16,6 @@ describe "Organizations" do
 
   context "when an admin authenticated" do
     before do
-      I18n.available_locales = available_locales
-      Decidim.available_locales = available_locales
-      I18n.backend.reload!
-
       login_as admin, scope: :admin
       visit decidim_system.root_path
     end
@@ -46,7 +41,7 @@ describe "Organizations" do
       end
 
       it "shows the available locales" do
-        available_locales.each do |locale|
+        Decidim.available_locales.each do |locale|
           expect(page).to have_selector("input#organization_available_locales_#{locale}")
           expect(page).to have_content("#{I18n.with_locale(locale) { I18n.t("name", scope: "locale") }} (#{locale})")
         end
