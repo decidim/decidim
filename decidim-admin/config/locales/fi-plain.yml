@@ -189,7 +189,7 @@ fi-pl:
           </ul>
           Mikäli muutat mieltäsi, voit palauttaa tuloksen myöhemmin.
         export: Vie
-        export-selection: Vie valitut
+        export_all: Vie kaikki
         import: Tuo
         member:
           new: Uusi jäsen
