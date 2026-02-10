@@ -124,7 +124,9 @@ module Decidim
       end
 
       def withdrawn_meetings?
-        @withdrawn_meetings ||= Meeting.where(component: current_component).published.not_hidden.withdrawn.visible_for(current_user).exists?
+        return @withdrawn_meetings if defined?(@withdrawn_meetings)
+
+        @withdrawn_meetings = Meeting.where(component: current_component).published.not_hidden.withdrawn.visible_for(current_user).exists?
       end
 
       def registration_qr_code_image

@@ -234,7 +234,9 @@ module Decidim
       end
 
       def withdrawn_proposals?
-        @withdrawn_proposals ||= Proposal.where(component: current_component).published.not_hidden.withdrawn.exists?
+        return @withdrawn_proposals if defined?(@withdrawn_proposals)
+
+        @withdrawn_proposals = Proposal.where(component: current_component).published.not_hidden.withdrawn.exists?
       end
 
       def form_proposal_params
