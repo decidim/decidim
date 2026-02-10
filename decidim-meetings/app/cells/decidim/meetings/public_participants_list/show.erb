@@ -3,8 +3,7 @@
   class="meeting__public-participants"
   data-controller="public-participants"
   data-desktop-count="<%= desktop_visible_count %>"
-  data-mobile-count="<%= mobile_visible_count %>"
->
+  data-mobile-count="<%= mobile_visible_count %>">
   <% public_participants.each do |participant| %>
     <div class="meeting__public-participants-item" data-participants-item>
       <%= cell "decidim/author", participant %>
@@ -17,8 +16,7 @@
       type="button"
       data-action="click->public-participants#toggle"
       data-participants-toggle
-      aria-expanded="false"
-    >
+      aria-expanded="false">
       <div class="meeting__public-participants-toggle-state meeting__public-participants-toggle-state--more inline-flex items-center gap-1" data-participants-toggle-more>
         <span class="inline-block"><%= show_more_text %></span>
         <%= icon "arrow-down-s-line", class: "fill-current" %>
