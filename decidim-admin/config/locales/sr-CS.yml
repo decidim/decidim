@@ -108,6 +108,7 @@ sr:
         add: Dodaj
         browse: Prеglеdaj
         export: Izvezi
+        export_selection: Izvezi izabrano
         per_page: Po stranici
       area_types:
         create:
