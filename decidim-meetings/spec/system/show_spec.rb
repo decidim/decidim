@@ -126,7 +126,7 @@ describe "show", js: true do
   def click_toggle_button
     # Seems like the :iphone driver does not play nicely with a
     # click_on("Show more") as the button has an icon inside
-    # as a workardound, we do this equivalent that works correctly with this driver
+    # as a workaround, we do this equivalent that works correctly with this driver
     find("[data-participants-toggle]", visible: :all).send_keys(:enter)
   end
 end
