@@ -99,6 +99,10 @@
       @apply text-lg text-gray-2;
     }
   }
+
+  &__section {
+    @apply md:pt-0;
+  }
 }
 
 [data-target="dropdown-menu-conference"] {
