@@ -37,9 +37,9 @@ module Decidim
         attr_reader :form
 
         def import_participatory_process
-          importer = Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.new(form.current_organization, current_user)
           @warnings = []
           participatory_processes.each do |original_process|
+            importer = Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.new(form.current_organization, current_user)
             Decidim.traceability.perform_action!("import", Decidim::ParticipatoryProcess, current_user) do
               @imported_process = importer.import(original_process, current_user, title: form.title, slug: form.slug)
               importer.import_participatory_process_steps(original_process["participatory_process_steps"]) if form.import_steps?

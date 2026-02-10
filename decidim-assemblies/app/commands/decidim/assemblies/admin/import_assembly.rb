@@ -37,9 +37,9 @@ module Decidim
         attr_reader :form
 
         def import_assembly
-          importer = Decidim::Assemblies::AssemblyImporter.new(form.current_organization, form.current_user)
           @warnings = []
           assemblies.each do |original_assembly|
+            importer = Decidim::Assemblies::AssemblyImporter.new(form.current_organization, form.current_user)
             Decidim.traceability.perform_action!("import", Assembly, @user) do
               @imported_assembly = importer.import(original_assembly, form.current_user, title: form.title, slug: form.slug)
               importer.import_folders_and_attachments(original_assembly["attachments"]) if form.import_attachments?
