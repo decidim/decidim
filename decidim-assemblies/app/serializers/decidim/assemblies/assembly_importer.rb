@@ -72,9 +72,20 @@ module Decidim
         return if attachments["files"].nil?
 
         attachments["files"].map do |file|
-          next unless remote_file_exists?(file["remote_file_url"])
+          url = file["remote_file_url"]
+          next if url.blank?
 
-          file_tmp = URI.parse(file["remote_file_url"]).open
+          unless remote_file_exists?(url)
+            @warnings << I18n.t("decidim.assemblies.admin.imports.attachment_error", error: "Not found")
+            next
+          end
+
+          begin
+            file_tmp = URI.parse(url).open
+          rescue OpenURI::HTTPError, Errno::ENOENT, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+            @warnings << I18n.t("decidim.assemblies.admin.imports.attachment_error", error: e.message)
+            next
+          end
 
           Decidim.traceability.perform_action!("create", Attachment, @user) do
             attachment = Attachment.new(

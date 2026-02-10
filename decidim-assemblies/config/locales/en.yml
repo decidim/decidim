@@ -280,6 +280,7 @@ en:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show
         imports:
+          attachment_error: The attachment could not be imported due to an error. Error %{error}
           banner_image_error: The banner image could not be imported due to an error. Error %{error}
           hero_image_error: The hero image could not be imported due to an error. Error %{error}
         new_import:

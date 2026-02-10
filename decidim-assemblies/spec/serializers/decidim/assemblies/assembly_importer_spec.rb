@@ -271,6 +271,12 @@ module Decidim::Assemblies
             expect { importer.import_folders_and_attachments(attachments_data) }
               .not_to raise_error
           end
+
+          it "collects a warning about the attachment import failure" do
+            importer.import_folders_and_attachments(attachments_data)
+            expect(importer.warnings).to include(a_string_matching(/attachment could not be imported/i))
+            expect(importer.warnings).to include(a_string_matching(/error/i))
+          end
         end
 
         context "when remote file is not accessible (500)" do
@@ -286,6 +292,26 @@ module Decidim::Assemblies
           it "does not raise an error" do
             expect { importer.import_folders_and_attachments(attachments_data) }
               .not_to raise_error
+          end
+
+          it "collects a warning about the attachment import failure" do
+            importer.import_folders_and_attachments(attachments_data)
+            expect(importer.warnings).to include(a_string_matching(/attachment could not be imported/i))
+            expect(importer.warnings).to include(a_string_matching(/error/i))
+          end
+        end
+
+        context "when remote file is accessible but download fails" do
+          before do
+            stub_request(:head, remote_file_url)
+              .to_return(status: 200, headers: { "Content-Type" => "application/pdf" })
+            stub_request(:get, remote_file_url).to_return(status: 500)
+          end
+
+          it "collects a warning about the attachment import failure" do
+            importer.import_folders_and_attachments(attachments_data)
+            expect(importer.warnings).to include(a_string_matching(/attachment could not be imported/i))
+            expect(importer.warnings).to include(a_string_matching(/error/i))
           end
         end
       end
