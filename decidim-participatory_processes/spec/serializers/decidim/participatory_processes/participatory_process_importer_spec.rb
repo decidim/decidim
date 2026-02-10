@@ -199,7 +199,7 @@ module Decidim::ParticipatoryProcesses
 
         it "collects a warning about the missing hero image" do
           subject
-          expect(importer.warnings).to include(a_string_matching(/hero image.*not.*found/i))
+          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported due to an error/i))
         end
       end
 

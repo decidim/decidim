@@ -133,7 +133,7 @@ describe "Admin imports participatory process" do
       expect(page).to have_content("Import process with 404 hero")
 
       within ".flash.warning" do
-        expect(page).to have_content(/hero image.*not.*found/i)
+        expect(page).to have_content(/The hero image could not be imported due to an error/i)
       end
     end
   end
@@ -186,7 +186,7 @@ describe "Admin imports participatory process" do
       expect(page).to have_content("Import process with 404 group hero")
 
       within ".flash.warning" do
-        expect(page).to have_content(/hero image.*not.*found/i)
+        expect(page).to have_content(/The hero image could not be imported due to an error/i)
       end
     end
   end
