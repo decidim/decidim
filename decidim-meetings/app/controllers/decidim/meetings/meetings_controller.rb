@@ -18,7 +18,7 @@ module Decidim
       include Decidim::AttachmentsHelper
       include Decidim::SanitizeHelper
 
-      helper_method :meetings, :meeting, :registration, :registration_qr_code_image, :search, :tab_panel_items
+      helper_method :meetings, :meeting, :registration, :registration_qr_code_image, :search, :tab_panel_items, :withdrawn_meetings?
 
       before_action :add_additional_csp_directives, only: [:show]
 
@@ -121,6 +121,10 @@ module Decidim
 
       def registration
         @registration ||= meeting.registrations.find_by(user: current_user)
+      end
+
+      def withdrawn_meetings?
+        @withdrawn_meetings ||= Meeting.where(component: current_component).published.not_hidden.withdrawn.visible_for(current_user).exists?
       end
 
       def registration_qr_code_image

@@ -148,16 +148,10 @@ describe "Explore meetings", :slow do
       context "when there are no withdrawn meetings" do
         let!(:meeting) { create_list(:meeting, 3, :published, component:) }
 
-        before do
+        it "does not show the withdrawn link" do
           visit_component
-          click_on "See all withdrawn meetings"
-        end
 
-        it "shows an empty page with a message" do
-          expect(page).to have_content("No meetings match your search criteria or there is not any meeting scheduled.")
-          within ".flash.info", match: :first do
-            expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
-          end
+          expect(page).to have_no_link("See all withdrawn meetings")
         end
       end
 
