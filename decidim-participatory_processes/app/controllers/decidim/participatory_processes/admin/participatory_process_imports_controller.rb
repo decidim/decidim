@@ -20,7 +20,7 @@ module Decidim
           ImportParticipatoryProcess.call(@form) do
             on(:ok) do |_process, warnings|
               flash[:notice] = I18n.t("participatory_process_imports.create.success", scope: "decidim.admin")
-              flash[:warning] = warnings.join("\n") if warnings.any?
+              flash[:warning] = warnings.join("<br>") if warnings.any?
               redirect_to participatory_processes_path
             end
 
