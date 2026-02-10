@@ -168,7 +168,7 @@ zh-TW:
           new: 新增附件資料夾
         browse: 瀏覽
         configure: 配置
-        export-selection: 匯出選擇
+        export_all: 全部匯出
         import: 匯入
         newsletter:
           new: 新電子報
