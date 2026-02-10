@@ -181,7 +181,6 @@ el:
           new: Νέος φάκελος συνημμένων
         browse: Αναζήτηση
         export: Εξαγωγή όλων
-        export-selection: Εξαγωγή επιλογής
         import: Εισαγωγή
         manage: Διαχείριση
         newsletter:
