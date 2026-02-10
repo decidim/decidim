@@ -303,6 +303,11 @@ module Decidim::ParticipatoryProcesses
           group = Decidim::ParticipatoryProcessGroup.last
           expect(group.hero_image).not_to be_attached
         end
+
+        it "collects a warning about the missing group hero image" do
+          subject
+          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported due to an error/i))
+        end
       end
     end
 
