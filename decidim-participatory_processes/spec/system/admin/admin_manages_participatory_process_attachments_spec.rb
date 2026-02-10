@@ -36,7 +36,7 @@ describe "Admin manages participatory process attachments" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Attachment created successfully.")
 
         wait_enqueued_jobs do
           visit decidim.notifications_path
