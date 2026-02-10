@@ -485,6 +485,7 @@
 
   .button {
     @apply bg-white border-0;
+
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 
     &:hover:not(:disabled) {
@@ -493,6 +494,7 @@
 
     &:disabled {
       @apply bg-white opacity-100;
+
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
     }
 
