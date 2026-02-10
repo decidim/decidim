@@ -175,7 +175,7 @@ pl:
         browse: Przeglądaj
         configure: Skonfiguruj
         export: Eksport
-        export-selection: Eksportuj wybrane
+        export_all: Eksportuj wszystko
         import: Importuj
         newsletter:
           new: Nowy newsletter
