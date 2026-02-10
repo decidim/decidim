@@ -77,7 +77,9 @@ export default class extends Controller {
   refresh() {
     const visibleCount = this.visibleCountForViewport()
 
-    if (!this.expanded && this.items.length <= visibleCount) {
+    if (this.items.length <= visibleCount) {
+      this.expanded = false
+      this.toggleButton.setAttribute("aria-expanded", "false")
       this.toggleButton.classList.add(HIDDEN_CLASS)
       this.applyVisibility(visibleCount, false)
       return
@@ -121,7 +123,7 @@ export default class extends Controller {
    */
   applyVisibility(visibleCount, expanded) {
     this.items.forEach((item, index) => {
-      const shouldHide = !expanded && index >= visibleCount;
+      const shouldHide = !expanded && index >= visibleCount
       item.classList.toggle(HIDDEN_CLASS, shouldHide)
     })
   }
