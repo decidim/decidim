@@ -189,7 +189,8 @@ fr-CA:
           </ul>
           Si vous changez d'avis, vous pourrez annuler cette action plus tard.
         export: Exporter
-        export-selection: Exporter la sélection
+        export_all: Tout exporter
+        export_selection: Exporter la sélection
         import: Importer
         menu_hidden: Masquer dans le menu
         moderate: Gérer les modérations
