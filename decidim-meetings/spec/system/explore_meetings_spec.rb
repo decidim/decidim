@@ -176,7 +176,7 @@ describe "Explore meetings", :slow do
         let!(:linked_withdrawn_meeting) { create(:meeting, :withdrawn, :published, component: linked_component) }
 
         before do
-          create(:meeting_link, meeting: linked_withdrawn_meeting, component: component)
+          create(:meeting_link, meeting: linked_withdrawn_meeting, component:)
           visit_component
         end
 
