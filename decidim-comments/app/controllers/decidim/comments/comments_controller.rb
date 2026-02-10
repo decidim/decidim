@@ -18,20 +18,25 @@ module Decidim
       def index
         enforce_permission_to(:read, :comment, commentable:)
 
-        @sorted_comments_query = SortedComments.new(
-          commentable,
-          order_by: order,
-          offset: comments_offset,
-          alignment:
-        )
-        @comments = @sorted_comments_query.query
+        if commentable.is_a?(Decidim::Comments::Comment)
+          @comments = commentable.descendants.includes(:author, :up_votes, :down_votes).to_a
+          @has_more_comments = false
+        else
+          @sorted_comments_query = SortedComments.new(
+            commentable,
+            order_by: order,
+            offset: comments_offset,
+            alignment:
+          )
+          @comments = @sorted_comments_query.query
+          @has_more_comments = @sorted_comments_query.has_more?
+        end
         @comments = @comments.reject do |comment|
           next if comment.depth < 1
           next if !comment.deleted? && !comment.hidden?
 
           comment.commentable.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.blank?
         end
-        @has_more_comments = @sorted_comments_query.has_more?
         @comments_count = commentable.comments_count
 
         respond_to do |format|

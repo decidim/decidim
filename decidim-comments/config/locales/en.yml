@@ -115,7 +115,6 @@ en:
         comment_details_title: Comment details
         in_favor: In Favor
         load_more_comments: Load more comments
-        load_more_replies: Load more replies
         loading: Loading comments ...
         no_comments_yet: No comments yet
         single_comment_warning: <a href="%{url}">View all comments</a>

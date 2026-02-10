@@ -9,7 +9,7 @@
 
   <% if is_loading_replies %>
     var targetContainer = document.getElementById("comment-<%= commentable.id %>-replies");
-    var loadMoreWrapper = document.querySelector("[data-load-more-replies-wrapper='<%= commentable.id %>']");
+    var loadMoreWrapper = null;
   <% else %>
     <% if alignment.present? %>
       var targetContainer = commentsContainer.querySelector(<%== ".comments-section__#{alignment == 1 ? "in-favor" : "against"}".to_json %>);
@@ -46,23 +46,18 @@
     Rails.fire(document, "comments:loaded", { commentsIds: commentsIds });
   }
 
-  // Update load more button
   <% if is_loading_replies %>
-    <% if @has_more_comments %>
-      if (!loadMoreWrapper && targetContainer) {
-        var loadMoreHtml = '<%== j(render partial: "decidim/comments/comments/load_more_replies", locals: { comment: commentable, order:, offset: new_offset, total_count: @sorted_comments_query.total_count }).strip %>';
-        targetContainer.insertAdjacentHTML("beforeend", loadMoreHtml);
-      } else if (loadMoreWrapper) {
-        loadMoreWrapper.setAttribute("data-load-more-replies-offset-value", <%= new_offset %>);
-        var btn = loadMoreWrapper.querySelector("[data-load-more-replies-target='button']");
-        var spin = loadMoreWrapper.querySelector("[data-load-more-replies-target='spinner']");
-        if (btn) { btn.disabled = false; btn.classList.remove("loading"); }
-        if (spin) { spin.classList.add("hidden"); }
-      }
-    <% else %>
-      if (loadMoreWrapper) { loadMoreWrapper.remove(); }
-    <% end %>
-  <% else %>
+    if (targetContainer) {
+      targetContainer.querySelectorAll(".comment-reply.hidden").forEach(function(el) {
+        el.classList.remove("hidden");
+      });
+      targetContainer.querySelectorAll(".show-replies-button").forEach(function(el) {
+        el.remove();
+      });
+    }
+  <% end %>
+
+  <% unless is_loading_replies %>
     <% if @has_more_comments %>
       if (loadMoreWrapper) {
         loadMoreWrapper.setAttribute("data-load-more-comments-offset-value", <%= new_offset %>);
