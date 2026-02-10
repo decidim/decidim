@@ -152,7 +152,6 @@ nl:
           new: Nieuwe bijlage
         browse: Browsen
         export: Alles exporteren
-        export-selection: Selectie exporteren
         import: Importeren
         manage: Beheer
         newsletter:
