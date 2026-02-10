@@ -169,7 +169,7 @@ module Decidim
         return if url.blank?
 
         @imported_process.attached_uploader(:hero_image).remote_url = url
-      rescue OpenURI::HTTPError, Errno::ENOENT, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+      rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
         @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_error", error: e.message)
       end
 
@@ -177,7 +177,7 @@ module Decidim
         return if url.blank?
 
         group.attached_uploader(:hero_image).remote_url = url
-      rescue OpenURI::HTTPError, Errno::ENOENT, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+      rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
         @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_error", error: e.message)
       end
     end

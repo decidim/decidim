@@ -150,7 +150,7 @@ module Decidim
         return if url.blank?
 
         @imported_assembly.attached_uploader(:banner_image).remote_url = url
-      rescue OpenURI::HTTPError, Errno::ENOENT, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+      rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
         @warnings << I18n.t("decidim.assemblies.admin.imports.banner_image_error", error: e.message)
       end
     end
