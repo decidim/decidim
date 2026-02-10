@@ -32,7 +32,7 @@ describe "Organization scopes" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Scope successfully created.")
+      expect(page).to have_admin_callout("Scope created successfully.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:name]))
@@ -60,7 +60,7 @@ describe "Organization scopes" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("Scope successfully updated.")
+        expect(page).to have_admin_callout("Scope updated successfully")
 
         within "table" do
           expect(page).to have_content(translated(attributes[:name]))
@@ -100,7 +100,7 @@ describe "Organization scopes" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("Scope successfully created.")
+        expect(page).to have_admin_callout("Scope created successfully.")
 
         within "table" do
           expect(page).to have_content("My nice subdistrict")
