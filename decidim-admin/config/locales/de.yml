@@ -190,7 +190,7 @@ de:
           </ul>
           Wenn Sie Ihre Meinung ändern, können Sie es später wiederherstellen.
         export: Exportieren
-        export-selection: Auswahl exportieren
+        export_all: Alles exportieren
         import: Importieren
         menu_hidden: Im Menü ausblenden
         moderate: Moderationen verwalten
