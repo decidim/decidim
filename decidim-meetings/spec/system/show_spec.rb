@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "show", js: true do
+describe "show" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
