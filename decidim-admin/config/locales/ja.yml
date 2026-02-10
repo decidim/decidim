@@ -197,7 +197,6 @@ ja:
           </ul>
           気が変わった場合は、後で元に戻せます。
         export: 全てエクスポート
-        export-selection: 選択したものをエクスポート
         import: インポート
         manage: 管理
         newsletter:
