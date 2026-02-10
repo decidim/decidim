@@ -174,7 +174,7 @@ hu:
         browse: Böngészés
         configure: Beállítások
         export: Exportálás
-        export-selection: Kiválasztottak exportálása
+        export_all: Összes exportálása
         import: Import
         newsletter:
           new: Új hírlevél
