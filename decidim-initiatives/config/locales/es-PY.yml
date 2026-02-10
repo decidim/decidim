@@ -552,6 +552,7 @@ es-PY:
           recent: Más reciente
           recently_published: Publicada más recientemente
         pending_initiatives:
+          description: Estas iniciativas no son públicas todavía. Por favor, revísalas y envíalas para su validación técnica para que puedan hacerse públicas.
           title: Borradores e iniciativas pendientes
         print:
           address: Dirección
