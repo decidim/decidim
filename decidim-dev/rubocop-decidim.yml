@@ -32,4 +32,8 @@ Decidim/AdminCalloutAntipattern:
   Enabled: true
   Include:
     - "**/spec/**/*"
+    - "decidim-admin/lib/decidim/admin/test"
+    - "decidim-core/lib/decidim/core/test"
+    - "decidim-forms/lib/decidim/forms/test"
+    
     - "**/test/**/*"
