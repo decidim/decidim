@@ -32,7 +32,7 @@ describe "Organization Areas" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Area successfully created.")
+      expect(page).to have_admin_callout("Area created successfully.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:name]))
@@ -67,7 +67,7 @@ describe "Organization Areas" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("Area successfully updated.")
+        expect(page).to have_admin_callout("Area updated successfully.")
 
         within "table" do
           expect(page).to have_content(translated(attributes[:name]))

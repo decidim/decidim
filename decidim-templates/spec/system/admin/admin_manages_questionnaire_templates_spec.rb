@@ -8,6 +8,8 @@ require "decidim/forms/test/shared_examples/manage_questionnaires/update_questio
 describe "Admin manages questionnaire templates" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:callout_success) { "Survey questions successfully saved." }
+  let(:callout_failure) { "There was a problem saving" }
 
   before do
     switch_to_host(organization.host)
