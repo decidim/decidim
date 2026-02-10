@@ -40,7 +40,14 @@ describe "Admin imports participatory process" do
         fill_in :participatory_process_slug, with: "pp-import"
       end
 
-      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/participatory_process_group/hero_image/1/city.jpeg",
+        "image/jpeg"
+      )
 
       dynamically_attach_file(:participatory_process_document, Decidim::Dev.asset("participatory_processes.json"))
 
@@ -108,6 +115,10 @@ describe "Admin imports participatory process" do
         .to_return(status: 404, body: "Not Found")
       stub_request(:head, "http://example.com/missing-hero.jpg")
         .to_return(status: 404, body: "Not Found")
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/participatory_process_group/hero_image/1/city.jpeg",
+        "image/jpeg"
+      )
 
       within_admin_menu do
         click_on "Import"
