@@ -173,7 +173,7 @@ bg:
           new: Нова прикачена папка
         browse: Разглеждане
         configure: Конфигуриране
-        export-selection: Експорт на селекцията
+        export_all: Експорт на всички
         import: Импортиране
         newsletter:
           new: Нов бюлетин
