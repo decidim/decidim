@@ -190,7 +190,8 @@ en:
           </ul>
           If you change your mind, you can restore it later.
         export: Export
-        export-selection: Export selection
+        export_all: Export all
+        export_selection: Export selection
         import: Import
         member:
           new: New member

@@ -139,6 +139,7 @@ cobertura
 codecov
 codefor
 CODEOWNERS
+coderabbit
 codespace
 codeql
 coditramuntana
