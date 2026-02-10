@@ -170,6 +170,20 @@ describe "Explore meetings", :slow do
           end
         end
       end
+
+      context "when there are withdrawn linked meetings" do
+        let(:linked_component) { create(:meeting_component, participatory_space:) }
+        let!(:linked_withdrawn_meeting) { create(:meeting, :withdrawn, :published, component: linked_component) }
+
+        before do
+          create(:meeting_link, meeting: linked_withdrawn_meeting, component: component)
+          visit_component
+        end
+
+        it "shows the withdrawn link" do
+          expect(page).to have_link("See all withdrawn meetings")
+        end
+      end
     end
 
     context "with hidden meetings" do

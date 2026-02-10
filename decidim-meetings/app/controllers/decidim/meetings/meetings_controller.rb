@@ -126,7 +126,7 @@ module Decidim
       def withdrawn_meetings?
         return @withdrawn_meetings if defined?(@withdrawn_meetings)
 
-        @withdrawn_meetings = Meeting.where(component: current_component).published.not_hidden.withdrawn.visible_for(current_user).exists?
+        @withdrawn_meetings ||= search_base_collection.withdrawn.exists?
       end
 
       def registration_qr_code_image
@@ -136,12 +136,7 @@ module Decidim
       end
 
       def search_collection
-        Meeting
-          .where(component: current_component)
-          .published
-          .not_hidden
-          .or(MeetingLink.find_meetings(component: current_component))
-          .visible_for(current_user)
+        search_base_collection
           .with_availability(
             filter_params[:with_availability]
           )
@@ -149,6 +144,15 @@ module Decidim
             :component,
             attachments: :file_attachment
           )
+      end
+
+      def search_base_collection
+        Meeting
+          .where(component: current_component)
+          .published
+          .not_hidden
+          .or(MeetingLink.find_meetings(component: current_component))
+          .visible_for(current_user)
       end
 
       def meeting_form
