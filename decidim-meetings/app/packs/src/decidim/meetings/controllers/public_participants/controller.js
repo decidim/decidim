@@ -1,10 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 import { screens } from "tailwindcss/defaultTheme"
 
-const DESKTOP_MEDIA_QUERY = `(min-width: ${screens.md})`;
-const HIDDEN_CLASS = "hidden";
-const DEFAULT_DESKTOP_COUNT = 12;
-const DEFAULT_MOBILE_COUNT = 8;
+const DESKTOP_MEDIA_QUERY = `(min-width: ${screens.md})`
+const HIDDEN_CLASS = "hidden"
+const DEFAULT_DESKTOP_COUNT = 12
+const DEFAULT_MOBILE_COUNT = 8
 
 // Stimulus controller for meeting public participants list.
 export default class extends Controller {
@@ -14,32 +14,31 @@ export default class extends Controller {
    * @returns {void}
    */
   connect() {
-    this.expanded = false;
-    this.mediaQuery = window.matchMedia(DESKTOP_MEDIA_QUERY);
-    this.items = Array.from(this.element.querySelectorAll("[data-participants-item]"));
-    this.toggleButton = this.element.querySelector("[data-participants-toggle]");
-    this.moreState = this.element.querySelector("[data-participants-toggle-more]");
-    this.lessState = this.element.querySelector("[data-participants-toggle-less]");
-    this.desktopCount = this.countFromDataset("desktopCount", DEFAULT_DESKTOP_COUNT);
-    this.mobileCount = this.countFromDataset("mobileCount", DEFAULT_MOBILE_COUNT);
+    this.expanded = false
+    this.mediaQuery = window.matchMedia(DESKTOP_MEDIA_QUERY)
+    this.items = Array.from(this.element.querySelectorAll("[data-participants-item]"))
+    this.toggleButton = this.element.querySelector("[data-participants-toggle]")
+    this.moreState = this.element.querySelector("[data-participants-toggle-more]")
+    this.lessState = this.element.querySelector("[data-participants-toggle-less]")
+    this.desktopCount = this.countFromDataset("desktopCount", DEFAULT_DESKTOP_COUNT)
+    this.mobileCount = this.countFromDataset("mobileCount", DEFAULT_MOBILE_COUNT)
 
     if (!this.toggleButton || this.items.length === 0) {
-      return;
+      return
     }
 
-    this.refresh = this.refresh.bind(this);
-    this.refreshOnChange = this.refresh.bind(this);
+    this.refreshOnChange = this.refresh.bind(this)
 
-    this.toggleButton.setAttribute("aria-expanded", "false");
-    this.updateToggleText();
+    this.toggleButton.setAttribute("aria-expanded", "false")
+    this.updateToggleText()
 
     if (this.mediaQuery.addEventListener) {
-      this.mediaQuery.addEventListener("change", this.refreshOnChange);
+      this.mediaQuery.addEventListener("change", this.refreshOnChange)
     } else {
-      this.mediaQuery.addListener(this.refreshOnChange);
+      this.mediaQuery.addListener(this.refreshOnChange)
     }
 
-    this.refresh();
+    this.refresh()
   }
 
   /**
@@ -49,13 +48,13 @@ export default class extends Controller {
    */
   disconnect() {
     if (!this.mediaQuery || !this.toggleButton) {
-      return;
+      return
     }
 
     if (this.mediaQuery.removeEventListener) {
-      this.mediaQuery.removeEventListener("change", this.refreshOnChange);
+      this.mediaQuery.removeEventListener("change", this.refreshOnChange)
     } else {
-      this.mediaQuery.removeListener(this.refreshOnChange);
+      this.mediaQuery.removeListener(this.refreshOnChange)
     }
   }
 
@@ -65,9 +64,9 @@ export default class extends Controller {
    * @returns {void}
    */
   toggle() {
-    this.expanded = !this.expanded;
-    this.toggleButton.setAttribute("aria-expanded", this.expanded.toString());
-    this.refresh();
+    this.expanded = !this.expanded
+    this.toggleButton.setAttribute("aria-expanded", this.expanded.toString())
+    this.refresh()
   }
 
   /**
@@ -76,18 +75,18 @@ export default class extends Controller {
    * @returns {void}
    */
   refresh() {
-    const visibleCount = this.visibleCountForViewport();
+    const visibleCount = this.visibleCountForViewport()
 
     if (!this.expanded && this.items.length <= visibleCount) {
-      this.toggleButton.classList.add(HIDDEN_CLASS);
-      this.applyVisibility(visibleCount, false);
-      return;
+      this.toggleButton.classList.add(HIDDEN_CLASS)
+      this.applyVisibility(visibleCount, false)
+      return
     }
 
-    this.toggleButton.classList.remove(HIDDEN_CLASS);
-    this.updateToggleText();
+    this.toggleButton.classList.remove(HIDDEN_CLASS)
+    this.updateToggleText()
 
-    this.applyVisibility(visibleCount, this.expanded);
+    this.applyVisibility(visibleCount, this.expanded)
   }
 
   /**
@@ -96,7 +95,7 @@ export default class extends Controller {
    * @returns {number}
    */
   visibleCountForViewport() {
-    return this.mediaQuery.matches ? this.desktopCount : this.mobileCount;
+    return this.mediaQuery.matches ? this.desktopCount : this.mobileCount
   }
 
   /**
@@ -106,11 +105,11 @@ export default class extends Controller {
    */
   updateToggleText() {
     if (!this.moreState || !this.lessState) {
-      return;
+      return
     }
 
-    this.moreState.classList.toggle(HIDDEN_CLASS, this.expanded);
-    this.lessState.classList.toggle(HIDDEN_CLASS, !this.expanded);
+    this.moreState.classList.toggle(HIDDEN_CLASS, this.expanded)
+    this.lessState.classList.toggle(HIDDEN_CLASS, !this.expanded)
   }
 
   /**
@@ -123,12 +122,12 @@ export default class extends Controller {
   applyVisibility(visibleCount, expanded) {
     this.items.forEach((item, index) => {
       const shouldHide = !expanded && index >= visibleCount;
-      item.classList.toggle(HIDDEN_CLASS, shouldHide);
-    });
+      item.classList.toggle(HIDDEN_CLASS, shouldHide)
+    })
   }
 
   countFromDataset(key, fallback) {
-    const value = Number(this.element.dataset[key]);
-    return Number.isNaN(value) ? fallback : value;
+    const value = Number(this.element.dataset[key])
+    return Number.isNaN(value) ? fallback : value
   }
 }
