@@ -141,7 +141,7 @@
         browse: Bla gjennom
         configure: Konfigurer
         export: Eksport
-        export-selection: Eksporter valg
+        export_all: Eksporter alt
         import: Importer
         newsletter:
           new: Nytt nyhetsbrev
