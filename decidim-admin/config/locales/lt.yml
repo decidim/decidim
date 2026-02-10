@@ -169,7 +169,7 @@ lt:
           new: Naujas priedų aplankas
         browse: Naršyti
         configure: Konfigūruoti
-        export-selection: Eksportuoti pasirinktą
+        export_all: Eksportuoti viską
         import: Importuoti
         newsletter:
           new: Naujas naujienlaiškis
