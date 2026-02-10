@@ -28,7 +28,7 @@ describe("PublicParticipantsController", () => {
       >
         ${buildParticipants(itemsCount)}
         <button
-          class="meeting__public-participants-toggle"
+          class="meeting__public-participants-toggle hidden"
           type="button"
           data-action="click->public-participants#toggle"
           data-participants-toggle
