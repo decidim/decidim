@@ -188,7 +188,7 @@ sv:
           </ul>
           Om du ändrar dig, du kan återställa det senare.
         export: Exportera
-        export-selection: Exportera markerade
+        export_all: Exportera allt
         import: Importera
         member:
           new: Ny medlem
