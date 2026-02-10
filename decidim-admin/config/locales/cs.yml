@@ -190,7 +190,7 @@ cs:
           </ul>
           Pokud změníte názor, můžete ji obnovit později.
         export: Exportovat
-        export-selection: Exportovat výběr
+        export_all: Exportovat vše
         import: Importovat
         menu_hidden: Skrýt v menu
         moderate: Spravovat moderace
