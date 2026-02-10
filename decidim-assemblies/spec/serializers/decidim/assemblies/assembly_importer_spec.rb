@@ -276,6 +276,7 @@ module Decidim::Assemblies
             importer.import_folders_and_attachments(attachments_data)
             expect(importer.warnings).to include(a_string_matching(/attachment could not be imported/i))
             expect(importer.warnings).to include(a_string_matching(/error/i))
+            expect(importer.warnings).to include(a_string_matching(/Test File/i))
           end
         end
 
@@ -298,6 +299,7 @@ module Decidim::Assemblies
             importer.import_folders_and_attachments(attachments_data)
             expect(importer.warnings).to include(a_string_matching(/attachment could not be imported/i))
             expect(importer.warnings).to include(a_string_matching(/error/i))
+            expect(importer.warnings).to include(a_string_matching(/Test File/i))
           end
         end
 
@@ -312,6 +314,7 @@ module Decidim::Assemblies
             importer.import_folders_and_attachments(attachments_data)
             expect(importer.warnings).to include(a_string_matching(/attachment could not be imported/i))
             expect(importer.warnings).to include(a_string_matching(/error/i))
+            expect(importer.warnings).to include(a_string_matching(/Test File/i))
           end
         end
       end

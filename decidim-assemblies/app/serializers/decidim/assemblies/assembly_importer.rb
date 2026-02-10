@@ -76,14 +76,22 @@ module Decidim
           next if url.blank?
 
           unless remote_file_exists?(url)
-            @warnings << I18n.t("decidim.assemblies.admin.imports.attachment_error", error: "Not found")
+            @warnings << I18n.t(
+              "decidim.assemblies.admin.imports.attachment_error",
+              title: attachment_title(file),
+              error: "Not found"
+            )
             next
           end
 
           begin
             file_tmp = URI.parse(url).open
           rescue OpenURI::HTTPError, Errno::ENOENT, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-            @warnings << I18n.t("decidim.assemblies.admin.imports.attachment_error", error: e.message)
+            @warnings << I18n.t(
+              "decidim.assemblies.admin.imports.attachment_error",
+              title: attachment_title(file),
+              error: e.message
+            )
             next
           end
 
@@ -147,6 +155,15 @@ module Decidim
         end
       rescue StandardError
         nil
+      end
+
+      def attachment_title(file)
+        title = file["title"]
+        return "" if title.blank?
+
+        return title unless title.is_a?(Hash)
+
+        title.values.find(&:present?) || ""
       end
 
       def import_hero_image(url)

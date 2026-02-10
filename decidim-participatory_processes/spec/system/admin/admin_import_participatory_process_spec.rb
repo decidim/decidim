@@ -258,6 +258,7 @@ describe "Admin imports participatory process" do
       within ".flash.warning" do
         expect(page).to have_content(/attachment could not be imported/i)
         expect(page).to have_content(/error/i)
+        expect(page).to have_content(/Possimus quia/i)
       end
     end
   end

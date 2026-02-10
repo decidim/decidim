@@ -368,6 +368,7 @@ describe "Admin imports assembly" do
       within ".flash.warning" do
         expect(page).to have_content(/attachment could not be imported/i)
         expect(page).to have_content(/error/i)
+        expect(page).to have_content(/Eligendi praesentium/i)
       end
     end
   end
