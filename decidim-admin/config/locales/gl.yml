@@ -138,7 +138,7 @@ gl:
         attachment:
           new: Novo anexo
         browse: Buscar
-        export-selection: Exportar selección
+        export_all: Exportar todo
         import: Importar
         newsletter:
           new: Novo boletín
