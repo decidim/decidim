@@ -56,3 +56,19 @@
     }
   }
 }
+
+.meeting__public-participants {
+  @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4;
+
+  &-item.is-hidden {
+    @apply hidden;
+  }
+
+  &-toggle {
+    @apply col-span-full justify-self-start;
+
+    &.is-hidden {
+      @apply hidden;
+    }
+  }
+}

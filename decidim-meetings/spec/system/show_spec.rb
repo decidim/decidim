@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "show" do
+describe "show", js: true do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -52,6 +52,72 @@ describe "show" do
 
       it "successfully shows the page" do
         expect(page).to have_content("Deleted participant")
+      end
+    end
+
+    context "when meeting has many public participants" do
+      let!(:users) { create_list(:user, 15, organization:) }
+
+      before do
+        users.each do |user|
+          create(:registration, meeting:, user:, public_participation: true)
+        end
+
+        visit resource_locator(meeting).path
+      end
+
+      it "shows a limited list with a toggle" do
+        within "#panel-participants" do
+          expect(page).to have_css("[data-participants-item]", count: 15, visible: :all)
+          expect(page).to have_text("Show more")
+        end
+      end
+
+      it "expands and collapses the list" do
+        within "#panel-participants" do
+          toggle = find("[data-participants-toggle]", visible: :all)
+          expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 12)
+          toggle.click
+          expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 15)
+          expect(toggle).to have_text("Show less")
+          toggle.click
+          expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 12)
+          expect(toggle).to have_text("Show more")
+        end
+      end
+
+      context "with a desktop" do
+        it "limits visible participants by viewport" do
+          within "#panel-participants" do
+            expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 12)
+          end
+        end
+      end
+
+      context "with a mobile device" do
+        before do
+          driven_by(:iphone)
+          visit resource_locator(meeting).path
+        end
+
+        it "limits visible participants by viewport" do
+          within "#panel-participants" do
+            expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 8)
+          end
+        end
+
+        it "expands and collapses the list" do
+          within "#panel-participants" do
+            toggle = find("[data-participants-toggle]", visible: :all)
+            expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 8)
+            toggle.click
+            expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 15)
+            expect(toggle).to have_text("Show less")
+            toggle.click
+            expect(page).to have_css(".meeting__public-participants-item:not(.hidden)", count: 8)
+            expect(toggle).to have_text("Show more")
+          end
+        end
       end
     end
   end
