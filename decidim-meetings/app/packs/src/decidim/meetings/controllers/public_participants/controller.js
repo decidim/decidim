@@ -6,8 +6,10 @@ const HIDDEN_CLASS = "hidden"
 const DEFAULT_DESKTOP_COUNT = 12
 const DEFAULT_MOBILE_COUNT = 8
 
+
 // Stimulus controller for meeting public participants list.
 export default class extends Controller {
+
   /**
    * Initializes the controller state and media query listeners.
    *
@@ -94,10 +96,12 @@ export default class extends Controller {
   /**
    * Resolves the visible count based on current viewport.
    *
-   * @returns {number}
+   * @returns {number} Visible count for the current viewport.
    */
   visibleCountForViewport() {
-    return this.mediaQuery.matches ? this.desktopCount : this.mobileCount
+    return this.mediaQuery.matches
+      ? this.desktopCount
+      : this.mobileCount
   }
 
   /**
@@ -117,8 +121,8 @@ export default class extends Controller {
   /**
    * Applies visibility to participant items.
    *
-   * @param {number} visibleCount
-   * @param {boolean} expanded
+   * @param {number} visibleCount - Number of visible participants to keep.
+   * @param {boolean} expanded - Whether the list is expanded.
    * @returns {void}
    */
   applyVisibility(visibleCount, expanded) {
@@ -130,6 +134,8 @@ export default class extends Controller {
 
   countFromDataset(key, fallback) {
     const value = Number(this.element.dataset[key])
-    return Number.isNaN(value) ? fallback : value
+    return Number.isNaN(value)
+      ? fallback
+      : value
   }
 }

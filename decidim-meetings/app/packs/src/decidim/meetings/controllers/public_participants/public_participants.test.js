@@ -11,7 +11,7 @@ describe("PublicParticipantsController", () => {
   let element = null;
   let mediaQuery = null;
 
-  const buildParticipants = (count) => Array.from({ length: count }, (_, index) => (
+  const buildParticipants = (count) => Array.from({ length: count }, (_el, index) => (
     `<div class="meeting__public-participants-item" data-participants-item>Participant ${index + 1}</div>`
   )).join("");
 
