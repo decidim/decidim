@@ -146,7 +146,7 @@ describe "Explore meetings", :slow do
 
     context "when checking withdrawn meetings" do
       context "when there are no withdrawn meetings" do
-        let!(:meeting) { create_list(:meeting, 3, :published, component:) }
+        let!(:non_withdrawn_meetings) { create_list(:meeting, 3, :published, component:) }
 
         it "does not show the withdrawn link" do
           visit_component
