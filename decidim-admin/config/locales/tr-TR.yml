@@ -182,7 +182,7 @@ tr:
            <li class="font-bold"> %{resources_count} kaynakları </li> 
           </ul>
           Fikrinizi değiştirirseniz daha sonra yeniden yükleyebilirsiniz.
-        export-selection: Seçimi dışa aktar
+        export_all: Tümünü dışa aktar
         import: İçe aktar
         menu_hidden: Menüden gizle
         newsletter:
