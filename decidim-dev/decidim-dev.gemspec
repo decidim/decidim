@@ -2,12 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-# Maintain your gem's version:
-require "decidim/dev/version"
-
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.version = Decidim::Dev.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0-or-later"
@@ -33,12 +30,12 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "capybara", "~> 3.39"
-  s.add_dependency "decidim-admin", Decidim::Dev.version
-  s.add_dependency "decidim-api", Decidim::Dev.version
-  s.add_dependency "decidim-comments", Decidim::Dev.version
-  s.add_dependency "decidim-core", Decidim::Dev.version
-  s.add_dependency "decidim-generators", Decidim::Dev.version
-  s.add_dependency "decidim-verifications", Decidim::Dev.version
+  s.add_dependency "decidim-admin", version
+  s.add_dependency "decidim-api", version
+  s.add_dependency "decidim-comments", version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-generators", version
+  s.add_dependency "decidim-verifications", version
   s.add_dependency "factory_bot_rails", "~> 6.2"
   s.add_dependency "faker", "~> 3.2"
 
