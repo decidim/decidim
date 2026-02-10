@@ -83,6 +83,7 @@ export default class extends Controller {
       this.expanded = false
       this.toggleButton.setAttribute("aria-expanded", "false")
       this.toggleButton.classList.add(HIDDEN_CLASS)
+      this.updateToggleText()
       this.applyVisibility(visibleCount, false)
       return
     }
