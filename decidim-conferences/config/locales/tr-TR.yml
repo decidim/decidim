@@ -295,7 +295,6 @@ tr:
             certificate_of_attendance_description: Bu, <strong>%{user}</strong> <strong>%{start} - %{end}</strong><strong>%{location}</strong> tutulan <strong>%{title}</strong> katılıp katıldığını onaylamaktır.
         send_diploma:
           error: Konferansa katılım sertifikalarını gönderirken bir sorun oluştu.
-          success: Konferansa katılım sertifikaları doğru gönderildi
       conference:
         registration_confirm:
           cancel: İptal etmek
