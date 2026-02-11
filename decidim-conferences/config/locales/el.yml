@@ -345,7 +345,6 @@ el:
             certificate_of_attendance_description: Με το παρόν βεβαιώνεται ότι ο χρήστης <strong>%{user}</strong> παρακολούθησε και έλαβε μέρος στη διάσκεψη <strong>%{title}</strong> που πραγματοποιήθηκε στην τοποθεσία <strong>%{location}</strong> στις <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Υπήρξε ένα πρόβλημα κατά την αποστολή των πιστοποιητικών παρακολούθησης της διάσκεψης.
-          success: Τα πιστοποιητικά παρακολούθησης της διάσκεψης στάλθηκαν με επιτυχία
       conference:
         registration_confirm:
           cancel: Ακύρωση
