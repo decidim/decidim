@@ -417,7 +417,6 @@ sv:
             certificate_of_attendance_description: Detta intygar att <strong>%{user}</strong> har deltagit och medverkat i <strong>%{title}</strong> som hölls på <strong>%{location}</strong> <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Det gick inte att skicka närvarointyg för konferensen.
-          success: Skickade närvarointyg för konferensen
       conference:
         registration_confirm:
           cancel: Avbryta
