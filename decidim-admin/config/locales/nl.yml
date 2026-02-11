@@ -695,7 +695,6 @@ nl:
           title: Nieuw onderwerp
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit onderwerp.
-          success: Onderwerp met succes bijgewerkt
       static_pages:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
