@@ -839,7 +839,6 @@ pl:
           title: Nowy temat
         update:
           error: Wystąpił błąd podczas aktualizowania tego tematu.
-          success: Temat został zaktualizowany pomyślnie
       static_pages:
         create:
           error: Podczas tworzenia nowej strony wystąpił błąd.
