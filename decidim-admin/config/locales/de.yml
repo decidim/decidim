@@ -1083,7 +1083,6 @@ de:
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
-          success: Thema erfolgreich aktualisiert
       static_pages:
         actions:
           view: Anzeigen
