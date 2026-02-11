@@ -1084,7 +1084,7 @@ ca-IT:
           title: Nou tema
         update:
           error: S'ha produït un error en actualitzar aquest tema.
-          success: S'ha actualitzat el tema correctament
+          success: Tema actualitzat correctament.
       static_pages:
         actions:
           view: Veure
