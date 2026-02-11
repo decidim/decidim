@@ -191,6 +191,7 @@ pt-BR:
           Se você trocar de ideia, pode restaurar-lá mais tarde.
         export: Exportar
         export_all: Exportar tudo
+        export_selection: Exportar seleção
         import: Importar
         menu_hidden: Ocultar do menu
         moderate: Gerenciar moderações
