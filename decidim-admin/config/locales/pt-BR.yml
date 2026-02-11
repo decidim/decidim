@@ -190,6 +190,7 @@ pt-BR:
           Se você trocar de ideia, pode restaurar-lá mais tarde.
         export: Exportar
         export_all: Exportar tudo
+        export_selection: Exportar seleção
         import: Importar
         member:
           new: Novo membro
@@ -1083,7 +1084,6 @@ pt-BR:
           title: Novo tópico
         update:
           error: Houve um erro ao atualizar este tópico.
-          success: Tópico atualizado com sucesso
       static_pages:
         actions:
           view: Visualizar
