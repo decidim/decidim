@@ -731,6 +731,8 @@ es:
         hidden_participants_count:
           one: y %{count} persona más
           other: y %{count} personas más
+        show_less: Mostrar menos
+        show_more: Mostrar más
       read_more: "(leer más)"
       registration_mailer:
         confirmation:
