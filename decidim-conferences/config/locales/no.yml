@@ -327,7 +327,6 @@
             certificate_of_attendance_description: Dette er for å bekrefte at <strong>%{user}</strong> har møtt opp og deltatt i <strong>%{title}</strong> holdt på <strong>%{location}</strong> på <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Det oppstod et problem med å sende konferanses deltakelsesbevis.
-          success: Konferanse deltakerbevis sendt
       conference:
         registration_confirm:
           cancel: Avbryt
