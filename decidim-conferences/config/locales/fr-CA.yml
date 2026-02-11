@@ -427,7 +427,6 @@ fr-CA:
             certificate_of_attendance_description: Ceci certifie que <strong>%{user}</strong> a assisté et participé aux <strong>%{title}</strong> tenus au <strong>%{location}</strong> sur <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Il y a eu un problème lors de l'envoi des certificats de participation à la conférence.
-          success: Certificats de participation envoyés correctement
       conference:
         registration_confirm:
           cancel: Annuler
