@@ -16,7 +16,7 @@ module Decidim
       include Decidim::AttachmentsHelper
       include Decidim::SanitizeHelper
 
-      helper_method :meetings, :meeting, :registration, :search, :tab_panel_items
+      helper_method :meetings, :meeting, :registration, :search, :tab_panel_items, :withdrawn_meetings?
 
       before_action :add_additional_csp_directives, only: [:show]
 
@@ -121,13 +121,14 @@ module Decidim
         @registration ||= meeting.registrations.find_by(user: current_user)
       end
 
+      def withdrawn_meetings?
+        return @withdrawn_meetings if defined?(@withdrawn_meetings)
+
+        @withdrawn_meetings ||= search_base_collection.withdrawn.exists?
+      end
+
       def search_collection
-        Meeting
-          .where(component: current_component)
-          .published
-          .not_hidden
-          .or(MeetingLink.find_meetings(component: current_component))
-          .visible_for(current_user)
+        search_base_collection
           .with_availability(
             filter_params[:with_availability]
           )
@@ -135,6 +136,15 @@ module Decidim
             :component,
             attachments: :file_attachment
           )
+      end
+
+      def search_base_collection
+        Meeting
+          .where(component: current_component)
+          .published
+          .not_hidden
+          .or(MeetingLink.find_meetings(component: current_component))
+          .visible_for(current_user)
       end
 
       def meeting_form
