@@ -678,7 +678,6 @@ gl:
           title: Novo tema
         update:
           error: Produciuse un erro ao actualizar este tema.
-          success: Tema actualizado correctamente
       static_pages:
         create:
           error: Produciuse un erro ao crear unha nova páxina.
