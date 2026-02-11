@@ -46,7 +46,7 @@ describe MoveAnnouncementToContentBlockOnAssemblies do
         expect(content_block.settings.to_h).not_to have_key("announcement_machine_translations")
       end
 
-      it "does not change an existing active block" do
+      it "preserves published state while updating settings on an existing active block" do
         content_block = create(
           :content_block,
           organization:,
