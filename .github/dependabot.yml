@@ -7,9 +7,13 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "thursday"
-      time: "09:00"
-    open-pull-requests-limit: 5
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 1
+    ignore:
+      - dependency-name: "rails"
+        update-types: [ "version-update:semver-minor", "version-update:semver-major" ]
     groups:
       rails:
         patterns:
@@ -36,39 +40,149 @@ updates:
     labels:
       - "dependencies"
       - "type: internal"
+      - "configuration"
+    commit-message:
+      prefix: "Bump to dependencies"
 
-  # /decidim-generators/Gemfile.lock
-  - package-ecosystem: "bundler"
-    directory: "/decidim-generators"
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "06:00"
+      timezone: "Europe/Madrid"
+    labels:
+      - "dependencies"
+      - "configuration"
+    commit-message:
+      prefix: "Bump to dependencies"
+
+  # NPM packages
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "06:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 1
+    labels:
+      - "dependencies"
+      - "type: internal"
+      - "javascript"
+    commit-message:
+      prefix: "Bump to dependencies"
+
+  # NPM packages - core
+  - package-ecosystem: "npm"
+    directory: "/packages/core"
+    schedule:
+      interval: "daily"
+      time: "03:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 1
+    labels:
+      - "dependencies"
+      - "type: internal"
+      - "javascript"
+      - "decidim-core"
+      - "configuration"
+    commit-message:
+      prefix: "Bump to dependencies"
+
+  # NPM packages - eslint-config
+  - package-ecosystem: "npm"
+    directory: "/packages/eslint-config"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "01:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 1
+    labels:
+      - "dependencies"
+      - "type: internal"
+      - "javascript"
+    commit-message:
+      prefix: "Bump to dependencies"
+
+  # NPM packages - browserslist-config
+  - package-ecosystem: "npm"
+    directory: "/packages/browserslist-config"
     schedule:
       interval: "weekly"
       day: "thursday"
-      time: "09:00"
-    open-pull-requests-limit: 5
-    groups:
-      rails:
-        patterns:
-          - "rails*"
-          - "actionpack"
-          - "actioncable"
-          - "actionmailbox"
-          - "actionmailer"
-          - "actiontext"
-          - "actionview"
-          - "activestorage"
-          - "railties"
-          - "activemodel"
-          - "activejob"
-          - "activerecord"
-          - "activesupport"
-      rspec:
-        patterns:
-          - "rspec-core"
-          - "rspec-expectations"
-          - "rspec-mocks"
-          - "rspec-support"
-    versioning-strategy: "increase"
+      time: "06:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 1
     labels:
       - "dependencies"
       - "type: internal"
-      - "decidim-generators"
+      - "javascript"
+    commit-message:
+      prefix: "Bump to dependencies"
+
+  # NPM packages - stylelint-config
+  - package-ecosystem: "npm"
+    directory: "/packages/stylelint-config"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "04:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 1
+    labels:
+      - "dependencies"
+      - "type: internal"
+      - "javascript"
+    commit-message:
+      prefix: "Bump to dependencies"
+
+  # NPM packages - dev
+  - package-ecosystem: "npm"
+    directory: "/packages/dev"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "02:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 1
+    labels:
+      - "dependencies"
+      - "type: internal"
+      - "javascript"
+    commit-message:
+      prefix: "Bump to dependencies"
+
+  # NPM packages - prettier-config
+  - package-ecosystem: "npm"
+    directory: "/packages/prettier-config"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "02:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 1
+    labels:
+      - "dependencies"
+      - "type: internal"
+      - "javascript"
+    commit-message:
+      prefix: "Bump to dependencies"
+
+  # NPM packages - webpacker
+  - package-ecosystem: "npm"
+    directory: "/packages/webpacker"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "05:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 1
+    labels:
+      - "dependencies"
+      - "type: internal"
+      - "javascript"
+      - "configuration"
+    commit-message:
+      prefix: "Bump to dependencies"

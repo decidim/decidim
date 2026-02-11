@@ -53,7 +53,7 @@ en:
         file: File
       proposals_import:
         import_proposals: Import proposals
-        keep_answers: Keep state and answers
+        keep_answers: Keep statuses and answers
         keep_authors: Keep original authors
     errors:
       models:
@@ -690,7 +690,7 @@ en:
             create: Import proposals
             no_components: There are no other proposal components in this participatory space to import the proposals from.
             select_component: Please select a component
-            select_states: Check the status of the proposals to import
+            select_states: Import only proposals with these statuses. If none are selected, all proposals will be imported.
             title: Import proposals from another component
         proposals_merges:
           create:

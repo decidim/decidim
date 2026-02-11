@@ -1,0 +1,54 @@
+name: Sync Gemfile.lock files
+
+permissions:
+  contents: write
+  pull-requests: write
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - 'Gemfile.lock'
+
+env:
+  RUBY_VERSION: 3.4.7
+
+jobs:
+  sync-lockfiles:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          token: ${{ secrets.DEPENDABOT_PAT }}
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: false
+
+      - name: Install root dependencies
+        run: bundle install
+
+      - name: Update decidim-generators Gemfile.lock
+        run: |
+          .github/decidim_generators_update.rb \
+            ${{ github.event.pull_request.base.sha }} \
+            ${{ github.event.pull_request.head.sha }}
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add decidim-generators/Gemfile.lock
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: sync decidim-generators/Gemfile.lock"
+            git push
+          fi

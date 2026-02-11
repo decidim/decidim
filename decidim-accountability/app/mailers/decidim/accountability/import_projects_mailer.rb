@@ -3,12 +3,12 @@
 module Decidim
   module Accountability
     # This mailer sends a notification email containing the result of importing
-    # Cprojects to the results.
+    # projects from one budget component to accountability.
     class ImportProjectsMailer < Decidim::ApplicationMailer
       include Decidim::TranslatableAttributes
       helper Decidim::TranslationsHelper
 
-      # Public: Sends a notification email with the result of projects import selected projects to Accountability
+      # Public: Sends a notification email with the result of importing projects
       #
       # user   - The user to be notified.
       #

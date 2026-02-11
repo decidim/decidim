@@ -15,8 +15,8 @@ module Decidim
           @form = form(Admin::ImportComponentForm).from_params(params, accountability_component: current_component)
 
           ImportComponentToAccountability.call(@form) do
-            on(:ok) do |projects|
-              flash[:notice] = I18n.t("import_components.new.success", scope: "decidim.accountability.admin", count: projects)
+            on(:ok) do |results|
+              flash[:notice] = I18n.t("import_components.new.success", scope: "decidim.accountability.admin", count: results)
               redirect_to results_path
             end
 

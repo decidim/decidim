@@ -33,7 +33,7 @@
           </span>
         <% end %>
       </button>
-      <div id="dropdown-menu-account" aria-hidden="true">
+      <div id="dropdown-menu-account" aria-hidden="true" data-controller="assign-role" data-role="dialog">
         <ul class="dropdown dropdown__bottom main-bar__dropdown">
           <%= render partial: "layouts/decidim/header/main_links_dropdown", locals: { unread_data: } %>
         </ul>
@@ -41,16 +41,15 @@
     </div>
   <% end %>
   <button id="main-dropdown-summary-desktop" class="main-bar__links-desktop__trigger"
-          data-controller="dropdown"
+          data-controller="main-menu"
+          data-close-button="main-dropdown-summary-desktop-close"
           data-target="dropdown-menu-main-desktop" aria-expanded="false">
     <%= icon "menu-line" %><span><%= t("menu", scope: "decidim.admin.titles") %></span>
   </button>
 
   <div id="dropdown-menu-main-desktop" class="main-bar__links-desktop__dropdown main-bar__links-desktop__dropdown-before" aria-hidden="true">
     <div id="breadcrumb-main-dropdown-desktop" class="menu-bar__main-dropdown menu-bar__dropdown-desktop">
-      <button id="main-dropdown-summary-desktop-close" class="main-bar__links-desktop__trigger"
-              data-controller="dropdown"
-              data-target="dropdown-menu-main-desktop">
+      <button id="main-dropdown-summary-desktop-close" class="main-bar__links-desktop__trigger">
         <%= icon "close-line" %><span><%= t("close", scope: "layouts.decidim.header") %></span>
       </button>
       <%= breadcrumb_root_menu.render %>

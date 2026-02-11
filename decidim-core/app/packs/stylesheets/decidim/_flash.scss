@@ -1,5 +1,5 @@
 .flash {
-  @apply flex justify-start gap-4 border-l-4 border-secondary my-4 p-4 bg-secondary/5;
+  @apply flex justify-start gap-4 border-l-4 border-secondary my-4 p-4 bg-secondary/5 break-all;
 
   &__icon {
     svg {

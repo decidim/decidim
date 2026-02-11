@@ -36,7 +36,7 @@ shared_examples "manage registration types examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Conference registration type successfully added.")
       expect(page).to have_current_path decidim_admin_conferences.conference_registration_types_path(conference)
 
       within "#registration_types table" do
@@ -60,7 +60,7 @@ shared_examples "manage registration types examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Conference registration type successfully updated.")
       expect(page).to have_current_path decidim_admin_conferences.conference_registration_types_path(conference)
 
       within "#registration_types table" do
@@ -77,7 +77,7 @@ shared_examples "manage registration types examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Conference registration type successfully removed.")
 
       within "#registration_types table" do
         expect(page).to have_no_content(translated(registration_type.title))

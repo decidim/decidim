@@ -37,7 +37,7 @@ shared_examples "manage conference admins examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("Conference admin successfully added.")
 
     within "#conference_admins table" do
       expect(page).to have_content(other_user.email)
@@ -66,7 +66,7 @@ shared_examples "manage conference admins examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Conference admin successfully updated.")
 
       within "#conference_admins table" do
         expect(page).to have_content("Collaborator")
@@ -81,7 +81,7 @@ shared_examples "manage conference admins examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Conference admin successfully removed.")
 
       within "#conference_admins table" do
         expect(page).to have_no_content(other_user.email)
@@ -113,7 +113,7 @@ shared_examples "manage conference admins examples" do
           click_on "Resend invitation"
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Invitation successfully resent")
       end
     end
   end

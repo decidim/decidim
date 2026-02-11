@@ -124,7 +124,7 @@ shared_examples "manage processes examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Participatory process successfully updated.")
 
       within "[data-content]" do
         expect(page).to have_css("input[value='#{translated(attributes[:title])}']")
@@ -149,7 +149,7 @@ shared_examples "manage processes examples" do
         find("a", text: "Publish", visible: true).click
       end
 
-      expect(page).to have_content("successfully published")
+      expect(page).to have_admin_callout("Participatory process successfully published.")
 
       within("tr", text: translated_attribute(participatory_process.title)) do
         find("button[data-controller='dropdown']").click
@@ -176,7 +176,7 @@ shared_examples "manage processes examples" do
         find("a", text: "Unpublish", visible: true).click
       end
 
-      expect(page).to have_content("successfully unpublished")
+      expect(page).to have_admin_callout("Participatory process successfully unpublished.")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_participatory_processes.participatory_processes_path
 

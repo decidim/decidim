@@ -128,7 +128,7 @@ header {
       }
 
       &__dropdown {
-        @apply flex items-end absolute top-0 right-0 z-30 h-screen;
+        @apply flex items-end absolute top-0 right-0 bg-[rgba(0,0,0,0.25)] transition duration-300 z-30 h-screen cursor-auto;
 
         .menu-bar {
           &__main-dropdown {

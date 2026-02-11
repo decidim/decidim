@@ -93,7 +93,7 @@ describe "Admin manages assemblies" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Assembly created successfully. You can now add components and configure it.")
       expect(last_assembly.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
@@ -125,7 +125,7 @@ describe "Admin manages assemblies" do
 
       click_on "Update"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Assembly successfully updated.")
       expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
       expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
       expect(assembly3.reload.taxonomies).to contain_exactly(taxonomy)

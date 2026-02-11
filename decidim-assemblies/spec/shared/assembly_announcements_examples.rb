@@ -19,7 +19,7 @@ shared_examples "manage assemblies announcements" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("Assembly successfully updated.")
     visit decidim_admin_assemblies.assemblies_path
 
     if defined?(parent_assembly) && !parent_assembly.nil?
