@@ -4,9 +4,12 @@ module Decidim
   module Assemblies
     # A factory class to ensure we always create Assemblies the same way since it involves some logic.
     class AssemblyImporter < Decidim::Importers::Importer
+      attr_reader :warnings
+
       def initialize(organization, user)
         @organization = organization
         @user = user
+        @warnings = []
       end
 
       # Public: Creates a new Assembly.
@@ -57,8 +60,8 @@ module Decidim
             meta_scope: attributes["meta_scope"],
             announcement: attributes["announcement"]
           )
-          @imported_assembly.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
-          @imported_assembly.attached_uploader(:banner_image).remote_url = attributes["remote_banner_image_url"] if attributes["remote_banner_image_url"].present?
+          import_hero_image(attributes["remote_hero_image_url"])
+          import_banner_image(attributes["remote_banner_image_url"])
 
           @imported_assembly.save!
           @imported_assembly
@@ -133,6 +136,22 @@ module Decidim
         end
       rescue StandardError
         nil
+      end
+
+      def import_hero_image(url)
+        return if url.blank?
+
+        @imported_assembly.attached_uploader(:hero_image).remote_url = url
+      rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+        @warnings << I18n.t("decidim.assemblies.admin.imports.hero_image_error", error: e.message)
+      end
+
+      def import_banner_image(url)
+        return if url.blank?
+
+        @imported_assembly.attached_uploader(:banner_image).remote_url = url
+      rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+        @warnings << I18n.t("decidim.assemblies.admin.imports.banner_image_error", error: e.message)
       end
     end
   end

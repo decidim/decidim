@@ -4,9 +4,12 @@ module Decidim
   module ParticipatoryProcesses
     # A factory class to ensure we always create ParticipatoryProcesses the same way since it involves some logic.
     class ParticipatoryProcessImporter < Decidim::Importers::Importer
+      attr_reader :warnings
+
       def initialize(organization, user)
         @organization = organization
         @user = user
+        @warnings = []
       end
 
       # Public: Creates a new ParticipatoryProcess.
@@ -43,7 +46,7 @@ module Decidim
             private_space: attributes["private_space"],
             participatory_process_group: process_group
           )
-          @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
+          import_hero_image(attributes["remote_hero_image_url"])
 
           @imported_process.save!
           @imported_process
@@ -63,7 +66,7 @@ module Decidim
             organization: @organization
           )
 
-          group.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
+          import_group_hero_image(group, attributes["remote_hero_image_url"])
           group.save!
           group
         end
@@ -160,6 +163,22 @@ module Decidim
         end
       rescue StandardError
         nil
+      end
+
+      def import_hero_image(url)
+        return if url.blank?
+
+        @imported_process.attached_uploader(:hero_image).remote_url = url
+      rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+        @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_error", error: e.message)
+      end
+
+      def import_group_hero_image(group, url)
+        return if url.blank?
+
+        group.attached_uploader(:hero_image).remote_url = url
+      rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+        @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_error", error: e.message)
       end
     end
   end
