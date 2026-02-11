@@ -328,7 +328,6 @@ it:
             certificate_of_attendance_description: La presente per certificare che <strong>%{user}</strong> ha partecipato e partecipato al <strong>%{title}</strong> tenuta al <strong>%{location}</strong> in data <strong>%{start} - %{end}</strong>
         send_diploma:
           error: C'è stato un problema durante l'invio dei certificati di frequenza alla conferenza.
-          success: Certificati di frequenza delle conferenze inviati correttamente
       conference:
         registration_confirm:
           cancel: Annulla
