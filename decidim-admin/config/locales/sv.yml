@@ -1039,7 +1039,6 @@ sv:
           title: Nytt ämne
         update:
           error: Det gick inte att uppdatera ämnet.
-          success: Ämnet har uppdaterats
       static_pages:
         actions:
           view: Visa
