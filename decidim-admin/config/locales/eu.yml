@@ -1083,7 +1083,6 @@ eu:
           title: Beste gai bat
         update:
           error: Arazo bat egon da gai hau eguneratzean.
-          success: Gaia zuzen eguneratua
       static_pages:
         actions:
           view: Bistaratu
