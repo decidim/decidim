@@ -812,7 +812,6 @@ hu:
           title: Új téma
         update:
           error: Hiba történt a téma frissítésekor.
-          success: Téma frissítve sikeresen
       static_pages:
         create:
           error: Hiba történt az új oldal létrehozásakor.
