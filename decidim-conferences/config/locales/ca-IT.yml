@@ -432,7 +432,7 @@ ca-IT:
             certificate_of_attendance_description: Aquest document certifica que <strong>%{user}</strong> ha assistit i ha participat a <strong>%{title}</strong> celebrada a <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
           error: S'ha produït un error en enviar els certificats d'assistència a la jornada.
-          success: Certificats d'assistència a la jornada enviats correctament
+          success: Els certificats d'assistència a la jornada s'han enviat correctament.
       conference:
         registration_confirm:
           cancel: Cancel·lar
