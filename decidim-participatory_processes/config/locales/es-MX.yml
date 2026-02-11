@@ -217,7 +217,7 @@ es-MX:
           error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
         update:
           error: Se ha producido un error en la actualización de esta fase de proceso participativo.
-          success: La fase de proceso participativo se ha actualizado correctamente.
+          success: La fase del proceso participativo se ha actualizado correctamente.
       participatory_process_user_roles:
         create:
           error: Ha habido un error al agregar un usuario a este proceso participativo.
