@@ -783,7 +783,6 @@ lt:
           title: Nauja tema
         update:
           error: Atnaujinant šią temą iškilo problema.
-          success: Tema atnaujinta
       static_pages:
         create:
           error: Kuriant naują puslapį iškilo problema.
