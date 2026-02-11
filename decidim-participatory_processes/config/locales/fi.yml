@@ -217,7 +217,6 @@ fi:
           error: Osallistumisprosessin vaiheiden järjestäminen epäonnistui.
         update:
           error: Osallistumisprosessin vaiheen päivitys epäonnistui.
-          success: Osallistumisprosessin vaiheen päivitys onnistui.
       participatory_process_user_roles:
         create:
           error: Osallistumisprosessin käyttäjän lisääminen epäonnistui.
