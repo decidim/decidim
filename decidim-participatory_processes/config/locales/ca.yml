@@ -217,7 +217,7 @@ ca:
           error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
         update:
           error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
-          success: La fase de procés participatiu s'ha actualitzat correctament.
+          success: La fase del procés participatiu s'ha actualitzat correctament.
       participatory_process_user_roles:
         create:
           error: S'ha produït un error en afegir una participant en aquest procés participatiu.
