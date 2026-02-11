@@ -323,7 +323,6 @@ gl:
             certificate_of_attendance_description: Isto acredita que <strong>%{user}</strong> asistiu e participou no <strong>%{title}</strong> realizado no <strong>%{location}</strong> do <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Produciuse un problema ao enviar os certificados de asistencia da conferencia.
-          success: Certificados de asistencia de conferencia enviados correctamente
       conference:
         registration_confirm:
           cancel: Cancelar
