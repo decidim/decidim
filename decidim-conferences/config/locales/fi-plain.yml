@@ -432,7 +432,6 @@ fi-pl:
             certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Konferenssin läsnäolotodistuksien lähetys epäonnistui.
-          success: Konferenssin läsnäolotodistukset lähetetty onnistuneesti
       conference:
         registration_confirm:
           cancel: Peruuta
