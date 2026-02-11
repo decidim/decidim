@@ -365,7 +365,6 @@ bg:
             certificate_of_attendance_description: С настоящото се удостоверява, че <strong>%{user}</strong> посети и взе участие в(ъв) <strong>%{title}</strong>, <strong>%{location}</strong> на <strong>%{start} — %{end}</strong>
         send_diploma:
           error: Възникна проблем при изпращането на сертификатите за присъствие на конференцията.
-          success: Сертификатите за присъствие на конференцията бяха изпратени успешно
       conference:
         registration_confirm:
           cancel: Отказ
