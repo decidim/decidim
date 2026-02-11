@@ -916,7 +916,6 @@ tr:
           title: Yeni Konu
         update:
           error: Bu konu güncellenirken bir hata oluştu.
-          success: Konu başarıyla güncellendi
       static_pages:
         create:
           error: Yeni bir sayfa oluşturulurken bir hata oluştu.
