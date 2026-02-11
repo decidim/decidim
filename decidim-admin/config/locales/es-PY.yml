@@ -1084,7 +1084,7 @@ es-PY:
           title: Nuevo tema
         update:
           error: Se ha producido un error al actualizar este tema.
-          success: Tema actualizado correctamente
+          success: Tema actualizado correctamente.
       static_pages:
         actions:
           view: Ver
