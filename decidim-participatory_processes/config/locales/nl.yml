@@ -175,7 +175,6 @@ nl:
           error: Er is een fout opgetreden bij het herschikken van deze processtappen.
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze processtap.
-          success: Fase van participatief proces succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan dit inspraakproces.
