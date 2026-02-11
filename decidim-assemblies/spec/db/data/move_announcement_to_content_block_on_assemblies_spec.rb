@@ -22,7 +22,7 @@ describe MoveAnnouncementToContentBlockOnAssemblies do
           {
             "en" => "Important announcement",
             "es" => "Anuncio importante",
-            "machine_translations" => { "ca" => "Avis" }
+            "machine_translations" => { "ca" => "Avís" }
           }
         )
       end

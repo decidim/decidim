@@ -22,7 +22,7 @@ describe MoveAnnouncementToContentBlockOnParticipatoryProcesses do
           {
             "en" => "Important announcement",
             "es" => "Anuncio importante",
-            "machine_translations" => { "ca" => "Avs" }
+            "machine_translations" => { "ca" => "Avís" }
           }
         )
       end
