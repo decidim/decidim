@@ -951,7 +951,6 @@ it:
           title: Nuovo argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo argomento.
-          success: Argomento aggiornato correttamente
       static_pages:
         create:
           error: Si è verificato un errore creando una nuova pagina.
