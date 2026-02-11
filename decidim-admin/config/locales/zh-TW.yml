@@ -762,7 +762,6 @@ zh-TW:
           title: 新增主題
         update:
           error: 更新主題時發生問題。
-          success: 主題已成功更新。
       static_pages:
         create:
           error: 創建新頁面時出現問題。
