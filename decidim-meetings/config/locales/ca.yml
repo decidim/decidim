@@ -731,6 +731,8 @@ ca:
         hidden_participants_count:
           one: i %{count} persona més
           other: i %{count} persones més
+        show_less: Mostrar menys
+        show_more: Mostrar més
       read_more: "(llegeix més)"
       registration_mailer:
         confirmation:
