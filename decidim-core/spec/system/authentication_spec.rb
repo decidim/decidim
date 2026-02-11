@@ -34,6 +34,13 @@ describe "Authentication" do
     visit decidim.root_path
   end
 
+  around do |example|
+    previous_value = ActionController::Base.allow_forgery_protection
+    ActionController::Base.allow_forgery_protection = true
+    example.run
+    ActionController::Base.allow_forgery_protection = previous_value
+  end
+
   describe "Create an account" do
     around do |example|
       perform_enqueued_jobs { example.run }
@@ -472,6 +479,25 @@ describe "Authentication" do
 
         expect(page).to have_content("Logged in successfully")
         expect_current_user_to_be(user)
+      end
+
+      context "when CSRF token is invalid" do
+        it "displays error when email is empty" do
+          click_on("Log in", match: :first)
+          within "#session_new_user" do
+            fill_in :session_user_email, with: user.email
+            fill_in :session_user_password, with: "DfyvHn425mYAy2HL"
+          end
+
+          page.driver.browser.manage.delete_all_cookies
+          expect(page.driver.browser.manage.all_cookies).to be_empty
+
+          within "#session_new_user" do
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_content("Unable to verify your request. Please retry.")
+        end
       end
 
       context "when email validation is triggered in the log in form" do
