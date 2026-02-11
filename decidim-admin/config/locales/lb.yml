@@ -639,7 +639,6 @@ lb:
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
-          success: Thema erfolgreich aktualisiert
       static_pages:
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
