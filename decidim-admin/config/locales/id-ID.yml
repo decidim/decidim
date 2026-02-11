@@ -442,7 +442,6 @@ id:
           title: Topik baru
         update:
           error: Ada kesalahan saat memperbarui topik ini.
-          success: Topik berhasil diperbarui
       static_pages:
         create:
           error: Ada kesalahan saat membuat halaman baru.
