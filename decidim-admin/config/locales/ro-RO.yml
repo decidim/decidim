@@ -795,7 +795,6 @@ ro:
           title: Subiect nou
         update:
           error: A apărut o eroare la actualizarea acestui subiect.
-          success: Subiectul actualizat cu succes
       static_pages:
         create:
           error: A apărut o eroare la crearea unei pagini noi.
