@@ -327,7 +327,6 @@ nl:
             certificate_of_attendance_description: Dit is om te verklaren dat <strong>%{user}</strong> aanwezig is geweest en heeft deelgenomen aan de <strong>%{title}</strong> gehouden op de <strong>%{location}</strong> op <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Er is een probleem opgetreden tijdens het verzenden van de certificaten van deelname.
-          success: Conference certificaten van deelname correct verzonden
       conference:
         registration_confirm:
           cancel: Annuleer
