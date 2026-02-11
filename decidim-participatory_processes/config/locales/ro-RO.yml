@@ -196,7 +196,6 @@ ro:
           error: A apărut o problemă la reordonarea etapelor acestui procesului participativ.
         update:
           error: A apărut o problemă la actualizarea acestei etape a procesului participativ.
-          success: Etapa procesului participativ a fost actualizată cu succes.
       participatory_process_user_roles:
         create:
           error: A apărut o problemă la adăugarea unui participant pentru acest proces participativ.
