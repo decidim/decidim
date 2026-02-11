@@ -297,7 +297,6 @@ sk:
             certificate_of_attendance_description: Týmto potvrdzujeme, že <strong>%{user}</strong> sa zúčastnil na konferencii <strong>%{title}</strong>, ktorá sa konala na mieste <strong>%{location}</strong> od %{start} do %{end}</strong>.
         send_diploma:
           error: Vyskytol sa účasť so zasielaním certifikátov účasti.
-          success: Certifikáty účasti na konferencii úspešne zaslané
       conference:
         registration_confirm:
           cancel: Zrušiť
