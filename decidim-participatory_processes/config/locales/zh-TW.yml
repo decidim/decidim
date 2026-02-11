@@ -187,7 +187,6 @@ zh-TW:
           error: 重新排列這個參與程序階段時出現問題。
         update:
           error: 更新參與程序階段時出現問題。
-          success: 參與式階段成功更新。
       participatory_process_user_roles:
         create:
           error: 新增參與者至此參與式過程時發生問題。
