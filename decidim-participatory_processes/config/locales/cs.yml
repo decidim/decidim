@@ -222,7 +222,6 @@ cs:
           error: Došlo k chybě při novém uspořádání těchto kroků procesu participace.
         update:
           error: Při aktualizaci tohoto kroku procesu participace došlo k chybě.
-          success: Úspěšný krok procesu byl úspěšně aktualizován.
       participatory_process_user_roles:
         create:
           error: Při přidávání uživatele pro tento participační proces došlo k chybě.
