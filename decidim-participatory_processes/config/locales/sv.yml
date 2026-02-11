@@ -213,7 +213,6 @@ sv:
           error: Det gick inte att ändra ordningen på stegen i processen.
         update:
           error: Det gick inte att uppdatera steget i processen.
-          success: Steget i processen har uppdaterats.
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en deltagare till processen.
