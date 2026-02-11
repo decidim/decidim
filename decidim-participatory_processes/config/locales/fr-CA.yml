@@ -215,7 +215,7 @@ fr-CA:
           error: Une erreur s'est produite lors de la réorganisation des étapes de la concertation.
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette étape de la concertation.
-          success: Étape de la concertation mise à jour avec succès.
+          success: Étape du processus participatif mise à jour avec succès.
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette concertation.
