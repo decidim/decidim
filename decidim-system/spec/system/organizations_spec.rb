@@ -42,7 +42,7 @@ describe "Organizations" do
 
       it "shows the available locales" do
         Decidim.available_locales.each do |locale|
-          expect(page).to have_selector("input#organization_available_locales_#{locale}")
+          expect(page).to have_xpath("//input[@id='organization_available_locales_#{locale}']")
           expect(page).to have_content("#{I18n.with_locale(locale) { I18n.t("name", scope: "locale") }} (#{locale})")
         end
       end
