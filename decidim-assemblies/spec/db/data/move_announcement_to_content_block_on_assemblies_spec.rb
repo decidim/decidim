@@ -17,6 +17,7 @@ describe MoveAnnouncementToContentBlockOnAssemblies do
       let!(:assembly) { create(:assembly, organization:) }
 
       before do
+        # rubocop:disable Rails/SkipsModelValidations
         assembly.update_column(
           :announcement,
           {
@@ -25,6 +26,7 @@ describe MoveAnnouncementToContentBlockOnAssemblies do
             "machine_translations" => { "ca" => "Avís" }
           }
         )
+        # rubocop:enable Rails/SkipsModelValidations
       end
 
       it "creates an inactive announcement content block with settings" do
@@ -68,7 +70,7 @@ describe MoveAnnouncementToContentBlockOnAssemblies do
       let!(:assembly) { create(:assembly, organization:) }
 
       before do
-        assembly.update_column(:announcement, {})
+        assembly.update_column(:announcement, {}) # rubocop:disable Rails/SkipsModelValidations
       end
 
       it "does not create a content block" do
