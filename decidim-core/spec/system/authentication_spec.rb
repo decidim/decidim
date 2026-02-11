@@ -37,8 +37,11 @@ describe "Authentication" do
   around do |example|
     previous_value = ActionController::Base.allow_forgery_protection
     ActionController::Base.allow_forgery_protection = true
-    example.run
-    ActionController::Base.allow_forgery_protection = previous_value
+    begin
+      example.run
+    ensure
+      ActionController::Base.allow_forgery_protection = previous_value
+    end
   end
 
   describe "Create an account" do
@@ -482,7 +485,7 @@ describe "Authentication" do
       end
 
       context "when CSRF token is invalid" do
-        it "displays error when email is empty" do
+        it "displays a retry error" do
           click_on("Log in", match: :first)
           within "#session_new_user" do
             fill_in :session_user_email, with: user.email

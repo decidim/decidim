@@ -12,8 +12,11 @@ describe "Sessions" do
   around do |example|
     previous_value = ActionController::Base.allow_forgery_protection
     ActionController::Base.allow_forgery_protection = true
-    example.run
-    ActionController::Base.allow_forgery_protection = previous_value
+    begin
+      example.run
+    ensure
+      ActionController::Base.allow_forgery_protection = previous_value
+    end
   end
 
   before do
@@ -45,7 +48,7 @@ describe "Sessions" do
   end
 
   context "when the csrf token is expired" do
-    it "clears cookies and shows an error message" do
+    it "displays a retry error message" do
       within ".new_admin" do
         fill_in :admin_email, with: "admin@example.org"
         fill_in :admin_password, with: "decidim123456789"
