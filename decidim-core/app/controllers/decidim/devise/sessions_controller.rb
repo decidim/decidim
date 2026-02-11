@@ -52,7 +52,7 @@ module Decidim
       end
 
       def check_sign_in_enabled
-        redirect_to new_user_session_path && return unless current_organization.sign_in_enabled?
+        redirect_to new_user_session_path unless current_organization.sign_in_enabled?
       end
     end
   end
