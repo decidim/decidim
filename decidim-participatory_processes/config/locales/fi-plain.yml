@@ -217,7 +217,6 @@ fi-pl:
           error: Tämän osallisuusprosessin vaiheiden järjestämisessä tapahtui virhe.
         update:
           error: Tämän osallisuusprosessin vaiheen päivityksessä tapahtui virhe.
-          success: Osallisuusprosessin vaihe päivitetty onnistuneesti.
       participatory_process_user_roles:
         create:
           error: Tapahtui virhe lisätessä käyttäjää osallisuusprosessiin.
