@@ -498,7 +498,6 @@ sk:
           title: Nová téma
         update:
           error: Pri aktualizácii témy nastala chyba.
-          success: Téma úspešne aktualizovaná
       static_pages:
         create:
           error: Pri tvorbe novej stránky nastala chyba.
