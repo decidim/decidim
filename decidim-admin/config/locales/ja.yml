@@ -1076,7 +1076,6 @@ ja:
           title: 新規トピック
         update:
           error: このトピックの更新中に問題が発生しました。
-          success: トピックを更新しました
       static_pages:
         actions:
           view: 表示
