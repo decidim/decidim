@@ -1079,7 +1079,6 @@ cs:
           title: Nové téma
         update:
           error: Při aktualizaci tohoto tématu došlo k chybě.
-          success: Téma bylo úspěšně aktualizováno
       static_pages:
         actions:
           view: Zobrazit
