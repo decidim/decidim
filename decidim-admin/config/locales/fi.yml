@@ -1083,7 +1083,6 @@ fi:
           title: Uusi aihe
         update:
           error: Aiheen päivitys epäonnistui.
-          success: Aiheen päivitys onnistui
       static_pages:
         actions:
           view: Näytä
