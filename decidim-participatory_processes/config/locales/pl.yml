@@ -202,7 +202,6 @@ pl:
           error: Wystąpił błąd podczas zmiany kolejności etapów procesu partycypacyjnego.
         update:
           error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
-          success: Etap procesu partycypacyjnego został zaktualizowany.
       participatory_process_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego procesu partycypacyjnego.
