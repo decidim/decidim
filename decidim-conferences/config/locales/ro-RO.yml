@@ -373,7 +373,6 @@ ro:
             certificate_of_attendance_description: Acest lucru este pentru a certifica faptul că <strong>%{user}</strong> a participat şi a luat parte la <strong>%{title}</strong> ţinută la <strong>%{location}</strong> la <strong>%{start} - %{end}</strong>
         send_diploma:
           error: A apărut o problemă la trimiterea certificatelor de prezenţă ale conferinţei.
-          success: Certificate de prezență în conferință trimise cu succes
       conference:
         registration_confirm:
           cancel: Anulează
