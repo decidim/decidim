@@ -6,7 +6,7 @@ shared_examples "manage assemblies" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     let(:assembly_parent_id_options) { page.find_by_id("assembly_parent_id").find_all("option").map(&:value) }
-    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
+    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:) }
 
     before do
       within("tr", text: translated(assembly.title)) do
@@ -28,7 +28,6 @@ shared_examples "manage assemblies" do
         fill_in_i18n_editor(:assembly_purpose_of_action, "#assembly-purpose_of_action-tabs", **attributes[:purpose_of_action].except("machine_translations"))
         fill_in_i18n_editor(:assembly_composition, "#assembly-composition-tabs", **attributes[:composition].except("machine_translations"))
         fill_in_i18n_editor(:assembly_internal_organisation, "#assembly-internal_organisation-tabs", **attributes[:internal_organisation].except("machine_translations"))
-        fill_in_i18n_editor(:assembly_announcement, "#assembly-announcement-tabs", **attributes[:announcement].except("machine_translations"))
         fill_in_i18n_editor(:assembly_closing_date_reason, "#assembly-closing_date_reason-tabs", **attributes[:closing_date_reason].except("machine_translations"))
 
         fill_in_i18n(:assembly_participatory_scope, "#assembly-participatory_scope-tabs", **attributes[:participatory_scope].except("machine_translations"))

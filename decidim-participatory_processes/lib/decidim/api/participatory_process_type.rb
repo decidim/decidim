@@ -15,7 +15,6 @@ module Decidim
 
       description "A participatory process"
 
-      field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this participatory process.", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description of this participatory process.", null: true
       field :developer_group, Decidim::Core::TranslatedFieldType, "The promoter group of this participatory process.", null: true
       field :end_date, Decidim::Core::DateType, "This participatory process' end date.", null: true

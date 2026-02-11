@@ -54,8 +54,7 @@ module Decidim
             youtube_handler: attributes["youtube_handler"],
             github_handler: attributes["github_handler"],
             created_by: attributes["created_by"],
-            meta_scope: attributes["meta_scope"],
-            announcement: attributes["announcement"]
+            meta_scope: attributes["meta_scope"]
           )
           @imported_assembly.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
           @imported_assembly.attached_uploader(:banner_image).remote_url = attributes["remote_banner_image_url"] if attributes["remote_banner_image_url"].present?

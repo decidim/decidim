@@ -46,7 +46,6 @@ module Decidim::ParticipatoryProcesses
         errors:,
         related_process_ids:,
         participatory_process_group:,
-        announcement: { en: "message" }
       )
     end
     let(:invalid) { false }

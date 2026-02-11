@@ -108,7 +108,6 @@ shared_examples "manage processes examples" do
       fill_in_i18n(:participatory_process_subtitle, "#participatory_process-subtitle-tabs", **attributes[:subtitle].except("machine_translations"))
       fill_in_i18n_editor(:participatory_process_short_description, "#participatory_process-short_description-tabs", **attributes[:short_description].except("machine_translations"))
       fill_in_i18n_editor(:participatory_process_description, "#participatory_process-description-tabs", **attributes[:description].except("machine_translations"))
-      fill_in_i18n_editor(:participatory_process_announcement, "#participatory_process-announcement-tabs", **attributes[:announcement].except("machine_translations"))
       fill_in_i18n(:participatory_process_developer_group, "#participatory_process-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
       fill_in_i18n(:participatory_process_local_area, "#participatory_process-local_area-tabs", **attributes[:local_area].except("machine_translations"))
       fill_in_i18n(:participatory_process_meta_scope, "#participatory_process-meta_scope-tabs", **attributes[:meta_scope].except("machine_translations"))

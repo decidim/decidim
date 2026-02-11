@@ -48,14 +48,14 @@ describe "Admin manages assemblies" do
 
     let(:image2_filename) { "city2.jpeg" }
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
-    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
+    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:) }
     let(:last_assembly) { Decidim::Assembly.last }
 
     before do
       click_on "New assembly"
     end
 
-    %w(purpose_of_action composition description short_description announcement internal_organisation).each do |field|
+    %w(purpose_of_action composition description short_description internal_organisation).each do |field|
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='assembly-#{field}-tabs']", "full"
     end
 
@@ -71,7 +71,6 @@ describe "Admin manages assemblies" do
         fill_in_i18n_editor(:assembly_purpose_of_action, "#assembly-purpose_of_action-tabs", **attributes[:purpose_of_action].except("machine_translations"))
         fill_in_i18n_editor(:assembly_composition, "#assembly-composition-tabs", **attributes[:composition].except("machine_translations"))
         fill_in_i18n_editor(:assembly_internal_organisation, "#assembly-internal_organisation-tabs", **attributes[:internal_organisation].except("machine_translations"))
-        fill_in_i18n_editor(:assembly_announcement, "#assembly-announcement-tabs", **attributes[:announcement].except("machine_translations"))
         fill_in_i18n_editor(:assembly_closing_date_reason, "#assembly-closing_date_reason-tabs", **attributes[:closing_date_reason].except("machine_translations"))
 
         fill_in_i18n(:assembly_participatory_scope, "#assembly-participatory_scope-tabs", **attributes[:participatory_scope].except("machine_translations"))
@@ -140,7 +139,7 @@ describe "Admin manages assemblies" do
 
   context "when managing parent assemblies" do
     let(:parent_assembly) { nil }
-    let!(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
+    let!(:assembly) { create(:assembly, :with_content_blocks, organization:) }
 
     before do
       switch_to_host(organization.host)
@@ -161,7 +160,7 @@ describe "Admin manages assemblies" do
 
   context "when navigating child assemblies" do
     let!(:parent_assembly) { create(:assembly, organization:) }
-    let!(:child_assembly) { create(:assembly, :with_content_blocks, organization:, parent: parent_assembly, blocks_manifests: [:announcement]) }
+    let!(:child_assembly) { create(:assembly, :with_content_blocks, organization:, parent: parent_assembly) }
     let(:assembly) { child_assembly }
 
     before do
