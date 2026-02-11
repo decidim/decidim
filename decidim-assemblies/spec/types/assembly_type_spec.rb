@@ -335,7 +335,6 @@ module Decidim
           expect(response["githubHandler"]).to eq(model.github_handler)
         end
       end
-
     end
   end
 end

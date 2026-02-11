@@ -66,7 +66,7 @@ shared_examples "manage processes announcements" do
 
   it "remove announcement element if announcement body is empty" do
     visit decidim_admin_participatory_processes.edit_participatory_process_landing_page_content_block_path(participatory_process, content_block)
-    clear_announcement_editor(%i[en es ca])
+    clear_announcement_editor([:en, :es, :ca])
 
     click_on "Update"
 
