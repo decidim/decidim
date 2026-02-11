@@ -664,7 +664,6 @@ pt:
           title: Novo tópico
         update:
           error: Ocorreu um problema ao atualizar este tópico.
-          success: Tópico atualizado com sucesso
       static_pages:
         create:
           error: Ocorreu um problema ao criar uma nova página.
