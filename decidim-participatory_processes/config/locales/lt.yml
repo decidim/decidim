@@ -196,7 +196,6 @@ lt:
           error: Pertvarkant šiuos dalyvaujamojo proceso etapus iškilo problema.
         update:
           error: Atnaujinant šio dalyvaujamojo proceso etapą iškilo problema.
-          success: Dalyvaujamasis etapas atnaujintas.
       participatory_process_user_roles:
         create:
           error: Pridedant dalyvį prie dalyvaujamojo proceso iškilo problema.
