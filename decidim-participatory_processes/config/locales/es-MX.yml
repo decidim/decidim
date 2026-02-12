@@ -489,6 +489,8 @@ es-MX:
             all: Todos
             max_results: Cantidad máxima de elementos para mostrar
             selection_criteria: Criterios de selección
+        imports:
+          hero_image_error: No se ha podido importar la imagen destacada o principal debido a un error. Error %{error}
         new_import:
           accepted_types:
             json: JSON
