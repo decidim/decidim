@@ -277,6 +277,9 @@ es:
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidad máxima de elementos para mostrar
+        imports:
+          banner_image_error: No se ha podido importar la imagen del banner debido a un error. Error %{error}
+          hero_image_error: No se ha podido importar la imagen destacada o principal debido a un error. Error %{error}
         new_import:
           accepted_types:
             json: JSON
