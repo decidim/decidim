@@ -181,11 +181,11 @@ module Decidim
         http_connection.start do |http|
           response = http.head(url.request_uri)
           content_type = response["Content-Type"]
-          return if response.is_a?(Net::HTTPSuccess) && content_type&.start_with?(*accepted)
+          next if response.is_a?(Net::HTTPSuccess) && content_type&.start_with?(*accepted)
 
           message = response.message.presence || Rack::Utils::HTTP_STATUS_CODES[response.code.to_i]
           message = message.presence || "Error"
-          return "#{response.code} #{message}"
+          next "#{response.code} #{message}"
         end
       rescue StandardError => e
         format_error(e)
