@@ -714,6 +714,8 @@ sv:
         hidden_participants_count:
           one: och %{count} till person
           other: och %{count} till personer
+        show_less: Visa mindre
+        show_more: Visa mer
       read_more: "(läs mer)"
       registration_mailer:
         confirmation:
