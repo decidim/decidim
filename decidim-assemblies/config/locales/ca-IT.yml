@@ -277,6 +277,9 @@ ca-IT:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
+        imports:
+          banner_image_error: La imatge del bàner no s'ha pogut importar a causa d'un error. Error %{error}
+          hero_image_error: La imatge principal o destacada no s'ha pogut importar a causa d'un error. Error %{error}
         new_import:
           accepted_types:
             json: JSON
