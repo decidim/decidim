@@ -48,7 +48,7 @@ module Decidim
           end
         end
 
-        def documents
+        def documents # rubocop:disable Metrics/CyclomaticComplexity
           result = super
 
           if (result.blank? || result.is_a?(String)) && add_documents.present?
