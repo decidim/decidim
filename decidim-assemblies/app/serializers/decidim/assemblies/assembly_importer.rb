@@ -86,7 +86,7 @@ module Decidim
 
           begin
             file_tmp = URI.parse(url).open
-          rescue OpenURI::HTTPError, Errno::ENOENT, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+          rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
             @warnings << I18n.t(
               "decidim.assemblies.admin.imports.attachment_error",
               title: attachment_title(file),
