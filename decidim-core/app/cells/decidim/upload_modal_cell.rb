@@ -128,7 +128,16 @@ module Decidim
       @attachments = begin
         attachments = options[:attachments] || form.object.send(attribute)
         attachments = Array(attachments).compact_blank
-        attachments.map { |attachment| attachment.is_a?(String) ? ActiveStorage::Blob.find_signed(attachment) : attachment }
+        attachments.map do |attachment|
+          case attachment
+          when String
+            ActiveStorage::Blob.find_signed(attachment)
+          when Integer
+            Decidim::Attachment.find_by(id: attachment)
+          else
+            attachment
+          end
+        end.compact
       end
     end
 

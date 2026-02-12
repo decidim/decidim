@@ -27,7 +27,46 @@ module Decidim
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
-          self.documents = model.attachments
+          # Set documents as IDs for the form
+          self.documents = model.attachments.ids
+          # Also ensure add_documents starts with existing attachments
+          self.add_documents = model.attachments.map { |att| { id: att.id, title: att.title } }
+        end
+
+        # Override setter to handle String, Integer, and Array values from form params
+        def documents=(value)
+          case value
+          when String
+            # Parse string as JSON or comma-separated
+            parsed = begin
+              result = JSON.parse(value)
+              Array(result).map(&:to_i)
+            rescue JSON::ParserError
+              value.split(",").map { |v| v.strip.to_i }
+            end
+            super(parsed)
+          when Integer
+            # Single integer, wrap in array
+            super([value])
+          else
+            # Array or nil, pass through
+            super
+          end
+        end
+
+        def documents
+          result = super
+
+          # If we have add_documents but documents is blank/String, build from add_documents
+          if (result.blank? || result.is_a?(String)) && add_documents.present?
+            existing_ids = add_documents
+                           .select { |doc| doc.is_a?(Hash) && (doc[:id].present? || doc["id"].present?) }
+                           .map { |doc| (doc[:id] || doc["id"]).to_i }
+            return existing_ids
+          end
+
+          # Otherwise return the result, converting non-Arrays to empty array
+          result.is_a?(Array) ? result : []
         end
 
         def notify_missing_attachment_if_errored
