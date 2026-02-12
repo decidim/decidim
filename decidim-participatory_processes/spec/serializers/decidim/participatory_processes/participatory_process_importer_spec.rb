@@ -199,7 +199,7 @@ module Decidim::ParticipatoryProcesses
 
         it "collects a warning about the missing hero image" do
           subject
-          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported due to an error/i))
+          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported \(404 Not Found\)\./i))
         end
       end
 
@@ -244,7 +244,7 @@ module Decidim::ParticipatoryProcesses
 
         it "collects a warning about the hero image import failure" do
           subject
-          expect(importer.warnings).to include(a_string_matching(/hero image.*not.*imported/i))
+          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported \(500 Internal Server Error\)\./i))
         end
       end
 
@@ -306,7 +306,7 @@ module Decidim::ParticipatoryProcesses
 
         it "collects a warning about the missing group hero image" do
           subject
-          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported due to an error/i))
+          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported \(404 Not Found\)\./i))
         end
       end
     end
@@ -352,9 +352,7 @@ module Decidim::ParticipatoryProcesses
 
           it "collects a warning about the attachment import failure" do
             importer.import_folders_and_attachments(attachments_data)
-            expect(importer.warnings).to include(a_string_matching(/attachment could not be imported/i))
-            expect(importer.warnings).to include(a_string_matching(/error/i))
-            expect(importer.warnings).to include(a_string_matching(/Test File/i))
+            expect(importer.warnings).to include(a_string_matching(/The attachment "Test File" could not be imported \(404 Not Found\)\./i))
           end
         end
 
@@ -375,9 +373,7 @@ module Decidim::ParticipatoryProcesses
 
           it "collects a warning about the attachment import failure" do
             importer.import_folders_and_attachments(attachments_data)
-            expect(importer.warnings).to include(a_string_matching(/attachment could not be imported/i))
-            expect(importer.warnings).to include(a_string_matching(/error/i))
-            expect(importer.warnings).to include(a_string_matching(/Test File/i))
+            expect(importer.warnings).to include(a_string_matching(/The attachment "Test File" could not be imported \(500 Internal Server Error\)\./i))
           end
         end
 
@@ -390,9 +386,7 @@ module Decidim::ParticipatoryProcesses
 
           it "collects a warning about the attachment import failure" do
             importer.import_folders_and_attachments(attachments_data)
-            expect(importer.warnings).to include(a_string_matching(/attachment could not be imported/i))
-            expect(importer.warnings).to include(a_string_matching(/error/i))
-            expect(importer.warnings).to include(a_string_matching(/Test File/i))
+            expect(importer.warnings).to include(a_string_matching(/The attachment "Test File" could not be imported \(500 Internal Server Error\)\./i))
           end
         end
       end

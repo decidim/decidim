@@ -75,11 +75,12 @@ module Decidim
           url = file["remote_file_url"]
           next if url.blank?
 
-          unless remote_file_exists?(url)
+          error = remote_file_error(url)
+          if error.present?
             @warnings << I18n.t(
               "decidim.assemblies.admin.imports.attachment_error",
               title: attachment_title(file),
-              error: "Not found"
+              error:
             )
             next
           end
@@ -90,7 +91,7 @@ module Decidim
             @warnings << I18n.t(
               "decidim.assemblies.admin.imports.attachment_error",
               title: attachment_title(file),
-              error: e.message
+              error: format_error(e)
             )
             next
           end
@@ -143,7 +144,7 @@ module Decidim
         attachment_collection
       end
 
-      def remote_file_exists?(url)
+      def remote_file_error(url)
         return if url.nil?
 
         accepted = ["image", "application/pdf"]
@@ -151,10 +152,16 @@ module Decidim
         http_connection = Net::HTTP.new(url.host, url.port)
         http_connection.use_ssl = true if url.scheme == "https"
         http_connection.start do |http|
-          return http.head(url.request_uri)["Content-Type"].start_with?(*accepted)
+          response = http.head(url.request_uri)
+          content_type = response["Content-Type"]
+          return if response.is_a?(Net::HTTPSuccess) && content_type&.start_with?(*accepted)
+
+          message = response.message.presence || Rack::Utils::HTTP_STATUS_CODES[response.code.to_i]
+          message = message.presence || "Error"
+          return "#{response.code} #{message}"
         end
-      rescue StandardError
-        nil
+      rescue StandardError => e
+        format_error(e)
       end
 
       def attachment_title(file)
@@ -171,7 +178,7 @@ module Decidim
 
         @imported_assembly.attached_uploader(:hero_image).remote_url = url
       rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-        @warnings << I18n.t("decidim.assemblies.admin.imports.hero_image_error", error: e.message)
+        @warnings << I18n.t("decidim.assemblies.admin.imports.hero_image_error", error: format_error(e))
       end
 
       def import_banner_image(url)
@@ -179,7 +186,19 @@ module Decidim
 
         @imported_assembly.attached_uploader(:banner_image).remote_url = url
       rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-        @warnings << I18n.t("decidim.assemblies.admin.imports.banner_image_error", error: e.message)
+        @warnings << I18n.t("decidim.assemblies.admin.imports.banner_image_error", error: format_error(e))
+      end
+
+      def format_error(error)
+        return error.message unless error.respond_to?(:io) && error.io.respond_to?(:status)
+
+        status = error.io.status
+        return error.message if status.blank? || status.first.blank?
+
+        code = status[0]
+        message = status[1].presence || Rack::Utils::HTTP_STATUS_CODES[code.to_i]
+        message = message.presence || error.message
+        "#{code} #{message}"
       end
     end
   end

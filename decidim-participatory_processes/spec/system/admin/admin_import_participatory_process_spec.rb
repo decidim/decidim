@@ -144,7 +144,7 @@ describe "Admin imports participatory process" do
       expect(page).to have_content("Import process with 404 hero")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported due to an error/i)
+        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -197,7 +197,7 @@ describe "Admin imports participatory process" do
       expect(page).to have_content("Import process with 404 group hero")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported due to an error/i)
+        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -256,9 +256,7 @@ describe "Admin imports participatory process" do
       expect(page).to have_content("Import process with 404 attachments")
 
       within ".flash.warning" do
-        expect(page).to have_content(/attachment could not be imported/i)
-        expect(page).to have_content(/error/i)
-        expect(page).to have_content(/Possimus quia/i)
+        expect(page).to have_content(/The attachment ".+" could not be imported \(404 Not Found\)\./i)
       end
     end
   end

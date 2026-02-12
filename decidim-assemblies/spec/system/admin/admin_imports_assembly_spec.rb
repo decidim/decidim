@@ -142,7 +142,7 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Import assembly with 404 hero")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported due to an error/i)
+        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -195,7 +195,7 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Import assembly with 404 banner")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The banner image could not be imported due to an error/i)
+        expect(page).to have_content(/The banner image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -249,8 +249,8 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Import assembly with 404 images")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported due to an error/i)
-        expect(page).to have_content(/The banner image could not be imported due to an error/i)
+        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
+        expect(page).to have_content(/The banner image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -306,8 +306,8 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Import assembly with long 404 images")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported due to an error/i)
-        expect(page).to have_content(/The banner image could not be imported due to an error/i)
+        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
+        expect(page).to have_content(/The banner image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -366,9 +366,7 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Import assembly with 404 attachments")
 
       within ".flash.warning" do
-        expect(page).to have_content(/attachment could not be imported/i)
-        expect(page).to have_content(/error/i)
-        expect(page).to have_content(/Eligendi praesentium/i)
+        expect(page).to have_content(/The attachment ".+" could not be imported \(404 Not Found\)\./i)
       end
     end
   end
