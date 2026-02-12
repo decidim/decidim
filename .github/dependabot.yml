@@ -46,7 +46,9 @@ updates:
 
   # GitHub Actions
   - package-ecosystem: "github-actions"
-    directory: "/"
+    directories:
+      - "/"
+      - "/decidim-generators/lib/decidim/generators/component_templates/github"
     schedule:
       interval: "weekly"
       day: "tuesday"
@@ -54,9 +56,14 @@ updates:
       timezone: "Europe/Madrid"
     labels:
       - "dependencies"
+      - "type: internal"
       - "configuration"
     commit-message:
       prefix: "Bump to dependencies"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
 
   # NPM packages
   - package-ecosystem: "npm"
@@ -69,6 +76,7 @@ updates:
     labels:
       - "dependencies"
       - "type: internal"
+      - "module: core"
       - "javascript"
     commit-message:
       prefix: "Bump to dependencies"
@@ -85,7 +93,7 @@ updates:
       - "dependencies"
       - "type: internal"
       - "javascript"
-      - "decidim-core"
+      - "module: core"
       - "configuration"
     commit-message:
       prefix: "Bump to dependencies"
@@ -151,6 +159,7 @@ updates:
       - "dependencies"
       - "type: internal"
       - "javascript"
+      - "module: dev"
     commit-message:
       prefix: "Bump to dependencies"
 
@@ -184,5 +193,6 @@ updates:
       - "type: internal"
       - "javascript"
       - "configuration"
+      - "module: dev"
     commit-message:
       prefix: "Bump to dependencies"
