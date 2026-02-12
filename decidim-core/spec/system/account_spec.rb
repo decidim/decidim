@@ -78,7 +78,7 @@ describe "Account" do
           all("*[type=submit]").last.click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("successfully")
 
         user.reload
 
@@ -182,7 +182,7 @@ describe "Account" do
           fill_in "Current password", with: password
           find("*[type=submit]").click
         end
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("successfully")
         expect(user.reload.encrypted_password).not_to eq(encrypted_password)
         expect(page).to have_no_field("user[password]", with: "", type: "password")
         expect(page).to have_no_field("user[old_password]", with: "", type: "password")
@@ -232,7 +232,7 @@ describe "Account" do
             perform_enqueued_jobs { find("*[type=submit]").click }
           end
 
-          expect(page).to have_admin_callout("You will receive an email to confirm your new email address")
+          expect(page).to have_callout("You will receive an email to confirm your new email address")
         end
 
         after do
@@ -284,7 +284,7 @@ describe "Account" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("successfully")
       end
 
       context "when the user is an admin" do
@@ -304,7 +304,7 @@ describe "Account" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_callout("successfully")
         end
       end
     end
@@ -326,7 +326,7 @@ describe "Account" do
 
         click_on "Yes, I want to delete my account"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("successfully")
 
         click_on("Log in", match: :first)
 
@@ -387,7 +387,7 @@ describe "Account" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_callout("successfully")
 
           find_by_id("allow_push_notifications", visible: false).execute_script("this.checked = true")
         end

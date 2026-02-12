@@ -90,7 +90,7 @@ describe "Admin manages demographic questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("Survey questions successfully saved.")
+      expect(page).to have_callout("Survey questions successfully saved.")
 
       visit_manage_questions_and_expand_all
 
@@ -143,7 +143,7 @@ describe "Admin manages demographic questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("Survey questions successfully saved.")
+      expect(page).to have_callout("Survey questions successfully saved.")
 
       visit_manage_questions_and_expand_all
 
@@ -461,7 +461,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("Survey questions successfully saved.")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -487,7 +487,7 @@ describe "Admin manages demographic questions" do
         click_on "Save"
         expand_all_questions
 
-        expect(page).to have_admin_callout("There was a problem saving")
+        expect(page).to have_callout("There was a problem saving")
         expect(page).to have_content("cannot be blank", count: 5)
         expect(page).to have_content("must be greater than or equal to 0", count: 1)
 
@@ -523,7 +523,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("Survey questions successfully saved.")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         click_on "Questions"
 
@@ -558,7 +558,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("Survey questions successfully saved.")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -577,7 +577,7 @@ describe "Admin manages demographic questions" do
 
         expand_all_questions
 
-        expect(page).to have_admin_callout("There was a problem saving")
+        expect(page).to have_callout("There was a problem saving")
         expect(page).to have_content("cannot be blank", count: 1)
         expect(page).to have_css("input[value='']")
         expect(page).to have_no_css("input[value='This is the first title and description']")
@@ -607,7 +607,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("Survey questions successfully saved.")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         click_on "Questions"
 
@@ -677,7 +677,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("Survey questions successfully saved.")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -740,7 +740,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("Survey questions successfully saved.")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -1033,7 +1033,7 @@ describe "Admin manages demographic questions" do
           sleep 0.5
 
           click_on "Save"
-          expect(page).to have_admin_callout("Survey questions successfully saved.")
+          expect(page).to have_callout("Survey questions successfully saved.")
 
           visit_manage_questions_and_expand_all
 

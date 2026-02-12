@@ -153,7 +153,7 @@ shared_examples "proposals wizards" do |options|
 
           accept_confirm
 
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_callout("successfully")
           within "#wizard-steps" do
             expect(page).to have_css("[data-active]", text: "Create your proposal")
             expect(page).to have_css("[data-past]", count: 0)

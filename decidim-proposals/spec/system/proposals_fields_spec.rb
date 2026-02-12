@@ -62,7 +62,7 @@ describe "Proposals" do
 
           click_on "Publish"
 
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_callout("successfully")
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
@@ -85,7 +85,7 @@ describe "Proposals" do
 
             click_on "Publish"
 
-            expect(page).to have_admin_callout("successfully")
+            expect(page).to have_callout("successfully")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
@@ -129,7 +129,7 @@ describe "Proposals" do
 
             click_on "Publish"
 
-            expect(page).to have_admin_callout("successfully")
+            expect(page).to have_callout("successfully")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
@@ -231,7 +231,7 @@ describe "Proposals" do
 
             click_on "Publish"
 
-            expect(page).to have_admin_callout("successfully")
+            expect(page).to have_callout("successfully")
             expect(page).to have_content("Images")
 
             within "#panel-images" do

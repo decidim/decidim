@@ -83,7 +83,7 @@ describe "Private Space Respond a survey" do
 
           accept_confirm { click_on "Submit" }
 
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_callout("successfully")
           expect(page).to have_content("You have already responded this form.")
           expect(page).to have_no_i18n_content(question.body)
         end
@@ -145,7 +145,7 @@ describe "Private Space Respond a survey" do
 
           accept_confirm { click_on "Submit" }
 
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_callout("successfully")
           expect(page).to have_content("You have already responded this form.")
           expect(page).to have_no_i18n_content(question.body)
         end

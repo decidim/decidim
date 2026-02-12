@@ -20,7 +20,7 @@ shared_examples "manage participatory space publications" do
     end
 
     it "publishes it" do
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("successfully")
 
       visit public_collection_path
 
@@ -50,7 +50,7 @@ shared_examples "manage participatory space publications" do
         click_on "Unpublish"
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("successfully")
 
       visit public_collection_path
 

@@ -66,7 +66,7 @@ describe "Admin manages elections" do
 
     click_on "Save and continue"
 
-    expect(page).to have_admin_callout "Election created successfully"
+    expect(page).to have_callout "Election created successfully"
     expect(page).to have_content("Question must have at least two answers in order go to the next step.")
 
     visit decidim_admin.root_path
@@ -94,7 +94,7 @@ describe "Admin manages elections" do
 
       click_on "Save and continue"
 
-      expect(page).to have_admin_callout "Election updated successfully"
+      expect(page).to have_callout "Election updated successfully"
       expect(page).to have_content("Question must have at least two answers in order go to the next step.")
     end
   end
@@ -122,7 +122,7 @@ describe "Admin manages elections" do
       dynamically_attach_file(:election_photos, Decidim::Dev.asset("city2.jpeg"))
 
       click_on "Save and continue"
-      expect(page).to have_admin_callout "Election updated successfully"
+      expect(page).to have_callout "Election updated successfully"
     end
 
     it "questions and census cannot be edited" do

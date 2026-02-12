@@ -29,7 +29,7 @@ shared_examples "duplicate conferences" do
         click_on "Duplicate"
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("successfully")
       expect(page).to have_content("Duplicate conference")
       expect(page).to have_content("Unpublished")
     end
@@ -58,7 +58,7 @@ shared_examples "duplicate conferences" do
       page.check("conference[duplicate_components]")
       click_on "Duplicate"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("successfully")
 
       within "tr", text: translated(conference.title) do
         find("button[data-controller='dropdown']").click

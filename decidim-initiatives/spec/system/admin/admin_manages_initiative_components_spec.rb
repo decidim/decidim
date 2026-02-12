@@ -55,7 +55,7 @@ describe "Admin manages initiative components" do
     end
 
     it "is successfully created" do
-      expect(page).to have_admin_callout("Component created successfully.")
+      expect(page).to have_callout("Component created successfully.")
       expect(page).to have_content(translated(attributes[:name]))
     end
 
@@ -85,7 +85,7 @@ describe "Admin manages initiative components" do
       it "successfully edits it" do
         click_on "Update"
 
-        expect(page).to have_admin_callout("The component was updated successfully.")
+        expect(page).to have_callout("The component was updated successfully.")
       end
     end
   end
@@ -131,7 +131,7 @@ describe "Admin manages initiative components" do
         click_on "Update"
       end
 
-      expect(page).to have_admin_callout("The component was updated successfully.")
+      expect(page).to have_callout("The component was updated successfully.")
       expect(page).to have_content(translated(attributes[:name]))
 
       within "tr", text: translated(attributes[:name]) do

@@ -70,7 +70,7 @@ describe "Admin copies meetings" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Meeting successfully duplicated.")
+      expect(page).to have_callout("Meeting successfully duplicated.")
 
       within "table" do
         expect(page).to have_content("My duplicate meeting")
@@ -132,7 +132,7 @@ describe "Admin copies meetings" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Meeting successfully duplicated.")
+      expect(page).to have_callout("Meeting successfully duplicated.")
 
       within "table" do
         expect(page).to have_content("My duplicate meeting")
@@ -193,7 +193,7 @@ describe "Admin copies meetings" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Meeting successfully duplicated.")
+      expect(page).to have_callout("Meeting successfully duplicated.")
 
       within "table" do
         expect(page).to have_content("My duplicate meeting")
