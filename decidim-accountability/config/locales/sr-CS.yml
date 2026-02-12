@@ -10,7 +10,8 @@ sr:
         end_date: Datum završetka
         progress: Naprеdak
         start_date: Datum početka
-        title: Naslov
+        subresults: Podrezultati
+        title: Naziv
         updated_at: Ažurirano u
       status:
         description: Opis
@@ -19,7 +20,8 @@ sr:
         progress: Napredak
       timeline_entry:
         description: Opis
-        title: Naslov
+        entry_date: Datum
+        title: Naziv
     models:
       decidim/accountability/proposal_linked_event: Predlog uključen u rezultat
       decidim/accountability/result_progress_updated_event: Rezultati napretka ažurirani
@@ -28,7 +30,11 @@ sr:
       decidim:
         accountability:
           result:
+            budget_text: Ovaj rezultat %{link} je uvršten
+            meetings_ids: 'Razmatrano je na ovom sastanku: %{link}'
             project_ids: 'Uvršteno je u ovaj projekat: %{link}'
+            proposal_ids: 'Uvršteno je u ovaj predlog: %{link}'
+            text: 'Dodato je ovom rezultatu: %{link}'
       decidim/accountability/result:
         one: Rezultat
         few: Rezultati
@@ -77,13 +83,13 @@ sr:
             title: Novi status
         timeline_entries:
           edit:
-            title: Uredi unos
+            title: Izmeni unos
             update: Ažuriraj unos
           index:
             title: Unosi vremenske linije projekta
           new:
             create: Stvori unos
-            title: Nov unos
+            title: Novi unos
       admin_log:
         result:
           create: "%{user_name} je stvorio rezultat %{resource_name} u %{space_name}"
@@ -99,7 +105,7 @@ sr:
             progress: Napredak
             start_date: Datum početka
             status: Stanje
-            title: Naslov
+            title: Naziv
         status:
           fields:
             description: Opis
@@ -108,7 +114,8 @@ sr:
             progress: Napredak
         timeline_entry:
           fields:
-            title: Naslov
+            entry_date: Datum
+            title: Naziv
       results:
         count:
           results_count:
