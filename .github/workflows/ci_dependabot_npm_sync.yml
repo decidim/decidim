@@ -1,4 +1,4 @@
-name: Sync package.lock files
+name: Sync package-lock.json files
 
 permissions:
   contents: write
