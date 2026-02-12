@@ -489,6 +489,8 @@ ca-IT:
             all: Tots
             max_results: Quantitat màxima d'elements que es mostraran
             selection_criteria: Criteris de selecció
+        imports:
+          hero_image_error: La imatge principal o destacada no s'ha pogut importar a causa d'un error. Error %{error}
         new_import:
           accepted_types:
             json: JSON
