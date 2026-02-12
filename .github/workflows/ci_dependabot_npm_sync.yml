@@ -38,7 +38,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ./package-lock.json
 
-      - name: Update update package.lock files
+      - name: Update package-lock.json files
         run: npm install
 
       - name: Commit changes
