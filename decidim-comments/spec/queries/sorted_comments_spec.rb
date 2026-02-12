@@ -25,7 +25,7 @@ module Decidim::Comments
       expect(subject.query.to_a).to eq [comment]
     end
 
-    it "eager loads comment's author, up_votes and down_votes" do
+    it "eager loads comment's author" do
       comment = subject.query[0]
       begin
         subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") do |_, _, _, _, data|
@@ -33,8 +33,6 @@ module Decidim::Comments
         end
 
         expect(comment.author.name).to be_present
-        expect(comment.up_votes.size).to eq(0)
-        expect(comment.down_votes.size).to eq(0)
       rescue RSpec::Expectations::ExpectationNotMetError => e
         ActiveSupport::Notifications.unsubscribe(subscriber)
         raise e

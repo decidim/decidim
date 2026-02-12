@@ -38,7 +38,7 @@ module Decidim
       # level of nested replies.
       def query
         scope = base_scope
-                .includes(:author, :up_votes, :down_votes)
+                .includes(:author)
 
         sorted_scope = case @options[:order_by]
                        when "recent"
@@ -85,12 +85,7 @@ module Decidim
       def apply_limit(scope)
         return scope unless limited?
 
-        # Handle both ActiveRecord relations and arrays (from best_rated/most_discussed)
-        if scope.is_a?(Array)
-          scope.slice(offset, limit) || []
-        else
-          scope.limit(limit).offset(offset)
-        end
+        scope.limit(limit).offset(offset)
       end
 
       def base_scope
@@ -111,23 +106,32 @@ module Decidim
       end
 
       def order_by_best_rated(scope)
-        scope.sort_by do |comment|
-          comment.up_votes.size - comment.down_votes.size
-        end.reverse
+        scope.order(Arel.sql("up_votes_count - down_votes_count DESC, created_at DESC"))
       end
 
       def order_by_most_discussed(scope)
-        scope.sort_by do |comment|
-          count_replies(comment)
-        end.reverse
-      end
+        scope
+          .select("decidim_comments_comments.*, COALESCE(descendants.total, 0) as descendants_count")
+          .joins(<<-SQL.squish)
+            LEFT JOIN LATERAL (
+              WITH RECURSIVE comment_tree AS (
+                SELECT id, decidim_commentable_id
+                FROM decidim_comments_comments AS replies
+                WHERE replies.decidim_commentable_id = decidim_comments_comments.id
+                  AND replies.decidim_commentable_type = 'Decidim::Comments::Comment'
 
-      def count_replies(comment)
-        if comment.comment_threads.size.positive?
-          comment.comment_threads.size + comment.comment_threads.sum { |reply| count_replies(reply) }
-        else
-          0
-        end
+                UNION ALL
+
+                SELECT r.id, r.decidim_commentable_id
+                FROM decidim_comments_comments AS r
+                INNER JOIN comment_tree ct ON r.decidim_commentable_id = ct.id
+                  AND r.decidim_commentable_type = 'Decidim::Comments::Comment'
+              )
+              SELECT COUNT(*) as total
+              FROM comment_tree
+            ) descendants ON true
+          SQL
+          .order(Arel.sql("descendants_count DESC, decidim_comments_comments.created_at DESC"))
       end
     end
   end
