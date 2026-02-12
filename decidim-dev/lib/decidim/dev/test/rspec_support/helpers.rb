@@ -53,7 +53,7 @@ module Decidim
       expect(page).to have_css(".main-bar #trigger-dropdown-account")
     end
 
-    def have_admin_callout(text)
+    def have_callout(text)
       within_flash_messages do
         have_content text
       end

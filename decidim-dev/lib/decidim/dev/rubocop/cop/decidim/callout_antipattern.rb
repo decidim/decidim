@@ -5,7 +5,7 @@ require "rubocop"
 module RuboCop
   module Cop
     module Decidim
-      class AdminCalloutAntipattern < RuboCop::Cop::Base
+      class CalloutAntipattern < RuboCop::Cop::Base
         MIN_LENGTH_THRESHOLD = 12
         SINGLE_WORD_ANTI_PATTERNS = %w(
           successfully
@@ -26,11 +26,11 @@ module RuboCop
           unpublished
         ).freeze
 
-        MSG = "Anti-pattern detected: avoid generic single-word or very short text in have_admin_callout. " \
+        MSG = "Anti-pattern detected: avoid generic single-word or very short text in have_callout. " \
               "Use the full admin flash message, e.g. 'Meeting successfully published'."
 
         def on_send(node)
-          return unless node.method_name == :have_admin_callout
+          return unless node.method_name == :have_callout
 
           first_argument = node.first_argument
           return unless first_argument
