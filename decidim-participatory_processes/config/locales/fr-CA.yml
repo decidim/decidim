@@ -397,6 +397,8 @@ fr-CA:
             all: Tout
             max_results: Quantité maximale d'éléments à afficher
             selection_criteria: Critères de sélection
+        imports:
+          hero_image_error: L'image principale n'a pas pu être importée en raison d'une erreur. Erreur %{error}
         new_import:
           accepted_types:
             json: JSON
