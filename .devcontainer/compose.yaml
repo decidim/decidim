@@ -9,6 +9,9 @@ services:
     - ../:/workspaces/decidim:cached
     ports:
       - "${DEVCONTAINER_APP_PORT:-3000}:3000"
+    env_file:
+      - path: ../.env
+        required: false
     command: sleep infinity
     depends_on:
       - redis
