@@ -14,10 +14,10 @@ shared_examples "manage processes announcements" do
   end
 
   def fill_announcement_editor(values)
-    if page.has_css?("#content_block_settings_announcement-tabs")
+    if page.has_css?("#content_block-settings--announcement-tabs")
       fill_in_i18n_editor(
         :content_block_settings_announcement,
-        "#content_block_settings_announcement-tabs",
+        "#content_block-settings--announcement-tabs",
         values
       )
     else
@@ -26,10 +26,10 @@ shared_examples "manage processes announcements" do
   end
 
   def clear_announcement_editor(locales)
-    if page.has_css?("#content_block_settings_announcement-tabs")
+    if page.has_css?("#content_block-settings--announcement-tabs")
       clear_i18n_editor(
         :content_block_settings_announcement,
-        "#content_block_settings_announcement-tabs",
+        "#content_block-settings--announcement-tabs",
         locales
       )
     else

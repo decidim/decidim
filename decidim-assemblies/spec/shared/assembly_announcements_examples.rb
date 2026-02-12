@@ -14,10 +14,10 @@ shared_examples "manage assemblies announcements" do
   end
 
   def fill_announcement_editor(values)
-    if page.has_css?("#content_block_settings_announcement-tabs")
+    if page.has_css?("#content_block-settings--announcement-tabs")
       fill_in_i18n_editor(
         :content_block_settings_announcement,
-        "#content_block_settings_announcement-tabs",
+        "#content_block-settings--announcement-tabs",
         values
       )
     else
