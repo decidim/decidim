@@ -137,8 +137,6 @@ shared_context "when publishing and unpublishing the component" do
 
       expect(page).to have_admin_callout("The component has been successfully published")
 
-      pp enqueued_jobs
-      pp resource.reload.visible?
       perform_enqueued_jobs
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
@@ -155,8 +153,6 @@ shared_context "when publishing and unpublishing the component" do
     end
 
     it "removes records from index" do
-      pp enqueued_jobs
-      pp resource.reload.visible?
       perform_enqueued_jobs
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
