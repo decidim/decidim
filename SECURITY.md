@@ -14,7 +14,7 @@ include the latest design and features.
 |---------------|--------------------|
 | 0.31.x        | :white_check_mark: |
 | 0.30.x        | :white_check_mark: |
-|  \<= 0.29.x   | :x:                |
+| \<= 0.29.x    | :x:                |
 
 ## Reporting a Vulnerability
 
