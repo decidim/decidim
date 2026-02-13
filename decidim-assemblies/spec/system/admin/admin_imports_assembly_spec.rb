@@ -93,4 +93,222 @@ describe "Admin imports assembly" do
       end
     end
   end
+
+  context "when hero image URL returns 404" do
+    let(:json_data) { JSON.parse(File.read(Decidim::Dev.asset("assemblies.json"))) }
+    let(:json_file) do
+      Tempfile.new(["assemblies", ".json"]).tap do |file|
+        file.write(json_data.to_json)
+        file.rewind
+      end
+    end
+    let(:uploaded_file) do
+      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+    end
+
+    before do
+      json_data.first["remote_hero_image_url"] = "http://example.com/missing-hero.jpg"
+
+      stub_request(:get, "http://example.com/missing-hero.jpg")
+        .to_return(status: 404, body: "Not Found")
+      stub_request(:head, "http://example.com/missing-hero.jpg")
+        .to_return(status: 404, body: "Not Found")
+      stub_request(:get, "http://localhost:3000/uploads/decidim/assembly/banner_image/1/city2.jpeg")
+        .to_return(status: 200, body: File.read(Decidim::Dev.asset("city2.jpeg")))
+      stub_request(:head, "http://localhost:3000/uploads/decidim/assembly/banner_image/1/city2.jpeg")
+        .to_return(status: 200, headers: { "Content-Type" => "image/jpeg" })
+
+      within_admin_menu do
+        click_on "Import"
+      end
+
+      within ".import_assembly" do
+        fill_in_i18n(
+          :assembly_title,
+          "#assembly-title-tabs",
+          en: "Import assembly with 404 hero",
+          es: "Importación de la asamblea",
+          ca: "Importació de l'asamblea"
+        )
+        fill_in :assembly_slug, with: "as-import-404"
+      end
+
+      dynamically_attach_file(:assembly_document, uploaded_file.path)
+      click_on "Import"
+    end
+
+    it "imports successfully and shows a warning about the missing hero image" do
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Import assembly with 404 hero")
+
+      within ".flash.warning" do
+        expect(page).to have_content(/The hero image could not be imported due to an error/i)
+      end
+    end
+  end
+
+  context "when banner image URL returns 404" do
+    let(:json_data) { JSON.parse(File.read(Decidim::Dev.asset("assemblies.json"))) }
+    let(:json_file) do
+      Tempfile.new(["assemblies", ".json"]).tap do |file|
+        file.write(json_data.to_json)
+        file.rewind
+      end
+    end
+    let(:uploaded_file) do
+      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+    end
+
+    before do
+      json_data.first["remote_banner_image_url"] = "http://example.com/missing-banner.jpg"
+
+      stub_request(:get, "http://example.com/missing-banner.jpg")
+        .to_return(status: 404, body: "Not Found")
+      stub_request(:head, "http://example.com/missing-banner.jpg")
+        .to_return(status: 404, body: "Not Found")
+      stub_request(:get, "http://localhost:3000/uploads/decidim/assembly/hero_image/1/city.jpeg")
+        .to_return(status: 200, body: File.read(Decidim::Dev.asset("city.jpeg")))
+      stub_request(:head, "http://localhost:3000/uploads/decidim/assembly/hero_image/1/city.jpeg")
+        .to_return(status: 200, headers: { "Content-Type" => "image/jpeg" })
+
+      within_admin_menu do
+        click_on "Import"
+      end
+
+      within ".import_assembly" do
+        fill_in_i18n(
+          :assembly_title,
+          "#assembly-title-tabs",
+          en: "Import assembly with 404 banner",
+          es: "Importación de la asamblea",
+          ca: "Importació de l'asamblea"
+        )
+        fill_in :assembly_slug, with: "as-import-404-banner"
+      end
+
+      dynamically_attach_file(:assembly_document, uploaded_file.path)
+      click_on "Import"
+    end
+
+    it "imports successfully and shows a warning about the missing banner image" do
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Import assembly with 404 banner")
+
+      within ".flash.warning" do
+        expect(page).to have_content(/The banner image could not be imported due to an error/i)
+      end
+    end
+  end
+
+  context "when both hero and banner image URLs return 404" do
+    let(:json_data) { JSON.parse(File.read(Decidim::Dev.asset("assemblies.json"))) }
+    let(:json_file) do
+      Tempfile.new(["assemblies", ".json"]).tap do |file|
+        file.write(json_data.to_json)
+        file.rewind
+      end
+    end
+    let(:uploaded_file) do
+      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+    end
+
+    before do
+      json_data.first["remote_hero_image_url"] = "http://example.com/missing-hero.jpg"
+      json_data.first["remote_banner_image_url"] = "http://example.com/missing-banner.jpg"
+
+      stub_request(:get, "http://example.com/missing-hero.jpg")
+        .to_return(status: 404, body: "Not Found")
+      stub_request(:head, "http://example.com/missing-hero.jpg")
+        .to_return(status: 404, body: "Not Found")
+      stub_request(:get, "http://example.com/missing-banner.jpg")
+        .to_return(status: 404, body: "Not Found")
+      stub_request(:head, "http://example.com/missing-banner.jpg")
+        .to_return(status: 404, body: "Not Found")
+
+      within_admin_menu do
+        click_on "Import"
+      end
+
+      within ".import_assembly" do
+        fill_in_i18n(
+          :assembly_title,
+          "#assembly-title-tabs",
+          en: "Import assembly with 404 images",
+          es: "Importación de la asamblea",
+          ca: "Importació de l'asamblea"
+        )
+        fill_in :assembly_slug, with: "as-import-404-both"
+      end
+
+      dynamically_attach_file(:assembly_document, uploaded_file.path)
+      click_on "Import"
+    end
+
+    it "imports successfully and shows warnings for both missing images" do
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Import assembly with 404 images")
+
+      within ".flash.warning" do
+        expect(page).to have_content(/The hero image could not be imported due to an error/i)
+        expect(page).to have_content(/The banner image could not be imported due to an error/i)
+      end
+    end
+  end
+
+  context "when both image URLs are too long and return 404" do
+    let(:json_data) { JSON.parse(File.read(Decidim::Dev.asset("assemblies.json"))) }
+    let(:json_file) do
+      Tempfile.new(["assemblies", ".json"]).tap do |file|
+        file.write(json_data.to_json)
+        file.rewind
+      end
+    end
+    let(:uploaded_file) do
+      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+    end
+    let(:hero_image_url) { "http://example.com/#{"a" * 5000}.jpg" }
+    let(:banner_image_url) { "http://example.com/#{"b" * 5000}.jpg" }
+
+    before do
+      json_data.first["remote_hero_image_url"] = hero_image_url
+      json_data.first["remote_banner_image_url"] = banner_image_url
+
+      stub_request(:get, hero_image_url)
+        .to_return(status: 404, body: "Not Found")
+      stub_request(:head, hero_image_url)
+        .to_return(status: 404, body: "Not Found")
+      stub_request(:get, banner_image_url)
+        .to_return(status: 404, body: "Not Found")
+      stub_request(:head, banner_image_url)
+        .to_return(status: 404, body: "Not Found")
+
+      within_admin_menu do
+        click_on "Import"
+      end
+
+      within ".import_assembly" do
+        fill_in_i18n(
+          :assembly_title,
+          "#assembly-title-tabs",
+          en: "Import assembly with long 404 images",
+          es: "Importación de la asamblea",
+          ca: "Importació de l'asamblea"
+        )
+        fill_in :assembly_slug, with: "as-import-404-long"
+      end
+
+      dynamically_attach_file(:assembly_document, uploaded_file.path)
+      click_on "Import"
+    end
+
+    it "imports successfully and shows warnings for both missing images" do
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Import assembly with long 404 images")
+
+      within ".flash.warning" do
+        expect(page).to have_content(/The hero image could not be imported due to an error/i)
+        expect(page).to have_content(/The banner image could not be imported due to an error/i)
+      end
+    end
+  end
 end

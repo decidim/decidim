@@ -40,6 +40,13 @@ describe "Organizations" do
         expect(find(:xpath, "//input[@name='organization[users_registration_mode]']", match: :first)).to be_checked
       end
 
+      it "shows the available locales" do
+        Decidim.available_locales.each do |locale|
+          expect(page).to have_xpath("//input[@id='organization_available_locales_#{locale}']")
+          expect(page).to have_content("#{I18n.with_locale(locale) { I18n.t("name", scope: "locale") }} (#{locale})")
+        end
+      end
+
       it "creates a new organization" do
         fill_in "Name", with: "Citizen Corp"
         fill_in "Short name", with: "CitizenCorp"

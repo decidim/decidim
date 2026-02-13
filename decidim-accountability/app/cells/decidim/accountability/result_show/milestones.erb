@@ -12,7 +12,7 @@
           <%= l milestone.entry_date, format: :decidim_short %>
         </div>
         <% if translated_attribute(milestone.description).present? %>
-          <div>
+          <div class="editor-content">
             <%= decidim_sanitize_translated(milestone.description) %>
           </div>
         <% end %>
