@@ -43,7 +43,7 @@ RSpec.describe RuboCop::Cop::Decidim::CalloutAntipattern, :config do
 
   it "registers an offense with exactly 13 characters" do
     expect_offense(<<~RUBY)
-      expect(page).to have_callout("Hello my worl")
+      expect(page).to have_callout("Hello my babe")
                                    ^^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout. Use the full admin flash message, e.g. 'Meeting successfully published'.
     RUBY
   end
