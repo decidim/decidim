@@ -214,7 +214,7 @@ module Decidim
           end
         end
 
-        context "with_more_authors availability" do
+        context "with or without coauthors and with_more_authors availability" do
           let!(:proposal_with_single_author) { create(:proposal, component:) }
           let!(:proposal_with_coauthors) { create(:proposal, component:) }
           let!(:coauthorships) { create_list(:coauthorship, 2, coauthorable: proposal_with_coauthors) }

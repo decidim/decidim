@@ -166,7 +166,7 @@ module Decidim
       end
 
       def self.with_more_authors_available?(component)
-        where(component: component)
+        where(component:)
           .published
           .not_hidden
           .where("coauthorships_count > 1")
