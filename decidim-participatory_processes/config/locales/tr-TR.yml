@@ -83,8 +83,6 @@ tr:
         unpublish: Yayından Kaldır
       menu:
         participatory_process_groups: Süreç grupları
-        participatory_process_groups_submenu:
-          info: Bilgi
         participatory_processes: Süreçler
         participatory_processes_submenu:
           attachment_collections: Klasörler
