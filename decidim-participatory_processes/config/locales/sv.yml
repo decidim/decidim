@@ -104,8 +104,6 @@ sv:
           label: Efter processgrupp
       menu:
         participatory_process_groups: Grupper för processer
-        participatory_process_groups_submenu:
-          info: Info
         participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: Mappar
