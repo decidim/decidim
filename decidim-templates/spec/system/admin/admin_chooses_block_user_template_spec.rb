@@ -39,7 +39,7 @@ describe "Admin chooses user block templates when blocking user" do
       within("[data-content]") do
         find("*[type=submit]").click
       end
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Participant successfully blocked.")
 
       expect(user.reload).to be_blocked
       expect(user.reload.blocking.justification).to eq(template.description["en"])

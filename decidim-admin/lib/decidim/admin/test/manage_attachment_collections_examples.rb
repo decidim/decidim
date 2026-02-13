@@ -44,7 +44,7 @@ shared_examples "manage attachment collections examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("Folder created successfully.")
 
     within "#attachment_collections table" do
       expect(page).to have_content(translated(attributes[:name]))
@@ -72,7 +72,7 @@ shared_examples "manage attachment collections examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("Folder updated successfully.")
 
     within "#attachment_collections table" do
       expect(page).to have_content(translated(attributes[:name]))
@@ -96,7 +96,7 @@ shared_examples "manage attachment collections examples" do
           accept_confirm { click_on "Delete" }
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Folder destroyed successfully.")
 
         within "#attachment_collections table" do
           expect(page).to have_no_content(translated(attachment_collection2.name))

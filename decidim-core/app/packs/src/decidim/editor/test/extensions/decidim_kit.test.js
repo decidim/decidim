@@ -32,15 +32,24 @@ describe("DecidimKit", () => {
         "code",
         "doc",
         "dropCursor",
-        "gapCursor",
         "hardBreak",
-        "history",
+        "paragraph",
+        "link",
+        "decidimKit",
+        "starterKit",
         "horizontalRule",
         "italic",
         "listItem",
-        "paragraph",
         "strike",
-        "text"
+        "text",
+        "characterCount",
+        "bold",
+        "dialog",
+        "indent",
+        "orderedList",
+        "codeBlock",
+        "underline",
+        "heading"
       ].forEach((name) => expect(extensions).toContain(name));
     });
 

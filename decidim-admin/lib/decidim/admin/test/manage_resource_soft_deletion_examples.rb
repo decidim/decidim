@@ -26,7 +26,7 @@ shared_examples "manage soft deletable component or space" do |resource_name|
         end
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("#{resource_name.capitalize} successfully deleted.")
 
       within "table" do
         expect(page).to have_no_content(title[:en])
@@ -81,7 +81,7 @@ shared_examples "manage soft deletable resource" do |resource_name|
       accept_confirm { click_on "Move to trash" }
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("#{resource_name.capitalize} successfully deleted.")
 
     within "table" do
       expect(page).to have_no_content(title[:en])
@@ -118,7 +118,7 @@ shared_examples "manage trashed resource" do |resource_name|
         click_on "Restore"
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("#{resource_name.capitalize} successfully restored.")
       visit trash_path
       within "table" do
         expect(page).to have_no_content(title[:en])

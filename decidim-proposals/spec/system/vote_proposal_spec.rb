@@ -94,6 +94,34 @@ describe "Vote Proposal", slow: true do
              participatory_space: participatory_process)
     end
 
+    context "with different likes configurations" do
+      shared_examples "displaying the vote button correctly" do |likes_enabled:, likes_blocked:|
+        before do
+          component.update!(
+            step_settings: {
+              component.participatory_space.active_step.id => {
+                votes_enabled: true,
+                likes_blocked:,
+                likes_enabled:
+              }
+            }
+          )
+        end
+
+        it "works when likes_enabled is #{likes_enabled} and likes_blocked is #{likes_blocked}" do
+          visit resource_locator(proposal).path
+          expect(page).to have_css("#proposal-#{proposal.id}-vote-button")
+          within "#proposal-#{proposal.id}-vote-button" do
+            expect(page).to have_css("button[data-dialog-open=loginModal]", text: "Vote")
+          end
+        end
+      end
+
+      it_behaves_like "displaying the vote button correctly", likes_enabled: true, likes_blocked: true
+      it_behaves_like "displaying the vote button correctly", likes_enabled: true, likes_blocked: false
+      it_behaves_like "displaying the vote button correctly", likes_enabled: false, likes_blocked: false
+    end
+
     context "when the user is not logged in" do
       it "is given the option to sign in" do
         visit_component

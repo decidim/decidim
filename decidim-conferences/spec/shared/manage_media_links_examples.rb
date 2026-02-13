@@ -30,7 +30,7 @@ shared_examples "manage media links examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Media link successfully created.")
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_conferences.conference_media_links_path(conference)
@@ -71,7 +71,7 @@ shared_examples "manage media links examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Media link successfully updated.")
       expect(page).to have_current_path decidim_admin_conferences.conference_media_links_path(conference)
 
       within "#media_links table" do
@@ -87,7 +87,7 @@ shared_examples "manage media links examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Media link successfully deleted.")
 
       within "#media_links table" do
         expect(page).to have_no_content(translated(media_link.title))

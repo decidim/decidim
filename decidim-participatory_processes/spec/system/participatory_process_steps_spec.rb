@@ -33,6 +33,25 @@ describe "Participatory Process Steps" do
       end
     end
 
+    context "when activating a step" do
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:follow) { create(:follow, user:, followable: participatory_process) }
+
+      before do
+        participatory_process.steps.first.update!(active: true)
+        Decidim::ParticipatoryProcesses::Admin::ActivateParticipatoryProcessStep.call(steps.last, user)
+        login_as user, scope: :user
+        switch_to_host(organization.host)
+      end
+
+      it "triggers a notification" do
+        wait_enqueued_jobs do
+          visit decidim.notifications_path
+          expect(page).to have_content("phase is now active for")
+        end
+      end
+    end
+
     it "lists all the steps" do
       visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale, display_steps: true)
 
