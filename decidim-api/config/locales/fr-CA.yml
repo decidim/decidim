@@ -1,0 +1,9 @@
+---
+fr-CA:
+  decidim:
+    api:
+      errors:
+        not_found: "%{type} introuvable"
+        permission_not_set: La permission n'a pas été définie pour ce %{type}
+        unauthorized_field: Vous ne pouvez pas afficher ou modifier le champ %{field} sur %{type} car vous n'avez pas la permission
+        unauthorized_object: Vous ne pouvez pas afficher ou modifier ce %{type} car vous n'avez pas les permissions requises

@@ -6,7 +6,7 @@ describe "Admin manages assembly publication" do
   include_context "when admin administrating an assembly"
 
   let(:admin_page_path) { decidim_admin_assemblies.assemblies_path }
-  let(:public_collection_path) { decidim_assemblies.assemblies_path }
+  let(:public_collection_path) { decidim_assemblies.assemblies_path(locale: I18n.locale) }
   let(:title) { "My space" }
   let!(:participatory_space) { assembly }
 

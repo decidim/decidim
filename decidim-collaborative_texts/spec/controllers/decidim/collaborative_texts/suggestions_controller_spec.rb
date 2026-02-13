@@ -30,7 +30,7 @@ module Decidim
 
       describe "GET #index" do
         it "returns a success response" do
-          get :index, params: params
+          get(:index, params:)
           expect(response).to have_http_status(:ok)
           body = JSON.parse(response.body)
           expect(body.first.keys).to contain_exactly("changeset", "createdAt", "id", "profileHtml", "status", "summary", "type")
@@ -60,7 +60,7 @@ module Decidim
         let(:first_node) { "1" }
 
         it "returns an error when user is not signed in" do
-          post :create, params: params
+          post(:create, params:)
           expect(response).to have_http_status(:unprocessable_entity)
           body = JSON.parse(response.body)
           expect(body["message"]).to eq("You are not authorized to perform this action.")
@@ -73,7 +73,7 @@ module Decidim
 
           it "creates a new suggestion" do
             expect do
-              post :create, params: params
+              post :create, params:
             end.to change(Suggestion, :count).by(1)
             expect(response).to have_http_status(:ok)
             body = JSON.parse(response.body)
@@ -84,7 +84,7 @@ module Decidim
             let(:first_node) { "" }
 
             it "returns an error" do
-              post :create, params: params
+              post(:create, params:)
               expect(response).to have_http_status(:unprocessable_entity)
               body = JSON.parse(response.body)
               expect(body["message"]).to eq("There was a problem creating the suggestion. Invalid selected nodes.")

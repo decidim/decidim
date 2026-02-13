@@ -264,6 +264,7 @@ fi:
           confirm_resend_invitation: Haluatko varmasti lähettää kutsun uudestaan?
           resend_invitation: Lähetä kutsu uudestaan
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
+          short_name_hint: Progressiivisen verkkosovelluksen (PWA) lyhyt nimi. Nimessä voi olla enintään 12 merkkiä.
           title: Muokkaa organisaatiota
         file_upload_settings:
           content_types:
@@ -283,7 +284,7 @@ fi:
           intro: |
             Ole erityisen varovainen harkitessasi näiden asetusten muuttamista. Mitä vähemmän sallit, sitä parempi.
             Sallimalla tietyt tiedostopäätteet tai MIME-tyypit voit altistaa järjestelmän käyttäjät turvallisuusriskeille ja se voi myös vaikuttaa sivuston saavutettavuuteen.
-        header_snippets_help_html: Käytä tätä kenttää lisätäksesi uusia HTML-otsakkeita. Yleisin käyttötarkoitus on kolmannen osapuolen palveluiden integrointi, missä tarvitaan ylimääräisiä JavaScript- tai CSS-tiedostoja. Voit myös käyttää asetusta lisätäksesi uusia meta-merkintöjä HTML:ään. Huomioithan, että tämä asetus vaikuttaa vain osallistujille suunnatuilla julkisilla sivuilla, ei hallintakäyttäjien osiossa. Jos koodi on vuorovaikutuksessa ulkoisten sovellusrajapintojen kanssa tai se ei ole palvelun turvallisuuskäytännön mukainen, sisällön turvallisuuskäytäntöä (CSP, Content Security Policy) tulee muuttaa. Lue lisää <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">dokumentaatiosivustolta</a>.
+        header_snippets_help_html: Käytä tätä kenttää lisätäksesi uusia HTML-otsakkeita. Yleisin käyttötarkoitus on kolmannen osapuolen palveluiden integrointi, missä tarvitaan ylimääräisiä JavaScript- tai CSS-tiedostoja. Voit myös käyttää asetusta lisätäksesi uusia meta-merkintöjä HTML:ään. Huomioithan, että tämä asetus vaikuttaa vain osallistujille suunnatuilla julkisilla sivuilla, ei hallintakäyttäjien osiossa. Jos koodi on vuorovaikutuksessa ulkoisten sovellusrajapintojen kanssa tai se ei ole palvelun turvallisuuskäytännön mukainen, sisällön turvallisuuskäytäntöä (CSP, Content Security Policy) tulee muuttaa. Lue lisää <a href="https://docs.decidim.org/en/develop/customize/content_security_policy">dokumentaatiosivustolta</a>.
         index:
           title: Organisaatiot
         new:
@@ -293,6 +294,7 @@ fi:
           organization_admin_email_hint: Lähetämme tähän sähköpostiosoitteeseen viestin vahvistaaksesi kyseisen sähköpostiosoitteen ja asettaaksesi salasanan käyttäjätilillesi.
           reference_prefix_hint: Viitetunnisteen avulla tunnistetaan yksilöllisesti resursseja eri organisaatioiden välillä.
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen.
+          short_name_hint: Progressiivisen verkkosovelluksen (PWA) lyhyt nimi. Nimessä voi olla enintään 12 merkkiä.
           title: Uusi organisaatio
         omniauth_settings:
           decidim:

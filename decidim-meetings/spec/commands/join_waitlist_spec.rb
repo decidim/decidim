@@ -7,17 +7,17 @@ module Decidim::Meetings
     subject { described_class.new(meeting, form) }
 
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create(:participatory_process, organization: organization) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:component, manifest_name: :meetings, participatory_space: participatory_process) }
     let(:available_slots) { 2 }
     let(:meeting) do
       create(:meeting,
-             component: component,
+             component:,
              registrations_enabled: true,
-             available_slots: available_slots)
+             available_slots:)
     end
 
-    let(:user) { create(:user, :confirmed, organization: organization, notifications_sending_frequency: "none") }
+    let(:user) { create(:user, :confirmed, organization:, notifications_sending_frequency: "none") }
     let(:form) do
       Decidim::Meetings::JoinMeetingForm.new.with_context(
         current_user: user
@@ -35,7 +35,7 @@ module Decidim::Meetings
 
     context "when all conditions are met" do
       before do
-        create_list(:registration, available_slots, meeting: meeting, status: :registered)
+        create_list(:registration, available_slots, meeting:, status: :registered)
       end
 
       it "broadcasts ok" do
@@ -58,7 +58,7 @@ module Decidim::Meetings
 
     context "when the user is already registered" do
       before do
-        create(:registration, meeting: meeting, user: user, status: :registered)
+        create(:registration, meeting:, user:, status: :registered)
       end
 
       it "broadcasts invalid" do
@@ -74,7 +74,7 @@ module Decidim::Meetings
 
     context "when the form is invalid" do
       before do
-        create_list(:registration, available_slots, meeting: meeting, status: :registered)
+        create_list(:registration, available_slots, meeting:, status: :registered)
         allow(form).to receive(:valid?).and_return(false)
       end
 

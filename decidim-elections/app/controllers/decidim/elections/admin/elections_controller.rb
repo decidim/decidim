@@ -46,7 +46,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :update, :election, election: election
+          enforce_permission_to(:update, :election, election:)
 
           @form = form(Decidim::Elections::Admin::ElectionForm).from_params(params, current_component:, election:)
 
@@ -64,7 +64,7 @@ module Decidim
         end
 
         def publish
-          enforce_permission_to :publish, :election, election: election
+          enforce_permission_to(:publish, :election, election:)
 
           PublishElection.call(election, current_user) do
             on(:ok) do
@@ -80,7 +80,7 @@ module Decidim
         end
 
         def unpublish
-          enforce_permission_to :unpublish, :election, election: election
+          enforce_permission_to(:unpublish, :election, election:)
 
           Decidim::Elections::Admin::UnpublishElection.call(election, current_user) do
             on(:ok) do
@@ -96,7 +96,7 @@ module Decidim
         end
 
         def dashboard
-          enforce_permission_to :dashboard, :election, election: election
+          enforce_permission_to(:dashboard, :election, election:)
 
           respond_to do |format|
             format.html { render :dashboard }
@@ -107,7 +107,7 @@ module Decidim
         end
 
         def update_status
-          enforce_permission_to :update, :election, election: election
+          enforce_permission_to(:update, :election, election:)
 
           status_action = params[:status_action]
           UpdateElectionStatus.call(status_action, election) do
@@ -120,6 +120,17 @@ module Decidim
             end
           end
           redirect_to dashboard_election_path(election)
+        end
+
+        def toggle_census_check
+          enforce_permission_to(:update, :election, election:)
+
+          value = ActiveModel::Type::Boolean.new.cast(params[:allow_census_check_before_start])
+          election.update!(allow_census_check_before_start: value)
+
+          render json: { success: true, allow_census_check_before_start: election.allow_census_check_before_start }
+        rescue StandardError
+          render json: { success: false, error: I18n.t("elections.toggle_census_check.error", scope: "decidim.elections.admin") }, status: :unprocessable_entity
         end
 
         private

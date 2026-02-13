@@ -15,7 +15,7 @@ describe "Initiative" do
 
   context "when the initiative does not exist" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_initiatives.initiative_path(99_999_999) }
+      let(:target_path) { decidim_initiatives.initiative_path(99_999_999, locale: I18n.locale) }
     end
   end
 
@@ -28,12 +28,12 @@ describe "Initiative" do
     end
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim_initiatives.initiative_path(initiative) }
+      let(:target_path) { decidim_initiatives.initiative_path(initiative, locale: I18n.locale) }
     end
 
     context "when requesting the initiative path" do
       before do
-        visit decidim_initiatives.initiative_path(initiative)
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
       end
 
       shared_examples_for "initiative shows signatures" do
@@ -154,7 +154,7 @@ describe "Initiative" do
     context "when I am the author of the initiative" do
       before do
         sign_in initiative.author
-        visit decidim_initiatives.initiative_path(initiative)
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
       end
 
       shared_examples_for "initiative does not show send to technical validation" do
@@ -168,7 +168,7 @@ describe "Initiative" do
           before do
             initiative.update!(published_at: nil)
             initiative.committee_members.destroy_all
-            visit decidim_initiatives.initiative_path(initiative)
+            visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
           end
 
           it_behaves_like "initiative does not show send to technical validation"
@@ -179,10 +179,10 @@ describe "Initiative" do
         context "when the user can send the initiative to technical validation" do
           before do
             initiative.update!(published_at: nil)
-            visit decidim_initiatives.initiative_path(initiative)
+            visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
           end
 
-          it { expect(page).to have_link("Send to technical validation", href: decidim_initiatives.send_to_technical_validation_initiative_path(initiative)) }
+          it { expect(page).to have_link("Send to technical validation", href: decidim_initiatives.send_to_technical_validation_initiative_path(initiative, locale: I18n.locale)) }
           it { expect(page).to have_content('If everything looks ok, click on "Send to technical validation" for an administrator to review and publish your initiative') }
         end
       end
@@ -225,7 +225,7 @@ describe "Initiative" do
     let(:initiative) { base_initiative }
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:followable) { initiative }
-    let(:followable_path) { decidim_initiatives.initiative_path(initiative) }
+    let(:followable_path) { decidim_initiatives.initiative_path(initiative, locale: I18n.locale) }
   end
 
   describe "initiative components" do
@@ -240,7 +240,7 @@ describe "Initiative" do
     end
 
     context "when requesting the initiative path" do
-      before { visit decidim_initiatives.initiative_path(initiative) }
+      before { visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale) }
 
       it "shows the components" do
         within ".participatory-space__nav-container" do
@@ -262,7 +262,7 @@ describe "Initiative" do
     context "when signed in as the author of the initiative" do
       before do
         sign_in initiative.author
-        visit decidim_initiatives.initiative_path(initiative)
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
       end
 
       it "has special permissions to create posts" do

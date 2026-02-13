@@ -9,8 +9,8 @@ describe "Private Assemblies" do
   let!(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
   let!(:other_user2) { create(:user, :confirmed, organization:) }
-  let!(:assembly_private_user) { create(:assembly_private_user, user: other_user, privatable_to: private_assembly) }
-  let!(:assembly_private_user2) { create(:assembly_private_user, user: other_user2, privatable_to: private_assembly) }
+  let!(:assembly_member) { create(:assembly_member, user: other_user, participatory_space: private_assembly) }
+  let!(:assembly_member2) { create(:assembly_member, user: other_user2, participatory_space: private_assembly) }
 
   context "when there are private assemblies" do
     context "and the assembly is transparent" do
@@ -19,7 +19,7 @@ describe "Private Assemblies" do
       context "and no user is logged in" do
         before do
           switch_to_host(organization.host)
-          visit decidim_assemblies.assemblies_path
+          visit decidim_assemblies.assemblies_path(locale: I18n.locale)
         end
 
         it "lists all the assemblies" do
@@ -37,11 +37,11 @@ describe "Private Assemblies" do
       end
 
       context "when user is logged in" do
-        context "when is not an assembly private user" do
+        context "when is not an assembly member" do
           before do
             switch_to_host(organization.host)
             login_as user, scope: :user
-            visit decidim_assemblies.assemblies_path
+            visit decidim_assemblies.assemblies_path(locale: I18n.locale)
           end
 
           it "lists all the assemblies" do
@@ -62,7 +62,7 @@ describe "Private Assemblies" do
           before do
             switch_to_host(organization.host)
             login_as admin, scope: :user
-            visit decidim_assemblies.assemblies_path
+            visit decidim_assemblies.assemblies_path(locale: I18n.locale)
           end
 
           it "does not show the privacy warning in attachments admin" do
@@ -81,7 +81,7 @@ describe "Private Assemblies" do
       context "and no user is logged in" do
         before do
           switch_to_host(organization.host)
-          visit decidim_assemblies.assemblies_path
+          visit decidim_assemblies.assemblies_path(locale: I18n.locale)
         end
 
         it "does not list the private assembly" do
@@ -98,12 +98,12 @@ describe "Private Assemblies" do
         end
       end
 
-      context "when user is logged in and is not an assembly private user" do
+      context "when user is logged in and is not an assembly member" do
         context "when the user is not admin" do
           before do
             switch_to_host(organization.host)
             login_as user, scope: :user
-            visit decidim_assemblies.assemblies_path
+            visit decidim_assemblies.assemblies_path(locale: I18n.locale)
           end
 
           it "does not list the private assembly" do
@@ -124,7 +124,7 @@ describe "Private Assemblies" do
           before do
             switch_to_host(organization.host)
             login_as admin, scope: :user
-            visit decidim_assemblies.assemblies_path
+            visit decidim_assemblies.assemblies_path(locale: I18n.locale)
           end
 
           it "lists private assemblies" do
@@ -142,7 +142,7 @@ describe "Private Assemblies" do
           it "links to the individual assembly page" do
             first(".card__grid-text", text: translated(private_assembly.title, locale: :en)).click
 
-            expect(page).to have_current_path decidim_assemblies.assembly_path(private_assembly)
+            expect(page).to have_current_path decidim_assemblies.assembly_path(private_assembly, locale: I18n.locale)
             expect(page).to have_content "This is a private assembly"
           end
 
@@ -155,11 +155,11 @@ describe "Private Assemblies" do
         end
       end
 
-      context "when user is logged in and is an assembly private user" do
+      context "when user is logged in and is an assembly member" do
         before do
           switch_to_host(organization.host)
           login_as other_user, scope: :user
-          visit decidim_assemblies.assemblies_path
+          visit decidim_assemblies.assemblies_path(locale: I18n.locale)
         end
 
         it "lists private assemblies" do
@@ -177,7 +177,7 @@ describe "Private Assemblies" do
         it "links to the individual assembly page" do
           first(".card__grid-text", text: translated(private_assembly.title, locale: :en)).click
 
-          expect(page).to have_current_path decidim_assemblies.assembly_path(private_assembly)
+          expect(page).to have_current_path decidim_assemblies.assembly_path(private_assembly, locale: I18n.locale)
           expect(page).to have_content "This is a private assembly"
         end
       end

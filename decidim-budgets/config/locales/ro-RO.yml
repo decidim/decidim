@@ -109,7 +109,6 @@ ro:
             total_budget: Buget total
         project:
           fields:
-            id: ID
             title: Titlu
       order:
         status:

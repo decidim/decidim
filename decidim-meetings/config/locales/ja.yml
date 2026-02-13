@@ -159,6 +159,7 @@ ja:
           comment: コメント
           join: 参加する
           reply_poll: 投票
+          vote_comment: コメントに投票
         name: ミーティング
         settings:
           global:
@@ -670,7 +671,6 @@ ja:
           fields:
             closed: クローズ済み
             end_time: 終了日
-            id: ID
             map: 地図
             official_meeting: 公式ミーティング
             published: 公開済み

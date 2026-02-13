@@ -29,7 +29,7 @@ eu:
       help:
         responses:
           id: Erantzunaren identifikatzaile bakarra
-          question: Erantzun zen galdera
+          question: Erantzun den galdera
           questionnaire: Erantzun zen galdetegia
           response: Galderaren erantzuna
           user: Inkesta erantzun duen parte-hartzailea
@@ -139,7 +139,7 @@ eu:
             remove: Kendu
             separator: Bereizlea
           title_and_description:
-            collapse: Kolapsoa
+            collapse: Tolestu
             description: Deskribapena
             expand: Zabaldu
             remove: Kendu
@@ -188,14 +188,14 @@ eu:
           questionnaire_closed:
             body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
-          questionnaire_for_private_users:
-            body: Galdetegia parte-hartzaile pribatuentzat soilik dago erabilgarri
+          questionnaire_for_members:
+            body: Formularioa bazkideentzat soilik dago eskuragarri
             title: Galdeketa itxia
           questionnaire_js_disabled:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
             title: Javascript desaktibatuta dago
           questionnaire_not_published:
-            body: Argitalpen hau oraindik ez da argitaratu.
+            body: Formulario hau ez da oraindik argitaratu.
           questionnaire_responded:
             body: Dagoeneko inkesta hau erantzun duzu.
             title: Dagoeneko erantzunda

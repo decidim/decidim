@@ -83,7 +83,6 @@ tr:
         initiatives:
           fields:
             created_at: Düzenlendi
-            id: İD
             published_at: Tarihinde yayınlandı
             state: Belirtmek, bildirmek
             supports_count: İmzalar

@@ -1,6 +1,9 @@
 sr:
   activemodel:
     attributes:
+      milestone:
+        description: Opis
+        title: Naslov
       result:
         decidim_accountability_status_id: Stanje
         decidim_category_id: Kategorija
@@ -28,6 +31,7 @@ sr:
   decidim:
     accountability:
       actions:
+        confirm_delete_result: Da li ste sigurni da želite da obrišete ovaj rezultat?
         confirm_destroy: Da li ste sigurni da želite da obrišete ovo %{name}?
         destroy: Obriši
         edit: Izmeni
@@ -36,6 +40,9 @@ sr:
       admin:
         exports:
           results: Rezultati
+        import_results:
+          new:
+            title: Uvezi rezultate iz CSV datoteke
         models:
           result:
             name: Rezultat

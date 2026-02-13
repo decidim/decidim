@@ -85,7 +85,6 @@ lb:
         initiatives:
           fields:
             created_at: Erstellt am
-            id: ID
             published_at: Veröffentlicht am
             state: Status
             supports_count: Unterschriften

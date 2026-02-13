@@ -16,7 +16,7 @@ on:
 
 env:
   CI: "true"
-  RUBY_VERSION: 3.3.4
+  RUBY_VERSION: 3.4.7
   NODE_VERSION: 22.14.0
   NODE_ENV: "test"
   DECIDIM_MODULE: decidim-generators

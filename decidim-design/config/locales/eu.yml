@@ -256,8 +256,6 @@ eu:
         share_button: Partekatzeko Botoia
         share_usage_description_html: Ziurtatu <code>decdim/partekatua/login_modala</code> partziala DOMen dagoela. Zati hori aplikazioaren maketazioan jartzen da parte-hartzailea bertan sartzen denean.
         sizes: Neurrriak
-        sortition_l: i_zozketa
-        sortitions: Zozketak
         source_code: Iturburu Kodea
         state: Egoera
         tab_panels_context_description: Tab-panel osagai honek biltzen ditu erlazionatutako eduki guztiak edo elementu nagusiaren beste baliabide batzuk, espazio bertikala salbatzeko. Erlaitzean klik eginez, edukia erakusteko sortutako panela aktibatuko da.

@@ -28,7 +28,6 @@ export default Link.extend({
       ...this.parent?.(),
       allowTargetControl: false,
       HTMLAttributes: {
-        target: "_blank",
         class: null
       }
     }

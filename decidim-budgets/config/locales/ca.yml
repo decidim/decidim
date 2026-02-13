@@ -213,7 +213,6 @@ ca:
             total_budget: Pressupost total
         project:
           fields:
-            id: ID
             map: Mapa
             taxonomies: Taxonomies
             title: Títol
@@ -339,6 +338,7 @@ ca:
         actions:
           comment: Comentar
           vote: Vota
+          vote_comment: Votar el comentari
         name: Pressupostos
         settings:
           global:

@@ -96,7 +96,7 @@ es:
           type_id_eq:
             label: Tipo
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría
+          title_or_description_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría
       initiatives_settings:
         update:
           error: Se produjo un problema al actualizar la configuración de las iniciativas.
@@ -118,7 +118,6 @@ es:
         initiatives:
           fields:
             created_at: Creado en
-            id: ID
             published_at: Publicada el
             state: Estado
             supports_count: Firmas
@@ -687,6 +686,7 @@ es:
       initiative:
         actions:
           comment: Comentar
+          vote_comment: Votar el comentario
       initiatives_type:
         actions:
           create: Crear una iniciativa

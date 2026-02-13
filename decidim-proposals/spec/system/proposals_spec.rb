@@ -89,11 +89,6 @@ describe "Proposals" do
       end
 
       it "shows the author as official" do
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-          expect(page).to have_content(translated(official_proposal.title))
-        end
-
         expect(page).to have_content("Official proposal")
       end
 

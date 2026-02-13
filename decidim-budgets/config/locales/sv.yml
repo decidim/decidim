@@ -213,7 +213,6 @@ sv:
             total_budget: Total budget
         project:
           fields:
-            id: ID
             map: Karta
             taxonomies: Kategorisering
             title: Titel

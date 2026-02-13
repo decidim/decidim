@@ -27,7 +27,7 @@ module Decidim
         let(:query) { "{ source }" }
 
         it "returns source as a string" do
-          expect(response["source"]).to eq("{\"test\"=>\"test object\"}")
+          expect(response["source"]).to eq("{\"test\" => \"test object\"}")
         end
       end
     end

@@ -145,8 +145,6 @@ ca-IT:
             values:
               state_not_published: Sense resposta
               state_published: Amb resposta
-        search_placeholder:
-          id_string_or_title_cont: Cerca %{collection} per ID o títol
       tooltips:
         cannot_edit_proposal_info: No es pot editar aquesta proposta perquè ha estat creada per un participant o ha rebut algun vot
         deleted_proposal_states_info: No es pot eliminar aquest estat de resposta perquè hi ha propostes assignades a aquest estat

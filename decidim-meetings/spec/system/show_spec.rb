@@ -24,7 +24,8 @@ describe "show" do
         decidim_participatory_process_meetings.meeting_path(
           participatory_process_slug: component.participatory_space.slug,
           component_id: component.id,
-          id: 999_999
+          id: 999_999,
+          locale: I18n.locale
         )
       end
     end
@@ -41,11 +42,6 @@ describe "show" do
       end
 
       it "shows the correct time zone" do
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-          expect(page).to have_content(translated(meeting.reload.title))
-        end
-
         expect(page).to have_content("HST")
       end
     end

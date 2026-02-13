@@ -124,7 +124,6 @@ hu:
           fields:
             created_at: Létrehozva
             end_date: Befejezés dátuma
-            id: ID
             progress: Folyamat
             start_date: Kezdő dátum
             status: Állapot

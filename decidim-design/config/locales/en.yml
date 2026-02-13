@@ -256,8 +256,6 @@ en:
         share_button: Share Button
         share_usage_description_html: Make sure the partial <code>decidim/shared/share_modal</code> is present in the DOM. This partial is placed in the application layout.
         sizes: Sizes
-        sortition_l: sortition_l
-        sortitions: Sortitions
         source_code: Source Code
         state: State
         tab_panels_context_description: This tab-panel component gathers all the related contents or another resources of the main element displayed, in order to save vertical space. Clicking on the tab will activate the created panel to show the content.

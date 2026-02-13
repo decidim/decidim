@@ -132,6 +132,9 @@ pt-BR:
       x_seconds:
         one: 1 segundo
         other: "%{count} segundos"
+    widget:
+      picker:
+        time_button: Abrir seletor para %{label}
   decidim:
     accessibility:
       external_link: Link externo
@@ -234,10 +237,6 @@ pt-BR:
       organization:
         update: "%{user_name} atualizou as configurações da organização"
         update_external_domain: "%{user_name} atualizou os domínios externos da organização"
-      participatory_space_private_user:
-        create: "%{user_name} Convidado %{resource_name} ser um usuário privado"
-        create_via_csv: "%{user_name} convidou %{resource_name} via CSV para ser um usuário privado"
-        delete: "%{user_name} removeu o usuário %{resource_name} como usuário particular"
       scope:
         create: "%{user_name} criou o âmbito %{resource_name}"
         create_with_parent: "%{user_name} criou o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
@@ -490,8 +489,6 @@ pt-BR:
         description: Descrição
       footer_sub_hero:
         name: Rodapé do sub-herói banner
-      global_menu:
-        name: Menu global
       hero_settings_form:
         background_image: Imagem de fundo
         welcome_text: Texto de boas-vindas
@@ -620,7 +617,6 @@ pt-BR:
       files:
         file_cannot_be_processed: O arquivo não pode ser processado
         file_resolution_too_large: A resolução do arquivo é muito grande
-        not_inside_organization: O arquivo não está anexado a nenhuma organização
       internal_server_error:
         copied: Texto copiado!
         copy_error_message_clarification: Copiar mensagem de erro para área de transferência
@@ -891,7 +887,6 @@ pt-BR:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ajuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -988,11 +983,9 @@ pt-BR:
         same_language: O conteúdo foi publicado em seu idioma preferido (%{language}), e é por isso que nenhuma tradução automática é exibida neste e-mail.
         translated_text: 'Texto traduzido automaticamente:'
     notifications:
-      action_error: Houve um erro ao atualizar as notificações.
       no_notifications: Não há notificações.
       show:
         missing_event: Ops, esta notificação pertence a um item que não está mais disponível. Você pode descartá-lo.
-        moderated: Comentário moderado
     notifications_digest_mailer:
       header:
         daily: Resumo de Notificação Diário
@@ -1053,13 +1046,11 @@ pt-BR:
         footer_sub_hero:
           footer_sub_hero_body_html: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
-          register: Registrar-se
         hero:
           participate: Participar
           participate_title: Participe dos processos da plataforma
           welcome: Bem-vindo ao %{organization}!
         sub_hero:
-          register: Registrar-se
           register_title: Criar uma conta
       index:
         standalone_pages: Páginas
@@ -1290,10 +1281,8 @@ pt-BR:
         decline: Negar convite
         hello: Olá %{email},
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
-        invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
-        someone_invited_you_as_private_user: Alguém convidou você como usuário privado de %{application}, você pode aceitá-lo através do link abaixo.
         subject: Instruções de convite
       invite_admin:
         subject: Você foi convidado a gerenciar %{organization}

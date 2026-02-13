@@ -168,7 +168,6 @@ bg:
             total_budget: Общ бюджет
         project:
           fields:
-            id: ID
             map: Карта
             title: Заглавие
       order:

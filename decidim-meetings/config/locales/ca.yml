@@ -162,6 +162,7 @@ ca:
           comment: Comentar
           join: Inscriu-t'hi
           reply_poll: Respondre el sondeig/consulta en directe
+          vote_comment: Votar el comentari
         name: Trobades
         settings:
           global:
@@ -677,7 +678,6 @@ ca:
           fields:
             closed: Tancada
             end_time: Data de finalització
-            id: ID
             map: Mapa
             official_meeting: Trobada oficial
             published: Publicada

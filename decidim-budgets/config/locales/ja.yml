@@ -209,7 +209,6 @@ ja:
             total_budget: 予算の合計
         project:
           fields:
-            id: ID
             map: 地図
             taxonomies: タクソノミー
             title: タイトル
@@ -329,6 +328,7 @@ ja:
         actions:
           comment: コメント
           vote: 投票
+          vote_comment: コメントに投票
         name: 予算
         settings:
           global:

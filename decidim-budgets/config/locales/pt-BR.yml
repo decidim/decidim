@@ -168,7 +168,6 @@ pt-BR:
             total_budget: Orçamento total
         project:
           fields:
-            id: ID
             map: Mapa
             title: Título
       order:

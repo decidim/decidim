@@ -6,18 +6,16 @@ The Design module implements the design guide for Decidim, a guide that includes
 
 The design application index is available at `/design` path
 
+This is a module oriented for developers, as a building block to be used by other modules.
+
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-design'
-```
-
-And then execute:
+To install this module, run in your console:
 
 ```bash
-bundle
+bundle add decidim-design
+bundle exec rails decidim:upgrade
+bundle exec rails db:migrate
 ```
 
 ## Contributing

@@ -4,11 +4,15 @@
     <%= render_question_description(question) %>
   </div>
 
-  <div class="question__response-options mt-4 flex flex-col gap-4">
+  <div class="question__response-options mt-4 flex flex-col gap-4 response" data-max-choices="<%= question.max_choices if question.max_choices.presence %>">
     <% question.response_options.each do |option| %>
-      <label class="rounded-lg border border-gray p-4">
+      <label class="rounded-lg border border-gray p-4 js-check-box-collection">
         <%= render "decidim/elections/votes/responses/#{question.question_type}", option: %>
       </label>
+    <% end %>
+
+    <% if question.max_choices.presence %>
+      <small class="form-error max-choices-alert" style="display:none;"><%= t("max_choices_alert", scope: "decidim.elections.votes.question") %></small>
     <% end %>
   </div>
 

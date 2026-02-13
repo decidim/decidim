@@ -140,7 +140,6 @@ zh-TW:
             total_budget: 總預算
         project:
           fields:
-            id: ID
             title: 標題
       order:
         status:
