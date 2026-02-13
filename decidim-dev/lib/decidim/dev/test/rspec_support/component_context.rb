@@ -164,7 +164,9 @@ shared_context "when publishing and unpublishing the component" do
         click_on "Hide from menu"
       end
 
-      expect(Decidim::SearchableResource.where(resource:).count).to be_zero
+      perform_enqueued_jobs
+
+      expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
       within "tr", text: title do
         find("button[data-controller='dropdown']").click
