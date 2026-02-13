@@ -115,7 +115,7 @@ shared_context "when managing a component as a process admin" do
   end
 end
 
-shared_context "when publishes and unpublishes component" do
+shared_context "when publishing and unpublishing the component" do
   let(:title) { translated(current_component.name) }
 
   context "when component is unpublished" do
@@ -135,7 +135,7 @@ shared_context "when publishes and unpublishes component" do
         click_on "Publish"
       end
 
-      expect(page).to have_content("The component has been successfully published")
+      expect(page).to have_admin_callout("The component has been successfully published")
 
       perform_enqueued_jobs
 
@@ -164,12 +164,14 @@ shared_context "when publishes and unpublishes component" do
         click_on "Hide from menu"
       end
 
+      expect(Decidim::SearchableResource.where(resource:).count).to be_positive
+
       within "tr", text: title do
         find("button[data-controller='dropdown']").click
         click_on "Unpublish"
       end
 
-      expect(page).to have_content("The component has been successfully unpublished")
+      expect(page).to have_admin_callout("The component has been successfully unpublished")
 
       perform_enqueued_jobs
 
@@ -195,19 +197,21 @@ shared_context "when cycling through publication states" do
         click_on "Hide from menu"
       end
 
+      expect(page).to have_admin_callout("The component has been successfully hidden from the menu.")
+
       within "tr", text: title do
         find("button[data-controller='dropdown']").click
         click_on "Unpublish"
       end
 
-      expect(page).to have_content("The component has been successfully unpublished")
+      expect(page).to have_admin_callout("The component has been successfully unpublished")
 
       within "tr", text: title do
         find("button[data-controller='dropdown']").click
         click_on "Publish"
       end
 
-      expect(page).to have_content("The component has been successfully published")
+      expect(page).to have_admin_callout("The component has been successfully published")
     end
   end
 end
