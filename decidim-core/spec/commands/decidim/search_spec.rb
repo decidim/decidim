@@ -349,4 +349,96 @@ describe Decidim::Search do
       end
     end
   end
+
+  describe "comments filtering" do
+    let(:term) { "My Custom meeting" }
+    let(:participatory_process) { create(:participatory_process, :active, organization: current_organization) }
+    let(:component) { create(:dummy_component, participatory_space: participatory_process) }
+    let!(:dummy_resource) { create(:dummy_resource, :published, component:, title: { en: term }) }
+
+    let!(:comment1) { create(:comment, commentable: dummy_resource, body: { en: term }) }
+    # rubocop: disable RSpec/VariableNumber
+    let!(:comment1_1) { create(:comment, commentable: comment1, root_commentable: dummy_resource, body: { en: term }) }
+    let!(:comment1_1_1) { create(:comment, commentable: comment1_1, root_commentable: dummy_resource, body: { en: term }) }
+    # rubocop: enable RSpec/VariableNumber
+
+    context "when comments_enabled is disabled on the component" do
+      before do
+        component.update!(settings: { comments_enabled: false })
+      end
+
+      it "still returns all comments in search results" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 3
+            expect(results[:results]).to contain_exactly(comment1, comment1_1, comment1_1_1)
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+
+      it "returns the commentable resource as well" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Dev::DummyResource") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Dev::DummyResource"]
+            expect(results[:count]).to eq 1
+            expect(results[:results]).to contain_exactly(dummy_resource)
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+
+    context "when root_commentable is hidden" do
+      before do
+        create(:moderation, reportable: dummy_resource, hidden_at: 2.days.ago)
+      end
+
+      it "does not return comments in search results" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 0
+            expect(results[:results]).to be_empty
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+
+    context "when a specific comment is hidden" do
+      before do
+        create(:moderation, reportable: comment1_1, hidden_at: 2.days.ago)
+      end
+
+      it "returns only non-hidden comments" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 2
+            expect(results[:results]).to contain_exactly(comment1, comment1_1_1)
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+
+    context "when a comment is deleted" do
+      before do
+        comment1_1.update!(deleted_at: 1.hour.ago)
+      end
+
+      it "returns only non-deleted comments" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 2
+            expect(results[:results]).to contain_exactly(comment1, comment1_1_1)
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+  end
 end

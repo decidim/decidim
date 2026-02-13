@@ -104,7 +104,10 @@ module Decidim
     end
 
     def commentable_hidden?(object)
-      !object.commentable.commentable? || object.try(:hidden?) || object.try(:deleted?)
+      root_resource = object.respond_to?(:root_commentable) ? object.root_commentable : object.commentable
+      root_hidden = root_resource.try(:hidden?) || root_resource.try(:deleted?)
+
+      object.try(:hidden?) || object.try(:deleted?) || root_hidden
     end
   end
 end
