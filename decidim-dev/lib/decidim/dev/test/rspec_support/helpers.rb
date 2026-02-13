@@ -62,7 +62,7 @@ module Decidim
     # Fallback for legacy usage of this helper
     # It actually works the same, as the markup is the same too
     def have_admin_callout(text)
-      have_callout(help)
+      have_callout(text)
     end
 
     def stub_get_request_with_format(rq_url, rs_format)
