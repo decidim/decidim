@@ -1974,6 +1974,7 @@ es:
       send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un correo electrónico con instrucciones sobre cómo confirmar tu dirección de correo electrónico en unos minutos.
     failure:
       already_authenticated: Ya has iniciado sesión.
+      csrf_token: No se puede verificar tu solicitud. Por favor, vuelve a intentarlo.
       inactive: Tu cuenta aún no está activada.
       invalid: '%{authentication_keys} o contraseña no son válidos.'
       invited: Tienes una invitación pendiente, acéptala para acabar de crear tu cuenta.
