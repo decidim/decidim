@@ -15,6 +15,7 @@ shared_examples "manage projects" do
     end
 
     context "when geocoding is enabled" do
+      let(:geocoded_success_message) { "Project successfully created." }
       let(:address) { "Some address" }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
