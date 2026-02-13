@@ -96,7 +96,7 @@ PATH
       pg_search (~> 2.2)
       premailer-rails (~> 1.10)
       rack (>= 3.2.4, < 4.0)
-      rack-attack (~> 6.0)
+      rack-attack (~> 6.7.0)
       rails (~> 7.2.0, >= 7.2.3)
       rails-i18n (~> 7.0)
       ransack (~> 4.2.0)
