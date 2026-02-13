@@ -446,7 +446,7 @@ describe "Admin manages meetings" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout("Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:title]))
@@ -462,6 +462,7 @@ describe "Admin manages meetings" do
       within_selector: ".new_meeting",
       address_field: :meeting_address
     ) do
+      let(:geocoded_success_message) { "Meeting successfully created." }
       let(:geocoded_address_value) { address }
       let(:geocoded_address_coordinates) { [latitude, longitude] }
 

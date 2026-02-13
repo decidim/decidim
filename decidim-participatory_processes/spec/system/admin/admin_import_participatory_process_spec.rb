@@ -48,7 +48,7 @@ describe "Admin imports participatory process" do
     end
 
     it "imports the json document" do
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout("Participatory process successfully imported.")
       expect(page).to have_content("Import participatory process")
       expect(page).to have_content("Unpublished")
 

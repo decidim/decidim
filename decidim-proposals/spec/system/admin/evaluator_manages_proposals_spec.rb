@@ -84,7 +84,7 @@ describe "Evaluator manages proposals" do
             )
             click_on "Answer"
           end
-          expect(page).to have_callout("successfully")
+          expect(page).to have_callout("Proposal successfully answered.")
         end
       end
 

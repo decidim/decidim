@@ -62,7 +62,7 @@ describe "Admin imports assembly" do
     end
 
     it "imports the json document" do
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout("Assembly successfully imported.")
       expect(page).to have_content("Import assembly")
       expect(page).to have_content("Unpublished")
 

@@ -108,7 +108,7 @@ describe "Respond a survey" do
 
       accept_confirm { click_on "Submit" }
 
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout("Survey successfully responded.")
 
       # Unregistered users are tracked with their session_id so they will not be allowed to repeat easily
       expect(page).to have_content("You have already responded this form.")

@@ -60,7 +60,7 @@ shared_examples "Managing component permissions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout("Permissions updated successfully.")
 
       expect(component.reload.permissions["foo"]).to(
         include(
@@ -125,7 +125,7 @@ shared_examples "Managing component permissions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout("Permissions updated successfully.")
 
       expect(component.reload.permissions["foo"]).to be_nil
     end
@@ -162,7 +162,7 @@ shared_examples "Managing component permissions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout("Permissions updated successfully.")
 
       expect(component.reload.permissions["foo"]).to(
         include(
@@ -185,7 +185,7 @@ shared_examples "Managing component permissions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout("Permissions updated successfully.")
 
       expect(component.reload.permissions["foo"]).to(
         include(

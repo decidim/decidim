@@ -33,7 +33,7 @@ describe "Admin copies participatory process" do
         click_on "Duplicate"
       end
 
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout("Participatory process successfully duplicated.")
       expect(page).to have_content("Duplicate participatory process")
       expect(page).to have_content("Unpublished")
     end
@@ -62,7 +62,7 @@ describe "Admin copies participatory process" do
       page.check("participatory_process[duplicate_steps]")
       click_on "Duplicate"
 
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout("Participatory process successfully duplicated.")
 
       within "tr", text: "Duplicate participatory process" do
         click_on "Duplicate participatory process"
@@ -83,7 +83,7 @@ describe "Admin copies participatory process" do
       page.check("participatory_process[duplicate_components]")
       click_on "Duplicate"
 
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout("Participatory process successfully duplicated.")
 
       within "tr", text: "Duplicate participatory process" do
         click_on "Duplicate participatory process"

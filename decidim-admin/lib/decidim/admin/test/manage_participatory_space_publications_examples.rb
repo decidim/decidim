@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 shared_examples "manage participatory space publications" do
+  let(:publish_callout_message) { raise "Please define let(:publish_callout_message) with the full message" }
+  let(:unpublish_callout_message) { raise "Please define let(:unpublish_callout_message) with the full message" }
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
@@ -20,7 +23,7 @@ shared_examples "manage participatory space publications" do
     end
 
     it "publishes it" do
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout(publish_callout_message)
 
       visit public_collection_path
 
@@ -50,7 +53,7 @@ shared_examples "manage participatory space publications" do
         click_on "Unpublish"
       end
 
-      expect(page).to have_callout("successfully")
+      expect(page).to have_callout(unpublish_callout_message)
 
       visit public_collection_path
 
