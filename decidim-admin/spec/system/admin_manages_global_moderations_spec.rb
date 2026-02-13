@@ -124,8 +124,7 @@ describe "Admin manages global moderations" do
       visit decidim_admin.moderated_users_path
 
       within "tr[data-id=\"#{moderation.id}\"]" do
-        find("button[data-controller='dropdown']").click
-        click_on "Undo the report"
+        click_on "Unreport"
       end
 
       expect(page).to have_admin_callout("Resource successfully unreported.")
