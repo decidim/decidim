@@ -569,8 +569,6 @@ describe "Explore meetings", :slow do
       end
 
       it "links to the filter for this taxonomy" do
-        pp current_path
-
         within "[data-tags]" do
           click_on decidim_escape_translated(taxonomy.name)
         end

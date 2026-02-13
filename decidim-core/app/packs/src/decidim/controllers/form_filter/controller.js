@@ -235,7 +235,6 @@ export default class extends Controller {
         let value = filterParams[fieldName];
 
         if (Array.isArray(value)) {
-          console.log(fieldName, value);
           let checkboxes = this.element.querySelectorAll(`input[type=checkbox][name="filter[${fieldName}][]"]`);
           this.theCheckBoxesTree.updateChecked(checkboxes, value);
         } else {
