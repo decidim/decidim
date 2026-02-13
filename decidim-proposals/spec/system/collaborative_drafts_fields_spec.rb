@@ -81,7 +81,7 @@ describe "Collaborative drafts" do
 
             click_on "Publish"
 
-            expect(page).to have_callout("Collaborative draft published successfully as a proposal.")
+            expect(page).to have_callout("Collaborative draft successfully created.")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))

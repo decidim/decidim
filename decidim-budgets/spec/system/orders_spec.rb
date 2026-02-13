@@ -449,7 +449,7 @@ describe "Orders" do
             page.find(".button", text: "Confirm").click
           end
 
-          expect(page).to have_callout("Your vote has been successfully accepted")
+          expect(page).to have_content("Your vote has been successfully accepted")
 
           page.find(".button", text: "View votes").click
         end

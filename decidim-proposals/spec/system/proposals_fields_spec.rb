@@ -143,7 +143,7 @@ describe "Proposals" do
             within_selector: ".edit_proposal",
             address_field: :proposal_address
           ) do
-            let(:geocoded_success_message) { "Proposal successfully published." }
+            let(:geocoded_success_message) { "Proposal draft successfully updated." }
             let(:geocoded_record) { proposal_draft }
             let(:geocoded_address_value) { address }
             let(:geocoded_address_coordinates) { [latitude, longitude] }

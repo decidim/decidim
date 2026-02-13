@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "manage participatory space publications" do
-  let(:publish_callout_message) { raise "Please define let(:publish_callout_message) with the full message" }
-  let(:unpublish_callout_message) { raise "Please define let(:unpublish_callout_message) with the full message" }
-
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user

@@ -135,6 +135,8 @@ shared_examples "manage proposals" do
           end
 
           context "when geocoding is enabled" do
+            let(:geocoded_success_message) { "Proposal successfully created." }
+
             before do
               current_component.update!(settings: { geocoding_enabled: true, taxonomy_filters: [taxonomy_filter.id] })
             end

@@ -22,7 +22,7 @@ def invite_unregistered_user(name:, email:)
     end
   end
 
-    expect(page).to have_callout("Participant successfully invited to join the meeting.")
+  expect(page).to have_callout("Participant successfully invited to join the meeting.")
 
   within "#meeting-invites table" do
     expect(page).to have_content(name)

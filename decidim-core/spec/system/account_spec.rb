@@ -284,7 +284,7 @@ describe "Account" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Your account was successfully updated.")
+        expect(page).to have_content("Your notifications settings were successfully updated.")
       end
 
       context "when the user is an admin" do
@@ -304,7 +304,7 @@ describe "Account" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("Your account was successfully updated.")
+          expect(page).to have_content("Your notifications settings were successfully updated.")
         end
       end
     end
