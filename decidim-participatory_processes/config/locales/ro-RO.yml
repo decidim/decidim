@@ -99,8 +99,6 @@ ro:
         unpublish: Anulează publicarea
       menu:
         participatory_process_groups: Grupuri ale procesului
-        participatory_process_groups_submenu:
-          info: Informații
         participatory_processes: Procese participative
         participatory_processes_submenu:
           attachment_collections: Dosare
