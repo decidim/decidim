@@ -242,25 +242,15 @@ module Decidim
         let!(:proposal_with_coauthors) { create(:proposal, component:) }
         let!(:coauthorships) { create_list(:coauthorship, 2, coauthorable: proposal_with_coauthors) }
 
-        context "when there are no proposals with coauthors" do
+        context "when there are proposals with only single author" do
           before do
-            proposal_with_coauthors.destroy
+            coauthorships.each(&:destroy)
           end
 
           it "returns false" do
             expect(controller.send(:with_more_authors_order_available?)).to be false
           end
         end
-
-        context "when there are proposals with only single author" do
-          before do
-            coauthorships.each(&:destroy)
-            proposal_with_coauthors.destroy
-          end
-
-          it "returns false" do
-            expect(controller.send(:with_more_authors_order_available?)).to be false
-          end
         end
 
         context "when there are proposals with coauthors" do
