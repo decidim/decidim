@@ -6,6 +6,6 @@ class RemoveUserGroupEnabled < ActiveRecord::Migration[7.0]
   end
 
   def down
-    add_column :decidim_organizations, :user_groups_enabled, :boolean, default: false
+    add_column :decidim_organizations, :user_groups_enabled, :boolean, default: false, null: false
   end
 end

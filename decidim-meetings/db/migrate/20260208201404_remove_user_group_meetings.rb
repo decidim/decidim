@@ -8,8 +8,8 @@ class RemoveUserGroupMeetings < ActiveRecord::Migration[7.0]
   end
 
   def down
-    add_column :decidim_meetings_meetings, :decidim_user_group_id, :integer
-    add_column :decidim_meetings_registrations, :decidim_user_group_id, :integer
+    add_column :decidim_meetings_meetings, :decidim_user_group_id, :bigint
+    add_column :decidim_meetings_registrations, :decidim_user_group_id, :bigint
     add_index :decidim_meetings_registrations, :decidim_user_group_id
   end
 end

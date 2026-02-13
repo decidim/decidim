@@ -7,8 +7,8 @@ class RemoveUserGroupMemberships < ActiveRecord::Migration[7.0]
 
   def down
     create_table :decidim_user_group_memberships do |t|
-      t.references :decidim_user, null: false, index: true
-      t.references :decidim_user_group, null: false, index: true
+      t.references :decidim_user, null: false, index: true, type: :integer
+      t.references :decidim_user_group, null: false, index: true, type: :integer
 
       t.timestamps
     end
