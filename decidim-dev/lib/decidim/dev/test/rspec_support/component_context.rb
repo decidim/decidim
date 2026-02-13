@@ -117,6 +117,12 @@ end
 
 shared_context "when publishing and unpublishing the component" do
   let(:title) { translated(current_component.name) }
+  let(:job_exceptions) do
+    [
+      Decidim::MachineTranslationResourceJob,
+      ActiveStorage::AnalyzeJob
+    ]
+  end
 
   context "when component is unpublished" do
     before do
@@ -137,7 +143,7 @@ shared_context "when publishing and unpublishing the component" do
 
       expect(page).to have_admin_callout("The component has been successfully published")
 
-      perform_enqueued_jobs
+      perform_enqueued_jobs(except: job_exceptions)
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
       expect(component.reload).to be_published
@@ -153,7 +159,7 @@ shared_context "when publishing and unpublishing the component" do
     end
 
     it "removes records from index" do
-      perform_enqueued_jobs
+      perform_enqueued_jobs(except: job_exceptions)
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
@@ -166,7 +172,7 @@ shared_context "when publishing and unpublishing the component" do
         click_on "Hide from menu"
       end
 
-      perform_enqueued_jobs
+      perform_enqueued_jobs(except: job_exceptions)
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
@@ -177,7 +183,7 @@ shared_context "when publishing and unpublishing the component" do
 
       expect(page).to have_admin_callout("The component has been successfully unpublished")
 
-      perform_enqueued_jobs
+      perform_enqueued_jobs(except: job_exceptions)
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_zero
       expect(current_component.reload).not_to be_published
