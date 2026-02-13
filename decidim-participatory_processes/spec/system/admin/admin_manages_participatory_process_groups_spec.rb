@@ -162,8 +162,9 @@ describe "Admin manages participatory process groups" do
         click_on "Edit"
       end
 
-      click_on "Manage"
-      click_on "Landing page"
+      within "#admin-sidebar-menu-settings" do
+        click_on "Landing page"
+      end
 
       expect(page).to have_content "Active content blocks"
     end
