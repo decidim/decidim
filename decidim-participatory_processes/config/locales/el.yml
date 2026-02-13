@@ -95,8 +95,6 @@ el:
         unpublish: Κατάργηση δημοσίευσης
       menu:
         participatory_process_groups: Ομάδες διαδικασιών
-        participatory_process_groups_submenu:
-          info: Πληροφορίες
         participatory_processes: Διαδικασίες
         participatory_processes_submenu:
           attachment_collections: Φάκελοι
