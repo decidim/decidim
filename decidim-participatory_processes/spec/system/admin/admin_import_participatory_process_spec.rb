@@ -144,7 +144,7 @@ describe "Admin imports participatory process" do
       expect(page).to have_content("Import process with 404 hero")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported due to an error/i)
+        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -197,7 +197,66 @@ describe "Admin imports participatory process" do
       expect(page).to have_content("Import process with 404 group hero")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported due to an error/i)
+        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
+      end
+    end
+  end
+
+  context "when attachment URLs return 404" do
+    let(:json_data) { JSON.parse(File.read(Decidim::Dev.asset("participatory_processes.json"))) }
+    let(:json_file) do
+      Tempfile.new(["participatory_processes", ".json"]).tap do |file|
+        file.write(json_data.to_json)
+        file.rewind
+      end
+    end
+    let(:uploaded_file) do
+      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+    end
+
+    before do
+      json_data.first["attachments"]["files"].each do |file|
+        file["remote_file_url"] = "http://example.com/missing-attachment.pdf"
+      end
+
+      stub_request(:head, "http://example.com/missing-attachment.pdf")
+        .to_return(status: 404, body: "Not Found")
+
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/participatory_process_group/hero_image/1/city.jpeg",
+        "image/jpeg"
+      )
+
+      within_admin_menu do
+        click_on "Import"
+      end
+
+      within ".import_participatory_process" do
+        fill_in_i18n(
+          :participatory_process_title,
+          "#participatory_process-title-tabs",
+          en: "Import process with 404 attachments",
+          es: "Importación del proceso participativo",
+          ca: "Importació del procés participatiu"
+        )
+        fill_in :participatory_process_slug, with: "pp-import-404-attachments"
+        check :participatory_process_import_attachments
+      end
+
+      dynamically_attach_file(:participatory_process_document, uploaded_file.path)
+      click_on "Import"
+    end
+
+    it "imports successfully and shows a warning about missing attachments" do
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Import process with 404 attachments")
+
+      within ".flash.warning" do
+        expect(page).to have_content(/The attachment ".+" could not be imported \(404 Not Found\)\./i)
       end
     end
   end
