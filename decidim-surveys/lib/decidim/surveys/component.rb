@@ -54,7 +54,7 @@ Decidim.register_component(:surveys) do |component|
   end
 
   component.exports :survey_user_responses do |exports|
-    exports.collection do |component, user, survey_id|
+    exports.collection do |_component, _user, survey_id|
       survey = Decidim::Surveys::Survey.find(survey_id)
       Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
     end
