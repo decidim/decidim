@@ -105,6 +105,8 @@ module Decidim
 
     def commentable_hidden?(object)
       root_resource = object.respond_to?(:root_commentable) ? object.root_commentable : object.commentable
+      return true if root_resource.nil?
+
       root_hidden = root_resource.try(:hidden?) || root_resource.try(:deleted?)
 
       object.try(:hidden?) || object.try(:deleted?) || root_hidden
