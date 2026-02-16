@@ -723,6 +723,8 @@ ja:
         attending_participants: 参加する
         hidden_participants_count:
           other: 他 %{count} 人
+        show_less: 一部のみ表示
+        show_more: すべて表示
       read_more: "(続きを読む)"
       registration_mailer:
         confirmation:
