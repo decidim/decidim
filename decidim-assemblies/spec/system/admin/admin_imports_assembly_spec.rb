@@ -142,7 +142,7 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Import assembly with 404 hero")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported due to an error/i)
+        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -195,7 +195,7 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Import assembly with 404 banner")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The banner image could not be imported due to an error/i)
+        expect(page).to have_content(/The banner image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -249,8 +249,8 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Import assembly with 404 images")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported due to an error/i)
-        expect(page).to have_content(/The banner image could not be imported due to an error/i)
+        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
+        expect(page).to have_content(/The banner image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -306,8 +306,67 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Import assembly with long 404 images")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported due to an error/i)
-        expect(page).to have_content(/The banner image could not be imported due to an error/i)
+        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
+        expect(page).to have_content(/The banner image could not be imported \(404 Not Found\)\./i)
+      end
+    end
+  end
+
+  context "when attachment URLs return 404" do
+    let(:json_data) { JSON.parse(File.read(Decidim::Dev.asset("assemblies.json"))) }
+    let(:json_file) do
+      Tempfile.new(["assemblies", ".json"]).tap do |file|
+        file.write(json_data.to_json)
+        file.rewind
+      end
+    end
+    let(:uploaded_file) do
+      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+    end
+
+    before do
+      json_data.first["attachments"]["files"].each do |file|
+        file["remote_file_url"] = "http://example.com/missing-attachment.pdf"
+      end
+
+      stub_request(:head, "http://example.com/missing-attachment.pdf")
+        .to_return(status: 404, body: "Not Found")
+
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/assembly/hero_image/1/city.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/assembly/banner_image/1/city2.jpeg",
+        "image/jpeg"
+      )
+
+      within_admin_menu do
+        click_on "Import"
+      end
+
+      within ".import_assembly" do
+        fill_in_i18n(
+          :assembly_title,
+          "#assembly-title-tabs",
+          en: "Import assembly with 404 attachments",
+          es: "Importación de la asamblea",
+          ca: "Importació de l'asamblea"
+        )
+        fill_in :assembly_slug, with: "as-import-404-attachments"
+        check :assembly_import_attachments
+      end
+
+      dynamically_attach_file(:assembly_document, uploaded_file.path)
+      click_on "Import"
+    end
+
+    it "imports successfully and shows a warning about missing attachments" do
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Import assembly with 404 attachments")
+
+      within ".flash.warning" do
+        expect(page).to have_content(/The attachment ".+" could not be imported \(404 Not Found\)\./i)
       end
     end
   end

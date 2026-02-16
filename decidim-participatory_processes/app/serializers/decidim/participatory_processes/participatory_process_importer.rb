@@ -94,9 +94,29 @@ module Decidim
         return if attachments["files"].nil?
 
         attachments["files"].map do |file|
-          next unless remote_file_exists?(file["remote_file_url"])
+          url = file["remote_file_url"]
+          next if url.blank?
 
-          file_tmp = URI.parse(file["remote_file_url"]).open
+          error = remote_file_error(url)
+          if error.present?
+            @warnings << I18n.t(
+              "decidim.participatory_processes.admin.imports.attachment_error",
+              title: attachment_title(file),
+              error:
+            )
+            next
+          end
+
+          begin
+            file_tmp = URI.parse(url).open
+          rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+            @warnings << I18n.t(
+              "decidim.participatory_processes.admin.imports.attachment_error",
+              title: attachment_title(file),
+              error: format_error(e)
+            )
+            next
+          end
 
           Decidim.traceability.perform_action!("create", Attachment, @user) do
             attachment = Attachment.new(
@@ -151,7 +171,7 @@ module Decidim
         attachment_collection
       end
 
-      def remote_file_exists?(url)
+      def remote_file_error(url)
         return if url.nil?
 
         accepted = ["image", "application/pdf"]
@@ -159,10 +179,25 @@ module Decidim
         http_connection = Net::HTTP.new(url.host, url.port)
         http_connection.use_ssl = true if url.scheme == "https"
         http_connection.start do |http|
-          return http.head(url.request_uri)["Content-Type"].start_with?(*accepted)
+          response = http.head(url.request_uri)
+          content_type = response["Content-Type"]
+          next if response.is_a?(Net::HTTPSuccess) && content_type&.start_with?(*accepted)
+
+          message = response.message.presence || Rack::Utils::HTTP_STATUS_CODES[response.code.to_i]
+          message = message.presence || "Error"
+          next "#{response.code} #{message}"
         end
-      rescue StandardError
-        nil
+      rescue StandardError => e
+        format_error(e)
+      end
+
+      def attachment_title(file)
+        title = file["title"]
+        return "" if title.blank?
+
+        return title unless title.is_a?(Hash)
+
+        title.values.find(&:present?) || ""
       end
 
       def import_hero_image(url)
@@ -170,7 +205,7 @@ module Decidim
 
         @imported_process.attached_uploader(:hero_image).remote_url = url
       rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-        @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_error", error: e.message)
+        @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_error", error: format_error(e))
       end
 
       def import_group_hero_image(group, url)
@@ -178,7 +213,19 @@ module Decidim
 
         group.attached_uploader(:hero_image).remote_url = url
       rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-        @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_error", error: e.message)
+        @warnings << I18n.t("decidim.participatory_processes.admin.imports.hero_image_error", error: format_error(e))
+      end
+
+      def format_error(error)
+        return error.message unless error.respond_to?(:io) && error.io.respond_to?(:status)
+
+        status = error.io.status
+        return error.message if status.blank? || status.first.blank?
+
+        code = status[0]
+        message = status[1].presence || Rack::Utils::HTTP_STATUS_CODES[code.to_i]
+        message = message.presence || error.message
+        "#{code} #{message}"
       end
     end
   end
