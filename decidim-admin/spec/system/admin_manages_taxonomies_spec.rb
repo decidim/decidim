@@ -188,7 +188,7 @@ describe "Admin manages taxonomies" do
           click_on "Edit"
         end
 
-        sleep(2)
+        expect(page).to have_content("My english value")
         expect(taxonomy.reload.children.last.name["en"]).to eq("My english value")
         expect(taxonomy.reload.children.last.name["it"]).to eq("My italian value")
 
@@ -202,7 +202,7 @@ describe "Admin manages taxonomies" do
           click_on "Update item"
         end
 
-        sleep(2)
+        expect(page).to have_content("My modified english value")
         expect(taxonomy.reload.children.last.name["en"]).to eq("My modified english value")
         expect(taxonomy.reload.children.last.name["it"]).to eq("My modified italian value")
       end
