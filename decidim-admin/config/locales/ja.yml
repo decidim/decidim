@@ -191,6 +191,7 @@ ja:
           気が変わった場合は、後で元に戻せます。
         export: エクスポート
         export_all: 全てエクスポート
+        export_selection: 選択したものをエクスポート
         import: インポート
         menu_hidden: メニューから隠す
         moderate: モデレーションの管理
