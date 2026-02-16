@@ -422,6 +422,9 @@ ja:
             all: すべて
             max_results: 表示する要素の最大量
             selection_criteria: 選択条件
+        imports:
+          attachment_error: 添付ファイル "%{title}" をインポートできませんでした（%{error}）。
+          hero_image_error: ヒーロー画像をインポートできませんでした（%{error}）。
         new_import:
           accepted_types:
             json: JSON
