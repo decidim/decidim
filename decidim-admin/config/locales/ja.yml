@@ -190,6 +190,7 @@ ja:
           気が変わった場合は、後で元に戻せます。
         export: エクスポート
         export_all: 全てエクスポート
+        export_selection: 選択したものをエクスポート
         import: インポート
         member:
           new: 新規メンバー
@@ -1076,6 +1077,7 @@ ja:
           title: 新規トピック
         update:
           error: このトピックの更新中に問題が発生しました。
+          success: トピックを更新しました。
       static_pages:
         actions:
           view: 表示
