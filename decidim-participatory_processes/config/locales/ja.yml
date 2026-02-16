@@ -213,6 +213,7 @@ ja:
           error: 参加型プロセスのこれらのフェーズの順序変更に問題がありました。
         update:
           error: 参加型プロセスのこの段階の更新に問題がありました。
+          success: 参加プロセスフェーズを更新しました。
       participatory_process_user_roles:
         create:
           error: この参加型プロセスに参加者を追加する際に問題が発生しました。
