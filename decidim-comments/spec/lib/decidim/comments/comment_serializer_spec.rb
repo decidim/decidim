@@ -43,6 +43,22 @@ module Decidim
         it "includes the root commentable's url" do
           expect(subject.serialize[:root_commentable_url]).to match(/http/)
         end
+
+        context "when the author has been deleted" do
+          let(:commentable) { create(:dummy_resource, :published) }
+          let(:comment) { create(:comment, commentable:, root_commentable: commentable, author: deleted_user) }
+          let(:deleted_user) { create(:user, :confirmed, :deleted, organization: commentable.organization) }
+
+          it "serializes without error" do
+            expect { subject.serialize }.not_to raise_error
+          end
+
+          it "returns nil for author fields" do
+            serialized = subject.serialize
+            expect(serialized[:author][:id]).to be_nil
+            expect(serialized[:author][:name]).to be_nil
+          end
+        end
       end
     end
   end
