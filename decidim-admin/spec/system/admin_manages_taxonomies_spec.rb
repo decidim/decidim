@@ -141,17 +141,17 @@ describe "Admin manages taxonomies" do
     end
 
     context "and the organization has multiple languages" do
-      let(:available_locales) { %w(en ca es fr it) }
-
       before do
-        I18n.available_locales = available_locales
-        Decidim.available_locales = available_locales
+        I18n.available_locales = %w(en ca es fr it)
+        Decidim.available_locales = %w(en ca es fr it)
         I18n.backend.reload!
 
         Decidim::Admin.send(:remove_const, :TaxonomyForm)
+        Decidim::Admin.send(:remove_const, :TaxonomyItemForm)
         load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/taxonomy_form.rb"
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/taxonomy_item_form.rb"
 
-        organization.update!(available_locales:)
+        organization.update!(available_locales: %w(en ca es fr it))
       end
 
       after do
@@ -160,7 +160,9 @@ describe "Admin manages taxonomies" do
         I18n.backend.reload!
 
         Decidim::Admin.send(:remove_const, :TaxonomyForm)
+        Decidim::Admin.send(:remove_const, :TaxonomyItemForm)
         load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/taxonomy_form.rb"
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/taxonomy_item_form.rb"
       end
 
       it "updates individually the translations" do
