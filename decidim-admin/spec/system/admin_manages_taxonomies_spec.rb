@@ -141,7 +141,6 @@ describe "Admin manages taxonomies" do
     end
 
     context "and the organization has multiple languages" do
-      let(:organization) { create(:organization) }
       let(:available_locales) { %w(en ca es fr it) }
 
       before do
