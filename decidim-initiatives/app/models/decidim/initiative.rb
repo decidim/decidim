@@ -153,7 +153,7 @@ module Decidim
                         datetime: :published_at
                       },
                       index_on_create: ->(_initiative) { false },
-                      index_on_update: ->(initiative) { initiative.visible? })
+                      index_on_update: ->(initiative) { initiative.resource_visible? })
 
     def self.export_serializer
       Decidim::Initiatives::DownloadYourDataInitiativeSerializer
