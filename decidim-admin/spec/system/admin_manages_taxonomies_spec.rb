@@ -159,6 +159,9 @@ describe "Admin manages taxonomies" do
         I18n.available_locales = %w(en ca es)
         Decidim.available_locales = %w(en ca es)
         I18n.backend.reload!
+
+        Decidim::Admin.send(:remove_const, :TaxonomyForm)
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/taxonomy_form.rb"
       end
 
       it "updates individually the translations" do
