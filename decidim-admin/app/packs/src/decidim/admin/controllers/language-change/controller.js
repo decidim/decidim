@@ -14,9 +14,19 @@ export default class extends Controller {
     let targetTabPaneSelector = event.target.value;
     let tabsContent = event.target.parentElement.parentElement.nextElementSibling;
 
-    tabsContent.querySelector(".is-active").ariaHidden = "true";
-    tabsContent.querySelector(".is-active").classList.remove("is-active");
-    tabsContent.querySelector(targetTabPaneSelector).ariaHidden = "false";
-    tabsContent.querySelector(targetTabPaneSelector).classList.add("is-active");
+    if (!tabsContent) {
+      return;
+    }
+
+    let activeTabContent = tabsContent.querySelector(".is-active");
+    if (activeTabContent) {
+      activeTabContent.ariaHidden = "true";
+      activeTabContent.classList.remove("is-active");
+    }
+    let activePane = tabsContent.querySelector(targetTabPaneSelector);
+    if (activePane) {
+      activePane.ariaHidden = "false";
+      activePane.classList.add("is-active");
+    }
   }
 }
