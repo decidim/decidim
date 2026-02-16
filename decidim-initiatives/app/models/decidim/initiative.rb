@@ -153,8 +153,7 @@ module Decidim
                         datetime: :published_at
                       },
                       index_on_create: ->(_initiative) { false },
-                      # is Resourceable instead of ParticipatorySpaceResourceable so we cannot use `visible?`
-                      index_on_update: ->(initiative) { initiative.published? })
+                      index_on_update: ->(initiative) { initiative.visible? })
 
     def self.export_serializer
       Decidim::Initiatives::DownloadYourDataInitiativeSerializer
