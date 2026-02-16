@@ -389,8 +389,9 @@ export default function createEditableForm() {
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
 
-      document.querySelectorAll("select.language-change").forEach((container) =>
-        window.deprecate(container, "language-change", "select.language-change"))
+      document.querySelectorAll("select.language-change").forEach((container) => {
+        window.deprecate(container, "language-change", "select.language-change")
+      });
 
       // instead of initialize specific stuff, we send an event, with the DOM fragment we wanna update/refresh/bind
       document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $field[0] }));

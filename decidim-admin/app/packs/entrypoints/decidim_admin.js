@@ -26,6 +26,7 @@ import "src/decidim/admin/taxonomy_filters"
 import "entrypoints/decidim_admin.scss";
 
 document.addEventListener("turbo:load", () => {
-  document.querySelectorAll("select.language-change").forEach((container) =>
-    window.deprecate(container, "language-change", "select.language-change"))
+  document.querySelectorAll("select.language-change").forEach((container) => {
+    window.deprecate(container, "language-change", "select.language-change")
+  })
 });
