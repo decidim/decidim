@@ -277,8 +277,9 @@ fr:
           highlighted_assemblies:
             max_results: Quantité maximale d'éléments à afficher
         imports:
-          banner_image_error: L'image de la bannière n'a pas pu être importée en raison d'une erreur. Erreur %{error}
-          hero_image_error: L'image principale n'a pas pu être importée en raison d'une erreur. Erreur %{error}
+          attachment_error: La pièce jointe «%{title}» n’a pas pu être importée (%{error}).
+          banner_image_error: L'image de la bannière n'a pas pu être importée (%{error}).
+          hero_image_error: L'image principale n'a pas pu être importée (%{error}).
         new_import:
           accepted_types:
             json: JSON
