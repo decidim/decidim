@@ -46,8 +46,12 @@ module Decidim
 
         context "when the author has been deleted" do
           let(:commentable) { create(:dummy_resource, :published) }
-          let(:comment) { create(:comment, commentable:, root_commentable: commentable, author: deleted_user) }
-          let(:deleted_user) { create(:user, :confirmed, :deleted, organization: commentable.organization) }
+          let(:comment) do
+            user = create(:user, :confirmed, organization: commentable.organization)
+            c = create(:comment, commentable:, root_commentable: commentable, author: user)
+            Decidim::User.where(id: user.id).delete_all
+            c.reload
+          end
 
           it "serializes without error" do
             expect { subject.serialize }.not_to raise_error
