@@ -16,7 +16,7 @@ shared_examples "manage proposals permissions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Permissions updated successfully.")
     end
   end
 end

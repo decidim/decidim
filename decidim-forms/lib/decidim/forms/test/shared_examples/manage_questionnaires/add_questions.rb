@@ -54,7 +54,7 @@ shared_examples_for "add questions" do
 
     click_on "Save"
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout(callout_success)
 
     visit_manage_questions_and_expand_all
 
@@ -76,7 +76,7 @@ shared_examples_for "add questions" do
 
     click_on "Save"
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout(callout_success)
 
     update_component_settings_or_attributes
 
@@ -98,7 +98,7 @@ shared_examples_for "add questions" do
 
     click_on "Save"
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout(callout_success)
 
     update_component_settings_or_attributes
 
@@ -152,7 +152,7 @@ shared_examples_for "add questions" do
 
     click_on "Save"
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout(callout_success)
 
     visit_manage_questions_and_expand_all
 

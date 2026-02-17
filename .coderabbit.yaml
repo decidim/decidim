@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+reviews:
+  request_changes_workflow: true
+  auto_review:
+    # Skip PRs opened by these users (silent; no comments)
+    ignore_usernames:
+      - "decidim-bot"
+      - "dependabot[bot]"

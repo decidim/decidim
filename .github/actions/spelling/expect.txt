@@ -139,6 +139,7 @@ cobertura
 codecov
 codefor
 CODEOWNERS
+coderabbit
 codespace
 codeql
 coditramuntana
@@ -490,6 +491,7 @@ Llobregat
 lng
 Localret
 localvars
+lockfiles
 loggable
 lon
 LOPD

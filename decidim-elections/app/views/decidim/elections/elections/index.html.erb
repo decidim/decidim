@@ -1,11 +1,14 @@
 <% add_decidim_meta_tags(
-     description: translated_attribute(current_participatory_space.short_description),
-     title: t("decidim.components.pagination.page_title",
-              component_name:,
-              current_page: paginated_elections.current_page,
-              total_pages: paginated_elections.total_pages ),
-     url: elections_url,
-     resource: current_component) %>
+  description: translated_attribute(current_participatory_space.try(:short_description) || current_participatory_space.description),
+  title: t(
+    "decidim.components.pagination.page_title",
+    component_name:,
+    current_page: paginated_elections.current_page,
+    total_pages: paginated_elections.total_pages
+  ),
+  url: elections_url,
+  resource: current_component
+) %>
 
 <% append_stylesheet_pack_tag "decidim_elections", media: "all" %>
 
