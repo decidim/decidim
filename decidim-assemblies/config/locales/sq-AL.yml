@@ -200,7 +200,6 @@ sq:
       admin:
         assemblies:
           form:
-            announcement_help: Teksti që vendosni këtu do i shfaqet përdoruesit nën informacionin e asamblesë.
             duration: Kohëzgjatja
             duration_help: Nëse kohëzgjatja e asamblesë është e kufizuar, zgjidh datën e përfundimit. Përndryshe, do shfaqet si e papërcaktuar.
             images: Imazhet
