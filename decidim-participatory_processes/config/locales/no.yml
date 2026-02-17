@@ -337,7 +337,6 @@
             document_legend: Legg til et dokumentet
         participatory_processes:
           form:
-            announcement_help: Teksten du skriver inn her vil vises til brukeren rett under prosessinformasjonen.
             duration: Varighet
             images: Bilder
             metadata: Metadata
