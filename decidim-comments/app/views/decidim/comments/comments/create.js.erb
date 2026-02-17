@@ -13,7 +13,7 @@
     hideButton.find("[data-show-comment-reply]").first().html('<%= t("decidim.components.comment.show_replies", count: Decidim::Comments::SortedComments.for(root_comment.reload).size) %>');
 
   } else {
-    component.addThread(commentHtml, alignment, true);
+    component._finalizeCommentCreation(null, true);
     var commentsEl = document.getElementById(rootCommentableId);
     commentsEl.querySelectorAll(".comment-threads .comment-thread").forEach(function(el) { el.remove(); });
     var loadingEl = commentsEl.querySelector(".loading-comments");
