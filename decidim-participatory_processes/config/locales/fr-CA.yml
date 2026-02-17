@@ -462,7 +462,6 @@ fr-CA:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_processes:
           form:
-            announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             has_members_help: Vous pourrez créer et publier des membres
