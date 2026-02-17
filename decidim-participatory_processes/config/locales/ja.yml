@@ -103,6 +103,7 @@ ja:
       menu:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_groups_submenu:
+          info: このプロセスグループについて
           landing_page: ランディングページのレイアウト
         participatory_processes: 参加型プロセス
         participatory_processes_submenu:
@@ -489,6 +490,9 @@ ja:
             all: すべて
             max_results: 表示する要素の最大量
             selection_criteria: 選択条件
+        imports:
+          attachment_error: 添付ファイル "%{title}" をインポートできませんでした（%{error}）。
+          hero_image_error: ヒーロー画像をインポートできませんでした（%{error}）。
         new_import:
           accepted_types:
             json: JSON
