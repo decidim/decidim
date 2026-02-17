@@ -6,7 +6,6 @@ module RuboCop
   module Cop
     module Decidim
       class MessageAntipattern < RuboCop::Cop::Base
-        MIN_LENGTH_THRESHOLD = 12
         SINGLE_WORD_ANTI_PATTERNS = %w(
           successfully
           problem
@@ -26,11 +25,12 @@ module RuboCop
           unpublished
         ).freeze
 
-        MSG = "Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. " \
+        MSG = "Anti-pattern detected: avoid generic single-word text in have_callout/have_content. " \
               "Use the full admin flash message, e.g. 'Meeting successfully published'."
 
         def on_send(node)
           return unless [:have_callout, :have_content].include?(node.method_name)
+          return if within_block?(node)
 
           first_argument = node.first_argument
           return unless first_argument
@@ -49,17 +49,23 @@ module RuboCop
 
         private
 
+        def within_block?(node)
+          node.each_ancestor(:block).any? do |ancestor|
+            ancestor.send_node&.method_name == :within
+          end
+        end
+
         def antipattern_text?(text)
           return true if text.nil?
           return true if text.empty?
 
           stripped_text = text.gsub(/[[:punct:]\s]/, "")
-          single_word = text.strip !~ /\s/
-          too_short = stripped_text.length < MIN_LENGTH_THRESHOLD
+          return true if stripped_text.empty?
 
-          return true if single_word && too_short
-          return true if single_word && SINGLE_WORD_ANTI_PATTERNS.include?(stripped_text.downcase)
-          return true if too_short
+          single_word = text.strip !~ /\s/
+          return false unless single_word
+
+          return true if SINGLE_WORD_ANTI_PATTERNS.include?(stripped_text.downcase)
 
           false
         end

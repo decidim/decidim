@@ -10,14 +10,14 @@ RSpec.describe RuboCop::Cop::Decidim::MessageAntipattern, :config do
   it "registers an offense for single-word callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_callout("successfully")
-                                   ^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
     RUBY
   end
 
   it "registers an offense for very short callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_callout("ok")
-                                   ^^^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
     RUBY
   end
 
@@ -27,78 +27,70 @@ RSpec.describe RuboCop::Cop::Decidim::MessageAntipattern, :config do
     RUBY
   end
 
-  it "registers an offense for multi-word short callouts" do
-    expect_offense(<<~RUBY)
-      expect(page).to have_callout("Hello world")
-                                   ^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
-    RUBY
-  end
-
-  it "registers an offense when punctuation strips to short text" do
-    expect_offense(<<~RUBY)
-      expect(page).to have_callout("Success!!!")
-                                   ^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
-    RUBY
-  end
-
-  it "registers an offense with exactly 13 characters" do
-    expect_offense(<<~RUBY)
-      expect(page).to have_callout("Hello my babe")
-                                   ^^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
-    RUBY
-  end
-
-  it "accepts callouts with exactly 14 characters" do
+  it "accepts multi-word callouts" do
     expect_no_offenses(<<~RUBY)
-      expect(page).to have_callout("Hello my world")
+      expect(page).to have_callout("Hello world")
     RUBY
   end
 
-  it "registers an offense for callouts with multiple spaces" do
-    expect_offense(<<~RUBY)
+  it "accepts single words not in the anti-pattern list" do
+    expect_no_offenses(<<~RUBY)
+      expect(page).to have_callout("Success!!!")
+    RUBY
+  end
+
+  it "accepts callouts with multiple spaces" do
+    expect_no_offenses(<<~RUBY)
       expect(page).to have_callout("Hello   world")
-                                   ^^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
     RUBY
   end
 
   it "registers an offense for empty string callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_callout("")
-                                   ^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
     RUBY
   end
 
   it "registers an offense for whitespace-only callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_callout("   ")
-                                   ^^^^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
     RUBY
   end
 
   it "registers an offense for nil callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_callout(nil)
-                                   ^^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
     RUBY
   end
 
   it "registers an offense for single-word content" do
     expect_offense(<<~RUBY)
       expect(page).to have_content("successfully")
-                                   ^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
     RUBY
   end
 
   it "registers an offense for short content" do
     expect_offense(<<~RUBY)
       expect(page).to have_content("ok")
-                                   ^^^^ Anti-pattern detected: avoid generic single-word or very short text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
     RUBY
   end
 
   it "accepts descriptive content" do
     expect_no_offenses(<<~RUBY)
       expect(page).to have_content("Template copied successfully.")
+    RUBY
+  end
+
+  it "ignores content checks inside within blocks" do
+    expect_no_offenses(<<~RUBY)
+      within(".filters") do
+        expect(page).to have_content("ok")
+      end
     RUBY
   end
 end
