@@ -245,7 +245,6 @@ eu:
       admin:
         assemblies:
           form:
-            announcement_help: Hemen sartzen duzun testua batzarreko informazioaren azpian agertuko zaio parte-hartzaileari.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
@@ -385,7 +384,6 @@ eu:
     open_data:
       help:
         assemblies:
-          announcement: Informazioa iragarpenaz (deia)
           area: Batzarraren arloa
           assembly_type: Batzar mota
           closing_date: Zein datatan ixten den batzarra
