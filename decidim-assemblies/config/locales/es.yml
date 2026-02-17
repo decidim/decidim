@@ -245,7 +245,6 @@ es:
       admin:
         assemblies:
           form:
-            announcement_help: El texto que introduzcas aquí se mostrará a la participante justo debajo de la información de la asamblea.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
@@ -278,6 +277,10 @@ es:
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidad máxima de elementos para mostrar
+        imports:
+          attachment_error: No se ha podido importar el archivo adjunto "%{title}" (%{error}).
+          banner_image_error: No se ha podido importar la imagen del banner (%{error}).
+          hero_image_error: No se ha podrido importar la imagen principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
@@ -385,7 +388,6 @@ es:
     open_data:
       help:
         assemblies:
-          announcement: La información del anuncio/aviso (llamada)
           area: El área a la que corresponde la asamblea
           assembly_type: El tipo de asamblea
           closing_date: La fecha de cierre de la asamblea
