@@ -89,9 +89,6 @@ lb:
         unpublish: Veröffentlichung rückgängig machen
       menu:
         participatory_process_groups: Prozessgruppen
-        participatory_process_groups_submenu:
-          info: Info
-          landing_page: Startseite
         participatory_processes: Beteiligungsprozesse
         participatory_processes_submenu:
           attachment_collections: Dossieren
