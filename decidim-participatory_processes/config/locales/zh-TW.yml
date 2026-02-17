@@ -322,7 +322,6 @@ zh-TW:
             document_legend: 添加文檔
         participatory_processes:
           form:
-            announcement_help: 您在此處輸入的文字將顯示至使用者的正下方程序信息
             duration: 持續時間
             images: 圖片
             metadata: 元數據
