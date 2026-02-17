@@ -271,7 +271,6 @@ lv:
             document_legend: Pievienot dokumentu
         participatory_processes:
           form:
-            announcement_help: Šeit ievadītais teksts tiks parādīts lietotājam tieši zem procesa informācijas.
             duration: Ilgums
             images: Attēli
             metadata: Metadati
