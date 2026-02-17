@@ -229,7 +229,6 @@ it:
       admin:
         assemblies:
           form:
-            announcement_help: Il testo che inserisci qui verrà mostrato all'utente proprio sotto le informazioni dell'assemblea.
             define_taxonomy_filters: Si prega di definire alcuni filtri per questo spazio partecipativo prima di utilizzare questa impostazione.
             duration: Durata
             duration_help: Se la durata di questa assemblea è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinita.
@@ -363,7 +362,6 @@ it:
     open_data:
       help:
         assemblies:
-          announcement: Informazioni sull'annuncio (callout)
           area: L'area dell'assemblea
           assembly_type: Il tipo di assemblea
           closing_date: La data di chiusura dell'assemblea
