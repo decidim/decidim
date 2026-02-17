@@ -117,8 +117,7 @@ cs:
       menu:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:
-          info: Info
-          landing_page: Úvodní stránka
+          landing_page: Rozložení vstupní strany
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Složky
