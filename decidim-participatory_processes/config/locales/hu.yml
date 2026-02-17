@@ -326,7 +326,6 @@ hu:
             document_legend: Dokumentum hozzáadása
         participatory_processes:
           form:
-            announcement_help: A megadott szöveg a folyamat információk alatt található felhasználónál jelenik meg.
             duration: Időtartam
             images: Képek
             metadata: Metaadatok
