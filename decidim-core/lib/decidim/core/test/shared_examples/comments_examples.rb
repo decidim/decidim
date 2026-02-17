@@ -1255,13 +1255,13 @@ shared_examples "comments with two columns" do
     let!(:oldest_against_comment) { create(:comment, :against, commentable:, created_at: 4.days.ago) }
     let!(:newer_against_comment) { create(:comment, :against, commentable:, created_at: 1.day.ago) }
 
-    it "shows the comments in two columns sorted by creation date in ascending order" do
+    it "shows the comments in two columns sorted by creation date in descending order" do
       resize_window_to_desktop
       visit resource_path
 
       within(".comments-two-columns") do
-        check_comments_order(".comments-section__in-favor", [oldest_in_favor_comment, older_in_favor_comment])
-        check_comments_order(".comments-section__against", [oldest_against_comment, newer_against_comment])
+        check_comments_order(".comments-section__in-favor", [older_in_favor_comment, oldest_in_favor_comment])
+        check_comments_order(".comments-section__against", [newer_against_comment, oldest_against_comment])
       end
     end
 

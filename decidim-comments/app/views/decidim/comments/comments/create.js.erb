@@ -14,11 +14,16 @@
 
   } else {
     component._finalizeCommentCreation(null, true);
-    var commentsEl = document.getElementById(rootCommentableId);
-    commentsEl.querySelectorAll(".comment-threads .comment-thread").forEach(function(el) { el.remove(); });
-    var loadingEl = commentsEl.querySelector(".loading-comments");
-    if (loadingEl) { loadingEl.classList.remove("hidden"); }
-    component._fetchComments();
+    Rails.ajax({
+      url: component.commentsUrl,
+      type: "GET",
+      data: new URLSearchParams({
+        "commentable_gid": component.commentableGid,
+        "root_depth": component.rootDepth,
+        "order": component.order,
+        "reload": 1
+      })
+    });
   }
 
   Rails.fire(document, "comments:loaded", {

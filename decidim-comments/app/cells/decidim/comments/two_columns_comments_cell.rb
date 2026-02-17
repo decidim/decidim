@@ -18,6 +18,10 @@ module Decidim
 
       private
 
+      def order
+        "recent"
+      end
+
       def initialize_comments
         if model.closed?
           load_closed_comments
