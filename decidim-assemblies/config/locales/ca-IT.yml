@@ -245,7 +245,6 @@ ca-IT:
       admin:
         assemblies:
           form:
-            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació de l'assemblea.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
@@ -278,6 +277,10 @@ ca-IT:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
+        imports:
+          attachment_error: No s'ha pogut importar l'arxiu adjunt "%{title}" (%{error}).
+          banner_image_error: No s'ha pogut importar la imatge del bàner (%{error}).
+          hero_image_error: No s'ha pogut importar la imatge principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
@@ -385,7 +388,6 @@ ca-IT:
     open_data:
       help:
         assemblies:
-          announcement: La informació de l'anunci/avís (crida)
           area: L'àrea a la qual correspon l'assemblea
           assembly_type: El tipus d'assemblea
           closing_date: La data de tancament de l'assemblea
