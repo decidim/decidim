@@ -269,7 +269,6 @@ ar:
             document_legend: إضافة وثيقة
         participatory_processes:
           form:
-            announcement_help: سيتم عرض النص الذي تدخله هنا للمستخدم مباشرة أسفل معلومات العملية.
             duration: المدة الزمنية
             images: صور
             metadata: البيانات الوصفية
