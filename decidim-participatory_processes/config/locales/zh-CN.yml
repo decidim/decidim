@@ -265,7 +265,6 @@ zh-CN:
             document_legend: 添加文档
         participatory_processes:
           form:
-            announcement_help: 您在此输入的文本将会显示给流程信息下方的用户。
             duration: 期限
             images: 图像
             metadata: 元数据
