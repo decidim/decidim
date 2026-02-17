@@ -139,13 +139,3 @@ shared_examples "API updatable project" do
     expect(project["budget_amount"]).to eq(budget_amount)
   end
 end
-
-shared_examples "API deletable project" do
-  it "deletes the project" do
-    expect(project.deleted_at).to be_nil
-    expect do
-      execute_query(query, variables)
-    end.to change(Decidim::Budgets::Project, :count).by(-1)
-    expect(project.reload.deleted_at).not_to be_nil
-  end
-end

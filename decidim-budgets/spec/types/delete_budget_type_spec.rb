@@ -7,20 +7,21 @@ module Decidim::Budgets
     include_context "with a graphql class mutation"
 
     let(:root_klass) { BudgetsMutationType }
-    let(:model) { create(:budgets_component) }
-    let!(:budget) { create(:budget, component: model, total_budget: 1_000) }
+    let!(:model) { create(:budget, component: current_component, total_budget: 1_000) }
+    let(:current_component) { create(:budgets_component) }
+    let(:current_organization) { current_component.organization }
 
     let(:query) do
-      %( mutation { deleteBudget(id: #{budget.id}) { id } })
+      %( mutation { deleteBudget(id: #{model.id}) { id } })
     end
 
     shared_examples "API deletable budget" do
       it "deletes the budget" do
-        expect(budget.deleted_at).to be_nil
+        expect(model.deleted_at).to be_nil
         expect do
           execute_query(query, variables)
         end.to change(Decidim::Budgets::Budget, :count).by(-1)
-        expect(budget.reload.deleted_at).to be_present
+        expect(model.reload.deleted_at).to be_present
       end
     end
 
@@ -29,7 +30,7 @@ module Decidim::Budgets
         let(:query) { %( mutation { deleteBudget(id: 9999999) { id } } ) }
 
         it "returns an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Budget not found")
+          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
         end
       end
 
@@ -37,7 +38,27 @@ module Decidim::Budgets
         let(:query) { %( mutation { deleteBudget(id: "aaaa") { id } } ) }
 
         it "returns an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Budget not found")
+          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
+        end
+      end
+
+      context "when budget is already deleted" do
+        let!(:model) { create(:budget, component: current_component, total_budget: 1_000) }
+
+        before { model.delete }
+
+        it "returns an error" do
+          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
+        end
+      end
+
+      context "when budget belogs to another component" do
+        let(:model2) { create(:budget, component: current_component2, total_budget: 1_000) }
+        let(:current_component2) { create(:budgets_component, organization: current_organization) }
+        let(:query) { %( mutation { deleteBudget(id: #{model2.id}) { id } } ) }
+
+        it "returns an error" do
+          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
         end
       end
     end

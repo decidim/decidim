@@ -6,13 +6,12 @@ The `DeleteBudget` mutation allows authenticated administrators to soft-delete b
 
 [source,graphql]
 ----
-mutation deleteBudget($componentId: ID!, $budgetId: ID!, $input: DeleteBudgetInput!){
+mutation deleteBudget($componentId: ID!, $budgetId: ID!){
   component(id: $componentId){
     ...on BudgetsMutation{
       budget(id: $budgetId){
-        delete(input: $input){
+        delete(id: $budgetId) {
           id
-          url
         }
       }
     }
@@ -26,10 +25,7 @@ Example of submitted variables
 ----
 {
   "componentId": "3",
-  "budgetId": "5",
-  "input": {
-    "id": "5"
-  }
+  "budgetId": "5"
 }
 ----
 

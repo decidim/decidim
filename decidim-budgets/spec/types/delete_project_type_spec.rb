@@ -16,22 +16,66 @@ module Decidim::Budgets
       %( mutation { deleteProject(id: #{project.id}) { id } })
     end
 
+    shared_examples "API deletable project" do
+      it "deletes the project" do
+        expect(project.deleted_at).to be_nil
+        expect do
+          execute_query(query, variables)
+        end.to change(Decidim::Budgets::Project, :count).by(-1)
+        expect(project.reload.deleted_at).not_to be_nil
+      end
+    end
+
+    shared_context "when missing project" do
+      context "when project is missing" do
+        let(:query) { %( mutation { deleteProject(id: 123456789) { id } }) }
+
+        it "returns an error" do
+          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
+        end
+      end
+
+      context "when project id is not integer" do
+        let(:query) { %( mutation { deleteProject(id: "aaaa") { id } } ) }
+
+        it "returns an error" do
+          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
+        end
+      end
+    end
+
     context "with admin user" do
       it_behaves_like "API deletable project" do
         let!(:user_type) { :admin }
       end
+
+      include_context "when missing project"
     end
 
     context "with normal user" do
       it "returns nil" do
         expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
       end
+
+      include_context "when missing project"
+    end
+
+    context "with visitor user" do
+      let!(:current_user) { nil }
+
+      it "returns nil" do
+        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
+      end
+
+      include_context "when missing project"
     end
 
     context "with api_user" do
       it_behaves_like "API deletable project" do
         let!(:user_type) { :api_user }
       end
+
+      include_context "when missing project"
     end
   end
 end
