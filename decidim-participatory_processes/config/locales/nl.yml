@@ -297,7 +297,6 @@ nl:
             document_legend: Document toevoegen
         participatory_processes:
           form:
-            announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             duration: Duur
             images: Afbeeldingen
             metadata: Metadata
