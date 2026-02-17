@@ -14,6 +14,11 @@
 
   } else {
     component.addThread(commentHtml, alignment, true);
+    var commentsEl = document.getElementById(rootCommentableId);
+    commentsEl.querySelectorAll(".comment-threads .comment-thread").forEach(function(el) { el.remove(); });
+    var loadingEl = commentsEl.querySelector(".loading-comments");
+    if (loadingEl) { loadingEl.classList.remove("hidden"); }
+    component._fetchComments();
   }
 
   Rails.fire(document, "comments:loaded", {
