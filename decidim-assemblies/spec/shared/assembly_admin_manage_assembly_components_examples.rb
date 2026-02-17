@@ -48,7 +48,7 @@ shared_examples "assembly admin manage assembly components" do
     end
 
     it "is successfully created" do
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Component created successfully.")
       expect(page).to have_content("My component")
     end
 
@@ -73,7 +73,7 @@ shared_examples "assembly admin manage assembly components" do
       it "successfully edits it" do
         click_on "Update"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("The component was updated successfully.")
       end
     end
   end
@@ -121,7 +121,7 @@ shared_examples "assembly admin manage assembly components" do
         click_on "Update"
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("The component was updated successfully.")
       expect(page).to have_content("My updated component")
 
       within "tr", text: "My updated component" do

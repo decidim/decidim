@@ -49,7 +49,7 @@ shared_examples "manage process steps examples" do
       click_on "Create"
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("Participatory process phase successfully created.")
 
     within "#steps table" do
       expect(page).to have_content(translated(attributes[:title]))
@@ -75,7 +75,7 @@ shared_examples "manage process steps examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("Participatory process phase successfully updated.")
 
     within "#steps table" do
       expect(page).to have_content(translated(attributes[:title]))
@@ -99,7 +99,7 @@ shared_examples "manage process steps examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Participatory process phase successfully deleted.")
 
       within "#steps table" do
         expect(page).to have_no_content(translated(process_step2.title))

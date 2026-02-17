@@ -1,5 +1,7 @@
 <% if current_user %>
-  <button id="dropdown-trigger-links-mobile" class="main-bar__links-mobile__item" data-controller="dropdown" data-target="dropdown-menu-account-mobile">
+  <button id="dropdown-trigger-links-mobile" class="main-bar__links-mobile__item" data-controller="main-menu"
+          data-target="dropdown-menu-account-mobile"
+          data-close-button="dropdown-trigger-links-mobile-close">
     <% if current_user.notifications.any? %>
       <span class="main-bar__notification"></span>
     <% end %>

@@ -78,7 +78,7 @@ shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_admin_callout("successfully")
+            expect(page).to have_admin_callout("Proposal successfully created.")
 
             within "table" do
               proposal = Decidim::Proposals::Proposal.last
@@ -123,7 +123,7 @@ shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_admin_callout("successfully")
+            expect(page).to have_admin_callout("Proposal successfully created.")
 
             within "table" do
               proposal = Decidim::Proposals::Proposal.last
@@ -150,7 +150,7 @@ shared_examples "manage proposals" do
                 find("*[type=submit]").click
               end
 
-              expect(page).to have_admin_callout("successfully")
+              expect(page).to have_admin_callout("Proposal successfully created.")
 
               within "table" do
                 proposal = Decidim::Proposals::Proposal.last
@@ -201,7 +201,7 @@ shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_admin_callout("successfully")
+            expect(page).to have_admin_callout("Proposal successfully created.")
 
             visit resource_locator(Decidim::Proposals::Proposal.last).path
             expect(page).to have_content("Images")
@@ -225,7 +225,7 @@ shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_admin_callout("successfully")
+            expect(page).to have_admin_callout("Proposal successfully created.")
 
             within "table" do
               proposal = Decidim::Proposals::Proposal.last

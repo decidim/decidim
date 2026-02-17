@@ -24,7 +24,7 @@ shared_examples "manage processes announcements" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("Participatory process successfully updated.")
 
     visit decidim_admin_participatory_processes.participatory_processes_path
 
@@ -57,7 +57,7 @@ shared_examples "manage processes announcements" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("Participatory process successfully updated.")
 
     visit decidim_admin_participatory_processes.participatory_processes_path
 

@@ -1,4 +1,6 @@
-require: rubocop
+require:
+  - rubocop
+  - decidim/dev/rubocop/cop/decidim/admin_callout_antipattern
 
 # Common configuration.
 AllCops:

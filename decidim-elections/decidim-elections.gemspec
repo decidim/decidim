@@ -2,10 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/elections/version"
-
 Gem::Specification.new do |s|
-  s.version = Decidim::Elections.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Ivan Vergés"]
   s.email = ["ivan@pokecode.net"]
   s.license = "AGPL-3.0-or-later"
@@ -30,11 +29,11 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-admin", Decidim::Elections.version
-  s.add_dependency "decidim-core", Decidim::Elections.version
-  s.add_dependency "decidim-forms", Decidim::Elections.version
+  s.add_dependency "decidim-admin", version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-forms", version
 
-  s.add_development_dependency "decidim-admin", Decidim::Elections.version
-  s.add_development_dependency "decidim-dev", Decidim::Elections.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim::Elections.version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-participatory_processes", version
 end

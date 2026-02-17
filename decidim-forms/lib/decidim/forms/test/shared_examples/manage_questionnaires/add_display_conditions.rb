@@ -173,7 +173,7 @@ shared_examples_for "add display conditions" do
 
           click_on "Save"
 
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_admin_callout(callout_success)
         end
       end
     end

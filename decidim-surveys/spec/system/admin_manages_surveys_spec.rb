@@ -4,6 +4,8 @@ require "spec_helper"
 
 describe "Admin manages surveys" do
   let(:manifest_name) { "surveys" }
+  let(:callout_success) { "Survey questions successfully saved." }
+  let(:callout_failure) { "There was a problem saving" }
   let!(:component) do
     create(:component,
            manifest:,
