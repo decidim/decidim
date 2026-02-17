@@ -110,8 +110,7 @@ pt-BR:
       menu:
         participatory_process_groups: Grupos de processo
         participatory_process_groups_submenu:
-          info: Informações
-          landing_page: Página principal
+          landing_page: Layout página principal
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas
