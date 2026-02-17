@@ -188,7 +188,7 @@ sv:
           state_values:
             finished: Avslutad
             ongoing: Pågående
-            scheduled: Schemalagd
+            scheduled: Kommande
         orders:
           end_at: Slutdatum
           label: Sortera efter
