@@ -284,7 +284,6 @@ gl:
             document_legend: Engadir un documento
         participatory_processes:
           form:
-            announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
             duration: Duración
             images: Imaxes
             metadata: Metadatos
