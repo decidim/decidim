@@ -13,6 +13,32 @@ shared_examples "comments" do
     expect_no_js_errors
   end
 
+  context "when user name is improperly formatted" do
+    let!(:user) { create(:user, :malicious, :confirmed, organization:) }
+
+    before do
+      # rubocop:disable Rails/SkipsModelValidations
+      comments.each do |comment|
+        comment.author.update_column(:name, "user_#{comment.author.id}\n<script>alert('name')</script>") if comment.author.is_a?(Decidim::UserBaseEntity)
+      end
+      # rubocop:enable Rails/SkipsModelValidations
+    end
+
+    it "properly displays the user name" do
+      login_as user, scope: :user
+      visit resource_path
+
+      within "#add-comment-anchor" do
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          expect(page).to have_css("p.comment__as-author-name")
+          within "p.comment__as-author-name" do
+            expect(page).to have_content("user_#{user.id} alert('name')")
+          end
+        end
+      end
+    end
+  end
+
   it "shows the list of comments for the resource" do
     visit resource_path
 
@@ -21,7 +47,7 @@ shared_examples "comments" do
 
     within "#comments" do
       comments.each do |comment|
-        expect(page).to have_content comment.author.name
+        expect(page).to have_content decidim_sanitize_translated(comment.author.name).gsub("\n", " ")
         expect(page).to have_content comment.body.values.first
       end
     end
@@ -234,6 +260,8 @@ shared_examples "comments" do
 
     describe "when using emojis" do
       before do
+        skip("This spec does not work in focus mode, since there is no language selector.") if has_selector?(".main-bar--focus-mode-back-button")
+
         within_language_menu do
           click_on "Castellano"
         end
@@ -283,6 +311,12 @@ shared_examples "comments" do
       context "when the locale is not supported" do
         let(:locale) { "Català" }
         let(:phrase) { I18n.with_locale(:ca) { I18n.t("emojis.categories.people") } }
+
+        around do |example|
+          I18n.with_locale(:ca) do
+            example.run
+          end
+        end
 
         it_behaves_like "allowing to select emojis"
       end

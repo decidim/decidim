@@ -136,6 +136,7 @@ ro:
         show:
           debate_conclusions_are: 'Dezbaterea s-a încheiat la %{date} cu următoarele concluzii:'
           edit_conclusions: Modificați concluziile
+          ongoing: În desfășurare
           participants_count: Participanți
         update:
           invalid: A apărut o problemă la actualizarea dezbaterii.

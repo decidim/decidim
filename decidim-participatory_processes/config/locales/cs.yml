@@ -121,8 +121,8 @@ cs:
           components: Komponenty
           info: O tomto procesu
           landing_page: Rozložení vstupní strany
+          members: Členové
           moderations: Moderování
-          private_users: Členové
           process_admins: Administrátoři procesu
           steps: Kroky
       models:
@@ -514,7 +514,6 @@ cs:
             images: Obrázky
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
-            private_notice: Po nastavení jako soukromé budete moci spravovat členy
             related_processes: Související procesy
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -561,6 +560,9 @@ cs:
         title: Participativní procesy
       last_activity:
         new_participatory_process: 'Nový participační proces:'
+      members:
+        index:
+          title: Členové
       pages:
         home:
           highlighted_processes:
@@ -615,9 +617,6 @@ cs:
           type: Typ
         show:
           title: O tomto procesu
-      participatory_space_private_users:
-        index:
-          title: Členové
       show:
         belongs_to_group: Tento proces patří do
         private_space: Jedná se o soukromý proces

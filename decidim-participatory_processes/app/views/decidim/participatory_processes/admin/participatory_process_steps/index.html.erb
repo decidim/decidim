@@ -33,12 +33,12 @@
               </td>
               <td data-label="<%= t("models.participatory_process_step.fields.start_date", scope: "decidim.admin") %>">
                 <% if step.start_date %>
-                  <%= l step.start_date, format: :long %>
+                  <%= l step.start_date, format: :decidim_short %>
                 <% end %>
               </td>
               <td data-label="<%= t("models.participatory_process_step.fields.end_date", scope: "decidim.admin") %>">
                 <% if step.end_date %>
-                  <%= l step.end_date, format: :long %>
+                  <%= l step.end_date, format: :decidim_short %>
                 <% end %>
               </td>
               <td class="table-list__actions" data-label="<%= t("models.participatory_process_step.fields.actions", scope: "decidim.admin") %>">

@@ -57,7 +57,7 @@
     <dd><%= moderation.reportable.class.name.demodulize %></dd>
 
     <dt><%= t("models.moderation.fields.created_at", scope: "decidim.moderations") %></dt>
-    <dd><%= l(moderation.created_at, format: :long) %></dd>
+    <dd><%= l(moderation.created_at, format: :decidim_short) %></dd>
 
     <dt><%= t(".participatory_space") %></dt>
     <dd><%= translated_attribute moderation.participatory_space.title %></dd>

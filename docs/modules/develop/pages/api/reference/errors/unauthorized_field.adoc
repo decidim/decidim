@@ -1,0 +1,30 @@
+= Unauthorized Field Error - UNAUTHORIZED_FIELD_ERROR
+
+This error is triggered when the requesting user does not have access to a certain field, or a certain resource.
+
+The JSON response structure is:
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": "You cannot view or edit answer field on Answer because you do not have permission",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "answer"
+      ],
+      "extensions": {
+        "code": "UNAUTHORIZED_FIELD_ERROR"
+      }
+    }
+  ],
+  "data": {
+    "answer": null
+  }
+}
+----

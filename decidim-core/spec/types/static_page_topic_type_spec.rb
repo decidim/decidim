@@ -41,6 +41,24 @@ module Decidim
           expect(response["showInFooter"]).to be_truthy
         end
       end
+
+      describe "static_pages" do
+        let(:query) { "{ staticPages { id } }" }
+
+        context "when the topic has no static pages" do
+          it "returns the static pages object" do
+            expect(response["staticPages"]).to eq([])
+          end
+        end
+
+        context "when the topic has static pages" do
+          let!(:static_page) { create(:static_page, topic: model) }
+
+          it "returns the pages object" do
+            expect(response["staticPages"]).to eq([{ "id" => static_page.id.to_s }])
+          end
+        end
+      end
     end
   end
 end

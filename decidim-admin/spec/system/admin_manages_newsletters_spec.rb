@@ -229,7 +229,7 @@ describe "Admin manages newsletters" do
           end
 
           expect(page).to have_content("Newsletters")
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_admin_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
@@ -275,7 +275,7 @@ describe "Admin manages newsletters" do
             accept_confirm { click_on("Deliver newsletter") }
 
             expect(page).to have_content("Newsletters")
-            expect(page).to have_admin_callout("successfully")
+            expect(page).to have_admin_callout("Newsletter delivered successfully.")
           end
 
           within "tbody" do
@@ -311,7 +311,7 @@ describe "Admin manages newsletters" do
             accept_confirm { click_on("Deliver newsletter") }
 
             expect(page).to have_content("Newsletters")
-            expect(page).to have_admin_callout("successfully")
+            expect(page).to have_admin_callout("Newsletter delivered successfully.")
           end
 
           within "tbody" do
@@ -352,7 +352,7 @@ describe "Admin manages newsletters" do
           accept_confirm { click_on("Deliver newsletter") }
 
           expect(page).to have_content("Newsletters")
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_admin_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
@@ -420,7 +420,7 @@ describe "Admin manages newsletters" do
           accept_confirm { click_on("Deliver newsletter") }
 
           expect(page).to have_content("Newsletters")
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_admin_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
@@ -460,7 +460,7 @@ describe "Admin manages newsletters" do
         perform_enqueued_jobs do
           accept_confirm { click_on("Deliver newsletter") }
           expect(page).to have_content("Newsletters")
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_admin_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
@@ -472,15 +472,15 @@ describe "Admin manages newsletters" do
     context "when private members are selected" do
       context "with private members" do
         let!(:participatory_process) { create(:participatory_process, organization:, skip_injection: true, private_space: true) }
-        let!(:private_users) do
-          create_list(:participatory_space_private_user, 30) do |private_user|
-            private_user.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
-            private_user.privatable_to = participatory_process
-            private_user.save!
+        let!(:members) do
+          create_list(:member, 30) do |member|
+            member.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
+            member.participatory_space = participatory_process
+            member.save!
           end
         end
 
-        let(:recipients_count) { private_users.size }
+        let(:recipients_count) { members.size }
 
         it "sends to private members", :slow do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
@@ -503,7 +503,7 @@ describe "Admin manages newsletters" do
           perform_enqueued_jobs do
             accept_confirm { click_on("Deliver newsletter") }
             expect(page).to have_content("Newsletters")
-            expect(page).to have_admin_callout("successfully")
+            expect(page).to have_admin_callout("Newsletter delivered successfully.")
           end
 
           within "tbody" do
@@ -549,7 +549,7 @@ describe "Admin manages newsletters" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_content("Newsletter destroyed successfully.")
       expect(page).to have_no_css("tr[data-newsletter-id=\"#{newsletter.id}\"]")
     end
   end

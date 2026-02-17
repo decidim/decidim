@@ -58,7 +58,7 @@ shared_context "with a component" do
   end
 
   def visit_component
-    page.visit main_component_path(component)
+    page.visit main_component_path(component, locale: I18n.locale)
   end
 end
 

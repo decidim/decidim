@@ -56,7 +56,7 @@ shared_examples "manage process components" do
       end
 
       it "is successfully created" do
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Component created successfully.")
         expect(page).to have_content(translated(attributes[:name]))
       end
 
@@ -86,7 +86,7 @@ shared_examples "manage process components" do
         it "successfully edits it" do
           click_on "Update"
 
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_admin_callout("The component was updated successfully.")
         end
       end
     end
@@ -135,7 +135,7 @@ shared_examples "manage process components" do
       end
 
       it "is successfully created" do
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Component created successfully.")
         expect(page).to have_content("My component")
       end
 
@@ -160,7 +160,7 @@ shared_examples "manage process components" do
         it "successfully edits it" do
           click_on "Update"
 
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_admin_callout("The component was updated successfully.")
         end
       end
     end
@@ -214,7 +214,7 @@ shared_examples "manage process components" do
         click_on "Update"
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("The component was updated successfully.")
       expect(page).to have_content(translated(attributes[:name]))
 
       within "tr", text: translated(attributes[:name]) do
@@ -251,7 +251,7 @@ shared_examples "manage process components" do
           click_on "Update"
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("The component was updated successfully.")
 
         within "tr", text: "My component" do
           find("button[data-controller='dropdown']").click
@@ -370,6 +370,47 @@ shared_examples "manage process components" do
 
   def participatory_space
     participatory_process
+  end
+
+  describe "does not reorder components after edit" do
+    let!(:component1) { create(:component, name: { en: "Component 1" }, participatory_space:) }
+    let!(:component2) { create(:component, name: { en: "Component 2" }, participatory_space:) }
+    let!(:component3) { create(:component, name: { en: "Component 3" }, participatory_space:) }
+
+    before do
+      visit participatory_space_components_path(participatory_space)
+    end
+
+    it "does not reorder when component updates" do
+      expect(page.text.index("Component 1")).to be < page.text.index("Component 2")
+      expect(page.text.index("Component 2")).to be < page.text.index("Component 3")
+      within ".component-#{component1.id}" do
+        find("button[data-controller='dropdown']").click
+        click_on "Configure"
+      end
+      within ".edit_component" do
+        fill_in_i18n(
+          :component_name,
+          "#component-name-tabs",
+          **attributes[:name].except("machine_translations")
+        )
+        within ".global-settings" do
+          all("input[type=checkbox]").last.click
+        end
+
+        within "#panel-step_settings" do
+          all("input[type=checkbox]").first.click
+        end
+
+        click_on "Update"
+      end
+      expect(page).to have_admin_callout("The component was updated successfully.")
+      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_content("Component 2")
+      expect(page).to have_content("Component 3")
+      expect(page.text.index(translated(attributes[:name]))).to be < page.text.index("Component 2")
+      expect(page.text.index("Component 2")).to be < page.text.index("Component 3")
+    end
   end
 
   def participatory_space_components_path(participatory_space)

@@ -24,6 +24,10 @@ module Decidim
       def hidden_resource?
         super || (proposal.respond_to?(:hidden?) && proposal.hidden?)
       end
+
+      def deleted_resource?
+        super || (proposal.respond_to?(:deleted?) && proposal.deleted?)
+      end
     end
   end
 end

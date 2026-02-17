@@ -442,6 +442,8 @@ de:
           no_slots_available: Keine Plätze verfügbar
           registration: Anmeldung
       conference_program:
+        program_item:
+          other_category: Andere
         show:
           program: Programm
       conference_registration_mailer:

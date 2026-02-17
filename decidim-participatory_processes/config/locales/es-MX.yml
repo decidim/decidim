@@ -14,6 +14,7 @@ es-MX:
         duplicate_landing_page_blocks: Duplicar los bloques de contenido de la página de inicio
         duplicate_steps: Duplicar las fases
         end_date: Fecha de finalización
+        has_members: Este espacio de participación tiene miembros
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
@@ -115,8 +116,8 @@ es-MX:
           components: Componentes
           info: Acerca de este proceso
           landing_page: Disposición de la página de aterrizaje
+          members: Miembros
           moderations: Moderaciones
-          private_users: Miembros
           process_admins: Usuarios del proceso
           steps: Fases del proceso
       models:
@@ -282,9 +283,11 @@ es-MX:
         export: "%{user_name} exportó el proceso participativo %{resource_name}"
         import: "%{user_name} importó el proceso participativo %{resource_name}"
         publish: "%{user_name} publicó el proceso participativo %{resource_name}"
+        publish_all_members: "%{user_name} publicó todas las miembros del proceso participativo %{resource_name}"
         restore: "%{user_name} restauró el proceso participativo \"%{resource_name}\""
         soft_delete: "%{user_name} ha enviado a la papelera el proceso participativo \"%{resource_name}\""
         unpublish: "%{user_name} despublicó el proceso participativo %{resource_name}"
+        unpublish_all_members: "%{user_name} despublicó a todas las miembros del proceso participativo %{resource_name}"
         update: "%{user_name} actualizó el proceso participativo %{resource_name}"
       participatory_process_group:
         create: "%{user_name} creó el grupo de procesos participativos de %{resource_name}"
@@ -340,6 +343,7 @@ es-MX:
         participatory_processes:
           announcement: La información del anuncio/aviso (llamada)
           area: El área a la que pertenece el proceso
+          component_settings: Configuración de los componentes del proceso participativo
           created_at: La fecha en la que se creó este proceso participativo
           description: Una descripción larga del proceso
           developer_group: El grupo promotor del proceso. Quien está promoviendo el proceso.
@@ -505,10 +509,11 @@ es-MX:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
+            has_members_help: Podrás crear y publicar miembros
             images: Imágenes
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
-            private_notice: Podrás administrar las miembros después de configurar el espacio como privado
+            private_notice: Hace que el espacio de participación no sea visible para las visitantes y sólo lo sea para las usuarias miembro (excepto si también es transparente)
             related_processes: Procesos relacionados
             select_process_group: Seleccione un grupo de proceso
             slug_help_html: 'Los nombres cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -557,6 +562,9 @@ es-MX:
         title: Procesos participativos
       last_activity:
         new_participatory_process: 'Nuevo proceso participativo:'
+      members:
+        index:
+          title: Miembros
       pages:
         home:
           highlighted_processes:
@@ -603,9 +611,6 @@ es-MX:
           type: Tipo
         show:
           title: Acerca de este proceso
-      participatory_space_private_users:
-        index:
-          title: Miembros
       show:
         belongs_to_group: Este proceso pertenece a
         private_space: Este es un proceso privado

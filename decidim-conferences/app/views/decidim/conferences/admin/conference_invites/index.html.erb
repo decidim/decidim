@@ -33,7 +33,7 @@
             </td>
             <td>
               <% if invite.sent_at %>
-                <%= l invite.sent_at, format: :long %>
+                <%= l invite.sent_at, format: :decidim_short %>
               <% end %>
             </td>
             <td class="<%= presenter.status_html_class %>">

@@ -256,8 +256,6 @@ ca:
         share_button: Botó de "Compartir"
         share_usage_description_html: Assegura't que el <code>decidim/shared/share_moda</code> està present al DOM. Aquest parcial es col·loca al disseny de l'aplicació.
         sizes: Mides
-        sortition_l: Sorteig L
-        sortitions: Sortejos
         source_code: Codi font
         state: Estat
         tab_panels_context_description: Aquest component del tauler de pestanyes recull tots els continguts relacionats o altres recursos de l'element principal mostrat, per tal d'estalviar espai vertical. Quan feu clic a la pestanya s'activarà el panell creat per mostrar el contingut.

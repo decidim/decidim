@@ -16,11 +16,30 @@ export default class extends Controller {
 
     this.initializeEmptyFocusElement();
     this.initializeAutoComplete();
-    this.searchInput.addEventListener("selection", (event) => {
+    this.setupSelectionListener();
+  }
+
+  /**
+   * Setup the selection event listener
+   * @returns {void}
+   */
+  setupSelectionListener() {
+    this.selectionHandler = (event) => {
       const feedback = event.detail;
       const selection = feedback.selection;
       this.handleSelection(selection);
-    });
+    };
+    this.searchInput.addEventListener("selection", this.selectionHandler);
+  }
+
+  /*
+   * Remove event listener to prevent duplicates
+   * @returns {void}
+   */
+  disconnect() {
+    if (this.searchInput && this.selectionHandler) {
+      this.searchInput.removeEventListener("selection", this.selectionHandler);
+    }
   }
 
   /**
@@ -150,6 +169,10 @@ export default class extends Controller {
     this.addSelectedUser(selection, id);
     this.autoComplete.setInput("");
     this.selected.push(id);
+
+    if (this.autoComplete && this.autoComplete.autocomplete) {
+      this.autoComplete.autocomplete.close();
+    }
   }
 
   /**

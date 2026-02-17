@@ -10,13 +10,11 @@ module Decidim
         mimic :proposals_import
 
         attribute :origin_component_id, Integer
-        attribute :import_proposals, Boolean
         attribute :keep_answers, Boolean
         attribute :keep_authors, Boolean
-        attribute :states, Array
+        attribute :states, Array[String]
 
         validates :origin_component_id, :origin_component, :states, :current_component, presence: true
-        validates :import_proposals, allow_nil: false, acceptance: true
         validate :valid_states
 
         def states_collection
@@ -44,11 +42,22 @@ module Decidim
           end
         end
 
+        def available_states(component_id = nil)
+          scope = Decidim::Proposals::ProposalState
+          scope = scope.where(component: Decidim::Component.find(component_id)) if component_id.present?
+
+          states = scope.pluck(:token).uniq.map do |token|
+            OpenStruct.new(token:, title: token.humanize)
+          end
+
+          states + [OpenStruct.new(token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered"))]
+        end
+
         private
 
         def valid_states
           return if states.all? do |state|
-            states_collection.pluck(:token).include?(state)
+            available_states(origin_component_id).pluck(:token).include?(state)
           end
 
           errors.add(:states, :invalid)

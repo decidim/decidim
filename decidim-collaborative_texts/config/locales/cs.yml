@@ -71,6 +71,9 @@ cs:
           update_settings:
             invalid: Při aktualizaci dokumentu došlo k chybě.
             success: Dokument byl úspěšně aktualizován.
+        index:
+          published: Zveřejněno
+          unpublished: Zneveřejněno
       admin_log:
         document:
           create: "%{user_name} vytvořil kolaborativní text %{resource_name} v %{space_name}"
@@ -102,6 +105,10 @@ cs:
             published: Zveřejněno
             suggestions: Přijmout návrhy
             title: Název
+      suggestion:
+        add_html: <span class="type">Přidat:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Odstranit:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Nahradit:</span> <span class="text">%{text}</span>
       suggestions:
         create:
           invalid: Při vytváření návrhu došlo k chybě.

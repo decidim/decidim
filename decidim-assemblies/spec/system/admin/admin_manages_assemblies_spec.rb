@@ -11,8 +11,8 @@ describe "Admin manages assemblies" do
   let(:resource_controller) { Decidim::Assemblies::Admin::AssembliesController }
   let(:model_name) { assembly.class.model_name }
 
-  context "when conditionally displaying private user menu entry" do
-    let!(:my_space) { create(:assembly, organization:, private_space:) }
+  context "when conditionally displaying member menu entry" do
+    let!(:my_space) { create(:assembly, organization:, has_members:) }
 
     before do
       switch_to_host(organization.host)
@@ -21,20 +21,20 @@ describe "Admin manages assemblies" do
       click_on translated(my_space.title)
     end
 
-    context "when the participatory space is private" do
-      let(:private_space) { true }
+    context "when the participatory space has members" do
+      let(:has_members) { true }
 
-      it "hides the private user menu entry" do
+      it "shows the member menu entry" do
         within_admin_sidebar_menu do
           expect(page).to have_content("Members")
         end
       end
     end
 
-    context "when the participatory space is public" do
-      let(:private_space) { false }
+    context "when the participatory space has not members" do
+      let(:has_members) { false }
 
-      it "shows the private user menu entry" do
+      it "hides the member menu entry" do
         within_admin_sidebar_menu do
           expect(page).to have_no_content("Members")
         end
@@ -93,7 +93,7 @@ describe "Admin manages assemblies" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Assembly created successfully. You can now add components and configure it.")
       expect(last_assembly.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
@@ -125,7 +125,7 @@ describe "Admin manages assemblies" do
 
       click_on "Update"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Assembly successfully updated.")
       expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
       expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
       expect(assembly3.reload.taxonomies).to contain_exactly(taxonomy)

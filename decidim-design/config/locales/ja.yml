@@ -256,8 +256,6 @@ ja:
         share_button: シェアボタン
         share_usage_description_html: <code>decidim/shared/share_modal</code> partialがDOMに存在することを確認してください。このpartialはアプリケーションレイアウトに配置されます。
         sizes: サイズ
-        sortition_l: 並べ替えL
-        sortitions: 並べ替え
         source_code: ソースコード
         state: 状態
         tab_panels_context_description: このタブパネルコンポーネントは、縦方向のスペースを節約するために、表示されているメイン要素の関連コンテンツやその他のリソースをすべて集約します。タブをクリックすると、作成されたパネルがアクティブになり、コンテンツが表示されます。

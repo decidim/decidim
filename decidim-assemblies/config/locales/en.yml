@@ -26,6 +26,7 @@ en:
         duration: Duration
         facebook: Facebook
         github: GitHub
+        has_members: This space has members
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -171,8 +172,8 @@ en:
           components: Components
           info: About this assembly
           landing_page: Landing page layout
+          members: Members
           moderations: Moderations
-          private_users: Members
           see_assembly: See assembly
       models:
         assembly:
@@ -219,9 +220,11 @@ en:
         export: "%{user_name} exported the %{resource_name} assembly"
         import: "%{user_name} imported the %{resource_name} assembly"
         publish: "%{user_name} published the %{resource_name} assembly"
+        publish_all_members: "%{user_name} published all members of the %{resource_name} assembly"
         restore: "%{user_name} restored the %{resource_name} assembly"
         soft_delete: "%{user_name} moved to trash the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
+        unpublish_all_members: "%{user_name} unpublished all members of the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
       assembly_member:
         create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
@@ -247,12 +250,13 @@ en:
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
+            has_members_help: You will be able to create and publish members
             images: Images
             included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
-            private_notice: You will be able to manage private participants after setting it as private
+            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
             select_a_created_by: Select a created by
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -265,6 +269,7 @@ en:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_imports:
           form:
+            document_legend: Add a document
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
@@ -274,9 +279,14 @@ en:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show
+        imports:
+          attachment_error: The attachment "%{title}" could not be imported (%{error}).
+          banner_image_error: The banner image could not be imported (%{error}).
+          hero_image_error: The hero image could not be imported (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: This import feature allows you to create a new assembly from an exported JSON file. You can export an assembly from another organization or from this same organization. The imported assembly will include its settings, components, and attachments (if selected).
       assemblies:
         description:
           area_name: Area
@@ -385,6 +395,7 @@ en:
           assembly_type: The type of the assembly
           closing_date: The closing date of the assembly
           closing_date_reason: Why the assembly was closed
+          component_settings: The component settings of the assembly
           composition: The composition of the assembly
           created_at: The date this space was created
           created_by: Who has created this assembly

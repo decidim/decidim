@@ -217,6 +217,8 @@ ro:
           description_own: Ai participat la %{score} întâlniri.
           name: Întâlniri la care ai participat
           next_level_in: Participă la încă %{score} întâlniri pentru a atinge următorul nivel!
+          unearned_another: Acest participant nu a participat încă la nicio ședință.
+          unearned_own: Încă nu ați participat la nicio ședință.
     meetings:
       actions:
         agenda: Agendă
@@ -600,6 +602,7 @@ ro:
         meetings:
           attending_organizations: Organizațiile participante la întâlnire
           audio_url: Înregistrarea audio a întâlnirii
+          iframe_embed_type: Tipul de iframe încorporat în ședință
           location_hints: O indicație a locului în care se desfășoară întâlnirea
           registration_type: Tipul de înregistrare pentru participare la întâlnire
           registration_url: URL-ul pentru înregistrare ca participant la întâlnire

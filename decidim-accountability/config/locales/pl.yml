@@ -129,7 +129,6 @@ pl:
           fields:
             created_at: Utworzono
             end_date: Data zakończenia
-            id: ID
             progress: Postęp
             start_date: Data rozpoczęcia
             status: Status

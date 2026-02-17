@@ -16,11 +16,11 @@ module Decidim
       include Paginable
       include Decidim::AttachmentsHelper
 
-      helper_method :proposal_presenter, :form_presenter, :tab_panel_items
+      helper_method :proposal_presenter, :form_presenter, :tab_panel_items, :withdrawn_proposals?
 
       before_action :authenticate_user!, only: [:new, :create]
       before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
-      before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
+      before_action :proposal, only: [:show, :edit, :update, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
       before_action :set_view_mode, only: [:index]
 
@@ -216,8 +216,8 @@ module Decidim
         redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path unless @proposal.draft?
       end
 
-      def set_proposal
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
+      def proposal
+        @proposal ||= Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
       end
 
       # Returns true if the proposal is NOT an emendation or the user IS an admin.
@@ -231,6 +231,12 @@ module Decidim
 
       def proposal_presenter
         @proposal_presenter ||= present(@proposal)
+      end
+
+      def withdrawn_proposals?
+        return @withdrawn_proposals if defined?(@withdrawn_proposals)
+
+        @withdrawn_proposals = Proposal.where(component: current_component).published.not_hidden.withdrawn.exists?
       end
 
       def form_proposal_params
@@ -288,6 +294,28 @@ module Decidim
 
       def default_view_mode
         @default_view_mode ||= current_component.settings.attachments_allowed? ? "grid" : "list"
+      end
+
+      def add_parent_breadcrumb_item
+        return {} if proposal.blank?
+
+        object = proposal.emendation? ? proposal.amendable : proposal
+        {
+          label: translated_attribute(object.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(object),
+          active: false
+        }
+      end
+
+      def add_breadcrumb_item
+        return {} if proposal.blank?
+        return {} if proposal.amendable?
+
+        {
+          label: I18n.t("decidim.amendments.name"),
+          url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal),
+          active: false
+        }
       end
     end
   end

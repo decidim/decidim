@@ -94,9 +94,6 @@ pl:
           of_total_steps: z %{total_steps}
           questionnaire_closed:
             title: Formularz został zamknięty
-          questionnaire_for_private_users:
-            body: Formularz jest dostępny tylko dla użytkowników prywatnych
-            title: Formularz został zamknięty
           questionnaire_js_disabled:
             body: Niektóre funkcje tego formularza zostaną wyłączone. Aby strona dostarczała lepszych doświadczeń, włącz obsługę JavaScript w przeglądarce.
             title: JavaScript jest wyłączony

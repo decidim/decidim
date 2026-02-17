@@ -105,7 +105,6 @@
             total_budget: Totalt budsjett
         project:
           fields:
-            id: ID
             title: Tittel
       order:
         status:

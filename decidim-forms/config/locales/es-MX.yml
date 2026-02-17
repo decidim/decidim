@@ -188,9 +188,9 @@ es-MX:
           questionnaire_closed:
             body: El formulario está cerrado y no puedes responder.
             title: Cuestionario cerrado
-          questionnaire_for_private_users:
-            body: El cuestionario está disponible solo para usuarios privados
-            title: Cuestionario cerrado
+          questionnaire_for_members:
+            body: El formulario está disponible solo para miembros
+            title: Formulario cerrado
           questionnaire_js_disabled:
             body: Algunas de las características de este formulario se desactivarán. Para mejorar tu experiencia, habilita JavaScript en tu navegador.
             title: Javascript está desactivado

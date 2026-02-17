@@ -80,7 +80,7 @@ shared_examples_for "update display conditions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout(callout_success)
 
       visit_manage_questions_and_expand_all
 

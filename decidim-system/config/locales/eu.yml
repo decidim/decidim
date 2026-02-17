@@ -72,7 +72,7 @@ eu:
         destroy:
           success: Administratzailea zuzen ezabatua.
         edit:
-          title: Editatu administratzailea
+          title: Administratzailea editatu
           update: Eguneratu
         index:
           title: Administratzaileak
@@ -265,6 +265,7 @@ eu:
           confirm_resend_invitation: Ziur zaude gonbidapena birbidali nahi duzula?
           resend_invitation: Birbidali gonbidapena
           secondary_hosts_hint: Sartu haietako bakoitza lerro berri batean
+          short_name_hint: Web aplikazio progresiborako erabilitako izen laburra. 12 karaktere izan behar ditu gehienez.
           title: Editatu erakundea
         file_upload_settings:
           content_types:
@@ -285,7 +286,7 @@ eu:
             Mesedez, kontuz ibili doikuntza horiek aldatzean.
             Zenbat eta aukera gutxiago, hobe.
             Fitxategi espezifikoen luzapenak edo MIME motakoak baimentzeak segurtasun-arriskuen eraginpean jar ditzake sistemaren parte-hartzaileak, eta webgunearen irisgarritasunari ere eragin diezaioke.
-        header_snippets_help_html: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honi buruz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
+        header_snippets_help_html: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honi buruz <a href="https://docs.decidim.org/en/develop/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
         index:
           title: Erakundeak
         new:
@@ -295,6 +296,7 @@ eu:
           organization_admin_email_hint: Mezu elektroniko bat bidaliko dugu helbide honetara, baieztatu eta pasahitza jar dezazun.
           reference_prefix_hint: Erreferentzia-aurrizkia erakunde guztietan baliabideak identifikatzeko erabiltzen da.
           secondary_hosts_hint: Sartu haietako bakoitza beste lerro batean.
+          short_name_hint: Web aplikazio progresiborako erabilitako izen laburra. 12 karaktere izan behar ditu gehienez.
           title: Beste erakunde bat
         omniauth_settings:
           decidim:
