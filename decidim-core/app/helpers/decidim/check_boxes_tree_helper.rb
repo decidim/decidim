@@ -41,6 +41,12 @@ module Decidim
       def tree_node?
         is_a?(TreeNode)
       end
+
+      # Returns true when the tree has only one flat option,
+      # making the filter redundant (equivalent to selecting "All")
+      def single_option?
+        node.is_a?(Array) && node.size == 1 && node.first.is_a?(TreePoint)
+      end
     end
 
     # struct for leafs of checkboxes trees

@@ -100,6 +100,77 @@ module Decidim
       end
     end
 
+    describe "TreeNode#single_option?" do
+      let(:root_point) { Decidim::CheckBoxesTreeHelper::TreePoint.new("", "All") }
+
+      context "when node has a single TreePoint child" do
+        let(:tree) do
+          Decidim::CheckBoxesTreeHelper::TreeNode.new(
+            root_point,
+            [Decidim::CheckBoxesTreeHelper::TreePoint.new("only_option", "Only option")]
+          )
+        end
+
+        it "returns true" do
+          expect(tree.single_option?).to be true
+        end
+      end
+
+      context "when node has multiple TreePoint children" do
+        let(:tree) do
+          Decidim::CheckBoxesTreeHelper::TreeNode.new(
+            root_point,
+            [
+              Decidim::CheckBoxesTreeHelper::TreePoint.new("option1", "Option 1"),
+              Decidim::CheckBoxesTreeHelper::TreePoint.new("option2", "Option 2")
+            ]
+          )
+        end
+
+        it "returns false" do
+          expect(tree.single_option?).to be false
+        end
+      end
+
+      context "when node has a single TreeNode child (nested filter)" do
+        let(:tree) do
+          Decidim::CheckBoxesTreeHelper::TreeNode.new(
+            root_point,
+            [
+              Decidim::CheckBoxesTreeHelper::TreeNode.new(
+                Decidim::CheckBoxesTreeHelper::TreePoint.new("nested", "Nested"),
+                []
+              )
+            ]
+          )
+        end
+
+        it "returns false" do
+          expect(tree.single_option?).to be false
+        end
+      end
+
+      context "when node is nil" do
+        let(:tree) do
+          Decidim::CheckBoxesTreeHelper::TreeNode.new(root_point)
+        end
+
+        it "returns false" do
+          expect(tree.single_option?).to be false
+        end
+      end
+
+      context "when node is an empty array" do
+        let(:tree) do
+          Decidim::CheckBoxesTreeHelper::TreeNode.new(root_point, [])
+        end
+
+        it "returns false" do
+          expect(tree.single_option?).to be false
+        end
+      end
+    end
+
     describe "#filter_global_scopes_values" do
       let(:root) { helper.filter_global_scopes_values }
       let(:leaf) { helper.filter_global_scopes_values.leaf }

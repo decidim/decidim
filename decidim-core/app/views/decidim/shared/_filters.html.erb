@@ -34,6 +34,7 @@
       <% end %>
 
       <% filter_sections.each do |f| %>
+        <% next if f[:collection].is_a?(Decidim::CheckBoxesTreeHelper::TreeNode) && f[:collection].single_option? %>
         <%= form.collection_filter(**f) %>
       <% end %>
 
