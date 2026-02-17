@@ -193,7 +193,6 @@ zh-TW:
       admin:
         assemblies:
           form:
-            announcement_help: 您在此處輸入的文字將顯示至使用者的正下方大會信息
             duration: 持續時間
             duration_help: 如果此大會的持續時間有限，請選擇結束日期。 否則，它將顯示為不確定。
             images: 圖片
