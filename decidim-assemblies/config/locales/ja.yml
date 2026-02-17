@@ -274,6 +274,10 @@ ja:
         content_blocks:
           highlighted_assemblies:
             max_results: 表示する要素の最大量
+        imports:
+          attachment_error: 添付ファイル "%{title}" をインポートできませんでした（%{error}）。
+          banner_image_error: バナー画像をインポートできませんでした(%{error})。
+          hero_image_error: ヒーロー画像をインポートできませんでした（%{error}）。
         new_import:
           accepted_types:
             json: JSON
