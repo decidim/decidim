@@ -163,6 +163,7 @@ module Decidim::ParticipatoryProcesses
             expect(subject.access_mode).to eq("restricted")
           end
         end
+      end
 
       context "when hero image URL is present and accessible" do
         let(:import_data) do
