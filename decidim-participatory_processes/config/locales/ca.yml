@@ -341,7 +341,6 @@ ca:
     open_data:
       help:
         participatory_processes:
-          announcement: La informació de l'anunci/avís (crida)
           area: L'àrea a què pertany aquest procés
           component_settings: Configuració dels components del procés participatiu
           created_at: La data en què es va crear aquest procés participatiu
@@ -489,6 +488,9 @@ ca:
             all: Tots
             max_results: Quantitat màxima d'elements que es mostraran
             selection_criteria: Criteris de selecció
+        imports:
+          attachment_error: No s'ha pogut importar l'arxiu adjunt "%{title}" (%{error}).
+          hero_image_error: No s'ha pogut importar la imatge principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
@@ -507,7 +509,6 @@ ca:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         participatory_processes:
           form:
-            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació del procés.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             has_members_help: Podràs crear i publicar membres
