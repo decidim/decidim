@@ -244,7 +244,6 @@ fr-CA:
       admin:
         assemblies:
           form:
-            announcement_help: Le texte que vous saisissez ici sera affiché aux utilisateurs juste en dessous des informations de l'assemblée.
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
@@ -388,7 +387,6 @@ fr-CA:
     open_data:
       help:
         assemblies:
-          announcement: Information sur l'annonce (callout)
           assembly_type: Le type de l'assemblée
           closing_date: La date de clôture de l'assemblée
           closing_date_reason: Pourquoi l'assemblée a été clôturée
