@@ -201,7 +201,6 @@ ro:
       admin:
         assemblies:
           form:
-            announcement_help: Textul pe care îl introduceți aici va fi prezentat utilizatorului sub informațiile despre grupul de lucru.
             duration: Durată
             duration_help: În cazul în care durata acestui grup de lucru este limitată, selectaţi data de încheiere. În caz contrar, va apărea ca nelimitată.
             has_members_help: Veți putea crea și publica membri
