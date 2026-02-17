@@ -25,7 +25,7 @@ module Decidim
       end
 
       def trashable_deleted_resource_type
-        :budget
+        :project
       end
     end
   end
