@@ -102,9 +102,6 @@ hu:
         unpublish: Közzététel visszavonása
       menu:
         participatory_process_groups: Folyamat csoportok
-        participatory_process_groups_submenu:
-          info: Info
-          landing_page: Landing oldal
         participatory_processes: Folyamatok
         participatory_processes_submenu:
           attachment_collections: Mappák
