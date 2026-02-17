@@ -33,7 +33,6 @@ module Decidim::ParticipatoryProcesses
           "meta_scope" => Decidim::Faker::Localized.sentence(word_count: 3),
           "start_date" => "2022-08-01",
           "end_date" => "2023-08-01",
-          "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
           "private_space" => false,
           "participatory_process_group" => group_data
         }
@@ -62,7 +61,6 @@ module Decidim::ParticipatoryProcesses
         expect(subject.meta_scope).to eq(import_data["meta_scope"])
         expect(subject.start_date).to eq(Date.parse(import_data["start_date"]))
         expect(subject.end_date).to eq(Date.parse(import_data["end_date"]))
-        expect(subject.announcement).to eq(import_data["announcement"])
         expect(subject.private_space).to eq(import_data["private_space"])
         expect(subject.participatory_process_group).to be_a(Decidim::ParticipatoryProcessGroup)
       end
@@ -199,7 +197,7 @@ module Decidim::ParticipatoryProcesses
 
         it "collects a warning about the missing hero image" do
           subject
-          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported due to an error/i))
+          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported \(404 Not Found\)\./i))
         end
       end
 
@@ -244,7 +242,7 @@ module Decidim::ParticipatoryProcesses
 
         it "collects a warning about the hero image import failure" do
           subject
-          expect(importer.warnings).to include(a_string_matching(/hero image.*not.*imported/i))
+          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported \(500 Internal Server Error\)\./i))
         end
       end
 
@@ -306,7 +304,7 @@ module Decidim::ParticipatoryProcesses
 
         it "collects a warning about the missing group hero image" do
           subject
-          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported due to an error/i))
+          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported \(404 Not Found\)\./i))
         end
       end
     end
@@ -349,6 +347,11 @@ module Decidim::ParticipatoryProcesses
             expect { importer.import_folders_and_attachments(attachments_data) }
               .not_to raise_error
           end
+
+          it "collects a warning about the attachment import failure" do
+            importer.import_folders_and_attachments(attachments_data)
+            expect(importer.warnings).to include(a_string_matching(/The attachment "Test File" could not be imported \(404 Not Found\)\./i))
+          end
         end
 
         context "when remote file is not accessible (500)" do
@@ -364,6 +367,24 @@ module Decidim::ParticipatoryProcesses
           it "does not raise an error" do
             expect { importer.import_folders_and_attachments(attachments_data) }
               .not_to raise_error
+          end
+
+          it "collects a warning about the attachment import failure" do
+            importer.import_folders_and_attachments(attachments_data)
+            expect(importer.warnings).to include(a_string_matching(/The attachment "Test File" could not be imported \(500 Internal Server Error\)\./i))
+          end
+        end
+
+        context "when remote file is accessible but download fails" do
+          before do
+            stub_request(:head, remote_file_url)
+              .to_return(status: 200, headers: { "Content-Type" => "application/pdf" })
+            stub_request(:get, remote_file_url).to_return(status: 500)
+          end
+
+          it "collects a warning about the attachment import failure" do
+            importer.import_folders_and_attachments(attachments_data)
+            expect(importer.warnings).to include(a_string_matching(/The attachment "Test File" could not be imported \(500 Internal Server Error\)\./i))
           end
         end
       end

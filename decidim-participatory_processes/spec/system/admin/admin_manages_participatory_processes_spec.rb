@@ -65,7 +65,7 @@ describe "Admin manages participatory processes", versioning: true do
       click_on "New process"
     end
 
-    %w(short_description description announcement).each do |field|
+    %w(short_description description).each do |field|
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process-#{field}-tabs']", "full"
     end
     it_behaves_like "having no taxonomy filters defined"
@@ -76,8 +76,6 @@ describe "Admin manages participatory processes", versioning: true do
         fill_in_i18n(:participatory_process_subtitle, "#participatory_process-subtitle-tabs", **attributes[:subtitle].except("machine_translations"))
         fill_in_i18n_editor(:participatory_process_short_description, "#participatory_process-short_description-tabs", **attributes[:short_description].except("machine_translations"))
         fill_in_i18n_editor(:participatory_process_description, "#participatory_process-description-tabs", **attributes[:description].except("machine_translations"))
-        fill_in_i18n_editor(:participatory_process_announcement, "#participatory_process-announcement-tabs", **attributes[:announcement].except("machine_translations"))
-
         fill_in_i18n(:participatory_process_developer_group, "#participatory_process-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
         fill_in_i18n(:participatory_process_local_area, "#participatory_process-local_area-tabs", **attributes[:local_area].except("machine_translations"))
         fill_in_i18n(:participatory_process_meta_scope, "#participatory_process-meta_scope-tabs", **attributes[:meta_scope].except("machine_translations"))
