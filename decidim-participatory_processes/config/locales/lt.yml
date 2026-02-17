@@ -108,9 +108,6 @@ lt:
         unpublish: Depublikuoti
       menu:
         participatory_process_groups: Procesų grupės
-        participatory_process_groups_submenu:
-          info: Informacija
-          landing_page: Pagrindinis puslapis
         participatory_processes: Procesai
         participatory_processes_submenu:
           attachment_collections: Aplankai
