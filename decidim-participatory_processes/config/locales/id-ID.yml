@@ -243,7 +243,6 @@ id:
             max_results: Jumlah maksimum elemen untuk ditampilkan
         participatory_processes:
           form:
-            announcement_help: Teks yang Anda masukkan di sini akan ditampilkan kepada pengguna tepat di bawah informasi proses.
             duration: Lamanya
             images: Gambar
             metadata: Metadata
