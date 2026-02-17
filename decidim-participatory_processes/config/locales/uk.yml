@@ -239,7 +239,6 @@ uk:
       admin:
         participatory_processes:
           form:
-            announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
             related_processes: Супутні рухи
             title: Загальні відомості
       content_blocks:
