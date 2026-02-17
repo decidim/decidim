@@ -575,6 +575,7 @@ ca-IT:
     contact: Contacte
     content_blocks:
       announcement:
+        body: Text de l'anunci o avís
         name: Avís
       cta:
         name: Imatge, text i botó d'acció
