@@ -339,7 +339,6 @@ pt-BR:
     open_data:
       help:
         participatory_processes:
-          announcement: A informação de anúncio (chamada)
           area: A área onde o processo está ocorrendo
           component_settings: As configurações dos componentes do processo
           created_at: A data em que este espaço foi criado
@@ -504,7 +503,6 @@ pt-BR:
             slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         participatory_processes:
           form:
-            announcement_help: O texto que você insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             duration: Duração
             has_members_help: Você será capaz de criar e publicar membros
