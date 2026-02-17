@@ -37,7 +37,7 @@ describe "Admin manages scope types" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("Scope type created successfully.")
 
     within "table" do
       expect(page).to have_content(translated(attributes[:name]))
@@ -81,7 +81,7 @@ describe "Admin manages scope types" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Scope type updated successfully")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:name]))
@@ -97,7 +97,7 @@ describe "Admin manages scope types" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Scope type successfully destroyed")
 
       within "table" do
         expect(page).to have_no_content(translated(scope_type.name))

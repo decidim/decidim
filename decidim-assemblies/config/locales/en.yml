@@ -253,7 +253,6 @@ en:
                 open: Everyone can see the assembly and participate.
                 restricted: Only members can see and participate.
                 transparent: Everyone can see the assembly, but only members can participate.
-            announcement_help: The text you enter here will be shown to the user right below the assembly information.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
@@ -275,6 +274,7 @@ en:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_imports:
           form:
+            document_legend: Add a document
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
@@ -284,9 +284,14 @@ en:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show
+        imports:
+          attachment_error: The attachment "%{title}" could not be imported (%{error}).
+          banner_image_error: The banner image could not be imported (%{error}).
+          hero_image_error: The hero image could not be imported (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: This import feature allows you to create a new assembly from an exported JSON file. You can export an assembly from another organization or from this same organization. The imported assembly will include its settings, components, and attachments (if selected).
       assemblies:
         description:
           area_name: Area
@@ -390,7 +395,6 @@ en:
       help:
         assemblies:
           access_mode: Access mode. Whether the assembly is open, restricted, or transparent.
-          announcement: The announcement (callout) information
           area: The area of the assembly
           assembly_type: The type of the assembly
           closing_date: The closing date of the assembly

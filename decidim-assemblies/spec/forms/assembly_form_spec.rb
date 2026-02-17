@@ -95,13 +95,6 @@ module Decidim
         let(:instagram_handler) { "lorem" }
         let(:youtube_handler) { "lorem" }
         let(:github_handler) { "lorem" }
-        let(:announcement) do
-          {
-            en: "Announcement",
-            es: "Anuncio",
-            ca: "Anunci"
-          }
-        end
         let(:parent_id) { nil }
         let(:assembly_id) { nil }
         let(:root_taxonomy) { create(:taxonomy, organization:) }
@@ -157,9 +150,6 @@ module Decidim
               "github_handler" => github_handler,
               "weight" => weight,
               "parent_id" => parent_id,
-              "announcement_en" => announcement[:en],
-              "announcement_es" => announcement[:es],
-              "announcement_ca" => announcement[:ca],
               "taxonomies" => [taxonomies.first.id, taxonomies.second.id]
             }
           }
@@ -335,8 +325,7 @@ module Decidim
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
                 weight: assembly.weight,
-                parent_id: child_assembly,
-                announcement: assembly.announcement
+                parent_id: child_assembly
               }
             }
           end
@@ -389,8 +378,7 @@ module Decidim
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
                 weight: assembly.weight,
-                parent_id: grandchild_assembly,
-                announcement: assembly.announcement
+                parent_id: grandchild_assembly
               }
             }
           end

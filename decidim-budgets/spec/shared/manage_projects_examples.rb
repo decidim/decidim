@@ -34,7 +34,7 @@ shared_examples "manage projects" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Project successfully created.")
 
         within "table" do
           project = Decidim::Budgets::Project.last
@@ -96,7 +96,7 @@ shared_examples "manage projects" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("Project successfully updated.")
 
     within "table" do
       expect(page).to have_content("My new title")
@@ -156,7 +156,7 @@ shared_examples "manage projects" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_admin_callout("Project successfully created.")
 
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))
@@ -179,7 +179,7 @@ shared_examples "manage projects" do
         accept_confirm { click_on "Move to trash" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Project successfully deleted.")
 
       within "table" do
         expect(page).to have_no_content(translated(project2.title))
@@ -207,7 +207,7 @@ shared_examples "manage projects" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Project successfully updated.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:title]))
@@ -233,7 +233,7 @@ shared_examples "manage projects" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Project successfully updated.")
       expect(project.linked_resources(:proposals, "included_proposals").count).to eq(1)
       expect(project.linked_resources(:proposals, "included_proposals").first.title).to eq(not_removed_projects_title)
     end
@@ -267,7 +267,7 @@ shared_examples "manage projects" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Project successfully created.")
 
       within "table" do
         expect(page).to have_content("My project")

@@ -190,7 +190,8 @@ en:
           </ul>
           If you change your mind, you can restore it later.
         export: Export
-        export-selection: Export selection
+        export_all: Export all
+        export_selection: Export selection
         import: Import
         member:
           new: New member
@@ -1084,7 +1085,7 @@ en:
           title: New topic
         update:
           error: There was a problem updating this topic.
-          success: Topic updated successfully
+          success: Topic updated successfully.
       static_pages:
         actions:
           view: View

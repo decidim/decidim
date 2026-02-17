@@ -33,10 +33,7 @@ During this process you will have the instructions on how to follow with the pro
 . Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems.
 . Once all the gems are published:
 .. Re-run the failed generators tests at the release branch.
-.. Always check if there are any pending security CVE's that needs to be published. If there are, add a section header called "Security fixes", and add the relevant information there, like we have done in https://github.com/decidim/decidim/releases/tag/v0.31.0[v0.31.0 release notes]
-.... Add the advisory id
-.... Make sure you change the date, to be 2 months away from release date
-.... Add the date to your calendar to actually publish the CVE's and link them to the Release Notes when that is the case. You can see how the final result looks like at https://github.com/decidim/decidim/releases/tag/v0.29.0[v0.29.0 release notes]
+.. Always check if there are any pending security CVEs that need to be published. If there are, then follow the instructions in the xref:develop:maintainers/security.adoc[Security] page.
 .. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
 
 Usually, at this point, the release branch is deployed to Metadecidim during, at least, one week to validate the stability of the version.
@@ -64,10 +61,7 @@ NOTE: When you bump the version, the generator tests will fail because the gems 
 . Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems.
 . Once all the gems are published:
 .. Re-run the failed generators tests at the release branch.
-.. Always check if there are any pending security CVE's that needs to be published. If there are, add a section header called "Security fixes", and add the relevant information there, like we have done in https://github.com/decidim/decidim/releases/tag/v0.31.0[v0.31.0 release notes]
-.... Add the advisory id
-.... Make sure you change the date, to be 2 months away from release date
-.... Add the date to your calendar to actually publish the CVE's and link them to the Release Notes when that is the case. You can see how the final result looks like at https://github.com/decidim/decidim/releases/tag/v0.29.0[v0.29.0 release notes]
+.. Always check if there are any pending security CVEs that needs to be published. If there are, then follow the instructions in the xref:develop:maintainers/security.adoc[Security] page.
 .. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
 . Update Decidim's Docker repository as explained in the Docker images section below.
 . Update Crowdin synchronization configuration with GitHub:
@@ -128,11 +122,8 @@ NOTE: When you bump the version, the generator tests will fail because the gems 
 . Review, accept and merge the Pull Request.
 . Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems.
 . Once all the gems are published:
- .. Re-run the failed generators tests at the release branch.
- .. Always check if there are any pending security CVE's that needs to be published. If there are, add a section header called "Security fixes", and add the relevant information there, like we have done in https://github.com/decidim/decidim/releases/tag/v0.31.0[v0.31.0 release notes]
- .... Add the advisory id
-.... Make sure you change the date, to be 2 months away from release date
-.... Add the date to your calendar to actually publish the CVE's and link them to the Release Notes when that is the case. You can see how the final result looks like at https://github.com/decidim/decidim/releases/tag/v0.29.0[v0.29.0 release notes]
+.. Re-run the failed generators tests at the release branch.
+.. Always check if there are any pending security CVEs that needs to be published. If there are, then follow the instructions in the xref:develop:maintainers/security.adoc[Security] page.
 .. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
 . Update Decidim's Docker repository as explained in the Docker images section.
 

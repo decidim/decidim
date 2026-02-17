@@ -17,10 +17,6 @@ describe "Decidim::Api::QueryType" do
     %(
       participatoryProcess {
         accessMode
-        announcement{
-          translation(locale: "#{locale}")
-          locales
-        }
         attachments{
           url
           type
@@ -171,13 +167,6 @@ describe "Decidim::Api::QueryType" do
   let!(:participatory_process_response) do
     {
       "accessMode" => participatory_process.access_mode.upcase,
-      "announcement" => {
-        "locales" => (
-          participatory_process.announcement.keys.excluding("machine_translations") +
-          participatory_process.announcement["machine_translations"].keys
-        ).sort,
-        "translation" => participatory_process.announcement[locale]
-      },
       "attachments" => [],
       "categories" => [],
       "components" => components,

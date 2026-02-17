@@ -56,7 +56,7 @@ describe "Admin manages elections questions" do
 
       click_on "Save and continue"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Questions updated successfully.")
 
       visit questions_edit_path
       expand_all_questions
@@ -215,7 +215,7 @@ describe "Admin manages elections questions" do
 
       click_on "Save and continue"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Questions updated successfully.")
 
       visit questions_edit_path
       expand_all_questions
@@ -262,7 +262,7 @@ describe "Admin manages elections questions" do
 
       click_on "Save and continue"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Questions updated successfully.")
 
       visit questions_edit_path
       expand_all_questions
@@ -286,7 +286,7 @@ describe "Admin manages elections questions" do
 
       click_on "Save and continue"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Questions updated successfully.")
       expect(question.reload.max_choices).to eq(2)
     end
 
