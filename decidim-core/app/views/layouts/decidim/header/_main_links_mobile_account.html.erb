@@ -31,7 +31,7 @@
       </div>
     <% end %>
 
-    <p class="h3 mt-2"><%= t("decidim.block_user_mailer.notify.hello") %>&nbsp;<%= current_user.name %></p>
+    <p class="h3 mt-2"><%= t("layouts.decidim.header.mobile_account_greeting", user_name: current_user.name) %></p>
 
     <ul>
       <%= render partial: "layouts/decidim/header/main_links_dropdown" %>
