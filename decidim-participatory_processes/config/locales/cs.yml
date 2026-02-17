@@ -342,7 +342,6 @@ cs:
     open_data:
       help:
         participatory_processes:
-          announcement: Oznámení (vyhlášení) informací
           area: Oblast, ve které probíhá proces
           created_at: Datum, kdy byl tento prostor vytvořen
           description: Dlouhý popis procesu
@@ -506,7 +505,6 @@ cs:
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_processes:
           form:
-            announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             images: Obrázky
