@@ -242,7 +242,6 @@ ja:
       admin:
         assemblies:
           form:
-            announcement_help: ここに入力したテキストは、アセンブリ情報のすぐ下に表示されます。
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 持続期間
             duration_help: この参加スペースの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
@@ -275,6 +274,10 @@ ja:
         content_blocks:
           highlighted_assemblies:
             max_results: 表示する要素の最大量
+        imports:
+          attachment_error: 添付ファイル "%{title}" をインポートできませんでした（%{error}）。
+          banner_image_error: バナー画像をインポートできませんでした(%{error})。
+          hero_image_error: ヒーロー画像をインポートできませんでした（%{error}）。
         new_import:
           accepted_types:
             json: JSON
@@ -382,7 +385,6 @@ ja:
     open_data:
       help:
         assemblies:
-          announcement: アナウンス（コールアウト）情報
           area: 参加スペースのエリア
           assembly_type: 参加スペースの種別
           closing_date: 参加スペースの終了日
