@@ -578,6 +578,7 @@ es-PY:
     contact: Contacto
     content_blocks:
       announcement:
+        body: Texto del anuncio o aviso
         name: Aviso
       cta:
         name: Imagen, texto y botón de acción
