@@ -6,11 +6,11 @@ The `DeleteProject` mutation allows authenticated administrators to soft-delete 
 
 [source,graphql]
 ----
-mutation deleteProject($componentId: ID!, $budgetId: ID!, $input: DeleteProjectInput!){
+mutation deleteProject($componentId: ID!, $budgetId: ID!, $projectId: ID!){
   component(id: $componentId){
     ...on BudgetsMutation{
       budget(id: $budgetId){
-        deleteProject(input: $input){
+        deleteProject(id: $projectId){
           id
           url
         }
@@ -27,9 +27,7 @@ Example of submitted variables
 {
   "componentId": "3",
   "budgetId": "5",
-  "input": {
-    "id": "10"
-  }
+  "projectId": "10"
 }
 ----
 

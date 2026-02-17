@@ -30,7 +30,7 @@ module Decidim::Budgets
       context "when project is missing" do
         let(:query) { %( mutation { deleteProject(id: 123456789) { id } }) }
 
-        it "returns an error" do
+        it "raises an error" do
           expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
         end
       end
@@ -38,7 +38,36 @@ module Decidim::Budgets
       context "when project id is not integer" do
         let(:query) { %( mutation { deleteProject(id: "aaaa") { id } } ) }
 
-        it "returns an error" do
+        it "raises an error" do
+          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
+        end
+      end
+
+      context "when project belongs to another budget" do
+        let!(:budget2) { create(:budget, component:, total_budget: 1_000) }
+        let!(:project) { create(:project, budget: budget2) }
+
+        it "raises an error" do
+          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
+        end
+      end
+
+      context "when project belongs to another budget and the budget belongs to another component" do
+        let(:component2) { create(:budgets_component, organization: current_organization) }
+        let!(:budget2) { create(:budget, component: component2, total_budget: 1_000) }
+        let!(:project) { create(:project, budget: budget2) }
+
+        it "raises an error" do
+          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
+        end
+      end
+
+      context "when project is already deleted" do
+        before do
+          project.destroy
+        end
+
+        it "raises an error" do
           expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
         end
       end
@@ -53,7 +82,7 @@ module Decidim::Budgets
     end
 
     context "with normal user" do
-      it "returns nil" do
+      it "raises an error" do
         expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
       end
 
@@ -63,7 +92,7 @@ module Decidim::Budgets
     context "with visitor user" do
       let!(:current_user) { nil }
 
-      it "returns nil" do
+      it "raises an error" do
         expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
       end
 
