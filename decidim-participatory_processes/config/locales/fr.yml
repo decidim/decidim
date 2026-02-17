@@ -111,8 +111,7 @@ fr:
       menu:
         participatory_process_groups: Groupes de concertations
         participatory_process_groups_submenu:
-          info: Information
-          landing_page: Page d'accueil
+          info: À propos de ce groupe de processus
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
