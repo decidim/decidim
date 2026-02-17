@@ -111,8 +111,7 @@ fi:
       menu:
         participatory_process_groups: Prosessiryhmät
         participatory_process_groups_submenu:
-          info: Tiedot
-          landing_page: Laskeutumissivu
+          landing_page: Laskeutumissivun asettelu
         participatory_processes: Prosessit
         participatory_processes_submenu:
           attachment_collections: Kansiot
