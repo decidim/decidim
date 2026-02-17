@@ -299,7 +299,6 @@ it:
             document_legend: Aggiungi documento
         participatory_processes:
           form:
-            announcement_help: Il testo che inserisci qui verrà mostrato all'utente sotto le informazioni di processo.
             duration: Durata
             images: immagini
             metadata: Metadati
