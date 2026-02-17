@@ -21,7 +21,7 @@ module Decidim
       private
 
       def find_resource(id)
-        object.projects.find_by(id:)
+        object.projects.find(id)
       end
 
       def trashable_deleted_resource_type

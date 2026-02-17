@@ -21,7 +21,7 @@ module Decidim
       private
 
       def find_resource(id)
-        Decidim::Budgets::Budget.find_by(id:, component: object)
+        Decidim::Budgets::Budget.where(component: object).find(id)
       end
 
       def trashable_deleted_resource_type

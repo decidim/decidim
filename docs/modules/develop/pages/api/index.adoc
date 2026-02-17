@@ -60,7 +60,7 @@ From now on, we will skip the "query" keyword for the purpose of readability. Yo
 ** API reference by module
 *** Spaces
 *** Components
-**** xref:develop:api/reference/components/debates.adoc[Budgets]
+**** xref:develop:api/reference/components/budgets.adoc[Budgets]
 ***** xref:develop:api/reference/components/budgets/create.adoc[Create Budget]
 ***** xref:develop:api/reference/components/budgets/delete.adoc[Delete Budget]
 ***** xref:develop:api/reference/components/budgets/update.adoc[Update Budget]

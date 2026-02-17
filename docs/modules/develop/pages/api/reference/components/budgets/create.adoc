@@ -8,7 +8,7 @@ When you want to add or create data in your debates component, you need to rely 
 • title                 (optional) - JSON
 • description           (optional) - JSON
 • total_budget          (optional) - Integer
-• taxonomies            (optional) - Taxonomy ids to assign to this debate
+• taxonomies            (optional) - Taxonomy ids to assign to this budget
 ----
 
 == Sample request
