@@ -248,7 +248,6 @@ cs:
       admin:
         assemblies:
           form:
-            announcement_help: Text, který sem vložíte, se uživateli zobrazí přímo pod informacemi o procesu.
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
@@ -385,7 +384,6 @@ cs:
     open_data:
       help:
         assemblies:
-          announcement: Oznámení (vvyhlášení) informací
           area: Oblast shromáždění
           assembly_type: Typ shromáždění
           closing_date: Datum ukončení shromáždění
