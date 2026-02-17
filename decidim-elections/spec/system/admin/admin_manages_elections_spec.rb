@@ -35,10 +35,12 @@ describe "Admin manages elections" do
     expect(page).to have_content(translated(finished_election.title))
     expect(page).to have_content(translated(ongoing_election.title))
     expect(page).to have_content(translated(published_results_election.title))
-    expect(page).to have_content("Unpublished")
-    expect(page).to have_content("Scheduled")
-    expect(page).to have_content("Ongoing")
-    expect(page).to have_content("Finished")
+    within "table" do
+      expect(page).to have_content("Unpublished")
+      expect(page).to have_content("Scheduled")
+      expect(page).to have_content("Ongoing")
+      expect(page).to have_content("Finished")
+    end
     expect(page).to have_content("Registered participants (dynamic)")
     expect(page).to have_content("Unregistered participants with tokens (fixed)")
     expect(page).to have_content("View deleted elections")

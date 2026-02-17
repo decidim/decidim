@@ -80,7 +80,9 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
       end
 
       it "renders the open state" do
-        expect(subject).to have_content("Published")
+        within ".label" do
+          expect(subject).to have_content("Published")
+        end
       end
     end
   end

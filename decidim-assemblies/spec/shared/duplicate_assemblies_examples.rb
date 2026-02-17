@@ -31,7 +31,9 @@ shared_examples "duplicate assemblies" do
 
       expect(page).to have_callout("Assembly successfully duplicated.")
       expect(page).to have_content("Duplicate assembly")
-      expect(page).to have_content("Unpublished")
+      within "table" do
+        expect(page).to have_content("Unpublished")
+      end
     end
   end
 
@@ -102,7 +104,9 @@ shared_examples "duplicate assemblies" do
 
       expect(page).to have_callout("Assembly successfully duplicated.")
       expect(page).to have_content("Duplicate assembly")
-      expect(page).to have_content("Unpublished")
+      within "table" do
+        expect(page).to have_content("Unpublished")
+      end
     end
   end
 end

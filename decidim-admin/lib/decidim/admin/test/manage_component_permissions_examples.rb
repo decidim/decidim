@@ -91,7 +91,7 @@ shared_examples "Managing component permissions" do
     end
 
     it "renders the form again" do
-      expect(page).to have_content("problem")
+      expect(page).to have_content("There was a problem updating the permissions of this component.")
     end
   end
 

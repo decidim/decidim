@@ -35,7 +35,9 @@ describe "Admin copies participatory process" do
 
       expect(page).to have_callout("Participatory process successfully duplicated.")
       expect(page).to have_content("Duplicate participatory process")
-      expect(page).to have_content("Unpublished")
+      within "table" do
+        expect(page).to have_content("Unpublished")
+      end
     end
   end
 

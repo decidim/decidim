@@ -64,7 +64,9 @@ describe "Admin imports assembly" do
     it "imports the json document" do
       expect(page).to have_callout("Assembly successfully imported.")
       expect(page).to have_content("Import assembly")
-      expect(page).to have_content("Unpublished")
+      within "table" do
+        expect(page).to have_content("Unpublished")
+      end
 
       within "tr", text: "Import assembly" do
         find("button[data-controller='dropdown']").click
@@ -362,7 +364,7 @@ describe "Admin imports assembly" do
     end
 
     it "imports successfully and shows a warning about missing attachments" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Assembly successfully imported.")
       expect(page).to have_content("Import assembly with 404 attachments")
 
       within ".flash.warning" do

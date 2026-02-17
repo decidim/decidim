@@ -57,7 +57,9 @@ describe "Admin imports participatory process" do
     it "imports the json document" do
       expect(page).to have_callout("Participatory process successfully imported.")
       expect(page).to have_content("Import participatory process")
-      expect(page).to have_content("Unpublished")
+      within "table" do
+        expect(page).to have_content("Unpublished")
+      end
 
       within "tr", text: "Import participatory process" do
         click_on "Import participatory process"
@@ -252,7 +254,7 @@ describe "Admin imports participatory process" do
     end
 
     it "imports successfully and shows a warning about missing attachments" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_content("Participatory process successfully imported.")
       expect(page).to have_content("Import process with 404 attachments")
 
       within ".flash.warning" do

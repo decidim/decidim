@@ -31,7 +31,9 @@ shared_examples "duplicate conferences" do
 
       expect(page).to have_callout("Conference successfully duplicated")
       expect(page).to have_content("Duplicate conference")
-      expect(page).to have_content("Unpublished")
+      within "table" do
+        expect(page).to have_content("Unpublished")
+      end
     end
   end
 
