@@ -242,7 +242,6 @@ sv:
       admin:
         assemblies:
           form:
-            announcement_help: Den här texten visas direkt under informationen om samrådet.
             define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
             duration: Varaktighet
             duration_help: Välj ett slutdatum om samrådet är tidsbegränsat.
@@ -379,7 +378,6 @@ sv:
     open_data:
       help:
         assemblies:
-          announcement: Meddelande
           area: Samrådets område
           assembly_type: Typ av samråd
           closing_date: Slutdatum för samrådet
