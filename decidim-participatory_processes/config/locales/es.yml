@@ -341,7 +341,6 @@ es:
     open_data:
       help:
         participatory_processes:
-          announcement: La información del anuncio/aviso (llamada)
           area: El área a la que pertenece el proceso
           component_settings: Configuración de los componentes del proceso participativo
           created_at: La fecha en la que se creó este proceso participativo
@@ -489,6 +488,9 @@ es:
             all: Todos
             max_results: Cantidad máxima de elementos para mostrar
             selection_criteria: Criterios de selección
+        imports:
+          attachment_error: No se ha podido importar el archivo adjunto "%{title}" (%{error}).
+          hero_image_error: No se ha podrido importar la imagen principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
@@ -507,7 +509,6 @@ es:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_processes:
           form:
-            announcement_help: El texto que ingreses aquí se mostrará a la participante justo debajo de la información del proceso.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             has_members_help: Podrás crear y publicar miembros
