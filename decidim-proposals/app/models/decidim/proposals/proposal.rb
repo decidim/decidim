@@ -169,6 +169,7 @@ module Decidim
         where(component:)
           .published
           .not_hidden
+          .not_withdrawn
           .where("coauthorships_count > 1")
           .exists?
       end
