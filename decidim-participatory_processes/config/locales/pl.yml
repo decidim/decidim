@@ -373,7 +373,6 @@ pl:
             slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         participatory_processes:
           form:
-            announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
             duration: Czas trwania
             images: Obrazy
             metadata: Metadane
