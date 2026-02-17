@@ -117,6 +117,9 @@ end
 
 shared_context "when publishing and unpublishing the component" do
   let(:title) { translated(current_component.name) }
+  # When resources are being created or modified, the following jobs are enqueued among the ones that we need to wait for.
+  # When running in CI, we have situations when job processing takes longer, causing flaky tests.
+  # Adding a list of exceptions here, helps us to avoid those situations.
   let(:job_exceptions) do
     [
       Decidim::MachineTranslationResourceJob,
