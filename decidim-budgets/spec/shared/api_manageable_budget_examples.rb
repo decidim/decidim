@@ -72,16 +72,6 @@ shared_examples "API creatable budget" do
   end
 end
 
-shared_examples "API deletable budget" do
-  it "deletes the budget" do
-    expect(budget.deleted_at).to be_nil
-    expect do
-      execute_query(query, variables)
-    end.to change(Decidim::Budgets::Budget, :count).by(-1)
-    expect(budget.reload.deleted_at).not_to be_nil
-  end
-end
-
 shared_examples "API creatable project" do
   context "when form is not valid" do
     let(:title_en) { nil }
