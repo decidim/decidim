@@ -111,8 +111,8 @@ ca:
       menu:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
-          info: Informació
-          landing_page: Pàgina d'inici
+          info: Quant a aquest grup de processos
+          landing_page: Disposició de la pàgina de destinació
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
@@ -426,6 +426,9 @@ ca:
             all: Tots
             max_results: Quantitat màxima d'elements que es mostraran
             selection_criteria: Criteris de selecció
+        imports:
+          attachment_error: No s'ha pogut importar l'arxiu adjunt "%{title}" (%{error}).
+          hero_image_error: No s'ha pogut importar la imatge principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
