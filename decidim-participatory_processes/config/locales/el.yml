@@ -326,7 +326,6 @@ el:
             document_legend: Προσθήκη εγγράφου
         participatory_processes:
           form:
-            announcement_help: Το κείμενο που εισάγετε εδώ θα εμφανίζεται στον χρήστη ακριβώς κάτω από τις πληροφορίες της διαδικασίας.
             duration: Διάρκεια
             images: Εικόνες
             metadata: Μεταδεδομένα
