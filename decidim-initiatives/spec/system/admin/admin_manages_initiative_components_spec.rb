@@ -263,6 +263,24 @@ describe "Admin manages initiative components" do
     end
   end
 
+  describe "manages proposals component" do
+    let!(:proposals_component) do
+      create(:component, :published, manifest_name: :proposals, participatory_space: initiative)
+    end
+    let!(:proposal1) { create(:proposal, :published, component: proposals_component) }
+    let!(:proposal2) { create(:proposal, :published, component: proposals_component) }
+
+    before do
+      visit Decidim::EngineRouter.admin_proxy(proposals_component).root_path
+    end
+
+    it "can access proposals from admin" do
+      expect(page).to have_content("Proposals")
+      expect(page).to have_content(translated(proposal1.title))
+      expect(page).to have_content(translated(proposal2.title))
+    end
+  end
+
   def participatory_space
     initiative
   end
