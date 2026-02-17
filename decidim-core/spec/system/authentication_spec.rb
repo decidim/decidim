@@ -708,7 +708,7 @@ describe "Authentication" do
             within ".new_user" do
               fill_in :session_user_email, with: user.email
               fill_in :session_user_password, with: "not-the-password"
-              wait_enqueued_jobs { find("*[type=submit]").click }
+              perform_enqueued_jobs { find("*[type=submit]").click }
             end
 
             expect(page).to have_content("Invalid")
@@ -727,7 +727,7 @@ describe "Authentication" do
         it "resends the unlock instructions" do
           within ".new_user" do
             fill_in :unlock_user_email, with: user.email
-            wait_enqueued_jobs { find("*[type=submit]").click }
+            perform_enqueued_jobs { find("*[type=submit]").click }
           end
 
           expect(page).to have_content("If your account exists")
