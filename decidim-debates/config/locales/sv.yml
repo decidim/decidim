@@ -113,7 +113,7 @@ sv:
           state: Status
           state_values:
             closed: Avslutade
-            open: Öppna
+            open: Aktiva
           user_group: Grupper
         index:
           new_debate: Ny debatt
