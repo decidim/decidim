@@ -339,7 +339,6 @@ eu:
     open_data:
       help:
         participatory_processes:
-          announcement: Informazioa iragarpenaz (deia)
           area: Prozesua zein arlotan gertatzen ari da
           component_settings: Prozesuaren osagaien konfigurazioa
           created_at: Zein datatan sortu zen espazio hau
@@ -505,7 +504,6 @@ eu:
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_processes:
           form:
-            announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             has_members_help: Kideak sortu eta argitaratu ahal izango dituzu
