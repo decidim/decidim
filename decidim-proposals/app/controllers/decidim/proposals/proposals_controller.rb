@@ -17,7 +17,7 @@ module Decidim
       include Paginable
       include Decidim::AttachmentsHelper
 
-      helper_method :proposal_presenter, :form_presenter, :tab_panel_items
+      helper_method :proposal_presenter, :form_presenter, :tab_panel_items, :withdrawn_proposals?
 
       before_action :authenticate_user!, only: [:new, :create]
       before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
@@ -232,6 +232,12 @@ module Decidim
 
       def proposal_presenter
         @proposal_presenter ||= present(@proposal)
+      end
+
+      def withdrawn_proposals?
+        return @withdrawn_proposals if defined?(@withdrawn_proposals)
+
+        @withdrawn_proposals = Proposal.where(component: current_component).published.not_hidden.withdrawn.exists?
       end
 
       def form_proposal_params
