@@ -251,7 +251,6 @@ module Decidim
             expect(controller.send(:with_more_authors_order_available?)).to be false
           end
         end
-        end
 
         context "when there are proposals with coauthors" do
           it "returns true" do
