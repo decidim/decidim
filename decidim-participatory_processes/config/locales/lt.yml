@@ -348,7 +348,6 @@ lt:
             document_legend: Pridėti dokumentą
         participatory_processes:
           form:
-            announcement_help: Čia įrašytas tekstas naudotojui bus rodomas iš karto po informacijos apie procesą.
             duration: Trukmė
             images: Paveikslėliai
             metadata: Metaduomenys
