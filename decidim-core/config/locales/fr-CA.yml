@@ -537,6 +537,7 @@ fr-CA:
     contact: Contact
     content_blocks:
       announcement:
+        body: Texte de l’annonce
         name: Annonce
       cta:
         name: Image, texte et bouton d'appel à l'action
