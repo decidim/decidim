@@ -1176,7 +1176,7 @@ shared_examples "comments with two columns" do
       expect(page).to have_css(".comment", count: comments.length)
 
       within(".comments-two-columns") do
-        check_comments_order(".comments-section__in-favor", comments_in_favor)
+        check_comments_order(".comments-section__in-favor", comments_in_favor.reverse)
         check_comments_order(".comments-section__against", comments_against)
       end
     end
@@ -1211,12 +1211,12 @@ shared_examples "comments with two columns" do
 
         within(".comment-threads") do
           expected_order = [
-            high_voted_comment_against,
-            high_voted_comment_in_favor,
-            older_comment_in_favor,
-            older_comment_against,
+            highest_voted_comment_against,
             highest_voted_comment_in_favor,
-            highest_voted_comment_against
+            older_comment_against,
+            older_comment_in_favor,
+            high_voted_comment_in_favor,
+            high_voted_comment_against
           ]
 
           all_comments = all(".comment-thread")
@@ -1300,10 +1300,10 @@ shared_examples "comments with two columns" do
         expect(page).to have_css(".comment-thread", minimum: 4)
 
         expected_order = [
-          oldest_against_comment,
-          oldest_in_favor_comment,
+          newer_against_comment,
           older_in_favor_comment,
-          newer_against_comment
+          oldest_in_favor_comment,
+          oldest_against_comment
         ]
 
         expected_order.each_with_index do |comment, index|
@@ -1334,22 +1334,22 @@ shared_examples "comments with two columns" do
       visit resource_path
     end
 
-    it "shows the top voted comments at the top of each column, followed by comments in ascending chronological order" do
+    it "shows the top voted comments at the top of each column, followed by comments in descending chronological order" do
       within(".comments-two-columns") do
         check_comments_order(".comments-section__in-favor", [
                                highest_voted_comment_in_favor,
-                               high_voted_comment_in_favor,
-                               older_comment_in_favor,
+                               latest_comment_in_favor,
                                recent_comment_in_favor,
-                               latest_comment_in_favor
+                               older_comment_in_favor,
+                               high_voted_comment_in_favor
                              ])
 
         check_comments_order(".comments-section__against", [
                                highest_voted_comment_against,
-                               high_voted_comment_against,
-                               older_comment_against,
+                               latest_comment_against,
                                recent_comment_against,
-                               latest_comment_against
+                               older_comment_against,
+                               high_voted_comment_against
                              ])
       end
     end
