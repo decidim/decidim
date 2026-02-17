@@ -181,7 +181,9 @@ export default function generateDatePicker(input, row, formats) {
     pickedDate = null;
     datePickerContainer.style.display = "block";
 
-    const isLast = durationDiv === durationDiv.parentElement.querySelector(".card:last-of-type");
+    const isLast = durationDiv && durationDiv.parentElement
+      ? durationDiv === durationDiv.parentElement.querySelector(".card:last-of-type")
+      : false;
     const calendarRow = document.querySelector(`#${calendar.parentElement.parentElement.id}`);
 
     if (isLast) {
