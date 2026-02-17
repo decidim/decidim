@@ -138,8 +138,8 @@ describe "Admin imports assembly" do
     end
 
     it "imports successfully and shows a warning about the missing hero image" do
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Import assembly with 404 hero")
+      expect(page).to have_callout("Assembly successfully imported.")
+      expect(page).to have_callout("Import assembly with 404 hero")
 
       within ".flash.warning" do
         expect(page).to have_content(/The hero image could not be imported due to an error/i)
@@ -191,8 +191,8 @@ describe "Admin imports assembly" do
     end
 
     it "imports successfully and shows a warning about the missing banner image" do
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Import assembly with 404 banner")
+      expect(page).to have_callout("Assembly successfully imported.")
+      expect(page).to have_callout("Import assembly with 404 banner")
 
       within ".flash.warning" do
         expect(page).to have_content(/The banner image could not be imported due to an error/i)
@@ -245,8 +245,8 @@ describe "Admin imports assembly" do
     end
 
     it "imports successfully and shows warnings for both missing images" do
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Import assembly with 404 images")
+      expect(page).to have_callout("Assembly successfully imported.")
+      expect(page).to have_callout("Import assembly with 404 images")
 
       within ".flash.warning" do
         expect(page).to have_content(/The hero image could not be imported due to an error/i)
@@ -302,8 +302,8 @@ describe "Admin imports assembly" do
     end
 
     it "imports successfully and shows warnings for both missing images" do
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Import assembly with long 404 images")
+      expect(page).to have_callout("Assembly successfully imported.")
+      expect(page).to have_callout("Import assembly with long 404 images")
 
       within ".flash.warning" do
         expect(page).to have_content(/The hero image could not be imported due to an error/i)

@@ -152,7 +152,7 @@ shared_examples "manage assemblies" do
         find("a", text: "Publish", visible: true).click
       end
 
-      expect(page).to have_content("successfully published")
+      expect(page).to have_callout("Assembly successfully published.")
 
       within("tr", text: translated_attribute(assembly.title)) do
         find("button[data-controller='dropdown']").click
@@ -179,7 +179,7 @@ shared_examples "manage assemblies" do
         find("a", text: "Unpublish", visible: true).click
       end
 
-      expect(page).to have_content("successfully unpublished")
+      expect(page).to have_callout("Assembly successfully unpublished.")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_assemblies.assemblies_path
 

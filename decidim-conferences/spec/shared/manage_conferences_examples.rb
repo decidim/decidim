@@ -184,7 +184,7 @@ shared_examples "manage conferences" do
         find("a", text: "Publish", visible: true).click
       end
 
-      expect(page).to have_content("successfully published")
+      expect(page).to have_callout("Conference successfully published.")
 
       within("tr", text: translated_attribute(conference.title)) do
         find("button[data-controller='dropdown']").click
@@ -211,7 +211,7 @@ shared_examples "manage conferences" do
         find("a", text: "Unpublish", visible: true).click
       end
 
-      expect(page).to have_content("successfully unpublished")
+      expect(page).to have_callout("Conference successfully unpublished.")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_conferences.conferences_path
 

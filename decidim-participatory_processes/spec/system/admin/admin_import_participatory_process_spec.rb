@@ -140,7 +140,7 @@ describe "Admin imports participatory process" do
     end
 
     it "imports successfully and shows a warning about the missing hero image" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Participatory process successfully imported")
       expect(page).to have_content("Import process with 404 hero")
 
       within ".flash.warning" do
@@ -193,7 +193,7 @@ describe "Admin imports participatory process" do
     end
 
     it "imports successfully and shows a warning about the missing group hero image" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Participatory process successfully imported")
       expect(page).to have_content("Import process with 404 group hero")
 
       within ".flash.warning" do

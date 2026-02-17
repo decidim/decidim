@@ -414,7 +414,7 @@ describe "Authentication" do
 
       visit last_email_link
 
-      expect(page).to have_content("successfully confirmed")
+      expect(page).to have_callout("Your email address has been successfully confirmed.")
       expect(last_user).to be_confirmed
 
       within_user_menu do
