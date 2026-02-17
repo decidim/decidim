@@ -19,7 +19,7 @@ module Decidim
 
       private
 
-      def find_resource(id)
+      def find_resource(_id)
         object
       end
 

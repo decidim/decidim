@@ -52,7 +52,7 @@ module Decidim::Budgets
         end
       end
 
-      context "when budget belogs to another component" do
+      context "when budget belongs to another component" do
         let(:model2) { create(:budget, component: current_component2, total_budget: 1_000) }
         let(:current_component2) { create(:budgets_component, organization: current_organization) }
         let(:query) { %( mutation { deleteBudget(id: #{model2.id}) { id } } ) }
