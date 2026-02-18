@@ -37,7 +37,7 @@ module Decidim
     end
 
     def check_organization!
-      head :unauthorized if current_organization.blank?
+      head :unauthorized if current_organization.blank? && current_admin.blank?
     end
 
     def allowed_extensions
