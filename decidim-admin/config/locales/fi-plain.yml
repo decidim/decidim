@@ -55,7 +55,6 @@ fi-pl:
         description: Kuvaus
         enable_machine_translations: Ota konekäännökset käyttöön
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
-        enable_participatory_space_filters: Ota käyttöön osallistumistilan suodattimet
         facebook_handler: Facebook-käsittelijä
         favicon: ikoni
         force_authentication: Kirjautuminen vaaditaan
