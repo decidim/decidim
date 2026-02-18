@@ -25,8 +25,9 @@ module RuboCop
           unpublished
         ).freeze
 
-        MSG = "Anti-pattern detected: avoid generic single-word text in have_callout/have_content. " \
-              "Use the full admin flash message, e.g. 'Meeting successfully published'."
+        MSG = "Anti-pattern detected: avoid generic single-word text in have_callout/have_admin_callout/have_content. " \
+              "Use the full admin flash message, e.g. 'Meeting successfully published'. " \
+              "Exception: when used inside `within` blocks (e.g., for checking `.label` elements)."
 
         def on_send(node)
           return unless [:have_callout, :have_admin_callout, :have_content].include?(node.method_name)

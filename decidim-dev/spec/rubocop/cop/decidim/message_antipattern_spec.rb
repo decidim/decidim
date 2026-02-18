@@ -10,14 +10,14 @@ RSpec.describe RuboCop::Cop::Decidim::MessageAntipattern, :config do
   it "registers an offense for single-word callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_callout("successfully")
-                                   ^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_admin_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'. Exception: when used inside `within` blocks (e.g., for checking `.label` elements).
     RUBY
   end
 
   it "registers an offense for very short callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_callout("ok")
-                                   ^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_admin_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'. Exception: when used inside `within` blocks (e.g., for checking `.label` elements).
     RUBY
   end
 
@@ -48,42 +48,42 @@ RSpec.describe RuboCop::Cop::Decidim::MessageAntipattern, :config do
   it "registers an offense for empty string callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_callout("")
-                                   ^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_admin_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'. Exception: when used inside `within` blocks (e.g., for checking `.label` elements).
     RUBY
   end
 
   it "registers an offense for whitespace-only callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_callout("   ")
-                                   ^^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_admin_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'. Exception: when used inside `within` blocks (e.g., for checking `.label` elements).
     RUBY
   end
 
   it "registers an offense for nil callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_callout(nil)
-                                   ^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_admin_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'. Exception: when used inside `within` blocks (e.g., for checking `.label` elements).
     RUBY
   end
 
   it "registers an offense for single-word content" do
     expect_offense(<<~RUBY)
       expect(page).to have_content("successfully")
-                                   ^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_admin_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'. Exception: when used inside `within` blocks (e.g., for checking `.label` elements).
     RUBY
   end
 
   it "registers an offense for single-word admin callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_admin_callout("successfully")
-                                         ^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                         ^^^^^^^^^^^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_admin_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'. Exception: when used inside `within` blocks (e.g., for checking `.label` elements).
     RUBY
   end
 
   it "registers an offense for short admin callouts" do
     expect_offense(<<~RUBY)
       expect(page).to have_admin_callout("ok")
-                                         ^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                         ^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_admin_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'. Exception: when used inside `within` blocks (e.g., for checking `.label` elements).
     RUBY
   end
 
@@ -96,7 +96,7 @@ RSpec.describe RuboCop::Cop::Decidim::MessageAntipattern, :config do
   it "registers an offense for short content" do
     expect_offense(<<~RUBY)
       expect(page).to have_content("ok")
-                                   ^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'.
+                                   ^^^^ Anti-pattern detected: avoid generic single-word text in have_callout/have_admin_callout/have_content. Use the full admin flash message, e.g. 'Meeting successfully published'. Exception: when used inside `within` blocks (e.g., for checking `.label` elements).
     RUBY
   end
 
