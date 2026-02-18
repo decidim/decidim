@@ -54,7 +54,6 @@ sv:
         default_locale: Förvalt språk och region
         description: Beskrivning
         enable_omnipresent_banner: Visa banner på alla sidor
-        enable_participatory_space_filters: Aktivera filter för processer
         facebook_handler: Facebook-namn
         favicon: Ikon
         force_authentication: Kräv autentisering
