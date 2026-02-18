@@ -29,7 +29,7 @@ module RuboCop
               "Use the full admin flash message, e.g. 'Meeting successfully published'."
 
         def on_send(node)
-          return unless [:have_callout, :have_content].include?(node.method_name)
+          return unless [:have_callout, :have_admin_callout, :have_content].include?(node.method_name)
           return if within_block?(node)
 
           first_argument = node.first_argument
