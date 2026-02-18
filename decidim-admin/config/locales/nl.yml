@@ -38,7 +38,6 @@ nl:
         default_locale: Standaard taal
         description: Beschrijving
         enable_omnipresent_banner: Toon permanente header
-        enable_participatory_space_filters: Schakel filters in voor de participatieve ruimte
         facebook_handler: Facebook naam
         favicon: Favicon
         force_authentication: Verplicht aanmelden
