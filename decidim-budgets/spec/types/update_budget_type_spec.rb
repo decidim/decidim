@@ -51,6 +51,70 @@ module Decidim::Budgets
       GRAPHQL
     end
 
+    shared_examples "API updatable budget" do
+      context "when updating a budget" do
+        it "updates fields" do
+          updated_budget = response["updateBudget"]
+          expect(updated_budget["id"].to_i).to eq(model.id)
+          expect(updated_budget["title"]["translation"]).to eq(title_en)
+          expect(updated_budget["description"]["translation"]).to eq(description_en)
+          expect(updated_budget["total_budget"]).to eq(total_budget)
+        end
+
+        context "when performing a partial update" do
+          let(:variables) do
+            {
+              component_id: current_component.id,
+              budget_id:,
+              input: {
+                attributes: {
+                  title: { "es" => "El título en español" },
+                  description: { en: description_en },
+                  totalBudget: total_budget
+                }
+              }
+            }
+          end
+
+          it "updates only specified fields" do
+            updated_budget = response["updateBudget"]
+            expect(updated_budget["id"].to_i).to eq(model.id)
+            expect(updated_budget["title"]["translation"]).to eq(translated(model.title))
+          end
+        end
+      end
+
+      context "when having invalid arguments" do
+        context "when having invalid locale" do
+          let(:variables) do
+            {
+              component_id: current_component.id,
+              budget_id: model.id,
+              input: {
+                attributes: {
+                  title: { "en" => title_en, "tlh" => "Foo bar" },
+                  description: { en: description_en },
+                  totalBudget: total_budget
+                }
+              }
+            }
+          end
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::InvalidLocaleError, /Invalid locale provided/)
+          end
+        end
+
+        context "when submitting invalid total budget" do
+          let(:total_budget) { "foo" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(GraphQL::ExecutionError, /Could not coerce value/)
+          end
+        end
+      end
+    end
+
     context "with admin user" do
       it_behaves_like "API updatable budget" do
         let!(:user_type) { :admin }
@@ -58,6 +122,14 @@ module Decidim::Budgets
     end
 
     context "with normal user" do
+      it "returns nil" do
+        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
+      end
+    end
+
+    context "with visitor user" do
+      let(:current_user) { nil }
+
       it "returns nil" do
         expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
       end

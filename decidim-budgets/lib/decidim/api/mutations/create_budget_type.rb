@@ -9,7 +9,9 @@ module Decidim
       argument :attributes, BudgetAttributes, description: "input attributes to create a budget", required: true
 
       def resolve(attributes:)
-        form = form(Admin::BudgetForm).from_params(attributes.to_h)
+        params = extract_from(attributes)
+
+        form = form(Admin::BudgetForm).from_params(params)
 
         Admin::CreateBudget.call(form) do
           on(:ok, resource) do
@@ -28,6 +30,20 @@ module Decidim
         end
 
         true
+      end
+
+      private
+
+      def extract_from(attributes)
+        validate_multiple_locales(attributes, :title)
+        validate_multiple_locales(attributes, :description)
+
+        attributes = attributes.to_h
+
+        attributes.to_h[:title] = attributes.to_h.fetch(:title, {})
+        attributes.to_h[:description] = attributes.to_h.fetch(:description, {})
+
+        attributes
       end
     end
   end
