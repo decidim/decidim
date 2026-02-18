@@ -857,8 +857,8 @@ shared_examples "comments" do
         visit current_path
 
         within "#comments #comment_#{parent.id}" do
-          expect(page).to have_css("#comment-#{parent.id}-replies", visible: :all)
-          expect(page.find("#comment-#{parent.id}-replies", visible: :all).text).to be_blank
+          expect(page).to have_no_content("Load replies")
+          expect(page).to have_no_css("#comment-#{parent.id}-replies")
         end
       end
 
@@ -1197,6 +1197,7 @@ shared_examples "comments with two columns" do
 
     context "when commentable is closed" do
       let!(:commentable) { closed_commentable }
+      let!(:comments) { [] }
       let!(:highest_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago, up_votes_count: 15) }
       let!(:high_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 4.days.ago, up_votes_count: 10) }
       let!(:older_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago, up_votes_count: 5) }
@@ -1208,6 +1209,7 @@ shared_examples "comments with two columns" do
       it "shows comments sorted by the selected filter in mobile view" do
         resize_window_to_mobile
         visit resource_path
+        sleep 1
 
         within(".comment-threads") do
           expected_order = [
@@ -1250,6 +1252,7 @@ shared_examples "comments with two columns" do
   end
 
   context "when commentable is not closed" do
+    let!(:comments) { [] }
     let!(:oldest_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago) }
     let!(:older_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago) }
     let!(:oldest_against_comment) { create(:comment, :against, commentable:, created_at: 4.days.ago) }
@@ -1265,7 +1268,7 @@ shared_examples "comments with two columns" do
       end
     end
 
-    it "allows the user to add a new comment at the end of the respective column" do
+    it "allows the user to add a new comment at the top of the respective column" do
       resize_window_to_desktop
       visit resource_path
 
@@ -1273,6 +1276,7 @@ shared_examples "comments with two columns" do
 
       within(".comments-section__in-favor") do
         expect(page).to have_content("This is a new comment in favor")
+        expect(first(".comment-thread")).to have_content("This is a new comment in favor")
       end
     end
 
@@ -1295,6 +1299,7 @@ shared_examples "comments with two columns" do
     it "shows comments sorted by creation date when viewed on a small screen" do
       resize_window_to_mobile
       visit resource_path
+      sleep 1
 
       within(".comment-threads") do
         expect(page).to have_css(".comment-thread", minimum: 4)
