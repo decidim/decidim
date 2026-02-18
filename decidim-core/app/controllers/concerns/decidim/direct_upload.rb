@@ -59,7 +59,7 @@ module Decidim
     private
 
     def user_has_elevated_role?
-      return false if current_user.blank?
+      return false if current_user.blank? || current_organization.blank? || current_user.organization != current_organization
 
       [
         current_user&.admin?,
