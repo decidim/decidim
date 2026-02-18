@@ -55,7 +55,6 @@ fr:
         description: Description
         enable_machine_translations: Activer la traduction automatique
         enable_omnipresent_banner: Activer la bannière permanente
-        enable_participatory_space_filters: Activer les filtres d'espace participatif
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
         force_authentication: Forcer l'authentification
