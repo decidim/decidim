@@ -48,7 +48,6 @@ hu:
         default_locale: Alapértelmezett hely
         description: Leírás
         enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
-        enable_participatory_space_filters: A részvételi terek szűrőjének engedélyezése
         facebook_handler: Facebook handler
         favicon: Ikon
         force_authentication: Kényszerített authentikáció
