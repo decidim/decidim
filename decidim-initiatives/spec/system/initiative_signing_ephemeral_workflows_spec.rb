@@ -143,7 +143,7 @@ describe "Initiative signing with ephemeral workflows" do
               click_on "Validate your data"
               # Wait for the page to update with success message
               expect(page).to have_content("You have signed the initiative", wait: 10)
-            end.to change { Decidim::Authorization.where(user: user, name: "dummy_authorization_handler").count }.by(1)
+            end.to change { Decidim::Authorization.where(user:, name: "dummy_authorization_handler").count }.by(1)
           end
         end
       end
