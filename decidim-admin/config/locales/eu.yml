@@ -55,7 +55,6 @@ eu:
         description: Deskribapena
         enable_machine_translations: Itzulpen automatikoak gaitu
         enable_omnipresent_banner: Erakutsi banner nonahikoa
-        enable_participatory_space_filters: Gaitu iragazkiak parte hartzeko espazioan
         facebook_handler: Facebook kudeatzailea
         favicon: Ikonoa
         force_authentication: Behartu autentikazioa
