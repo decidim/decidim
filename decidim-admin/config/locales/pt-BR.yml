@@ -55,7 +55,6 @@ pt-BR:
         description: Descrição
         enable_machine_translations: Ativar traduções automáticas
         enable_omnipresent_banner: Mostrar bandeira onipresente
-        enable_participatory_space_filters: Habilitar filtros do espaço participativo
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
         force_authentication: Forçar autenticação
