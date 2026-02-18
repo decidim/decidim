@@ -46,7 +46,6 @@ el:
         default_locale: Προεπιλεγμένες τοπικές ρυθμίσεις
         description: Περιγραφή
         enable_omnipresent_banner: Εμφάνιση διαφημιστικού πλαισίου omnipresent
-        enable_participatory_space_filters: Ενεργοποίηση φίλτρων συμμετοχικού χώρου
         facebook_handler: Πρόγραμμα χειρισμού Facebook
         favicon: Εικονίδιο
         force_authentication: Εξαναγκασμός ταυτοποίησης
