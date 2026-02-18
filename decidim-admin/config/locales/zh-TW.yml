@@ -46,7 +46,6 @@ zh-TW:
         default_locale: 預設語言
         description: 說明
         enable_omnipresent_banner: 顯示全域廣告
-        enable_participatory_space_filters: 啟用參與空間過濾器
         facebook_handler: Facebook 處理器
         favicon: 圖示
         force_authentication: 強制認證
