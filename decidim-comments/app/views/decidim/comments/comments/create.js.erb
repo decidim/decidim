@@ -13,7 +13,6 @@
     hideButton.find("[data-show-comment-reply]").first().html('<%= t("decidim.components.comment.show_replies", count: Decidim::Comments::SortedComments.for(root_comment.reload).size) %>');
 
   } else {
-    component._finalizeCommentCreation(null, true);
     Rails.ajax({
       url: component.commentsUrl,
       type: "GET",
@@ -22,7 +21,17 @@
         "root_depth": component.rootDepth,
         "order": component.order,
         "reload": 1
-      })
+      }),
+      success: function() {
+        component._finalizeCommentCreation(null, true);
+      },
+      error: function() {
+        var commentsContainer = document.getElementById(rootCommentableId);
+        var loadingElement = commentsContainer.querySelector(".loading-comments");
+        var commentsElement = commentsContainer.querySelector(".comments");
+        if (loadingElement) { loadingElement.classList.add("hidden"); }
+        if (commentsElement) { commentsElement.classList.remove("hidden"); }
+      }
     });
   }
 
