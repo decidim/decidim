@@ -48,7 +48,6 @@ bg:
         default_locale: Език по подразбиране
         description: Описание
         enable_omnipresent_banner: Показвай всепоказван банер
-        enable_participatory_space_filters: Активиране на филтри за пространство за участие
         facebook_handler: Манипулатор на Facebook
         favicon: Икона
         force_authentication: Принудително оторизиране
