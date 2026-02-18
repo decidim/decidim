@@ -56,6 +56,7 @@ module Decidim
         context "when step has default_sort_order" do
           let(:component_default_sort_order) { "random" }
           let(:step_default_sort_order) { "most_commented" }
+          let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
 
           it "use it instead of component's" do
             expect(controller.send(:default_order)).to eq("most_commented")
@@ -119,8 +120,18 @@ module Decidim
             let(:default_sort_order) { "most_commented" }
             let(:comments_enabled) { true }
 
-            it "default_order is most_commented" do
-              expect(controller.send(:default_order)).to eq(default_sort_order)
+            context "when there are no proposals with comments" do
+              it "defaults to random" do
+                expect(controller.send(:default_order)).to eq("random")
+              end
+            end
+
+            context "when there are proposals with comments" do
+              let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+              it "default_order is most_commented" do
+                expect(controller.send(:default_order)).to eq(default_sort_order)
+              end
             end
           end
 
@@ -200,6 +211,7 @@ module Decidim
 
         context "with comments enabled" do
           let(:comments_enabled) { true }
+          let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
 
           it "shows most_commented option to sort" do
             expect(view.available_orders).to include("most_commented")
@@ -211,6 +223,28 @@ module Decidim
 
           it "does not show most_commented option to sort" do
             expect(view.available_orders).not_to include("most_commented")
+          end
+        end
+
+        context "with or without comments and most_commented availability" do
+          let!(:proposal_without_comments) { create(:proposal, component:) }
+          let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+          let(:comments_enabled) { true }
+
+          context "when there are no proposals with comments" do
+            before do
+              proposal_with_comments.update!(comments_count: 0)
+            end
+
+            it "does not show most_commented option to sort" do
+              expect(view.available_orders).not_to include("most_commented")
+            end
+          end
+
+          context "when there are proposals with comments" do
+            it "shows most_commented option to sort" do
+              expect(view.available_orders).to include("most_commented")
+            end
           end
         end
 
@@ -275,6 +309,57 @@ module Decidim
 
           it "returns false" do
             expect(controller.send(:with_more_authors_order_available?)).to be false
+          end
+        end
+      end
+
+      describe "#most_commented_order_available?" do
+        let!(:proposal_without_comments) { create(:proposal, component:) }
+        let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+        context "when comments are disabled" do
+          let(:component) { create(:proposal_component, :with_comments_disabled) }
+
+          it "returns false" do
+            expect(controller.send(:most_commented_order_available?)).to be false
+          end
+        end
+
+        context "when comments are enabled" do
+          context "when there are proposals with only zero comments" do
+            before do
+              proposal_with_comments.update!(comments_count: 0)
+            end
+
+            it "returns false" do
+              expect(controller.send(:most_commented_order_available?)).to be false
+            end
+          end
+
+          context "when there are proposals with comments" do
+            it "returns true" do
+              expect(controller.send(:most_commented_order_available?)).to be true
+            end
+          end
+
+          context "when proposals are not published" do
+            before do
+              proposal_with_comments.update!(published_at: nil)
+            end
+
+            it "returns false" do
+              expect(controller.send(:most_commented_order_available?)).to be false
+            end
+          end
+
+          context "when proposals are hidden" do
+            before do
+              create(:moderation, reportable: proposal_with_comments, hidden_at: Time.current)
+            end
+
+            it "returns false" do
+              expect(controller.send(:most_commented_order_available?)).to be false
+            end
           end
         end
       end

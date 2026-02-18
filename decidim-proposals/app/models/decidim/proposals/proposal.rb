@@ -174,6 +174,17 @@ module Decidim
           .exists?
       end
 
+      def self.most_commented_available?(component)
+        return false unless component.settings.comments_enabled?
+
+        where(component:)
+          .published
+          .not_hidden
+          .not_withdrawn
+          .where("comments_count > 0")
+          .exists?
+      end
+
       acts_as_list scope: :decidim_component_id
 
       searchable_fields({
