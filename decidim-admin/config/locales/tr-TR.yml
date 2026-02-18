@@ -49,7 +49,6 @@ tr:
         default_locale: Varsayılan yerel ayar
         description: Açıklama
         enable_omnipresent_banner: Her yerde banner göster
-        enable_participatory_space_filters: Katılımcı alan filtrelerini etkinleştir
         facebook_handler: Facebook işleyicisi
         favicon: ikon
         force_authentication: Kimlik doğrulamayı zorunlu kıl
