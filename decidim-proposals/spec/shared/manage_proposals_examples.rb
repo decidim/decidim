@@ -78,7 +78,7 @@ shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_admin_callout("Proposal successfully created.")
+            expect(page).to have_callout("Proposal successfully created.")
 
             within "table" do
               proposal = Decidim::Proposals::Proposal.last
@@ -123,7 +123,7 @@ shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_admin_callout("Proposal successfully created.")
+            expect(page).to have_callout("Proposal successfully created.")
 
             within "table" do
               proposal = Decidim::Proposals::Proposal.last
@@ -135,6 +135,8 @@ shared_examples "manage proposals" do
           end
 
           context "when geocoding is enabled" do
+            let(:geocoded_success_message) { "Proposal successfully created." }
+
             before do
               current_component.update!(settings: { geocoding_enabled: true, taxonomy_filters: [taxonomy_filter.id] })
             end
@@ -150,7 +152,7 @@ shared_examples "manage proposals" do
                 find("*[type=submit]").click
               end
 
-              expect(page).to have_admin_callout("Proposal successfully created.")
+              expect(page).to have_callout("Proposal successfully created.")
 
               within "table" do
                 proposal = Decidim::Proposals::Proposal.last
@@ -201,7 +203,7 @@ shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_admin_callout("Proposal successfully created.")
+            expect(page).to have_callout("Proposal successfully created.")
 
             visit resource_locator(Decidim::Proposals::Proposal.last).path
             expect(page).to have_content("Images")
@@ -225,7 +227,7 @@ shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_admin_callout("Proposal successfully created.")
+            expect(page).to have_callout("Proposal successfully created.")
 
             within "table" do
               proposal = Decidim::Proposals::Proposal.last
@@ -309,7 +311,7 @@ shared_examples "manage proposals" do
           click_on "Answer"
         end
 
-        expect(page).to have_admin_callout("Proposal successfully answered")
+        expect(page).to have_callout("Proposal successfully answered")
 
         within "tr", text: proposal_title do
           expect(page).to have_content("Rejected")
@@ -328,7 +330,7 @@ shared_examples "manage proposals" do
           click_on "Answer"
         end
 
-        expect(page).to have_admin_callout("Proposal successfully answered")
+        expect(page).to have_callout("Proposal successfully answered")
 
         within "tr", text: proposal_title do
           expect(page).to have_content("Accepted")
@@ -347,7 +349,7 @@ shared_examples "manage proposals" do
           click_on "Answer"
         end
 
-        expect(page).to have_admin_callout("Proposal successfully answered")
+        expect(page).to have_callout("Proposal successfully answered")
 
         within "tr", text: proposal_title do
           expect(page).to have_content("Evaluating")
@@ -374,7 +376,7 @@ shared_examples "manage proposals" do
           click_on "Answer"
         end
 
-        expect(page).to have_admin_callout("Proposal successfully answered")
+        expect(page).to have_callout("Proposal successfully answered")
 
         within "tr", text: proposal_title do
           expect(page).to have_content("Not answered")
@@ -407,7 +409,7 @@ shared_examples "manage proposals" do
           click_on "Answer"
         end
 
-        expect(page).to have_admin_callout("Proposal successfully answered")
+        expect(page).to have_callout("Proposal successfully answered")
 
         within "tr", text: proposal_title do
           expect(page).to have_content("Accepted")

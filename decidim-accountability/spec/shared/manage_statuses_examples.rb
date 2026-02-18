@@ -19,7 +19,7 @@ RSpec.shared_examples "manage statuses" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("Status successfully updated.")
+    expect(page).to have_callout("Status successfully updated.")
 
     within "table" do
       expect(page).to have_content(translated(attributes[:name]))
@@ -43,7 +43,7 @@ RSpec.shared_examples "manage statuses" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("Status successfully created.")
+    expect(page).to have_callout("Status successfully created.")
 
     within "table" do
       expect(page).to have_content("status_key_1")
@@ -67,7 +67,7 @@ RSpec.shared_examples "manage statuses" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("Status successfully deleted.")
+      expect(page).to have_callout("Status successfully deleted.")
 
       within "table" do
         expect(page).to have_no_content(status2.key)

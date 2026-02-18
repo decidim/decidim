@@ -57,8 +57,7 @@ module Decidim
             youtube_handler: attributes["youtube_handler"],
             github_handler: attributes["github_handler"],
             created_by: attributes["created_by"],
-            meta_scope: attributes["meta_scope"],
-            announcement: attributes["announcement"]
+            meta_scope: attributes["meta_scope"]
           )
           import_hero_image(attributes["remote_hero_image_url"])
           import_banner_image(attributes["remote_banner_image_url"])

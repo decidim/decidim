@@ -19,7 +19,7 @@ RSpec.shared_examples "manage child results" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("Result successfully updated.")
+    expect(page).to have_callout("Result successfully updated.")
 
     within "table" do
       expect(page).to have_content("My new title")
@@ -63,7 +63,7 @@ RSpec.shared_examples "manage child results" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("Result successfully created.")
+    expect(page).to have_callout("Result successfully created.")
 
     within "table" do
       expect(page).to have_content("My result")
@@ -86,7 +86,7 @@ RSpec.shared_examples "manage child results" do
         accept_confirm { click_on "Move to trash" }
       end
 
-      expect(page).to have_admin_callout("Result successfully deleted.")
+      expect(page).to have_callout("Result successfully deleted.")
 
       within "table" do
         expect(page).to have_no_content(translated(child_result.title))

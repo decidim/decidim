@@ -66,7 +66,7 @@ describe "Edit collaborative_drafts" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_callout("Collaborative draft successfully updated.")
         end
       end
     end

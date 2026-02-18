@@ -6,8 +6,7 @@ updates:
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "daily"
       time: "06:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
@@ -50,10 +49,10 @@ updates:
       - "/"
       - "/decidim-generators/lib/decidim/generators/component_templates/github"
     schedule:
-      interval: "weekly"
-      day: "tuesday"
+      interval: "daily"
       time: "06:00"
       timezone: "Europe/Madrid"
+    open-pull-requests-limit: 1
     labels:
       - "dependencies"
       - "type: internal"
@@ -102,8 +101,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/packages/eslint-config"
     schedule:
-      interval: "weekly"
-      day: "wednesday"
+      interval: "daily"
       time: "01:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
@@ -118,8 +116,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/packages/browserslist-config"
     schedule:
-      interval: "weekly"
-      day: "thursday"
+      interval: "daily"
       time: "06:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
@@ -134,8 +131,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/packages/stylelint-config"
     schedule:
-      interval: "weekly"
-      day: "friday"
+      interval: "daily"
       time: "04:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
@@ -150,8 +146,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/packages/dev"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "daily"
       time: "02:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
@@ -167,8 +162,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/packages/prettier-config"
     schedule:
-      interval: "weekly"
-      day: "tuesday"
+      interval: "daily"
       time: "02:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
@@ -183,8 +177,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/packages/webpacker"
     schedule:
-      interval: "weekly"
-      day: "wednesday"
+      interval: "daily"
       time: "05:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1

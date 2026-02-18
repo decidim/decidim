@@ -128,7 +128,7 @@ describe "Admin manages global moderations" do
         click_on "Undo the report"
       end
 
-      expect(page).to have_admin_callout("Resource successfully unreported.")
+      expect(page).to have_callout("Resource successfully unreported.")
     end
   end
 

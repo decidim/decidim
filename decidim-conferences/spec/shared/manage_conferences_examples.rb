@@ -44,7 +44,7 @@ shared_examples "manage conferences" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Conference successfully created.")
+      expect(page).to have_callout("Conference successfully created.")
       expect(last_conference.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
@@ -82,7 +82,7 @@ shared_examples "manage conferences" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Conference successfully updated.")
+      expect(page).to have_callout("Conference successfully updated.")
       expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
       expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
       expect(conference.reload.taxonomies).to contain_exactly(taxonomy)
@@ -116,7 +116,7 @@ shared_examples "manage conferences" do
       end
       click_on "Update"
 
-      expect(page).to have_admin_callout("Conference successfully updated.")
+      expect(page).to have_callout("Conference successfully updated.")
 
       hero_blob = conference.hero_image.blob
       within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
@@ -184,7 +184,7 @@ shared_examples "manage conferences" do
         find("a", text: "Publish", visible: true).click
       end
 
-      expect(page).to have_content("successfully published")
+      expect(page).to have_callout("Conference successfully published.")
 
       within("tr", text: translated_attribute(conference.title)) do
         find("button[data-controller='dropdown']").click
@@ -211,7 +211,7 @@ shared_examples "manage conferences" do
         find("a", text: "Unpublish", visible: true).click
       end
 
-      expect(page).to have_content("successfully unpublished")
+      expect(page).to have_callout("Conference successfully unpublished.")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_conferences.conferences_path
 

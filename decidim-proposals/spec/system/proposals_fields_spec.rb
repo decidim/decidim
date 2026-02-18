@@ -62,7 +62,7 @@ describe "Proposals" do
 
           click_on "Publish"
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_callout("Proposal successfully published.")
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
@@ -85,7 +85,7 @@ describe "Proposals" do
 
             click_on "Publish"
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Proposal successfully published.")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
@@ -129,7 +129,7 @@ describe "Proposals" do
 
             click_on "Publish"
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Proposal successfully published.")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
@@ -143,6 +143,7 @@ describe "Proposals" do
             within_selector: ".edit_proposal",
             address_field: :proposal_address
           ) do
+            let(:geocoded_success_message) { "Proposal draft successfully updated." }
             let(:geocoded_record) { proposal_draft }
             let(:geocoded_address_value) { address }
             let(:geocoded_address_coordinates) { [latitude, longitude] }
@@ -231,7 +232,7 @@ describe "Proposals" do
 
             click_on "Publish"
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Proposal successfully published.")
             expect(page).to have_content("Images")
 
             within "#panel-images" do

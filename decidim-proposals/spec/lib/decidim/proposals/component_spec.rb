@@ -219,6 +219,33 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         end
       end
     end
+
+    describe "default_sort_order choices" do
+      let(:default_sort_order_container) { page.all(".default_sort_order_container").first }
+
+      before do
+        visit edit_component_path
+      end
+
+      context "when there are no proposals with coauthors" do
+        it "does not include with_more_authors" do
+          expect(default_sort_order_container).to have_no_content("With more authors")
+        end
+      end
+
+      context "when there are proposals with coauthors" do
+        let!(:proposal_with_coauthors) { create(:proposal, component:) }
+        let!(:coauthorships) { create_list(:coauthorship, 2, coauthorable: proposal_with_coauthors) }
+
+        before do
+          visit edit_component_path
+        end
+
+        it "includes with_more_authors" do
+          expect(default_sort_order_container).to have_content("With more authors")
+        end
+      end
+    end
   end
 
   describe "proposals exporter" do

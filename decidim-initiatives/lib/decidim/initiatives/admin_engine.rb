@@ -70,6 +70,9 @@ module Decidim
               end
               resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
               resources :exports, only: :create
+              resources :imports, only: [:new, :create] do
+                get :example, on: :collection
+              end
               resources :reminders, only: [:new, :create]
             end
 

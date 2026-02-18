@@ -52,7 +52,7 @@ describe "Admin manages proposals states" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Status created successfully")
+      expect(page).to have_callout("Status created successfully")
 
       within "table" do
         expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
@@ -142,7 +142,7 @@ describe "Admin manages proposals states" do
 
         find("*[type=submit]").click
       end
-      expect(page).to have_admin_callout("Status updated successfully")
+      expect(page).to have_callout("Status updated successfully")
 
       within "table" do
         expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
@@ -185,7 +185,7 @@ describe "Admin manages proposals states" do
         end
         find("*[type=submit]").click
       end
-      expect(page).to have_admin_callout("Status updated successfully")
+      expect(page).to have_callout("Status updated successfully")
 
       visit decidim_admin.root_path
       expect(page).to have_content("updated #{translated(attributes[:title])} in")
@@ -213,7 +213,7 @@ describe "Admin manages proposals states" do
         find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
-      expect(page).to have_admin_callout("Status deleted successfully")
+      expect(page).to have_callout("Status deleted successfully")
 
       state = Decidim::Proposals::ProposalState.find_by(token: "editable")
 

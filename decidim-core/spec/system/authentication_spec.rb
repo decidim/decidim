@@ -146,7 +146,7 @@ describe "Authentication" do
           end
           click_on("Keep unchecked")
 
-          expect(page).to have_content("Successfully")
+          expect(page).to have_content("Successfully authenticated from Facebook account.")
           expect_user_logged
           expect(Decidim::Identity.where(provider: :facebook, uid: "123545").first.user.newsletter_notifications_at).not_to be_present
         end
@@ -240,7 +240,7 @@ describe "Authentication" do
 
           find(".login__omniauth-button--x").click
 
-          expect(page).to have_content("Successfully")
+          expect(page).to have_content("Successfully authenticated from Twitter account.")
           expect(page).to have_content("Please complete your profile")
           expect(page).to have_content("Please fill in the following form in order to complete the account creation")
 
@@ -257,7 +257,7 @@ describe "Authentication" do
 
             find(".login__omniauth-button--x").click
 
-            expect(page).to have_content("Successfully")
+            expect(page).to have_content("Successfully authenticated from Twitter account.")
             expect(page).to have_content("Please complete your profile")
 
             within ".new_user" do
@@ -414,7 +414,7 @@ describe "Authentication" do
 
       visit last_email_link
 
-      expect(page).to have_content("successfully confirmed")
+      expect(page).to have_callout("Your email address has been successfully confirmed.")
       expect(last_user).to be_confirmed
 
       within_user_menu do
@@ -779,7 +779,7 @@ describe "Authentication" do
 
         find(".login__omniauth-button.login__omniauth-button--facebook").click
 
-        expect(page).to have_content("Successfully")
+        expect(page).to have_content("Successfully authenticated from Facebook account.")
         expect_current_user_to_be(user)
       end
 
@@ -813,7 +813,7 @@ describe "Authentication" do
 
           find(".login__omniauth-button.login__omniauth-button--facebook").click
 
-          expect(page).to have_content("Successfully")
+          expect(page).to have_content("Successfully authenticated from Facebook account.")
           expect_current_user_to_be(user)
         end
 
@@ -827,7 +827,7 @@ describe "Authentication" do
           it "can log in without being prompted to change the password" do
             click_on("Log in", match: :first)
             click_on "Log in with Facebook"
-            expect(page).to have_content("Successfully")
+            expect(page).to have_content("Successfully authenticated from Facebook account.")
           end
         end
       end
@@ -923,7 +923,7 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("successfully")
+        expect(page).to have_content("Logged in successfully")
         expect_current_user_to_be(user)
         expect(page).to have_no_content("Wrong user")
       end
