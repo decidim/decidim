@@ -38,7 +38,6 @@
         default_locale: Standardspråk
         description: Beskrivelse
         enable_omnipresent_banner: Vis overstyrende banner
-        enable_participatory_space_filters: Aktive filtere for bruk av medvirkningsrommene
         facebook_handler: Facebook brukernavn
         favicon: Ikon
         force_authentication: Tving godkjenning
