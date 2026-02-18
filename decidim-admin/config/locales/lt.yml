@@ -46,7 +46,6 @@ lt:
         default_locale: Numatytoji lokalė
         description: Aprašymas
         enable_omnipresent_banner: Rodyti visur naudojamą reklamjuostę
-        enable_participatory_space_filters: Leisti dalyvaujamosios erdvės filtrus
         facebook_handler: '„Facebook“ tvarkyklė'
         favicon: Piktograma
         force_authentication: Priversti autentifikuotis
