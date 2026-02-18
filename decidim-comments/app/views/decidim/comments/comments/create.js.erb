@@ -31,6 +31,7 @@
         var commentsElement = commentsContainer.querySelector(".comments");
         if (loadingElement) { loadingElement.classList.add("hidden"); }
         if (commentsElement) { commentsElement.classList.remove("hidden"); }
+        component._finalizeCommentCreation(null, true);
       }
     });
   }
