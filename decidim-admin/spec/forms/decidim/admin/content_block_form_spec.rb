@@ -66,7 +66,7 @@ module Decidim
 
         it "adds errors to the settings attribute" do
           form.valid?
-          expect(form.errors[:settings]).to include(/cannot be blank|can't be blank/)
+          expect(form.errors[:settings]).to include(/cannot be blank/)
         end
       end
 
