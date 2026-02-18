@@ -8,7 +8,8 @@ module Decidim
       include Decidim::NeedsOrganization
       skip_before_action :verify_organization
 
-      before_action :validate_direct_upload
+      before_action :check_organization!,
+                    :validate_direct_upload
     end
 
     protected
@@ -33,6 +34,10 @@ module Decidim
 
     def maximum_allowed_size
       current_organization.settings.upload_maximum_file_size
+    end
+
+    def check_organization!
+      head :unauthorized if current_organization.blank?
     end
 
     def allowed_extensions
