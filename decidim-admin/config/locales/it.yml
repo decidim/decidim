@@ -48,7 +48,6 @@ it:
         default_locale: Lingua predefinita
         description: Descrizione
         enable_omnipresent_banner: Mostra banner onnipresente
-        enable_participatory_space_filters: Abilita filtri di spazio partecipativo
         facebook_handler: Gestore di Facebook
         favicon: Icona
         force_authentication: Autenticazione obbligata
