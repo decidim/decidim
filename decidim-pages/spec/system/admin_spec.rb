@@ -30,7 +30,7 @@ describe "Edit a page" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Page successfully saved.")
+      expect(page).to have_callout("Page successfully saved.")
 
       visit_component
 

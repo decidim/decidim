@@ -183,10 +183,7 @@ describe "Meeting registrations" do
             click_on "Confirm"
           end
 
-          within_flash_messages do
-            expect(page).to have_content("successfully")
-          end
-
+          expect(page).to have_callout("You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.")
           expect(page).to have_css(".button", text: "Cancel your registration")
           expect(page).to have_no_text("19 slots remaining")
           find("#dropdown-trigger-resource-#{meeting.id}").click
@@ -208,8 +205,7 @@ describe "Meeting registrations" do
             click_on "Confirm"
           end
 
-          expect(page).to have_content("successfully")
-
+          expect(page).to have_callout("You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.")
           expect(page).to have_no_text("19 slots remaining")
           find("#dropdown-trigger-resource-#{meeting.id}").click
           expect(page).to have_text("Stop following")
@@ -233,10 +229,7 @@ describe "Meeting registrations" do
             click_on "Confirm"
           end
 
-          within_flash_messages do
-            expect(page).to have_content("successfully")
-          end
-
+          expect(page).to have_callout("You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.")
           expect(page).to have_css(".button", text: "Cancel your registration")
           expect(page).to have_no_text("19 slots remaining")
           find("#dropdown-trigger-resource-#{meeting.id}").click
@@ -338,10 +331,7 @@ describe "Meeting registrations" do
           click_on "Cancel your registration"
         end
 
-        within_flash_messages do
-          expect(page).to have_content("successfully")
-        end
-
+        expect(page).to have_callout("You have left the meeting successfully.")
         expect(page).to have_css(".button", text: "Register")
         expect(page).to have_text("20 slots remaining")
       end

@@ -33,7 +33,6 @@ module Decidim::ParticipatoryProcesses
           "meta_scope" => Decidim::Faker::Localized.sentence(word_count: 3),
           "start_date" => "2022-08-01",
           "end_date" => "2023-08-01",
-          "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
           "private_space" => false,
           "participatory_process_group" => group_data
         }
@@ -62,7 +61,6 @@ module Decidim::ParticipatoryProcesses
         expect(subject.meta_scope).to eq(import_data["meta_scope"])
         expect(subject.start_date).to eq(Date.parse(import_data["start_date"]))
         expect(subject.end_date).to eq(Date.parse(import_data["end_date"]))
-        expect(subject.announcement).to eq(import_data["announcement"])
         expect(subject.private_space).to eq(import_data["private_space"])
         expect(subject.participatory_process_group).to be_a(Decidim::ParticipatoryProcessGroup)
       end

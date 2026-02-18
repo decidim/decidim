@@ -12,6 +12,7 @@ describe "Invite conference administrator" do
   let(:role) { "Administrator" }
   let(:participatory_space_user_roles_path) { decidim_admin_conferences.conference_user_roles_path(participatory_space) }
   let(:new_button_label) { "New conference admin" }
+  let(:added_callout_message) { "Conference admin successfully added." }
 
   include_context "when inviting participatory space users"
 

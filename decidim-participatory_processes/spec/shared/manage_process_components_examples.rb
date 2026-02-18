@@ -56,7 +56,7 @@ shared_examples "manage process components" do
       end
 
       it "is successfully created" do
-        expect(page).to have_admin_callout("Component created successfully.")
+        expect(page).to have_callout("Component created successfully.")
         expect(page).to have_content(translated(attributes[:name]))
       end
 
@@ -86,7 +86,7 @@ shared_examples "manage process components" do
         it "successfully edits it" do
           click_on "Update"
 
-          expect(page).to have_admin_callout("The component was updated successfully.")
+          expect(page).to have_callout("The component was updated successfully.")
         end
       end
     end
@@ -135,7 +135,7 @@ shared_examples "manage process components" do
       end
 
       it "is successfully created" do
-        expect(page).to have_admin_callout("Component created successfully.")
+        expect(page).to have_callout("Component created successfully.")
         expect(page).to have_content("My component")
       end
 
@@ -160,7 +160,7 @@ shared_examples "manage process components" do
         it "successfully edits it" do
           click_on "Update"
 
-          expect(page).to have_admin_callout("The component was updated successfully.")
+          expect(page).to have_callout("The component was updated successfully.")
         end
       end
     end
@@ -214,7 +214,7 @@ shared_examples "manage process components" do
         click_on "Update"
       end
 
-      expect(page).to have_admin_callout("The component was updated successfully.")
+      expect(page).to have_callout("The component was updated successfully.")
       expect(page).to have_content(translated(attributes[:name]))
 
       within "tr", text: translated(attributes[:name]) do
@@ -251,7 +251,7 @@ shared_examples "manage process components" do
           click_on "Update"
         end
 
-        expect(page).to have_admin_callout("The component was updated successfully.")
+        expect(page).to have_callout("The component was updated successfully.")
 
         within "tr", text: "My component" do
           find("button[data-controller='dropdown']").click
@@ -404,7 +404,7 @@ shared_examples "manage process components" do
 
         click_on "Update"
       end
-      expect(page).to have_admin_callout("The component was updated successfully.")
+      expect(page).to have_callout("The component was updated successfully.")
       expect(page).to have_content(translated(attributes[:name]))
       expect(page).to have_content("Component 2")
       expect(page).to have_content("Component 3")

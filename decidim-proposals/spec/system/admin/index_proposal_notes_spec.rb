@@ -49,7 +49,7 @@ describe "Index Proposal Notes" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Proposal note successfully created.")
+      expect(page).to have_callout("Proposal note successfully created.")
 
       click_on "Private notes"
 
@@ -85,7 +85,7 @@ describe "Index Proposal Notes" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("Proposal note reply successfully created.")
+    expect(page).to have_callout("Proposal note reply successfully created.")
 
     click_on "Private notes"
 
