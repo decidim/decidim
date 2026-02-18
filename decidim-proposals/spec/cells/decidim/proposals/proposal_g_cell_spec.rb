@@ -66,7 +66,9 @@ module Decidim::Proposals
         end
 
         it "renders the custom state" do
-          expect(subject).to have_content "Finished"
+          within ".label" do
+            expect(subject).to have_content "Finished"
+          end
         end
       end
     end

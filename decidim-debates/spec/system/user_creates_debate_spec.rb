@@ -69,7 +69,7 @@ describe "User creates debate" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_content("Debate successfully created.")
             expect(page).to have_content("Should every organization use Decidim?")
             expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
             expect(page).to have_css("[data-author]", text: user.name)
@@ -121,7 +121,7 @@ describe "User creates debate" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_content("Debate successfully created.")
           expect(page).to have_content("Should every organization use Decidim?")
           expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))

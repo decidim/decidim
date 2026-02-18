@@ -28,7 +28,7 @@ shared_examples "manage diplomas" do
         click_on "Save"
       end
 
-      expect(page).to have_admin_callout("Conference successfully updated.")
+      expect(page).to have_callout("Conference successfully updated.")
     end
   end
 
@@ -57,7 +57,7 @@ shared_examples "manage diplomas" do
 
         it "is successfully created" do
           click_on "Send certificates of attendance"
-          expect(page).to have_admin_callout("Conference certificates of attendance successfully sent.")
+          expect(page).to have_callout("Conference certificates of attendance successfully sent.")
         end
       end
 

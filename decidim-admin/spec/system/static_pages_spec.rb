@@ -81,7 +81,7 @@ describe "Content pages" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("Topic created successfully.")
+        expect(page).to have_callout("Topic created successfully.")
         expect(page).to have_css(".table-stacked", text: "General")
       end
     end
@@ -119,7 +119,7 @@ describe "Content pages" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("Topic updated successfully.")
+        expect(page).to have_callout("Topic updated successfully.")
         expect(page).to have_css(".table-stacked", text: "New title")
       end
     end
@@ -140,7 +140,7 @@ describe "Content pages" do
           accept_confirm { click_on "Delete" }
         end
 
-        expect(page).to have_admin_callout("Topic successfully destroyed.")
+        expect(page).to have_callout("Topic successfully destroyed.")
 
         expect(page).to have_no_css(".table-stacked")
       end
@@ -187,7 +187,7 @@ describe "Content pages" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Page created successfully.")
+      expect(page).to have_callout("Page created successfully.")
 
       within ".card", text: topic.title[I18n.locale.to_s] do
         expect(page).to have_css("tr", text: translated(attributes[:title]))
@@ -237,7 +237,7 @@ describe "Content pages" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("Page updated successfully.")
+        expect(page).to have_callout("Page updated successfully.")
 
         within ".card", text: topic.title[I18n.locale.to_s] do
           expect(page).to have_css("tr", text: translated(attributes[:title]))
@@ -253,7 +253,7 @@ describe "Content pages" do
           accept_confirm { click_on "Delete" }
         end
 
-        expect(page).to have_admin_callout("Page successfully destroyed")
+        expect(page).to have_callout("Page successfully destroyed")
 
         within "table" do
           expect(page).to have_no_content(translated(decidim_page.title))
