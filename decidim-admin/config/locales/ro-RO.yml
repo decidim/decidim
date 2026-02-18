@@ -48,7 +48,6 @@ ro:
         default_locale: Localizare implicită
         description: Descriere
         enable_omnipresent_banner: Afișează banner omniprezent
-        enable_participatory_space_filters: Activează filtrele pentru spațiul participativ
         facebook_handler: Responsabil Facebook
         favicon: Pictogramă
         force_authentication: Forțează autentificarea
