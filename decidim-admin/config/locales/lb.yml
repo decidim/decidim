@@ -38,7 +38,6 @@ lb:
         default_locale: Standardgebietsschema
         description: Beschreibung
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
-        enable_participatory_space_filters: Bereichs- und Gebietsfilter aktivieren
         facebook_handler: Facebook-Handler
         favicon: Icon
         force_authentication: Authentifizierung erzwingen
