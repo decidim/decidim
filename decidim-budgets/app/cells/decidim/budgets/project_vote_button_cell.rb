@@ -8,12 +8,16 @@ module Decidim
       include Decidim::Budgets::ProjectsHelper
       include Decidim::Budgets::Engine.routes.url_helpers
 
-      delegate :current_user, :current_order, :current_component, :can_have_order?, to: :parent_controller
+      delegate :current_user, :current_order, :current_component, :can_have_order?, :resource_added?, to: :parent_controller
 
       private
 
       def project_item?
         options[:project_item]
+      end
+
+      def button_extra_classes
+        options[:button_extra_classes] || []
       end
 
       def resource_path
@@ -28,10 +32,6 @@ module Decidim
         translated_attribute model.title
       end
 
-      def resource_added?
-        current_order && current_order.projects.include?(model)
-      end
-
       def resource_allocation
         current_order.allocation_for(model)
       end
@@ -41,9 +41,9 @@ module Decidim
       end
 
       def vote_button_classes
-        classes = []
+        classes = ["xl:w-40"]
 
-        classes << if resource_added?
+        classes << if resource_added?(model)
                      "success button__secondary budget-list__data--added"
                    else
                      "hollow button__transparent-secondary"
@@ -56,18 +56,23 @@ module Decidim
                    end
 
         classes << "budget-list__action" unless vote_button_disabled?
+        classes << button_extra_classes
 
         classes.join(" ")
       end
 
       def vote_button_method
-        return :delete if resource_added?
+        return :delete if resource_added?(model)
 
         :post
       end
 
+      def authorization_redirect_path
+        budget_projects_path(budget, start_voting: true)
+      end
+
       def vote_button_label
-        if resource_added?
+        if resource_added?(model)
           return t(
             "decidim.budgets.projects.project.remove",
             resource_name: resource_title

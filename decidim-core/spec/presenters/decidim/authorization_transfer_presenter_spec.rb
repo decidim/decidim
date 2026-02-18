@@ -21,12 +21,12 @@ module Decidim
           create(:amendment, amendable:, emendation: create(:proposal, component: amendable.component))
         end.flatten
       end
-      let(:endorsements) do
-        proposals.map { |endorsable| create(:endorsement, resource: endorsable) }.flatten
+      let(:likes) do
+        proposals.map { |likeable| create(:like, resource: likeable) }.flatten
       end
 
       let!(:records) do
-        (coauthorships + amendments + endorsements + meetings + comments).map do |resource|
+        (coauthorships + amendments + likes + meetings + comments).map do |resource|
           create(:authorization_transfer_record, transfer:, resource:)
         end
       end
@@ -47,7 +47,7 @@ module Decidim
         it "returns the record types with their translated messages in sorted order" do
           expect(subject).to eq(
             "Decidim::Comments::Comment" => "Comments: 10",
-            "Decidim::Endorsement" => "Endorsements: 2",
+            "Decidim::Like" => "Likes: 2",
             "Decidim::Meetings::Meeting" => "Meetings: 3",
             "Decidim::Proposals::Proposal" => "Proposals: 4" # proposals + amendments
           )
@@ -68,7 +68,7 @@ module Decidim
         it "returns the record types with their translated messages in sorted order" do
           expect(subject).to eq(
             # proposals = proposals + amendments
-            ["Comments: 10", "Endorsements: 2", "Meetings: 3", "Proposals: 4"]
+            ["Comments: 10", "Likes: 2", "Meetings: 3", "Proposals: 4"]
           )
         end
       end
@@ -90,7 +90,7 @@ module Decidim
 
         it "returns the record types with their translated messages in sorted order" do
           # proposals = proposals + amendments
-          items = ["Comments: 10", "Endorsements: 2", "Meetings: 3", "Proposals: 4"].map { |msg| "<li>#{msg}</li>" }
+          items = ["Comments: 10", "Likes: 2", "Meetings: 3", "Proposals: 4"].map { |msg| "<li>#{msg}</li>" }
           expect(subject).to eq(
             "<ul>#{items.join}</ul>"
           )

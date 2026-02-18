@@ -31,8 +31,6 @@ zh-TW:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: 封鎖支持
-            endorsements_enabled: 啟用支持
             readonly_step_attribute: 唯讀步驟屬性
             test_options:
               bar: Bar

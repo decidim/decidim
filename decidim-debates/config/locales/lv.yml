@@ -94,6 +94,3 @@ lv:
           description_own: Jūs esat piedalījies %{score} debatēs.
           next_level_in: Piedalieties %{score} debatēs vēlreiz, lai sasniegtu nākamo līmeni!
           unearned_another: Šis dalībnieks vēl nav piedalījies nevienās debatēs.
-    metrics:
-      debates:
-        description: Izveidoto debašu skaits

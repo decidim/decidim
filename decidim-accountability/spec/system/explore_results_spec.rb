@@ -6,7 +6,7 @@ describe "Explore results", :versioning do
   include_context "with a component"
 
   let(:manifest_name) { "accountability" }
-  let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
+  let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
   let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
   let(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
   let!(:other_taxonomy) { create(:taxonomy, parent: taxonomy.parent, organization:) }
@@ -148,7 +148,7 @@ describe "Explore results", :versioning do
     end
 
     describe "index" do
-      let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
+      let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
 
       before do
         visit path
@@ -166,7 +166,7 @@ describe "Explore results", :versioning do
     end
 
     describe "show" do
-      let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id) }
+      let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
       let(:results_count) { 1 }
       let(:result) { results.first }
 
@@ -230,22 +230,22 @@ describe "Explore results", :versioning do
         end
       end
 
-      context "with timeline entries" do
-        let!(:timeline_entries) { create_list(:timeline_entry, 3, result:) }
-        let(:timeline_entry) { timeline_entries.first }
+      context "with milestones" do
+        let!(:milestones) { create_list(:milestone, 3, result:) }
+        let(:milestone) { milestones.first }
 
         before do
           visit current_path
         end
 
         it "shows the tab" do
-          expect(page).to have_content("Project evolution")
+          expect(page).to have_content("Milestone")
         end
 
-        it "shows the timeline entry" do
-          expect(page).to have_content(decidim_sanitize_translated(timeline_entry.title))
-          expect(page).to have_content(I18n.l(timeline_entry.entry_date, format: :decidim_short))
-          expect(page).to have_content(decidim_sanitize_translated(timeline_entry.description))
+        it "shows the milestone" do
+          expect(page).to have_content(decidim_sanitize_translated(milestone.title))
+          expect(page).to have_content(I18n.l(milestone.entry_date, format: :decidim_short))
+          expect(page).to have_content(decidim_sanitize_translated(milestone.description))
         end
       end
 

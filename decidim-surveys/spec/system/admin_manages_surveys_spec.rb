@@ -4,6 +4,8 @@ require "spec_helper"
 
 describe "Admin manages surveys" do
   let(:manifest_name) { "surveys" }
+  let(:callout_success) { "Survey questions successfully saved." }
+  let(:callout_failure) { "There was a problem saving" }
   let!(:component) do
     create(:component,
            manifest:,
@@ -14,6 +16,7 @@ describe "Admin manages surveys" do
   let!(:survey) { create(:survey, :published, :clean_after_publish, component:, questionnaire:) }
 
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
 
   it_behaves_like "manage questionnaires"
   it_behaves_like "manage questionnaire responses"
@@ -22,7 +25,10 @@ describe "Admin manages surveys" do
 
   context "with a new survey" do
     before do
-      click_on "Questions"
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Questions"
+      end
     end
 
     it_behaves_like "uses questionnaire templates", :survey
@@ -37,7 +43,7 @@ describe "Admin manages surveys" do
 
     it "allows to preview survey" do
       visit manage_questions_path
-      expect(page).to have_link("Preview", href: [questionnaire_public_path, "surveys/#{survey.id}"].join)
+      expect(page).to have_link("See survey", href: [questionnaire_public_path, "surveys/#{survey.id}"].join)
     end
 
     it "shows a warning message" do
@@ -53,34 +59,72 @@ describe "Admin manages surveys" do
     context "when the survey has responses" do
       let!(:response) { create(:response, question:, questionnaire:) }
 
+      it_behaves_like "access permissions form" do
+        let!(:row_text) { decidim_sanitize_translated(survey.title) }
+      end
+
       it "shows warning message" do
-        click_on "Questions"
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Questions"
+        end
         expect(page).to have_content("The form is not published")
       end
 
       it "allows editing questions" do
-        click_on "Questions"
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Questions"
+        end
         click_on "Expand all"
         expect(page).to have_css("#questions_questions_#{question.id}_body_en")
         expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
       end
 
+      it "shows the unpublish modal" do
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Unpublish"
+          expect(accept_confirm).to eq("Are you sure you want to unpublish this survey?")
+        end
+      end
+
       it "deletes responses after published" do
-        click_on "Questions"
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Questions"
+        end
         click_on "Expand all"
 
         within "#accordion-questionnaire_question_#{question.id}-field" do
           find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
         end
         click_on "Save"
-        expect(page).to have_admin_callout "Survey questions successfully saved"
+        expect(page).to have_callout "Survey questions successfully saved"
 
-        click_on translated_attribute(component.name)
-        click_on "Unpublish"
-        expect(page).to have_admin_callout "Survey successfully unpublished"
+        all("a", text: translated_attribute(component.name))[0].click
 
-        accept_confirm { click_on("Publish") }
-        expect(page).to have_admin_callout "Survey successfully published"
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-controller='dropdown']").click
+          accept_confirm { click_on "Unpublish" }
+        end
+
+        expect(page).to have_callout "Survey successfully unpublished"
+
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          expect(page).to have_content "Unpublished"
+        end
+
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-controller='dropdown']").click
+          accept_confirm { click_on("Publish") }
+        end
+
+        expect(page).to have_callout "Survey successfully published"
+
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          expect(page).to have_content "Published"
+        end
         expect(questionnaire.responses).to be_empty
       end
 
@@ -100,15 +144,31 @@ describe "Admin manages surveys" do
         context "when clean_after_publish is set to true" do
           context "when deletes previous responses after publishing" do
             it "show popup with an alert" do
-              click_on translated_attribute(component.name)
-              click_on "Unpublish"
-              click_on "Publish"
-              expect(page).to have_content("Confirm")
+              all("a", text: translated_attribute(component.name))[0].click
+
+              within "tr", text: decidim_sanitize_translated(survey.title) do
+                find("button[data-controller='dropdown']").click
+                accept_confirm { click_on "Unpublish" }
+              end
+
+              within "tr", text: decidim_sanitize_translated(survey.title) do
+                find("button[data-controller='dropdown']").click
+                click_on "Publish"
+              end
+
+              within "#confirm-modal" do
+                expect(page).to have_content("Confirm")
+              end
             end
 
             it "deletes previous responses" do
-              click_on translated_attribute(component.name)
-              click_on "Edit"
+              all("a", text: translated_attribute(component.name))[0].click
+
+              within "tr", text: decidim_sanitize_translated(survey.title) do
+                find("button[data-controller='dropdown']").click
+                click_on "Edit"
+              end
+
               expect(survey.clean_after_publish).to be true
 
               perform_enqueued_jobs do
@@ -284,6 +344,35 @@ describe "Admin manages surveys" do
     end
   end
 
+  context "when the survey has responses or more" do
+    let!(:question) do
+      create(:questionnaire_question, questionnaire:)
+    end
+    let!(:response) { create(:response, questionnaire:, question:) }
+
+    before do
+      visit manage_questionnaire_path
+    end
+
+    it "allows access to responses" do
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_link("Responses")
+      end
+    end
+  end
+
+  context "when the survey has no responses" do
+    let!(:question) { create(:questionnaire_question, questionnaire:) }
+
+    it "does not show the Responses button" do
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_no_link("Responses")
+      end
+    end
+  end
+
   context "when updates the questionnaire" do
     let(:description) do
       {
@@ -318,6 +407,10 @@ describe "Admin manages surveys" do
 
   def questionnaire_public_path
     main_component_path(component)
+  end
+
+  def manage_questionnaire_path
+    Decidim::EngineRouter.admin_proxy(component).surveys_path
   end
 
   private

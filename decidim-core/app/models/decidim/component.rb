@@ -64,6 +64,7 @@ module Decidim
       {
         :host => organization.host,
         :component_id => id,
+        :locale => I18n.locale,
         :"#{participatory_space.underscored_name}_slug" => participatory_space.slug
       }
     end
@@ -77,7 +78,10 @@ module Decidim
 
     # Public: Returns the value of the registered primary stat.
     def primary_stat
-      @primary_stat ||= manifest.stats.filter(primary: true).with_context([self]).map { |name, value| [name, value] }.first&.last
+      @primary_stat ||= begin
+        data = manifest.stats.filter(primary: true).with_context([self]).map { |name, value| [name, value] }.first&.first&.[](:data)
+        data.respond_to?(:first) ? data.first : data
+      end
     end
 
     # Public: Returns the component's name as resource title
@@ -97,11 +101,14 @@ module Decidim
     def resource_description; end
 
     def can_participate_in_space?(user)
+      return false unless published?
+      return false unless participatory_space.published?
       return true unless participatory_space.try(:private_space?)
       return false unless user
 
       participatory_space.can_participate?(user)
     end
+    alias can_participate? can_participate_in_space?
 
     def private_non_transparent_space?
       return false unless participatory_space.respond_to?(:private_space?)

@@ -42,6 +42,7 @@ module Decidim
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:private_space) { true }
+        let(:has_members) { true }
         let(:purpose_of_action) do
           {
             en: "Purpose of action",
@@ -95,13 +96,6 @@ module Decidim
         let(:instagram_handler) { "lorem" }
         let(:youtube_handler) { "lorem" }
         let(:github_handler) { "lorem" }
-        let(:announcement) do
-          {
-            en: "Announcement",
-            es: "Anuncio",
-            ca: "Anunci"
-          }
-        end
         let(:parent_id) { nil }
         let(:assembly_id) { nil }
         let(:root_taxonomy) { create(:taxonomy, organization:) }
@@ -129,6 +123,7 @@ module Decidim
               "banner_image" => attachment,
               "slug" => slug,
               "private_space" => private_space,
+              "has_members" => has_members,
               "purpose_of_action_en" => purpose_of_action[:en],
               "purpose_of_action_es" => purpose_of_action[:es],
               "purpose_of_action_ca" => purpose_of_action[:ca],
@@ -157,12 +152,21 @@ module Decidim
               "github_handler" => github_handler,
               "weight" => weight,
               "parent_id" => parent_id,
-              "announcement_en" => announcement[:en],
-              "announcement_es" => announcement[:es],
-              "announcement_ca" => announcement[:ca],
               "taxonomies" => [taxonomies.first.id, taxonomies.second.id]
             }
           }
+        end
+
+        context "when has_members is true" do
+          let(:has_members) { true }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when has_members is false" do
+          let(:has_members) { false }
+
+          it { is_expected.to be_valid }
         end
 
         context "when everything is OK" do
@@ -292,7 +296,6 @@ module Decidim
                 subtitle_ca: assembly.subtitle,
                 subtitle_es: assembly.subtitle,
                 slug: "another-slug",
-                hashtag: assembly.hashtag,
                 meta_scope: assembly.meta_scope,
                 hero_image: nil,
                 banner_image: nil,
@@ -324,8 +327,7 @@ module Decidim
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
                 weight: assembly.weight,
-                parent_id: child_assembly,
-                announcement: assembly.announcement
+                parent_id: child_assembly
               }
             }
           end
@@ -347,7 +349,6 @@ module Decidim
                 subtitle_ca: assembly.subtitle,
                 subtitle_es: assembly.subtitle,
                 slug: "another-slug",
-                hashtag: assembly.hashtag,
                 meta_scope: assembly.meta_scope,
                 hero_image: nil,
                 banner_image: nil,
@@ -379,8 +380,7 @@ module Decidim
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
                 weight: assembly.weight,
-                parent_id: grandchild_assembly,
-                announcement: assembly.announcement
+                parent_id: grandchild_assembly
               }
             }
           end

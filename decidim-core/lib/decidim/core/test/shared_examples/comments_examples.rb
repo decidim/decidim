@@ -13,6 +13,32 @@ shared_examples "comments" do
     expect_no_js_errors
   end
 
+  context "when user name is improperly formatted" do
+    let!(:user) { create(:user, :malicious, :confirmed, organization:) }
+
+    before do
+      # rubocop:disable Rails/SkipsModelValidations
+      comments.each do |comment|
+        comment.author.update_column(:name, "user_#{comment.author.id}\n<script>alert('name')</script>") if comment.author.is_a?(Decidim::UserBaseEntity)
+      end
+      # rubocop:enable Rails/SkipsModelValidations
+    end
+
+    it "properly displays the user name" do
+      login_as user, scope: :user
+      visit resource_path
+
+      within "#add-comment-anchor" do
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          expect(page).to have_css("p.comment__as-author-name")
+          within "p.comment__as-author-name" do
+            expect(page).to have_content("user_#{user.id} alert('name')")
+          end
+        end
+      end
+    end
+  end
+
   it "shows the list of comments for the resource" do
     visit resource_path
 
@@ -21,7 +47,7 @@ shared_examples "comments" do
 
     within "#comments" do
       comments.each do |comment|
-        expect(page).to have_content comment.author.name
+        expect(page).to have_content decidim_sanitize_translated(comment.author.name).gsub("\n", " ")
         expect(page).to have_content comment.body.values.first
       end
     end
@@ -181,10 +207,10 @@ shared_examples "comments" do
         click_on "Accept all"
         login_as user, scope: :user
         visit resource_path
-      end
-
-      it "shows the add comment button" do
-        expect(page).to have_content("Add comment")
+        if page.has_content?("Log in")
+          login_as user, scope: :user
+          visit resource_path
+        end
       end
 
       it "does not show a message so user can Log in or create an account" do
@@ -192,9 +218,9 @@ shared_examples "comments" do
       end
 
       it "shows a modal with the comment form" do
-        sleep 1
+        expect(page).to have_content("Add comment")
         click_on "Add comment"
-        sleep 1
+
         expect(page).to have_content("Add comment")
         expect(page).to have_content("1000 characters left")
         expect(page).to have_css(".add-comment form")
@@ -234,6 +260,8 @@ shared_examples "comments" do
 
     describe "when using emojis" do
       before do
+        skip("This spec does not work in focus mode, since there is no language selector.") if has_selector?(".main-bar--focus-mode-back-button")
+
         within_language_menu do
           click_on "Castellano"
         end
@@ -243,6 +271,9 @@ shared_examples "comments" do
           within_language_menu do
             click_on locale
           end
+
+          sleep 1
+          page.scroll_to(find(".add-comment form"))
 
           within ".add-comment form" do
             expect(page).to have_css(".emoji__container")
@@ -280,6 +311,12 @@ shared_examples "comments" do
       context "when the locale is not supported" do
         let(:locale) { "Català" }
         let(:phrase) { I18n.with_locale(:ca) { I18n.t("emojis.categories.people") } }
+
+        around do |example|
+          I18n.with_locale(:ca) do
+            example.run
+          end
+        end
 
         it_behaves_like "allowing to select emojis"
       end
@@ -567,6 +604,8 @@ shared_examples "comments" do
           field.native.send_keys content
           click_on "Publish comment"
         end
+
+        expect(page).to have_content(content)
       end
 
       it "shows comment to the user, updates the comments counter and clears the comment textarea" do
@@ -868,6 +907,30 @@ shared_examples "comments" do
           expect(page.find("#comment-#{parent.id}-replies").text).to be_blank
         end
       end
+
+      context "when admin moderates the comment" do
+        let!(:user) { create(:user, :admin, :confirmed, organization:) }
+
+        before do
+          switch_to_host(organization.host)
+          login_as user, scope: :user
+          visit resource_path
+        end
+
+        it "hides the comment" do
+          within "#comment_#{comments.first.id}" do
+            page.find("[id^='dropdown-trigger']").click
+            click_on "Report"
+          end
+
+          within "#flagModalComment#{comments.first.id}" do
+            check "Hide this content"
+            click_on "Hide"
+          end
+
+          expect(page).to have_content("This resource has been hidden.")
+        end
+      end
     end
 
     describe "arguable option" do
@@ -1009,26 +1072,6 @@ shared_examples "comments" do
           expect(page).to have_comment_from(user, "This text mentions a @nonexistent user", wait: 20)
           expect(page).to have_no_link "@nonexistent"
         end
-      end
-    end
-
-    describe "hashtags", :slow do
-      let(:content) { "A comment with a hashtag #decidim" }
-
-      before do
-        visit resource_path
-
-        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-          field.set " "
-          field.native.send_keys content
-          click_on "Publish comment"
-        end
-      end
-
-      it "replaces the hashtag with a link to the hashtag search" do
-        expect(page).to have_comment_from(user, "A comment with a hashtag #decidim", wait: 20)
-        expect(page).to have_link "#decidim", href: "/search?term=%23decidim"
       end
     end
 

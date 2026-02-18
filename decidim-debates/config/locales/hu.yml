@@ -25,7 +25,6 @@ hu:
       debates:
         actions:
           comment: Megjegyzés
-          endorse: Támogat
         name: Viták
         settings:
           global:
@@ -36,8 +35,6 @@ hu:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
             creation_enabled: A résztvevők létrehozhatnak vitákat
-            endorsements_blocked: Támogatások letiltva
-            endorsements_enabled: Támogatások engedélyezve
     debates:
       actions:
         close: Bezár
@@ -106,7 +103,6 @@ hu:
           state: Állapot
           state_values:
             closed: Lezárva
-            open: Nyitva
         index:
           new_debate: Új vita
         new:
@@ -119,10 +115,8 @@ hu:
           recent: Legfrissebb
           updated: Nemrégiben frissítve
         show:
-          debate_closed: Lezárva
           debate_conclusions_are: 'A vitát %{date} -n zárult le az alábbi következtetésekkel:'
           edit_conclusions: Következtetések szerkesztése
-          open: Nyitott vita
           participants_count: Résztvevők
         update:
           invalid: Hiba történt a vita frissítése során.
@@ -180,10 +174,5 @@ hu:
           next_level_in: Vegyen részt még %{score} vitában, hogy elérje a következő szintet!
           unearned_another: Ez a felhasználó még nem vett részt vitában.
           unearned_own: Még nem vett részt a vitákban.
-    metrics:
-      debates:
-        description: A létrehozott viták száma
-        object: viták
-        title: Viták
     statistics:
       debates_count: Viták

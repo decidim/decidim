@@ -1,4 +1,4 @@
-# Decidim::Verifications
+# decidim-verifications
 
 Decidim offers several methods for allowing participants to get authorization to
 perform certain privileged actions. This module implements several of those methods
@@ -22,6 +22,10 @@ There are several use cases for this, such as
 
 Right now Decidim supports only a few of these cases, but we have an internal
 API where you can program your own kind of authorizations.
+
+## Usage
+
+This is a module oriented for developers, as a building block to be used by other modules.
 
 ## Introduction
 
@@ -59,7 +63,7 @@ Decidim implements two type of authorization methods:
   To register your handler, use
 
   ```ruby
-  # config/initializers/decidim.rb
+  # config/initializers/decidim_verifications.rb
 
   Decidim::Verifications.register_workflow(:census) do |workflow|
     workflow.form = "<myAuthorizationHandlerClass>"
@@ -74,7 +78,7 @@ Decidim implements two type of authorization methods:
   For example:
 
   ```ruby
-  # config/initializers/decidim.rb
+  # config/initializers/decidim_verifications.rb
 
   Decidim::Verifications.register_workflow(:my_verification) do |workflow|
     workflow.engine = Decidim::Verifications::MyVerification::Engine
@@ -103,7 +107,7 @@ Decidim implements two type of authorization methods:
   Optionally to change the renew modal content part of the data stored, you can set a new value for the cell used to render the metadata.
 
   ```ruby
-  # config/initializers/decidim.rb
+  # config/initializers/decidim_verifications.rb
 
   Decidim::Verifications.register_workflow(:census) do |workflow|
     workflow.form = "myAuthorizationHandlerClass"
@@ -146,12 +150,12 @@ SMS code using your preferred provider.
 In order to setup Decidim with SMS verification you need to:
 
 1. Create a class that accepts two parameters when initializing it (mobile phone and code) and a method named `deliver_code` that will send an SMS and return a truthy or falsey value if the delivery was OK or not.
-1. Set the `sms_gateway_service` configuration variable to the name of the class that you just created (use a String, not the actual class) at `config/initializers/decidim.rb`.
+1. Set the `sms_gateway_service` configuration variable to the name of the class that you just created (use a String, not the actual class) using the `DECIDIM_SMS_GATEWAY_SERVICE` environment variable
 
 Keep in mind that Decidim will not store a free text version of the mobile phone, only a hashed
 version so we can avoid duplicates and guarantee the users' privacy.
 
-You can find an example [here][example SMS gateway].
+You can find an example in the [example SMS gateway implementation][example SMS gateway].
 
 ## Authorization options
 
@@ -217,7 +221,7 @@ To be used by the verification method, this class should be referenced by name i
 its workflow manifest:
 
 ```ruby
-# config/initializers/decidim.rb
+# config/initializers/decidim_verifications.rb
 
 Decidim::Verifications.register_workflow(:my_verification) do |workflow|
   workflow.engine = Decidim::Verifications::MyVerification::Engine
@@ -243,17 +247,7 @@ authorization.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-verifications'
-```
-
-And then execute:
-
-```bash
-bundle
-```
+This is on the default Decidim installation so you should not change anything to use this feature.
 
 ## Contributing
 

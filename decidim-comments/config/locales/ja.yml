@@ -24,6 +24,8 @@ ja:
             enabled: コメントを有効にする
             end_time: 次の時点までのコメントを有効にする
             start_time: 次の時点からコメントを有効にする
+      comment_thread:
+        accessibility_label: '%{full_name} が %{date} に開始したコメントスレッド'
       comments:
         create:
           error: コメントの登録に問題がありました。
@@ -115,6 +117,8 @@ ja:
           other: "%{count} 件のコメント"
         top_comment_label: Upvoteの多い順
       down_vote_button:
+        label:
+          other: よくないねボタン。 %{count} よくないね
         text: このコメントに同意しません
       edit_comment_modal_form:
         close: 閉じる
@@ -125,6 +129,8 @@ ja:
           submit: 送信
         title: コメントを編集
       up_vote_button:
+        label:
+          other: いいねボタン。 %{count} いいね
         text: このコメントに同意します
     download_your_data:
       help:
@@ -177,11 +183,6 @@ ja:
           email_outro: あなたが %{resource_title}でメンションされたため、この通知を受け取りました。
           email_subject: あなたは %{resource_title} でメンションされました
           notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> で <a href="%{author_path}">%{author_name} %{author_nickname}によってメンションされました</a>
-    metrics:
-      comments:
-        description: 出席者によって生成されたコメント数
-        object: コメント
-        title: コメント
   errors:
     messages:
       cannot_have_comments: コメントを持つことはできません

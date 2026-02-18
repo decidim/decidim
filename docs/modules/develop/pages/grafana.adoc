@@ -1,0 +1,100 @@
+# Grafana
+
+For improving the data visualization capabilities of Decidim, we have a working dashboard that can be imported to Grafana, an open-source observability and monitoring platform that allows users to visualize metrics, logs, and traces in real time from various data sources.
+
+## Initial set-up
+
+The steps for having this dashboard are the following. For this tutorial we will use link:https://grafana.com[Grafana Cloud]
+
+. Go to http://grafana.com
+
++
+image::grafana/homepage.png[Grafana.com homepage]
+
+. Click in button "Create account"
+. Fill the account creation form with your information
+
++
+image::grafana/create_account_form.png[Create an account form]
+
+. Confirm your email address
+
++
+image::grafana/create_account_confirm.png[Create an account form - confirm step]
+
+. Finish the setup account process
+
++
+image::grafana/create_account_setup.png[Create an account form - setup step]
+
+## Methods
+
+Then, you have two options for connecting to any Decidim instance.
+
+a. CSV (Comma-Separated Values): A simple file format used to store tabular data, such as spreadsheets or databases. Each line in a CSV file represents a row, with values separated by commas or other separators (semi colons in the case of Decidim).
+
+b. GraphQL: A query language for APIs and a runtime for executing those queries. It allows clients to request only the data they need, reducing over-fetching and improving performance.
+
+For demonstration purposes, we will use the link:https://meta.decidim.org[Metadecidim installation].
+
+[cols="1,1", options="header"]
+|===
+|CSV
+|GraphQL
+
+|Using the Open Data features from https://meta.decidim.org/open-data
+|Using the GraphQL API features from https://meta.decidim.org/api
+
+|Only has access to the last 24 hours data
+|Has real-time access
+
+|Has access to all the public data
+|Has a limit on the number of resources. See link:https://github.com/grafana/grafana-infinity-datasource/discussions/601[Pagination of API responses]
+|===
+
+So, taking into account the last limitation from the Grafana Infinity GraphQL connector, **we recommend using the CSV method** if you need to access more than the last 10 or 20 resources.
+
+## Examples
+
+As a starting point to check-out the possibilities of this integration, we have provided some examples with the two methods.
+
+### CSV example
+
+++++
+<a href="_attachments/grafana/metadecidim-csv.json" download>Download the example for CSV integration</a>
+++++
+
+### GraphQL example
+
+++++
+<a href="_attachments/grafana/metadecidim-graphql.json" download>Download the example for GraphQL integration</a>
+++++
+
+## Import
+
+For importing any of these methods, follow these instructions:
+
+. Go to the "Dashboards" page and in the "New" button click in the "Import" option
+
++
+image::grafana/dashboards.png[Dashboards page]
+
+. In the text area, paste the contents of any of the examples provided (see below).
+
++
+image::grafana/dashboard_import.png[Import a dashboard page]
+
+. Click in the "Import" button
+
++
+image::grafana/dashboard_import_csv.png[Dashboards page]
+
+. Then you will see the imported Dashboard. Even though the examples are based on Metadecidim, are a good starting point to understand how to connect any Decidim API with Grafana.
+
++
+image::grafana/dashboard_example_csv.png[Dashboard CSV example page]
+
++
+image::grafana/dashboard_example_graphql.png[Dashboard GraphQL API example page]
+
+😊⌨️✨Happy hacking!

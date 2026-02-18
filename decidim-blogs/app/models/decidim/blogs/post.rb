@@ -13,7 +13,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Searchable
-      include Decidim::Endorsable
+      include Decidim::Likeable
       include Decidim::Followable
       include Decidim::Reportable
       include Decidim::Publicable
@@ -29,6 +29,7 @@ module Decidim
       validates :title, presence: true
 
       scope :created_at_desc, -> { order(arel_table[:created_at].desc) }
+      scope :published_at_desc, -> { order(arel_table[:published_at].desc) }
       scope :published, -> { where(published_at: ..Time.current) }
 
       searchable_fields({
@@ -89,11 +90,6 @@ module Decidim
 
       def attachment_context
         :admin
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
 
       # Public: Overrides the `reported_attributes` Reportable concern method.

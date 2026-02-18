@@ -7,9 +7,10 @@ module Decidim::Meetings
     describe "#serialize" do
       subject { described_class.new(registration) }
 
-      let!(:registration) { create(:registration) }
-
       context "when there are not a questionnaire" do
+        let(:meeting) { create(:meeting, questionnaire: nil) }
+        let!(:registration) { create(:registration, meeting:) }
+
         it "includes the id" do
           expect(subject.serialize).to include(id: registration.id)
         end

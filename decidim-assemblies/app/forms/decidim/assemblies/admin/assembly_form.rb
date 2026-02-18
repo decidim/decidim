@@ -31,12 +31,10 @@ module Decidim
         translatable_attribute :subtitle, String
         translatable_attribute :target, String
         translatable_attribute :title, String
-        translatable_attribute :announcement, Decidim::Attributes::RichText
 
         attribute :created_by, String
         attribute :facebook_handler, String
         attribute :github_handler, String
-        attribute :hashtag, String
         attribute :instagram_handler, String
         attribute :slug, String
         attribute :twitter_handler, String
@@ -46,6 +44,7 @@ module Decidim
         attribute :participatory_processes_ids, Array[Integer]
         attribute :weight, Integer, default: 0
 
+        attribute :has_members, Boolean
         attribute :is_transparent, Boolean
         attribute :promoted, Boolean
         attribute :private_space, Boolean

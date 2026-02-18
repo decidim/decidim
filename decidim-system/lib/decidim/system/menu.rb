@@ -10,7 +10,13 @@ module Decidim
                         decidim_system.root_path,
                         position: 1,
                         active: ["decidim/system/dashboard" => :show]
-
+          if Decidim.module_installed?(:api)
+            menu.add_item :api_credentials,
+                          I18n.t("menu.api_credentials", scope: "decidim.system"),
+                          decidim_system.api_users_path,
+                          position: 2,
+                          active: ["decidim/system/api_users"]
+          end
           menu.add_item :organizations,
                         I18n.t("menu.organizations", scope: "decidim.system"),
                         decidim_system.organizations_path,

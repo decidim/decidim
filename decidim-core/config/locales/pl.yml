@@ -45,7 +45,6 @@ pl:
       decidim/promote_to_admin: Awansowano na administratora grupy
       decidim/promoted_to_admin_event: Awansowano na administratora grupy
       decidim/removed_from_group: Usunięto z grupy
-      decidim/resource_endorsed_event: Zasoby zatwierdzone
       decidim/resource_hidden_event: Zasób ukryty
       decidim/welcome_notification_event: Wiadomość powitalna
   activerecord:
@@ -65,11 +64,6 @@ pl:
         few: Poprawki
         many: Poprawki
         other: Poprawki
-      decidim/endorsement:
-        one: Rekomendacja
-        few: Rekomendacje
-        many: Rekomendacje
-        other: Rekomendacje
       decidim/user:
         one: Użytkownik
         few: Użytkownicy
@@ -225,10 +219,6 @@ pl:
       organization:
         update: "%{user_name} zaktualizował(a) ustawienia organizacji"
         update_external_domain: "%{user_name} zaktualizował zewnętrzne domeny organizacji"
-      participatory_space_private_user:
-        create: "%{user_name} zaprosił(a) %{resource_name} jako użytkownika prywatnego"
-        create_via_csv: "%{user_name} zaprosił(a) %{resource_name} jako prywatnego użytkownika poprzez CSV"
-        delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} jako użytkownika prywatnego"
       scope:
         create: "%{user_name} utworzył(a) zakres %{resource_name}"
         create_with_parent: "%{user_name} utworzył(a) zakres podrzędny %{resource_name} w zakresie %{parent_scope}"
@@ -353,11 +343,6 @@ pl:
         few: komentarze
         many: komentarze
         other: komentarze
-      endorsements:
-        one: rekomendacja
-        few: rekomendacje
-        many: rekomendacje
-        other: rekomendacje
       official_author: Oficjalny
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -487,8 +472,6 @@ pl:
         description: Opis
       footer_sub_hero:
         name: Baner podrzędny stopki
-      global_menu:
-        name: Globalne menu
       hero:
         name: Banner i CTA
       hero_settings_form:
@@ -519,10 +502,6 @@ pl:
         name: Dane główne
       metadata:
         name: Metadane
-      metrics:
-        name: Partycypacja w liczbach
-      participatory_space_metrics:
-        name: Partycypacja w liczbach
       participatory_space_stats:
         name: Statystyki
       social_networks_metadata:
@@ -618,18 +597,26 @@ pl:
     download_your_data:
       export:
         ready: Gotowy
+      help:
+        messaging_conversations:
+          updated_at: Data ostatniej aktualizacji tej rozmowy
+        users:
+          about: Opis profilu tego uczestnika
+          followers_count: Liczba uczestników, którzy obserwują tego użytkownika
+          last_sign_in_at: Data i godzina poprzedniego logowania
+          last_sign_in_ip: Adres IP poprzedniego logowania
+          newsletter_notifications_at: Data i godzina subskrypcji tego uczestnika do newslettera
+          officialized_as: Nazwisko urzędnika (radca, burmistrz itd.)
     editor_images:
       create:
         error: Wystąpił błąd podczas przesyłania obrazu.
         success: Obraz przesłany pomyślnie.
       drag_and_drop_help: Dodaj obrazy, przeciągając i upuszczając lub wklejając je.
-    endorsement_buttons_cell:
-      endorse: Lubię to
     errors:
       files:
         file_cannot_be_processed: Plik nie może zostać przetworzony
         file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
-        not_inside_organization: Plik nie jest dołączony do żadnej organizacji
+        not_inside_organization: Plik nie jest dołączony do żadnej organizacji.
       internal_server_error:
         copied: Tekst skopiowany!
         copy_error_message_clarification: Skopiuj komunikat o błędzie do schowka
@@ -732,11 +719,6 @@ pl:
           notification_title: |-
             Administrator usunął %{resource_type}, ponieważ treść została zgłoszona jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie zarekomendował(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
-        email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia klikając poprzedni link.
-        email_subject: "%{endorser_nickname} zarekomendował(a) nową propozycję"
-        notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> %{resource_type} została zarekomendowana przez <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Zaktualizowano <a href="%{resource_url}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
@@ -919,7 +901,6 @@ pl:
         latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Pomoc
       home: Strona główna
     messaging:
       conversation_mailer:
@@ -972,21 +953,6 @@ pl:
         finished: 'Zakończono: %{end_date}'
         not_started: Jeszcze nie rozpoczęto
         remaining: "Pozostało %{time_distance}"
-    metrics:
-      download:
-        csv: Pobierz dane (CSV)
-      followers:
-        description: Liczba użytkowników obserwujących tę przestrzeń partycypacyjną
-        object: obserwujący
-        title: Obserwujący
-      participants:
-        description: Liczba aktywnych użytkowników w organizacji
-        object: użytkownicy
-        title: Użytkownicy
-      users:
-        description: Liczba użytkowników w organizacji
-        object: użytkownicy
-        title: Użytkownicy
     newsletter_mailer:
       newsletter:
         no_reply_notice: Ta wiadomość została wysłana z adresu do powiadomień, który nie akceptuje poczty przychodzącej. Prosimy na nią nie odpowiadać.
@@ -1014,11 +980,9 @@ pl:
         main_image: Obraz główny
     newsletters:
       unsubscribe:
-        check_subscription: Jeśli chcesz zmienić swoje preferencje, możesz to zrobić na <a href="%{link}" target="_blank">stronie konfiguracji</a>.
         error: Wystąpił błąd podczas anulowania subskrypcji.
         success: Subskrypcja została anulowana.
         token_error: Link wygasł.
-        unsubscribe: Anuluj subskrypcję
     newsletters_opt_in:
       unauthorized: Przepraszamy, ten link nie jest już dostępny.
       update:
@@ -1026,7 +990,6 @@ pl:
         success: Ustawienia newslettera zostały pomyślnie zaktualizowane.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Przetwarzanie danych osobowych i ich ochrona stają się coraz ważniejsze dla nas wszystkich. Wraz z nowym ogólnym rozporządzeniem o ochronie danych (GDPR) z 25 maja 2018 r. Osoby fizyczne mają lepszą kontrolę nad swoimi danymi osobowymi. Z tego powodu potrzebujemy twojego "OK", aby kontynuować wysyłanie odpowiednich informacji o działaniach %{organization_name}.
         body_2: 'Jak możesz wyrazić zgodę? Po prostu kliknij poniższy przycisk:'
         body_3: Wyrażając zgodę będziesz mógł nadal otrzymywać informacje o usługach platformy. Jeśli jej jednak nie wyrazisz, przestaniemy wysyłać Ci wiadomości. Jeśli teraz potwierdzisz, że chcesz być na bieżąco informowany, wciąż w dowolnym będziesz mógł anulować zgodę.
         button: Tak, chcę nadal otrzymywać istotne informacje
@@ -1040,11 +1003,9 @@ pl:
         same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
         translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
-      action_error: Wystąpił problem z aktualizacją powiadomień.
       no_notifications: Brak powiadomień.
       show:
         missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
-        moderated: Zawartość moderowana
     notifications_digest_mailer:
       header:
         daily: Podsumowanie codziennych powiadomień
@@ -1108,25 +1069,17 @@ pl:
         footer_sub_hero:
           footer_sub_hero_body_html: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz i decyduj.
           footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
-          register: Zarejestruj się
         hero:
           participate: Weź udział
           participate_title: Weź udział w procesach platformy
           welcome: Witamy w %{organization}!
-        statistics:
-          headline: Aktualny stan %{organization}
         sub_hero:
-          register: Zarejestruj się
           register_title: Utwórz konto
       index:
         standalone_pages: Strony
         subheading: '%{name} - zapoznaj się ze stronami pomocy'
         title: Pomoc
         topics: Tematy
-      participatory_space:
-        metrics:
-          headline: Partycypacja w liczbach
-          link: Pokaż wszystkie statystyki
       terms_of_service:
         accept:
           error: Wystąpił błąd podczas akceptowania warunków.
@@ -1168,11 +1121,6 @@ pl:
           message: Wiadomość
           resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
     reported_mailer:
-      hide:
-        hello: Witaj %{name},
-        manage_moderations: Zarządzaj moderacjami
-        report_html: <p>Poniższa<a href="%{url}">zawartość</a> została ukryta automatycznie.</p>
-        subject: Zasób został ukryty automatycznie
       report:
         authors: Autorzy
         content: Zgłoszona zawartość
@@ -1189,16 +1137,12 @@ pl:
     reports:
       create:
         success: Zgłoszenie zostało utworzone z powodzeniem i zostanie zweryfikowane przez administratora.
-    resource_endorsements:
-      create:
-        error: Wystąpił błąd podczas udzielania rekomendacji.
     scopes:
       global: Zakres globalny
       prompt: Wybierz zakres
     search:
       name: Szukaj
       results: Wyniki wyszukiwania
-      results_found_for_term: '%{count} wyników wyszukiwania dla frazy: "%{term}"'
       term_input_placeholder: Szukaj
     searches:
       filters:
@@ -1227,9 +1171,6 @@ pl:
         title: Potwierdź
       embed:
         title: Wbudowana zawartość wideo
-      extended_navigation_bar:
-        more: Więcej
-        unfold: Rozwiń
       filter_form_help:
         help: Poniższy formularz filtruje wyniki wyszukiwania na bieżąco po zmianie warunków wyszukiwania.
         skip: Przejdź do wyników
@@ -1280,7 +1221,6 @@ pl:
         share_to: Udostępnij na %{service}
     statistics:
       comments_count: Komentarze
-      endorsements_count: Rekomendacje
       followers_count: Obserwujący
       headline: Statystyki
       no_stats: Nie ma jeszcze żadnych statystyk.
@@ -1389,17 +1329,13 @@ pl:
           Jeżeli nie chcesz zaakceptować zaproszenia, zignoruj ten e-mail.<br />
            Twoje konto nie zostanie utworzone, dopóki nie skorzystasz z linku powyżej i nie ustawisz pseudonimu i hasła.
         invited_you_as_admin: "%{invited_by} zaprasza Cię jako administratora %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku."
-        invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to zaproszenie za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administratora %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
-        someone_invited_you_as_private_user: Ktoś zaprosił Cię jako prywatnego użytkownika %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
         subject: Instrukcje dotyczące zaproszenia
       invite_admin:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
         subject: Zaproszono Cię do współpracy przy %{organization}
-      invite_private_user:
-        subject: Zostałeś zaproszony do uczestnictwa w prywatnym procesie w %{organization}
       organization_admin_invitation_instructions:
         subject: Zaproszono Cię do zarządzania %{organization}
       password_change:
@@ -1671,7 +1607,6 @@ pl:
       impersonation_warning:
         close_session: Zakończ sesję
         description_html: Zarządzasz uczestnikiem <b>%{user_name}</b>.
-        expire_time_html: Sesja wygasa za <b><span class="minutes">%{minutes}</span> minut</b>.
       language_chooser:
         choose_language: Wybierz język
       notifications_dashboard:
@@ -1719,7 +1654,6 @@ pl:
     name_included_in_password: jest zbyt podobne do twojego imienia
     nickname_included_in_password: jest zbyt podobne do twojego nicka
     not_enough_unique_characters: nie ma wystarczającej liczby unikalnych znaków
-    password_not_allowed: nie jest dozwolone
     password_repeated: nie można ustawić ponownie starego hasła
     password_too_common: jest zbyt powszechne
     password_too_long: jest zbyt długie

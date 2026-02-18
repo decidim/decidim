@@ -15,10 +15,7 @@ lb:
   decidim:
     budgets:
       actions:
-        attachment_collections: Ordner
-        attachments: Anhänge
         edit: Bearbeiten
-        edit_projects: Projekte verwalten
         import: Vorschläge in Projekte importieren
         preview: Vorschau
         title: Aktionen
@@ -39,8 +36,6 @@ lb:
         exports:
           projects: Projekte
         models:
-          budget:
-            name: Bugdet
           project:
             name: Projekt
         projects:
@@ -110,7 +105,6 @@ lb:
             title: Maximale Anzahl Projekte überschritten
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
-          cancel_order: Löschen Sie Ihre Stimme und beginnen Sie von vorne
           checked_out:
             title: Budget-Abstimmung abgeschlossen
         count:
@@ -183,18 +177,10 @@ lb:
               disabled: Abstimmung deaktiviert
               enabled: Abstimmung aktiviert
               finished: Abstimmung beendet
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können es auf dieser Seite ansehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv.
-          notification_title: Das Budget <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
     resource_links:
       included_proposals:
         project_proposal: Vorschläge in diesem Projekt
     statistics:
       orders_count: Projektauswahlen
-      projects_count: Projekte
   index:
     confirmed_orders_count: Stimmen zählen

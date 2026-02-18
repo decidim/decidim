@@ -13,6 +13,10 @@ zh-TW:
       decidim/comments/comment_vote:
         other: 投票
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: 評論
     comments:
       admin:
         shared:
@@ -135,11 +139,6 @@ zh-TW:
           email_outro: 您收到了此通知，因為您被提及在 %{resource_title} 中。
           email_subject: 您被提及在 %{resource_title} 中
           notification_title: 您被 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 在 <a href="%{resource_path}">%{resource_title}</a> 中提及。
-    metrics:
-      comments:
-        description: 參與者產生的評論數量
-        object: 評論
-        title: 評論
   errors:
     messages:
       cannot_have_comments: 無法評論

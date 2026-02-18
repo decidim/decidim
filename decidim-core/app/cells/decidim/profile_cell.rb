@@ -73,6 +73,8 @@ module Decidim
       current_user && current_user == profile_holder
     end
 
+    # i18n-tasks-use t("decidim.profiles.show.following")
+    # i18n-tasks-use t("decidim.profiles.show.followers")
     def tab_item(key)
       values = TABS_ITEMS[key].dup
       values[:path] = send(values[:path], nickname: profile_holder.nickname)

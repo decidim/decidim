@@ -8,7 +8,7 @@ module Decidim
     describe DebateType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:debate, :open_ama) }
+      let(:model) { create(:debate, :ongoing_ama) }
       let(:organization) { model.organization }
 
       include_examples "taxonomizable interface"
@@ -19,8 +19,14 @@ module Decidim
       include_examples "referable interface"
       include_examples "attachable interface"
       include_examples "traceable interface"
-      include_examples "endorsable interface" do
-        let(:model) { create(:debate, :open_ama, :with_endorsements) }
+      include_examples "likeable interface" do
+        let(:model) { create(:debate, :ongoing_ama, :with_likes) }
+      end
+
+      shared_examples "unauthorized Debate" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Debate because you do not have permissions")
+        end
       end
 
       describe "id" do
@@ -40,7 +46,7 @@ module Decidim
       end
 
       describe "last_comment_at" do
-        let(:model) { create(:debate, :open_ama, :with_endorsements, last_comment_at: 1.year.ago) }
+        let(:model) { create(:debate, :ongoing_ama, :with_likes, last_comment_at: 1.year.ago) }
 
         let(:query) { "{ lastCommentAt }" }
 
@@ -51,7 +57,7 @@ module Decidim
 
       describe "last_comment_by" do
         let(:last_comment_by) { create(:user, :confirmed, name: "User") }
-        let(:model) { create(:debate, :open_ama, :with_endorsements, last_comment_by:) }
+        let(:model) { create(:debate, :ongoing_ama, :with_likes, last_comment_by:) }
         let(:query) { "{ lastCommentBy { id } }" }
 
         it "returns all the required fields" do
@@ -93,7 +99,7 @@ module Decidim
       end
 
       describe "comments_enabled" do
-        let(:model) { create(:debate, :open_ama, comments_enabled: true) }
+        let(:model) { create(:debate, :ongoing_ama, comments_enabled: true) }
         let(:query) { "{ commentsEnabled }" }
 
         it "returns all the required fields" do
@@ -137,18 +143,16 @@ module Decidim
       context "when participatory space is private" do
         let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
         let(:current_component) { create(:debates_component, participatory_space:) }
-        let(:model) { create(:debate, :open_ama, component: current_component) }
+        let(:model) { create(:debate, :ongoing_ama, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Debate"
       end
 
       context "when participatory space is private but transparent" do
         let(:participatory_space) { create(:assembly, :private, :transparent, organization: current_organization) }
         let(:current_component) { create(:debates_component, participatory_space:) }
-        let(:model) { create(:debate, :open_ama, component: current_component) }
+        let(:model) { create(:debate, :ongoing_ama, component: current_component) }
         let(:query) { "{ id }" }
 
         it "returns the model" do
@@ -159,32 +163,26 @@ module Decidim
       context "when participatory space is not published" do
         let(:participatory_space) { create(:participatory_process, :with_steps, :unpublished, organization: current_organization) }
         let(:current_component) { create(:debates_component, participatory_space:) }
-        let(:model) { create(:debate, :open_ama, component: current_component) }
+        let(:model) { create(:debate, :ongoing_ama, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Debate"
       end
 
       context "when component is not published" do
         let(:current_component) { create(:debates_component, :unpublished, organization: current_organization) }
-        let(:model) { create(:debate, :open_ama, component: current_component) }
+        let(:model) { create(:debate, :ongoing_ama, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Debate"
       end
 
       context "when debate is moderated" do
-        let(:model) { create(:debate, :open_ama, :hidden) }
+        let(:model) { create(:debate, :ongoing_ama, :hidden) }
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Debate"
       end
     end
   end

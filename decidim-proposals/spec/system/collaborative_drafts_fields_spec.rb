@@ -58,7 +58,7 @@ describe "Collaborative drafts" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_callout("Collaborative draft successfully created.")
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
@@ -81,7 +81,7 @@ describe "Collaborative drafts" do
 
             click_on "Publish"
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Collaborative draft successfully created.")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
@@ -114,7 +114,7 @@ describe "Collaborative drafts" do
           end
         end
 
-        context "when geocoding is enabled", :serves_geocoding_autocomplete do
+        context "when geocoding is enabled" do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
@@ -140,7 +140,7 @@ describe "Collaborative drafts" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Collaborative draft successfully created.")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
@@ -153,6 +153,7 @@ describe "Collaborative drafts" do
             within_selector: ".new_collaborative_draft",
             address_field: :collaborative_draft_address
           ) do
+            let(:geocoded_success_message) { "Collaborative draft successfully created." }
             let(:geocoded_address_value) { address }
             let(:geocoded_address_coordinates) { [latitude, longitude] }
 
@@ -165,46 +166,6 @@ describe "Collaborative drafts" do
                 fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               end
             end
-          end
-        end
-
-        context "when component has extra hashtags defined" do
-          let(:component) do
-            create(:proposal_component,
-                   :with_collaborative_drafts_enabled,
-                   :with_extra_hashtags,
-                   suggested_hashtags: component_suggested_hashtags,
-                   automatic_hashtags: component_automatic_hashtags,
-                   manifest:,
-                   participatory_space: participatory_process)
-          end
-
-          let(:component_automatic_hashtags) { "AutoHashtag1 AutoHashtag2" }
-          let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
-
-          before do
-            component.update!(settings: {
-                                collaborative_drafts_enabled: true
-                              })
-          end
-
-          it "offers and save extra hashtags", :slow do
-            visit new_collaborative_draft_path
-
-            within ".new_collaborative_draft" do
-              fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
-              fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-
-              check :collaborative_draft_suggested_hashtags_suggestedhashtag1
-
-              find("*[type=submit]").click
-            end
-
-            expect(page).to have_content("successfully")
-            expect(page).to have_content("#AutoHashtag1")
-            expect(page).to have_content("#AutoHashtag2")
-            expect(page).to have_content("#SuggestedHashtag1")
-            expect(page).to have_no_content("#SuggestedHashtag2")
           end
         end
 
@@ -278,7 +239,7 @@ describe "Collaborative drafts" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Collaborative draft successfully created.")
 
             within "#panel-images" do
               expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)

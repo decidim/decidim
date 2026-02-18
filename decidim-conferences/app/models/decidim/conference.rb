@@ -94,10 +94,6 @@ module Decidim
       Decidim::Conferences::AdminLog::ConferencePresenter
     end
 
-    def hashtag
-      attributes["hashtag"].to_s.delete("#")
-    end
-
     def to_param
       slug
     end
@@ -161,7 +157,7 @@ module Decidim
 
       return base unless auth_object&.admin?
 
-      base + %w(published_at)
+      base + %w(published_at created_at)
     end
 
     def self.ransackable_associations(_auth_object = nil)

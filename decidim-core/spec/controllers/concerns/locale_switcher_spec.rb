@@ -148,5 +148,43 @@ module Decidim
         end
       end
     end
+
+    describe "#canonical_url" do
+      let!(:organization) { create(:organization, default_locale:) }
+
+      before do
+        allow(Decidim).to receive(:default_locale).and_return default_locale
+        allow(Decidim).to receive(:available_locales).and_return available_locales
+        allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
+      end
+
+      it "appends the locale to url" do
+        expect(controller.canonical_url("http://example.com/foo/bar")).to eq("http://example.com/foo/bar?locale=#{default_locale}")
+      end
+
+      it "changes the link to the correct locale" do
+        expect(controller.canonical_url("http://example.com/en/foo/bar", "ca")).to eq("http://example.com/ca/foo/bar")
+      end
+
+      it "strips the locale from the url" do
+        expect(controller.canonical_url("https://example.com/en/foo/bar?locale=ca", "ca")).to eq("https://example.com/ca/foo/bar")
+      end
+
+      it "requesting the same language" do
+        expect(controller.canonical_url("https://example.com/ca/foo/bar?locale=ca", "ca")).to eq("https://example.com/ca/foo/bar")
+      end
+
+      it "requesting multiple languages at once" do
+        expect(controller.canonical_url("https://example.com/en/foo/bar?locale=es", "ca")).to eq("https://example.com/ca/foo/bar")
+      end
+
+      it "requests an url containing part of the language" do
+        expect(controller.canonical_url("https://example.com/english/foo/bar?locale=es", "ca")).to eq("https://example.com/english/foo/bar?locale=ca")
+      end
+
+      it "returns the default locale when it is not a valid locale" do
+        expect(controller.canonical_url("https://example.com/en/foo/bar", "zz")).to eq("https://example.com/en/foo/bar")
+      end
+    end
   end
 end

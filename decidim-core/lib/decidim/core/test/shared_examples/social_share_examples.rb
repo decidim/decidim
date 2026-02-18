@@ -51,6 +51,21 @@ shared_examples "a social share via QR code" do
   let(:parameterized_title) { CGI.escapeHTML(title) }
   let!(:card_image) { nil }
 
+  it "properly generates a resolvable url" do
+    visit_resource
+    click_on "Share"
+
+    execute_script("window.location.href = document.getElementById('urlShareLink').value")
+
+    expect(page).to have_current_path(resource_locator(resource).path, ignore_query: true)
+  end
+
+  context "when the url is malformed" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim.qr_path(resource: "Missing") }
+    end
+  end
+
   it "has the QR code" do
     visit_resource
     click_on "Share"

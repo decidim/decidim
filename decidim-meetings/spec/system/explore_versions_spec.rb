@@ -10,6 +10,7 @@ describe "Explore versions", versioning: true do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
       component_id: component.id,
+      locale: I18n.locale,
       id: meeting.id
     )
   end
@@ -33,6 +34,13 @@ describe "Explore versions", versioning: true do
       title: { en: "My updated title" }
     )
     visit meeting_path
+  end
+
+  context "when showing a version of a meeting that is hidden" do
+    include_examples "a version of a hidden object" do
+      let(:resource_path) { meeting_path }
+      let(:hidden_object) { meeting }
+    end
   end
 
   context "when visiting versions index" do

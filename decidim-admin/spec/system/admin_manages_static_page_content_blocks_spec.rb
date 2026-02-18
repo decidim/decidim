@@ -14,13 +14,13 @@ describe "Admin manages static page content blocks" do
 
   context "when editing a non-persisted content block" do
     it "creates the content block to the db before editing it" do
-      visit decidim_admin.edit_static_page_path(tos_page)
+      visit decidim_admin.edit_static_page_path(tos_page, locale: I18n.locale)
 
       expect(Decidim::ContentBlock.count).to eq 0
 
       within ".edit_content_blocks" do
         click_on "Add content block"
-        within ".add-components" do
+        within "#add-content-block-dropdown" do
           find("a", text: "Summary").click
         end
       end
@@ -38,7 +38,7 @@ describe "Admin manages static page content blocks" do
         number_of_content_blocks.times do
           within ".edit_content_blocks" do
             click_on "Add content block"
-            within ".add-components" do
+            within "#add-content-block-dropdown" do
               find("a", text: "Section").click
             end
           end
@@ -54,7 +54,7 @@ describe "Admin manages static page content blocks" do
     let!(:content_block2) { create(:content_block, organization:, manifest_name: :section, scope_name: :static_page, scoped_resource_id: tos_page.id, settings: { content_en: content2 }) }
 
     it "shows all of them" do
-      visit decidim.page_path(tos_page)
+      visit decidim.page_path(tos_page, locale: I18n.locale)
       expect(page).to have_content(content1)
       expect(page).to have_content(content2)
     end
@@ -75,7 +75,7 @@ describe "Admin manages static page content blocks" do
 
       expect(page).to have_content("Content block successfully deleted")
 
-      visit decidim.page_path(tos_page)
+      visit decidim.page_path(tos_page, locale: I18n.locale)
       expect(page).to have_no_content(content)
     end
   end
@@ -91,7 +91,7 @@ describe "Admin manages static page content blocks" do
                           en: "<p>Custom privacy policy summary text!</p>"
 
       click_on "Update"
-      visit decidim.page_path(tos_page)
+      visit decidim.page_path(tos_page, locale: I18n.locale)
       expect(page).to have_content("Custom privacy policy summary text!")
 
       logout

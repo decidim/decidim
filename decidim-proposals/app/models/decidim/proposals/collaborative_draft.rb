@@ -34,7 +34,7 @@ module Decidim
 
       STATES = { open: 0, published: 10, withdrawn: -1 }.freeze
 
-      enum state: STATES, _default: "open"
+      enum :state, STATES, default: "open"
       scope :except_withdrawn, -> { not_withdrawn.or(where(state: nil)) }
 
       scope_search_multi :with_any_state, [:open, :published, :withdrawn]
@@ -48,11 +48,6 @@ module Decidim
 
       def presenter
         Decidim::Proposals::CollaborativeDraftPresenter.new(self)
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
 
       # Public: Overrides the `reported_attributes` Reportable concern method.

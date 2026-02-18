@@ -10,9 +10,6 @@ es:
         closing_date: Fecha de cierre
         closing_date_reason: Razón de la fecha de cierre
         composition: Composición
-        copy_categories: Copiar categorías
-        copy_components: Copiar componentes
-        copy_features: Copiar funcionalidades
         created_by: Creado por
         created_by_other: Creado por otra
         creation_date: Fecha de creacion
@@ -22,10 +19,13 @@ es:
         developer_group: Grupo promotor
         document: Documento
         domain: Dominio
+        duplicate_categories: Duplicar las categorías
+        duplicate_components: Duplicar los componentes
+        duplicate_features: Duplicar las funcionalidades
         duration: Duración
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
+        has_members: Este espacio de participación tiene miembros
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
@@ -112,13 +112,13 @@ es:
         update:
           error: Se ha producido un error al actualizar esta asamblea.
           success: La asamblea se ha actualizado correctamente.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Se ha producido un error al duplicar esta asamblea.
-          success: Asamblea duplicada correctamente.
-      assembly_copies:
+          success: La asamblea se ha duplicado correctamente.
+      assembly_duplicates:
         new:
-          copy: Copiar
+          duplicate: Duplicar
           select: Selecciona qué datos quieres duplicar
           title: Duplicar asamblea
       assembly_imports:
@@ -170,9 +170,9 @@ es:
           attachments: Adjuntos
           components: Componentes
           info: Acerca de esta asamblea
-          landing_page: Página de inicio
+          landing_page: Disposición de la página de aterrizaje
+          members: Miembros
           moderations: Moderaciones
-          private_users: Miembros
           see_assembly: Ver la asamblea
       models:
         assembly:
@@ -193,6 +193,7 @@ es:
             vice_president: Vicepresidencia
         assembly_user_role:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             role: Rol
@@ -218,9 +219,11 @@ es:
         export: "%{user_name} ha exportado la asamblea %{resource_name}"
         import: "%{user_name} ha importado la asamblea %{resource_name}"
         publish: "%{user_name} publicó la asamblea %{resource_name}"
+        publish_all_members: "%{user_name} publicó todas las miembros de la asamblea %{resource_name}"
         restore: "%{user_name} ha restaurado la asamblea %{resource_name}"
         soft_delete: "%{user_name} ha movido a la papelera la asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó la asamblea %{resource_name}"
+        unpublish_all_members: "%{user_name} despublicó a todas las miembros de la asamblea %{resource_name}"
         update: "%{user_name} actualizó la asamblea %{resource_name}"
       assembly_member:
         create: "%{user_name} creó el miembro %{resource_name} en la asamblea %{space_name}"
@@ -246,12 +249,13 @@ es:
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
+            has_members_help: Podrás crear y publicar miembros
             images: Imágenes
             included_at_help: Selecciona la fecha en la que se añadió esta asamblea a la plataforma. No necesariamente tiene que ser la misma que la fecha de creación.
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             other: Otro
-            private_notice: Podrás administrar las participantes privadas después de configurar el espacio como privado
+            private_notice: Hace que el espacio de participación no sea visible para las visitantes y sólo lo sea para las usuarias miembro (excepto si también es transparente)
             select_a_created_by: Selecciona una creadora
             select_parent_assembly: Selecciona una asamblea madre
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -259,9 +263,9 @@ es:
             taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
-        assembly_copies:
+        assembly_duplicates:
           form:
-            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -376,11 +380,6 @@ es:
           not_found: 'El tipo de asamblea no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
-    metrics:
-      assemblies:
-        description: Número de asambleas creadas
-        object: asambleas
-        title: Asambleas
     open_data:
       help:
         assemblies:
@@ -389,6 +388,7 @@ es:
           assembly_type: El tipo de asamblea
           closing_date: La fecha de cierre de la asamblea
           closing_date_reason: Por qué se cerró la asamblea
+          component_settings: Configuración de los componentes de la asamblea
           composition: La composición de la asamblea
           created_at: La fecha en la que se creó esta asamblea
           created_by: Quién creó esta asamblea
@@ -401,7 +401,6 @@ es:
           facebook_handler: Controlador de redes sociales para Facebook
           follows_count: El número de usuarias que siguen esta asamblea
           github_handler: Controlador de redes sociales para GitHub
-          hashtag: La etiqueta que utiliza la asamblea en Twitter/X
           id: El identificador único del resultado
           included_at: La fecha en que la asamblea fue incluida en la plataforma
           instagram_handler: Controlador de redes sociales para Instagram
@@ -435,6 +434,7 @@ es:
         related_assemblies: Asambleas relacionadas
     statistics:
       assemblies_count: Asambleas
+      assemblies_count_tooltip: El número de asambleas públicas donde se toman las decisiones colectivas.
   layouts:
     decidim:
       assemblies:

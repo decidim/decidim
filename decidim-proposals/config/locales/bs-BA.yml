@@ -7,10 +7,6 @@ bs:
             body:
               cant_be_equal_to_template: ne može biti jednak šablonu
   decidim:
-    admin:
-      filters:
-        search_placeholder:
-          id_string_or_title_cont: Pretraži %{collection} prema identifikacionom broju ili nazivu.
     components:
       proposals:
         settings:
@@ -41,12 +37,6 @@ bs:
             amendments_count: Broj izmena
             comments_count: Broj komentara
             documents: Dokumenti
-            endorsements_count: Broj podržavanja
-            endorsers: Podržavaoci
-            n_more_endorsers:
-              one: i još 1
-              few: i još %{count}
-              other: i još %{count}
             photos: Slike
             ranking: "%{ranking} od %{total}"
             related_meetings: Slični sastanci

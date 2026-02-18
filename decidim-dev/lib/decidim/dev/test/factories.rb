@@ -15,9 +15,10 @@ FactoryBot.define do
     transient do
       skip_injection { false }
       users { nil }
+      organization { create(:organization, skip_injection:) }
     end
     title { generate_localized_title(:dummy_resource_title, skip_injection:) }
-    component { create(:dummy_component, skip_injection:) }
+    component { create(:dummy_component, organization:, skip_injection:) }
     author { create(:user, :confirmed, organization: component.organization, skip_injection:) }
     scope { create(:scope, organization: component.organization, skip_injection:) }
 
@@ -25,11 +26,11 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
-    trait :with_endorsements do
+    trait :with_likes do
       after :create do |resource, evaluator|
         5.times.collect do
-          create(:endorsement, resource:, skip_injection: evaluator.skip_injection,
-                               author: build(:user, organization: resource.component.organization, skip_injection: evaluator.skip_injection))
+          create(:like, resource:, skip_injection: evaluator.skip_injection,
+                        author: build(:user, organization: resource.component.organization, skip_injection: evaluator.skip_injection))
         end
       end
     end

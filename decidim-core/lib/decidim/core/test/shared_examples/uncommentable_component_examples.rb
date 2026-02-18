@@ -29,7 +29,7 @@ shared_examples "an uncommentable component" do
         find("input#input-search").native.send_keys :enter
       end
 
-      expect(page).to have_content("1 Results for the search")
+      expect(page).to have_content("1 results for the search")
     end
 
     it "does not displays the comment when comments are disable" do
@@ -41,7 +41,7 @@ shared_examples "an uncommentable component" do
         find("input#input-search").native.send_keys :enter
       end
 
-      expect(page).to have_content("0 Results for the search")
+      expect(page).to have_content("0 results for the search")
     end
   end
 end

@@ -7,6 +7,12 @@ module Decidim
 
       paths["db/migrate"] = nil
 
+      initializer "decidim_ai.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_ai.resource_classifiers" do |_app|
         Decidim::Ai::SpamDetection.resource_analyzers.each do |analyzer|
           Decidim::Ai::SpamDetection.resource_registry.register_analyzer(**analyzer)

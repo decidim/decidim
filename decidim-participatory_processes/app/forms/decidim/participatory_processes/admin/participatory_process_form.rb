@@ -13,7 +13,6 @@ module Decidim
 
         mimic :participatory_process
 
-        translatable_attribute :announcement, Decidim::Attributes::RichText
         translatable_attribute :description, Decidim::Attributes::RichText
         translatable_attribute :developer_group, String
         translatable_attribute :local_area, String
@@ -25,13 +24,13 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :target, String
 
-        attribute :hashtag, String
         attribute :slug, String
 
         attribute :participatory_process_group_id, Integer
         attribute :related_process_ids, Array[Integer]
         attribute :weight, Integer, default: 0
 
+        attribute :has_members, Boolean
         attribute :private_space, Boolean
         attribute :promoted, Boolean
 
@@ -51,11 +50,16 @@ module Decidim
 
         validates :weight, presence: true
 
+        validates :start_date, date: { before: :end_date, allow_blank: true, if: proc { |obj| obj.end_date.present? } }
+        validates :end_date, date: { after: :start_date, allow_blank: true, if: proc { |obj| obj.start_date.present? } }
+
         alias organization current_organization
 
         def map_model(model)
           self.participatory_process_group_id = model.decidim_participatory_process_group_id
           self.related_process_ids = model.linked_participatory_space_resources(:participatory_process, "related_processes").pluck(:id)
+          self.description = model.presenter.editor_description(all_locales: true)
+          self.short_description = model.presenter.editor_short_description(all_locales: true)
           @processes = Decidim::ParticipatoryProcess.where(organization: model.organization).where.not(id: model.id)
         end
 

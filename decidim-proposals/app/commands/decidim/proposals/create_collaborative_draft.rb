@@ -5,7 +5,6 @@ module Decidim
     # A command with all the business logic when a user creates a new collaborative draft.
     class CreateCollaborativeDraft < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
-      include HashtagsMethods
 
       # Public: Initializes the command.
       #
@@ -61,8 +60,8 @@ module Decidim
           visibility: "public-only"
         ) do
           draft = CollaborativeDraft.new(
-            title: title_with_hashtags,
-            body: body_with_hashtags,
+            title: Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite,
+            body: Decidim::ContentProcessor.parse_with_processor(:inline_images, form.body, current_organization: form.current_organization).rewrite,
             taxonomizations: form.taxonomizations,
             component: form.component,
             address: form.address,

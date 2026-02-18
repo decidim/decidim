@@ -1,6 +1,6 @@
 import "src/decidim/map/factory"
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   // Load the map controller factory method in the document.ready handler to
   // allow overriding it by any script that is loaded before the document is
   // ready.

@@ -49,7 +49,7 @@ describe "Admin filters, searches, and paginates results" do
     end
   end
 
-  context "when searching by ID or title" do
+  context "when searching by title" do
     let!(:result1) do
       create(:result, component: current_component,
                       title: Decidim::Faker::Localized.localized { generate(:title) })
@@ -60,12 +60,6 @@ describe "Admin filters, searches, and paginates results" do
     end
     let!(:result1_title) { translated(result1.title) }
     let!(:result2_title) { translated(result2.title) }
-
-    it "can be searched by ID" do
-      search_by_text(result1.id)
-
-      expect(page).to have_content(result1_title)
-    end
 
     it "can be searched by title" do
       search_by_text(result2_title)

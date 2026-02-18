@@ -100,6 +100,18 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
           end
         end
       end
+
+      context "when a participatory space step has nil end date" do
+        let!(:step) { create(:participatory_process_step, participatory_process: participatory_space, active: true, end_date: nil) }
+
+        it "is not considered to end soon" do
+          expect(subject.voting_ends_soon?).to be(false)
+        end
+
+        it "returns zero as reminder_amount" do
+          expect(subject.reminder_amount).to eq(1)
+        end
+      end
     end
 
     context "when there are multiple pending orders and one new order" do

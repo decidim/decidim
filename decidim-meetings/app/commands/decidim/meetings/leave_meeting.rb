@@ -24,6 +24,7 @@ module Decidim
           destroy_registration
           destroy_questionnaire_responses
           decrement_score
+          promote_from_waitlist!
         end
         broadcast(:ok)
       end
@@ -49,6 +50,14 @@ module Decidim
 
       def decrement_score
         Decidim::Gamification.decrement_score(@user, :attended_meetings)
+      end
+
+      def promote_from_waitlist!
+        return if @meeting.available_slots.zero?
+        return unless @meeting.remaining_slots.positive?
+        return unless @meeting.registrations.on_waiting_list.exists?
+
+        Decidim::Meetings::PromoteFromWaitlistJob.perform_later(@meeting.id)
       end
     end
   end

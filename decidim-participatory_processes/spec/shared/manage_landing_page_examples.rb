@@ -30,7 +30,7 @@ shared_examples "manage landing page examples" do
       expect do
         within ".edit_content_blocks" do
           click_on(text: "Add content block")
-          within ".add-components" do
+          within "#add-content-block-dropdown" do
             find("a", text: "Hero image and CTA", exact_text: true).click
           end
         end
@@ -43,7 +43,7 @@ shared_examples "manage landing page examples" do
       expect do
         within ".edit_content_blocks" do
           click_on(text: "Add content block")
-          within ".add-components" do
+          within "#add-content-block-dropdown" do
             find("a", text: "Hero image and CTA", exact_text: true).click
           end
         end

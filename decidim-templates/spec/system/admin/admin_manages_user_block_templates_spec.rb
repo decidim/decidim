@@ -56,7 +56,7 @@ describe "Admin manages user block templates" do
         page.find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Template created successfully.")
     end
   end
 
@@ -81,7 +81,7 @@ describe "Admin manages user block templates" do
         page.find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Template updated successfully.")
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.block_user_templates_path
@@ -111,7 +111,7 @@ describe "Admin manages user block templates" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("problem")
+      expect(page).to have_callout("There was a problem updating this template.")
     end
   end
 
@@ -124,10 +124,11 @@ describe "Admin manages user block templates" do
 
     it "copies the template" do
       within "tr", text: translated(template.name) do
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Template copied successfully.")
       expect(page).to have_content(template.name["en"], count: 2)
     end
   end
@@ -141,10 +142,11 @@ describe "Admin manages user block templates" do
 
     it "destroys the template" do
       within "tr", text: translated(template.name) do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Template deleted successfully.")
       expect(page).to have_no_i18n_content(template.name)
     end
   end

@@ -18,6 +18,54 @@ module Decidim
         end
       end
 
+      describe "attachments_enabled" do
+        let(:query) { "{ attachmentsEnabled }" }
+
+        it "returns the attachments enabled field" do
+          expect(response["attachmentsEnabled"]).to be_truthy
+        end
+
+        context "when the type has attachments disabled" do
+          let(:model) { create(:initiatives_type, :attachments_disabled) }
+
+          it "returns the attachments enabled field" do
+            expect(response["attachmentsEnabled"]).to be_falsey
+          end
+        end
+      end
+
+      describe "comments_enabled" do
+        let(:query) { "{ commentsEnabled }" }
+
+        it "returns the comments enabled field" do
+          expect(response["commentsEnabled"]).to be_truthy
+        end
+
+        context "when the type has comments disabled" do
+          let(:model) { create(:initiatives_type, :with_comments_disabled) }
+
+          it "returns the attachments enabled field" do
+            expect(response["commentsEnabled"]).to be_falsey
+          end
+        end
+      end
+
+      describe "custom_signature_end_date_enabled" do
+        let(:query) { "{ customSignatureEndDateEnabled }" }
+
+        it "returns the custom_signature_end_date_enabled field" do
+          expect(response["customSignatureEndDateEnabled"]).to be_falsey
+        end
+
+        context "when the type has comments disabled" do
+          let(:model) { create(:initiatives_type, :custom_signature_end_date_enabled) }
+
+          it "returns the custom_signature_end_date_enabled enabled field" do
+            expect(response["customSignatureEndDateEnabled"]).to be_truthy
+          end
+        end
+      end
+
       describe "title" do
         let(:query) { '{ title { translation(locale: "en")}}' }
 
@@ -47,14 +95,6 @@ module Decidim
 
         it "returns all the required fields" do
           expect(response["description"]["translation"]).to eq(model.description["en"])
-        end
-      end
-
-      describe "bannerImage" do
-        let(:query) { "{ bannerImage }" }
-
-        it "returns the banner image field" do
-          expect(response["bannerImage"]).to be_blob_url(model.banner_image.blob)
         end
       end
 

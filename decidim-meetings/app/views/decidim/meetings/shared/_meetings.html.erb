@@ -27,7 +27,7 @@
 <% if component.present? %>
   <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
     <%= link_to t("decidim.meetings.meetings.index.see_all"), meetings_path("filter[with_availability]" => nil), class: "button button__sm button__text-secondary" %>
-  <% else %>
+  <% elsif withdrawn_meetings? %>
     <%= link_to t("decidim.meetings.meetings.index.see_all_withdrawn"), meetings_path("filter[with_availability]" => "withdrawn"), class: "button button__sm button__text-secondary" %>
   <% end %>
 <% end %>

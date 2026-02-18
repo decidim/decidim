@@ -18,7 +18,7 @@ shared_context "when inviting participatory space users" do
     fill_in "Email", with: email
     select role, from: "Role"
     click_on "Create"
-    expect(page).to have_content("successfully added")
+    expect(page).to have_callout(added_callout_message)
     logout :user
   end
 
@@ -28,6 +28,7 @@ shared_context "when inviting participatory space users" do
     visit participatory_space_user_roles_path
 
     within "tr", text: username do
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
   end

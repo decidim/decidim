@@ -3,8 +3,6 @@
 module Decidim
   module Admin
     class Permissions < Decidim::DefaultPermissions
-      include Decidim::UserRoleChecker
-
       def permissions
         return permission_action if managed_user_action?
 
@@ -38,11 +36,13 @@ module Decidim
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
           allow! if read_user_statistics_action?
+          allow! if read_statistics_action?
           allow! if static_page_action?
           allow! if templates_action?
           allow! if organization_action?
           allow! if user_action?
           allow! if admin_user_action?
+          allow! if moderate_user_action?
 
           allow! if permission_action.subject == :component
           allow! if permission_action.subject == :attachment
@@ -53,7 +53,6 @@ module Decidim
           allow! if permission_action.subject == :area
           allow! if permission_action.subject == :area_type
           allow! if permission_action.subject == :officialization
-          allow! if permission_action.subject == :moderate_users
           allow! if permission_action.subject == :authorization
           allow! if permission_action.subject == :authorization_workflow
           allow! if permission_action.subject == :static_page_topic
@@ -147,6 +146,11 @@ module Decidim
           permission_action.action == :read
       end
 
+      def read_statistics_action?
+        permission_action.subject == :statistics &&
+          permission_action.action == :read
+      end
+
       def read_admin_log_action?
         permission_action.subject == :admin_log &&
           permission_action.action == :read
@@ -219,6 +223,19 @@ module Decidim
 
       def admin_user_action?
         return unless permission_action.subject == :admin_user
+
+        target_user = context.fetch(:user, nil)
+
+        case permission_action.action
+        when :destroy, :block
+          target_user != user
+        else
+          true
+        end
+      end
+
+      def moderate_user_action?
+        return unless permission_action.subject == :moderate_users
 
         target_user = context.fetch(:user, nil)
 

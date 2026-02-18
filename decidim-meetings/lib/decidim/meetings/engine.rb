@@ -26,6 +26,8 @@ module Decidim
               get :decline_invitation
               get :join, action: :show
               post :respond
+              get :join_waitlist, action: :show
+              post :join_waitlist
             end
           end
           resources :versions, only: [:show]
@@ -71,7 +73,18 @@ module Decidim
         Decidim.icons.register(name: "bill-line", icon: "bill-line", category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "add-box-line", icon: "add-box-line", category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "calendar-close-line", icon: "calendar-close-line", category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "user-follow-line", icon: "user-follow-line", category: "system", description: "", engine: :meetings)
+      end
+
+      initializer "decidim_meetings.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
+      initializer "decidim_meetings.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Meetings::MeetingsMutationType
+        )
       end
 
       initializer "decidim_meetings.content_processors" do |_app|
@@ -127,7 +140,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_meetings.webpacker.assets_path" do
+      initializer "decidim_meetings.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

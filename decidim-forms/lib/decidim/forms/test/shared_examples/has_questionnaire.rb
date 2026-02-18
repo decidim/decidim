@@ -53,7 +53,7 @@ shared_examples_for "has questionnaire" do
         click_on "Submit"
       end
 
-      expect(page).to have_admin_callout(callout_success)
+      expect(page).to have_callout(callout_success)
 
       visit questionnaire_public_path
       see_questionnaire_questions
@@ -81,7 +81,7 @@ shared_examples_for "has questionnaire" do
         see_questionnaire_questions
         within "label.response-questionnaire__question-label" do
           expect(page).to have_content(translated_attribute(question.body).to_s)
-          within "span.label-required.has-tip" do
+          within "span.label-required" do
             expect(page).to have_content("*")
             expect(page).to have_content("Required field")
           end
@@ -125,7 +125,7 @@ shared_examples_for "has questionnaire" do
         check "questionnaire_tos_agreement"
         accept_confirm { click_on "Submit" }
 
-        expect(page).to have_admin_callout(callout_success)
+        expect(page).to have_callout(callout_success)
 
         visit questionnaire_public_path
         see_questionnaire_questions
@@ -271,7 +271,7 @@ shared_examples_for "has questionnaire" do
       end
 
       it "submits the form and shows errors" do
-        expect(page).to have_admin_callout(callout_failure)
+        expect(page).to have_callout(callout_failure)
         expect(page).to have_content("cannot be blank")
       end
     end
@@ -283,8 +283,9 @@ shared_examples_for "has questionnaire" do
         accept_confirm { click_on "Submit" }
       end
 
-      it "shows errors without submitting the form" do
-        expect(page).to have_no_css ".alert.flash"
+      it "submits the form and shows errors" do
+        expect(page).to have_css ".alert.flash"
+        expect(page).to have_callout(callout_failure)
         different_error = I18n.t("decidim.forms.questionnaires.response.max_choices_alert")
         expect(different_error).to eq("There are too many choices selected")
         expect(page).to have_no_content(different_error)
@@ -318,7 +319,7 @@ shared_examples_for "has questionnaire" do
       end
 
       it "submits the form and shows errors" do
-        expect(page).to have_admin_callout(callout_failure)
+        expect(page).to have_callout(callout_failure)
         expect(page).to have_content("cannot be blank")
       end
     end
@@ -392,7 +393,7 @@ shared_examples_for "has questionnaire" do
           check "questionnaire_tos_agreement"
           accept_confirm { click_on "Submit" }
 
-          expect(page).to have_admin_callout(callout_success)
+          expect(page).to have_callout(callout_success)
           expect(Decidim::Forms::Response.first.choices.first.custom_body).to eq("Cacatua")
         end
 
@@ -407,7 +408,7 @@ shared_examples_for "has questionnaire" do
           check "questionnaire_tos_agreement"
           accept_confirm { click_on "Submit" }
 
-          expect(page).to have_admin_callout("There was a problem responding")
+          expect(page).to have_callout("There was a problem responding")
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", with: "Cacatua")
         end
 
@@ -434,7 +435,7 @@ shared_examples_for "has questionnaire" do
           check "questionnaire_tos_agreement"
           accept_confirm { click_on "Submit" }
 
-          expect(page).to have_admin_callout(callout_success)
+          expect(page).to have_callout(callout_success)
           expect(Decidim::Forms::Response.first.choices.first.custom_body).to eq("Cacatua")
         end
 
@@ -449,7 +450,7 @@ shared_examples_for "has questionnaire" do
           check "questionnaire_tos_agreement"
           accept_confirm { click_on "Submit" }
 
-          expect(page).to have_admin_callout("There was a problem responding")
+          expect(page).to have_callout("There was a problem responding")
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", with: "Cacatua")
         end
 
@@ -501,7 +502,7 @@ shared_examples_for "has questionnaire" do
 
         accept_confirm { click_on "Submit" }
 
-        expect(page).to have_admin_callout(callout_success)
+        expect(page).to have_callout(callout_success)
 
         visit questionnaire_public_path
         see_questionnaire_questions
@@ -530,7 +531,7 @@ shared_examples_for "has questionnaire" do
 
         accept_confirm { click_on "Submit" }
 
-        expect(page).to have_admin_callout(callout_success)
+        expect(page).to have_callout(callout_success)
 
         visit questionnaire_public_path
         see_questionnaire_questions
@@ -557,14 +558,14 @@ shared_examples_for "has questionnaire" do
 
         accept_confirm { click_on "Submit" }
 
-        expect(page).to have_admin_callout("There was a problem responding")
+        expect(page).to have_callout("There was a problem responding")
         expect(page).to have_content("are too many")
 
         uncheck response_options[2]["body"][:en]
 
         accept_confirm { click_on "Submit" }
 
-        expect(page).to have_admin_callout(callout_success)
+        expect(page).to have_callout(callout_success)
       end
     end
 
@@ -607,7 +608,7 @@ shared_examples_for "has questionnaire" do
 
         accept_confirm { click_on "Submit" }
 
-        expect(page).to have_admin_callout(callout_success)
+        expect(page).to have_callout(callout_success)
         expect(Decidim::Forms::Response.first.choices.pluck(:position, :body)).to eq(
           [[0, "We"], [1, "all"], [2, "like"], [3, "dark"], [4, "chocolate"]]
         )
@@ -648,7 +649,7 @@ shared_examples_for "has questionnaire" do
 
         accept_confirm { click_on "Submit" }
 
-        expect(page).to have_admin_callout(callout_success)
+        expect(page).to have_callout(callout_success)
 
         visit questionnaire_public_path
         see_questionnaire_questions
@@ -671,7 +672,7 @@ shared_examples_for "has questionnaire" do
 
         accept_confirm { click_on "Submit" }
 
-        expect(page).to have_admin_callout("There was a problem responding")
+        expect(page).to have_callout("There was a problem responding")
 
         radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
         expect(radio_buttons.pluck(:checked)).to eq([nil, "true", nil, nil])
@@ -690,7 +691,7 @@ shared_examples_for "has questionnaire" do
           check "questionnaire_tos_agreement"
           accept_confirm { click_on "Submit" }
 
-          expect(page).to have_admin_callout("There was a problem responding")
+          expect(page).to have_callout("There was a problem responding")
           expect(page).to have_content("Choices are not complete")
         end
       end
@@ -733,7 +734,7 @@ shared_examples_for "has questionnaire" do
 
         accept_confirm { click_on "Submit" }
 
-        expect(page).to have_admin_callout(callout_success)
+        expect(page).to have_callout(callout_success)
 
         visit questionnaire_public_path
         see_questionnaire_questions
@@ -780,7 +781,7 @@ shared_examples_for "has questionnaire" do
 
           accept_confirm { click_on "Submit" }
 
-          expect(page).to have_admin_callout("There was a problem responding")
+          expect(page).to have_callout("There was a problem responding")
           expect(page).to have_content("are too many")
 
           checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
@@ -789,7 +790,7 @@ shared_examples_for "has questionnaire" do
 
           accept_confirm { click_on "Submit" }
 
-          expect(page).to have_admin_callout(callout_success)
+          expect(page).to have_callout(callout_success)
         end
       end
 
@@ -806,7 +807,7 @@ shared_examples_for "has questionnaire" do
           check "questionnaire_tos_agreement"
           accept_confirm { click_on "Submit" }
 
-          expect(page).to have_admin_callout("There was a problem responding")
+          expect(page).to have_callout("There was a problem responding")
           expect(page).to have_content("Choices are not complete")
         end
       end
@@ -827,7 +828,7 @@ shared_examples_for "has questionnaire" do
           check "questionnaire_tos_agreement"
           accept_confirm { click_on "Submit" }
 
-          expect(page).to have_admin_callout("There was a problem responding")
+          expect(page).to have_callout("There was a problem responding")
 
           checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
           expect(checkboxes.pluck(:checked)).to eq(["true", "true", "true", nil, nil, "true"])
@@ -1374,7 +1375,7 @@ shared_examples_for "has questionnaire" do
 
             accept_confirm { click_on "Submit" }
 
-            expect(page).to have_admin_callout(callout_success)
+            expect(page).to have_callout(callout_success)
           end
         end
       end

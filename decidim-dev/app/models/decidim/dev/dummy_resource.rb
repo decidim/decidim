@@ -20,7 +20,7 @@ module Decidim
       include Paddable
       include Amendable
       include Decidim::NewsletterParticipant
-      include ::Decidim::Endorsable
+      include ::Decidim::Likeable
       include Decidim::HasAttachments
       include Decidim::ShareableWithToken
       include Decidim::TranslatableResource
@@ -42,12 +42,14 @@ module Decidim
 
       component_manifest_name "dummy"
 
-      def presenter
-        Decidim::Dev::DummyResourcePresenter.new(self)
+      alias creator_author author
+
+      def authors
+        [author]
       end
 
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
+      def presenter
+        Decidim::Dev::DummyResourcePresenter.new(self)
       end
 
       def reported_attributes
@@ -76,7 +78,10 @@ module Decidim
 
       # Public: Whether the object can have new comment votes or not.
       def user_allowed_to_vote_comment?(user)
-        component.can_participate_in_space?(user)
+        return false unless accepts_new_comments?
+        return unless component.can_participate_in_space?(user)
+
+        ActionAuthorizer.new(user, "vote_comment", component, self).authorize.ok?
       end
 
       def self.user_collection(user)

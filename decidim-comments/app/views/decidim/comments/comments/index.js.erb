@@ -5,6 +5,7 @@
   var component = $comments.data("comments");
 
   $(".loading-comments").addClass("hidden");
+
   var commentsIds = [];
 <% @comments.each do |comment| %>
   var commentId = <%= comment.id.to_json %>;
@@ -22,6 +23,8 @@
   }
 <% end %>
   if (commentsIds.length) {
+    component.lastCommentId = <%= @comments.last&.id || 0 %>;
+
     Rails.fire(document, "comments:loaded", {
       commentsIds: commentsIds
     });

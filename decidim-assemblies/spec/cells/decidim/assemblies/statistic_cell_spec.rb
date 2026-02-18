@@ -9,7 +9,7 @@ module Decidim::Assemblies
     subject { cell("decidim/statistic", model).call }
 
     context "when rendering participants count" do
-      let(:model) { { stat_title: :participants_count, stat_number: 123 } }
+      let(:model) { { name: :participants_count, data: [123] } }
 
       it "renders the stat wrapper" do
         expect(subject).to have_css("[data-statistic]")
@@ -25,7 +25,7 @@ module Decidim::Assemblies
     end
 
     context "when rendering comments count" do
-      let(:model) { { stat_title: :comments_count, stat_number: 25 } }
+      let(:model) { { name: :comments_count, data: [25] } }
 
       it "renders the stat wrapper" do
         expect(subject).to have_css("[data-statistic]")

@@ -40,7 +40,7 @@ module Decidim
           closed_at: resource.closed_at,
           created_at: resource.created_at,
           updated_at: resource.updated_at,
-          endorsements_count: resource.endorsements_count
+          likes_count: resource.likes_count
         }
       end
 

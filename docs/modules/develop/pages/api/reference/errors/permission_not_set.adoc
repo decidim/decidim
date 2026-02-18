@@ -1,0 +1,46 @@
+= Permission Not Set Error - PERMISSION_NOT_SET_ERROR
+
+This is an error that should not be seen by end users, as this error is being fired when a request passes through a managed permission handler.
+
+The JSON response structure is:
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": "Permission has not been set for this Project",
+      "locations": [
+        {
+          "line": 3,
+          "column": 5
+        }
+      ],
+      "path": [
+        "participatoryProcess",
+        "components",
+        0,
+        "budget",
+        "projects",
+        0
+      ],
+      "extensions": {
+        "code": "PERMISSION_NOT_SET_ERROR"
+      }
+    }
+  ],
+  "data": {
+    "participatoryProcess": {
+      "components": [
+        {
+          "id": "3",
+          "budget": {
+            "projects": [
+              null
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+----

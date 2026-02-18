@@ -2,7 +2,8 @@
 
 def visit_registrations_attendees_page
   within "tr", text: translated(meeting.title) do
-    page.click_on "Registrations"
+    find("button[data-controller='dropdown']").click
+    click_on "Registrations"
   end
   click_on "View registrations"
 end
@@ -34,7 +35,7 @@ shared_examples "manage registrations attendees" do
           click_on "Validate"
         end
 
-        expect(page).to have_admin_callout("Registration code successfully validated")
+        expect(page).to have_callout("Registration code successfully validated")
         within "tr", text: registration.user.email do
           expect(page).to have_content "Attended"
         end
@@ -47,7 +48,7 @@ shared_examples "manage registrations attendees" do
           click_on "Validate"
         end
 
-        expect(page).to have_admin_callout("This registration code is invalid")
+        expect(page).to have_callout("This registration code is invalid")
       end
     end
 
@@ -61,10 +62,11 @@ shared_examples "manage registrations attendees" do
       it "can mark user as attendee" do
         within "tr", text: registration.user.email do
           expect(page).to have_content "Not attended"
-          page.click_on "Mark as attendee"
+          find("button[data-controller='dropdown']").click
+          click_on "Mark as attendee"
         end
 
-        expect(page).to have_admin_callout("Registration marked as attended successfully")
+        expect(page).to have_callout("Registration marked as attended successfully")
 
         within "tr", text: registration.user.email do
           expect(page).to have_content "Attended"
@@ -79,7 +81,7 @@ shared_examples "manage registrations attendees" do
       it "can mark the user as attendee following the QR code short link url" do
         visit registration.validation_code_short_link.short_url
 
-        expect(page).to have_admin_callout("Registration marked as attended successfully")
+        expect(page).to have_callout("Registration marked as attended successfully")
         within "tr", text: registration.user.email do
           expect(page).to have_content "Attended"
         end

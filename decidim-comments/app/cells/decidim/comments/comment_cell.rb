@@ -105,7 +105,7 @@ module Decidim
             "#{icon(action[:icon]) if action[:icon].present?}#{action[:label]}",
             action[:url],
             {
-              class: "dropdown__item"
+              class: "dropdown__button"
             }
           ].tap do |link|
             link[2][:method] = action[:method] if action[:method].present?

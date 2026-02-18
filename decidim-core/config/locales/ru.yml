@@ -95,9 +95,6 @@ ru:
         update: "%{user_name} обновил приложение OAuth %{resource_name}"
       organization:
         update: "%{user_name} обновил настройки организации"
-      participatory_space_private_user:
-        create: "%{user_name} пригласил %{resource_name} стать частным участником"
-        delete: "%{user_name} удалил участника %{resource_name} как приватного участника"
       scope:
         create: "%{user_name} добавил охват %{resource_name}"
         create_with_parent: "%{user_name} создал охват %{resource_name} внутри охвата %{parent_scope}"
@@ -233,8 +230,6 @@ ru:
         name: Последняя активность
         title: Последняя активность
         view_all: Посмотреть всё
-      metrics:
-        name: Метрики организации
       stats:
         name: Статистика организации
       sub_hero:
@@ -379,7 +374,6 @@ ru:
     managed_users:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
-      help: Справка
       home: Главная
     messaging:
       conversation_mailer:
@@ -405,10 +399,8 @@ ru:
       unsubscribe:
         success: Вы успешно отменили подписку.
         token_error: Срок действия ссылки истек.
-        unsubscribe: Отписаться
     newsletters_opt_in_mailer:
       notify:
-        body_1: Обработка персональных данных и их защита становятся все более важными для всех нас. По новому "Общему положению о защите данных" от 25 мая 2018 года люди получают возможность управлять своими личными данными. Поэтому нам нужно ваше согласие, чтобы продолжить отправлять вам свежие новости о деятельности %{organization_name}.
         body_2: 'Как вы можете дать нам свое согласие? Просто нажмите следующую кнопку:'
         body_3: Согласившись, вы сможете продолжить получать сведения об услугах площадки. Если же мы не получим вашего согласия, то мы прекратим отправку наших сообщений. Если вы подтвердите, что хотите получать новости, вы в любой момент потом сможете отказаться от их получения.
         button: Да, я хочу продолжать получать свежие новости
@@ -437,14 +429,9 @@ ru:
           proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
         footer_sub_hero:
           footer_sub_hero_headline: Добро пожаловать на площадку соучастия %{organization}!
-          register: Зарегистрироваться
         hero:
           participate: Принять участие
           welcome: Добро пожаловать в %{organization}!
-        statistics:
-          headline: Текущее состояние %{organization}
-        sub_hero:
-          register: Зарегистрироваться
     profile:
       deleted: Удаленный участник
     profiles:
@@ -456,11 +443,6 @@ ru:
         actions:
           edit_profile: Редактировать профиль
     reported_mailer:
-      hide:
-        hello: Здравствуйте, %{name}!
-        manage_moderations: Управление действиями по модерации
-        report_html: <p>Следующее <a href="%{url}">содержимое</a> было автоматически скрыто.</p>
-        subject: Ресурс был автоматически скрыт
       report:
         hello: Здравствуйте, %{name}!
         report_html: <p>О следующем <a href="%{url}">содержимом</a> была передана жалоба администраторам.</p>
@@ -472,7 +454,6 @@ ru:
       global: Всеобщий охват
       prompt: Выбрать охват
     search:
-      results_found_for_term: '%{count} Результаты поиска: "%{term}"'
       term_input_placeholder: Поиск
     searches:
       filters:
@@ -550,10 +531,8 @@ ru:
         decline: Отклонить приглашение
         hello: Здравствуйте, %{email}!
         invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это приглашение по ссылке ниже."
-        invited_you_as_private_user: "%{invited_by} пригласил вас в качестве частного участника %{application}. Вы можете принять это приглашение по ссылке ниже."
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
-        someone_invited_you_as_private_user: Кто-то пригласил вас в качестве частного участника %{application}, вы можете принять это приглашение по ссылке ниже.
         subject: Инструкция по приглашению
       password_change:
         greeting: Здравствуйте, %{recipient}!
@@ -602,7 +581,6 @@ ru:
       impersonation_warning:
         close_session: Закрыть сеанс
         description_html: Вы выступаете в роли участника <b>%{user_name}</b>.
-        expire_time_html: Срок действия вашего сеанса истекает через <b><span class="minutes">%{minutes}</span> минут</b>.
       notifications_dashboard:
         mark_all_as_read: Отметить все как прочитанные
       user_menu:
@@ -627,7 +605,6 @@ ru:
     fallback: не действует
     name_included_in_password: слишком похож на Ваше имя
     not_enough_unique_characters: не содержит достаточно уникальных символов
-    password_not_allowed: не допускается
     password_too_common: слишком распространен
     password_too_long: слишком длинный
     password_too_short: слишком короткий

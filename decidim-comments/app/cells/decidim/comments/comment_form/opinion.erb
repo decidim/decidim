@@ -1,11 +1,11 @@
 <div>
-  <span class="comment__opinion-label"><%= t("decidim.components.add_comment_form.opinion.label") %></span>
+  <p id="opinion" class="comment__opinion-label"><%= t("decidim.components.add_comment_form.opinion.label") %></p>
   <div data-opinion-toggle class="comment__opinion-container">
-    <button type="button" aria-pressed="false" data-toggle-ok="true" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.positive_selected") %>">
+    <button type="button" aria-pressed="false" aria-describedby="opinion" data-toggle-ok="true" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.positive_selected") %>">
       <span><%= t("decidim.components.comment.alignment.in_favor") %></span>
       <%= icon "thumb-up-line" %>
     </button>
-    <button type="button" aria-pressed="false" data-toggle-ko="true" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.negative_selected") %>">
+    <button type="button" aria-pressed="false" aria-describedby="opinion" data-toggle-ko="true" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.negative_selected") %>">
       <span><%= t("decidim.components.comment.alignment.against") %></span>
       <%= icon "thumb-down-line" %>
     </button>

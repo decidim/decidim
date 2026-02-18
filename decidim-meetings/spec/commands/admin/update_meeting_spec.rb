@@ -30,6 +30,9 @@ module Decidim::Meetings
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
     let(:components) { [] }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 50 }
+    let(:reminder_message_custom_content) { { "en" => "Custom reminder message!", "es" => "Mensaje de recordatorio personalizado", "ca" => "Missatge de recordatori personalitzat" } }
     let(:taxonomizations) do
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
@@ -61,6 +64,9 @@ module Decidim::Meetings
         comments_enabled: true,
         comments_start_time: nil,
         comments_end_time: nil,
+        reminder_enabled:,
+        send_reminders_before_hours:,
+        reminder_message_custom_content:,
         iframe_access_level:,
         components:
       )
@@ -83,6 +89,13 @@ module Decidim::Meetings
       it "sets the taxonomies" do
         subject.call
         expect(meeting.reload.taxonomies).to eq(taxonomizations.map(&:taxonomy))
+      end
+
+      it "sets the reminder settings" do
+        subject.call
+        expect(meeting.reminder_enabled).to eq reminder_enabled
+        expect(meeting.send_reminders_before_hours).to eq send_reminders_before_hours
+        expect(meeting.reminder_message_custom_content).to eq reminder_message_custom_content
       end
 
       it "sets the latitude and longitude" do
@@ -159,6 +172,9 @@ module Decidim::Meetings
             comments_enabled: true,
             comments_start_time: nil,
             comments_end_time: nil,
+            reminder_enabled:,
+            send_reminders_before_hours:,
+            reminder_message_custom_content:,
             iframe_access_level:,
             components:
           )

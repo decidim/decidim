@@ -28,7 +28,7 @@ module Decidim
           it "redirects to the login page" do
             get(:new)
             expect(response).to have_http_status(:found)
-            expect(response.body).to have_text("You are being redirected")
+            expect(response).to redirect_to("/users/sign_in")
           end
         end
       end

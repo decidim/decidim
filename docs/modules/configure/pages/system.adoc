@@ -76,7 +76,7 @@ Enter each one of them in a new line. For instance, "example.com".
 |Required
 |You need to configure at least one language. Decidim is multilingual, meaning that you can have most of the admin
 contents with any number of languages. For seeing other languages you need to configure first the
-xref:configure:initializer.adoc[Decidim's initializer].
+xref:configure:environment_variables.adoc[Decidim's Environment Variables].
 
 |Force authentication
 |Optional
@@ -127,8 +127,8 @@ in multi tenant mode. To learn more, check this https://developer.mozilla.org/en
 ==== Allow participants to register and login
 
 Most of the installations use this setting. Means that everyone can register a participant account and login, without restrictions, only with an email account confirmation.
-You can disable that confirmation also if you want to through xref:configure:initializer.adoc[Decidim's initializer], although we do not recommend doing that,
-as it is a measure for stopping spam accounts.
+You can disable that confirmation also if you want to through xref:configure:environment_variables.adoc.adoc[Decidim's environment variables], although we do not recommend doing that,
+as it is a measure for stopping spam accounts. For additional details, read about `DECIDIM_UNCONFIRMED_ACCESS_FOR` environment variable.
 
 ==== Do not allow participants to register, but allow existing participants to login
 

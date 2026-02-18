@@ -42,8 +42,6 @@ lt:
         available_authorizations: Leidžiamos autorizacijos
         badges_enabled: Aktyvinti ženklelius
         comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
-        cta_button_path: Mygtuko „Raginti imtis veiksmų“ kelias
-        cta_button_text: Mygtuko „Raginti imtis veiksmų“ tekstas
         customize_welcome_notification: Individualizuoti pasisveikinimo pranešimą
         default_locale: Numatytoji lokalė
         description: Aprašymas
@@ -58,13 +56,6 @@ lt:
         header_snippets: Antraštės fragmentai
         highlight_alternative_color: Paryškinti, alternatyva
         highlight_color: Paryškinimai
-        highlighted_content_banner_action_subtitle: Veiksmo mygtuko paantraštė
-        highlighted_content_banner_action_title: Veiksmo mygtuko pavadinimas
-        highlighted_content_banner_action_url: Veiksmo mygtuko URL
-        highlighted_content_banner_enabled: Rodyti paryškintą turinio reklamjuostę
-        highlighted_content_banner_image: Paveikslėlis
-        highlighted_content_banner_short_description: Trumpas aprašymas
-        highlighted_content_banner_title: Pavadinimas
         host: Šeimininkas
         instagram_handler: '„Instagram“ tvarkyklė'
         logo: Logotipas
@@ -95,9 +86,6 @@ lt:
         welcome_notification_body: Pasisveikinimo pranešimo tekstas
         welcome_notification_subject: Pasisveikinimo pranešimo antraštė
         youtube_handler: '„YouTube“ tvarkyklė'
-      participatory_space_private_user:
-        email: El. paštas
-        name: Pavadinimas
       scope:
         code: Kodas
         name: Pavadinimas
@@ -138,10 +126,6 @@ lt:
           attributes:
             official_img_footer:
               allowed_file_content_types: Netinkama vaizdo rinkmena
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Blogai suformuotas importo failas, prašome atidžiai perskaityti instrukcijas ir įsitikinkite, kad failas yra UTF-8 koduotėje.
         user_group_csv_verification:
           attributes:
             file:
@@ -174,16 +158,12 @@ lt:
         attachment_collection:
           new: Naujas priedų aplankas
         browse: Naršyti
-        export: Eksportuoti viską
+        configure: Konfigūruoti
         export-selection: Eksportuoti pasirinktą
         import: Importuoti
-        manage: Valdyti
         newsletter:
           new: Naujas naujienlaiškis
-        participatory_space_private_user:
-          new: Naujas dalyvaujamosios erdvės privatus naudotojas
         per_page: Per puslapį
-        permissions: Leidimai
         send_me_a_test_email: Siųsti man bandomąjį el. laišką
         share: Dalintis
         user:
@@ -369,17 +349,6 @@ lt:
           values:
             'false': Oficializuota
             'true': Neoficializuota
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Pakvietimas priimtas
-            values:
-              'false': Nepriimtas
-              'true': Priimtas
-          user_invitation_sent_at_not_null:
-            label: Pakvietimas išsiųstas
-            values:
-              'false': Neišsiųstas
-              'true': Išsiųstas
         private_space_eq:
           label: Privatus
           values:
@@ -392,11 +361,7 @@ lt:
             'true': Nebeskelbiama
         search_label: Ieškoti
         search_placeholder:
-          name_or_nickname_or_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą ir pavardę arba naudotojo vardą.
           report_count_eq: Raportuoti skaičių
-          reported_id_string_or_reported_content_cont: Ieškoti %{collection} pagal ID arba turinį.
-          title_cont: Ieškoti %{collection} pagal pavadinimą.
-          user_name_or_user_nickname_or_user_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą arba naudotojo vardą.
         state_eq:
           label: Būsena
           values:
@@ -496,7 +461,6 @@ lt:
       logs:
         filters:
           participatory_space: Rasti dalyvaujamąją erdvę
-          text: Ieškoti pagal el. pašto adresą, vardą arba naudotojo vardą.
           user: Naudotojas
         logs_list:
           no_logs_yet: Dar nėra įrašų.
@@ -510,6 +474,10 @@ lt:
             explanation: Tvarkomi dalyviai gali būti paaukštinti į standartinius dalyvius. Tai reiškia, kad jie bus pakviesti į platformą ir nebegalėsite jų tvarkyti. Pakviesti naudotojai gaus kvietimą prisijungti el. paštu.
             new_managed_user_promotion: Naujas tvarkomo naudotojo paaukštinimas
             promote: Paaukštinti
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Įkelkite savo CSV rinkmeną
       menu:
         admin_log: Administratoriaus veiklos žurnalas
         admins: Administratoriai
@@ -520,7 +488,6 @@ lt:
         configuration: Konfigūracija
         content: Turinys, apie kurį pranešta
         help_sections: Pagalbos skyrius
-        homepage: Pradinis puslapis
         impersonations: Įsikūnyjimai
         manage: Valdyti
         moderation: Globalūs moderavimai
@@ -532,9 +499,6 @@ lt:
         settings: Nustatymai
         static_pages: Puslapiai
         users: Dalyviai
-      metrics:
-        metrics:
-          see_more_metrics: Žiūrėti daugiau rodiklių
       models:
         area:
           fields:
@@ -571,8 +535,6 @@ lt:
             sent_to: Išsiųsta
             subject: Tema
           name: Naujienlaiškis
-        participatory_space_private_user:
-          name: Dalivaujamosios erdvės privatus dalyvis
         scope:
           fields:
             name: Vardas
@@ -603,9 +565,11 @@ lt:
         index:
           actions:
             block: Blokuoti naudotoją
+            bulk_actions:
+              unreport:
+                title: Naikinti raportavimą
             title: Veiksmai
             unblock: Atblokuoti naudotoją
-            unreport: Naikinti raportavimą
           name: Vardas
           nickname: Slapyvardis
           reason: Priežastis
@@ -713,7 +677,6 @@ lt:
         index:
           actions: Veiksmai
           badge: Ženkliukas
-          block: Blokuoti naudotoją
           created_at: Sukurta
           name: Vardas
           nickname: Slapyvardis
@@ -722,9 +685,7 @@ lt:
           officialized: Oficializuotas
           reofficialize: Vėl oficializuoti
           reports: Pranešimai
-          show_email: Rodyti el. pašto adresą
           status: Būsena
-          unblock: Atblokuoti naudotoją
           unofficialize: Nebe oficializuoti
         new:
           badge: Oficializacijos ženklas
@@ -754,58 +715,6 @@ lt:
         update:
           error: Atnaujinant šią organizaciją iškilo problema.
           success: Organizacija atnaujinta.
-      organization_appearance:
-        edit:
-          update: Atnaujinti
-        form:
-          colors:
-            choose_color: Pasirinkite pagrindinę spalvą
-            colors_title: Organizacijos spalvos
-            colors_warning_html: Dėmesio! Spalvų pakeitimas gali padaryti puslapį neprieinamu. Norėdami patikrinti spalvų prieinamumą naudokite <a href="%{link}"> WebAIM Contrast Checker </a> arba kitus panašius įrankius.
-            explanation: Šis įrankis padės jums pasirinkti spalvų schemą, sudarytą iš atspalvių, lygiai pasiskirstiusių spalvų rate, kuri bus naudojama organizacijos svetainėje.
-            legend_html: Pagrindinės programos spalvos, remiantis <a href="https://www.color-meanings.com/triadic-colors/">Triadinio algoritmo</a>. <i>Antrinė</i> spalva yra automatiškai apskaičiuojama iš pagrindinės spalvos ir pasirinkto prisotinimo.
-            saturation: Sodrumas
-            title: Spalvų parinkėjas
-            update_suggested_colors: Atnaujinti pasiūlytas spalvas
-          cta_button_text_help: Galite pakeisti pagrindinio numatytojo puslapio mygtuko tekstą priklausomai nuo kalbos. Jei ne, bus naudojamas numatytasis mygtuko tekstas.
-          homepage_appearance_title: Keisti numatytojo puslapio išvaizdą
-          homepage_highlighted_content_banner_title: Paryškinta turinio juosta
-          images:
-            layout_appearance_title: Redaguoti išdėstymą
-            preview: Peržiūra
-          omnipresent_banner_appearance_title: Keisti visur naudojamą reklamjuostę
-      participatory_space_private_users:
-        create:
-          error: Pridedant privatų dalyvį į šia dalyvaujamają erdvę kilo problema.
-          success: Dalyvaujamosios erdvės privataus dalyvio prieiga buvo sukurta sėkmingai.
-        destroy:
-          error: Ištrinant privatų dalyvį iš dalyvaujamosios erdvės kilo problema.
-          success: Dalyvaujamojo proceso erdvės privataus dalyvio prieiga panaikinta.
-        index:
-          import_via_csv: Importuoti iš CSV
-          title: Dalyvaujamosios erdvės privatus dalyvis
-        new:
-          create: Sukurti
-          title: Naujas dalyvaujamosios erdvės privatus dalyvis.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Skaitant CSV failą kilo problema. Prašau įsitikinkite kad sekėte instrukcijas.
-          success: CSV rinkmena įkelta, dalyviams siunčiame kvietimą e. laišku. Tai gali užtrukti.
-        new:
-          csv_upload:
-            title: Įkelkite savo CSV rinkmeną
-          destroy:
-            button: Ištrinti visus privačius dalyvius
-            confirm: Ar tikrai norite ištrinti visus privačius dalyvius? Atlikus šį veiksmą nebebus įmanoma sugražinti šių dalyvių į platformą.
-            empty: Neturite privačių dalyvių.
-            explanation: Turite %{count} privačių dalyvių.
-            title: Ištrinti privačius dalyvius
-          example_file: 'Pavyzdinė rinkmena:'
-          explanation: 'Įkelkite CSV dokumentą. Jis turi turėti du stulpelius su naudotojų el. paštu pirmajame ir vardu paskutiniąjame. Dokumente neturėtų būti laukų pavadinimų ir šių simbolių naudotojų varduose "<>?%&^*#@()[]=+:;"{}\|".'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          upload: Įkelti
       reminders:
         create:
           error: Kuriant priminimus iškilo problema.
@@ -876,8 +785,6 @@ lt:
           error: Atnaujinant šią temą iškilo problema.
           success: Tema atnaujinta
       static_pages:
-        actions:
-          view: Peržiūrėti viešą puslapį
         create:
           error: Kuriant naują puslapį iškilo problema.
           success: Puslapis sukurtas.
@@ -905,17 +812,13 @@ lt:
         areas: Aplinkos
         authorization_workflows: Verifikacijos metodai
         dashboard: Švieslentė
-        edit_landing_page: Puslapio turinys
-        edit_organization_appearance: Keisti pagrindinio puslapio išvaizdą
         impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
         impersonations: Dalyvių tvarkymas
-        metrics: Duomenys
         pages: Puslapiai
         panel: Administratorius
         participants: Dalyviai
         scope_types: Apimties tipai
         scopes: Apimtys
-        statistics: Veikla
         users: Administratoriai
       users:
         create:
@@ -937,22 +840,11 @@ lt:
           last_day: Paskutinė diena
           last_month: Praėjusį mėnesį
           last_week: Praėjusią savaitę
-          no_users_count_statistics_yet: Dar nėra dalyvių skaičiaus statistinių duomenų.
           participants: Dalyviai
     forms:
       errors:
         impersonate_user:
           reason: Tvarkydami dalyvio, kurio duomenys netvarkomi, duomenis, turite nurodyti priežastį.
-    metrics:
-      blocked_users:
-        object: užblokuoti naudotojai
-        title: Užblokuoti naudotojai
-      reported_users:
-        object: raportuoti naudotojai
-        title: Raportuoti naudotojai
-      user_reports:
-        object: vartotojo pranešimai
-        title: Naudotojo pranešimai
     moderations:
       actions:
         expand: Išplėsti
@@ -960,8 +852,6 @@ lt:
         hide: Slėpti
         not_hidden: Nepaslėpta
         title: Veiksmai
-        unhide: Nebeslėpti
-        unreport: Panaikinti raportavimą
       admin:
         reportable:
           hide:

@@ -9,6 +9,7 @@ module Decidim
       include FilterResource
       include Paginable
       include HasParticipatorySpaceContentBlocks
+      include ParticipatoryProcessBreadcrumb
 
       helper_method :collection,
                     :promoted_collection,
@@ -33,7 +34,7 @@ module Decidim
       private
 
       def search_collection
-        ParticipatoryProcess.where(organization: current_organization).published.visible_for(current_user)
+        published_processes.query
       end
 
       def default_filter_params

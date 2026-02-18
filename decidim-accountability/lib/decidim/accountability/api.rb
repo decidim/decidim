@@ -5,6 +5,6 @@ module Decidim
     autoload :AccountabilityType, "decidim/api/accountability_type"
     autoload :ResultType, "decidim/api/result_type"
     autoload :StatusType, "decidim/api/status_type"
-    autoload :TimelineEntryType, "decidim/api/timeline_entry_type"
+    autoload :MilestoneType, "decidim/api/milestone_type"
   end
 end

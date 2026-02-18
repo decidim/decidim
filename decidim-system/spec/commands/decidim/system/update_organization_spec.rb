@@ -18,6 +18,7 @@ module Decidim
           let(:params) do
             {
               name: { en: "Gotham City" },
+              short_name: { en: "GothamCity" },
               host: "decide.example.org",
               secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
               force_users_to_authenticate_before_access_organization: false,
@@ -123,6 +124,34 @@ module Decidim
               expect(translated(organization.name)).to eq("Gotham City")
               expect(organization.omniauth_settings).to be_nil
             end
+          end
+        end
+
+        describe "when header snippets are configured" do
+          let(:params) do
+            {
+              name: { en: "Gotham City" },
+              short_name: { en: "GothamCity" },
+              host: "decide.example.org",
+              users_registration_mode: "existing",
+              file_upload_settings: params_for_uploads(upload_settings),
+              header_snippets: "<script>alert('Hello world')</script>"
+            }
+          end
+          let(:upload_settings) do
+            Decidim::OrganizationSettings.default(:upload)
+          end
+
+          before do
+            allow(Decidim).to receive(:enable_html_header_snippets).and_return(true)
+          end
+
+          it "saves header snippets" do
+            expect { command.call }.to broadcast(:ok)
+            organization.reload
+
+            expect(organization.header_snippets).to be_present
+            expect(organization.header_snippets).to eq("<script>alert('Hello world')</script>")
           end
         end
 

@@ -10,6 +10,7 @@ shared_examples "manage impersonations examples" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
+    clear_enqueued_jobs
   end
 
   context "when the organization does not have any authorization available" do
@@ -34,7 +35,7 @@ shared_examples "manage impersonations examples" do
     end
 
     it "shows a success message" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("The managed participant has been successfully created.")
     end
 
     context "when no name is provided" do
@@ -42,7 +43,7 @@ shared_examples "manage impersonations examples" do
 
       it "shows a validation error message" do
         expect(page).to have_no_content("successfully")
-        expect(page).to have_content("There are errors on the form")
+        expect(page).to have_content("There is an error in this field")
       end
     end
 
@@ -116,7 +117,7 @@ shared_examples "manage impersonations examples" do
     it "closes the current session and check the logs" do
       click_on "Close session"
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("The current impersonation session has been successfully ended.")
 
       check_impersonation_logs
     end
@@ -138,7 +139,11 @@ shared_examples "manage impersonations examples" do
       travel (Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes / 2) + 1.second
       visit current_path
       expect(page).to have_content("expired")
-      expect(page).to have_link("Impersonate")
+
+      within "tr", text: impersonated_user.name do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_link("Impersonate")
+      end
     end
 
     it "can impersonate again after an impersonation session expiration" do
@@ -146,7 +151,10 @@ shared_examples "manage impersonations examples" do
 
       navigate_to_impersonations_page
 
-      expect(page).to have_link("Impersonate")
+      within "tr", text: impersonated_user.name do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_link("Impersonate")
+      end
     end
   end
 
@@ -228,7 +236,7 @@ shared_examples "manage impersonations examples" do
 
           it "saves the reason in the impersonation logs" do
             click_on "Close session"
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("The current impersonation session has been successfully ended.")
 
             check_impersonation_logs
             expect(page).to have_content("We are on a meeting and want to do a collaborative session in the pope's name.")
@@ -248,6 +256,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       within "tr", text: managed_user.name do
+        find("button[data-controller='dropdown']").click
         click_on "Promote"
       end
 
@@ -257,7 +266,7 @@ shared_examples "manage impersonations examples" do
 
       perform_enqueued_jobs { click_on "Promote" }
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("The managed participant has been successfully promoted.")
       expect(page).to have_content(managed_user.name)
 
       logout :user
@@ -270,7 +279,7 @@ shared_examples "manage impersonations examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Your password was set successfully. You are now signed in.")
       within_user_menu do
         click_on "My public profile"
       end
@@ -282,6 +291,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       within "tr", text: managed_user.name do
+        find("button[data-controller='dropdown']").click
         expect(page).to have_no_link("Promote")
       end
     end
@@ -342,6 +352,7 @@ shared_examples "manage impersonations examples" do
     navigate_to_impersonations_page
 
     within "tr", text: user.name do
+      find("button[data-controller='dropdown']").click
       click_on "Impersonate"
     end
 
@@ -361,6 +372,7 @@ shared_examples "manage impersonations examples" do
 
   def check_impersonation_logs
     within "tr", text: impersonated_user.name do
+      find("button[data-controller='dropdown']").click
       click_on "View logs"
     end
 

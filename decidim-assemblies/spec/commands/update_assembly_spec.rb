@@ -35,7 +35,6 @@ module Decidim::Assemblies
             subtitle_es: my_assembly.subtitle,
             weight: my_assembly.weight,
             slug: my_assembly.slug,
-            hashtag: my_assembly.hashtag,
             meta_scope: my_assembly.meta_scope,
             promoted: my_assembly.promoted,
             description_en: my_assembly.description,
@@ -64,7 +63,6 @@ module Decidim::Assemblies
             instagram_handler: my_assembly.instagram_handler,
             youtube_handler: my_assembly.youtube_handler,
             github_handler: my_assembly.github_handler,
-            announcement: my_assembly.announcement,
             taxonomies: [taxonomy.id, taxonomizations.first.taxonomy.id]
           }.merge(attachment_params)
         }

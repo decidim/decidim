@@ -14,6 +14,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
 
     context "when one authorization has been configured" do
       let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
+      let!(:homepage_content_block) { create(:content_block, organization:, scope_name: :homepage, manifest_name: :how_to_participate) }
 
       before do
         sign_in
@@ -39,9 +40,9 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
         click_on "Example authorization"
 
         click_on "start exploring"
-        expect(page).to have_current_path decidim.account_path
+        expect(page).to have_current_path decidim.root_path
 
-        expect(page).to have_content("Participant settings")
+        expect(page).to have_content("How do I take part in a process?")
       end
 
       context "and a duplicate authorization exists for an existing user" do

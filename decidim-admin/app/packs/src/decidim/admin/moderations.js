@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $moderationDetails = $(".moderation-details");
   const $toggleContentButton = $moderationDetails.find(".toggle-content");
   const $reportedContent = $moderationDetails.find(".reported-content");

@@ -31,6 +31,10 @@ module Decidim
         def resource_content_block_cell
           "decidim/participatory_processes/content_block"
         end
+
+        def content_blocks_title
+          t("decidim.admin.menu.participatory_processes_submenu.landing_page")
+        end
       end
     end
   end

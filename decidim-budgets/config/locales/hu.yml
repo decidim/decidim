@@ -31,10 +31,7 @@ hu:
               'true': Nem került kiválasztva megvalósításra
     budgets:
       actions:
-        attachment_collections: Mappák
-        attachments: Mellékletek
         edit: Szerkesztés
-        edit_projects: Projektek kezelése
         import: Javaslatok importálása projektekhez
         new_budget: Új költségvetés
         new_project: Új projekt
@@ -64,8 +61,6 @@ hu:
         exports:
           projects: Projektek
         models:
-          budget:
-            name: Költségvetés
           project:
             name: Projekt
         projects:
@@ -108,7 +103,6 @@ hu:
           new:
             create: Javaslatok importálása projektekbe
             default_budget: Alapértelmezett költségvetés
-            import_all_accepted_proposals: Minden elfogadott javaslat importálása
             no_components: Ebben a részvételi térben nincs más javaslat-összetevő a javaslatok projektekbe való importálásához.
             origin_component_id: A komponens származása
             select_component: Válassz ki egy elemet
@@ -159,12 +153,13 @@ hu:
             total_budget: Teljes költségvetés
         project:
           fields:
-            id: Azonosító
             map: Térkép
             title: Cím
       order:
         status:
           title: A szavazatod elfogadása sikeres volt
+      order_pdf:
+        title: A szavazatodat sikeresen leadtad.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Az általad kiválasztott projektek a következők:'
@@ -188,7 +183,6 @@ hu:
             title: Projektek maximuma túllépve
         budget_summary:
           are_you_sure: Biztosan szeretnéd visszavonni a szavazatod?
-          cancel_order: töröld a szavazatod és kezdd újra
           checked_out:
             description: 'Már szavaztál a költségvetésre. Ha meggondoltad magad, kattints ide: %{cancel_link}.'
             title: Költségvetési szavazás befejeződött
@@ -214,18 +208,8 @@ hu:
           assigned: Hozzárendelt
           budget: Költségvetés
           dynamic_help:
-            keep_adding_projects: További projektek hozzáadása
             minimum_reached: Elérted a minimumot a szavazáshoz
-            start_adding_projects: Kezdj el projekteket hozzáadni
           minimum: Minimum
-          minimum_projects_rule:
-            description: Válassz lekevesebb %{minimum_number} projektet és szavazz a preferenciád szerint a költségvetésük meghatározására.
-          projects_rule:
-            description: Válassz ki legkevesebb %{minimum_number} és legfeljebb %{maximum_number} projektet és szavazz a költségvetés meghatározásához preferenciáid szerint.
-          projects_rule_maximum_only:
-            description: Válassz ki maximum %{maximum_number} projektet és szavazz a preferenciádis szerint a költségvetés meghatározásához.
-          vote_threshold_percent_rule:
-            description: Rendelj hozzá legalább %{minimum_budget} projektet, és szavazz a prefereniáid szerint a költségvetés meghatározásához.
         orders:
           highest_cost: Legmagasabb költség
           label: Projektek rendezése
@@ -247,7 +231,6 @@ hu:
           added: Hozzáadva
           all: Összes
         projects_for: '%{name} projektek'
-        select_projects: Projektek kiválasztása
         show:
           budget: Költségvetés
       prompt: Költségvetés választása
@@ -306,13 +289,6 @@ hu:
               disabled: Szavazás letiltva
               enabled: Szavazás engedélyezve
               finished: A szavazás véget ért
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'A(z) %{resource_title} költségvetés mostantól aktív itt: %{participatory_space_title}. Ezen az oldalon láthatja:'
-          email_outro: Azért kapta ezt az értesítést, mert a %{participatory_space_title}-t követi. Az értesítések küldését leállíthatja az előző linkkel.
-          email_subject: 'A(z) %{resource_title} költségvetés mostantól aktív itt: %{participatory_space_title}.'
-          notification_title: 'A(z)<a href="%{resource_path}">%{resource_title}</a> költségvetés mostantól aktív a következő helyen: %{participatory_space_title}.'
     orders:
       checkout:
         error: Hiba történt a szavazatod feldolgozása során.
@@ -324,6 +300,5 @@ hu:
         project_proposal: A projekt részét képező javaslatok
     statistics:
       orders_count: Támogatja
-      projects_count: Projektek
   index:
     confirmed_orders_count: Szavazatok száma

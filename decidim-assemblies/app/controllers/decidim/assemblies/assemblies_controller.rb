@@ -51,7 +51,7 @@ module Decidim
       private
 
       def search_collection
-        Assembly.where(organization: current_organization).published.visible_for(current_user)
+        published_assemblies.query
       end
 
       def default_filter_params

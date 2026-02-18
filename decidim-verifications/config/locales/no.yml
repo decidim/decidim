@@ -88,19 +88,11 @@
         start_exploring: begynn å utforske
       csv_census:
         admin:
-          destroy:
-            title: Slett alle folketellingsdata
           index:
-            empty: Det er ingen data for folketellingen. Bruk skjemaet nedenfor for å importere det ved hjelp av en CSV-fil.
             title: Nåværende folketelling data
           instructions:
             body: For å gjøre dette må du gå inn i systemadministrasjon og legge til cvs_census autoriseringen til organisasjonen
             title: Du må aktivere CSV-tellingen for denne organisasjonen
-          new:
-            file: ".csv fil med e-postdata"
-            info: 'Må være en fil i CSV-format med bare en kolonne med e-postadressen:'
-            submit: Last opp fil
-            title: Last opp en ny folketelling
         authorizations:
           new:
             error: Vi kunne ikke bekrefte kontoen din, eller du er ikke i organisasjonens folketelling.

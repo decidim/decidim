@@ -24,8 +24,6 @@ ga:
       organization:
         alert_color: Foláireamh
         favicon: Deilbhín
-        highlighted_content_banner_image: Íomhá
-        highlighted_content_banner_title: Teideal
         host: Óstach
         logo: Lógó
         name: Ainm
@@ -64,8 +62,8 @@ ga:
       actions:
         add: Cuir leis
         browse: Brabhsáil
+        export: Easpórtáil
         import: Iompórtáil
-        manage: Bainistigh
         per_page: In aghaidh an leathanach
         share: Roinn
       area_types:
@@ -127,13 +125,6 @@ ga:
             label: Cineál
         officialized_at_null:
           label: Staid
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            values:
-              'true': Glactha
-          user_invitation_sent_at_not_null:
-            values:
-              'true': Seolta
         private_space_eq:
           label: Príobháideach
           values:
@@ -175,7 +166,6 @@ ga:
       menu:
         admins: Riaracháin
         areas: Ceantair
-        homepage: Leathanach baile
         manage: Bainistigh
         scopes: Scóip
         settings: Socruithe
@@ -230,8 +220,10 @@ ga:
       moderated_users:
         index:
           actions:
+            bulk_actions:
+              unreport:
+                title: Cuir ar ceal tuairisc
             title: Gníomhartha
-            unreport: Cuir ar ceal tuairisc
           name: Ainm
           nickname: Leasainm
           reason: Cúis
@@ -281,18 +273,6 @@ ga:
           social_handlers: Sóisialta
           url: URL
           youtube: YouTube
-      organization_appearance:
-        edit:
-          update: Nuashonraigh
-        form:
-          images:
-            preview: Réamhamharc
-      participatory_space_private_users:
-        new:
-          create: Cruthaigh
-      participatory_space_private_users_csv_imports:
-        new:
-          upload: Uaslódáil
       resource_permissions:
         edit:
           submit: Deimhnigh
@@ -315,7 +295,6 @@ ga:
       titles:
         areas: Ceantair
         authorization_workflows: Modhanna deimhnithe
-        metrics: Méadrachtaí
         panel: Riarachán
         scopes: Scóip
       users:
@@ -334,8 +313,6 @@ ga:
         hidden: Ceilte
         hide: Cuir i bhfolach
         title: Gníomhartha
-        unhide: Nocht
-        unreport: Cuir ar ceal tuairisc
       models:
         moderation:
           fields:

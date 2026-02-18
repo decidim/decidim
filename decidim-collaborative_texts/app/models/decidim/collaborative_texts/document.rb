@@ -13,17 +13,21 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Searchable
+      include Decidim::Coauthorable
 
       component_manifest_name "collaborative_texts"
 
       after_save :save_version
 
-      has_many :document_versions, class_name: "Decidim::CollaborativeTexts::Version", dependent: :destroy
+      has_many :document_versions, class_name: "Decidim::CollaborativeTexts::Version", inverse_of: :document, dependent: :destroy
+      has_many :suggestions, through: :document_versions
 
       validates :title, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
-      delegate :body, :body=, to: :current_version
+
+      delegate :organization, :participatory_space, to: :component
+      delegate :draft?, :draft, :draft=, :body, :body=, to: :current_version
 
       searchable_fields(
         participatory_space: { component: :participatory_space },
@@ -54,6 +58,14 @@ module Decidim
       # This model needs to have the document_versions synchronized always
       def restore
         super(recursive: true)
+      end
+
+      def has_suggestions?
+        current_version.suggestions.any?
+      end
+
+      def suggestions_enabled?
+        published? && accepting_suggestions? && !draft?
       end
 
       private

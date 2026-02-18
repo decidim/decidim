@@ -622,18 +622,18 @@ describe "Proposals" do
       end
     end
 
-    context "when ordering by 'most_endorsed'" do
-      let!(:most_endorsed_proposal) { create(:proposal, component:, created_at: 1.month.ago) }
-      let!(:endorsements) do
+    context "when ordering by 'most_liked'" do
+      let!(:most_liked_proposal) { create(:proposal, component:, created_at: 1.month.ago) }
+      let!(:likes) do
         3.times.collect do
-          create(:endorsement, resource: most_endorsed_proposal, author: build(:user, organization:))
+          create(:like, resource: most_liked_proposal, author: build(:user, organization:))
         end
       end
-      let!(:less_endorsed_proposal) { create(:proposal, component:) }
+      let!(:less_liked_proposal) { create(:proposal, component:) }
 
-      it_behaves_like "ordering proposals by selected option", "Most endorsed" do
-        let(:first_proposal) { most_endorsed_proposal }
-        let(:last_proposal) { less_endorsed_proposal }
+      it_behaves_like "ordering proposals by selected option", "Most liked" do
+        let(:first_proposal) { most_liked_proposal }
+        let(:last_proposal) { less_liked_proposal }
       end
     end
 
@@ -645,6 +645,22 @@ describe "Proposals" do
       it_behaves_like "ordering proposals by selected option", "With more authors" do
         let(:first_proposal) { most_authored_proposal }
         let(:last_proposal) { less_authored_proposal }
+      end
+    end
+
+    context "when there are no proposals with coauthors" do
+      let!(:proposals) { create_list(:proposal, 3, component:) }
+
+      before do
+        visit_component
+      end
+
+      it "does not show 'with_more_authors' ordering option" do
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          expect(page).to have_no_content("With more authors")
+        end
       end
     end
 

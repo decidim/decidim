@@ -13,7 +13,7 @@ module Decidim
           <<~HEAD
                         <script type="text/javascript">
 
-                        document.addEventListener("DOMContentLoaded", function() {
+                        document.addEventListener("turbo:load", function() {
                           window.mapIndex = 1;
                           L.tileLayer = function(url, config) {
                             var urlId = "tile_layer_url" + window.mapIndex;

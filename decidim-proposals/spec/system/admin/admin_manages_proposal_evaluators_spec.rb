@@ -56,6 +56,7 @@ describe "Admin manages proposals evaluators" do
       end
 
       it "displays log" do
+        sleep 1
         visit decidim_admin.root_path
         expect(page).to have_content("assigned the #{translated(proposal.title)} proposal to a evaluator")
       end
@@ -107,8 +108,8 @@ describe "Admin manages proposals evaluators" do
       expect(page).to have_content(translated(unassigned_proposal.title))
 
       within ".filters__section" do
-        find("a.dropdown", text: "Filter").hover
-        find("a", text: "Assigned to evaluator").hover
+        find("a", text: "Filter").click
+        find("a", text: "Assigned to evaluator").click
         find("a", text: evaluator.name).click
       end
 
@@ -202,6 +203,7 @@ describe "Admin manages proposals evaluators" do
 
       visit current_path
       within "tr", text: translated(proposal.title) do
+        find("button[data-controller='dropdown']").click
         click_on "Answer proposal"
       end
     end

@@ -22,6 +22,9 @@ module Decidim
         it "unsubscribes user" do
           user.newsletter_notifications_at = nil
           user.save!
+
+          user.reload
+          expect(user.newsletter_notifications_at).to be_nil
         end
 
         it "broadcasts ok" do

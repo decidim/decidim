@@ -33,6 +33,11 @@ sv:
       help_section:
         content: Innehåll
       id: ID
+      member:
+        email: E-post
+        name: Namn
+      member_csv_import:
+        file: Fil
       newsletter:
         body: Innehåll
         send_to_all_users: Skicka till alla deltagare
@@ -45,8 +50,6 @@ sv:
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
         comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
-        cta_button_path: Uppmaningens knappsökväg
-        cta_button_text: Uppmaningens knapptext
         customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning
@@ -61,13 +64,6 @@ sv:
         header_snippets: HTML header snippets
         highlight_alternative_color: Alternativ accentfärg
         highlight_color: Accentfärg
-        highlighted_content_banner_action_subtitle: Undertitel på knapp
-        highlighted_content_banner_action_title: Titel på knapp
-        highlighted_content_banner_action_url: URL för knapp
-        highlighted_content_banner_enabled: Visa bannern för utvalt innehåll
-        highlighted_content_banner_image: Bild
-        highlighted_content_banner_short_description: Kort beskrivning
-        highlighted_content_banner_title: Titel
         host: Host
         instagram_handler: Instagram-namn
         logo: Logo
@@ -99,11 +95,6 @@ sv:
         welcome_notification_body: Välkomstmeddelande
         welcome_notification_subject: Välkomstmeddelandets ämnesrad
         youtube_handler: YouTube-namn
-      participatory_space_private_user:
-        email: E-post
-        name: Namn
-      participatory_space_private_user_csv_import:
-        file: Fil
       scope:
         code: Kod
         name: Namn
@@ -133,10 +124,17 @@ sv:
         show_in_footer: Visa i sidfoten
         title: Titel
         weight: Position i listan
+      taxonomy:
+        item_name: Objektnamn
+        parent_id: Överordnad
       user_group_csv_verification:
         file: Fil
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Felaktig importfil, läs igenom anvisningarna noga och se till att filen är UTF-8 kodad.
         newsletter:
           attributes:
             base:
@@ -145,10 +143,6 @@ sv:
           attributes:
             official_img_footer:
               allowed_file_content_types: Ogiltig bildfil
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Fel format, läs igenom instruktionerna noga och se till att filen är UTF-8 kodad.
         user_group_csv_verification:
           attributes:
             file:
@@ -175,12 +169,17 @@ sv:
   decidim:
     admin:
       actions:
+        actions: Åtgärder
+        actions_label: Åtgärder för %{resource}
         add: Lägg till
         attachment:
           new: Ny bifogad fil
         attachment_collection:
           new: Ny mapp för bilagor
+        attachment_collections: Lägg till mapp
+        attachments: Lägg till bilaga
         browse: Bläddra
+        configure: Konfigurera
         confirm_delete_component: |
           Är du säker på att du vill ta bort komponenten?<br>
           Komponenten innehåller:<br>
@@ -188,21 +187,22 @@ sv:
             <li class="font-bold">%{resources_count} resurser</li>
           </ul>
           Om du ändrar dig, du kan återställa det senare.
-        export: Exportera allt
+        export: Exportera
         export-selection: Exportera markerade
         import: Importera
-        manage: Hantera
+        member:
+          new: Ny medlem
+        menu_hidden: Dölj från menyn
+        moderate: Hantera modereringar
         newsletter:
           new: Nytt nyhetsbrev
-        participatory_space_private_user:
-          new: Ny privat deltagare i deltagarutrymme
         per_page: Per sida
-        permissions: Behörigheter
+        permissions: Hantera behörigheter
         restore: Återställ
         send_me_a_test_email: Skicka ett testmeddelande till mig
         share: Dela
-        share_tokens: Åtkomstlänkar
-        soft_delete: Mjuk radering
+        share_tokens: Dela länk
+        soft_delete: Flytta till papperskorgen
         user:
           new: Ny administratör
         view_deleted_components: Visa borttagna komponenter
@@ -301,7 +301,7 @@ sv:
           title: Blockera användare
         new:
           action: Blockera konto och skicka motivering
-          already_reported_html: Fortsätter du kommer även alla deltagares innehåll att döljas.
+          already_reported_html: Fortsätter du kommer även deltagarens innehåll att döljas.
           description: Om du blockerar en användare blir kontot oanvändbart. Du kan skriva en motivering och riktlinjer för vad som krävs för att häva blockeringen.
           justification: Motivering
           title: Blockera användare %{name}
@@ -354,7 +354,7 @@ sv:
         attempts: Försök
         'false': 'Nej'
         index:
-          text: Sök efter e-post, namn eller användarnamn.
+          text: Sök efter e-post, namn eller användarnamn
         managed_user_name: Hanterad användare
         solved: Löst
         title: Verifieringskonflikter
@@ -395,7 +395,7 @@ sv:
         form:
           domain_too_short: Domännamnet är för kort
         update:
-          error: Kunde inte uppdatera listan med tillåtna externa domännamn
+          error: Kunde inte uppdatera listan med tillåtna externa domännamn.
           success: Listan med tillåtna externa domännamn har uppdaterats.
       exports:
         export_as: "%{name} som %{export_format}"
@@ -417,6 +417,17 @@ sv:
           values:
             'false': 'Nej'
             'true': 'Ja'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Inbjudan accepterades
+            values:
+              'false': Inte tackat ja
+              'true': Tackat ja
+          user_invitation_sent_at_not_null:
+            label: Inbjudan har skickats
+            values:
+              'false': Inte skickat
+              'true': Skickad
         moderated_users:
           reports_reason_eq:
             label: Anledning till anmälan
@@ -432,17 +443,6 @@ sv:
           values:
             'false': Har officiell status
             'true': Ej gjord officiell
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Inbjudan accepterades
-            values:
-              'false': Ej godkänd
-              'true': Godkänd
-          user_invitation_sent_at_not_null:
-            label: Inbjudan skickad
-            values:
-              'false': Ej skickad
-              'true': Skickad
         private_space_eq:
           label: Privat
           values:
@@ -456,11 +456,11 @@ sv:
         remove_all: Ta bort allt
         search_label: Sök
         search_placeholder:
-          name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
+          name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn
           report_count_eq: Antal rapporteringar
-          reported_id_string_or_reported_content_cont: Sök i %{collection} efter rapporteringens Id eller innehåll.
-          title_cont: Sök i %{collection} efter titel.
-          user_name_or_user_nickname_or_user_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
+          reported_id_string_or_reported_content_cont: Sök %{collection} efter anmälnings-id eller innehåll
+          title_cont: Sök i %{collection} efter titel
+          user_name_or_user_nickname_or_user_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn
         state_eq:
           label: Status
           values:
@@ -477,6 +477,10 @@ sv:
             explanation: 'Instruktioner för fil:'
             message_1: Filformaten CSV, JSON och Excel (.xlsx) stöds
             message_2: För CSV-filer ska avgräsningen mellan kolumner vara semikolon (";")
+          import_csv:
+            explanation: 'Instruktioner för fil:'
+            message_1: CSV-filer stöds
+            message_2: ".csv-fil med e-postuppgifter"
       help_sections:
         error: Det gick inte att uppdatera hjälpsidorna.
         form:
@@ -555,7 +559,7 @@ sv:
       logs:
         filters:
           participatory_space: Hitta deltagarutrymme
-          text: Sök efter e-post, namn eller användarnamn.
+          text: Sök efter e-post, namn eller användarnamn
           user: Användare
         logs_list:
           no_logs_yet: Det finns inga loggar än.
@@ -571,6 +575,13 @@ sv:
             explanation: Hanterade deltagare kan befordras till vanliga deltagare. Det innebär att de kommer att bli inbjudna till programmet och du kommer inte att kunna hantera dem igen. Den inbjudna deltagaren får ett e-brev om att godkänna inbjudan.
             new_managed_user_promotion: Befordra ny hanterad användare
             promote: Befordra
+      members:
+        create:
+          error: Det gick inte att lägga till en deltagare till processen.
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Skicka CSV-fil
       menu:
         admin_log: Aktivitetslogg
         admins: Administratörer
@@ -582,8 +593,8 @@ sv:
         content: Rapporterat innehåll
         external_domain_allowlist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
-        homepage: Startsida
         impersonations: Uppträd som
+        insights: Insikter
         manage: Hantera
         moderation: Moderering
         newsletters: Nyhetsbrev
@@ -596,12 +607,10 @@ sv:
         share_tokens: Åtkomstlänkar
         static_page_topics: Ämnesområden
         static_pages: Sidor
+        statistics: Statistik
         taxonomies: Kategorisering
         taxonomy_filters: Kategorifilter
         users: Deltagare
-      metrics:
-        metrics:
-          see_more_metrics: Se fler mätvärden
       models:
         area:
           fields:
@@ -638,8 +647,6 @@ sv:
             sent_to: Skickat till
             subject: Ämne
           name: Nyhetsbrev
-        participatory_space_private_user:
-          name: Deltagare i privat deltagarutrymme
         scope:
           fields:
             name: Namn
@@ -688,7 +695,7 @@ sv:
               update_moderated_user_button: Avrapportera användare
             title: Åtgärder
             unblock: Avblockera användare
-            unreport: Ta bort rapport
+            unreport: Ångra rapporten
           cancel: Avbryt
           name: Namn
           nickname: Användarnamn
@@ -712,10 +719,10 @@ sv:
               title: Dölj
               update_moderation_button: Dölj valda resurser
             unhide:
-              title: Sluta dölja
+              title: Ångra döljande
               update_moderation_button: Sluta dölja valda resurser
             unreport:
-              title: Avrapportera
+              title: Ångra rapporten
               update_moderation_button: Avrapportera valda resurser
           cancel: Avbryt
           selected: valda
@@ -725,6 +732,7 @@ sv:
             does_not_belong: Opassande
             hidden_during_block: Dold när deltagaren är blockerad
             offensive: Stötande
+            parent_hidden: Överordnat innehåll har dolts
             spam: Skräppost
         reports:
           index:
@@ -842,7 +850,7 @@ sv:
         index:
           actions: Åtgärder
           badge: Märke
-          block: Blockera användare
+          block: Blockera
           created_at: Skapad
           name: Namn
           nickname: Användarnamn
@@ -851,9 +859,10 @@ sv:
           officialized: Har officiell status
           reofficialize: Ge officiell status igen
           reports: Rapporter
-          show_email: Visa e-postadress
+          send_message: Skicka meddelande
+          show_email: Visa e-post
           status: Status
-          unblock: Avblockera användare
+          unblock: Avblockera
           unofficialize: Återkalla officiell status
         new:
           badge: Officiellt märke
@@ -874,41 +883,33 @@ sv:
           title: Redigera organisation
           update: Uppdatera
         form:
+          admin_terms_of_service: Användarvillkor för administratörer
+          basic_configuration: Grundläggande inställningar
+          colors:
+            choose_color: Välj primär färg
+            colors_title: Organisationens färger
+            colors_warning_html: Varning! Att ändra färgerna kan påverka tillgängligheten. Du kan kontrollera kontrasterna i ditt val med <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> eller andra liknande verktyg.
+            explanation: Det här verktyget hjälper dig att välja ett färgschema till webbplatsen, som består av olika nyanser jämnt fördelade runt ett färghjul.
+            legend_html: Huvudsakliga applikationsfärger, baserat på en <a href="https://www.color-meanings.com/triadic-colors/"> algoritm med tre färger</a>. Färgen <i>sekundär</i> beräknas automatiskt från den primära färgen och den mättnad du valde.
+            saturation: Mättnad
+            title: Färgväljare
+            update_suggested_colors: Uppdatera valda färger
+          extra_features: Extrafunktioner
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Organisationens logotyper
+            preview: Förhandsvisning
           rich_text_editor_in_public_views_help: I vissa textområden kommer deltagarna att kunna infoga några HTML-taggar med hjälp av textredigeraren.
           social_handlers: Sociala medier
           twitter: X
           url: URL
+          welcome_notification: Välkomstmeddelande
           youtube: Youtube
         update:
           error: Det gick inte att uppdatera organisationen.
           success: Organisationen har uppdaterats.
-      organization_appearance:
-        edit:
-          update: Uppdatera
-        form:
-          colors:
-            choose_color: Välj primär färg
-            colors_title: Organisationens färger
-            colors_warning_html: Varning! Att ändra färgerna kan påverka tillgängligheten. Du kan kontrollera kontrasterna med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
-            explanation: Det här verktyget hjälper dig att välja ett färgschema till webbplatsen, som består av olika nyanser jämnt fördelade runt ett färghjul.
-            legend_html: Huvudsakliga applikationsfärger, baserat på en <a href="https://www.color-meanings.com/triadic-colors/">triadisk algoritm</a>. Färgen <i>sekundär</i> beräknas automatiskt från den primära färgen och den mättnad du valde.
-            saturation: Mättnad
-            title: Färgväljare
-            update_suggested_colors: Uppdatera föreslagna färger
-          cta_button_path_help_html: 'Du kan ändra vad Call To Action-knappen på startsidan länkar till. Använd relativa sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Knappen visas på startsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
-          cta_button_text_help: Du kan ha separata texter på Call to Action-knappen på startsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Call to Action-knappen visas på startsidan mellan välkomsttexten och beskrivningen.
-          header_snippets:
-            header_snippets_help_html: Använd det här fältet för att göra tillägg till HTML-huvudet. Den vanligaste användningen är för att integrera tredjepartstjänster som kräver extra JavaScript eller CSS. Du kan också använda den för att lägga till extra metataggar till HTML. Observera att detta endast kommer att visas på offentliga sidor, inte i admin-sektionen. Om koden interagerar med externa API:er eller inte följer webbplatsens säkerhetsriktlinjer behöver du ändra säkerhetspolicyn. Läs mer <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">på dokumentationssidan</a>.
-            title: HTML header snippets
-          homepage_appearance_title: Redigera startsidans utseende
-          homepage_highlighted_content_banner_title: Banner med utvalt innehåll
-          images:
-            layout_appearance_title: Redigera layout
-            preview: Förhandsgranska
-          omnipresent_banner_appearance_title: Redigera banner på alla sidor
       organization_external_domain_allowlist:
         edit:
           update: Uppdatera
@@ -920,53 +921,6 @@ sv:
         form:
           add: Lägg till i lista över tillåtna domännamn
           title: Tillåtna externa domäner
-      participatory_space_private_users:
-        create:
-          error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
-          success: Åtkomst för privat deltagare till deltagarutrymmet har skapats.
-        destroy:
-          error: Det gick inte att ta bort en privat deltagare från deltagarutrymmet.
-          success: Åtkomsten för privat deltagare till deltagarutrymmet har tagits bort.
-        edit:
-          title: Redigera privat deltagare i deltagarutrymme.
-          update: Uppdatera
-        index:
-          import_via_csv: Importera via CSV
-          publish_all: Publicera alla
-          title: Privat deltagare i deltagarutrymme
-          unpublish_all: Avpublicera alla
-        new:
-          create: Skapa
-          title: Ny privat deltagare i deltagarutrymme.
-        publish_all:
-          error: Det gick inte att publicera alla privata deltagare i deltagarutrymmet.
-          success: Publicerade alla privata deltagare för deltagarutrymmet
-        unpublish_all:
-          error: Det gick inte att avpublicera alla privata deltagare i deltagarutrymmet.
-          success: Avpublicerade alla privata deltagare för deltagarutrymmet
-        update:
-          error: Det gick inte att uppdatera den privata deltagaren i deltagarutrymmet.
-          success: Privat deltagare i deltagarutrymmet har uppdaterats
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Det gick inte att läsa CSV-filen. Kontrollera att du har följt instruktionerna.
-          success: CSV-filen har laddats upp och vi skickar en inbjudan med e-post till deltagarna. Det kan ta en stund.
-        new:
-          csv_upload:
-            title: Ladda upp din CSV-fil
-          destroy:
-            button: Radera alla privata deltagare
-            confirm: Är du säker på att du vill radera alla privata deltagare? Den här åtgärden kan inte ångras.
-            empty: Det finns inga privata deltagare.
-            explanation: Det finns %{count} privata deltagare.
-            title: Radera privata deltagare
-          example_file: 'Exempelfil:'
-          explanation: 'Skicka din CSV-fil. Den behöver ha två kolumner för användare som du vill lägga till, utan rubriker, med e-postadressen i den första kolumnen och namnet i den sista kolumnen. Undvik specialtecken som `<>?%&^*#@()[]=+:;"{}\|` i användarnamn.'
-          explanation_example: |
-            jon.andersson@example.org%{csv_col_sep}Jon Andersson
-            jenny.andersson@example.org%{csv_col_sep}Jenny Andersson
-          title: Importera privata deltagare från en CSV-fil
-          upload: Skicka
       reminders:
         create:
           error: Det gick inte att skapa påminnelser.
@@ -1081,13 +1035,14 @@ sv:
           title: Redigera ämne
           update: Uppdatera ämne
         new:
+          create: Nytt ämnesområde
           title: Nytt ämne
         update:
           error: Det gick inte att uppdatera ämnet.
           success: Ämnet har uppdaterats
       static_pages:
         actions:
-          view: Visa offentlig sida
+          view: Visa
         create:
           error: Det gick inte att skapa en ny sida.
           success: Sidan har skapats.
@@ -1104,6 +1059,7 @@ sv:
         index:
           last_notable_change: Senaste större ändring
         new:
+          create: Ny sida
           title: Ny sida
         topic:
           empty: Det här ämnesområdet har inga sidor.
@@ -1114,9 +1070,9 @@ sv:
       taxonomies:
         actions:
           actions: Åtgärder
-          destroy: Ta bort kategorisering & kategorier
-          edit: Redigera kategorisering & kategorier
-          filters: Hantera filter
+          destroy: Radera
+          edit: Redigera
+          filters: Tillämpa filter
         breadcrumb:
           edit: Redigera kategorisering
           new: Ny kategorisering
@@ -1228,23 +1184,21 @@ sv:
         authorization_workflows: Verifieringsmetoder
         dashboard: Adminpanel
         edit_external_domains: Tillåtna externa domäner
-        edit_landing_page: Sidans innehåll
-        edit_organization_appearance: Redigera startsidans utseende
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         menu: Meny
-        metrics: Deltagande i siffror
         page_topics: Ämnesområden
         pages: Sidor
         panel: Administratör
         participants: Deltagare
         scope_types: Typer av indelningar
         scopes: Indelningar
-        statistics: Aktivitet
+        statistics: Statistik
         taxonomies: Kategorier
         taxonomy_filters: Kategorifilter för "%{taxonomy}"
         users: Administratörer
       tooltips:
+        deleted_attachment_collections_info: Kan inte ta bort denna mapp eftersom den har bilagor.
         deleted_component_info: Komponenten kan endast tas bort om statusen är 'avpublicerad'.
       trash_management:
         restore:
@@ -1279,25 +1233,16 @@ sv:
       errors:
         impersonate_user:
           reason: Du måste ange en anledning för att hantera av en icke-hanterad användare.
-    metrics:
-      blocked_users:
-        object: blockerade användare
-        title: Blockerade användare
-      reported_users:
-        object: rapporterade användare
-        title: Rapporterade användare
-      user_reports:
-        object: användarrapporter
-        title: Användarrapporter
     moderations:
       actions:
         expand: Expandera
         hidden: Dold
         hide: Dölj
         not_hidden: Inte dold
+        parent_hidden: Du kan inte visa innehållet eftersom dess överordnade innehåll fortfarande är dolt.
         title: Åtgärder
-        unhide: Sluta dölja
-        unreport: Ta bort rapport
+        unhide: Ångra döljande
+        unreport: Ångra rapporten
       admin:
         reportable:
           bulk_action:
@@ -1321,6 +1266,7 @@ sv:
             success: Innehållet har dolts.
           unhide:
             invalid: Det gick inte att sluta dölja innehållet.
+            parent_invalid: Det gick inte att visa innehållet. Överordnat innehåll är dolt.
             success: Innehållet är inte längre dolt.
           unreport:
             invalid: Det gick inte att ta bort rapporten om innehållet.
@@ -1351,5 +1297,7 @@ sv:
       admin:
         global_moderations:
           title: Global moderering
+        insights:
+          title: Insikter
         taxonomy_filters_selector:
           title: Filter

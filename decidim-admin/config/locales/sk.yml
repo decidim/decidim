@@ -30,8 +30,6 @@ sk:
       organization:
         alert_color: Upozornenie
         badges_enabled: Povoliť odznaky
-        cta_button_path: URL odkaz na tlačítko Výzva do akcie
-        cta_button_text: Text tlačítka Výzva do akcie
         customize_welcome_notification: Prispôsobte uvítanie
         default_locale: Predvolený jazyk
         description: Popis
@@ -40,13 +38,6 @@ sk:
         favicon: Ikona
         github_handler: GitHub handler
         header_snippets: Krátke kódy v HTML hlavičke
-        highlighted_content_banner_action_subtitle: Podnadpis tlačítka Akcie
-        highlighted_content_banner_action_title: Nadpis tlačítka Akcie
-        highlighted_content_banner_action_url: Odkaz tlačítka Akcie
-        highlighted_content_banner_enabled: Zobraziť banner so zvýrazneným obsahom
-        highlighted_content_banner_image: Obrázok
-        highlighted_content_banner_short_description: Krátky popis
-        highlighted_content_banner_title: Názov
         instagram_handler: Instagram handler
         logo: Logo
         name: Meno
@@ -116,9 +107,9 @@ sk:
       actions:
         add: Pridať
         browse: Prechádzať
-        manage: Správa
+        configure: Konfigurovať
+        export: Exportovať
         per_page: Na stranu
-        permissions: Práva
       area_types:
         create:
           error: Pri tvorbe nového typu oblasti nastala chyba.
@@ -238,9 +229,6 @@ sk:
             'false': Zverejnené
             'true': Nepublikované
         search_label: Hľadať
-        search_placeholder:
-          name_or_nickname_or_email_cont: Hľadať {collection} podľa e-mailu, mena alebo prezývky.
-          title_cont: Hľadať %{collection} podľa titulku.
       help_sections:
         form:
           save: Uložiť
@@ -285,6 +273,10 @@ sk:
             explanation: Spravovaní účastníci môžu byť povýšení na štandardných účastníkov. To znamená, že budú pozvaní do aplikácie, a už ich nebudete môcť spravovať. Pozvaný účastník obdrží e-mail s Vašou pozvánkou.
             new_managed_user_promotion: Povýšenie nového spravovaného účastníka
             promote: Povýšiť
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Nahrať súbor CSV
       menu:
         admin_log: Záznam aktivity administrátora
         admins: Administrátori
@@ -293,7 +285,6 @@ sk:
         areas: Oblasti
         configuration: Konfigurácia
         help_sections: Sekcie Pomoci
-        homepage: Domovská stránka
         impersonations: Vydávanie sa za používateľa
         manage: Správa
         newsletters: Spravodaje
@@ -303,9 +294,6 @@ sk:
         settings: Nastavenia
         static_pages: Stránky
         users: Účastníci
-      metrics:
-        metrics:
-          see_more_metrics: Zobraziť viac metrík
       models:
         area:
           fields:
@@ -342,8 +330,6 @@ sk:
             sent_to: Odoslané
             subject: Predmet
           name: Spravodaj
-        participatory_space_private_user:
-          name: Účastníci participatívnych procesov
         scope:
           fields:
             name: Meno
@@ -437,7 +423,6 @@ sk:
           officialize: Oficializovať
           officialized: Oficializovaní
           reofficialize: Znovu oficializovať
-          show_email: Ukázať e-mailovú adresu
           status: Stav
           unofficialize: Zneoficiálniť
         new:
@@ -463,35 +448,6 @@ sk:
         update:
           error: Pri aktualizácii organizácie došlo k chybe.
           success: Organizácia úspešne aktualizovaná.
-      organization_appearance:
-        edit:
-          update: Aktualizovať
-        form:
-          colors:
-            colors_title: Farby organizácie
-          cta_button_text_help: Môžete prepísať tlačidlo Výzva do Akcie pre každý dostupný jazyk Vašej organizácie. Ak to nespravíte, bude použitý primárny jazyk. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom.
-          homepage_appearance_title: Upraviť vzhľad úvodnej obrazovky
-          homepage_highlighted_content_banner_title: Banner so zdôrazneným obsahom
-          images:
-            layout_appearance_title: Upraviť vzhľad 
-          omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
-      participatory_space_private_users:
-        create:
-          error: Pri pridávaní súkromného používateľa pre tento participačný priestor došlo k chybe.
-          success: Participatívny priestor bol sprístupnený súkromnému užívateľovi.
-        destroy:
-          error: Pri vymazaní súkromného používateľa pre tento participačný priestor došlo k chybe.
-          success: Participatívny priestor bol zneprístupnený súkromnému užívateľovi.
-        index:
-          title: Súkromný účastník participatívneho priestoru
-        new:
-          create: Vytvoriť
-          title: Nový súkromný účastník participatívneho priestoru.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Nahrať súbor CSV
-          upload: Nahrať
       resource_permissions:
         edit:
           submit: Potvrdiť
@@ -544,8 +500,6 @@ sk:
           error: Pri aktualizácii témy nastala chyba.
           success: Téma úspešne aktualizovaná
       static_pages:
-        actions:
-          view: Zobraziť verejnú stránku
         create:
           error: Pri tvorbe novej stránky nastala chyba.
           success: Nová stránka úspešne vytvorená.
@@ -572,11 +526,9 @@ sk:
         dashboard: Hlavný panel
         impersonatable_users: Spravovateľní účastníci
         impersonations: Správa účastníkov
-        metrics: Metriky
         participants: Účastníci
         scope_types: Typy rozsahov
         scopes: Rozsahy
-        statistics: Aktivita
       users:
         create:
           error: Pri pozývaní administrátora nastal problém.
@@ -603,8 +555,6 @@ sk:
         hide: Skryť
         not_hidden: Neskryté
         title: Akcie
-        unhide: Odkryť
-        unreport: Zrušiť nahlásenie
       admin:
         reportable:
           hide:

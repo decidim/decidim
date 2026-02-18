@@ -167,12 +167,12 @@ module Decidim
         end
       end
 
-      context "when a text field with hashtaggable option" do
+      context "with a single text field" do
         let(:output) do
           available_locales.each do |loc|
             resource.name[loc] = "dummy name value #{loc}"
           end
-          builder.translated :text_field, :name, hashtaggable: true
+          builder.translated :text_field, :name
         end
 
         it "renders a multilingual input with correct value" do
@@ -220,9 +220,9 @@ module Decidim
         end
       end
 
-      context "with an editor field hashtaggable" do
+      context "with a editor field" do
         let(:output) do
-          builder.translated :editor, :short_description, hashtaggable: true
+          builder.translated :editor, :short_description
         end
 
         it "renders a tabbed input hidden for each field and a container for the editor" do
@@ -244,7 +244,7 @@ module Decidim
           let(:available_locales) { %w(en) }
 
           it "renders a single input and a container for the editor" do
-            expect(parsed.css(".editor-container.js-hashtags").count).to eq 1
+            expect(parsed.css(".editor-container").count).to eq 1
             expect(parsed.css(".editor input[type='hidden'][name='resource[short_description_en]']")).not_to be_empty
             expect(parsed.css(".editor label")).not_to be_empty
             expect(parsed.css(".editor .editor-container")).not_to be_empty
@@ -285,16 +285,6 @@ module Decidim
         end
 
         it_behaves_like "having a help text"
-      end
-    end
-
-    describe "#hashtaggable_text_field" do
-      let(:output) do
-        builder.hashtaggable_text_field :text_field, :name, "en", { autofocus: true, class: "js-hashtags", label: false }
-      end
-
-      it "renders" do
-        expect(parsed.css("input#resource_name_en")).not_to be_empty
       end
     end
 
@@ -715,7 +705,7 @@ module Decidim
           let(:present?) { true }
 
           it "renders the filename" do
-            expect(output).to include(%(<a href="#{url}">#{filename}</a>))
+            expect(output).to include(%(<a class="w-full break-all mb-2" href="#{url}">#{filename}</a>))
           end
 
           it "does not render an image tag" do
@@ -816,6 +806,46 @@ module Decidim
             expect(I18n).not_to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
             output
           end
+        end
+      end
+
+      context "with errors on the field" do
+        let(:attributes) { {} }
+        let(:output) { builder.upload :image, attributes }
+
+        before do
+          allow(resource).to receive(:errors).and_return(image: ["cannot be blank"])
+        end
+
+        it "renders error and help text after the upload cell" do
+          expect(parsed.css(".form-error")).not_to be_empty
+        end
+
+        it "renders the error message" do
+          expect(parsed.css(".form-error").text).to include("cannot be blank")
+        end
+      end
+
+      context "with help_text option" do
+        let(:attributes) { { help_text: "Upload a valid image file" } }
+        let(:output) { builder.upload :image, attributes }
+
+        it "renders help text after the upload cell" do
+          expect(parsed.css(".help-text")).not_to be_empty
+          expect(parsed.css(".help-text").text).to include("Upload a valid image file")
+        end
+      end
+
+      context "when the field is required" do
+        let(:attributes) { { required: true } }
+        let(:output) { builder.upload :image, attributes }
+
+        it "renders the HTML5 validation error element outside the modal" do
+          expect(parsed.css("span.form-error")).not_to be_empty
+        end
+
+        it "renders the error element with data-form-error-for linking to the validation field" do
+          expect(parsed.css("span.form-error[data-form-error-for='image_validation']")).not_to be_empty
         end
       end
     end

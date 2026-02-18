@@ -19,8 +19,8 @@ module Decidim
           allow!
         when :edit
           can_edit_debate?
-        when :endorse
-          can_endorse_debate?
+        when :like
+          can_like_debate?
         when :close
           can_close_debate?
         end
@@ -31,6 +31,8 @@ module Decidim
       private
 
       def can_create_debate?
+        return false unless user
+
         authorized?(:create) &&
           current_settings&.creation_enabled? && component.participatory_space.can_participate?(user)
       end
@@ -47,7 +49,7 @@ module Decidim
         disallow!
       end
 
-      def can_endorse_debate?
+      def can_like_debate?
         return disallow! if debate.closed?
 
         allow!

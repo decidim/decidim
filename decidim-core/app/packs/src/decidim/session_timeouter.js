@@ -1,6 +1,6 @@
 import dayjs from "dayjs"
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   let sessionTimeOutEnabled = true;
   const $timeoutModal = $("#timeoutModal");
   const timeoutInSeconds = parseInt($timeoutModal.data("session-timeout"), 10);

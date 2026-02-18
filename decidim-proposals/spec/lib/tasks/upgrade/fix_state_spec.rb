@@ -11,7 +11,7 @@ describe "rake decidim_proposals:upgrade:fix_state", type: :task do
 
     before do
       proposal_state = proposal.proposal_state = Decidim::Proposals::ProposalState.where(component: component2).first
-      proposal.update!(proposal_state: proposal_state)
+      proposal.update!(proposal_state:)
     end
 
     it "does not throw an exception" do
@@ -24,7 +24,7 @@ describe "rake decidim_proposals:upgrade:fix_state", type: :task do
 
     before do
       proposal_state = proposal.proposal_state = Decidim::Proposals::ProposalState.where(component: component2).first
-      proposal.update!(proposal_state: proposal_state)
+      proposal.update!(proposal_state:)
     end
 
     it "sets the state of the correct component" do

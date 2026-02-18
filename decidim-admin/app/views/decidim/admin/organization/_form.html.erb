@@ -1,92 +1,10 @@
 <div class="form__wrapper">
-  <div class="card pt-4">
-    <div class="card-section">
-      <div class="row column">
-        <div class="columns">
-          <%= form.translated :text_field, :name %>
-        </div>
 
-        <div class="columns">
-          <div class="label--tabs">
-            <label for="organization_social_handlers">
-              <%= t(".social_handlers") %>
-            </label>
-            <ul class="tabs tabs--lang" data-tabs id="organization_social_handlers">
-              <% first_handler = Decidim::Organization::SOCIAL_HANDLERS.first %>
-              <% Decidim::Organization::SOCIAL_HANDLERS.each do |handler| %>
-                <li class="tabs-title <%= " is-active" if handler == first_handler %>">
-                  <a href="#<%= handler %>" <% if handler == first_handler %> aria-selected="true" <% end %>>
-                    <%= t(".#{handler}") %>
-                  </a>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-          <div class="tabs-content" data-tabs-content="organization_social_handlers">
-            <% Decidim::Organization::SOCIAL_HANDLERS.each do |handler| %>
-              <div class="tabs-panel <%= " is-active" if handler == first_handler %>" id="<%= handler %>"
-                aria-hidden="<% if handler == first_handler %>false<% else %>true<% end %>">
-                <%= form.text_field "#{handler}_handler", label: false %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
+  <%= render partial: "decidim/admin/organization/form/basic_configuration", locals: { form: } %>
+  <%= render partial: "decidim/admin/organization/form/logos", locals: { form: } %>
+  <%= render partial: "decidim/admin/organization/form/colors", locals: { form: } %>
+  <%= render partial: "decidim/admin/organization/form/welcome_notification", locals: { form: } %>
+  <%= render partial: "decidim/admin/organization/form/admin_terms_of_service", locals: { form: } %>
+  <%= render partial: "decidim/admin/organization/form/extra_features", locals: { form: } %>
 
-      <div class="row column">
-        <%= form.collection_select :default_locale, localized_locales(current_organization.available_locales), :id, :name %>
-      </div>
-
-      <div class="row column">
-        <%= form.time_zone_select :time_zone %>
-      </div>
-
-      <div class="row column">
-        <%= form.text_field :reference_prefix %>
-      </div>
-
-      <div class="row column">
-        <%= form.check_box :badges_enabled %>
-      </div>
-
-      <div class="row column">
-        <%= form.check_box :enable_participatory_space_filters %>
-      </div>
-
-      <% if Decidim.config.enable_machine_translations %>
-        <div class="row column">
-          <%= form.check_box :enable_machine_translations %>
-        </div>
-
-        <div class="row column">
-          <%= form.label :machine_translation_display_priority, t("activemodel.attributes.organization.machine_translation_display_priority") %>
-            <%= form.collection_radio_buttons :machine_translation_display_priority, form.object.machine_translation_priorities, :first, :last %>
-        </div>
-      <% end %>
-
-      <div class="row column">
-        <%= form.text_field :comments_max_length %>
-      </div>
-
-      <div class="row column">
-        <%= form.check_box :rich_text_editor_in_public_views, help_text: t(".rich_text_editor_in_public_views_help") %>
-      </div>
-
-      <div class="row column" id="welcome-notification-details">
-        <%= form.check_box :send_welcome_notification %>
-        <div class="send-welcome-notification-details">
-          <%= form.check_box :customize_welcome_notification %>
-
-          <div class="customize-welcome-notification-details">
-            <%= form.translated :text_field, :welcome_notification_subject, aria: { label: :welcome_notification_subject } %>
-            <%= form.translated :editor, :welcome_notification_body, aria: { label: :welcome_notification_body } %>
-          </div>
-        </div>
-      </div>
-
-      <div class="row column">
-        <%= form.translated :editor, :admin_terms_of_service_body, aria: { label: :admin_terms_of_service_body } %>
-      </div>
-    </div>
-  </div>
 </div>

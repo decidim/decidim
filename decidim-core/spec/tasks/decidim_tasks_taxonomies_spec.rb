@@ -178,13 +178,13 @@ describe "Executing Decidim Taxonomy importer tasks" do
         ]
       )
 
-      check_message_printed("Creating a plan for organization #{decidim_organization_id}")
-      check_message_printed("...Exporting taxonomies for decidim_participatory_process_types")
-      check_message_printed("...Exporting taxonomies for decidim_assemblies_types")
-      check_message_printed("...Exporting taxonomies for decidim_scopes")
-      check_message_printed("...Exporting taxonomies for decidim_areas")
-      check_message_printed("...Exporting taxonomies for decidim_categories")
-      check_message_printed("Plan created")
+      expect($stdout.string).to include("Creating a plan for organization #{decidim_organization_id}")
+      expect($stdout.string).to include("...Exporting taxonomies for decidim_participatory_process_types")
+      expect($stdout.string).to include("...Exporting taxonomies for decidim_assemblies_types")
+      expect($stdout.string).to include("...Exporting taxonomies for decidim_scopes")
+      expect($stdout.string).to include("...Exporting taxonomies for decidim_areas")
+      expect($stdout.string).to include("...Exporting taxonomies for decidim_categories")
+      expect($stdout.string).to include("Plan created")
     end
 
     context "when the IMPORT env var is set" do
@@ -196,13 +196,13 @@ describe "Executing Decidim Taxonomy importer tasks" do
         task.reenable
         task.invoke
 
-        check_message_printed("Creating a plan for organization #{decidim_organization_id}")
+        expect($stdout.string).to include("Creating a plan for organization #{decidim_organization_id}")
         expect($stdout.string).not_to include("...Exporting taxonomies for decidim_participatory_process_types")
         expect($stdout.string).not_to include("...Exporting taxonomies for decidim_assemblies_types")
-        check_message_printed("...Exporting taxonomies for decidim_scopes")
-        check_message_printed("...Exporting taxonomies for decidim_areas")
+        expect($stdout.string).to include("...Exporting taxonomies for decidim_scopes")
+        expect($stdout.string).to include("...Exporting taxonomies for decidim_areas")
         expect($stdout.string).not_to include("...Exporting taxonomies for decidim_categories")
-        check_message_printed("Plan created")
+        expect($stdout.string).to include("Plan created")
       end
     end
   end
@@ -224,12 +224,12 @@ describe "Executing Decidim Taxonomy importer tasks" do
     it "imports the plan for all organizations" do # rubocop:disable RSpec/ExampleLength
       expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(21)
 
-      check_message_printed("Importing plan from #{plan_file}")
-      check_message_printed("Importing plan from #{another_plan_file}")
-      check_message_printed("Importing taxonomies and filters for organization #{decidim_organization_id}")
-      check_message_printed("Importing taxonomies and filters for organization #{external_organization.id}")
+      expect($stdout.string).to include("Importing plan from #{plan_file}")
+      expect($stdout.string).to include("Importing plan from #{another_plan_file}")
+      expect($stdout.string).to include("Importing taxonomies and filters for organization #{decidim_organization_id}")
+      expect($stdout.string).to include("Importing taxonomies and filters for organization #{external_organization.id}")
 
-      check_message_printed(<<~MSG)
+      expect($stdout.string).to include(<<~MSG)
         ...Importing 1 root taxonomies from decidim_participatory_process_types
           - Root taxonomy: ~ Participatory process types
             1st level taxonomies: 2
@@ -255,7 +255,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Failed components: 0
       MSG
 
-      check_message_printed(<<~MSG)
+      expect($stdout.string).to include(<<~MSG)
         ...Importing 1 root taxonomies from decidim_assemblies_types
           - Root taxonomy: ~ Assemblies types
             1st level taxonomies: 2
@@ -281,7 +281,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Failed components: 0
       MSG
 
-      check_message_printed(<<~MSG)
+      expect($stdout.string).to include(<<~MSG)
         ...Importing 1 root taxonomies from decidim_scopes
           - Root taxonomy: ~ Scopes
             1st level taxonomies: 2
@@ -318,7 +318,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Failed components: 0
       MSG
 
-      check_message_printed(<<~MSG)
+      expect($stdout.string).to include(<<~MSG)
         ...Importing 1 root taxonomies from decidim_areas
           - Root taxonomy: ~ Areas
             1st level taxonomies: 1
@@ -342,7 +342,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Failed components: 0
       MSG
 
-      check_message_printed(<<~MSG)
+      expect($stdout.string).to include(<<~MSG)
         ...Importing 1 root taxonomies from decidim_categories
           - Root taxonomy: ~ Categories
             1st level taxonomies: 2
@@ -372,7 +372,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Failed components: 0
       MSG
 
-      check_message_printed("Taxonomies and filters imported successfully.")
+      expect($stdout.string).to include("Taxonomies and filters imported successfully.")
     end
   end
 end

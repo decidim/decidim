@@ -7,8 +7,8 @@
 
 .editor-suggestions-props {
   --editor-suggestions-border-color: #000;
-  --editor-suggestions-background-color: #fff;
-  --editor-suggestions-selected-highlight-color: #c7c7c7;
+  --editor-suggestions-background-color: #eee;
+  --editor-suggestions-selected-highlight-color: #ccc;
 }
 
 .editor-active {
@@ -84,7 +84,9 @@
     }
 
     .ProseMirror {
-      @apply relative p-2.5 outline-0 min-h-full prose max-w-none prose-headings:first:mt-0 prose-p:first:mt-0 prose-ul:first:mt-0 prose-ol:first:mt-0 prose-blockquote:first:mt-0 prose-pre:first:mt-0;
+      @apply relative p-2.5 outline-0 resize-y overflow-hidden prose max-w-none prose-headings:first:mt-0 prose-p:first:mt-0 prose-ul:first:mt-0 prose-ol:first:mt-0 prose-blockquote:first:mt-0 prose-pre:first:mt-0;
+
+      min-height: inherit;
 
       &.ProseMirror-focused,
       &.dialog-open {
@@ -176,7 +178,7 @@
 }
 
 .editor-suggestions {
-  @apply editor-suggestions-props border border-solid border-[var(--editor-suggestions-border-color)] bg-[var(--editor-suggestions-background-color)];
+  @apply editor-suggestions-props border-0 bg-[var(--editor-suggestions-background-color)] max-w-sm drop-shadow-md rounded-md;
 
   &:hover {
     .editor-suggestions-item[data-selected]:not(:hover) {
@@ -185,10 +187,14 @@
   }
 
   .editor-suggestions-item {
-    @apply block w-full text-left py-2.5 px-1.5 border-0 border-t border-solid border-[var(--editor-suggestions-border-color)] rounded-none;
+    @apply block w-full text-left py-[0.375rem] px-1.5 border-0 rounded-none truncate text-sm;
 
     &:first-child {
-      @apply border-t-0;
+      @apply rounded-t-md;
+    }
+
+    &:last-child {
+      @apply rounded-b-md;
     }
 
     &:hover,

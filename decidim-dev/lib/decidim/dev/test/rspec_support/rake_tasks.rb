@@ -40,22 +40,6 @@ module RakeTaskOutputHelpers
       $stdout = original_stdout
     end
   end
-
-  def check_no_errors_have_been_printed
-    expect($stdout.string).not_to include("ERROR:")
-  end
-
-  def check_some_errors_have_been_printed
-    expect($stdout.string).to include("ERROR:")
-  end
-
-  def check_error_printed(type)
-    expect($stdout.string).to include("ERROR: [#{type}]")
-  end
-
-  def check_message_printed(message)
-    expect($stdout.string).to include(message)
-  end
 end
 
 RSpec.configure do |config|

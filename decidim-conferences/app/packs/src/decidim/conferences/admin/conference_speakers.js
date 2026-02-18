@@ -1,6 +1,6 @@
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $conferenceSpeakerType = $("#conference_speaker_existing_user");
 
   createFieldDependentInputs({

@@ -41,8 +41,6 @@ ga:
     meetings:
       actions:
         agenda: Clár
-        attachment_collections: Fillteáin
-        attachments: Ceangaltáin
         close: Dún
         edit: Eagar
         preview: Réamhamharc
@@ -158,9 +156,5 @@ ga:
             question: Ceist
       type_of_meeting:
         online: Ar líne
-    metrics:
-      meetings:
-        object: cruinnithe
-        title: Cruinnithe
     statistics:
       meetings_count: Cruinnithe

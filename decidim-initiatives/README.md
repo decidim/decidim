@@ -1,4 +1,4 @@
-# Decidim::Initiatives
+# decidim-initiatives
 
 Initiatives is the place on Decidim's where participants can promote an initiative. Unlike
 participatory processes that must be created by an administrator, initiatives can be
@@ -18,19 +18,15 @@ This plugin provides:
 
 * Public views for initiatives via a high level section in the main menu.
 
+You can see the documentation of this feature at the [Decidim Documentation](https://docs.decidim.org/en/develop/admin/spaces/initiatives).
+
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-initiatives'
-```
-
-And then execute:
+To install this module, run in your console:
 
 ```bash
-bundle
-bundle exec rails decidim_initiatives:install:migrations
+bundle add decidim-initiatives
+bundle exec rails decidim:upgrade
 bundle exec rails db:migrate
 ```
 
@@ -44,28 +40,26 @@ CREATE EXTENSION pg_trgm;
 
 ## Deactivating authorization requirement and other module settings
 
-Some of the settings of the module need to be set in the code of your app, for example in the file `config/initializers/decidim.rb`.
+Some of the settings of the module need to be set in the code of your app using the [environment variables](https://docs.decidim.org/en/develop/configure/environment_variables)
 
 This is the case if you want to enable the creation of initiatives even when no authorization method is set.
 
-Just use the following line:
+Just set the following environment variable:
 
-```ruby
-Decidim::Initiatives.do_not_require_authorization = true
+```bash
+export INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION=true
 ```
 
-All the settings and their default values which can be overridden can be found in the file [`lib/decidim/initiatives.rb`](https://github.com/decidim/decidim/blob/develop/decidim-initiatives/lib/decidim/initiatives.rb).
+For example, you can also change the minimum number of required committee members to 1 (default is 2) by exporting the following variable:
 
-For example, you can also change the minimum number of required committee members to 1 (default is 2) by adding this line:
-
-```ruby
-Decidim::Initiatives.minimum_committee_members = 1
+```bash
+export INITIATIVES_MINIMUM_COMMITTEE_MEMBERS=1
 ```
 
 Or change the number of days given to gather signatures to 365 (default is 120) with:
 
 ```ruby
-Decidim::Initiatives.default_signature_time_period_length = 365
+export INITIATIVES_DEFAULT_SIGNATURE_TIME_PERIOD_LENGTH=365
 ```
 
 ### Initiatives signatures

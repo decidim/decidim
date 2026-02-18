@@ -39,8 +39,6 @@ zh-CN:
           step:
             announcement: 通 知
             comments_blocked: 评论已阻止
-            endorsements_blocked: 已阻止授权
-            endorsements_enabled: 授权已启用
     events:
       blogs:
         post_created:

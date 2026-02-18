@@ -33,9 +33,14 @@ fr:
       help_section:
         content: Contenu
       id: ID
+      member:
+        email: Email
+        name: Nom
+      member_csv_import:
+        file: Fichier
       newsletter:
         body: Corps de texte
-        send_to_all_users: Envoyer à tous les utilisateurs
+        send_to_all_users: Envoyer à tous les participants
         send_to_followers: Envoyer aux abonnés
         send_to_participants: Envoyer aux participants
         subject: Objet
@@ -45,8 +50,6 @@ fr:
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
         comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
-        cta_button_path: Chemin du bouton d'action
-        cta_button_text: Texte du bouton d'action
         customize_welcome_notification: Personnaliser le mail de bienvenue
         default_locale: Langue par défaut
         description: Description
@@ -61,13 +64,6 @@ fr:
         header_snippets: Éléments à ajouter entre les balises HTML
         highlight_alternative_color: Surbrillance alternative
         highlight_color: Surbrillance
-        highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
-        highlighted_content_banner_action_title: Titre du bouton d'action
-        highlighted_content_banner_action_url: URL du bouton d'action
-        highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Brève description
-        highlighted_content_banner_title: Titre
         host: Host
         instagram_handler: Gestionnaire Instagram
         logo: Logo
@@ -99,11 +95,6 @@ fr:
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
         youtube_handler: Gestionnaire YouTube
-      participatory_space_private_user:
-        email: Email
-        name: Nom
-      participatory_space_private_user_csv_import:
-        file: Fichier
       scope:
         code: Code
         name: Titre
@@ -133,10 +124,17 @@ fr:
         show_in_footer: Montrer dans le pied de page
         title: Titre
         weight: Rang d'affichage
+      taxonomy:
+        item_name: Nom de l’élément
+        parent_id: Parent
       user_group_csv_verification:
         file: Fichier
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
         newsletter:
           attributes:
             base:
@@ -145,10 +143,6 @@ fr:
           attributes:
             official_img_footer:
               allowed_file_content_types: Fichier image invalide
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -175,12 +169,17 @@ fr:
   decidim:
     admin:
       actions:
+        actions: Actions
+        actions_label: Actions pour %{resource}
         add: Ajouter
         attachment:
           new: Nouvelle pièce jointe
         attachment_collection:
           new: Nouveau dossier
+        attachment_collections: Ajouter un dossier
+        attachments: Ajouter une pièce jointe
         browse: Parcourir
+        configure: Configurer
         confirm_delete_component: |
           Êtes-vous sûr de vouloir supprimer cette fonctionnalité ?<br>
           Cette fonctionnalité contient :<br>
@@ -188,21 +187,22 @@ fr:
             <li class="font-bold">%{resources_count} ressources</li>
           </ul>
           Si vous changez d'avis, vous pourrez annuler cette action plus tard.
-        export: Tout exporter
+        export: Exporter
         export-selection: Exporter la sélection
         import: Importer
-        manage: Gérer
+        member:
+          new: Nouveau membre
+        menu_hidden: Masquer dans le menu
+        moderate: Gérer les modérations
         newsletter:
           new: Nouvelle newsletter
-        participatory_space_private_user:
-          new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
-        permissions: Autorisations
+        permissions: Gérer les permissions
         restore: Restaurer
         send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
-        share_tokens: Liens d'accès
-        soft_delete: Placer dans la corbeille
+        share_tokens: Partager le lien
+        soft_delete: Déplacer vers la corbeille
         user:
           new: Nouvel administrateur
         view_deleted_components: Voir les composants supprimés
@@ -294,13 +294,13 @@ fr:
       block_user:
         bulk_new:
           action: Bloquer le compte et envoyer la justification
-          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus des participants bloqués.
+          already_reported_html: En poursuivant cette action, vous cacherez également tout le contenu du participant.
           description: Bloquer des participants rendra son compte inutilisable, vous pouvez fournir dans votre justification les conditions de déblocage de ces participants.
           justification: Justification
           title: Bloquer des participants
         new:
           action: Bloquer le compte et envoyer la justification
-          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus du participant.
+          already_reported_html: En poursuivant cette action, vous cacherez également tout le contenu du participant.
           description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification les conditions de déblocage de l'utilisateur.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
@@ -353,7 +353,7 @@ fr:
         attempts: Tentatives
         'false': 'Non'
         index:
-          text: Recherche par adresse e-mail, nom ou pseudonyme.
+          text: Recherche par email, nom ou pseudo de l'utilisateur actuel
         managed_user_name: Utilisateur représenté
         solved: Résolu
         title: Conflits de vérification
@@ -394,7 +394,7 @@ fr:
         form:
           domain_too_short: Le nom de domaine est trop court
         update:
-          error: Impossible de mettre à jour la liste des domaines externes autorisés
+          error: Impossible de mettre à jour la liste des domaines externes autorisés.
           success: La liste des domaines externes autorisés a été mise à jour avec succès.
       exports:
         export_as: "%{name} en format %{export_format}"
@@ -416,6 +416,17 @@ fr:
           values:
             'false': 'Non'
             'true': 'Oui'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Invitation acceptée
+            values:
+              'false': Non acceptée
+              'true': Acceptée
+          user_invitation_sent_at_not_null:
+            label: Invitation envoyée
+            values:
+              'false': Non envoyée
+              'true': Envoyée
         moderated_users:
           reports_reason_eq:
             label: Raison du signalement
@@ -431,17 +442,6 @@ fr:
           values:
             'false': Validé
             'true': Non validé
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitation acceptée
-            values:
-              'false': Non acceptée
-              'true': Acceptée
-          user_invitation_sent_at_not_null:
-            label: Invitation envoyée
-            values:
-              'false': Non envoyée
-              'true': Envoyée
         private_space_eq:
           label: Privé
           values:
@@ -455,11 +455,11 @@ fr:
         remove_all: Tout supprimer
         search_label: Rechercher
         search_placeholder:
-          name_or_nickname_or_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
+          name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo
           report_count_eq: Nombre de signalement
-          reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
-          title_cont: Rechercher %{collection} par titre.
-          user_name_or_user_nickname_or_user_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
+          reported_id_string_or_reported_content_cont: Rechercher %{collection} par id ou contenu signalable
+          title_cont: Rechercher %{collection} par titre
+          user_name_or_user_nickname_or_user_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo
         state_eq:
           label: État
           values:
@@ -476,6 +476,10 @@ fr:
             explanation: 'Instructions concernant le fichier:'
             message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
             message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
+          import_csv:
+            explanation: 'Prérequis pour le fichier :'
+            message_1: Les fichiers CSV sont pris en charge
+            message_2: ".csv avec les données des emails"
       help_sections:
         error: Un problème est survenu lors de la mise à jour des sections d’aide.
         form:
@@ -554,7 +558,7 @@ fr:
       logs:
         filters:
           participatory_space: Trouver un espace participatif
-          text: Recherche par adresse e-mail, nom ou pseudonyme.
+          text: Recherche par e-mail, nom ou pseudo
           user: Utilisateur
         logs_list:
           no_logs_yet: Il n'y a pas encore de journaux d'activité. 
@@ -570,6 +574,53 @@ fr:
             explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
             new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
             promote: Promouvoir
+      members:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un membre pour cet espace participatif.
+          success: Accès membre créé avec succès.
+        destroy:
+          error: Un problème est survenu lors de la suppression d'un membre pour cet espace participatif.
+          success: Accès membre supprimé avec succès.
+        edit:
+          title: Modifier le membre
+          update: Mettre à jour
+        index:
+          import_via_csv: Importer via CSV
+          publish_all: Tout publier
+          title: Membre
+          unpublish_all: Tout dépublier
+        new:
+          create: Créer
+          title: Nouveau membre
+        publish_all:
+          error: Un problème est survenu lors de la publication de tous les membres de cet espace participatif.
+          success: Tous les membres ont été publiés avec succès pour cet espace participatif
+        unpublish_all:
+          error: Une erreur s'est produite lors de la dépublication de tous les membres de cet espace participatif.
+          success: Tous les membres de cet espace participatif ont été dépubliés avec succès
+        update:
+          error: Un problème est survenu lors de la mise à jour du membre pour cet espace participatif.
+          success: Membre mis à jour avec succès
+      members_csv_imports:
+        create:
+          invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
+          success: Fichier CSV transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
+        new:
+          csv_upload:
+            title: Téléchargez votre fichier CSV
+          destroy:
+            button: Supprimer tous les membres
+            confirm: Êtes-vous sûr(e) de vouloir supprimer tous les membres ? Cette action ne peut pas être annulée, vous ne pourrez pas les récupérer.
+            empty: Vous n'avez aucun membre.
+            explanation: Vus avez %{count} membres.
+            title: Supprimer les membres
+          example_file: 'Fichier d''exemple :'
+          explanation: 'Téléchargez votre fichier CSV. Il doit comporter deux colonnes, sans en-têtes, avec l''email dans la première colonne et le nom dans la dernière colonne du fichier des utilisateurs que vous voulez ajouter à l''espace participatif. Évitez d''utiliser des caractères invalides comme `<>?%&^*#@()[]=+:;"{}\|` dans le nom d''utilisateur.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importer des membres via CSV
+          upload: Charger
       menu:
         admin_log: Journal d'activité personnel
         admins: Administrateurs
@@ -581,8 +632,9 @@ fr:
         content: Contenu signalé
         external_domain_allowlist: Domaines externes autorisés
         help_sections: Sections d'aide
-        homepage: Page d'accueil
+        homepage: Mise en page de la page d'accueil
         impersonations: Utilisateurs représentés
+        insights: Aperçus
         manage: Gérer
         moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
@@ -595,12 +647,10 @@ fr:
         share_tokens: Liens d'accès
         static_page_topics: Sujets
         static_pages: Pages
+        statistics: Statistiques
         taxonomies: Taxonomies
         taxonomy_filters: Filtres de taxonomie
         users: Utilisateurs
-      metrics:
-        metrics:
-          see_more_metrics: Voir plus d'indicateurs
       models:
         area:
           fields:
@@ -629,6 +679,8 @@ fr:
             reason: Raison
             started_at: Commencé le
             user: Utilisateur
+        member:
+          name: Membre
         newsletter:
           fields:
             created_at: Créée le
@@ -637,8 +689,6 @@ fr:
             sent_to: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
-        participatory_space_private_user:
-          name: Utilisateur de l'espace participatif
         scope:
           fields:
             name: Titre
@@ -687,7 +737,7 @@ fr:
               update_moderated_user_button: Annuler les signalements
             title: Actions
             unblock: Débloquer l'utilisateur
-            unreport: Annuler le signalement
+            unreport: Annuler le rapport
           cancel: Annuler
           name: Nom
           nickname: Pseudonyme
@@ -711,10 +761,10 @@ fr:
               title: Masquer
               update_moderation_button: Masquer les ressources sélectionnées
             unhide:
-              title: Afficher
+              title: Annuler le masquage
               update_moderation_button: Afficher les ressources sélectionnées
             unreport:
-              title: Annuler le signalement
+              title: Annuler le rapport
               update_moderation_button: Annuler le signalement des ressources sélectionnées
           cancel: Annuler
           selected: sélectionné
@@ -842,7 +892,7 @@ fr:
         index:
           actions: Actions
           badge: Badge
-          block: Bloquer l'utilisateur
+          block: Bloquer
           created_at: Créée le
           name: Nom
           nickname: Pseudonyme
@@ -851,9 +901,10 @@ fr:
           officialized: Validé
           reofficialize: De nouveau validé
           reports: Signalements
-          show_email: Montrer les adresses e-mail
+          send_message: Envoyer le message
+          show_email: Afficher l'e-mail
           status: Statut
-          unblock: Débloquer l'utilisateur
+          unblock: Débloquer
           unofficialize: Invalider
         new:
           badge: Badge de validation
@@ -874,99 +925,44 @@ fr:
           title: Modifier l'organisation
           update: Mettre à jour
         form:
-          facebook: Facebook
-          github: GitHub
-          instagram: Instagram
-          rich_text_editor_in_public_views_help: Dans certains champs textuels, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
-          social_handlers: Liens des réseaux sociaux
-          twitter: X
-          url: URL
-          youtube: YouTube
-        update:
-          error: Erreur lors de la mise à jour de cette organisation.
-          success: Organisation mise à jour avec succès.
-      organization_appearance:
-        edit:
-          update: Mettre à jour
-        form:
+          admin_terms_of_service: Conditions d'utilisation administrateur
+          basic_configuration: Configuration de base
           colors:
             choose_color: Choisir une couleur primaire
             colors_title: Couleurs de l'organisation
-            colors_warning_html: Attention ! La modification de ces couleurs peut contrevenir aux règles d'accessibilité sur les taux de contraste. Vous pouvez vérifier le taux de contraste de votre choix avec <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ou d'autres outils similaires.
-            explanation: Cet outil vous aide à choisir une palette de couleurs, composée de teintes placées à égale distance autour de la roue de couleur, qui seront utilisés sur la plateforme.
+            colors_warning_html: Attention ! La modification de ces couleurs peut contrevenir aux règles d'accessibilité sur les taux de contraste. Vous pouvez vérifier le taux de contraste choisi avec <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ou d'autres outils similaires.
+            explanation: Cet outil vous aide à choisir une palette de couleurs, composée de teintes placées à égale distance autour de la roue des couleurs, qui seront utilisées sur la plateforme.
             legend_html: Couleurs principales de l'application, basées sur <a href="https://www.color-meanings.com/triadic-colors/">l'algorithme triadique</a>. La couleur <i>secondaire</i> est automatiquement calculée à partir de la couleur primaire et de la saturation que vous avez choisies.
             saturation: Saturation
             title: Sélecteur de couleurs
             update_suggested_colors: Mettre à jour les couleurs suggérées
-          cta_button_path_help_html: 'Vous pouvez remplacer le lien du bouton d''appel à l''action de la page d''accueil. Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Le bouton d''appel à l''action est affiché sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
-          cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
-          header_snippets:
-            header_snippets_help_html: Utilisez ce champ pour ajouter des éléments à l'en-tête "head" HTML. L’utilisation la plus courante est d’intégrer des services tiers qui nécessitent du JavaScript ou du CSS supplémentaires. De plus, vous pouvez l'utiliser pour ajouter des balises méta supplémentaires au HTML. Notez que cela ne sera rendu que dans les pages publiques, pas dans la section admin. Si le code interagit avec des API externes ou ne respecte pas les directives de sécurité de l'application, il sera nécessaire de modifier la politique de sécurité du contenu. En savoir plus <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">sur le site de documentation</a>.
-            title: Éléments à ajouter à l'en-tête "head" HTML
-          homepage_appearance_title: Modifier l'apparence de la page d'accueil
-          homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
-          images:
-            layout_appearance_title: Modifier l’aspect de la mise en page
+          extra_features: Fonctionnalités supplémentaires
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          logos:
+            organization_logos: Logos de l'organisation
             preview: Aperçu
-          omnipresent_banner_appearance_title: Modifier la bannière permanente
+          rich_text_editor_in_public_views_help: Dans certains champs textuels, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
+          social_handlers: Liens des réseaux sociaux
+          twitter: X
+          url: URL
+          welcome_notification: Notification de bienvenue
+          youtube: YouTube
+        update:
+          error: Erreur lors de la mise à jour de cette organisation.
+          success: Organisation mise à jour avec succès.
       organization_external_domain_allowlist:
         edit:
           update: Mettre à jour
         external_domain:
           down: Descendre
           external_domain: Domaine externe
-          remove: Retirer
+          remove: Supprimer
           up: Monter
         form:
           add: Ajouter à la liste autorisée
           title: Liste des domaines externes autorisés
-      participatory_space_private_users:
-        create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
-          success: L'accès utilisateur à l'espace participatif privé a été créé avec succès.
-        destroy:
-          error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
-          success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
-        edit:
-          title: Modifier le participant privé de l'espace participatif.
-          update: Mettre à jour
-        index:
-          import_via_csv: Importer via csv
-          publish_all: Tout publier
-          title: Utilisateur privé de l'espace participatif
-          unpublish_all: Tout dépublier
-        new:
-          create: Créer
-          title: Nouvel utilisateur privé de l'espace participatif.
-        publish_all:
-          error: Une erreur s'est produite lors de la publication de tous les participants privés pour cet espace participatif.
-          success: Tous les participants privés ont été publiés avec succès pour cet espace participatif
-        unpublish_all:
-          error: Une erreur s'est produite lors de la dépublication de tous les participants privés pour cet espace participatif.
-          success: Tous les participants privés ont été dépubliés avec succès pour cet espace participatif
-        update:
-          error: Une erreur s'est produite lors de la mise à jour du participant privé pour cet espace participatif.
-          success: Participant privé de l'espace participatif mis à jour avec succès
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
-          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants. 
-        new:
-          csv_upload:
-            title: Téléchargez votre fichier CSV
-          destroy:
-            button: Supprimer tous les utilisateurs privés
-            confirm: Êtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action est irréversible, vous ne pourrez pas les récupérer.
-            empty: Vous n'avez aucun utilisateur privé.
-            explanation: Vous avez %{count} utilisateurs privés.
-            title: Supprimer les utilisateurs privés
-          example_file: 'Fichier d''exemple :'
-          explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec les emails dans la première colonne, et dans la seconde colonne les noms des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}Jean Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Importer des participants privés via CSV
-          upload: Télécharger
       reminders:
         create:
           error: Il y a eu un problème lors de la création des rappels.
@@ -1088,7 +1084,7 @@ fr:
           success: Sujet mis à jour avec succès
       static_pages:
         actions:
-          view: Voir la page publique
+          view: Afficher
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle page.
           success: Page créée avec succès.
@@ -1116,13 +1112,19 @@ fr:
       taxonomies:
         actions:
           actions: Actions
-          destroy: Supprimer la taxonomie et les éléments
-          edit: Modifier la taxonomie et les éléments
-          filters: Gérer les filtres
+          destroy: Supprimer
+          edit: Modifier
+          filters: Appliquer les filtres
         breadcrumb:
           edit: Modifier la taxonomie
           new: Nouvelle taxonomie
         count: Ressources associées
+        edit:
+          update: Mettre à jour
+        filters:
+          search_placeholder: Rechercher
+        index:
+          new_taxonomy: Nouvelle taxonomie
         total_filters: Filtres
       taxonomy_filters:
         breadcrumb:
@@ -1157,6 +1159,7 @@ fr:
           save: Enregistrer
         show:
           items_count: "%{count} éléments"
+          remove: Supprimer
         taxonomies_select:
           filters: Filtres
       titles:
@@ -1166,21 +1169,21 @@ fr:
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         edit_external_domains: Liste des domaines externes autorisés
-        edit_landing_page: Contenus de la page
-        edit_organization_appearance: Modifier l'apparence de la page d'accueil
         impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         menu: Menu
-        metrics: Indicateurs
         page_topics: Sujets
         pages: Page(s)
         panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur
         scopes: Secteurs
-        statistics: Activité
+        statistics: Statistiques
         users: Administrateurs
       tooltips:
+        cannot_destroy_taxonomy_filter: Impossible de détruire ce filtre de taxonomie
+        cannot_edit_taxonomy_filter: Impossible de modifier ce filtre de taxonomie
+        deleted_attachment_collections_info: Impossible de supprimer ce dossier car il contient des pièces jointes.
         deleted_component_info: Ce composant ne peut être supprimé que si son statut est 'non publié'.
       trash_management:
         restore:
@@ -1209,31 +1212,22 @@ fr:
           last_day: Hier
           last_month: Le mois dernier
           last_week: La semaine dernière
-          no_users_count_statistics_yet: Il n'y a pas encore de statistiques du nombre d'utilisateurs.
+          no_users_count_statistics_yet: Il n'y a pas encore de statistiques sur le nombre de participants.
           participants: Participants
     forms:
       errors:
         impersonate_user:
           reason: Vous devez fournir une raison lorsque vous représentez un participant non représenté.
-    metrics:
-      blocked_users:
-        object: utilisateurs bloqués
-        title: Utilisateurs bloqués
-      reported_users:
-        object: utilisateurs signalés
-        title: Utilisateurs signalés
-      user_reports:
-        object: signalements d'utilisateurs
-        title: Signalements d'utilisateurs
     moderations:
       actions:
         expand: Agrandir
         hidden: Masqués
         hide: Masquer
         not_hidden: Visibles
+        parent_hidden: Vous ne pouvez pas rendre visible cette ressource car son parent est toujours caché.
         title: Actions
-        unhide: Afficher
-        unreport: Annuler le signalement
+        unhide: Annuler le masquage
+        unreport: Annuler le rapport
       admin:
         reportable:
           hide:
@@ -1241,6 +1235,7 @@ fr:
             success: Contenu masqué avec succès.
           unhide:
             invalid: Il y a eu un problème pour découvrir la ressource.
+            parent_invalid: Un problème est survenu lors du démasquage de la ressource. Le parent n'est pas visible.
             success: Ressource non cachée avec succès.
           unreport:
             invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
@@ -1271,5 +1266,7 @@ fr:
       admin:
         global_moderations:
           title: Modération globale
+        insights:
+          title: Aperçus
         taxonomy_filters_selector:
           title:

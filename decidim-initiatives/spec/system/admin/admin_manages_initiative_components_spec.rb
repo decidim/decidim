@@ -18,10 +18,10 @@ describe "Admin manages initiative components" do
     before do
       visit decidim_admin_initiatives.components_path(initiative)
 
-      find("button[data-toggle=add-component-dropdown]").click
+      find("button[data-target=add-component-dropdown]").click
 
       within "#add-component-dropdown" do
-        find(".dummy").click
+        click_on "Dummy Component"
       end
 
       within ".item__edit" do
@@ -55,7 +55,7 @@ describe "Admin manages initiative components" do
     end
 
     it "is successfully created" do
-      expect(page).to have_admin_callout("Component created successfully.")
+      expect(page).to have_callout("Component created successfully.")
       expect(page).to have_content(translated(attributes[:name]))
     end
 
@@ -67,7 +67,8 @@ describe "Admin manages initiative components" do
     context "and then edit it" do
       before do
         within "tr", text: translated(attributes[:name]) do
-          page.find(".action-icon--configure").click
+          find("button[data-controller='dropdown']").click
+          click_on "Configure"
         end
       end
 
@@ -84,7 +85,7 @@ describe "Admin manages initiative components" do
       it "successfully edits it" do
         click_on "Update"
 
-        expect(page).to have_admin_callout("The component was updated successfully.")
+        expect(page).to have_callout("The component was updated successfully.")
       end
     end
   end
@@ -108,7 +109,8 @@ describe "Admin manages initiative components" do
 
     it "updates the component" do
       within ".component-#{component.id}" do
-        page.find(".action-icon--configure").click
+        find("button[data-controller='dropdown']").click
+        click_on "Configure"
       end
 
       within ".item__edit" do
@@ -129,11 +131,12 @@ describe "Admin manages initiative components" do
         click_on "Update"
       end
 
-      expect(page).to have_admin_callout("The component was updated successfully.")
+      expect(page).to have_callout("The component was updated successfully.")
       expect(page).to have_content(translated(attributes[:name]))
 
       within "tr", text: translated(attributes[:name]) do
-        page.find(".action-icon--configure").click
+        find("button[data-controller='dropdown']").click
+        click_on "Configure"
       end
 
       within ".global-settings" do
@@ -168,7 +171,8 @@ describe "Admin manages initiative components" do
 
     it "soft deletes the component" do
       within ".component-#{component.id}" do
-        accept_confirm { click_on("Soft delete") }
+        find("button[data-controller='dropdown']").click
+        accept_confirm { click_on("Move to trash") }
       end
 
       expect(page).to have_no_content("My component")
@@ -192,11 +196,13 @@ describe "Admin manages initiative components" do
     context "when the component is unpublished" do
       it "publishes the component" do
         within ".component-#{component.id}" do
-          page.find(".action-icon--publish").click
+          find("button[data-controller='dropdown']").click
+          click_on "Publish"
         end
 
         within ".component-#{component.id}" do
-          expect(page).to have_css(".action-icon--unpublish")
+          find("button[data-controller='dropdown']").click
+          expect(page).to have_css("a", text: "Hide")
         end
       end
     end
@@ -206,11 +212,13 @@ describe "Admin manages initiative components" do
 
       it "hides the component from the menu" do
         within ".component-#{component.id}" do
+          find("button[data-controller='dropdown']").click
           click_on "Hide"
         end
 
         within ".component-#{component.id}" do
-          expect(page).to have_css(".action-icon--menu-hidden")
+          find("button[data-controller='dropdown']").click
+          expect(page).to have_css("a", text: "Unpublish")
         end
       end
     end
@@ -221,11 +229,13 @@ describe "Admin manages initiative components" do
 
       it "unpublishes the component" do
         within ".component-#{component.id}" do
+          find("button[data-controller='dropdown']").click
           click_on "Unpublish"
         end
 
         within ".component-#{component.id}" do
-          expect(page).to have_css(".action-icon--publish")
+          find("button[data-controller='dropdown']").click
+          expect(page).to have_css("a", text: "Publish")
         end
       end
     end
@@ -249,7 +259,25 @@ describe "Admin manages initiative components" do
       visit current_path
 
       expect(page.text.index("Component 2")).to be < page.text.index("Component 1")
-      expect(page.text.index("Component 1")).to be < page.text.index("Component 3")
+      expect(page.text.index("Component 2")).to be < page.text.index("Component 3")
+    end
+  end
+
+  describe "manages proposals component" do
+    let!(:proposals_component) do
+      create(:component, :published, manifest_name: :proposals, participatory_space: initiative)
+    end
+    let!(:proposal1) { create(:proposal, :published, component: proposals_component) }
+    let!(:proposal2) { create(:proposal, :published, component: proposals_component) }
+
+    before do
+      visit Decidim::EngineRouter.admin_proxy(proposals_component).root_path
+    end
+
+    it "can access proposals from admin" do
+      expect(page).to have_content("Proposals")
+      expect(page).to have_content(translated(proposal1.title))
+      expect(page).to have_content(translated(proposal2.title))
     end
   end
 

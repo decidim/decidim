@@ -19,7 +19,7 @@ module Decidim::Meetings
           .with(format)
           .and_return(class_double)
 
-        subject.call
+        expect { subject.call }.not_to raise_error
       end
 
       it "traces the action", versioning: true do

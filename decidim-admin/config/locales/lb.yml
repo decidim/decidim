@@ -34,8 +34,6 @@ lb:
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
         comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
-        cta_button_path: Call To Action Schaltfläche Pfad
-        cta_button_text: Call To Action Schaltfläche Text
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
         default_locale: Standardgebietsschema
         description: Beschreibung
@@ -50,13 +48,6 @@ lb:
         header_snippets: Header-Snippets
         highlight_alternative_color: Hervorhebung, Alternative
         highlight_color: Hervorheben
-        highlighted_content_banner_action_subtitle: Aktion Schaltfläche Untertitel
-        highlighted_content_banner_action_title: Titel der Aktionsschaltfläche
-        highlighted_content_banner_action_url: Aktionsschaltflächen-URL
-        highlighted_content_banner_enabled: Zeigen Sie das hervorgehobene Inhaltsbanner an
-        highlighted_content_banner_image: Bild
-        highlighted_content_banner_short_description: Kurze Beschreibung
-        highlighted_content_banner_title: Titel
         host: Host
         instagram_handler: Instagram-Handler
         logo: Logo
@@ -142,16 +133,13 @@ lb:
         attachment:
           new: Neuer Anhang
         browse: Durchsuchen
-        export: Alles exportéieren
+        configure: Konfigurieren
+        export: Exportéieren
         export-selection: Export Auswiel
         import: Importieren
-        manage: Verwalten
         newsletter:
           new: Neuer Newsletter
-        participatory_space_private_user:
-          new: Neuer privater Benutzer
         per_page: Pro Seite
-        permissions: Berechtigungen
         share: Teilen
       area_types:
         create:
@@ -301,17 +289,6 @@ lb:
           values:
             'false': Offizialisiert
             'true': Nicht offiziell
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Einladung akzeptiert
-            values:
-              'false': Nicht akzeptiert
-              'true': Akzeptiert
-          user_invitation_sent_at_not_null:
-            label: Einladung versendet
-            values:
-              'false': Nicht versendet
-              'true': Versendet
         private_space_eq:
           label: Privat
           values:
@@ -323,10 +300,6 @@ lb:
             'false': Veröffentlicht
             'true': Unveröffentlicht
         search_label: Suche
-        search_placeholder:
-          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
-          reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
-          title_cont: In %{collection} nach Titel suchen.
         state_eq:
           label: Bundesland
           values:
@@ -392,6 +365,10 @@ lb:
             explanation: Verwaltete Benutzer können zu Standardbenutzern heraufgestuft werden. Das bedeutet, dass sie zu der Anwendung eingeladen werden und nicht in der Lage sind, sie erneut zu repräsentieren. Der eingeladene Benutzer erhält eine E-Mail, um Ihre Einladung anzunehmen.
             new_managed_user_promotion: Neue verwaltete Benutzerwerbung
             promote: Fördern
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Laden Sie Ihre CSV-Datei hoch
       menu:
         admin_log: Admin-Aktivitätsprotokoll
         admins: Admins
@@ -400,7 +377,6 @@ lb:
         areas: Bereiche
         configuration: Aufbau
         help_sections: Hilfeabschnitte
-        homepage: Startseite
         impersonations: Identitätswechsel
         manage: Verwalten
         moderation: Globale Moderationen
@@ -411,9 +387,6 @@ lb:
         settings: die Einstellungen
         static_pages: Seiten
         users: Benutzer
-      metrics:
-        metrics:
-          see_more_metrics: Mehr Kriterien anzeigen
       models:
         area:
           fields:
@@ -450,8 +423,6 @@ lb:
             sent_to: Gesendet an
             subject: Gegenstand
           name: Newsletter
-        participatory_space_private_user:
-          name: Participatory Space privater Benutzer
         scope:
           fields:
             name: Name
@@ -482,9 +453,11 @@ lb:
         index:
           actions:
             block: Benutzer blockieren
+            bulk_actions:
+              unreport:
+                title: Meldung Rückgängig machen
             title: Aktionen
             unblock: Blockierung des Benutzers aufheben
-            unreport: Meldung Rückgängig machen
           name: Name
           nickname: Spitzname
           reason: Grund
@@ -577,7 +550,6 @@ lb:
         index:
           actions: Aktionen
           badge: Abzeichen
-          block: Benutzer blockieren
           created_at: Hergestellt in
           name: Name
           nickname: Spitzname
@@ -586,9 +558,7 @@ lb:
           officialized: Offizialisiert
           reofficialize: Reoffizialisieren
           reports: Berichte
-          show_email: E-Mail-Adresse anzeigen
           status: Status
-          unblock: Blockierung des Users aufheben
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen
@@ -616,37 +586,6 @@ lb:
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
           success: Die Organisation wurde erfolgreich aktualisiert.
-      organization_appearance:
-        edit:
-          update: Aktualisieren
-        form:
-          colors:
-            colors_title: Organisationsfarben
-          cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
-          homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
-          homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
-          images:
-            layout_appearance_title: Layout-Layout bearbeiten
-            preview: Vorschau
-          omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
-      participatory_space_private_users:
-        create:
-          error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Participatory Space Privater Benutzerzugriff erfolgreich erstellt.
-        destroy:
-          error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
-        index:
-          import_via_csv: Aus CSV-Datein importieren
-          title: Participatory Space privater Benutzer
-        new:
-          create: Erstellen
-          title: Neuer privater Benutzer des Participatory Space.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Laden Sie Ihre CSV-Datei hoch
-          upload: Hochladen
       resource_permissions:
         edit:
           submit: einreichen
@@ -702,8 +641,6 @@ lb:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
           success: Thema erfolgreich aktualisiert
       static_pages:
-        actions:
-          view: Öffentliche Seite anzeigen
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
@@ -730,12 +667,10 @@ lb:
         dashboard: Instrumententafel
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
-        metrics: Kriterien
         panel: Admin
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
-        statistics: Aktivität
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
@@ -756,16 +691,6 @@ lb:
           last_month: Letzter Monat
           last_week: Letzte Woche
           participants: Teilnehmer
-    metrics:
-      blocked_users:
-        object: blockierte Benutzer
-        title: Blockierte Benutzer
-      reported_users:
-        object: gemeldete Benutzer
-        title: Gemeldete Benutzer
-      user_reports:
-        object: Benutzer-Meldungen
-        title: Benutzer-Meldungen
     moderations:
       actions:
         expand: Ausklappen
@@ -773,8 +698,6 @@ lb:
         hide: verbergen
         not_hidden: Nicht versteckt
         title: Aktionen
-        unhide: Einblenden
-        unreport: Nicht melden
       admin:
         reportable:
           hide:

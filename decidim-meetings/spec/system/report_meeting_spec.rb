@@ -9,6 +9,7 @@ describe "Report Meeting" do
   let!(:meetings) { create_list(:meeting, 3, :published, component:, author: user) }
   let(:reportable) { meetings.first }
   let(:reportable_path) { resource_locator(reportable).path }
+  let(:reportable_index_path) { resource_locator(reportable).index }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
   let!(:component) do

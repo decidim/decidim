@@ -33,10 +33,7 @@ pl:
               'true': Nie wybrano do implementacji
     budgets:
       actions:
-        attachment_collections: Foldery
-        attachments: Załączniki
         edit: Edytuj
-        edit_projects: Zarządzaj budżetem
         import: Importuj propozycje do projektów
         new_budget: Nowy budżet
         new_project: Nowy projekt
@@ -66,8 +63,6 @@ pl:
         exports:
           projects: Projekty
         models:
-          budget:
-            name: Budżet
           project:
             name: Projekt
         projects:
@@ -111,7 +106,6 @@ pl:
           new:
             create: Importuj propozycje do projektów
             default_budget: Domyślny budżet
-            import_all_accepted_proposals: Importuj wszystkie zaakceptowane propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów do zaimportowania propozycji jako projektów.
             origin_component_id: Źródłowy komponent
             select_component: Wybierz komponent
@@ -166,7 +160,6 @@ pl:
             total_budget: Całkowity budżet
         project:
           fields:
-            id: Identyfikator
             map: Mapa
             title: Tytuł
       order:
@@ -174,6 +167,8 @@ pl:
           continue_voting: Kontynuuj głosowanie
           download_vote: Pobierz swój głos
           title: Twój głos został przyjęty
+      order_pdf:
+        title: Twój głos został przyjęty.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Wybrane przez Ciebie projekty to:'
@@ -197,7 +192,6 @@ pl:
             title: Maksymalna liczba projektów została przekroczona
         budget_summary:
           are_you_sure: Czy na pewno chcesz anulować swój głos?
-          cancel_order: usuń głos i zacznij od nowa
           checked_out:
             description: Już głosowałeś/aś na budżet. Jeśli zmieniłeś/aś zdanie, możesz usunąć swój głos.
             title: Ukończono głosowanie dot. budżetu
@@ -225,18 +219,8 @@ pl:
           assigned: Przypisany
           budget: Budżet
           dynamic_help:
-            keep_adding_projects: Kontynuuj dodawanie projektów
             minimum_reached: Osiągnąłeś/aś minimum, aby móc głosować
-            start_adding_projects: Zacznij dodawać projekty
           minimum: Minimum
-          minimum_projects_rule:
-            description: Wybierz co najmniej %{minimum_number} projektów i zagłosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
-          projects_rule:
-            description: Wybierz co najmniej %{minimum_number} i maksymalnie %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
-          projects_rule_maximum_only:
-            description: Wybierz do %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
-          vote_threshold_percent_rule:
-            description: Przypisz co najmniej %{minimum_budget} do projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
         orders:
           highest_cost: Najwyższy koszt
           label: Uporządkuj projekty według
@@ -263,7 +247,6 @@ pl:
           added: Dodano
           all: Wszystkie
         projects_for: Projekty dla %{name}
-        select_projects: Wybierz projekty
         show:
           budget: Budżet
       prompt: Wybierz budżet
@@ -319,13 +302,6 @@ pl:
               disabled: Głosowanie wyłączone
               enabled: Włączone głosowanie
               finished: Głosowanie zakończone
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Budżet %{resource_title} jest teraz aktywny w %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Budżet %{resource_title} jest teraz aktywny w %{participatory_space_title}.
-          notification_title: Budżet <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
     orders:
       checkout:
         error: Podczas przetwarzania Twojego głosu wystąpił błąd.
@@ -337,6 +313,5 @@ pl:
         project_proposal: Propozycje zawarte w tym projekcie
     statistics:
       orders_count: Wsparcia
-      projects_count: Projekty
   index:
     confirmed_orders_count: Liczba głosów

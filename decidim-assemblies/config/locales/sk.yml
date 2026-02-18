@@ -9,9 +9,6 @@ sk:
         closing_date: Dátum uzavretia
         closing_date_reason: Dôvod dátumu uzavretia
         composition: Zloženie
-        copy_categories: Kopírovať kategórie
-        copy_components: Kopírovať súčasti
-        copy_features: Kopírovať prvky
         created_by: Vytvorené
         created_by_other: Vytvorené iným
         creation_date: Dátum vytvorenia
@@ -23,7 +20,6 @@ sk:
         duration: Trvanie
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Obrázok na hlavnej stránke
         included_at: Zahrnuté v
         instagram: Instagram

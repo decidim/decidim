@@ -10,9 +10,6 @@ cs:
         closing_date: Datum ukončení
         closing_date_reason: Důvod data ukončení
         composition: Složení
-        copy_categories: Kopírovat kategorie
-        copy_components: Kopírovat komponenty
-        copy_features: Kopírovat vlastnosti
         created_by: Vytvořil
         created_by_other: Vytvořeno jinými
         creation_date: Datum vytvoření
@@ -22,10 +19,12 @@ cs:
         developer_group: Skupina promotérů
         document: Dokument
         domain: Doména
+        duplicate_categories: Duplikovat kategorie
+        duplicate_components: Duplikovat komponenty
+        duplicate_features: Duplikovat funkce
         duration: Doba trvání
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Obrázek na hlavní stránce
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
@@ -118,15 +117,15 @@ cs:
         update:
           error: Při aktualizaci tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně aktualizováno.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Při kopírování tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně duplikováno.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Kopírovat
+          duplicate: Duplikovat
           select: Vyberte, která data chcete duplikovat
-          title: Zduplikovat shromáždění
+          title: Duplikovat shromáždění
       assembly_imports:
         create:
           error: Při importu tohoto shromáždění došlo k chybě.
@@ -176,9 +175,9 @@ cs:
           attachments: Přílohy
           components: Komponenty
           info: O tomto shromáždění
-          landing_page: Úvodní stránka
+          landing_page: Rozložení vstupní strany
+          members: Členové
           moderations: Moderování
-          private_users: Členové
           see_assembly: Zobrazit shromáždění
       models:
         assembly:
@@ -199,6 +198,7 @@ cs:
             vice_president: Místopředseda
         assembly_user_role:
           fields:
+            actions: Akce
             email: E-mail
             name: Název
             role: Role
@@ -206,6 +206,7 @@ cs:
           roles:
             admin: Správce
             collaborator: Spolupracovník
+            evaluator: Hodnotitel
             moderator: Moderátor
       taxonomy_filters:
         space_filter_for:
@@ -256,7 +257,6 @@ cs:
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             other: Ostatní
-            private_notice: Budete moci spravovat soukromé účastníky po nastavení jako soukromé
             select_a_created_by: Vybrat vytvořeno od
             select_parent_assembly: Vybrat nadřazené shromáždění
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -264,7 +264,7 @@ cs:
             taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_imports:
@@ -381,11 +381,6 @@ cs:
           not_found: 'Typ shromáždění nebyl v databázi nalezen (ID: %{id})'
     menu:
       assemblies: Shromáždění
-    metrics:
-      assemblies:
-        description: Počet vytvořených shromáždění
-        object: shromáždění
-        title: Shromáždění
     open_data:
       help:
         assemblies:
@@ -394,6 +389,7 @@ cs:
           assembly_type: Typ shromáždění
           closing_date: Datum ukončení shromáždění
           closing_date_reason: Proč bylo shromáždění uzavřeno
+          component_settings: Nastavení komponenty shromáždění
           composition: Složení shromáždění
           created_at: Datum, kdy byl tento prostor vytvořen
           created_by: Kdo vytvořil toto shromáždění
@@ -406,7 +402,6 @@ cs:
           facebook_handler: Handler sociálních médií pro Facebook
           follows_count: Počet uživatelů sledujících tento prostor
           github_handler: Handler sociálních médií pro GitHub
-          hashtag: Hashtag Shromáždění, používaný pro Twitter/X
           id: Jedinečný identifikátor ttohoto shromáždění
           included_at: Datum, kdy bylo shromáždění zahrnuto
           instagram_handler: Handler sociálních médií pro Instagram
@@ -440,6 +435,7 @@ cs:
         related_assemblies: Související shromáždění
     statistics:
       assemblies_count: Shromáždění
+      assemblies_count_tooltip: Počet veřejných shromáždění, kde jsou přijímána kolektivní rozhodnutí.
   layouts:
     decidim:
       assemblies:

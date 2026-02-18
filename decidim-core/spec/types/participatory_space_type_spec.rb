@@ -39,10 +39,22 @@ module Decidim
       end
 
       describe "stats" do
-        let(:query) { %({ stats { name value } }) }
+        let(:query) { %({ stats { name { translation(locale: "en") } value } }) }
+
+        before do
+          allow(Decidim::ParticipatoryProcesses::ParticipatoryProcessStatsPresenter).to receive(:new)
+            .and_return(double(collection: [
+                                 { name: "dummies_count_high", data: [0], tooltip_key: "dummies_count_high_tooltip" }
+                               ]))
+        end
 
         it "show all the stats for this participatory process" do
-          expect(response["stats"]).to include("name" => "dummies_count_high", "value" => 0)
+          expect(response["stats"]).to include(
+            {
+              "name" => { "translation" => "Dummies high" },
+              "value" => 0
+            }
+          )
         end
       end
 

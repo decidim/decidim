@@ -22,9 +22,9 @@ describe "User closes a debate" do
   end
 
   context "when closing my debate" do
-    let!(:endorsement) do
+    let!(:like) do
       5.times do
-        create(:endorsement, resource: debate, author: build(:user, organization: debate.participatory_space.organization))
+        create(:like, resource: debate, author: build(:user, organization: debate.participatory_space.organization))
       end
     end
 
@@ -39,7 +39,7 @@ describe "User closes a debate" do
 
       expect(page).to have_content("The debate was closed")
       expect(page).to have_content("Yes, all organizations should use Decidim!")
-      expect(page).to have_css(".endorsers-list__avatar")
+      expect(page).to have_css(".likes-list__avatar")
     end
   end
 

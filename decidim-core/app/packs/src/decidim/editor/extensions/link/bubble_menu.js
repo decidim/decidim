@@ -1,6 +1,6 @@
 import { PluginKey } from "prosemirror-state";
 
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 import BubbleMenu from "src/decidim/editor/common/bubble_menu";
 
 class LinkBubbleMenu extends BubbleMenu {

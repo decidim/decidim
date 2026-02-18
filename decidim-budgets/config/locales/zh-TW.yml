@@ -30,10 +30,7 @@ zh-TW:
               'true': 未選擇實施
     budgets:
       actions:
-        attachment_collections: 資料夾
-        attachments: 附件
         edit: 編輯
-        edit_projects: 管理專案
         import: 將提案匯入專案
         preview: 預覽
         send_voting_reminders: 發送投票提醒
@@ -61,8 +58,6 @@ zh-TW:
         exports:
           projects: 專案
         models:
-          budget:
-            name: 預算
           project:
             name: 專案
         projects:
@@ -99,7 +94,6 @@ zh-TW:
           new:
             create: 將提案匯入專案
             default_budget: 預設預算
-            import_all_accepted_proposals: 導入所有已接受的提案
             no_components: 在此參與空間中沒有其他提案元件可以將提案匯入到專案中。
             origin_component_id: 原始元件
             select_component: 請選擇一個組件
@@ -145,7 +139,6 @@ zh-TW:
             total_budget: 總預算
         project:
           fields:
-            id: ID
             title: 標題
       order:
         status:
@@ -173,7 +166,6 @@ zh-TW:
             title: 超過最大專案數量
         budget_summary:
           are_you_sure: 您確定要取消您的投票嗎?
-          cancel_order: 刪除你的投票並重新開始
           checked_out:
             description: 你已經對預算表決投票了。如果你改變了主意，你可以%{cancel_link}。
             title: 預算投票完成
@@ -268,13 +260,6 @@ zh-TW:
               disabled: 投票已停用
               enabled: 已啟用投票
               finished: 投票已結束
-    events:
-      budgets:
-        budget_published:
-          email_intro: '現在 %{participatory_space_title} 的 %{resource_title} 預算已啟動，您可以從此頁面查看:'
-          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
-          email_subject: '%{participatory_space_title}」現在啟用了「%{resource_title}」預算。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 預算現在已經在 %{participatory_space_title} 上啟動
     orders:
       checkout:
         error: 處理您的投票時出現問題。
@@ -286,6 +271,5 @@ zh-TW:
         project_proposal: 此專案中包括的提案
     statistics:
       orders_count: 支援
-      projects_count: 專案
   index:
     confirmed_orders_count: 投票數

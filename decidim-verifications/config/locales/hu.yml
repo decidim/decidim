@@ -118,26 +118,11 @@ hu:
         start_exploring: felfedezés indul
       csv_census:
         admin:
-          census:
-            create:
-              success: Sikeresen importált %{count} elemet (%{errors} hiba).
-            destroy_all:
-              success: Minden névjegyzéki adatot töröltek.
-          destroy:
-            confirm: Az összes névjegyzék törlése nem vonható vissza. Biztos, hogy folytatni szeretné?
-            title: Törölje az összes névjegyzéki adatot
           index:
-            data: Összesen %{count} rekord van betöltve. Az utolsó feltöltés dátuma %{due_date} volt.
-            empty: Nincsenek névjegyzéki adatok. Az alábbi űrlap segítségével importálhatja a CSV-fájlt.
             title: Jelenlegi névjegyzéki adatok
           instructions:
             body: Ehhez be kell lépnie a rendszeradminisztrációba, és hozzá kell adnia a csv_census jogosultságokat a szervezethez
             title: Aktiválnia kell a szervezet névjegyzéki CSV-állományadatait
-          new:
-            file: ".csv fájl e-mail adatokkal"
-            info: 'CSV formátumú fájl lehet csak egy oszloppal, amely az email címeket tartalmazza:'
-            submit: Fájl feltöltés
-            title: Töltsön fel egy új névjegyzéket
         authorizations:
           new:
             error: Nem tudtuk ellenőrizni fiókját, vagy nem szerepel a szervezet névjegyzékében.

@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 module Decidim
-  autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
-  autoload :ResourceHelper, "decidim/resource_helper"
-
   class ViewModel < Cell::ViewModel
     include ActionView::Helpers::TranslationHelper
     include ::Cell::Translation
@@ -36,6 +33,10 @@ module Decidim
       instrument(:cell, identifier:) do |_payload|
         super
       end
+    end
+
+    def current_locale
+      I18n.locale
     end
 
     # Rails cells is delegating those methods to some internal view layer which messes up with shakapacker asset loading strategy

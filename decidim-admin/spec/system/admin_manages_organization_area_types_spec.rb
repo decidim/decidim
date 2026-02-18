@@ -37,7 +37,7 @@ describe "Admin manages area types" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Area type created successfully.")
 
     within "table" do
       expect(page).to have_content(translated(attributes[:name]))
@@ -62,6 +62,7 @@ describe "Admin manages area types" do
 
     it "can edit them" do
       within "tr", text: translated(area_type.name) do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -80,7 +81,7 @@ describe "Admin manages area types" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Area type updated successfully.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:name]))
@@ -92,10 +93,11 @@ describe "Admin manages area types" do
 
     it "can delete them" do
       within "tr", text: translated(area_type.name) do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Area type successfully destroyed.")
 
       within "table" do
         expect(page).to have_no_content(translated(area_type.name))

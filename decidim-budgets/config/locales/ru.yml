@@ -15,8 +15,6 @@ ru:
   decidim:
     budgets:
       actions:
-        attachment_collections: Папки
-        attachments: Прикрепленные файлы
         edit: Редактировать
         import: Внести в проекты позаимствованные предложения
         preview: Предпросмотр
@@ -65,7 +63,6 @@ ru:
           ok: Хорошо
         budget_summary:
           are_you_sure: Вы действительно хотите отменить свой голос?
-          cancel_order: удалить свой голос и начать все сначала
           checked_out:
             title: Голосование по бюджету завершено
         count:

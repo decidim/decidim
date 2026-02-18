@@ -134,7 +134,6 @@ ga:
         cancel: Cealaigh
         proceed: Gabh ar aghaidh
     menu:
-      help: Cabhair
       home: Baile
     messaging:
       conversations:
@@ -164,17 +163,10 @@ ga:
           debates: Díospóireachtaí
           meetings: Cruinnithe
           proposals: Moltaí
-        footer_sub_hero:
-          register: Cláraigh
-        sub_hero:
-          register: Cláraigh
       index:
         standalone_pages: Leathanaigh
         title: Cabhair
         topics: Ábhair
-      participatory_space:
-        metrics:
-          headline: Méadrachtaí
     profiles:
       show:
         activity: Gníomhaíocht
@@ -205,9 +197,6 @@ ga:
         cancel: Cealaigh
         ok: Togha
         title: Deimhnigh
-      extended_navigation_bar:
-        more: Níos mó
-        unfold: Oscail
       flag_modal:
         close: Dún
         reason: Cúis
@@ -222,7 +211,6 @@ ga:
         share: Roinn
     statistics:
       comments_count: Tráchtanna
-      endorsements_count: Formhuinithe
       pages_count: Leathanaigh
     version:
       show:

@@ -22,7 +22,10 @@ describe "Admin chooses user block templates when blocking user" do
   context "when on reported users path" do
     before do
       visit decidim_admin.moderated_users_path
-      click_on "Block User"
+      within "tr", text: user.name do
+        find("button[data-controller='dropdown']").click
+        click_on "Block User"
+      end
     end
 
     after do
@@ -36,7 +39,7 @@ describe "Admin chooses user block templates when blocking user" do
       within("[data-content]") do
         find("*[type=submit]").click
       end
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Participant successfully blocked.")
 
       expect(user.reload).to be_blocked
       expect(user.reload.blocking.justification).to eq(template.description["en"])

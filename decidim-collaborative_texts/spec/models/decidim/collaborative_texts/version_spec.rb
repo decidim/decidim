@@ -68,6 +68,20 @@ module Decidim
           end
         end
       end
+
+      context "when it has suggestions" do
+        let(:collaborative_text_version) { create(:collaborative_text_version) }
+        let!(:suggestions) { create_list(:collaborative_text_suggestion, 3, document_version: collaborative_text_version) }
+
+        it "has suggestions" do
+          expect(collaborative_text_version.suggestions.count).to eq(3)
+          expect(collaborative_text_version.suggestions_count).to eq(3)
+          expect(collaborative_text_version.suggestions.first).to be_a(Decidim::CollaborativeTexts::Suggestion)
+          expect(collaborative_text_version.suggestions.first.document_version).to eq(collaborative_text_version)
+          expect(collaborative_text_version.document.suggestions.count).to eq(3)
+          expect(collaborative_text_version.document.reload.suggestions_count).to eq(3)
+        end
+      end
     end
   end
 end

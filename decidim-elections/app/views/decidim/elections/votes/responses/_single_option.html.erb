@@ -1,0 +1,4 @@
+<%= label_tag "response-#{option.question.id}-#{option.id}" do %>
+  <%= radio_button_tag "response[#{option.question.id}][]", option.id, id: "response-#{option.question.id}-#{option.id}", checked: response_chosen?(option) %>
+  <%= translated_attribute(option.body) %>
+<% end %>

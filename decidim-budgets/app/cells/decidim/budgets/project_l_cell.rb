@@ -9,16 +9,14 @@ module Decidim
     class ProjectLCell < Decidim::CardLCell
       include Decidim::Budgets::ProjectsHelper
 
+      delegate :voting_open?, :resource_added?, to: :controller
+
       alias project model
 
       private
 
       def resource_path
         resource_locator([project.budget, project]).path(url_extra_params)
-      end
-
-      def resource_added?
-        current_order && current_order.projects.include?(model)
       end
 
       def current_order

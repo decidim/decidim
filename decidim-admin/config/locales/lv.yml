@@ -29,8 +29,6 @@ lv:
       organization:
         alert_color: Brīdinājums
         badges_enabled: Iespējot žetonus
-        cta_button_path: Pogas Call To Action ceļš
-        cta_button_text: Pogas Call To Action teksts
         customize_welcome_notification: Pielāgot sveiciena paziņojumu
         default_locale: Noklusējuma lokalizācija
         description: Apraksts
@@ -39,13 +37,6 @@ lv:
         favicon: Ikona
         github_handler: GitHub apdarinātājs
         header_snippets: Galvenes koda fragmenti
-        highlighted_content_banner_action_subtitle: Darbības pogas apakšnosaukums
-        highlighted_content_banner_action_title: Darbības pogas nosaukums
-        highlighted_content_banner_action_url: Darbības pogas URL
-        highlighted_content_banner_enabled: Rādīt izcelto satura reklāmkarogu
-        highlighted_content_banner_image: Attēls
-        highlighted_content_banner_short_description: Īss apraksts
-        highlighted_content_banner_title: Nosaukums
         instagram_handler: Instagram apdarinātājs
         logo: Logotips
         name: Nosaukums
@@ -114,9 +105,9 @@ lv:
       actions:
         add: Pievienot
         browse: Pārlūkot
-        manage: Pārvaldīt
+        configure: Konfigurēt
+        export: Eksportēt
         per_page: Lapā
-        permissions: Atļaujas
       area_types:
         create:
           error: Jauna jomas veida radīšanas laikā radās problēma.
@@ -236,9 +227,6 @@ lv:
             'false': Publicēts
             'true': Nav publicēts
         search_label: Meklēt
-        search_placeholder:
-          name_or_nickname_or_email_cont: Meklējiet %{collection} pēc e-pasta adreses, vārda vai segvārda.
-          title_cont: Meklējiet %{collection} pēc nosaukuma.
         state_eq:
           values:
             rejected: Noraidīts
@@ -286,6 +274,10 @@ lv:
             explanation: Pārvaldītos dalībniekus var paaugstināt par standarta dalībniekiem. Tas nozīmē, ka viņi tiks uzaicināti uz lietojumprogrammu un jūs viņus vairs nevarēsiet pārvaldīt. Uzaicinātais dalībnieks saņems e-pastu ar jūsu ielūgumu.
             new_managed_user_promotion: Jauna pārvaldīta dalībnieka paaugstināšana
             promote: Paaugstināt
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Augšupielādējiet savu CSV failu
       menu:
         admin_log: Administratora darbību žurnāls
         admins: Administratori
@@ -294,7 +286,6 @@ lv:
         areas: Jomas
         configuration: Konfigurācija
         help_sections: Palīdzības sadaļas
-        homepage: Sākumlapa
         impersonations: Uzdošanās par citu personu
         manage: Pārvaldīt
         newsletters: Informatīvie biļeteni
@@ -304,9 +295,6 @@ lv:
         settings: Iestatījumi
         static_pages: Lapas
         users: Dalībnieki
-      metrics:
-        metrics:
-          see_more_metrics: Skatīt vairāk rādītāju
       models:
         area:
           fields:
@@ -342,8 +330,6 @@ lv:
             sent_to: Nosūtīts
             subject: Temats
           name: Informatīvais biļetens
-        participatory_space_private_user:
-          name: Līdzdalības telpas privāts dalībnieks
         scope:
           fields:
             name: Nosaukums
@@ -437,7 +423,6 @@ lv:
           officialize: Piešķirt oficiālo statusu
           officialized: Piešķirts oficiāls statuss
           reofficialize: Atkal piešķirt oficiālo statusu
-          show_email: Rādīt e-pasta adresi
           status: Statuss
           unofficialize: Noņemt oficiālo statusu
         new:
@@ -459,36 +444,6 @@ lv:
         update:
           error: Šīs organizācijas atjaunināšanas laikā radās problēma.
           success: Organizācija ir veiksmīgi atjaunināta.
-      organization_appearance:
-        edit:
-          update: Atjaunināt
-        form:
-          colors:
-            colors_title: Organizācijas krāsas
-          cta_button_text_help: Jūs varat pārrakstīt sākumlapā redzamās pogas Call To Action tekstu visās jūsu organizācijā pieejamajās valodās. Ja vērtība nav iestatīta, tiks izmantota noklusējuma vērtība. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu.
-          homepage_appearance_title: Labot sākumlapas izskatu
-          homepage_highlighted_content_banner_title: Izceltais satura reklāmkarogs
-          images:
-            layout_appearance_title: Rediģēt izkārtojuma izskatu
-            preview: Priekšskatīt
-          omnipresent_banner_appearance_title: Rediģēt visuresošo reklāmkarogu
-      participatory_space_private_users:
-        create:
-          error: Pievienojot privāto dalībnieku šai līdzdalības telpai, radās problēma.
-          success: Privāto dalībnieku piekļuve līdzdalības telpai ir veiksmīgi izveidota.
-        destroy:
-          error: Dzēšot privāto dalībnieku no šīs līdzdalības telpas, radās problēma.
-          success: Privāto dalībnieku piekļuve līdzdalības telpai ir veiksmīgi dzēsta.
-        index:
-          title: Līdzdalības telpas privāts dalībnieks
-        new:
-          create: Izveidot
-          title: Jauns līdzdalības telpas privāts dalībnieks
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Augšupielādējiet savu CSV failu
-          upload: Augšupielādēt
       resource_permissions:
         edit:
           submit: Iesniegt
@@ -541,8 +496,6 @@ lv:
           error: Šīs tēmas atjaunināšanas laikā radās problēma.
           success: Tēma ir veiksmīgi atjaunināta
       static_pages:
-        actions:
-          view: Skatīt publisko lapu
         create:
           error: Jaunas lapas izveides laikā radās problēma.
           success: Lapa ir veiksmīgi izveidota.
@@ -569,11 +522,9 @@ lv:
         dashboard: Informācijas panelis
         impersonatable_users: Pārvaldāmie dalībnieki
         impersonations: Dalībnieku pārvaldība
-        metrics: Rādītāji
         participants: Dalībnieki
         scope_types: Tvēruma veidi
         scopes: Darbības tvērums
-        statistics: Aktivitāte
       users:
         create:
           error: Šī administratora uzaicināšanas laikā radās problēma.
@@ -600,8 +551,6 @@ lv:
         hide: Slēpt
         not_hidden: Nav paslēpts
         title: Darbības
-        unhide: Atcelt slēpšanu
-        unreport: Atcelt ziņošanu
       admin:
         reportable:
           hide:

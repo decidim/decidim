@@ -1,0 +1,23 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<%= render "decidim/demographics/admin/demographics/tabs_menu" do %>
+  <div>
+    <%= button_tag t("decidim.demographics.admin.settings.show.save"), class: "main-tabs-menu__cta-button", form: "survey-form" %>
+  </div>
+<% end %>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: decidim_admin_demographics.settings_path, html: { id: "survey-form", class: "form-defaults form edit_questionnaire" }) do |form| %>
+      <div class="form__wrapper">
+        <div class="card pt-4">
+          <div class="card-section">
+            <div class="row column">
+              <%= form.check_box :collect_data, help_text: t(".collect_data_help"), label: t(".collect_data"), aria: { label: :collect_data } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -80,11 +80,17 @@ ja:
             select_template: テンプレート回答を選択
         questionnaire_templates:
           choose:
+            continue: 続ける
+            description: 新しいアンケートを作成するか、定義済みのテンプレートを選択して後で変更することができます。オプションを選択します。
             label: テンプレートを選択
+            options:
+              create_new_form: 新しいフォームを作成
+              select_template: テンプレートを選択
             placeholder: テンプレートを選択
           edit:
             edit: 編集
             empty: 質問はまだありません。
+            manage_questions: 質問
             questionnaire: アンケート
             title: アンケートテンプレートの編集
           edit_questions:

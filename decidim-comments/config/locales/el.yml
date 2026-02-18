@@ -15,6 +15,10 @@ el:
         one: Ψηφοφορία
         other: Ψήφοι
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Σχόλια
     comments:
       admin:
         shared:
@@ -139,11 +143,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή έγινε αναφορά σε εσάς στο στοιχείο %{resource_title}.
           email_subject: Έγινε αναφορά σε εσάς στο στοιχείο %{resource_title}
           notification_title: Έγινε αναφορά σε εσάς στο στοιχείο <a href="%{resource_path}">%{resource_title}</a> από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Αριθμός σχολίων που δημιουργήθηκαν από συμμετέχοντες
-        object: σχόλια
-        title: Σχόλια
   errors:
     messages:
       cannot_have_comments: δεν μπορεί να έχει σχόλια

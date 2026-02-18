@@ -3,6 +3,10 @@ import contextHelpers from "src/decidim/editor/test/toolbar/shared/context";
 export default (ctx) => {
   const { getControl, setContent } = contextHelpers(ctx);
 
+  const normalizeHTML = (html) => {
+    return html.replace(/<p><br class="ProseMirror-trailingBreak"><\/p>$/g, "").trim();
+  };
+
   describe("hardBreak", () => {
     it("creates a new line break at the cursor position", async () => {
       await setContent("Hello, world!");
@@ -11,7 +15,7 @@ export default (ctx) => {
 
       // Note that the "tailingBreak" is only ProseMirror's internal element
       // to place the cursor at the correct location.
-      expect(ctx.prosemirror.innerHTML).toEqual('<p>Hello, world!<br><br class="ProseMirror-trailingBreak"></p>');
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual('<p>Hello, world!<br><br class="ProseMirror-trailingBreak"></p>');
     });
   });
 };

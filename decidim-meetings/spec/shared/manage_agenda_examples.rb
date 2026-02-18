@@ -24,7 +24,7 @@ shared_examples "manage agenda" do
         click_on "Update"
       end
 
-      expect(page).to have_admin_callout("Agenda successfully updated")
+      expect(page).to have_callout("Agenda successfully updated")
 
       visit_agenda_form
 
@@ -67,7 +67,7 @@ shared_examples "manage agenda" do
         click_on "Create"
       end
 
-      expect(page).to have_admin_callout("Agenda successfully created")
+      expect(page).to have_callout("Agenda successfully created")
 
       visit_agenda_form
 
@@ -91,7 +91,8 @@ shared_examples "manage agenda" do
     visit_component_admin
 
     within "tr", text: translated(meeting.title) do
-      page.click_on "Agenda"
+      find("button[data-controller='dropdown']").click
+      click_on "Agenda"
     end
   end
 end

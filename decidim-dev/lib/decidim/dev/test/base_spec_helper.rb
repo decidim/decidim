@@ -4,6 +4,15 @@ require "decidim/dev"
 
 ENV["RAILS_ENV"] ||= "test"
 ENV["RAILS_SYSTEM_TESTING_SCREENSHOT_HTML"] ||= "1"
+ENV["DECIDIM_API_JWT_SECRET"] ||= "dummy-api-jwt-secret"
+ENV["DECIDIM_AVAILABLE_LOCALES"] ||= "en,ca,es"
+ENV["DECIDIM_ENABLE_MACHINE_TRANSLATION"] ||= "true"
+ENV["DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE"] ||= "memory"
+ENV["DECIDIM_SPAM_DETECTION_BACKEND_USER"] ||= "memory"
+ENV["DECIDIM_SMS_GATEWAY_SERVICE"] ||= "Decidim::Verifications::Sms::ExampleGateway"
+ENV["DECIDIM_TIMESTAMP_SERVICE"] ||= "Decidim::Initiatives::DummyTimestamp"
+ENV["DECIDIM_PDF_SIGNATURE_SERVICE"] ||= "Decidim::PdfSignatureExample"
+ENV["DECIDIM_MACHINE_TRANSLATION_SERVICE"] ||= "Decidim::Dev::DummyTranslator"
 
 engine_spec_dir = File.join(Dir.pwd, "spec")
 

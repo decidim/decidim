@@ -12,7 +12,7 @@ module Decidim::Initiatives
     let(:cell_html) { my_cell.call }
     let(:state) { :open }
     let(:organization) { create(:organization) }
-    let!(:initiative) { create(:initiative, organization:, hashtag: "my_hashtag", state:) }
+    let!(:initiative) { create(:initiative, organization:, state:) }
     let(:user) { create(:user, organization: initiative.organization) }
 
     before do

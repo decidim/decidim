@@ -8,7 +8,8 @@ shared_examples "manage posts attachments" do
 
   before do
     within "tr", text: translated(post.title) do
-      click_on "Attachments"
+      find("button[data-controller='dropdown']").click
+      click_on "Add attachment"
     end
   end
 

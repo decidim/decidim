@@ -1,0 +1,14 @@
+= Proposals
+
+In the proposals module we are providing a few mutations that we find useful for day-to-day management of Decidim instance outside the admin.
+
+== For user/participants roles
+
+* xref:develop:api/reference/components/proposals/create.adoc[Create Proposal]
+* xref:develop:api/reference/components/proposals/update.adoc[Update Proposal]
+* xref:develop:api/reference/components/proposals/withdraw.adoc[Withdraw Proposal]
+* xref:develop:api/reference/components/proposals/vote.adoc[Vote Proposal]
+
+== For admin roles
+
+* xref:develop:api/reference/components/proposals/answer.adoc[Answer Proposal]

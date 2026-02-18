@@ -96,9 +96,6 @@ id:
         update: "%{user_name} memperbarui aplikasi %{resource_name} OAuth"
       organization:
         update: "%{user_name} memperbarui pengaturan organisasi"
-      participatory_space_private_user:
-        create: "%{user_name} diundang %{resource_name} untuk menjadi pengguna pribadi"
-        delete: "%{user_name} menghapus pengguna %{resource_name} sebagai pengguna pribadi"
       scope:
         create: "%{user_name} menciptakan %{resource_name} ruang lingkup"
         create_with_parent: "%{user_name} menciptakan %{resource_name} ruang lingkup di dalam %{parent_scope} ruang lingkup"
@@ -245,8 +242,6 @@ id:
         name: Aktivitas terakhir
         title: Aktivitas terakhir
         view_all: Lihat semua
-      metrics:
-        name: Metrik organisasi
       stats:
         name: Statistik organisasi
       sub_hero:
@@ -452,7 +447,6 @@ id:
     managed_users:
       expired_session: Sesi peniruan saat ini telah kedaluwarsa.
     menu:
-      help: Membantu
       home: Rumah
     messaging:
       conversation_mailer:
@@ -471,19 +465,6 @@ id:
           title: Percakapan dengan %{usernames}
         start:
           send: Kirim
-    metrics:
-      followers:
-        description: Jumlah pengguna yang mengikuti ruang partisipasi ini
-        object: pengikut
-        title: Pengikut
-      participants:
-        description: Jumlah pengguna aktif dalam organisasi
-        object: peserta
-        title: Peserta
-      users:
-        description: Jumlah pengguna dalam organisasi
-        object: pengguna
-        title: Pengguna
     newsletter_mailer:
       newsletter:
         unsubscribe: Untuk memilih tidak menerima jenis email ini, <a href="%{link}" target="_blank" class="unsubscribe">Berhenti Berlangganan</a>.
@@ -491,10 +472,8 @@ id:
       unsubscribe:
         success: Anda berhasil berhenti berlangganan.
         token_error: Tautan telah kedaluwarsa.
-        unsubscribe: Berhenti berlangganan
     newsletters_opt_in_mailer:
       notify:
-        body_1: Pengolahan data pribadi dan perlindungannya menjadi semakin penting bagi kita semua. Dengan Peraturan Perlindungan Data Umum yang baru (GDPR) 25 Mei 2018, individu memiliki kontrol yang lebih baik atas data pribadi mereka. Untuk alasan ini kami memerlukan "OK" Anda untuk terus mengirim informasi yang relevan tentang kegiatan %{organization_name}.
         body_2: 'Bagaimana Anda bisa memberi kami persetujuan Anda? Cukup klik tombol berikut:'
         body_3: Dengan persetujuan ini Anda akan dapat terus menerima informasi tentang layanan platform. Jika, sebaliknya, kami tidak menerima konfirmasi positif dari pihak Anda, kami akan berhenti mengirimi Anda pesan kami. Jika Anda mengonfirmasi bahwa Anda ingin terus mendapat informasi, Anda akan selalu memiliki opsi untuk membatalkan kapan saja.
         button: Ya, saya ingin terus menerima informasi yang relevan
@@ -532,23 +511,14 @@ id:
           proposals_explanation: Buat proposal, dukung yang sudah ada dan promosikan perubahan yang ingin Anda lihat.
         footer_sub_hero:
           footer_sub_hero_headline: Selamat datang di %{organization} platform partisipatif.
-          register: Daftar
         hero:
           participate: Ikut
           welcome: Selamat datang di %{organization}!
-        statistics:
-          headline: Keadaan saat ini %{organization}
-        sub_hero:
-          register: Daftar
       index:
         standalone_pages: Halaman
         subheading: Menavigasi melalui halaman bantuan %{name}
         title: Membantu
         topics: Topik
-      participatory_space:
-        metrics:
-          headline: Partisipasi dalam angka
-          link: Tampilkan semua statistik
     profile:
       deleted: Pengguna yang dihapus
     profiles:
@@ -562,11 +532,6 @@ id:
           edit_profile: Edit profil
           resend_email_confirmation_instructions: Kirim ulang instruksi konfirmasi email
     reported_mailer:
-      hide:
-        hello: Halo %{name},
-        manage_moderations: Kelola moderasi
-        report_html: <p>berikut <a href="%{url}">konten</a> telah disembunyikan secara otomatis.</p>
-        subject: Sumber daya telah disembunyikan secara otomatis
       report:
         hello: Halo %{name},
         report_html: <p> <a href="%{url}">konten</a> berikut telah dilaporkan.</p>
@@ -578,7 +543,6 @@ id:
       global: Ruang lingkup global
       prompt: Pilih cakupan
     search:
-      results_found_for_term: '%{count} Hasil untuk pencarian: "%{term}"'
       term_input_placeholder: Pencarian
     searches:
       filters:
@@ -594,9 +558,6 @@ id:
       results:
         view_all: Lihat semua (%{count})
     shared:
-      extended_navigation_bar:
-        more: Lebih
-        unfold: Membuka
       flag_modal:
         already_reported: Konten ini sudah dilaporkan dan akan ditinjau oleh admin.
         close: Dekat
@@ -662,10 +623,8 @@ id:
         decline: Tolak undangan
         hello: Halo %{email},
         invited_you_as_admin: "%{invited_by} telah mengundang Anda sebagai admin %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
-        invited_you_as_private_user: "%{invited_by} telah mengundang Anda sebagai pengguna pribadi dari %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
         someone_invited_you: Seseorang telah mengundang Anda ke %{application}. Anda dapat menerimanya melalui tautan di bawah ini.
         someone_invited_you_as_admin: Seseorang telah mengundang Anda sebagai admin %{application}, Anda dapat menerimanya melalui tautan di bawah.
-        someone_invited_you_as_private_user: Seseorang telah mengundang Anda sebagai pengguna pribadi %{application}, Anda dapat menerimanya melalui tautan di bawah ini.
         subject: Instruksi undangan
       password_change:
         greeting: Halo %{recipient}!
@@ -746,7 +705,6 @@ id:
       impersonation_warning:
         close_session: Tutup sesi
         description_html: Anda meniru identitas pengguna <b>%{user_name}</b>.
-        expire_time_html: Sesi Anda akan berakhir dalam <b><span class="minutes">%{minutes}</span> menit</b>.
       notifications_dashboard:
         mark_all_as_read: tandai semua telah dibaca
       user_menu:
@@ -771,7 +729,6 @@ id:
     fallback: tidak valid
     name_included_in_password: terlalu mirip dengan nama Anda
     not_enough_unique_characters: tidak memiliki karakter unik yang cukup
-    password_not_allowed: tidak diizinkan
     password_too_common: terlalu umum
     password_too_long: terlalu panjang
     password_too_short: terlalu pendek

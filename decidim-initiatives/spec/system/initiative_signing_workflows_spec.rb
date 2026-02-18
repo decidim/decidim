@@ -54,7 +54,7 @@ describe "Initiative signing with workflows" do
       .and_return(test_handler)
     switch_to_host(organization.host)
     login_as confirmed_user, scope: :user
-    visit decidim_initiatives.initiative_path(initiative)
+    visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
   end
 
   context "when the workflow is blank" do
@@ -109,7 +109,9 @@ describe "Initiative signing with workflows" do
 
         vote = Decidim::InitiativesVote.last
 
-        expect(vote.decrypted_metadata).to eq(personal_data)
+        data = personal_data.with_indifferent_access
+        data[:date_of_birth] = data[:date_of_birth].strftime("%Y-%m-%d")
+        expect(vote.decrypted_metadata).to eq(data)
       end
     end
 

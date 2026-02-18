@@ -23,13 +23,15 @@ module Decidim
       end
 
       describe "stats" do
-        let(:query) { %({ stats { name value } }) }
+        let(:query) { %({ stats { name { translation(locale:  "en") } value } }) }
         let!(:confirmed_users) { create_list(:user, 4, :confirmed, organization: model) }
         let!(:unconfirmed_users) { create_list(:user, 2, organization: model) }
 
-        it "show all the stats for this organization" do
-          # shows 5 as user_count, as we have the 4 confirmed_users + the admin
-          expect(response["stats"]).to include("name" => "users_count", "value" => 5)
+        it "shows all the stats for this organization" do
+          # As we have 4 confirmed users and the admin (assuming they are counted as confirmed), we expect 5.
+          expect(response["stats"]).to include(
+            hash_including("name" => { "translation" => "Participants" }, "value" => 5)
+          )
         end
       end
 

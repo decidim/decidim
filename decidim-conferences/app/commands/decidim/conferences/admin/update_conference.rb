@@ -8,7 +8,7 @@ module Decidim
       class UpdateConference < Decidim::Commands::UpdateResource
         fetch_file_attributes :hero_image, :banner_image
 
-        fetch_form_attributes :title, :slogan, :slug, :weight, :hashtag, :description, :short_description,
+        fetch_form_attributes :title, :slogan, :slug, :weight, :description, :short_description,
                               :objectives, :location, :start_date, :end_date, :promoted, :show_statistics,
                               :taxonomizations, :registrations_enabled
 
@@ -75,7 +75,7 @@ module Decidim
           checksum = Decidim::Conferences::UpcomingConferenceNotificationJob.generate_checksum(resource)
 
           Decidim::Conferences::UpcomingConferenceNotificationJob
-            .set(wait_until: (resource.start_date - 2.days).to_s)
+            .set(wait_until: (resource.start_date - 2.days).to_time)
             .perform_later(resource.id, checksum)
         end
 

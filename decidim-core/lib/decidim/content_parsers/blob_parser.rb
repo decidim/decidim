@@ -20,19 +20,19 @@ module Decidim
       # https://github.com/rails/rails/blob/a7e379896552ce43b822385c03c37f2bd47739d3/activestorage/config/routes.rb#L5-L14
       BLOB_REGEX = %r{
         # Group 1: Host part
-        (
+        (?<host_part>
           # Group 2: Domain and subpath part
-          https?://((?!/rails).)+
+          #{URI::DEFAULT_PARSER.make_regexp(%w(https http))}
         )?
         /rails/active_storage
         # Group 3: Blob path, representation path or disk service path
-        /(blobs/redirect|blobs/proxy|blobs|representations/redirect|representations/proxy|representations|disk)
+        /(?<type_part>blobs/redirect|blobs/proxy|blobs|representations/redirect|representations/proxy|representations|disk)
         # Group 4: Signed ID for blobs or encoded key for disk service
-        /([^/]+)
+        /(?<key_part>[^/]+)
         # Group 5: Variation part (only for representations)
         (
           # Group 6: Variation key for representations
-          /([\w.=-]+)
+          /(?<variation_part>[\w.=-]+)
         )?
         # Group 7: Filename
         /([\w.=-]+)
@@ -46,20 +46,22 @@ module Decidim
 
       def replace_blobs(text)
         text.gsub(BLOB_REGEX) do |match|
-          type_part = Regexp.last_match(3)
-          key_part = Regexp.last_match(4)
+          named_captures = Regexp.last_match.named_captures
+
+          type_part = named_captures["type_part"]
+          key_part = named_captures["key_part"]
 
           variation_key = nil
           blob =
             if type_part == "disk"
               # Disk service URL
-              decoded = ActiveStorage.verifier.verified(key_part, purpose: :blob_key)
+              decoded = ActiveStorage.verifier.verified(key_part, purpose: :blob_key).with_indifferent_access
               ActiveStorage::Blob.find_by(key: decoded[:key]) if decoded
             else
               # Representation or blob
               if type_part.start_with?("representations")
                 # Representation
-                variation_part = Regexp.last_match(6)
+                variation_part = named_captures["variation_part"]
                 variation_key = generate_variation_key(variation_part)
               end
 

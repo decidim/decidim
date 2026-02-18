@@ -34,6 +34,16 @@ describe "Authentication" do
     visit decidim.root_path
   end
 
+  around do |example|
+    previous_value = ActionController::Base.allow_forgery_protection
+    ActionController::Base.allow_forgery_protection = true
+    begin
+      example.run
+    ensure
+      ActionController::Base.allow_forgery_protection = previous_value
+    end
+  end
+
   describe "Create an account" do
     around do |example|
       perform_enqueued_jobs { example.run }
@@ -136,8 +146,9 @@ describe "Authentication" do
           end
           click_on("Keep unchecked")
 
-          expect(page).to have_content("Successfully")
+          expect(page).to have_content("Successfully authenticated from Facebook account.")
           expect_user_logged
+          expect(Decidim::Identity.where(provider: :facebook, uid: "123545").first.user.newsletter_notifications_at).not_to be_present
         end
       end
 
@@ -164,13 +175,13 @@ describe "Authentication" do
       end
 
       context "when user did not fill one of the fields" do
-        let!(:omniauth_hash) do
+        let(:omniauth_hash) do
           OmniAuth::AuthHash.new(
-            provider: "developer",
+            provider: "facebook",
             uid: "123545",
             info: {
-              nickname: "developer_user",
-              name: "Developer User"
+              nickname: "facebook_user",
+              name: "Facebook User"
             }
           )
         end
@@ -190,6 +201,7 @@ describe "Authentication" do
           click_on "Complete profile"
 
           expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+          expect(Decidim::Identity.where(provider: :facebook, uid: "123545").first.user.newsletter_notifications_at).to be_present
         end
       end
     end
@@ -228,7 +240,7 @@ describe "Authentication" do
 
           find(".login__omniauth-button--x").click
 
-          expect(page).to have_content("Successfully")
+          expect(page).to have_content("Successfully authenticated from Twitter account.")
           expect(page).to have_content("Please complete your profile")
           expect(page).to have_content("Please fill in the following form in order to complete the account creation")
 
@@ -245,7 +257,7 @@ describe "Authentication" do
 
             find(".login__omniauth-button--x").click
 
-            expect(page).to have_content("Successfully")
+            expect(page).to have_content("Successfully authenticated from Twitter account.")
             expect(page).to have_content("Please complete your profile")
 
             within ".new_user" do
@@ -402,7 +414,7 @@ describe "Authentication" do
 
       visit last_email_link
 
-      expect(page).to have_content("successfully confirmed")
+      expect(page).to have_callout("Your email address has been successfully confirmed.")
       expect(last_user).to be_confirmed
 
       within_user_menu do
@@ -413,7 +425,7 @@ describe "Authentication" do
   end
 
   context "when confirming the account" do
-    let!(:user) { create(:user, organization:) }
+    let!(:user) { create(:user, :malicious, organization:) }
 
     before do
       perform_enqueued_jobs { user.confirm }
@@ -470,6 +482,25 @@ describe "Authentication" do
 
         expect(page).to have_content("Logged in successfully")
         expect_current_user_to_be(user)
+      end
+
+      context "when CSRF token is invalid" do
+        it "displays a retry error" do
+          click_on("Log in", match: :first)
+          within "#session_new_user" do
+            fill_in :session_user_email, with: user.email
+            fill_in :session_user_password, with: "DfyvHn425mYAy2HL"
+          end
+
+          page.driver.browser.manage.delete_all_cookies
+          expect(page.driver.browser.manage.all_cookies).to be_empty
+
+          within "#session_new_user" do
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_content("Unable to verify your request. Please retry.")
+        end
       end
 
       context "when email validation is triggered in the log in form" do
@@ -748,7 +779,7 @@ describe "Authentication" do
 
         find(".login__omniauth-button.login__omniauth-button--facebook").click
 
-        expect(page).to have_content("Successfully")
+        expect(page).to have_content("Successfully authenticated from Facebook account.")
         expect_current_user_to_be(user)
       end
 
@@ -782,7 +813,7 @@ describe "Authentication" do
 
           find(".login__omniauth-button.login__omniauth-button--facebook").click
 
-          expect(page).to have_content("Successfully")
+          expect(page).to have_content("Successfully authenticated from Facebook account.")
           expect_current_user_to_be(user)
         end
 
@@ -796,7 +827,7 @@ describe "Authentication" do
           it "can log in without being prompted to change the password" do
             click_on("Log in", match: :first)
             click_on "Log in with Facebook"
-            expect(page).to have_content("Successfully")
+            expect(page).to have_content("Successfully authenticated from Facebook account.")
           end
         end
       end
@@ -892,7 +923,7 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("successfully")
+        expect(page).to have_content("Logged in successfully")
         expect_current_user_to_be(user)
         expect(page).to have_no_content("Wrong user")
       end

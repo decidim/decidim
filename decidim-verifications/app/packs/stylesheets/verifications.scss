@@ -56,10 +56,3 @@
     @apply text-xl font-semibold block mb-2;
   }
 }
-
-.table-list {
-  td:not(:first-child),
-  .custom-text-align {
-    @apply text-right;
-  }
-}

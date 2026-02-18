@@ -33,10 +33,7 @@ lt:
               'true': Nepasirinkta įgyvendinimui
     budgets:
       actions:
-        attachment_collections: Aplankai
-        attachments: Priedai
         edit: Redaguoti
-        edit_projects: Valdyti projektus
         import: Importuoti pasiūlymus į projektus
         preview: Peržiūra
         send_voting_reminders: Siųsti balsavimo priminimus
@@ -64,8 +61,6 @@ lt:
         exports:
           projects: Projektai
         models:
-          budget:
-            name: Biudžetas
           project:
             name: Projektas
         projects:
@@ -102,7 +97,6 @@ lt:
           new:
             create: Importuoti pasiūlymus į projektus
             default_budget: Numatytasis biudžetas
-            import_all_accepted_proposals: Importuoti visus priimtus projektus
             no_components: Nėra kitų pasiūlymų komponentų šioje dalyvaujamojoje erdvėje, kuriuos būtų galima importuoti į projektus.
             origin_component_id: Originalusis komponentas
             select_component: Pasirinkite komponentą
@@ -154,11 +148,12 @@ lt:
             total_budget: Visas biudžetas
         project:
           fields:
-            id: ID
             title: Pavadinimas
       order:
         status:
           title: Jūsų balsas įskaitytas
+      order_pdf:
+        title: Jūsų balsas įskaitytas.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Jūsų pasirinkti projektai:'
@@ -182,7 +177,6 @@ lt:
             title: Didžiausio nustatyto projektų skaičiaus riba viršyta
         budget_summary:
           are_you_sure: Ar tikrai norite atšauti savo balsą?
-          cancel_order: pašalinti balsą ir pradėti iš naujo
           checked_out:
             description: Jūs jau balsavote už biudžetą. Jeigu persigalvojote, galite ištrinti savo balsą.
             title: Balsavimas dėl biudžeto baigtas
@@ -209,18 +203,8 @@ lt:
           assigned: Priskirta
           budget: Biudžetas
           dynamic_help:
-            keep_adding_projects: Pridėkite daugiau projektų
             minimum_reached: Pasiekėte minimalų projektų kiekį balsavimui
-            start_adding_projects: Pradėktie balsavimą
           minimum: Mažiausiai
-          minimum_projects_rule:
-            description: Pasirinkite bent %{minimum_number} projektus ir balsuokite pagal savo prioritetus tam, kad numatyti biudžetą.
-          projects_rule:
-            description: Pasirinkite tarp %{minimum_number} ir %{maximum_number} projektų ir balsuokite pagal savo prioritetus tam, kad nustatyti kam skirti biudžetą.
-          projects_rule_maximum_only:
-            description: Pasirinkite iki %{maximum_number} projektų ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.
-          vote_threshold_percent_rule:
-            description: Pasirinkite bent %{minimum_budget} projektus ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.
         orders:
           highest_cost: Didžiausia kaina
           label: Rikiuoti projektus pagal
@@ -247,7 +231,6 @@ lt:
           added: Pridėta
           all: Visi
         projects_for: Projektai dėl %{name}
-        select_projects: Pasirinkite projektus
         show:
           budget: Biudžetas
       vote_reminder_mailer:
@@ -307,13 +290,6 @@ lt:
               disabled: Balsavimas išjungtas
               enabled: Balsavimas įjungtas
               finished: Balsavimas baigtas
-    events:
-      budgets:
-        budget_published:
-          email_intro: '%{participatory_space_title} %{resource_title} biudžetas dabar aktyvus. Jį galite pamatyti šiame puslapyje:'
-          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
-          email_subject: '%{participatory_space_title} %{resource_title} biudžetas dabar aktyvus.'
-          notification_title: <a href="%{resource_path}">%{resource_title} biudžetas dabar aktyvus %{participatory_space_title} erdvėje.
     orders:
       checkout:
         error: Apdorojant jūsų balsą iškilo problema.
@@ -325,6 +301,5 @@ lt:
         project_proposal: Į šį projektą įtraukti pasiūlymai
     statistics:
       orders_count: Palaikymai
-      projects_count: Projektai
   index:
     confirmed_orders_count: Balsų skaičius

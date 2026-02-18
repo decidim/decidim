@@ -14,15 +14,19 @@ module Decidim
     delegate :url_helpers, to: "Decidim::Core::Engine.routes"
     delegate :resource_title, to: :event
     delegate :resource_url, to: :event
-    delegate :email_intro, to: :event
     delegate :resource_path, to: :event
     delegate :safe_resource_text, to: :event
 
+    def email_intro
+      event.email_intro if event.respond_to?(:email_intro)
+    end
+
     def date_time
+      created_at_in_time_zone = created_at.in_time_zone(resource.organization.time_zone)
       if frequency == :daily
-        created_at.strftime("%H:%M")
+        I18n.l(created_at_in_time_zone, format: :time_of_day)
       else
-        I18n.l(created_at, format: :decidim_short)
+        I18n.l(created_at_in_time_zone, format: :decidim_short)
       end
     end
 

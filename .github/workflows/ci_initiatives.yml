@@ -18,16 +18,15 @@ on:
       - "decidim-initiatives/**"
       - "decidim-verifications/**"
 
+permissions:
+  contents: read
+  pull-requests: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build_app:
-    uses: ./.github/workflows/build_app.yml
-    secrets: inherit
-    name: Build test application
-
   main:
     strategy:
       fail-fast: false
@@ -39,7 +38,6 @@ jobs:
             name: "System tests"
           - command: bundle exec parallel_test --type rspec --pattern spec/system/admin
             name: "Admin system tests"
-    needs: build_app
     name: ${{ matrix.test.name }}
     uses: ./.github/workflows/test_app.yml
     secrets: inherit

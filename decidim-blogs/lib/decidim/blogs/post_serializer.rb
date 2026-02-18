@@ -25,7 +25,7 @@ module Decidim
           created_at: post.created_at,
           updated_at: post.updated_at,
           published_at: post.published_at,
-          endorsements_count: post.endorsements_count,
+          likes_count: post.likes_count,
           comments_count: post.comments_count,
           follows_count: post.follows_count,
           participatory_space: {

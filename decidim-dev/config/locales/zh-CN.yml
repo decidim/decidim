@@ -24,8 +24,6 @@ zh-CN:
               bar: 条形图
               foo: Foo
           step:
-            endorsements_blocked: 已阻止授权
-            endorsements_enabled: 授权已启用
             readonly_step_attribute: 只读步骤属性
             test_options:
               bar: 条形图

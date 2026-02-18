@@ -20,6 +20,8 @@ cs:
       admin_log:
         changeset:
           posts: Příspěvky
+      tooltips:
+        deleted_posts_info: Tento příspěvek nelze odstranit
     blogs:
       actions:
         author_id: Vytvořit příspěvek jako
@@ -107,8 +109,9 @@ cs:
           comment: Komentář
           create: Vytvořit
           destroy: Smazat
-          endorse: Schválit
+          like: Líbí se mi
           update: Aktualizovat
+          vote_comment: Komentář hlasování
         name: Blog
         settings:
           global:
@@ -124,8 +127,8 @@ cs:
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
-            endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Schvalování povoleno
+            likes_blocked: Líbí se mi zablokováno
+            likes_enabled: Líbí se mi povoleno
     events:
       blogs:
         post_created:
@@ -152,9 +155,9 @@ cs:
           comments_count: Počet komentářů, které má tento příspěvek
           component: Komponenta, do které příspěvek patří,
           created_at: Datum, kdy byl příspěvek vytvořen
-          endorsements_count: Počet podpor, které má tento příspěvek
           follows_count: Počet sledujících tohoto příspěvku
           id: Jedinečný identifikátor tohoto příspěvku
+          likes_count: Počet líbí se mi pro tento příspevek
           participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tento příspěvek
           published_at: Datum zveřejnění tohoto příspěvku
           title: Název příspěvku
@@ -162,3 +165,4 @@ cs:
           url: URL pro tento příspěvek
     statistics:
       posts_count: Příspěvky
+      posts_count_tooltip: Počet publikovaných aktualizací nebo blogových příspěvků.

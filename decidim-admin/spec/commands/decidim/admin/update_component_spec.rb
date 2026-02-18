@@ -53,7 +53,6 @@ module Decidim::Admin
         end.to broadcast(:ok)
 
         expect(component["name"]["en"]).to eq("My component")
-        expect(component.weight).to eq(3)
         expect(component.settings.dummy_global_attribute1).to be(true)
         expect(component.settings.dummy_global_attribute2).to be(false)
         expect(component.settings.readonly_attribute).to be(true)
@@ -62,6 +61,14 @@ module Decidim::Admin
         expect(step_settings.dummy_step_attribute1).to be(true)
         expect(step_settings.dummy_step_attribute2).to be(false)
         expect(step_settings.readonly_step_attribute).to be(true)
+      end
+
+      it "broadcasts :ok and does not update the weight" do
+        expect do
+          described_class.call(form, component)
+        end.to broadcast(:ok)
+
+        expect(component.weight).to eq(0)
       end
 
       it "fires the hooks" do

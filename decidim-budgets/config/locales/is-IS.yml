@@ -8,7 +8,6 @@ is-IS:
   decidim:
     budgets:
       actions:
-        attachments: Viðhengi
         edit: Breyta
         preview: Preview
         title: Aðgerðir
@@ -47,7 +46,6 @@ is-IS:
           ok: Allt í lagi
         budget_summary:
           are_you_sure: Ertu viss um að þú viljir hætta við atkvæði þitt?
-          cancel_order: Eyðu atkvæðagreiðslunni og farðu yfir
           checked_out:
             title: Fjárhagsleg atkvæði lokið
         count:

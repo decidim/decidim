@@ -119,7 +119,18 @@ module Decidim
     def manifest_for(record)
       record.try(:resource_manifest) ||
         record.class.try(:resource_manifest) ||
-        record.class.try(:participatory_space_manifest)
+        record.class.try(:participatory_space_manifest) ||
+        record.to_s
+    end
+
+    def route_name_for(record)
+      manifest = manifest_for(record)
+
+      if manifest.respond_to?(:route_name)
+        manifest.route_name
+      else
+        manifest.to_s
+      end
     end
 
     def component
@@ -130,14 +141,14 @@ module Decidim
       if polymorphic?
         polymorphic_member_route_name
       else
-        manifest_for(target).route_name
+        route_name_for(target)
       end
     end
 
     def polymorphic_member_route_name
       return unless polymorphic?
 
-      resource.map { |record| manifest_for(record).route_name }.join("_")
+      resource.map { |record| route_name_for(record) }.join("_")
     end
 
     def collection_route_name
@@ -149,7 +160,7 @@ module Decidim
 
       parent_resources = {}
       (resource - [target]).each do |parent|
-        parent_resources["#{manifest_for(parent).route_name}_id"] = parent.id
+        parent_resources["#{route_name_for(parent)}_id"] = parent.id unless parent.is_a?(String)
       end
       parent_resources
     end

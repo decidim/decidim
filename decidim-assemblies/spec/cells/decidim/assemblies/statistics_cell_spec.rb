@@ -9,8 +9,8 @@ module Decidim::Assemblies
     it_behaves_like "statistics cell" do
       let(:model) do
         [
-          { stat_title: :participants_count, stat_number: 123 },
-          { stat_title: :proposals_count, stat_number: 456 }
+          { stat_title: :participants_count, data: [123] },
+          { stat_title: :participatory_space_proposals_count, data: [456, 50] }
         ]
       end
     end

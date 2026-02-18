@@ -21,7 +21,7 @@ module Decidim
       amend_action?
       notification_action?
       conversation_action?
-      apply_endorsement_permissions if permission_action.subject == :endorsement
+      apply_like_permissions if permission_action.subject == :like
       show_my_location_button?
 
       permission_action
@@ -104,7 +104,19 @@ module Decidim
         return allow! if component.current_settings.amendment_creation_enabled
       when :accept,
           :reject
-        return allow! if component.current_settings.amendment_reaction_enabled
+        return disallow! unless component.current_settings.amendment_reaction_enabled
+
+        amendable = context.fetch(:amendable, nil)
+
+        if amendable.respond_to?(:official?) && amendable.official?
+          return allow! if user.admin?
+
+          return disallow!
+        end
+
+        return disallow! unless amendable.authored_by?(user)
+
+        return allow!
       when :promote
         return allow! if component.current_settings.amendment_promotion_enabled
       end
@@ -113,10 +125,10 @@ module Decidim
       toggle_allow(amendment&.amender == user)
     end
 
-    def apply_endorsement_permissions
-      is_allowed = current_settings.endorsements_enabled &&
-                   !current_settings.endorsements_blocked &&
-                   authorized?(:endorse, resource: context.fetch(:resource, nil))
+    def apply_like_permissions
+      is_allowed = current_settings.likes_enabled &&
+                   !current_settings.likes_blocked &&
+                   authorized?(:like, resource: context.fetch(:resource, nil))
 
       toggle_allow(is_allowed)
     end

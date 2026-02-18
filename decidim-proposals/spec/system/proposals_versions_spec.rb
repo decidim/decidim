@@ -59,6 +59,15 @@ describe "Explore versions", versioning: true do
     end
   end
 
+  context "when showing a version of a proposal that is hidden" do
+    let!(:proposal) { create(:proposal, :published, body: { en: "One liner body" }, component:) }
+
+    include_examples "a version of a hidden object" do
+      let(:resource_path) { proposal_path }
+      let(:hidden_object) { proposal }
+    end
+  end
+
   context "when showing version" do
     before do
       visit proposal_path

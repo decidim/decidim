@@ -1,6 +1,6 @@
-<%= form_for(@form, url: import_components_path(@accountability),
-                    html: { class: "form form-defaults", id: "new_import_component", data: { form_url: new_import_component_path(@accountability) } },
-                    method: :post) do |f| %>
+<%= decidim_form_for(@form, url: import_components_path(@accountability),
+                            html: { class: "form form-defaults", id: "new_import_component", data: { form_url: new_import_component_path(@accountability) } },
+                            method: :post) do |f| %>
   <% if @form.origin_components.any? %>
     <div class="form__wrapper">
       <div class="card pt-4">

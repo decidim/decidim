@@ -34,7 +34,7 @@ describe "Search" do
     end
 
     it "has all the resources to search" do
-      within ".search__filter" do
+      within "#dropdown-menu-search" do
         expect(page).to have_content("All").once
         expect(page).to have_content("Participants").once
         expect(page).to have_content("Participatory processes").once
@@ -78,7 +78,7 @@ describe "Search" do
     it "displays the results page" do
       visit %{/search?filter[with_resource_type]=Decidim::Proposals::Proposal&page=2&per_page=25'"()%26%25<zzz><ScRiPt >alert("XSS")</ScRiPt>}
 
-      expect(page).to have_content("100 Results for the search")
+      expect(page).to have_content("100 results for the search")
       expect(page).to have_content("Results per page")
     end
   end

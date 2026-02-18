@@ -22,7 +22,10 @@ describe "Evaluator uses proposal answer templates" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit Decidim::EngineRouter.admin_proxy(templatable).root_path
-    find("a", class: "action-icon--show-proposal").click
+    within "tr", text: translated_attribute(proposal.title) do
+      find("button[data-controller='dropdown']").click
+      click_on "Answer proposal"
+    end
   end
 
   it "uses the template" do
@@ -35,7 +38,7 @@ describe "Evaluator uses proposal answer templates" do
       click_on "Answer"
     end
 
-    expect(page).to have_admin_callout("Proposal successfully answered")
+    expect(page).to have_callout("Proposal successfully answered")
 
     within "tr", text: proposal.title["en"] do
       expect(page).to have_content("Rejected")
@@ -47,7 +50,10 @@ describe "Evaluator uses proposal answer templates" do
     before do
       template.destroy!
       visit Decidim::EngineRouter.admin_proxy(templatable).root_path
-      find("a", class: "action-icon--show-proposal").click
+      within "tr", text: translated_attribute(proposal.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Answer proposal"
+      end
     end
 
     it "hides the template selector in the proposal answer page" do

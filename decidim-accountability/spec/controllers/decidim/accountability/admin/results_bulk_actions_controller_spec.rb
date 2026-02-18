@@ -4,8 +4,6 @@ require "spec_helper"
 
 module Decidim::Accountability
   describe Admin::ResultsBulkActionsController do
-    routes { Decidim::Accountability::AdminEngine.routes }
-
     let(:organization) { create(:organization) }
     let(:participatory_space) { create(:participatory_process, organization:) }
     let(:current_component) { create(:accountability_component, participatory_space:) }
@@ -14,6 +12,7 @@ module Decidim::Accountability
     let(:current_user) { create(:user, :confirmed, :admin, organization:) }
 
     before do
+      allow(controller).to receive(:results_path).and_return(Decidim::EngineRouter.admin_proxy(current_component).results_path)
       request.env["decidim.current_organization"] = organization
       request.env["decidim.current_component"] = current_component
       sign_in current_user

@@ -9,7 +9,7 @@ module Decidim
         subject { helper.render_debate_description(debate) }
 
         before do
-          allow(helper).to receive(:present).with(debate).and_return(Decidim::Debates::DebatePresenter.new(debate))
+          allow(helper).to receive(:present).with(debate, presenter_class: nil).and_return(Decidim::Debates::DebatePresenter.new(debate))
           allow(helper).to receive(:current_organization).and_return(debate.organization)
           allow(helper).to receive(:debate).and_return(debate)
         end

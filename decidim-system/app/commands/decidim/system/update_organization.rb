@@ -54,6 +54,7 @@ module Decidim
         organization.smtp_settings = form.encrypted_smtp_settings
         organization.file_upload_settings = form.file_upload_settings.final
         organization.content_security_policy = form.content_security_policy
+        organization.header_snippets = form.header_snippets if Decidim.enable_html_header_snippets
 
         organization.save!
       end

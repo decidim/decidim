@@ -9,7 +9,7 @@ module Decidim
       def call
         create_content_block!
 
-        3.times do |_n|
+        number_of_records.times do |_n|
           type = create_initiative_type!
 
           organization.top_scopes.each do |scope|
@@ -19,7 +19,6 @@ module Decidim
 
         Decidim::Initiative.states.keys.each do |state|
           Decidim::Initiative.skip_callback(:save, :after, :notify_state_change, raise: false)
-          Decidim::Initiative.skip_callback(:create, :after, :notify_creation, raise: false)
 
           initiative = create_initiative!(state:)
 
@@ -49,8 +48,7 @@ module Decidim
         Decidim::InitiativesType.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 5),
           description: Decidim::Faker::Localized.sentence(word_count: 25),
-          organization:,
-          banner_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil # Keep after organization
+          organization:
         )
       end
 
@@ -94,7 +92,7 @@ module Decidim
 
       def create_initiative_votes!(initiative:)
         users = []
-        rand(50).times do
+        rand(0..config_value(:initiatives_votes_count)).times do
           author = (Decidim::User.all - users).sample
           initiative.votes.create!(author:, scope: initiative.scope, hash_id: SecureRandom.hex)
           users << author

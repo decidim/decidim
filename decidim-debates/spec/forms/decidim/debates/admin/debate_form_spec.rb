@@ -156,7 +156,7 @@ describe Decidim::Debates::Admin::DebateForm do
     end
 
     context "when the debate has start and end dates" do
-      let(:debate) { create(:debate, :open_ama) }
+      let(:debate) { create(:debate, :ongoing_ama) }
 
       it "sets the finite value correctly" do
         expect(subject.finite).to be(true)

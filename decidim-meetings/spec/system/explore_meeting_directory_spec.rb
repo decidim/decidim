@@ -202,6 +202,8 @@ describe "Explore meeting directory" do
         within "#panel-dropdown-menu-type" do
           click_filter_item "Hybrid"
         end
+
+        expect(page).to have_content(online_meeting.title["en"])
       end
     end
   end

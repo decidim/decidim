@@ -31,6 +31,10 @@ module Decidim
 
           "meeting-agenda-item-child-id"
         end
+
+        def map_model(model)
+          self.description = model.presenter.editor_description(all_locales: true)
+        end
       end
     end
   end

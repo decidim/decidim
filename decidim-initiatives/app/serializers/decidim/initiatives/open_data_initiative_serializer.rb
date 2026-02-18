@@ -24,7 +24,6 @@ module Decidim
           answer: resource.answer,
           answered_at: resource.answered_at,
           answer_url: resource.answer_url,
-          hashtag: resource.hashtag,
           first_progress_notification_at: resource.first_progress_notification_at,
           second_progress_notification_at: resource.second_progress_notification_at,
           online_votes: resource.online_votes,

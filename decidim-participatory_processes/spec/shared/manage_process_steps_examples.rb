@@ -37,7 +37,6 @@ shared_examples "manage process steps examples" do
       "#participatory_process_step-description-tabs",
       **attributes[:description].except("machine_translations")
     )
-    fill_in_i18n(:participatory_process_step_cta_text, "#participatory_process_step-cta_text-tabs", **attributes[:cta_text].except("machine_translations"))
 
     find_by_id("participatory_process_step_start_date_date").click
 
@@ -50,12 +49,12 @@ shared_examples "manage process steps examples" do
       click_on "Create"
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Participatory process phase successfully created.")
 
     within "#steps table" do
       expect(page).to have_content(translated(attributes[:title]))
-      expect(page).to have_content("#{Time.new.utc.day},")
-      expect(page).to have_content("#{(Time.new.utc + 2.days).day},")
+      expect(page).to have_content(Time.new.utc.day)
+      expect(page).to have_content((Time.new.utc + 2.days).day)
     end
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} phase in")
@@ -64,6 +63,7 @@ shared_examples "manage process steps examples" do
   it "updates a participatory_process_step", versioning: true do
     within "#steps" do
       within "tr", text: translated(process_step.title) do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
@@ -71,12 +71,11 @@ shared_examples "manage process steps examples" do
     within ".edit_participatory_process_step" do
       fill_in_i18n(:participatory_process_step_title, "#participatory_process_step-title-tabs", **attributes[:title].except("machine_translations"))
       fill_in_i18n_editor(:participatory_process_step_description, "#participatory_process_step-description-tabs", **attributes[:description].except("machine_translations"))
-      fill_in_i18n(:participatory_process_step_cta_text, "#participatory_process_step-cta_text-tabs", **attributes[:cta_text].except("machine_translations"))
 
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Participatory process phase successfully updated.")
 
     within "#steps table" do
       expect(page).to have_content(translated(attributes[:title]))
@@ -96,10 +95,11 @@ shared_examples "manage process steps examples" do
 
     it "deletes a participatory_process_step" do
       within "tr", text: translated(process_step2.title) do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Participatory process phase successfully deleted.")
 
       within "#steps table" do
         expect(page).to have_no_content(translated(process_step2.title))
@@ -110,6 +110,7 @@ shared_examples "manage process steps examples" do
   context "when activating a step" do
     it "activates a step" do
       within "tr", text: translated(process_step.title) do
+        find("button[data-controller='dropdown']").click
         click_on "Activate"
       end
 

@@ -56,7 +56,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("initiatives.update.error", scope: "decidim.initiatives.admin")
-              render :edit, layout: "decidim/admin/initiative"
+              render :edit, layout: "decidim/admin/initiative", status: :unprocessable_entity
             end
           end
         end
@@ -134,7 +134,7 @@ module Decidim
           end
         end
 
-        # GET /admin/initiatives/export
+        # POST /admin/initiatives/export
         def export
           enforce_permission_to :export, :initiatives
 
@@ -142,7 +142,7 @@ module Decidim
             current_user,
             current_organization,
             params[:format] || default_format,
-            params[:collection_ids].presence&.map(&:to_i)
+            params[:collection_ids].presence&.split(",")&.map(&:to_i)
           )
 
           flash[:notice] = t("decidim.admin.exports.notice")

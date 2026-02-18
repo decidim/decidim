@@ -25,7 +25,6 @@ module Decidim::ParticipatoryProcesses
         subtitle: { en: "subtitle" },
         weight:,
         slug: "slug",
-        hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
         hero_image:,
         promoted: nil,
@@ -41,12 +40,12 @@ module Decidim::ParticipatoryProcesses
         current_user:,
         current_organization: organization,
         organization:,
+        has_members: false,
         private_space: false,
         taxonomizations:,
         errors:,
         related_process_ids:,
-        participatory_process_group:,
-        announcement: { en: "message" }
+        participatory_process_group:
       )
     end
     let(:invalid) { false }

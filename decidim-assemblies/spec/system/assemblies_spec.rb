@@ -35,25 +35,13 @@ describe "Assemblies" do
 
   context "when there are no assemblies and directly accessing from URL" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_assemblies.assemblies_path }
-    end
-  end
-
-  context "when there are no assemblies and accessing from the homepage" do
-    let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-    it "the menu link is not shown" do
-      visit decidim.root_path
-
-      within "#home__menu" do
-        expect(page).to have_no_content("Assemblies")
-      end
+      let(:target_path) { decidim_assemblies.assemblies_path(locale: I18n.locale) }
     end
   end
 
   context "when the assembly does not exist" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_assemblies.assembly_path(99_999_999) }
+      let(:target_path) { decidim_assemblies.assembly_path(99_999_999, locale: I18n.locale) }
     end
   end
 
@@ -65,19 +53,7 @@ describe "Assemblies" do
 
     context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_assemblies.assemblies_path }
-      end
-    end
-
-    context "and accessing from the homepage" do
-      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-      it "the menu link is not shown" do
-        visit decidim.root_path
-
-        within "#home__menu" do
-          expect(page).to have_no_content("Assemblies")
-        end
+        let(:target_path) { decidim_assemblies.assemblies_path(locale: I18n.locale) }
       end
     end
   end
@@ -89,31 +65,17 @@ describe "Assemblies" do
     let!(:unpublished_assembly) { create(:assembly, :unpublished, organization:) }
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim_assemblies.assemblies_path }
+      let(:target_path) { decidim_assemblies.assemblies_path(locale: I18n.locale) }
     end
 
     it_behaves_like "shows contextual help" do
-      let(:index_path) { decidim_assemblies.assemblies_path }
+      let(:index_path) { decidim_assemblies.assemblies_path(locale: I18n.locale) }
       let(:manifest_name) { :assemblies }
     end
 
     context "and requesting the assemblies path" do
       before do
-        visit decidim_assemblies.assemblies_path
-      end
-
-      context "and accessing from the homepage" do
-        let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-        it "the menu link is shown" do
-          visit decidim.root_path
-
-          within "#home__menu" do
-            click_on "Assemblies"
-          end
-
-          expect(page).to have_current_path decidim_assemblies.assemblies_path
-        end
+        visit decidim_assemblies.assemblies_path(locale: I18n.locale)
       end
 
       it "lists all the highlighted assemblies" do
@@ -139,7 +101,7 @@ describe "Assemblies" do
       it "links to the individual assembly page" do
         first("a.card__grid", text: translated(assembly.title, locale: :en)).click
 
-        expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
+        expect(page).to have_current_path decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
       end
     end
   end
@@ -148,7 +110,7 @@ describe "Assemblies" do
     let(:assembly) { base_assembly }
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:followable) { assembly }
-    let(:followable_path) { decidim_assemblies.assembly_path(assembly) }
+    let(:followable_path) { decidim_assemblies.assembly_path(assembly, locale: I18n.locale) }
   end
 
   describe "when going to the assembly page" do
@@ -162,19 +124,19 @@ describe "Assemblies" do
     end
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim_assemblies.assembly_path(assembly) }
+      let(:target_path) { decidim_assemblies.assembly_path(assembly, locale: I18n.locale) }
     end
 
     context "and requesting the assembly path with main data and type and duration blocks active" do
       before do
-        visit decidim_assemblies.assembly_path(assembly)
+        visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
       end
 
       context "when hero, main_data extra_data, metadata and dates_metadata blocks are enabled" do
         let(:blocks_manifests) { [:hero, :main_data, :extra_data, :metadata, :dates_metadata] }
 
         before do
-          visit decidim_assemblies.assembly_path(assembly)
+          visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
         end
 
         it "shows the details of the given assembly" do
@@ -185,7 +147,6 @@ describe "Assemblies" do
             expect(page).to have_content(translated(assembly.subtitle, locale: :en))
             expect(page).to have_content(translated(assembly.short_description, locale: :en))
             expect(page).to have_content(translated(assembly.meta_scope, locale: :en))
-            expect(page).to have_content(assembly.hashtag)
             expect(page).to have_content(translated(assembly.developer_group, locale: :en))
             expect(page).to have_content(translated(assembly.local_area, locale: :en))
             expect(page).to have_content(translated(assembly.target, locale: :en))
@@ -204,7 +165,7 @@ describe "Assemblies" do
 
           before do
             assembly.update(duration:, closing_date:)
-            visit decidim_assemblies.assembly_path(assembly)
+            visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
           end
 
           it "shows indefinite duration without closing date" do
@@ -263,7 +224,7 @@ describe "Assemblies" do
         let(:blocks_manifests) { [:stats] }
 
         it "renders the stats for those components are visible" do
-          within "[data-statistic]" do
+          within "[data-statistic][class*=proposals]" do
             expect(page).to have_css(".statistic__title", text: "Proposals")
             expect(page).to have_css(".statistic__number", text: "3")
             expect(page).to have_no_css(".statistic__title", text: "Meetings")
@@ -279,7 +240,7 @@ describe "Assemblies" do
         let(:blocks_manifests) { [:related_assemblies] }
 
         before do
-          visit decidim_assemblies.assembly_path(assembly)
+          visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
         end
 
         it "shows only the published children assemblies" do
@@ -301,7 +262,7 @@ describe "Assemblies" do
         let(:blocks_manifests) { [:related_assemblies] }
 
         before do
-          visit decidim_assemblies.assembly_path(assembly)
+          visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
         end
 
         it "shows only the published, private and transparent children assemblies" do
@@ -317,7 +278,7 @@ describe "Assemblies" do
         let!(:private_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: false) }
 
         before do
-          visit decidim_assemblies.assembly_path(assembly)
+          visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
         end
 
         it "not shows any children assemblies" do
@@ -332,7 +293,7 @@ describe "Assemblies" do
     let!(:child_assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
-      visit decidim_assemblies.assembly_path(child_assembly)
+      visit decidim_assemblies.assembly_path(child_assembly, locale: I18n.locale)
     end
 
     it "have a link to the parent assembly" do

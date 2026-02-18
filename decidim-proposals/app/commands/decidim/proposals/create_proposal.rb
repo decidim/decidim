@@ -5,7 +5,6 @@ module Decidim
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
-      include HashtagsMethods
 
       # Public: Initializes the command.
       #
@@ -74,17 +73,21 @@ module Decidim
           ) do
             proposal = Proposal.new(
               title: {
-                I18n.locale => title_with_hashtags
+                I18n.locale => Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
               },
               body: {
-                I18n.locale => body_with_hashtags
+                I18n.locale => Decidim::ContentProcessor.parse_with_processor(:inline_images, form.body, current_organization: form.current_organization).rewrite
               },
               component: form.component
             )
 
             proposal.taxonomizations = form.taxonomizations if form.taxonomizations.present?
             proposal.documents = form.documents if form.documents.present?
-            proposal.address = form.address if form.has_address? && !form.geocoded?
+            if form.geocoded?
+              proposal.latitude = form.latitude
+              proposal.longitude = form.longitude
+            end
+            proposal.address = form.address if form.has_address?
             proposal.add_coauthor(@current_user)
             proposal.save!
             @attached_to = proposal

@@ -118,7 +118,7 @@ module Decidim
           end
 
           context "and the variant has been processed" do
-            before { subject.variant(:testing).process }
+            before { subject.variant(:testing).processed }
 
             it "returns a URL to the variant with the correct extension" do
               expect(subject.variant_url(:testing)).to match(%r{^http://#{Regexp.escape(hostname)}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})

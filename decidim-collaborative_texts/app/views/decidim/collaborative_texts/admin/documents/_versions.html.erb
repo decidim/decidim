@@ -1,0 +1,18 @@
+<h4 class="h4 mb-4"><%= t("decidim.collaborative_texts.admin.documents.edit.previous_versions") %></h4>
+<ul class="previous-versions">
+<% document.document_versions.each do |version| %>
+  <% next unless version && version.id %>
+  <li class="<%= "underline" if version == document.current_version %>">
+  <%= t("decidim.collaborative_texts.admin.documents.edit.version", version_number: version.version_number,
+                                                                    created_at: l(version.created_at,
+                                                                                  format: :decidim_short),
+                                                                    suggestions_count: version.suggestions.count) %>
+  <% if version == document.consolidated_version %>
+      (<%= t("decidim.collaborative_texts.admin.documents.edit.public_version") %>)
+  <% end %>
+  <% if version.draft? %>
+      (<%= t("decidim.collaborative_texts.admin.documents.edit.draft") %>)
+  <% end %>
+  </li>
+<% end %>
+</ul>

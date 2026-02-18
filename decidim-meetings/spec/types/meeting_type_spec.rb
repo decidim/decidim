@@ -20,6 +20,15 @@ module Decidim
       include_examples "attachable interface"
       include_examples "services interface"
       include_examples "linked resources interface"
+      include_examples "followable interface"
+      include_examples "referable interface"
+      include_examples "localizable interface"
+
+      shared_examples "unauthorized Meeting" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Meeting because you do not have permissions")
+        end
+      end
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -29,11 +38,134 @@ module Decidim
         end
       end
 
-      describe "reference" do
-        let(:query) { "{ reference }" }
+      describe "comments_enabled" do
+        let(:query) { "{ commentsEnabled }" }
 
-        it "returns the meeting's reference" do
-          expect(response["reference"]).to eq(model.reference.to_s)
+        let(:model) { create(:meeting, :published, component:, comments_enabled: true) }
+
+        it "displays the field value" do
+          expect(response["commentsEnabled"]).to be true
+        end
+      end
+
+      describe "comments_end_time" do
+        let(:query) { "{ commentsEndTime }" }
+
+        it "hides the field value" do
+          expect(response["commentsEndTime"]).to be_nil
+        end
+
+        context "when is set" do
+          let(:model) { create(:meeting, :published, component:, comments_end_time: Time.current.utc) }
+
+          it "displays the field value" do
+            expect(response["commentsEndTime"]).to eq(model.comments_end_time.to_time.iso8601)
+          end
+        end
+      end
+
+      describe "published_at" do
+        let(:query) { "{ publishedAt }" }
+
+        context "when is set" do
+          let(:model) { create(:meeting, :published, component:) }
+
+          it "returns the publishedAt field" do
+            expect(response["publishedAt"]).to eq(model.published_at.to_time.iso8601)
+          end
+        end
+
+        context "when is not set" do
+          let(:model) { create(:meeting, component:) }
+
+          it_behaves_like "unauthorized Meeting"
+        end
+      end
+
+      describe "comments_start_time" do
+        let(:query) { "{ commentsStartTime }" }
+
+        it "hides the field value" do
+          expect(response["commentsStartTime"]).to be_nil
+        end
+
+        context "when is set" do
+          let(:model) { create(:meeting, :published, component:, comments_start_time: Time.current.utc) }
+
+          it "displays the field value" do
+            expect(response["commentsStartTime"]).to eq(model.comments_start_time.to_time.iso8601)
+          end
+        end
+      end
+
+      describe "iframe_access_level" do
+        let(:query) { "{ iframeAccessLevel }" }
+        let(:model) { create(:meeting, :published, component:, iframe_access_level: nil) }
+
+        it "hides the field value" do
+          expect(response["iframeAccessLevel"]).to be_nil
+        end
+
+        %w(all signed_in registered).each do |iframe_access_level|
+          context "when is set to #{iframe_access_level}" do
+            let(:model) { create(:meeting, :published, component:, iframe_access_level:) }
+
+            it "displays the field value" do
+              expect(response["iframeAccessLevel"]).to eq(model.iframe_access_level.upcase)
+            end
+          end
+        end
+      end
+
+      describe "iframe_embed_type" do
+        let(:query) { "{ iframeEmbedType }" }
+        let(:model) { create(:meeting, :published, component:, iframe_embed_type: nil) }
+
+        it "hides the field value" do
+          expect(response["iframeEmbedType"]).to be_nil
+        end
+
+        %w(none embed_in_meeting_page open_in_live_event_page open_in_new_tab).each do |iframe_embed_type|
+          context "when is set to #{iframe_embed_type}" do
+            let(:model) { create(:meeting, :published, component:, iframe_embed_type:) }
+
+            it "displays the field value" do
+              expect(response["iframeEmbedType"]).to eq(model.iframe_embed_type.upcase)
+            end
+          end
+        end
+      end
+
+      describe "registration_type" do
+        let(:query) { "{ registrationType }" }
+
+        %w(registration_disabled on_this_platform on_different_platform).each do |registration_type|
+          context "when is set to #{registration_type}" do
+            let(:model) { create(:meeting, :published, component:, registration_type:) }
+
+            it "displays the field value" do
+              expect(response["registrationType"]).to eq(model.registration_type.upcase)
+            end
+          end
+        end
+      end
+
+      describe "public_participants" do
+        let(:query) { "{ publicParticipants { id } }" }
+
+        it "returns the public participant's id" do
+          expect(response["publicParticipants"]).to eq(model.public_participants.map { |pp| { "id" => pp.id.to_s } })
+        end
+      end
+
+      describe "registration_url" do
+        let(:query) { "{ registrationUrl }" }
+        let(:registration_url) { "http://decidim.org" }
+
+        let(:model) { create(:meeting, :published, component:, registration_url:) }
+
+        it "returns the public participant's id" do
+          expect(response["registrationUrl"]).to eq(model.registration_url)
         end
       end
 
@@ -42,6 +174,22 @@ module Decidim
 
         it "returns the meeting's title" do
           expect(response["title"]["translation"]).to eq(model.title["ca"])
+        end
+      end
+
+      describe "customize_registration_email" do
+        let(:query) { "{ customizeRegistrationEmail } " }
+
+        it "returns the meeting's title" do
+          expect(response["customizeRegistrationEmail"]).to be false
+        end
+
+        context "when customize_registration_email" do
+          let(:model) { create(:meeting, :published, component:, customize_registration_email: false) }
+
+          it "returns the meeting's title" do
+            expect(response["customizeRegistrationEmail"]).to be false
+          end
         end
       end
 
@@ -69,14 +217,22 @@ module Decidim
         end
       end
 
-      describe "isWithdrawn" do
-        let(:query) { "{ isWithdrawn }" }
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::ResourceLocatorPresenter.new(model).url)
+        end
+      end
+
+      describe "withdrawn" do
+        let(:query) { "{ withdrawn }" }
 
         context "when meetings is withdrawn" do
           let(:model) { create(:meeting, :published, :withdrawn, component:) }
 
           it "returns true" do
-            expect(response["isWithdrawn"]).to be true
+            expect(response["withdrawn"]).to be true
           end
         end
 
@@ -84,16 +240,24 @@ module Decidim
           let(:model) { create(:meeting, :published, component:) }
 
           it "returns false" do
-            expect(response["isWithdrawn"]).to be false
+            expect(response["withdrawn"]).to be false
           end
         end
       end
 
       describe "closed" do
-        let(:query) { "{ closed closingReport { translation(locale: \"ca\") } }" }
+        let(:query) { "{ closedAt closed closingReport { translation(locale: \"ca\") } }" }
+
+        it "hides the closing time" do
+          expect(response["closedAt"]).to be_nil
+        end
 
         context "when closed" do
           let(:model) { create(:meeting, :published, :closed, component:) }
+
+          it "displays the closing time" do
+            expect(response["closedAt"]).to eq(model.closed_at.to_time.iso8601)
+          end
 
           it "returns true" do
             expect(response["closed"]).to be true
@@ -190,11 +354,11 @@ module Decidim
           end
         end
 
-        describe "attendeeCount" do
-          let(:query) { "{ attendeeCount }" }
+        describe "attendeesCount" do
+          let(:query) { "{ attendeesCount }" }
 
           it "returns the amount of attendees" do
-            expect(response["attendeeCount"]).to eq(model.attendees_count)
+            expect(response["attendeesCount"]).to eq(model.attendees_count)
           end
         end
       end
@@ -220,25 +384,6 @@ module Decidim
 
         it "returns the meeting's location_hints" do
           expect(response["locationHints"]["translation"]).to eq(model.location_hints["ca"])
-        end
-      end
-
-      describe "address" do
-        let(:query) { "{ address }" }
-
-        it "returns the meeting's address" do
-          expect(response["address"]).to eq(model.address)
-        end
-      end
-
-      describe "coordinates" do
-        let(:query) { "{ coordinates { latitude longitude } }" }
-
-        it "returns the meeting's address" do
-          expect(response["coordinates"]).to include(
-            "latitude" => model.latitude,
-            "longitude" => model.longitude
-          )
         end
       end
 
@@ -292,9 +437,7 @@ module Decidim
         let(:root_value) { model.reload }
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       describe "transparent" do
@@ -311,9 +454,7 @@ module Decidim
         let(:model) { create(:meeting, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       context "when participatory space is private but transparent" do
@@ -333,9 +474,7 @@ module Decidim
         let(:model) { create(:meeting, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       context "when component is not published" do
@@ -343,9 +482,7 @@ module Decidim
         let(:model) { create(:meeting, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       context "when meeting is moderated" do
@@ -353,9 +490,7 @@ module Decidim
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns all the required fields" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       context "when meeting is not published" do
@@ -363,9 +498,7 @@ module Decidim
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
     end
   end

@@ -14,6 +14,10 @@ it:
         one: Votazione
         other: voti
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Commenti
     comments:
       admin:
         shared:
@@ -130,8 +134,3 @@ it:
           email_outro: Hai ricevuto questa notifica perché sei stato citato in %{resource_title}.
           email_subject: Sei stato menzionato in %{resource_title}
           notification_title: Sei stato citato in <a href="%{resource_path}">%{resource_title}</a> di <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Numero di commenti generati dagli utenti
-        object: Commenti
-        title: Commenti

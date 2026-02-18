@@ -54,7 +54,7 @@ es:
             tos: Términos y condiciones de uso
         questionnaires:
           actions:
-            back: Volver a las preguntas
+            back: Volver a las respuestas
             publish_responses: Publicar las respuestas
             show: Respuestas
           display_condition:
@@ -102,12 +102,10 @@ es:
             any: Alguna
             collapse: Contraer
             description: Descripción
-            down: Abajo
             expand: Expandir
             question: Pregunta
             remove: Eliminar
             statement: Declaración
-            up: Arriba
           questions_form:
             already_responded_warning: La encuesta ya está contestada por algunas usuarias, así que no puedes modificar sus preguntas.
             collapse: Contraer todas las preguntas
@@ -138,26 +136,22 @@ es:
             show:
               title: 'Respuesta #%{number}'
           separator:
-            down: Bajar
             remove: Eliminar
             separator: Separador
-            up: Subir
           title_and_description:
             collapse: Contraer
             description: Descripción
-            down: Bajar
             expand: Expandir
             remove: Eliminar
             title: Título
             title_and_description: Título y descripción
-            up: Subir
           update:
             invalid: Se ha producido un error al guardar el formulario.
             success: Formulario guardado correctamente.
       admin_log:
         question:
-          publish_responses: "%{user_name} publicó respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
-          unpublish_responses: "%{user_name} despublicó respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
+          publish_responses: "%{user_name} publicó las respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
+          unpublish_responses: "%{user_name} despublicó las respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
         questionnaire:
           update: "%{user_name} actualizó el cuestionario %{resource_name}"
       errors:
@@ -194,8 +188,8 @@ es:
           questionnaire_closed:
             body: El formulario está cerrado y no puedes responder.
             title: Formulario cerrado
-          questionnaire_for_private_users:
-            body: El formulario está disponible solo para participantes privadas
+          questionnaire_for_members:
+            body: El formulario está disponible solo para miembros
             title: Formulario cerrado
           questionnaire_js_disabled:
             body: Algunas de las características de este formulario se desactivarán. Para mejorar tu experiencia, habilita JavaScript en tu navegador.
@@ -225,6 +219,7 @@ es:
           submit: Enviar respuestas
       user_responses_serializer:
         body: Respuesta
+        completion: Finalización
         created_at: Respondido el
         id: ID de la repuesta
         ip_hash: Hash de la dirección IP

@@ -24,12 +24,9 @@ module Decidim
              through: :scopes,
              class_name: "Decidim::Initiative"
 
-    enum signature_type: [:online, :offline, :any], _suffix: true
+    enum :signature_type, [:online, :offline, :any], suffix: true
 
     validates :title, :description, :signature_type, presence: true
-
-    has_one_attached :banner_image
-    validates_upload :banner_image, uploader: Decidim::BannerImageUploader
 
     def allowed_signature_types_for_initiatives
       return %w(online offline any) if any_signature_type?

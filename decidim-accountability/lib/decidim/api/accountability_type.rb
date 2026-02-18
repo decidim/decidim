@@ -10,13 +10,25 @@ module Decidim
         argument :id, ID, "The id of the Result requested", required: true
       end
       field :results, Decidim::Accountability::ResultType.connection_type, "A collection of Results", null: true, connection: true
+      field :status, Decidim::Accountability::StatusType, "A single Status object", null: true do
+        argument :id, ID, "The id of the Status requested", required: true
+      end
+      field :statuses, [Decidim::Accountability::StatusType], "The Statuses for this component", null: false
 
       def results
         Result.where(component: object).includes(:component)
       end
 
-      def result(**args)
-        Result.where(component: object).find_by(id: args[:id])
+      def result(id:)
+        Result.where(component: object).find(id)
+      end
+
+      def statuses
+        Status.where(component: object).order(:progress, :key, :id)
+      end
+
+      def status(id:)
+        Status.where(component: object).find(id)
       end
     end
   end

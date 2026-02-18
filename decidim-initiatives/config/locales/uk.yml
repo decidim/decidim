@@ -2,7 +2,6 @@ uk:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Автор
         description: Опис
         offline_votes: Підтримка на особистих зустрічах
         scope_id: Обсяг
@@ -157,11 +156,6 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Новий почин, започаткований %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> створив почин <a href="%{resource_path}">%{resource_title}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, підтримав наступний почин. Чи не бажаєте ви зробити свій внесок у розмову:"
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: '%{author_nickname} підтримав почин'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> підтримав почин <a href="%{resource_path}">%{resource_title}</a>.
       initiative_votes:
         create:
           error: При підписанні цього почину сталися помилки.

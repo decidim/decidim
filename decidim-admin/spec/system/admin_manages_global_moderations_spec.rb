@@ -115,6 +115,23 @@ describe "Admin manages global moderations" do
     end
   end
 
+  context "when un-reporting reported participant" do
+    let!(:reported_user) { create(:user, :confirmed, organization:) }
+    let!(:moderation) { create(:user_moderation, user: reported_user, report_count: 1) }
+    let!(:report) { create(:user_report, moderation:, user:, reason: "spam") }
+
+    it "unreports a reported participant" do
+      visit decidim_admin.moderated_users_path
+
+      within "tr[data-id=\"#{moderation.id}\"]" do
+        find("button[data-controller='dropdown']").click
+        click_on "Undo the report"
+      end
+
+      expect(page).to have_callout("Resource successfully unreported.")
+    end
+  end
+
   context "when performing bulk actions" do
     let!(:reportables) { create_list(:dummy_resource, 4, component: current_component) }
     let!(:moderations) do
@@ -151,7 +168,7 @@ describe "Admin manages global moderations" do
       expect(page).to have_content("Reported content 3")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
-        click_on "Unreport"
+        click_on "Undo the report"
       end
       expect(page).to have_content("Unreport selected resources")
       click_on "Unreport selected resources"
@@ -165,7 +182,7 @@ describe "Admin manages global moderations" do
       expect(page).to have_content("Reported content 1")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
-        click_on "Unhide"
+        click_on "Undo the hide"
       end
       expect(page).to have_content("Unhide selected resources")
       click_on "Unhide selected resources"
@@ -182,12 +199,17 @@ describe "Admin manages global moderations" do
           click_on "Hidden"
 
           within "tr", text: "Dummy resource" do
-            expect(page).to have_link("Unhide")
+            find("button[data-controller='dropdown']").click
+            expect(page).to have_link("Undo the hide")
           end
           within "tr", text: "Comment" do
+            find("button[data-controller='dropdown']").click
             expect(page).to have_no_link("Unhide")
-            expect(page).to have_css("svg[aria-label='You cannot unhide this resource because its parent is still hidden.']", visible: :all)
           end
+
+          find(".dropdown__button-disabled").hover
+
+          expect(page).to have_css("p", text: "You cannot unhide this resource because its parent is still hidden.", visible: :all)
         end
       end
     end

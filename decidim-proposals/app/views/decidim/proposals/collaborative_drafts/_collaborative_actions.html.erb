@@ -1,7 +1,7 @@
 
 <% if allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
-  <li role="menuitem">
-    <%= link_to edit_collaborative_draft_path(@collaborative_draft), class: "button button__sm button__text button__text-secondary", id: "collaborative_draft_edit" do %>
+  <li role="menuitem" class="dropdown__item">
+    <%= link_to edit_collaborative_draft_path(@collaborative_draft), class: "dropdown__button", id: "collaborative_draft_edit" do %>
       <span><%= t("edit", scope:"decidim.proposals.collaborative_drafts.show") %></span>
       <%= icon "pencil-line" %>
     <% end %>

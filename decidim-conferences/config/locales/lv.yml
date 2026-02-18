@@ -2,14 +2,9 @@ lv:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Saistītās asamblejas
         banner_image: Reklāmkaroga attēls
-        copy_categories: Kopēt kategorijas
-        copy_components: Kopēt komponentus
-        copy_features: Kopēt funkcijas
         decidim_scope_id: Darbības tvērums
         description: Apraksts
-        hashtag: Tēmturis
         hero_image: Sākuma attēls
         participatory_processes_ids: Saistītie līdzdalības procesi
         promoted: Izcelts
@@ -44,11 +39,6 @@ lv:
       actions:
         confirm: Apstiprināt
         send_diplomas: Nosūtīt apmeklējuma sertifikātus
-      conference_copies:
-        new:
-          copy: Kopēt
-          select: Atlasiet, kurus datus vēlaties dublēt
-          title: Dublēt konferenci
       conference_publications:
         create:
           error: Konferences publicēšanas laikā radās problēma.
@@ -97,19 +87,15 @@ lv:
         exports:
           registrations: Reģistrācija
         form:
+          images: Attēli
           title: Vispārēja informācija
         index:
           published: Publicēts
         new:
           create: Izveidot
-          title: Konference
         update:
           error: Šīs konferences atjaunināšanas laikā radās problēma.
           success: Konference ir veiksmīgi atjaunināta.
-      conferences_copies:
-        create:
-          error: Radās problēma ar šīs konferences dublēšanu.
-          success: Konference ir veiksmīgi dublēta.
       media_links:
         create:
           error: Jaunas mediju saites izveides laikā radās problēma.

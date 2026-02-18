@@ -11,7 +11,9 @@ module Decidim
       field :stats, [Core::StatisticType, { null: true }], description: "The statistics associated to this object", null: true
 
       def stats
-        Decidim.stats.with_context(object)
+        Decidim::HomeStatsPresenter.new(organization: object).collection.map do |stat|
+          [object, stat]
+        end
       end
 
       def taxonomies

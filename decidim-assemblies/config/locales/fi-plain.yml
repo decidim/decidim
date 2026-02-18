@@ -10,9 +10,6 @@ fi-pl:
         closing_date: Sulkeutumispäivä
         closing_date_reason: Perustelu sulkemiselle
         composition: Kokoonpano
-        copy_categories: Kopioi aihepiirit
-        copy_components: Kopioi komponentit
-        copy_features: Kopioi ominaisuudet
         created_by: Luonut
         created_by_other: Luotu muualta
         creation_date: Luontipäivämäärä
@@ -22,10 +19,13 @@ fi-pl:
         developer_group: Perustajaryhmä
         document: Asiakirja
         domain: Toimintaympäristö
+        duplicate_categories: Kopioi aihepiirit
+        duplicate_components: Kopioi komponentit
+        duplicate_features: Kopioi ominaisuudet
         duration: Kesto
         facebook: Facebook
         github: GitHub
-        hashtag: Aihetunniste (hashtag)
+        has_members: Tässä tilassa on jäseniä
         hero_image: Etusivun kuva
         import_attachments: Tuo liitteitä
         import_categories: Tuo aihepiirejä
@@ -112,13 +112,13 @@ fi-pl:
         update:
           error: Ryhmän päivityksessä tapahtui virhe.
           success: Ryhmä päivitettiin onnistuneesti.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
-          error: Virhe kopioitaessa ryhmää.
-          success: Ryhmä kopioitu onnistuneesti.
-      assembly_copies:
+          error: Ryhmän kopioiminen epäonnistui.
+          success: Ryhmän kopioiminen onnistui.
+      assembly_duplicates:
         new:
-          copy: Kopioi
+          duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi ryhmä
       assembly_imports:
@@ -170,9 +170,9 @@ fi-pl:
           attachments: Liitteet
           components: Komponentit
           info: Tietoa tästä ryhmästä
-          landing_page: Laskeutumissivu
+          landing_page: Laskeutumissivun asettelu
+          members: Jäsenet
           moderations: Moderoinnit
-          private_users: Jäsenet
           see_assembly: Näytä ryhmä
       models:
         assembly:
@@ -193,6 +193,7 @@ fi-pl:
             vice_president: Varapuheenjohtaja
         assembly_user_role:
           fields:
+            actions: Toiminnot
             email: Sähköposti
             name: Nimi
             role: Rooli
@@ -218,9 +219,11 @@ fi-pl:
         export: "%{user_name} vei ryhmän %{resource_name}"
         import: "%{user_name} toi ryhmän %{resource_name}"
         publish: "%{user_name} julkaisi %{resource_name} ryhmän"
+        publish_all_members: "%{user_name} julkaisi ryhmän %{resource_name} jäsenet"
         restore: "%{user_name} palautti ryhmän %{resource_name}"
         soft_delete: "%{user_name} siirsi ryhmän %{resource_name} roskakoriin"
         unpublish: "%{user_name} lopetti %{resource_name} ryhmän julkaisemisen"
+        unpublish_all_members: "%{user_name} perui ryhmän %{resource_name} jäsenten julkaisun"
         update: "%{user_name} päivitti %{resource_name} ryhmän"
       assembly_member:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
@@ -246,12 +249,13 @@ fi-pl:
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
+            has_members_help: Voit luoda ja julkaista jäseniä
             images: kuvat
             included_at_help: Valitse päivämäärä, jolloin tämä ryhmä lisättiin alustalle. Sen ei välttämättä tarvitse olla sama kuin luontipäivä.
             metadata: metadata
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             other: muut
-            private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
+            private_notice: Piilottaa osallistumistilan verkkosivuston vierailijoiden näkyvistä (ellei osallistumistila ole myös läpinäkyvä)
             select_a_created_by: Valitse luoja
             select_parent_assembly: Valitse pääryhmä
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
@@ -259,7 +263,7 @@ fi-pl:
             taxonomies: Luokittelut
             title: Yleiset tiedot
             visibility: Näkyvyys
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_imports:
@@ -376,11 +380,6 @@ fi-pl:
           not_found: 'Ryhmätyyppiä ei löytynyt tietokannasta (ID-numero: %{id})'
     menu:
       assemblies: Ryhmät
-    metrics:
-      assemblies:
-        description: Ryhmien määrä
-        object: ryhmät
-        title: Ryhmät
     open_data:
       help:
         assemblies:
@@ -389,6 +388,7 @@ fi-pl:
           assembly_type: Ryhmän tyyppi
           closing_date: Ryhmän sulkemispäivä
           closing_date_reason: Miksi tämä ryhmä suljettiin
+          component_settings: Ryhmän komponenttiasetukset
           composition: Ryhmän kokoonpano
           created_at: Tilan luontiaika
           created_by: Kuka tämän ryhmän on luonut
@@ -401,7 +401,6 @@ fi-pl:
           facebook_handler: Sosiaalisen median tunniste Facebookissa
           follows_count: Tilaa seuraavien käyttäjien määrä
           github_handler: Sosiaalisen median tunniste GitHubissa
-          hashtag: Ryhmää vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
           id: Ryhmän yksilöivä tunniste
           included_at: Ryhmän sisällyttämisen päivämäärä
           instagram_handler: Sosiaalisen median tunniste Instagramissa
@@ -435,6 +434,7 @@ fi-pl:
         related_assemblies: Liittyvät ryhmät
     statistics:
       assemblies_count: Ryhmää
+      assemblies_count_tooltip: Julkisten ryhmien lukumäärä, missä on tehty päätöksiä.
   layouts:
     decidim:
       assemblies:

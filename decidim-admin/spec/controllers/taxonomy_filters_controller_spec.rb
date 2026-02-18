@@ -28,9 +28,9 @@ module Decidim
         it "breadcrumbs are set" do
           get :index, params: { taxonomy_id: root_taxonomy.id }
           expect(controller.helpers.breadcrumb_items).to eq([
-                                                              { label: "Taxonomies", url: "/admin#{taxonomies_path}" },
-                                                              { label: root_taxonomy.name, url: "/admin#{taxonomy_filters_path}" },
-                                                              { label: "Filters", url: "/admin#{taxonomy_filters_path}" }
+                                                              { label: "Taxonomies", url: taxonomies_path },
+                                                              { label: root_taxonomy.name, url: taxonomy_filters_path },
+                                                              { label: "Filters", url: taxonomy_filters_path }
                                                             ])
         end
       end
@@ -51,10 +51,10 @@ module Decidim
         it "breadcrumbs are set" do
           get :new, params: { taxonomy_id: root_taxonomy.id }
           expect(controller.helpers.breadcrumb_items).to eq([
-                                                              { label: "Taxonomies", url: "/admin#{taxonomies_path}" },
-                                                              { label: root_taxonomy.name, url: "/admin#{taxonomy_filters_path}" },
-                                                              { label: "Filters", url: "/admin#{taxonomy_filters_path}" },
-                                                              { label: "New filter", url: "/admin#{new_taxonomy_filter_path}" }
+                                                              { label: "Taxonomies", url: taxonomies_path },
+                                                              { label: root_taxonomy.name, url: taxonomy_filters_path },
+                                                              { label: "Filters", url: taxonomy_filters_path },
+                                                              { label: "New filter", url: new_taxonomy_filter_path }
                                                             ])
         end
       end
@@ -99,10 +99,10 @@ module Decidim
         it "breadcrumbs are set" do
           get :edit, params: { taxonomy_id: root_taxonomy.id, id: taxonomy_filter.id }
           expect(controller.helpers.breadcrumb_items).to eq([
-                                                              { label: "Taxonomies", url: "/admin#{taxonomies_path}" },
-                                                              { label: root_taxonomy.name, url: "/admin#{taxonomy_filters_path}" },
-                                                              { label: "Filters", url: "/admin#{taxonomy_filters_path}" },
-                                                              { label: "Edit filter", url: "/admin#{edit_taxonomy_filter_path}" }
+                                                              { label: "Taxonomies", url: taxonomies_path },
+                                                              { label: root_taxonomy.name, url: taxonomy_filters_path },
+                                                              { label: "Filters", url: taxonomy_filters_path },
+                                                              { label: "Edit filter", url: edit_taxonomy_filter_path }
                                                             ])
         end
       end

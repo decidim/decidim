@@ -17,20 +17,12 @@ describe "Homepage" do
   context "when there is an organization" do
     let(:official_url) { "http://mytesturl.me" }
     let(:organization) do
-      create(:organization, official_url:,
-                            highlighted_content_banner_enabled: true,
-                            highlighted_content_banner_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_action_url: Faker::Internet.url,
-                            highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
+      create(:organization, official_url:)
     end
 
     before do
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :sub_hero)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_content_banner)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :how_to_participate)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :footer_sub_hero)
 
@@ -46,8 +38,27 @@ describe "Homepage" do
         visit decidim.root_path
       end
 
+      context "with an admin user" do
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
+
+        before do
+          login_as user, scope: :user if user
+          visit current_path
+        end
+
+        describe "the edit button" do
+          let(:edit_path) { decidim_admin.edit_organization_homepage_path }
+
+          it "shows the admin bar with the Edit button" do
+            within "#admin-bar" do
+              expect(page).to have_link("Edit", href: edit_path)
+            end
+          end
+        end
+      end
+
       context "when having homepage anchors" do
-        %w(hero sub_hero highlighted_content_banner how_to_participate footer_sub_hero).each do |anchor|
+        %w(hero sub_hero how_to_participate footer_sub_hero).each do |anchor|
           it { expect(page).to have_css("[id^=#{anchor}]", visible: :all) }
         end
       end
@@ -75,55 +86,6 @@ describe "Homepage" do
 
         it "shows the omnipresent banner's short description" do
           expect(page).to have_i18n_content(organization.omnipresent_banner_short_description)
-        end
-      end
-
-      describe "call to action" do
-        let!(:participatory_process) { create(:participatory_process, :published) }
-        let!(:organization) { participatory_process.organization }
-
-        before do
-          switch_to_host(organization.host)
-          visit decidim.root_path
-        end
-
-        context "when the organization has the CTA button text customized" do
-          let(:cta_button_text) { { en: "Sign up", es: "Regístrate", ca: "Registra't" } }
-          let(:organization) { create(:organization, cta_button_text:) }
-
-          it "uses the custom values for the CTA button text" do
-            within ".hero" do
-              click_on "Sign up"
-            end
-
-            expect(page).to have_current_path decidim.new_user_registration_path
-          end
-        end
-
-        context "when the organization has the CTA button link customized" do
-          let(:organization) { create(:organization, cta_button_path: "users/sign_in") }
-
-          it "uses the custom values for the CTA button" do
-            within ".hero" do
-              click_on "Participate"
-            end
-
-            expect(page).to have_current_path decidim.new_user_session_path
-            expect(page).to have_content("Log in")
-            expect(page).to have_content("Not registered yet?")
-          end
-        end
-
-        context "when the organization does not have it customized" do
-          it "uses the default values for the CTA button" do
-            visit decidim.root_path
-
-            within ".hero" do
-              click_on "Participate"
-            end
-
-            expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
-          end
         end
       end
 
@@ -238,11 +200,11 @@ describe "Homepage" do
 
               expect(page).to have_link(
                 static_page_topic1_page2.topic.title["en"],
-                href: "/pages/#{static_page_topic1_page2.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page2.slug}"
               )
               expect(page).to have_no_link(
                 static_page_topic1_page1.title["en"],
-                href: "/pages/#{static_page_topic1_page1.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page1.slug}"
               )
             end
           end
@@ -266,19 +228,19 @@ describe "Homepage" do
 
               expect(page).to have_link(
                 static_page_topic1_page2.topic.title["en"],
-                href: "/pages/#{static_page_topic1_page2.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page2.slug}"
               )
               expect(page).to have_link(
                 static_page_topic1_page1.topic.title["en"],
-                href: "/pages/#{static_page_topic1_page1.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page1.slug}"
               )
               expect(page).to have_link(
                 static_page_topic2_page1.topic.title["en"],
-                href: "/pages/#{static_page_topic2_page1.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic2_page1.slug}"
               )
               expect(page).to have_no_link(
                 static_page_topic2_page2.title["en"],
-                href: "/pages/#{static_page_topic2_page2.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic2_page2.slug}"
               )
             end
           end
@@ -307,7 +269,6 @@ describe "Homepage" do
 
           before do
             visit current_path
-            find_by_id("main-dropdown-summary").hover
           end
 
           it "does not show last activity section on menu bar main dropdown" do
@@ -323,7 +284,6 @@ describe "Homepage" do
 
           before do
             visit current_path
-            find_by_id("main-dropdown-summary").hover
           end
 
           it "does not show last activity section on menu bar main dropdown" do
@@ -363,7 +323,7 @@ describe "Homepage" do
 
           it "shows the statistics block" do
             within "#statistics" do
-              expect(page).to have_content("Current state of #{translated(organization.name)}")
+              expect(page).to have_content("Statistics")
               expect(page).to have_content("Processes")
               expect(page).to have_content("Participants")
             end
@@ -404,13 +364,6 @@ describe "Homepage" do
       describe "decidim link with external icon" do
         before { visit current_path }
 
-        let(:webpacker_helper) do
-          Class.new do
-            include ActionView::Helpers::AssetUrlHelper
-            include Shakapacker::Helper
-          end.new
-        end
-
         it "displays the decidim link with external link indicator" do
           within "footer" do
             expect(page).to have_css("a[target='_blank'][href='https://github.com/decidim/decidim']")
@@ -419,41 +372,6 @@ describe "Homepage" do
               expect(page).to have_css("svg")
             end
           end
-        end
-      end
-
-      context "and has highlighted content banner enabled" do
-        let(:organization) do
-          create(:organization,
-                 official_url:,
-                 highlighted_content_banner_enabled: true,
-                 highlighted_content_banner_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_url: Faker::Internet.url,
-                 highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
-        end
-
-        before do
-          switch_to_host(organization.host)
-          visit decidim.root_path
-        end
-
-        it "shows the banner's title" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_title)
-        end
-
-        it "shows the banner's description" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_short_description)
-        end
-
-        it "shows the banner's action title" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title)
-        end
-
-        it "shows the banner's action subtitle" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_subtitle)
         end
       end
 

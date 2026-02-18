@@ -32,9 +32,15 @@ describe "Explore posts" do
 
       before do
         create(:comment, commentable: old_post)
-        create(:endorsement, resource: old_post, author: build(:user, organization: old_post.participatory_space.organization))
+        create(:like, resource: old_post, author: build(:user, organization: old_post.participatory_space.organization))
 
         visit_component
+      end
+
+      it "shows the correct information in breadcrumb" do
+        within(".menu-bar") do
+          expect(page).to have_content(translated(component.name))
+        end
       end
 
       it "shows the component name in the sidebar" do

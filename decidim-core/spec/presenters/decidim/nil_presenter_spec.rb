@@ -16,7 +16,7 @@ module Decidim
       let(:method) { :avatar_url }
 
       it "returns the default avatar url" do
-        expect(subject).to eq("//localhost:#{Capybara.server_port}#{::Webpacker.instance.manifest.lookup("media/images/default-avatar.svg")}")
+        expect(subject).to eq("//localhost:#{Capybara.server_port}#{::Shakapacker.instance.manifest.lookup("media/images/default-avatar.svg")}")
         expect(subject.ends_with?(".svg")).to be true
       end
     end
@@ -57,14 +57,6 @@ module Decidim
       [:resource, :path, :url, :index, :admin_index, :show, :edit].each do |method|
         subject { ::Decidim::NilPresenter.new.send(method, {}) }
 
-        let(:method) { method }
-
-        it { is_expected.to eq("") }
-      end
-    end
-
-    describe "with hashtag related methods" do
-      [:name, :hashtag_path, :display_hashtag, :display_hashtag_name].each do |method|
         let(:method) { method }
 
         it { is_expected.to eq("") }

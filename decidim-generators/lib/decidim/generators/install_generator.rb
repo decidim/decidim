@@ -52,7 +52,7 @@ module Decidim
 
       def smtp_environment
         inject_into_file "config/environments/production.rb",
-                         after: "config.log_formatter = ::Logger::Formatter.new" do
+                         after: "config.log_tags = [ :request_id ]" do
           cut <<~HERE
             |
             |  config.action_mailer.smtp_settings = {
@@ -75,7 +75,7 @@ module Decidim
         remove_file "Gemfile"
       end
 
-      def install_decidim_webpacker
+      def install_decidim_shakapacker
         # Copy CSS file
         copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"
 
@@ -87,16 +87,17 @@ module Decidim
         # Add a .keep file so directory is included in git when committing
         create_file "app/packs/images/.keep"
 
-        # Regenerate webpacker binstubs
+        # Regenerate shakapacker binstubs
         remove_file "bin/yarn"
         bundle_install
-        rails "shakapacker:binstubs"
 
         # Copy package.json
         copy_file "package.json", "package.json"
 
-        # Run Decidim custom webpacker installation
-        rails "decidim:webpacker:install"
+        rails "shakapacker:binstubs"
+
+        # Run Decidim custom shakapacker installation
+        rails "decidim:shakapacker:install"
 
         # Run Decidim custom procfile installation
         rails "decidim:procfile:install"

@@ -1,0 +1,15 @@
+<div class="collaborative-texts-editor-header">
+  <%= icon("edit-line") %>
+  <button class="collaborative-texts-button-cancel" aria-label="<%= t("decidim.collaborative_texts.document.cancel") %>" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="collaborative-texts-editor-profile">
+  <%= cell("decidim/author", current_user.presenter) if user_signed_in? %>
+</div>
+<div class="collaborative-texts-editor-container"></div>
+<div class="collaborative-texts-editor-menu">
+  <%= action_authorized_button_to(:suggest, "#suggest", disabled: true, class: "collaborative-texts-button-save button button__primary button__sm") do %>
+    <%= t("decidim.collaborative_texts.document.save") %>
+  <% end %>
+</div>

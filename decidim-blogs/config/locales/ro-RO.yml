@@ -19,6 +19,8 @@ ro:
       admin_log:
         changeset:
           posts: Postări
+      tooltips:
+        deleted_posts_info: Nu se poate șterge această postare
     blogs:
       actions:
         author_id: Creeați postare ca
@@ -105,8 +107,9 @@ ro:
           comment: Comentați
           create: Creați
           destroy: Ștergeți
-          endorse: Susțineți
+          like: Apreciere
           update: Actualizați
+          vote_comment: Votați comentariul
         name: Blog
         settings:
           global:
@@ -122,8 +125,8 @@ ro:
           step:
             announcement: Anunț
             comments_blocked: Comentarii blocate
-            endorsements_blocked: Susțineri dezactivate
-            endorsements_enabled: Susțineri activate
+            likes_blocked: Aprecieri blocate
+            likes_enabled: Aprecieri activate
     events:
       blogs:
         post_created:
@@ -150,9 +153,9 @@ ro:
           comments_count: Numărul de comentarii pe care le are această postare
           component: Componenta căreia îi aparține postarea
           created_at: Data la care acestă postare a fost creată
-          endorsements_count: Numărul de aprobări pe care această postare le-a primit
           follows_count: Numărul de urmăritori al acestei postări
           id: Identificatorul unic al acestei postări
+          likes_count: Numărul de aprecieri pe care le are această postare
           participatory_space: Cărui spațiu (de exemplu, proces participativ sau adunare) aparține această postare
           published_at: Data la care acestă postare a fost publicată
           title: Titlul postării
@@ -160,3 +163,4 @@ ro:
           url: URL-ul pentru această postare
     statistics:
       posts_count: Postări
+      posts_count_tooltip: Numărul de actualizări publicate sau postări de blog.

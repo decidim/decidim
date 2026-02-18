@@ -45,7 +45,6 @@ bg:
       decidim/promote_to_admin: Назначен за администратор на групата
       decidim/promoted_to_admin_event: Назначен за администратор на групата
       decidim/removed_from_group: Премахнат от групата
-      decidim/resource_endorsed_event: Съдържанието е одобрено
       decidim/resource_hidden_event: Съдържанието е скрито
       decidim/welcome_notification_event: Приветствено съобщение
   activerecord:
@@ -63,9 +62,6 @@ bg:
       decidim/amendment:
         one: Поправка
         other: Поправки
-      decidim/endorsement:
-        one: Одобряване
-        other: Одобрявания
       decidim/user:
         one: Участник
         other: Участници
@@ -236,10 +232,6 @@ bg:
       organization:
         update: "%{user_name} обнови настройките на организацията"
         update_external_domain: "%{user_name} актуализира външните домейни на организацията"
-      participatory_space_private_user:
-        create: "%{user_name} покани %{resource_name} да бъде частен участник"
-        create_via_csv: "%{user_name} покани %{resource_name} чрез CSV да бъде частен участник"
-        delete: "%{user_name} премахна участника %{resource_name} като частен"
       scope:
         create: "%{user_name} създаде сферата %{resource_name}"
         create_with_parent: "%{user_name} създаде сферата %{resource_name} в родителската сфера %{parent_scope}"
@@ -366,9 +358,6 @@ bg:
       comments:
         one: коментар
         other: коментари
-      endorsements:
-        one: одобряване
-        other: одобрявания
       official_author: Официално
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -496,8 +485,6 @@ bg:
         description: Описание
       footer_sub_hero:
         name: Долен колонтитул на под-геройския банер
-      global_menu:
-        name: Основно меню
       hero:
         name: Профилно изображение и бутон "Призив към действие"
       hero_settings_form:
@@ -528,10 +515,6 @@ bg:
         name: Основни данни
       metadata:
         name: Метаданни
-      metrics:
-        name: Показатели за организацията
-      participatory_space_metrics:
-        name: Метрики
       participatory_space_stats:
         name: Статистики
       social_networks_metadata:
@@ -632,13 +615,10 @@ bg:
         error: Грешка при качването на изображението.
         success: Изображението е качено успешно.
       drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
-    endorsement_buttons_cell:
-      endorse: Харесвам
     errors:
       files:
         file_cannot_be_processed: Файлът не може да бъде обработен
         file_resolution_too_large: Разделителната способност на файла е твърде голяма
-        not_inside_organization: Файлът не е прикачен към никоя организация.
       internal_server_error:
         copied: Текстът е копиран!
         copy_error_message_clarification: Копирайте съобщението за грешка в клипборда
@@ -741,11 +721,6 @@ bg:
           notification_title: |-
             Администратор премахна вашия %{resource_type}, защото е докладван като %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, когото следвате, одобри "%{resource_title}" Ако представлява интерес за вас, проверете и участвайте:'
-        email_outro: Получавате това известие, защото следвате %{endorser_nickname}. Може да прекратите известията чрез предната връзка.
-        email_subject: "%{endorser_nickname} направи ново одобряване"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} беше одобрено от <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Профилната <a href="%{resource_url}">страница</a> на %{name} (%{nickname}), който следвате е обновена.
@@ -928,7 +903,6 @@ bg:
         latlng_text: 'географска ширина: %{latitude}, географска дължина: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Помощ
       home: Начало
     messaging:
       conversation_mailer:
@@ -981,21 +955,6 @@ bg:
         finished: 'Приключило: %{end_date}'
         not_started: Още не е започнало
         remaining: "Остават %{time_distance}"
-    metrics:
-      download:
-        csv: Изтегляне на данни (CSV)
-      followers:
-        description: Брой участници, които следват това пространство
-        object: последователи
-        title: Последователи
-      participants:
-        description: Брой активни участници в организацията
-        object: участници
-        title: Участници
-      users:
-        description: Брой участници в организацията
-        object: участници
-        title: Участници
     newsletter_mailer:
       newsletter:
         no_reply_notice: Този имейл е изпратен от имейл адрес за уведомяване, който не може да приема входящи имейли. Моля, не отговаряйте на това съобщение.
@@ -1023,11 +982,9 @@ bg:
         main_image: Основно изображение
     newsletters:
       unsubscribe:
-        check_subscription: За да зададете предпочитанията си, отидете в страницата <a href="%{link}" target="_blank">настройки</a>.
         error: Възникна проблем при прекратяването на абонамента.
         success: Отписахте се успешно.
         token_error: Срокът на връзката е изтекъл.
-        unsubscribe: Отписване
     newsletters_opt_in:
       unauthorized: Съжаляваме, този линк вече не е активен.
       update:
@@ -1035,7 +992,6 @@ bg:
         success: Настройките за бюлетина са успешно обновени.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Обработката на личните данни и тяхната защита стават все по-важни за всички нас. С новия Общ регламент за защита на данните (GDPR) от 25 май 2018 г. лицата имат по-добър контрол върху личните си данни. Поради тази причина се нуждаем от вашето съгласие, за да продължим да изпращаме подходяща информация за дейностите на %{organization_name}.
         body_2: 'Как можете да ни дадете своето съгласие? Просто щракнете върху следния бутон:'
         body_3: С това съгласие ще продължите да получавате информация за дейностите в платформата. Ако не получим потвърждение от Ваша страна, ще спрем да ви изпращаме нашите съобщения. Дори да потвърдите, че желаете да бъдете информирани, винаги ще имате възможност да се откажете по всяко време.
         button: Да, желая да продължа да получавам подбрана информация
@@ -1049,11 +1005,9 @@ bg:
         same_language: Съдържанието е публикувано на предпочитания от вас език (%{language}), поради което в този имейл не се показва автоматичен превод.
         translated_text: 'Автоматично преведен текст:'
     notifications:
-      action_error: Възникна проблем при актуализирането на известията.
       no_notifications: Още няма известия.
       show:
         missing_event: Упс, това известие принадлежи на съдържание, което вече не е налично. Можете да го подминете.
-        moderated: Съдържанието е модерирано
     notifications_digest_mailer:
       header:
         daily: Ежедневно обобщение на известията
@@ -1117,24 +1071,15 @@ bg:
         footer_sub_hero:
           footer_sub_hero_body_html: Нека изградим по-отворено, прозрачно и задружно общество.<br /> Присъединете се, участвайте и решавайте.
           footer_sub_hero_headline: Добре дошли в платформата за сътрудничество %{organization}!
-          register: Регистрация
         hero:
           participate: Участвайте
           participate_title: Участвайте в процесите на платформата
           welcome: Добре дошли в %{organization}!
-        statistics:
-          headline: Текущо състояние на %{organization}
-        sub_hero:
-          register: Регистрация
       index:
         standalone_pages: Страници
         subheading: Придвижвайте се в помощта на %{name}
         title: Помощ
         topics: Tеми
-      participatory_space:
-        metrics:
-          headline: Индикатори
-          link: Покажи всички индикатори
       terms_of_service:
         accept:
           error: Възникна проблем при приемането на Условията за ползване.
@@ -1176,11 +1121,6 @@ bg:
           message: Съобщение
           resend_email_confirmation_instructions: Изпрати отново инструкции за потвърждение
     reported_mailer:
-      hide:
-        hello: Здравейте %{name},
-        manage_moderations: Управлявай модераторите
-        report_html: <p>Следното <a href="%{url}">съдържание</a> е скрито автоматично.</p>
-        subject: Ресурсът е скрит автоматично
       report:
         authors: Автори
         content: Докладвано съдържание
@@ -1197,16 +1137,12 @@ bg:
     reports:
       create:
         success: Докладът беше създаден успешно и ще бъде прегледан от администратор.
-    resource_endorsements:
-      create:
-        error: Възникна проблем в процеса на одобрение.
     scopes:
       global: Обща сфера
       prompt: Изберете сфера
     search:
       name: Търсене
       results: Резултати от търсенето
-      results_found_for_term: '%{count} резултата от търсенето: "%{term}"'
       term_input_placeholder: Търсене
     searches:
       filters:
@@ -1235,9 +1171,6 @@ bg:
         title: Потвърждаване
       embed:
         title: Вградено видео съдържание
-      extended_navigation_bar:
-        more: Повече
-        unfold: Разгъване
       filter_form_help:
         help: Формата по-долу филтрира резултатите от търсенето динамично, когато условията за търсене се променят.
         skip: Прескачане към резултатите
@@ -1287,7 +1220,6 @@ bg:
         share_to: Сподели с %{service}
     statistics:
       comments_count: Коментари
-      endorsements_count: Одобрения
       followers_count: Последователи
       headline: Статистики
       no_stats: Все още няма статистики.
@@ -1395,17 +1327,13 @@ bg:
           Ако не искате да приемете поканата, моля, игнорирайте този имейл.<br />
           Профилът Ви няма да бъде създаден, докато не отворите връзката по-горе и не зададете своите псевдоним и парола.
         invited_you_as_admin: "%{invited_by} Ви покани за администратор на %{application}. Можете да приемете чрез връзката по-долу."
-        invited_you_as_private_user: "%{invited_by} Ви покани като частен участник на %{application}. Можете да приемете чрез връзката по-долу."
         someone_invited_you: Някой Ви покани в %{application}. Можете да приемете чрез връзката по-долу.
         someone_invited_you_as_admin: Някой ви покани за администратор на %{application}, можете да приемете чрез връзката по-долу.
-        someone_invited_you_as_private_user: Някой ви покани частен участник в %{application}, можете да приемете чрез връзката по-долу.
         subject: Инструкции за покана
       invite_admin:
         subject: Получихте покана да управлявате %{organization}
       invite_collaborator:
         subject: Получихте покана да сътрудничите на %{organization}
-      invite_private_user:
-        subject: Поканени сте в частен процес на сътрудничество в %{organization}
       organization_admin_invitation_instructions:
         subject: Получихте покана да управлявате %{organization}
       password_change:
@@ -1668,7 +1596,6 @@ bg:
       impersonation_warning:
         close_session: Затвори сесия
         description_html: Вие управлявате участника <b>%{user_name}</b>.
-        expire_time_html: Вашата сесия изтича след <b><span class="minutes">%{minutes}</span> минути</b>.
       language_chooser:
         choose_language: Избери език
       notifications_dashboard:
@@ -1716,7 +1643,6 @@ bg:
     name_included_in_password: е твърде подобно на името Ви
     nickname_included_in_password: е твърде близко до Вашия псевдоним
     not_enough_unique_characters: няма достатъчно различни букви
-    password_not_allowed: не се допуска
     password_repeated: не може да преизползвате стара парола
     password_too_common: твърде разпространен
     password_too_long: твърде дълъг

@@ -38,7 +38,6 @@ module Decidim
             end
           end
         end
-        let(:hashtag) { "hashtag" }
         let(:group_url) { "http://example.org" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
 
@@ -50,7 +49,6 @@ module Decidim
             "description_en" => description[:en],
             "description_es" => description[:es],
             "description_ca" => description[:ca],
-            "hashtag" => hashtag,
             "group_url" => group_url,
             "hero_image" => attachment,
             "participatory_processes" => participatory_processes

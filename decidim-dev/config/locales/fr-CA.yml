@@ -34,8 +34,6 @@ fr-CA:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Bloquer les soutiens
-            endorsements_enabled: Soutiens activés
             readonly_step_attribute: Attribut étape en lecture seule
             test_options:
               bar: Seuil

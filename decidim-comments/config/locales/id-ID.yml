@@ -12,6 +12,10 @@ id:
       decidim/comments/comment_vote:
         other: Voting
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentar
     comments:
       votes:
         create:
@@ -74,8 +78,3 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda telah disebutkan dalam %{resource_title}.
           email_subject: Anda telah disebutkan dalam %{resource_title}
           notification_title: Anda telah disebutkan dalam <a href="%{resource_path}">%{resource_title}</a> oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Jumlah komentar yang dihasilkan oleh peserta
-        object: komentar
-        title: Komentar

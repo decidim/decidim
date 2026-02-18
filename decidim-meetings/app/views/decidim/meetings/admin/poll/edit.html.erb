@@ -12,6 +12,8 @@
   </h1>
 </div>
 
+<div class="flash warning"><%= t("deprecation_warning_polls_html", scope: "decidim.meetings.admin") %></div>
+
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form-defaults form edit_questionnaire" }) do |form| %>

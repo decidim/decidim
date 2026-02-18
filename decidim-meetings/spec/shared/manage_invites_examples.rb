@@ -2,10 +2,11 @@
 
 def visit_meeting_invites_page
   within "tr", text: translated(meeting.title) do
-    page.click_on "Registrations"
+    find("button[data-controller='dropdown']").click
+    click_on "Registrations"
   end
 
-  page.click_on "Invitations"
+  click_on "Invitations"
 end
 
 def invite_unregistered_user(name:, email:)
@@ -21,7 +22,7 @@ def invite_unregistered_user(name:, email:)
     end
   end
 
-  expect(page).to have_content("successfully")
+  expect(page).to have_callout("Participant successfully invited to join the meeting.")
 
   within "#meeting-invites table" do
     expect(page).to have_content(name)
@@ -41,7 +42,7 @@ def invite_existing_user(user)
     end
   end
 
-  expect(page).to have_content("successfully")
+  expect(page).to have_callout("Participant successfully invited to join the meeting.")
 
   within "#meeting-invites table" do
     expect(page).to have_content(registered_user.name)
@@ -75,6 +76,7 @@ shared_examples "manage invites" do
           invite_unregistered_user name: "Foo", email: "foo@example.org"
 
           logout :user
+          perform_enqueued_jobs
 
           visit last_email_link
 
@@ -85,7 +87,7 @@ shared_examples "manage invites" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content "successfully"
+          expect(page).to have_callout("You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.")
           expect(page).to have_css(".button", text: "Cancel your registration")
         end
 
@@ -93,6 +95,7 @@ shared_examples "manage invites" do
           invite_unregistered_user name: "Foo", email: "foo@example.org"
 
           logout :user
+          perform_enqueued_jobs
 
           visit last_email_first_link
 
@@ -115,6 +118,7 @@ shared_examples "manage invites" do
           invite_existing_user registered_user
 
           relogin_as registered_user
+          perform_enqueued_jobs
 
           visit last_email_link
 
@@ -125,6 +129,7 @@ shared_examples "manage invites" do
           invite_existing_user registered_user
 
           relogin_as registered_user
+          perform_enqueued_jobs
 
           visit last_email_first_link
 
@@ -139,6 +144,7 @@ shared_examples "manage invites" do
           invite_unregistered_user name: registered_user.name, email: registered_user.email
 
           relogin_as registered_user
+          perform_enqueued_jobs
 
           visit last_email_link
 
@@ -150,6 +156,7 @@ shared_examples "manage invites" do
 
           relogin_as registered_user
 
+          perform_enqueued_jobs
           visit last_email_first_link
 
           expect(page).to have_css(".button", text: "Register")

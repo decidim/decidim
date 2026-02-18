@@ -25,10 +25,10 @@ module Decidim
           updated_at: resource.updated_at,
           published_at: resource.published_at,
           follows_count: resource.follows_count,
-          hashtag: resource.hashtag,
           short_description: resource.short_description,
           description: resource.description,
-          promoted: resource.promoted
+          promoted: resource.promoted,
+          component_settings:
         }
       end
 
@@ -98,6 +98,19 @@ module Decidim
       def serialize_components
         serializer = Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(resource)
         serializer.run
+      end
+
+      def component_settings
+        return unless resource.respond_to?(:components)
+
+        resource.components.map do |component|
+          {
+            id: component.id,
+            name: component.name,
+            manifest_name: component.manifest_name,
+            settings: component.settings.respond_to?(:as_json) ? component.settings.as_json : component.settings
+          }
+        end
       end
     end
   end

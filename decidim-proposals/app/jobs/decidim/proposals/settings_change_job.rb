@@ -12,9 +12,9 @@ module Decidim
         elsif voting_enabled?(previous_settings, current_settings)
           event = "decidim.events.proposals.voting_enabled"
           event_class = Decidim::Proposals::VotingEnabledEvent
-        elsif endorsing_enabled?(previous_settings, current_settings)
-          event = "decidim.events.proposals.endorsing_enabled"
-          event_class = Decidim::Proposals::EndorsingEnabledEvent
+        elsif liking_enabled?(previous_settings, current_settings)
+          event = "decidim.events.proposals.liking_enabled"
+          event_class = Decidim::Proposals::LikingEnabledEvent
         end
 
         return unless event && event_class
@@ -40,9 +40,9 @@ module Decidim
           (!!previous_settings[:votes_enabled] == false || previous_settings[:votes_blocked] == true)
       end
 
-      def endorsing_enabled?(previous_settings, current_settings)
-        (current_settings[:endorsements_enabled] == true && !!current_settings[:endorsements_blocked] == false) &&
-          (!!previous_settings[:endorsements_enabled] == false || previous_settings[:endorsements_blocked] == true)
+      def liking_enabled?(previous_settings, current_settings)
+        (current_settings[:likes_enabled] == true && !!current_settings[:likes_blocked] == false) &&
+          (!!previous_settings[:likes_enabled] == false || previous_settings[:likes_blocked] == true)
       end
       # rubocop:enable Style/DoubleNegation
     end

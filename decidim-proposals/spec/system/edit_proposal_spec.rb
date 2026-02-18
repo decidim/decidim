@@ -98,7 +98,7 @@ describe "Edit proposals" do
             click_on("Edit attachments")
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
-              expect(page).to have_content("If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.")
+              expect(page).to have_content("If it is an image, it preferably be a landscape image that does not have any text. The platform crops the image.")
               within "[data-filename='city.jpeg']" do
                 find("input[type='text']").set(attachment_image_title)
               end
@@ -205,7 +205,7 @@ describe "Edit proposals" do
         stub_geocoding(new_address, [latitude, longitude])
       end
 
-      it "can be updated with address", :serves_geocoding_autocomplete do
+      it "can be updated with address" do
         visit_component
 
         click_on translated(proposal.title)
@@ -303,12 +303,12 @@ describe "Edit proposals" do
         expect(page).to have_content "Edit proposal"
 
         within "form.edit_proposal" do
-          fill_in :proposal_title, with: "A title with a #hashtag"
+          fill_in :proposal_title, with: "A proposal with a title"
           fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL or a COLLABORATIVE DRAFT"
         end
         click_on "Send"
 
-        expect(page).to have_css("input[value='A title with a #hashtag']")
+        expect(page).to have_css("input[value='A proposal with a title']")
         expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end

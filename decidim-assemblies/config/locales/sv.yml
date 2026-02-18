@@ -10,9 +10,6 @@ sv:
         closing_date: Slutdatum
         closing_date_reason: Anledning till avslut
         composition: Sammansättning
-        copy_categories: Kopiera kategorier
-        copy_components: Kopiera komponenter
-        copy_features: Kopiera funktioner
         created_by: Skapad av
         created_by_other: Skapad av andra
         creation_date: Skapad datum
@@ -22,10 +19,12 @@ sv:
         developer_group: Arrangör
         document: Dokument
         domain: Domän
+        duplicate_categories: Duplicera kategorier
+        duplicate_components: Duplicera komponenter
+        duplicate_features: Duplicera funktioner
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
@@ -38,7 +37,7 @@ sv:
         meta_scope: Omfattning
         parent_id: Överordnat samråd
         participatory_processes_ids: Relaterade deltagandeprocesser
-        participatory_scope: Vad bestäms
+        participatory_scope: Vad beslutas
         participatory_structure: Hur fattas beslut
         private_space: Privat utrymme
         promoted: Utvald
@@ -48,7 +47,7 @@ sv:
         slug: URL-slug
         special_features: Specialfunktioner
         subtitle: Underrubrik
-        target: Vem deltar
+        target: Vilka deltar
         title: Titel
         twitter: X
         weight: Position i listan
@@ -112,14 +111,14 @@ sv:
         update:
           error: Det gick inte att uppdatera samrådet.
           success: Samrådet har uppdaterats.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Det gick inte att duplicera samrådet.
           success: Samrådet har duplicerats.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Kopiera
-          select: Välj vilka data som ska dupliceras
+          duplicate: Duplicera
+          select: Välj vilka data som du vill duplicera
           title: Duplicera samråd
       assembly_imports:
         create:
@@ -170,9 +169,7 @@ sv:
           attachments: Bilagor
           components: Komponenter
           info: Om samrådet
-          landing_page: Landningssida
           moderations: Moderering
-          private_users: Medlemmar
           see_assembly: Visa samråd
       models:
         assembly:
@@ -193,6 +190,7 @@ sv:
             vice_president: Vice ordförande
         assembly_user_role:
           fields:
+            actions: Handlingar
             email: E-post
             name: Namn
             role: Roll
@@ -218,9 +216,11 @@ sv:
         export: "%{user_name} exporterade samrådet %{resource_name}"
         import: "%{user_name} importerade samrådet %{resource_name}"
         publish: "%{user_name} publicerade samrådet %{resource_name}"
+        publish_all_members: "%{user_name} publicerade samrådet %{resource_name}"
         restore: "%{user_name} återställde samrådet %{resource_name}"
         soft_delete: "%{user_name} tog bort samrådet %{resource_name}"
         unpublish: "%{user_name} avpublicerade samrådet %{resource_name}"
+        unpublish_all_members: "%{user_name} avpublicerade samrådet %{resource_name}"
         update: "%{user_name} uppdaterade samrådet %{resource_name}"
       assembly_member:
         create: "%{user_name} skapade medlemmen %{resource_name} i samrådet %{space_name}"
@@ -251,7 +251,6 @@ sv:
             metadata: Metadata
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             other: Övrigt
-            private_notice: Du kommer att kunna hantera medlemmar om samrådet gjorts privat
             select_a_created_by: Välj en skapad av
             select_parent_assembly: Välj överordnat samråd
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -259,7 +258,7 @@ sv:
             taxonomies: Kategorier
             title: Allmän information
             visibility: Synlighet
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_imports:
@@ -281,11 +280,11 @@ sv:
           area_name: Område
           closing_date: Slutdatum
           created_by: Skapad av
-          creation_date: Skapad
+          creation_date: Startdatum
           data: Data från samråd
           developer_group: Arrangör
           duration: Varaktighet
-          included_at: Inkluderad
+          included_at: Publicerad
           indefinite_duration: Permanent
           local_area: Område
           meta_scope: Indelning
@@ -314,9 +313,9 @@ sv:
         related_assemblies:
           name: Relaterade samråd
       created_by:
-        city_council: Stadsfullmäktige
+        city_council: Staden
         others: Övriga
-        public: Offentligt
+        public: Medborgare
       filter:
         all: Alla typer
         commission: Kommission
@@ -376,11 +375,6 @@ sv:
           not_found: 'Typen av samråd hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Samråd
-    metrics:
-      assemblies:
-        description: Antal skapade samråd
-        object: samråd
-        title: Samråd
     open_data:
       help:
         assemblies:
@@ -389,6 +383,7 @@ sv:
           assembly_type: Typ av samråd
           closing_date: Slutdatum för samrådet
           closing_date_reason: Anledning till att samrådet avslutades
+          component_settings: Samrådets sammansättning
           composition: Samrådets sammansättning
           created_at: Datum när processen skapades
           created_by: Initiativtagare till samrådet
@@ -401,7 +396,6 @@ sv:
           facebook_handler: Facebook-namn
           follows_count: Antal följare
           github_handler: Github-namn
-          hashtag: Samrådets hashtag, används för Twitter/X
           id: Unikt id för samrådet
           included_at: Datum när samrådet skapades
           instagram_handler: Instagram-namn
@@ -435,6 +429,7 @@ sv:
         related_assemblies: Relaterade samråd
     statistics:
       assemblies_count: Samråd
+      assemblies_count_tooltip: Antal offentliga samråd.
   layouts:
     decidim:
       assemblies:

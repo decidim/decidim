@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
   <head>
-    <meta charset="utf-8">
+    <%= tag :meta, charset: "utf-8" %>
     <title><%= t(".title", resource_title: resource.presenter.title(html_escape: true)) %></title>
     <%= stylesheet_pack_tag "decidim_qr", media: "all" %>
     <%= csrf_meta_tags %>

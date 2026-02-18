@@ -13,6 +13,10 @@ module Decidim
         two_columns_layout? ? render_comments_in_two_columns : render(:comments_in_single_column)
       end
 
+      def inline
+        render :inline
+      end
+
       def add_comment
         render :add_comment if can_add_comments?
       end
@@ -104,7 +108,7 @@ module Decidim
       end
 
       def order
-        options[:order]
+        options[:order] || "older"
       end
 
       def decidim

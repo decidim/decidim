@@ -36,8 +36,8 @@ de:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Befürwortungen blockiert
-            endorsements_enabled: Befürwortungen aktiviert
+            likes_blocked: Unterstützungsfunktion gesperrt
+            likes_enabled: Unterstützungsfunktion aktiviert
             readonly_step_attribute: Schritt-Attribut schreibgeschützt
             test_options:
               bar: Bar

@@ -21,7 +21,6 @@ module Decidim
       field :banner_image, GraphQL::Types::String, "The banner image for this conference", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description of this conference", null: true
       field :end_date, Decidim::Core::DateType, "The date this conference ends", null: true
-      field :hashtag, GraphQL::Types::String, "The hashtag for this conference", null: true
       field :hero_image, GraphQL::Types::String, "The hero image for this conference", null: true
       field :location, String, "The location of this conference", null: true
       field :media_links, [Decidim::Conferences::ConferenceMediaLinkType, { null: true }], "List of media links in this conference", null: true

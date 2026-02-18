@@ -8,6 +8,7 @@ describe "Report a post" do
   let(:manifest_name) { "blogs" }
   let(:reportable) { create(:post, component:) }
   let(:reportable_path) { resource_locator(reportable).path }
+  let(:reportable_index_path) { resource_locator(reportable).index }
   let!(:user) { create(:user, :confirmed, organization:) }
 
   let!(:component) { create(:post_component, manifest:, participatory_space: participatory_process) }

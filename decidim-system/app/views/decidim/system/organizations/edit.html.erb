@@ -10,6 +10,10 @@
       <%= f.translated :text_field, :name, autofocus: true %>
     </div>
 
+    <div>
+      <%= f.translated :text_field, :short_name, help_text: t(".short_name_hint") %>
+    </div>
+
     <%= f.text_field :host %>
 
     <%= f.text_area :secondary_hosts, help_text: t(".secondary_hosts_hint") %>
@@ -31,6 +35,10 @@
       <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_workflows, :name, :description do |builder|
         builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.check_box(id: nil) + builder.text }
       end %>
+    <% end %>
+
+    <% if Decidim.enable_html_header_snippets %>
+      <%= f.text_area :header_snippets, help_text: t("decidim.system.organizations.header_snippets_help_html"), rows: 10 %>
     <% end %>
 
     <%= render partial: "advanced_settings", locals: { f: } %>

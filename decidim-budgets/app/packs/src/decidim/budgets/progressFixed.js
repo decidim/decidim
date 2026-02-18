@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const checkProgressPosition = () => {
 
     const progressRef = document.querySelectorAll("[data-progress-reference]");

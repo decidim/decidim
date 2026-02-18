@@ -13,7 +13,9 @@ module Decidim::System
         organization_name: "Ajuntament de Barcelona",
         organization_url: "http://www.barcelona.cat",
         organization_logo: file,
-        redirect_uri: "https://meta.decidim.barcelona/users/auth/decidim"
+        redirect_uri: "https://meta.decidim.barcelona/users/auth/decidim",
+        scopes: %w(profile),
+        refresh_tokens_enabled: false
       }
     end
     let(:file) do
@@ -48,6 +50,8 @@ module Decidim::System
         expect(application.organization_name).to eq("Ajuntament de Barcelona")
         expect(application.organization_url).to eq("http://www.barcelona.cat")
         expect(application.redirect_uri).to eq("https://meta.decidim.barcelona/users/auth/decidim")
+        expect(application.scopes.to_s).to eq("profile")
+        expect(application.refresh_tokens_enabled?).to be(false)
       end
 
       it "traces the creation", versioning: true do

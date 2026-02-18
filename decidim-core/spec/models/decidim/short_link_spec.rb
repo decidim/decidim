@@ -47,7 +47,7 @@ module Decidim
     describe ".unique_identifier_within" do
       subject { described_class.unique_identifier_within(organization) }
 
-      let(:organization) { create(:organization) }
+      let!(:organization) { create(:organization) }
 
       it "returns a 10 character long alphanumeric string" do
         expect(subject).to match(/[a-zA-Z0-9]{10}/)
@@ -72,7 +72,7 @@ module Decidim
         context "and the link is created for another organization" do
           subject { described_class.unique_identifier_within(another_organization) }
 
-          let(:another_organization) { create(:organization) }
+          let!(:another_organization) { create(:organization) }
 
           it "returns the identifier already in use in the other organization" do
             expect(SecureRandom).to receive(:alphanumeric).with(10).once.and_return(taken_identifier1)
@@ -126,7 +126,7 @@ module Decidim
         let(:route_name) { "participatory_process" }
 
         it "returns the target URL" do
-          expect(subject.target_url).to eq("http://#{target.organization.host}:#{Capybara.server_port}/processes/#{target.slug}")
+          expect(subject.target_url).to eq("http://#{target.organization.host}:#{Capybara.server_port}/#{I18n.locale}/processes/#{target.slug}")
         end
       end
 
@@ -136,7 +136,7 @@ module Decidim
         let(:route_name) { "pages" }
 
         it "returns the target URL" do
-          expect(subject.target_url).to eq("http://#{target.host}:#{Capybara.server_port}/pages")
+          expect(subject.target_url).to eq("http://#{target.host}:#{Capybara.server_port}/#{I18n.locale}/pages")
         end
       end
 
@@ -146,7 +146,7 @@ module Decidim
         let(:route_name) { "page" }
 
         it "returns the target URL" do
-          expect(subject.target_url).to eq("http://#{target.organization.host}:#{Capybara.server_port}/pages/#{target.slug}")
+          expect(subject.target_url).to eq("http://#{target.organization.host}:#{Capybara.server_port}/#{I18n.locale}/pages/#{target.slug}")
         end
       end
     end

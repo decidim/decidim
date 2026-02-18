@@ -56,7 +56,7 @@ module Decidim
                 on(:invalid) do
                   # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
                   flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
-                  render template: edit_template
+                  render template: edit_template, status: :unprocessable_entity
                 end
               end
             end
@@ -79,7 +79,7 @@ module Decidim
 
                 on(:invalid) do
                   flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
-                  render template: edit_questions_template
+                  render template: edit_questions_template, status: :unprocessable_entity
                 end
               end
             end

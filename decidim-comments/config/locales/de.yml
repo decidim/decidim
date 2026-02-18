@@ -26,6 +26,8 @@ de:
             enabled: Kommentare aktiviert
             end_time: Kommentare aktiviert bis
             start_time: Kommentare aktiviert von
+      comment_thread:
+        accessibility_label: Kommentar-Thread gestartet von %{full_name} am %{date}
       comments:
         create:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
@@ -64,7 +66,7 @@ de:
       comment:
         alignment:
           against: Gegen
-          in_favor: Zugunsten
+          in_favor: Dafür
         answers:
           one: "%{count} Antwort"
           other: "%{count} Antworten"
@@ -121,6 +123,9 @@ de:
           other: "%{count} Kommentare"
         top_comment_label: Bestbewertete
       down_vote_button:
+        label:
+          one: Button «Nicht unterstützen». %{count} unterstützt nicht
+          other: Button «Nicht unterstützen». %{count} unterstützen nicht
         text: Ich bin mit diesem Kommentar nicht einverstanden
       edit_comment_modal_form:
         close: Schliessen
@@ -131,6 +136,9 @@ de:
           submit: Senden
         title: Kommentar bearbeiten
       up_vote_button:
+        label:
+          one: Button «Unterstützen». %{count} Unterstützung
+          other: Button «Unterstützen». %{count} Unterstützungen
         text: Ich stimme diesem Kommentar zu
     download_your_data:
       help:
@@ -183,11 +191,6 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title} erwähnt wurden.
           email_subject: Sie wurden in %{resource_title} erwähnt
           notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erwähnt
-    metrics:
-      comments:
-        description: Anzahl der von Benutzern generierten Kommentare
-        object: Bemerkungen
-        title: Bemerkungen
   errors:
     messages:
       cannot_have_comments: kann keine Kommentare haben

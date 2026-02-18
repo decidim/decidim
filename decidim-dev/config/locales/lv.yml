@@ -21,8 +21,6 @@ lv:
               b: B izvēle
               c: C izvēle
           step:
-            endorsements_blocked: Atbalsti ir bloķēti
-            endorsements_enabled: Atbalsti ir iespējoti
             readonly_step_attribute: Tikai lasāms soļa atribūts
     dummy:
       admin:

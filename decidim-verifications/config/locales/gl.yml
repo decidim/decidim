@@ -88,19 +88,11 @@ gl:
         start_exploring: comezar a explorar
       csv_census:
         admin:
-          destroy:
-            title: Elimine todos os datos do censo
           index:
-            empty: Non hai datos censuais. Usa o seguinte formulario para importalo usando un ficheiro CSV.
             title: Datos censuais actuais
           instructions:
             body: Para iso debes ingresar na administración do sistema e engadir as autorizacións csv_census á organización
             title: Precisas de activar o censo CSV desta organización
-          new:
-            file: "Ficheiro .csv con datos de correo electrónico"
-            info: 'Ten de ser un ficheiro en formato CSV cunha soa columna co correo electrónico:'
-            submit: Cargar ficheiro
-            title: Suba un novo censo
         authorizations:
           new:
             error: Non puidemos verificar a túa conta ou non estás no censo da organización.

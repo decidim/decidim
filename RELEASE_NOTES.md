@@ -2,6 +2,9 @@
 
 ## 1. Upgrade notes
 
+NOTE: This is the draft for the releases notes. If you are an implementer or someone that is upgrading a Decidim installation, we recommend
+checking out the last version of this document in the [GitHub page for the releases of this branch](https://github.com/decidim/decidim/releases/).
+
 As usual, we recommend that you have a full backup, of the database, application code and static files.
 
 To update, follow these steps:
@@ -19,305 +22,175 @@ You may need to change your `.ruby-version` file too.
 
 If not, you need to adapt it to your environment, for instance by changing the decidim docker image to use ruby:3.x.x.
 
-### 1.2. Update your application configuration
-
-In this version, we are changing Decidim’s underlying configuration engine. To update your application, make sure to review the changes related to environment variables. (See section 3.4: "Deprecation of Rails.application.secrets" for details.)
-
-Your code and configuration must be updated to remove all references to the `Rails.application.secrets` object.
-
-⚠ **Important**: If you have customized any of the following files:
-
-* config/secrets.yml
-* config/initializers/decidim.rb
-* config/storage.yml
-
-You will need to adjust your environment to provide the necessary configurations through environment variables.
-
-```bash
-git rm config/secrets.yml
-git rm config/initializers/decidim.rb
-wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml -O config/storage.yml
-```
-
-### 1.3. Update your Gemfile
+### 1.2. Update your Gemfile
 
 ```ruby
 gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
 
-### 1.4. Run these commands
+### 1.3. Run these commands
 
 ```console
+sudo apt install libvips libvips-tools # or the alternative installation process for your operating system. See "3.5. Replace image processing with imagemagick to libvips"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
-bin/rails decidim:upgrade:user_groups:remove
-bin/rails decidim:upgrade:fix_nickname_casing
-bin/rails decidim:verifications:revoke:sms
+bin/rails decidim:upgrade:encryption
+# skip this command if you have run it before:
+bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+echo "/public/sw.js*" >> .gitignore
+bin/rails decidim:upgrade:remove_deleted_users_left_data
+bin/rails decidim:upgrade:fix_deleted_private_follows
+bin/rails data:migrate
 ```
+
+### 1.4. AWS/Azure/Google Cloud assets storage
+
+There is a bug related to the cache expiration using Active Storage (assets, such as images). For fixing this issue, the Rails team added an extra active storage parameter, `public: true` that you can add it to your storage configuration. If you followed the step `3.4. Deprecation of Rails.application.secrets` and changed your `config/storage.yml` file you don't need to do anything else.
+
+This will also change the URL that is used, so you will need to update your [Content Security Policy](https://docs.decidim.org/en/develop/customize/content_security_policy.html), adding the new URL in the policies "default-src", "img-src", "media-src", and "connect-src". For instance, in the case of S3 with AWS, the format of the URL is the following:  `https://BUCKET-NAME.s3.amazonaws.com/ASSET_ID`.
+
+Apart of that, you also need to configure your preferred cloud service provider to support this. We recommend you to follow the Rails official guide for [Active Storage configuration](https://guides.rubyonrails.org/v7.0/active_storage_overview.html#setup).
+
+You can read more about this change on PR [#15005](https://github.com/decidim/decidim/pull/15005/).
 
 ### 1.5. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
-### 2.1. Hiding comments of moderated resources
+### 2.1. Module deprecations
 
-We have noticed that when a resource (ex: Proposal, Meeting) is being moderated, the associated comments are left visible in the search. We have added a task that would allow you to automatically remove from search any comment belonging to moderated content:
+As part of our ongoing efforts to improve and make simpler Decidim, the following modules will be **deprecated** in this version (v0.31) and **removed** in the next major version (v0.32):
+
+#### Collaborative Drafts
+
+The Collaborative Drafts feature in the Proposals module (`decidim-proposals`) will be removed in v0.32. Organizations using this feature can switch to the new proposal co-authorship feature.
+
+#### Sortitions (decidim-sortitions)
+
+The Sortitions module (`decidim-sortitions`) is removed in v0.32. This module provided functionality to randomly select participants or proposals. Organizations relying on this feature should consider implementing alternative selection mechanisms.
+
+#### Polls in Meetings (decidim-meetings polls functionality)
+
+The Polls feature within the Meetings module (`decidim-meetings`) will be removed in a future version (to be determined). This feature allowed meeting organizers to create polls during meetings. Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`).
+
+### 2.2. Old private exports are now expired
+
+Due to some data consistency issues with the private exports, we have decided to expire all the previously generated files. Users are able to request and receive a new private export file.
+
+if you are upgrading from a lover version like 0.30, and you have already ran this command, you can skip this step.
+
+Run the following command to expire all the private exports:
+
+```console
+bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+```
+
+You can read more about this change on PR [#15020](https://github.com/decidim/decidim/pull/15020).
+
+### 2.3. Add data migrations
+
+At the moment we are adding this gem so we can start doing data migrations for fixes when v0.33.0 is released. You can read more about this at [Data migrations doc](https://docs.decidim.org/en/develop/develop/guide_data_migrations.html).
+
+You can read more about this change on PR [#15501](https://github.com/decidim/decidim/pull/15501).
+
+### 2.4. Fix gitignore for ServiceWorker related files
+
+We detected a bug where some dynamic files are not added to the gitignore, so they could be committed to the repository. For fixing it, you need to add them to your gitignore file:
 
 ```bash
-bin/rails decidim:upgrade:clean:hidden_resources
+echo "/public/sw.js*" >> .gitignore
 ```
 
-You can read more about this change on PR [#13554](https://github.com/decidim/decidim/pull/13554).
+You can read more about this change on PR [#15601](https://github.com/decidim/decidim/pull/15601).
 
-### 2.2. User Groups removal
+### 2.5. Data migration for organization short_name
 
-As part of our efforts to simplify the experience for organizations, the "User Groups" feature has been deprecated. All previously existing User Groups has been converted into regular participants able to sign in providing the email and a password. The users with access to the email associated with the User Group will be able to set a password.
+A new data migration has been added to populate the `short_name` field for existing organizations. This field is required for the PWA (Progressive Web App) manifest to properly display the application name on mobile devices' home screens.
 
-There are some tasks to notify users affected by the changes, transfer authorships and remove deprecated references to groups. All of them can be executed in a main task:
+The migration automatically generates a short_name for each organization based on its name by removing spaces and truncating to 12 characters maximum. Organizations with names that result in less than 3 characters after processing will not have a short_name set and will need to be configured manually through the admin panel.
 
-```bash
-bin/rails decidim:upgrade:user_groups:remove
+This migration runs automatically when executing `bin/rails data:migrate` as part of the upgrade process.
+
+You can read more about this change on PR [#15729](https://github.com/decidim/decidim/pull/15729).
+
+### 2.6. Add locale to the url
+
+For a long time Decidim has been using internally the user browser to detect the language of the user. This has been changed to use the locale of the url instead.
+
+This improves the user experience by allowing the platform to send emails with the correct language, linking any resource to the correct language preferred by the user.
+
+It also enables the users of multi language platforms to share the links to the resources within their own language.
+
+```text
+    /en/processes/here-slug/f/57/elections/5 # if seen in english
+    /ca/processes/here-slug/f/57/elections/5 # if seen in catalan
 ```
 
-The tasks can also be executed one by one:
+You can read more about this change on PR [#14432](https://github.com/decidim/decidim/pull/14432).
 
-* An email will be sent to the email address associated with the User Group, informing them of the deprecation of User Groups and instructing them to define a password for the newly converted profile. For this run:
+### 2.7. [[TITLE OF THE ACTION]]
 
-```bash
-bin/rails decidim:upgrade:user_groups:send_reset_password_instructions
-```
-
-* To notify group members and admins associated with the User Group with an email explaining the changes and how to access the shared profile run:
-
-```bash
-bin/rails decidim:upgrade:user_groups:send_user_group_changes_notification_to_members
-```
-
-* To migrate the authorships and coauthorships of the old groups and assign to the new regular users:
-
-```bash
-bin/rails decidim:upgrade:user_groups:transfer_user_groups_authorships
-```
-
-* To avoid exceptions accessing to the activities log in the admin panel displaying activities associated with user groups:
-
-```bash
-bin/rails decidim:upgrade:user_groups:fix_user_groups_action_logs
-```
-
-* To avoid exceptions trying to display notifications associated with deprecated groups events:
-
-```bash
-bin/rails decidim:upgrade:user_groups:remove_groups_notifications
-```
-
-You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
-
-### 2.3. Automatic deletion of inactive accounts
-
-To reduce database clutter and automatically manage inactive user accounts, we have introduced a scheduled task to delete accounts that have been inactive for a configurable period (default: 365 days).
-
-Before deletion, the system will send two notification emails:
-
-* The first email is sent **30 days** before the scheduled deletion.
-* The second email is sent **7 days** before the deletion deadline.
-
-Participants can prevent their account from being deleted by logging in before the deadline. A final email will be sent to inform the user once their account has been permanently deleted.
-
-To enable automatic deletion, add the following scheduled task to your cron jobs:
-
-```bash
-0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants
-```
-
-By default, the inactivity period is set to 365 days, but it can be customized by passing a parameter to the task. For example:
-
-```bash
-0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants[500]
-```
-
-If you want to enable this, make sure your `sidekiq.yml` includes the `delete_inactive_participants` queue. If it is missing, patch your `config/sidekiq.yml`:
-
-```yaml
-:concurrency: <%= ENV.fetch("SIDEKIQ_CONCURRENCY", 5) %>
-:queues:
-  - [default, 2]
-  - [delete_inactive_participants, 2]
-  - [mailers, 4]
-  - [reminders, 2]
-  - [newsletter, 2]
-```
-
-You can read more about this change on PR [#13816](https://github.com/decidim/decidim/issues/13816).
-
-### 2.5. Removal of Metrics
-
-The **Metrics** feature has been completely removed
-
-Use the **Statistics** feature instead.
-
-If your application includes the `metrics` queue in `config/sidekiq.yml` or scheduled tasks in `config/schedule.yml`, make sure to remove them. Additionally make sure you remove the metrics crons from your crontab.
-
-You can read more about this change on PR [#14387](https://github.com/decidim/decidim/pull/14387)
-
-### 2.6. SMS authorization changes
-
-As we have changed the authorization signature method for SMS, you will need to remove any authorizations that you may have. We are asking you to do this, in order to force your user base to reauthorize.
-
-To remove it, you just need to run the below task.
-
-```bash
-bin/rails decidim:verifications:revoke:sms
-```
-
-You can read more about this change on PR [#14426](https://github.com/decidim/decidim/pull/14426)
-
-### 2.7. Initiatives digital signature process change
-
-The application changes the configuration of initiatives signature in initiatives types to allow developers to define the process in a flexible way. This is achieved by introducing signature workflows [#13729](https://github.com/decidim/decidim/pull/13729).
-
-To define a signature workflow create an initializer in your application and register it:
-
-For example, in `config/initializers/decidim_initiatives.rb`:
-
-```ruby
-Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_handler) do |workflow|
-  workflow.form = "DummySignatureHandler"
-  workflow.authorization_handler_form = "DummyAuthorizationHandler"
-  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
-  workflow.promote_authorization_validation_errors = true
-  workflow.sms_verification = true
-  workflow.sms_mobile_phone_validator = "DummySmsMobilePhoneValidator"
-end
-
-Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_with_sms_handler) do |workflow|
-  workflow.form = "Decidim::Initiatives::SignatureHandler"
-  workflow.sms_verification = true
-end
-
-Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_with_personal_data_handler) do |workflow|
-  workflow.form = "DummySignatureHandler"
-  workflow.authorization_handler_form = "DummyAuthorizationHandler"
-  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
-  workflow.promote_authorization_validation_errors = true
-  workflow.save_authorizations = false
-end
-
-Decidim::Initiatives::Signatures.register_workflow(:legacy_signature_handler) do |workflow|
-  workflow.form = "Decidim::Initiatives::LegacySignatureHandler"
-  workflow.authorization_handler_form = "DummyAuthorizationHandler"
-  workflow.save_authorizations = false
-  workflow.sms_verification = true
-end
-```
-
-All the attributes of a workflow are optional except the registered name with which the workflow is registered. A flow without attributes uses default values that generate a direct signature process without steps.
-
-Signature workflows can be defined as ephemeral, in which case users can sign initiatives without prior registration. For a workflow of this type to work correctly, an authorization handler form must be defined in `authorization_handler_form` and authorizations saving must not be disabled using the `save_authorizations` setting, in order to ensure that user verifications are saved based on the personal data they provide.
-
-To migrate old signature configurations review the One time actions section.
-
-In the process to extract the old initiatives vote form to a base handler a new secret has been added to extract the key used to encrypt the user metadata in the vote. This secret is available in the application calling `Decidim::Initiatives.signature_handler_encryption_secret` and is used in the base class `Decidim::Initiatives::SignatureHandler`.
-
-For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`.
-
-### 2.8. [[TITLE OF THE ACTION]]
-
-You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. Changes in Static maps configuration when using HERE.com
+### 3.1. Fix incorrect ActionLog entries
 
-As of [#14180](https://github.com/decidim/decidim/pull/14180) we are migrating to here.com api V3, as V1 does not work anymore. In case your application uses Here.com as static map tile provider, you will need to change your `config/initializers/decidim.rb` to use the new url `https://image.maps.hereapi.com/mia/v3/base/mc/overlay`:
+The action of hiding a component from a menu was being stored as a public action. These can lead to crashing the application if some related participatory space is removed.
 
-```ruby
-  static_url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && static_url.blank?
-```
-
-to
-
-```ruby
-  static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here" && static_url.blank?
-```
-
-You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
-
-### 3.2. Change of Valuator for Evaluator
-
-We have updated the terminology of Valuator at a code base level throughout the platform. The role of Valuator is now Evaluator. With this change also affects strings, i18n translations and so on.
-
-Implementors must run the following 3 tasks:
+In order to correct the existing entries you should run the following rake task:
 
 ```bash
-./bin/rails decidim:upgrade:decidim_update_valuators
-./bin/rails decidim:upgrade:decidim_action_log_valuation_assignment
-./bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment
+bin/rails decidim:upgrade:fix_action_log
 ```
 
-These tasks migrate the old data to the new names.
+You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
 
-More information about this change can be found on PR [#13684](https://github.com/decidim/decidim/pull/13684).
+### 3.2. Remove user data left behind by `Decidim::DestroyAccount`
 
-### 3.3. Convert nicknames to lowercase
-
-As of [#14272](https://github.com/decidim/decidim/pull/14272) we are migrating all the nicknames to lowercase fix performance issues which affects large databases having many participants.
-
-To apply the fix on your application, you need to run the below command.
-
-```bash
-bin/rails decidim:upgrade:fix_nickname_casing
-```
-
-You can read more about this change on PR [#14272](https://github.com/decidim/decidim/pull/14272).
-
-### 3.4. Deprecation of `Rails.application.secrets`
-
-If you were already using the Environment Variables for the configuration of your application, then you can remove both the config/secrets.yml and also the decidim initializer:
-If you are not using the ENV system, you will need to adjust your application settings to use it.
-
-Before actually removing the initializer, just make sure you do not have any custom configuration.
-
-```bash
-git rm config/secrets.yml
-git rm config/initializers/decidim.rb
-wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml -O config/storage.yml
-```
-
-### 3.5. Migrate signature configuration of initiatives types
-
-If there is any type of initiative with online signature enabled, you will have to reproduce the configuration by defining signature workflows. For direct signing is not necessary to define one or define an empty workflow.
-
-Use the following definition scheme and adapt the values as indicated in the comments:
+When a user deletes their account and the `Decidim::DestroyAccount` command is executed, certain related data such as authorizations, versions, private exports, access grants, access tokens, notifications, and reminders were left behind. To fix this issue, we've added a new rake task to clean up the leftover data for previously deleted users.
 
 ```ruby
-Decidim::Initiatives::Signatures.register_workflow(:legacy_signature_handler) do |workflow|
-  # Enable this form to enable the same user data collection and store the same
-  # fields in the vote metadata when the "Collect participant personal data on
-  # signature" were checked
-  workflow.form = "Decidim::Initiatives::LegacySignatureHandler"
-
-  # Change this form and use the same handler selected in the "Authorization to
-  # verify document number on signatures" field
-  workflow.authorization_handler_form = "DummyAuthorizationHandler"
-
-  # This setting prevents the automatic creation of authorizations as in the
-  # old feature. You can remove this setting if the workflow does not use an
-  # authorization handler form. The default value is true.
-  workflow.save_authorizations = false
-
-  # Set this setting to false or remove to skip SMS verification step
-  workflow.sms_verification = true
-end
+bin/rails decidim:upgrade:remove_deleted_users_left_data
 ```
 
-Register a workflow for each different signature configuration and select them in the initiative type admin "Signature workflow" field
+You can read more about this change on PR [#14731](https://github.com/decidim/decidim/pull/14731).
 
-You can read more about this change on PR [#13729](https://github.com/decidim/decidim/pull/13729).
+### 3.3. Remove the follows of former private users
+
+To delete the follows of ex private users of non transparent assemblies or processes, run
+
+```console
+bin/rails decidim:upgrade:fix_deleted_private_follows
+```
+
+You can read more about this change on PR [#12878](https://github.com/decidim/decidim/pull/12878).
+
+### 3.4. webpack-dev-server upgrade
+
+Back in [#15534](https://github.com/decidim/decidim/pull/15534) we upgraded webpack-dev-server to version 5.2.2. In order to successfully upgrade you need to edit your `config/shakapacker.yml` and remove the `https` option under `dev_server` key.
+
+You can read more about this change on PR [#15534](https://github.com/decidim/decidim/pull/15534), [#15674](https://github.com/decidim/decidim/pull/15674).
+
+### 3.5. Replace ImageMagick with libvips for image processing
+
+We have upgraded our image processor within the application to libvips for speed and low memory usage.
+
+Support for `.ico` favicon files has been removed. Applications that relied on ICO favicons must migrate to one of the supported Libvips image formats.
+
+In order to install please run the following command:
+
+```bash
+sudo apt install libvips libvips-tools
+```
+
+This works for Ubuntu Linux, other operating systems would need to do other command/package.
+
+You can read more about this change on PR [#15670](https://github.com/decidim/decidim/pull/15670).
 
 ### 3.6. [[TITLE OF THE ACTION]]
 
@@ -338,7 +211,43 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 
 ## 5. Changes in APIs
 
-### 5.1. [[TITLE OF THE CHANGE]]
+### 5.1. Encryption mechanism changes
+
+As we have upgraded Rails from 7.0 we have improved the security of the application by upgrading the encryption mechanism from SHA1 to SHA256.
+
+All the previously encrypted attributes can be decoded, but on the next record change, the new data will be saved as SHA256. To manually upgrade authorization data, or the initiative votes metadata, you will need to run the below task.
+
+```bash
+bin/rails decidim:upgrade:encryption
+```
+
+If you need to update any data generated by a 3rd party module, you could create a rake task like the one below:
+
+```ruby
+# frozen_string_literal: true
+
+namespace :myapp do
+  namespace :upgrade do
+    task encryption: :environment do
+      Decidim::Namespace::Model.find_each do |instance|
+        decrypted = Decidim::AttributeEncryptor.decrypt(instance.encrypted_attribute)
+
+        instance.encrypted_attribute = Decidim::AttributeEncryptor.encrypt(decrypted)
+        instance.save!
+      end
+    end
+  end
+end
+
+Rake::Task["decidim:upgrade:encryption"].enhance do
+  Rake::Task["myapp:upgrade:encryption"].invoke
+end
+
+```
+
+You can read more about this change on PR [#14800](https://github.com/decidim/decidim/pull/14800).
+
+### 5.2. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 
@@ -349,11 +258,9 @@ If you have used code as such:
 result = 1 + 1 if before
 ```
 
+You need to change it to:
+
 ```ruby
 # Explain the usage of the API as it is in the new version
 result = 1 + 1 if after
-```
-
-### 5.2. Add force_api_authentication configuration options
-
-There are times that we need to let only authenticated users to use the API. This configuration option filters out unauthenticated users from accessing the api endpoint. You need to add `DECIDIM_API_FORCE_API_AUTHENTICATION` to your environment variables if you want to enable this feature.
+        ```

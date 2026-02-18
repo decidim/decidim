@@ -27,12 +27,14 @@ cs:
       admin_log:
         changeset:
           debates: Debaty
+      tooltips:
+        deleted_debates_info: Tuto debatu nelze smazat
     components:
       debates:
         actions:
           comment: Komentář
           create: Vytvořit debatu
-          endorse: Schválit
+          like: Líbí se mi
         name: Debaty
         settings:
           global:
@@ -49,8 +51,8 @@ cs:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
             creation_enabled: Účastníci mohou vytvářet debaty
-            endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Schvalování povoleno
+            likes_blocked: Líbí se mi zablokováno
+            likes_enabled: Líbí se mi povoleno
     debates:
       actions:
         close: Zavřít
@@ -149,12 +151,13 @@ cs:
           state: Stav
           state_values:
             closed: Uzavřeno
-            open: Otevřeno
+            ongoing: Probíhající
         index:
           new_debate: Nová debata
         new:
           back: Zpět
           create: Vytvořit
+          title: Vytvořit novou debatu
         orders:
           commented: Nejvíce komentované
           label: Řazení debat podle
@@ -163,11 +166,13 @@ cs:
           updated: Naposledy aktualizované
         show:
           close_debate: Zavřít‏
-          debate_closed: Uzavřeno
+          closed: Uzavřené
           debate_conclusions_are: 'Debata byla uzavřena dne %{date} těmito závěry:'
           edit_conclusions: Upravit závěry
           edit_debate: Upravit
-          open: Otevřená diskuse
+          not_started: Nezahájeno
+          ongoing: Probíhající
+          open_ended: Otevřené
           participants_count: Účastníci
         update:
           invalid: Při aktualizaci debaty došlo k chybě.
@@ -239,11 +244,6 @@ cs:
           next_level_in: Zúčastněte se dalších %{score} debat, abyste dosáhli další úrovně!
           unearned_another: Tento účastník se dosud nezúčastnil žádné debaty.
           unearned_own: Zatím jste se nezúčastnili žádné debaty.
-    metrics:
-      debates:
-        description: Počet vytvořených debat
-        object: debaty
-        title: Debaty
     open_data:
       help:
         debate_comments:
@@ -267,13 +267,13 @@ cs:
           created_at: Datum a čas, kdy byla debata zahájena
           description: Popis debaty
           end_time: Když tato debata skončí, pokud se jedná o otevřenou debatu a má omezenou dobu
-          endorsements_count: Počet potvrzení, která debata získala
           follows_count: Počet sledujících tuto debatu
           id: Jedinečný identifikátor debaty
           information_updates: Aktualizace, které autor provedl v debatě
           instructions: Jaké jsou pokyny k připomínkám v této debatě
           last_comment_at: Datum, kdy byla tato debata naposledy komentována
           last_comment_by: Data posledního komentáře v rámci debaty
+          likes_count: Počet líbí se mi pro tuto debatu
           participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tato debata
           reference: Jedinečný identifikátor zdroje na této platformě
           start_time: Když tato debata začne, pokud se jedná o otevřenou debatu a má omezenou dobu
@@ -283,3 +283,4 @@ cs:
           url: URL, kde lze tuto debatu nalézt
     statistics:
       debates_count: Debaty
+      debates_count_tooltip: Počet konaných diskusí.

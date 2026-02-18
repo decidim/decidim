@@ -5,13 +5,12 @@ cs:
         assemblies_ids: Související shromáždění
         available_slots: Dostupné sloty
         banner_image: Obrázek banneru
-        copy_categories: Kopírovat kategorie
-        copy_components: Kopírování komponent
-        copy_features: Funkce kopírování
         decidim_scope_id: Oblast působnosti
         description: Popis
+        duplicate_categories: Duplikovat kategorie
+        duplicate_components: Duplikovat komponenty
+        duplicate_features: Duplikovat funkce
         end_date: Datum ukončení
-        hashtag: Hashtag
         hero_image: Obrázek na hlavní stránce
         location: Lokalita
         main_logo: Hlavní logo
@@ -104,9 +103,9 @@ cs:
         new_speaker: Nový mluvčí
         send_diplomas: Odeslání certifikátů o účasti
         view_deleted_conferences: Zobrazit smazané konference
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Kopírovat
+          duplicate: Duplikovat
           select: Vyberte, která data chcete duplikovat
           title: Duplikovat konferenci
       conference_publications:
@@ -169,7 +168,13 @@ cs:
         exports:
           registrations: Registrace
         form:
+          duration: Doba trvání
+          images: Fotky
+          metadata: Metadata
+          registrations: Registrace
+          related_spaces: Související prostory
           title: Obecná informace
+          visibility: Viditelnost
         index:
           published: Publikováno
           unpublished: Nezveřejněno
@@ -177,11 +182,11 @@ cs:
           title: Smazané konference
         new:
           create: Vytvořit
-          title: Konference
+          title: Nová konference
         update:
           error: Při aktualizaci této konference došlo k chybě.
           success: Konference byla úspěšně aktualizována.
-      conferences_copies:
+      conferences_duplicates:
         create:
           error: Při kopírování této konference došlo k chybě.
           success: Konference byla úspěšně duplikována.
@@ -224,17 +229,20 @@ cs:
       models:
         conference:
           fields:
+            actions: Akce
             created_at: Vytvořeno v
             published: Publikováno
             title: Název
         conference_speaker:
           fields:
+            actions: Akce
             affiliation: Přidružení
             full_name: Celé jméno
             position: Pozice
           name: Řečník Konference
         conference_user_role:
           fields:
+            actions: Akce
             email: E-mail
             name: Název
             role: Role
@@ -242,15 +250,18 @@ cs:
           roles:
             admin: Správce
             collaborator: Spolupracovník
+            evaluator: Hodnotitel
             moderator: Moderátor
         media_link:
           fields:
+            actions: Akce
             date: Datum
             link: Odkaz
             title: Název
           name: Odkaz na média
         partner:
           fields:
+            actions: Akce
             link: Odkaz
             logo: Logo
             name: Název
@@ -261,6 +272,7 @@ cs:
             main_promotor: Hlavní podporovatel
         registration_type:
           fields:
+            actions: Akce
             conference_meetings: Setkání konference
             price: Cena
             registrations_count: Počet registrací
@@ -355,7 +367,7 @@ cs:
         title: Řečníci
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         conference_invites:
@@ -438,6 +450,8 @@ cs:
           no_slots_available: Žádné sloty nejsou k dispozici
           registration: Registrace
       conference_program:
+        program_item:
+          other_category: Ostatní
         show:
           program: Program
       conference_registration_mailer:
@@ -524,6 +538,7 @@ cs:
             sent: Odeslaná
         conference_registration:
           fields:
+            actions: Akce
             email: E-mail
             name: Název
             registration_type: Typ registrace
@@ -617,12 +632,12 @@ cs:
     open_data:
       help:
         conferences:
+          component_settings: Nastavení komponent v konferenčním prostoru
           created_at: Datum, kdy byl tento prostor vytvořen
           decidim_scope_id: Rozsah konference
           description: Dlouhý popis konference
           end_date: Datum, kdy tato konference skončí.
           follows_count: Počet uživatelů sledujících tento prostor
-          hashtag: Hashtag Konference, používaná pro Twitter/X
           id: Jedinečný identifikátor této konference
           location: Místo konference, kde se bude konat.
           objectives: Cíle této konference. Co je cílem.
@@ -643,6 +658,7 @@ cs:
           url: URL prostoru
     statistics:
       conferences_count: Konference
+      conferences_count_tooltip: Počet publikovaných konferencí.
   devise:
     mailer:
       join_conference:

@@ -72,6 +72,26 @@ module Decidim
       it "creates rewrites the URLs correctly" do
         expect(subject).to eq(parsed_content)
       end
+
+      context "when content is preceded by a link with an URL" do
+        let(:parser) { described_class.new(content_with_url, context) }
+        let(:content_with_url) do
+          <<~HTML.squish
+            <p><a href='https://example.org/document.pdf'>Link to document</a></p>
+            #{content}
+          HTML
+        end
+        let(:parsed_content_with_url) do
+          <<~HTML.squish
+            <p><a href='https://example.org/document.pdf'>Link to document</a></p>
+            #{parsed_content}
+          HTML
+        end
+
+        it "rewrites the URLs correctly" do
+          expect(subject).to eq(parsed_content_with_url)
+        end
+      end
     end
   end
 end

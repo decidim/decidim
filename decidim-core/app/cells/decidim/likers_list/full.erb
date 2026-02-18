@@ -1,0 +1,18 @@
+<%= decidim_modal id: "likesModal-#{model.id}", class: "likes-list__modal" do %>
+  <div data-dialog-container>
+    <%= icon "like" %>
+    <h2 id="dialog-title-likesModal" tabindex="-1" data-dialog-title><%= t("decidim.likes_list.title") %></h2>
+    <div>
+      <% full_likers.each do |author| %>
+        <div class="list-item__author">
+          <div>
+            <%= cell "decidim/author", author, has_actions: true, skip_profile_link: true %>
+          </div>
+          <div class="ml-auto">
+            <%= cell("decidim/follow_button", author, button_classes: "button button__sm button__transparent-secondary") %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -53,7 +53,7 @@ describe "Admin manages initiatives" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim_admin_initiatives.initiatives_path
+    visit decidim_admin_initiatives.initiatives_path(locale: I18n.locale)
   end
 
   describe "listing initiatives" do
@@ -109,12 +109,6 @@ describe "Admin manages initiatives" do
 
     it "can be searched by description" do
       search_by_text(translated(open_initiative.description))
-
-      expect(page).to have_content(translated(open_initiative.title))
-    end
-
-    it "can be searched by id" do
-      search_by_text(open_initiative.id)
 
       expect(page).to have_content(translated(open_initiative.title))
     end

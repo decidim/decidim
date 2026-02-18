@@ -49,6 +49,10 @@ module Decidim
 
         private
 
+        def survey
+          questionnaire.questionnaire_for
+        end
+
         def questionnaire
           @questionnaire ||= Decidim::Forms::Questionnaire.find_by(questionnaire_for:)
         end

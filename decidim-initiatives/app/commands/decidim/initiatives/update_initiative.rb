@@ -76,8 +76,7 @@ module Decidim
       def attributes
         attrs = {
           title: { current_locale => form.title },
-          description: { current_locale => form.description },
-          hashtag: form.hashtag
+          description: { current_locale => form.description }
         }
 
         if form.signature_type_updatable?

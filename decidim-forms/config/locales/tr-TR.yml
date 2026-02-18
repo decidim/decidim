@@ -14,8 +14,6 @@ tr:
             description: Açıklama
             tos: Kullanım Şartları
         questionnaires:
-          actions:
-            back: Sorulara geri dön
           display_condition:
             condition_question: Soru
             condition_type: Durum
@@ -50,20 +48,16 @@ tr:
             any: herhangi
             collapse: Daralt
             description: Açıklama
-            down: Aşağı
             expand: Genişlet
             question: Soru
             remove: Kaldır
             statement: Beyan
-            up: yukarı
           responses:
             actions:
               show: Yanıtları göster
           separator:
-            down: Aşağı
             remove: Kaldır
             separator: Ayraç
-            up: Yukarı
           update:
             invalid: Formu kaydederken bir sorun oluştu.
             success: Başarıyla kaydedildi.
@@ -83,9 +77,6 @@ tr:
           empty: Bu form için henüz hazırlanmış bir soru yok.
           of_total_steps: '%{total_steps}'
           questionnaire_closed:
-            title: Form kapatıldı
-          questionnaire_for_private_users:
-            body: Form yalnızca özel kullanıcılar tarafından kullanılabilir
             title: Form kapatıldı
           questionnaire_js_disabled:
             body: Bu formun bazı özellikleri devre dışı bırakılacak. Deneyiminizi iyileştirmek için lütfen tarayıcınızda JavaScript'i etkinleştirin.

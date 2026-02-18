@@ -1,11 +1,17 @@
 # frozen_string_literal: true
 
 class FixMeetingsRegistrationTerms < ActiveRecord::Migration[5.2]
+  class Meeting < ApplicationRecord
+    self.table_name = :decidim_meetings_meetings
+    include Decidim::HasComponent
+    include Decidim::Authorable
+  end
+
   def up
     reset_column_information
 
     PaperTrail.request(enabled: false) do
-      Decidim::Meetings::Meeting.unscoped.find_each do |meeting|
+      Meeting.unscoped.find_each do |meeting|
         next if meeting.component.nil?
         # Only user-created meetings have this problem
         next if meeting.official?
@@ -23,7 +29,7 @@ class FixMeetingsRegistrationTerms < ActiveRecord::Migration[5.2]
   def down; end
 
   def reset_column_information
-    Decidim::Meetings::Meeting.reset_column_information
+    Meeting.reset_column_information
     Decidim::Component.reset_column_information
   end
 end

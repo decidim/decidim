@@ -12,8 +12,16 @@ Decidim.register_component(:debates) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Debates::Debate"]
 
-  component.on(:before_destroy) do |instance|
-    raise StandardError, "Cannot remove this component" if Decidim::Debates::Debate.where(component: instance).any?
+  component.on(:publish) do |instance|
+    Decidim::Debates::Debate.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Debates::Debate.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
+    end
   end
 
   component.settings(:global) do |settings|
@@ -25,25 +33,41 @@ Decidim.register_component(:debates) do |component|
   end
 
   component.settings(:step) do |settings|
-    settings.attribute :endorsements_enabled, type: :boolean, default: true
-    settings.attribute :endorsements_blocked, type: :boolean
+    settings.attribute :likes_enabled, type: :boolean, default: true
+    settings.attribute :likes_blocked, type: :boolean
     settings.attribute :creation_enabled, type: :boolean, default: false
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.register_stat :debates_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
+  component.register_stat :debates_count,
+                          primary: true,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          icon_name: "discuss-line",
+                          tooltip_key: "debates_count_tooltip" do |components, _start_at, _end_at|
     Decidim::Debates::Debate.where(component: components).not_hidden.count
   end
 
-  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, _start_at, _end_at|
+  component.register_stat :followers_count,
+                          tag: :followers,
+                          icon_name: "user-follow-line",
+                          tooltip_key: "followers_count_tooltip",
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, _start_at, _end_at|
     debates_ids = Decidim::Debates::Debate.where(component: components).not_hidden.pluck(:id)
     Decidim::Follow.where(decidim_followable_type: "Decidim::Debates::Debate", decidim_followable_id: debates_ids).count
   end
 
-  component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, _start_at, _end_at|
+  component.register_stat :comments_count,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "chat-1-line",
+                          tooltip_key: "comments_count",
+                          tag: :comments do |components, _start_at, _end_at|
+    Decidim::Debates::Debate.where(component: components).not_hidden.count
+  end
+
+  component.register_stat :likes_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, _start_at, _end_at|
     debates_ids = Decidim::Debates::Debate.where(component: components).not_hidden.pluck(:id)
-    Decidim::Endorsement.where(resource_id: debates_ids, resource_type: Decidim::Debates::Debate.name).count
+    Decidim::Like.where(resource_id: debates_ids, resource_type: Decidim::Debates::Debate.name).count
   end
 
   component.register_resource(:debate) do |resource|
@@ -51,10 +75,10 @@ Decidim.register_component(:debates) do |component|
     resource.card = "decidim/debates/debate"
     resource.reported_content_cell = "decidim/debates/reported_content"
     resource.searchable = true
-    resource.actions = %w(create endorse comment)
+    resource.actions = %w(create like comment vote_comment)
   end
 
-  component.actions = %w(create endorse comment)
+  component.actions = %w(create like comment vote_comment)
 
   component.exports :debates do |exports|
     exports.collection do |component_instance|

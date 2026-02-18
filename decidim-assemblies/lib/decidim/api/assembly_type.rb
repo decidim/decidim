@@ -17,7 +17,6 @@ module Decidim
 
       description "An assembly"
 
-      field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this assembly", null: true
       field :banner_image, String, "The banner image for this assembly", null: true
       field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Children of this assembly", null: false
       field :children_count, Integer, "Number of children assemblies", null: true
@@ -32,7 +31,6 @@ module Decidim
       field :duration, Decidim::Core::DateType, "Duration of this assembly", null: true
       field :facebook_handler, String, "Facebook handler", null: true
       field :github_handler, String, "GitHub handler", null: true
-      field :hashtag, String, "The hashtag for this assembly", null: true
       field :hero_image, String, "The hero image for this assembly", null: true
       field :included_at, Decidim::Core::DateType, "Included at", null: true
       field :instagram_handler, String, "Instagram handler", null: true

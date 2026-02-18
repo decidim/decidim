@@ -1,7 +1,7 @@
 /**
  * When switching tabs in i18n fields, autofocus on the input to save clicks #212
  */
-$(() => {
+document.addEventListener("turbo:load", () => {
   // Event launched by foundation
   $("[data-tabs]").on("change.zf.tabs", (event) => {
     const $container = $(event.target).parent().next(".tabs-content").find(".tabs-panel.is-active");

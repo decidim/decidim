@@ -65,10 +65,6 @@ FactoryBot.define do
     "#{Faker::Lorem.characters(number: rand(1..10))}_#{n}".gsub("'", "_")
   end
 
-  sequence(:hashtag_name) do |n|
-    "#{Faker::Lorem.characters(number: rand(1..10))}_#{n}".gsub("'", "_")
-  end
-
   sequence(:email) do |n|
     "user#{n}@example.org"
   end
@@ -121,6 +117,11 @@ FactoryBot.define do
       Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name }
     end
 
+    # we do not want machine translation here
+    short_name do
+      Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name.gsub(/\s+/, "")[0, 12] }
+    end
+
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
     twitter_handler { Faker::Hipster.word }
@@ -131,12 +132,11 @@ FactoryBot.define do
     sequence(:host) { |n| "#{n}.lvh.me" }
     description { generate_localized_description(:organization_description, skip_injection:) }
     favicon { Decidim::Dev.test_file("icon.png", "image/png") }
-    default_locale { Decidim.default_locale }
-    available_locales { Decidim.available_locales }
+    default_locale { "en" }
+    available_locales { %w(en ca es) }
     users_registration_mode { :enabled }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }
-    highlighted_content_banner_enabled { false }
     enable_omnipresent_banner { false }
     badges_enabled { true }
     send_welcome_notification { true }
@@ -155,7 +155,6 @@ FactoryBot.define do
       }
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
-    enable_participatory_space_filters { true }
     content_security_policy do
       {
         "default-src" => "localhost:* #{host}:*",
@@ -200,7 +199,7 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about { generate_localized_title(:user_about, skip_injection:) }
+    about { generate_title(:user_about, skip_injection:) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
@@ -209,6 +208,14 @@ FactoryBot.define do
     password_updated_at { Time.current }
     previous_passwords { [] }
     extended_data { {} }
+
+    trait :malicious do
+      after :create do |user|
+        # rubocop:disable Rails/SkipsModelValidations
+        user.update_column(:name, "user_#{user.id}\n<script>alert('name')</script>")
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+    end
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -276,12 +283,18 @@ FactoryBot.define do
     end
   end
 
-  factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+  factory :badge_score, class: "Decidim::Gamification::BadgeScore" do
+    user
+    badge_name { "followers" }
+    value { 1 }
+  end
+
+  factory :member, class: "Decidim::ParticipatorySpace::Member" do
     transient do
       skip_injection { false }
     end
     user
-    privatable_to { create(:participatory_process, organization: user.organization, skip_injection:) }
+    participatory_space { create(:participatory_process, organization: user.organization, skip_injection:) }
 
     role { generate_localized_title(:role, skip_injection:) }
 
@@ -294,12 +307,12 @@ FactoryBot.define do
     end
   end
 
-  factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+  factory :assembly_member, class: "Decidim::ParticipatorySpace::Member" do
     transient do
       skip_injection { false }
     end
     user
-    privatable_to { create(:assembly, organization: user.organization, skip_injection:) }
+    participatory_space { create(:assembly, organization: user.organization, skip_injection:) }
   end
 
   factory :identity, class: "Decidim::Identity" do
@@ -513,29 +526,29 @@ FactoryBot.define do
       end
     end
 
-    trait :with_endorsements_enabled do
+    trait :with_likes_enabled do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_enabled: true }
+          participatory_space.active_step.id => { likes_enabled: true }
         }
       end
     end
 
-    trait :with_endorsements_disabled do
+    trait :with_likes_disabled do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_enabled: false }
+          participatory_space.active_step.id => { likes_enabled: false }
         }
       end
     end
 
-    trait :with_endorsements_blocked do
+    trait :with_likes_blocked do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_blocked: true }
+          participatory_space.active_step.id => { likes_blocked: true }
         }
       end
     end
@@ -622,8 +635,11 @@ FactoryBot.define do
   end
 
   factory :taxonomization, class: "Decidim::Taxonomization" do
+    transient do
+      skip_injection { false }
+    end
     taxonomy { association(:taxonomy, :with_parent) }
-    taxonomizable { association(:dummy_resource) }
+    taxonomizable { association(:dummy_resource, organization: taxonomy.organization, skip_injection:) }
   end
 
   factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
@@ -643,7 +659,7 @@ FactoryBot.define do
 
   factory :taxonomy_filter_item, class: "Decidim::TaxonomyFilterItem" do
     taxonomy_filter
-    taxonomy_item { association(:taxonomy, parent: taxonomy_filter.root_taxonomy) }
+    taxonomy_item { association(:taxonomy, organization: taxonomy_filter.root_taxonomy.organization, parent: taxonomy_filter.root_taxonomy) }
   end
 
   factory :coauthorship, class: "Decidim::Coauthorship" do
@@ -711,7 +727,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     moderation
-    user { build(:user, organization: moderation.reportable.organization, skip_injection:) }
+    user { build(:user, :confirmed, organization: moderation.reportable.organization, skip_injection:) }
     reason { "spam" }
   end
 
@@ -731,6 +747,7 @@ FactoryBot.define do
     user do
       build(
         :user,
+        :confirmed,
         organization: followable.try(:organization) || build(:organization, skip_injection:)
       )
     end
@@ -767,8 +784,8 @@ FactoryBot.define do
       skip_injection { false }
     end
 
-    originator { build(:user, skip_injection:) }
-    interlocutors { [build(:user, skip_injection:)] }
+    originator { build(:user, organization: user.organization, skip_injection:) }
+    interlocutors { [build(:user, organization: originator.organization, skip_injection:)] }
     body { Faker::Lorem.sentence }
     user
 
@@ -811,8 +828,10 @@ FactoryBot.define do
       extra_data { {} }
     end
 
+    user { create(:user) }
     organization { user.organization }
-    user
+    user_id { user.id }
+    user_type { user.class.name }
     participatory_space { build(:participatory_process, organization:, skip_injection:) }
     component { build(:component, participatory_space:, skip_injection:) }
     resource { build(:dummy_resource, component:, skip_injection:) }
@@ -850,7 +869,9 @@ FactoryBot.define do
     organization_url { "http://example.org" }
     organization_logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     redirect_uri { "https://app.example.org/oauth" }
-    scopes { "public" }
+    scopes { "profile" }
+    confidential { true }
+    refresh_tokens_enabled { false }
   end
 
   factory :oauth_access_token, class: "Doorkeeper::AccessToken" do
@@ -862,7 +883,36 @@ FactoryBot.define do
     token { SecureRandom.hex(32) }
     expires_in { 1.month.from_now }
     created_at { Time.current }
-    scopes { "public" }
+    scopes { "profile" }
+  end
+
+  factory :oauth_access_grant, class: "Doorkeeper::AccessGrant" do
+    transient do
+      skip_injection { false }
+      organization { create(:organization) }
+    end
+    resource_owner_id { create(:user, organization: application.organization, skip_injection:).id }
+    application { create(:oauth_application, organization:, skip_injection:) }
+    redirect_uri { "https://app.com/callback" }
+    expires_in { 100 }
+    scopes { "public write" }
+  end
+
+  factory :private_export, class: "Decidim::PrivateExport" do
+    transient do
+      skip_injection { false }
+      organization { create(:organization) }
+    end
+    expires_at { 1.week.from_now }
+    attached_to { create(:user, organization:, skip_injection:) }
+    export_type { "download_your_data" }
+    content_type { "application/zip" }
+    file_size { 208.bytes }
+    file { Decidim::Dev.test_file("dummy-export.zip", "application/zip") }
+
+    trait :expired do
+      expires_at { 1.week.ago }
+    end
   end
 
   factory :searchable_resource, class: "Decidim::SearchableResource" do
@@ -895,20 +945,13 @@ FactoryBot.define do
     end
   end
 
-  factory :hashtag, class: "Decidim::Hashtag" do
-    transient do
-      skip_injection { false }
-    end
-    name { generate(:hashtag_name) }
-    organization
-  end
-
   factory :amendment, class: "Decidim::Amendment" do
     transient do
       skip_injection { false }
+      organization { create(:organization, skip_injection:) }
     end
-    amendable { build(:dummy_resource, skip_injection:) }
-    emendation { build(:dummy_resource, skip_injection:) }
+    amendable { build(:dummy_resource, organization:, skip_injection:) }
+    emendation { build(:dummy_resource, organization:, skip_injection:) }
     amender { emendation.try(:creator_author) || emendation.try(:author) }
     state { "evaluating" }
 
@@ -941,7 +984,7 @@ FactoryBot.define do
     end
     reason { "spam" }
     moderation { create(:user_moderation, user:, skip_injection:) }
-    user { build(:user) }
+    user { build(:user, :confirmed) }
   end
 
   factory :user_moderation, class: "Decidim::UserModeration" do
@@ -951,7 +994,7 @@ FactoryBot.define do
     user { create(:user, :confirmed) }
   end
 
-  factory :endorsement, class: "Decidim::Endorsement" do
+  factory :like, class: "Decidim::Like" do
     transient do
       skip_injection { false }
     end
@@ -1006,7 +1049,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     reminder { create(:reminder, skip_injection:) }
-    remindable { build(:dummy_resource, skip_injection:) }
+    remindable { build(:dummy_resource, organization: reminder.user.organization, skip_injection:) }
 
     Decidim::ReminderRecord::STATES.keys.each do |defined_state|
       trait defined_state do

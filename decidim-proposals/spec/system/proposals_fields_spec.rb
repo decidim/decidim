@@ -62,7 +62,7 @@ describe "Proposals" do
 
           click_on "Publish"
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_callout("Proposal successfully published.")
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
@@ -85,7 +85,7 @@ describe "Proposals" do
 
             click_on "Publish"
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Proposal successfully published.")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
@@ -93,7 +93,7 @@ describe "Proposals" do
           end
         end
 
-        context "when geocoding is enabled", :serves_geocoding_autocomplete do
+        context "when geocoding is enabled" do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
@@ -129,7 +129,7 @@ describe "Proposals" do
 
             click_on "Publish"
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Proposal successfully published.")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
@@ -143,6 +143,7 @@ describe "Proposals" do
             within_selector: ".edit_proposal",
             address_field: :proposal_address
           ) do
+            let(:geocoded_success_message) { "Proposal draft successfully updated." }
             let(:geocoded_record) { proposal_draft }
             let(:geocoded_address_value) { address }
             let(:geocoded_address_coordinates) { [latitude, longitude] }
@@ -154,39 +155,6 @@ describe "Proposals" do
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
             end
-          end
-        end
-
-        context "when component has extra hashtags defined" do
-          let(:component) do
-            create(:proposal_component,
-                   :with_extra_hashtags,
-                   suggested_hashtags: component_suggested_hashtags,
-                   automatic_hashtags: component_automatic_hashtags,
-                   manifest:,
-                   participatory_space: participatory_process)
-          end
-
-          let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
-          let(:component_automatic_hashtags) { "AutoHashtag1 AutoHashtag2" }
-          let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
-
-          it "offers and save extra hashtags", :slow do
-            visit edit_draft_proposal_path(component, proposal_draft)
-
-            within ".edit_proposal" do
-              check :proposal_suggested_hashtags_suggestedhashtag1
-
-              find("*[type=submit]").click
-            end
-
-            click_on "Publish"
-
-            expect(page).to have_content("successfully")
-            expect(page).to have_content("#AutoHashtag1")
-            expect(page).to have_content("#AutoHashtag2")
-            expect(page).to have_content("#SuggestedHashtag1")
-            expect(page).to have_no_content("#SuggestedHashtag2")
           end
         end
 
@@ -264,7 +232,7 @@ describe "Proposals" do
 
             click_on "Publish"
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Proposal successfully published.")
             expect(page).to have_content("Images")
 
             within "#panel-images" do

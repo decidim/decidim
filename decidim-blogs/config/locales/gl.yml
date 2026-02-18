@@ -46,8 +46,6 @@ gl:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            endorsements_blocked: Adhesións bloqueadas
-            endorsements_enabled: Adhesións habilitadas
     events:
       blogs:
         post_created:

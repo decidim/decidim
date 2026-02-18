@@ -13,12 +13,24 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
   participatory_space.query_type = "Decidim::Assemblies::AssemblyType"
 
-  participatory_space.breadcrumb_cell = "decidim/assemblies/assembly_dropdown_metadata"
-
   participatory_space.register_resource(:assembly) do |resource|
     resource.model_class_name = "Decidim::Assembly"
     resource.card = "decidim/assemblies/assembly"
     resource.searchable = true
+  end
+
+  participatory_space.register_stat :followers_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-follow-line",
+                                    tooltip_key: "followers_count_tooltip" do
+    Decidim::Assemblies::AssembliesStatsFollowersCount.for(participatory_space)
+  end
+
+  participatory_space.register_stat :participants_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-line",
+                                    tooltip_key: "participants_count_tooltip" do
+    Decidim::Assemblies::AssembliesStatsParticipantsCount.for(participatory_space)
   end
 
   participatory_space.context(:public) do |context|
@@ -32,10 +44,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
   end
 
   participatory_space.exports :assemblies do |export|
-    export.collection do
-      Decidim::Assembly
-        .public_spaces
-        .includes(:attachment_collections)
+    export.collection do |participatory_space, _user|
+      Decidim::Assembly.public_spaces.includes(:attachment_collections).where(id: participatory_space)
     end
 
     export.include_in_open_data = true

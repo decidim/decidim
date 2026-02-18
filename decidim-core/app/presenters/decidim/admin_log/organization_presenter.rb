@@ -19,7 +19,6 @@ module Decidim
 
         settings_attributes_mapping
           .merge(omnipresent_banner_attributes_mapping)
-          .merge(highlighted_content_banner_attributes_mapping)
           .merge(appearance_attributes_mapping)
           .merge(id_documents_attributes_mapping)
       end
@@ -47,22 +46,8 @@ module Decidim
         }
       end
 
-      def highlighted_content_banner_attributes_mapping
-        {
-          highlighted_content_banner_enabled: :boolean,
-          highlighted_content_banner_action_url: :string,
-          highlighted_content_banner_image: :string,
-          highlighted_content_banner_title: :i18n,
-          highlighted_content_banner_short_description: :i18n,
-          highlighted_content_banner_action_title: :i18n,
-          highlighted_content_banner_action_subtitle: :i18n
-        }
-      end
-
       def appearance_attributes_mapping
         {
-          cta_button_path: :string,
-          cta_button_text: :i18n,
           description: :i18n,
           logo: :string,
           header_snippets: :string,

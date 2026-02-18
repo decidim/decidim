@@ -7,9 +7,9 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.add_item :initiatives,
                         I18n.t("menu.initiatives", scope: "decidim"),
-                        decidim_initiatives.initiatives_path,
+                        decidim_initiatives.initiatives_path(locale: current_locale),
                         position: 2.4,
-                        active: %r{^/(initiatives|create_initiative)},
+                        active: %r{^/#{current_locale}/(initiatives|create_initiative)},
                         if: Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).any?
         end
       end
@@ -18,9 +18,9 @@ module Decidim
         Decidim.menu :mobile_menu do |menu|
           menu.add_item :initiatives,
                         I18n.t("menu.initiatives", scope: "decidim"),
-                        decidim_initiatives.initiatives_path,
+                        decidim_initiatives.initiatives_path(locale: current_locale),
                         position: 2.4,
-                        active: %r{^/(initiatives|create_initiative)},
+                        active: %r{^/#{current_locale}/(initiatives|create_initiative)},
                         if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
         end
       end
@@ -29,7 +29,7 @@ module Decidim
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :initiatives,
                         I18n.t("menu.initiatives", scope: "decidim"),
-                        decidim_initiatives.initiatives_path,
+                        decidim_initiatives.initiatives_path(locale: current_locale),
                         position: 30,
                         active: :inclusive,
                         if: Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).any?
@@ -113,7 +113,7 @@ module Decidim
                         decidim_admin_initiatives.initiative_share_tokens_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_initiatives.initiative_share_tokens_path(current_participatory_space)),
                         icon_name: "share-line",
-                        if: allowed_to?(:read, :share_tokens, current_participatory_space:)
+                        if: allowed_to?(:read, :share_token, current_participatory_space:)
         end
       end
 

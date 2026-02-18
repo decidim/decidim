@@ -51,10 +51,10 @@ module Decidim
       has_many :meeting_links, dependent: :destroy, class_name: "Decidim::Meetings::MeetingLink", foreign_key: "decidim_meeting_id"
       has_many :components, through: :meeting_links, class_name: "Decidim::Component", foreign_key: "decidim_component_id"
 
-      enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
-      enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
-      enum type_of_meeting: TYPE_OF_MEETING
-      enum registration_type: REGISTRATION_TYPES, _scopes: false
+      enum :iframe_access_level, [:all, :signed_in, :registered], prefix: true
+      enum :iframe_embed_type, [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], prefix: true
+      enum :type_of_meeting, TYPE_OF_MEETING
+      enum :registration_type, REGISTRATION_TYPES, scopes: false
 
       component_manifest_name "meetings"
 
@@ -122,8 +122,8 @@ module Decidim
                 SELECT decidim_components.id FROM decidim_components
                 WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
                 IN
-                  (SELECT CONCAT(decidim_participatory_space_private_users.privatable_to_id, '-', decidim_participatory_space_private_users.privatable_to_type)
-                  FROM decidim_participatory_space_private_users WHERE decidim_participatory_space_private_users.decidim_user_id = ?)
+                  (SELECT CONCAT(decidim_members.participatory_space_id, '-', decidim_members.participatory_space_type)
+                  FROM decidim_members WHERE decidim_members.decidim_user_id = ?)
               )
             "
             if user_role_queries.any?
@@ -200,14 +200,18 @@ module Decidim
         false
       end
 
+      def waitlist_enabled?
+        Decidim::Meetings.waiting_list_enabled
+      end
+
       def has_available_slots?
         return true if available_slots.zero?
 
-        (available_slots - reserved_slots) > registrations.count
+        (available_slots - reserved_slots) > registrations.registered.count
       end
 
       def remaining_slots
-        available_slots - reserved_slots - registrations.count
+        available_slots - reserved_slots - registrations.registered.count
       end
 
       def has_registration_for?(user)
@@ -314,7 +318,7 @@ module Decidim
       end
 
       def authored_proposals
-        return [] unless Decidim::Meetings.enable_proposal_linking
+        return [] unless Decidim.module_installed?(:proposals)
 
         Decidim::Proposals::Proposal
           .joins(:coauthorships)
@@ -324,11 +328,6 @@ module Decidim
               decidim_author_id: id
             }
           )
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
 
       # Public: Overrides the `reported_attributes` Reportable concern method.

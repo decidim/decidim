@@ -16,7 +16,7 @@ module Decidim
     include Decidim::Followable
     include Decidim::HasReference
     include Decidim::Traceable
-    include Decidim::HasPrivateUsers
+    include Decidim::ParticipatorySpace::HasMembers
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::Searchable
@@ -146,6 +146,10 @@ module Decidim
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
     end
 
+    def presenter
+      @presenter ||= Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(self)
+    end
+
     def active?
       return false if start_date.blank?
 
@@ -171,10 +175,6 @@ module Decidim
 
     def closed?
       past?
-    end
-
-    def hashtag
-      attributes["hashtag"].to_s.delete("#")
     end
 
     def to_param
@@ -216,7 +216,7 @@ module Decidim
       base = %w(title short_description description id)
       return base unless auth_object&.admin?
 
-      base + %w(private_space published_at decidim_participatory_process_group_id)
+      base + %w(private_space published_at created_at decidim_participatory_process_group_id)
     end
 
     def self.ransackable_associations(_auth_object = nil)

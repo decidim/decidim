@@ -20,6 +20,12 @@ module Decidim
       include_examples "localizable interface"
       include_examples "referable interface"
 
+      shared_examples "unauthorized Result" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Result because you do not have permissions")
+        end
+      end
+
       describe "id" do
         let(:query) { "{ id }" }
 
@@ -97,9 +103,7 @@ module Decidim
         let(:model) { create(:result, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Result"
       end
 
       context "when participatory space is private but transparent" do
@@ -119,9 +123,7 @@ module Decidim
         let(:model) { create(:result, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Result"
       end
 
       context "when component is not published" do
@@ -129,9 +131,7 @@ module Decidim
         let(:model) { create(:result, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Result"
       end
     end
   end

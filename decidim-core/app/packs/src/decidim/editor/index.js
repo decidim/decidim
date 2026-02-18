@@ -59,14 +59,15 @@ export default function createEditor(container) {
     };
   }
 
-  if (container.classList.contains("js-hashtags")) {
-    decidimOptions.hashtag = true;
-  }
-  if (container.classList.contains("js-mentions")) {
+  if (options.mention) {
     decidimOptions.mention = true;
   }
-  if (container.classList.contains("js-emojis")) {
+  if (options.emoji) {
     decidimOptions.emoji = true;
+  }
+
+  if (container.classList.contains("js-resource-mentions")) {
+    decidimOptions.mentionResource = true;
   }
 
   const editor = new Editor({
@@ -80,7 +81,11 @@ export default function createEditor(container) {
   const toolbar = createEditorToolbar(editor);
   container.insertBefore(toolbar, editorContainer);
 
-  editor.on("update", () => (input.value = editor.getHTML()));
+  editor.on("update", () => {
+    input.value = editor.isEmpty
+      ? ""
+      : editor.getHTML();
+  });
 
   return editor;
 }

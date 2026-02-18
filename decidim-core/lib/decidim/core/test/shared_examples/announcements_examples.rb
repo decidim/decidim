@@ -14,6 +14,8 @@ shared_examples "manage announcements" do
 
     click_on "Update"
 
+    expect(page).to have_content "The component was updated successfully"
+
     visit main_component_path(current_component)
 
     within page.find("[data-announcement]", match: :first) do
@@ -47,6 +49,8 @@ shared_examples "manage announcements" do
       )
 
       click_on "Update"
+
+      expect(page).to have_content "The component was updated successfully"
 
       visit main_component_path(current_component)
 

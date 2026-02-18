@@ -29,24 +29,49 @@ describe "Admin edits proposals" do
     it "can be updated" do
       visit_component_admin
 
-      find("a.action-icon--edit-proposal").click
+      within "tr[data-id='#{proposal.id}']" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit proposal"
+      end
       expect(page).to have_content "Update proposal"
 
       fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
       fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", **attributes[:body].except("machine_translations")
       click_on "Update"
 
-      preview_window = window_opened_by { find("a.action-icon--preview").click }
+      within "tr[data-id='#{proposal.id}']" do
+        find("button[data-controller='dropdown']").click
+        preview_window = window_opened_by { click_on "Preview" }
 
-      within_window preview_window do
-        expect(page).to have_content(translated(attributes[:title]))
-        expect(page).to have_content(strip_tags(translated(attributes[:body])).strip)
+        within_window preview_window do
+          expect(page).to have_content(translated(attributes[:title]))
+          expect(page).to have_content(strip_tags(translated(attributes[:body])).strip)
+        end
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Proposal successfully updated.")
 
       visit decidim_admin.root_path
       expect(page).to have_content("updated the #{translated(attributes[:title])} official proposal")
+    end
+
+    it "throws error when updating with empty mandatory field" do
+      visit_component_admin
+
+      within "tr[data-id='#{proposal.id}']" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit proposal"
+      end
+
+      expect(page).to have_content "Update proposal"
+
+      fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
+      attributes[:body]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+      click_on "Update"
+
+      within ".flash__message" do
+        expect(page).to have_content("There was a problem saving the proposal.")
+      end
     end
 
     context "when the proposal has some votes" do
@@ -58,7 +83,10 @@ describe "Admin edits proposals" do
         visit_component_admin
 
         expect(page).to have_content(translated(proposal.title))
-        expect(page).to have_no_css("a.action-icon--edit-proposal")
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          expect(page).to have_css(".dropdown__button-disabled span", text: "Edit proposal")
+        end
         visit current_path + "proposals/#{proposal.id}/edit"
 
         expect(page).to have_content("not authorized")
@@ -84,9 +112,19 @@ describe "Admin edits proposals" do
 
       let!(:document) { create(:attachment, :with_pdf, attached_to: proposal) }
 
-      it "can be remove attachment" do
+      it "can remove attachment" do
         visit_component_admin
-        find("a.action-icon--edit-proposal").click
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit proposal"
+        end
+
+        click_on("Edit attachments")
+        within "li[data-filename='#{document.file.blob.filename}']" do
+          click_on("Remove")
+        end
+        click_on("Save")
+
         within ".item__edit-form" do
           click_on "Update"
         end
@@ -94,13 +132,19 @@ describe "Admin edits proposals" do
         expect(page).to have_content("Proposal successfully updated.")
 
         visit_component_admin
-        find("a.action-icon--edit-proposal").click
-        expect(page).to have_no_content("Current file")
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit proposal"
+        end
+        expect(page).to have_no_content(document.file.blob.filename)
       end
 
       it "can attach a file" do
         visit_component_admin
-        find("a.action-icon--edit-proposal").click
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit proposal"
+        end
         dynamically_attach_file(:proposal_documents, image_path)
 
         click_on("Edit attachments")
@@ -110,7 +154,11 @@ describe "Admin edits proposals" do
         click_on("Save")
 
         click_on("Update")
-        find("a.action-icon--edit-proposal").click
+
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit proposal"
+        end
 
         expect(page).to have_no_content("city.jpeg")
       end
@@ -124,7 +172,12 @@ describe "Admin edits proposals" do
       visit_component_admin
 
       expect(page).to have_content(translated(proposal.title))
-      expect(page).to have_no_css("a.action-icon--edit-proposal")
+
+      within "tr", text: translated_attribute(proposal.title) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_css(".dropdown__button-disabled span", text: "Edit proposal")
+      end
+
       visit current_path + "proposals/#{proposal.id}/edit"
 
       expect(page).to have_content("not authorized")

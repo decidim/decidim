@@ -26,6 +26,8 @@ sv:
             enabled: Aktivera kommentarer
             end_time: Kommentarer aktiverade till och med
             start_time: Kommentarer aktiverade från och med
+      comment_thread:
+        accessibility_label: Kommentartråden startad av %{full_name} den %{date}
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
@@ -46,7 +48,7 @@ sv:
         form:
           body:
             label: Kommentera
-            placeholder: Vad tycker du om detta?
+            placeholder: Vad tycker du?
           form_error: Texten är obligatorisk och får inte vara längre än %{length} tecken.
           submit_reply: Publicera svar
           submit_root_comment: Publicera kommentar
@@ -101,10 +103,10 @@ sv:
         sort_by: 'Sortera efter: '
       comment_order_selector:
         order:
-          best_rated: Bästa betyg
+          best_rated: Högst betyg
           most_discussed: Mest diskuterade
-          older: Äldsta
-          recent: Senaste
+          older: Gamla
+          recent: Nya
         title: 'Sortera efter:'
       comments:
         against: Mot
@@ -183,11 +185,6 @@ sv:
           email_outro: Du har fått denna notis eftersom du har nämnts i %{resource_title}.
           email_subject: Du har nämnts i %{resource_title}
           notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Antal kommentarer från deltagare
-        object: kommentarer
-        title: Kommentarer
   errors:
     messages:
       cannot_have_comments: kan inte ha kommentarer

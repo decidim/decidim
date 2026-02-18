@@ -52,6 +52,7 @@ describe "Evaluator manages proposals" do
   context "when in the proposal page" do
     before do
       within "tr", text: translated(assigned_proposal.title) do
+        find("button[data-controller='dropdown']").click
         click_on "Answer proposal"
       end
     end
@@ -83,7 +84,7 @@ describe "Evaluator manages proposals" do
             )
             click_on "Answer"
           end
-          expect(page).to have_content("successfully")
+          expect(page).to have_callout("Proposal successfully answered.")
         end
       end
 

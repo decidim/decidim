@@ -38,7 +38,6 @@ nl:
       decidim/profile_updated_event: Profiel bijgewerkt
       decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd uit de groep
-      decidim/resource_endorsed_event: Bron gesteund
   activerecord:
     attributes:
       decidim/user:
@@ -51,9 +50,6 @@ nl:
       decidim/amendment:
         one: Amendement
         other: Amendementen
-      decidim/endorsement:
-        one: Aanbeveling
-        other: Aanbevelingen
       decidim/user:
         one: Deelnemer
         other: Deelnemers
@@ -129,10 +125,6 @@ nl:
         update: "%{user_name} heeft de %{resource_name} OAuth-toepassing bijgewerkt"
       organization:
         update: "%{user_name} heeft de organisatie-instellingen bijgewerkt"
-      participatory_space_private_user:
-        create: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
-        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd als privé deelnemer"
-        delete: "%{user_name} heeft de deelnemer %{resource_name} verwijderd als privé-deelnemer"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
         create_with_parent: "%{user_name} heeft het bereik %{resource_name} gemaakt binnen het bereik %{parent_scope}"
@@ -225,9 +217,6 @@ nl:
       comments:
         one: commentaar
         other: commentaren
-      endorsements:
-        one: ondersteuning
-        other: aantekeningen
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -356,8 +345,6 @@ nl:
         name: Laatste activiteit
         title: Laatste activiteit
         view_all: Bekijk alles
-      metrics:
-        name: Organisatie statistieken
       stats:
         name: Organisatie statistieken
       sub_hero:
@@ -480,11 +467,6 @@ nl:
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
         level_up:
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, die je volgt, heeft zojuist goedgekeurd "%{resource_title}" en wij denken dat het interessant voor je kan zijn. Bekijk het en draag bij:'
-        email_outro: Je hebt deze melding ontvangen omdat je %{endorser_nickname}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
-        email_subject: "%{endorser_nickname} heeft een nieuwe bevestiging uitgevoerd"
-        notification_title: De <a href="%{resource_path}">%{resource_title}</a> %{resource_type} is goedgekeurd door <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
@@ -608,7 +590,6 @@ nl:
         latlng_text: 'breedte: %{latitude}, lengtegraad: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Help
       home: Home
     messaging:
       conversation_mailer:
@@ -644,21 +625,6 @@ nl:
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
-    metrics:
-      download:
-        csv: Gegevens downloaden (csv)
-      followers:
-        description: Aantal deelnemers dat deze participatieruimte volgt
-        object: volgers
-        title: Volgers
-      participants:
-        description: Aantal actieve deelnemers in de organisatie
-        object: deelnemers
-        title: Deelnemers
-      users:
-        description: Aantal deelnemers in de organisatie
-        object: deelnemers
-        title: Deelnemers
     newsletter_mailer:
       newsletter:
         no_reply_notice: Deze e-mail is verzonden vanuit een adres dat geen inkomende e-mail kan accepteren. Reageer niet op dit bericht.
@@ -686,10 +652,8 @@ nl:
       unsubscribe:
         success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
-        unsubscribe: Uitschrijven
     newsletters_opt_in_mailer:
       notify:
-        body_1: De verwerking van persoonlijke gegevens en de bescherming ervan worden steeds belangrijker voor ons allemaal. Met de nieuwe Algemene Verordening Gegevensbescherming (GDPR) van 25 mei 2018 hebben individuen betere controle over hun persoonlijke gegevens. Om deze reden hebben we uw "OK" nodig om relevante informatie over de activiteiten van de %{organization_name}te blijven verzenden.
         body_2: 'Hoe kunt u ons uw toestemming geven? Klik gewoon op de volgende knop:'
         body_3: Met deze toestemming kunt u doorgaan met het ontvangen van informatie over de diensten van het platform. Als we daarentegen geen positieve bevestiging van u ontvangen, zullen wij u niet langer onze berichten toesturen. Als u bevestigt dat u op de hoogte wilt blijven, heeft u altijd de mogelijkheid om op elk gewenst moment te annuleren.
         button: Ja, ik wil relevante informatie blijven ontvangen
@@ -738,23 +702,14 @@ nl:
           proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
         footer_sub_hero:
           footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
-          register: Registreren
         hero:
           participate: Deelnemen
           welcome: Welkom op het portaal van de burgerinspraak %{organization}!
-        statistics:
-          headline: Huidige stand van %{organization}
-        sub_hero:
-          register: Registreren
       index:
         standalone_pages: Pages
         subheading: Navigeer door de helppagina's van %{name}
         title: Help
         topics: Onderwerpen
-      participatory_space:
-        metrics:
-          headline: Deelname in cijfers
-          link: Toon alle statistieken
     profile:
       deleted: Verwijderde deelnemer
     profiles:
@@ -770,11 +725,6 @@ nl:
           edit_profile: Bewerk profiel
           resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
     reported_mailer:
-      hide:
-        hello: Hallo %{name},
-        manage_moderations: Beheer moderaties
-        report_html: <p>De volgende <a href="%{url}">content</a> is automatisch verborgen.</p>
-        subject: Een bron is automatisch verborgen
       report:
         authors: Auteurs
         content: Gerapporteerde inhoud
@@ -791,15 +741,11 @@ nl:
     reports:
       create:
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
-    resource_endorsements:
-      create:
-        error: Er was een probleem bij de goedkeuringsactie.
     scopes:
       global: Globale scope
       prompt: Selecteer een scope
     search:
       results: Zoek resultaten
-      results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
       term_input_placeholder: Zoeken
     searches:
       filters:
@@ -824,9 +770,6 @@ nl:
         close_modal: Sluit venster
         ok: Ok
         title: Bevestigen
-      extended_navigation_bar:
-        more: Meer
-        unfold: Ontvouwen
       filter_form_help:
         help: Het formulier hieronder filtert de zoekresultaten dynamisch wanneer de zoekvoorwaarden worden gewijzigd.
         skip: Ga naar resultaten
@@ -857,7 +800,6 @@ nl:
         share_link: Link delen
     statistics:
       comments_count: Reacties
-      endorsements_count: Aanbevelingen
       followers_count: Volgers
       headline: Statistieken
       no_stats: Er zijn nog geen statistieken.
@@ -933,10 +875,8 @@ nl:
         decline: Uitnodiging afwijzen
         hello: Hallo %{email},
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
-        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privé deelnemer van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
-        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privé-deelnemer van %{application}, je kunt het accepteren via de onderstaande link.
         subject: Instructies voor de uitnodiging
       password_change:
         greeting: Hallo %{recipient}!
@@ -1047,7 +987,6 @@ nl:
       impersonation_warning:
         close_session: Sluit sessie
         description_html: U beheert de gebruiker <b>%{user_name}</b>.
-        expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       language_chooser:
         choose_language: Taal kiezen
       notifications_dashboard:
@@ -1083,7 +1022,6 @@ nl:
     name_included_in_password: lijkt te veel op uw naam
     nickname_included_in_password: lijkt te veel op jouw bijnaam
     not_enough_unique_characters: heeft niet genoeg unieke tekens
-    password_not_allowed: is niet toegestaan
     password_too_common: te algemeen
     password_too_long: is te lang
     password_too_short: is te kort

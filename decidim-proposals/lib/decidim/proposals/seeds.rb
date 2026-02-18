@@ -17,7 +17,9 @@ module Decidim
 
         Decidim::Proposals.create_default_states!(component, admin_user)
 
-        (5..30).to_a.sample.times do |n|
+        number_of_records = slow_seeds? ? rand(25..50) : rand(5..10)
+
+        (5..number_of_records).to_a.sample.times do |n|
           proposal = create_proposal!(component:)
 
           if proposal.state.nil? && component.settings.amendments_enabled?
@@ -170,7 +172,7 @@ module Decidim
       end
 
       def random_nickname
-        "#{::Faker::Twitter.unique.screen_name}-#{SecureRandom.hex(4)}"[0, 20]
+        "#{::Faker::X.unique.screen_name}-#{SecureRandom.hex(4)}"[0, 20]
       end
 
       def random_email(suffix:)

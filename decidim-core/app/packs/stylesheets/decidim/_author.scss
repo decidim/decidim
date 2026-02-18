@@ -1,5 +1,11 @@
 .author {
-  @apply flex items-center [&>*:not(:first-child)]:pl-5 [&>*:not(:last-child)]:pr-6 divide-gray-3 divide-x text-sm text-gray-2;
+  @apply flex items-center divide-gray-3 divide-x text-sm text-gray-2;
+
+  a.author__container {
+    .author__name {
+      @apply underline text-secondary font-bold;
+    }
+  }
 
   &__container {
     @apply flex items-center gap-2.5 first:[&>*]:flex-none;
@@ -14,6 +20,10 @@
 
     &-container {
       @apply rounded-full overflow-hidden inline-block w-6 h-6 align-top;
+
+      &:focus-within {
+        @apply ring-2 ring-primary;
+      }
     }
 
     &-counter {
@@ -29,33 +39,16 @@
     @apply text-secondary font-semibold;
   }
 
+  &__badge svg {
+    @apply grid overflow-hidden place-items-center bg-primary rounded-full w-4 h-4 text-white fill-current;
+  }
+
   &__metadata {
     @apply flex items-center gap-1 text-gray-2 text-sm;
 
     > svg {
       @apply text-gray fill-current flex-none;
     }
-  }
-
-  &__tooltip {
-    @apply grid grid-cols-[1fr_max-content] gap-6 odd:[&>*]:place-self-start even:[&>*]:place-self-end z-50;
-
-    /* overwrite default styles */
-    &[role="tooltip"] {
-      @apply max-w-max;
-    }
-
-    &-links {
-      @apply flex flex-col items-end justify-evenly h-full whitespace-nowrap text-sm hover:[&>*]:underline;
-    }
-  }
-
-  &__tooltip &__avatar-container {
-    @apply w-10 h-10 border-2 border-white hover:border-tertiary;
-  }
-
-  &__tooltip &__name {
-    @apply text-white text-lg font-bold hover:underline;
   }
 
   &__coauthors {

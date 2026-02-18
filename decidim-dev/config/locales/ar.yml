@@ -34,8 +34,6 @@ ar:
               baz: الباز
               foo: فو
           step:
-            endorsements_blocked: تم حظر التأييدات
-            endorsements_enabled: تم تمكين التأييدات
             readonly_step_attribute: سمة خطوة للقراءة فقط
             test_options:
               bar: شريط

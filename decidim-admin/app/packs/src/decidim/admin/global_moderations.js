@@ -2,7 +2,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint id-length: ["error", { "exceptions": ["e"] }] */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const selectedModerationsCount = () => {
     return document.querySelectorAll(".table-list .js-check-all-moderations:checked").length;
   };
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hideBulkActionForms();
     bulkActionsButton.classList.add("hide");
 
-    document.querySelectorAll("#js-bulk-actions-dropdown ul li button").forEach((button) => {
+    document.querySelectorAll("#js-bulk-actions-dropdown li button").forEach((button) => {
       button.addEventListener("click", (event) => {
         const bulkActionsDropdown = document.getElementById("js-bulk-actions-dropdown");
         bulkActionsDropdown.classList.remove("is-open");
@@ -108,26 +108,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // select all checkboxes
-    document.querySelector(".js-check-all").addEventListener("change", function () {
-      const isChecked = this.checked;
-      const checkboxes = document.querySelectorAll(".js-check-all-moderations");
+    const moderatedContentList = document.getElementById("moderations_bulk");
+    if (moderatedContentList !== null) {
+      moderatedContentList.addEventListener("change", function () {
+        const isChecked = this.checked;
+        const checkboxes = document.querySelectorAll(".js-check-all-moderations");
 
-      checkboxes.forEach((checkbox) => {
-        checkbox.checked = isChecked;
-        const row = checkbox.closest("tr");
-        if (row) {
-          row.classList.toggle("selected", isChecked);
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = isChecked;
+          const row = checkbox.closest("tr");
+          if (row) {
+            row.classList.toggle("selected", isChecked);
+          }
+        });
+
+        if (isChecked) {
+          showBulkActionsButton();
+        } else {
+          hideBulkActionsButton();
         }
+
+        selectedModerationsCountUpdate();
       });
-
-      if (isChecked) {
-        showBulkActionsButton();
-      } else {
-        hideBulkActionsButton();
-      }
-
-      selectedModerationsCountUpdate();
-    });
+    }
 
     // moderation checkbox change
     document.querySelector(".table-list").addEventListener("change", (event) => {

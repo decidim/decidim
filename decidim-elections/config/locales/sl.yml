@@ -1,0 +1,8 @@
+sl:
+  decidim:
+    elections:
+      admin:
+        dashboard:
+          main:
+            labels:
+              description: Opis

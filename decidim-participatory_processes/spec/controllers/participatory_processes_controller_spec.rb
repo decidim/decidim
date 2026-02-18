@@ -37,7 +37,7 @@ module Decidim
         end
 
         it "redirects to 404 if there are not any" do
-          expect { get :index }.to raise_error(ActionController::RoutingError)
+          expect { get :index, params: { locale: I18n.locale } }.to raise_error(ActionController::RoutingError)
         end
       end
 
@@ -87,6 +87,13 @@ module Decidim
           expect(controller.helpers.collection)
             .to match_array(published + organization_groups)
         end
+
+        it "orders processes by weight" do
+          process1 = create(:participatory_process, :published, organization:, weight: 2)
+          process2 = create(:participatory_process, :published, organization:, weight: 1)
+
+          expect(controller.helpers.collection).to eq([process2, process1])
+        end
       end
 
       describe "default_date_filter" do
@@ -113,7 +120,7 @@ module Decidim
       describe "GET show" do
         context "when the process is unpublished" do
           it "redirects to sign in path" do
-            get :show, params: { slug: unpublished_process.slug }
+            get :show, params: { slug: unpublished_process.slug, locale: I18n.locale }
 
             expect(response).to redirect_to("/users/sign_in")
           end
@@ -126,7 +133,7 @@ module Decidim
             end
 
             it "redirects to root path" do
-              get :show, params: { slug: unpublished_process.slug }
+              get :show, params: { slug: unpublished_process.slug, locale: I18n.locale }
 
               expect(response).to redirect_to("/")
             end

@@ -1,13 +1,13 @@
 <% display_condition = form.object %>
 
-<div class="card questionnaire-question-display-condition">
+<div class="card questionnaire-question-display-condition m-4">
   <div class="card-divider">
     <h2 class="card-title">
     <span><%= t(".display_condition") %></span>
     <% if editable %>
-      <button class="button button__sm button__transparent-secondary small alert remove-display-condition button--title">
+      <button class="button button__xs button__transparent-secondary small alert remove-display-condition button--title">
         <%= icon("delete-bin-line") %>
-        <%= t(".remove") %>
+        <span class="hidden md:block"><%= t(".remove") %></span>
       </button>
     <% end %>
     </h2>

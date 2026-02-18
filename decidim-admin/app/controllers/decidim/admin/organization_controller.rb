@@ -7,6 +7,8 @@ module Decidim
     class OrganizationController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
 
+      helper Decidim::Admin::UploaderImageDimensionsHelper
+
       add_breadcrumb_item_from_menu :admin_settings_menu
 
       def edit
@@ -27,7 +29,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("organization.update.error", scope: "decidim.admin")
-            render :edit
+            render :edit, status: :unprocessable_entity
           end
         end
       end

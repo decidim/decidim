@@ -6,7 +6,6 @@ module Decidim
       # A command with all the business logic when a user creates a new proposal.
       class CreateProposal < Decidim::Command
         include ::Decidim::MultipleAttachmentsMethods
-        include HashtagsMethods
 
         # Public: Initializes the command.
         #
@@ -57,7 +56,7 @@ module Decidim
         end
 
         def attributes
-          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+          parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
           parsed_body = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
           {
             title: parsed_title,

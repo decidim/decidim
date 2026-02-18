@@ -24,7 +24,7 @@ module Decidim
           end
           resources :participatory_processes, param: :slug, except: [:show, :destroy] do
             resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
-            resources :copies, controller: "participatory_process_copies", only: [:new, :create]
+            resources :duplicates, controller: "participatory_process_duplicates", only: [:new, :create]
 
             member do
               patch :soft_delete
@@ -91,12 +91,12 @@ module Decidim
               resources :reports, controller: "moderations/reports", only: [:index, :show]
             end
 
-            resources :participatory_space_private_users, controller: "participatory_space_private_users" do
+            resources :members, controller: "members" do
               member do
-                post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
+                post :resend_invitation, to: "members#resend_invitation"
               end
               collection do
-                resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
+                resource :members_csv_imports, only: [:new, :create], path: "csv_import" do
                   delete :destroy_all
                 end
                 post :publish_all

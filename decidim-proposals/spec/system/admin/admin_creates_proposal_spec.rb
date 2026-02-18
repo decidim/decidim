@@ -37,7 +37,10 @@ describe "Admin creates proposals" do
     dynamically_attach_file(:proposal_documents, document_path)
 
     click_on("Create")
-    find("a.action-icon--edit-proposal").click
+    within "tr", text: translated_attribute(new_title) do
+      find("button[data-controller='dropdown']").click
+      click_on "Edit proposal"
+    end
 
     expect(page).to have_content(image_filename)
     expect(page).to have_content(document_filename)
@@ -50,7 +53,7 @@ describe "Admin creates proposals" do
     fill_in_i18n :proposal_title, "#proposal-title-tabs", en: new_title
     fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: new_body
     click_on("Create")
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Proposal successfully created.")
 
     path = resource_locator(Decidim::Proposals::Proposal.last).path
 

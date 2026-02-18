@@ -8,13 +8,13 @@ shared_examples "import proposals to projects" do
   include Decidim::ComponentPathHelper
 
   it "imports proposals from one component to a budget component" do
-    page.find(".imports").click
+    click_on "Import"
     click_on "Import proposals to projects"
 
     within ".import_proposals" do
       select origin_component.name["en"], from: :proposals_import_origin_component_id
       fill_in "Default budget", with: default_budget
-      check :proposals_import_import_all_accepted_proposals
+      check "Accepted" || "Rejected"
     end
 
     click_on "Import proposals to projects"

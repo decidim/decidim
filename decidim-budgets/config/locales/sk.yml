@@ -15,8 +15,6 @@ sk:
   decidim:
     budgets:
       actions:
-        attachment_collections: Priečinky
-        attachments: Prílohy
         edit: Upraviť
         import: Importovať návrhy do projektov
         preview: Ukážka
@@ -69,7 +67,6 @@ sk:
           ok: OK
         budget_summary:
           are_you_sure: Naozaj chcete zrušiť svoj hlas?
-          cancel_order: vymažte svoj hlas a začnite odznova
           checked_out:
             title: Hlasovanie o rozpočte dokončené
         count:

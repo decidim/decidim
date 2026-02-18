@@ -69,7 +69,6 @@ sq:
           comment: Koment
           create: Krijo
           destroy: Fshij
-          endorse: Mirato
           update: Përditëso
         name: Blog
         settings:
@@ -80,8 +79,6 @@ sq:
           step:
             announcement: Njoftim
             comments_blocked: Komentet të bllokuara
-            endorsements_blocked: Mbështetjet të bllokuara
-            endorsements_enabled: Mbështetjet të aktivizuara
     events:
       blogs:
         post_created:

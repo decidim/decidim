@@ -37,9 +37,7 @@ module Decidim
         raise "Not implemented"
       end
 
-      def self.ransackable_attributes(auth_object = nil)
-        return [] unless auth_object&.admin?
-
+      def self.ransackable_attributes(_auth_object = nil)
         %w(name nickname email invitation_accepted_at last_sign_in_at role)
       end
 

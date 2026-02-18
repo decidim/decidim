@@ -11,13 +11,11 @@ module Decidim
         let(:document) { create(:collaborative_text_document, :with_body) }
         let(:organization) { document.component.organization }
         let(:user) { create(:user, :admin, :confirmed, organization:) }
-        let(:accepting_suggestions) { false }
         let(:announcement) { ::Faker::HTML.paragraph }
         let(:form) do
           double(
             invalid?: invalid,
             current_user: user,
-            accepting_suggestions:,
             announcement:
           )
         end
@@ -34,14 +32,13 @@ module Decidim
         context "when everything is ok" do
           it "updates the document" do
             subject.call
-            expect(document.accepting_suggestions).to eq accepting_suggestions
             expect(document.announcement).to eq announcement
           end
 
           it "traces the action", versioning: true do
             expect(Decidim.traceability)
               .to receive(:update!)
-              .with(document, user, hash_including(:accepting_suggestions, :announcement))
+              .with(document, user, hash_including(:announcement))
               .and_call_original
 
             expect { subject.call }.to change(Decidim::ActionLog, :count)

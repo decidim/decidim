@@ -7,26 +7,44 @@ Decidim.register_component(:proposals) do |component|
   component.icon = "media/images/decidim_proposals.svg"
   component.icon_key = "chat-new-line"
 
-  component.on(:before_destroy) do |instance|
-    raise "Cannot destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
-  end
-
   component.on(:create) do |instance|
     admin_user = GlobalID::Locator.locate(instance.versions.first.whodunnit)
     Decidim::Proposals.create_default_states!(instance, admin_user)
+  end
+
+  component.on(:publish) do |instance|
+    Decidim::Proposals::Proposal.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Proposals::Proposal.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
+    end
   end
 
   component.data_portable_entities = ["Decidim::Proposals::Proposal"]
 
   component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]
 
-  component.actions = %w(endorse vote create withdraw amend comment vote_comment)
+  component.actions = %w(like vote create withdraw amend comment vote_comment)
 
   component.query_type = "Decidim::Proposals::ProposalsType"
 
   component.permissions_class_name = "Decidim::Proposals::Permissions"
 
-  POSSIBLE_SORT_ORDERS = %w(automatic random recent most_endorsed most_voted most_commented most_followed with_more_authors).freeze
+  POSSIBLE_SORT_ORDERS = %w(automatic random recent most_liked most_voted most_commented most_followed with_more_authors).freeze
+  WITH_MORE_AUTHORS_ORDER = "with_more_authors"
+
+  sort_order_choices = lambda do |context|
+    component = context[:component]
+    orders = POSSIBLE_SORT_ORDERS.dup
+
+    return orders.excluding(WITH_MORE_AUTHORS_ORDER) unless component && Decidim::Proposals::Proposal.with_more_authors_available?(component)
+
+    orders
+  end
 
   component.settings(:global) do |settings|
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
@@ -39,7 +57,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :threshold_per_proposal, type: :integer, default: 0, required: true
     settings.attribute :can_accumulate_votes_beyond_threshold, type: :boolean, default: false
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
-    settings.attribute :default_sort_order, type: :select, default: "automatic", choices: ->(_context) { POSSIBLE_SORT_ORDERS }
+    settings.attribute :default_sort_order, type: :select, default: "automatic", choices: ->(context) { sort_order_choices.call(context) }
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
@@ -63,8 +81,8 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.settings(:step) do |settings|
-    settings.attribute :endorsements_enabled, type: :boolean, default: true
-    settings.attribute :endorsements_blocked, type: :boolean
+    settings.attribute :likes_enabled, type: :boolean, default: true
+    settings.attribute :likes_blocked, type: :boolean
     settings.attribute :votes_enabled, type: :boolean
     settings.attribute :votes_blocked, type: :boolean
     settings.attribute :votes_hidden, type: :boolean, default: false
@@ -73,7 +91,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :publish_answers_immediately, type: :boolean, default: true
     settings.attribute :answers_with_costs, type: :boolean, default: false
-    settings.attribute :default_sort_order, type: :select, include_blank: true, choices: ->(_context) { POSSIBLE_SORT_ORDERS }
+    settings.attribute :default_sort_order, type: :select, include_blank: true, choices: ->(context) { sort_order_choices.call(context) }
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
@@ -81,8 +99,6 @@ Decidim.register_component(:proposals) do |component|
                        type: :enum, default: "all",
                        choices: ->(_context) { Decidim.config.amendments_visibility_options }
     settings.attribute :announcement, type: :text, translated: true, editor: true
-    settings.attribute :automatic_hashtags, type: :text, editor: false, required: false
-    settings.attribute :suggested_hashtags, type: :text, editor: false, required: false
   end
 
   component.register_resource(:proposal) do |resource|
@@ -90,7 +106,7 @@ Decidim.register_component(:proposals) do |component|
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
     resource.reported_content_cell = "decidim/proposals/reported_content"
-    resource.actions = %w(endorse vote amend comment vote_comment)
+    resource.actions = %w(like vote amend comment vote_comment)
     resource.searchable = true
   end
 
@@ -100,30 +116,55 @@ Decidim.register_component(:proposals) do |component|
     resource.reported_content_cell = "decidim/proposals/collaborative_drafts/reported_content"
   end
 
-  component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :proposals_count,
+                          primary: true,
+                          admin: false,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "chat-new-line",
+                          tooltip_key: "proposals_count_tooltip" do |components, start_at, end_at|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_withdrawn.not_hidden.count
   end
 
-  component.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :participatory_space_proposals_count,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          sub_title: "votes",
+                          icon_name: "chat-new-line",
+                          tooltip_key: "proposals_count_tooltip" do |components, start_at, end_at|
+    proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_withdrawn.not_hidden
+    [
+      proposals.count,
+      Decidim::Proposals::ProposalVote.where(proposal: proposals).count
+    ]
+  end
+
+  component.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).accepted.not_hidden.count
   end
 
-  component.register_stat :votes_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :votes_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
 
-  component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :likes_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).not_hidden
-    proposals.sum(:endorsements_count)
+    proposals.sum(:likes_count)
   end
 
-  component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
+  component.register_stat :comments_count,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "chat-1-line",
+                          tooltip_key: "comments_count",
+                          tag: :comments do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
     proposals.sum(:comments_count)
   end
 
-  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+  component.register_stat :followers_count,
+                          tag: :followers,
+                          icon_name: "user-follow-line",
+                          tooltip_key: "followers_count_tooltip",
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     proposals_ids = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden.pluck(:id)
     Decidim::Follow.where(decidim_followable_type: "Decidim::Proposals::Proposal", decidim_followable_id: proposals_ids).count
   end

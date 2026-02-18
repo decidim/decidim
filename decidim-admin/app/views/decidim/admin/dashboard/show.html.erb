@@ -32,18 +32,18 @@
     </div>
   <% end %>
 
-  <div class="grid-x grid-margin-x">
     <% if allowed_to? :read, :admin_log %>
-      <div class="cell small-6 medium-6 large-6">
-        <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs, display_filters: false } %>
-        <% if latest_action_logs.any? %>
-          <div class="mt-4">
-            <%= link_to t(".view_more_logs"), logs_path, class: "button button__sm button__secondary" %>
-          </div>
-        <% end %>
+      <div class="grid-x grid-margin-x">
+        <div class="cell small-6 medium-6 large-6">
+          <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs, display_filters: false } %>
+          <% if latest_action_logs.any? %>
+            <div class="mt-4">
+              <%= link_to t(".view_more_logs"), logs_path, class: "button button__sm button__secondary" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     <% end %>
-  </div>
 
   <% if current_user.admin_terms_accepted? %>
     <%= link_to( t("title", scope: "decidim.admin.admin_terms_of_service"), admin_terms_show_path, class: "button button__text-secondary") %>

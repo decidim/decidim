@@ -31,8 +31,6 @@ lt:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Pritarimai užblokuoti
-            endorsements_enabled: Pritarimai aktyvuoti
             readonly_step_attribute: Tik skaitomas veiksmo atributas
             test_options:
               bar: Juosta

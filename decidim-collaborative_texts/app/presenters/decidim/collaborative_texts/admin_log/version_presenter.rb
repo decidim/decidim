@@ -26,6 +26,7 @@ module Decidim
         def diff_fields_mapping
           {
             body: :string,
+            draft: :boolean,
             version_number: :integer
           }
         end

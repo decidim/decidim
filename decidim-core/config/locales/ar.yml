@@ -52,7 +52,6 @@ ar:
       decidim/promote_to_admin: تمت ترقيته إلى مسؤول المجموعة
       decidim/promoted_to_admin_event: تمت ترقيتك لمدير مجموعة
       decidim/removed_from_group: تمت إزالته من المجموعة
-      decidim/resource_endorsed_event: المورد المدعُوم
       decidim/resource_hidden_event: تم إخفاء المورد
       decidim/welcome_notification_event: رسالة ترحيب
   activerecord:
@@ -74,13 +73,6 @@ ar:
         few: تعديلات
         many: تعديلات
         other: تعديلات
-      decidim/endorsement:
-        zero: التأييدات
-        one: التأييد
-        two: التأييدان
-        few: التأييدات
-        many: التأييدات
-        other: التأييدات
       decidim/user:
         zero: المشاركين
         one: لا مشاركين
@@ -210,10 +202,6 @@ ar:
       organization:
         update: "قام %{user_name} بتحديث إعدادات المنظمة"
         update_external_domain: "قام %{user_name} بتحديث النطاقات الخارجية للمنظمة external domains"
-      participatory_space_private_user:
-        create: "%{user_name} مدعو %{resource_name} ليكون مشاركًا خاصًا"
-        create_via_csv: "%{user_name} دعا %{resource_name} عبر CSV ليكون مشاركا خاصا"
-        delete: "%{user_name} أزال المشارك %{resource_name} كمشارك خاص"
       scope:
         create: "%{user_name} خلق نطاق %{resource_name}"
         create_with_parent: "إنشاء %{user_name} النطاق %{resource_name} داخل النطاق %{parent_scope}"
@@ -325,13 +313,6 @@ ar:
         few: تعليقات
         many: تعليقات
         other: تعليقات
-      endorsements:
-        zero: التأييدات
-        one: التأييد
-        two: التأييدات
-        few: التأييدات
-        many: التأييدات
-        other: التأييدات
       official_author: رسمي
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -450,8 +431,6 @@ ar:
         description: الوصف
       footer_sub_hero:
         name: تذييل البطل الفرعي راية
-      global_menu:
-        name: القائمة العامة
       hero_settings_form:
         background_image: الصورة الخلفية
         welcome_text: نص الترحيب
@@ -473,10 +452,6 @@ ar:
         view_all: عرض الكل
       metadata:
         name: البيانات الوصفية
-      metrics:
-        name: مقاييس المنظمة
-      participatory_space_metrics:
-        name: المقاييس
       participatory_space_stats:
         name: الإحصائيات
       social_networks_metadata:
@@ -544,8 +519,6 @@ ar:
         ready: جاهز
     editor_images:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
-    endorsement_buttons_cell:
-      endorse: يعجبني
     errors:
       internal_server_error:
         copied: تم نسخ النص!
@@ -642,11 +615,6 @@ ar:
           email_subject: تم إزالة %{resource_type} الخاص بك
           notification_title: |-
             قام مسؤول بإزالة %{resource_type} لأنه تم الإبلاغ عنه كـ %{report_reasons}.</br><i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}، الذي تتابعه ، قد أيد للتو "%{resource_title}" ونحن نعتقد أنه قد يكون مثيراً للاهتمام بالنسبة لك. يمكنك الاطلاع والمساهمة على:'
-        email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{endorser_nickname}". يمكنك إيقاف تلقي الإشعارات باتباع الرابط السابق.
-        email_subject: "%{endorser_nickname} قام بتأييد جديد"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} تم تأييدها من قبل <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: و <a href="%{resource_url}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
@@ -819,7 +787,6 @@ ar:
         latlng_text: 'العرض: %{latitude}، الطول: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: المساعدة
       home: الصفحة الرئيسية
     messaging:
       conversation_mailer:
@@ -857,27 +824,6 @@ ar:
         start:
           placeholder: رسالتك...
           send: إرسال
-    metrics:
-      blocked_users:
-        description: عدد المشاركين المحظورين
-      download:
-        csv: تحميل البيانات (CSV)
-      followers:
-        description: عدد المشاركين الذين يتبعون مساحة المشاركة هذه
-        object: متابعون
-        title: متابعون
-      participants:
-        description: عدد المشاركين النشطين في المنظمة
-        object: المشاركين
-        title: المشاركين
-      reported_users:
-        description: عدد المشاركين المبلّغ عنهم
-      user_reports:
-        description: عدد التقارير التي قدمها المشاركون
-      users:
-        description: عدد المشاركين في المنظمة
-        object: المشاركين
-        title: المشاركين
     newsletter_mailer:
       newsletter:
         no_reply_notice: تم إرسال هذا البريد الإلكتروني من عنوان بريد إلكتروني للإشعارات لا يستقبل لا بريد إلكتروني وارد. يرجى عدم الرد على هذه الرسالة.
@@ -905,10 +851,8 @@ ar:
       unsubscribe:
         success: أنت غير مشترك بنجاح.
         token_error: انتهت صلاحية الرابط.
-        unsubscribe: إلغاء الاشتراك
     newsletters_opt_in_mailer:
       notify:
-        body_1: تزداد أهمية معالجة البيانات الشخصية وحمايتها بالنسبة لنا جميعًا. مع اللائحة العامة الجديدة لحماية البيانات (GDPR) المؤرخة 25 مايو 2018 ، أصبح للأفراد سيطرة أفضل على بياناتهم الشخصية. لهذا السبب نحتاج إلى "موافق" لمواصلة إرسال المعلومات ذات الصلة حول أنشطة %{organization_name}.
         body_2: 'كيف يمكنك أن تعطينا موافقتك؟ فقط انقر على الزر التالي:'
         body_3: مع هذه الموافقة ، ستتمكن من متابعة تلقي معلومات حول خدمات النظام الأساسي. على العكس من ذلك ، إذا لم نتلق تأكيدًا إيجابيًا من جانبك ، فسنوقف إرسال رسائلنا إليك. إذا أكدت رغبتك في أن تظل على اطلاع ، فسيكون لديك دائمًا خيار الإلغاء في أي وقت.
         button: نعم ، أرغب في متابعة تلقي المعلومات ذات الصلة
@@ -933,7 +877,6 @@ ar:
       hello: مرحبا %{name}،
       intro:
         daily: 'هذه هي إخطارات اليوم الأخير بناءً على النشاط الذي تتابعه:'
-        real_time: 'هذا تنبيه عن النشاط الذي تتبعّه:'
         weekly: 'هذه هي إخطارات الأسبوع الأخير بناءً على النشاط الذي تتابعه:'
       outro: لقد تلقيت هذه الإشعارات لأنك تتبع هذا المحتوى أو مؤلفيه. يمكنك إلغاء متابعتها من صفحات كل منهم.
       see_more: عرض المزيد من الإشعارات
@@ -982,24 +925,15 @@ ar:
           proposals_explanation: تقديم مقترحات ، ودعم المقترحات الحالية وتعزيز التغييرات التي تريد رؤيتها.
         footer_sub_hero:
           footer_sub_hero_headline: مرحبًا بكم على المنصة التشاركية لـ %{organization}.
-          register: تسجيل
         hero:
           participate: مشاركة
           participate_title: المشاركة في مسارات المنصة
           welcome: مرحبًا بكم على %{organization}!
-        statistics:
-          headline: الحالة الحالية لـ %{organization}
-        sub_hero:
-          register: تسجيل
       index:
         standalone_pages: صفحات
         subheading: انتقل من خلال صفحات المساعدة من %{name}
         title: المساعدة
         topics: المواضيع
-      participatory_space:
-        metrics:
-          headline: المشاركة في الأرقام
-          link: عرض جميع الإحصاءات
       terms_of_service:
         form:
           agreement: أوافق على هذه الشروط
@@ -1020,11 +954,6 @@ ar:
           message: الرسالة
           resend_email_confirmation_instructions: إعادة إرسال تعليمات تأكيد البريد الإلكتروني
     reported_mailer:
-      hide:
-        hello: مرحبا %{name}،
-        manage_moderations: إدارة التعديلات
-        report_html: <p>بعد <a href="%{url}">محتوى</a> تم إخفاء تلقائيا.</p>
-        subject: تم إخفاء المورد تلقائيًا
       report:
         authors: المؤلفون
         content: محتوى تم الإبلاغ عنه
@@ -1041,16 +970,12 @@ ar:
     reports:
       create:
         success: تم إنشاء التقرير بنجاح وسيتم مراجعته بواسطة مسؤول.
-    resource_endorsements:
-      create:
-        error: كانت هناك مشكلة أثناء اجراء الدعم.
     scopes:
       global: النطاق العالمي
       prompt: حدد النطاق
     search:
       name: البحث
       results: نتائج البحث
-      results_found_for_term: '%{count} نتائج البحث: "%{term}"'
       term_input_placeholder: بحث
     searches:
       filters:
@@ -1076,9 +1001,6 @@ ar:
         close_modal: اغلاق النموذج
         ok: حسناً
         title: تأكيد
-      extended_navigation_bar:
-        more: أكثر من
-        unfold: كشف
       filter_form_help:
         help: النموذج أدناه يقوم بتصفية نتائج البحث بشكل دينامي عندما يتم تغيير شروط البحث.
         skip: تخطي إلى النتائج
@@ -1121,7 +1043,6 @@ ar:
         share_to: شارك مع %{service}
     statistics:
       comments_count: تعليقات
-      endorsements_count: الدعم والتأييد
       followers_count: المُتابِعون
       headline: الإحصائيات
       no_stats: لا توجد إحصائيات بعد.
@@ -1211,10 +1132,8 @@ ar:
         decline: رفض الدعوة
         hello: مرحبا %{email}،
         invited_you_as_admin: "%{invited_by} دعاك كمشرف لـ %{application}. يمكنك قبول ذلك من خلال الرابط أدناه."
-        invited_you_as_private_user: "تلقيت دعوة من %{invited_by} كمشارك خاص لـ %{application}يمكنك قبول ذلك من خلال الرابط أدناه."
         someone_invited_you: دعاك شخص ما إلى %{application}. يمكنك قبول ذلك من خلال الرابط أدناه.
         someone_invited_you_as_admin: قام شخص ما بدعوتك كمسؤول لـ %{application}، يمكنك قبولها من خلال الرابط أدناه.
-        someone_invited_you_as_private_user: قام شخص ما بدعوتك كمشارك خاص بقيمة %{application}، ويمكنك قبولها من خلال الرابط أدناه.
         subject: تعليمات الدعوة
       password_change:
         greeting: مرحبا %{recipient}!
@@ -1405,7 +1324,6 @@ ar:
       impersonation_warning:
         close_session: اغلق الموسم
         description_html: أنت تدير المشارك <b>%{user_name}</b>.
-        expire_time_html: سوف تنتهي جلستك في <b><span class="minutes">%{minutes}</span> دقائق</b>.
       language_chooser:
         choose_language: اختر اللغة
       notifications_dashboard:
@@ -1449,7 +1367,6 @@ ar:
     name_included_in_password: مشابه جدا لاسمك
     nickname_included_in_password: هذا شبيه جدا بالاسم المستعار الخاص بك
     not_enough_unique_characters: ليس لديه ما يكفي من الشخصيات الفريدة
-    password_not_allowed: غير مسموح
     password_repeated: لا يمكن إعادة استخدام كلمة المرور القديمة
     password_too_common: هو شائع جدا
     password_too_long: طويل جدا

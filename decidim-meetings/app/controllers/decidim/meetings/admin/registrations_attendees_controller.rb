@@ -43,7 +43,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("registrations_attendees.validate_registration_code.invalid", scope: "decidim.meetings.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end
@@ -59,7 +59,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("registrations_attendees.mark_attendee.invalid", scope: "decidim.meetings.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end

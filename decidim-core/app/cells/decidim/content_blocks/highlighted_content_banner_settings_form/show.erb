@@ -1,0 +1,27 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :title, label: t(".title") %>
+  </div>
+
+  <div class="row column">
+    <%= settings_fields.translated :editor, :short_description, label: t(".short_description") %>
+  </div>
+
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :action_button_title, label: t(".action_button_title") %>
+  </div>
+
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :action_button_subtitle, label: t(".action_button_subtitle") %>
+  </div>
+
+  <div class="row column">
+    <%= settings_fields.text_field :action_button_url, label: t(".action_button_url") %>
+  </div>
+<% end %>
+
+<% form.fields_for :images, form.object.images do |images_fields| %>
+  <div class="row column">
+    <%= images_fields.upload :background_image, label: t(".background_image"), button_class: "button button__sm button__transparent-secondary" %>
+  </div>
+<% end %>

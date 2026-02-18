@@ -3,8 +3,10 @@
 require "spec_helper"
 
 describe "Respond a survey" do
-  InvisibleCaptcha.honeypots = [:honeypot_id]
-  InvisibleCaptcha.visual_honeypots = true
+  before do
+    allow(InvisibleCaptcha).to receive(:honeypots).and_return([:honeypot_id])
+    allow(InvisibleCaptcha).to receive(:visual_honeypots).and_return(true)
+  end
 
   let(:manifest_name) { "surveys" }
 
@@ -70,10 +72,7 @@ describe "Respond a survey" do
 
       accept_confirm { click_on "Submit" }
 
-      within ".success.flash" do
-        expect(page).to have_content("successfully")
-      end
-
+      expect(page).to have_callout("Survey successfully responded.")
       expect(page).to have_content("You have already responded this form.")
       expect(page).to have_no_i18n_content(question.body)
 
