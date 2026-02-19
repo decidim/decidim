@@ -104,22 +104,19 @@ module Decidim
     end
 
     def keep_ids
-      if @form.documents.is_a?(Array)
-        @form.documents
-      else
-        [@form.documents].map do |doc|
-          case doc
-          when Decidim::Attachment
-            doc.id
-          when Integer
-            doc
-          when String
-            doc.match?(/\A\d+\z/) ? doc.to_i : nil
-          when Hash
-            (doc[:id] || doc["id"]).to_i
-          end
-        end.compact
-      end
+      documents_array = @form.documents.is_a?(Array) ? @form.documents : [@form.documents]
+      documents_array.map do |doc|
+        case doc
+        when Decidim::Attachment
+          doc.id
+        when Integer
+          doc
+        when String
+          doc.match?(/\A\d+\z/) ? doc.to_i : nil
+        when Hash
+          (doc[:id] || doc["id"]).to_i
+        end
+      end.compact
     end
   end
 end
