@@ -1,5 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
+/**
+ * This controller is used to change the active tab when the language is changed in the admin or system panel.
+ * It uses a select element to list the languages available in the platform and adds an observer that would set
+ * the tab the active tab to what is selected in the select element by toggling the aria-hidden attribute on the
+ * tab container.
+ */
 export default class extends Controller {
   connect() {
     this.handleChange = this.handleChange.bind(this);
