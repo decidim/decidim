@@ -43,10 +43,28 @@ sv:
     statistics:
       answers_count: Svar
     surveys:
+      actions:
+        answers_alert: Ta bort svar vid publicering är aktivt för enkäten. Det finns %{answers_count} svar som kommer att tas bort om du fortsätter.
+        manage_questions: Hantera frågor
       admin:
+        answers:
+          show:
+            title: 'Svar #%{number}'
         exports:
           survey_user_answers: Svar från enkätdeltagarna
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} svar"
+              other: "%{count} svar"
+            description: |-
+              Genom att publicera svaren blir de synliga för alla besökare.
+              Du kan välja de svar du vill publicera genom att klicka på kryssrutan bredvid varje fråga.
+              Du kan bara publicera följande frågetyper: "Ett alternativ, "Flera alternativ", "Matris (ett alternativ)", "Matris (flera alternativ)" och "Sortering".
+            title: Publicera svar
         surveys:
+          edit:
+            title: Redigera enkät
           update:
             invalid: Det gick inte att spara enkäten.
             success: Enkäten har sparats.
