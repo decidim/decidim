@@ -5,11 +5,20 @@ sv:
       account:
         delete_reason: Skäl att ta bort ditt konto
       attachment:
+        documents: Dokument
         image: Bild
+        photos: Bilder
       common:
         created_at: Skapad
+      component:
+        taxonomy_filters: Kategorifilter
+      content_block_attachment:
+        background_image: Bakgrundsbild
+        main_image: Huvudbild
       conversation:
         body: Spara
+      editor_image:
+        file: Bild
       group:
         about: Om
         avatar: Profilbild
@@ -18,14 +27,22 @@ sv:
         name: Namn
         nickname: Användarnamn
         phone: Telefon
+      import:
+        file: Fil
       message:
         body: Innehåll
       report:
         details: Ytterligare kommentarer
       taxonomy:
         name: Namn på kategori
+      taxonomy_filter:
+        internal_name: Intern titel
+        name: Titel
+        root_taxonomy_id: Från kategori
+        space_filter: Finns som filter för
       user:
         about: Om
+        avatar: Profilbild
         email: Din e-postadress
         encrypted_password: Lösenord
         locale: Språk
@@ -187,6 +204,7 @@ sv:
         success: Ditt konto har raderats.
       download_your_data_export:
         export_expired: Exporten har gått ut. Försök att skapa en ny export.
+        export_not_found: Exporten finns inte, eller så har du inte behörighet att ladda ner den
         file_no_exists: Filen finns inte
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       email_change:
@@ -545,7 +563,7 @@ sv:
             amendments_enabled: Aktivera ändringsförslag
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal längd på kommentarer
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             dummy_global_attribute1: Dummy Attribut 1
             dummy_global_attribute2: Dummy Attribut 2
             dummy_global_translatable_text: Översättningsbar exempeltext
@@ -734,8 +752,22 @@ sv:
           created_at: Datum och tid då identiteten skapades
           id: Unikt id för identiteten
           provider: Leverantören av identiteten
+          uid: Unikt id för identiteten
+          updated_at: Datum och tid då identiteten senast uppdaterades
+          user: Användaren som denna identitet tillhör
         messaging_conversations:
+          created_at: Datum när denna konversation skapades
+          id: Unikt id för konversationen
+          messages: Meddelandena i denna konversation
           updated_at: Datum när denna konversation senast uppdaterades
+        notifications:
+          created_at: Datum och tid när meddelandet skapades
+          event_class: Klassen för händelsen som utlöste meddelandet
+          event_name: Namnet på händelsen som utlöste meddelandet
+          extra: Extra information om meddelandet
+          id: Unikt id för meddelandet
+          resource_type: Den typ av resurs som meddelandet är relaterat till
+          updated_at: Datum och tid när meddelandet senast uppdaterades
         participatory_space_private_users:
           created_at: Datum och tid när den privata användaren skapades
           id: Unikt id för den privata användaren
@@ -772,6 +804,10 @@ sv:
           followers_count: Antal deltagare som följer användaren
           following_count: Antal deltagare som användaren följer
           id: Unikt id för användaren
+          invitation_accepted_at: Datum och tid då inbjudan godkändes
+          invitation_created_at: Datum och tid när användaren blev inbjuden
+          invitation_sent_at: Datum och tid då inbjudan skickades
+          invitations_count: Antalet inbjudningar som skickas till den här användaren
           invited_by: Användaren som bjöd in den här användaren
           last_sign_in_at: Datum och tid för senaste inloggningen
           last_sign_in_ip: IP-adressen för den senaste inloggningen
@@ -780,7 +816,26 @@ sv:
           name: Namnet på användaren
           newsletter_notifications_at: Datum och tid när denna deltagare prenumererade på att få ett nyhetsbrev
           nickname: Användarens användarnamn
+          notification_settings: De meddelandeinställningar som användaren har valt
+          notifications_sending_frequency: Frekvensen för de meddelanden som användaren får
           officialized_as: Officiantens titel (kommunalråd, borgmästare, etc)
+          officialized_at: Datum och tid när användaren gavs officiell status
+          organization: Den organisation som denna användare tillhör
+          password_updated_at: Datum då lösenordet senast uppdaterades
+          personal_url: Den personliga URL:en för denna användare
+          remember_created_at: Datum och tid när användaren valdes för att bli ihågkommen
+          reset_password_sent_at: Datum och tid när lösenordsåterställning skickades
+          roles: Rollen den här användaren har, om den har någon
+          sign_in_count: Antal gånger denna användare har loggat in
+          type: Den typ som användaren har
+          unconfirmed_email: E-postadressen som användaren ännu inte har bekräftat
+          updated_at: Datum och tid när användaren senast uppdaterades
+      show:
+        action: Åtgärd
+        download: Ladda ner fil
+        download_data: Hämtning av data
+        download_data_description_1: Här hittar du alla nedladdningar som finns tillgängliga för ditt konto. Dessa .zip-filer kommer att finnas tillgängliga under två veckor innan de raderas.
+        download_data_description_2: Du kan begära en .zip-fil med dina inlagor och personuppgifter.
     editor_images:
       create:
         error: Fel vid uppladdning av bild.
@@ -1103,7 +1158,7 @@ sv:
           ok_remove: Ta bort administratören
           title_add: Bekräfta den nya administratören
           title_remove: Ta bort administratören
-        confirm_remove_from_admin: Är du säker på att du vill ta bort administratören från denna grupp?
+        confirm_remove_from_admin: Är du säker på att du vill ta bort administratören från gruppen?
         demote_admin: Ta bort administratör
       demote:
         error: Det gick inte att ta bort den här deltagaren från administratörslistan.
@@ -1328,6 +1383,8 @@ sv:
         not_started: Inte påbörjad
         remaining: "%{time_distance} kvar"
     metrics:
+      blocked_users:
+        description: Antal blockerade deltagare
       download:
         csv: Ladda ner data (CSV)
       followers:
@@ -1338,6 +1395,10 @@ sv:
         description: Antal aktiva deltagare i organisationen
         object: deltagare
         title: Deltagare
+      reported_users:
+        description: Antal rapporterade deltagare
+      user_reports:
+        description: Antal rapporteringar gjorda av deltagare
       users:
         description: Antal användare i organisationen
         object: användare
@@ -1450,10 +1511,96 @@ sv:
         message_2: Vänligen försök igen senare.
         retry: Försök igen
     open_data:
+      help:
+        metrics:
+          cumulative: Totalt antal mätpunkter för den här dagen
+          day: Datum när mätpunkterna skapades
+          metric_type: Typ av mätpunkt
+          quantity: Antal mätpunkter för den här dagen
+        moderations:
+          reported_url: URL:en för det rapporterade innehållet
+          reports: Lista över orsaker till att innehållet har rapporterats
+        taxonomies:
+          children_count: Antal underkategorier
+          created_at: Datum då kategorin skapades
+          filter_items_count: Antal filterinstanser som använder kategorin
+          filters_count: Antal filter som använder kategorin
+          id: Unikt id för kategorin
+          is_root: Den här kategorin har ingen överkategori
+          name: Namn på kategorin
+          parent_id: Unikt id för överkategorin (om den finns)
+          part_of: Används för att upptäcka om denna kategori är en del av en annan kategori
+          taxonomizations_count: Antalet innehåll som använder den här kategorin
+          updated_at: Datum då kategorin senast uppdaterades
+          weight: Den ordning i vilken kategorin visas
+        user_groups:
+          avatar_url: Profilbild för användargruppen
+          badge: Märke för användargruppen
+          deleted: Om användaren tagits bort eller inte
+          id: Unikt id för användargruppen
+          members: Id och namn på användare som tillhör gruppen
+          members_count: Antal användare som tillhör användargruppen
+          name: Visningsnamn för användargruppen
+          nickname: Användarnamn för gruppen
+          profile_url: Profilens url
+        users:
+          about: Beskrivande text om användaren
+          avatar_url: Profilbild för användaren
+          badge: Märke för användaren
+          deleted: Om användaren tagits bort eller inte
+          direct_messages_enabled: Om användaren tillåter direkta meddelanden
+          groups: Id och namn på användargruppen
+          id: Unikt id för användaren
+          name: Visningsnamn för användaren
+          nickname: Användarnamnet för användaren
+          profile_url: Profilens url
       index:
+        description: Välkommen till %{organization_name}s sida för öppnen data. Här hittar du datafiler som regelbundet genereras från olika deltagandeprocesser inom %{organization_name}. Dessa filer görs tillgängliga för att främja transparens, tillgänglighet och samarbete. Nedan hittar du detaljerad information om vilka filerna är, hur man öppnar och arbetar med dem, och en beskrivning av innehållet och strukturen i varje fil.
+        detailed:
+          body_1: 'Nedan följer en beskrivning av varje dataset, inklusive dess schema (struktur) och vilken typ av information den innehåller:'
+          components: Komponenter
+          spaces: Deltagarutrymme
+          title: Detaljerad förklaring av varje fil
+        download:
+          components: Komponenter
+          core: System
+          spaces: Deltagarutrymme
+          title: Ladda ner innehåll
+        download_open_data: Ladda ner alla öppna datafiler
+        download_resource: Ladda ner %{resource_name} i CSV-format
+        explanation:
+          body_1: Dessa filer exporteras från %{organization_name}s deltagarprocesser, såsom förslag, kommentarer och möten. De ger råa, strukturerade data som kan användas för analys, forskning eller integration med andra verktyg. Uppgifterna uppdateras automatiskt var 24:e timme, så att du får tillgång till den senaste informationen.
+          body_2: Dessa filer är i CSV (Kommaseparerade värden) format, vilket är ett brett använt filformat som kan öppnas och bearbetas av en mängd olika program, inklusive kalkylprogram program, textredigerare och verktyg dataanalys.
+          title: Vilka är dessa filer?
+        how_to:
+          step_1:
+            body_html: Klicka på länkarna nedan för att ladda ner CSV-filerna till din dator.
+            title: 1. Ladda ner filerna
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Kalkylbladsprogram</b>: Du kan öppna CSV-filer med applikationer som Microsoft Excel, Google Kalkylark, eller LibreOffice Calc. Öppna programmet och välj sedan "Öppna" från menyn Arkiv och välj den nedladdade CSV-filen.</li>
+              <li><b>Text Editors</b>: CSV-filer kan också öppnas i alla textredigerare, såsom Anteckningar eller Sublime Text. Detta kommer att visa rådatan, där varje rad representerar en rad och varje värde separeras med ett kommatecken.</li>
+              <li><b>Dataanalysverktyg</b>: Om du känner till dataanalysverktyg som Python (med pandas), R, eller SQL-databaser, kan du importera dessa CSV-filer direkt för bearbetning och analys.</li>
+              </ul>
+            title: 2. Öppna filerna
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrering och sortering</b>: I kalkylprogram, du kan filtrera och sortera data för att fokusera på specifika delmängder av information.</li>
+              <li><b>Analys</b>: Använd data för att utföra olika analyser, såsom att räkna antalet förslag, analysera trender i kommentarer, eller utvärdera deltagande i möten.</li>
+              <li><b>Visualisering</b>: Du kan skapa diagram, diagram och andra visualiseringar för att tolka data.</li>
+              </ul>
+            title: 3. Arbeta med datan
+          title: Hur man öppnar och arbetar med dessa filer
         license:
+          body_1_html: Denna %{organization_name} databas görs tillgänglig under %{link_database}. Alla rättigheter till individuellt innehåll i databasen är licensierade under %{link_contents}.
           license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Databasens innehållslicens
           license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Öppna databaslicens
+          title: Licens
+        title: Öppen data
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     pad_iframe:
       disclaimer: Innehållet i anteckningarna är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
@@ -2078,6 +2225,7 @@ sv:
         social_media: Sociala medier
         terms_of_service: Användarvillkor
       header:
+        confirm_close_ephemeral_session: Om du klickar dig ut från den här sidan kommer din session att stängas. Är du säker?
         log_in: Logga in
         main_menu: Huvudmeny
         user_menu: Användarmeny
