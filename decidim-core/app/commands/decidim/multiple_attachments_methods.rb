@@ -41,8 +41,9 @@ module Decidim
 
     def create_attachments(first_weight: 0)
       weight = first_weight
-      # Add the weights first to the old document
-      @form.documents.each do |document|
+      # Add the weights first to the old documents
+      document_ids = @form.documents.is_a?(Array) ? @form.documents : [@form.documents]
+      Decidim::Attachment.where(id: document_ids.compact).each do |document|
         document.update!(weight:)
         weight += 1
       end
@@ -51,7 +52,7 @@ module Decidim
         document.attached_to = documents_attached_to
         document.save!
         weight += 1
-        @form.documents << document
+        @form.documents << document.id
       end
     end
 
