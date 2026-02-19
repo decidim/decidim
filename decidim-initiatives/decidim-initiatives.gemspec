@@ -2,10 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/initiatives/version"
-
 Gem::Specification.new do |s|
-  s.version = Decidim::Initiatives.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Juan Salvador Perez Garcia"]
   s.email = ["jsperezg@gmail.com"]
   s.license = "AGPL-3.0-or-later"
@@ -30,11 +29,11 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-admin", Decidim::Initiatives.version
-  s.add_dependency "decidim-comments", Decidim::Initiatives.version
-  s.add_dependency "decidim-core", Decidim::Initiatives.version
-  s.add_dependency "decidim-verifications", Decidim::Initiatives.version
+  s.add_dependency "decidim-admin", version
+  s.add_dependency "decidim-comments", version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-verifications", version
 
-  s.add_development_dependency "decidim-dev", Decidim::Initiatives.version
-  s.add_development_dependency "decidim-meetings", Decidim::Initiatives.version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-meetings", version
 end

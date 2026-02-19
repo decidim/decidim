@@ -9,6 +9,8 @@ describe "Admin manages conference publication" do
   let(:public_collection_path) { decidim_conferences.conferences_path(locale: I18n.locale) }
   let(:title) { "My space" }
   let!(:participatory_space) { conference }
+  let(:publish_callout_message) { "Conference successfully published." }
+  let(:unpublish_callout_message) { "Conference successfully unpublished." }
 
   it_behaves_like "manage participatory space publications"
 

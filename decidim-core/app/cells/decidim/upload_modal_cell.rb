@@ -30,6 +30,10 @@ module Decidim
       form.send(:custom_label, attribute, options[:label], { required: required?, for: nil })
     end
 
+    def paragraph
+      form.send(:custom_paragraph, attribute, options[:label], { required: required? })
+    end
+
     def button_label
       return button_edit_label if attachments.count.positive?
 

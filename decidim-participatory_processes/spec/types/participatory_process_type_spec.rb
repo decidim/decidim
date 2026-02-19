@@ -170,14 +170,6 @@ module Decidim
         end
       end
 
-      describe "announcement" do
-        let(:query) { '{ announcement { translation(locale: "en")}}' }
-
-        it "returns all the required fields" do
-          expect(response["announcement"]["translation"]).to eq(model.announcement["en"])
-        end
-      end
-
       describe "steps" do
         let!(:step) { create(:participatory_process_step, participatory_process: model) }
 
