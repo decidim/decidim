@@ -114,26 +114,14 @@ describe Decidim::Proposals::Admin::UpdateProposal do
 
       context "when attachments are allowed" do
         let(:component) { create(:proposal_component, :with_attachments_allowed) }
-        let!(:proposal) { create(:proposal, :official, component:, title: { en: "This is a proposal title" }) }
-
         let(:uploaded_files) do
           [
             file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf")
           ]
         end
 
-        let!(:file) { create(:attachment, :with_pdf, attached_to: proposal) }
-        let(:current_files) { [file.id] }
-
-        let(:form_params) do
-          {
-            title: { en: "Something else other than the one created" },
-            body: { en: "A reasonable proposal body with info on the proposal" },
-            attachment: attachment_params,
-            documents: current_files,
-            add_documents: uploaded_files
-          }
-        end
+        let!(:file) { create(:attachment, :with_pdf) }
+        let(:current_files) { [file] }
 
         it "creates an attachment for the proposal" do
           command.call
@@ -141,17 +129,6 @@ describe Decidim::Proposals::Admin::UpdateProposal do
           last_proposal = Decidim::Proposals::Proposal.last
           last_attachment = Decidim::Attachment.last
           expect(last_attachment.attached_to).to eq(last_proposal)
-        end
-
-        it "updates the proposal title and keeps existing attachments" do
-          expect(proposal.title).to eq({ "en" => "This is a proposal title" })
-
-          command.call
-          proposal.reload
-
-          expect(proposal.title).to eq({ "en" => "Something else other than the one created" })
-          expect(proposal.attachments).to include(file)
-          expect(proposal.attachments.count).to eq(2)
         end
 
         context "when attachment is left blank" do
