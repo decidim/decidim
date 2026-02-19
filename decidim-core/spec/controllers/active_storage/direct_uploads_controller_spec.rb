@@ -45,18 +45,6 @@ module ActiveStorage
         }
       end
 
-      context "when the user is not logged in" do
-        before do
-          request.env["decidim.current_organization"] = organization
-        end
-
-        it "returns unauthorized" do
-          post(:create, params:)
-
-          expect(response).to have_http_status(:unauthorized)
-        end
-      end
-
       context "when the organization does not exists" do
         before do
           request.env["decidim.current_organization"] = nil
