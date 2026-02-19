@@ -277,6 +277,10 @@ eu:
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua
+        imports:
+          attachment_error: Ezin izan da "%{title}" eranskina inportatu (%{error}).
+          banner_image_error: Ezin izan da bannerraren irudia inportatu (%{error}).
+          hero_image_error: Ezin izan da heroiaren irudia inportatu (%{error}).
         new_import:
           accepted_types:
             json: JSON
