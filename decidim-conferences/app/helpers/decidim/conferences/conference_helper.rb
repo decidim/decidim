@@ -27,7 +27,11 @@ module Decidim
             }
           end
 
-          meeting_components = participatory_space.components.published.where(manifest_name: "meetings")
+          meeting_components = participatory_space
+                               .components
+                               .published
+                               .where(manifest_name: "meetings")
+                               .where(visible: true)
           other_components = participatory_space
                              .components
                              .published
