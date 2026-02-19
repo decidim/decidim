@@ -561,6 +561,7 @@ cs:
           recent: Nejnovější
           recently_published: Nedávno publikované
         pending_initiatives:
+          description: Tyto iniciativy ještě nejsou veřejné. Prosím zkontrolujte je a odešlete je k technickému ověření, aby mohly být zveřejněny.
           title: Návrhy a čekající iniciativy
         print:
           address: Adresa
@@ -655,6 +656,7 @@ cs:
             description: Podpis, který ověřuje pouze telefonní číslo, které vyhledává existující autorizaci a kontroluje SMS kód
             name: Zpracovatel podpisu pouze s SMS
           legacy_signature_handler:
+            description: Zpracovatel podpisu založený na starém podpisu, včetně shromáždění osobních dat, SMS kroku a ověření autorizace pomocí dummy_authorization_handler. Upravte libovolný parametr pro přizpůsobení se použité konfiguraci
             name: Zastaralý zpracovatel podpisu
       states:
         accepted: Přijato
