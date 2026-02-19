@@ -4,6 +4,8 @@ require "spec_helper"
 
 describe "Admin manages meetings registration forms" do
   let(:manifest_name) { "meetings" }
+  let(:callout_success) { "Form successfully saved." }
+  let(:callout_failure) { "There was a problem saving" }
 
   let!(:questionnaire) { create(:questionnaire) }
   let!(:meeting) { create(:meeting, scope:, component: current_component, questionnaire:, registrations_enabled: true, registration_form_enabled: true) }

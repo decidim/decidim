@@ -1,5 +1,30 @@
-<div id="list-of-public-participants" class="meeting__grid">
+<div
+  id="list-of-public-participants"
+  class="meeting__public-participants"
+  data-controller="public-participants"
+  data-desktop-count="<%= desktop_visible_count %>"
+  data-mobile-count="<%= mobile_visible_count %>">
   <% public_participants.each do |participant| %>
-    <%= cell "decidim/author", participant %>
+    <div class="meeting__public-participants-item" data-participants-item>
+      <%= cell "decidim/author", participant %>
+    </div>
+  <% end %>
+
+  <% if show_toggle? %>
+    <button
+      class="meeting__public-participants-toggle button button__sm button__text-secondary hidden"
+      type="button"
+      data-action="click->public-participants#toggle"
+      data-participants-toggle
+      aria-expanded="false">
+      <div class="meeting__public-participants-toggle-state meeting__public-participants-toggle-state--more inline-flex items-center gap-1" data-participants-toggle-more>
+        <span class="inline-block"><%= show_more_text %></span>
+        <%= icon "arrow-down-s-line", class: "fill-current" %>
+      </div>
+      <div class="meeting__public-participants-toggle-state meeting__public-participants-toggle-state--less hidden inline-flex items-center gap-1" data-participants-toggle-less>
+        <span class="inline-block"><%= show_less_text %></span>
+        <%= icon "arrow-up-s-line", class: "fill-current" %>
+      </div>
+    </button>
   <% end %>
 </div>

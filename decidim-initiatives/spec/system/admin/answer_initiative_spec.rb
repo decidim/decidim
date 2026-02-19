@@ -32,7 +32,7 @@ describe "User answers the initiative" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("The initiative has been successfully updated")
+      expect(page).to have_callout("The initiative has been successfully updated")
     end
 
     context "when initiative is in published state" do
@@ -65,7 +65,7 @@ describe "User answers the initiative" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_admin_callout("The initiative has been successfully updated")
+          expect(page).to have_callout("The initiative has been successfully updated")
         end
 
         context "when dates are invalid" do
@@ -94,7 +94,7 @@ describe "User answers the initiative" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_admin_callout("There was a problem updating the initiative.")
+            expect(page).to have_callout("There was a problem updating the initiative.")
 
             expect(page).to have_current_path decidim_admin_initiatives.edit_initiative_answer_path(initiative)
           end

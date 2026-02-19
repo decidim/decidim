@@ -33,6 +33,14 @@ export default Link.extend({
     }
   },
 
+  renderHTML({ HTMLAttributes }) {
+    const attrs = { ...HTMLAttributes };
+    if (attrs.target === "") {
+      Reflect.deleteProperty(attrs, "target");
+    }
+    return ["a", attrs, 0];
+  },
+
   addCommands() {
     const i18n = getDictionary("editor.extensions.link");
 

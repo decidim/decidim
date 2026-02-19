@@ -31,6 +31,16 @@ describe "Account" do
 
     it_behaves_like "accessible page"
 
+    context "when login is not enabled" do
+      let(:organization) { create(:organization, users_registration_mode: "disabled") }
+      let(:user) { create(:user, :confirmed, password:) }
+
+      it "does not have js errors" do
+        sleep 1
+        expect_no_js_errors
+      end
+    end
+
     describe "update avatar" do
       it "can update avatar" do
         dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
@@ -68,9 +78,7 @@ describe "Account" do
           all("*[type=submit]").last.click
         end
 
-        within_flash_messages do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_content("Your account was successfully updated.")
 
         user.reload
 
@@ -174,9 +182,7 @@ describe "Account" do
           fill_in "Current password", with: password
           find("*[type=submit]").click
         end
-        within_flash_messages do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_content("Your account was successfully updated.")
         expect(user.reload.encrypted_password).not_to eq(encrypted_password)
         expect(page).to have_no_field("user[password]", with: "", type: "password")
         expect(page).to have_no_field("user[old_password]", with: "", type: "password")
@@ -226,9 +232,7 @@ describe "Account" do
             perform_enqueued_jobs { find("*[type=submit]").click }
           end
 
-          within_flash_messages do
-            expect(page).to have_content("You will receive an email to confirm your new email address")
-          end
+          expect(page).to have_callout("You will receive an email to confirm your new email address")
         end
 
         after do
@@ -280,9 +284,7 @@ describe "Account" do
           find("*[type=submit]").click
         end
 
-        within_flash_messages do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_callout("Your notifications settings were successfully updated.")
       end
 
       context "when the user is an admin" do
@@ -302,9 +304,7 @@ describe "Account" do
             find("*[type=submit]").click
           end
 
-          within_flash_messages do
-            expect(page).to have_content("successfully")
-          end
+          expect(page).to have_callout("Your notifications settings were successfully updated.")
         end
       end
     end
@@ -326,9 +326,7 @@ describe "Account" do
 
         click_on "Yes, I want to delete my account"
 
-        within_flash_messages do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_content("Your account was successfully deleted.")
 
         click_on("Log in", match: :first)
 
@@ -389,9 +387,7 @@ describe "Account" do
             find("*[type=submit]").click
           end
 
-          within_flash_messages do
-            expect(page).to have_content("successfully")
-          end
+          expect(page).to have_callout("Your notifications settings were successfully updated.")
 
           find_by_id("allow_push_notifications", visible: false).execute_script("this.checked = true")
         end

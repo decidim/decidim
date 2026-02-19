@@ -114,6 +114,7 @@ describe "User edit meeting" do
         within_selector: "form.meetings_form",
         address_field: :meeting_address
       ) do
+        let(:geocoded_success_message) { "You have updated the meeting successfully." }
         let(:geocoded_address_value) { meeting.address }
         let(:geocoded_address_coordinates) { [latitude, longitude] }
 

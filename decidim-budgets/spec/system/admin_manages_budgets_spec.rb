@@ -36,7 +36,7 @@ describe "Admin manages budgets" do
 
     click_on "Create budget"
 
-    expect(page).to have_admin_callout("Budget successfully created.")
+    expect(page).to have_callout("Budget successfully created.")
 
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))
@@ -60,7 +60,7 @@ describe "Admin manages budgets" do
 
       click_on "Update budget"
 
-      expect(page).to have_admin_callout("Budget successfully updated.")
+      expect(page).to have_callout("Budget successfully updated.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:title]))
@@ -92,7 +92,7 @@ describe "Admin manages budgets" do
         end
       end
 
-      expect(page).to have_admin_callout("Budget successfully deleted.")
+      expect(page).to have_callout("Budget successfully deleted.")
 
       within "table" do
         expect(page).to have_no_content(translated(budget.title))

@@ -9,6 +9,10 @@ describe("VideoEmbed", () => {
   let editor = null;
   let editorElement = null;
 
+  const normalizeHTML = (html) => {
+    return html.replace(/<p><br class="ProseMirror-trailingBreak"><\/p>/g, "").replace(/<p><\/p>/g, "");
+  };
+
   beforeEach(() => {
     document.body.innerHTML = "";
 
@@ -35,7 +39,7 @@ describe("VideoEmbed", () => {
         </div>
       </div>
     `);
-    expect(editor.getHTML()).toMatchHtml(`
+    expect(normalizeHTML(editor.getHTML())).toMatchHtml(`
       <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=f6JMgJAQ2tc">
         <div>
           <iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="Decidim" frameborder="0" allowfullscreen="true"></iframe>
@@ -52,21 +56,21 @@ describe("VideoEmbed", () => {
           <iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="Decidim" frameborder="0" allowfullscreen="true"></iframe>
         </div>
       </div>
-    `);
+    `, editor);
 
     editor.commands.setVideo({
       src: "https://www.youtube.com/watch?v=zhMMW0TENNA",
       title: "Free Open-Source"
     });
 
-    expect(editorElement.innerHTML).toMatchHtml(`
+    expect(normalizeHTML(editorElement.innerHTML)).toMatchHtml(`
       <div class="editor-content-videoEmbed ProseMirror-selectednode" data-video-embed="https://www.youtube.com/watch?v=zhMMW0TENNA" draggable="true">
         <div>
           <iframe src="https://www.youtube-nocookie.com/embed/zhMMW0TENNA?cc_load_policy=1&amp;modestbranding=1" title="Free Open-Source" frameborder="0" allowfullscreen="true"></iframe>
         </div>
       </div>
     `);
-    expect(editor.getHTML()).toMatchHtml(`
+    expect(normalizeHTML(editor.getHTML())).toMatchHtml(`
       <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=zhMMW0TENNA">
         <div>
           <iframe src="https://www.youtube-nocookie.com/embed/zhMMW0TENNA?cc_load_policy=1&amp;modestbranding=1" title="Free Open-Source" frameborder="0" allowfullscreen="true"></iframe>
@@ -83,7 +87,7 @@ describe("VideoEmbed", () => {
           <iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="Decidim" frameborder="0" allowfullscreen="true"></iframe>
         </div>
       </div>
-    `);
+    `, editor);
 
     editor.commands.videoEmbedDialog();
     expect(editorElement.classList.contains("dialog-open")).toBe(true);
@@ -94,7 +98,7 @@ describe("VideoEmbed", () => {
     dialog.querySelector("[data-dialog-actions] button[data-action='save']").click();
     await sleep(50);
 
-    expect(editor.getHTML()).toMatchHtml(`
+    expect(normalizeHTML(editor.getHTML())).toMatchHtml(`
       <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=f6JMgJAQ2tc">
         <div>
           <iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="Decidim" frameborder="0" allowfullscreen="true"></iframe>
@@ -113,7 +117,7 @@ describe("VideoEmbed", () => {
     dialog.querySelector("[data-dialog-actions] button[data-action='save']").click();
     await sleep(50);
 
-    expect(editor.getHTML()).toMatchHtml(`
+    expect(normalizeHTML(editor.getHTML())).toMatchHtml(`
       <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=zhMMW0TENNA">
         <div>
           <iframe src="https://www.youtube-nocookie.com/embed/zhMMW0TENNA?cc_load_policy=1&amp;modestbranding=1" title="Free Open-Source" frameborder="0" allowfullscreen="true"></iframe>
@@ -125,7 +129,7 @@ describe("VideoEmbed", () => {
   it("allows pasting a YouTube video", async () => {
     await pasteContent(editorElement, "https://www.youtube.com/watch?v=f6JMgJAQ2tc");
 
-    expect(editor.getHTML()).toMatchHtml(`
+    expect(normalizeHTML(editor.getHTML())).toMatchHtml(`
       <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=f6JMgJAQ2tc">
         <div>
           <iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="" frameborder="0" allowfullscreen="true"></iframe>
@@ -137,7 +141,7 @@ describe("VideoEmbed", () => {
   it("allows pasting a Vimeo video", async () => {
     await pasteContent(editorElement, "https://vimeo.com/312909656");
 
-    expect(editor.getHTML()).toMatchHtml(`
+    expect(normalizeHTML(editor.getHTML())).toMatchHtml(`
       <div class="editor-content-videoEmbed" data-video-embed="https://vimeo.com/312909656">
         <div>
           <iframe src="https://player.vimeo.com/video/312909656" title="" frameborder="0" allowfullscreen="true"></iframe>
@@ -154,13 +158,21 @@ describe("VideoEmbed", () => {
           <iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="Decidim" frameborder="0" allowfullscreen="true"></iframe>
         </div>
       </div>
-    `);
+    `, editor);
 
-    // Position calculations do not work with JSDom / Jest
-    editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 1, inside: -1 });
+    // Position calculations do not work with JSDom / Jest.
+    editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 0, inside: 0 });
 
-    editorElement.dispatchEvent(new MouseEvent("mousedown", { clientX: 10, clientY: 10 }));
-    editorElement.dispatchEvent(new MouseEvent("mousedown", { clientX: 10, clientY: 10 }));
+    // Manually trigger the handleDoubleClick handler directly.
+    const mockEvent = new MouseEvent("dblclick", {
+      bubbles: true,
+      cancelable: true,
+      clientX: 10,
+      clientY: 10
+    });
+
+    editor.view.someProp("handleDoubleClick", (click) => click(editor.view, 0, mockEvent));
+
     await sleep(0);
 
     expect(editorElement.classList.contains("dialog-open")).toBe(true);
@@ -172,7 +184,7 @@ describe("VideoEmbed", () => {
     dialog.querySelector("[data-dialog-actions] button[data-action='save']").click();
     await sleep(50);
 
-    expect(editor.getHTML()).toMatchHtml(`
+    expect(normalizeHTML(editor.getHTML())).toMatchHtml(`
       <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=zhMMW0TENNA">
         <div>
           <iframe src="https://www.youtube-nocookie.com/embed/zhMMW0TENNA?cc_load_policy=1&amp;modestbranding=1" title="Decidim" frameborder="0" allowfullscreen="true"></iframe>

@@ -22,7 +22,7 @@ def invite_unregistered_user(name:, email:)
     end
   end
 
-  expect(page).to have_content("successfully")
+  expect(page).to have_callout("Participant successfully invited to join the meeting.")
 
   within "#meeting-invites table" do
     expect(page).to have_content(name)
@@ -42,7 +42,7 @@ def invite_existing_user(user)
     end
   end
 
-  expect(page).to have_content("successfully")
+  expect(page).to have_callout("Participant successfully invited to join the meeting.")
 
   within "#meeting-invites table" do
     expect(page).to have_content(registered_user.name)
@@ -87,7 +87,7 @@ shared_examples "manage invites" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content "successfully"
+          expect(page).to have_callout("You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.")
           expect(page).to have_css(".button", text: "Cancel your registration")
         end
 
