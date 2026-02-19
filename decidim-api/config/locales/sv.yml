@@ -1,1 +1,8 @@
+---
 sv:
+  decidim:
+    api:
+      errors:
+        introspection_disabled: Introspektion är inaktiverad för denna begäran
+        recursion_limit_exceeded_error: Alltför många rekursioner upptäckta i frågan
+        too_many_aliases_error: För många alias som används. Du har använt %{size} alias, men %{limit} är tillåtna.
