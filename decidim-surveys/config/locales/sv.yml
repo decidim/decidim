@@ -54,6 +54,8 @@ sv:
         responses: Svar
       admin:
         surveys:
+          edit:
+            title: Redigera enkät
           new:
             title: Ny undersökning
           update:
