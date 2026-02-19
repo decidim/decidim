@@ -16,6 +16,11 @@ eu:
           body: Gorputza
           draft: Zirriborroa
           version_number: Bertsio zenbakia
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Testu kolaboratiboa
+        other: Testu kolaboratiboak
   decidim:
     admin:
       tooltips:
