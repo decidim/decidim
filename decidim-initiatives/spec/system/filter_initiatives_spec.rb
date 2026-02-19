@@ -75,11 +75,15 @@ describe "Filter Initiatives", :slow do
           click_filter_item scoped_type1.scope_name[I18n.locale.to_s]
         end
 
+        # Wait for the scope filter to be applied and the page to update
+        expect(page).to have_css(".card__grid", count: 2)
+
         within "#dropdown-menu-order" do
           click_on "Most commented"
         end
 
-        expect(page).to have_css(".card__grid[id^='initiative']", count: 2)
+        # Wait for both filter and ordering to be applied
+        expect(page).to have_css(".card__grid[id^='initiative']", count: 2, wait: 10)
         expect(page).to have_css(".card__grid[id^='initiative']:first-child", text: translated(first_initiative.title))
       end
     end

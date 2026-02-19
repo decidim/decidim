@@ -433,7 +433,7 @@ en:
             certificate_of_attendance_description: This is to certify that <strong>%{user}</strong> has attended and taken part in the <strong>%{title}</strong> held at the <strong>%{location}</strong> on <strong>%{start} - %{end}</strong>
         send_diploma:
           error: There was a problem sending the conference certificates of attendance.
-          success: Conference certificates of attendance successfully sent
+          success: Conference certificates of attendance successfully sent.
       conference:
         registration_confirm:
           cancel: Cancel

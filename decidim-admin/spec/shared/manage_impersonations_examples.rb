@@ -35,7 +35,7 @@ shared_examples "manage impersonations examples" do
     end
 
     it "shows a success message" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("The managed participant has been successfully created.")
     end
 
     context "when no name is provided" do
@@ -117,7 +117,7 @@ shared_examples "manage impersonations examples" do
     it "closes the current session and check the logs" do
       click_on "Close session"
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("The current impersonation session has been successfully ended.")
 
       check_impersonation_logs
     end
@@ -236,7 +236,7 @@ shared_examples "manage impersonations examples" do
 
           it "saves the reason in the impersonation logs" do
             click_on "Close session"
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("The current impersonation session has been successfully ended.")
 
             check_impersonation_logs
             expect(page).to have_content("We are on a meeting and want to do a collaborative session in the pope's name.")
@@ -266,7 +266,7 @@ shared_examples "manage impersonations examples" do
 
       perform_enqueued_jobs { click_on "Promote" }
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("The managed participant has been successfully promoted.")
       expect(page).to have_content(managed_user.name)
 
       logout :user
@@ -279,7 +279,7 @@ shared_examples "manage impersonations examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Your password was set successfully. You are now signed in.")
       within_user_menu do
         click_on "My public profile"
       end

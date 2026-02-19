@@ -55,7 +55,7 @@ shared_examples "when managing proposals taxonomies as an admin" do
           expect(page).to have_button(id: "js-submit-taxonomy-change-proposals", count: 1)
           select decidim_sanitize_translated(taxonomy.name), from: "taxonomies_for_filter_#{taxonomy_filter.id}"
           click_on "Change taxonomies"
-          expect(page).to have_admin_callout "Proposals successfully updated to the #{translated(taxonomy.name)} taxonomies"
+          expect(page).to have_callout "Proposals successfully updated to the #{translated(taxonomy.name)} taxonomies"
           expect(proposal.reload.taxonomies.first).to eq(taxonomy)
         end
       end

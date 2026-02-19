@@ -75,9 +75,19 @@ module Decidim
               current_component: @controller.try(:current_component),
               current_user: @controller.try(:current_user),
               current_participatory_space: @controller.try(:current_participatory_space)
-            }
+            }.merge(@controller.form_context)
           end
         end.new(klass, self)
+      end
+
+      # Provides additional context values for forms built through this factory.
+      # Controllers (and extension gems) can override this method to inject
+      # extra context into form objects, which will be merged into the base
+      # context defined in `context`.
+      #
+      # This method must always return a Hash, typically with symbol keys.
+      def form_context
+        {}
       end
     end
   end

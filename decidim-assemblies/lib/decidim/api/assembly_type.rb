@@ -17,7 +17,6 @@ module Decidim
 
       description "An assembly"
 
-      field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this assembly", null: true
       field :banner_image, String, "The banner image for this assembly", null: true
       field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Children of this assembly", null: false
       field :children_count, Integer, "Number of children assemblies", null: true

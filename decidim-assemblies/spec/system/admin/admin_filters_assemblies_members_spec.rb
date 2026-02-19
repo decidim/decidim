@@ -43,7 +43,7 @@ describe "Admin filters assemblies members" do
     let(:assembly) { create(:assembly, organization:, has_members: false) }
 
     it "restricts access" do
-      expect(page).to have_admin_callout("You are not authorized to perform this action.")
+      expect(page).to have_callout("You are not authorized to perform this action.")
     end
   end
 

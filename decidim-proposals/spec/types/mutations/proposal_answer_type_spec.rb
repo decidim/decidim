@@ -10,8 +10,8 @@ module Decidim
       let(:root_klass) { ProposalMutationType }
       let(:organization) { create(:organization, available_locales: [:en]) }
       let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
-      let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
-      let!(:model) { create(:proposal, component: proposal_component) }
+      let(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
+      let!(:model) { create(:proposal, component: current_component) }
       let(:state) { %w(accepted evaluating rejected).sample }
       let(:answer_content) { Decidim::Faker::Localized.sentence(word_count: 3) }
       let(:proposal_answering_enabled) { false }
