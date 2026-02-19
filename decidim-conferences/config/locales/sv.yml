@@ -102,6 +102,8 @@ sv:
       conference_copies:
         new:
           copy: Kopiera
+          select: Välj vad du vill duplicera
+          title: Duplicera konferens
       conference_publications:
         create:
           error: Det gick inte att publicera konferensen.
@@ -174,6 +176,10 @@ sv:
         update:
           error: Det gick inte att uppdatera konferensen.
           success: Konferensen har uppdaterats.
+      conferences_copies:
+        create:
+          error: Det gick inte att duplicera konferensen.
+          success: Konferensen har duplicerats.
       media_links:
         create:
           error: Det gick inte att skapa en ny medialänk.
@@ -379,7 +385,7 @@ sv:
         conferences:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsat antal platser.
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             registrations_count:
               one: Det har gjorts en registrering.
@@ -612,6 +618,23 @@ sv:
           follows_count: Antal följare
           hashtag: Konferensens hashtag, används för Twitter/X
           id: Unikt id för konferensen
+          location: Plats för konferensen.
+          objectives: Syftet med konferensen.
+          promoted: Om konferensen är utvald eller inte
+          published_at: Publiceringsdatum för konferensen
+          reference: Unikt id för konferensen
+          remote_banner_image_url: URL till konferensens bannerbild
+          remote_hero_image_url: URL till konferensens huvudbild
+          scope: Ämnet för konferensen
+          scopes_enabled: Om indelningar är aktiverat eller inte
+          short_description: Kort beskrivning av konferensen
+          slogan: Konferensens slogan
+          slug: Konferensens URL-slug (används för identifiering och för URL)
+          start_date: Konferensens startdatum.
+          taxonomies: Kategorier för konferensen
+          title: Konferensens titel
+          updated_at: Senaste datum när utrymmet uppdaterades
+          url: Konferensens URL
     statistics:
       conferences_count: Konferenser
   devise:
@@ -621,6 +644,7 @@ sv:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Hantera anmälan
         register: Anmäl dig
       conferences:
         conference:
