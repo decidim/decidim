@@ -187,7 +187,7 @@ sv:
               random: Slumpvis
               recent: Senaste
               with_more_authors: Med flera författare
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             edit_time: Förslag kan redigeras av författaren inom så här många minuter
             edit_time_units:
               days: Dagar
@@ -444,6 +444,8 @@ sv:
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet som är relaterat till kommentaren
           user_group: Namn på gruppen som kommenterat (om det var en grupp)
+        proposals:
+          endorsements: Antal gilla-markeringar för förslaget
     participatory_spaces:
       highlighted_proposals:
         see_all: Visa alla förslag
