@@ -123,6 +123,9 @@ sv:
           other: "%{count} kommentarer"
         top_comment_label: Mest stöd
       down_vote_button:
+        label:
+          one: Ogilla-knapp. %{count} ogillar
+          other: Ogilla-knapp. %{count} ogillar
         text: Jag instämmer inte i denna kommentar
       edit_comment_modal_form:
         close: Stäng
@@ -133,6 +136,9 @@ sv:
           submit: Skicka
         title: Redigera din kommentar
       up_vote_button:
+        label:
+          one: Gilla-knapp. %{count} gillar
+          other: Gilla-knapp. %{count} gillar
         text: Jag instämmer i denna kommentar
     download_your_data:
       help:
