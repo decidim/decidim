@@ -1,0 +1,5 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <div class="row column">
+    <%= settings_fields.translated :editor, :announcement, label: %>
+  </div>
+<% end %>

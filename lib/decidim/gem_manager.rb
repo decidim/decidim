@@ -62,6 +62,19 @@ module Decidim
       end
     end
 
+    def replace_gemspec_version
+      Dir.chdir(@dir) do
+        gemspec_file = Dir.glob("*.gemspec").first
+        return unless gemspec_file
+
+        replace_file(
+          gemspec_file,
+          /(?<!required_ruby_)version = "[^"]*"/,
+          "version = \"#{version}\""
+        )
+      end
+    end
+
     def replace_package_version
       Dir.chdir(@dir) do
         replace_file(
@@ -97,7 +110,9 @@ module Decidim
 
       def replace_versions
         all_dirs do |dir|
-          new(dir).replace_gem_version
+          manager = new(dir)
+          manager.replace_gem_version
+          manager.replace_gemspec_version
         end
 
         package_dirs do |dir|

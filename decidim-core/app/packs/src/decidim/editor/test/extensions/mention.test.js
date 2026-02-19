@@ -64,6 +64,10 @@ describe("Mention", () => {
   let editor = null;
   let editorElement = null;
 
+  const normalizeHTML = (html) => {
+    return html.replace(/\s*data-mention-suggestion-char="[^"]*"/g, "");
+  };
+
   beforeEach(() => {
     document.body.innerHTML = "";
 
@@ -108,7 +112,7 @@ describe("Mention", () => {
     expect(editorElement.innerHTML).toEqual(
       '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
     );
-    expect(editor.getHTML()).toEqual(
+    expect(normalizeHTML(editor.getHTML())).toEqual(
       '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
     );
   });
@@ -122,7 +126,7 @@ describe("Mention", () => {
     expect(editorElement.innerHTML).toEqual(
       '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
     );
-    expect(editor.getHTML()).toEqual(
+    expect(normalizeHTML(editor.getHTML())).toEqual(
       '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
     );
   });

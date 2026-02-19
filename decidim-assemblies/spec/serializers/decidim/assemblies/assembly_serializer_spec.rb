@@ -52,7 +52,6 @@ module Decidim::Assemblies
         expect(serialized).to include(youtube_handler: resource.youtube_handler)
         expect(serialized).to include(github_handler: resource.github_handler)
         expect(serialized).to include(created_by_other: resource.created_by_other)
-        expect(serialized).to include(announcement: resource.announcement)
       end
 
       context "when assembly has area" do

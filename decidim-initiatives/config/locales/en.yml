@@ -550,6 +550,7 @@ en:
           recent: Most recent
           recently_published: Most recently published
         pending_initiatives:
+          description: These initiatives are not public yet. Please review them and submit them for technical validation so they can be made public.
           title: Draft & Pending initiatives
         print:
           address: Address

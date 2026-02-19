@@ -4,8 +4,8 @@ require "cell/partial"
 
 module Decidim
   module Accountability
-    # This cell renders a project
-    class ProjectCell < Decidim::ViewModel
+    # This cell renders a result
+    class ResultShowCell < Decidim::ViewModel
       include Decidim::Accountability::ApplicationHelper
       include Cell::ViewModel::Partial
       delegate :children, :milestones, to: :model
@@ -24,7 +24,7 @@ module Decidim
             text: t("decidim.accountability.results.milestones.title"),
             icon: "route-line",
             method: :cell,
-            args: ["decidim/accountability/project", result, { template: :milestones }]
+            args: ["decidim/accountability/result_show", result, { template: :milestones }]
           },
           {
             enabled: ResultHistoryCell.new(result).render?,

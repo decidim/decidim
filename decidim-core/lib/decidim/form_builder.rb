@@ -366,11 +366,17 @@ module Decidim
         button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
       }.merge(options)
 
-      ::Decidim::ViewModel.cell(
+      upload_cell = ::Decidim::ViewModel.cell(
         "decidim/upload_modal",
         self,
         options
       ).call
+
+      options_without_help = options.dup
+      options_without_help.delete(:help)
+      options_without_help.delete(:help_text)
+
+      upload_cell + error_and_help_text(attribute, options_without_help) + (options[:required] ? abide_error_element(attribute, for: "#{attribute}_validation") : "")
     end
 
     def max_file_size(record, attribute)
@@ -615,8 +621,32 @@ module Decidim
              else
                text
              end
-
       label(attribute, text, options || {})
+    end
+
+    # render p tag instead of label for proposals "add a document"
+    def custom_paragraph(attribute, text, options, field_before_label: false, show_required: true)
+      return "".html_safe if text == false
+
+      required = options.is_a?(Hash) && options.delete(:required)
+      text = default_label_text(object, attribute) if text.nil? || text == true
+      if show_required
+        text +=
+          if required
+            required_indicator
+          else
+            required_for_attribute(attribute)
+          end
+      end
+
+      text = if field_before_label && block_given?
+               safe_join([yield, text.html_safe])
+             elsif block_given?
+               safe_join([text.html_safe, yield])
+             else
+               text
+             end
+      content_tag(:p, text.html_safe, class: "text-lg font-semibold")
     end
     # rubocop:enable Metrics/PerceivedComplexity
     # rubocop:enable Metrics/CyclomaticComplexity
@@ -626,19 +656,23 @@ module Decidim
     # does it.
     #
     # attribute - The name of the attribute of the field.
+    # options - A Hash of options:
+    #           :for - The ID of the input field this error is for (adds data-form-error-for attribute)
     #
     # Returns a String.
-    def abide_error_element(attribute)
+    def abide_error_element(attribute, options = {})
       defaults = []
       defaults << :"decidim.forms.errors.#{object.class.model_name.i18n_key}.#{attribute}"
       defaults << :"decidim.forms.errors.#{attribute}"
       defaults << :"forms.errors.#{attribute}"
       defaults << :"decidim.forms.errors.error"
 
-      options = { count: 1, default: defaults }
+      i18n_options = { count: 1, default: defaults }
 
-      text = I18n.t(defaults.shift, **options)
-      content_tag(:span, text, class: "form-error")
+      text = I18n.t(defaults.shift, **i18n_options)
+      tag_options = { class: "form-error" }
+      tag_options[:"data-form-error-for"] = options[:for] if options[:for]
+      content_tag(:span, text, tag_options)
     end
 
     def tab_element_class_for(type, index)
@@ -767,7 +801,7 @@ module Decidim
 
     def language_selector_select(locales, tabs_id, name)
       content_tag(:div) do
-        content_tag(:select, id: tabs_id, class: "language-change") do
+        content_tag(:select, id: tabs_id, class: "language-change", data: { controller: "language-change" }) do
           locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
             title = if error?(name_with_locale(name, locale))
                       I18n.with_locale(locale) { I18n.t("name_with_error", scope: "locale") }
