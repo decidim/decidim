@@ -191,6 +191,7 @@ eu:
           Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.na
         export: Esportatu
         export_all: Esportatu dena
+        export_selection: Hautapena esportatu
         import: Inportatu
         menu_hidden: Ezkutatu menutik
         moderate: Kudeatu moderazioak
