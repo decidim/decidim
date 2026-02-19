@@ -648,6 +648,22 @@ describe "Proposals" do
       end
     end
 
+    context "when there are no proposals with coauthors" do
+      let!(:proposals) { create_list(:proposal, 3, component:) }
+
+      before do
+        visit_component
+      end
+
+      it "does not show 'with_more_authors' ordering option" do
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          expect(page).to have_no_content("With more authors")
+        end
+      end
+    end
+
     context "when searching proposals" do
       let!(:proposals) do
         [

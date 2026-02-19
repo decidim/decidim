@@ -76,16 +76,14 @@ Object.assign(Range.prototype, {
 
 export const sleep = async (time) => new Promise((resolve) => setTimeout(resolve, time));
 
-export const updateContent = async (editable, content) => {
-  // ProseMirror listens has a mutation observer which listens to the changes on
-  // the contenteditable element. This forces us to manually change the
-  // `innerHTML` of the element to cause a change event to be triggered for the
-  // editor.
-  editable.innerHTML = content;
-
-  // We need to wait for the mutation observer to complete its logic. It has a
-  // timeout of 20 milliseconds by default which is the minimum amount we need
-  // to wait.
+export const updateContent = async (editable, content, editor) => {
+  if (editor) {
+    // Allows the proper use of TipTap's setContent method
+    editor.commands.setContent(content);
+  } else {
+    // Fallback for cases where editor is not available
+    editable.innerHTML = content;
+  }
   await sleep(50);
 };
 

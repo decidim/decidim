@@ -9,14 +9,14 @@ module Decidim
 
     def render
       content_tag :li, class: link_wrapper_classes do
-        output = [arrow_link(label, url, link_options)]
+        output = [root_link(label, url, link_options)]
         output.push(@view.send(:simple_menu, **@menu_item.submenu).render) if @menu_item.submenu
 
         safe_join(output)
       end
     end
 
-    def arrow_link(text, url, args = {})
+    def root_link(text, url, args = {})
       link_to url, class: args.with_indifferent_access[:class] do
         "<span>#{text}</span>".html_safe
       end
