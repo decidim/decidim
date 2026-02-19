@@ -14,6 +14,7 @@ de:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Sind Sie sicher, dass Sie die Veröffentlichung dieser Umfrage aufheben möchten?
         see_survey: Umfrage anzeigen
       admin_log:
         changeset:
@@ -47,6 +48,17 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine neue Umfrage in %{participatory_space_title}
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: Der Inhalt der Antwort
+          created_at: Das Erstellungsdatum des Ergebnisses
+          id: Eindeutige Bezeichnung für die Antwort der Umfrage
+          ip_hash: Gehashte IP-Adresse des Befragten zum Schutz der Privatsphäre
+          question: Die beantwortete Frage
+          registered: Registrierter Teilnehmender
+          unregistered: Nicht registrierter Teilnehmender
+          user_status: Status der Benutzenden, die Antworten eingereicht haben
     statistics:
       responses: 'Antworten:'
       responses_count: Antworten
@@ -128,10 +140,13 @@ de:
       models:
         survey:
           fields:
+            published: Veröffentlicht
             questions: Fragen
             responses: Antworten
             status: Status
             title: Titel
+          published:
+            published: Veröffentlicht
           status:
             closed: Geschlossen
             open: Offen

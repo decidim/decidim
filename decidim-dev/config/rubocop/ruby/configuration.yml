@@ -1,4 +1,6 @@
-require: rubocop
+require:
+  - rubocop
+  - decidim/dev/rubocop/cop/decidim/message_antipattern
 
 # Common configuration.
 AllCops:
@@ -68,7 +70,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.4
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
@@ -521,6 +523,7 @@ Style/GuardClause:
   MinBodyLength: 6
 
 Style/HashSyntax:
+  EnforcedShorthandSyntax: always
   EnforcedStyle: no_mixed_keys
   SupportedStyles:
     # checks for 1.9 syntax (e.g. {a: 1}) for all symbol keys

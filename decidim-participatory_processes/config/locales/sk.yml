@@ -268,9 +268,6 @@ sk:
         participatory_process_imports:
           form:
             document_legend: Pridať dokument
-        participatory_process_steps:
-          form:
-            cta_text_help: Ak nie je nastavené, tlačidlo sa nezobrazí.
         participatory_processes:
           form:
             announcement_help: Text, ktorý tu zadáte, sa užívateľovi zobrazí priamo pod informáciami o procese.

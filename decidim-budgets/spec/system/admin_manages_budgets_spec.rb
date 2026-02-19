@@ -36,7 +36,7 @@ describe "Admin manages budgets" do
 
     click_on "Create budget"
 
-    expect(page).to have_admin_callout("Budget successfully created.")
+    expect(page).to have_callout("Budget successfully created.")
 
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))
@@ -60,7 +60,7 @@ describe "Admin manages budgets" do
 
       click_on "Update budget"
 
-      expect(page).to have_admin_callout("Budget successfully updated.")
+      expect(page).to have_callout("Budget successfully updated.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:title]))
@@ -92,7 +92,7 @@ describe "Admin manages budgets" do
         end
       end
 
-      expect(page).to have_admin_callout("Budget successfully deleted.")
+      expect(page).to have_callout("Budget successfully deleted.")
 
       within "table" do
         expect(page).to have_no_content(translated(budget.title))
@@ -174,5 +174,31 @@ describe "Admin manages budgets" do
 
     it_behaves_like "manage soft deletable resource", "budget"
     it_behaves_like "manage trashed resource", "budget"
+  end
+
+  describe "more information button" do
+    context "when budget has more_information content" do
+      let!(:budget_with_info) { create(:budget, :with_projects, component: current_component) }
+
+      before do
+        current_component.update!(settings: { more_information_modal: { en: "Additional budget information" } })
+      end
+
+      it "displays the more information button" do
+        visit Decidim::EngineRouter.main_proxy(current_component).budget_projects_path(budget_with_info)
+
+        expect(page).to have_button("More information")
+      end
+    end
+
+    context "when budget has no more_information content" do
+      let!(:budget_without_info) { create(:budget, :with_projects, component: current_component) }
+
+      it "does not display the more information button" do
+        visit Decidim::EngineRouter.main_proxy(current_component).budget_projects_path(budget_without_info)
+
+        expect(page).to have_no_button("More information")
+      end
+    end
   end
 end

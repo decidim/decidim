@@ -9,7 +9,7 @@ module Decidim
     include Traceable
 
     before_save :set_content_type_and_size, if: :attached?
-    before_validation :set_link_content_type_and_size, if: :link?
+    before_validation :set_link_content_type_and_size, if: :editable_link?
 
     translatable_fields :title, :description
     belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
@@ -69,6 +69,20 @@ module Decidim
       link.present?
     end
 
+    # Whether this attachment is a link that can be edited or not.
+    #
+    # Returns Boolean.
+    def editable_link?
+      !destroyed? && !frozen? && link?
+    end
+
+    # Whether this attachment has a file or not.
+    #
+    # Returns Boolean.
+    def file?
+      file.attached?
+    end
+
     # Which kind of file this is.
     #
     # Returns String.
@@ -122,6 +136,13 @@ module Decidim
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::AttachmentPresenter
+    end
+
+    def can_participate?(user)
+      return true unless attached_to
+      return true unless attached_to.respond_to?(:can_participate?)
+
+      attached_to.can_participate?(user)
     end
   end
 end

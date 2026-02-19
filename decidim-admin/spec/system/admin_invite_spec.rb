@@ -10,6 +10,7 @@ describe "Admin invite" do
   let(:params) do
     {
       name: "Gotham City",
+      short_name: "GothamCity",
       reference_prefix: "JKR",
       host: "decide.lvh.me",
       organization_admin_name: "Fiorello Henry La Guardia",
@@ -47,7 +48,7 @@ describe "Admin invite" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout "Your password was set successfully. You are now signed in."
+      expect(page).to have_callout "Your password was set successfully. You are now signed in."
 
       expect(page).to have_current_path "/admin/admin_terms/show"
     end

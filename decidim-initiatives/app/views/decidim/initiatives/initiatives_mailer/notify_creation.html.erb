@@ -1,6 +1,6 @@
 <p>
 <%= t "decidim.initiatives.initiatives_mailer.creation_subject", title: translated_attribute(@initiative.title) %>.
-<%= link_to t("decidim.initiatives.initiatives_mailer.more_information"), decidim.page_url("initiatives", host: @organization.host) %>
+<%= link_to t("decidim.initiatives.initiatives_mailer.more_information"), decidim.page_url("initiatives", locale: current_locale, host: @organization.host) %>
 </p>
 
 <% if @initiative.promoting_committee_enabled? %>
@@ -9,8 +9,8 @@
             member_count: Decidim::Initiatives.minimum_committee_members %>
     </p>
     <p>
-      <%= link_to decidim_initiatives.new_initiative_committee_request_url(@initiative, host: @organization.host),
-                  decidim_initiatives.new_initiative_committee_request_url(@initiative, host: @organization.host) %>
+      <%= link_to decidim_initiatives.new_initiative_committee_request_url(@initiative, locale: current_locale, host: @organization.host),
+                  decidim_initiatives.new_initiative_committee_request_url(@initiative, locale: current_locale, host: @organization.host) %>
     </p>
 <% end %>
 <br><br>
@@ -18,5 +18,5 @@
 <p>
   <%= t("check_initiative_details", scope: "decidim.initiatives.initiatives_mailer.initiative_link") %>
   <%= link_to t("here", scope: "decidim.initiatives.initiatives_mailer.initiative_link"),
-              decidim_initiatives.initiative_url(@initiative, host: @organization.host) %>
+              decidim_initiatives.initiative_url(@initiative, locale: current_locale, host: @organization.host) %>
 </p>

@@ -32,10 +32,6 @@ module Decidim
             collection.with_evaluation_assigned_to(current_user, current_participatory_space)
           end
 
-          def search_field_predicate
-            :id_string_or_title_cont
-          end
-
           def filter_config
             @filter_config ||= Decidim::AdminFilter.new(:proposals).build_for(self)
           end
@@ -51,7 +47,9 @@ module Decidim
           end
 
           def evaluator_role_ids
-            current_participatory_space.user_roles(:evaluator).order_by_name.pluck(:id)
+            roles = current_participatory_space.user_roles(:evaluator)
+            roles = roles.order_by_name if roles.respond_to?(:order_by_name)
+            roles.pluck(:id)
           end
 
           def translated_evaluator_role_ids_has(evaluator_role_id)

@@ -103,9 +103,6 @@ javascript:
 "module: proposals":
   - changed-files:
       - any-glob-to-any-file: decidim-proposals/**/*
-"module: sortitions":
-  - changed-files:
-      - any-glob-to-any-file: decidim-sortitions/**/*
 "module: surveys":
   - changed-files:
       - any-glob-to-any-file: decidim-surveys/**/*

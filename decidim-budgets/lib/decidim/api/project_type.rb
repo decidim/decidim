@@ -49,13 +49,11 @@ module Decidim
         context[:project] = object
 
         chain = [
-          allowed_to?(:read, :project, object, context),
-          object.visible?
+          object.visible?,
+          allowed_to?(:read, :project, object, context)
         ].all?
 
         super && chain
-      rescue Decidim::PermissionAction::PermissionNotSetError
-        false
       end
     end
   end

@@ -165,6 +165,15 @@ module Decidim
           .where(decidim_proposals_evaluation_assignments: { evaluator_role_id: evaluator_roles })
       end
 
+      def self.with_more_authors_available?(component)
+        where(component:)
+          .published
+          .not_hidden
+          .not_withdrawn
+          .where("coauthorships_count > 1")
+          .exists?
+      end
+
       acts_as_list scope: :decidim_component_id
 
       searchable_fields({
@@ -174,8 +183,8 @@ module Decidim
                           A: :title,
                           datetime: :published_at
                         },
-                        index_on_create: ->(proposal) { proposal.official? },
-                        index_on_update: ->(proposal) { proposal.visible? })
+                        index_on_create: ->(proposal) { proposal.visible? && proposal.component&.published? },
+                        index_on_update: ->(proposal) { proposal.visible? && proposal.component&.published? })
 
       def self.log_presenter_class_for(_log)
         Decidim::Proposals::AdminLog::ProposalPresenter

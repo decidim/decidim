@@ -136,8 +136,6 @@ gl:
         import: Importar
         newsletter:
           new: Novo boletín
-        participatory_space_private_user:
-          new: Novo usuario privado do espazo participativo
         per_page: Por páxina
         share: Compartir
         user:
@@ -295,17 +293,6 @@ gl:
           values:
             'false': Oficializado
             'true': Non oficializado
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitación aceptada
-            values:
-              'false': Non aceptada
-              'true': Aceptada
-          user_invitation_sent_at_not_null:
-            label: Invitación enviada
-            values:
-              'false': Sen enviar
-              'true': Enviada
         private_space_eq:
           label: Privado
           values:
@@ -411,6 +398,10 @@ gl:
             explanation: Os usuarios xestionados poden ser promocionados a usuarios estándar. Isto significa que serán invitados á aplicación e non poderás suplantarlles de novo. O usuario invitado recibirá un correo electrónico para aceptar a túa invitación.
             new_managed_user_promotion: Nova promoción de usuarios xestionados
             promote: Promover
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Carga o teu ficheiro CSV
       menu:
         admin_log: Rexistro de actividade do administrador
         admins: Administradores
@@ -465,8 +456,6 @@ gl:
             sent_to: Enviado a
             subject: Asunto
           name: Boletín informativo
-        participatory_space_private_user:
-          name: Espazo participativo usuario privado
         scope:
           fields:
             name: Nome
@@ -627,24 +616,6 @@ gl:
         update:
           error: Produciuse un erro ao actualizar esta organización.
           success: A organización actualizouse con éxito.
-      participatory_space_private_users:
-        create:
-          error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
-          success: O acceso ao usuario privado do espazo participativo creouse con éxito.
-        destroy:
-          error: Produciuse un erro ao eliminar un usuario privado deste espazo participativo.
-          success: O acceso ao usuario privado do espazo participativo foi destruído con éxito.
-        index:
-          import_via_csv: Importar a través de CSV
-          title: Espazo participativo usuario privado
-        new:
-          create: Crear
-          title: Novo usuario privado do espazo participativo.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Carga o teu ficheiro CSV
-          upload: Subir
       reminders:
         create:
           error: Produciuse un problema ao crear os recordatorios.

@@ -11,19 +11,29 @@ Decidim.register_component(:accountability) do |component|
   component.permissions_class_name = "Decidim::Accountability::Permissions"
   component.query_type = "Decidim::Accountability::AccountabilityType"
 
-  component.on(:before_destroy) do |instance|
-    raise StandardError, "Cannot remove this component" if Decidim::Accountability::Result.where(component: instance).any?
+  component.on(:publish) do |instance|
+    Decidim::Accountability::Result.where(component: instance).find_each do |result|
+      Decidim::UpdateSearchIndexesJob.perform_later([result])
+      Decidim::UpdateSearchIndexesJob.perform_later(result.children.to_a)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Accountability::Result.where(component: instance).find_each do |result|
+      Decidim::RemoveSearchIndexesJob.perform_later([result])
+      Decidim::UpdateSearchIndexesJob.perform_later(result.children.to_a)
+    end
   end
 
   # These actions permissions can be configured in the admin panel
-  component.actions = %w(comment)
+  component.actions = %w(comment vote_comment)
 
   component.register_resource(:result) do |resource|
     resource.model_class_name = "Decidim::Accountability::Result"
     resource.template = "decidim/accountability/results/linked_results"
     resource.card = "decidim/accountability/result"
-    resource.searchable = false
-    resource.actions = %w(comment)
+    resource.searchable = true
+    resource.actions = %w(comment vote_comment)
   end
 
   component.settings(:global) do |settings|

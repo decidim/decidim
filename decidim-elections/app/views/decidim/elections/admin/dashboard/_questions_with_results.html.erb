@@ -15,6 +15,7 @@
             </div>
           <% end %>
         </h3>
+        <div><%= decidim_sanitize_admin translated_attribute(question.description) %></div>
       </div>
       <div class="row column">
         <div class="table-scroll mb-4">
@@ -34,6 +35,11 @@
                 <td data-option-votes-percent-text="<%= question.id %>,<%= option.id %>"><%= number_to_percentage(option.votes_percent, precision: 1) %></td>
               </tr>
             <% end %>
+            <tr>
+              <td class="w-2/3 border-none"><%= t("decidim.elections.admin.dashboard.questions_table.total") %></td>
+              <td class="border-none"></td>
+              <td class="border-none" data-question-total-votes-text="<%= question.id %>"><%= t("votes_count", scope: "decidim.elections.admin.dashboard.questions_table", count: question.total_votes) %></td>
+            </tr>
             </tbody>
           </table>
         </div>

@@ -42,9 +42,7 @@ describe "user submits demographic data" do
       expect(page).to have_button("Save", class: "button__secondary", disabled: false)
       click_on "Save data"
 
-      within ".success.flash" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_callout("Form successfully responded.")
 
       expect(page).to have_button("Delete data")
     end
@@ -56,9 +54,7 @@ describe "user submits demographic data" do
       check "questionnaire_tos_agreement"
       click_on "Save data"
 
-      within ".success.flash" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_callout("Form successfully responded.")
       sleep(1)
 
       expect(questionnaire.reload).to be_responded_by(user)

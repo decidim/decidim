@@ -32,6 +32,7 @@ ja:
           comment: コメント
           create: ディベートを作成
           like: いいね
+          vote_comment: コメントに投票
         name: ディベート
         settings:
           global:

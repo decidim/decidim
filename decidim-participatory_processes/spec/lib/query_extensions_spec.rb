@@ -41,9 +41,7 @@ module Decidim
           let!(:process) { create(:participatory_process) }
           let(:id) { process.id }
 
-          it "returns nil" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
       end
 
@@ -77,8 +75,8 @@ module Decidim
           let!(:process) { create(:participatory_process_group, :with_participatory_processes) }
           let(:id) { process.id }
 
-          it "returns nil" do
-            expect(response["participatoryProcessGroup"]).to be_nil
+          it "should not be visible" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "ParticipatoryProcessGroup not found")
           end
         end
       end
@@ -113,8 +111,8 @@ module Decidim
           let!(:type) { create(:participatory_process_type, :with_active_participatory_processes) }
           let(:id) { type.id }
 
-          it "returns nil" do
-            expect(response["participatoryProcessType"]).to be_nil
+          it "should not be found" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "ParticipatoryProcessType not found")
           end
         end
       end

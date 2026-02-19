@@ -15,6 +15,7 @@ en:
         duplicate_landing_page_blocks: Duplicate landing page blocks
         duplicate_steps: Duplicate steps
         end_date: End date
+        has_members: This space has members
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -106,7 +107,7 @@ en:
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
-          info: Info
+          info: About this process group
           landing_page: Landing page layout
         participatory_processes: Processes
         participatory_processes_submenu:
@@ -116,8 +117,8 @@ en:
           components: Components
           info: About this process
           landing_page: Landing page layout
+          members: Members
           moderations: Moderations
-          private_users: Members
           process_admins: Process admins
           steps: Phases
       models:
@@ -217,7 +218,7 @@ en:
           error: There was a problem in reordering these phases of the participatory process.
         update:
           error: There was a problem updating this phase of the participatory process.
-          success: Participatory phase successfully updated.
+          success: Participatory process phase successfully updated.
       participatory_process_user_roles:
         create:
           error: There was a problem adding a participant for this participatory process.
@@ -283,9 +284,11 @@ en:
         export: "%{user_name} exported the %{resource_name} participatory process"
         import: "%{user_name} imported the %{resource_name} participatory process"
         publish: "%{user_name} published the %{resource_name} participatory process"
+        publish_all_members: "%{user_name} published all members of the %{resource_name} participatory process"
         restore: "%{user_name} restored the %{resource_name} participatory process"
         soft_delete: "%{user_name} trashed the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        unpublish_all_members: "%{user_name} unpublished all members of the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_group:
         create: "%{user_name} created the %{resource_name} participatory process group"
@@ -339,8 +342,8 @@ en:
     open_data:
       help:
         participatory_processes:
-          announcement: The announcement (callout) information
           area: The area where the process is taking place
+          component_settings: The component settings of the process
           created_at: The date this space was created
           description: A long description of the process
           developer_group: The developer group of the process. This is the organization that is promoting the process.
@@ -486,9 +489,13 @@ en:
             all: All
             max_results: Maximum amount of elements to show
             selection_criteria: Selection criteria
+        imports:
+          attachment_error: The attachment "%{title}" could not be imported (%{error}).
+          hero_image_error: The hero image could not be imported (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: This import feature allows you to create a new participatory process from an exported JSON file. You can export a process from another organization or from this same organization. The imported process will include its settings, components, and attachments (if selected).
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -503,13 +510,13 @@ en:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_processes:
           form:
-            announcement_help: The text you enter here will be shown to the user right below the process information.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
+            has_members_help: You will be able to create and publish members
             images: Images
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
-            private_notice: You will be able to manage members after setting it as private
+            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
             related_processes: Related processes
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -558,6 +565,9 @@ en:
         title: Participatory processes
       last_activity:
         new_participatory_process: 'New participatory process:'
+      members:
+        index:
+          title: Members
       pages:
         home:
           highlighted_processes:
@@ -604,9 +614,6 @@ en:
           type: Type
         show:
           title: About this process
-      participatory_space_private_users:
-        index:
-          title: Members
       show:
         belongs_to_group: This process belongs to
         private_space: This is a private process

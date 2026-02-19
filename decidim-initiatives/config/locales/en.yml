@@ -28,7 +28,6 @@ en:
       initiatives_type:
         area_enabled: Enable authors to choose the area for their initiative
         attachments_enabled: Enable attachments
-        banner_image: Banner image
         child_scope_threshold_enabled: Enable child scope signatures
         collect_user_extra_fields: Collect participant personal data on signature
         comments_enabled: Enable comments
@@ -97,7 +96,7 @@ en:
           type_id_eq:
             label: Type
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name
+          title_or_description_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, or author name
       initiatives_settings:
         update:
           error: There was a problem updating the initiatives settings.
@@ -119,7 +118,6 @@ en:
         initiatives:
           fields:
             created_at: Created at
-            id: ID
             published_at: Published at
             state: Status
             supports_count: Signatures
@@ -552,6 +550,7 @@ en:
           recent: Most recent
           recently_published: Most recently published
         pending_initiatives:
+          description: These initiatives are not public yet. Please review them and submit them for technical validation so they can be made public.
           title: Draft & Pending initiatives
         print:
           address: Address
@@ -688,6 +687,7 @@ en:
       initiative:
         actions:
           comment: Comment
+          vote_comment: Vote comment
       initiatives_type:
         actions:
           create: Create an initiative

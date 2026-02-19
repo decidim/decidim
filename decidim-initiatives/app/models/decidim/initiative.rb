@@ -173,7 +173,7 @@ module Decidim
 
       return base unless auth_object&.admin?
 
-      base + %w(published_at state decidim_area_id type_id)
+      base + %w(published_at created_at state decidim_area_id type_id)
     end
 
     def self.ransackable_associations(_auth_object = nil)
@@ -182,14 +182,6 @@ module Decidim
 
     def self.ransackable_scopes(_auth_object = nil)
       [:with_any_state, :with_any_type, :with_any_scope, :with_any_area]
-    end
-
-    # Public: Overrides participatory space's banner image with the banner image defined
-    # for the initiative type.
-    #
-    # Returns Decidim::BannerImageUploader
-    def banner_image
-      type.attached_uploader(:banner_image)
     end
 
     # Public: Whether the object's comments are visible or not.
@@ -441,6 +433,12 @@ module Decidim
       Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
     end
 
+    # Public: Initiatives do not have user roles like other participatory spaces.
+    # Returns an empty relation.
+    def user_roles(_role_name = nil)
+      self.class.none
+    end
+
     # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
     def allow_resource_permissions?
       true
@@ -448,6 +446,10 @@ module Decidim
 
     def user_allowed_to_comment?(user)
       ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
+    end
+
+    def user_allowed_to_vote_comment?(user)
+      ActionAuthorizer.new(user, "vote_comment", self, nil).authorize.ok?
     end
 
     def shareable_url(share_token)

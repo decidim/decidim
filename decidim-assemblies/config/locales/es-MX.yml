@@ -25,6 +25,7 @@ es-MX:
         duration: Duración
         facebook: Facebook
         github: GitHub
+        has_members: Este espacio de participación tiene miembros
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
@@ -170,8 +171,8 @@ es-MX:
           components: Componentes
           info: Acerca de esta asamblea
           landing_page: Disposición de la página de aterrizaje
+          members: Miembros
           moderations: Moderaciones
-          private_users: Miembros
           see_assembly: Ver la asamblea
       models:
         assembly:
@@ -218,9 +219,11 @@ es-MX:
         export: "%{user_name} exportó la asamblea %{resource_name}"
         import: "%{user_name} importó la asamblea %{resource_name}"
         publish: "%{user_name} publicó la asamblea %{resource_name}"
+        publish_all_members: "%{user_name} publicó todas las miembros de la asamblea %{resource_name}"
         restore: "%{user_name} ha restaurado la asamblea %{resource_name}"
         soft_delete: "%{user_name} ha movido a la papelera la asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó la asamblea %{resource_name}"
+        unpublish_all_members: "%{user_name} despublicó a todas las miembros de la asamblea %{resource_name}"
         update: "%{user_name} actualizó la asamblea %{resource_name}"
       assembly_member:
         create: "%{user_name} creó el miembro %{resource_name} en la asamblea %{space_name}"
@@ -246,12 +249,13 @@ es-MX:
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
+            has_members_help: Podrás crear y publicar miembros
             images: Imágenes
             included_at_help: Selecciona la fecha en la que se añadió esta asamblea a la plataforma. No es necesario que sea la misma que la fecha de creación.
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             other: Otro
-            private_notice: Podrás administrar las participantes privadas después de configurar el espacio como privado
+            private_notice: Hace que el espacio de participación no sea visible para las visitantes y sólo lo sea para las usuarias miembro (excepto si también es transparente)
             select_a_created_by: Selecciona creada por
             select_parent_assembly: Selecciona asamblea principal
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -384,6 +388,7 @@ es-MX:
           assembly_type: El tipo de asamblea
           closing_date: La fecha de cierre de la asamblea
           closing_date_reason: Por qué se cerró la asamblea
+          component_settings: Configuración de los componentes de la asamblea
           composition: La composición de la asamblea
           created_at: La fecha en la que se creó esta asamblea
           created_by: Quién creó esta asamblea

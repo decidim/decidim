@@ -242,9 +242,6 @@ id:
         content_blocks:
           highlighted_processes:
             max_results: Jumlah maksimum elemen untuk ditampilkan
-        participatory_process_steps:
-          form:
-            cta_text_help: Jika tidak disetel, tombol tidak akan ditampilkan.
         participatory_processes:
           form:
             announcement_help: Teks yang Anda masukkan di sini akan ditampilkan kepada pengguna tepat di bawah informasi proses.

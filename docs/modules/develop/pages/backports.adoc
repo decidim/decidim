@@ -2,37 +2,118 @@
 
 We only offer support for the last two mayor version.
 
-For instance, if we are on the version `0.28.0.dev`, we make backports for `v0.26.x` and `v0.27.x`. We only backport fixes and not features, as we want to respect xref:develop:guide_conventions.adoc[Semantic Versioning].
+For instance, if we are on the version `0.32.0.dev`, we make backports for `v0.31.x` and `v0.30.x`. We only backport fixes and not features, as we want to respect xref:develop:guide_conventions.adoc[Semantic Versioning].
 
 The idea of a backport is to bring a given fix from the last development version to an older release.
 
 The process for making backports is the following:
 
-. Check in the git commit history what was the latest backports on the branch that you are working with. https://github.com/decidim/decidim/commits/release/0.27-stable[Example for v0.27]. Copy the number of the last PR backported.
-. Search in GitHub for the this PR in the list of merged PRs of the `type: fix`. https://github.com/decidim/decidim/pulls?page=1&q=is%3Apr+sort%3Aupdated-desc+label%3A%22type%3A+fix%22+is%3Amerged[Example URL].
-. Check the PRs merged just before and after this one. You need to find the last ones that were not backported already to start with the backport process. A fast way for checking this out is to open the PRs and see the mentions from the backports in the GitHub references.
-. Once you have the list of the PRs that you want to backport, you can start with the process by using the https://github.com/decidim/decidim-maintainers_toolbox[decidim-backporter script]. This script mostly handles the branch creation, cherrypicking, labeling and pushing of the fix. For using it you will need to have a GitHub Personal Access Token.
+. Reproduce the error against develop.
+. Develop a fix for the issue, starting from the develop.
+. Open the Pull Request, adding the following labels: `type: fix`, `release: 0.xx`, in our example using `0.32.0.dev`, we would attach `type: fix`, `release: v0.31`.
+. If the fix affects multiple versions, attach the corresponding release tag (for instance, `release: v0.30`).
+. Be patient and wait for a maintainer to review and merge.
+. Once it is merged, an automated workflow will attempt to apply the patch.
+. If you have an already merged Pull Request, you can add another `release: v0.xx` tag, and this will retrigger the backport workflow. You do not need to decide when you open the PR which are the versions you want to backport to.
 
-This is an example on how this command is called:
+== Maintainers only
 
-```shell
-$ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
-$ decidim-backporter --github-token=GITHUB_TOKEN --pull-request-id=10248 --version-number=0.27
-```
+In order to ease up the backport process, you will need to install the `decidim-maintainers_toolbox` gem.
 
-And this is the current full documentation for this script:
+[source,bash]
+----
+gem install decidim-maintainers_toolbox
+----
 
-```shell
-$ decidim-backporter --help
+This will provide you with some commands that you can use for day to day activities:
+
+Before starting to use `decidim-maintainers_toolbox` gem, you will need to make sure that you have available the `gh` command, provided by `GitHub`. Follow the https://github.com/cli/cli[gh project's page] for installation steps that are most suited for your Operating System.
+
+=== decidim-backports-checker
+
+The `decidim-backports-checker` is an utility that you can use to investigate which are the Pull Requests that needs to be backported.
+
+[source, bash]
+----
+Usage:
+  decidim-backports-checker --github-token=GITHUB_TOKEN --last-version-number=LAST_VERSION_NUMBER
+
+Options:
+--github-token=GITHUB_TOKEN                # Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You will need to create one with `public_repo` access.
+Alternatively, you can use the `gh` CLI tool to authenticate with `gh auth token` (i.e. --github-token=$(gh auth token))
+--last-version-number=LAST_VERSION_NUMBER  # Required. The version number of the last supported version that you want to do the backports to. It must have the format MAJOR.MINOR.
+[--days-to-check-from=N]                   # How many days since the pull requests were merged we will check from.
+# Default: 90
+
+Backports checker. Shows the status of the pull requests opened in the last days
+
+The output by default is for the terminal. It uses a color code to differentiate the status of the Pull Requests, following the colors of GitHub:
+- Purple: closed with a merge
+- Red: closed without being merge
+- Green: opened without being merge
+----
+
+Any maintainer that wants to see the pending Pull Requests that needs to be backported to a specific version, should type in the following command:
+
+[source, bash]
+----
+decidim-backports-checker --github-token=$(gh auth token) --last-version-number=0.31
+----
+In our previous example, we have the develop branch set to be on 0.32.0.dev, which means that our latest released minor version is 0.31. We are using the minor version regardless if we are at `0.31.0.rc2`, `0.31.0` or `0.31.1`.
+
+image::maintainers-backports-checker.png[decidim-backports-checker output]
+
+In the above picture:
+
+- `15501` is a Pull Request that has been only opened for `0.31`, with no active backport to `0.30`.
+- `15201` is a Pull Request that has only been backported to `0.30`
+- `15181` is a Pull Request that has not been backported, or the automated backport script failed
+- We do not displayed a merged backport Pull Request.
+
+If you want to address a PR only for a specific version, you open the Pull Request for that version, then you can add `no-backport` label for the Pull Request that you do not want to backport to the oldest version.
+
+If a Pull Request is fully backported (merged backport Pull Requests in `0.31` and `0.30` versions), then the line will not be displayed.
+
+=== decidim-backporter
+
+As previously mentioned, we have an automated tool that will try to add create the backports automatically, but sometimes, due to conflicts the automated backport is not possible, so you need to use the `decidim-backporter` command.
+
+[source, bash]
+----
 Usage:
   decidim-backporter --github-token=GITHUB_TOKEN --pull-request-id=PULL_REQUEST_ID --version-number=VERSION_NUMBER
 
 Options:
-  --github-token=GITHUB_TOKEN                                        # Required. GitHub Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You will need to create one with `public_repo` access.
-  --version-number=VERSION_NUMBER                                    # Required. The version number that you want to do the backport to. It must have the format MAJOR.MINOR.
-  --pull-request-id=PULL_REQUEST_ID                                  # Required. The ID of the pull request that you want to make the backport from. It should have the "type: fix" label.
-  [--exit-with-unstaged-changes], [--no-exit-with-unstaged-changes]  # Optional. Whether the script should exit with an error if there are unstaged changes in the current project.
-                                                                     # Default: true
+  --github-token=GITHUB_TOKEN                                                                             # Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You will need to create one with `public_repo` access.
+Alternatively, you can use the `gh` CLI tool to authenticate with `gh auth token` (i.e. --github-token=$(gh auth token))
+  --version-number=VERSION_NUMBER                                                                         # Required. The version number that you want to do the backport to. It must have the format MAJOR.MINOR.
+  --pull-request-id=PULL_REQUEST_ID                                                                       # Required. The ID of the pull request that you want to make the backport from. It should have the "type: fix" label.
+  [--exit-with-unstaged-changes], [--no-exit-with-unstaged-changes], [--skip-exit-with-unstaged-changes]  # Optional. Whether the script should exit with an error if there are unstaged changes in the current project.
+                                                                                                          # Default: true
+  [--with-console], [--no-with-console], [--skip-with-console]                                            # Optional. Disables the shell dropout
+                                                                                                          # Default: true
 
 Backport a pull request to another branch
-```
+----
+
+An example of the command is:
+
+[source, bash]
+----
+decidim-backporter --github-token=$(gh auth token) --pull-request-id=1234 --version-number=0.31
+----
+
+In this particular example, 1234 is the Pull Request merged against develop branch, while `--version-number` is the version where we want to backport.
+We do not need to pass the full version, as this will apply the fix only for the unreleased versions, regardless if we are on `0.31.0.rc1`, `0.31.0` or `0.31.1`
+
+The command will attempt to apply the patch, and if the patch fails with error, a console will be displayed, allowing you to change the files in your editor. After the conflict is fixed, you will need to write the following in your console:
+[source, bash]
+----
+git add <any conflicting files that you fixed>
+git cherry-pick --continue
+# type logout or press CTRL + D
+----
+
+The process will continue creating the backport Pull Request.
+
+If you want to skip the backport creation for any reason, you just need to ensure that when your console drops, you do not have staged / modified files. Typing a `git cherry-pick --abort` will clean the backport process. After that you just need to exit the console with either `logout` or `CTRL+D`.

@@ -136,9 +136,10 @@ fr:
           new:
             create: Importer des propositions dans des projets
             default_budget: Budget par défaut
-            import_all_accepted_proposals: Importer toutes les propositions acceptées
             no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
             origin_component_id: Composant d'origine
+            proposal_states: Statuts de proposition
+            proposal_states_help: Sélectionnez un ou plusieurs statuts de proposition à importer dans les projets. Si vous n'en sélectionnez aucun, vous importerez toutes les propositions publiées qui n'ont pas déjà été importées dans d'autres budgets à partir de cette fonctionnalité.
             select_component: Veuillez sélectionner un module
             title: Importer des propositions dans des projets
         reminders:
@@ -201,7 +202,6 @@ fr:
             total_budget: Budget total
         project:
           fields:
-            id: ID
             map: Carte
             title: Titre
       order:
@@ -326,6 +326,7 @@ fr:
         actions:
           comment: Commenter
           vote: Voter
+          vote_comment: Vote sur le commentaire
         name: Budgets
         settings:
           global:
@@ -376,13 +377,6 @@ fr:
     download_your_data:
       show:
         projects: Export des projets
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page :'
-          email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}.
-          notification_title: Le budget <a href="%{resource_path}">%{resource_title}</a> est maintenant actif pour %{participatory_space_title}.
     open_data:
       help:
         projects:

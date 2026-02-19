@@ -36,8 +36,6 @@ module Decidim
     #           title of the space (mandatory).
     # * url - The url of the resource (optional).
     # * active - Whether the item is active (optional).
-    # * dropdown_cell - When this value is present is used to generate a dropdown
-    #                   associated to the item (optional).
     # * resource - The resource of the item. This value is passed to the
     #              dropdown cell, so it is mandatory if the dropdown cell is
     #              present.
@@ -48,7 +46,6 @@ module Decidim
         label: current_participatory_space.title,
         url: Decidim::ResourceLocatorPresenter.new(current_participatory_space).path,
         active: true,
-        dropdown_cell: current_participatory_space_manifest.breadcrumb_cell,
         resource: current_participatory_space
       }
     end

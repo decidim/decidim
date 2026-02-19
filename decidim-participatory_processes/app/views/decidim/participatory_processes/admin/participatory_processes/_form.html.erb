@@ -35,9 +35,6 @@
         <%= form.translated :editor, :description, resource_mentionable: true, aria: { label: :description } %>
       </div>
 
-      <div class="row column">
-        <%= form.translated :editor, :announcement, help_text: t(".announcement_help") %>
-      </div>
     </div>
   </div>
 
@@ -165,6 +162,10 @@
                           process_groups_for_select,
                           include_blank: t(".select_process_group") %>
         <% end %>
+      </div>
+
+      <div class="row column" id="has_members">
+        <%= form.check_box :has_members, help_text: t(".has_members_help") %>
       </div>
 
       <div class="row column">

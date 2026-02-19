@@ -116,6 +116,17 @@ module Decidim::Admin::ContentBlocks
             }.with_indifferent_access
           end
 
+          it "purges the background image attachment" do
+            attachment = content_block.images_container.background_image
+
+            expect(attachment).to receive(:purge).and_call_original
+
+            subject.call
+            content_block.reload
+
+            expect(content_block.images_container.background_image.attached?).to be false
+          end
+
           it "deletes the attachment" do
             expect do
               subject.call

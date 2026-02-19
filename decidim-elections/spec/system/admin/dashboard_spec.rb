@@ -32,13 +32,29 @@ describe "Dashboard" do
     end
   end
 
-  context "when the election is published" do
+  context "when the election is published and ongoing" do
+    let!(:election) { create(:election, :with_token_csv_census, :published, :ongoing, component:) }
+
     it_behaves_like "can only edit election description"
 
     context "when per question results availability" do
       let!(:election) { create(:election, :with_token_csv_census, :per_question, :published, :ongoing, component:) }
 
       it_behaves_like "can only edit election description"
+    end
+  end
+
+  context "when the election is published but not yet started" do
+    let!(:election) { create(:election, :with_token_csv_census, :published, :scheduled, component:) }
+
+    it "can edit all fields including questions and census" do
+      expect(page).to have_no_link("Publish")
+      expect(page).to have_link("Main")
+      expect(page).to have_link("Questions")
+      expect(page).to have_link("Census")
+
+      click_on "Main"
+      expect(page).to have_field("election[title_en]", disabled: false)
     end
   end
 
@@ -117,6 +133,27 @@ describe "Dashboard" do
         expect(page).to have_no_content("Election has not started yet.")
         expect(page).to have_no_content("Publish results")
       end
+
+      it "shows total votes for each question" do
+        questions.each do |question|
+          within("#question_#{question.id}") do
+            expect(page).to have_content("Total")
+            expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
+          end
+        end
+      end
+
+      context "when there are votes" do
+        let!(:questions) { create_list(:election_question, 3, :with_response_options, election:) }
+        let!(:vote) { create(:election_vote, question: questions.first, response_option: questions.first.response_options.first, voter_uid: "voter1") }
+
+        it "shows the correct total votes count" do
+          visit election_dashboard_path
+          within("#question_#{questions.first.id}") do
+            expect(page).to have_css("[data-question-total-votes-text='#{questions.first.id}']", text: "1 vote")
+          end
+        end
+      end
     end
   end
 
@@ -158,6 +195,15 @@ describe "Dashboard" do
         expect(page).to have_button("Publish results", count: 0, disabled: false)
         expect(page).to have_button("Publish results", count: election.questions.size, disabled: true)
         expect(page).to have_button("Enable voting", count: 3, disabled: false)
+      end
+
+      it "shows total votes for each question" do
+        questions.each do |question|
+          within("#question_#{question.id}") do
+            expect(page).to have_content("Total")
+            expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
+          end
+        end
       end
 
       context "when a question is enabled" do
@@ -246,6 +292,15 @@ describe "Dashboard" do
         expect(page).to have_no_content("Election has not started yet.")
         expect(page).to have_button("Publish results")
       end
+
+      it "shows total votes for each question" do
+        questions.each do |question|
+          within("#question_#{question.id}") do
+            expect(page).to have_content("Total")
+            expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
+          end
+        end
+      end
     end
   end
 
@@ -253,8 +308,19 @@ describe "Dashboard" do
     let!(:election) { create(:election, :with_token_csv_census, :published, :published_results, :finished, component:) }
 
     it "shows the published results status" do
-      expect(page).to have_content("Finished")
+      within ".status-label" do
+        expect(page).to have_content("Finished")
+      end
       expect(page).to have_no_button("Results published at")
+    end
+
+    it "shows total votes for each question" do
+      questions.each do |question|
+        within("#question_#{question.id}") do
+          expect(page).to have_content("Total")
+          expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
+        end
+      end
     end
   end
 

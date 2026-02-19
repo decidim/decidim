@@ -37,7 +37,6 @@ module Decidim
       def update_component
         @previous_settings = @component.attributes["settings"].with_indifferent_access
         @component.name = form.name
-        @component.weight = form.weight
 
         restore_readonly_settings!
 

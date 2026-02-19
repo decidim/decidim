@@ -7,7 +7,9 @@
     <% end %>
   </td>
   <td data-label="<%= t("models.collaborative_text.fields.suggestions", scope: "decidim.collaborative_texts") %>">
-    <%= t("booleans.#{document.accepting_suggestions}") %>
+    <span class="label <%= document.accepting_suggestions ? "success" : "alert" %> !text-sm">
+      <%= humanize_boolean document.accepting_suggestions %>
+    </span>
   </td>
   <td data-label="<%= t("models.collaborative_text.fields.published", scope: "decidim.collaborative_texts") %>">
     <% if document.published? %>

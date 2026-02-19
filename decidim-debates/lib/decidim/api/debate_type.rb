@@ -21,7 +21,6 @@ module Decidim
       field :description, Decidim::Core::TranslatedFieldType, "The description for this debate", null: true
       field :end_time, Decidim::Core::DateTimeType, "The end time for this debate", null: true
       field :id, GraphQL::Types::ID, "The internal ID for this debate", null: false
-      field :image, GraphQL::Types::String, "The image of this debate", null: true
       field :information_updates, Decidim::Core::TranslatedFieldType, "The information updates for this debate", null: true
       field :instructions, Decidim::Core::TranslatedFieldType, "The instructions for this debate", null: true
       field :last_comment_at, Decidim::Core::DateTimeType, "The last comment time for this debate", null: true

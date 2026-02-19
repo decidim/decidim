@@ -46,6 +46,7 @@ module Decidim::Assemblies
         organization:,
         taxonomizations:,
         parent: nil,
+        has_members: false,
         private_space: false,
         errors:,
         participatory_processes_ids: related_process_ids,
@@ -65,8 +66,7 @@ module Decidim::Assemblies
         facebook_handler: "lorem",
         instagram_handler: "lorem",
         youtube_handler: "lorem",
-        github_handler: "lorem",
-        announcement: { en: "announcement_lorem" }
+        github_handler: "lorem"
       )
     end
     let(:invalid) { false }

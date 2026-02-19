@@ -10,6 +10,10 @@ module Decidim
       UserGroupMailer.notify_deprecation_to_member(user, group.name, group.email)
     end
 
+    def notify_user_group_patched
+      UserGroupMailer.notify_user_group_patched(group, user, password)
+    end
+
     private
 
     def user

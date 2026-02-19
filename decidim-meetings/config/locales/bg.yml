@@ -548,7 +548,6 @@ bg:
           fields:
             closed: Затворен
             end_time: Крайна дата
-            id: ID
             map: Карта
             official_meeting: Официална среща
             start_time: Начална дата

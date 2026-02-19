@@ -182,7 +182,6 @@ ar:
           fields:
             created_at: تم الإنشاء
             end_date: تاريخ الانتهاء
-            id: المعرف ID
             progress: تقدم
             start_date: تاريخ البدء
             status: الحالة

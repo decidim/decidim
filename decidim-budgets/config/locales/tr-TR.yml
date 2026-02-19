@@ -185,12 +185,5 @@ tr:
               disabled: Oylama devre dışı
               enabled: Oylama etkin
               finished: Oylama bitti
-    events:
-      budgets:
-        budget_published:
-          email_intro: '%{resource_title} bütçesi artık %{participatory_space_title} için aktif. Bu sayfadan görebilirsiniz:'
-          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
-          email_subject: '%{resource_title} bütçesi artık %{participatory_space_title} için aktif.'
-          notification_title: <a href="%{resource_path}">%{resource_title} </a> bütçesi artık %{participatory_space_title} için aktif.
   index:
     confirmed_orders_count: Oy sayısı

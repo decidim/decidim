@@ -27,7 +27,7 @@ shared_examples "sorted moderations" do
       click_on link_text
     end
     all("tbody tr").each_with_index do |row, _index|
-      expect(row.find("td:nth-child(2)")).to have_content(reportables.first.id)
+      expect(row.find("td:nth-child(2)")).to have_content(reportables.first.class.model_name.human)
     end
   end
 end
@@ -86,7 +86,7 @@ shared_examples "manage moderations" do
         click_on "Undo the report"
       end
 
-      expect(page).to have_admin_callout("Resource successfully unreported")
+      expect(page).to have_callout("Resource successfully unreported")
     end
 
     it "user can hide a resource" do
@@ -95,7 +95,7 @@ shared_examples "manage moderations" do
         click_on "Hide"
       end
 
-      expect(page).to have_admin_callout("Resource successfully hidden")
+      expect(page).to have_callout("Resource successfully hidden")
       expect(page).to have_no_content(moderation.reportable.reported_content_url)
     end
 
@@ -107,8 +107,8 @@ shared_examples "manage moderations" do
         click_on "Reports count"
 
         all("tbody tr").each_with_index do |row, index|
-          reportable_id = moderations_ordered_by_report_count_asc[index].reportable.id
-          expect(row.find("td:nth-child(2)")).to have_content(reportable_id)
+          reportable_type = moderations_ordered_by_report_count_asc[index].reportable.class.model_name.human
+          expect(row.find("td:nth-child(2)")).to have_content(reportable_type)
         end
       end
     end
@@ -241,7 +241,7 @@ shared_examples "manage moderations" do
         click_on "Hide"
       end
 
-      expect(page).to have_admin_callout("Resource successfully hidden")
+      expect(page).to have_callout("Resource successfully hidden")
       expect(page).to have_no_css("tr[data-id=\"#{moderation_id}\"]")
     end
   end

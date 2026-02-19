@@ -22,7 +22,7 @@ describe "UserTosAcceptance" do
 
     context "when a user starts a session, has to accept and review them" do
       it "redirects to the TOS page" do
-        expect(page).to have_current_path(decidim.page_path(tos_page))
+        expect(page).to have_current_path(decidim.page_path(tos_page, locale: I18n.locale))
         expect(page).to have_content translated(tos_page.title)
         expect(page.find("div.editor-content", obscured: false)).to have_content strip_tags(translated(tos_page.content))
       end

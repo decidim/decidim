@@ -168,7 +168,6 @@ he:
           fields:
             created_at: נוצר
             end_date: תאריך סיום
-            id: מספר מזהה
             progress: התקדמות
             start_date: תאריך התחלה
             status: סטטוס

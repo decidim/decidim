@@ -16,10 +16,6 @@ describe "Decidim::Api::QueryType" do
   let(:participatory_process_query) do
     %(
       participatoryProcess {
-        announcement{
-          translation(locale: "#{locale}")
-          locales
-        }
         attachments{
           url
           type
@@ -170,13 +166,6 @@ describe "Decidim::Api::QueryType" do
   let(:components) { [] }
   let!(:participatory_process_response) do
     {
-      "announcement" => {
-        "locales" => (
-          participatory_process.announcement.keys.excluding("machine_translations") +
-          participatory_process.announcement["machine_translations"].keys
-        ).sort,
-        "translation" => participatory_process.announcement[locale]
-      },
       "attachments" => [],
       "categories" => [],
       "components" => components,
@@ -245,6 +234,7 @@ describe "Decidim::Api::QueryType" do
     )
   end
 
+  include_examples "when the introspection is disabled"
   describe "valid query" do
     it "executes successfully" do
       expect { response }.not_to raise_error
@@ -316,8 +306,8 @@ describe "Decidim::Api::QueryType" do
         end
       end
 
-      context "when the current user is a private participant" do
-        let!(:private_user) { create(:participatory_space_private_user, privatable_to: private_process, user: current_user) }
+      context "when the current user is a member" do
+        let!(:member) { create(:member, participatory_space: private_process, user: current_user) }
 
         it "returns all spaces" do
           expect(response["participatoryProcesses"]).to include(

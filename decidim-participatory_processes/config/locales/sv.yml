@@ -11,6 +11,7 @@ sv:
         domain: Domän
         duplicate_categories: Duplicera kategorier
         duplicate_components: Duplicera komponenter
+        duplicate_landing_page_blocks: Kopiera elementen från landningssidan
         duplicate_steps: Duplicera steg
         end_date: Slutdatum
         hero_image: Startbild
@@ -113,7 +114,6 @@ sv:
           components: Komponenter
           info: Om processen
           moderations: Moderering
-          private_users: Medlemmar
           process_admins: Administratörer för process
           steps: Steg
       models:
@@ -202,12 +202,6 @@ sv:
             last_step: Kan inte ta bort det sista steget i en process.
           success: Steget i processen har raderats.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Konfigurering av Call to Action görs inte längre via stegen i deltagarprocessen i den här versionen.
-              Det görs istället på <b>Landningssidan</b>, med hjälp av <b>hero- och bild-</b>innehållsblocket.
-              Det här finns kvar för att du ska kunna migrera de CTAs som du behöver. Fälten <i>Call to Action-länk</i> och <i>Call to Action-text</i> kommer att tas bort i nästa version.
-            title: Call to Action från tidigare version
           title: Redigera steg i processen
           update: Uppdatera
         index:
@@ -285,9 +279,11 @@ sv:
         export: "%{user_name} exporterade processen %{resource_name}"
         import: "%{user_name} importerade processen %{resource_name}"
         publish: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
+        publish_all_members: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
         restore: "%{user_name} återställde deltagandeprocessen %{resource_name}"
         soft_delete: "%{user_name} raderade deltagandeprocessen %{resource_name}"
         unpublish: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
+        unpublish_all_members: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
         update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
       participatory_process_group:
         create: "%{user_name} skapade gruppen %{resource_name}"
@@ -343,6 +339,7 @@ sv:
         participatory_processes:
           announcement: Meddelande
           area: Geografiskt område för processen
+          component_settings: Inställningar för processen
           created_at: Datum när processen skapades
           description: Längre beskrivning av processen
           developer_group: Ansvariga för processen. Organisation eller grupp som står bakom processen.
@@ -482,10 +479,6 @@ sv:
           form:
             document_legend: Lägg till ett dokument
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Använd relativa sökvägar, inte fullständiga URL:er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Om fältet inte fylls i visas inte knappen. Exempel: %{url}'
-            cta_text_help: Om fältet är tomt visas inte knappen.
         participatory_processes:
           form:
             announcement_help: Den här texten visas direkt under informationen om processen.
@@ -494,7 +487,6 @@ sv:
             images: Bilder
             metadata: Metadata
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
-            private_notice: Du kommer att kunna hantera medlemmar om processen gjorts privat
             related_processes: Relaterade processer
             select_process_group: Välj en grupp av processer
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -569,9 +561,6 @@ sv:
           type: Typ
         show:
           title: Om processen
-      participatory_space_private_users:
-        index:
-          title: Medlemmar
       show:
         belongs_to_group: Den här processen tillhör
         private_space: Det här är en privat process

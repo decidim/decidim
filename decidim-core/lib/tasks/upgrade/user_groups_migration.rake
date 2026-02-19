@@ -5,12 +5,43 @@ namespace :decidim do
     namespace :user_groups do
       desc "Main task to notify users and change references to groups"
       task remove: [
+        :"decidim:upgrade:user_groups:perform_patches_on_emails",
         :"decidim:upgrade:user_groups:send_reset_password_instructions",
         :"decidim:upgrade:user_groups:send_user_group_changes_notification_to_members",
         :"decidim:upgrade:user_groups:transfer_user_groups_authorships",
         :"decidim:upgrade:user_groups:fix_user_groups_action_logs",
         :"decidim:upgrade:user_groups:remove_groups_notifications"
       ]
+
+      desc "Patch users migrated from user groups with invalid emails"
+      task perform_patches_on_emails: :environment do
+        class UserGroupMembership < ApplicationRecord
+          self.table_name = "decidim_user_group_memberships"
+
+          belongs_to :user, class_name: "Decidim::User", foreign_key: :decidim_user_id
+          belongs_to :group, class_name: "Decidim::User", foreign_key: :decidim_user_group_id
+
+          scope :member, -> { where(role: %w(creator admin member)) }
+        end
+
+        Decidim::User.where("extended_data @> ?", { group: true, patched: true }.to_json).where(encrypted_password: "").find_each do |group|
+          next if group.blocked?
+
+          password = Random.alphanumeric(15)
+
+          group.skip_password_change_notification!
+          group.password = password
+          group.extended_data = (group.extended_data || {}).merge("patched" => false)
+          group.save!
+
+          UserGroupMembership.where(group:).member.find_each do |membership|
+            user = membership.user
+            next if user.deleted? || user.blocked? || !user.confirmed?
+
+            Decidim::UserGroupMailer.notify_user_group_patched(group, user, password).deliver_later
+          end
+        end
+      end
 
       desc "Send reset password instructions to groups"
       task send_reset_password_instructions: :environment do
@@ -104,6 +135,8 @@ namespace :decidim do
           # rubocop:enable Rails/SkipsModelValidations
 
           puts "Transferred authorship in #{a[:model]} with id #{a[:id]} and gid #{a[:gid]} from #{a[:author_type]} with id #{a[:author_id]} to user with id #{a[:group_id]}"
+        rescue NameError
+          puts "Error on #{a[:id]}"
         end
         puts "===== Transfer finished."
       end

@@ -54,7 +54,7 @@ describe "Initiative signing with workflows" do
       .and_return(test_handler)
     switch_to_host(organization.host)
     login_as confirmed_user, scope: :user
-    visit decidim_initiatives.initiative_path(initiative)
+    visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
   end
 
   context "when the workflow is blank" do

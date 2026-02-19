@@ -12,6 +12,12 @@ module Decidim
       return unless renderable?
 
       render
+    rescue NoMethodError => e
+      # Soft-deleted components or participatory spaces could cause errors
+      # when rendering activities. We log them for further inspection but
+      # avoid breaking the entire activity feed.
+      Rails.logger.error("Error rendering activity cell for #{model.id}: #{e.message}")
+      nil
     end
 
     # Since activity logs could be linked to resource no longer available

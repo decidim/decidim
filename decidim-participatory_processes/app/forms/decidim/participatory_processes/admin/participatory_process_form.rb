@@ -13,7 +13,6 @@ module Decidim
 
         mimic :participatory_process
 
-        translatable_attribute :announcement, Decidim::Attributes::RichText
         translatable_attribute :description, Decidim::Attributes::RichText
         translatable_attribute :developer_group, String
         translatable_attribute :local_area, String
@@ -31,6 +30,7 @@ module Decidim
         attribute :related_process_ids, Array[Integer]
         attribute :weight, Integer, default: 0
 
+        attribute :has_members, Boolean
         attribute :private_space, Boolean
         attribute :promoted, Boolean
 
@@ -49,6 +49,9 @@ module Decidim
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcess }
 
         validates :weight, presence: true
+
+        validates :start_date, date: { before: :end_date, allow_blank: true, if: proc { |obj| obj.end_date.present? } }
+        validates :end_date, date: { after: :start_date, allow_blank: true, if: proc { |obj| obj.start_date.present? } }
 
         alias organization current_organization
 

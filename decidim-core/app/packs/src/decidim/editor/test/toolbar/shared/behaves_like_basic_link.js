@@ -5,6 +5,10 @@ import contextHelpers from "src/decidim/editor/test/toolbar/shared/context";
 export default (ctx) => {
   const { getControl, setContent } = contextHelpers(ctx);
 
+  const normalizeHTML = (html) => {
+    return html.replace(/<p><br class="ProseMirror-trailingBreak"><\/p>$/g, "").trim();
+  };
+
   describe("link", () => {
     it("creates a link for the selected text", async () => {
       await setContent("Hello, world!");
@@ -25,8 +29,8 @@ export default (ctx) => {
       // handled
       await sleep(0);
 
-      expect(ctx.prosemirror.innerHTML).toEqual(
-        '<p>Hello, <a target="_blank" href="https://decidim.org">world</a>!</p>'
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual(
+        '<p>Hello, <a href="https://decidim.org" target="_blank">world</a>!</p>'
       );
     });
   });

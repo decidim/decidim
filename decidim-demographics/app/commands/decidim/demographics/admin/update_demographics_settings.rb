@@ -6,7 +6,7 @@ module Decidim
       class UpdateDemographicsSettings < Decidim::Command
         # Initializes an UpdateDemographicsSettings Command.
         #
-        # @param form - The form from which to get the data.
+        # @param form [Admin::DemographicsSettingsForm] The form from which to get the data.
         def initialize(form)
           @form = form
         end

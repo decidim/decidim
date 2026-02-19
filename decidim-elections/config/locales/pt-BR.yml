@@ -1,10 +1,22 @@
 pt-BR:
+  activemodel:
+    attributes:
+      elections_question:
+        max_choices: Número máximo de escolhas
+      token_csv:
+        file: Arquivo
+        remove_all: Remover todos os dados do censo atual
   decidim:
     admin:
       menu:
         elections_menu:
+          basic_elections: Principal
           election_census: Censo
+          election_dashboard: Painel de Controle
           election_questions: Questões
+      tooltips:
+        deleted_elections_info: Não é possível excluir esta eleição
+        edit_elections_info: Não é possível editar esta eleição
     components:
       elections:
         actions:
@@ -19,86 +31,280 @@ pt-BR:
             announcement: Anúncio
     elections:
       actions:
+        confirm_delete_election: Você tem certeza que deseja excluir esta eleição?
+        confirm_unpublish_election: Você tem certeza que deseja cancelar a publicação desta eleição?
+        deleted_election_info: Eleições excluídas não são exibidas na lista. Você pode visualizá-las clicando no botão abaixo.
+        edit: Editar eleição
+        new: Nova eleição
         preview: Pré-visualização
         title: Ações
+        view: Ver eleição
+        view_deleted_elections: Ver eleições excluídas
       admin:
         census:
           edit:
+            choose_census: Escolha o tipo de censo que deseja usar para esta eleição
             created_at: Criado em
+            identifier: Identificador de usuário
+          preview:
+            title:
+              one: A lista de pré-visualização é limitada ao registro %{count}.
+              other: A lista de pré-visualização é limitada aos %{count} registros.
+          update:
+            error: Ocorreu um erro ao gerar ou salvar o censo.
+            success: Censo atualizados com sucesso.
         dashboard:
+          calendar:
+            end_at: 'Hora de término:'
+            end_election: Final da eleição
+            manual_start: Manualmente
+            published_results_at: Resultados publicados em
+            start_at: 'Horário de início:'
+            start_election: Começar a eleição
+            title: Calendário
           census:
             title: Censo
           main:
             labels:
+              calendar: Calendário
               description: Descrição
+              image: Galeria de imagens
+              results: Disponibilidade de resultados
+              title: Título
+            title: Principal
+          publish_confirm: Você tem certeza que deseja publicar esta eleição?
           questions:
             labels:
               answers: Respostas
+            limit_info: Esta eleição tem mais perguntas. A previsão é limitada a três perguntas.
             title: Questões
           questions_table:
             answer: Respostas
+            percentage: Porcentagem
+            total: Total
             votes: Votos
+            votes_count:
+              one: 1 voto
+              other: "%{count} votos"
           results:
+            not_started: A eleição ainda não começou.
+            per_question_waiting: Votação ainda não está habilitada para nenhuma pergunta. Os participantes verão uma mensagem "Aguardando pela próxima pergunta" até que você ative pelo menos uma.
             publish_button: Publicar resultados
+            results_availability:
+              after_end: Você pode publicar todos os resultados após o término da eleição. Os resultados permanecerão ocultos até que você os publique manualmente.
+              per_question: Você precisa habilitar a votação e publicar manualmente os resultados para cada pergunta individualmente.
+              real_time: Os resultados são exibidos automaticamente durante a eleição.
+            start_question_button: Habilitar votação
             title: Resultados
           status:
+            allow_census_check_before_start: Permitir que os usuários verifiquem se eles podem votar antes do início da eleição
+            census: 'Censo:'
+            results_availability:
+              after_end: Resultados disponíveis após o término da eleição
+              per_question: Resultados disponíveis por pergunta
+              real_time: Resultados disponíveis em tempo real
             title: Status da eleição
         elections:
+          create:
+            invalid: Houve um problema ao criar a eleição.
+            success: Eleição criada com sucesso.
+          dashboard:
+            subtitle: 'Etapa final: Revise seus detalhes. Edições ainda podem ser feitas antes de publicar. Uma vez publicado, você ainda poderá atualizar a descrição das eleições.'
+            title: Painel de controle
           edit:
             title: Editar eleição
           form:
             add_images: Adicionar imagens
+            attachment_legend: Adicionar uma galeria de imagens (opcional)
+            basic_title: Informação básica
+            calendar: Calendário
+            calendar_description: Verifique se o fuso horário da organização está correto nas configurações da organização. A configuração atual é %{timezone}.
+            edit_attachments: Editar anexos
+            end_at: Hora de término
+            manual_start: Início manual
             publish: Publicar
+            results_availability:
+              after_end: Após o fim das eleições
+              after_end_help: publicar resultados quando a eleição for concluída
+              per_question: Pergunta por pergunta
+              per_question_help: manipular manualmente a votação e publicar os resultados para cada questão
+              real_time: Tempo real
+              real_time_help: publicar automaticamente os resultados durante a votação
+              title: Disponibilidade de resultados
+            save: Salvar e continuar
+            start_at: Horário de início
           index:
             title: Eleições
+          manage_trash:
+            title: Eleições apagadas
           new:
             title: Nova eleição
+          publish:
+            invalid: Ocorreu um erro ao publicar a eleição.
+            success: Eleição publicada com sucesso.
+          toggle_census_check:
+            error: Houve um erro ao habilitar a verificação do censo.
+          unpublish:
+            invalid: Ocorreu um erro ao cancelar a publicação da eleição.
+            success: Eleição não publicada com sucesso.
+          update:
+            invalid: Ocorreu um erro ao atualizar a eleição.
+            success: Eleição atualizada com sucesso.
         questions:
           edit_questions:
             new_question: Nova questão
+            remove_question_confirm: Tem certeza de que deseja excluir esta questão?
             title: Questões
+          form:
+            errors:
+              at_least_one_question: Pelo menos uma pergunta é necessária.
+            form_description: A pergunta deve ter pelo menos duas respostas para dar o passo seguinte.
+          update:
+            invalid: Ocorreu um erro ao atualizar as perguntas.
+            success: Perguntas atualizadas com sucesso.
         statuses:
+          enable_voting:
+            invalid: Houve um problema ao permitir a votação.
+            success: Votação habilitada com sucesso.
+          end:
+            invalid: Houve um problema ao terminar a eleição.
+            success: A eleição terminou com sucesso.
           publish_results:
             invalid: Ocorreu um erro ao publicar os resultados.
+            success: Resultados publicados com sucesso.
+          start:
+            invalid: Houve um problema ao iniciar a eleição.
+            success: Eleição iniciada com sucesso.
+          unknown: Status desconhecido
+      census_checks:
+        show:
+          description: Isto significa que, uma vez iniciadas as eleições, se pode votar nelas.
+          exit_button: Sair da verificação de censo
+          title: Você foi verificado com sucesso
       censuses:
+        census_ready_html: Os dados do censo são enviados e preparados para seu uso na eleição <b>%{election_title}</b>.
+        census_size_html:
+          one: Atualmente há uma pessoa <strong>1</strong> elegível para votar nesta eleição (isso pode mudar em um censo dinâmico).
+          other: Existem atualmente <strong>%{count}</strong> pessoas elegíveis para votar nesta eleição (isso pode mudar em um censo dinâmico).
+        internal_users:
+          already_have_an_account?: Já possui uma conta?
+          are_you_new?: Novo participante?
+          info_html: |
+            Você pode restringir a participação nas eleições para participantes que tenham uma autorização.<br>
+            Note que os participantes precisam cumprir as autorizações selecionadas para poder votar. Deixar todas as caixas de seleção vazias permitirá votar qualquer pessoa registrada.
+          internal_type_title: Autorização adicional necessária para votar (opcional)
+          label: Participantes registrados (dinâmico)
+          sign_in_description: Faça login para votar nesta eleição
+          sign_up_description: Criar uma conta para votar nesta eleição
+        internal_users_form:
+          authorization_options_invalid: Infelizmente, embora tenha todas as autorizações necessárias, algumas delas não são válidas para esta eleição.
+          exit_button: Sair da cabine de votação
+          invalid: Você não está autorizado a votar nesta eleição.
+          resume_with_method: Retomar verificação com %{name}
+          verify_with_method: Verificar com %{name}
+        token_csv:
+          example: |
+            email;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Deve ser um arquivo em formato CSV com duas colunas, uma com o endereço de e-mail e outra com o valor de um token que o usuário deverá inserir para votar.
+            Deve ser separado por um ponto e vírgula (;)
+          label: Usuários não registrados com tokens (corrigidos)
+          remove_before_upload: Se você deseja carregar um novo censo, primeiro você deve remover o já existente.
+          upload_file: Enviar um arquivo
+          upload_new_census: Carregar arquivo CSV
         token_csv_form:
           email: E-mail
+          email_placeholder: Insira o endereço de email do eleitor
+          invalid: O email ou token não é válido. Por favor, verifique os detalhes e tente novamente.
+          token: Token
+          token_placeholder: Insira o token do eleitor
       elections:
         count:
           elections_count:
             one: "%{count} eleição"
             other: "%{count} eleições"
+        elections:
+          empty: Não há eleições disponíveis.
+          empty_filters: Não há eleições que correspondam aos seus filtros.
         filters:
           all: Todos
           state: Status
           state_values:
             finished: Finalizado
             ongoing: Em andamento
+            scheduled: Agendado
         orders:
+          end_at: Data de término
+          label: Ordenar por
           recent: Recente
+          start_at: Data de início
         questions:
+          subtitle: 'Estas são as questões que determinam este processo de votação:'
           title: Perguntas eleitorais
         show:
+          active_voting_until: 'Ativar votação até: %{end_date}'
+          check_census_button: Verifique se eu posso votar
+          check_census_explanation: Esta eleição ainda não começou, mas você pode verificar se está incluído no censo.
+          edit_vote_button: Editar voto
           vote_button: Voto
+          voted: Você já votou. Você pode votar novamente, apenas o seu último voto será contado.
+          votes_count:
+            one: 1 voto
+            other: "%{count} votos"
+          voting_began: 'Votação iniciada em: %{start_date}'
         vote_results:
+          subtitle:
+            after_end: A eleição terminou. Agora você pode ver os resultados.
+            per_question: Os resultados estão disponíveis por pergunta. Você pode ver os resultados para cada questão após a votação ser habilitada e os resultados são publicados.
+            real_time: Os resultados estão disponíveis em tempo real. Você pode ver os resultados enquanto a votação estiver em andamento.
           title: Resultados
+          total: 'TOTAL:'
+          total_votes:
+            one: 1 voto
+            other: "%{count} votos"
       models:
         election:
           fields:
             census: Censo
+            end_at: Hora de término
+            start_at: Horário de início
             status: Status
             title: Título
+      per_question_votes:
+        waiting:
+          description: Você pode esperar aqui até que a próxima pergunta esteja disponível. Você será automaticamente redirecionado para a próxima pergunta quando ela estiver pronta.
+          edit_vote: Edite seu voto
+          exit_button: Sair da sala de espera
+          title: Aguardando a próxima pergunta
       status:
         active: Ativo
         finished: Finalizado
         not_started: Não Iniciado
         ongoing: Em andamento
+        published_results: Resultados publicados
+        scheduled: Agendado
+        voting_enabled: Votação em andamento
       votes:
+        cast:
+          invalid: Houve um problema ao transmitir o seu voto. Por favor, verifique as informações que você forneceu e tente novamente.
+          success: Seu voto foi enviado com sucesso.
+        check_census:
+          access: Acesso
+          election_not_open: A eleição ainda não foi aberta. Por favor, verifique as datas e tente novamente.
+          form_title: Verifique sua identidade
         confirm:
+          edit_vote: Edite seu voto
           title: Confirme seu voto
         question:
           back: Voltar
+          cast_vote: Transmitir voto
           next: Próxima
+        receipt:
+          edit_vote: Edite seu voto
+          exit_button: Sair da cabine de votação
+          title: Seus votos foram enviados com sucesso
     statistics:
       elections_count: Eleições
   layouts:

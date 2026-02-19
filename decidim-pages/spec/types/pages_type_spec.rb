@@ -39,8 +39,8 @@ module Decidim
         context "when the page does not belong to the component" do
           let!(:page) { create(:page, component: create(:page_component)) }
 
-          it "returns null" do
-            expect(response["page"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Page not found")
           end
         end
       end

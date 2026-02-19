@@ -113,7 +113,7 @@ describe "User creates meeting" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_callout("You have created the meeting successfully.")
           expect(page).to have_content(meeting_title)
           expect(page).to have_content(meeting_description)
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
@@ -142,6 +142,8 @@ describe "User creates meeting" do
             within_selector: ".new_meeting",
             address_field: :meeting_address
           ) do
+            let(:geocoded_success_message) { "You have created the meeting successfully." }
+
             before do
               stub_geocoding_coordinates([3.345, 4.456])
               # Prepare the view for submission (other than the address field)

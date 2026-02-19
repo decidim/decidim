@@ -185,13 +185,6 @@
             last_step: Kan ikke slette siste fase i en prosess.
           success: Medvirkningsfasen ble slettet.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Å konfigurere CTA gjennom trinnene i en prosess vil bli faset ut i det nye designet.
-              Nå gjøres dette i <b>Landingsside</b>ved hjelp av innholdsblokken <b>Topptekst og bilde</b>.
-              Vi har latt det står igjen her for deg så du kan migrere CTA som du trenger. Feltene <i>Call-to-action-sti</i> og
-              <i>Call-to-action-tekst</i> vil bli fjernet i neste versjon.
-            title: CTA foreldet
           title: Rediger medvirkningsfase
           update: Oppdater
         index:
@@ -345,9 +338,6 @@
         participatory_process_imports:
           form:
             document_legend: Legg til et dokumentet
-        participatory_process_steps:
-          form:
-            cta_text_help: Hvis ikke angitt, vil ikke knappen vises.
         participatory_processes:
           form:
             announcement_help: Teksten du skriver inn her vil vises til brukeren rett under prosessinformasjonen.

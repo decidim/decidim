@@ -1,21 +1,21 @@
 <tr data-id="<%= election.id %>">
   <td data-label="<%= t("models.election.fields.title", scope: "decidim.elections") %>">
     <% if allowed_to? :update, :election, election: election %>
-      <%= link_to present(election).title(html_escape: true), election.published? ? dashboard_election_path(election) : edit_election_path(election) %>
+      <%= link_to present(election).title(html_escape: true), election.started? ? dashboard_election_path(election) : edit_election_path(election) %>
     <% else %>
       <%= present(election).title(html_escape: true) %>
     <% end %>
   </td>
   <td data-label="<%= t("models.election.fields.start_at", scope: "decidim.elections") %>">
     <% if election.start_at %>
-      <%= l election.start_at, format: :long %>
+      <%= l election.start_at, format: :decidim_short %>
     <% else %>
       <%= t("decidim.elections.admin.elections.form.manual_start") %>
     <% end %>
   </td>
   <td data-label="<%= t("models.election.fields.end_at", scope: "decidim.elections") %>">
     <% if election.end_at %>
-      <%= l election.end_at, format: :long %>
+      <%= l election.end_at, format: :decidim_short %>
     <% end %>
   </td>
   <td data-label="<%= t("models.election.fields.status", scope: "decidim.elections") %>">
@@ -25,6 +25,6 @@
     <%= election.census&.label %>
   </td>
   <td data-label="<%= t("actions.title", scope: "decidim.elections") %>" class="table-list__actions">
-    <%= render partial: "decidim/elections/admin/elections/actions", locals: { election: election, view: view } %>
+    <%= render partial: "decidim/elections/admin/elections/actions", locals: { election:, view: } %>
   </td>
 </tr>
