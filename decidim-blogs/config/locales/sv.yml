@@ -19,7 +19,7 @@ sv:
         changeset:
           posts: Inlägg
       tooltips:
-        deleted_posts_info: Kan inte ta bort detta inlägg
+        deleted_posts_info: Det går inte att ta bort inlägget
     blogs:
       actions:
         author_id: Skapa inlägg som
@@ -107,6 +107,7 @@ sv:
           destroy: Radera
           like: Gilla
           update: Uppdatera
+          vote_comment: Rösta på kommentar
         name: Blogg
         settings:
           global:
@@ -115,7 +116,7 @@ sv:
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             creation_enabled_for_participants: Deltagarna kan skapa inlägg
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             taxonomy_filters: Välj filter för komponenten
             taxonomy_filters_add: Lägg till filter
