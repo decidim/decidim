@@ -26,18 +26,37 @@ sv:
         questionnaire:
           request_invalid: Det gick inte att hantera begäran. Försök igen.
   decidim:
+    download_your_data:
+      help:
+        answers:
+          answer: Svaret på frågan
+          id: Unikt id för svaret
+          question: Frågan som besvarades
+          questionnaire: Enkäten som besvarades
+          user: Användaren som svarade på frågeformuläret
+      show:
+        answers: Exportera svar
+        survey_user_answers: Enkätsvar
     forms:
       admin:
         models:
           components:
+            allow_answers: Tillåt svar
+            allow_editing_answers: Tillåt registrerade användare att redigera egna enkätsvar
+            allow_unregistered: Tillåt ej registrerade användare att besvara enkäten
+            allow_unregistered_help: Om aktiv kommer ingen inloggning att krävas för att besvara enkäten. Detta kan leda till dålig eller opålitlig data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet! Tänk på att en deltagare kan svara på samma enkät flera gånger, genom att använda olika webbläsare eller "privat surfning" i sin webbläsare.
             announcement: Meddelande
+            clean_after_publish: Ta bort svar vid publicering av enkäten
             description: Beskrivning
+            ends_at: Öppet för svar till
             ends_at_help: Lämna tomt för att inte sätta något datum
+            starts_at: Öppet för svar från
             starts_at_help: Lämna tomt för att inte sätta något datum
             tos: Användarvillkor
         questionnaires:
           actions:
             back: Tillbaka till svar
+            publish_answers: Publicera svar
             show: Visa svar
           answer_option:
             answer_option: Svarsalternativ
@@ -130,6 +149,9 @@ sv:
             invalid: Det gick inte att spara formuläret.
             success: Formuläret har sparats.
       admin_log:
+        question:
+          publish_answers: "%{user_name} publicerade svaren på %{resource_name} i utrymmet %{space_name}"
+          unpublish_answers: "%{user_name} avpublicerade svaren på %{resource_name} i utrymmet %{space_name}"
         questionnaire:
           update: "%{user_name} uppdaterade enkäten %{resource_name}"
       errors:
@@ -172,6 +194,9 @@ sv:
           questionnaire_answered:
             body: Du har redan besvarat det här formuläret.
             title: Redan svarat
+          questionnaire_answered_edit:
+            body: Du har redan svarat på formuläret. %{link}
+            edit: Redigera svar
           questionnaire_closed:
             body: Formuläret är stängt och kan inte besvaras.
             title: Formuläret är stängt
@@ -186,9 +211,11 @@ sv:
           tos_agreement: Genom att fortsätta godkänner du villkoren för anmälan
       step_navigation:
         show:
+          are_you_sure_edit_guest: Om du vill kunna redigera dina svar efteråt måste du logga in eller skapa ett konto.
           are_you_sure_no_edit: Efter att du har skickat in anmälan kan du inte ändra i den. Vill du fortsätta?
           back: Tillbaka
           continue: Fortsätt
+          disallowed: Du har inte behörighet att redigera dina svar.
           submit: Skicka
       user_answers_serializer:
         body: Svar
