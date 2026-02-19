@@ -43,7 +43,6 @@ module Decidim
       weight = first_weight
       # Add the weights first to the old documents
       document_items = @form.documents.is_a?(Array) ? @form.documents : [@form.documents]
-      # Extract IDs from either integers or Attachment objects
       document_ids = document_items.map { |item| item.is_a?(Integer) ? item : item.id }.compact
       Decidim::Attachment.where(id: document_ids).each do |document|
         document.update!(weight:)
