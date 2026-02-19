@@ -132,7 +132,7 @@ You can read more about this change on PR [#14432](https://github.com/decidim/de
 
 ### 2.8. Removal of User Group related fields
 
-As we deprecated the User Group functionality in v0.31, we are performing some cleanup, which will remove all the DataBase fields related to the UserGroup functionality. This means that `decidim_user_group_id` fields in varios tables will be removed.
+As we deprecated the User Group functionality in v0.31, we are performing some cleanup that will remove all the database fields related to the User Group functionality. This means that `decidim_user_group_id` fields in various tables will be removed.
 
 We are also removing the `decidim_user_group_memberships` tables.
 
