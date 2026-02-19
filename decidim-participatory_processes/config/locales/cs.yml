@@ -507,9 +507,11 @@ cs:
           form:
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
+            has_members_help: Budete moci vytvářet a publikovat členy
             images: Obrázky
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
+            private_notice: Udělá prostor neviditelný pro návštěvníky a viditelný pouze pro členy (s výjimkou zda je také transparentní)
             related_processes: Související procesy
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -534,11 +536,13 @@ cs:
             description_html: Níže je uveden soubor ukazatelů používaných k posouzení demokratické kvality tohoto účastnického procesu. Další podrobnosti o tom, jak jsou vypočítány, naleznete v <a href="%{info_url}">informační stránce o demokratických ukazatelích kvality</a>.
             name: Globální skóre
             note: "*Orientační hodnoty se měří na stupnici od 1 do 5, kde 1 představuje nejnižší a 5 nejvyšší ukazatel kvality."
+            tooltip: Vypočteno jako průměr všech dimenzí
           name: Ukazatel kvality
           qualitative_metrics:
             description: Tyto ukazatele se získávají z odpovědí na sebehodnocení, které vyplní správci platformy.
             indicators:
               citizen_influence: Vliv občanů
+              citizen_influence_tooltip: Měří míru vlivu účastníků na rozhodování.
               inclusiveness: Inkluzivita
               inclusiveness_tooltip: Hodnocení, zda jsou zastoupeny různé zúčastněné strany.
               informativeness: Informativita
@@ -617,6 +621,9 @@ cs:
         belongs_to_group: Tento proces patří do
         private_space: Jedná se o soukromý proces
         related_processes: Související procesy
+      static_pages:
+        democratic_quality_indicators:
+          title: Ukazatele kvality demokracie
     statistics:
       processes_count: Procesy
       processes_count_tooltip: Počet veřejně přístupných participačních procesů.
