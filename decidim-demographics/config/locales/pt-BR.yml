@@ -1,1 +1,79 @@
+---
 pt-BR:
+  decidim:
+    demographics:
+      actions:
+        title: Ações
+      admin:
+        demographics:
+          tabs_menu:
+            title: Dados demográficos
+        demographics_menu:
+          questions: Perguntas
+          responses: Respostas
+          settings: Configurações
+        publish_responses:
+          index:
+            description: Descrição
+            title: Exibir respostas
+        questions:
+          edit:
+            save: Salvar
+            title: Perguntas
+          questions_form:
+            add_question: Adicionar pergunta
+            collapse: Recolher todas as perguntas
+            expand: Expandir todas as perguntas
+        responses:
+          index:
+            publish_responses: Exibir resposta
+            title: "%{total} Respostas totais"
+        settings:
+          show:
+            collect_data: Ativar coleta de dados demográficos
+            collect_data_help: Habilitar essa configuração permitirá que os usuários doem seus dados para a plataforma.
+            save: Salvar
+            title: Configurações
+          update:
+            invalid: Ocorreu um erro ao salvar os dados demográficos
+            success: Dados Demográficos salvos com sucesso
+        title: Dados demográficos
+      demographics:
+        questionnaire:
+          delete_my_data: Excluir dados
+          modal_close: Cancelar
+          modal_ok: Ok
+          modal_question: Todos os seus dados demográficos serão removidos.
+          modal_title: Excluir dados
+          submit: Salvar os dados
+          terms_of_service: Termos de Serviço
+          tos_agreement: Ao participar você aceita o %{link}.
+        show:
+          page_title: Doação de dados Demográficos
+      destroy:
+        error: Ocorreu um erro ao remover seus dados doados
+        success: Seus dados doados foram removidos com sucesso
+      name: Doação de dados Demográficos
+      questions:
+        age:
+          options:
+          - 15 a 29 anos
+          - 30 a 44 anos
+          - 45 a 64 anos
+          - 65 anos ou mais
+          question: Qual é a sua idade?
+        gender:
+          options:
+          - Masculino
+          - Feminino
+          - Não-binário
+          - Meu gênero não está listado
+          - Prefiro não dizer
+          question: Qual das seguintes opções melhor descreve o seu gênero?
+        postal:
+          question: Qual é o seu código postal (CEP) residencial?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Ao fornecer essas informações, você contribui para a análise estatística que ajuda a melhorar o indicador de qualidade. Seus dados serão agregados e usados apenas para fins de pesquisa.
