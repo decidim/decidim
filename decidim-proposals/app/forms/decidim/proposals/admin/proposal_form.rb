@@ -34,13 +34,7 @@ module Decidim
         def documents=(value)
           case value
           when String
-            parsed = begin
-              result = JSON.parse(value)
-              Array(result).map(&:to_i)
-            rescue JSON::ParserError
-              value.split(",").map { |v| v.strip.to_i }
-            end
-            super(parsed)
+            super(parse_string_documents(value))
           when Integer
             super([value])
           else
@@ -48,21 +42,46 @@ module Decidim
           end
         end
 
-        def documents # rubocop:disable Metrics/CyclomaticComplexity
+        def documents
           result = super
 
-          if (result.blank? || result.is_a?(String)) && add_documents.present?
-            existing_ids = add_documents
-                           .select { |doc| doc.is_a?(Hash) && (doc[:id].present? || doc["id"].present?) }
-                           .map { |doc| (doc[:id] || doc["id"]).to_i }
-            return existing_ids
+          if should_use_add_documents?(result)
+            extract_ids_from_add_documents
+          else
+            result.is_a?(Array) ? result : []
           end
-
-          result.is_a?(Array) ? result : []
         end
 
         def notify_missing_attachment_if_errored
           errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
+        end
+
+        private
+
+        def should_use_add_documents?(result)
+          (result.blank? || result.is_a?(String)) && add_documents.present?
+        end
+
+        def extract_ids_from_add_documents
+          add_documents
+            .select { |doc| doc.is_a?(Hash) && (doc[:id].present? || doc["id"].present?) }
+            .map { |doc| (doc[:id] || doc["id"]).to_i }
+        end
+
+        def parse_string_documents(value)
+          return [] if value.blank?
+
+          parse_document_ids(value)
+        end
+
+        def parse_document_ids(value)
+          ids = begin
+            Array(JSON.parse(value)).map(&:to_i)
+          rescue JSON::ParserError
+            value.split(",").map { |v| v.strip.to_i }
+          end
+
+          ids.reject(&:zero?)
         end
       end
     end
