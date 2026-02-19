@@ -89,6 +89,7 @@ sv:
           edit:
             edit: Redigera
             empty: Det finns inga frågor ännu.
+            manage_questions: Hantera frågor
             questionnaire: Enkät
             title: Redigera enkätmall
           form:
