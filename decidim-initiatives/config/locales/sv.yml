@@ -429,7 +429,10 @@ sv:
           email_subject: "%{applicant_nickname} vill gå med i ditt initiativ"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ansökte om att gå med i kampanjgruppen för ditt initiativ <a href="%{resource_url}">%{resource_title}</a>. För att acceptera eller avvisa klickar du <a href="%{resource_url}/edit">här</a>.
       form:
+        add_attachments: Lägg till bilagor
         add_image: Lägg till bild
+        attachment_legend: Lägg till ett dokument eller en bild
+        edit_attachments: Redigera bilagor
         edit_image: Redigera bild
         image_legend: "(Valfritt) Lägg till en bild"
       index:
@@ -586,6 +589,10 @@ sv:
         success: Initiativet har uppdaterats.
     menu:
       initiatives: Initiativ
+    open_data:
+      help:
+        initiatives:
+          hashtag: Initiativet hashtag, som används för Twitter/X
     resources:
       initiative:
         actions:
