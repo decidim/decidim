@@ -731,6 +731,8 @@ eu:
         hidden_participants_count:
           one: eta pertsona bat ehiago
           other: eta %{count} pertsona gehiago
+        show_less: Gutxiago erakutsi
+        show_more: Gehiago erakutsi
       read_more: "(gehiago irakurri)"
       registration_mailer:
         confirmation:
