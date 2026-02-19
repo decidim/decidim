@@ -5,7 +5,7 @@
      data-load-more-comments-order-value="<%= order %>"
      data-load-more-comments-offset-value="<%= offset %>"
      data-load-more-comments-per-page-value="<%= Decidim::Comments::SortedComments::DEFAULT_COMMENTS_LIMIT %>"
-     <% if local_assigns.has_key?(:alignment) %>
+     <% if local_assigns[:alignment].present? %>
      data-load-more-comments-alignment-value="<%= alignment %>"
      <% end %>
      class="load-more-comments">
