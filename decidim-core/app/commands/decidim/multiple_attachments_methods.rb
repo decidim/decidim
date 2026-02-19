@@ -58,19 +58,7 @@ module Decidim
     def document_cleanup!(include_all_attachments: false)
       documents = include_all_attachments ? documents_attached_to.attachments.with_attached_file : documents_attached_to.documents
 
-      form_docs = @form.documents
-      keep_ids = form_docs.map do |doc|
-        case doc
-        when Decidim::Attachment
-          doc.id
-        when Integer
-          doc
-        when String
-          doc.match?(/\A\d+\z/) ? doc.to_i : nil
-        when Hash
-          (doc[:id] || doc["id"]).to_i
-        end
-      end.compact
+      keep_ids
 
       documents.each do |document|
         document.destroy! unless keep_ids.include?(document.id)
@@ -111,6 +99,21 @@ module Decidim
 
     def blob(signed_id)
       ActiveStorage::Blob.find_signed(signed_id)
+    end
+
+    def keep_ids
+      @form.documents.map do |doc|
+        case doc
+        when Decidim::Attachment
+          doc.id
+        when Integer
+          doc
+        when String
+          doc.match?(/\A\d+\z/) ? doc.to_i : nil
+        when Hash
+          (doc[:id] || doc["id"]).to_i
+        end
+      end.compact
     end
   end
 end
