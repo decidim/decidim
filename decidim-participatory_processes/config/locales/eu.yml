@@ -106,6 +106,7 @@ eu:
       menu:
         participatory_process_groups: Prozesu-taldeak
         participatory_process_groups_submenu:
+          info: Partaidetza-talde horri buruz
           landing_page: Lurreratze-orrien antolaketa
         participatory_processes: Prozesuak
         participatory_processes_submenu:
@@ -216,6 +217,7 @@ eu:
           error: Arazo bat egon da partaidetza-prozesu honen faseak berrantolatzean.
         update:
           error: Arazo bat egon da partaidetza-prozesu honan fase hau eguneratzean.
+          success: Partaidetza-prozesuaren fasea behar bezala eguneratu da.
       participatory_process_user_roles:
         create:
           error: Arazo bat egon da partaidetza-prozesu honetarako parte-hartzailea gehitzean.
@@ -486,6 +488,9 @@ eu:
             all: Guztiak
             max_results: Erakusteko elementu gehienen kopurua
             selection_criteria: Hautaketa irizpideak
+        imports:
+          attachment_error: Ezin izan da "%{title}" eranskina inportatu (%{error}).
+          hero_image_error: Ezin izan da heroiaren irudia inportatu (%{error}).
         new_import:
           accepted_types:
             json: JSON
