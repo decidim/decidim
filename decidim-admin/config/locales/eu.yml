@@ -189,6 +189,7 @@ eu:
           Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.na
         export: Esportatu
         export_all: Esportatu dena
+        export_selection: Hautapena esportatu
         import: Inportatu
         member:
           new: Beste kide bat
@@ -1082,6 +1083,7 @@ eu:
           title: Beste gai bat
         update:
           error: Arazo bat egon da gai hau eguneratzean.
+          success: Gaia ongi eguneratu da.
       static_pages:
         actions:
           view: Bistaratu
