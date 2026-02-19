@@ -552,6 +552,7 @@ eu:
           recent: Berrienetatik zaharrenetara
           recently_published: Oraintsu argitaratutakoa
         pending_initiatives:
+          description: Ekimen horiek oraindik ez dira publikoak. Berrikus itzazue, mesedez, eta balioztatze teknikorako aurkez itzazue, argitara eman daitezen.
           title: Proiektuak eta egiteke dauden ekimenak
         print:
           address: Helbidea
