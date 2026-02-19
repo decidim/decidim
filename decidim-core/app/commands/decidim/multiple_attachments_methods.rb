@@ -65,6 +65,8 @@ module Decidim
           doc.id
         when Integer
           doc
+        when String
+          doc.match?(/\A\d+\z/) ? doc.to_i : nil
         when Hash
           (doc[:id] || doc["id"]).to_i
         end
