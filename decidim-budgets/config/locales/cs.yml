@@ -151,6 +151,8 @@ cs:
             default_budget: Výchozí rozpočet
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             origin_component_id: Původ komponenty
+            proposal_states: Stavy návrhu
+            proposal_states_help: Vyberte jeden nebo více stavů návrhů k importu do projektů. Výběrem ničeho importujete všechny publikované návrhy, které již nebyly importovány do jiných rozpočtů z této složky.
             select_component: Vyberte součást
             title: Importovat návrhy do projektů
         reminders:
