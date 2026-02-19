@@ -1,1 +1,28 @@
+---
 pt-BR:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: Conteúdo do painel
+          demo_description: Em todo o aplicativo, os menus retráteis são usados, principalmente, para mostrar/ocultar conteúdo em abas ou expandir/recolher textos visíveis.
+        tab_panels:
+          title:
+        tooltips:
+          description: Uma dica de ferramenta é um componente sobre o qual os usuários podem passar o mouse para ter informações adicionais sobre ele.
+      foundations:
+        accessibility:
+          learn_more_about_html: Saiba mais sobre %{link}
+        iconography:
+          title: Iconografia
+        layout:
+          breakpoint: Breakpoint
+          breakpoints: Breakpoints
+          centered: Centralizado
+          code: Código
+          columns: Sendo o número de colunas 10, 8 ou 6.
+          description_layout_p1:
+      helpers:
+        address_description: A célula de endereço recebe um recurso e busca os atributos geolocalizáveis para renderizar uma marcação específica.
+        conferences: Conferências
+        context: Contexto
