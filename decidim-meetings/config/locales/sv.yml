@@ -170,7 +170,7 @@ sv:
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             creation_enabled_for_participants: Deltagarna kan skapa möten
             default_registration_terms: Villkor för standardanmälan
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             enable_pads_creation: Aktivera gemensamma anteckningar
             maps_enabled: Aktivera visning på karta
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
@@ -763,6 +763,8 @@ sv:
           id: Id för kommentaren
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet för kommentaren
+        meetings:
+          iframe_embed_type: Typ av iframe inbäddad i mötet
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidigare möten
