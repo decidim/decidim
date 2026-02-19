@@ -53,6 +53,7 @@ eu:
         file: Fitxategia
       proposals_import:
         import_proposals: Proposamenak inportatu
+        keep_answers: Egoera-orriak eta erantzunak mantendu
         keep_authors: Mantendu jatorrizko egileak
     errors:
       models:
@@ -691,6 +692,7 @@ eu:
             create: Inportatu proposamenak
             no_components: Espazio honetan ez dago beste proposamenik proposamenak inportatzeko.
             select_component: Mesedez, hautatu osagaia
+            select_states: Inportatu proposamenak egoera horiekin soilik. Egoerarik hautatzen ez bada, proposamen guztiak inportatuko dira.
             title: Inportatu proposamenak beste osagai batetik
         proposals_merges:
           create:
