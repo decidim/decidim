@@ -803,13 +803,14 @@ module Decidim
       content_tag(:div) do
         content_tag(:select, id: tabs_id, class: "language-change", data: { controller: "language-change" }) do
           locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-            title = if error?(name_with_locale(name, locale))
+            is_error = error?(name_with_locale(name, locale))
+            title = if is_error
                       I18n.with_locale(locale) { I18n.t("name_with_error", scope: "locale") }
                     else
                       I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
                     end
             tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
-            string + content_tag(:option, title, value: "##{tab_content_id}")
+            string + content_tag(:option, title, value: "##{tab_content_id}", selected: is_error)
           end
         end
       end

@@ -93,6 +93,23 @@ describe "Admin manages organization" do
         load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/organization_form.rb"
       end
 
+      it "displays the form for official language" do
+        visit decidim_admin.edit_organization_path(locale: :ca)
+
+        expect(page).to have_css("#organization_name_ca", visible: :visible)
+        expect(page).to have_field("organization_name_ca", with: organization_names[:ca])
+
+        select "English", from: "organization-name-tabs"
+        fill_in :organization_name_en, with: ""
+
+        click_on "Actualitzar"
+        expect(page).to have_content("S'ha produït un error en actualitzar aquesta organització.")
+
+        expect(page).to have_css("#organization_name_en", visible: :visible)
+        expect(page).to have_field("organization_name_en", with: "")
+        expect(page).to have_content("no pot estar en blanc")
+      end
+
       it "renders a dropdown for the language selector and switches between languages" do
         visit decidim_admin.edit_organization_path
 
