@@ -10,4 +10,6 @@ HTTPOK
 iat
 jti
 JWA
+subcomment
+subcomments
 tlh

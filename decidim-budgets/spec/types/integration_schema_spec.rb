@@ -426,7 +426,7 @@ describe "Decidim::Api::QueryType" do
           let!(:current_user) { nil }
 
           it "is visible" do
-            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.merge("projects" => [nil, nil]))
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.except("projects"))
           end
         end
 
