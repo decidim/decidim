@@ -21,26 +21,46 @@ pt-BR:
         one: Debate
         other: Debates
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Debates
+      tooltips:
+        deleted_debates_info: Não é possível excluir este debate
     components:
       debates:
         actions:
           comment: Comentário
+          create: Criar um debate
+          like: Curtir
+          vote_comment: Votar comentário
         name: Debates
         settings:
           global:
             announcement: Anúncio
+            attachments_allowed: Permitir anexos
+            clear_all: Limpar tudo
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
+            taxonomy_filters: Selecione filtros para o componente
+            taxonomy_filters_add: Adicionar filtro
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled: Os participantes podem criar debates
+            likes_blocked: Curtidas bloqueadas
+            likes_enabled: Curtidas ativadas
     debates:
       actions:
         close: Fechar
+        confirm_delete_debate: Tem certeza que deseja excluir este debate?
+        deleted_debate_info: Debates excluídos podem ser restaurados da lixeira.
         edit: Editar
         new: Novo debate
         title: Ações
+        view_deleted_debates: Ver debates excluídos
       admin:
         debate_closes:
           edit:
@@ -54,22 +74,42 @@ pt-BR:
             title: Editar debate
             update: Atualização do debate
           form:
+            add_attachments: Adicionar anexos
+            attachment_legend: Adicionar um documento ou uma imagem
+            comments_visualization: Visualização de comentários
+            comments_warning: Uma vez que o primeiro comentário é publicado, a opção de exibição selecionada não pode ser alterada.
             debate_type: Tipo de debate
+            edit_attachments: Editar anexos
+            errors:
+              comments_layout_locked: Você não pode alterar o layout dos comentários, uma vez que os comentários foram postados.
             finite: Finito (com hora de início e fim)
             open: Abra (Sem horas de início ou fim)
+            single_column: 'Coluna única: Os comentários são exibidos em ordem cronológica e podem ter respostas.'
+            two_columns: 'Duas colunas: Comentários são exibidos sob "A favor" e "Contra" colunas e não podem ter respostas.'
           index:
             title: Debates
+          manage_trash:
+            title: Debates excluídos
           new:
             create: Criar debate
             title: Novo debate
           update:
             invalid: Ocorreu um problema ao atualizar esse debate.
             success: Debate atualizado com sucesso.
+        exports:
+          debate_comments: Comentários
+          debates: Debates
       admin_log:
         debate:
           close: "%{user_name} fechou o debate %{resource_name} no espaço %{space_name}"
           create: "%{user_name} criou o debate %{resource_name} no espaço %{space_name}"
+          restore: "%{user_name} restaurou o debate %{resource_name} no espaço %{space_name}"
+          soft_delete: "%{user_name} moveu o debate %{resource_name} no espaço %{space_name} para a lixeira"
           update: "%{user_name} atualizou o debate %{resource_name} no espaço %{space_name}"
+      content_blocks:
+        highlighted_debates:
+          name: Debates
+          see_all: Ver todos os debates
       debate_m:
         commented_time_ago: Comentou há %{time} atrás
       debates:
@@ -108,11 +148,13 @@ pt-BR:
           state: Status
           state_values:
             closed: Fechado
+            ongoing: Em andamento
         index:
           new_debate: Novo debate
         new:
           back: Voltar
           create: Criar
+          title: Criar novo debate
         orders:
           commented: Mais comentado
           label: Ordenar debates por
@@ -120,8 +162,14 @@ pt-BR:
           recent: Mais recente
           updated: Atualizado recentemente
         show:
+          close_debate: Fechar
+          closed: Fechado
           debate_conclusions_are: 'O debate foi encerrado em %{date} com estas conclusões:'
           edit_conclusions: Editar conclusões
+          edit_debate: Editar
+          not_started: Não Iniciado
+          ongoing: Em andamento
+          open_ended: Aberto
           participants_count: Participantes
         update:
           invalid: Ocorreu um problema ao atualizar esse debate.
@@ -137,7 +185,12 @@ pt-BR:
             official_debate: Debate oficial
             start: Iniciar
             start_time: Data de início
+            taxonomies: Taxonomias
             title: Título
+    download_your_data:
+      show:
+        debate_comments: Exportação de comentários do debate
+        debates: Exportar debates
     events:
       debates:
         create_debate_event:
@@ -188,5 +241,42 @@ pt-BR:
           next_level_in: Participe em mais %{score} debates para alcançar o próximo nível!
           unearned_another: Este usuário ainda não participou de nenhum debate.
           unearned_own: Você ainda não participou de nenhum debate ainda.
+    open_data:
+      help:
+        debate_comments:
+          alignment: Se este comentário foi favorável, contra ou neutro
+          author: O nome do usuário que fez este comentário
+          body: O comentário em si
+          commentable_id: A identificação única do comentável
+          commentable_type: O tipo do comentável (se foi um resultado, uma proposta, etc.)
+          created_at: A data em que este comentário foi criado
+          depth: O lugar onde este comentário está nos três comentários (se for uma resposta ou uma resposta de uma resposta)
+          id: O ID para este comentário
+          root_commentable_url: A URL do recurso ligado a este comentário
+        debates:
+          author: Os dados do autor deste comentário
+          closed_at: A data em que este debate foi encerrado
+          comments: O número de comentários que este debate teve
+          comments_enabled: Se este debate tem comentários ativados ou não
+          component: A componente a que pertence o debate
+          conclusions: As conclusões do debate se este estiver fechado
+          created_at: A data e hora em que o debate foi criado
+          description: A descrição do debate
+          end_time: Quando este debate termina, se é um debate aberto e tem um tempo limitado
+          follows_count: O número de seguidores deste debate
+          id: O identificador único do debate
+          information_updates: As atualizações que o autor fez no debate
+          instructions: Quais são as instruções para comentar neste debate
+          last_comment_at: A data em que este debate foi comentado pela última vez
+          last_comment_by: Os dados do último comentário feito no debate
+          likes_count: O número de curtidas do debate
+          participatory_space: 'A qual espaço (ex: Processo Participativo ou Assembleia) este debate pertence'
+          reference: O identificador único do recurso nesta plataforma
+          start_time: Quando este debate começa, se é um debate aberto e tem um tempo limitado
+          taxonomies: As taxonomias do projeto
+          title: Título do debate
+          updated_at: A data da última atualização do debate
+          url: A URL onde este debate pode ser encontrado
     statistics:
       debates_count: Debates
+      debates_count_tooltip: O número de discussões realizadas.
