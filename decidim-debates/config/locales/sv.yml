@@ -6,7 +6,7 @@ sv:
         closed_at: Avslutades
         conclusions: Slutsatser
         description: Beskrivning
-        end_time: Slutar vid
+        end_time: Slutdatum
         information_updates: Uppdatering av uppgifter
         instructions: Instruktioner för att delta
         start_time: Startdatum
@@ -23,10 +23,15 @@ sv:
         one: Debatt
         other: Debatter
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Debatter
     components:
       debates:
         actions:
           comment: Kommentera
+          create: Skapa en debatt
           endorse: Gilla
         name: Debatter
         settings:
@@ -267,5 +272,16 @@ sv:
           endorsements_count: Antal gilla-markeringar för debatten
           follows_count: Antalet följare denna debatt har
           id: Unikt id för debatten
+          information_updates: De uppdateringar som författaren har gjort i debatten
+          instructions: Instruktioner för att kommentera i debatten
+          last_comment_at: Datum för senaste kommentaren i debatten
+          last_comment_by: Uppgifter om den senaste kommentaren i debatten
+          participatory_space: Utrymmet (deltagandeprocess eller samråd) debatten tillhör
+          reference: Unikt id för innehållet på plattformen
+          start_time: När debatten börjar, om det är en öppen debatt och om den har en begränsad tid
+          taxonomies: Kategorier för projektet
+          title: Debattens titel
+          updated_at: Datum för när debatten senast uppdaterades
+          url: URL för debatten
     statistics:
       debates_count: Debatter
