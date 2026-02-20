@@ -12,12 +12,13 @@ module ERBLint
       include LinterRegistry
 
       TITLE_SNIPPET = '<% add_decidim_page_title(t(".title")) %>'
+      TITLE_SNIPPET_REGEX = /<%\s*add_decidim_page_title\(t\(\".title\".*?\)\)\s*%>/
 
       def run(processed_source)
         return unless admin_view?(processed_source.filename)
 
         first_line = processed_source.file_content.to_s.lines.first
-        return if first_line&.start_with?(TITLE_SNIPPET)
+        return if first_line&.match?(TITLE_SNIPPET_REGEX)
 
         add_offense(
           processed_source.to_source_range(0...0),
@@ -30,6 +31,8 @@ module ERBLint
       def admin_view?(filename)
         return false unless filename.include?("/app/views/")
         return false unless filename.include?("/admin/")
+        return false if filename.include?("/layouts/")
+        return false if filename.include?("/mailer/")
         return false unless filename.end_with?(".html.erb")
 
         File.basename(filename).start_with?("_") == false

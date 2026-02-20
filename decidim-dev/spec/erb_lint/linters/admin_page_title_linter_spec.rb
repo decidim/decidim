@@ -84,4 +84,31 @@ RSpec.describe ERBLint::Linters::AdminPageTitleLinter do
 
     expect(offenses).to be_empty
   end
+
+  it "ignores layouts" do
+    offenses = run_for(
+      "decidim-admin/app/views/decidim/admin/layouts/decidim/admin/application.html.erb",
+      "<div>Layout</div>\n"
+    )
+
+    expect(offenses).to be_empty
+  end
+
+  it "ignores mailer views" do
+    offenses = run_for(
+      "decidim-admin/app/views/decidim/admin_mailer/welcome.html.erb",
+      "<div>Mailer</div>\n"
+    )
+
+    expect(offenses).to be_empty
+  end
+
+  it "does not add an offense when title line has string interpolation" do
+    offenses = run_for(
+      "decidim-admin/app/views/decidim/admin/users/index.html.erb",
+      "<% add_decidim_page_title(t(\".title\", name: user.name)) %>\n<div>OK</div>\n"
+    )
+
+    expect(offenses).to be_empty
+  end
 end
