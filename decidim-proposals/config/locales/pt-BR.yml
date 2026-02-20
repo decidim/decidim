@@ -369,6 +369,12 @@ pt-BR:
             email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
             email_subject: Uma proposta que você está seguindo mudou seu estado (%{state})
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> mudou seu estado para "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'A proposta "%{resource_title}" mudou seu estado para "%{state}". Você pode ler a resposta nesta página:'
+            email_outro: Você recebeu esta notificação porque é um autor de "%{resource_title}".
+            email_subject: Sua proposta mudou seu estado (%{state})
+            notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> mudou seu estado para "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Um administrador atualizou as taxonomias de sua proposta "%{resource_title}", confira nesta página:'
           email_outro: Você recebeu esta notificação porque você é o autor da proposta.
