@@ -14,8 +14,8 @@ module Decidim
         attribute :keep_authors, Boolean
         attribute :states, Array[String]
 
-        validates :origin_component_id, :origin_component, :states, :current_component, presence: true
-        validate :valid_states
+        validates :origin_component_id, :origin_component, :current_component, presence: true
+        validates :states, presence: true
 
         def states_collection
           @states_collection ||= ProposalState.where(component: current_component) + [ProposalState.new(token: "not_answered",
@@ -51,16 +51,6 @@ module Decidim
           end
 
           states + [OpenStruct.new(token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered"))]
-        end
-
-        private
-
-        def valid_states
-          return if states.all? do |state|
-            available_states(origin_component_id).pluck(:token).include?(state)
-          end
-
-          errors.add(:states, :invalid)
         end
       end
     end
