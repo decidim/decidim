@@ -103,6 +103,15 @@ RSpec.describe ERBLint::Linters::AdminPageTitleLinter do
     expect(offenses).to be_empty
   end
 
+  it "ignores mailer views in admin directories ending with _mailer" do
+    offenses = run_for(
+      "decidim-conferences/app/views/decidim/conferences/admin/invite_join_conference_mailer/invite.html.erb",
+      "<div>Mailer</div>\n"
+    )
+
+    expect(offenses).to be_empty
+  end
+
   it "does not add an offense when title line has string interpolation" do
     offenses = run_for(
       "decidim-admin/app/views/decidim/admin/users/index.html.erb",

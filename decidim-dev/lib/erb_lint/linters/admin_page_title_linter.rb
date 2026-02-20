@@ -32,10 +32,14 @@ module ERBLint
         return false unless filename.include?("/app/views/")
         return false unless filename.include?("/admin/")
         return false if filename.include?("/layouts/")
-        return false if filename.include?("/mailer/")
+        return false if mailer_view?(filename)
         return false unless filename.end_with?(".html.erb")
 
         File.basename(filename).start_with?("_") == false
+      end
+
+      def mailer_view?(filename)
+        filename.include?("/mailer/") || filename =~ %r{/\w+_mailer/}
       end
     end
   end
