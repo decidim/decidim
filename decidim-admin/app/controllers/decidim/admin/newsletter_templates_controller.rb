@@ -18,6 +18,8 @@ module Decidim
         email = NewsletterMailer.newsletter(current_user, fake_newsletter, true)
         Premailer::Rails::Hook.perform(email)
         render html: email.html_part.body.decoded.html_safe
+      rescue ActiveSupport::MessageEncryptor::InvalidMessage
+        render :preview_error, layout: false
       end
 
       private

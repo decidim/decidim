@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>" dir="<%= rtl_direction %>">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= t(".error_title") %></title>
+    <%= stylesheet_pack_tag "decidim_core", "decidim_admin", media: "all" %>
+    <%= javascript_pack_tag "decidim_core", "decidim_admin", defer: false %>
+  </head>
+  <body class="p-8">
+    <%= cell("decidim/announcement", { title: t(".error_title"), body: t(".error") }, callout_class: "alert") %>
+  </body>
+</html>

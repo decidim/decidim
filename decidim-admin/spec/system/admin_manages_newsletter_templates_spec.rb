@@ -66,5 +66,32 @@ describe "Admin manages newsletter templates" do
 
     it_behaves_like "working newsletter template iframe", :basic_only_text
     it_behaves_like "working newsletter template iframe", :image_text_cta
+
+    context "when there is an encryption error with SMTP settings" do
+      let(:organization) do
+        create(
+          :organization,
+          name: { en: "Test organization" },
+          smtp_settings: {
+            "from" => "test@example.org",
+            "user_name" => "test",
+            "encrypted_password" => Decidim::AttributeEncryptor.encrypt("password")
+          }
+        )
+      end
+
+      it "shows an error message when decryption fails" do
+        # Simulate an encryption error by stubbing the decrypt method
+        allow(Decidim::AttributeEncryptor).to receive(:decrypt).and_raise(
+          ActiveSupport::MessageEncryptor::InvalidMessage
+        )
+
+        visit decidim_admin.preview_newsletter_template_path(:basic_only_text)
+
+        expect(page).to have_content("newsletter preview could not be generated")
+        expect(page).to have_content("encryption error")
+        expect(page).to have_content("SECRET_KEY_BASE")
+      end
+    end
   end
 end

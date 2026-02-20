@@ -808,6 +808,9 @@ en:
         show:
           preview: 'Preview template: %{template_name}'
           use_template: Use this template
+        preview_error:
+          error_title: Preview Error
+          error: 'The newsletter preview could not be generated due to an encryption error. This usually happens when the SECRET_KEY_BASE environment variable has changed after the SMTP settings were saved. To fix this issue, please go to the System panel, navigate to the organization settings, and re-save the SMTP configuration. This will re-encrypt the credentials with the current secret key.'
       newsletters:
         confirm_recipients:
           email: Email
