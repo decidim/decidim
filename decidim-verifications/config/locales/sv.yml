@@ -2,6 +2,8 @@
 sv:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Bilaga för verifiering
       config:
         available_methods: Tillgängliga alternativ
         offline: Offline
@@ -75,6 +77,12 @@ sv:
           - En exempel-auktoriseringshanterare så att utvecklare kan förstå hur en enkel verifiering fungerar.
           - Den riktar sig till utvecklare så att de kan förstå hur man implementerar sitt eget verifieringssystem.
           - Bli verifierad genom att ange ett dokumentnummer som slutar på ”X”.
+        ephemeral_dummy_authorization_handler:
+          help:
+          - En exempel-auktoriseringshanterare så att utvecklare kan förstå hur en enkel verifiering fungerar.
+          - Det riktar sig till utvecklare så att de kan förstå hur man implementerar sitt eget verifieringssystem.
+          - Det är en kopia av exempel-auktorisering.
+          - Bli verifierad genom att ange ett dokumentnummer som slutar på ”X”.
         id_documents:
           help:
           - Användare fyller i sin identitetsinformation och skickar in en kopia av sin ID-handling.
@@ -136,8 +144,14 @@ sv:
         new:
           authorize: Skicka
           authorize_with: Verifiera med %{authorizer}
+          tos_agreement: Genom att verifiera din identitet godkänner du %{link}.
         onboarding_pending:
           completed_verifications: Du har blivit auktoriserad, nu kan du %{action} i %{resource_name}
+          granted_verifications: Beviljade verifieringar
+          onboarding_message_html: Du är nästan redo att %{action} på <strong>%{resource_title}</strong> %{resource_name}. Vänligen verifiera ditt konto genom att fylla i följande auktorisationer.
+          pending_admin_approval_verifications: Väntar på godkännande från administratör
+          pending_verifications: Pågående verifieringar
+          unauthorized: Du har inte behörighet att %{action}
         renew_modal:
           cancel: Avbryt
           continue: Fortsätt
@@ -149,12 +163,12 @@ sv:
         admin:
           census:
             create:
-              error: Det gick inte att importera folkbokföringen.
+              error: Det gick inte att importera medlemslistan.
               success: Importerade %{count} objekt (%{errors} fel).
             destroy_all:
-              success: All folkbokföringsdata har tagits bort.
+              success: All data från medlemslistan har tagits bort.
           destroy:
-            confirm: Radering av folkbokföringsdata kan inte ångras. Är du säker på att du vill fortsätta?
+            confirm: Radering av medlemslistan kan inte ångras. Är du säker på att du vill fortsätta?
             title: Radera alla medlemsuppgifter
           index:
             data: Det finns totalt %{count} inlästa poster. Datum för senaste uppdatering var %{due_date}.
@@ -168,9 +182,9 @@ sv:
               john.doe@example.org
               jane.doe@example.org
             file: ".csv-fil med e-postadresser"
-            info: 'Filen måste i formatet CSV med endast en kolumn med e-postadress:'
+            info: 'Filen måste vara i formatet CSV med endast en kolumn med e-postadress:'
             submit: Ladda upp fil
-            title: Ladda upp en ny folkräkning
+            title: Ladda upp en ny medlemslista
         authorizations:
           new:
             error: Vi kunde inte verifiera ditt konto, eller så finns du inte i organisationens medlemsuppgifter.
