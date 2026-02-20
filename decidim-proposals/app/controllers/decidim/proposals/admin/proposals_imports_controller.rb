@@ -27,6 +27,20 @@ module Decidim
             end
           end
         end
+
+        def component_states
+          component = current_participatory_space.components.find_by(id: params[:component_id])
+
+          if component
+            states = Decidim::Proposals::ProposalState
+                     .where(component:)
+                     .map { |s| { token: s.token, title: translated_attribute(s.title) } }
+
+            render json: states
+          else
+            render json: []
+          end
+        end
       end
     end
   end
