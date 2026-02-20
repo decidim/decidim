@@ -345,6 +345,7 @@ pt-BR:
           id: O ID para este comentário
           locale: A localidade (linguagem) que o usuário teve ao deixar este comentário
           root_commentable_url: A URL do recurso ligado a este comentário
+          user_group: O nome do grupo de usuários que fez este comentário (se houver)
         results:
           address: O endereço do resultado (se houver)
           children_count: O número de resultados filhos
