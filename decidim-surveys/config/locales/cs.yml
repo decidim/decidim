@@ -93,6 +93,7 @@ cs:
         responses:
           index:
             no_responses: Zatím nejsou žádné odpovědi
+            title: "%{total} odpovědí celkem"
           show:
             title: 'Odpověď č.%{number}'
         settings:
