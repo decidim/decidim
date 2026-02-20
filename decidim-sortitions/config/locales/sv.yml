@@ -45,7 +45,8 @@ sv:
           edit: Redigera
           new_sortition: Ny tilldelning
           show: Detaljer om tilldelningen
-          title: Handlingar
+          title: Åtgärder
+        deprecation_warning_html: "⚠️ <b>Utgår snart.</b> Lottningsfunktionen kommer att tas bort i Decidim v0.32. Planera för det och överväga alternativa lösningar för val av deltagare eller förslag."
         models:
           sortition:
             fields:
@@ -144,4 +145,4 @@ sv:
             other: "%{count} tilldelningar"
     statistics:
       sortitions_count: Lottningar
-      sortitions_count_tooltip: Antalet slumpmässiga val som görs för beslutsfattandet.
+      sortitions_count_tooltip: Antalet slumpmässiga val som görs för beslut.
