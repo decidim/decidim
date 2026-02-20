@@ -63,6 +63,8 @@ cs:
         title: Akce
       admin:
         answers:
+          index:
+            title: "%{total} odpovědí celkem"
           show:
             title: 'Odpověď č.%{number}'
         exports:
