@@ -5,15 +5,80 @@ pt-BR:
       components:
         accordions:
           content_panel: Conteúdo do painel
-          demo_description: Em todo o aplicativo, os menus retráteis são usados, principalmente, para mostrar/ocultar conteúdo em abas ou expandir/recolher textos visíveis.
+          demo: Demonstração
+          demo_description: Em todo o aplicativo, os accordions ou  menus retráteis são usados, principalmente, para mostrar/ocultar conteúdo em abas ou expandir/recolher textos visíveis.
+          description_accordions_html: Os menus retráteis são um recurso de javascript disponível graças a uma biblioteca externa chamada %{link_code} a11y-accordion-componente.
+          github_source_html: Código-fonte no GitHub %{github_link}
+          panel: Painel
+          title: Accordions
+          trigger: Gatilho
+          usage: Utilização
+          usage_p: Um accordion requer pelo menos três elementos
+          usage_p_1_html: 1. Um wrapper <code>div</code>, com o atributo de dados <code>data-controller="accordion"</code>, sobre todos os gatilhos e painéis disponíveis.
+          usage_p_2_html: 2. Um elemento gatilho, acionável pelo usuário (como um botão), apontando para o elemento recolhido através do <code>data-controls="painel"</code>, onde o painel <i></i> é a Ajuda <code></code> do painel.
+          usage_p_3_html: 3. Um elemento oculto, cujo <code>id</code> corresponde ao valor de controle de dados a que o gatilho se refere.
+        activities:
+          activities: Atividades
+        address:
+          title: Endereço
+        announcement:
+          iam_an_announcement: Sou um anúncio
+          this_is_the_body: Este é o corpo
+          this_is_the_title: Este é o título
+          title: Comunicado
+        author:
+          title: Autor(a)
+        buttons:
+          description_html: 'Botões são construídos usando diferentes combinações de classes CSS: a classe <code>botão</code> , um tamanho e uma cor.'
+          title: Botões
+        cards:
+          title: Cartões
+        dialogs:
+          dialog_demo_description_html: As caixas de diálogo ou componentes modais, são implementadas através dos trilhos auxiliares <code>decidim_modal</code>.
+          dialogs_description_html: Os diálogos são um recurso javascript disponível graças a uma biblioteca externa chamada <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'Para exibir uma janela complexa, combinando com os estilos, faça a seguinte marcação:'
+        follow:
+          title: Siga
+        forms:
+          disabled: Desabilitado
+          emojis: Emojis
+          errors: Erros
+          errors_description: Não se aplica para seleção
+          header_alert: Esta página vem de uma visualização antiga. O conteúdo está desatualizado.
+          help_texts: Texto da Ajuda
+          html_regular_inputs: Entradas HTML regulares
+          min_max_length: Tamanho mín/máx
+          multiselect: Multiseleção
+          textarea_required: textarea necessária
+          title: Formulários
+        report:
+          title: Relatório
+        share:
+          title: Compartilhar
         tab_panels:
           title:
         tooltips:
+          demo: Demonstração
+          demo_description: Para que este componente funcione um participante precisa passar o mouse sobre o elemento.
           description: Uma dica de ferramenta é um componente sobre o qual os usuários podem passar o mouse para ter informações adicionais sobre ele.
+          github_source_html: Código-fonte no GitHub %{github_link}
+          usage: Uso
+          usage_p_3_html: 3. Um bloco com a string que o usuário precisa passar o mouse para ser exibido.
       foundations:
         accessibility:
+          accessibility_labels: Etiquetas de acessibilidade
+          accessibility_title: Acessibilidade
+          color_contrast: Contraste de cor
+          decidim_follows_html: Decidim segue o %{link}
+          dynamic_changes_header: Funcionalidade dinâmica muda o contexto da página de forma não intuitiva
+          dynamic_changes_paragraph: Alterações nas entradas do formulário não devem alterar o contexto da página automaticamente.
+          elements_hidden: Elementos ocultos
+          elements_hidden_header: Elementos ocultos da API de acessibilidade
           learn_more_about_html: Saiba mais sobre %{link}
+        color:
+          color_header: Cor
         iconography:
+          description_iconography: Usamos ícones para reforçar o significado das ações, títulos, etc
           title: Iconografia
         layout:
           breakpoint: Breakpoint
@@ -22,7 +87,59 @@ pt-BR:
           code: Código
           columns: Sendo o número de colunas 10, 8 ou 6.
           description_layout_p1:
+          not_required: Não obrigatório
+          properties: propriedades
+          right_aside: Lado Direito
+          section_p_code_html: Você pode encontrar os layouts básicos no %{link_section_code}
+          tablet: Tablet
+          title: Layout
+        typography:
+          headings:
+            characters: Caracteres por linha
+            size: Tamanho
+          title: Tipografia
+          typefaces_description_2: Essas fontes são licenciadas sob a Licença de Fonte Aberta
       helpers:
+        activity: Atividade
         address_description: A célula de endereço recebe um recurso e busca os atributos geolocalizáveis para renderizar uma marcação específica.
+        argument: Argumento
+        avatar: Avatar
+        background: Fundo e bordas
+        blog_cards_html: Usado por <i>Blogs</i> cartões
+        blogs: Blogs
+        colors: Cores
         conferences: Conferências
         context: Contexto
+        debates_cards_text: Use um modelo diferente para o bloco de imagem
+        default: Padrão
+        default_description: Chamando a célula sem nenhum argumento extra, mas o próprio usuário.
+        demo: Demonstração
+        demo_text: 'Esta célula recebe um modelo de itens da LastActivity e exibe os seguintes elementos:'
+        description: Descrição
+        disabled: Desabilitado
+        follow_button: Botão Seguir
+        form_elements: Elementos de formulário
+        highlight: Destaque
+        highlight_description: Usado por recursos que permitem destacar
+        html_tips: Dicas HTML
+        icons: Ícones
+        image_and_description: Imagem e descrição
+        list: Lista
+        main_colors: Cores principais
+        metadata_items: Metadados de itens
+        participatory_processes: Processos participativos
+        plain_text: Eu sou apenas texto simples
+        plain_text_description: Você pode fornecer como primeiro argumento tanto um texto simples quanto um hash
+        plain_text_vs_hash:
+        post_g:
+        text: Texto
+        transparent: Transparente
+        transparent_description: 'No caso de um fundo mais escuro:'
+        typography_texts: Tipografia e textos
+        usage: Uso
+        usage_background_1: Fundo lateral
+        usage_background_3: Cor de ícone padrão
+        usage_background_4: Linhas e separadores
+        usage_background_5: Fundo do rodapé
+        usage_background_6: Fundo do layout admin
+        usage_base_2: Cor principal para links e botões
