@@ -37,7 +37,7 @@ module Decidim
         validate :slug_uniqueness
 
         validate :document_type_must_be_valid, if: :document
-        validate :document_must_have_content, if: :document
+        validate :document_must_have_content, if: -> { document.present? && errors[:document].none? }
 
         def document_text
           @document_text ||= document&.download
