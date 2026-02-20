@@ -48,6 +48,7 @@ cs:
           new_sortition: Nové losování
           show: Detaily losování
           title: Akce
+        deprecation_warning_html: "⚠️ <b>Oznámení o opuštění.</b> Modul Sortitions bude odstraněn v Decidim v0.32. V souladu s tím plánujte a zvažte alternativní řešení pro účastníka nebo výběr návrhu."
         models:
           sortition:
             fields:
