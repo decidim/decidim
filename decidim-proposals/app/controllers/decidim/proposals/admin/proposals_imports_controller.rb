@@ -29,7 +29,7 @@ module Decidim
         end
 
         def component_states
-          component = current_participatory_space.components.find_by(id: params[:component_id])
+          component = current_participatory_space.components.find_by(id: params[:origin_id])
 
           if component
             states = Decidim::Proposals::ProposalState
