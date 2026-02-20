@@ -25,36 +25,33 @@ document.addEventListener("turbo:load", () => {
     fetch(url, {
       credentials: "same-origin",
       headers: { Accept: "application/json" }
-    })
-      .then((res) => {
-        console.log("[ImportProposals] response status:", res.status, res.url);
-        return res.json();
-      })
-      .then((states) => {
-        console.log("[ImportProposals] states received:", states);
+    }).then((res) => {
+      console.log("[ImportProposals] response status:", res.status, res.url);
+      return res.json();
+    }).then((states) => {
+      console.log("[ImportProposals] states received:", states);
 
-        if (!states.length) {
-          container.innerHTML = "";
-          container.style.display = "none";
-          return;
-        }
-
-        const checkboxes = states.map((state) => `
-          <div>
-            <label>
-              <input type="checkbox" name="proposals_import[states][]" value="${state.token}">
-              ${state.title}
-            </label>
-          </div>
-        `).join("");
-
-        container.innerHTML = `<div class="row column">${checkboxes}</div>`;
-        container.style.display = "block";
-      })
-      .catch((err) => {
-        console.error("[ImportProposals] fetch error:", err);
+      if (!states.length) {
         container.innerHTML = "";
         container.style.display = "none";
-      });
+        return;
+      }
+
+      const checkboxes = states.map((state) => `
+        <div>
+          <label>
+            <input type="checkbox" name="proposals_import[states][]" value="${state.token}">
+            ${state.title}
+          </label>
+        </div>
+      `).join("");
+
+      container.innerHTML = `<div class="row column">${checkboxes}</div>`;
+      container.style.display = "block";
+    }).catch((err) => {
+      console.error("[ImportProposals] fetch error:", err);
+      container.innerHTML = "";
+      container.style.display = "none";
+    });
   });
 });
