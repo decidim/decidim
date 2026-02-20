@@ -1,8 +1,9 @@
-<% add_decidim_page_title(t("decidim.admin.titles.users")) %>
+<% add_decidim_page_title(t(".title")) %>
+
 <div class="card">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
-      <%= t "decidim.admin.titles.users" %>
+      <%= t ".title" %>
       <% if allowed_to? :create, :admin_user %>
         <%= link_to t("actions.user.new", scope: "decidim.admin"), [:new, :user], class: "button button__sm button__secondary" %>
       <% end %>

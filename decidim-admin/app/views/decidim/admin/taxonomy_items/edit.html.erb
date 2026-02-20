@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t(".title", taxonomy: translated_attribute(taxonomy.name))) %>
+
 <div class="form__wrapper">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: taxonomy_item_path(taxonomy_id: taxonomy.id, id: taxonomy_item.id ), remote: true, html: { id: "taxonomy-item-form", class: "form-defaults form new_taxonomy_" }) do |f| %>

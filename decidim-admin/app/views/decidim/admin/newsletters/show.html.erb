@@ -1,7 +1,8 @@
-<% add_decidim_page_title(t(".preview")) %>
+<% add_decidim_page_title(t(".title")) %>
+
 <div class="item_show__header">
   <h1 class="item_show__header-title !w-1/2">
-    <%= t ".preview" %>
+    <%= t ".title" %>
   </h1>
   <div class="flex ml-auto items-center gap-x-4">
     <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) %>
