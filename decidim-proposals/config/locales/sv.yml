@@ -144,7 +144,7 @@ sv:
               state_not_published: Ej besvarade
               state_published: Besvarade
         search_placeholder:
-          id_string_or_title_cont: Sök %{collection} efter ID eller titel
+          id_string_or_title_cont: Sök i %{collection} efter ID eller titel
       tooltips:
         cannot_edit_proposal_info: Kan inte redigera detta förslag eftersom det är skapat av en deltagare eller redan har fått någon röst
         deleted_proposal_states_info: Kan inte ta bort detta tillstånd eftersom det finns förslag som är kopplade till det
@@ -187,7 +187,7 @@ sv:
               random: Slumpvis
               recent: Senaste
               with_more_authors: Med flera författare
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             edit_time: Förslag kan redigeras av författaren inom så här många minuter
             edit_time_units:
               days: Dagar
