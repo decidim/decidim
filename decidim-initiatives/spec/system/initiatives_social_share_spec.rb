@@ -6,12 +6,11 @@ require "decidim/core/test/shared_examples/social_share_examples"
 describe "Social shares" do
   let(:organization) { create(:organization) }
   let!(:initiative) { create(:initiative, description:, scoped_type: initiative_type_scope, organization:) }
-  let!(:initiative_type) { create(:initiatives_type, banner_image:, organization:) }
+  let!(:initiative_type) { create(:initiatives_type, organization:) }
   let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
   let!(:attachment) { create(:attachment, :with_image, attached_to: initiative, file: attachment_file) }
   let(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
   let(:description) { { en: "Description <p><img src=\"#{description_image_path}\"></p>" } }
-  let(:banner_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
   let!(:attachment_file) { Decidim::Dev.test_file("city3.jpeg", "image/jpeg") }
   let(:description_image_path) { Rails.application.routes.url_helpers.rails_blob_path(description_image, only_path: true) }
   let(:description_image) do

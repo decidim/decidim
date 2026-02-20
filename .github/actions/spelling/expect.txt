@@ -139,6 +139,7 @@ cobertura
 codecov
 codefor
 CODEOWNERS
+coderabbit
 codespace
 codeql
 coditramuntana
@@ -176,6 +177,7 @@ cuenta
 Cugat
 customise
 Customising
+CVEs
 cweek
 cyclomatic
 danline
@@ -422,6 +424,7 @@ isbn
 iseq
 isready
 Italiano
+itemabcd
 ivan
 Jaskolski
 Jaume
@@ -488,6 +491,7 @@ Llobregat
 lng
 Localret
 localvars
+lockfiles
 loggable
 lon
 LOPD

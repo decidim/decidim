@@ -184,14 +184,6 @@ module Decidim
       [:with_any_state, :with_any_type, :with_any_scope, :with_any_area]
     end
 
-    # Public: Overrides participatory space's banner image with the banner image defined
-    # for the initiative type.
-    #
-    # Returns Decidim::BannerImageUploader
-    def banner_image
-      type.attached_uploader(:banner_image)
-    end
-
     # Public: Whether the object's comments are visible or not.
     def commentable?
       type.comments_enabled?
@@ -439,6 +431,12 @@ module Decidim
     # implement this interface.
     def user_role_config_for(_user, _role_name)
       Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
+    end
+
+    # Public: Initiatives do not have user roles like other participatory spaces.
+    # Returns an empty relation.
+    def user_roles(_role_name = nil)
+      self.class.none
     end
 
     # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.

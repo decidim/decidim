@@ -36,16 +36,10 @@ describe "Index proposals" do
     context "when there are no withdrawn proposals" do
       let!(:proposals) { create_list(:proposal, 3, component:) }
 
-      before do
+      it "does not show the withdrawn link" do
         visit_component
-        click_on "See all withdrawn proposals"
-      end
 
-      it "shows an empty page with a message" do
-        expect(page).to have_content("There are no proposals with this criteria.")
-        within ".flash.warning" do
-          expect(page).to have_content("You are viewing the list of proposals withdrawn by their authors.")
-        end
+        expect(page).to have_no_link("See all withdrawn proposals")
       end
     end
 

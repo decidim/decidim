@@ -135,11 +135,15 @@ describe "Initiative signing with ephemeral workflows" do
           end
 
           it "an authorization is created" do
-            sleep 1
-            user = Decidim::User.ephemeral.last
+            # Ensure ephemeral user exists before we start counting authorizations
+            expect(Decidim::User.ephemeral.count).to be >= 1
+            user = Decidim::User.ephemeral.order(:created_at).last
+
             expect do
               click_on "Validate your data"
-            end.to change(Decidim::Authorization.where(user:, name: "dummy_authorization_handler"), :count).by(1)
+              # Wait for the page to update with success message
+              expect(page).to have_content("You have signed the initiative", wait: 10)
+            end.to change { Decidim::Authorization.where(user:, name: "dummy_authorization_handler").count }.by(1)
           end
         end
       end
