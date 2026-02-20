@@ -92,6 +92,10 @@ sv:
             manage_questions: Hantera frågor
             questionnaire: Enkät
             title: Redigera enkätmall
+          edit_questions:
+            add_question: Lägg till fråga
+            add_separator: Lägg till avgränsare
+            add_title_and_description: Lägg till titel och beskrivning
           form:
             title: Mall för enkät %{questionnaire_for}
           index:
