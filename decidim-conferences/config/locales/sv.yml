@@ -162,7 +162,7 @@ sv:
         exports:
           registrations: Registreringar
         form:
-          duration: Tid
+          duration: Längd
           images: Bilder
           metadata: Metadata
           registrations: Anmälningar
@@ -229,14 +229,14 @@ sv:
             title: Titel
         conference_speaker:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             affiliation: Anknytning
             full_name: Fullständigt namn
             position: Position
           name: Talare
         conference_user_role:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             email: E-post
             name: Namn
             role: Roll
@@ -248,14 +248,14 @@ sv:
             moderator: Moderator
         media_link:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             date: Datum
             link: Länk
             title: Titel
           name: Medialänk
         partner:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             link: Länk
             logo: Logotyp
             name: Namn
@@ -266,7 +266,7 @@ sv:
             main_promotor: Huvudarrangör
         registration_type:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             conference_meetings: Konferensmöten
             price: Pris
             registrations_count: Antal registreringar
@@ -528,7 +528,7 @@ sv:
             sent: Skickad
         conference_registration:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             email: E-post
             name: Namn
             registration_type: Registreringstyp
@@ -648,7 +648,7 @@ sv:
           url: Konferensens URL
     statistics:
       conferences_count: Konferenser
-      conferences_count_tooltip: Antalet publicerade konferenser.
+      conferences_count_tooltip: Antal publicerade konferenser.
   devise:
     mailer:
       join_conference:
