@@ -35,7 +35,7 @@ module Decidim
             states = Decidim::Proposals::ProposalState
                      .where(component:)
                      .map { |s| { token: s.token, title: translated_attribute(s.title) } }
-
+            states << { token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered") }
             render json: states
           else
             render json: []
