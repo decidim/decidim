@@ -59,8 +59,6 @@ module Decidim
     def document_cleanup!(include_all_attachments: false)
       documents = include_all_attachments ? documents_attached_to.attachments.with_attached_file : documents_attached_to.documents
 
-      keep_ids
-
       documents.each do |document|
         document.destroy! unless keep_ids.include?(document.id)
       end
