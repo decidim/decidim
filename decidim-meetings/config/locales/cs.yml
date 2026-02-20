@@ -745,6 +745,7 @@ cs:
         confirmation:
           confirmed_html: Vaše registrace pro schůzku <a href="%{url}">%{title}</a> byla potvrzena.
           details: Podrobnosti schůzky naleznete v příloze.
+          registration_code: Váš registrační kód je %{code}. Pro ověření vaší účasti prosím ukažte níže uvedený QR kód správci.
       registration_type:
         on_different_platform: Na jiné platformě
         on_this_platform: Na této platformě
@@ -852,6 +853,7 @@ cs:
     statistics:
       attendees_count: Účastníci schůzky
       meetings_count: Setkání
+      meetings_count_tooltip: Počet schůzek, které se konaly jak on-line, tak osobně.
       participatory_space_meetings_count: Schůzky
   devise:
     mailer:
