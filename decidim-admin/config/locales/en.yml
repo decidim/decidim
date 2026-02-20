@@ -898,7 +898,7 @@ en:
           select_recipients_to_deliver: Select recipients to deliver
           send_me_a_test_email: Send me a test email
           subject: Subject
-          title: Newsletter preview
+          title: Preview
         update:
           error: There was a problem updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
