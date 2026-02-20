@@ -1,7 +1,5 @@
 ---
 glob: "decidim-*/app/{cells,views}/**/*.erb"
-require:
-  - "decidim-dev/lib/erb_lint/linters/admin_page_title_linter.rb"
 exclude:
   - '**/vendor/**/*'
   - '**/node_modules/**/*'
