@@ -4,7 +4,7 @@ require "decidim/core/engine"
 require "decidim/core/api"
 require "decidim/core/version"
 
-# Decidim configuration
+# Decidim configuration.
 module Decidim
   autoload :Env, "decidim/env"
   autoload :Deprecations, "decidim/deprecations"
