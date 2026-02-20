@@ -87,20 +87,20 @@ sv:
           create: "%{user_name} skapade den kollaborativa texten %{resource_name} i %{space_name}"
           delete: "%{user_name} raderade den kollaborativa texten %{resource_name} i %{space_name}"
           publish: "%{user_name} publicerade den kollaborativa texten %{resource_name} i %{space_name}"
-          restore: "%{user_name} Återställde samarbetsprojektet %{resource_name} i %{space_name}"
-          soft_delete: "%{user_name} Flyttade samarbetsprojektet %{resource_name} i %{space_name} till papperskorgen"
-          unpublish: "%{user_name} Tog bort samarbetsprojektet %{resource_name} i %{space_name}"
-          update: "%{user_name} Uppdaterade samarbetsprojektet %{resource_name} i %{space_name}"
+          restore: "%{user_name} återställde den kollaborativa texten %{resource_name} i %{space_name}"
+          soft_delete: "%{user_name} flyttade den kollaborativa texten %{resource_name} i %{space_name} till papperskorgen"
+          unpublish: "%{user_name} tog bort kollaborativa texten %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterade den kollaborativa texten %{resource_name} i %{space_name}"
         suggestion:
-          create: "%{user_name} föreslår förändringar till den gemensamma texten %{resource_name} i %{space_name}"
+          create: "%{user_name} föreslog ändringar i den kollaborativa texten %{resource_name} i %{space_name}"
         version:
-          delete: "%{user_name} Raderade samarbetsprojektets version %{resource_name} i %{space_name}"
-          update: "%{user_name} Uppdaterade samarbetsprojektets version %{resource_name} i %{space_name}"
+          delete: "%{user_name} raderade en version av den kollaborativa texten %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterade en version av den kollaborativa texten %{resource_name} i %{space_name}"
       document:
         apply: Godkänn
         cancel: Avbryt
         consolidate:
-          confirm: Denna handling kommer att slå samman alla godkända förslag till en ny version av dokumentet. Icke godkända förslag kommer att överföras till den nya versionen för vidare granskning. Handlingen kommer att bibehålla statusen "förslag aktiverade".
+          confirm: Denna åtgärd kommer att slå samman alla godkända förslag till en ny version av dokumentet. Ej godkända förslag kommer att överföras till den nya versionen för vidare granskning. Åtgärden kommer att bibehålla statusen "förslag aktiverade".
           new: Slå samman accepterade förslag
         consolidate_counter: När de godkända %{applied} förslagen slås samman flyttas de väntande %{pending} förslagen till den nya versionen.
         controls_label: Kontroller för förslag
@@ -122,8 +122,8 @@ sv:
       documents:
         index:
           count:
-            one: "%{count} Kollaborativ text"
-            other: "%{count} Kollaborativa texter"
+            one: "%{count} kollaborativ text"
+            other: "%{count} kollaborativa texter"
           empty: Det finns inga kollaborativa texter än.
         show:
           contributors: Medverkande
@@ -154,10 +154,10 @@ sv:
         settings:
           global:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
           step:
             announcement: Meddelande
     statistics:
       all_collaborative_texts_count: Alla kollaborativa texter
       collaborative_texts_count: Kollaborativa texter
-      collaborative_texts_count_tooltip: Antal gemensamma texter
+      collaborative_texts_count_tooltip: Antal kollaborativa texter
