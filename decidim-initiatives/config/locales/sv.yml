@@ -86,12 +86,15 @@ sv:
             label: Status
             values:
               accepted: Tillräckligt många underskrifter
+              created: Utkast
               discarded: Avvisad
               open: Öppna
               rejected: För få underskrifter
               validating: Teknisk validering
           type_id_eq:
             label: Typ
+        search_placeholder:
+          title_or_description_or_author_name_or_author_nickname_cont: Sök %{collection} efter titel, beskrivning eller författarnamn
       initiatives_settings:
         update:
           error: Det gick inte att uppdatera inställningarna för initiativ.
@@ -133,11 +136,13 @@ sv:
           name: Typ av initiativ
         initiatives_votes:
           fields:
+            date_and_time: Datum och tid
             date_of_birth: Födelsedatum
             document_number: Dokumentnummer
             hash: Hash
             initiative_end_date: Slutdatum
             initiative_id: Initiativ ID
+            initiative_scope: Indelning
             initiative_signatures_count: Antal underskrifter
             initiative_start_date: Startdatum
             initiative_title: Initiativets titel
@@ -151,6 +156,9 @@ sv:
       titles:
         initiatives: Initiativ
         initiatives_types: Typer av initiativ
+    download_your_data:
+      show:
+        initiatives: Exportera initiativ
     events:
       initiatives:
         admin:
@@ -240,6 +248,10 @@ sv:
             alert_html: "<p>Du måste skapa minst en initiativtyp så att deltagarna kan börja skapa initiativ.</p><p> %{link}</p>"
             button: Ny typ av initiativ
         initiatives:
+          accept:
+            success: Initiativet har godkänts.
+          discard:
+            success: Initiativet har tagits bort.
           edit:
             accept: Godkänn initiativ
             confirm: Är du säker?
@@ -264,6 +276,10 @@ sv:
             edit: Redigera
             new: Ny
             photos: Foton
+          publish:
+            success: Initiativet har publicerats.
+          reject:
+            success: Initiativet har avvisats.
           update:
             error: Det gick inte att uppdatera initiativet.
             success: Initiativet har uppdaterats.
@@ -354,21 +370,39 @@ sv:
         highlighted_initiatives:
           name: Viktiga initiativ just nu
       create_initiative:
+        committee_member:
+          approve: Godkänn
+          confirm_approve: Är du säker på att du vill godkänna medlemmen?
+          confirm_revoke: Är du säker på att du vill återkalla medlemmen?
+          revoke: Återkalla
         fill_data:
+          confirm_discard: Är du säker på att du vill ta bort initiativet?
           continue: Fortsätt
+          discard: Ta bort initiativet
           fill_data_help: "<ul> <li>Granska innehållet i initiativet. Är titeln lätt att förstå? Har initiativet ett tydligt mål?</li> <li>Du måste välja typ av underskrifter. Fysiska, digitala eller en kombination av båda</li> <li>Vilket är initiativets geografiska omfång? Stad, distrikt?</li> </ul>"
+          more_information: Mer information
           select_area: Välj ett område
           select_scope: Välj en indelning
         finish:
           back: Tillbaka
+          callout_text_created: Grattis! Ditt initiativ har skapats.
+          callout_text_validating: Initiativet har skickats till teknisk validering.
+          go_to_initiatives: Gå till initiativ
+          publish_helper_text_html: Kom ihåg att för att ditt initiativ ska publiceras måste det vara tekniskt validerat för granskning av en administratör.
         previous_form:
           back: Tillbaka
+        promotal_committee:
+          individual_help_text: Ditt initiativ har skapats och sparas som ett utkast. Nu måste du lägga till personer i kampanjgruppen.
+          invite_link_title: Länk för att bjuda in personer
         select_initiative_type:
           back: Tillbaka
           choose_html: Jag vill skapa ett <strong>%{title}</strong>
           more_information: Mer information
           new: Skapa nytt initiativ
           select: Jag vill arbeta för detta initiativ
+          show_less: Visa mindre
+          show_more: Visa mer
+          subtitle: Vilket initiativ vill du stödja?
           verification_required: Verifiera ditt konto för att skriva under initiativet
         send_to_technical_validation_button:
           button: Skicka till teknisk validering
@@ -590,6 +624,7 @@ sv:
             name: Test signaturhanterare med personuppgifter
           dummy_signature_with_sms_handler:
             description: Signatur som bara validerar telefonnummer som letar efter en befintlig auktorisering associerad och kontrollerar SMS-kod
+            name: Dummy signaturhanterare med endast SMS
       states:
         accepted: Godkända
         expired: Utgångna
@@ -599,12 +634,21 @@ sv:
         success: Initiativet har uppdaterats.
     menu:
       initiatives: Initiativ
+    open_data:
+      help:
+        initiatives:
+          title: Titeln på initiativet
+          type: Typ av initiativ
+          updated_at: Senaste datum när utrymmet uppdaterades
+          url: Initiativets URL
     resources:
       initiative:
         actions:
           comment: Kommentera
+          vote_comment: Rösta på kommentar
       initiatives_type:
         actions:
+          create: Skapa ett initiativ
           title: Åtgärder
     statistics:
       initiatives_count: Initiativ
@@ -613,6 +657,8 @@ sv:
     decidim:
       initiative_creation_header:
         fill_data: Skapa
+        finish: Teknisk validering
+        promotal_committee: Hitta kampanjgrupp
         select_initiative_type: Välj
       initiatives:
         no_initiatives_yet:
