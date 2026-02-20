@@ -1,8 +1,8 @@
-<% add_decidim_page_title(t("assembly_user_roles.index.assembly_admins_title", scope: "decidim.admin")) %>
+<% add_decidim_page_title(t(".title")) %>
 <div class="card" id="assembly_admins">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
-      <%= t("assembly_user_roles.index.assembly_admins_title", scope: "decidim.admin") %>
+      <%= t(".title") %>
       <% if allowed_to? :create, :assembly_user_role %>
          <%= link_to t("actions.new_assembly_user_role", scope: "decidim.admin"), new_assembly_user_role_path(current_assembly), class: "button button__sm button__secondary new" %>
       <% end %>
