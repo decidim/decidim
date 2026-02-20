@@ -73,7 +73,7 @@ sv:
       decidim/promoted_to_admin_event: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
       decidim/resource_hidden_event: Dolt innehåll
-      decidim/resource_liked_event: Resurs gillad
+      decidim/resource_liked_event: Innehåll gillat
       decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
     attributes:
@@ -169,7 +169,7 @@ sv:
     widget:
       label:
         date: Välj datum för %{label}
-        time: Välj tidpunkt för %{label}
+        time: Välj tid för %{label}
       picker:
         date_button: Öppna kalenderväljare för %{label}
         time_button: Öppen tidsväljare för %{label}
@@ -602,7 +602,7 @@ sv:
       highlighted_content_banner_settings_form:
         action_button_subtitle: Undertitel på knapp
         action_button_title: Titel på knapp
-        action_button_url: URL för knapp
+        action_button_url: Knappens länk
         background_image: Bakgrundsbild
         short_description: Kort beskrivning
         subtitle: Underrubrik
@@ -759,7 +759,7 @@ sv:
           created_at: Datum när denna konversation skapades
           id: Unikt id för konversationen
           messages: Meddelandena i denna konversation
-          updated_at: Datum när denna konversation senast uppdaterades
+          updated_at: Datum när konversationen senast uppdaterades
         notifications:
           created_at: Datum och tid när meddelandet skapades
           event_class: Klassen för händelsen som utlöste meddelandet
@@ -784,7 +784,7 @@ sv:
           reason: Anledning till rapporteringen
           updated_at: Datum och tid för när rapporteringen senast uppdaterades
         users:
-          about: Profilbeskrivningen för denna deltagare
+          about: Profilbeskrivning för deltagaren
           accepted_tos_version: Det datum då användarvillkoren godkändes av användaren
           admin: Om användaren är administratör
           confirmation_sent_at: Datum och tid då bekräftelsen skickades
@@ -808,11 +808,11 @@ sv:
           locale: Användarens valda språk
           managed: Om användare hanteras av en annan användare
           name: Namnet på användaren
-          newsletter_notifications_at: Datum och tid när denna deltagare prenumererade på att få ett nyhetsbrev
+          newsletter_notifications_at: Datum och tid när deltagaren prenumererade på ett nyhetsbrev
           nickname: Användarens användarnamn
           notification_settings: De meddelandeinställningar som användaren har valt
           notifications_sending_frequency: Frekvensen för de meddelanden som användaren får
-          officialized_as: Officiantens titel (kommunalråd, borgmästare, etc)
+          officialized_as: Officiell titel (kommunalråd, borgmästare, etc)
           officialized_at: Datum och tid när användaren gavs officiell status
           organization: Den organisation som denna användare tillhör
           password_updated_at: Datum då lösenordet senast uppdaterades
@@ -830,11 +830,22 @@ sv:
         download_data: Hämtning av data
         download_data_description_1: Här hittar du alla nedladdningar som finns tillgängliga för ditt konto. Dessa .zip-filer kommer att finnas tillgängliga under två veckor innan de raderas.
         download_data_description_2: Du kan begära en .zip-fil med dina inlagor och personuppgifter.
+        download_your_data: Personlig data
+        expiration: Utgår
+        expired: Redan utgått
+        explanation:
+          body_1: Dessa filer exporteras från din aktivitet i denna plattform, såsom förslag, eller kommentarer. De ger råa, strukturerade data som kan användas för analys, forskning eller integration med andra verktyg
+          body_2: Dessa filer är i CSV (Kommaseparerade värden) format, vilket är ett brett använt filformat som kan öppnas och bearbetas av en mängd olika program, inklusive kalkylprogram program, textredigerare och verktyg dataanalys.
+          title: Vad är dessa filer?
+        files_to_download: Filer att ladda ner
+        request_data: Begäran
+        type: Nedladdningstyp
     editor_images:
       create:
         error: Fel vid uppladdning av bild.
         success: Bilden har laddats upp.
       drag_and_drop_help: Lägg till bilder genom att dra och släppa eller klistra in dem.
+    ephemeral_user: Besökare
     errors:
       files:
         file_cannot_be_processed: Filen kan inte bearbetas
@@ -902,6 +913,11 @@ sv:
             email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden via föregående länk.
             email_subject: Ändringsförslaget till %{amendable_title} från %{emendation_author_nickname} avslogs
             notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> till <a href="%{amendable_path}">%{amendable_title}</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits.
+        emendation_promoted:
+          follower:
+            email_intro: 'Ett ändringsförslag till %{amendable_title} har avslagits. Du kan se det från den här sidan:'
+            email_outro: Du har fått det här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_subject: Ett ändringsförslag från %{emendation_author_nickname} har publicerats som ett nytt %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till i %{resource_title}. Du kan se det från den här sidan:'
@@ -937,13 +953,13 @@ sv:
       reports:
         parent_hidden:
           email_intro: |-
-            Din %{resource_type} är inte längre synlig.<br>
-            Detta hände därför att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar automatiskt att återställas.
+            Ditt %{resource_type} är inte längre synligt.<br>
+            Det beror på att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om det blir tillgängligt igen, kommer din kommentar automatiskt att återställas.
           email_outro: Du har fått det här meddelandet eftersom du är författare till %{resource_type}.
-          email_subject: Din %{resource_type} är inte längre synlig
+          email_subject: Ditt %{resource_type} är inte längre synligt
           notification_title: |-
-            Din %{resource_type} är inte längre synlig.<br>
-            Detta hände på grund av att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar att återställas automatiskt.
+            Ditt %{resource_type} är inte längre synligt.<br>
+            Det beror på att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om det blir tillgängligt igen, kommer din kommentar automatiskt att återställas.
             <i>%{resource_content}</i>
         resource_hidden:
           email_intro: En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
@@ -954,10 +970,13 @@ sv:
             </br>
             <i>%{resource_content}</i>
       resource_liked:
-        email_intro: '%{liker_name} %{liker_nickname}, som du följer, har just gillat "%{resource_title}" och vi tror att det kan vara intressant för dig. Kolla in det och bidra:'
-        email_outro: Du har fått det här meddelandet eftersom du följer %{liker_nickname}. Du kan sluta ta att emot meddelanden via föregående länk.
-        email_subject: "%{liker_nickname} har gillat en ny sak"
-        notification_title: <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> gillar <a href="%{resource_path}">%{resource_title}</a>.
+        email_intro: '%{liker_name} %{liker_nickname}, som du följer, gillar "%{resource_title}" och vi tror att du kan vara intresserad. Ta en titt och bidra:'
+        email_outro: Du har fått det här meddelandet eftersom du följer %{liker_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
+        email_subject: "%{liker_nickname} har gillat något"
+        notification_title: <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> gillar %{resource_type} <a href="%{resource_path}">%{resource_title}</a>.
+      resources:
+        soft_deleted:
+          notification_title: En administratör har tagit bort ditt "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
@@ -971,8 +990,10 @@ sv:
           notification_title: Deltagaren %{name} (%{nickname}) har fått officiell status.
     export_mailer:
       download_your_data_export:
+        click_button_html: Klicka på nästa länk för att ladda ner dina data.<br/>Filen kommer att finnas tillgänglig för nedladdning fram till %{date}.
         download: Hämta
       export:
+        click_button_html: Din nedladdning är klar. <br/>Filen kommer att finnas tillgänglig för nedladdning fram till %{date}.
         download: Ladda ner
       subject: Din export "%{name}" är klar
     filters:
@@ -1036,6 +1057,9 @@ sv:
           explanation: 'Instruktioner för bild:'
           message_1: Helst en liggande bild som inte innehåller någon text.
           message_2: Bilden kommer bli beskuren.
+        import_file:
+          explanation: 'Instruktioner för fil:'
+          message_1: Måste vara ett JSON-dokument som hämtas via exportfunktionen.
       file_validation:
         allowed_file_extensions: 'Tillåtna filtillägg: %{extensions}'
         max_file_dimension: 'Maximal upplösning: %{resolution} pixlar'
@@ -1110,9 +1134,9 @@ sv:
       liked_by:
         one: Gillad av %{visible}
         other: Gillad av %{visible} och %{others}
-      others: "%{count} mer"
+      others: "%{count} fler"
       title: Gillad av
-      you: du
+      you: dig
     linked_resource_from:
       included_in: Ingår i
     links:
@@ -1129,11 +1153,14 @@ sv:
         create_with_space: "%{user_name} skapade %{resource_name} i %{space_name}"
         delete: "%{user_name} raderade %{resource_name}"
         delete_with_space: "%{user_name} raderade %{resource_name} i %{space_name}"
+        publish: "%{user_name} publicerad %{resource_name}"
         publish_with_space: "%{user_name} publicerade %{resource_name} i %{space_name}"
         unknown_action: "%{user_name} utförde en åtgärd på %{resource_name}"
         unknown_action_with_space: "%{user_name} utförde en åtgärd på %{resource_name} i %{space_name}"
         unpublish_with_space: "%{user_name} avpublicerade %{resource_name} i %{space_name}"
         update: "%{user_name} uppdaterade %{resource_name}"
+        update_filters: "%{user_name} uppdaterade filter för %{resource_name}"
+        update_filters_with_space: "%{user_name} uppdaterade filter för %{resource_name} i %{space_name}"
         update_permissions_with_space: "%{user_name} uppdaterade behörigheterna för %{resource_name} i %{space_name}"
         update_with_space: "%{user_name} uppdaterade %{resource_name} i %{space_name}"
       value_types:
@@ -1147,6 +1174,8 @@ sv:
           not_found: 'Typen av indelning hittades inte i databasen (ID: %{id})'
         taxonomy_presenter:
           not_found: 'Kategorin hittades inte i databasen (ID: %{id})'
+    machine_translations:
+      automatic: automatisk översättning på %{locale_name}
     managed_users:
       expired_session: Den aktuella administrationsperioden för en användare har förfallit.
     map:
@@ -1243,7 +1272,7 @@ sv:
         subscription_preferences: Vi har uppdaterat dina prenumerationsinställningar, och du får inte längre nyhetsbrev från %{organization_name}.
         success: Prenumerationen har avslutats.
         token_error: Länken är inte längre giltig.
-        unsubscribe: Avregistrera dig från nyhetsbrev
+        unsubscribe: Avregistrera dig från nyhetsbrevet
     newsletters_opt_in:
       unauthorized: Länken är tyvärr inte längre tillgänglig.
       update:
@@ -1265,21 +1294,22 @@ sv:
         same_language: Innehållet har skrivits på ditt valda språk (%{language}). Därför visas inte automatisk översättning i det här e-postmeddelandet.
         translated_text: 'Maskinöversatt text:'
     notifications:
-      action_error: Det gick inte att uppdatera inställningen för meddelanden.
+      action_error: Det gick inte att uppdatera dina meddelandeinställningar.
       no_notifications: Inga meddelanden ännu.
       show:
         deleted: Innehållet har tagits bort av författaren.
         missing_event: Hoppsan, det här meddelandet tillhör ett objekt som inte längre är tillgängligt. Du kan kasta det.
         moderated: Innehållet har dolts av moderator.
-        not_available: Hoppsan, det här meddelandet tillhör ett objekt som inte längre är tillgängligt. Du kan kasta det.
+        not_available: Hoppsan, det här meddelandet tillhör innehåll som inte längre är tillgängligt. Du kan kasta det.
     notifications_digest_mailer:
       header:
         daily: Dagligt sammandrag
+        real_time: Direkt
         weekly: Veckovis sammandrag
       hello: Hej %{name},
       intro:
         daily: 'Det här är meddelandena från senaste dagen baserat på aktiviteterna du följer:'
-        real_time: 'Detta är en notis om aktiviteten du följer:'
+        real_time: 'Det här är ett meddelande om aktiviteten du följer:'
         weekly: 'Det här är meddelandena från senaste veckan baserat på aktiviteterna du följer:'
       outro: Du har fått de här meddelandena eftersom du följer det här innehållet eller dess författare. Du kan sluta följa dem från deras respektive sidor.
       see_more: Visa fler meddelanden
@@ -1318,14 +1348,43 @@ sv:
         message_1: Det verkar som att du är offline.
         message_2: Vänligen försök igen senare.
         retry: Försök igen
+    onboarding_action_message:
+      click_link: Klicka här
+      cta_html: <a href="%{path}">%{link_text}</a> för att %{action} i %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Du har blivit auktoriserad.<br/>Du har startat en gästsession och kan nu delta.
+      expired_authorization_active_title: Auktoriseringen har löpt ut.
+      finish_authorization_process: Du kan avsluta auktoriseringsprocessen
+      incomplete_authorization_active_title: Din verifiering har inte slutförts med all nödvändig information.
+      pending_authorization_active_message: Vänligen fyll i formuläret för att fortsätta med denna åtgärd.
+      pending_authorization_active_title: Vi måste verifiera din identitet.
+      pending_ephemeral_authorization: Vänligen verifiera din identitet för att fortsätta.
     open_data:
       help:
         core:
+          components: Komponenter
+          description: Denna ZIP-fil innehåller filer för att studera och forska om denna deltagarplattform.
           generated_on_date: Skapad %{date}
+          main: System
           resources:
-            one: "%{count} Resurs"
-            other: "%{count} Resurser"
+            one: "%{count} innehåll"
+            other: "%{count} innehåll"
+          spaces: Utrymmen
+          title: Öppna datafiler för %{organization}
+        moderated_users:
+          about: Beskrivande text om användaren
+          block_reasons: Anledningen till att administratören blockerade användaren
+          blocked_at: Datum och tid när användaren blockerades
+          blocking_user: Namnet på användaren som har utfört blockeringen
+          details: Mer information om rapporteringen
+          reasons: En lista över anledningarna till varför profilen har rapporterats
+          user_id: Unikt id för den rapporterade användaren
         moderations:
+          hidden_at: Datum och tid när innehållet doldes
+          id: Unikt id för rapporteringen
+          report_count: Antalet gånger det har rapporterats
+          reportable_id: Unikt id för innehållet som rapporterades
+          reportable_type: Typ av rapporterat innehåll
+          reported_content: Innehållet som har rapporterats
           reported_url: URL:en för det rapporterade innehållet
           reports: Lista över orsaker till att innehållet har rapporterats
         taxonomies:
@@ -1454,20 +1513,21 @@ sv:
       inactivity_notification:
         body_html: |
           <p>Enligt våra uppgifter skapade du ett %{organization_name} -konto på <strong>%{date_account_creation}</strong> och har inte varit aktiv sedan <strong>%{date_last_connection}</strong>.</p>
-          <p>För att skydda din integritet kommer detta raderas om <strong>%{days} dagar</strong>.</p>
-          <p>Om du vill behålla ditt %{organization_name} konto behöver du bara %{login_url} innan dess, så kommer ditt konto att behållas.<p>
+          <p>För att skydda din integritet kommer kontot raderas om <strong>%{days} dagar</strong>.</p>
+          <p>Om du vill behålla ditt konto behöver du bara %{login_url} innan dess, så kommer ditt konto att finnas kvar.<p>
         greetings_html: |
           Vänliga hälsningar,<br>
           %{organization_name}
-        hello_html: Kära <strong>%{username}</strong>,
+        hello_html: Hej <strong>%{username}</strong>,
         log_in: logga in
-        never_logged_in: aldrig inloggad
-        subject: varning för inaktivitet
+        never_logged_in: har aldrig loggat in
+        subject: Varning om inaktivt konto
       removal_notification:
-        body: Ditt %{organization_name} konto har tagits bort på grund av inaktivitet.
+        body: Ditt %{organization_name}-konto har tagits bort på grund av inaktivitet.
         greetings_html: |
           Vänliga hälsningar,<br>
           %{organization_name}
+        hello: Hej %{username},
         subject: Inaktivt konto raderat
     passwords:
       update:
@@ -1492,25 +1552,29 @@ sv:
           edit_profile: Redigera profil
           message: Meddelande
           resend_email_confirmation_instructions: Skicka e-postmeddelande med bekräftelseinstruktioner igen
+    qr:
+      show:
+        scan: Scanna QR-koden
+        title: QR-kod för %{resource_title}
     reported_mailer:
       hidden_automatically:
         content: Rapporterat innehåll
-        details: Detaljer
+        details: Mer information
         hello: Hej %{name},
         manage_moderations: Hantera modereringar
         participatory_space: Deltagarutrymme
         reason: Anledning
         report_html: <p>Följande <a href="%{url}">innehåll</a> har dolts automatiskt.</p>
-        subject: En resurs har dolts automatiskt
+        subject: Innehåll har dolts automatiskt
       hidden_manually:
         content: Rapporterat innehåll
-        details: Detaljer
+        details: Mer information
         hello: Hej %{name},
         manage_moderations: Hantera modereringar
         participatory_space: Deltagarutrymme
         reason: Anledning
         report_html: <p>Följande <a href="%{url}">-innehåll</a> har dolts av %{moderator}.</p>
-        subject: En resurs har dolts av %{moderator}
+        subject: Innehåll har dolts av %{moderator}
       report:
         authors: Författare
         content: Rapporterat innehåll
@@ -1529,9 +1593,13 @@ sv:
         error: Det gick inte att skapa rapporten. Försök igen.
         success: Rapporten har skapats och kommer att granskas av en administratör.
       hide:
-        success: Denna resurs har gömts.
+        success: Innehållet har dolts.
+      parent_hidden:
+        report_details: Överordnat innehåll har dolts
+    resource:
+      controls_label: Åtgärder för innehåll
     resource_autocomplete:
-      help: Sök efter förslag
+      help: Skriv för att söka efter förslag
     resource_likes:
       create:
         error: Det gick inte att gilla.
@@ -1541,6 +1609,7 @@ sv:
     search:
       name: Sök
       results: Sökresultat
+      results_found_for_term: '%{count} resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
     searches:
       filters:
@@ -1562,6 +1631,10 @@ sv:
       selfxss_warning:
         description: Denna webbläsarfunktion är avsedd för utvecklare och du bör inte klistra in något här om du ombads att göra det. Klistra in innehåll i detta fönster kan påverka din integritet och ge hackare tillgång till ditt konto.
         title: OBS!
+    share_widget:
+      download: Ladda ner
+      print: Skriv ut affisch
+      qr_code: QR-kod
     shared:
       confirm_modal:
         cancel: Avbryt
@@ -1589,11 +1662,13 @@ sv:
       flag_user_modal:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         block: Blockera användaren
+        description: Vad är olämpligt med deltagaren?
         does_not_belong: Innehåller olaglig information, hot om självmord, personuppgifter eller något annat som inte hör hemma på %{organization_name}.
         hide: Dölj allt innehåll
         offensive: Innehåller rasism, sexism, personangrepp, mordhot, uppmaning att begå självmord eller hets mot folkgrupp.
         report: Rapportera
         spam: Innehåller clickbait, reklam, bedrägerier eller botar.
+        title: Rapportera olämplig deltagare
       floating_help:
         help: Hjälp
       follow_button:
@@ -1615,6 +1690,7 @@ sv:
         copy_share_link: Kopiera
         copy_share_link_clarification: Kopiera delningslänk till urklipp
         copy_share_link_copied: Kopierad!
+        copy_share_link_cta: Eller kopiera länk
         copy_share_link_message: Länken kopierades.
         share: Dela
         share_link: Dela länk
@@ -1623,18 +1699,20 @@ sv:
       comments_count: Kommentarer
       comments_count_tooltip: Det totala antalet kommentarer postade i detta utrymme.
       followers_count: Följare
-      followers_count_tooltip: Antalet användare som följer någon del av detta utrymme för att hålla sig uppdaterad.
+      followers_count_tooltip: Antalet användare som följer någon del av detta utrymme för att hålla sig uppdaterade.
       headline: Statistik
       likes_count: Gillar
       no_stats: Det finns ingen statistik ännu.
       pages_count: Sidor
       participants_count: Deltagare
-      participants_count_tooltip: Antalet unika användare som har interagerat i detta område genom att lägga fram förslag, delta i möten, rösta eller delta i diskussioner.
+      participants_count_tooltip: Antalet unika användare som varit aktiva i processen genom att lägga förslag, delta i möten, rösta eller delta i diskussioner.
       surveys_count: Enkäter
       users_count: Deltagare
       users_count_tooltip: Det totala antalet användare som har registrerat sig och bekräftat sitt konto via e-post.
     tags:
       filter_results_for_taxonomy: 'Filtrera resultat: %{resource}'
+    taxonomies:
+      prompt: Välj ett alternativ
     translation_bar:
       help_text: "<strong>Obs:</strong> Innehåll kan ha översatts automatiskt och inte vara 100% korrekt."
       show_original: Visa originaltexten
@@ -1643,6 +1721,36 @@ sv:
     user_conversations:
       index:
         time_ago: "%{time} sedan"
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'Vi kontaktar dig för att informera om en viktig uppdatering av gruppen du är medlem i: <strong>%{group_name}</strong>.'
+        body_2: Som ett led i vårt arbete med att förenkla upplevelsen för organisationer är funktionen "Användargrupper" föråldrad. Din användargruppsprofil har nu konverterats till en vanlig deltagarprofil.
+        greeting: Hej %{name},
+        instructions_1: Om du har tillgång till detta e-postkonto, vänligen kontrollera din inkorg för instruktioner.
+        instructions_2: Om inte, kommer en av dina kollegor som har åtkomst att behöva ange lösenordet och dela inloggningsuppgifterna med dig.
+        instructions_intro: Gruppmedlemmar kommer nu att dela åtkomst till den här profilen med hjälp av delade inloggningsuppgifter (e-post och lösenord). Vi har skickat instruktioner till %{email} för att ange ett nytt lösenord för profilen.
+        instructions_title: "<strong>Vad detta betyder för dig</strong>"
+        subject: Viktig uppdatering gällande din gruppprofil
+      notify_deprecation_to_owner:
+        body_1: 'Vi kontaktar dig för att informera om en viktig uppdatering av din grupps profil på: %{organization_name}.'
+        body_2: Som en del av våra ansträngningar att förenkla och förbättra upplevelsen för organisationer som dina, vi deprecating "User Groups" funktionen. Din grupp, <strong>%{name}</strong>, har omvandlats till ett vanligt konto.
+        body_3: För att fortsätta komma åt ditt konto och dela åtkomst, måste du ange ett lösenord. När du har angett kan du dela inloggningsuppgifterna (e-post och lösenord) med vem som helst.
+        greeting: Hej %{name},
+        instructions_1: 'Klicka på länken nedan för att återställa ditt lösenord:'
+        instructions_2: 'Dela inloggningsuppgifterna (e-post: %{email} och det nya lösenordet) med dina kollegor.'
+        instructions_title: "<strong>Vad du behöver göra</strong>"
+        set_password: Ange lösenord
+        subject: Viktig uppdatering gällande din grupps profil
+      notify_user_group_patched:
+        body_1_html: 'Vi kontaktar dig för att informera om en viktig uppdatering av din grupps profil på: %{organization_name}.'
+        body_2_html: Som en del av våra ansträngningar att förenkla och förbättra upplevelsen för organisationer som dina, vi deprecating "User Groups" funktionen. Din grupp, <strong>%{name}</strong>, har omvandlats till ett vanligt konto.
+        body_3_html: För att fortsätta komma åt ditt konto och dela åtkomst, måste du ange ett nytt e-postmeddelande och lösenord. Observera att varje medlem i din grupp kommer att få detta e-postmeddelande. För att säkerställa fortsatt åtkomst måste du komma överens internt om de delade inloggningsuppgifter (e-post och lösenord) som alla kommer att använda.
+        greeting: Hej %{name},
+        instructions_1_html: 'Använd följande tillfälliga uppgifter för att logga in: <br><br> Användarnamn: <strong>%{email}</strong> <br> Lösenord: <strong>%{password}</strong><br><br>'
+        instructions_2_html: Ange en ny e-postadress och lösenord.
+        instructions_3_html: Dela de valda inloggningsuppgifterna med dina kollegor så att hela gruppen kan fortsätta komma åt kontot.
+        instructions_title_html: "<strong>Vad du behöver göra</strong>"
+        subject: Viktig uppdatering gällande din grupps profil
     user_report_mailer:
       notify:
         body_1: Användaren %{user} har rapporterats av %{token}
@@ -1692,6 +1800,7 @@ sv:
       send_paranoid_instructions: Om din e-postadress finns i vår databas får du ett e-brev med anvisningar om hur du bekräftar din e-postadress inom några minuter.
     failure:
       already_authenticated: Du är redan inloggad.
+      csrf_token: Det gick inte att verifiera din begäran. Försök igen.
       inactive: Ditt konto är inte aktiverat än.
       invalid: Ogiltigt %{authentication_keys} eller lösenord.
       invited: Du har en väntande inbjudan, acceptera den för att slutföra skapandet av ditt konto.
@@ -1734,13 +1843,17 @@ sv:
           Om du inte vill godkänna inbjudan kan du ignorera detta e-postmeddelande.<br />
           Ditt konto kommer bara att skapas om du öppnar länken ovan och anger ditt användarnamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
+        invited_you_as_member: "%{invited_by} har bjudit in dig som medlem i %{application}. Du kan acceptera det via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan.
+        someone_invited_you_as_member: Någon har bjudit in dig som medlem i %{application}, du kan acceptera det via länken nedan.
         subject: Anvisningar om inbjudningar
       invite_admin:
         subject: Du har blivit inbjuden att hantera %{organization}
       invite_collaborator:
         subject: Du har blivit inbjuden att samarbeta på %{organization}
+      invite_member:
+        subject: Du har blivit inbjuden till en privat deltagarprocess på %{organization}
       organization_admin_invitation_instructions:
         subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
@@ -1997,19 +2110,23 @@ sv:
         edit: Redigera
       footer:
         cc_by_license: Creative Commons-licens
-        current_organization_img: "%{organization} (hemma)"
+        current_organization_img: "%{organization} (Till startsidan)"
         data_consent_settings: Inställningar för cookies
         decidim_logo: Decidims logotyp
         decidim_title: Decidim
         help: Hjälp
         log_in: Logga in
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
+        open_data: Öppen data
         resources: Innehåll
         sign_up: Skapa ett konto
         social_media: Sociala medier
         terms_of_service: Användarvillkor
       header:
         back: Tillbaka
+        close: Stäng
+        confirm_close_ephemeral_session: Om du klickar vidare stängs din tillfälliga session. Men alla dina ändringar och aktiviteter kommer att sparas. Om du är färdig, klicka på Ok.
+        confirm_title_close_ephemeral_session: Innan du lämnar sidan…
         log_in: Logga in
         main_menu: Huvudmeny
         user_menu: Användarmeny
@@ -2020,7 +2137,7 @@ sv:
       language_chooser:
         choose_language: Välj språk
       navigation:
-        aria_label: 'Navigation menu: %{title}'
+        aria_label: 'Huvudmeny: %{title}'
       notifications_dashboard:
         mark_all_as_read: Markera allt som läst
         mark_as_read: Markera som läst
@@ -2063,8 +2180,8 @@ sv:
   number:
     currency:
       format:
-        format: "%u %n"
-        format_html: "<span>%u</span> %n"
+        format: "%n %u"
+        format_html: "%n <span>%u</span>"
   password_validator:
     denied: nekas
     domain_included_in_password: är för likt detta domännamn
