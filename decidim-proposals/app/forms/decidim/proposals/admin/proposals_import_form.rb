@@ -17,13 +17,6 @@ module Decidim
         validates :origin_component_id, :origin_component, :current_component, presence: true
         validates :states, presence: true
 
-        def states_collection
-          @states_collection ||= ProposalState.where(component: current_component) + [ProposalState.new(token: "not_answered",
-                                                                                                        title: I18n.t(
-                                                                                                          :not_answered, scope: "decidim.proposals.answers"
-                                                                                                        ))]
-        end
-
         def states
           super.compact_blank
         end
@@ -40,17 +33,6 @@ module Decidim
           origin_components.map do |component|
             [component.name[I18n.locale.to_s], component.id]
           end
-        end
-
-        def available_states(component_id = nil)
-          scope = Decidim::Proposals::ProposalState
-          scope = scope.where(component: Decidim::Component.find(component_id)) if component_id.present?
-
-          states = scope.pluck(:token).uniq.map do |token|
-            OpenStruct.new(token:, title: token.humanize)
-          end
-
-          states + [OpenStruct.new(token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered"))]
         end
       end
     end
