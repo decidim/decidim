@@ -72,6 +72,19 @@ describe("LanguageChangeController", () => {
       expect(removeSpy).toHaveBeenCalledWith("change", controller.handleChange);
       removeSpy.mockRestore();
     });
+
+    it("activates the selected option's panel on connect", () => {
+      const options = selectElement.querySelectorAll("option");
+      options[1].selected = true;
+
+      controller.disconnect();
+      controller.connect();
+
+      expect(panel0.classList.contains("is-active")).toBe(false);
+      expect(panel0.ariaHidden).toBe("true");
+      expect(panel1.classList.contains("is-active")).toBe(true);
+      expect(panel1.ariaHidden).toBe("false");
+    });
   });
 
   describe("handleChange", () => {

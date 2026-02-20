@@ -802,15 +802,16 @@ module Decidim
     def language_selector_select(locales, tabs_id, name)
       content_tag(:div) do
         content_tag(:select, id: tabs_id, class: "language-change", data: { controller: "language-change" }) do
+          first_error_locale = locales.find { |locale| error?(name_with_locale(name, locale)) }
+
           locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-            is_error = error?(name_with_locale(name, locale))
-            title = if is_error
+            title = if error?(name_with_locale(name, locale))
                       I18n.with_locale(locale) { I18n.t("name_with_error", scope: "locale") }
                     else
                       I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
                     end
             tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
-            string + content_tag(:option, title, value: "##{tab_content_id}", selected: is_error)
+            string + content_tag(:option, title, value: "##{tab_content_id}", selected: locale == first_error_locale)
           end
         end
       end
