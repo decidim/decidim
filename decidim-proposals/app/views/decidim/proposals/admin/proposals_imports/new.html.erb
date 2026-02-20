@@ -8,7 +8,7 @@
 
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <%= decidim_form_for(@form, url: proposals_import_path, html: { class: "form form-defaults import_proposals" }) do |f| %>
+    <%= decidim_form_for(@form, url: proposals_import_path, local: true, html: { class: "form form-defaults import_proposals" }) do |f| %>
       <% if @form.origin_components.any? %>
         <div class="form__wrapper">
           <div class="card pt-4">
@@ -21,7 +21,7 @@
               </div>
               <div class="row column">
                 <label class="ml-4"><%= t(".select_states") %></label>
-                <div id="states-container"></div>
+                <div id="states-container" data-selected-states="<%= @form.states.to_json %>"></div>
               </div>
               <div class="row column">
                 <%= f.check_box :keep_authors %>
