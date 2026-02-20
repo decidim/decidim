@@ -111,4 +111,14 @@ RSpec.describe ERBLint::Linters::AdminPageTitleLinter do
 
     expect(offenses).to be_empty
   end
+
+  it "adds an offense when the admin title line has a newline before" do
+    offenses = run_for(
+      "decidim-admin/app/views/decidim/admin/users/index.html.erb",
+      "\n<% add_decidim_page_title(t(\".title\")) %>\n<div>Empty new line on first line</div>\n"
+    )
+
+    expect(offenses.length).to eq(1)
+    expect(offenses.first.message).to include("Admin views must start with: <% add_decidim_page_title(t(\".title\")) %>")
+  end
 end
