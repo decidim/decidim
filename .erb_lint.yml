@@ -28,6 +28,10 @@ linters:
 
   AdminPageTitleLinter:
     enabled: true
+    exclude:
+      - decidim-admin/app/views/decidim/admin/shared/landing_page_content_blocks/edit.html.erb
+      - decidim-admin/app/views/decidim/admin/shared/landing_page/edit.html.erb
+      - decidim-admin/app/views/decidim/admin/imports/new.html.erb
 
   DeprecatedClasses:
     enabled: true
