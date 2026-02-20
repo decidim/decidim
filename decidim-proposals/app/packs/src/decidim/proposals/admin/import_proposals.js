@@ -7,29 +7,22 @@ document.addEventListener("turbo:load", () => {
   }
 
   const statesUrl = select.dataset.statesUrl;
-  console.log("[ImportProposals] initialized, statesUrl:", statesUrl);
 
-  select.addEventListener("change", () => {
-    const componentId = select.value;
-    console.log("[ImportProposals] component changed to:", componentId);
-
+  const fetchStates = (componentId) => {
     if (!componentId) {
       container.innerHTML = "";
       container.style.display = "none";
       return;
     }
 
-    const url = `${statesUrl}?component_id=${componentId}`;
-    console.log("[ImportProposals] fetching:", url);
+    const url = `${statesUrl}?origin_id=${componentId}`;
 
     fetch(url, {
       credentials: "same-origin",
       headers: { Accept: "application/json" }
     }).then((res) => {
-      console.log("[ImportProposals] response status:", res.status, res.url);
       return res.json();
     }).then((states) => {
-      console.log("[ImportProposals] states received:", states);
 
       if (!states.length) {
         container.innerHTML = "";
@@ -37,10 +30,11 @@ document.addEventListener("turbo:load", () => {
         return;
       }
 
+      const selectedStates = JSON.parse(container.dataset.selectedStates || "[]");
       const checkboxes = states.map((state) => `
         <div>
           <label>
-            <input type="checkbox" name="proposals_import[states][]" value="${state.token}">
+            <input type="checkbox" name="proposals_import[states][]" value="${state.token}" ${selectedStates.includes(state.token) ? "checked" : ""}>
             ${state.title}
           </label>
         </div>
@@ -48,10 +42,15 @@ document.addEventListener("turbo:load", () => {
 
       container.innerHTML = `<div class="row column">${checkboxes}</div>`;
       container.style.display = "block";
-    }).catch((err) => {
-      console.error("[ImportProposals] fetch error:", err);
+    }).catch(() => {
       container.innerHTML = "";
       container.style.display = "none";
     });
-  });
+  };
+
+  select.addEventListener("change", (event) => fetchStates(event.target.value));
+
+  if (select.value) {
+    fetchStates(select.value);
+  }
 });
