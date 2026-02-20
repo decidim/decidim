@@ -34,7 +34,9 @@ document.addEventListener("turbo:load", () => {
       const checkboxes = states.map((state) => `
         <div>
           <label>
-            <input type="checkbox" name="proposals_import[states][]" value="${state.token}" ${selectedStates.includes(state.token) ? "checked" : ""}>
+            <input type="checkbox" name="proposals_import[states][]" value="${state.token}" ${selectedStates.includes(state.token)
+  ? "checked"
+  : ""}>
             ${state.title}
           </label>
         </div>
