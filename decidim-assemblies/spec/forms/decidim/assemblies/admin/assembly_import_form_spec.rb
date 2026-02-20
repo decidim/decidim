@@ -101,10 +101,10 @@ module Decidim
 
         context "when document has empty JSON array" do
           let(:document) do
-            Tempfile.new(["empty", ".json"]).tap do |file|
-              file.write("[]")
-              file.rewind
-            end.then { |f| upload_test_file(f.path, content_type: "application/json", return_blob: true) }
+            file = Tempfile.new(["empty", ".json"])
+            file.write("[]")
+            file.rewind
+            upload_test_file(file.path, content_type: "application/json", return_blob: true)
           end
 
           it { is_expected.to be_invalid }
@@ -117,10 +117,10 @@ module Decidim
 
         context "when document has invalid JSON" do
           let(:document) do
-            Tempfile.new(["invalid", ".json"]).tap do |file|
-              file.write("{ invalid }")
-              file.rewind
-            end.then { |f| upload_test_file(f.path, content_type: "application/json", return_blob: true) }
+            file = Tempfile.new(["invalid", ".json"])
+            file.write("{ invalid }")
+            file.rewind
+            upload_test_file(file.path, content_type: "application/json", return_blob: true)
           end
 
           it { is_expected.to be_invalid }
