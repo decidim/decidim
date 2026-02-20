@@ -1,9 +1,9 @@
-<% add_decidim_page_title(t(".registrations")) %>
+<% add_decidim_page_title(t(".title")) %>
 
 <div class="card" id="conference-registrations">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
-      <%= t(".registrations") %>
+      <%= t(".title") %>
       <% if allowed_to? :export_conference_registrations, :conference, conference: conference %>
         <div class="relative">
           <a class="button button__sm button__transparent-secondary" data-controller="dropdown" data-target="export-dropdown">
