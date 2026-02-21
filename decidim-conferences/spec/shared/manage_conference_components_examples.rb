@@ -190,6 +190,11 @@ shared_examples "manage conference components" do
       let(:published_at) { Time.current }
 
       it "hides the component from the menu" do
+        visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+        expect(page).to have_content decidim_escape_translated(component.name)
+
+        visit decidim_admin_conferences.components_path(conference)
+
         within ".component-#{component.id}" do
           click_on "Hide"
         end
@@ -197,6 +202,9 @@ shared_examples "manage conference components" do
         within ".component-#{component.id}" do
           expect(page).to have_css(".action-icon--menu-hidden")
         end
+
+        visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+        expect(page).to have_no_content decidim_escape_translated(component.name)
       end
     end
 
