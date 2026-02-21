@@ -8,7 +8,7 @@
     <% model.each do |item| %>
       <li role="menuitem">
         <%= link_to item[:url], class: "participatory-space__nav-item" do %>
-          <%= item[:name] %>
+          <%= decidim_escape_translated(item[:name]) %>
           <%= icon "arrow-right-line" %>
         <% end %>
       </li>
