@@ -40,6 +40,8 @@ pt-BR:
           edit: Editar
           new_sortition: Nova classificação
           show: Detalhes da classificação
+          title: Ações.
+        deprecation_warning_html: "⚠️ <b>Aviso de depreciação.</b> O módulo de Sortições será removido em Decidim v0.32. Por favor, planeje em conformidade e considere soluções alternativas para a seleção de participantes ou proposta."
         models:
           sortition:
             fields:
@@ -132,3 +134,4 @@ pt-BR:
             other: "%{count} ordenações"
     statistics:
       sortitions_count: Sorteios
+      sortitions_count_tooltip: O número de selecções aleatórias realizadas para a tomada de decisões.
