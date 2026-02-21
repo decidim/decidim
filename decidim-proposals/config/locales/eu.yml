@@ -370,6 +370,10 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
             email_subject: Jarraitzen ari zaren proposamen batek (%{state}) egoera aldatu du
             notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: '"%{resource_title}" proposamenaren egoera aldatu da eta orain "%{state}" egoeran dago. Orria honetan duzu erantzuna:'
+            email_subject: Zure proposamenaren egoera aldatu da (%{state})
         proposal_update_taxonomies:
           email_intro: 'Admintratzaile batek eguneratu ditu zure %{resource_title}" proposamenaren taxonomiak, ikus ezazu orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
