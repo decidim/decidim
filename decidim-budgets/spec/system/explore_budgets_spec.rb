@@ -37,12 +37,9 @@ describe "Explore Budgets", :slow do
     let!(:budgets) do
       1.upto(6).to_a.map { |x| create(:budget, component:, weight: x, total_budget: x * 10_000_000, description: { en: "This is budget #{x}" }) }
     end
-    let(:component_path) do
-      Decidim::EngineRouter.main_proxy(component).root_path(locale: I18n.locale, order: "lowest_cost")
-    end
 
     before do
-      visit component_path
+      visit_component
     end
 
     it "shows the component name in the sidebar" do
