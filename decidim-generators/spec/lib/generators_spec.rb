@@ -17,7 +17,7 @@ module Decidim
         let(:test_version) { "0.27.0.dev" }
 
         it "returns the develop branch" do
-          expect(subject.edge_git_branch).to eq("chore/raise_on_missing_callback_actions")
+          expect(subject.edge_git_branch).to eq("develop")
         end
       end
 
