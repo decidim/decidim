@@ -138,6 +138,16 @@ fr:
           commentable_id: L'identifiant unique du commentaire
           created_at: La date de création de ce commentaire
           id: L'id de ce commentaire
+        posts:
+          body: Le corps de l'article
+          comments_count: Le nombre de commentaires sur cet article
+          component: Le composant auquel appartient l'article
+          created_at: La date de création de cet article
+          id: L'identifiant unique de cet article
+          published_at: La date à laquelle cet article a été publié
+          title: Le titre de l'article
+          updated_at: La dernière date de mise à jour de cet article
+          url: L'URL de cet article
     statistics:
       posts_count: Articles
       posts_count_tooltip: Le nombre de mises à jour ou d'articles de blog publiés.
