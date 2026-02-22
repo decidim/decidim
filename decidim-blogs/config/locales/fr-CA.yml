@@ -131,5 +131,16 @@ fr-CA:
           created_at: La date de création de ce commentaire
           id: L'id de ce commentaire
           user_group: Le nom du groupe d'utilisateurs qui a fait ce commentaire (le cas échéant)
+        posts:
+          body: Le corps de l'article
+          comments_count: Le nombre de commentaires sur cet article
+          component: Le composant auquel appartient l'article
+          created_at: La date de création de cet article
+          endorsements_count: Le nombre de soutiens à cet article
+          id: L'identifiant unique de cet article
+          published_at: La date à laquelle cet article a été publié
+          title: Le titre de l'article
+          updated_at: La dernière date de mise à jour de cet article
+          url: L'URL de cet article
     statistics:
       posts_count: Publications
