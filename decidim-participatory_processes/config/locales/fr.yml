@@ -351,6 +351,7 @@ fr:
     open_data:
       help:
         participatory_processes:
+          hashtag: Le hashtag du processus, utilisé pour Twitter/X
           updated_at: La dernière date de mise à jour de cet espace
           url: L'URL de l'espace
     participatory_process_groups:
