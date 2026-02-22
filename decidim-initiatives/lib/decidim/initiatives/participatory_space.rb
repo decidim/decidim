@@ -43,9 +43,9 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
   ]
 
   participatory_space.exports :initiatives do |export|
-    export.collection do |participatory_space, user|
+    export.collection do |space, user|
       scope = user.present? ? Decidim::Initiative.all : Decidim::Initiative.public_spaces
-      scope.where(id: participatory_space)
+      scope.where(id: space)
     end
 
     export.include_in_open_data = true
