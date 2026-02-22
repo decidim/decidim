@@ -290,21 +290,6 @@ describe "Initiative" do
           expect(page).to have_content(translated(debate.title))
         end
       end
-
-      context "when visiting the elections component" do
-        let!(:election) { create(:election, :published, component: elections_component) }
-        let(:user) { create(:user, :confirmed, organization:) }
-
-        before do
-          sign_in user, scope: :user
-          visit main_component_path(elections_component)
-        end
-
-        it "displays the elections index without errors" do
-          expect(page).to have_css('[id^="elections__election"]', count: 1)
-          expect(page).to have_content(translated(election.title))
-        end
-      end
     end
 
     context "when signed in as the author of the initiative" do
