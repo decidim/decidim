@@ -152,10 +152,14 @@ fr:
         budget:
           create: "%{user_name} a créé le budget %{resource_name} dans l'espace %{space_name}"
           delete: "%{user_name} a supprimé le budget %{resource_name} dans l'espace %{space_name}"
+          restore: "%{user_name} a restauré le budget %{resource_name} dans %{space_name}"
+          soft_delete: "%{user_name} a déplacé le budget %{resource_name} de %{space_name} vers la corbeille"
           update: "%{user_name} a mis à jour le budget %{resource_name} dans l'espace %{space_name}"
         project:
           create: "%{user_name} a créé le projet %{resource_name} dans l'espace %{space_name}"
           delete: "%{user_name} a supprimé le projet %{resource_name} dans l'espace %{space_name}"
+          restore: "%{user_name} a restauré le projet %{resource_name} dans %{space_name}"
+          soft_delete: "%{user_name} a déplacé le projet %{resource_name} de %{space_name} vers la corbeille"
           update: "%{user_name} a mis à jour le projet %{resource_name} dans l'espace %{space_name}"
       budget_information_modal:
         back_to: Retour à %{component_name}
@@ -333,6 +337,7 @@ fr:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             form:
               errors:
                 budget_voting_rule_only_one: Une seule règle de vote doit être activée.
@@ -384,9 +389,12 @@ fr:
           follows_count: Le nombre de personnes qui suivent ce projet
           latitude: La latitude du projet au cas où il a un emplacement physique
           longitude: La longitude du projet dans le cas où il a un emplacement physique
+          participatory_space: 'À quel espace (ex : Processus participatif ou Assemblée) appartient ce projet'
           reference: La référence unique du projet
           selected_at: L'heure à laquelle le projet a été sélectionné
+          title: Le titre du projet
           updated_at: La dernière date de mise à jour du projet
+          url: L'URL du projet
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote.
