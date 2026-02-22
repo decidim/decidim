@@ -232,6 +232,7 @@ describe "Initiative" do
     let!(:initiative) { base_initiative }
     let!(:meetings_component) { create(:component, :published, participatory_space: initiative, manifest_name: :meetings) }
     let!(:proposals_component) { create(:component, :unpublished, participatory_space: initiative, manifest_name: :proposals) }
+    let!(:unpublished_proposals_component) { create(:component, :unpublished, participatory_space: initiative, manifest_name: :proposals) }
     let!(:blogs_component) { create(:component, :published, participatory_space: initiative, manifest_name: :blogs) }
 
     before do
