@@ -1163,6 +1163,7 @@ fr-CA:
           search_placeholder: Rechercher
         index:
           new_taxonomy: Nouvelle taxonomie
+        name: Nom
         total_filters: Filtres
       taxonomy_filters:
         breadcrumb:
@@ -1200,6 +1201,7 @@ fr-CA:
           remove: Supprimer
         taxonomies_select:
           filters: Filtres
+          select_filter: Sélectionnez un filtre
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
@@ -1307,7 +1309,14 @@ fr-CA:
         reportable:
           bulk_action:
             hide:
+              invalid: Aucune modération sélectionnée.
               success: Ressources cachées avec succès.
+            ignore:
+              invalid: Aucune modération d'utilisateur sélectionnée.
+            unhide:
+              invalid: Aucune modération sélectionnée.
+            unreport:
+              invalid: Aucune modération sélectionnée.
           hide:
             invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.
