@@ -140,7 +140,6 @@ shared_context "when publishing and unpublishing the component" do
       expect(Decidim::SearchableResource.where(resource:).count).to be_zero
 
       within "tr", text: title do
-        find("button[data-controller='dropdown']").click
         click_on "Publish"
       end
 
@@ -171,8 +170,7 @@ shared_context "when publishing and unpublishing the component" do
       end
 
       within "tr", text: title do
-        find("button[data-controller='dropdown']").click
-        click_on "Hide from menu"
+        click_on "Hide"
       end
 
       perform_enqueued_jobs(except: job_exceptions)
@@ -180,7 +178,6 @@ shared_context "when publishing and unpublishing the component" do
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
       within "tr", text: title do
-        find("button[data-controller='dropdown']").click
         click_on "Unpublish"
       end
 
@@ -206,21 +203,18 @@ shared_context "when cycling through publication states" do
       end
 
       within "tr", text: title do
-        find("button[data-controller='dropdown']").click
-        click_on "Hide from menu"
+        click_on "Hide"
       end
 
       expect(page).to have_admin_callout("The component has been successfully hidden from the menu.")
 
       within "tr", text: title do
-        find("button[data-controller='dropdown']").click
         click_on "Unpublish"
       end
 
       expect(page).to have_admin_callout("The component has been successfully unpublished")
 
       within "tr", text: title do
-        find("button[data-controller='dropdown']").click
         click_on "Publish"
       end
 
