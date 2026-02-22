@@ -19,7 +19,7 @@ shared_examples "manage attachments examples" do
     end
 
     it "can view an attachment details" do
-      within "#attachments table" do
+      within "tr", text: translated(attachment.title) do
         click_on "Edit"
       end
 
@@ -182,7 +182,6 @@ shared_examples "manage attachments examples" do
 
     it "can delete an attachment with a link" do
       within "tr", text: translated(attachment_with_link.title) do
-        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
