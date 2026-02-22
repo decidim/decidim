@@ -74,6 +74,8 @@ fr-CA:
           attributes:
             document:
               allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}.'
+              empty: Le document est vide
+              invalid_json: Le document n'est pas un JSON valide
   activerecord:
     models:
       decidim/assembly:
@@ -394,6 +396,7 @@ fr-CA:
           composition: La composition de l'assemblée
           created_at: La date de création de cet espace
           created_by: Qui a créé cette assemblée
+          created_by_other: Autre créateur de l'assemblée
           description: Une description longue de l'assemblée
           duration: La durée de l'assemblée
           follows_count: Le nombre d'utilisateurs suivant cet espace
@@ -404,6 +407,10 @@ fr-CA:
           promoted: Si l'assemblée est promue ou non
           published_at: La date à laquelle cet espace a été publié
           purpose_of_action: Le but de l'action de l'assemblée
+          short_description: Une courte description de l'assemblée
+          subtitle: Le sous-titre de l'assemblée
+          target: La cible de l'assemblée
+          title: Le titre de l'assemblée
     participatory_processes:
       show:
         related_assemblies: Assemblées associées
