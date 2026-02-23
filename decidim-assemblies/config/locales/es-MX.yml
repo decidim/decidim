@@ -75,6 +75,8 @@ es-MX:
           attributes:
             document:
               allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}.'
+              empty: El documento está vacío
+              invalid_json: El documento no es JSON válido
   activerecord:
     models:
       decidim/assembly:
