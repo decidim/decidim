@@ -98,6 +98,38 @@ module Decidim
 
           it { is_expected.to be_invalid }
         end
+
+        context "when document has empty JSON array" do
+          let(:document) do
+            file = Tempfile.new(["empty", ".json"])
+            file.write("[]")
+            file.rewind
+            upload_test_file(file.path, content_type: "application/json", return_blob: true)
+          end
+
+          it { is_expected.to be_invalid }
+
+          it "adds an error on document" do
+            form.valid?
+            expect(form.errors[:document]).to include("The document is empty")
+          end
+        end
+
+        context "when document has invalid JSON" do
+          let(:document) do
+            file = Tempfile.new(["invalid", ".json"])
+            file.write("{ invalid }")
+            file.rewind
+            upload_test_file(file.path, content_type: "application/json", return_blob: true)
+          end
+
+          it { is_expected.to be_invalid }
+
+          it "adds an error on document" do
+            form.valid?
+            expect(form.errors[:document]).to include("The document is not valid JSON")
+          end
+        end
       end
     end
   end

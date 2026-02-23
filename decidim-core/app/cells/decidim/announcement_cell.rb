@@ -72,7 +72,7 @@ module Decidim
     end
 
     def clean_announcement
-      return if announcement.is_a?(Hash) && announcement.values.any?(&:empty?)
+      return if announcement.is_a?(Hash) && announcement.values.all?(&:blank?)
 
       clean(announcement)
     end

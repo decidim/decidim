@@ -194,7 +194,7 @@ describe "Meeting", download: true do
 
       it "timeouts user normally" do
         visit_meeting
-        travel 1.minute
+        travel 90.seconds
         expect(page).to have_content("You were inactive for too long")
       end
 

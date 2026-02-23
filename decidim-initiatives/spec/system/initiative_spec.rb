@@ -255,7 +255,7 @@ describe "Initiative" do
 
       it "allows visiting the components" do
         within ".participatory-space__nav-container" do
-          click_on translated(meetings_component.name, locale: :en)
+          click_on decidim_escape_translated(meetings_component.name)
         end
 
         expect(page).to have_css('[id^="meetings__meeting"]', count: 3)
@@ -315,7 +315,7 @@ describe "Initiative" do
 
       it "has special permissions to create posts" do
         within ".participatory-space__nav-container" do
-          click_on translated(blogs_component.name, locale: :en)
+          click_on decidim_escape_translated(blogs_component.name)
         end
 
         expect(page).to have_content("New post")
@@ -323,7 +323,7 @@ describe "Initiative" do
 
       it "has special permissions to create meetings" do
         within ".participatory-space__nav-container" do
-          click_on translated(meetings_component.name, locale: :en)
+          click_on decidim_escape_translated(meetings_component.name)
         end
 
         expect(page).to have_content("New meeting")
