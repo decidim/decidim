@@ -81,6 +81,32 @@ describe "Admin manages elections" do
     it_behaves_like "having a rich text editor", "new_election", "full"
   end
 
+  describe "manual start checkbox persistence" do
+    it "hides start date fields when returning to form with manual start checked" do
+      within "tr", text: translated(election.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit election"
+      end
+
+      within ".edit_election" do
+        check "Manual start"
+        expect(page).to have_no_field("election_start_at_date")
+        expect(page).to have_no_field("election_start_at_time")
+      end
+
+      click_on "Questions"
+      expect(page).to have_content("Questions")
+
+      click_on "Main"
+
+      within ".edit_election" do
+        expect(page).to have_checked_field("Manual start")
+        expect(page).to have_no_field("election_start_at_date")
+        expect(page).to have_no_field("election_start_at_time")
+      end
+    end
+  end
+
   describe "updating an election" do
     it "updates an election" do
       within "tr", text: translated(election.title) do
