@@ -109,7 +109,7 @@ module Decidim
       def self.register_admin_participatory_process_menu!
         Decidim.menu :admin_participatory_process_menu do |menu|
           menu.add_item :edit_participatory_process,
-                        I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        I18n.t("title", scope: "decidim.participatory_processes.admin.participatory_processes.edit"),
                         decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space)),
                         icon_name: "information-line",
@@ -179,7 +179,7 @@ module Decidim
       def self.register_admin_participatory_process_group_menu!
         Decidim.menu :admin_participatory_process_group_menu do |menu|
           menu.add_item :edit_participatory_process_group,
-                        I18n.t("info", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
+                        I18n.t("title", scope: "decidim.participatory_processes.admin.participatory_process_groups.edit"),
                         decidim_admin_participatory_processes.edit_participatory_process_group_path(participatory_process_group),
                         position: 1,
                         icon_name: "information-line",
