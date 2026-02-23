@@ -621,8 +621,32 @@ module Decidim
              else
                text
              end
-
       label(attribute, text, options || {})
+    end
+
+    # render p tag instead of label for proposals "add a document"
+    def custom_paragraph(attribute, text, options, field_before_label: false, show_required: true)
+      return "".html_safe if text == false
+
+      required = options.is_a?(Hash) && options.delete(:required)
+      text = default_label_text(object, attribute) if text.nil? || text == true
+      if show_required
+        text +=
+          if required
+            required_indicator
+          else
+            required_for_attribute(attribute)
+          end
+      end
+
+      text = if field_before_label && block_given?
+               safe_join([yield, text.html_safe])
+             elsif block_given?
+               safe_join([text.html_safe, yield])
+             else
+               text
+             end
+      content_tag(:p, text.html_safe, class: "text-lg font-semibold")
     end
     # rubocop:enable Metrics/PerceivedComplexity
     # rubocop:enable Metrics/CyclomaticComplexity
