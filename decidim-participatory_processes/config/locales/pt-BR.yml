@@ -68,6 +68,8 @@ pt-BR:
           attributes:
             document:
               allowed_file_content_types: 'Tipo de documento inválido. Apenas arquivos com as seguintes extensões são permitidos: %{types}'
+              empty: O documento está vazio
+              invalid_json: O documento não é um JSON válido
     models:
       decidim/participatory_process_step_activated_event: Passo ativado
       decidim/participatory_process_step_changed_event: Passo alterado
