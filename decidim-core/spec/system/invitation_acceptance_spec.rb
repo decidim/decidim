@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Invitation password field" do
+describe "Invitation acceptance" do
   let(:organization) { create(:organization) }
   let(:inviter) { create(:user, :confirmed, :admin, organization:) }
 
@@ -44,6 +44,7 @@ describe "Invitation password field" do
       click_on "Save"
 
       expect(page).to have_content("Your password was set successfully. You are now signed in.")
+      expect(Decidim::User.find_by(email: "invited_admin@example.org")).to be_admin
     end
 
     it "rejects passwords that are too short for admin" do
@@ -55,6 +56,28 @@ describe "Invitation password field" do
       click_on "Save"
 
       expect(page).to have_content("password is too short")
+    end
+
+    it "rejects passwords containing the user's name" do
+      visit last_email_link
+
+      fill_in :invitation_user_nickname, with: "invited_admin"
+      fill_in :invitation_user_password, with: "InvitedAdmin123456789!"
+      check :invitation_user_tos_agreement
+      click_on "Save"
+
+      expect(page).to have_content("is too similar to your name")
+    end
+
+    it "rejects passwords with less than 5 unique characters" do
+      visit last_email_link
+
+      fill_in :invitation_user_nickname, with: "invited_admin"
+      fill_in :invitation_user_password, with: "aaaaaaaaaaaaaaa!"
+      check :invitation_user_tos_agreement
+      click_on "Save"
+
+      expect(page).to have_content("does not have enough unique characters")
     end
   end
 
@@ -91,6 +114,7 @@ describe "Invitation password field" do
       click_on "Save"
 
       expect(page).to have_content("Your password was set successfully. You are now signed in.")
+      expect(Decidim::User.find_by(email: "invited_user@example.org")).not_to be_admin
     end
   end
 
@@ -120,6 +144,14 @@ describe "Invitation password field" do
       expect(page).to have_content("must contain at least 5 different characters")
       expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
       expect(page).not_to have_content("must be different from your old passwords")
+    end
+  end
+
+  context "with invalid invitation token" do
+    it "shows error for invalid token" do
+      visit "/users/invitation/accept?invitation_token=invalid_token"
+
+      expect(page).to have_content("The invitation token provided is not valid")
     end
   end
 end
