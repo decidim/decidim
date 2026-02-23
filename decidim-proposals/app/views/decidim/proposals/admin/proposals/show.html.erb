@@ -1,4 +1,6 @@
+<% add_decidim_page_title(t(".title")) %>
 <% add_decidim_page_title(translated_attribute(proposal.title)) %>
+
 <div class="component__show">
   <div class="card">
     <%= render partial: "decidim/admin/shared/adjacent_navigation", locals: { adjacent_paths: filtered_adjacent_paths(proposal, :proposal_path) } %>
