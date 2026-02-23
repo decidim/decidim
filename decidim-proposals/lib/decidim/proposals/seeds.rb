@@ -38,8 +38,6 @@ module Decidim
           Decidim::Comments::Seed.comments_for(proposal)
         end
 
-        update_traceability!(component:)
-
         create_report!(reportable: Decidim::Proposals::Proposal.take, current_user: Decidim::User.take)
         hide_report!(reportable: Decidim::Proposals::Proposal.take)
       end
@@ -225,15 +223,6 @@ module Decidim
         Decidim::Proposals::ProposalNote.create!(
           proposal:,
           author: author_admin,
-          body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
-        )
-      end
-
-      def update_traceability!(component:)
-        Decidim.traceability.update!(
-          Decidim::User.where(organization:).all.sample,
-          component:,
-          title: ::Faker::Lorem.sentence(word_count: 2),
           body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
         )
       end
