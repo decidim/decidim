@@ -2128,6 +2128,7 @@ ca:
         confirm_title_close_ephemeral_session: Abans de sortir d'aquesta pàgina…
         log_in: Entra
         main_menu: Menú principal
+        mobile_account_greeting: Hola %{user_name},
         user_menu: Menú d'usuari
       impersonation_warning:
         close_session: Tanca la sessió
