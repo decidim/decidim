@@ -52,5 +52,15 @@ describe "Admin invite" do
 
       expect(page).to have_current_path "/admin/admin_terms/show"
     end
+
+    it "displays admin password requirements" do
+      visit last_email_link
+
+      expect(page).to have_content("15 characters minimum")
+      expect(page).to have_content("must contain at least 5 different characters")
+      expect(page).to have_content("must not be too common")
+      expect(page).to have_content("must be different from your name, nickname, email, the organization's host")
+      expect(page).to have_content("must be different from your old passwords")
+    end
   end
 end

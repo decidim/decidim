@@ -18,8 +18,9 @@ module Decidim
           expect(subject[:help_text]).to eq(
             [
               "10 characters minimum,",
+              "must contain at least 5 different characters,",
               "must not be too common (e.g. 123456)",
-              "and must be different from your nickname and your email."
+              "and must be different from your name, nickname, email and the organization's host."
             ].join(" ")
           )
         end
@@ -36,8 +37,9 @@ module Decidim
           expect(subject[:help_text]).to eq(
             [
               "15 characters minimum,",
+              "must contain at least 5 different characters,",
               "must not be too common (e.g. 123456),",
-              "must be different from your nickname and your email",
+              "must be different from your name, nickname, email, the organization's host",
               "and must be different from your old passwords."
             ].join(" ")
           )
@@ -56,8 +58,9 @@ module Decidim
             expect(subject[:help_text]).to eq(
               [
                 "10 characters minimum,",
+                "must contain at least 5 different characters,",
                 "must not be too common (e.g. 123456)",
-                "and must be different from your nickname and your email."
+                "and must be different from your name, nickname, email and the organization's host."
               ].join(" ")
             )
           end
