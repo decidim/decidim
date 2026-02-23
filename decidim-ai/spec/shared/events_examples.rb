@@ -172,7 +172,7 @@ shared_examples "meetings spam analysis" do
 
   context "when regular content is added" do
     let(:description) { "Very nice idea that is not going to be blocked by engine" }
-    let(:title) { "This is the collaborative draft title" }
+    let(:title) { "This is the draft title" }
 
     include_examples "content submitted to spam analysis" do
       let(:spam_count) { 0 }
@@ -200,41 +200,13 @@ shared_examples "proposal spam analysis" do
 
   context "when regular content is added" do
     let(:body) { "Very nice idea that is not going to be blocked by engine" }
-    let(:title) { "This is the collaborative draft title" }
+    let(:title) { "This is the draft title" }
 
     include_examples "content submitted to spam analysis" do
       let(:spam_count) { 0 }
       let(:compared_field) { :body }
       let(:compared_against) { body }
       let(:resource) { Decidim::Proposals::Proposal }
-    end
-  end
-end
-
-shared_examples "Collaborative draft spam analysis" do
-  context "when spam content is added" do
-    let(:body) { "Claim your prize today so you can win." }
-    let(:title) { "You are the Lucky winner" }
-
-    include_examples "content submitted to spam analysis" do
-      let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled, participatory_space:) }
-      let(:spam_count) { 1 }
-      let(:compared_field) { :body }
-      let(:compared_against) { body }
-      let(:resource) { Decidim::Proposals::CollaborativeDraft }
-    end
-  end
-
-  context "when regular content is added" do
-    let(:body) { "Very nice idea that is not going to be blocked by engine" }
-    let(:title) { "This is the collaborative draft title" }
-
-    include_examples "content submitted to spam analysis" do
-      let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled, participatory_space:) }
-      let(:spam_count) { 0 }
-      let(:compared_field) { :body }
-      let(:compared_against) { body }
-      let(:resource) { Decidim::Proposals::CollaborativeDraft }
     end
   end
 end

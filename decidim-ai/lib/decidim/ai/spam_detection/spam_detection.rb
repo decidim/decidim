@@ -13,7 +13,6 @@ module Decidim
         autoload :Debate, "decidim/ai/spam_detection/resource/debate"
         autoload :Initiative, "decidim/ai/spam_detection/resource/initiative"
         autoload :Proposal, "decidim/ai/spam_detection/resource/proposal"
-        autoload :CollaborativeDraft, "decidim/ai/spam_detection/resource/collaborative_draft"
         autoload :Meeting, "decidim/ai/spam_detection/resource/meeting"
         autoload :UserBaseEntity, "decidim/ai/spam_detection/resource/user_base_entity"
       end
@@ -96,7 +95,6 @@ module Decidim
           models["Decidim::Initiative"] = "Decidim::Ai::SpamDetection::Resource::Initiative" if Decidim.module_installed?("initiatives")
           models["Decidim::Meetings::Meeting"] = "Decidim::Ai::SpamDetection::Resource::Meeting" if Decidim.module_installed?("meetings")
           models["Decidim::Proposals::Proposal"] = "Decidim::Ai::SpamDetection::Resource::Proposal" if Decidim.module_installed?("proposals")
-          models["Decidim::Proposals::CollaborativeDraft"] = "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" if Decidim.module_installed?("proposals")
           models
         end
       end

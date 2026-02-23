@@ -80,7 +80,6 @@ namespace :decidim do
       task transfer_user_groups_authorships: :environment do
         coauthorable_models = %w(
           Decidim::Proposals::Proposal
-          Decidim::Proposals::CollaborativeDraft
         )
         authorable_models = %w(
           Decidim::Like

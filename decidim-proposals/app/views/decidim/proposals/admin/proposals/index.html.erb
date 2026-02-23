@@ -23,10 +23,6 @@
   </div>
   <%= admin_filter_selector(filter_prefix_key) %>
 
-  <% if component_settings.collaborative_drafts_enabled? %>
-    <div class="flash warning"><%= t("deprecation_warning_collaborative_drafts_html", scope: "decidim.proposals.admin") %></div>
-  <% end %>
-
   <div class="table-stacked mt-8">
     <table class="table-list">
       <%= render partial: "proposals-thead" %>

@@ -117,18 +117,6 @@ module Decidim
               .perform_later(data[:resource],
                              data.dig(:extra, :event_author), data.dig(:extra, :locale), [:body, :title])
           end
-          ActiveSupport::Notifications.subscribe("decidim.proposals.create_collaborative_draft:after") do |_event_name, data|
-            Decidim::Ai::SpamDetection::GenericSpamAnalyzerJob
-              .set(wait: Decidim::Ai::SpamDetection.spam_detection_delay)
-              .perform_later(data[:resource],
-                             data.dig(:extra, :event_author), data.dig(:extra, :locale), [:body, :title])
-          end
-          ActiveSupport::Notifications.subscribe("decidim.proposals.update_collaborative_draft:after") do |_event_name, data|
-            Decidim::Ai::SpamDetection::GenericSpamAnalyzerJob
-              .set(wait: Decidim::Ai::SpamDetection.spam_detection_delay)
-              .perform_later(data[:resource],
-                             data.dig(:extra, :event_author), data.dig(:extra, :locale), [:body, :title])
-          end
         end
       end
 
