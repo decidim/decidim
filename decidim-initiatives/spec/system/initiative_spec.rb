@@ -247,9 +247,9 @@ describe "Initiative" do
 
       it "shows the components" do
         within ".participatory-space__nav-container" do
-          expect(page).to have_content(translated(meetings_component.name, locale: :en))
-          expect(page).to have_no_content(translated(unpublished_proposals_component.name, locale: :en))
-          expect(page).to have_content(translated(blogs_component.name, locale: :en))
+          expect(page).to have_content(decidim_escape_translated(meetings_component.name))
+          expect(page).to have_no_content(decidim_escape_translated(unpublished_proposals_component.name))
+          expect(page).to have_content(decidim_escape_translated(blogs_component.name))
         end
       end
 
