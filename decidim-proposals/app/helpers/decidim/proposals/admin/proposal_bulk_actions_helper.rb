@@ -33,9 +33,10 @@ module Decidim
           end
         end
 
-        # find the valuators for the current space.
+        # find the evaluators for the current space.
         def find_valuators_for_select(participatory_space, current_user)
-          valuator_roles = participatory_space.user_roles(:valuator).order_by_name
+          valuator_roles = participatory_space.user_roles(:valuator)
+          valuator_roles = valuator_roles.order_by_name if valuator_roles.respond_to?(:order_by_name)
           valuators = Decidim::User.where(id: valuator_roles.pluck(:decidim_user_id)).to_a
 
           filtered_valuator_roles = valuator_roles.filter do |role|
