@@ -471,6 +471,9 @@ en:
           update:
             invalid: There was a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
+        registration_form:
+          edit_questions:
+            title: Edit questions
         registrations_attendees:
           index:
             title: Registrations
