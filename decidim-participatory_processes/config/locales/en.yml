@@ -107,7 +107,6 @@ en:
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
-          info: About this process group
           landing_page: Landing page layout
         participatory_processes: Processes
         participatory_processes_submenu:
@@ -115,7 +114,6 @@ en:
           attachment_files: Files
           attachments: Attachments
           components: Components
-          info: About this process
           landing_page: Landing page layout
           members: Members
           moderations: Moderations
@@ -204,8 +202,6 @@ en:
           success: Participatory process phase successfully deleted.
         edit:
           update: Update
-        index:
-          steps_title: Phases
         new:
           create: Create
         ordering:
@@ -221,8 +217,6 @@ en:
           success: Admin successfully removed from this participatory process.
         edit:
           update: Update
-        index:
-          process_admins_title: Participatory process admins
         new:
           create: Create
         update:
@@ -239,7 +233,6 @@ en:
           public: Public
           published: Published
           unpublished: Unpublished
-        manage_trash:
         new:
           create: Create
         update:
@@ -512,8 +505,6 @@ en:
             title: Phases
           new:
             title: New participatory process phase
-          show:
-            title: Phase
         participatory_process_user_roles:
           edit:
             title: Update participatory process admin

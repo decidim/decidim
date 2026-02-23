@@ -110,8 +110,6 @@ en:
         initiatives_menu:
           see_initiative: See initiative
         initiatives_settings: Settings
-        initiatives_submenu:
-          info: About this initiative
         initiatives_types: Initiative types
         moderations: Moderations
       models:
@@ -156,9 +154,6 @@ en:
       taxonomy_filters:
         space_filter_for:
           initiatives: All initiatives
-      titles:
-        initiatives: Initiatives
-        initiatives_types: Initiative types
     download_your_data:
       show:
         initiatives: Initiatives export
@@ -300,7 +295,6 @@ en:
             publication_date: Most recently published
             random: Random
             signatures: Most signed
-            title: Settings for initiatives
         initiatives_type_scopes:
           create:
             error: There was a problem creating a new scope for the given initiative.

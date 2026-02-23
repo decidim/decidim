@@ -146,7 +146,6 @@ en:
           success: Meeting successfully duplicated.
         new:
           copy: Copy
-          title: Duplicate meeting
       tooltips:
         cannot_close_meetings: Cannot close this meeting as it is created by a participant
         cannot_duplicate_meetings: Cannot duplicate this meeting as it is created by a participant
@@ -355,7 +354,6 @@ en:
             non_user: Non existing participant
             select_user: Select participant
           index:
-            invite_attendee: Invite attendee
             invites: Invites
             registrations_disabled: You cannot invite an attendee because the registrations are disabled.
             title: Invite attendee
@@ -450,6 +448,9 @@ en:
             - You can add a question at any time.
             - The poll will be closed when the results of all created questions have been published.
             - Visit the <a href='%{admin_link}'>poll administration page</a> to send questions and publish results.
+        registration_form:
+          edit_questions:
+            title: Edit questions
         registrations:
           edit:
             save: Save
@@ -467,13 +468,9 @@ en:
               other: There has been %{count} registrations.
             reserved_slots_help: Leave it to 0 if you do not have reserved slots.
             reserved_slots_less_than: Must be less than or equal to %{count}
-            title: Registrations
           update:
             invalid: There was a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
-        registration_form:
-          edit_questions:
-            title: Edit questions
         registrations_attendees:
           index:
             title: Registrations

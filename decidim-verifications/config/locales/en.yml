@@ -255,7 +255,6 @@ en:
               error: Verification does not match. Please try again or reject the verification so the participant can amend it.
               success: Participant successfully verified.
             new:
-              introduce_user_data: Introduce the data in the picture
               reject: Reject
               title: Introduce the data in the picture
               verify: Verify
@@ -265,7 +264,6 @@ en:
               success: Participant successfully verified.
             new:
               cancel: Cancel
-              introduce_user_data: Introduce the participant email and the document data
               title: Introduce the participant email and the document data
               verify: Verify
           pending_authorizations:

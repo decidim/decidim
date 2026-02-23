@@ -121,8 +121,6 @@ en:
           success: Conference speaker successfully deleted.
         edit:
           update: Update
-        index:
-          conference_speakers_title: Conference speakers
         new:
           create: Create
         publish:
@@ -142,8 +140,6 @@ en:
           success: Conference admin successfully removed.
         edit:
           update: Update
-        index:
-          conference_admins_title: Conference admins
         new:
           create: Create
         update:
@@ -168,7 +164,6 @@ en:
         index:
           published: Published
           unpublished: Unpublished
-        manage_trash:
         new:
           create: Create
         update:
@@ -186,8 +181,6 @@ en:
           success: Media link successfully deleted.
         edit:
           update: Update
-        index:
-          media_links_title: Media links
         new:
           create: Create
         update:
@@ -204,7 +197,6 @@ en:
           conference_invites: Invites
           conference_speakers: Speakers
           diploma: Certificate of attendance
-          info: About this conference
           media_links: Media links
           moderations: Moderations
           partners: Partners
@@ -363,16 +355,13 @@ en:
             select_user: Select participant
           index:
             invite_attendee: Invite participant
-            invites: Invites
             title: Invites
           new:
             explanation: The participant will be invited to join a conference. If their email is not registered, they will be invited to the organization as well.
             invite: Invite
-            new_invite: Invite participant
             title: Invite participant
         conference_registrations:
           index:
-            registrations: Registrations
             title: Registrations
         conference_speakers:
           edit:
