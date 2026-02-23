@@ -59,10 +59,6 @@ module Decidim
           end
         end
 
-        def show
-          enforce_permission_to :read, :process_step, process_step: @participatory_process_step
-        end
-
         def destroy
           enforce_permission_to :destroy, :process_step, process_step: @participatory_process_step
 
