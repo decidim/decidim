@@ -1079,6 +1079,7 @@ el:
         made_with_open_source: Ο ιστότοπος δημιουργήθηκε με <a target="_blank" href="https://github.com/decidim/decidim">δωρεάν λογισμικό</a>.
       header:
         log_in: Σύνδεση
+        mobile_account_greeting: Γεια σου, %{user_name}
       impersonation_warning:
         close_session: Κλείσιμο συνεδρίας
         description_html: Διαχειρίζεστε τον συμμετέχοντα <b>%{user_name}</b>.
