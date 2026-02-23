@@ -236,6 +236,15 @@ module Decidim
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :description]
 
+      def self.most_commented_available?(component)
+        return false unless component.settings.comments_enabled?
+
+        where(component:)
+          .not_hidden
+          .where("comments_count > 0")
+          .exists?
+      end
+
       def self.ransackable_scopes(_auth_object = nil)
         [:with_any_state, :with_any_origin, :with_any_taxonomies]
       end

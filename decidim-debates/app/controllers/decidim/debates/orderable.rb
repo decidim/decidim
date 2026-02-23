@@ -14,11 +14,25 @@ module Decidim
         private
 
         def available_orders
-          @available_orders ||= %w(random recent commented updated)
+          @available_orders ||= possible_orders
+        end
+
+        def possible_orders
+          @possible_orders ||= begin
+            possible_orders = %w(random recent updated)
+            possible_orders << "commented" if most_commented_order_available?
+            possible_orders
+          end
         end
 
         def default_order
           "updated"
+        end
+
+        def most_commented_order_available?
+          return @most_commented_order_available if defined?(@most_commented_order_available)
+
+          @most_commented_order_available = Decidim::Debates::Debate.most_commented_available?(current_component)
         end
 
         def reorder(debates)
