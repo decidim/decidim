@@ -35,8 +35,8 @@ module Decidim
         context "with comments disabled" do
           let(:comments_enabled) { false }
 
-          it "does not show commented option to sort" do
-            expect(view.available_orders).not_to include("commented")
+          it "does not show most_commented option to sort" do
+            expect(view.available_orders).not_to include("most_commented")
           end
         end
 
@@ -44,12 +44,12 @@ module Decidim
           let(:comments_enabled) { true }
           let!(:debate_with_comments) { create(:debate, component:, comments_count: 5) }
 
-          it "shows commented option to sort" do
-            expect(view.available_orders).to include("commented")
+          it "shows most_commented option to sort" do
+            expect(view.available_orders).to include("most_commented")
           end
         end
 
-        context "with or without comments and commented availability" do
+        context "with or without comments and most_commented availability" do
           let!(:debate_without_comments) { create(:debate, component:) }
           let!(:debate_with_comments) { create(:debate, component:, comments_count: 5) }
           let(:comments_enabled) { true }
@@ -59,14 +59,14 @@ module Decidim
               debate_with_comments.update!(comments_count: 0)
             end
 
-            it "does not show commented option to sort" do
-              expect(view.available_orders).not_to include("commented")
+            it "does not show most_commented option to sort" do
+              expect(view.available_orders).not_to include("most_commented")
             end
           end
 
           context "when there are debates with comments" do
-            it "shows commented option to sort" do
-              expect(view.available_orders).to include("commented")
+            it "shows most_commented option to sort" do
+              expect(view.available_orders).to include("most_commented")
             end
           end
         end

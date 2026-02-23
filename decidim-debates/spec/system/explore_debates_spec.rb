@@ -96,7 +96,7 @@ describe "Explore debates" do
         visit_component
       end
 
-      it "does not show 'commented' sorting option" do
+      it "does not show 'most_commented' sorting option" do
         within ".order-by" do
           expect(page).to have_css("div.order-by a", text: "Random")
           page.find("a", text: "Random").click
@@ -141,7 +141,7 @@ describe "Explore debates" do
       it_behaves_like "ordering debates by selected option", "Recently updated"
     end
 
-    context "when ordering by 'commented'" do
+    context "when ordering by 'most_commented'" do
       let!(:debate_without_comments) { create(:debate, component:, comments_count: 0) }
       let!(:debate_with_comments) { create(:debate, component:, comments_count: 5) }
       let(:first_debate) { debate_with_comments }
