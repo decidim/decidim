@@ -2308,6 +2308,7 @@ en:
         confirm_close_ephemeral_session: If you navigate out of this page, your session will be closed. Are you sure?
         log_in: Log in
         main_menu: Main menu
+        mobile_account_greeting: Hello, %{user_name}
         user_menu: User menu
       impersonation_warning:
         close_session: Close session
