@@ -2300,6 +2300,7 @@ es-PY:
         confirm_close_ephemeral_session: Si navegas fuera de esta página, tu sesión se cerrara. ¿Seguro que quieres salir de esta página?
         log_in: Entra
         main_menu: Menú principal
+        mobile_account_greeting: Hola %{user_name},
         user_menu: Menú de usuario
       impersonation_warning:
         close_session: Cerrar la sesión
