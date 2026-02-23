@@ -102,7 +102,7 @@ describe "Invitation acceptance" do
       expect(page).to have_content("must contain at least 5 different characters")
       expect(page).to have_content("must not be too common")
       expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
-      expect(page).not_to have_content("must be different from your old passwords")
+      expect(page).to have_no_content("must be different from your old passwords")
     end
 
     it "allows accepting invitation with valid user password" do
@@ -143,7 +143,7 @@ describe "Invitation acceptance" do
       expect(page).to have_content("10 characters minimum")
       expect(page).to have_content("must contain at least 5 different characters")
       expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
-      expect(page).not_to have_content("must be different from your old passwords")
+      expect(page).to have_no_content("must be different from your old passwords")
     end
   end
 
