@@ -27,8 +27,16 @@ module Decidim
             }
           end
 
-          meeting_components = participatory_space.components.published.where(manifest_name: "meetings")
-          other_components = participatory_space.components.published.where.not(manifest_name: "meetings")
+          meeting_components = participatory_space
+                               .components
+                               .published
+                               .where(manifest_name: "meetings")
+                               .where(visible: true)
+          other_components = participatory_space
+                             .components
+                             .published
+                             .where.not(manifest_name: "meetings")
+                             .where(visible: true)
 
           meeting_components.each do |component|
             next unless Decidim::Meetings::Meeting.where(component:).published.not_hidden.visible_for(current_user).exists?
