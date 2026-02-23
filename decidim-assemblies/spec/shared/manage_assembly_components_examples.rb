@@ -189,7 +189,16 @@ shared_examples "manage assembly components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
+      before do
+        create(:content_block, organization:, scope_name: :assembly_homepage, manifest_name: :main_data, scoped_resource_id: assembly.id)
+      end
+
       it "hides the component from the menu" do
+        visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
+        expect(page).to have_content decidim_escape_translated(component.name)
+
+        visit decidim_admin_assemblies.components_path(assembly)
+
         within ".component-#{component.id}" do
           click_on "Hide"
         end
@@ -197,6 +206,9 @@ shared_examples "manage assembly components" do
         within ".component-#{component.id}" do
           expect(page).to have_css(".action-icon--menu-hidden")
         end
+
+        visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
+        expect(page).to have_no_content decidim_escape_translated(component.name)
       end
     end
 
