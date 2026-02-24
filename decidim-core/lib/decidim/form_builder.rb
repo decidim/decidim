@@ -815,6 +815,8 @@ module Decidim
                   class: "columns")
     end
 
+    # i18n-tasks-use t('locale.name_with_error')
+    # i18n-tasks-use t('locale.name')
     def language_selector_select(locales, tabs_id, name, error_on_locale = nil)
       content_tag(:div) do
         content_tag(:select, id: tabs_id, class: "language-change", data: { controller: "language-change" }) do
