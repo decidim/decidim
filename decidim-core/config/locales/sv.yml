@@ -2129,6 +2129,7 @@ sv:
         confirm_title_close_ephemeral_session: Innan du lämnar sidan…
         log_in: Logga in
         main_menu: Huvudmeny
+        mobile_account_greeting: Hej, %{user_name}
         user_menu: Användarmeny
       impersonation_warning:
         close_session: Stäng session
