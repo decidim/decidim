@@ -435,7 +435,7 @@ module Decidim
     def translated_tabs(type, name, options, tabs_id, error_on_locale = nil)
       content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-          tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+          tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
 
           aria_hidden = (error_on_locale.present? ? !locale.eql?(error_on_locale) : index.positive?).to_s
           css_class = if error_on_locale.present?
