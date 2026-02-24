@@ -74,7 +74,7 @@ module Decidim
 
       def filter_sections
         items = [
-          { method: :with_date, name: :with_date, collection: filter_dates_values, label: t("decidim.participatory_processes.participatory_processes.filters.date"), id: "date" }
+          { method: :with_date, name: "[with_date]", collection: filter_dates_values, label: t("decidim.participatory_processes.participatory_processes.filters.date"), id: "date" }
         ]
         available_taxonomy_filters.find_each do |taxonomy_filter|
           items.append(method: :with_any_taxonomies,
