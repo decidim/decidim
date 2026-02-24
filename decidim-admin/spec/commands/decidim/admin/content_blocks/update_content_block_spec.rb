@@ -37,7 +37,10 @@ module Decidim::Admin::ContentBlocks
       }
     end
     let(:form) do
-      form_klass.from_params(form_params)
+      form_klass.from_params(form_params).with_context(
+        current_organization: content_block.organization,
+        content_block:
+      )
     end
 
     context "when the form is not valid" do

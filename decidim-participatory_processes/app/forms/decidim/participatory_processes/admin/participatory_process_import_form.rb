@@ -37,6 +37,7 @@ module Decidim
         validate :slug_uniqueness
 
         validate :document_type_must_be_valid, if: :document
+        validate :document_must_have_content, if: -> { document.present? && errors[:document].none? }
 
         def document_text
           @document_text ||= document&.download
@@ -75,6 +76,15 @@ module Decidim
           return unless OrganizationParticipatoryProcesses.new(current_organization).query.where(slug:).where.not(id:).any?
 
           errors.add(:slug, :taken)
+        end
+
+        def document_must_have_content
+          return if document_text.blank?
+
+          parsed = JSON.parse(document_text)
+          errors.add(:document, :empty) if parsed.is_a?(Array) && parsed.empty?
+        rescue JSON::ParserError
+          errors.add(:document, :invalid_json)
         end
       end
     end
