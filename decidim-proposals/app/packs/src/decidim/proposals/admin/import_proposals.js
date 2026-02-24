@@ -8,6 +8,12 @@ document.addEventListener("turbo:load", () => {
 
   const statesUrl = select.dataset.statesUrl;
 
+  const escapeHtml = (str) => {
+    const div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const fetchStates = (componentId) => {
     if (!componentId) {
       container.innerHTML = "";
@@ -31,18 +37,18 @@ document.addEventListener("turbo:load", () => {
       }
 
       const selectedStates = JSON.parse(container.dataset.selectedStates || "[]");
-      const checkboxes = states.map((state) => `
-        <div>
-          <label>
-            <input type="checkbox" name="proposals_import[states][]" value="${state.token}" ${selectedStates.includes(state.token)
-  ? "checked"
-  : ""}>
-            ${state.title}
-          </label>
-        </div>
-      `).join("");
+
+      const checkboxes = states.map((state) => {
+        const token = escapeHtml(state.token);
+        const title = escapeHtml(state.title);
+        const checked = selectedStates.includes(state.token)
+          ? "checked"
+          : "";
+        return `<div><label><input type="checkbox" name="proposals_import[states][]" value="${token}" ${checked}> ${title}</label></div>`;
+      }).join("");
 
       container.innerHTML = `<div class="row column">${checkboxes}</div>`;
+
       container.style.display = "block";
     }).catch(() => {
       container.innerHTML = "";
