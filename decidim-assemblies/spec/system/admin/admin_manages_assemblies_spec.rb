@@ -116,10 +116,6 @@ describe "Admin manages assemblies" do
         click_on translated(assembly3.title)
       end
 
-      within_admin_sidebar_menu do
-        click_on "About this assembly"
-      end
-
       select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
 
       click_on "Update"
