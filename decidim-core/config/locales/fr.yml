@@ -1976,6 +1976,7 @@ fr:
         confirm_title_close_ephemeral_session: Avant de quitter cette page…
         log_in: Se connecter
         main_menu: Menu principal
+        mobile_account_greeting: Bonjour %{user_name},
         user_menu: Menu utilisateur
       impersonation_warning:
         close_session: Fermer la session
