@@ -420,7 +420,7 @@ en:
           index:
             title: Media links
           new:
-            title: Create media link
+            title: New media link
         partners:
           edit:
             title: Update partner
