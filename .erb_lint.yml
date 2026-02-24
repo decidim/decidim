@@ -30,6 +30,7 @@ linters:
       - decidim-admin/app/views/decidim/admin/shared/landing_page_content_blocks/edit.html.erb
       - decidim-admin/app/views/decidim/admin/shared/landing_page/edit.html.erb
       - decidim-admin/app/views/decidim/admin/imports/new.html.erb
+      - decidim-meetings/app/views/decidim/meetings/admin/poll/edit.html.erb
 
   DeprecatedClasses:
     enabled: true
