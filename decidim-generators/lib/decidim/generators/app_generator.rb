@@ -430,7 +430,11 @@ module Decidim
       private
 
       def module_available?(module_name)
-        Bundler.definition.locked_gems.specs.find { |s| s.name == module_name }.present?
+        lockfile_path = File.join(destination_root, "Gemfile.lock")
+        return false unless File.exist?(lockfile_path)
+
+        lockfile = Bundler::LockfileParser.new(File.read(lockfile_path))
+        lockfile.specs.any? { |s| s.name == module_name }
       end
 
       def gem_modifier
