@@ -2137,6 +2137,7 @@ en:
         confirm_title_close_ephemeral_session: Before leaving this page…
         log_in: Log in
         main_menu: Main menu
+        mobile_account_greeting: Hello, %{user_name}
         user_menu: User menu
       impersonation_warning:
         close_session: Close session
