@@ -2301,6 +2301,7 @@ sv:
         confirm_close_ephemeral_session: Om du klickar dig ut från den här sidan kommer din session att stängas. Är du säker?
         log_in: Logga in
         main_menu: Huvudmeny
+        mobile_account_greeting: Hej, %{user_name}
         user_menu: Användarmeny
       impersonation_warning:
         close_session: Stäng session
