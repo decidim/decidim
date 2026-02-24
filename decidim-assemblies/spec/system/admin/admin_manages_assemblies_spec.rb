@@ -135,6 +135,22 @@ describe "Admin manages assemblies" do
         expect(src).to be_blob_url(hero_blob)
       end
     end
+
+    describe "when the assembly is transparent" do
+      let!(:assembly3) { create(:assembly, :private, :transparent, organization:) }
+
+      before do
+        visit decidim_admin_assemblies.assemblies_path
+      end
+
+      it "shows the transparent checkbox correctly" do
+        within "tr", text: translated(assembly3.title) do
+          click_on translated(assembly3.title)
+        end
+
+        expect(page).to have_checked_field("assembly_is_transparent")
+      end
+    end
   end
 
   context "when managing parent assemblies" do
