@@ -131,7 +131,9 @@ describe Decidim::Debates::Debate do
     context "when the debate has been closed" do
       let(:debate) { build(:debate, :participant_author, :closed) }
 
-      it { is_expected.not_to be_accepts_new_comments }
+      # Even though the debate is closed, the administrator can still post comments
+      # ("Comments are currently disabled, only administrators can reply or post new ones")
+      it { is_expected.to be_accepts_new_comments }
     end
   end
 
