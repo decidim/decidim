@@ -8,6 +8,18 @@ Decidim.register_component(:elections) do |component|
   component.icon_key = "draft-line"
   component.permissions_class_name = "Decidim::Elections::Permissions"
 
+  component.on(:publish) do |instance|
+    Decidim::Elections::Election.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Elections::Election.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
+    end
+  end
+
   component.actions = %w()
 
   component.register_stat :elections_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|

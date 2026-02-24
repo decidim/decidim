@@ -801,7 +801,7 @@ module Decidim
 
     def language_selector_select(locales, tabs_id, name)
       content_tag(:div) do
-        content_tag(:select, id: tabs_id, class: "language-change") do
+        content_tag(:select, id: tabs_id, class: "language-change", data: { controller: "language-change" }) do
           locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
             title = if error?(name_with_locale(name, locale))
                       I18n.with_locale(locale) { I18n.t("name_with_error", scope: "locale") }

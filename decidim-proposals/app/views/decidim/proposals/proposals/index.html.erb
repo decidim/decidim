@@ -1,5 +1,5 @@
 <% add_decidim_meta_tags(
-  description: translated_attribute(current_participatory_space.short_description),
+  description: translated_attribute(current_participatory_space.try(:short_description) || current_participatory_space.description),
   title: t("decidim.components.pagination.page_title",
            component_name:,
            current_page: @proposals.current_page,

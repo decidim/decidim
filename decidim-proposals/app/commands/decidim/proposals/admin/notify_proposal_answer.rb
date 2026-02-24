@@ -27,6 +27,7 @@ module Decidim
             transaction do
               increment_score
               notify_followers
+              notify_authors
             end
           end
 
@@ -48,8 +49,19 @@ module Decidim
             event: "decidim.events.proposals.proposal_state_changed",
             event_class: Decidim::Proposals::ProposalStateChangedEvent,
             resource: proposal,
-            affected_users: proposal.notifiable_identities,
             followers: proposal.followers - proposal.notifiable_identities
+          )
+        end
+
+        def notify_authors
+          return if proposal.state == "not_answered"
+
+          Decidim::EventsManager.publish(
+            event: "decidim.events.proposals.proposal_state_changed_for_authors",
+            event_class: Decidim::Proposals::ProposalStateChangedEvent,
+            resource: proposal,
+            affected_users: proposal.authors,
+            extra: { force_email: true }
           )
         end
 

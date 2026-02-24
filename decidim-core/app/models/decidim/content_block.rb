@@ -36,7 +36,7 @@ module Decidim
     # Returns an object that responds to the settings defined in the content
     # block manifest.
     def settings
-      manifest.settings.schema.new(self[:settings])
+      manifest.settings.schema.new(self[:settings], organization&.default_locale)
     end
 
     def reload(*)

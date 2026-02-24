@@ -48,7 +48,7 @@ describe "Admin invite" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout "Your password was set successfully. You are now signed in."
+      expect(page).to have_callout "Your password was set successfully. You are now signed in."
 
       expect(page).to have_current_path "/admin/admin_terms/show"
     end

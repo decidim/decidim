@@ -51,7 +51,7 @@ module Decidim
             content_block.settings_form_cell = "decidim/content_blocks/announcement_settings_form"
 
             content_block.settings do |settings|
-              settings.attribute :announcement, type: :text, translated: true, editor: true
+              settings.attribute :announcement, type: :text, translated: true, editor: true, required: true
             end
           end
 

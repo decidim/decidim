@@ -10,7 +10,7 @@ module Decidim
         include Decidim::ParticipatoryProcesses::Admin::Filterable
         include Decidim::Admin::HasTrashableResources
 
-        add_breadcrumb_item_from_menu :admin_participatory_process_menu, only: :show
+        add_breadcrumb_item_from_menu :admin_participatory_process_menu, only: :edit
 
         participatory_space_admin_layout only: [:edit]
 

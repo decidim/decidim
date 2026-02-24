@@ -20,14 +20,14 @@ Decidim.register_component(:budgets) do |component|
   component.on(:publish) do |instance|
     Decidim::Budgets::Budget.where(component: instance).find_each do |budget|
       Decidim::UpdateSearchIndexesJob.perform_later([budget])
-      Decidim::UpdateSearchIndexesJob.perform_later(budget.projects)
+      Decidim::UpdateSearchIndexesJob.perform_later(budget.projects.to_a)
     end
   end
 
   component.on(:unpublish) do |instance|
     Decidim::Budgets::Budget.where(component: instance).find_each do |budget|
       Decidim::RemoveSearchIndexesJob.perform_later([budget])
-      Decidim::RemoveSearchIndexesJob.perform_later(budget.projects)
+      Decidim::RemoveSearchIndexesJob.perform_later(budget.projects.to_a)
     end
   end
 

@@ -7,6 +7,9 @@ checking out the last version of this document in the [GitHub page for the relea
 
 As usual, we recommend that you have a full backup, of the database, application code and static files.
 
+NOTE: Please note this release is updating Rails version from 7.2.2 to 7.2.3. Please ensure you back up your `SECRET_KEY_BASE` env variable and also `tmp/local_secret.txt` if you have it.
+On your local development environment, you may need to set your `SECRET_KEY_BASE` env variable to the same value as the one present in your `tmp/local_secret.txt`.
+
 To update, follow these steps:
 
 ### 1.1. Update your ruby version
@@ -130,7 +133,15 @@ It also enables the users of multi language platforms to share the links to the 
 
 You can read more about this change on PR [#14432](https://github.com/decidim/decidim/pull/14432).
 
-### 2.7. [[TITLE OF THE ACTION]]
+### 2.8. Removal of User Group related fields
+
+As we deprecated the User Group functionality in v0.31, we are performing some cleanup that will remove all the database fields related to the User Group functionality. This means that `decidim_user_group_id` fields in various tables will be removed.
+
+We are also removing the `decidim_user_group_memberships` tables.
+
+You can read more about this change on PR [#16022](https://github.com/decidim/decidim/pull/16022).
+
+### 2.8. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -247,7 +258,29 @@ end
 
 You can read more about this change on PR [#14800](https://github.com/decidim/decidim/pull/14800).
 
-### 5.2. [[TITLE OF THE CHANGE]]
+### 5.2. Refactor of filters
+
+As part of our ongoing efforts to improve and simplify Decidim, we have changed the way filters are being defined, mainly being forced by rack 3 upgrade.
+
+Previously, the taxonomy filters were defined as follows:
+
+```ruby
+"filter" => {
+  "with_any_taxonomies[4]" => [""]
+}
+```
+
+After the rack upgrade, the filters are defined as follows:
+
+```ruby
+"filter" => {
+  "with_any_taxonomies" => { "4" => [""] }
+}
+```
+
+You can read more about this change on PR [#16103](https://github.com/decidim/decidim/pull/16103).
+
+### 5.3. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 

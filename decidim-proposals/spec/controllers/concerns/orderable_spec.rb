@@ -55,10 +55,10 @@ module Decidim
 
         context "when step has default_sort_order" do
           let(:component_default_sort_order) { "random" }
-          let(:step_default_sort_order) { "with_more_authors" }
+          let(:step_default_sort_order) { "most_commented" }
 
           it "use it instead of component's" do
-            expect(controller.send(:default_order)).to eq("with_more_authors")
+            expect(controller.send(:default_order)).to eq("most_commented")
           end
         end
 
@@ -101,7 +101,7 @@ module Decidim
           describe "recent" do
             let(:default_sort_order) { "recent" }
 
-            it "default_order is random" do
+            it "default_order is recent" do
               expect(controller.send(:default_order)).to eq(default_sort_order)
             end
           end
@@ -110,7 +110,7 @@ module Decidim
             let(:default_sort_order) { "most_liked" }
             let(:likes_enabled) { true }
 
-            it "default_order is random" do
+            it "default_order is most_liked" do
               expect(controller.send(:default_order)).to eq(default_sort_order)
             end
           end
@@ -119,7 +119,7 @@ module Decidim
             let(:default_sort_order) { "most_commented" }
             let(:comments_enabled) { true }
 
-            it "default_order is random" do
+            it "default_order is most_commented" do
               expect(controller.send(:default_order)).to eq(default_sort_order)
             end
           end
@@ -127,7 +127,7 @@ module Decidim
           describe "most_followed" do
             let(:default_sort_order) { "most_followed" }
 
-            it "default_order is random" do
+            it "default_order is most_followed" do
               expect(controller.send(:default_order)).to eq(default_sort_order)
             end
           end
@@ -135,8 +135,19 @@ module Decidim
           describe "with_more_authors" do
             let(:default_sort_order) { "with_more_authors" }
 
-            it "default_order is random" do
-              expect(controller.send(:default_order)).to eq(default_sort_order)
+            context "when there are no proposals with coauthors" do
+              it "defaults to random" do
+                expect(controller.send(:default_order)).to eq("random")
+              end
+            end
+
+            context "when there are proposals with coauthors" do
+              let!(:proposal_with_coauthors) { create(:proposal, component:) }
+              let!(:coauthorships) { create_list(:coauthorship, 2, coauthorable: proposal_with_coauthors) }
+
+              it "default_order is with_more_authors" do
+                expect(controller.send(:default_order)).to eq(default_sort_order)
+              end
             end
           end
         end
@@ -200,6 +211,70 @@ module Decidim
 
           it "does not show most_commented option to sort" do
             expect(view.available_orders).not_to include("most_commented")
+          end
+        end
+
+        context "with or without coauthors and with_more_authors availability" do
+          let!(:proposal_with_single_author) { create(:proposal, component:) }
+          let!(:proposal_with_coauthors) { create(:proposal, component:) }
+          let!(:coauthorships) { create_list(:coauthorship, 2, coauthorable: proposal_with_coauthors) }
+
+          context "when there are no proposals with coauthors" do
+            before do
+              proposal_with_coauthors.destroy
+            end
+
+            it "does not show with_more_authors option to sort" do
+              expect(view.available_orders).not_to include("with_more_authors")
+            end
+          end
+
+          context "when there are proposals with coauthors" do
+            it "shows with_more_authors option to sort" do
+              expect(view.available_orders).to include("with_more_authors")
+            end
+          end
+        end
+      end
+
+      describe "#with_more_authors_order_available?" do
+        let!(:proposal_with_single_author) { create(:proposal, component:) }
+        let!(:proposal_with_coauthors) { create(:proposal, component:) }
+        let!(:coauthorships) { create_list(:coauthorship, 2, coauthorable: proposal_with_coauthors) }
+
+        context "when there are proposals with only single author" do
+          before do
+            coauthorships.each(&:destroy)
+          end
+
+          it "returns false" do
+            expect(controller.send(:with_more_authors_order_available?)).to be false
+          end
+        end
+
+        context "when there are proposals with coauthors" do
+          it "returns true" do
+            expect(controller.send(:with_more_authors_order_available?)).to be true
+          end
+        end
+
+        context "when proposals are not published" do
+          before do
+            proposal_with_coauthors.update!(published_at: nil)
+          end
+
+          it "returns false" do
+            expect(controller.send(:with_more_authors_order_available?)).to be false
+          end
+        end
+
+        context "when proposals are hidden" do
+          before do
+            create(:moderation, reportable: proposal_with_coauthors, hidden_at: Time.current)
+          end
+
+          it "returns false" do
+            expect(controller.send(:with_more_authors_order_available?)).to be false
           end
         end
       end

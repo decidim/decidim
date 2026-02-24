@@ -433,6 +433,12 @@ module Decidim
       Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
     end
 
+    # Public: Initiatives do not have user roles like other participatory spaces.
+    # Returns an empty relation.
+    def user_roles(_role_name = nil)
+      self.class.none
+    end
+
     # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
     def allow_resource_permissions?
       true

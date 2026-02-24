@@ -86,7 +86,7 @@ shared_examples "manage moderations" do
         click_on "Undo the report"
       end
 
-      expect(page).to have_admin_callout("Resource successfully unreported")
+      expect(page).to have_callout("Resource successfully unreported")
     end
 
     it "user can hide a resource" do
@@ -95,7 +95,7 @@ shared_examples "manage moderations" do
         click_on "Hide"
       end
 
-      expect(page).to have_admin_callout("Resource successfully hidden")
+      expect(page).to have_callout("Resource successfully hidden")
       expect(page).to have_no_content(moderation.reportable.reported_content_url)
     end
 
@@ -241,7 +241,7 @@ shared_examples "manage moderations" do
         click_on "Hide"
       end
 
-      expect(page).to have_admin_callout("Resource successfully hidden")
+      expect(page).to have_callout("Resource successfully hidden")
       expect(page).to have_no_css("tr[data-id=\"#{moderation_id}\"]")
     end
   end
