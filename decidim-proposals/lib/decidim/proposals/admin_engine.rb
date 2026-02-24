@@ -35,9 +35,7 @@ module Decidim
         end
 
         resource :proposals_import, only: [:new, :create] do
-          collection do
-            get :component_states
-          end
+          get :component_states
         end
         resource :proposals_merge, only: [:new, :create]
 
