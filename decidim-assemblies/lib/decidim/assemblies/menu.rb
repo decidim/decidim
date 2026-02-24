@@ -87,7 +87,7 @@ module Decidim
       def self.register_admin_assembly_menu!
         Decidim.menu :admin_assembly_menu do |menu|
           menu.add_item :edit_assembly,
-                        I18n.t("title", scope: "decidim.assemblies.admin.assemblies.edit"),
+                        I18n.t("info", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.edit_assembly_path(current_participatory_space),
                         position: 1,
                         icon_name: "information-line",
