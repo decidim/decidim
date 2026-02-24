@@ -75,6 +75,8 @@ sv:
           attributes:
             document:
               allowed_file_content_types: 'Ogiltig dokumenttyp. Endast filer med följande tillägg är tillåtna: %{types}.'
+              empty: Dokumentet är tomt
+              invalid_json: Dokumentet är inte giltigt JSON
   activerecord:
     models:
       decidim/assembly:
