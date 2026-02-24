@@ -1240,7 +1240,7 @@ en:
           success: Taxonomy filter updated successfully.
       taxonomy_filters_selector:
         index:
-          title: Taxonomy filters for "%{taxonomy}"
+          title: Taxonomy filters
         new:
           add_new_items_html: If you need to set a new filter or item, do it through the configuration settings or by clicking <a href="%{url}">here</a>.
           items_count: "%{count} items"
