@@ -111,7 +111,7 @@ describe "Admin manages assemblies" do
       visit decidim_admin_assemblies.assemblies_path
     end
 
-    it "update a participatory process without images does not delete them" do
+    it "update an assembly without images does not delete them" do
       within "tr", text: translated(assembly3.title) do
         click_on translated(assembly3.title)
       end
