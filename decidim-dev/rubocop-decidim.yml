@@ -28,7 +28,7 @@ inherit_from:
   - config/rubocop/yard/configuration.yml
   - config/rubocop/disabled.yml
 
-Decidim/AdminCalloutAntipattern:
+Decidim/MessageAntipattern:
   Enabled: true
   Include:
     - "**/spec/**/*"

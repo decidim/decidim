@@ -130,7 +130,15 @@ It also enables the users of multi language platforms to share the links to the 
 
 You can read more about this change on PR [#14432](https://github.com/decidim/decidim/pull/14432).
 
-### 2.7. [[TITLE OF THE ACTION]]
+### 2.8. Removal of User Group related fields
+
+As we deprecated the User Group functionality in v0.31, we are performing some cleanup that will remove all the database fields related to the User Group functionality. This means that `decidim_user_group_id` fields in various tables will be removed.
+
+We are also removing the `decidim_user_group_memberships` tables.
+
+You can read more about this change on PR [#16022](https://github.com/decidim/decidim/pull/16022).
+
+### 2.8. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

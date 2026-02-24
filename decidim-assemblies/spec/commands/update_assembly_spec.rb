@@ -63,7 +63,6 @@ module Decidim::Assemblies
             instagram_handler: my_assembly.instagram_handler,
             youtube_handler: my_assembly.youtube_handler,
             github_handler: my_assembly.github_handler,
-            announcement: my_assembly.announcement,
             taxonomies: [taxonomy.id, taxonomizations.first.taxonomy.id]
           }.merge(attachment_params)
         }

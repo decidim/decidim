@@ -75,6 +75,8 @@ en:
           attributes:
             document:
               allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}.'
+              empty: The document is empty
+              invalid_json: The document is not valid JSON
   activerecord:
     models:
       decidim/assembly:
@@ -246,7 +248,6 @@ en:
       admin:
         assemblies:
           form:
-            announcement_help: The text you enter here will be shown to the user right below the assembly information.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
@@ -280,8 +281,9 @@ en:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show
         imports:
-          banner_image_error: The banner image could not be imported due to an error. Error %{error}
-          hero_image_error: The hero image could not be imported due to an error. Error %{error}
+          attachment_error: The attachment "%{title}" could not be imported (%{error}).
+          banner_image_error: The banner image could not be imported (%{error}).
+          hero_image_error: The hero image could not be imported (%{error}).
         new_import:
           accepted_types:
             json: JSON
@@ -389,7 +391,6 @@ en:
     open_data:
       help:
         assemblies:
-          announcement: The announcement (callout) information
           area: The area of the assembly
           assembly_type: The type of the assembly
           closing_date: The closing date of the assembly

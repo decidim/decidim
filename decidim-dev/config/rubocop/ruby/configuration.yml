@@ -1,6 +1,6 @@
 require:
   - rubocop
-  - decidim/dev/rubocop/cop/decidim/admin_callout_antipattern
+  - decidim/dev/rubocop/cop/decidim/message_antipattern
 
 # Common configuration.
 AllCops:

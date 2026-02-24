@@ -231,12 +231,15 @@ describe "Initiative" do
   describe "initiative components" do
     let!(:initiative) { base_initiative }
     let!(:meetings_component) { create(:component, :published, participatory_space: initiative, manifest_name: :meetings) }
-    let!(:proposals_component) { create(:component, :unpublished, participatory_space: initiative, manifest_name: :proposals) }
+    let!(:published_proposals_component) { create(:component, :published, participatory_space: initiative, manifest_name: :proposals) }
+    let!(:unpublished_proposals_component) { create(:component, :unpublished, participatory_space: initiative, manifest_name: :proposals) }
     let!(:blogs_component) { create(:component, :published, participatory_space: initiative, manifest_name: :blogs) }
+    let!(:debates_component) { create(:component, participatory_space: initiative, manifest_name: :debates) }
+    let!(:elections_component) { create(:component, :published, participatory_space: initiative, manifest_name: :elections) }
 
     before do
       create_list(:meeting, 3, :published, component: meetings_component)
-      allow(Decidim).to receive(:component_manifests).and_return([meetings_component.manifest, proposals_component.manifest, blogs_component.manifest])
+      allow(Decidim).to receive(:component_manifests).and_return([meetings_component.manifest, debates_component.manifest, published_proposals_component.manifest, unpublished_proposals_component.manifest, blogs_component.manifest, elections_component.manifest])
     end
 
     context "when requesting the initiative path" do
@@ -244,18 +247,63 @@ describe "Initiative" do
 
       it "shows the components" do
         within ".participatory-space__nav-container" do
-          expect(page).to have_content(translated(meetings_component.name, locale: :en))
-          expect(page).to have_no_content(translated(proposals_component.name, locale: :en))
-          expect(page).to have_content(translated(blogs_component.name, locale: :en))
+          expect(page).to have_content(decidim_escape_translated(meetings_component.name))
+          expect(page).to have_no_content(decidim_escape_translated(unpublished_proposals_component.name))
+          expect(page).to have_content(decidim_escape_translated(blogs_component.name))
         end
       end
 
       it "allows visiting the components" do
         within ".participatory-space__nav-container" do
-          click_on translated(meetings_component.name, locale: :en)
+          click_on decidim_escape_translated(meetings_component.name)
         end
 
         expect(page).to have_css('[id^="meetings__meeting"]', count: 3)
+      end
+
+      context "when visiting proposals component" do
+        let!(:proposal) { create(:proposal, :published, component: published_proposals_component) }
+        let(:user) { create(:user, :confirmed, organization:) }
+
+        before do
+          sign_in user, scope: :user
+          visit main_component_path(published_proposals_component)
+        end
+
+        it "displays the proposals index without errors" do
+          expect(page).to have_css('[id^="proposals__proposal"]', count: 1)
+          expect(page).to have_content(translated(proposal.title))
+        end
+      end
+
+      context "when visiting the debates component" do
+        let!(:debate) { create(:debate, component: debates_component) }
+        let(:user) { create(:user, :confirmed, organization:) }
+
+        before do
+          sign_in user, scope: :user
+          visit main_component_path(debates_component)
+        end
+
+        it "displays the debates index without errors" do
+          expect(page).to have_css('[id^="debates__debate"]', count: 1)
+          expect(page).to have_content(translated(debate.title))
+        end
+      end
+
+      context "when visiting the elections component" do
+        let!(:election) { create(:election, :published, component: elections_component) }
+        let(:user) { create(:user, :confirmed, organization:) }
+
+        before do
+          sign_in user, scope: :user
+          visit main_component_path(elections_component)
+        end
+
+        it "displays the elections index without errors" do
+          expect(page).to have_css('[id^="elections__election"]', count: 1)
+          expect(page).to have_content(translated(election.title))
+        end
       end
     end
 
@@ -267,7 +315,7 @@ describe "Initiative" do
 
       it "has special permissions to create posts" do
         within ".participatory-space__nav-container" do
-          click_on translated(blogs_component.name, locale: :en)
+          click_on decidim_escape_translated(blogs_component.name)
         end
 
         expect(page).to have_content("New post")
@@ -275,7 +323,7 @@ describe "Initiative" do
 
       it "has special permissions to create meetings" do
         within ".participatory-space__nav-container" do
-          click_on translated(meetings_component.name, locale: :en)
+          click_on decidim_escape_translated(meetings_component.name)
         end
 
         expect(page).to have_content("New meeting")

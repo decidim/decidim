@@ -579,6 +579,7 @@ en:
     contact: Contact
     content_blocks:
       announcement:
+        body: Announcement text
         name: Announcement
       cta:
         name: Image, text and Call To Action button
@@ -1807,6 +1808,7 @@ en:
       send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
     failure:
       already_authenticated: You are already signed in.
+      csrf_token: Unable to verify your request. Please retry.
       inactive: Your account is not activated yet.
       invalid: Invalid %{authentication_keys} or password.
       invited: You have a pending invitation, accept it to finish creating your account.
@@ -2135,6 +2137,7 @@ en:
         confirm_title_close_ephemeral_session: Before leaving this page…
         log_in: Log in
         main_menu: Main menu
+        mobile_account_greeting: Hello, %{user_name}
         user_menu: User menu
       impersonation_warning:
         close_session: Close session

@@ -49,7 +49,7 @@ describe "Admin edits proposals" do
         end
       end
 
-      expect(page).to have_admin_callout("Proposal successfully updated.")
+      expect(page).to have_callout("Proposal successfully updated.")
 
       visit decidim_admin.root_path
       expect(page).to have_content("updated the #{translated(attributes[:title])} official proposal")

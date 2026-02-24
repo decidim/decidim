@@ -35,7 +35,7 @@ PATH
     decidim-api (0.32.0.dev)
       decidim-core (= 0.32.0.dev)
       devise-jwt (~> 0.12.1)
-      graphql (~> 2.4.0, >= 2.4.17)
+      graphql (>= 2.4.17, < 2.6)
       graphql-docs (~> 5.0)
       rack-cors (~> 1.0)
     decidim-assemblies (0.32.0.dev)
@@ -448,7 +448,7 @@ GEM
     google-protobuf (4.29.3-x86_64-linux)
       bigdecimal
       rake (>= 13)
-    graphql (2.4.17)
+    graphql (2.5.19)
       base64
       fiber-storage
       logger
@@ -566,9 +566,9 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.18.9-arm64-darwin)
+    nokogiri (1.19.1-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.9-x86_64-linux-gnu)
+    nokogiri (1.19.1-x86_64-linux-gnu)
       racc (~> 1.4)
     oauth (1.1.0)
       oauth-tty (~> 1.0, >= 1.0.1)
@@ -646,7 +646,7 @@ GEM
     puma (6.5.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (2.2.20)
+    rack (2.2.22)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-cors (1.1.1)

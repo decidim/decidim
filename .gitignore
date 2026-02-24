@@ -20,6 +20,7 @@ schema.json
 .yardoc
 .rspec-failures
 .rbenv-vars
+.env
 # Sublime Text 3 indexing file: .tags
 .tags
 # Vim swap files

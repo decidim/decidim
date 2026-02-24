@@ -165,6 +165,15 @@ module Decidim
           .where(decidim_proposals_evaluation_assignments: { evaluator_role_id: evaluator_roles })
       end
 
+      def self.with_more_authors_available?(component)
+        where(component:)
+          .published
+          .not_hidden
+          .not_withdrawn
+          .where("coauthorships_count > 1")
+          .exists?
+      end
+
       acts_as_list scope: :decidim_component_id
 
       searchable_fields({

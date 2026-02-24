@@ -48,7 +48,7 @@ describe "Admin manages assembly attachments" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("Attachment created successfully.")
+        expect(page).to have_callout("Attachment created successfully.")
 
         wait_enqueued_jobs do
           visit decidim.notifications_path

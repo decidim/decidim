@@ -10,9 +10,16 @@ module Decidim
 
         helper Decidim::DecidimFormHelper
 
+        rescue_from ActionController::InvalidAuthenticityToken, with: :redirect_to_referer_or_path
+
         layout "decidim/system/login"
 
         private
+
+        def redirect_to_referer_or_path
+          set_flash_message(:alert, "csrf_token", scope: "devise.failure")
+          redirect_back(fallback_location: root_path)
+        end
 
         def current_organization; end
       end

@@ -60,7 +60,7 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout "Debate successfully updated"
+      expect(page).to have_callout "Debate successfully updated"
 
       within "table" do
         expect(page).to have_content(translated(attributes[:title]))
@@ -163,7 +163,7 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout "Debate successfully created"
+    expect(page).to have_callout "Debate successfully created"
 
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))
@@ -201,7 +201,7 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout "Debate successfully created"
+    expect(page).to have_callout "Debate successfully created"
 
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))
@@ -227,7 +227,7 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout "Debate successfully created"
+    expect(page).to have_callout "Debate successfully created"
 
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))
@@ -267,7 +267,7 @@ RSpec.shared_examples "manage debates" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout "Debate successfully created"
+        expect(page).to have_callout "Debate successfully created"
 
         within "tr[data-id=\"#{Decidim::Debates::Debate.last.id}\"]" do
           find("button[data-controller='dropdown']").click
@@ -308,7 +308,7 @@ RSpec.shared_examples "manage debates" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout "Debate successfully updated"
+        expect(page).to have_callout "Debate successfully updated"
 
         within "tr[data-id=\"#{debate.id}\"]" do
           find("button[data-controller='dropdown']").click
@@ -346,7 +346,7 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout "Debate successfully closed"
+      expect(page).to have_callout "Debate successfully closed"
 
       within "table" do
         within "tr", text: translated(debate.title) do

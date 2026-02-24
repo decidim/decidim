@@ -24,9 +24,7 @@ describe "Manage admins" do
           find("*[type=submit]").click
         end
 
-        within ".success.flash" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_callout("Admin successfully created.")
 
         within "table" do
           expect(page).to have_content("admin@foo.bar")
@@ -64,9 +62,7 @@ describe "Manage admins" do
           find("*[type=submit]").click
         end
 
-        within ".success.flash" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_callout("Admin successfully updated.")
 
         within "table" do
           expect(page).to have_content("admin@another.domain")
@@ -97,9 +93,7 @@ describe "Manage admins" do
       accept_confirm { click_on "Delete" }
     end
 
-    within ".success.flash" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_callout("Admin successfully deleted.")
 
     within "table" do
       expect(page).to have_no_content(admin2.email)

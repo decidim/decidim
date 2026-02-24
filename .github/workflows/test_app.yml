@@ -67,7 +67,7 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 1
       - run: |
@@ -78,7 +78,7 @@ jobs:
         with:
           ruby-version: ${{ inputs.ruby_version }}
           bundler-cache: true
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ inputs.node_version }}
           cache: 'npm'
@@ -141,7 +141,7 @@ jobs:
         with:
           name: ${{ inputs.working-directory }}
           flags: ${{ inputs.working-directory }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: Screenshots of run ${{ github.run_id }}

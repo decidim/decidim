@@ -67,6 +67,8 @@ en:
           attributes:
             document:
               allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}'
+              empty: The document is empty
+              invalid_json: The document is not valid JSON
     models:
       decidim/participatory_process_step_activated_event: Phase activated
       decidim/participatory_process_step_changed_event: Phase changed
@@ -107,7 +109,7 @@ en:
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
-          info: Info
+          info: About this process group
           landing_page: Landing page layout
         participatory_processes: Processes
         participatory_processes_submenu:
@@ -342,7 +344,6 @@ en:
     open_data:
       help:
         participatory_processes:
-          announcement: The announcement (callout) information
           area: The area where the process is taking place
           component_settings: The component settings of the process
           created_at: The date this space was created
@@ -491,7 +492,8 @@ en:
             max_results: Maximum amount of elements to show
             selection_criteria: Selection criteria
         imports:
-          hero_image_error: The hero image could not be imported due to an error. Error %{error}
+          attachment_error: The attachment "%{title}" could not be imported (%{error}).
+          hero_image_error: The hero image could not be imported (%{error}).
         new_import:
           accepted_types:
             json: JSON
@@ -510,7 +512,6 @@ en:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_processes:
           form:
-            announcement_help: The text you enter here will be shown to the user right below the process information.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             has_members_help: You will be able to create and publish members

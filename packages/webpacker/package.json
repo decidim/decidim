@@ -29,7 +29,7 @@
     "pnp-webpack-plugin": "^1.7.0",
     "postcss": ">=8.4.31",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-import": "^15.1.0",
+    "postcss-import": "^16.1.1",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^9.0.0",
     "postcss-scss": "^4.0.6",
