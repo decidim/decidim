@@ -63,7 +63,7 @@ module Decidim
 
       # If the proposal is official or the rich text editor is enabled on the
       # frontend, the proposal body is considered as safe content; that is unless
-      # the proposal comes from a participatory_text.
+      # safe_content_admin? is used and the proposal comes from a participatory text.
       def safe_content?
         rich_text_editor_in_public_views? || safe_content_admin?
       end
