@@ -12,7 +12,7 @@ module ERBLint
       include LinterRegistry
 
       TITLE_SNIPPET = '<% add_decidim_page_title(t(".title")) %>'
-      TITLE_SNIPPET_REGEX = /<%\s*add_decidim_page_title\(t\(".title".*?\)\)\s*%>/
+      TITLE_SNIPPET_REGEX = /\A<%\s*add_decidim_page_title\(t\(".title".*?\)\)\s*%>/
 
       def run(processed_source)
         return unless admin_view?(processed_source.filename)
