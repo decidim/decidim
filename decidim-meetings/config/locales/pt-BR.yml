@@ -423,6 +423,7 @@ pt-BR:
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
+            manage_questions: Gerenciar perguntas
             recommendation_message: Por razões de privacidade, recomendamos que você exclua esse formulário de inscrição quando não precisar mais dele. Por padrão, isso será daqui a 3 meses após o fim da reunião.
             registration_email_help: Este texto aparecerá no meio do e-mail de confirmação de registro. Logo após o código de registro.
             registration_form: Formulário de registro
@@ -727,9 +728,11 @@ pt-BR:
           commentable_type: O tipo do comentário (se for um resultado, uma proposta, etc.)
           comments: Os dados dos comentários do evento
           created_at: A data em que este comentário foi criado
+          depth: O lugar onde este comentário está nos três comentários (se for uma resposta ou uma resposta de uma resposta)
           id: O Id para este comentário
           locale: A localidade (linguagem) que o usuário teve ao deixar este comentário
           root_commentable_url: A URL do recurso ligado a este comentário
+          user_group: O nome do grupo de usuários que fez este comentário (se houver)
         meetings:
           address: O endereço do evento, caso seja em pessoa e tenha um local físico
           attachments: O número de anexos neste evento
@@ -747,11 +750,13 @@ pt-BR:
           created_at: A data em que o evento foi criada
           customize_registration_email: A capacidade de permitir um email personalizado no registro
           decidim_author_type: Tipo de autor do autor do evento
+          decidim_user_group_id: ID do grupo das pessoas envolvidas na reunião
           description: A descrição do evento
           end_time: A data e a hora em que este evento termina
           follows_count: O número de seguir que o evento tem
           id: O identificador único do evento
           iframe_access_level: O nível de acesso iframe do evento
+          iframe_embed_type: O tipo de iframe incorporado na reunião
           latitude: A latitude do evento
           location: A localização do evento
           location_hints: Uma dica sobre a localização em que o evento está acontecendo
