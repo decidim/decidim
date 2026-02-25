@@ -91,8 +91,6 @@ zh-TW:
         unpublish: 取消發佈
       menu:
         participatory_process_groups: 程序群組
-        participatory_process_groups_submenu:
-          info: 資訊
         participatory_processes: 程序
         participatory_processes_submenu:
           attachment_collections: 資料夾
@@ -187,7 +185,6 @@ zh-TW:
           error: 重新排列這個參與程序階段時出現問題。
         update:
           error: 更新參與程序階段時出現問題。
-          success: 參與式階段成功更新。
       participatory_process_user_roles:
         create:
           error: 新增參與者至此參與式過程時發生問題。
@@ -325,7 +322,6 @@ zh-TW:
             document_legend: 添加文檔
         participatory_processes:
           form:
-            announcement_help: 您在此處輸入的文字將顯示至使用者的正下方程序信息
             duration: 持續時間
             images: 圖片
             metadata: 元數據

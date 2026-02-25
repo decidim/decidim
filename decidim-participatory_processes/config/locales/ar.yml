@@ -171,7 +171,6 @@ ar:
           error: كانت هناك مشكلة في إعادة ترتيب هذه المراحل من العملية التشاركية.
         update:
           error: حدثت مشكلة أثناء تحديث هذه المرحلة من العملية التشاركية.
-          success: تم تحديث المرحلة التشاركية بنجاح.
       participatory_process_user_roles:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك لهذه العملية التشاركية.
@@ -270,7 +269,6 @@ ar:
             document_legend: إضافة وثيقة
         participatory_processes:
           form:
-            announcement_help: سيتم عرض النص الذي تدخله هنا للمستخدم مباشرة أسفل معلومات العملية.
             duration: المدة الزمنية
             images: صور
             metadata: البيانات الوصفية

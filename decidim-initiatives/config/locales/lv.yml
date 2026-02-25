@@ -19,7 +19,6 @@ lv:
       initiatives_type:
         area_enabled: Iespējot autoriem izdevību izvēlēties jomu viņu iniciatīvai
         attachments_enabled: Iespējot pielikumus
-        banner_image: Reklāmkaroga attēls
         collect_user_extra_fields: Vākt dalībnieka personas datus ar parakstu
         custom_signature_end_date_enabled: Ļaut autoriem izvēlēties parakstu vākšanas perioda beigas
         description: Apraksts

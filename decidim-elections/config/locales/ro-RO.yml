@@ -1,4 +1,10 @@
 ro:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Alegeri
+        few: Alegeri
+        other: Alegeri
   decidim:
     admin:
       menu:

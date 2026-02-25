@@ -6,6 +6,11 @@ ca-IT:
       token_csv:
         file: Arxiu
         remove_all: Eliminar totes les dades del cens actual
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Votació
+        other: Votacions
   decidim:
     admin:
       menu:
@@ -257,7 +262,7 @@ ca-IT:
           check_census_explanation: Aquesta elecció encara no ha començat, però pots comprovar si constes al cens.
           edit_vote_button: Edita el vot
           vote_button: Votar
-          voted: Ja has votat. Pots tornar a votar, això esborrarà el teu vot anterior i, només s'explicarà la teva última votació.
+          voted: Ja has votat. Pots tornar a votar, això esborrarà el teu vot anterior i, només es comptabilitzarà la teva última votació.
           votes_count:
             one: 1 vot
             other: "%{count} vots"

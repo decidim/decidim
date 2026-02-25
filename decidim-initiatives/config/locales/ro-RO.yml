@@ -26,7 +26,6 @@ ro:
       initiatives_type:
         area_enabled: Permite autorilor să aleagă zona pentru inițiativa lor
         attachments_enabled: Activare atașamente
-        banner_image: Imagine banner
         child_scope_threshold_enabled: Activează semnăturile pentru domeniul de interes copil
         collect_user_extra_fields: Colectarea datelor cu caracter personal ale participantului la semnătură
         comments_enabled: Comentarii activate
@@ -469,6 +468,7 @@ ro:
           recent: Cele mai recente
           recently_published: Cel mai recent publicat
         pending_initiatives:
+          description: Aceste inițiative nu sunt încă publice. Examinați-le și prezentați-le pentru validare tehnică, astfel încât să poată fi făcute publice.
           title: Inițiative create și în așteptare
         print:
           address: Adresă

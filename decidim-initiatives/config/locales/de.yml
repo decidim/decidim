@@ -27,7 +27,6 @@ de:
       initiatives_type:
         area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
         attachments_enabled: Anhänge freigeben
-        banner_image: Banner-Bild
         child_scope_threshold_enabled: Unterschriften von Unterbereichen aktivieren
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         comments_enabled: Kommentare aktivieren

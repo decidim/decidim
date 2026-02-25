@@ -52,7 +52,6 @@ pt-BR:
         file: Arquivo
       proposals_import:
         import_proposals: Importar propostas
-        keep_answers: Manter o estado e as respostas
         keep_authors: Mantenha os autores originais
     errors:
       models:
@@ -370,6 +369,12 @@ pt-BR:
             email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
             email_subject: Uma proposta que você está seguindo mudou seu estado (%{state})
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> mudou seu estado para "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'A proposta "%{resource_title}" mudou seu estado para "%{state}". Você pode ler a resposta nesta página:'
+            email_outro: Você recebeu esta notificação porque é um autor de "%{resource_title}".
+            email_subject: Sua proposta mudou seu estado (%{state})
+            notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> mudou seu estado para "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Um administrador atualizou as taxonomias de sua proposta "%{resource_title}", confira nesta página:'
           email_outro: Você recebeu esta notificação porque você é o autor da proposta.
@@ -690,7 +695,6 @@ pt-BR:
             create: Propostas de importação
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas.
             select_component: Selecione um componente
-            select_states: Verifique os estados das propostas para importar
             title: Importar propostas de outro componente
         proposals_merges:
           create:

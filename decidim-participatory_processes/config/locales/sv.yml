@@ -104,8 +104,6 @@ sv:
           label: Efter processgrupp
       menu:
         participatory_process_groups: Grupper för processer
-        participatory_process_groups_submenu:
-          info: Info
         participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: Mappar
@@ -213,7 +211,6 @@ sv:
           error: Det gick inte att ändra ordningen på stegen i processen.
         update:
           error: Det gick inte att uppdatera steget i processen.
-          success: Steget i processen har uppdaterats.
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en deltagare till processen.
@@ -337,7 +334,6 @@ sv:
     open_data:
       help:
         participatory_processes:
-          announcement: Meddelande
           area: Geografiskt område för processen
           component_settings: Inställningar för processen
           created_at: Datum när processen skapades
@@ -481,8 +477,7 @@ sv:
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_processes:
           form:
-            announcement_help: Den här texten visas direkt under informationen om processen.
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             duration: Varaktighet
             images: Bilder
             metadata: Metadata

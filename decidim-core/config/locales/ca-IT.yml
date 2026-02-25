@@ -575,6 +575,7 @@ ca-IT:
     contact: Contacte
     content_blocks:
       announcement:
+        body: Text de l'anunci o avís
         name: Avís
       cta:
         name: Imatge, text i botó d'acció
@@ -1053,6 +1054,9 @@ ca-IT:
           explanation: 'Instruccions per a la imatge:'
           message_1: Preferiblement una imatge apaïsada que no tingui cap text.
           message_2: El servei retalla la imatge.
+        import_file:
+          explanation: 'Instruccions per al fitxer d''importació:'
+          message_1: Ha de ser un document JSON descarregat mitjançant la funció d'exportació.
       file_validation:
         allowed_file_extensions: 'Tipus de fitxers admesos: %{extensions}'
         max_file_dimension: 'Mides máximes de l''arxiu: %{resolution} pixels'
@@ -1796,6 +1800,7 @@ ca-IT:
       send_paranoid_instructions: Si la teva adreça de correu electrònic existeix a la nostra base de dades, rebràs un correu electrònic amb instruccions per confirmar la teva adreça en pocs minuts.
     failure:
       already_authenticated: Ja has iniciat la sessió.
+      csrf_token: No es pot verificar la teva sol·licitud. Si us plau, torna a provar-ho.
       inactive: El teu compte encara no està activat.
       invalid: El %{authentication_keys} o la contrasenya no són vàlids.
       invited: Tens una invitació pendent, accepta-la per acabar de crear el teu compte.
@@ -2123,6 +2128,7 @@ ca-IT:
         confirm_title_close_ephemeral_session: Abans de sortir d'aquesta pàgina…
         log_in: Entra
         main_menu: Menú principal
+        mobile_account_greeting: Hola %{user_name},
         user_menu: Menú d'usuari
       impersonation_warning:
         close_session: Tanca la sessió
