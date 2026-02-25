@@ -38,6 +38,9 @@ el:
         user_group_id: Δημιουργία εισαγωγών ως
       newsletter:
         body: Σώμα
+        send_to_all_users: Αποστολή σε όλους τους συμμετέχοντες
+        send_to_followers: Αποστολή στους ακολούθους
+        send_to_participants: Αποστολή στους συμμετέχοντες
         subject: Θέμα
       organization:
         admin_terms_of_service_body: Περιεχόμενο για τους όρους χρήσης του διαχειριστή
@@ -50,6 +53,7 @@ el:
         customize_welcome_notification: Προσαρμογή ειδοποίησης καλωσορίσματος
         default_locale: Προεπιλεγμένες τοπικές ρυθμίσεις
         description: Περιγραφή
+        enable_machine_translations: Ενεργοποίηση μηχανικών μεταφράσεων
         enable_omnipresent_banner: Εμφάνιση διαφημιστικού πλαισίου omnipresent
         enable_participatory_space_filters: Ενεργοποίηση φίλτρων συμμετοχικού χώρου
         facebook_handler: Πρόγραμμα χειρισμού Facebook
@@ -129,9 +133,13 @@ el:
         weight: Θέση κατάταξης
       static_page_topic:
         description: Περιγραφή
+        name: Όνομα θέματος
         show_in_footer: Εμφάνιση στο υποσέλιδο
         title: Τίτλος
         weight: Θέση κατάταξης
+      taxonomy:
+        item_name: Όνομα αντικειμένου
+        parent_id: Γονικό στοιχείο
       user_group_csv_verification:
         file: Αρχείο
     errors:
@@ -181,6 +189,7 @@ el:
           new: Νέος φάκελος συνημμένων
         browse: Αναζήτηση
         export: Εξαγωγή όλων
+        export-selection: Εξαγωγή επιλογής
         import: Εισαγωγή
         manage: Διαχείριση
         newsletter:
@@ -190,12 +199,16 @@ el:
         per_page: Ανά σελίδα
         permissions: Δικαιώματα
         reject: Απόρριψη
+        restore: Επαναφορά
+        send_me_a_test_email: Στείλε μου ένα δοκιμαστικό email
         share: Κοινοποίηση
         user:
           new: Νέος διαχειριστής
         verify: Επαλήθευση
+        view_deleted_components: Προβολή διαγραμμένων στοιχείων
       admin_terms_of_service:
         accept:
+          error: Υπήρξε ένα πρόβλημα κατά την αποδοχή των όρων της υπηρεσίας διαχείρισης.
           success: Τέλεια! Έχετε αποδεχτεί τους όρους παροχής υπηρεσιών διαχειριστή.
         actions:
           accept: Συμφωνώ με τους όρους
@@ -279,6 +292,10 @@ el:
         no_results: Δεν βρέθηκαν αποτελέσματα
         search_prompt: Πληκτρολογήστε τουλάχιστον τρεις χαρακτήρες για αναζήτηση.
       block_user:
+        bulk_new:
+          action: Φραγή λογαριασμών και αποστολή αιτιολόγησης
+          justification: Αιτιολόγηση
+          title: Αποκλεισμός Χρηστών
         new:
           action: Αποκλεισμός λογαριασμού και αποστολή αιτιολόγησης
           description: Ο αποκλεισμός ενός χρήστη θα καταστήσει τον λογαριασμό του μη χρησιμοποιήσιμο. Μπορείτε να δώσετε στην αιτιολόγησή σας οποιεσδήποτε κατευθυντήριες γραμμές σχετικά με τους τρόπους με τους οποίους θα εξετάζατε το ενδεχόμενο άρσης του αποκλεισμού του χρήστη.
@@ -308,6 +325,9 @@ el:
             actions: Ενέργειες
             name: Όνομα στοιχείου
             type: Τύπος στοιχείου
+            visibility: Ορατότητα
+        manage_trash:
+          title: Διαγραμμένα στοιχεία
         new:
           add: Προσθήκη στοιχείου
           title: 'Προσθήκη στοιχείου: %{name}'
@@ -319,6 +339,9 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του στοιχείου.
           success: Το στοιχείο ενημερώθηκε με επιτυχία.
+        visibility_label:
+          published: Δημοσιεύθηκε
+          unpublished: Αδημοσίευτο
       conflicts:
         attempts: Προσπάθειες
         'false': 'Όχι'
@@ -333,6 +356,11 @@ el:
           title: Μεταφορά
         'true': 'Ναι'
         user_name: Χρήστης
+      content_blocks:
+        create:
+          success: Το μπλοκ περιεχομένου δημιουργήθηκε επιτυχώς.
+        destroy:
+          error: Παρουσιάστηκε ένα πρόβλημα κατά την προσπάθεια διαγραφής αυτού του μπλοκ περιεχομένου.
       dashboard:
         pending_moderations:
           goto_moderation: Πηγαίνετε στις καθολικές εγκρίσεις
