@@ -197,6 +197,7 @@ fi:
           </ul>
           Mikäli muutat mieltäsi, voit palauttaa tuloksen myöhemmin.
         export: Vie kaikki
+        export-selection: Vie valitut
         import: Tuo
         manage: Hallitse
         newsletter:
