@@ -5,7 +5,7 @@ In order to release new version you need to:
 . be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. Try `gem owner decidim` to find out the owners of the gem. It is worth making sure you are owner of all gems.
 . be owner of all the NPM packages
 . have the `gh` command line installed. You can install by following the https://github.com/cli/cli/blob/trunk/docs/install_linux.md[GH installation instructions].
-. have the `yq` command line install. You can install it with `snap install yq` in Ubuntu.
+. have the `yq` command line installed. You can install it with `snap install yq` in Ubuntu.
 . have the `decidim-maintainers_toolbox` gem. You can install it with `gem install decidim-maintainers_toolbox`.
 
 Before you begin the release process, make sure you check if there are any open or pending backports. Currently, is not mandatory to open or merge all the backports, but is something that we usually aim for. Refer to the xref:develop:backports.adoc[backports] page for more information.
