@@ -79,10 +79,12 @@ pt-BR:
           attributes:
             base:
               not_official: Não são oficiais
+              voted: Recebeu votos ou recomendações 
         proposals_split:
           attributes:
             base:
               not_official: Não são oficiais
+              voted: Recebeu votos ou recomendações 
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Taxonomias da proposta alteradas
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
@@ -424,6 +426,7 @@ pt-BR:
         object: propostas
         title: Propostas
       votes:
+        description: Número de votos das propostas
         object: votos
         title: Votos
     open_data:
@@ -643,6 +646,7 @@ pt-BR:
             publish: Publicar
             publish_answers: Publicar respostas
             select_component: Selecionar componente
+            select_valuators: Selecione um ou mais avaliadores
             selected: selecionado
             split: Dividir propostas
             split_button: Dividir
