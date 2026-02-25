@@ -54,7 +54,7 @@ fr-CA:
         file: Fichier
       proposals_import:
         import_proposals: Importer des propositions
-        keep_answers: Garder l'état et les réponses
+        keep_answers: Conserver les états et les réponses
         keep_authors: Gardez les auteurs originaux
       valuation_assignment:
         admin_log:
@@ -87,6 +87,7 @@ fr-CA:
               not_official: Non officiels
               voted: A reçu des votes ou des soutiens
     models:
+      decidim/proposals/admin/update_proposal_taxonomies_event: Taxonomies de la proposition changées
       decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
       decidim/proposals/endorsing_enabled_event: Activer le module de soutiens
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
@@ -99,6 +100,8 @@ fr-CA:
           proposal:
             budget_text: La proposition <span class="resource-link">%{link} a été créée</span>
             import_to_proposal_text: Cette proposition <span "resource-link">%{link} a été créée</span>
+            merge_to_proposal_text: 'Cette proposition a été créée : %{link}'
+            split_to_proposal_text: 'Cette proposition a été créée : %{link}'
       decidim/proposals/collaborative_draft:
         one: Brouillon collaboratif
         other: Brouillons collaboratifs
@@ -189,6 +192,7 @@ fr-CA:
             edit_time_units:
               days: Jours
               hours: Heures
+              minutes: Compte-rendus
             geocoding_enabled: Cartes activées
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
@@ -616,7 +620,7 @@ fr-CA:
             create: Importer des propositions
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
-            select_states: Vérifiez l'état des propositions à importer
+            select_states: Importer uniquement des propositions avec ces états. Si aucun n'est sélectionné, toutes les propositions seront importées.
             title: Importer des propositions depuis une autre fonctionnalité
         proposals_merges:
           create:

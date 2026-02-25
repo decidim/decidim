@@ -106,9 +106,6 @@ bg:
           label: По група на процеса
       menu:
         participatory_process_groups: Групи процеси
-        participatory_process_groups_submenu:
-          info: Информация
-          landing_page: Целева страница
         participatory_processes: Процеси
         participatory_processes_submenu:
           attachment_collections: Папки

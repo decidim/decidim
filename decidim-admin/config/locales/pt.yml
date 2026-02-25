@@ -152,7 +152,6 @@ pt:
           new: Novo anexo
         browse: Explorar
         export: Exportar tudo
-        export-selection: Exportar selecção
         import: Importar
         manage: Gerir
         newsletter:

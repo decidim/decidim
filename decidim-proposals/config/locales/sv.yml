@@ -54,7 +54,6 @@ sv:
         file: Fil
       proposals_import:
         import_proposals: Importera förslag
-        keep_answers: Behåll status och svar
         keep_authors: Behåll originalförfattare
       valuation_assignment:
         admin_log:
@@ -188,7 +187,7 @@ sv:
               random: Slumpvis
               recent: Senaste
               with_more_authors: Med flera författare
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             edit_time: Förslag kan redigeras av författaren inom så här många minuter
             edit_time_units:
               days: Dagar
@@ -445,6 +444,8 @@ sv:
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet som är relaterat till kommentaren
           user_group: Namn på gruppen som kommenterat (om det var en grupp)
+        proposals:
+          endorsements: Antal gilla-markeringar för förslaget
     participatory_spaces:
       highlighted_proposals:
         see_all: Visa alla förslag
@@ -627,7 +628,6 @@ sv:
             create: Importera förslag
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
             select_component: Välj en komponent
-            select_states: Kontrollera status för förslagen som ska importeras
             title: Importera förslag från en annan komponent
         proposals_merges:
           create:
@@ -933,7 +933,7 @@ sv:
             description: Du kan skapa upp till %{limit} förslag.
           success: Din röst har tagits emot
           threshold_per_proposal:
-            description: Förslag behöver få minst %{limit} röster för accepteras.
+            description: Förslag behöver få minst %{limit} röster för att gå vidare.
           title: Regler för omröstning
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.

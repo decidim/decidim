@@ -147,6 +147,8 @@ sv:
             default_budget: Förvald budget
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
             origin_component_id: Ursprungskomponent
+            proposal_states: Status för förslag
+            proposal_states_help: Välj en eller flera statusar att importera till projekt. Om du inte väljer något importeras alla publicerade förslag som inte redan har importerats till andra budgetar från komponenten.
             select_component: Välj en komponent
             title: Importera förslag till projekt
         reminders:
@@ -340,7 +342,7 @@ sv:
             clear_all: Återställ
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             form:
               errors:
                 budget_voting_rule_only_one: Endast en röstningsregel kan vara aktiverad.

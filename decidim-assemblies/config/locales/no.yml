@@ -201,6 +201,9 @@
             select_parent_assembly: Velg foreldre-forsamling
             social_handlers: Sosial
             title: Generell Informasjon
+        assembly_imports:
+          form:
+            document_legend: Legg til et dokument
         assembly_members:
           form:
             explanation: 'Veiledning for bilde:'

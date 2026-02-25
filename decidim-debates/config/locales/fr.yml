@@ -242,6 +242,7 @@ fr:
           body: Le commentaire lui-même
           created_at: La date de création de ce commentaire
           id: L'identifiant de ce commentaire
+          user_group: Le nom du groupe d'utilisateurs qui a fait ce commentaire (le cas échéant)
         debates:
           closed_at: La date de clôture de ce débat
           conclusions: Les conclusions du débat s'il est clos

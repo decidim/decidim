@@ -1,1 +1,8 @@
+---
 el:
+  decidim:
+    templates:
+      admin:
+        questionnaire_templates:
+          edit:
+            manage_questions: Διαχειριστείτε τις ερωτήσεις

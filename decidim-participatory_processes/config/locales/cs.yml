@@ -117,8 +117,8 @@ cs:
       menu:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:
-          info: Info
-          landing_page: Úvodní stránka
+          info: O této skupině procesů
+          landing_page: Rozložení vstupní strany
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Složky
@@ -298,9 +298,11 @@ cs:
         export: "%{user_name} exportoval participační proces %{resource_name}"
         import: "%{user_name} importoval participační proces %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} participační proces"
+        publish_all_members: "%{user_name} zveřejnil všechny členy participačního procesu %{resource_name}"
         restore: "%{user_name} obnovil participační proces %{resource_name}"
         soft_delete: "%{user_name} přemístil paarticipační proces %{resource_name} do koše"
         unpublish: "%{user_name} neuveřejnil %{resource_name} participační proces"
+        unpublish_all_members: "%{user_name} zneveřejnil všechny členy participačního procesu %{resource_name}"
         update: "%{user_name} aktualizoval %{resource_name} participační proces"
       participatory_process_group:
         create: "%{user_name} vytvořil skupinu %{resource_name} na participační proces"
@@ -433,6 +435,8 @@ cs:
             all: Vše
             max_results: Maximální množství prvků, které chcete zobrazit
             selection_criteria: Kritéria výběru
+        imports:
+          attachment_error: Přílohu "%{title}" nelze importovat (%{error}).
         new_import:
           accepted_types:
             json: JSON
