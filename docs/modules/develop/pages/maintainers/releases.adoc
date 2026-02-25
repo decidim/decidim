@@ -110,7 +110,7 @@ The process is very similar from releasing a new Decidim version:
 
 . Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that is going to be marged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
 . Make sure that there are no more PRs to backport. Learn more about xref:develop:backports.adoc[Backports].
-. Checkout the branch you want to release: `git checkout release/x.y-stable && git push origin release/x.y-stable`
+. Checkout the branch you want to release: `git checkout release/x.y-stable && git pull origin release/x.y-stable`
 . Install the last version of the `decidim-maintainers_toolbox` gem, and run the releaser command. Mind that for this to work you need locally the gh CLI from GitHub.
 [source,bash]
 ----
