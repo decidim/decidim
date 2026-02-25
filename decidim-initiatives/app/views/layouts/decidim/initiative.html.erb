@@ -2,7 +2,7 @@
 <%= append_stylesheet_pack_tag "decidim_initiatives", media: "all" %>
 
 <%= render "layouts/decidim/application" do %>
-  <%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <%= render layout: "layouts/decidim/shared/layout_center", locals: { main_enabled: false } do %>
     <main role="main">
       <%= yield %>
     </main>
