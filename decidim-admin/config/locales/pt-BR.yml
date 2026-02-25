@@ -24,11 +24,11 @@ pt-BR:
         description: Descrição
         name: Nome
         parent_id: Superior
-        weight: Posição do pedido
+        weight: Ordem de posição
       component:
         name: Nome
         published_at: Publicado em
-        weight: Posição do pedido
+        weight: Ordem de posição
       external_domain:
         value: Valor
       help_section:
@@ -190,12 +190,13 @@ pt-BR:
           </ul>
           Se você trocar de ideia, pode restaurar-lá mais tarde.
         export: Exportar
-        export-selection: Exportar selecionado
+        export_all: Exportar tudo
+        export_selection: Exportar seleção
         import: Importar
         menu_hidden: Ocultar do menu
         moderate: Gerenciar moderações
         newsletter:
-          new: Novo Boletim Informativo
+          new: Novo boletim informativo
         participatory_space_private_user:
           new: Novo espaço participativo de usuário privado
         per_page: Por página
@@ -204,10 +205,10 @@ pt-BR:
         send_me_a_test_email: Enviar um e-mail de teste
         share: Compartilhar
         share_tokens: Compartilhar link
-        soft_delete: Mover para a lixeira
+        soft_delete: Mover para lixeira
         user:
           new: Novo administrador
-        view_deleted_components: Ver componentes excluídos
+        view_deleted_components: Visualizar componentes excluídos
       admin_terms_of_service:
         accept:
           error: Houve um erro ao aceitar os termos de serviço de administrador. 
@@ -299,7 +300,7 @@ pt-BR:
           action: Bloquear conta e enviar justificativa
           already_reported_html: Ao continuar com esta ação, você também ocultará o conteúdo de todos os participantes.
           description: Bloquear um usuário irá tornar sua conta inutilizável. Você pode fornecer em sua justificação quaisquer diretrizes sobre como você poderia considerar desbloquear o usuário.
-          justification: Justificativa
+          justification: Justificativas
           title: Bloquear usuários
         new:
           action: Bloquear conta e enviar justificativa

@@ -99,8 +99,6 @@ ro:
         unpublish: Anulează publicarea
       menu:
         participatory_process_groups: Grupuri ale procesului
-        participatory_process_groups_submenu:
-          info: Informații
         participatory_processes: Procese participative
         participatory_processes_submenu:
           attachment_collections: Dosare
@@ -334,6 +332,7 @@ ro:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Această caracteristică de import vă permite să creați un nou proces participativ dintr-un fișier JSON exportat. Puteți exporta un proces dintr-o altă organizație sau din aceeași organizație. Procesul importat va include setările, componentele și atașamentele sale (dacă sunt selectate).
         participatory_process_groups:
           form:
             metadata: Metadate

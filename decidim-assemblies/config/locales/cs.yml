@@ -225,9 +225,11 @@ cs:
         export: "%{user_name} exportoval shromáždění %{resource_name}"
         import: "%{user_name} importoval shromáždění %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} shromáždění"
+        publish_all_members: "%{user_name} zveřejnil všechny členy shromáždění %{resource_name}"
         restore: "%{user_name} obnovil shromáždění %{resource_name}"
         soft_delete: "%{user_name} přesunul do koše shromáždění %{resource_name}"
         unpublish: "%{user_name} odebral %{resource_name} shromáždění"
+        unpublish_all_members: "%{user_name} zneveřejnil všechny členy shromáždění %{resource_name}"
         update: "%{user_name} aktualizoval shromáždění %{resource_name}"
       assembly_member:
         create: "%{user_name} vytvořil %{resource_name} člena ve shromáždění %{space_name}"
@@ -271,6 +273,7 @@ cs:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_imports:
           form:
+            document_legend: Přidat dokument
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
@@ -280,9 +283,14 @@ cs:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximální množství prvků, které chcete zobrazit
+        imports:
+          attachment_error: Přílohu "%{title}" nelze importovat (%{error}).
+          banner_image_error: Obrázek banneru nelze importovat (%{error}).
+          hero_image_error: Obrázek hrdiny nelze importovat (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Tato funkce importu umožňuje vytvořit novou sestavu z exportovaného JSON souboru. Můžete exportovat sestavení z jiné organizace nebo ze stejné organizace. Importovaná sestava bude obsahovat jeho nastavení, součásti a přílohy (je-li vybrána).
       assemblies:
         description:
           area_name: Oblast

@@ -171,7 +171,7 @@ ro:
           new: Foldere pentru atașamente
         browse: Caută
         configure: Configurează
-        export-selection: Exportă selecția
+        export_all: Exportaţi tot
         import: Importă
         newsletter:
           new: Buletin informativ nou

@@ -1,5 +1,10 @@
 ---
 hu:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Választás
+        other: Választások
   decidim:
     admin:
       menu:

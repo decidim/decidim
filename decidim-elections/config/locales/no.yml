@@ -1,5 +1,10 @@
 ---
 "no":
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Valg
+        other: Valg
   decidim:
     admin:
       menu:

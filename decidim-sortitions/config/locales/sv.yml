@@ -24,8 +24,13 @@ sv:
         name: Lottningar
         settings:
           global:
+            clear_all: Rensa
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
+            taxonomy_filters: Välj filter för komponenten
+            taxonomy_filters_add: Lägg till filter
     events:
       sortitions:
         sortition_created:
@@ -40,7 +45,8 @@ sv:
           edit: Redigera
           new_sortition: Ny tilldelning
           show: Detaljer om tilldelningen
-          title: Handlingar
+          title: Åtgärder
+        deprecation_warning_html: "⚠️ <b>Utgår snart.</b> Lottningsfunktionen kommer att tas bort i Decidim v0.32. Planera för det och överväga alternativa lösningar för val av deltagare eller förslag."
         models:
           sortition:
             fields:
@@ -51,6 +57,7 @@ sv:
               request_timestamp: Lottningstid
               seed: Frö
               target_items: Objekt att välja
+              taxonomies: Kategorier
               title: Titel
         sortitions:
           confirm_destroy:
@@ -67,7 +74,9 @@ sv:
             title: Uppdatera informationen om tilldelningen
             update: Uppdatera
           form:
+            all_taxonomies: Alla kategorier
             select_proposal_component: Välj förslagen som ska behandlas
+            select_taxonomies: Kategorier för förslagen där du vill göra lottningen. Lämna tomt för att göra lottningen på alla förslag för kategoriseringen.
           index:
             title: Lottningar
           new:
@@ -109,13 +118,16 @@ sv:
             other: Valda förslag
         show:
           algorithm: Tilldelningens algoritmkod
+          any_taxonomy: från alla kategorier
           cancelled: Avbruten tilldelning
           candidate_proposal_ids: Förslagens ordning och ID i tilldelningen
+          candidate_proposals_info: 'Lottningen gjordes bland följande förslag (%{taxonomy_labels}), med följande id (de utvalda förslagen i fetstil)  '
           dice_result: Tärningsresultat
           introduction: 'Den här sidan innehåller resultaten från tilldelningen %{reference}. Med hjälp av tilldelningen har %{target_items} resultat valts ut slumpmässigt och med lika stor sannolikhet från listan med förslag nedan. Tillsammans med resultaten, innehåller informationen på denna sida allt som krävs för att garantera och återskapa resultaten. Nyckeln till kvalitén på tilldelningen är den dubblerade slumpmässigheten från ett bevittnat tärningskast samt den exakta tiden för tilldelningen, som matas in i en algoritm som genererar det slumpmässiga urvalet. Tidsfröet för tilldelningen är så exakt (sekunder) att den är omöjlig att styras av människor, vilket ger en dubblerad "okontrollerad" indata, i syfte att att garantera ett rättvist resultat.  '
           mathematical_result: Resultat (tärning x dragning)
           proposals_selected_by_sortition: Förslag valda genom tilldelning
           sortition_reproducibility_details: Detaljer för att reproducera lottningens resultat
+          taxonomies: från kategorierna %{taxonomies}
           time_seed: (2) Tidsfrö
           witnesses: Vittnen
         sortition:
@@ -133,4 +145,4 @@ sv:
             other: "%{count} tilldelningar"
     statistics:
       sortitions_count: Lottningar
-      sortitions_count_tooltip: Antalet slumpmässiga val som görs för beslutsfattandet.
+      sortitions_count_tooltip: Antalet slumpmässiga val som görs för beslut.

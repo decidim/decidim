@@ -4,5 +4,5 @@ ro:
     api:
       errors:
         introspection_disabled: Introspection este dezactivat pentru această solicitare
-        recursion_limit_exceeded_error: Prea multe recursii detectate în interogare
+        recursion_limit_exceeded_error: Prea multe recursiuni detectate în interogare
         too_many_aliases_error: Prea multe aliasuri folosite. Ați folosit aliasuri %{size}, dar %{limit} sunt permise.

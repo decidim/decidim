@@ -80,8 +80,6 @@ gl:
         unpublish: Non publicar
       menu:
         participatory_process_groups: Grupos de procesos
-        participatory_process_groups_submenu:
-          info: Información
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas

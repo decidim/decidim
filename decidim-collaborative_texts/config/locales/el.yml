@@ -1,1 +1,43 @@
+---
 el:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Κυρίως μέρος
+          draft: Πρόχειρο
+          title: Τίτλος
+          version_number: Αριθμός έκδοσης
+        suggestion:
+          original: Αυθεντικό κείμενο
+          replace: Αντικατάσταση
+        version:
+          body: Κυρίως μέρος
+          draft: Πρόχειρο
+          version_number: Αριθμός έκδοσης
+  decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έγγραφο;
+        deleted_document_info: Το διαγραμμένο έγγραφο μπορεί να αποκατασταθεί από τα απορρίμματα.
+        edit: Επεξεργασία
+        manage: Διαμόρφωση
+        new: Νέο κείμενο
+        title: Ενέργειες
+        view_deleted_documents: Προβολή διαγραμμένων εγγράφων
+      admin:
+        documents:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα στη δημιουργία του εγγράφου.
+            success: Το έγγραφο δημιουργήθηκε με επιτυχία.
+          draft_options:
+            accepting_suggestions: Ενεργοποίηση προτάσεων στην επόμενη έκδοση
+          edit:
+            previous_versions: Προηγούμενες εκδόσεις
+            public_version: Δημόσια έκδοση
+            title:
+            update: Ενημέρωση
+          edit_settings:
+            update: Ενημέρωση
+          new:
+            create: Δημιουργία

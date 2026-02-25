@@ -170,7 +170,7 @@ el:
         browse: Αναζήτηση
         configure: Διαμόρφωση
         export: Εξαγωγή
-        export-selection: Εξαγωγή επιλογής
+        export_all: Εξαγωγή όλων
         import: Εισαγωγή
         newsletter:
           new: Νέο ενημερωτικό δελτίο

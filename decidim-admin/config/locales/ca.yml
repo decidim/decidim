@@ -190,7 +190,8 @@ ca:
           </ul>
           Si canvies d'opinió, el pots restaurar més endavant.
         export: Exporta
-        export-selection: Exportar selecció
+        export_all: Exportar tot
+        export_selection: Exportar selecció
         import: Importar
         menu_hidden: Amaga del menú
         moderate: Gestionar les moderacions

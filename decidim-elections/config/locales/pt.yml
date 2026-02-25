@@ -1,5 +1,10 @@
 ---
 pt:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Eleição
+        other: Eleições
   decidim:
     admin:
       menu:
