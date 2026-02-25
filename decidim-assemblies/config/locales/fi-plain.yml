@@ -75,6 +75,8 @@ fi-pl:
           attributes:
             document:
               allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot ovat sallittuja: %{types}.'
+              empty: Asiakirja on tyhjä
+              invalid_json: Asiakirja ei ole kelvollinen JSON
   activerecord:
     models:
       decidim/assembly:
@@ -277,9 +279,14 @@ fi-pl:
         content_blocks:
           highlighted_assemblies:
             max_results: Näytettävien elementtien enimmäismäärä
+        imports:
+          attachment_error: Liitteen "%{title}" tuonti epäonnistui (%{error}).
+          banner_image_error: Bannerikuvan tuonti epäonnistui (%{error}).
+          hero_image_error: Pääkuvan tuonti epäonnistui (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Tämän tuontiominaisuuden avulla voit luoda uuden ryhmän JSON-tiedostosta. Voit viedä ryhmän toisesta organisaatiosta tai samasta organisaatiosta. Tuotu ryhmä sisältää sen asetukset, komponentit ja liitetiedostot (jos valittu).
       assemblies:
         description:
           area_name: Alue
