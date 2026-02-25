@@ -510,6 +510,10 @@ pt-BR:
       unavailable_scope: Escopo não disponível
     menu:
       initiatives: Iniciativas
+    open_data:
+      help:
+        initiatives:
+          hashtag: A hashtag da iniciativa, usada no Twitter/X
     resources:
       initiatives_type:
         actions:
