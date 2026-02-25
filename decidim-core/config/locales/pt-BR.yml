@@ -2301,6 +2301,7 @@ pt-BR:
         confirm_close_ephemeral_session: Se você sair desta página, sua sessão será fechada. Tem certeza?
         log_in: Iniciar sessão
         main_menu: Menu principal
+        mobile_account_greeting: Olá, %{user_name}
         user_menu: Menu de usuários
       impersonation_warning:
         close_session: Fechar sessão
