@@ -155,7 +155,7 @@ module Decidim
           self.author = author
         end
       else # Assume is_a?(Decidim::Coauthorable)
-        coauthorships.clear
+        coauthorships.target.clear
         add_coauthor(author)
       end
     end
