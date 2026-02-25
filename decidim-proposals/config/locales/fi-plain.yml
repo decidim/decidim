@@ -54,6 +54,7 @@ fi-pl:
         file: Tiedosto
       proposals_import:
         import_proposals: Tuo ehdotuksia
+        keep_answers: Säilytä tilat ja vastaukset ennallaan
         keep_authors: Säilytä alkuperäiset laatijat
       valuation_assignment:
         admin_log:
@@ -697,6 +698,7 @@ fi-pl:
             create: Tuo ehdotuksia
             no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
+            select_states: Tuo ainoastaan ehdotukset, joilla on nämä tilat. Jos yhtään tilaa ei ole valittuna, kaikki ehdotukset tuodaan.
             title: Tuo ehdotuksia toisesta komponentista
         proposals_merges:
           create:
