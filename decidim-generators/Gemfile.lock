@@ -120,7 +120,7 @@ PATH
       decidim-core (= 0.32.0.dev)
     decidim-dev (0.32.0.dev)
       bullet (~> 8.0.0)
-      byebug (~> 11.0)
+      byebug (>= 11, < 14)
       capybara (~> 3.39)
       decidim-admin (= 0.32.0.dev)
       decidim-api (= 0.32.0.dev)
