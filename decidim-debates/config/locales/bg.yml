@@ -115,7 +115,6 @@ bg:
           back: Назад
           create: Създаване
         orders:
-          commented: Най-коментирани
           label: Подреждане на дебатите по
           random: Случаен ред
           recent: Най-скорошни
