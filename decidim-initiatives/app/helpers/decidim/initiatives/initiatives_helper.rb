@@ -29,14 +29,29 @@ module Decidim
       # i18n-tasks-use t('decidim.initiatives.initiatives.filters.author')
       def filter_sections
         sections = [
-          { method: :with_any_state, collection: filter_states_values, label: t("decidim.initiatives.initiatives.filters.state"), id: "state" },
-          { method: :with_any_scope, collection: filter_global_scopes_values, label: t("decidim.initiatives.initiatives.filters.scope"), id: "scope" }
+          { method: :with_any_state,
+            name: "[with_any_state]",
+            collection: filter_states_values,
+            label: t("decidim.initiatives.initiatives.filters.state"),
+            id: "state" },
+          { method: :with_any_scope,
+            name: "[with_any_scope]",
+            collection: filter_global_scopes_values,
+            label: t("decidim.initiatives.initiatives.filters.scope"),
+            id: "scope" }
         ]
         unless single_initiative_type?
-          sections.append(method: :with_any_type, collection: filter_types_values, label: t("decidim.initiatives.initiatives.filters.type"),
+          sections.append(method: :with_any_type,
+                          name: "[with_any_type]",
+                          collection: filter_types_values,
+                          label: t("decidim.initiatives.initiatives.filters.type"),
                           id: "type")
         end
-        sections.append(method: :with_any_area, collection: filter_areas_values, label: t("decidim.initiatives.initiatives.filters.area"), id: "area")
+        sections.append(method: :with_any_area,
+                        name: "[with_any_area]",
+                        collection: filter_areas_values,
+                        label: t("decidim.initiatives.initiatives.filters.area"),
+                        id: "area")
         sections.reject { |item| item[:collection].blank? }
       end
 

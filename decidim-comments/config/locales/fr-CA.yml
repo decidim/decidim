@@ -109,16 +109,19 @@ fr-CA:
           recent: Les plus récents
         title: 'Classement par :'
       comments:
+        against: Contre
         blocked_comments_for_unauthorized_user_warning: Vous devez valider votre inscription pour commenter maintenant, mais vous pouvez lire les commentaires précédents.
         blocked_comments_for_user_warning: Vous n'êtes pas en mesure de commenter pour le moment, mais vous pouvez lire les précédents.
         blocked_comments_warning: Les commentaires sont actuellement désactivés, seuls les administrateurs peuvent répondre ou en poster de nouveaux.
         comment_details_title: Détails du commentaire
+        in_favor: Pour
         loading: Chargement des commentaires ...
         single_comment_warning: <a href="%{url}">Voir tous les commentaires</a>
         single_comment_warning_title: Vous ne voyez qu'un seul commentaire
         title:
           one: "%{count} commentaire"
           other: "%{count} commentaires"
+        top_comment_label: Ayant le plus de votes positifs
       down_vote_button:
         label:
           one: Bouton "Je n'aime pas". %{count} "je n'aime pas"
@@ -137,6 +140,19 @@ fr-CA:
           one: Bouton "J'aime". %{count} "J'aime"
           other: Bouton "J'aime". %{count} "J'aime"
         text: Je suis d'accord avec ce commentaire
+    download_your_data:
+      help:
+        comment_votes:
+          id: L'id du vote
+        comments:
+          body: Le commentaire lui-même
+          commentable_id: L'identifiant unique de l"élément commenté
+          commentable_type: Le type de l'élément commenté (si c'était un résultat, une proposition, etc.)
+          created_at: La date de création de ce commentaire
+          depth: L'endroit où ce commentaire se trouve dans l'arborescence des commentaires (si c'est une réponse ou une réponse d'une réponse)
+          id: L'identifiant de ce commentaire
+          locale: La langue que le participant a utilisé en créant ce commentaire
+          root_commentable_url: L'URL de la ressource liée à ce commentaire
     events:
       comments:
         comment_by_followed_user:

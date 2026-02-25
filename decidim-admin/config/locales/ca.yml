@@ -55,7 +55,6 @@ ca:
         description: Descripció
         enable_machine_translations: Habilitar traduccions automàtiques
         enable_omnipresent_banner: Mostrar el banner omnipresent
-        enable_participatory_space_filters: Habilitar els filtres a l'espai de participació
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
         force_authentication: Forçar autenticació
@@ -189,7 +188,8 @@ ca:
           </ul>
           Si canvies d'opinió, el pots restaurar més endavant.
         export: Exporta
-        export-selection: Exportar selecció
+        export_all: Exportar tot
+        export_selection: Exportar selecció
         import: Importar
         member:
           new: Nova membre
@@ -1083,7 +1083,7 @@ ca:
           title: Nou tema
         update:
           error: S'ha produït un error en actualitzar aquest tema.
-          success: S'ha actualitzat el tema correctament
+          success: Tema actualitzat correctament.
       static_pages:
         actions:
           view: Veure

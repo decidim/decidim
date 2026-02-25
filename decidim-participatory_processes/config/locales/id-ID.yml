@@ -150,7 +150,6 @@ id:
           error: Ada kesalahan saat menata ulang langkah-langkah proses partisipatif ini.
         update:
           error: Ada kesalahan saat memperbarui langkah proses partisipatif ini.
-          success: Langkah proses partisipatif berhasil diperbarui.
       participatory_process_user_roles:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna untuk proses partisipatif ini.
@@ -244,7 +243,6 @@ id:
             max_results: Jumlah maksimum elemen untuk ditampilkan
         participatory_processes:
           form:
-            announcement_help: Teks yang Anda masukkan di sini akan ditampilkan kepada pengguna tepat di bawah informasi proses.
             duration: Lamanya
             images: Gambar
             metadata: Metadata

@@ -188,7 +188,7 @@ eu:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> -k zure iruzkinari erantzun dio hemen <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Aipatu zaituzte
-          email_outro: 'Jakinarazpen hau jaso duzu hemen: %{resource_title} aipatu zaituztelako.'
+          email_outro: 'Jakinarazpen hau jaso duzu hemen aipatu zaituztelako: %{resource_title}.'
           email_subject: 'Hemen: %{resource_title} aipatu zaituzte'
           notification_title: 'Hemen: <a href="%{group_path}">%{group_name} %{group_nickname}</a> egile honek: <a href="%{author_path}">%{author_name} %{author_nickname}</a> aipatu zaitu'
   errors:

@@ -3,10 +3,12 @@ eu:
   decidim:
     api:
       errors:
+        introspection_disabled: Eskaera honetarako introspekzioa ezgaitu egin da
         invalid_locale: Eskualde-konfigurazioa ez da baliozkoa
         locale_argument_error: Akats bat bat gertatu da i18n datuak barnetik aldatzean
         not_found: "%{type} ez da aurkitu"
         permission_not_set: Ez da baimenik ezarri %{type} honetarako
+        recursion_limit_exceeded_error: Kontsultan atzemandako errekurtso gehiegi
         too_many_aliases_error: Ezizen gehiegi erabiltzen dira. %{size} ezizen erabili dituzu, baina %{limit} onartuta daude.
         unauthorized_field: Ezin da %{field} %{type} eremua %{type} motan ikusi edo editatu, baimenik ez duzulako
         unauthorized_mutation: Aldaketa hau egiteko baimenik ez duzu

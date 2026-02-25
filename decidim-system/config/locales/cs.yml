@@ -43,6 +43,7 @@ cs:
       actions:
         api_user:
           hide_secret: Skrýt tajný klíč
+          secret_can_not_be_shown: API secret může být zobrazeno nebo zkopírováno pouze po vytvoření
           show_secret: Zobrazit tajný klíč
           shown_secret: Tajný klíč je zobrazen
         api_users:
@@ -50,6 +51,7 @@ cs:
           new: Nový uživatel API
           remove: Odebrat uživatele
         confirm_destroy: Opravdu to chcete smazat?
+        confirm_refresh_api_secret: Opravdu chcete obnovit tajný klíč pro tohoto uživatele API? Po obnově bude starý tajný klíč neplatný a již nemůže být použit.
         copied: Zkopírováno
         copy_secret: Kopírovat tajný klíč
         copy_secret_clarification: Zkopírovat tajný klíč do schránky

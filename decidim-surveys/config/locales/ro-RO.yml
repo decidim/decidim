@@ -158,7 +158,7 @@ ro:
       survey_confirmation_mailer:
         confirmation:
           body: Ați răspuns cu succes la sondajul %{questionnaire_title} din %{participatory_space}
-          subject: Confirmarea răspunsurilor la sondajul %{questionnaire_tile}
+          subject: Confirmarea răspunsurilor la sondajul %{questionnaire_title}
         export_name: Răspunsuri la sondaj
       surveys:
         count:

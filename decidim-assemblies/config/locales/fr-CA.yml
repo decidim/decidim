@@ -74,6 +74,8 @@ fr-CA:
           attributes:
             document:
               allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}.'
+              empty: Le document est vide
+              invalid_json: Le document n'est pas un JSON valide
   activerecord:
     models:
       decidim/assembly:
@@ -244,7 +246,6 @@ fr-CA:
       admin:
         assemblies:
           form:
-            announcement_help: Le texte que vous saisissez ici sera affiché aux utilisateurs juste en dessous des informations de l'assemblée.
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
@@ -267,6 +268,7 @@ fr-CA:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_imports:
           form:
+            document_legend: Ajouter un document
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
@@ -276,9 +278,14 @@ fr-CA:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantité maximale d'éléments à afficher
+        imports:
+          attachment_error: La pièce jointe «%{title}» n’a pas pu être importée (%{error}).
+          banner_image_error: L'image de la bannière n'a pas pu être importée (%{error}).
+          hero_image_error: L'image principale n'a pas pu être importée (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Cette fonction d'importation vous permet de créer une nouvelle assemblée à partir d'un fichier JSON exporté. Vous pouvez exporter une assemblée depuis une autre organisation ou depuis cette même organisation. L'assemblée importée inclura ses paramètres, composants et pièces jointes (si sélectionnés).
       assemblies:
         description:
           area_name: Périmètre d'assemblée
@@ -382,7 +389,6 @@ fr-CA:
     open_data:
       help:
         assemblies:
-          announcement: Information sur l'annonce (callout)
           assembly_type: Le type de l'assemblée
           closing_date: La date de clôture de l'assemblée
           closing_date_reason: Pourquoi l'assemblée a été clôturée
@@ -390,6 +396,21 @@ fr-CA:
           composition: La composition de l'assemblée
           created_at: La date de création de cet espace
           created_by: Qui a créé cette assemblée
+          created_by_other: Autre créateur de l'assemblée
+          description: Une description longue de l'assemblée
+          duration: La durée de l'assemblée
+          follows_count: Le nombre d'utilisateurs suivant cet espace
+          id: L'identifiant unique de cette assemblée
+          internal_organisation: L'organisation interne de cette assemblée
+          is_transparent: Si l'assemblée est transparente ou non
+          local_area: La zone locale de cette assemblée
+          promoted: Si l'assemblée est promue ou non
+          published_at: La date à laquelle cet espace a été publié
+          purpose_of_action: Le but de l'action de l'assemblée
+          short_description: Une courte description de l'assemblée
+          subtitle: Le sous-titre de l'assemblée
+          target: La cible de l'assemblée
+          title: Le titre de l'assemblée
     participatory_processes:
       show:
         related_assemblies: Assemblées associées

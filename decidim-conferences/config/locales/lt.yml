@@ -353,7 +353,6 @@ lt:
             certificate_of_attendance_description: Patvirtiname, kad <strong>%{user}</strong> dalyvavo <strong>%{title}</strong> konferencijoje vykusioje <strong>%{location}</strong> nuo <strong>%{start} iki %{end}</strong>
         send_diploma:
           error: Siunčiant dalyvavimo pažymėjimus iškilo problema.
-          success: Dalyvavimo konferencijoje pažymėjimai išsiųsti
       conference:
         registration_confirm:
           cancel: Atšaukti

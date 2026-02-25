@@ -49,6 +49,8 @@ sv:
       meeting_registration_invite:
         email: E-post
         name: Namn
+      response:
+        add_documents: Lägg till dokument
       validate_registration_code:
         code: Kod
     errors:
@@ -145,10 +147,10 @@ sv:
           copy: Kopiera
           title: Duplicera möte
       tooltips:
-        cannot_close_meetings: Kan inte stänga detta möte eftersom det är skapat av en deltagare
-        cannot_duplicate_meetings: Kan inte kopiera detta möte eftersom det är skapat av en deltagare
-        cannot_edit_meetings: Kan inte redigera detta möte eftersom det är skapat av en deltagare
-        cannot_manage_agenda_meetings: Kan inte ändra dagordningen i detta möte eftersom den är skapad av en deltagare
+        cannot_close_meetings: Det går inte att stänga mötet eftersom det är skapat av en deltagare
+        cannot_duplicate_meetings: Det går inte att kopiera mötet eftersom det är skapat av en deltagare
+        cannot_edit_meetings: Det går inte att redigera mötet eftersom det är skapat av en deltagare
+        cannot_manage_agenda_meetings: Det går inte att ändra dagordningen för mötet eftersom den är skapad av en deltagare
         cannot_manage_attachments_meetings: Kan inte ändra bilagor i detta möte eftersom det är skapat av en deltagare
         cannot_manage_poll_meetings: Kan inte ändra omröstningar i detta möte eftersom det är skapat av en deltagare
         cannot_manage_registrations_meetings: Kan inte ändra registreringar i detta möte eftersom det är skapat av en deltagare, har inaktiverade eller externa registreringar
@@ -160,6 +162,7 @@ sv:
           comment: Kommentera
           join: Gå med
           reply_poll: Svarsenkät
+          vote_comment: Rösta på kommentar
         name: Möten
         settings:
           global:
@@ -169,7 +172,7 @@ sv:
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             creation_enabled_for_participants: Deltagarna kan skapa möten
             default_registration_terms: Villkor för standardanmälan
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             enable_pads_creation: Aktivera gemensamma anteckningar
             maps_enabled: Aktivera visning på karta
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
@@ -184,11 +187,23 @@ sv:
             creation_enabled_for_participants: Låt deltagare skapa möten
     download_your_data:
       help:
+        invites:
+          accepted_at: Datum och tid då inbjudan godkändes
+          created_at: Datum och tid då inbjudan skapades
+          id: Unikt id för inbjudan
+          meeting: Mötet som inbjudan gällde
+          rejected_at: Datum och tid då inbjudan avvisades
+          sent_at: Datum och tid då inbjudan skickades
+          updated_at: Datum och tid då inbjudan senast uppdaterades
         registrations:
           code: Anmälningskod
+          created_at: Datum och tid då registreringen skapades
           id: Unikt id för anmälan
           meeting: Mötet som användaren anmälde sig till
+          public_participation: Om deltagandet visades offentligt
+          updated_at: Datum och tid då registreringen senast uppdaterades
           user: Användaren som anmälde sig
+          validated_at: Datum och tid då registreringen validerades
       show:
         meeting_comments: Export av möteskommentarer
         meetings: Exportera möten
@@ -271,6 +286,7 @@ sv:
         agenda: Dagordning
         close: Avsluta
         confirm_delete_meeting: Är du säker på att du vill radera mötet?
+        confirm_unpublish_meeting: Är du säker på att du vill avpublicera mötet?
         deleted_meetings_info: Borttagna möten kan återställas från papperskorgen.
         edit: Redigera
         invalid_destroy:
@@ -315,6 +331,7 @@ sv:
           update:
             invalid: Det gick inte att uppdatera dagordningen.
             success: Dagordningen har uppdaterats.
+        deprecation_warning_polls_html: "⚠️ <b>Utgår snart.</b> Funktionen för omröstning kommer att tas bort i en framtida version (inte bestämt vilken än). Organisationer som använder mötesomröstningar bör planera för att använda externa röstningsverktyg (till exempel via Jitsi) eller migrera till andra röstningsmekanismer som finns i Decidim, såsom den nya omröstningsmodulen (`decidim-elections`)."
         exports:
           meeting_comments: Kommentarer
           meetings: Möten
@@ -714,6 +731,8 @@ sv:
         hidden_participants_count:
           one: och %{count} till person
           other: och %{count} till personer
+        show_less: Visa mindre
+        show_more: Visa mer
       read_more: "(läs mer)"
       registration_mailer:
         confirmation:
@@ -758,9 +777,61 @@ sv:
           commentable_type: Vad som kommenterades (resultat, förslag etc)
           comments: Uppgifter om kommentarer från mötet
           created_at: Datum för kommentaren
+          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
           id: Id för kommentaren
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet för kommentaren
+        meetings:
+          address: Mötets adress om det ett fysiskt möte
+          attachments: Antalet bilagor i detta möte
+          attendees: Antalet personer som deltar i detta möte
+          attending_organizations: De organisationer som deltar i mötet
+          audio_url: Ljudinspelning av mötet
+          author: Uppgifterna för författaren till detta möte
+          available_slots: Antalet platser som finns i ett möte
+          closed_at: Datum då mötet avslutades
+          closing_report: Rapport från det avslutade mötet
+          closing_visible: Mötets synlighet
+          comments: Uppgifter om kommentarer från mötet
+          component: Den komponent som mötet tillhör
+          contributions: Antalet inlägg möte som gjorts av deltagarna
+          created_at: Det datum då mötet skapades
+          customize_registration_email: Möjligheten att tillåta anpassad e-post vid registrering
+          decidim_author_type: Författartyp för mötets författare
+          description: Beskrivning av mötet
+          end_time: Datum och tid då mötet avslutas
+          follows_count: Antalet följande möten har
+          id: Unikt id för mötet
+          iframe_access_level: Åtkomstnivå för iframe till mötet
+          iframe_embed_type: Typ av iframe inbäddad i mötet
+          latitude: Latitud för mötet
+          location: Platsen för mötet
+          location_hints: En beskrivning av platsen där mötet äger rum
+          longitude: Longitud för mötet
+          online_meeting_url: Webbadressen till onlinemötet
+          organizations: De organisationer som deltar i detta möte
+          participatory_space: Utrymmet (deltagandeprocess eller samråd) mötet tillhör
+          private_meeting: För att ange om mötet är privat eller inte
+          published: När mötet har publicerats
+          reference: Unikt id för innehållet på plattformen
+          registration_form_enabled: Om registreringsformuläret har aktiverats eller inte
+          registration_terms: Villkoren för mötesdeltagande
+          registration_type: Typ av registrering för mötet
+          registration_url: URL till mötesregistreringen
+          registrations_enabled: Om registreringar är tillåtna
+          related_proposals: Förslagen från mötet
+          related_results: Resultaten relaterade till detta möte
+          reserved_slots: Antalet reserverade platser mötet har
+          start_time: Datum och tid för detta möte
+          taxonomies: De kategorier som detta möte tillhör
+          title: Titeln på mötet
+          transparent: Mötets synlighet för icke-medlemmar
+          type_of_meeting: Mötestypen
+          updated_at: Den tid då mötet senast uppdaterades
+          url: URL till mötet
+          video_url: Videoinspelning av mötet
+          withdrawn: Om detta möte har dragits tillbaka
+          withdrawn_at: När mötet drogs tillbaka
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidigare möten

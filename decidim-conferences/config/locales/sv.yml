@@ -7,6 +7,9 @@ sv:
         banner_image: Bannerbild
         decidim_scope_id: Indelning
         description: Beskrivning
+        duplicate_categories: Duplicera kategorier
+        duplicate_components: Duplicera komponenter
+        duplicate_features: Duplicera funktioner
         end_date: Slutdatum
         hero_image: Bild till startsida
         location: Plats
@@ -94,6 +97,11 @@ sv:
         new_speaker: Ny talare
         send_diplomas: Skicka deltagarbevis
         view_deleted_conferences: Visa raderade konferenser
+      conference_duplicates:
+        new:
+          duplicate: Duplicera
+          select: Välj vad du vill duplicera
+          title: Duplicera konferens
       conference_publications:
         create:
           error: Det gick inte att publicera konferensen.
@@ -154,7 +162,7 @@ sv:
         exports:
           registrations: Registreringar
         form:
-          duration: Tid
+          duration: Längd
           images: Bilder
           metadata: Metadata
           registrations: Anmälningar
@@ -172,6 +180,10 @@ sv:
         update:
           error: Det gick inte att uppdatera konferensen.
           success: Konferensen har uppdaterats.
+      conferences_duplicates:
+        create:
+          error: Det gick inte att duplicera konferensen.
+          success: Konferensen har duplicerats.
       media_links:
         create:
           error: Det gick inte att skapa en ny medialänk.
@@ -217,14 +229,14 @@ sv:
             title: Titel
         conference_speaker:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             affiliation: Anknytning
             full_name: Fullständigt namn
             position: Position
           name: Talare
         conference_user_role:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             email: E-post
             name: Namn
             role: Roll
@@ -236,14 +248,14 @@ sv:
             moderator: Moderator
         media_link:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             date: Datum
             link: Länk
             title: Titel
           name: Medialänk
         partner:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             link: Länk
             logo: Logotyp
             name: Namn
@@ -254,7 +266,7 @@ sv:
             main_promotor: Huvudarrangör
         registration_type:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             conference_meetings: Konferensmöten
             price: Pris
             registrations_count: Antal registreringar
@@ -349,6 +361,9 @@ sv:
         title: Talare
     conferences:
       admin:
+        conference_duplicates:
+          form:
+            slug_help_html: 'URL-slugs används till att generera URL:er till konferensen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         conference_invites:
           create:
             error: Det gick inte att bjuda in deltagaren till konferensen.
@@ -380,7 +395,7 @@ sv:
         conferences:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsat antal platser.
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             registrations_count:
               one: Det har gjorts en registrering.
@@ -417,7 +432,7 @@ sv:
             certificate_of_attendance_description: Detta intygar att <strong>%{user}</strong> har deltagit och medverkat i <strong>%{title}</strong> som hölls på <strong>%{location}</strong> <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Det gick inte att skicka närvarointyg för konferensen.
-          success: Skickade närvarointyg för konferensen
+          success: Skickade närvarointyg för konferensen.
       conference:
         registration_confirm:
           cancel: Avbryta
@@ -513,7 +528,7 @@ sv:
             sent: Skickad
         conference_registration:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             email: E-post
             name: Namn
             registration_type: Registreringstyp
@@ -614,9 +629,26 @@ sv:
           end_date: Det datum då konferens avslutas.
           follows_count: Antal följare
           id: Unikt id för konferensen
+          location: Plats för konferensen.
+          objectives: Syftet med konferensen.
+          promoted: Om konferensen är utvald eller inte
+          published_at: Publiceringsdatum för konferensen
+          reference: Unikt id för konferensen
+          remote_banner_image_url: URL till konferensens bannerbild
+          remote_hero_image_url: URL till konferensens huvudbild
+          scope: Ämnet för konferensen
+          scopes_enabled: Om indelningar är aktiverat eller inte
+          short_description: Kort beskrivning av konferensen
+          slogan: Konferensens slogan
+          slug: Konferensens URL-slug (används för identifiering och för URL)
+          start_date: Konferensens startdatum.
+          taxonomies: Kategorier för konferensen
+          title: Konferensens titel
+          updated_at: Senaste datum när utrymmet uppdaterades
+          url: Konferensens URL
     statistics:
       conferences_count: Konferenser
-      conferences_count_tooltip: Antalet publicerade konferenser.
+      conferences_count_tooltip: Antal publicerade konferenser.
   devise:
     mailer:
       join_conference:
@@ -624,6 +656,7 @@ sv:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Hantera anmälan
         register: Anmäl dig
       conferences:
         conference:
