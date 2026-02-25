@@ -50,10 +50,6 @@ export default class extends Controller {
 
     if (isTransparentCheckbox) {
       isTransparentCheckbox.disabled = (enabledPrivateSpace === false);
-
-      if (isTransparentCheckbox.checked) {
-        isTransparentCheckbox.checked = false;
-      }
     }
 
     if (specialFeatures) {
