@@ -78,7 +78,7 @@ describe "Admin invite" do
       visit last_email_link
 
       fill_in :invitation_user_nickname, with: "caballo_loco"
-      fill_in :invitation_user_password, with: "CaballoLoco123456789!"
+      fill_in :invitation_user_password, with: "Fiorello123456789!"
       check :invitation_user_tos_agreement
       click_on "Save"
 
@@ -98,7 +98,7 @@ describe "Admin invite" do
   end
 
   context "when inviting a regular user" do
-    let(:organization) { create(:organization, host: "decide.lvh.me") }
+    let(:organization) { create(:organization, host: "new-decide.lvh.me") }
     let(:inviter) { create(:user, :confirmed, :admin, organization:) }
 
     let!(:invited_user) do
@@ -115,6 +115,7 @@ describe "Admin invite" do
     end
 
     it "displays regular user password requirements in help text" do
+      switch_to_host("new-decide.lvh.me")
       visit last_email_link
 
       expect(page).to have_content("10 characters minimum")
@@ -125,6 +126,7 @@ describe "Admin invite" do
     end
 
     it "allows accepting invitation with valid user password" do
+      switch_to_host("new-decide.lvh.me")
       visit last_email_link
 
       fill_in :invitation_user_nickname, with: "invited_user"
@@ -138,7 +140,7 @@ describe "Admin invite" do
   end
 
   context "when admin_password_strong is disabled" do
-    let(:organization) { create(:organization, host: "decide.lvh.me") }
+    let(:organization) { create(:organization, host: "new-decide.lvh.me") }
     let(:inviter) { create(:user, :confirmed, :admin, organization:) }
     let!(:invited_admin) do
       perform_enqueued_jobs do
@@ -159,6 +161,7 @@ describe "Admin invite" do
     end
 
     it "displays regular password requirements for admins" do
+      switch_to_host("new-decide.lvh.me")
       visit last_email_link
 
       expect(page).to have_content("10 characters minimum")
