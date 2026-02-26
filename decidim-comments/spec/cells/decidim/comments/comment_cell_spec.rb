@@ -150,7 +150,7 @@ module Decidim::Comments
 
         it "renders the load replies button" do
           expect(subject).to have_css("button[data-action='click->show-replies#toggle']")
-          expect(subject).to have_content(I18n.t("decidim.components.comment.load_replies"))
+          expect(subject).to have_content(I18n.t("decidim.components.comment.replies_count", count: replies.size))
           expect(subject).to have_css("#comment-#{comment.id}-replies.hidden")
         end
       end

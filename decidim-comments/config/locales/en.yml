@@ -82,10 +82,10 @@ en:
           one: Hide reply
           other: Hide %{count} replies
         load_replies: Load replies
+        moderated_at: Comment moderated on %{date}
         replies_count:
           one: "%{count} answer"
           other: "%{count} answers"
-        moderated_at: Comment moderated on %{date}
         reply: Reply
         report:
           action: Report
