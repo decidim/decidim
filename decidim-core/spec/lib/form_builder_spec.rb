@@ -267,6 +267,8 @@ module Decidim
         let(:available_locales) { %w(en ca) }
 
         it "displays the first tab when there is no error" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
           output = builder.send(:translated_tabs, :text_field, :short_description, {}, "resource-short_description-tabs", nil)
 
           expect(output).to match(
@@ -282,6 +284,8 @@ module Decidim
         end
 
         it "displays the errored tab first" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
           output = builder.send(:translated_tabs, :text_field, :short_description, {}, "resource-short_description-tabs", "ca")
 
           expect(output).to match(
@@ -301,6 +305,8 @@ module Decidim
         let(:available_locales) { %w(en ca es ro fr it) }
 
         it "displays the first tab when there is no error" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
           output = builder.send(:translated_tabs, :text_field, :short_description, {}, "resource-short_description-tabs", nil)
 
           expect(output).to match(
@@ -328,6 +334,8 @@ module Decidim
         end
 
         it "displays the errored tab first" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
           output = builder.send(:translated_tabs, :text_field, :short_description, {}, "resource-short_description-tabs", "ca")
 
           expect(output).to match(
@@ -361,6 +369,8 @@ module Decidim
         let(:available_locales) { %w(en ca) }
 
         it "displays the first tab when there is no error" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
           output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", nil)
 
           expect(output).to match(
@@ -376,6 +386,8 @@ module Decidim
         end
 
         it "displays the errored tab first" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
           output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", "ca")
 
           expect(output).to match(
@@ -395,7 +407,10 @@ module Decidim
         let(:available_locales) { %w(en ca es ro fr it) }
 
         it "displays the first tab when there is no error" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
           output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", nil)
+
           expect(output).to match(
             "<select id=\"short_description\" class=\"language-change\" data-controller=\"language-change\">" \
             "<option value=\"#short_description-resource-short_description-tabs-panel-0\">English</option>" \
@@ -409,6 +424,8 @@ module Decidim
         end
 
         it "displays the errored tab first" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
           output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", "ca")
 
           expect(output).to match(
