@@ -552,6 +552,7 @@ fi-pl:
           recent: Viimeisimmät
           recently_published: Viimeisimmäksi julkaistut
         pending_initiatives:
+          description: Nämä aloitteet eivät ole vielä julkisia. Tarkista ne ja lähetä ne tekniseen validointiin, jotta ne voidaan julkaista.
           title: Luonnokset ja odottavat aloitteet
         print:
           address: Osoite
