@@ -731,6 +731,8 @@ fi-pl:
         hidden_participants_count:
           one: ja %{count} muu henkilö
           other: ja %{count} muuta henkilöä
+        show_less: Näytä vähemmän
+        show_more: Näytä enemmän
       read_more: "(lue lisää)"
       registration_mailer:
         confirmation:
