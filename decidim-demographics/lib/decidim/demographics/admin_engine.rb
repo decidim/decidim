@@ -15,7 +15,7 @@ module Decidim
           collection do
             resource :settings, only: [:show, :update]
 
-            resource :questions, except: [:edit, :update] do
+            resource :questions, only: [] do
               collection do
                 get :edit_questions
                 patch :update_questions
