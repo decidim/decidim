@@ -84,8 +84,8 @@ en:
         load_replies: Load replies
         moderated_at: Comment moderated on %{date}
         replies_count:
-          one: "%{count} answer"
-          other: "%{count} answers"
+          one: "%{count} reply"
+          other: "%{count} replies"
         reply: Reply
         report:
           action: Report

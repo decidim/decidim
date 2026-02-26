@@ -208,7 +208,7 @@ describe("CommentsComponent", () => {
                   aria-expanded="false"
                   aria-controls="comment-${commentId}-replies"
                   id="comment-${commentId}-replies-trigger">
-            <span class="font-normal">1 answer</span>
+            <span class="font-normal">1 reply</span>
             <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-down-s-line" tabindex="-1"></use></svg>
             <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-up-s-line" tabindex="-1"></use></svg>
           </button>
