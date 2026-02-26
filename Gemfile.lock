@@ -425,8 +425,8 @@ GEM
     faraday-net_http (3.4.2)
       net-http (~> 0.5)
     fast-stemmer (1.0.2)
-    ffi (1.17.2-arm64-darwin)
-    ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.3-arm64-darwin)
+    ffi (1.17.3-x86_64-linux-gnu)
     fiber-storage (1.0.1)
     file_validators (3.0.0)
       activemodel (>= 3.2)
@@ -535,7 +535,8 @@ GEM
       railties (>= 6.1)
       rexml
     lint_roller (1.1.0)
-    listen (3.9.0)
+    listen (3.10.0)
+      logger
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
@@ -946,7 +947,7 @@ DEPENDENCIES
   decidim-initiatives!
   decidim-templates!
   letter_opener_web (~> 3.0)
-  listen (~> 3.1)
+  listen (~> 3.10)
   parallel_tests (~> 4.2)
   puma (>= 6.3.1)
   web-console (~> 4.2)
