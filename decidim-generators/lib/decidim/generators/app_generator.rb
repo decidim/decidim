@@ -352,7 +352,7 @@ module Decidim
         gsub_file "config/environments/production.rb",
                   %r{# config.asset_host = "http://assets.example.com"},
                   "config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
-        gsub_file "config/environments/production.rb", /config\.logger   = ActiveSupport::TaggedLogging\.logger\(STDOUT\)/, <<~CONFIG
+        gsub_file "config/environments/production.rb", /config\.logger\s*=\s*ActiveSupport::TaggedLogging\.logger\(STDOUT\)/, <<~CONFIG
           config.logger   = ActiveSupport::TaggedLogging.logger(STDOUT) if ENV["RAILS_LOG_TO_STDOUT"].present?
         CONFIG
       end
