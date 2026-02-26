@@ -189,6 +189,7 @@ fi:
           Mikäli muutat mieltäsi, voit palauttaa tuloksen myöhemmin.
         export: Vie
         export_all: Vie kaikki
+        export_selection: Vie valitut
         import: Tuo
         member:
           new: Uusi jäsen
@@ -1082,6 +1083,7 @@ fi:
           title: Uusi aihe
         update:
           error: Aiheen päivitys epäonnistui.
+          success: Aiheen päivitys onnistui.
       static_pages:
         actions:
           view: Näytä
