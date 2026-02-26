@@ -156,8 +156,8 @@ ca-IT:
           create: Crear
           title: Crear un debat
         orders:
-          commented: Més comentats
           label: Ordenar debats per
+          most_commented: Més comentats
           random: Ordre aleatori
           recent: Més recents
           updated: Recentment actualitzats
