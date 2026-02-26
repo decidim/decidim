@@ -52,6 +52,7 @@ fi:
         file: Tiedosto
       proposals_import:
         import_proposals: Tuo ehdotuksia
+        keep_answers: Säilytä tilat ja vastaukset ennallaan
         keep_authors: Säilytä alkuperäiset laatijat
     errors:
       models:
@@ -369,6 +370,12 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotuksen tila on muuttunut (%{state})
             notification_title: Ehdotuksen <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'Ehdotuksesi "%{resource_title}" tilaksi on muutettu "%{state}". Voit lukea vastauksen täältä:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_title}".
+            email_subject: Ehdotuksesi tila on muuttunut (%{state})
+            notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Hallintakäyttäjä on muuttanut ehdotuksesi "%{resource_title}" luokitteluja, voit tarkastaa muutoksen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
@@ -688,6 +695,7 @@ fi:
             create: Tuo ehdotuksia
             no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
+            select_states: Tuo ainoastaan ehdotukset, joilla on nämä tilat. Jos yhtään tilaa ei ole valittuna, kaikki ehdotukset tuodaan.
             title: Tuo ehdotuksia toisesta komponentista
         proposals_merges:
           create:
