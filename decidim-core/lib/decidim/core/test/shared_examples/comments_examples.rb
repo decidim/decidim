@@ -687,9 +687,9 @@ shared_examples "comments" do
         it "displays the load replies button" do
           visit resource_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("3 reply")
+            expect(page).to have_content("3 replies")
             expect(page).to have_no_content(new_reply_body)
-            click_on "3 reply"
+            click_on "3 replies"
             expect(page).to have_content(new_reply_body)
           end
         end
