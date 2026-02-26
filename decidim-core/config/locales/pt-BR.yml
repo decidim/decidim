@@ -1887,8 +1887,8 @@ pt-BR:
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
         old_password_help: Para confirmar as alterações à sua conta, por favor, forneça a sua senha atual.
-        password_help: "O mínimo de caracteres %{minimum_characters}, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu e-mail."
-        password_help_admin: "Mínimo de caracteres %{minimum_characters}, não deve ser muito comum (por exemplo, 123456) deve ser diferente do seu apelido e seu email e deve ser diferente das senhas antigas."
+        password_help: "%{minimum_characters} caracteres mínimod, deve conter pelo menos 5 caracteres diferentes, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu nome, apelido, e-mail e \nhost da organização."
+        password_help_admin: "%{minimum_characters} caracteres mínimos, deve conter pelo menos 5 caracteres diferentes, não deve ser muito comum (por exemplo, 123456) deve ser diferente do seu nome, apelido, e-mail, host da organização e deve ser diferente de suas senhas antigas."
         title: Senha alterada
       new:
         forgot_your_password: Esqueceu sua senha?
