@@ -52,5 +52,130 @@ describe "Admin invite" do
 
       expect(page).to have_current_path "/admin/admin_terms/show"
     end
+
+    it "displays admin password requirements" do
+      visit last_email_link
+
+      expect(page).to have_content("15 characters minimum")
+      expect(page).to have_content("must contain at least 5 different characters")
+      expect(page).to have_content("must not be too common")
+      expect(page).to have_content("must be different from your name, nickname, email, the organization's host")
+      expect(page).to have_content("must be different from your old passwords")
+    end
+
+    it "rejects passwords that are too short for admin" do
+      visit last_email_link
+
+      fill_in :invitation_user_nickname, with: "caballo_loco"
+      fill_in :invitation_user_password, with: "short123"
+      check :invitation_user_tos_agreement
+      click_on "Save"
+
+      expect(page).to have_content("password is too short")
+    end
+
+    it "rejects passwords containing the user's name" do
+      visit last_email_link
+
+      fill_in :invitation_user_nickname, with: "caballo_loco"
+      fill_in :invitation_user_password, with: "Fiorello123456789!"
+      check :invitation_user_tos_agreement
+      click_on "Save"
+
+      expect(page).to have_content("is too similar to your name")
+    end
+
+    it "rejects passwords with less than 5 unique characters" do
+      visit last_email_link
+
+      fill_in :invitation_user_nickname, with: "caballo_loco"
+      fill_in :invitation_user_password, with: "aaaaaaaaaaaaaaa!"
+      check :invitation_user_tos_agreement
+      click_on "Save"
+
+      expect(page).to have_content("does not have enough unique characters")
+    end
+  end
+
+  context "when inviting a regular user" do
+    let(:organization) { create(:organization, host: "new-decide.lvh.me") }
+    let(:inviter) { create(:user, :confirmed, :admin, organization:) }
+
+    let!(:invited_user) do
+      perform_enqueued_jobs do
+        Decidim::User.invite!(
+          {
+            organization:,
+            name: "Invited User",
+            email: "invited_user@example.org"
+          },
+          inviter
+        )
+      end
+    end
+
+    it "displays regular user password requirements in help text" do
+      switch_to_host("new-decide.lvh.me")
+      visit last_email_link
+
+      expect(page).to have_content("10 characters minimum")
+      expect(page).to have_content("must contain at least 5 different characters")
+      expect(page).to have_content("must not be too common")
+      expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
+      expect(page).to have_no_content("must be different from your old passwords")
+    end
+
+    it "allows accepting invitation with valid user password" do
+      switch_to_host("new-decide.lvh.me")
+      visit last_email_link
+
+      fill_in :invitation_user_nickname, with: "invited_user"
+      fill_in :invitation_user_password, with: "decidim123"
+      check :invitation_user_tos_agreement
+      click_on "Save"
+
+      expect(page).to have_content("Your password was set successfully. You are now signed in.")
+      expect(Decidim::User.find_by(email: "invited_user@example.org")).not_to be_admin
+    end
+  end
+
+  context "when admin_password_strong is disabled" do
+    let(:organization) { create(:organization, host: "new-decide.lvh.me") }
+    let(:inviter) { create(:user, :confirmed, :admin, organization:) }
+    let!(:invited_admin) do
+      perform_enqueued_jobs do
+        Decidim::User.invite!(
+          {
+            organization:,
+            name: "Invited Admin",
+            email: "invited_admin@example.org",
+            admin: true
+          },
+          inviter
+        )
+      end
+    end
+
+    before do
+      allow(Decidim.config).to receive(:admin_password_strong).and_return(false)
+    end
+
+    it "displays regular password requirements for admins" do
+      switch_to_host("new-decide.lvh.me")
+      visit last_email_link
+
+      expect(page).to have_content("10 characters minimum")
+      expect(page).to have_content("must contain at least 5 different characters")
+      expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
+      expect(page).to have_no_content("must be different from your old passwords")
+    end
+  end
+
+  context "with invalid invitation token" do
+    it "shows error for invalid token" do
+      visit "/users/invitation/accept?invitation_token=invalid_token"
+
+      expect(page).to have_content("The invitation token provided is not valid")
+    end
   end
 end
