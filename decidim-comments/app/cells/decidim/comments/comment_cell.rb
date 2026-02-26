@@ -233,6 +233,10 @@ module Decidim
         model.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.exists?
       end
 
+      def replies_count
+        @replies_count ||= model.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.count
+      end
+
       # action_authorization_button expects current_component to be available
       def current_component
         root_commentable.try(:component)

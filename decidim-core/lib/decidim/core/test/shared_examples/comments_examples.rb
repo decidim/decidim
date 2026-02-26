@@ -81,7 +81,7 @@ shared_examples "comments" do
       expect(page).to have_css(".comment", minimum: 1)
 
       within("#comment_#{single_comment.id}") do
-        expect(page).to have_content "Load replies"
+        expect(page).to have_content "1 answer"
       end
     end
 
@@ -133,7 +133,7 @@ shared_examples "comments" do
         visit resource_path
 
         within "#comment_#{deleted_comment.id}" do
-          click_on "Load replies"
+          click_on "1 answer"
           expect(page).to have_css("#comment-#{deleted_comment.id}-replies")
           expect(page).to have_content(reply.author.name)
           expect(page).to have_content(reply.body.values.first)
@@ -659,8 +659,8 @@ shared_examples "comments" do
       it "displays a way to display content" do
         visit resource_path
         within "#comment_#{thread.id}" do
-          expect(page).to have_content("Load replies")
-          click_on "Load replies"
+          expect(page).to have_content("1 answer")
+          click_on "1 answer"
           expect(page).to have_content(new_reply_body)
           click_on "Reply", match: :first
           expect(page).to have_content("Publish reply")
@@ -673,10 +673,10 @@ shared_examples "comments" do
       it "displays a way to hide content" do
         visit resource_path
         within "#comment_#{thread.id}" do
-          expect(page).to have_content("Load replies")
-          click_on "Load replies"
+          expect(page).to have_content("1 answer")
+          click_on "1 answer"
           expect(page).to have_content(new_reply_body)
-          click_on "Load replies"
+          click_on "1 answer"
           expect(page).to have_no_content(new_reply_body)
         end
       end
@@ -687,9 +687,9 @@ shared_examples "comments" do
         it "displays the load replies button" do
           visit resource_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("Load replies")
+            expect(page).to have_content("3 answers")
             expect(page).to have_no_content(new_reply_body)
-            click_on "Load replies"
+            click_on "3 answers"
             expect(page).to have_content(new_reply_body)
           end
         end
@@ -857,7 +857,7 @@ shared_examples "comments" do
         visit current_path
 
         within "#comments #comment_#{parent.id}" do
-          expect(page).to have_no_content("Load replies")
+          expect(page).to have_no_css(".show-replies-button")
           expect(page).to have_no_css("#comment-#{parent.id}-replies")
         end
       end
@@ -924,7 +924,7 @@ shared_examples "comments" do
             visit current_path
 
             within "#comment_#{comments[0].id}" do
-              click_on "Load replies"
+              click_on "1 answer"
             end
             expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/, visible: :all)
             page.find("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up").click
