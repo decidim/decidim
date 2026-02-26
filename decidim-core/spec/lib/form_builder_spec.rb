@@ -406,11 +406,16 @@ module Decidim
       context "when there are more languages" do
         let(:available_locales) { %w(en ca es ro fr it) }
 
-        it "displays the first tab when there is no error" do
+        before do
+          builder.remove_instance_variable(:@locales) if builder.instance_variable_defined?(:@locales)
           allow(builder).to receive(:locales).and_return(available_locales)
+          I18n.backend.reload!
+        end
 
+        it "displays the first tab when there is no error" do
           output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", nil)
 
+          pp available_locales
           pp output
 
           expect(output).to match(
@@ -426,12 +431,11 @@ module Decidim
         end
 
         it "displays the errored tab first" do
-          allow(builder).to receive(:locales).and_return(available_locales)
-
           output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", "ca")
 
+          pp available_locales
           pp output
-          
+
           expect(output).to match(
             "<select id=\"short_description\" class=\"language-change\" data-controller=\"language-change\">" \
             "<option value=\"#short_description-resource-short_description-tabs-panel-0\">English</option>" \
