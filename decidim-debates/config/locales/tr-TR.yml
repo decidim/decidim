@@ -108,7 +108,6 @@ tr:
           back: Geri
           create: Oluştur
         orders:
-          commented: En çok yorum yapılan
           label: Tartışmaların sıralama ölçütü
           random: Rasgele sırala
           recent: En yeni
