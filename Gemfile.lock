@@ -302,7 +302,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
-    brakeman (7.0.2)
+    brakeman (8.0.2)
       racc
     browser (6.2.0)
     builder (3.3.0)
@@ -935,7 +935,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (~> 1.4)
-  brakeman (~> 7.0)
+  brakeman (~> 8.0)
   byebug (~> 13.0)
   decidim!
   decidim-ai!
