@@ -66,6 +66,8 @@ eu:
           attributes:
             document:
               allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
+              empty: Dokumentua hutsik dago
+              invalid_json: JSON dokumentua ez da zuzena
     models:
       decidim/participatory_process_step_activated_event: Fasea aktibatuta
       decidim/participatory_process_step_changed_event: Pasartea aldatu da
