@@ -89,11 +89,11 @@ module Decidim
               title: file["title"],
               description: file["description"],
               attached_to: @imported_assembly,
-              weight: file["weight"],
-              content_type: fetch_content_type(url)
+              weight: file["weight"]
             )
             begin
               attachment.attached_uploader(:file).remote_url = url
+              attachment.set_content_type_and_size
             rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
               @warnings << I18n.t(
                 "decidim.assemblies.admin.imports.attachment_error",
@@ -195,22 +195,6 @@ module Decidim
         message = status[1].presence || Rack::Utils::HTTP_STATUS_CODES[code.to_i]
         message = message.presence || error.message
         "#{code} #{message}"
-      end
-
-      def fetch_content_type(url)
-        return nil if url.blank?
-
-        uri = URI.parse(url)
-        http_connection = Net::HTTP.new(uri.host, uri.port)
-        http_connection.use_ssl = true if uri.scheme == "https"
-        http_connection.start do |http|
-          response = http.head(uri.request_uri)
-          return nil unless response.is_a?(Net::HTTPSuccess)
-
-          response["Content-Type"]&.split(";")&.first
-        end
-      rescue StandardError
-        nil
       end
     end
   end
