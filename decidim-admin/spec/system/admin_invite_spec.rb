@@ -140,11 +140,6 @@ describe "Admin invite" do
   context "when admin_password_strong is disabled" do
     let(:organization) { create(:organization, host: "decide.lvh.me") }
     let(:inviter) { create(:user, :confirmed, :admin, organization:) }
-
-    before do
-      allow(Decidim.config).to receive(:admin_password_strong).and_return(false)
-    end
-
     let!(:invited_admin) do
       perform_enqueued_jobs do
         Decidim::User.invite!(
@@ -157,6 +152,10 @@ describe "Admin invite" do
           inviter
         )
       end
+    end
+
+    before do
+      allow(Decidim.config).to receive(:admin_password_strong).and_return(false)
     end
 
     it "displays regular password requirements for admins" do
