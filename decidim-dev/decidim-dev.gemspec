@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
   s.add_dependency "faker", "~> 3.2"
 
   s.add_dependency "bullet", "~> 8.0.0"
-  s.add_dependency "byebug", "~> 11.0"
+  s.add_dependency "byebug", ">= 11", "< 14"
   s.add_dependency "erb_lint", "~> 0.8.0"
   s.add_dependency "i18n-tasks", "~> 1.0"
   s.add_dependency "nokogiri", "~> 1.16", ">= 1.16.2"
@@ -51,7 +51,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec-cells", "~> 0.3.7"
   s.add_dependency "rspec-html-matchers", "~> 0.10"
   s.add_dependency "rspec_junit_formatter", "~> 0.6.0"
-  s.add_dependency "rspec-rails", "~> 6.0"
+  s.add_dependency "rspec-rails", ">= 6", "< 9"
   s.add_dependency "rspec-retry", "~> 0.6.2"
   s.add_dependency "rubocop", "~> 1.78.0"
   s.add_dependency "rubocop-capybara", "~> 2.22.0", ">= 2.22.1"

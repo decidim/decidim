@@ -52,7 +52,7 @@ cs:
         file: Soubor
       proposals_import:
         import_proposals: Návrhy na dovoz
-        keep_answers: Zachovat stav a odpovědi
+        keep_answers: Zachovat stavy a odpovědi
         keep_authors: Uchovávejte původní autory
     errors:
       models:
@@ -84,6 +84,7 @@ cs:
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Návrhy taxonomií se změnily
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
+      decidim/proposals/liking_enabled_event: Označení líbí se mi k Návrhu povoleno
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
       decidim/proposals/publish_proposal_event: Návrh byl zveřejněn
       decidim/proposals/voting_enabled_event: Hlasování návrhu je povoleno
@@ -151,6 +152,8 @@ cs:
               state_not_published: Nezodpovězeno
               state_published: Odpovězeno
       tooltips:
+        cannot_edit_proposal_info: Tento návrh nelze upravit, protože je vytvořen účastníkem nebo obdržel nějaký hlas
+        deleted_proposal_states_info: Tento stav návrhu nelze odstranit, protože k němu jsou přiřazeny návrhy
         deleted_proposals_info: Tento návrh nelze odstranit
     application:
       geocoding:
@@ -177,6 +180,7 @@ cs:
             can_accumulate_votes_beyond_threshold: Lze hromadit hlasy za hranicí
             clear_all: Vymazat vše
             collaborative_drafts_enabled: Společné koncepty povoleny
+            collaborative_drafts_enabled_help: Funkce „Spolunávrhy“ bude odstraněna v Decidim v0.32. Organizace, které ji používají, mohou přejít na novou funkci spoluautorství.
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             default_sort_order: Výchozí řazení návrhu
@@ -336,7 +340,10 @@ cs:
           email_subject: Návrhy jsou nyní k dispozici v %{participatory_space_title}
           notification_title: Nyní můžete předložit <a href="%{resource_path}">nové návrhy</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         liking_enabled:
+          email_intro: 'Můžete označovat líbí se mi návrhy v %{participatory_space_title}! Začněte se účastnit na této straně:'
           email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení na předchozím odkazu.
+          email_subject: Návrhy, které se líbí pro %{participatory_space_title}
+          notification_title: Nyní můžete začít s <a href="%{resource_path}">označováním návrhů líbí se mi</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
@@ -491,6 +498,7 @@ cs:
           deleted_proposals_info: Smazané návrhy mohou být obnoveny z koše.
           preview: Náhled
           view_deleted_proposals: Zobrazit smazané návrhy
+        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Oznámení o zastaralosti.</b> Funkce Pracovní koncepty bude odstraněna v Decidim v0.32. Organizace, které jej používají, mohou přejít na funkci spoluautorství."
         evaluation_assignments:
           create:
             invalid: Při přiřazování návrhů hodnotiteli došlo k chybě.
@@ -669,6 +677,7 @@ cs:
             ranking: "%{ranking} z %{total}"
             related_meetings: Související schůzky
             remove_assignment: Odstranit přiřazení
+            remove_assignment_confirmation: Opravdu chcete odstranit hodnotitele z tohoto návrhu?
             votes_count: Počet hlasů
           update_taxonomies:
             invalid: 'Tyto návrhy již mají taxonomie %{taxonomies}: %{proposals}.'
@@ -683,7 +692,7 @@ cs:
             create: Návrhy na dovoz
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
             select_component: Vyberte součást
-            select_states: Zkontrolujte stav návrhů, které chcete importovat
+            select_states: Importovat pouze návrhy s těmito stavy. Pokud není vybrán žádný, budou importovány všechny návrhy.
             title: Importovat návrhy z jiné komponenty
         proposals_merges:
           create:

@@ -55,7 +55,6 @@ ja:
         description: 説明
         enable_machine_translations: 機械翻訳を有効にする
         enable_omnipresent_banner: Omnipresentバナーを表示
-        enable_participatory_space_filters: 参加型スペースフィルタを有効にする
         facebook_handler: Facebook ハンドラー
         favicon: アイコン
         force_authentication: 認証の強制
@@ -189,7 +188,8 @@ ja:
           </ul>
           気が変わった場合は、後で元に戻せます。
         export: エクスポート
-        export-selection: 選択したものをエクスポート
+        export_all: 全てエクスポート
+        export_selection: 選択したものをエクスポート
         import: インポート
         member:
           new: 新規メンバー
@@ -1076,7 +1076,7 @@ ja:
           title: 新規トピック
         update:
           error: このトピックの更新中に問題が発生しました。
-          success: トピックを更新しました
+          success: トピックを更新しました。
       static_pages:
         actions:
           view: 表示

@@ -82,8 +82,6 @@ nl:
         unpublish: Publicatie ongedaan maken
       menu:
         participatory_process_groups: Inspraakproces groepen
-        participatory_process_groups_submenu:
-          info: Info
         participatory_processes: Inspraakprocessen
         participatory_processes_submenu:
           attachment_collections: Mappen
@@ -175,7 +173,6 @@ nl:
           error: Er is een fout opgetreden bij het herschikken van deze processtappen.
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze processtap.
-          success: Fase van participatief proces succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan dit inspraakproces.
@@ -300,7 +297,6 @@ nl:
             document_legend: Document toevoegen
         participatory_processes:
           form:
-            announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             duration: Duur
             images: Afbeeldingen
             metadata: Metadata

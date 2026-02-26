@@ -3,7 +3,7 @@ sv:
   decidim:
     demographics:
       actions:
-        title: Handlingar
+        title: Åtgärder
       admin:
         demographics:
           tabs_menu:
@@ -23,7 +23,7 @@ sv:
           questions_form:
             add_question: Lägg till fråga
             collapse: Dölj alla frågor
-            expand: Visa alla frågor
+            expand: Expandera alla frågor
         responses:
           index:
             publish_responses: Visa svar
@@ -31,7 +31,7 @@ sv:
         settings:
           show:
             collect_data: Aktivera demografisk datainsamling
-            collect_data_help: Aktivering av denna inställning gör det möjligt för användare att donera sina data till plattformen.
+            collect_data_help: Om den här inställningen aktiveras kan användare tillgängliggöra sina data till plattformen.
             save: Spara
             title: Inställningar
           update:
@@ -43,17 +43,17 @@ sv:
           delete_my_data: Ta bort data
           modal_close: Avbryt
           modal_ok: Ok
-          modal_question: Alla dina demografiska data kommer att tas bort.
+          modal_question: All din demografiska data kommer att tas bort.
           modal_title: Radera data
           submit: Spara data
           terms_of_service: användarvillkor
           tos_agreement: Genom att delta accepterar du %{link}.
         show:
-          page_title: Demografisk data donation
+          page_title: Dela demografisk data
       destroy:
-        error: Det gick inte att ta bort dina donerade data
-        success: Dina donerade data har tagits bort
-      name: Demografisk data donation
+        error: Det gick inte att ta bort dina delade data
+        success: Din delade data har tagits bort
+      name: Dela demografisk data
       questions:
         age:
           options:
@@ -68,12 +68,12 @@ sv:
           - Kvinna
           - Icke-binär
           - Mitt kön är inte listat
-          - Föredra att inte svara
+          - Vill inte svara
           question: Vilket av följande beskriver dig bäst?
         postal:
-          question: Vad är ditt hempostnummer?
+          question: Vad är ditt postnummer?
   layouts:
     decidim:
       shared:
         layout_center:
-          alert: Genom att tillhandahålla denna information bidrar du till statistisk analys som kan förbättra deltagandekvaliteten. Dina data kommer att aggregeras och endast användas för forskningsändamål.
+          alert: Genom att dela den här informationen bidrar du till statistisk analys som kan förbättra deltagandekvaliteten. Dina data kommer att aggregeras och endast användas för forskningsändamål.

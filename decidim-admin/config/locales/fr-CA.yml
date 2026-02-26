@@ -53,8 +53,8 @@ fr-CA:
         customize_welcome_notification: Personnaliser le mail de bienvenue
         default_locale: Langue par défaut
         description: Description
+        enable_machine_translations: Activer la traduction automatique
         enable_omnipresent_banner: Montrer une bannière d'actualités
-        enable_participatory_space_filters: Activer les filtres d'espace participatif
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
         force_authentication: Forcer l'authentification
@@ -188,7 +188,8 @@ fr-CA:
           </ul>
           Si vous changez d'avis, vous pourrez annuler cette action plus tard.
         export: Exporter
-        export-selection: Exporter la sélection
+        export_all: Tout exporter
+        export_selection: Exporter la sélection
         import: Importer
         member:
           new: Nouveau membre
@@ -239,6 +240,7 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
+        deprecated: Notez que les zones sont dépréciées et seront retirées dans les versions futures. Merci de leur préférer les taxonomies. Le seul module qui utilise les zones actuellement est le module initiatives.
         destroy:
           has_spaces: Cette zone a des espaces dépendants. Veuillez vous assurer qu'aucun espace participatif ne référence cette zone avant de la supprimer.
           success: Le périmètre d'assemblée a été supprimé avec succès.
@@ -1081,7 +1083,7 @@ fr-CA:
           title: Nouveau sujet
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce sujet.
-          success: Sujet mis à jour avec succès
+          success: Sujet mis à jour avec succès.
       static_pages:
         actions:
           view: Afficher
@@ -1119,12 +1121,25 @@ fr-CA:
           edit: Modifier la taxonomie
           new: Nouvelle taxonomie
         count: Ressources associées
+        create:
+          invalid: Un problème a été rencontré lors de la création de cette taxonomie.
+          success: La taxonomie a été créée avec succès.
+        destroy:
+          invalid: Un problème a été rencontré lors de la suppression de cette taxonomie.
+          success: La taxonomie a été supprimée avec succès.
         edit:
+          back: Retour
+          description: Les éléments dans cette taxonomie seront utilisés pour classer ou filtrer des ressources telles que des espaces participatifs ou des composants. Utilisez le glisser-déposes pour réorganiser la liste.
+          new_item: Nouvel élément
+          no_items: Il n'y a pas d'élément dans cette taxonomie actuellement. Créez une liste d'éléments ici pour classer ou filtrer des ressources telles que des espaces participatifs ou des composants. Les éléments peuvent être hiérarchisés jusqu'à trois niveaux.
+          subtitle: Éléments dans "%{taxonomy_name}"
+          title: Éditer la taxonomie "%{taxonomy_name}"
           update: Mettre à jour
         filters:
           search_placeholder: Rechercher
         index:
           new_taxonomy: Nouvelle taxonomie
+        name: Nom
         total_filters: Filtres
       taxonomy_filters:
         breadcrumb:
@@ -1162,6 +1177,7 @@ fr-CA:
           remove: Supprimer
         taxonomies_select:
           filters: Filtres
+          select_filter: Sélectionnez un filtre
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
@@ -1230,6 +1246,16 @@ fr-CA:
         unreport: Annuler le rapport
       admin:
         reportable:
+          bulk_action:
+            hide:
+              invalid: Aucune modération sélectionnée.
+              success: Ressources cachées avec succès.
+            ignore:
+              invalid: Aucune modération d'utilisateur sélectionnée.
+            unhide:
+              invalid: Aucune modération sélectionnée.
+            unreport:
+              invalid: Aucune modération sélectionnée.
           hide:
             invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.

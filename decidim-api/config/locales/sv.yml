@@ -3,10 +3,13 @@ sv:
   decidim:
     api:
       errors:
+        introspection_disabled: Introspektion är inaktiverad för denna begäran
         invalid_locale: Ogiltigt språk angivet
         locale_argument_error: Ett fel uppstod när i18n data hanterades internt
         not_found: "%{type} hittades inte"
         permission_not_set: Behörigheten har inte satts för denna %{type}
+        recursion_limit_exceeded_error: Alltför många rekursioner upptäckta i frågan
+        too_many_aliases_error: För många alias som används. Du har använt %{size} alias, men %{limit} är tillåtna.
         unauthorized_field: Du kan inte visa eller redigera %{field} fältet på %{type} eftersom du inte har behörighet
         unauthorized_mutation: Du har inte behörighet att utföra denna åtgärd
         unauthorized_object: Du kan inte visa eller redigera detta %{type} eftersom du inte har behörigheter

@@ -43,25 +43,49 @@ module Decidim
         @filter_sections ||= begin
           items = []
           if date
-            items.append(method: :with_any_date, collection: filter_date_values, label: t("decidim.meetings.meetings.filters.date"), id: "date",
+            items.append(method: :with_any_date,
+                         name: "[with_any_date]",
+                         collection: filter_date_values,
+                         label: t("decidim.meetings.meetings.filters.date"),
+                         id: "date",
                          type: :radio_buttons)
           end
-          items.append(method: :with_any_type, collection: filter_type_values, label: t("decidim.meetings.meetings.filters.type"), id: "type") if type
+          if type
+            items.append(method: :with_any_type,
+                         name: "[with_any_type]",
+                         collection: filter_type_values,
+                         label: t("decidim.meetings.meetings.filters.type"),
+                         id: "type")
+          end
           if taxonomies
             available_taxonomy_filters.each do |taxonomy_filter|
-              items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+              items.append(method: :with_any_taxonomies,
+                           name: "[with_any_taxonomies][#{taxonomy_filter.root_taxonomy_id}]",
                            collection: filter_taxonomy_values_for(taxonomy_filter),
                            label: decidim_sanitize_translated(taxonomy_filter.name),
                            id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
             end
           end
-          items.append(method: :with_any_origin, collection: filter_origin_values, label: t("decidim.meetings.meetings.filters.origin"), id: "origin") if origin
+          if origin
+            items.append(method: :with_any_origin,
+                         name: "[with_any_origin]",
+                         collection: filter_origin_values,
+                         label: t("decidim.meetings.meetings.filters.origin"),
+                         id: "origin")
+          end
           if space_type
-            items.append(method: :with_any_space, collection: directory_meeting_spaces_values, label: t("decidim.meetings.directory.meetings.index.space_type"),
+            items.append(method: :with_any_space,
+                         name: "[with_any_space]",
+                         collection: directory_meeting_spaces_values,
+                         label: t("decidim.meetings.directory.meetings.index.space_type"),
                          id: "space_type")
           end
           if activity
-            items.append(method: :activity, collection: activity_filter_values, label: t("decidim.meetings.meetings.filters.activity"), id: "activity",
+            items.append(method: :activity,
+                         name: "[activity]",
+                         collection: activity_filter_values,
+                         label: t("decidim.meetings.meetings.filters.activity"),
+                         id: "activity",
                          type: :radio_buttons)
           end
           items.reject { |item| item[:collection].blank? }

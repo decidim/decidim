@@ -19,7 +19,7 @@ gem "bootsnap", "~> 1.4"
 gem "puma", ">= 6.3.1"
 
 group :development, :test do
-  gem "byebug", "~> 11.0", platform: :mri
+  gem "byebug", "~> 13.0", platform: :mri
 
   gem "decidim-dev", path: "."
 
@@ -28,7 +28,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "letter_opener_web", "~> 2.0"
-  gem "listen", "~> 3.1"
+  gem "letter_opener_web", "~> 3.0"
+  gem "listen", "~> 3.10"
   gem "web-console", "~> 4.2"
 end

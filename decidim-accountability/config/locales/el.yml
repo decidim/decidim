@@ -1,6 +1,10 @@
 el:
   activemodel:
     attributes:
+      milestone:
+        description: Περιγραφή
+        entry_date: Ημερομηνία
+        title: Τίτλος
       result:
         decidim_accountability_status_id: Κατάσταση
         decidim_category_id: Κατηγορία
@@ -9,6 +13,7 @@ el:
         end_date: Ημερομηνία λήξης
         progress: Πρόοδος
         start_date: Ημερομηνία έναρξης
+        subresults: Υποαποτελέσματα
         title: Τίτλος
         updated_at: Ενημερώθηκε στις
       status:
@@ -21,34 +26,116 @@ el:
       decidim/accountability/result_progress_updated_event: Η πρόοδος των αποτελεσμάτων ενημερώθηκε
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Αυτό το αποτέλεσμα συμπεριλήφθηκε στο %{link}
+            meetings_ids: 'Συζητήθηκε σε αυτή τη συνάντηση: %{link}'
+            project_ids: 'Συμπεριλήφθηκε σε αυτό το έργο: %{link}'
+            proposal_ids: 'Συμπεριλήφθηκε σε αυτή την πρόταση: %{link}'
+            text: 'Προστέθηκε σε αυτό το αποτέλεσμα: %{link}'
       decidim/accountability/result:
         one: Αποτέλεσμα
         other: Αποτελέσματα
   decidim:
     accountability:
       actions:
+        add_milestone: Προσθήκη ορόσημου
+        add_result: Προσθήκη αποτελέσματος
+        confirm_delete_result: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το αποτέλεσμα;
         confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το όνομα %{name};
+        deleted_results_info: Τα διαγραμμένα αποτελέσματα μπορούν να αποκατασταθούν από τα σκουπίδια.
         destroy: Διαγραφή
         edit: Επεξεργασία
+        import: Εισαγωγή αποτελεσμάτων από άλλο στοιχείο
+        import_csv: Εισαγωγή αποτελεσμάτων από αρχείο CSV
+        new_milestone: Νέο ορόσημο
+        new_result: Νέο αποτέλεσμα
+        new_status: Νέα κατάσταση
         preview: Προεπισκόπηση
         title: Ενέργειες
+        view_deleted_results: Προβολή διαγραμμένων αποτελεσμάτων
       admin:
         exports:
           result_comments: Σχόλια
           results: Αποτελέσματα
+        import_components:
+          create:
+            invalid: Παρουσιάστηκε πρόβλημα κατά την εισαγωγή των αποτελεσμάτων, παρακαλούμε να ακολουθήσετε προσεκτικά τις οδηγίες και να βεβαιωθείτε ότι έχετε επιλέξει έργα για υλοποίηση.
+          filters:
+            new_items_projects:
+              one: 1 επιλεγμένο έργο θα εισαχθεί
+              other: "%{count} επιλεγμένα έργα θα εισαχθούν"
+            new_items_proposals:
+              one: 1 πρόταση θα εισαχθεί
+              other: "%{count} προτάσεις θα εισαχθούν"
+            proposal_state: Κατάσταση πρότασης
+            select_state: Επιλέξτε κατάσταση
+          form:
+            create: Εισαγωγή
+            no_components: Δεν υπάρχουν στοιχεία σε αυτόν τον συμμετοχικό χώρο για εισαγωγή.
+            origin_component_id: Στοιχείο καταγωγής
+            select_component: Επιλέξτε ένα στοιχείο
+          new:
+            success:
+              one: 1 αποτέλεσμα στην ουρά για εισαγωγή. Θα ειδοποιηθείτε μέσω email μόλις ολοκληρωθεί.
+              other: "%{count} αποτελέσματα στην ουρά για εισαγωγή. Θα ειδοποιηθείτε μέσω email μόλις ολοκληρωθεί."
+            title: Εισαγωγή αποτελεσμάτων από άλλο στοιχείο
         import_results:
           new:
             download_export: Κατεβάστε την εξαγωγή με μορφή CSV
             import: Εισαγωγή
+            info: |
+              <p>Συνιστούμε να ακολουθήσετε αυτά τα βήματα:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Δημιουργήστε τις Καταστάσεις για τα Αποτελέσματα</a> που θέλετε να προσθέσετε</li>
+              <li><a href='%{link_new_result}' target='_blank'>Δημιουργήστε τουλάχιστον ένα Αποτέλεσμα χειροκίνητα</a> μέσω αυτού του πάνελ Διαχειριστή πριν χρησιμοποιήσετε την εισαγωγή, για την καλύτερη κατανόηση της μορφής και του τι θα χρειαστεί να συμπληρώσετε.</li>
+              <li>%{link_export_csv}</li>
+              <li>Κάντε τις αλλαγές τοπικά. Μπορείτε να αλλάξετε μόνο τις ακόλουθες στήλες του CSV(οι υπόλοιπες θα αγνοηθούν):
+                <ul>
+                <li><b>Ταξινομήσεις/ids:</b> ID για τις Ταξινομήσεις(αν είναι περισσότερες από μία, χωρίστε με κόμα)</li>
+                <li><b>Υπερκατηγορία/id:</b> ID για την υπερκατηγορία(για συναφή αποτελέσματα). Προαιρετικό</li>
+                <li><b>Τίτλος/en:</b> Τίτλος στην Αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τις ρυθμίσεις της γλώσσας της πλατφόρμας σας.</li>
+                <li><b>Περιγραφή/en:</b> Περιγραφή στην Αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τις ρυθμίσεις της γλώσσας της πλατφόρμας σας.</li>
+                <li><b>start_date:</b> Ημερομηνία έναρξης της εκτέλεσης του αποτελέσματος (μορφή ΕΕΕΕ-ΜΜ-ΗΗ)</li>
+                <li><b>end_date:</b> Ημερομηνία λήξης της εκτέλεσης του αποτελέσματος (μορφή ΕΕΕΕ-ΜΜ-ΗΗ)</li>
+                <li><b>status/id:</b> ID της Κατάστασης για αυτό το αποτέλεσμα</li>
+                <li><b>πρόοδος:</b> Ποσοστό (από 0 έως 100) της εκτέλεσης</li>
+                <li><b><b> proposals_ids:</b> εσωτερικά ID των σχετικών προτάσεων (χωρισμένα με κόμμα). Μετατρέπεται αυτόματα σε <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
+            title: Εισαγωγή αποτελεσμάτων από αρχείο CSV
         imports:
           create:
+            invalid: Υπήρξε ένα πρόβλημα κατά την εισαγωγή των αποτελεσμάτων.
             success: Η εισαγωγή του αρχείου ξεκίνησε. Μέσα στα επόμενα λεπτά θα λάβετε ένα email με το αποτέλεσμα της εισαγωγής.
+        milestones:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του ορόσημου.
+          index:
+            title: Ορόσημα
         models:
           result:
             name: Αποτέλεσμα
           status:
             name: Κατάσταση
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Αλλαγή ημερομηνίας
+              end_date: Ημερομηνία λήξης
+              start_date: Ημερομηνία έναρξης
+            dropdown:
+              actions: Ενέργειες
+              change_dates: Αλλαγή ημερομηνιών
+              change_status: Αλλαγή κατάστασης
+              change_taxonomies: Αλλαγή ταξινομίας
+            status_form:
+              change_status: Αλλαγή κατάστασης
+              status: Κατάσταση
+            submit_buttons:
+              cancel: Ακύρωση
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του αποτελέσματος.
             success: Το αποτέλεσμα δημιουργήθηκε με επιτυχία.
@@ -56,13 +143,24 @@ el:
             title: Επεξεργασία αποτελέσματος
             update: Ενημέρωση αποτελέσματος
           index:
+            selected: Επιλέχθηκε
             title: Αποτελέσματα
+          manage_trash:
+            title: Διαγραμμένα αποτελέσματα
           new:
             create: Δημιουργία αποτελέσματος
             title: Νέο αποτέλεσμα
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του αποτελέσματος.
             success: Το αποτέλεσμα ενημερώθηκε με επιτυχία.
+          update_dates:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των ημερομηνιών αποτελεσμάτων
+            success: Οι ημερομηνίες αποτελεσμάτων ενημερώθηκαν επιτυχώς
+          update_status:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση της κατάστασης των αποτελεσμάτων
+            success: Η κατάσταση των αποτελεσμάτων ενημερώθηκε με επιτυχία
+          update_taxonomies:
+            select_a_result: Επέλεξε ένα αποτέλεσμα
         shared:
           subnav:
             statuses: Καταστάσεις
@@ -98,6 +196,8 @@ el:
       content_blocks:
         highlighted_results:
           results: Αποτελέσματα
+      creation:
+        text: Αυτό το αποτέλεσμα δημιουργήθηκε
       import_mailer:
         import:
           errors: Σφάλματα
@@ -112,9 +212,19 @@ el:
             other: "%{count} αποτελέσματα εισήχθησαν από τα έργα."
           subject: Επιτυχής εισαγωγή έργων
           success: Επιτυχής εισαγωγή έργων στα αποτελέσματα στο στοιχείο %{component_name}. Μπορείτε να δείτε τα αποτελέσματα στη διεπαφή διαχείρισης.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Ένα αποτέλεσμα εισήχθη από τις προτάσεις
+            other: "%{count} αποτελέσματα εισήχθησαν από τις προτάσεις."
+          subject: Επιτυχής εισαγωγή προτάσεων
       last_activity:
         new_result: 'Νέο αποτέλεσμα:'
       models:
+        milestone:
+          fields:
+            entry_date: Ημερομηνία
+            title: Τίτλος
         result:
           fields:
             created_at: Δημιουργήθηκε
@@ -136,6 +246,9 @@ el:
             other: "%{count} αποτελέσματα"
         home_header:
           global_status: Κατάσταση καθολικής εκτέλεσης
+        no_results: Δεν υπάρχει κανένα πρότζεκτ.
+        root_taxonomies:
+          title: 'Προβολή από:'
         search:
           search: Αναζήτηση ενεργειών
         show:
@@ -146,19 +259,32 @@ el:
         results:
           status_id_eq:
             label: Κατάσταση
+      tooltips:
+        deleted_results_info: Αδυναμία διαγραφής αυτού του αποτελέσματος
     components:
       accountability:
         actions:
           comment: Σχόλιο
+          vote_comment: Σχόλιο ψηφοφορίας
         name: Υπευθυνότητα
         settings:
           global:
+            clear_all: Εκκαθάριση όλων
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
             comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
+            define_taxonomy_filters: Παρακαλώ καθορίστε μερικά φίλτρα για αυτόν τον συμμετοχικό χώρο πριν χρησιμοποιήσετε αυτή τη ρύθμιση.
             display_progress_enabled: Εμφάνιση προόδου
+            geocoding_enabled: Χάρτες ενεργοποιημένοι
             intro: Εισαγωγή
+            taxonomy_filters: Επιλογή φίλτρων για το στοιχείο
+            taxonomy_filters_add: Προσθήκη φίλτρου
           step:
             comments_blocked: Τα σχόλια αποκλείστηκαν
+          visualization: Οπτικοποίηση
+    download_your_data:
+      show:
+        result_comments: Εξαγωγή σχολίων αποτελέσματος
+        results: Εξαγωγή αποτελεσμάτων
     events:
       accountability:
         proposal_linked:
@@ -171,6 +297,33 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση «%{proposal_title}» και αυτή η πρόταση περιλαμβάνεται στο αποτέλεσμα «%{resource_title}». Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Μια ενημέρωση στην πρόοδο %{resource_title}
           notification_title: Το αποτέλεσμα <a href="%{resource_path}">%{resource_title}</a>, που περιλαμβάνει την πρόταση <a href="%{proposal_path}">%{proposal_title}</a> έχει τώρα ολοκληρωθεί κατά %{progress}%.
+    open_data:
+      help:
+        result_comments:
+          alignment: Αν αυτό το σχόλιο είναι υπέρ, κατά ή ουδέτερο
+          author: Το όνομα του συμμετέχοντα που έκανε αυτό το σχόλιο
+          body: Το ίδιο το σχόλιο
+          created_at: Η ημερομηνία δημιουργίας αυτού του σχολίου
+          id: Το αναγνωριστικό για αυτό το σχόλιο
+          root_commentable_url: Η διεύθυνση URL του πόρου που δένει με αυτό το σχόλιο
+        results:
+          address: Η διεύθυνση του αποτελέσματος (αν υπάρχει)
+          comments_count: Αριθμός σχολίων που έχει αυτό το αποτέλεσμα
+          component: Το στοιχείο στο οποίο ανήκει το αποτέλεσμα
+          created_at: Η ημερομηνία δημιουργίας του αποτελέσματος
+          description: Η περιγραφή του αποτελέσματος
+          id: Ο μοναδικός αναγνωριστικός κωδικός του αποτελέσματος
+          latitude: Το γεωγραφικό πλάτος του αποτελέσματος σε περίπτωση που έχει φυσική θέση
+          longitude: Το γεωγραφικό μήκος του αποτελέσματος σε περίπτωση που έχει φυσική θέση
+          parent: Το μητρικό αποτέλεσμα (αν υπάρχει) του αποτελέσματος
+          progress: Το ποσοστό εκτέλεσης του αποτελέσματος
+          proposal_urls: Οι διευθύνσεις URL των προτάσεων που περιλαμβάνονται σε αυτό το αποτέλεσμα
+          reference: Μοναδική αναφορά του αποτελέσματος
+          start_date: Η ημερομηνία έναρξης της εκτέλεσης του αποτελέσματος
+          status: Η τρέχουσα κατάσταση αυτού του αποτελέσματος
+          title: Ο τίτλος του αποτελέσματος
+          updated_at: Η τελευταία ημερομηνία που ενημερώθηκε αυτο το αποτέλεσμα
+          url: Το URL όπου αυτό το αποτέλεσμα μπορεί να βρεθεί
     participatory_spaces:
       highlighted_results:
         see_all: Δείτε όλα τα αποτελέσματα (%{count})
@@ -181,3 +334,4 @@ el:
         result_proposal: Προτάσεις που περιλαμβάνονται σε αυτό το αποτέλεσμα
     statistics:
       results_count: Αποτελέσματα
+      results_count_tooltip: Ο αριθμός των αποφάσεων ή των αποτελεσμάτων που δημιουργούνται από αυτό το χώρο.

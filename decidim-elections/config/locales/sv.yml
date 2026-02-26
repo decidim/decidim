@@ -2,24 +2,33 @@ sv:
   activemodel:
     attributes:
       elections_question:
-        max_choices: Maximalt antal val
+        max_choices: Högst antal alternativ
       token_csv:
         file: Fil
-        remove_all: Ta bort all aktuell folkräkningsdata
+        remove_all: Ta bort aktuell röstlängd
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Val
+        other: Val
   decidim:
     admin:
       menu:
         elections_menu:
+          basic_elections: Grundläggande
           election_census: Census
-          election_dashboard: Kontrollpanel
+          election_dashboard: Översikt
           election_questions: Frågor
+      tooltips:
+        deleted_elections_info: Det går inte att ta bort omröstningen
+        edit_elections_info: Det går inte att redigera omröstningen
     components:
       elections:
         actions:
           create: Skapa
           destroy: Radera
           update: Uppdatera
-        name: Val
+        name: Omröstningar
         settings:
           global:
             announcement: Meddelande
@@ -27,18 +36,19 @@ sv:
             announcement: Meddelande
     elections:
       actions:
-        confirm_delete_election: Är du säker på att du vill radera detta val?
-        deleted_election_info: Borttagna val visas inte i listan. Du kan se dem genom att klicka på knappen nedan.
-        edit: Redigera val
-        new: Nytt val
+        confirm_delete_election: Är du säker på att du vill ta bort omröstningen?
+        confirm_unpublish_election: Är du säker på att du vill avpublicera omröstningen?
+        deleted_election_info: Borttagna omröstningar visas inte i listan. Du kan se dem genom att klicka på knappen nedan.
+        edit: Redigera omröstning
+        new: Nytt omröstning
         preview: Förhandsgranska
         title: Åtgärder
-        view: Se val
-        view_deleted_elections: Visa raderade val
+        view: Visa omröstning
+        view_deleted_elections: Visa raderade omröstningar
       admin:
         census:
           edit:
-            choose_census: Välj vilken typ av folkräkning du vill använda för detta val
+            choose_census: Välj vilken typ av röstlängd du vill använda för omröstningen
             created_at: Skapad den
             identifier: Identifierare för användare
           preview:
@@ -46,72 +56,98 @@ sv:
               one: Förhandsgranskningen är begränsad till %{count} post.
               other: Förhandsgranskningen är begränsad till %{count} poster.
           update:
-            error: Ett fel uppstod när folkräkningen skulle skapas eller sparas.
-            success: Folkräkningen har uppdaterats.
+            error: Ett fel uppstod när röstlängden skulle skapas eller sparas.
+            success: Röstlängden har uppdaterats.
         dashboard:
           calendar:
+            end_at: 'Sluttid:'
+            end_election: Avsluta omröstning
+            manual_start: Manuell
             published_results_at: Resultat publicerade vid
+            start_at: 'Starttid:'
+            start_election: Börja omröstning
+            title: Kalender
           census:
             title: Census
           main:
             labels:
+              calendar: Kalender
               description: Beskrivning
+              image: Bildgalleri
+              results: Resultat tillgängliga
+              title: Titel
+            title: Grundläggande
+          publish_confirm: Är du säker på att du vill publicera omröstningen?
           questions:
             labels:
               answers: Svar
+            limit_info: Den här omröstningen har fler frågor. Förhandsvisningen är begränsad till 3 frågor.
             title: Frågor
           questions_table:
             answer: Svar
+            percentage: Procent
             total: Totalt
             votes: Röster
             votes_count:
               one: 1 röst
               other: "%{count} röster"
           results:
+            not_started: Omröstningen har inte startat än.
+            per_question_waiting: Röstning är ännu inte aktiverad för några frågor. Deltagarna kommer att se ett meddelande "Väntar på nästa fråga" tills du aktiverar minst en.
             publish_button: Publicera resultat
+            results_availability:
+              after_end: Du kan publicera alla resultat efter omröstningens slut. Resultat kommer att förbli dolda tills du publicerar dem manuellt.
+              per_question: Du måste aktivera röstning och manuellt publicera resultat för varje fråga individuellt.
+              real_time: Resultatet visas automatiskt under omröstningens gång.
+            start_question_button: Aktivera röstning
             title: Resultat
           status:
-            allow_census_check_before_start: Tillåt användare att kontrollera om de kan rösta innan valet börjar
-            census: 'Folkräkning:'
+            allow_census_check_before_start: Tillåt användare att kontrollera om de kan rösta innan omröstningen börjar
+            census: 'Röstlängd:'
             results_availability:
-              after_end: Resultat tillgängliga efter valets slut
+              after_end: Resultat tillgängliga efter omröstningens slut
               per_question: Resultat tillgängliga per fråga
               real_time: Resultat tillgängliga i realtid
         elections:
           create:
-            invalid: Det gick inte att skapa valet.
-            success: Valet skapades framgångsrikt.
+            invalid: Det gick inte att skapa omröstningen.
+            success: Omröstningen skapades framgångsrikt.
           dashboard:
-            subtitle: 'Slutligt steg: Granska dina detaljer. Redigeringar kan fortfarande göras innan de publiceras. När de är publicerade kommer du fortfarande att kunna uppdatera beskrivningen av valet.'
+            subtitle: 'Sista steg: Granska dina uppgifter. Redigering kan fortfarande göras innan publicering.. När det är publicerat kommer du fortfarande att kunna uppdatera beskrivningen av omröstningen.'
+            title: Översikt
           edit:
-            title: Redigera val
+            title: Redigera omröstning
           form:
             add_images: Lägg till bilder
             attachment_legend: Lägg till ett bildgalleri (valfritt)
             basic_title: Grundläggande info
             calendar: Kalender
-            calendar_description: Kontrollera att organisationens tidszon är korrekt i organisationsinställningarna. Den aktuella konfigurationen är %{timezone}.
+            calendar_description: Kontrollera att organisationens tidszon är korrekt i organisationsinställningarna. Den aktuella inställningen är %{timezone}.
             edit_attachments: Redigera bilagor
             end_at: Sluttid
-            manual_start: Manuell Start
+            manual_start: Manuell start
             publish: Publicera
             results_availability:
-              after_end: Efter valets slut
+              after_end: Efter omröstningens slut
+              after_end_help: publicera resultat när omröstningen är klar
               per_question: Fråga för fråga
+              per_question_help: hantera röstning manuellt och publicera resultat för varje fråga
               real_time: Direkt
+              real_time_help: publicera resultat automatiskt medan omröstningen pågår
               title: Resultat tillgängliga
+            save: Spara och fortsätt
             start_at: Starttid
           index:
-            title: Val
+            title: Omröstning
           manage_trash:
-            title: Borttagna val
+            title: Borttagna omröstningar
           new:
             title: Nytt val
           publish:
             invalid: Det gick inte att publicera valet.
             success: Valet publicerades.
           toggle_census_check:
-            error: Det gick inte att aktivera kontrollen av folkräkningen.
+            error: Det gick inte att aktivera kontrollen av röstlängden.
           unpublish:
             invalid: Det gick inte att ta bort valet.
             success: Valet togs bort.
@@ -121,7 +157,28 @@ sv:
         questions:
           edit_questions:
             new_question: Ny fråga
+            remove_question_confirm: Är du säker på att du vill ta bort frågan?
             title: Frågor
+          form:
+            errors:
+              at_least_one_question: Det krävs minst en fråga.
+            form_description: Frågan måste ha minst två svar för att gå till nästa steg.
+          update:
+            invalid: Det gick inte att uppdatera frågorna.
+            success: Frågorna har uppdaterats.
+        statuses:
+          enable_voting:
+            invalid: Det gick inte att aktivera röstning.
+            success: Röstningen har aktiverats.
+          end:
+            invalid: Det gick inte att avsluta omröstningen.
+            success: Omröstningen har avslutats.
+          publish_results:
+            success: Resultaten har publicerats.
+          start:
+            invalid: Det gick inte att starta omröstningen.
+            success: Omröstningen har startat.
+          unknown: Okänd status
       admin_log:
         election:
           create: "%{user_name} Skapade valet %{resource_name} i %{space_name}"
@@ -130,26 +187,32 @@ sv:
           soft_delete: "%{user_name} Flyttade valet %{resource_name} i %{space_name} till papperskorgen"
           unpublish: "%{user_name} Tog bort valet %{resource_name} i %{space_name}"
           update: "%{user_name} Uppdaterade valet %{resource_name} i %{space_name}"
+        question:
+          update: "%{user_name} uppdaterade frågor för omröstningen %{resource_name}"
       census_checks:
         show:
-          description: Detta innebär att direkt när valet har startat kan ni rösta i det.
-          exit_button: Avsluta folkräkningskontrollen
+          description: Det innebär att du kan börja rösta direkt efter att omröstningen har startat.
+          exit_button: Avsluta kontrollen av röstlängd
           title: Du har blivit auktoriserad
       censuses:
+        census_ready_html: Röstlängden laddas upp och förbereds för användning i omröstningen <b>%{election_title}</b>.
+        census_size_html:
+          one: Det finns för närvarande <strong>1</strong> person som kan rösta i den här omröstningen (det kan ändras med en dynamisk röstlängd).
+          other: Det finns för närvarande <strong>%{count}</strong> personer som kan rösta i den här omröstningen (det kan ändras med en dynamisk röstlängd).
         internal_users:
           already_have_an_account?: Har du redan ett konto?
           are_you_new?: Ny deltagare?
           info_html: |
-            Du kan begränsa deltagandet i valet till deltagare som har behörighet.<br>
-            Observera att deltagarna måste uppfylla valda behörigheter för att kunna rösta. Genom att lämnar alla kryssrutor tomma kan man rösta på alla registrerade.
+            Du kan begränsa deltagandet i omröstningen till deltagare som har behörighet.<br>
+            Observera att deltagarna måste uppfylla valda behörigheter för att kunna rösta. Genom att lämnar alla kryssrutor tomma tillåts alla registrerade användare att rösta.
           internal_type_title: Ytterligare behörigheter som krävs för att få rösta (valfritt)
           label: Registrerade deltagare (dynamisk)
-          sign_in_description: Logga in för att göra detta val
-          sign_up_description: Skapa ett konto för att rösta i detta val
+          sign_in_description: Logga in för att rösta
+          sign_up_description: Skapa ett konto för att rösta
         internal_users_form:
-          authorization_options_invalid: Tyvärr – ni har alla tillstånd som krävs, men en del av dem är inte giltiga för detta val.
-          exit_button: Lämna valbåset
-          invalid: Du har inte behörighet att rösta i detta val.
+          authorization_options_invalid: Tyvärr – du har alla tillstånd som krävs, men en del av dem är inte giltiga för den här omröstningen.
+          exit_button: Lämna röstningsbåset
+          invalid: Du har inte behörighet att rösta.
           resume_with_method: Återuppta verifieringen med %{name}
           verify_with_method: Verifiera med %{name}
         token_csv:
@@ -158,9 +221,10 @@ sv:
             user@example.org;123456
             user2@example.org;ABCXYZ
           info_html: |
-            Måste vara en fil i CSV-format med två kolumner, en med e-postadressen och en annan med värdet av en token som användaren måste införa för att kunna rösta.
+            Måste vara en fil i CSV-format med två kolumner, en med e-postadressen och en annan med värdet av en token som användaren måste visa för att kunna rösta.
             De måste separeras med en semikolon (;)
           label: Oregistrerade deltagare med tokens (fixerade)
+          remove_before_upload: Om du vill ladda upp en ny röstlängd måste du först ta bort den befintliga.
           upload_file: Ladda upp fil
           upload_new_census: Ladda upp en CSV-fil
         token_csv_form:
@@ -183,7 +247,7 @@ sv:
           state_values:
             finished: Avslutad
             ongoing: Pågående
-            scheduled: Schemalagd
+            scheduled: Kommande
         orders:
           end_at: Slutdatum
           label: Sortera efter
@@ -232,6 +296,8 @@ sv:
         not_started: Inte påbörjad
         ongoing: Pågående
         published_results: Publicerade resultat
+        scheduled: Planerad
+        voting_enabled: Röstning pågår
       votes:
         cast:
           invalid: Det gick inte att registrera din röst. Kontrollera informationen du angav och försök igen.
@@ -269,3 +335,6 @@ sv:
     decidim:
       election_votes_header:
         exit: Stäng
+  time:
+    formats:
+      short_with_time: "%-d %b %Y, %R"

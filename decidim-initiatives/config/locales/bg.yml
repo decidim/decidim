@@ -27,7 +27,6 @@ bg:
       initiatives_type:
         area_enabled: Разрешаване на авторите да избират областта за инициативата си
         attachments_enabled: Разрешете прикачените файлове
-        banner_image: Изображение на банера
         child_scope_threshold_enabled: Активиране на подписи за подобхват
         collect_user_extra_fields: Събиране на личните данни на участниците при подписване
         comments_enabled: Включване на коментиране

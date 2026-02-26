@@ -106,7 +106,7 @@ eu:
       menu:
         participatory_process_groups: Prozesu-taldeak
         participatory_process_groups_submenu:
-          info: Informazioa
+          info: Partaidetza-talde horri buruz
           landing_page: Lurreratze-orrien antolaketa
         participatory_processes: Prozesuak
         participatory_processes_submenu:
@@ -217,7 +217,7 @@ eu:
           error: Arazo bat egon da partaidetza-prozesu honen faseak berrantolatzean.
         update:
           error: Arazo bat egon da partaidetza-prozesu honan fase hau eguneratzean.
-          success: Parte hartzeko fasea zuzen eguneratua.
+          success: Partaidetza-prozesuaren fasea behar bezala eguneratu da.
       participatory_process_user_roles:
         create:
           error: Arazo bat egon da partaidetza-prozesu honetarako parte-hartzailea gehitzean.
@@ -317,12 +317,12 @@ eu:
           email_subject: '%{role} rola esleitu zaizu hemen "%{resource_title}".'
           notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> partaidetza-prozesuan.'
         step_activated:
-          email_intro: '%{resource_title} urratsa orain aktibo dago honetarako: %{participatory_space_title}. Ikusi dezakezu orrialde honetatik:'
-          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
+          email_intro: '%{participatory_space_title} espazioko %{resource_title} fasea aktibatu egin da. Orrialde honetan ikusi dezakezu:'
+          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
           email_subject: 'Eguneraketa bat honetarako: %{participatory_space_title}'
-          notification_title: '%{resource_title} urratsa aktiboa da <a href="%{resource_path}">%{participatory_space_title}</a>'
+          notification_title: '%{resource_title} fasea aktibatu egin da <a href="%{resource_path}">%{participatory_space_title}</a> espazioan'
         step_changed:
-          email_intro: '%{participatory_space_title} %{resource_title} urratsen datuak eguneratu dira. Orrialde honetan ikusi dezakezu:'
+          email_intro: '%{participatory_space_title} espazioko %{resource_title} fasearen datak eguneratu dira. Orrialde honetan ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
           email_subject: 'Eguneraketa bat honetarako: %{participatory_space_title}'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> urratsean datak <a href="%{participatory_space_url}">%{participatory_space_title}</a> eguneratu dira.
@@ -341,7 +341,6 @@ eu:
     open_data:
       help:
         participatory_processes:
-          announcement: Informazioa iragarpenaz (deia)
           area: Prozesua zein arlotan gertatzen ari da
           component_settings: Prozesuaren osagaien konfigurazioa
           created_at: Zein datatan sortu zen espazio hau
@@ -489,9 +488,13 @@ eu:
             all: Guztiak
             max_results: Erakusteko elementu gehienen kopurua
             selection_criteria: Hautaketa irizpideak
+        imports:
+          attachment_error: Ezin izan da "%{title}" eranskina inportatu (%{error}).
+          hero_image_error: Ezin izan da heroiaren irudia inportatu (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Inportazio honek aukera ematen du beste prozesu parte-hartzaile bat sortzeko esportatutako JSON fitxategi batetik abiatuta. Prozesu bat esportatu dezakezu beste erakunde batetik edo erakunde horretatik bertatik. Inportatutako prozesuak bere konfigurazioak, osagaiak eta eranskinak barne hartuko ditu (aukeratuz gero).
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL Slugs erabiltzen da prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak bakarrik onartzen ditu, eta letra batekin hasi behar da. Adibidea: %{url}'
@@ -506,7 +509,6 @@ eu:
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_processes:
           form:
-            announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             has_members_help: Kideak sortu eta argitaratu ahal izango dituzu

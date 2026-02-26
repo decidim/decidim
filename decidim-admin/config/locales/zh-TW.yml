@@ -46,7 +46,6 @@ zh-TW:
         default_locale: 預設語言
         description: 說明
         enable_omnipresent_banner: 顯示全域廣告
-        enable_participatory_space_filters: 啟用參與空間過濾器
         facebook_handler: Facebook 處理器
         favicon: 圖示
         force_authentication: 強制認證
@@ -158,7 +157,7 @@ zh-TW:
           new: 新增附件資料夾
         browse: 瀏覽
         configure: 配置
-        export-selection: 匯出選擇
+        export_all: 全部匯出
         import: 匯入
         newsletter:
           new: 新電子報
@@ -762,7 +761,6 @@ zh-TW:
           title: 新增主題
         update:
           error: 更新主題時發生問題。
-          success: 主題已成功更新。
       static_pages:
         create:
           error: 創建新頁面時出現問題。

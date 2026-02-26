@@ -42,7 +42,7 @@ sv:
           taxonomies_part_of_contains:
             label: Kategorisering
       tooltips:
-        deleted_projects_info: Kan inte ta bort detta projekt
+        deleted_projects_info: Det går inte att ta bort projektet
     budgets:
       actions:
         confirm_delete_budget: Är du säker på att du vill ta bort budgeten?
@@ -144,6 +144,8 @@ sv:
             default_budget: Förvald budget
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
             origin_component_id: Ursprungskomponent
+            proposal_states: Status för förslag
+            proposal_states_help: Välj en eller flera statusar att importera till projekt. Om du inte väljer något importeras alla publicerade förslag som inte redan har importerats till andra budgetar från komponenten.
             select_component: Välj en komponent
             title: Importera förslag till projekt
         reminders:
@@ -175,7 +177,7 @@ sv:
         cancel_order:
           more_than_one: dra tillbaka din röst på %{name} och börja om
           only_one: dra tillbaka din röst och börja om.
-        completed: Slutförd
+        completed: Avslutade
         count:
           one: "%{count} budget"
           other: "%{count} budgetar"
@@ -183,7 +185,7 @@ sv:
         finished_message: Du har avslutat omröstningen. Tack för ditt deltagande!
         highlighted_cta: Rösta på %{name}
         if_change_opinion: Om du har ändrat dig kan du
-        incomplete: Ofullständig
+        incomplete: Ej slutförda
         orders:
           highest_cost: Högst kostnad
           label: Sortera budgetar efter
@@ -287,11 +289,11 @@ sv:
             minimum_reached: Du har uppnått den lägsta gränsen för att kunna rösta
           minimum: Minst
           minimum_projects_rule:
-            description: "<b>Välj minst %{minimum_number} projekt</b> som du vill rösta på."
+            description: "<b>Välj minst %{minimum_number} projekt</b> att rösta på."
           projects_rule:
-            description: "<b>Välj minst %{minimum_number} och som mest %{maximum_number} projekt</b> som du vill rösta på."
+            description: "<b>Välj minst %{minimum_number} och som mest %{maximum_number} projekt</b> att rösta på."
           projects_rule_maximum_only:
-            description: "Välj upp till %{maximum_number} projekt</b> som du vill rösta på."
+            description: "<b>Välj upp till %{maximum_number} projekt</b> att rösta på."
           vote_threshold_percent_rule:
             description: "<b>Tilldela minst %{minimum_budget}</b> åt de projekt du vill rösta på inom budgeten."
         orders:
@@ -337,6 +339,7 @@ sv:
         actions:
           comment: Kommentera
           vote: Rösta
+          vote_comment: Rösta på kommentar
         name: Budgetar
         settings:
           global:
@@ -344,7 +347,7 @@ sv:
             clear_all: Återställ
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             form:
               errors:
                 budget_voting_rule_only_one: Endast en röstningsregel kan vara aktiverad.
@@ -368,9 +371,9 @@ sv:
             vote_threshold_percent: Tröskelvärde för röster i procent
             voting_rule: Omröstningsregel
             voting_rule_choices:
-              minimum_projects: Minsta antal projekt att rösta på
-              selected_projects: Minsta och högsta antal projekt som ska röstas på
-              threshold_percent: Minsta del av budgeten i procent
+              minimum_projects: Minst antal projekt att rösta på
+              selected_projects: Minsta och högsta antal projekt att rösta på
+              threshold_percent: Lägsta andel av budgeten i procent
             workflow: Arbetsflöde
             workflow_choices:
               all: 'Rösta på alla: låt deltagare att rösta i alla budgetar.'

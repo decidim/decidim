@@ -14,6 +14,7 @@ cs:
         duplicate_landing_page_blocks: Duplikovat bloky vstupní strany
         duplicate_steps: Duplikovat kroky
         end_date: Datum ukončení
+        has_members: Tento prostor má členy
         hero_image: Domácí obrázek
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
@@ -111,7 +112,7 @@ cs:
       menu:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:
-          info: Info
+          info: O této skupině procesů
           landing_page: Rozložení vstupní strany
         participatory_processes: Procesy
         participatory_processes_submenu:
@@ -222,7 +223,7 @@ cs:
           error: Došlo k chybě při novém uspořádání těchto kroků procesu participace.
         update:
           error: Při aktualizaci tohoto kroku procesu participace došlo k chybě.
-          success: Úspěšný krok procesu byl úspěšně aktualizován.
+          success: Krok participačního procesu byl úspěšně aktualizován.
       participatory_process_user_roles:
         create:
           error: Při přidávání uživatele pro tento participační proces došlo k chybě.
@@ -288,9 +289,11 @@ cs:
         export: "%{user_name} exportoval participační proces %{resource_name}"
         import: "%{user_name} importoval participační proces %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} participační proces"
+        publish_all_members: "%{user_name} zveřejnil všechny členy participačního procesu %{resource_name}"
         restore: "%{user_name} obnovil participační proces %{resource_name}"
         soft_delete: "%{user_name} přemístil paarticipační proces %{resource_name} do koše"
         unpublish: "%{user_name} neuveřejnil %{resource_name} participační proces"
+        unpublish_all_members: "%{user_name} zneveřejnil všechny členy participačního procesu %{resource_name}"
         update: "%{user_name} aktualizoval %{resource_name} participační proces"
       participatory_process_group:
         create: "%{user_name} vytvořil skupinu %{resource_name} na participační proces"
@@ -344,8 +347,8 @@ cs:
     open_data:
       help:
         participatory_processes:
-          announcement: Oznámení (vyhlášení) informací
           area: Oblast, ve které probíhá proces
+          component_settings: Nastavení komponenty procesu
           created_at: Datum, kdy byl tento prostor vytvořen
           description: Dlouhý popis procesu
           developer_group: Skupina tvůrců procesu. Jedná se o organizaci, která proces prosazuje.
@@ -447,6 +450,7 @@ cs:
                   two_five: Částečně
                   zero: 'Ne'
               functional_diversity_invited:
+                legend: Jak je posuzována míra rozmanitosti zástupců a účastníků ve vztahu k referenčnímu souboru procesu?
                 options:
                   five: Dobrý
                   one: Nízký
@@ -473,6 +477,7 @@ cs:
                   zero: 'Ne'
             informativeness:
               information_provided:
+                legend: Byly poskytnuty informace o schopnosti účastníků ovlivnit projednávané téma? (jak ve sdělení procesu a pozvání, tak na začátku každého zasedání rozpravy)
                 options:
                   five: Vždy
                   one: Téměř nikdy
@@ -491,6 +496,8 @@ cs:
             all: Vše
             max_results: Maximální množství prvků, které chcete zobrazit
             selection_criteria: Kritéria výběru
+        imports:
+          attachment_error: Přílohu "%{title}" nelze importovat (%{error}).
         new_import:
           accepted_types:
             json: JSON
@@ -508,12 +515,13 @@ cs:
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_processes:
           form:
-            announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
+            has_members_help: Budete moci vytvářet a publikovat členy
             images: Obrázky
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
+            private_notice: Udělá prostor neviditelný pro návštěvníky a viditelný pouze pro členy (s výjimkou zda je také transparentní)
             related_processes: Související procesy
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -538,11 +546,13 @@ cs:
             description_html: Níže je uveden soubor ukazatelů používaných k posouzení demokratické kvality tohoto účastnického procesu. Další podrobnosti o tom, jak jsou vypočítány, naleznete v <a href="%{info_url}">informační stránce o demokratických ukazatelích kvality</a>.
             name: Globální skóre
             note: "*Orientační hodnoty se měří na stupnici od 1 do 5, kde 1 představuje nejnižší a 5 nejvyšší ukazatel kvality."
+            tooltip: Vypočteno jako průměr všech dimenzí
           name: Ukazatel kvality
           qualitative_metrics:
             description: Tyto ukazatele se získávají z odpovědí na sebehodnocení, které vyplní správci platformy.
             indicators:
               citizen_influence: Vliv občanů
+              citizen_influence_tooltip: Měří míru vlivu účastníků na rozhodování.
               inclusiveness: Inkluzivita
               inclusiveness_tooltip: Hodnocení, zda jsou zastoupeny různé zúčastněné strany.
               informativeness: Informativita
@@ -621,6 +631,9 @@ cs:
         belongs_to_group: Tento proces patří do
         private_space: Jedná se o soukromý proces
         related_processes: Související procesy
+      static_pages:
+        democratic_quality_indicators:
+          title: Ukazatele kvality demokracie
     statistics:
       processes_count: Procesy
       processes_count_tooltip: Počet veřejně přístupných participačních procesů.

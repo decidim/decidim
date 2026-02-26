@@ -98,8 +98,6 @@ bg:
           label: По група на процеса
       menu:
         participatory_process_groups: Групи процеси
-        participatory_process_groups_submenu:
-          info: Информация
         participatory_processes: Процеси
         participatory_processes_submenu:
           attachment_collections: Папки
@@ -196,7 +194,6 @@ bg:
           error: Възникна проблем при промяната на реда на тези етапи на процеса на участие.
         update:
           error: Възникна проблем при актуализирането на тази фаза от процеса на участие.
-          success: Фазата на участие е актуализирана успешно.
       participatory_process_user_roles:
         create:
           error: Възникна проблем при добавянето на участник за този процес на участие.
@@ -352,7 +349,6 @@ bg:
             slug_help_html: 'Съкратените URL се използват за генериране на URL адреси, които сочат към този процес. Приема само букви, цифри и тирета и трябва да започва с буква. Пример: %{url}'
         participatory_processes:
           form:
-            announcement_help: Текстът, който въведете тук, ще се показва на потребителите под информацията за процеса.
             duration: Продължителност
             images: Изображения
             metadata: Метаданни

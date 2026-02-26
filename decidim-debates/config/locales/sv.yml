@@ -5,7 +5,7 @@ sv:
         closed_at: Avslutades
         conclusions: Slutsatser
         description: Beskrivning
-        end_time: Slutar vid
+        end_time: Slutdatum
         information_updates: Uppdatering av uppgifter
         instructions: Instruktioner för att delta
         start_time: Startdatum
@@ -22,31 +22,45 @@ sv:
         other: Debatter
   decidim:
     admin:
+      admin_log:
+        changeset:
+          debates: Debatter
       tooltips:
-        deleted_debates_info: Kan inte ta bort denna debatt
+        deleted_debates_info: Det går inte att ta bort debatten
     components:
       debates:
         actions:
           comment: Kommentera
+          create: Skapa en debatt
           like: Gilla
+          vote_comment: Rösta på kommentar
         name: Debatter
         settings:
           global:
             announcement: Meddelande
+            attachments_allowed: Tillåt bilagor
+            clear_all: Rensa
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
+            taxonomy_filters: Välj filter för komponenten
+            taxonomy_filters_add: Lägg till filter
           step:
             announcement: Meddelande
             comments_blocked: Stäng av kommentarer
             creation_enabled: Deltagarna kan skapa debatter
-            likes_blocked: Gilla är blockerat
-            likes_enabled: Gilla är aktiverat
+            likes_blocked: Stäng av gilla-markeringar
+            likes_enabled: Aktivera gilla-markeringar
     debates:
       actions:
         close: Stäng
+        confirm_delete_debate: Är du säker på att du vill ta bort den här debatten?
+        deleted_debate_info: Borttagna budgetar kan återställas från papperskorgen.
         edit: Redigera
         new: Ny debatt
         title: Åtgärder
+        view_deleted_debates: Visa borttagna debatter
       admin:
         debate_closes:
           edit:
@@ -60,22 +74,42 @@ sv:
             title: Redigera debatt
             update: Uppdatera debatt
           form:
+            add_attachments: Lägg till bilagor
+            attachment_legend: Lägg till ett dokument eller en bild
+            comments_visualization: Visualisering av kommentarer
+            comments_warning: Visningsalternativet inte längre ändras efter att den första kommentaren har postats.
             debate_type: Typ av debatt
+            edit_attachments: Redigera bilagor
+            errors:
+              comments_layout_locked: Du kan inte ändra kommentarslayouten när kommentarer har postats.
             finite: Tidsbegränsad (med start- och sluttid)
             open: Öppen (utan start- eller sluttid)
+            single_column: 'En kolumn: Kommentarer visas i kronologisk ordning och kan ha svar.'
+            two_columns: 'Två kolumner: Kommentarer visas under "för"- och "emot"-kolumner och kan inte ha svar.'
           index:
             title: Debatter
+          manage_trash:
+            title: Borttagna debatter
           new:
             create: Skapa debatt
             title: Ny debatt
           update:
             invalid: Det gick inte att uppdatera debatten.
             success: Debatten uppdaterades.
+        exports:
+          debate_comments: Kommentarer
+          debates: Debatter
       admin_log:
         debate:
           close: "%{user_name} avslutade debatten %{resource_name} i %{space_name}"
           create: "%{user_name} skapade debatten %{resource_name} på platsen %{space_name}"
+          restore: "%{user_name} återställde debatten %{resource_name} i %{space_name}"
+          soft_delete: "%{user_name} flyttade debatten %{resource_name} i %{space_name} till papperskorgen"
           update: "%{user_name} uppdaterade debatten %{resource_name} på platsen %{space_name}"
+      content_blocks:
+        highlighted_debates:
+          name: Debatter
+          see_all: Visa alla debatter
       debate_m:
         commented_time_ago: Kommenterade för %{time} sedan
       debates:
@@ -128,12 +162,14 @@ sv:
           recent: Senaste
           updated: Senast uppdaterade
         show:
+          close_debate: Avsluta
           closed: Avslutad
           debate_conclusions_are: 'Debatten avslutades %{date} med följande slutsatser:'
           edit_conclusions: Redigera slutsatser
+          edit_debate: Redigera
           not_started: Inte påbörjad
           ongoing: Pågående
-          open_ended: Utan slut
+          open_ended: Utan slutdatum
           participants_count: Deltagare
         update:
           invalid: Det gick inte att uppdatera debatten.
@@ -149,7 +185,12 @@ sv:
             official_debate: Officiell debatt
             start: Start
             start_time: Startdatum
+            taxonomies: Kategorier
             title: Titel
+    download_your_data:
+      show:
+        debate_comments: Exportera debattkommentarer
+        debates: Exportera debatter
     events:
       debates:
         create_debate_event:
@@ -202,8 +243,41 @@ sv:
           unearned_own: Du har inte deltagit i någon debatt än.
     open_data:
       help:
+        debate_comments:
+          alignment: Positiva, negativa eller neutrala kommentarer
+          author: Namn på den som kommenterat
+          body: Kommentaren
+          commentable_id: Unikt id för innehållet som kommenterades
+          commentable_type: Vad som kommenterades (resultat, förslag etc)
+          created_at: Datum för kommentaren
+          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
+          id: Id för kommentaren
+          locale: Kommentarförfattarens språk
+          root_commentable_url: URL till innehållet för kommentaren
         debates:
+          author: Uppgifterna för författaren till denna debatt
+          closed_at: Det datum då denna debatt avslutades
+          comments: Antalet kommentarer denna debatt har
+          comments_enabled: Om den här debatten har kommentarer eller inte
+          component: Den komponent som debatten hör till
+          conclusions: Slutsatserna av debatten om den avslutades
+          created_at: Datum och tid då debatten skapades
+          description: Beskrivning av debatten
+          end_time: När denna debatt slutar, om det är en öppen debatt och har en begränsad tid
+          follows_count: Antalet följare denna debatt har
+          id: Unikt id för debatten
+          information_updates: De uppdateringar som författaren har gjort i debatten
+          instructions: Instruktioner för att kommentera i debatten
+          last_comment_at: Datum för senaste kommentaren i debatten
+          last_comment_by: Uppgifter om den senaste kommentaren i debatten
           likes_count: Antal som gillar debatten
+          participatory_space: Utrymmet (deltagandeprocess eller samråd) debatten tillhör
+          reference: Unikt id för innehållet på plattformen
+          start_time: När debatten börjar, om det är en öppen debatt och om den har en begränsad tid
+          taxonomies: Kategorier för projektet
+          title: Debattens titel
+          updated_at: Datum för när debatten senast uppdaterades
+          url: URL för debatten
     statistics:
       debates_count: Debatter
-      debates_count_tooltip: Antalet diskussioner som hållits.
+      debates_count_tooltip: Antalet diskussioner.

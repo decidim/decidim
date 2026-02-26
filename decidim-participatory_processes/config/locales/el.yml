@@ -94,8 +94,6 @@ el:
         unpublish: Κατάργηση δημοσίευσης
       menu:
         participatory_process_groups: Ομάδες διαδικασιών
-        participatory_process_groups_submenu:
-          info: Πληροφορίες
         participatory_processes: Διαδικασίες
         participatory_processes_submenu:
           attachment_collections: Φάκελοι
@@ -190,7 +188,6 @@ el:
           error: Παρουσιάστηκε πρόβλημα κατά την αναδιάταξη αυτών των φάσεων της διαδικασίας συμμετοχής.
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της διαδικασίας συμμετοχής.
-          success: Η φάση συμμετοχής ενημερώθηκε με επιτυχία.
       participatory_process_user_roles:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός συμμετέχοντα για αυτήν τη διαδικασία συμμετοχής.
@@ -329,7 +326,6 @@ el:
             document_legend: Προσθήκη εγγράφου
         participatory_processes:
           form:
-            announcement_help: Το κείμενο που εισάγετε εδώ θα εμφανίζεται στον χρήστη ακριβώς κάτω από τις πληροφορίες της διαδικασίας.
             duration: Διάρκεια
             images: Εικόνες
             metadata: Μεταδεδομένα

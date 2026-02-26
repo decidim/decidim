@@ -104,8 +104,6 @@ pl:
           label: Według grupy procesów
       menu:
         participatory_process_groups: Grupy procesu
-        participatory_process_groups_submenu:
-          info: Informacje
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Foldery
@@ -202,7 +200,6 @@ pl:
           error: Wystąpił błąd podczas zmiany kolejności etapów procesu partycypacyjnego.
         update:
           error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
-          success: Etap procesu partycypacyjnego został zaktualizowany.
       participatory_process_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego procesu partycypacyjnego.
@@ -376,7 +373,6 @@ pl:
             slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         participatory_processes:
           form:
-            announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
             duration: Czas trwania
             images: Obrazy
             metadata: Metadane

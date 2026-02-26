@@ -610,8 +610,9 @@ describe "Authentication" do
         end
 
         expect(page).to have_content("10 characters minimum")
-        expect(page).to have_content("must be different from your nickname and your email")
+        expect(page).to have_content("must contain at least 5 different characters")
         expect(page).to have_content("must not be too common")
+        expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
         expect(page).to have_current_path "/users/password"
       end
 
@@ -646,7 +647,22 @@ describe "Authentication" do
     end
 
     context "with lockable account" do
-      Devise.maximum_attempts = 3
+      around do |example|
+        original_maximum_attempts = Devise.maximum_attempts
+        original_unlock_strategy = Devise.unlock_strategy
+        original_lock_strategy = Devise.lock_strategy
+
+        Devise.maximum_attempts = 3
+        Devise.unlock_strategy = :email
+        Devise.lock_strategy = :failed_attempts
+
+        example.run
+      ensure
+        Devise.maximum_attempts = original_maximum_attempts
+        Devise.unlock_strategy = original_unlock_strategy
+        Devise.lock_strategy = original_lock_strategy
+      end
+
       let!(:maximum_attempts) { Devise.maximum_attempts }
 
       describe "when attempting to log in with failing password" do
