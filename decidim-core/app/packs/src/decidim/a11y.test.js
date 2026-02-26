@@ -48,6 +48,12 @@ describe("a11y dialog focus trap", () => {
     });
 
     it("handles Tab key", () => {
+      const selectors = "a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex='-1'])";
+      const tabbableElements = Array.from(dialogEl.querySelectorAll(selectors)).filter(
+        (el) => el.offsetParent !== null || el.offsetParent !== undefined
+      );
+      tabbableElements[tabbableElements.length - 1].focus();
+
       const event = new KeyboardEvent("keydown", { key: "Tab", bubbles: true });
       const preventDefault = jest.fn();
       event.preventDefault = preventDefault;
