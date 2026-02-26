@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   s.add_dependency "cells-rails", "~> 0.1.3"
   s.add_dependency "charlock_holmes", "~> 0.7"
   s.add_dependency "chartkick", ">= 5.1.2", "< 5.3.0"
-  s.add_dependency "connection_pool", "< 3"
+  s.add_dependency "connection_pool", "< 4"
   s.add_dependency "data_migrate", "~> 11.3"
   s.add_dependency "date_validator", "~> 0.12.0"
   s.add_dependency "devise", "~> 4.7"
