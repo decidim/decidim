@@ -616,6 +616,7 @@ pt-BR:
           description: Uma longa descrição da conferência
           end_date: A data em que esta conferência termina.
           follows_count: O número de usuários que seguem este espaço
+          hashtag: A hashtag da conferência, usada no Twitter/X
           id: O identificador único dessa conferência
           location: Local da conferência. Onde esta conferência será realizada.
           objectives: Quais são os objetivos desta conferência. Qual é a meta.
