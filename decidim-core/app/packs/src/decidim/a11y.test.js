@@ -1,3 +1,5 @@
+/* global jest */
+
 import { createDialog } from "src/decidim/a11y"
 
 describe("a11y dialog focus trap", () => {
@@ -30,7 +32,7 @@ describe("a11y dialog focus trap", () => {
   });
 
   describe("keydown handler", () => {
-    let dialogEl;
+    let dialogEl = null;
 
     beforeEach(() => {
       const component = document.querySelector("[data-dialog]");
