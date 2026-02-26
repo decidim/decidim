@@ -10,6 +10,7 @@ export default class extends Controller {
   connect() {
     this.handleChange = this.handleChange.bind(this);
     this.element.addEventListener("change", this.handleChange);
+    this.element.dispatchEvent(new Event("change"));
   }
 
   disconnect() {
