@@ -411,6 +411,8 @@ module Decidim
 
           output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", nil)
 
+          pp output
+
           expect(output).to match(
             "<select id=\"short_description\" class=\"language-change\" data-controller=\"language-change\">" \
             "<option value=\"#short_description-resource-short_description-tabs-panel-0\">English</option>" \
@@ -428,6 +430,8 @@ module Decidim
 
           output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", "ca")
 
+          pp output
+          
           expect(output).to match(
             "<select id=\"short_description\" class=\"language-change\" data-controller=\"language-change\">" \
             "<option value=\"#short_description-resource-short_description-tabs-panel-0\">English</option>" \
