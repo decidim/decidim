@@ -180,6 +180,7 @@ ca-IT:
         response:
           invalid: S'han produït un error en respondre el formulari.
           max_choices_alert: Has seleccionat massa opcions
+          spam_detected: Hi ha hagut un problema responent el formulari. Potser has anat massa ràpid, ho pots tornar a intentar?
           success: El formulari s'ha respost correctament.
         show:
           current_step: Pas %{step}
