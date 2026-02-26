@@ -446,10 +446,6 @@ Layout/ExtraSpacing:
   # When true, forces the alignment of = in assignments on consecutive lines.
   ForceEqualSignAlignment: false
 
-Naming/MethodParameterName:
-  Exclude:
-    - "decidim-core/lib/decidim/param_builder.rb"
-
 Naming/FileName:
   Exclude:
     - "**/Capfile"
