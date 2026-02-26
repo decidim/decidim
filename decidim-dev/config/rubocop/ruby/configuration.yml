@@ -1074,8 +1074,6 @@ Metrics/AbcSize:
 
 Metrics/BlockNesting:
   Max: 3
-  Exclude:
-    - "decidim-core/lib/decidim/param_builder.rb"
 
 Metrics/ClassLength:
   CountComments: false  # count full line comments?
@@ -1092,7 +1090,6 @@ Metrics/CyclomaticComplexity:
     - "bin/bundle"
     - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
-    - "decidim-core/lib/decidim/param_builder.rb"
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
@@ -1107,7 +1104,6 @@ Metrics/PerceivedComplexity:
   Exclude:
     - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
-    - "decidim-core/lib/decidim/param_builder.rb"
 
 ##################### Lint ##################################
 
