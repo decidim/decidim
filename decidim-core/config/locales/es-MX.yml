@@ -1885,8 +1885,8 @@ es-MX:
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Contraseña
         old_password_help: Para confirmar los cambios en tu cuenta, por favor proporciónanos tu contraseña actual.
-        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias y tu correo electrónico."
-        password_help_admin: "%{minimum_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, tu correo electrónico y de tus antiguas contraseñas."
+        password_help: "La contraseña debe tener al menos %{minimum_characters} caracteres, de estos, al menos 5 caracteres deben ser diferentes, no deben ser demasiado comunes (e. 123456) y debe ser diferente del número, apodo, correo electrónico y del dominio de la plataforma."
+        password_help_admin: "La contraseña debe tener al menos %{minimum_characters} caracteres, de estos, al menos 5 caracteres deben ser diferentes, no deben ser demasiado comunes (e. 123456) y debe ser diferente del número, apodo, correo electrónico, dominio de la plataforma o contraseñas antiguas."
         title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
