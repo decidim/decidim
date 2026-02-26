@@ -2057,8 +2057,6 @@ sv:
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
         old_password_help: För att bekräfta ändringarna av ditt konto, vänligen ange ditt nuvarande lösenord.
-        password_help: "Minst %{minimum_characters} tecken, får inte vara för vanligt (som 123456) och måste skilja sig från ditt användarnamn och din e-postadress."
-        password_help_admin: "Minst %{minimum_characters} tecken, får inte vara för vanligt (som 123456) och måste skilja sig från ditt användarnamn och din e-postadress."
         title: Ändra lösenord
       new:
         forgot_your_password: Glömt ditt lösenord?
