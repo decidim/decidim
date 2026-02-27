@@ -9,12 +9,12 @@ class ChangeBudgetColumnsToBigint < ActiveRecord::Migration[7.1]
   def down
     budget_overflow = select_value(<<~SQL.squish)
       SELECT 1 FROM decidim_budgets_budgets
-      WHERE total_budget > 2147483647
+      WHERE total_budget > 2147483647 OR total_budget < -2147483648
       LIMIT 1
     SQL
     project_overflow = select_value(<<~SQL.squish)
       SELECT 1 FROM decidim_budgets_projects
-      WHERE budget_amount > 2147483647
+      WHERE budget_amount > 2147483647 OR budget_amount < -2147483648
       LIMIT 1
     SQL
 
