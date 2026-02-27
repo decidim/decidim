@@ -6,7 +6,7 @@
   }
 
   .add-comment {
-    @apply mt-12 md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
+    @apply mt-2 md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
 
     .new_comment {
       @apply w-full;
@@ -479,9 +479,9 @@
 }
 
 .show-replies-button {
-  @apply my-0 relative z-10;
+  @apply my-0 relative z-10 h-0 overflow-visible;
 
-  transform: translateY(calc(50% + 0.75rem + 1px));
+  transform: translateY(calc(0.75rem + 1px));
 
   .button {
     @apply bg-white border-0;
