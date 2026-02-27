@@ -2056,6 +2056,8 @@ eu:
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitza
         old_password_help: Zure kontuaren aldaketak baieztatzeko, mesedez eman zure egungo pasahitza.
+        password_help: "Pasahitzak gutxienez %{minimum_characters} karaktere izan behar ditu, 5 karaktere desberdin izan behar ditu, ez du oso ohikoa izan behar (adibidez, 123456), zure izena, ezizena, posta elektronikoa, erakundearen anfitrioia eta zure pasahitz zaharren desberdina izan behar du."
+        password_help_admin: "Pasahitzak gutxienez %{minimum_characters} karaktere izan behar ditu, 5 karaktere desberdin izan behar ditu, ez du oso ohikoa izan behar (adibidez, 123456), zure izena, ezizena, posta elektronikoa, erakundearen anfitrioia eta zure pasahitz zaharren desberdina izan behar du."
         title: Pasahitza aldatu egin da
       new:
         forgot_your_password: Pasahitza ahaztu duzu?
