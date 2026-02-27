@@ -47,7 +47,8 @@ module Decidim::Surveys
         questions_count = survey.questionnaire.question_types.size
         expect(subject.to_s).to include("#{questions_count} #{I18n.t("questions", scope: "decidim.surveys.surveys.show")}")
         expect(subject.to_s).to include("survey-line")
-        expect(questions_count).to eq(1)
+        # 3 from the factory + 1 question_regular from this spec
+        expect(questions_count).to eq(4)
       end
     end
   end
