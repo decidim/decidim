@@ -18,9 +18,7 @@ class ChangeBudgetColumnsToBigint < ActiveRecord::Migration[7.1]
       LIMIT 1
     SQL
 
-    if budget_overflow || project_overflow
-      raise ActiveRecord::IrreversibleMigration, "Cannot safely convert bigint budgets back to integer: out-of-range values exist"
-    end
+    raise ActiveRecord::IrreversibleMigration, "Cannot safely convert bigint budgets back to integer: out-of-range values exist" if budget_overflow || project_overflow
 
     change_column :decidim_budgets_budgets, :total_budget, :integer
     change_column :decidim_budgets_projects, :budget_amount, :integer
