@@ -7,6 +7,21 @@ class ChangeBudgetColumnsToBigint < ActiveRecord::Migration[7.1]
   end
 
   def down
+    budget_overflow = select_value(<<~SQL.squish)
+      SELECT 1 FROM decidim_budgets_budgets
+      WHERE total_budget > 2147483647
+      LIMIT 1
+    SQL
+    project_overflow = select_value(<<~SQL.squish)
+      SELECT 1 FROM decidim_budgets_projects
+      WHERE budget_amount > 2147483647
+      LIMIT 1
+    SQL
+
+    if budget_overflow || project_overflow
+      raise ActiveRecord::IrreversibleMigration, "Cannot safely convert bigint budgets back to integer: out-of-range values exist"
+    end
+
     change_column :decidim_budgets_budgets, :total_budget, :integer
     change_column :decidim_budgets_projects, :budget_amount, :integer
   end
