@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChangeBudgetColumnsToBigint < ActiveRecord::Migration[7.1]
+class ChangeBudgetColumnsToBigint < ActiveRecord::Migration[7.0]
   def up
     change_column :decidim_budgets_budgets, :total_budget, :bigint
     change_column :decidim_budgets_projects, :budget_amount, :bigint
