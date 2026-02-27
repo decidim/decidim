@@ -26,8 +26,7 @@
       %>
     </div>
 
-    <% unless question.question_type == "sorting" %>
-      <div class="row column questionnaire-question-response-option-free-text">
+    <div class="row column questionnaire-question-response-option-free-text">
         <%=
           form.check_box(
             :free_text,
@@ -36,7 +35,6 @@
           )
         %>
       </div>
-    <% end %>
   </div>
 
   <% if response_option.persisted? %>

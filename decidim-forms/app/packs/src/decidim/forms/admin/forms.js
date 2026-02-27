@@ -358,9 +358,9 @@ export default function createEditableForm() {
       }
 
       if (questionType === "sorting") {
-        $currentField.find(responseOptionFreeTextSelector).hide();
+        $currentField.find(responseOptionFreeTextSelector).addClass("hidden");
       } else {
-        $currentField.find(responseOptionFreeTextSelector).show();
+        $currentField.find(responseOptionFreeTextSelector).removeClass("hidden");
       }
     };
 

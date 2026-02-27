@@ -414,7 +414,7 @@ shared_examples_for "add questions" do
       expect(page).to have_css("input[type=checkbox][id$=_free_text]")
 
       select "Sorting", from: "Type"
-      expect(page).to have_no_css("input[type=checkbox][id$=_free_text]")
+      expect(page).not_to have_css("input[type=checkbox][id$=_free_text]", visible: true)
     end
 
     it_behaves_like "updating the max choices selector according to the configured options"
@@ -438,14 +438,14 @@ shared_examples_for "add questions" do
 
         select "Sorting", from: "Type"
 
-        expect(page).to have_no_css("input[type=checkbox][id$=_free_text]")
+        expect(page).not_to have_css("input[type=checkbox][id$=_free_text]", visible: true)
       end
     end
 
     it "shows the free text option when switching back from sorting to single option" do
       within ".questionnaire-question" do
         select "Sorting", from: "Type"
-        expect(page).to have_no_css("input[type=checkbox][id$=_free_text]")
+        expect(page).not_to have_css("input[type=checkbox][id$=_free_text]", visible: true)
 
         select "Single option", from: "Type"
         expect(page).to have_css("input[type=checkbox][id$=_free_text]")
@@ -458,7 +458,7 @@ shared_examples_for "add questions" do
         expect(page).to have_css("input[type=checkbox][id$=_free_text]")
 
         select "Sorting", from: "Type"
-        expect(page).to have_no_css("input[type=checkbox][id$=_free_text]")
+        expect(page).not_to have_css("input[type=checkbox][id$=_free_text]", visible: true)
       end
     end
   end
