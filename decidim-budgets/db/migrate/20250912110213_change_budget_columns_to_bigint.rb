@@ -11,4 +11,3 @@ class ChangeBudgetColumnsToBigint < ActiveRecord::Migration[7.1]
     change_column :decidim_budgets_projects, :budget_amount, :integer
   end
 end
-end
