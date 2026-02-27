@@ -29,7 +29,7 @@
     }
 
     a > span:first-child {
-      @apply truncate;
+      @apply min-w-0 whitespace-normal break-words;
     }
 
     ul {
