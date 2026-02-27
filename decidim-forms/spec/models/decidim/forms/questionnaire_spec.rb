@@ -93,6 +93,28 @@ module Decidim
           end
         end
       end
+
+      describe "#question_types" do
+        let!(:question_separator) { create(:questionnaire_question, questionnaire:, question_type: "separator") }
+        let!(:question_title_desc) { create(:questionnaire_question, questionnaire:, question_type: "title_and_description") }
+        let!(:question_short_answer) { create(:questionnaire_question, questionnaire:, question_type: "short_response") }
+
+        it "returns only actual question types" do
+          expect(subject.question_types).to include(question_short_answer)
+        end
+
+        it "does not include separator questions" do
+          expect(subject.question_types).not_to include(question_separator)
+        end
+
+        it "does not include title_and_description questions" do
+          expect(subject.question_types).not_to include(question_title_desc)
+        end
+
+        it "returns the correct count" do
+          expect(subject.question_types.size).to eq(1)
+        end
+      end
     end
   end
 end
