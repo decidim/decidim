@@ -414,7 +414,7 @@ shared_examples_for "add questions" do
       expect(page).to have_css("input[type=checkbox][id$=_free_text]")
 
       select "Sorting", from: "Type"
-      expect(page).to have_no_css("input[type=checkbox][id$=_free_text]", visible: true)
+      expect(page).to have_no_css("input[type=checkbox][id$=_free_text]", visible: :visible)
     end
 
     it_behaves_like "updating the max choices selector according to the configured options"
