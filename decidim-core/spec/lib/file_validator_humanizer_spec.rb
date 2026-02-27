@@ -33,7 +33,7 @@ module Decidim
         validates_upload(:file, **validation_options, uploader: mount_class)
 
         def organization
-          @organization ||= FactoryBot.create(:organization)
+          @organization ||= create(:organization)
         end
       end
     end
