@@ -14,7 +14,7 @@ gem "decidim-elections", path: "."
 gem "decidim-initiatives", path: "."
 gem "decidim-templates", path: "."
 
-gem "bootsnap", "~> 1.4"
+gem "bootsnap", "~> 1.23"
 
 gem "puma", ">= 6.3.1"
 
