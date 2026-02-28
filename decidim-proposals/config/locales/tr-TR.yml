@@ -95,6 +95,7 @@ tr:
       proposals:
         actions:
           amend: Değiştir
+          create: Bir teklif oluşturun
           withdraw: Geri çek
         name: Teklifler
         settings:
