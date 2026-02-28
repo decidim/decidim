@@ -68,6 +68,8 @@ cs:
           attributes:
             document:
               allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}'
+              empty: Dokument je prázdný
+              invalid_json: Dokument není platný JSON
     models:
       decidim/participatory_process_step_activated_event: Krok aktivován
       decidim/participatory_process_step_changed_event: Krok se změnil
@@ -437,9 +439,11 @@ cs:
             selection_criteria: Kritéria výběru
         imports:
           attachment_error: Přílohu "%{title}" nelze importovat (%{error}).
+          hero_image_error: Obrázek hrdiny nelze importovat (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Tato funkce importu umožňuje vytvořit nový participační proces z exportovaného JSON souboru. Můžete exportovat proces z jiné organizace nebo ze stejné organizace. Importovaný proces bude obsahovat jeho nastavení, komponenty a přílohy (je-li vybráno).
         participatory_process_copies:
           form:
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
