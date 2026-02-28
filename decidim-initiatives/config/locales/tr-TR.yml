@@ -70,6 +70,7 @@ tr:
             values:
               accepted: Yeterince imza
               discarded: Yok sayıldı
+              open: Aç
               rejected: Yeterince imza yok
               validating: Teknik doğrulama
           type_id_eq:
@@ -234,6 +235,7 @@ tr:
       admin_states:
         accepted: Yeterince imza
         discarded: Yok sayıldı
+        open: Aç
         rejected: Yeterince imza yok
         validating: Teknik doğrulama
       application_helper:
@@ -384,6 +386,7 @@ tr:
         badge_name:
           accepted: Yeterince imza
           discarded: Yok sayıldı
+          open: Açık
           rejected: Yeterince imza yok
           validating: Teknik doğrulama
       states:
@@ -395,6 +398,7 @@ tr:
     resources:
       initiatives_type:
         actions:
+          create: Bir girişim oluşturun
           title: Eylemler
   layouts:
     decidim:
