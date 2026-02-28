@@ -22,6 +22,7 @@ export default function createEditableForm() {
   const matrixRowRemoveFieldButtonSelector = ".remove-matrix-row";
   const addMatrixRowButtonSelector = ".add-matrix-row";
   const maxChoicesWrapperSelector = ".questionnaire-question-max-choices";
+  const responseOptionFreeTextSelector = ".questionnaire-question-response-option-free-text";
 
   const displayConditionFieldSelector = ".questionnaire-question-display-condition";
   const displayConditionsWrapperSelector = ".questionnaire-question-display-conditions";
@@ -335,7 +336,10 @@ export default function createEditableForm() {
     const dynamicFieldsMatrixRows = dynamicFieldsForMatrixRows[fieldId];
 
     const onQuestionTypeChange = () => {
-      if (isMultipleChoiceOption($fieldQuestionTypeSelect.val())) {
+      const $currentField = $fieldQuestionTypeSelect.parents(fieldSelector);
+      const questionType = $fieldQuestionTypeSelect.val();
+
+      if (isMultipleChoiceOption(questionType)) {
         const nOptions = $fieldQuestionTypeSelect.parents(fieldSelector).find(responseOptionFieldSelector).length;
 
         if (nOptions === 0) {
@@ -351,6 +355,12 @@ export default function createEditableForm() {
           dynamicFieldsMatrixRows._addField();
           dynamicFieldsMatrixRows._addField();
         }
+      }
+
+      if (questionType === "sorting") {
+        $currentField.find(responseOptionFreeTextSelector).addClass("hidden");
+      } else {
+        $currentField.find(responseOptionFreeTextSelector).removeClass("hidden");
       }
     };
 
