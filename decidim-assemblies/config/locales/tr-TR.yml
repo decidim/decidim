@@ -19,6 +19,8 @@ tr:
         developer_group: Tanıtım grubu
         document: Belge 
         domain: domain
+        duplicate_categories: Yinelenen kategoriler
+        duplicate_features: Yinelenen özellikler
         duration: süre
         facebook: Facebook
         github: GitHub
