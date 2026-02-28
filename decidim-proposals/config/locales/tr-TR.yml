@@ -108,6 +108,7 @@ tr:
       proposals:
         actions:
           amend: Değiştir
+          create: Bir teklif oluşturun
           endorse: Onayla
           withdraw: Geri çek
         name: Teklifler
