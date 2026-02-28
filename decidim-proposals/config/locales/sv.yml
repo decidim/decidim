@@ -54,6 +54,7 @@ sv:
         file: Fil
       proposals_import:
         import_proposals: Importera förslag
+        keep_answers: Behåll status och svar
         keep_authors: Behåll originalförfattare
       valuation_assignment:
         admin_log:
@@ -97,7 +98,9 @@ sv:
       decidim:
         proposals:
           proposal:
+            budget_text: Förslaget <span class="resource-link">%{link} skapades</span>
             import_from_proposal_text: 'Det blev det här förslaget: %{link}'
+            import_to_proposal_text: Förslaget <span "resource-link">%{link} skapades</span>
             merge_from_proposal_text: 'Det blev det här förslaget: %{link}'
             merge_to_proposal_text: 'Förslaget skapades: %{link}'
             split_from_proposal_text: 'Det blev det här förslaget: %{link}'
@@ -445,7 +448,41 @@ sv:
           root_commentable_url: URL till innehållet som är relaterat till kommentaren
           user_group: Namn på gruppen som kommenterat (om det var en grupp)
         proposals:
+          address: Adress till förslaget om det har en fysisk plats
+          answer: Svar på förslaget om det har besvarats
+          answered_at: Datum då förslaget besvarades
+          attachments: Antalet bifogade filer förslaget har
+          author: Uppgifterna om författaren till förslaget
+          body: Förslagets innehåll
+          coauthorships_count: Antalet medförfattare som förslaget har
+          comments: Antalet kommentarer till förslaget
+          component: Komponenten som förslaget tillhör
+          cost: Total kostnad för förslaget
+          cost_report: Kostnadsrapport för förslaget
+          created_at: Datum när förslaget skapades
+          created_in_meeting: Om förslaget skapades på ett möte
           endorsements: Antal gilla-markeringar för förslaget
+          execution_period: Den period under vilken förslaget pågick från början till slut
+          follows_count: Antal följare av förslaget
+          id: Unikt id för förslaget
+          is_amend: Om förslaget är ett tillägg till ett annat förslag
+          latitude: Latitud för förslaget om det har en fysisk plats
+          longitude: Longitud för förslaget om det har en fysisk plats
+          meeting_urls: Webbadresserna till de möten där detta förslag presenterades eller diskuterades
+          original_proposal: Hänvisningen till det ursprungliga förslaget om detta är ett ändringsförslag
+          participatory_space: Vilket utrymme (deltagandeprocess eller samråd) förslaget tillhör
+          published_at: Publiceringsdatum för förslaget
+          reference: Unikt id för innehållet på plattformen
+          related_proposals: Relaterade förslag
+          state: Status för förslaget (t.ex. "godkänd")
+          state_published_at: En tidsstämpel för förslaget när det publicerades
+          taxonomies: Förslagets kategorier
+          title: Förslagets titel
+          updated_at: Datum när förslaget uppdaterades
+          url: URL för förslaget
+          votes: Antalet röster på förslaget
+          withdrawn: Om förslaget har dragits tillbaka
+          withdrawn_at: När förslaget drogs tillbaka
     participatory_spaces:
       highlighted_proposals:
         see_all: Visa alla förslag
@@ -475,7 +512,32 @@ sv:
         exports:
           proposal_comments: Kommentarer
           proposals: Förslag
+        import_proposals_mailer:
+          notify_failure:
+            body: Det uppstod ett problem vid import av förslag från komponenten %{origin_component_name} till komponenten %{target_component_name}.
+            subject: Det gick inte att importera förslagen
+          notify_success:
+            added_proposals:
+              one: Ett förslag importerades.
+              other: "%{count} förslag importerades."
+            body: Förslagen har importerats från komponenten %{origin_component_name} till komponenten %{target_component_name}. Du kan se resultatet i administrationsgränssnittet.
+            subject: Förslagen har importerats
         imports:
+          help:
+            answers: |
+              Importdokumentet ska innehålla följande kolumnnamn vid CSV eller Excel-filer, eller nyckelnamn vid JSON-filer (andra kolumner kommer att ignoreras):
+              <ul>
+              <li><b>id:</b> ID för förslaget att svara</li>
+              <li><b>state:</b> En av "godkänd", "utvärderas", eller "avvisad"</li>
+              <li><b>answer/sv:</b> Svar på en svenska, beroende på din plattforms språkkonfiguration.</li>
+              </ul>
+            proposals: |
+              Filen måste ha följande kolumnnamn för CSV eller Excel-filer, eller nyckelnamn för JSON-filer:
+              <ul>
+              <li><b>title/sv:</b> Titel på svenska, beroende på din plattforms språkkonfiguration.</li>
+              <li><b>body/sv:</b> Innehåll på svenska, beroende på din plattforms språkkonfiguration.</li>
+              <li><b>taxonomies/ids:</b> ID för kategori</li>
+              </ul>
           label:
             answers: Importera svar från en fil
             proposals: Importerar förslag från en fil
@@ -578,7 +640,7 @@ sv:
             actions: Åtgärder
             apply_answer_template: Tillämpa svarsmall
             assign_to_valuator: Tilldela till handläggare
-            assign_to_valuator_button: Tilldelad
+            assign_to_valuator_button: Tilldela
             cancel: Avbryt
             change_taxonomies: Ändra kategorier
             merge: Slå samman till ett nytt
@@ -594,8 +656,10 @@ sv:
             statuses: Statusar
             title: Förslag
             unassign_from_valuator: Ta bort tilldelning till handläggare
-            unassign_from_valuator_button: Ta bort
+            unassign_from_valuator_button: Ta bort tilldelning
             update: Uppdatera
+          manage_trash:
+            title: Borttagna förslag
           new:
             create: Skapa
             title: Skapa förslag
@@ -621,13 +685,20 @@ sv:
             remove_assignment_confirmation: Vill du ta bort handläggaren från förslaget?
             valuators: Handläggare
             votes_count: Antal röster
+          update_taxonomies:
+            invalid: 'De här förslagen tillhör redan %{taxonomies}: %{proposals}.'
+            select_a_proposal: Välj ett förslag.
+            select_a_taxonomy: Välj en kategori.
+            success: 'Förslag som har uppdaterats till %{taxonomies}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Det gick inte att importera förslagen.
+            success: Importen har börjat. Vi kommer att låta dig veta när den är klar.
           new:
             create: Importera förslag
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
             select_component: Välj en komponent
+            select_states: Importera endast förslag med den här statusen. Om ingen status väljs kommer alla förslag att importeras.
             title: Importera förslag från en annan komponent
         proposals_merges:
           create:
@@ -649,6 +720,8 @@ sv:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
           create: "%{user_name} skapade förslaget %{resource_name} på utrymmet %{space_name} som ett officiellt förslag"
           publish_answer: "%{user_name} publicerade svaret på förslaget %{resource_name} i utrymmet %{space_name}"
+          restore: "%{user_name} återställde förslaget %{resource_name} i utrymmet %{space_name}"
+          soft_delete: "%{user_name} tog bort förslaget %{resource_name} från utrymmet %{space_name}"
           update: "%{user_name} uppdaterade det officiella förslaget %{resource_name} på utrymmet %{space_name}"
         proposal_note:
           create: "%{user_name} lämnade en privat anteckning på förslaget %{resource_name} på utrymmet %{space_name}"
@@ -697,6 +770,7 @@ sv:
           error: Det gick inte att skapa det gemensamma utkastet.
           success: Det gemensamma utkastet har skapats.
         edit:
+          attachment_legend: Lägg till ett dokument eller en bild
           back: Tillbaka
           send: Skicka
           title: Redigera gemensamt utkast
@@ -777,15 +851,31 @@ sv:
       create:
         error: Det gick inte att spara förslaget.
         success: Förslaget har skapats. Det är sparat som ett utkast.
+      creation:
+        imported_text: Det blev det här förslaget
+        merged_text: De blev det här förslaget
+        splitted_text: Det blev det här förslaget
+        text: Förslaget skapades
       destroy_draft:
         error: Det gick inte att radera det gemensamma utkastet.
         success: Utkastet till förslag har tagits bort.
+      exit_modal:
+        cancel: Avbryt
+        exit: Fortsätt
+        message: Du behöver rösta på ytterligare %{number} förslag för att dina röster ska räknas.
+        title: Kom ihåg att du har %{number} röster kvar
+      forms:
+        errors:
+          device_not_supported: Din enhet stöder inte platstjänster. Ange adressen manuellt.
+          no_device_location: Tyvärr, vi kunde inte upptäcka din plats. Ange adressen manuellt.
+        use_my_location: Använd min nuvarande plats
       invite_coauthors:
         cancel:
           error: Det gick inte att avbryta inbjudan till medförfattaren.
           success: Inbjudan till medförfattare har avbrutits.
         create:
           error: Det gick inte att bjuda in medförfattaren.
+          success: "%{author_name} har bjudits in som medförfattare."
         destroy:
           error: Det gick inte att avböja inbjudan.
           success: Inbjudan har avvisats.
@@ -831,6 +921,7 @@ sv:
           add_attachments: Lägg till bilagor
           attachment_legend: Lägg till ett dokument eller en bild
           back: Tillbaka
+          edit_attachments: Redigera bilagor
           send: Skicka
           title: Redigera förslag
         edit_draft:
@@ -850,6 +941,7 @@ sv:
           scope: Indelning
           search: Sök
           state: Status
+          taxonomy_filters: Filter
           type: Typ
           voted: Röstat på
         index:
@@ -912,6 +1004,7 @@ sv:
           proposal_rejected_reason: 'Förslaget har avslagits på grund av att:'
           withdraw_btn_hint: Om du ändrar dig kan du återkalla förslaget, så länge det inte har fått någon röst. Förslaget raderas inte, utan står med i listan över återkallade förslag.
           withdraw_confirmation_html: Är du säker på att du vill dra tillbaka förslaget?<br><br><strong>Denna åtgärd kan inte ångras!</strong>
+          withdraw_proposal: Dra tillbaka
         update:
           title: Uppdatera förslag
         vote_button:
@@ -920,11 +1013,16 @@ sv:
           maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar
           vote: Rösta
+          votes_blocked: Omröstning
         votes_count:
           count:
             one: Röst
             other: Röster
         voting_rules:
+          already_vote:
+            description: Kom ihåg att du behöver rösta på ytterligare %{number} förslag för att dina röster ska räknas.
+            see_other_proposals: Visa andra förslag
+            title: Du har %{number} röster kvar
           can_accumulate_votes_beyond_threshold:
             description: Förslag kan få fler än gränsen på %{limit} röster
           minimum_votes_per_user:
