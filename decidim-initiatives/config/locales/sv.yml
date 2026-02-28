@@ -150,6 +150,7 @@ sv:
             name_and_surname: Namn och efternamn
             nickname: Användarnamn
             postal_code: Postnummer
+            signature_count: Antal underskrifter
             timestamp: Tidsstämpel
       taxonomy_filters:
         space_filter_for:
@@ -280,6 +281,8 @@ sv:
             success: Initiativet har publicerats.
           reject:
             success: Initiativet har avvisats.
+          unpublish:
+            success: Initiativet har avpublicerats.
           update:
             error: Det gick inte att uppdatera initiativet.
             success: Initiativet har uppdaterats.
@@ -606,7 +609,28 @@ sv:
     open_data:
       help:
         initiatives:
+          answer: Svar på initiativet (om det fått något)
+          answer_url: Webbadressen till svaret (om det finns)
+          answered_at: Datum för svaret (om det finns)
+          area: Område för initiativ
+          authors: Författare till initiativet
+          comments_count: Antal kommentarer till initiativet
+          created_at: Datum när utrymmet skapades
+          description: Beskrivning av initiativet
+          first_progress_notification_at: Datum då det första resultatet skapades
+          follows_count: Antal följare
           hashtag: Initiativet hashtag, som används för Twitter/X
+          offline_votes: Antal underskrifter som initiativet fått utanför plattformen
+          online_votes: Antal digitala underskrifter som initiativet fått (från den här plattformen)
+          published_at: Publiceringsdatum för utrymmet
+          reference: Unikt id för initativ
+          scope: Omfattning för initiativ
+          second_progress_notification_at: Datum då det andra resultatet skapades
+          signature_end_date: Datum när insamling av underskrifter slutar
+          signature_start_date: Datum när insamling av underskrifter börjar
+          signature_type: Typ av underskrifter (digitala eller fysiska)
+          signatures: Antalet underskrifter av initiativet
+          state: Aktuell status för initiativet
           title: Titeln på initiativet
           type: Typ av initiativ
           updated_at: Senaste datum när utrymmet uppdaterades
