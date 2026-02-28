@@ -365,9 +365,9 @@ sv:
             select_an_iframe_access_level: Välj vem som får tillgång till iframe
           index:
             linked_meeting_warning_html: Mötet måste redigeras från <br><a href="%{href}">%{name}</a>
-            published: Publicerad
+            published: Publicerade
             title: Möten
-            unpublished: Opublicerad
+            unpublished: Opublicerade
           linked_spaces:
             assign: Tilldela
             link_a_space: Länka en process
