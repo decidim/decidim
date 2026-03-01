@@ -19,7 +19,7 @@ RSpec.shared_examples "manage milestone" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("Milestone successfully updated.")
+    expect(page).to have_callout("Milestone successfully updated.")
 
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))
@@ -40,7 +40,7 @@ RSpec.shared_examples "manage milestone" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("Milestone successfully created.")
+    expect(page).to have_callout("Milestone successfully created.")
 
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))

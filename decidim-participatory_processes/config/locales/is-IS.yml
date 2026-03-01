@@ -134,7 +134,6 @@ is-IS:
       admin:
         participatory_processes:
           form:
-            announcement_help: Textinn sem þú slærð inn hér verður sýndur fyrir notandann rétt fyrir neðan ferlið.
             related_processes: Tengd ferli
             title: Almennar upplýsingar
       index:

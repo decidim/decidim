@@ -55,7 +55,6 @@ es-MX:
         description: Descripción
         enable_machine_translations: Habilitar traducciones automáticas
         enable_omnipresent_banner: Mostrar banner omnipresente
-        enable_participatory_space_filters: Habilitar los filtros en el espacio de participación
         facebook_handler: Nombre en Facebook
         favicon: Icono
         force_authentication: Forzar autenticación
@@ -189,7 +188,8 @@ es-MX:
           </ul>
           Si cambias de opinión, puedes restaurarlo más tarde.
         export: Exportar
-        export-selection: Exportar selección
+        export_all: Exportar todo
+        export_selection: Exportar selección
         import: Importar
         member:
           new: Nueva miembro
@@ -1083,7 +1083,7 @@ es-MX:
           title: Nuevo tema
         update:
           error: Se ha producido un error al actualizar este tema.
-          success: Tema actualizado correctamente
+          success: Tema actualizado correctamente.
       static_pages:
         actions:
           view: Ver

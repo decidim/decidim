@@ -58,7 +58,7 @@ describe "Collaborative drafts" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_callout("Collaborative draft successfully created.")
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
@@ -81,7 +81,7 @@ describe "Collaborative drafts" do
 
             click_on "Publish"
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Collaborative draft successfully created.")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
@@ -140,7 +140,7 @@ describe "Collaborative drafts" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Collaborative draft successfully created.")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
@@ -153,6 +153,7 @@ describe "Collaborative drafts" do
             within_selector: ".new_collaborative_draft",
             address_field: :collaborative_draft_address
           ) do
+            let(:geocoded_success_message) { "Collaborative draft successfully created." }
             let(:geocoded_address_value) { address }
             let(:geocoded_address_coordinates) { [latitude, longitude] }
 
@@ -238,7 +239,7 @@ describe "Collaborative drafts" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("Collaborative draft successfully created.")
 
             within "#panel-images" do
               expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)

@@ -134,4 +134,47 @@ describe Decidim::Debates::Debate do
       it { is_expected.to be_falsey }
     end
   end
+
+  describe ".most_commented_available?" do
+    let(:component) { create(:debates_component) }
+
+    context "when comments are disabled" do
+      let(:component) { create(:debates_component, :with_comments_disabled) }
+      let!(:debate_with_comments) { create(:debate, component:, comments_count: 5) }
+
+      it "returns false" do
+        expect(described_class.most_commented_available?(component)).to be false
+      end
+    end
+
+    context "when comments are enabled" do
+      context "when there are no debates with comments" do
+        let!(:debate_without_comments) { create(:debate, component:) }
+
+        it "returns false" do
+          expect(described_class.most_commented_available?(component)).to be false
+        end
+      end
+
+      context "when there are debates with comments" do
+        let!(:debate_with_comments) { create(:debate, component:, comments_count: 5) }
+
+        it "returns true" do
+          expect(described_class.most_commented_available?(component)).to be true
+        end
+      end
+
+      context "when debates are hidden" do
+        let!(:debate_with_comments) { create(:debate, component:, comments_count: 5) }
+
+        before do
+          create(:moderation, reportable: debate_with_comments, hidden_at: Time.current)
+        end
+
+        it "returns false" do
+          expect(described_class.most_commented_available?(component)).to be false
+        end
+      end
+    end
+  end
 end

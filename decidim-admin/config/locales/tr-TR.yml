@@ -49,7 +49,6 @@ tr:
         default_locale: Varsayılan yerel ayar
         description: Açıklama
         enable_omnipresent_banner: Her yerde banner göster
-        enable_participatory_space_filters: Katılımcı alan filtrelerini etkinleştir
         facebook_handler: Facebook işleyicisi
         favicon: ikon
         force_authentication: Kimlik doğrulamayı zorunlu kıl
@@ -172,7 +171,7 @@ tr:
            <li class="font-bold"> %{resources_count} kaynakları </li> 
           </ul>
           Fikrinizi değiştirirseniz daha sonra yeniden yükleyebilirsiniz.
-        export-selection: Seçimi dışa aktar
+        export_all: Tümünü dışa aktar
         import: İçe aktar
         menu_hidden: Menüden gizle
         newsletter:
@@ -916,7 +915,6 @@ tr:
           title: Yeni Konu
         update:
           error: Bu konu güncellenirken bir hata oluştu.
-          success: Konu başarıyla güncellendi
       static_pages:
         create:
           error: Yeni bir sayfa oluşturulurken bir hata oluştu.

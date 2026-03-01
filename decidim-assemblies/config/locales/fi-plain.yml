@@ -245,7 +245,6 @@ fi-pl:
       admin:
         assemblies:
           form:
-            announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti ryhmän tietojen alapuolella.
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
@@ -268,6 +267,7 @@ fi-pl:
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_imports:
           form:
+            document_legend: Lisää dokumentti
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_members:
           form:
@@ -383,7 +383,6 @@ fi-pl:
     open_data:
       help:
         assemblies:
-          announcement: Ilmoituksen sisältö
           area: Ryhmän alue
           assembly_type: Ryhmän tyyppi
           closing_date: Ryhmän sulkemispäivä

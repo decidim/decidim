@@ -47,7 +47,7 @@ shared_examples "manage assemblies" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Assembly successfully updated.")
+      expect(page).to have_callout("Assembly successfully updated.")
 
       within "[data-content]" do
         expect(page).to have_css("input[value='#{translated(attributes[:title])}']")
@@ -77,7 +77,7 @@ shared_examples "manage assemblies" do
       end
       click_on "Update"
 
-      expect(page).to have_admin_callout("Assembly successfully updated.")
+      expect(page).to have_callout("Assembly successfully updated.")
 
       hero_blob = assembly.hero_image.blob
       within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
@@ -151,7 +151,7 @@ shared_examples "manage assemblies" do
         find("a", text: "Publish", visible: true).click
       end
 
-      expect(page).to have_content("successfully published")
+      expect(page).to have_callout("Assembly successfully published.")
 
       within("tr", text: translated_attribute(assembly.title)) do
         find("button[data-controller='dropdown']").click
@@ -178,7 +178,7 @@ shared_examples "manage assemblies" do
         find("a", text: "Unpublish", visible: true).click
       end
 
-      expect(page).to have_content("successfully unpublished")
+      expect(page).to have_callout("Assembly successfully unpublished.")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_assemblies.assemblies_path
 

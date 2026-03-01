@@ -52,7 +52,7 @@ eu:
         file: Fitxategia
       proposals_import:
         import_proposals: Proposamenak inportatu
-        keep_answers: Mantendu egoera eta erantzunak
+        keep_answers: Egoera-orriak eta erantzunak mantendu
         keep_authors: Mantendu jatorrizko egileak
     errors:
       models:
@@ -356,7 +356,7 @@ eu:
         proposal_published_for_space:
           email_intro: '"%{resource_title}" proposamena jarraizten ari zaren ondorengo "%{participatory_space_title}" espazioan erantsi zaizu.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Jarraitzeari uzti ahal diozu aurreko estekan.
-          email_subject: '"%{resource_title}" proposamen berria hona %{participatory_space_title} gehitu da'
+          email_subject: '%{participatory_space_title} espazioan "%{resource_title}" proposamen berria egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-era gehitu du %{author} egileak.
           notification_title_official: 'Proposamen ofiziala hona gehitu da: <a href="%{resource_path}">%{resource_title}</a>.'
         proposal_state_changed:
@@ -370,6 +370,12 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
             email_subject: Jarraitzen ari zaren proposamen batek (%{state}) egoera aldatu du
             notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: '"%{resource_title}" proposamenaren egoera aldatu da eta orain "%{state}" egoeran dago. Orri honetan duzu erantzuna:'
+            email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: "%{resources ce_title}".'
+            email_subject: Zure proposamena (%{state}) egoerara aldatu da
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> zure proposamenaren egoera aldatu da eta orain "%{state}" egoeran dago.
         proposal_update_taxonomies:
           email_intro: 'Admintratzaile batek eguneratu ditu zure %{resource_title}" proposamenaren taxonomiak, ikus ezazu orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
@@ -689,7 +695,7 @@ eu:
             create: Inportatu proposamenak
             no_components: Espazio honetan ez dago beste proposamenik proposamenak inportatzeko.
             select_component: Mesedez, hautatu osagaia
-            select_states: Egiaztatu inportatzeko proposamenen egoera
+            select_states: Inportatu proposamenak egoera horiekin soilik. Egoerarik hautatzen ez bada, proposamen guztiak inportatuko dira.
             title: Inportatu proposamenak beste osagai batetik
         proposals_merges:
           create:

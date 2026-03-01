@@ -17,7 +17,6 @@ gl:
       initiatives_committee_member:
         user: Membro do comité
       initiatives_type:
-        banner_image: Imaxe do banner
         collect_user_extra_fields: Recolle datos persoais do usuario na sinatura
         description: Descrición
         extra_fields_legal_information: Información legal sobre a recollida de datos persoais

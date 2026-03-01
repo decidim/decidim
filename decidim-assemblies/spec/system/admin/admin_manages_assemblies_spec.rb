@@ -92,7 +92,7 @@ describe "Admin manages assemblies" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Assembly created successfully. You can now add components and configure it.")
+      expect(page).to have_callout("Assembly created successfully. You can now add components and configure it.")
       expect(last_assembly.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
@@ -111,20 +111,16 @@ describe "Admin manages assemblies" do
       visit decidim_admin_assemblies.assemblies_path
     end
 
-    it "update a participatory process without images does not delete them" do
+    it "update an assembly without images does not delete them" do
       within "tr", text: translated(assembly3.title) do
         click_on translated(assembly3.title)
-      end
-
-      within_admin_sidebar_menu do
-        click_on "About this assembly"
       end
 
       select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
 
       click_on "Update"
 
-      expect(page).to have_admin_callout("Assembly successfully updated.")
+      expect(page).to have_callout("Assembly successfully updated.")
       expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
       expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
       expect(assembly3.reload.taxonomies).to contain_exactly(taxonomy)
@@ -133,6 +129,18 @@ describe "Admin manages assemblies" do
       within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
         src = page.find("img")["src"]
         expect(src).to be_blob_url(hero_blob)
+      end
+    end
+
+    describe "when the assembly is transparent" do
+      let!(:assembly3) { create(:assembly, :private, :transparent, organization:) }
+
+      it "shows the transparent checkbox correctly" do
+        within "tr", text: translated(assembly3.title) do
+          click_on translated(assembly3.title)
+        end
+
+        expect(page).to have_checked_field("assembly_is_transparent")
       end
     end
   end
