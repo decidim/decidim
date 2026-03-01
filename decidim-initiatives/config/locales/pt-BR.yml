@@ -3,6 +3,10 @@ pt-BR:
   activemodel:
     attributes:
       initiative:
+        answer: Resposta
+        answer_url: URL da Resposta
+        area_id: Área
+        decidim_scope_id: Escopo
         decidim_user_group_id: Autor
         description: Descrição
         offline_votes: Suporte face a face
@@ -17,6 +21,7 @@ pt-BR:
           online: Conectados
         state: Estado
         title: Título
+        type_id: Tipo
       initiatives_committee_member:
         user: membro do Comitê
       initiatives_type:
@@ -34,10 +39,12 @@ pt-BR:
         online_signature_enabled: Assinatura on-line ativada
         only_global_scope_enabled: Só permitir criação de iniciativas de escopo global
         promoting_committee_enabled: Ativar comitê de promoção
+        signature_type: Tipo de assinatura
         title: Título
         undo_online_signatures_enabled: Permitir que os usuários desfizessem suas assinaturas on-line
         validate_sms_code_on_votes: Adicionar etapa de validação do código SMS ao processo de assinatura
       initiatives_type_scope:
+        decidim_scopes_id: Escopos
         supports_required: Apoios requeridos
       initiatives_vote:
         date_of_birth: Data de nascimento
@@ -55,6 +62,7 @@ pt-BR:
             attachment:
               file: O arquivo é inválido
               needs_to_be_reattached: Precisa ser reanexado
+              title: O título não pode estar vazio
   activerecord:
     models:
       decidim/initiative:
@@ -80,6 +88,7 @@ pt-BR:
               accepted: Assinaturas suficientes
               created: Criado
               discarded: Descartado
+              open: Aberto
               rejected: Não há assinaturas suficientes
               validating: Validação técnica
           type_id_eq:
@@ -88,12 +97,18 @@ pt-BR:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome do autor.
       initiatives_settings:
         update:
+          error: Houve um problema ao atualizar as configurações das iniciativas.
           success: As configurações de iniciativas foram atualizadas com sucesso.
       menu:
         attachments: Anexos
         committee_members: Membros do Comitê
         information: Em formação
         initiatives: Iniciativas
+        initiatives_menu:
+          see_initiative: Ver iniciativa
+        initiatives_settings: Confirgurações
+        initiatives_submenu:
+          info: Sobre essa iniciativa
         initiatives_types: Tipos de iniciativa
         moderations: Moderações
       models:
@@ -262,6 +277,8 @@ pt-BR:
           new:
             create: Criar
             title: Novo tipo de iniciativa
+          update:
+            success: O tipo de iniciativa foi atualizado com sucesso.
       admin_log:
         initiative:
           publish: "%{user_name} publicou a iniciativa %{resource_name}"
@@ -278,6 +295,7 @@ pt-BR:
         accepted: Assinaturas suficientes
         created: Criada
         discarded: Descartado
+        open: Aberto
         rejected: Não há assinaturas suficientes
         validating: Validação técnica
       application_helper:
@@ -313,6 +331,7 @@ pt-BR:
         finish:
           back: Costas
           back_to_initiatives: De volta às iniciativas
+          callout_text: Parabéns! Sua iniciativa foi criada com sucesso.
           confirm: Você vai enviar a iniciativa para um administrador revisá-lo e publicá-lo. Uma vez publicado, você não será capaz de editá-lo. Você tem certeza?
           edit_my_initiative: Editar minha iniciativa
           go_to_my_initiatives: Vá para minhas iniciativas
