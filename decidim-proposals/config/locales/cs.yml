@@ -94,6 +94,7 @@ cs:
       decidim:
         proposals:
           proposal:
+            budget_text: Návrh <span class="resource-link">%{link} byl vytvořen</span>
             import_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             merge_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             merge_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
