@@ -142,12 +142,10 @@ shared_context "when publishing and unpublishing the component" do
 
       within "tr", text: title do
         find("button[data-controller='dropdown']").click
-        click_on "Publish"
+        perform_enqueued_jobs { click_on "Publish" }
       end
 
       expect(page).to have_admin_callout("The component has been successfully published")
-
-      perform_enqueued_jobs(except: job_exceptions)
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
       expect(component.reload).to be_published
@@ -158,7 +156,6 @@ shared_context "when publishing and unpublishing the component" do
     before do
       current_component.publish!
       current_component.participatory_space.try_add_to_index_as_search_resource
-      sleep 1
 
       visit decidim_admin_participatory_processes.components_path(current_component.participatory_space)
     end
@@ -183,12 +180,10 @@ shared_context "when publishing and unpublishing the component" do
 
       within "tr", text: title do
         find("button[data-controller='dropdown']").click
-        click_on "Unpublish"
+        perform_enqueued_jobs { click_on "Unpublish" }
       end
 
       expect(page).to have_admin_callout("The component has been successfully unpublished")
-
-      perform_enqueued_jobs(except: job_exceptions)
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_zero
       expect(current_component.reload).not_to be_published
