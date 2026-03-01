@@ -61,7 +61,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rubocop-performance", "~> 1.25", ">= 1.25.0"
   s.add_dependency "rubocop-rails", "~> 2.32.0", ">= 2.32.0"
   s.add_dependency "rubocop-rspec", "~> 3.0", ">= 3.6.0"
-  s.add_dependency "rubocop-rspec_rails", "~> 2.31.0"
+  s.add_dependency "rubocop-rspec_rails", ">= 2.31", "< 2.33"
   s.add_dependency "rubocop-rubycw", "~> 0.2.0"
   s.add_dependency "rubocop-yard", "~> 1.0.0"
   s.add_dependency "selenium-webdriver", "~> 4.9"
