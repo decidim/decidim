@@ -504,6 +504,7 @@ cs:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Tato funkce importu umožňuje vytvořit nový participační proces z exportovaného JSON souboru. Můžete exportovat proces z jiné organizace nebo ze stejné organizace. Importovaný proces bude obsahovat jeho nastavení, komponenty a přílohy (je-li vybráno).
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
