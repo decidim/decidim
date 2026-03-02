@@ -124,8 +124,8 @@ module Decidim
 
     def manifest_attachments
       @manifest_attachments ||= manifest.images.to_h do |attachment_config|
-                                  [attachment_config[:name], attachments.find_or_initialize_by(name: attachment_config[:name])]
-                                end
+        [attachment_config[:name], attachments.find_or_initialize_by(name: attachment_config[:name])]
+      end
     end
 
     # Internal: Since we are using the `images_container` hack to hold the

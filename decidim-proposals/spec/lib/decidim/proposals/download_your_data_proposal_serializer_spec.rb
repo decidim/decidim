@@ -29,10 +29,10 @@ module Decidim
         answer = proposal.answer
         Decidim.available_locales.to_h do |locale|
           [locale.to_s, if answer.is_a?(Hash)
-                                  answer[locale.to_s] || ""
-                                else
-                                  ""
-                                end]
+                          answer[locale.to_s] || ""
+                        else
+                          ""
+                        end]
         end
       end
 
