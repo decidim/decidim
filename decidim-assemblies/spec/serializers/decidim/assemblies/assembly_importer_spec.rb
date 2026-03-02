@@ -311,6 +311,114 @@ module Decidim::Assemblies
             expect(importer.warnings).to include(a_string_matching(/The attachment "Test File" could not be imported \(500 Internal Server Error\)\./i))
           end
         end
+
+        context "when remote file is accessible and downloadable (PDF)" do
+          let(:remote_file_url) { "http://example.com/document.pdf" }
+
+          before do
+            stub_request(:head, remote_file_url)
+              .to_return(status: 200, headers: { "Content-Type" => "application/pdf" })
+            stub_request(:get, remote_file_url)
+              .to_return(status: 200, body: File.read(Decidim::Dev.asset("Exampledocument.pdf")))
+          end
+
+          it "successfully imports the attachment" do
+            expect { importer.import_folders_and_attachments(attachments_data) }
+              .to change(Decidim::Attachment, :count).by(1)
+          end
+
+          it "attaches the file to the assembly" do
+            importer.import_folders_and_attachments(attachments_data)
+            attachment = Decidim::Attachment.last
+            expect(attachment.file).to be_attached
+            expect(attachment.file.filename.to_s).to eq("document.pdf")
+          end
+
+          it "sets the content type automatically" do
+            importer.import_folders_and_attachments(attachments_data)
+            attachment = Decidim::Attachment.last
+            expect(attachment.content_type).to eq("application/pdf")
+          end
+
+          it "sets the file size automatically" do
+            importer.import_folders_and_attachments(attachments_data)
+            attachment = Decidim::Attachment.last
+            expect(attachment.file_size).to be_present
+          end
+
+          it "has no warnings" do
+            importer.import_folders_and_attachments(attachments_data)
+            expect(importer.warnings).to be_empty
+          end
+        end
+
+        context "when remote file is accessible and downloadable (image)" do
+          let(:remote_file_url) { "http://example.com/image.jpg" }
+
+          before do
+            stub_request(:head, remote_file_url)
+              .to_return(status: 200, headers: { "Content-Type" => "image/jpeg" })
+            stub_request(:get, remote_file_url)
+              .to_return(status: 200, body: File.read(Decidim::Dev.asset("city.jpeg")))
+          end
+
+          it "successfully imports the attachment" do
+            expect { importer.import_folders_and_attachments(attachments_data) }
+              .to change(Decidim::Attachment, :count).by(1)
+          end
+
+          it "attaches the file to the assembly" do
+            importer.import_folders_and_attachments(attachments_data)
+            attachment = Decidim::Attachment.last
+            expect(attachment.file).to be_attached
+          end
+
+          it "sets the content type automatically" do
+            importer.import_folders_and_attachments(attachments_data)
+            attachment = Decidim::Attachment.last
+            expect(attachment.content_type).to eq("image/jpeg")
+          end
+
+          it "has no warnings" do
+            importer.import_folders_and_attachments(attachments_data)
+            expect(importer.warnings).to be_empty
+          end
+        end
+
+        context "when remote file URL is blank" do
+          let(:attachments_data) do
+            {
+              "files" => [
+                {
+                  "title" => { "en" => "Test File" },
+                  "description" => { "en" => "Test Description" },
+                  "weight" => 1,
+                  "remote_file_url" => ""
+                }
+              ],
+              "attachment_collections" => []
+            }
+          end
+
+          it "does not create any attachments" do
+            expect { importer.import_folders_and_attachments(attachments_data) }
+              .not_to change(Decidim::Attachment, :count)
+          end
+        end
+
+        context "when files array is nil" do
+          let(:attachments_data) do
+            {
+              "files" => nil,
+              "attachment_collections" => []
+            }
+          end
+
+          it "does not create any attachments" do
+            expect { importer.import_folders_and_attachments(attachments_data) }
+              .not_to change(Decidim::Attachment, :count)
+          end
+        end
       end
     end
   end
