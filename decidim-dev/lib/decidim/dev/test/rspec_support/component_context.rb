@@ -128,10 +128,10 @@ shared_context "when publishing and unpublishing the component" do
   end
 
   context "when component is unpublished" do
+    let(:component) { create(:component, :unpublished, manifest:, participatory_space:) }
+
     before do
-      current_component.unpublish!
       current_component.participatory_space.try_add_to_index_as_search_resource
-      sleep 1
 
       visit decidim_admin_participatory_processes.components_path(current_component.participatory_space)
     end
@@ -156,8 +156,9 @@ shared_context "when publishing and unpublishing the component" do
   end
 
   context "when component is published" do
+    let(:component) { create(:component, :published, manifest:, participatory_space:) }
+
     before do
-      current_component.publish!
       current_component.participatory_space.try_add_to_index_as_search_resource
       sleep 1
 
