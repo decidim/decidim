@@ -1206,6 +1206,9 @@ pt-BR:
         success: Convite rejeitado com sucesso.
       reject_invitation: Rejeitar
     group_members:
+      accept:
+        error: Ocorreu um erro ao aceitar este pedido de adesão.
+        success: Pedido de adesão aceito com sucesso.
       actions:
         confirm_modal:
           ok_remove: Remover o membro
@@ -1217,20 +1220,37 @@ pt-BR:
       index:
         current_members_without_admins: 'Membros atuais (sem administradores):'
         manage_members: Gerenciar membros
+      promote:
+        error: Ocorreu um erro ao promover este usuário.
+        success: Usuário promovido com sucesso.
+      reject:
+        error: Ocorreu um erro ao rejeitar este pedido de adesão.
+        success: Pedido de adesão rejeitado com sucesso.
+      remove:
+        error: Ocorreu um erro ao remover este usuário do grupo.
+        success: Usuário removido do grupo com sucesso.
     groups:
       actions:
         are_you_sure: Você tem certeza?
+      create:
+        error: Houve um problema ao criar o grupo.
+        success: Grupo criado com sucesso.
       edit:
         edit_user_group: Editar grupo
         update_user_group: Atualizar grupo
       form:
+        document_number_help: Não use traços nem espaços.
         email_help: E-mail da sua organização, associação, coletivo, grupo etc.
         fill_in_for_verification: 'Preencha estes campos se quiser que seu grupo seja verificado:'
         name_help: Nome da sua organização, associação, coletivo, grupo etc.
         nickname_help: Nome de usuário da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
+        phone_help: Não use traços nem espaços.
       join:
+        error: Houve um problema ao se juntar ao grupo.
         success: Solicitação de junção criada com êxito. Um administrador irá rever o seu pedido antes de aceitá-lo para o grupo.
       leave:
+        error: Houve um problema ao sair do grupo.
+        last_admin: Você não pode se remover deste grupo, pois é o último administrador. Faça de outro membro um administrador para sair do grupo.
         success: Saiu do grupo com sucesso.
       members:
         accept_or_reject_join_requests: 'Os seguintes grupos convidaram você para se juntar a eles. Aceite ou rejeite seus pedidos:'
@@ -1240,10 +1260,14 @@ pt-BR:
         create_user_group: Criar Grupo
         new_user_group: Novo grupo
         subtitle: Crie um grupo e convide outros usuários a participar para participar de um nível coletivo.
+      no_user_groups: Ainda não pertence a nenhum grupo.
       roles:
         admin: Administrador
         creator: Administrador
         member: Membro
+      update:
+        error: Houve um problema ao atualizar o grupo.
+        success: Grupo atualizado com sucesso.
     help:
       main_topic:
         default_page:
@@ -1890,6 +1914,7 @@ pt-BR:
     user_contact_disabled: Este usuário não aceita mensagens diretas.
     user_conversations:
       create:
+        error: A mensagem não pôde ser criada. Tente novamente mais tarde.
         existing_error: A mensagem não pôde ser criada. A conversa já existe, tente novamente agora.
         success: Conversa iniciada com sucesso!
       index:

@@ -1013,6 +1013,9 @@ fr:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image au format paysage ne contenant pas de texte.
           message_2: Le service recadre l'image.
+        import_file:
+          explanation: 'Instructions pour le fichier d''importation :'
+          message_1: Doit être un document JSON téléchargé via la fonction d'exportation.
       file_validation:
         allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
         max_file_dimension: 'Dimensions de fichier maximales : %{resolution} pixels'
@@ -1831,6 +1834,7 @@ fr:
       send_paranoid_instructions: Si votre adresse e-mail existe dans notre base de données, vous recevrez un e-mail avec les instructions pour confirmer votre adresse e-mail dans quelques minutes.
     failure:
       already_authenticated: Vous êtes déjà connecté.
+      csrf_token: Impossible de vérifier votre demande. Veuillez réessayer.
       inactive: Votre compte n'est pas encore activé.
       invalid: '%{authentication_keys} ou mot de passe invalide.'
       invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
@@ -2156,6 +2160,7 @@ fr:
         confirm_close_ephemeral_session: Si vous quittez cette page, votre session sera fermée. Êtes-vous sûr(e)?
         log_in: Se connecter
         main_menu: Menu principal
+        mobile_account_greeting: Bonjour %{user_name},
         user_menu: Menu utilisateur
       impersonation_warning:
         close_session: Fermer la session

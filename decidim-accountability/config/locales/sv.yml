@@ -303,7 +303,7 @@ sv:
             clear_all: Rensa alla
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             display_progress_enabled: Visa behandling
             geocoding_enabled: Aktivera visning på karta
             intro: Intro

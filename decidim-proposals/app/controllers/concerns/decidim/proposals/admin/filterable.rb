@@ -51,7 +51,9 @@ module Decidim
           end
 
           def valuator_role_ids
-            current_participatory_space.user_roles(:valuator).order_by_name.pluck(:id)
+            roles = current_participatory_space.user_roles(:valuator)
+            roles = roles.order_by_name if roles.respond_to?(:order_by_name)
+            roles.pluck(:id)
           end
 
           def translated_valuator_role_ids_has(valuator_role_id)

@@ -980,6 +980,9 @@ cs:
           error: U tohoto participativního prostoru se vyskytl problém s aktualizací soukromého účastníka.
           success: Soukromý účastník participativního prostoru úspěšně aktualizován
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
+          success: CSV soubor byl úspěšně nahrán, posíláme účastníkům e-mail s pozvánkou. To může chvíli trvat.
         new:
           csv_upload:
             title: Nahrát soubor CSV
@@ -990,6 +993,10 @@ cs:
             explanation: Máte %{count} soukromých účastníků.
             title: Odstranit soukromé účastníky
           example_file: 'Příklad souboru:'
+          explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru uživatelů, které chcete přidat do participačního prostoru, bez hlaviček. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Importovat soukromé účastníky přes CSV
           upload: Nahrát
       reminders:

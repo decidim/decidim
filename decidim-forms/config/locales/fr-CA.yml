@@ -27,6 +27,13 @@ fr-CA:
           request_invalid: Une erreur s'est produite lors du traitement de la requête. Veuillez essayer à nouveau.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: La réponse à la question
+          id: L'identifiant unique de la réponse
+          question: La question à laquelle on a répondu
+          questionnaire: Le questionnaire auquel on a répondu
+          user: L'utilisateur qui a répondu au questionnaire
       show:
         answers: Export des réponses
         survey_user_answers: Réponses à l'enquête

@@ -774,7 +774,7 @@ describe "Initiative" do
         it "shows the user group as author" do
           expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(0)
           select(user_group.name, from: "Author")
-          find_button("Continue").click
+          click_link_or_button("Continue")
           expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(1)
         end
       end

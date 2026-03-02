@@ -54,7 +54,7 @@ cs:
         file: Soubor
       proposals_import:
         import_proposals: Návrhy na dovoz
-        keep_answers: Zachovat stav a odpovědi
+        keep_answers: Zachovat stavy a odpovědi
         keep_authors: Uchovávejte původní autory
       valuation_assignment:
         admin_log:
@@ -701,7 +701,7 @@ cs:
             create: Návrhy na dovoz
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
             select_component: Vyberte součást
-            select_states: Zkontrolujte stav návrhů, které chcete importovat
+            select_states: Importovat pouze návrhy s těmito stavy. Pokud není vybrán žádný, budou importovány všechny návrhy.
             title: Importovat návrhy z jiné komponenty
         proposals_merges:
           create:

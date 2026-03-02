@@ -264,6 +264,7 @@ ja:
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_imports:
           form:
+            document_legend: ドキュメントを追加
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_members:
           form:
@@ -273,9 +274,14 @@ ja:
         content_blocks:
           highlighted_assemblies:
             max_results: 表示する要素の最大量
+        imports:
+          attachment_error: 添付ファイル "%{title}" をインポートできませんでした（%{error}）。
+          banner_image_error: バナー画像をインポートできませんでした(%{error})。
+          hero_image_error: ヒーロー画像をインポートできませんでした（%{error}）。
         new_import:
           accepted_types:
             json: JSON
+          help_html: このインポート機能を使用すると、エクスポートされた JSON ファイルから新しいアセンブリを作成できます。アセンブリは他の組織から、または同じ組織内からエクスポート可能です。インポートされるアセンブリには、その設定、コンポーネント、および添付ファイル（選択されている場合）がすべて含まれます。
       assemblies:
         description:
           area_name: エリア
