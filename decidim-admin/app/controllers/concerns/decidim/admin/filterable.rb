@@ -77,7 +77,7 @@ module Decidim
         # the query
         def adjacent_items(item)
           query =
-            <<-SQL.squish
+            <<~SQL.squish
               WITH
                 collection AS (#{session_filtered_collection.select(:id).to_sql}),
                 successors AS (

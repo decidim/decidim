@@ -398,13 +398,13 @@ module Decidim
 
       # method to filter by assigned evaluator role ID
       def self.evaluator_role_ids_has(value)
-        query = <<-SQL.squish
-        :value = any(
-          (SELECT decidim_proposals_evaluation_assignments.evaluator_role_id
-          FROM decidim_proposals_evaluation_assignments
-          WHERE decidim_proposals_evaluation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
+        query = <<~SQL.squish
+          :value = any(
+            (SELECT decidim_proposals_evaluation_assignments.evaluator_role_id
+            FROM decidim_proposals_evaluation_assignments
+            WHERE decidim_proposals_evaluation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
+            )
           )
-        )
         SQL
         where(query, value:)
       end
@@ -457,14 +457,14 @@ module Decidim
       end
 
       ransacker :is_emendation do |_parent|
-        query = <<-SQL.squish
-        (
-          SELECT EXISTS (
-            SELECT 1 FROM decidim_amendments
-            WHERE decidim_amendments.decidim_emendation_type = 'Decidim::Proposals::Proposal'
-            AND decidim_amendments.decidim_emendation_id = decidim_proposals_proposals.id
+        query = <<~SQL.squish
+          (
+            SELECT EXISTS (
+              SELECT 1 FROM decidim_amendments
+              WHERE decidim_amendments.decidim_emendation_type = 'Decidim::Proposals::Proposal'
+              AND decidim_amendments.decidim_emendation_id = decidim_proposals_proposals.id
+            )
           )
-        )
         SQL
         Arel.sql(query)
       end
