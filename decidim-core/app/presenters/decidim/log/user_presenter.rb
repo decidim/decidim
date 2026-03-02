@@ -11,6 +11,7 @@ module Decidim
     # The only requirement for custom renderers is that they should respond to `present`.
     class UserPresenter
       include Decidim::SanitizeHelper
+
       # Public: Initializes the presenter.
       #
       # user - An instance of Decidim::User

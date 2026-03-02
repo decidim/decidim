@@ -9,6 +9,7 @@ module Decidim
         include Decidim::Admin::HasTrashableResources
         include Decidim::Admin::ComponentTaxonomiesHelper
         include Decidim::Budgets::Admin::Filterable
+
         helper Decidim::Budgets::Admin::ProjectBulkActionsHelper
         helper Decidim::Budgets::ProjectsHelper
 

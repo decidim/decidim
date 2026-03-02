@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Proposals" do
   include ActionView::Helpers::TextHelper
+
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 

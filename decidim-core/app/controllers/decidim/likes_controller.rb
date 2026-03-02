@@ -5,6 +5,7 @@ module Decidim
   class LikesController < Decidim::Components::BaseController
     # we need to +include+ to be able to call :like_button from the view
     include Decidim::LikeableHelper
+
     helper_method :like_button
     # we need to declare with +helper+ to be able to call :render_like_identity from the views
     helper Decidim::LikeableHelper
