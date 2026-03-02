@@ -1,6 +1,6 @@
 /* global jest */
 
-jest.mock("src/decidim/refactor/moved/icon", () => () => "<svg></svg>");
+jest.mock("src/decidim/icon", () => () => "<svg></svg>");
 
 describe("Confirm dialog for button[type='button']", () => {
   let mockRails = null;
@@ -150,7 +150,7 @@ describe("Confirm dialog for button[type='button']", () => {
       expect(submitHandlerCalls.length).toBeGreaterThan(0);
     });
 
-    it("adds turbo:load event listener for Foundation Abide compatibility", async () => {
+    it("adds DOMContentLoaded event listener for Foundation Abide compatibility", async () => {
       const { initializeConfirm } = await import("src/decidim/confirm.js");
 
       const addEventListenerSpy = jest.spyOn(document, "addEventListener");
@@ -158,7 +158,7 @@ describe("Confirm dialog for button[type='button']", () => {
       initializeConfirm();
 
       const turboLoadCalls = addEventListenerSpy.mock.calls.filter(
-        (call) => call[0] === "turbo:load"
+        (call) => call[0] === "DOMContentLoaded"
       );
       expect(turboLoadCalls.length).toBeGreaterThan(0);
     });
