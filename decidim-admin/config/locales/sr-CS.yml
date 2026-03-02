@@ -41,20 +41,20 @@ sr:
         favicon: Ikona
         github_handler: Administrator GitHub-a
         header_snippets: Fragmenti zaglavlja
-        highlighted_content_banner_action_subtitle: Podnastlov dugmeta akcije
-        highlighted_content_banner_action_title: Naslov dugmeta akcije
+        highlighted_content_banner_action_subtitle: Podnaslov dugmeta akcije
+        highlighted_content_banner_action_title: Naziv dugmeta akcije
         highlighted_content_banner_action_url: Link dugmeta akcije
         highlighted_content_banner_enabled: Prikaži istaknut baner sadržaja
         highlighted_content_banner_image: Slika
         highlighted_content_banner_short_description: Kratak opis
-        highlighted_content_banner_title: Naslov
+        highlighted_content_banner_title: Naziv
         instagram_handler: Administrator Instagram-a
         logo: Logo
         name: Ime
         official_img_footer: Zvanično podnožje logoa
         official_url: Zvaničan link organizacije
         omnipresent_banner_short_description: Kratak opis
-        omnipresent_banner_title: Naslov
+        omnipresent_banner_title: Naziv
         omnipresent_banner_url: Adrеsa
         primary_color: Primarni
         reference_prefix: Prefiks reference
@@ -91,11 +91,11 @@ sr:
         organization: Organizacija
         show_in_footer: Prikaži u podnožju
         slug: Zadnji deo URL-a
-        title: Naslov
+        title: Naziv
       static_page_topic:
         description: Opis
         show_in_footer: Prikaži u podnožju
-        title: Naslov
+        title: Naziv
       user_group_csv_verification:
         file: Fajl
     errors:
@@ -109,7 +109,7 @@ sr:
       decidim/static_page:
         content: Sadržaj
         slug: Zadnji deo URL-a
-        title: Naslov
+        title: Naziv
       doorkeeper/application:
         authorize_url: Autorizuj URL
         client_id: Identitet klijenta
@@ -123,6 +123,7 @@ sr:
       actions:
         add: Dodaj
         browse: Prеglеdaj
+        export-selection: Izvezi izabrano
         manage: Upravljaj
         per_page: Po stranici
         permissions: Dozvole
@@ -334,7 +335,7 @@ sr:
             collection: Fascikla
             content_type: Tip
             file_size: Veličina
-            title: Naslov
+            title: Naziv
           name: Prilog
         attachment_collection:
           name: Fascikla
@@ -369,7 +370,7 @@ sr:
         static_page:
           fields:
             created_at: Kreirano na
-            title: Naslov
+            title: Naziv
         user:
           fields:
             created_at: Datum kreiranja

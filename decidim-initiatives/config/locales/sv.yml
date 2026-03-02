@@ -137,11 +137,13 @@ sv:
           name: Typ av initiativ
         initiatives_votes:
           fields:
+            date_and_time: Datum och tid
             date_of_birth: Födelsedatum
             document_number: Dokumentnummer
             hash: Hash
             initiative_end_date: Slutdatum
             initiative_id: Initiativ ID
+            initiative_scope: Indelning
             initiative_signatures_count: Antal underskrifter
             initiative_start_date: Startdatum
             initiative_title: Initiativets titel
@@ -155,6 +157,9 @@ sv:
       titles:
         initiatives: Initiativ
         initiatives_types: Typer av initiativ
+    download_your_data:
+      show:
+        initiatives: Exportera initiativ
     events:
       initiatives:
         admin:
@@ -244,6 +249,10 @@ sv:
             alert_html: "<p>Du måste skapa minst en initiativtyp så att deltagarna kan börja skapa initiativ.</p><p> %{link}</p>"
             button: Ny typ av initiativ
         initiatives:
+          accept:
+            success: Initiativet har godkänts.
+          discard:
+            success: Initiativet har tagits bort.
           edit:
             accept: Godkänn initiativ
             confirm: Är du säker?
@@ -267,6 +276,10 @@ sv:
             edit: Redigera
             new: Ny
             photos: Foton
+          publish:
+            success: Initiativet har publicerats.
+          reject:
+            success: Initiativet har avvisats.
           update:
             error: Det gick inte att uppdatera initiativet.
             success: Initiativet har uppdaterats.
@@ -369,6 +382,7 @@ sv:
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
+          callout_text: Grattis! Ditt initiativ har skapats.
           confirm: Du kommer att skicka initiativet till en administratör för att granska och publicera det. När det har publicerats kommer du inte att kunna redigera det. Vill du gå vidare?
           edit_my_initiative: Redigera mitt initiativ
           go_to_my_initiatives: Gå till mina initiativ
@@ -429,7 +443,10 @@ sv:
           email_subject: "%{applicant_nickname} vill gå med i ditt initiativ"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ansökte om att gå med i kampanjgruppen för ditt initiativ <a href="%{resource_url}">%{resource_title}</a>. För att acceptera eller avvisa klickar du <a href="%{resource_url}/edit">här</a>.
       form:
+        add_attachments: Lägg till bilagor
         add_image: Lägg till bild
+        attachment_legend: Lägg till ett dokument eller en bild
+        edit_attachments: Redigera bilagor
         edit_image: Redigera bild
         image_legend: "(Valfritt) Lägg till en bild"
       index:
@@ -586,12 +603,21 @@ sv:
         success: Initiativet har uppdaterats.
     menu:
       initiatives: Initiativ
+    open_data:
+      help:
+        initiatives:
+          hashtag: Initiativet hashtag, som används för Twitter/X
+          title: Titeln på initiativet
+          type: Typ av initiativ
+          updated_at: Senaste datum när utrymmet uppdaterades
+          url: Initiativets URL
     resources:
       initiative:
         actions:
           comment: Kommentera
       initiatives_type:
         actions:
+          create: Skapa ett initiativ
           title: Åtgärder
           vote: Signera
   layouts:

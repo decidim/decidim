@@ -1,5 +1,65 @@
 # Changelog
 
+## [0.30.6](https://github.com/decidim/decidim/tree/0.30.6)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-initiatives**: Backport 'Fix disabled 'true' continue button in initiatives creation/edit' to v0.30 [\#15972](https://github.com/decidim/decidim/pull/15972)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Make the document a required field in spaces import' to v0.30 [\#15983](https://github.com/decidim/decidim/pull/15983)
+- **decidim-core**: Backport 'Fix notifications flaky specs' to v0.30 [\#16005](https://github.com/decidim/decidim/pull/16005)
+- **decidim-core**, **decidim-participatory processes**: Backport 'Fix caching issue in processes content block' to v0.30 [\#15996](https://github.com/decidim/decidim/pull/15996)
+- **decidim-admin**, **decidim-proposals**: Backport 'Fix proposal to proposal component import' to v0.30 [\#15999](https://github.com/decidim/decidim/pull/15999)
+- **decidim-core**: Backport 'Allow Attachment to answer to `can_participate?` based on it's attached model' to v0.30 [\#16007](https://github.com/decidim/decidim/pull/16007)
+- **decidim-admin**, **decidim-core**: Backport 'Fix image removal bug in the hero block' to v0.30 [\#16001](https://github.com/decidim/decidim/pull/16001)
+- **decidim-assemblies**, **decidim-core**, **decidim-participatory processes**: Backport 'Fix markup and UX between the spaces imports' to v0.30 [\#16000](https://github.com/decidim/decidim/pull/16000)
+- **decidim-core**: Backport 'Show errors outside of the upload modal' to v0.30 [\#16010](https://github.com/decidim/decidim/pull/16010)
+- **decidim-admin**, **decidim-assemblies**, **decidim-dev**, **decidim-participatory processes**: Backport 'Fix can_participate? into ParticipatoryProcessStep' to v0.30 [\#16013](https://github.com/decidim/decidim/pull/16013)
+- **decidim-admin**, **decidim-core**, **decidim-proposals**: Backport 'Attachment not persisting on error.' to v0.30 [\#16018](https://github.com/decidim/decidim/pull/16018)
+- **decidim-core**, **decidim-system**: Backport 'Fix semantic on flash messages' to v0.30 [\#16033](https://github.com/decidim/decidim/pull/16033)
+- **decidim-assemblies**, **decidim-core**, **decidim-participatory processes**: Backport 'Show a warning message when the space images URL have errors' to v0.30 [\#16071](https://github.com/decidim/decidim/pull/16071)
+- **decidim-core**, **decidim-system**: Backport 'Fix CSRF error on login pages' to v0.30 [\#16097](https://github.com/decidim/decidim/pull/16097)
+- **decidim-admin**, **decidim-participatory processes**: Backport 'Admin moderation unable to undo reported users' to v0.30 [\#16075](https://github.com/decidim/decidim/pull/16075)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Show a warning message when the attachments URL are 404' to v0.30 [\#16113](https://github.com/decidim/decidim/pull/16113)
+- **decidim-conferences**, **decidim-core**: Backport 'Fix conference JumpTo button' to v0.30 [\#16116](https://github.com/decidim/decidim/pull/16116)
+- **decidim-proposals**: Backport 'Fix proposal vote button in show page' to v0.30 [\#16117](https://github.com/decidim/decidim/pull/16117)
+- **decidim-participatory processes**: Backport 'Make the process groups admin navigation consistent with others spaces' to v0.30 [\#16114](https://github.com/decidim/decidim/pull/16114)
+- **decidim-meetings**, **decidim-proposals**: Backport 'Do not show withdrawn links if there aren't any' to v0.30 [\#16115](https://github.com/decidim/decidim/pull/16115)
+- **decidim-initiatives**: Backport 'Fix flaky spec in initiatives' filters' to v0.30 [\#16155](https://github.com/decidim/decidim/pull/16155)
+- **decidim-core**: Backport 'Fix flaky spec with lockable on authentication' to v0.30 [\#16153](https://github.com/decidim/decidim/pull/16153)
+- **decidim-accountability**, **decidim-core**: Backport 'Fix fail to upload file in survey when not logged in' to v0.30 [\#16150](https://github.com/decidim/decidim/pull/16150)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Add validation for the import space with empty JSON' to v0.30 [\#16164](https://github.com/decidim/decidim/pull/16164)
+- **decidim-accountability**, **decidim-blogs**, **decidim-budgets**, **decidim-collaborative_texts**, **decidim-debates**, **decidim-dev**, **decidim-elections**, **decidim-meetings**, **decidim-pages**, **decidim-proposals**, **decidim-surveys**: Backport 'Fix serialization error in resource on component publication' to v0.30 [\#16169](https://github.com/decidim/decidim/pull/16169)
+- **decidim-core**: Backport 'Fix showing announcement content block with only the default locale' to v0.30 [\#16180](https://github.com/decidim/decidim/pull/16180)
+- **decidim-comments**: Backport 'Fix CommentSerializer NoMethodError when author is deleted' to v0.30 [\#16186](https://github.com/decidim/decidim/pull/16186)
+- **decidim-core**: Backport 'Fix to allow locale-specific `user_name` placement in mobile greeting' to v0.30 [\#16183](https://github.com/decidim/decidim/pull/16183)
+- **decidim-admin**, **decidim-core**: Backport 'Fix allow admins deleting attachments with links' to v0.30 [\#16171](https://github.com/decidim/decidim/pull/16171)
+- **decidim-surveys**: Backport 'Fix survey export exporting wrong survey ' to v0.30 [\#16177](https://github.com/decidim/decidim/pull/16177)
+- **decidim-admin**, **decidim-debates**, **decidim-elections**, **decidim-initiatives**, **decidim-proposals**: Backport 'Fix access to components in initiatives' to v0.30 [\#16176](https://github.com/decidim/decidim/pull/16176)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-core**, **decidim-initiatives**, **decidim-participatory processes**: Backport 'Fix export for private spaces' to v0.30 [\#16165](https://github.com/decidim/decidim/pull/16165)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-core**, **decidim-initiatives**, **decidim-participatory processes**: Backport 'Fix component menu hidden feature for all the spaces' to v0.30 [\#16167](https://github.com/decidim/decidim/pull/16167)
+- **decidim-collaborative_texts**, **decidim-elections**: Remove wrong specs from collaborative texts and elections modules  [\#16209](https://github.com/decidim/decidim/pull/16209)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- **decidim-initiatives**: Backport 'Fix flaky spec in initiatives' filters' to v0.30 [\#16155](https://github.com/decidim/decidim/pull/16155)
+- **decidim-collaborative_texts**, **decidim-elections**: Remove wrong specs from collaborative texts and elections modules  [\#16209](https://github.com/decidim/decidim/pull/16209)
+
 ## [0.30.5](https://github.com/decidim/decidim/tree/0.30.5)
 
 ### Added

@@ -306,7 +306,16 @@ shared_examples "manage process components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
+      before do
+        create(:content_block, organization:, scope_name: :participatory_process_homepage, manifest_name: :main_data, scoped_resource_id: participatory_process.id)
+      end
+
       it "hides the component from the menu" do
+        visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
+        expect(page).to have_content decidim_escape_translated(component.name)
+
+        visit decidim_admin_participatory_processes.components_path(participatory_process)
+
         within ".component-#{component.id}" do
           click_on "Hide"
         end
@@ -314,6 +323,9 @@ shared_examples "manage process components" do
         within ".component-#{component.id}" do
           expect(page).to have_css(".action-icon--menu-hidden")
         end
+
+        visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
+        expect(page).to have_no_content decidim_escape_translated(component.name)
       end
     end
 

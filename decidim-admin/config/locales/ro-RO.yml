@@ -182,8 +182,7 @@ ro:
         attachment_collection:
           new: Foldere pentru atașamente
         browse: Caută
-        export: Exportă tot
-        export-selection: Exportă selecția
+        export: Exportaţi tot
         import: Importă
         manage: Gestionează
         newsletter:

@@ -54,7 +54,7 @@ ca-IT:
         file: Arxiu
       proposals_import:
         import_proposals: Importar propostes
-        keep_answers: Manté l'estat i les respostes
+        keep_answers: Manté els estats i les respostes
         keep_authors: Mantenir l'autoria original
       valuation_assignment:
         admin_log:
@@ -698,7 +698,7 @@ ca-IT:
             create: Importa propostes
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
             select_component: Escull un component
-            select_states: Consulta els estats de les propostes a importar
+            select_states: Importa només les propostes amb aquests estats. Si no s'ha seleccionat cap estat, s'importaran totes les propostes.
             title: Importar projectes des d'un altre component
         proposals_merges:
           create:

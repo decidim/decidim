@@ -54,7 +54,7 @@ es:
         file: Archivo
       proposals_import:
         import_proposals: Importar propuestas
-        keep_answers: Mantener estado y respuestas
+        keep_answers: Mantener estados y respuestas
         keep_authors: Mantener autoría original
       valuation_assignment:
         admin_log:
@@ -698,7 +698,7 @@ es:
             create: Importar propuestas
             no_components: No hay otros componentes de propuestas en este espacio participativo desde donde importarlas.
             select_component: Selecciona un componente
-            select_states: Comprueba los estados de las propuestas a importar
+            select_states: Importar solo propuestas con estos estados. Si no se selecciona ningún estado, todas las propuestas serán importadas.
             title: Importar propuestas desde otro componente
         proposals_merges:
           create:

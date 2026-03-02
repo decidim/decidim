@@ -5,4 +5,4 @@ pt-BR:
       errors:
         introspection_disabled: A inspeção está desabilitada para esta requisição
         recursion_limit_exceeded_error: Muitas recursões detectadas na consulta
-        too_many_aliases_error: Foram utilizados muitos aliases. Você usou %{size} aliases, mas são permitidos apenas %{limit}.
+        too_many_aliases_error: Foram utilizados muitos codinomes. Você usou %{size} codinomes, mas são permitidos apenas %{limit}.

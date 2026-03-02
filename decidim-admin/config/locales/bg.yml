@@ -185,7 +185,6 @@ bg:
           new: Нова прикачена папка
         browse: Разглеждане
         export: Експорт на всички
-        export-selection: Експорт на селекцията
         import: Импортиране
         manage: Управление
         newsletter:

@@ -54,7 +54,7 @@ eu:
         file: Fitxategia
       proposals_import:
         import_proposals: Proposamenak inportatu
-        keep_answers: Mantendu egoera eta erantzunak
+        keep_answers: Egoera-orriak eta erantzunak mantendu
         keep_authors: Mantendu jatorrizko egileak
       valuation_assignment:
         admin_log:
@@ -340,7 +340,7 @@ eu:
         endorsing_enabled:
           email_intro: 'Proposamenak egin ditzakezu %{participatory_space_title} parte hartze espazioan! Hasi orri honetan parte hartzen:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko estekan.
-          email_subject: Onarpen proposamenak %{participatory_space_title} espazioan hasi dira
+          email_subject: '%{participatory_space_title} espazioko proposamenei atxikimenduak adierazteko aukera dago'
           notification_title: 'Orain has zaitezke <a href="%{resource_path}"></a> proposamenak onartzen hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         proposal_mentioned:
           email_intro: Zure proposamen hau "%{mentioned_proposal_title}" aipatu da <a href="%{resource_url}"> iruzkinen</a> espazioan.
@@ -355,7 +355,7 @@ eu:
         proposal_published_for_space:
           email_intro: '"%{resource_title}" proposamena jarraizten ari zaren ondorengo "%{participatory_space_title}" espazioan erantsi zaizu.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Jarraitzeari uzti ahal diozu aurreko estekan.
-          email_subject: '"%{resource_title}" proposamen berria hona %{participatory_space_title} gehitu da'
+          email_subject: '%{participatory_space_title} espazioan "%{resource_title}" proposamen berria egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-era gehitu du %{author} egileak.
           notification_title_official: 'Proposamen ofiziala hona gehitu da: <a href="%{resource_path}">%{resource_title}</a>.'
         proposal_state_changed:
@@ -698,7 +698,7 @@ eu:
             create: Inportatu proposamenak
             no_components: Espazio honetan ez dago beste proposamenik proposamenak inportatzeko.
             select_component: Mesedez, hautatu osagaia
-            select_states: Egiaztatu inportatzeko proposamenen egoera
+            select_states: Inportatu proposamenak egoera horiekin soilik. Egoerarik hautatzen ez bada, proposamen guztiak inportatuko dira.
             title: Inportatu proposamenak beste osagai batetik
         proposals_merges:
           create:

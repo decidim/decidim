@@ -206,6 +206,7 @@ cs:
         date: Vyberte datum pro %{label}
         time: Vyberte čas pro %{label}
       picker:
+        date_button: Otevřít výběr kalendáře pro %{label}
         time_button: Otevřít výběr času pro %{label}
   decidim:
     accessibility:
@@ -231,6 +232,7 @@ cs:
         success: Účet byl úspěšně smazán.
       download_your_data_export:
         export_expired: Export vypršel. Zkuste vytvořit nový export.
+        export_not_found: Export, ke kterému jste přistupovali, neexistuje, nebo nemáte přístup ke stažení
         file_no_exists: Soubor neexistuje
         notice: Probíhá stahování vašich dat. Po dokončení obdržíte e-mail.
       email_change:
@@ -800,6 +802,7 @@ cs:
           created_at: Datum, kdy byla konverzace vytvořena
           id: Jedinečný identifikátor pro tuto konverzaci
           messages: Zprávy této konverzace
+          updated_at: Datum, kdy byla tato konverzace naposledy aktualizována
         notifications:
           created_at: Datum a čas, kdy bylo oznámení vytvořeno
           event_class: Třída události, která spustila oznámení
@@ -830,6 +833,7 @@ cs:
           phone: Telefonní číslo této skupiny uživatelů
           verified_at: Datum a čas, kdy byla tato skupina uživatelů ověřena
         users:
+          about: Popis profilu tohoto účastníka
           accepted_tos_version: Datum, kdy uživatel přijal podmínky poskytování služeb této platformy
           admin: Zda je tento uživatel administrátorem
           confirmation_sent_at: Datum a čas, kdy bylo potvrzení odesláno
@@ -847,12 +851,16 @@ cs:
           invitation_sent_at: Datum a čas, kdy byla pozvánka odeslána
           invitations_count: Počet pozvánek zaslaných tomuto uživateli
           invited_by: Uživatel, který pozval tohoto uživatele
+          last_sign_in_at: Datum a čas předchozího přihlášení
+          last_sign_in_ip: IP adresa předchozího přihlášení
           locale: Lokalizace (jazyk), kterou tento uživatel vybral
           managed: Zda je tento uživatel spravován jiným uživatelem
           name: Jméno tohoto uživatele
+          newsletter_notifications_at: Datum a čas, kdy se tento účastník přihlásil k odběru zpravodaje
           nickname: Přezdívka tohoto uživatele
           notification_settings: Nastavení oznámení, které tento uživatel vybral
           notifications_sending_frequency: Četnost oznámení, která tento uživatel obdrží
+          officialized_as: Název funkce (radní, starosta atd.)
           officialized_at: Datum a čas, kdy byl tento uživatel oficializován
           organization: Organizace, do které tento uživatel patří,
           password_updated_at: Datum poslední změny hesla
@@ -901,6 +909,7 @@ cs:
       files:
         file_cannot_be_processed: Soubor nelze zpracovat
         file_resolution_too_large: Rozlišení souboru je příliš velké
+        not_inside_organization: Soubor není připojen k žádné organizaci.
       internal_server_error:
         copied: Text zkopírován!
         copy_error_message_clarification: Kopírovat chybovou zprávu do schránky
@@ -1140,6 +1149,7 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
+          message_2: Pokud je to obrázek, ideální je obrázek na šířku, který nemá žádný text. Platforma ořízne obrázek.
         icon:
           explanation: 'Pokyny pro ikonu:'
           message_1: Musí to být čtvercový obrázek.
@@ -1148,6 +1158,9 @@ cs:
           explanation: 'Pokyny pro obrázek:'
           message_1: Nejlépe obrázek na šířku bez textu.
           message_2: Software tento obrázek ořízne.
+        import_file:
+          explanation: 'Pokyny pro import souboru:'
+          message_1: Má to být JSON dokument stažený prostřednictvím exportní funce.
       file_validation:
         allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
         max_file_dimension: 'Maximální rozměry souboru: %{resolution} pixelů'
@@ -1989,6 +2002,7 @@ cs:
       send_paranoid_instructions: Pokud vaše e-mailová adresa existuje v naší databázi, během několika obdržíte e-mail s instrukcemi, jak potvrdit vaši e-mailovou adresu.
     failure:
       already_authenticated: Jste již přihlášen.
+      csrf_token: Váš požadavek se nepodařilo ověřit. Opakujte akci.
       inactive: Váš účet zatím nebyl aktivován.
       invalid: Neplatný %{authentication_keys} nebo heslo.
       invited: Máte pozvání, přijměte jej k dokončení tvorby účtu.
@@ -2040,6 +2054,8 @@ cs:
         subject: Byli jste pozváni ke spravování organizace %{organization}
       invite_collaborator:
         subject: Byli jste pozváni ke spolupráci na organizaci %{organization}
+      invite_private_user:
+        subject: Byli jste pozváni do soukromého participačního procesu na %{organization}
       organization_admin_invitation_instructions:
         subject: Byli jste pozváni ke spravování organizace %{organization}
       password_change:
@@ -2325,6 +2341,8 @@ cs:
         expire_time_html: Platnost vaší relace vyprší za <b><span class="minutes">%{minutes}</span></b>.
       language_chooser:
         choose_language: Vyberte jazyk
+      navigation:
+        aria_label: 'Navigation menu: %{title}'
       notifications_dashboard:
         mark_all_as_read: Označit vše jako přečtené
         mark_as_read: Označit jako přečtené

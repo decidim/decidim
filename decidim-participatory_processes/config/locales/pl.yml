@@ -112,9 +112,6 @@ pl:
           label: Według grupy procesów
       menu:
         participatory_process_groups: Grupy procesu
-        participatory_process_groups_submenu:
-          info: Informacje
-          landing_page: Strona startowa
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Foldery

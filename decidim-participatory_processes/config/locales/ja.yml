@@ -108,8 +108,8 @@ ja:
       menu:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_groups_submenu:
-          info: 情報
-          landing_page: ランディングページ
+          info: このプロセスグループについて
+          landing_page: ランディングページのレイアウト
         participatory_processes: 参加型プロセス
         participatory_processes_submenu:
           attachment_collections: フォルダ
@@ -422,9 +422,13 @@ ja:
             all: すべて
             max_results: 表示する要素の最大量
             selection_criteria: 選択条件
+        imports:
+          attachment_error: 添付ファイル "%{title}" をインポートできませんでした（%{error}）。
+          hero_image_error: ヒーロー画像をインポートできませんでした（%{error}）。
         new_import:
           accepted_types:
             json: JSON
+          help_html: このインポート機能を使用すると、エクスポートされた JSON ファイルから新しい参加型プロセスを作成できます。別の組織からプロセスをエクスポートするか、または同じ組織内のプロセスをエクスポートすることが可能です。インポートされるプロセスには、その設定、コンポーネント、および添付ファイルがすべて含まれます（選択されている場合）。
         participatory_process_copies:
           form:
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'

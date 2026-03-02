@@ -192,7 +192,6 @@ tr:
           </ul>
           Fikrinizi değiştirirseniz daha sonra yeniden yükleyebilirsiniz.
         export: Tümünü dışa aktar
-        export-selection: Seçimi dışa aktar
         import: İçe aktar
         manage: yönetme
         newsletter:
