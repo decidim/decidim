@@ -61,7 +61,7 @@ module Decidim
         when "lowest_cost"
           budgets.reorder(total_budget: :asc, weight: :asc)
         when "random"
-          budgets.reorder(nil).order_randomly(random_seed)
+          budgets.order_randomly(random_seed)
         else
           budgets
         end
