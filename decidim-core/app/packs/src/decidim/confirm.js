@@ -162,7 +162,9 @@ export const initializeConfirm = () => {
     return handleDocumentEvent(ev, [
       Rails.linkClickSelector,
       Rails.buttonClickSelector,
-      Rails.formInputClickSelector
+      Rails.formInputClickSelector,
+      'button[data-confirm][type="button"]',
+      "form button[data-confirm]"
     ]);
   });
   document.addEventListener("change", (ev) => {
@@ -179,6 +181,11 @@ export const initializeConfirm = () => {
   document.addEventListener("DOMContentLoaded", function() {
     $(Rails.formInputClickSelector).on("click.confirm", (ev) => {
       handleConfirm(ev, getMatchingEventTarget(ev, Rails.formInputClickSelector));
+    });
+
+    // Handle button[type="button"] with data-confirm inside forms
+    $('button[data-confirm][type="button"]').on("click.confirm", (ev) => {
+      handleConfirm(ev, ev.currentTarget);
     });
   });
 };
