@@ -420,7 +420,7 @@ header {
       @apply block lg:hidden w-full z-20;
 
       &__dropdown-trigger {
-        @apply flex items-center justify-between text-black;
+        @apply flex items-center justify-between text-white;
 
         svg {
           @apply w-6 h-6 fill-current;
