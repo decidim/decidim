@@ -4,7 +4,7 @@
   &__item {
     a,
     &-disabled {
-      @apply gap-x-2 p-2 flex items-center text-sm truncate border border-gray-5 rounded;
+      @apply gap-x-2 p-2 flex items-center text-sm border border-gray-5 rounded;
 
       > svg {
         @apply w-4 h-4 flex-none text-gray fill-current;
@@ -25,7 +25,11 @@
     }
 
     & .component-counter {
-      @apply ml-auto inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full bg-background-4 border-secondary;
+      @apply flex-shrink-0 ml-auto inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full bg-background-4 border-secondary;
+    }
+
+    a > span:first-child {
+      @apply min-w-0 whitespace-normal break-words;
     }
 
     ul {

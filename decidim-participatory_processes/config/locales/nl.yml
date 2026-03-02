@@ -83,8 +83,6 @@ nl:
         unpublish: Publicatie ongedaan maken
       menu:
         participatory_process_groups: Inspraakproces groepen
-        participatory_process_groups_submenu:
-          info: Info
         participatory_processes: Inspraakprocessen
         participatory_processes_submenu:
           attachment_collections: Mappen

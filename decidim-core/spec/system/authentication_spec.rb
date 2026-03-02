@@ -610,8 +610,9 @@ describe "Authentication" do
         end
 
         expect(page).to have_content("10 characters minimum")
-        expect(page).to have_content("must be different from your nickname and your email")
+        expect(page).to have_content("must contain at least 5 different characters")
         expect(page).to have_content("must not be too common")
+        expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
         expect(page).to have_current_path "/users/password"
       end
 

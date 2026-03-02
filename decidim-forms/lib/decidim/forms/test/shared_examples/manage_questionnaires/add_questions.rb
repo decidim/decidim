@@ -412,9 +412,55 @@ shared_examples_for "add questions" do
 
       select "Single option", from: "Type"
       expect(page).to have_css("input[type=checkbox][id$=_free_text]")
+
+      select "Sorting", from: "Type"
+      expect(page).to have_no_css("input[type=checkbox][id$=_free_text]", visible: :visible)
     end
 
     it_behaves_like "updating the max choices selector according to the configured options"
+  end
+
+  context "when adding a sorting question" do
+    before do
+      click_on "Add question"
+
+      expand_all_questions
+
+      within ".questionnaire-question" do
+        fill_in find_nested_form_field_locator("body_en"), with: "This is a sorting question"
+        select "Single option", from: "Type"
+      end
+    end
+
+    it "does not display the free text option when switching to sorting type" do
+      within ".questionnaire-question" do
+        expect(page).to have_css("input[type=checkbox][id$=_free_text]")
+
+        select "Sorting", from: "Type"
+
+        expect(page).to have_no_css("input[type=checkbox][id$=_free_text]", visible: :visible)
+      end
+    end
+
+    it "shows the free text option when switching back from sorting to single option" do
+      within ".questionnaire-question" do
+        select "Sorting", from: "Type"
+        expect(page).to have_no_css("input[type=checkbox][id$=_free_text]", visible: :visible)
+
+        select "Single option", from: "Type"
+        expect(page).to have_css("input[type=checkbox][id$=_free_text]")
+      end
+    end
+
+    it "hides free text option when switching from multiple option to sorting" do
+      within ".questionnaire-question" do
+        select "Multiple option", from: "Type"
+        expect(page).to have_css("input[type=checkbox][id$=_free_text]")
+
+        select "Sorting", from: "Type"
+        expect(page).to have_no_css("input[type=checkbox][id$=_free_text]", visible: :visible)
+      end
+    end
   end
 
   context "when adding a matrix question" do

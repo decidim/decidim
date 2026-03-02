@@ -53,7 +53,7 @@ es-PY:
         file: Archivo
       proposals_import:
         import_proposals: Propuestas de importación
-        keep_answers: Mantener estado y respuestas
+        keep_answers: Mantener estados y respuestas
         keep_authors: Mantener autores originales
     errors:
       models:
@@ -692,7 +692,7 @@ es-PY:
             create: Importar propuestas
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
-            select_states: Verifique los estados de las propuestas para importar
+            select_states: Importar solo propuestas con estos estados. Si no se selecciona ningún estado, todas las propuestas serán importadas.
             title: Importar propuestas desde otro componente
         proposals_merges:
           create:

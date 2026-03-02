@@ -3,6 +3,6 @@
 # This holds the decidim version and the faker version it uses.
 module Decidim
   def self.version
-    "0.31.1"
+    "0.31.2"
   end
 end

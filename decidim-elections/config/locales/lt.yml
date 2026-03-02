@@ -1,5 +1,12 @@
 ---
 lt:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Rinkimai
+        few: Rinkimai
+        many: Rinkimai
+        other: Rinkimai
   decidim:
     admin:
       menu:

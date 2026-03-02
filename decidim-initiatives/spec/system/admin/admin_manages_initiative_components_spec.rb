@@ -211,6 +211,11 @@ describe "Admin manages initiative components" do
       let(:published_at) { Time.current }
 
       it "hides the component from the menu" do
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+        expect(page).to have_content decidim_escape_translated(component.name)
+
+        visit decidim_admin_initiatives.components_path(initiative)
+
         within ".component-#{component.id}" do
           find("button[data-controller='dropdown']").click
           click_on "Hide"
@@ -220,6 +225,9 @@ describe "Admin manages initiative components" do
           find("button[data-controller='dropdown']").click
           expect(page).to have_css("a", text: "Unpublish")
         end
+
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+        expect(page).to have_no_content decidim_escape_translated(component.name)
       end
     end
 
@@ -260,6 +268,24 @@ describe "Admin manages initiative components" do
 
       expect(page.text.index("Component 2")).to be < page.text.index("Component 1")
       expect(page.text.index("Component 2")).to be < page.text.index("Component 3")
+    end
+  end
+
+  describe "manages proposals component" do
+    let!(:proposals_component) do
+      create(:component, :published, manifest_name: :proposals, participatory_space: initiative)
+    end
+    let!(:proposal1) { create(:proposal, :published, component: proposals_component) }
+    let!(:proposal2) { create(:proposal, :published, component: proposals_component) }
+
+    before do
+      visit Decidim::EngineRouter.admin_proxy(proposals_component).root_path
+    end
+
+    it "can access proposals from admin" do
+      expect(page).to have_content("Proposals")
+      expect(page).to have_content(translated(proposal1.title))
+      expect(page).to have_content(translated(proposal2.title))
     end
   end
 

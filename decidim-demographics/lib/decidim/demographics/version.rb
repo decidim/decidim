@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-demographics version.
   module Demographics
     def self.version
-      "0.31.1"
+      "0.31.2"
     end
   end
 end

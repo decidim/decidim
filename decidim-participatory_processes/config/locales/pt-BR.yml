@@ -66,6 +66,8 @@ pt-BR:
           attributes:
             document:
               allowed_file_content_types: 'Tipo de documento inválido. Apenas arquivos com as seguintes extensões são permitidos: %{types}'
+              empty: O documento está vazio
+              invalid_json: O documento não é um JSON válido
     models:
       decidim/participatory_process_step_activated_event: Passo ativado
       decidim/participatory_process_step_changed_event: Passo alterado
@@ -106,7 +108,6 @@ pt-BR:
       menu:
         participatory_process_groups: Grupos de processo
         participatory_process_groups_submenu:
-          info: Informações
           landing_page: Layout página principal
         participatory_processes: Processos
         participatory_processes_submenu:

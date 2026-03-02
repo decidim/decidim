@@ -53,7 +53,6 @@ pt-BR:
         file: Arquivo
       proposals_import:
         import_proposals: Importar propostas
-        keep_answers: Manter o estado e as respostas
         keep_authors: Mantenha os autores originais
     errors:
       models:
@@ -146,6 +145,8 @@ pt-BR:
             values:
               state_not_published: Não respondido
               state_published: Respondido
+        search_placeholder:
+          id_string_or_title_cont: Buscar %{collection} por ID ou título
       tooltips:
         cannot_edit_proposal_info: Não é possível editar esta proposta, pois ela foi criada por um participante ou já recebeu votos
         deleted_proposal_states_info: Não é possível excluir o estado desta proposta porque há propostas atribuídas a ela
@@ -691,7 +692,6 @@ pt-BR:
             create: Propostas de importação
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas.
             select_component: Selecione um componente
-            select_states: Verifique os estados das propostas para importar
             title: Importar propostas de outro componente
         proposals_merges:
           create:

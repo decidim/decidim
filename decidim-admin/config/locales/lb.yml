@@ -141,7 +141,7 @@ lb:
         browse: Durchsuchen
         configure: Konfigurieren
         export: Exportéieren
-        export-selection: Export Auswiel
+        export_all: Alles exportéieren
         import: Importieren
         newsletter:
           new: Neuer Newsletter

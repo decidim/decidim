@@ -45,7 +45,7 @@ sr:
         official_img_footer: Zvanično podnožje logoa
         official_url: Zvaničan link organizacije
         omnipresent_banner_short_description: Kratak opis
-        omnipresent_banner_title: Naslov
+        omnipresent_banner_title: Naziv
         omnipresent_banner_url: Adrеsa
         primary_color: Primarni
         reference_prefix: Prefiks reference
@@ -81,11 +81,11 @@ sr:
         organization: Organizacija
         show_in_footer: Prikaži u podnožju
         slug: Zadnji deo URL-a
-        title: Naslov
+        title: Naziv
       static_page_topic:
         description: Opis
         show_in_footer: Prikaži u podnožju
-        title: Naslov
+        title: Naziv
       user_group_csv_verification:
         file: Fajl
     errors:
@@ -99,7 +99,7 @@ sr:
       decidim/static_page:
         content: Sadržaj
         slug: Zadnji deo URL-a
-        title: Naslov
+        title: Naziv
       doorkeeper/application:
         authorize_url: Autorizuj URL
         client_id: Identitet klijenta
@@ -114,6 +114,7 @@ sr:
         add: Dodaj
         browse: Prеglеdaj
         export: Izvezi
+        export_selection: Izvezi izabrano
         per_page: Po stranici
       area_types:
         create:
@@ -313,7 +314,7 @@ sr:
             collection: Fascikla
             content_type: Tip
             file_size: Veličina
-            title: Naslov
+            title: Naziv
           name: Prilog
         attachment_collection:
           name: Fascikla
@@ -348,7 +349,7 @@ sr:
         static_page:
           fields:
             created_at: Kreirano na
-            title: Naslov
+            title: Naziv
         user:
           fields:
             created_at: Datum kreiranja

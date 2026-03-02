@@ -83,8 +83,6 @@ pt:
         unpublish: Remover publicação
       menu:
         participatory_process_groups: Grupos do processo
-        participatory_process_groups_submenu:
-          info: Informação
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas

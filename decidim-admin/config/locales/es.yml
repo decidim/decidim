@@ -190,7 +190,8 @@ es:
           </ul>
           Si cambias de opinión, puedes restaurarlo más tarde.
         export: Exportar
-        export-selection: Exportar selección
+        export_all: Exportar todo
+        export_selection: Exportar selección
         import: Importar
         menu_hidden: Ocultar del menú
         moderate: Gestionar las moderaciones
