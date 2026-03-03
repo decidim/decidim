@@ -30,11 +30,11 @@ module Decidim::Meetings
       end
 
       it "does not show wide calendar class" do
-        expect(subject).not_to have_css(".card__calendar--wide")
+        expect(subject).to have_no_css(".card__calendar--wide")
       end
 
       it "does not show separator" do
-        expect(subject).not_to have_css(".meeting__calendar-separator")
+        expect(subject).to have_no_css(".meeting__calendar-separator")
       end
     end
 
@@ -102,7 +102,7 @@ module Decidim::Meetings
       end
 
       it "does not show separator" do
-        expect(subject).not_to have_css(".meeting__calendar-separator")
+        expect(subject).to have_no_css(".meeting__calendar-separator")
       end
     end
 
