@@ -351,7 +351,7 @@ en:
     open_data:
       help:
         participatory_processes:
-          access_mode: Access mode. If the process is open, restricted or transparent.
+          access_mode: Access mode. Wheter the process is open, restricted or transparent.
           area: The area where the process is taking place
           component_settings: The component settings of the process
           created_at: The date this space was created
