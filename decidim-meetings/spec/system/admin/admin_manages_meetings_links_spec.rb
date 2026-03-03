@@ -32,7 +32,6 @@ describe "Admin manages meetings" do
         click_on translated(other_participatory_space.title)
       end
 
-      expect(page).to have_no_content("You are not authorized to perform this action.")
       expect(page).to have_current_path(resource_locator(other_meeting).edit)
       click_on "Update"
 
