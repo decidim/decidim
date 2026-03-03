@@ -2,7 +2,7 @@
   <span class="card__calendar-month">
     <p><%= l(meeting.start_time, format: same_month? ? "%B" : "%b") %></p>
     <% unless same_month? %>
-      <p class="meeting__calendar-separator">-</p>
+      <p class="card__calendar-separator">-</p>
       <p><%= l(meeting.end_time, format: "%b") %></p>
     <% end %>
   </span>
