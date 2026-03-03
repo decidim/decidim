@@ -111,8 +111,18 @@ module Decidim
             let(:default_sort_order) { "most_liked" }
             let(:likes_enabled) { true }
 
-            it "default_order is most_liked" do
-              expect(controller.send(:default_order)).to eq(default_sort_order)
+            context "when there are no proposals with likes" do
+              it "defaults to random" do
+                expect(controller.send(:default_order)).to eq("random")
+              end
+            end
+
+            context "when there are proposals with likes" do
+              let!(:proposal_with_likes) { create(:proposal, component:, likes_count: 5) }
+
+              it "default_order is most_liked" do
+                expect(controller.send(:default_order)).to eq(default_sort_order)
+              end
             end
           end
 
@@ -195,6 +205,7 @@ module Decidim
 
         context "with likes enabled" do
           let(:likes_enabled) { true }
+          let!(:proposal_with_likes) { create(:proposal, component:, likes_count: 5) }
 
           it "shows most_liked option to sort" do
             expect(view.available_orders).to include("most_liked")
@@ -206,6 +217,28 @@ module Decidim
 
           it "does not show most_liked option to sort" do
             expect(view.available_orders).not_to include("most_liked")
+          end
+        end
+
+        context "with or without likes and most_liked availability" do
+          let!(:proposal_without_likes) { create(:proposal, component:) }
+          let!(:proposal_with_likes) { create(:proposal, component:, likes_count: 5) }
+          let(:likes_enabled) { true }
+
+          context "when there are no proposals with likes" do
+            before do
+              proposal_with_likes.update!(likes_count: 0)
+            end
+
+            it "does not show most_liked option to sort" do
+              expect(view.available_orders).not_to include("most_liked")
+            end
+          end
+
+          context "when there are proposals with likes" do
+            it "shows most_liked option to sort" do
+              expect(view.available_orders).to include("most_liked")
+            end
           end
         end
 
@@ -359,6 +392,59 @@ module Decidim
 
             it "returns false" do
               expect(controller.send(:most_commented_order_available?)).to be false
+            end
+          end
+        end
+      end
+
+      describe "#most_liked_order_available?" do
+        let!(:proposal_without_likes) { create(:proposal, component:) }
+        let!(:proposal_with_likes) { create(:proposal, component:, likes_count: 5) }
+
+        context "when likes are disabled" do
+          let(:likes_enabled) { false }
+
+          it "returns false" do
+            expect(controller.send(:most_liked_order_available?)).to be false
+          end
+        end
+
+        context "when likes are enabled" do
+          let(:likes_enabled) { true }
+
+          context "when there are proposals with only zero likes" do
+            before do
+              proposal_with_likes.update!(likes_count: 0)
+            end
+
+            it "returns false" do
+              expect(controller.send(:most_liked_order_available?)).to be false
+            end
+          end
+
+          context "when there are proposals with likes" do
+            it "returns true" do
+              expect(controller.send(:most_liked_order_available?)).to be true
+            end
+          end
+
+          context "when proposals are not published" do
+            before do
+              proposal_with_likes.update!(published_at: nil)
+            end
+
+            it "returns false" do
+              expect(controller.send(:most_liked_order_available?)).to be false
+            end
+          end
+
+          context "when proposals are hidden" do
+            before do
+              create(:moderation, reportable: proposal_with_likes, hidden_at: Time.current)
+            end
+
+            it "returns false" do
+              expect(controller.send(:most_liked_order_available?)).to be false
             end
           end
         end

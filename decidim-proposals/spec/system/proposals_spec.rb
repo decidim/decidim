@@ -681,6 +681,22 @@ describe "Proposals" do
       end
     end
 
+    context "when there are no proposals with likes" do
+      let!(:proposals) { create_list(:proposal, 3, component:) }
+
+      before do
+        visit_component
+      end
+
+      it "does not show 'most_liked' ordering option" do
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          expect(page).to have_no_content("Most liked")
+        end
+      end
+    end
+
     context "when searching proposals" do
       let!(:proposals) do
         [
