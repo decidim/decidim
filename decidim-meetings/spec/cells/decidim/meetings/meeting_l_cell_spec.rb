@@ -34,7 +34,7 @@ module Decidim::Meetings
       end
 
       it "does not show separator" do
-        expect(subject).to have_no_css(".meeting__calendar-separator")
+        expect(subject).to have_no_css(".card__calendar-separator")
       end
     end
 
@@ -50,7 +50,7 @@ module Decidim::Meetings
       end
 
       it "shows the separator" do
-        expect(subject).to have_css(".meeting__calendar-separator")
+        expect(subject).to have_css(".card__calendar-separator")
       end
 
       it "does not show month separator" do
@@ -82,7 +82,7 @@ module Decidim::Meetings
       end
 
       it "shows month separator" do
-        expect(subject).to have_css(".meeting__calendar-separator")
+        expect(subject).to have_css(".card__calendar-separator")
       end
 
       it "shows wide calendar class" do
