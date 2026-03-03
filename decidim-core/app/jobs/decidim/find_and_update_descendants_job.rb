@@ -9,7 +9,7 @@ module Decidim
       element_key = "#{element.class.name}##{element.id}"
       return if visited.include?(element_key)
 
-      visited = visited + [element_key]
+      visited += [element_key]
 
       descendants_collector = components_for(element)
       descendants_collector << element.comments.to_a if element.respond_to?(:comments)
