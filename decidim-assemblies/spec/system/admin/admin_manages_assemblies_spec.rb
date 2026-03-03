@@ -203,4 +203,61 @@ describe "Admin manages assemblies" do
       end
     end
   end
+
+  context "when navigating grandchild assemblies (3rd level)" do
+    let!(:grandmother_assembly) { create(:assembly, organization:) }
+    let!(:mother_assembly) { create(:assembly, organization:, parent: grandmother_assembly) }
+    let!(:child_assembly) { create(:assembly, :with_content_blocks, organization:, parent: mother_assembly) }
+    let(:assembly) { child_assembly }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim_admin_assemblies.assemblies_path
+    end
+
+    describe "listing grandchild assemblies" do
+      it "expands both parent and grandparent assemblies to show child" do
+        expect(page).to have_no_content(translated(mother_assembly.title))
+        expect(page).to have_no_content(translated(child_assembly.title))
+
+        # Opens grandmother (1st level)
+        within "tr", text: translated(grandmother_assembly.title) do
+          find("a[data-arrow-down]").click
+        end
+
+        expect(page).to have_content(translated(mother_assembly.title))
+        expect(page).to have_no_content(translated(child_assembly.title))
+
+        # Opens mother (2nd level)
+        within "tr", text: translated(mother_assembly.title) do
+          find("a[data-arrow-down]").click
+        end
+
+        expect(page).to have_content(translated(child_assembly.title))
+
+        # Opens actions dropdown in child
+        find("button[data-target='actions-assembly-#{child_assembly.id}']").click
+        expect(page).to have_content("Edit")
+        expect(page).to have_content("Share link")
+        expect(page).to have_content("Export")
+
+        # Collapse mother (2nd level)
+        within "tr", text: translated(mother_assembly.title) do
+          find("a[data-arrow-up]").click
+        end
+
+        expect(page).to have_no_content(translated(child_assembly.title))
+        expect(page).to have_content(translated(mother_assembly.title))
+
+        # Collapse grandmother (1st level)
+        within "tr", text: translated(grandmother_assembly.title) do
+          find("a[data-arrow-up]").click
+        end
+
+        expect(page).to have_no_content(translated(mother_assembly.title))
+        expect(page).to have_no_content(translated(child_assembly.title))
+      end
+    end
+  end
 end
