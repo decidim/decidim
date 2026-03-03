@@ -29,10 +29,6 @@ module Decidim::Meetings
         expect(subject).to have_css(".card__calendar-year", text: "2020")
       end
 
-      it "does not show wide calendar class" do
-        expect(subject).to have_no_css(".card__calendar--wide")
-      end
-
       it "does not show separator" do
         expect(subject).to have_no_css(".card__calendar-separator")
       end
@@ -55,10 +51,6 @@ module Decidim::Meetings
 
       it "does not show month separator" do
         expect(subject).to have_css(".card__calendar-month", text: "October")
-      end
-
-      it "shows wide calendar class" do
-        expect(subject).to have_css(".card__calendar--wide")
       end
     end
 
@@ -83,10 +75,6 @@ module Decidim::Meetings
 
       it "shows month separator" do
         expect(subject).to have_css(".card__calendar-separator")
-      end
-
-      it "shows wide calendar class" do
-        expect(subject).to have_css(".card__calendar--wide")
       end
     end
 

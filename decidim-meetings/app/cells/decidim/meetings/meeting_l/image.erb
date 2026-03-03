@@ -1,4 +1,4 @@
-<time class="card__calendar <%= "card__calendar--wide" unless same_day? && same_month? %>" datetime="<%= meeting.start_time.iso8601 %>">
+<time class="card__calendar" datetime="<%= meeting.start_time.iso8601 %>">
   <span class="card__calendar-month">
     <p><%= l(meeting.start_time, format: same_month? ? "%B" : "%b") %></p>
     <% unless same_month? %>
