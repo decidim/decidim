@@ -179,10 +179,16 @@ shared_context "when publishing and unpublishing the component" do
     end
 
     it "removes records from index" do
+      pp "182 - Expect positive, got: #{Decidim::SearchableResource.where(resource:).count}"
+      pp(enqueued_jobs.map { |job| job["job_class"] })
+
+      pp (!resource.class.try(:belong_to_component?) ||
+          (resource.component && resource.component.participatory_space.try(:visible?) && resource.component.published?)) &&
+          resource.resource_visible?
+
       perform_enqueued_jobs(only: jobs_to_run)
 
-      pp "171"
-      pp "Expect positive, got: #{Decidim::SearchableResource.where(resource:).count}"
+      pp "191 - Expect positive, got: #{Decidim::SearchableResource.where(resource:).count}"
       pp(enqueued_jobs.map { |job| job["job_class"] })
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
@@ -198,8 +204,7 @@ shared_context "when publishing and unpublishing the component" do
 
       perform_enqueued_jobs(only: jobs_to_run)
 
-      pp "186"
-      pp "Expect positive, got: #{Decidim::SearchableResource.where(resource:).count}"
+      pp "207 - Expect positive, got: #{Decidim::SearchableResource.where(resource:).count}"
       pp(enqueued_jobs.map { |job| job["job_class"] })
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
@@ -209,11 +214,9 @@ shared_context "when publishing and unpublishing the component" do
         click_on "Unpublish"
       end
 
-      sleep 1
       perform_enqueued_jobs(only: jobs_to_run)
 
-      pp "201"
-      pp "Expect zero, got: #{Decidim::SearchableResource.where(resource:).count}"
+      pp "220 - Expect zero, got: #{Decidim::SearchableResource.where(resource:).count}"
       pp(enqueued_jobs.map { |job| job["job_class"] })
 
       expect(page).to have_admin_callout("The component has been successfully unpublished")
