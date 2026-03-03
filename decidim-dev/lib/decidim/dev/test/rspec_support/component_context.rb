@@ -123,7 +123,17 @@ shared_context "when publishing and unpublishing the component" do
   let(:job_exceptions) do
     [
       Decidim::MachineTranslationResourceJob,
-      ActiveStorage::AnalyzeJob
+      ActiveStorage::AnalyzeJob,
+      Decidim::EmailNotificationGeneratorJob,
+      Decidim::EmailNotificationGeneratorJob
+    ]
+  end
+
+  let(:jobs_to_run) do
+    [
+      Decidim::FindAndUpdateDescendantsJob,
+      Decidim::UpdateSearchIndexesJob,
+      Decidim::RemoveSearchIndexesJob
     ]
   end
 
@@ -147,12 +157,11 @@ shared_context "when publishing and unpublishing the component" do
 
       expect(page).to have_admin_callout("The component has been successfully published")
 
-      perform_enqueued_jobs(except: job_exceptions)
+      perform_enqueued_jobs(only: jobs_to_run)
 
       pp "152"
       pp "Expect positive, got: #{Decidim::SearchableResource.where(resource:).count}"
-
-      pp(enqueued_jobs.reject { |job| job_exceptions.include?(job.job.class.name) })
+      pp(enqueued_jobs.map { |job| job["job_class"] })
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
       expect(component.reload).to be_published
@@ -170,11 +179,11 @@ shared_context "when publishing and unpublishing the component" do
     end
 
     it "removes records from index" do
-      perform_enqueued_jobs(except: job_exceptions)
+      perform_enqueued_jobs(only: jobs_to_run)
 
       pp "171"
       pp "Expect positive, got: #{Decidim::SearchableResource.where(resource:).count}"
-      pp(enqueued_jobs.reject { |job| job_exceptions.include?(job.job.class.name) })
+      pp(enqueued_jobs.map { |job| job["job_class"] })
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
@@ -187,11 +196,11 @@ shared_context "when publishing and unpublishing the component" do
         click_on "Hide from menu"
       end
 
-      perform_enqueued_jobs(except: job_exceptions)
+      perform_enqueued_jobs(only: jobs_to_run)
 
       pp "186"
       pp "Expect positive, got: #{Decidim::SearchableResource.where(resource:).count}"
-      pp(enqueued_jobs.reject { |job| job_exceptions.include?(job.job.class.name) })
+      pp(enqueued_jobs.map { |job| job["job_class"] })
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
@@ -200,10 +209,12 @@ shared_context "when publishing and unpublishing the component" do
         click_on "Unpublish"
       end
 
-      perform_enqueued_jobs(except: job_exceptions)
+      sleep 1
+      perform_enqueued_jobs(only: jobs_to_run)
+
       pp "201"
       pp "Expect zero, got: #{Decidim::SearchableResource.where(resource:).count}"
-      pp(enqueued_jobs.reject { |job| job_exceptions.include?(job.job.class.name) })
+      pp(enqueued_jobs.map { |job| job["job_class"] })
 
       expect(page).to have_admin_callout("The component has been successfully unpublished")
 
