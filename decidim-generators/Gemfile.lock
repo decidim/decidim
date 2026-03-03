@@ -100,7 +100,7 @@ PATH
       rails (~> 7.2.0, >= 7.2.3)
       rails-i18n (~> 7.0)
       ransack (~> 4.2.0)
-      redis (~> 4.1)
+      redis (>= 4.1, < 6.0)
       request_store (~> 1.7.0)
       rqrcode (~> 2.2.0)
       ruby-vips (~> 2.2)
@@ -726,7 +726,10 @@ GEM
       psych (>= 4.0.0)
       tsort
     redcarpet (3.6.1)
-    redis (4.8.1)
+    redis (5.4.1)
+      redis-client (>= 0.22.0)
+    redis-client (0.26.4)
+      connection_pool
     regexp_parser (2.11.3)
     reline (0.6.3)
       io-console (~> 0.5)
