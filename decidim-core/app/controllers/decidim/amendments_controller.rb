@@ -5,6 +5,7 @@ module Decidim
     include Decidim::ApplicationHelper
     include FormFactory
     include HasSpecificBreadcrumb
+
     helper Decidim::ResourceReferenceHelper
 
     before_action :authenticate_user!

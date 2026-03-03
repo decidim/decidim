@@ -164,7 +164,22 @@ fr-CA:
           census:
             new_import:
               submit: Déposer un fichier
+          census_records:
+            edit_record:
+              save: Sauvegarder
+            form:
+              email: Email
+            new_record:
+              save: Sauvegarder
           index:
+            add_new_record_button: Ajouter un nouvel enregistrement
+            authorized: Utilisateur autorisé
+            fields:
+              actions: Actions
+              email: Email
+              user_authorized: Utilisateur autorisé ?
+            import_csv: Importer un CSV
+            no_authorized: Utilisateur non autorisé
             title: Données de recensement actuelles
           instructions:
             body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
@@ -181,6 +196,8 @@ fr-CA:
           user_postal_codes:
             one: La participation est réservée aux participants avec le code postal %{postal_codes}, et votre code postal est %{user_postal_code}.
             other: 'La participation est réservée aux participants avec l''un des codes postaux suivants : %{postal_codes}. Votre code postal est %{user_postal_code}.'
+      errors:
+        no_emails: Le fichier doit contenir des emails
       id_documents:
         admin:
           config:

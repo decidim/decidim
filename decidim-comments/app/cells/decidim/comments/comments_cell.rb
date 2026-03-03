@@ -5,6 +5,7 @@ module Decidim
     # A cell to display a comments section for a commentable object.
     class CommentsCell < Decidim::ViewModel
       include UserRoleChecker
+
       delegate :user_signed_in?, to: :controller
 
       def render_comments

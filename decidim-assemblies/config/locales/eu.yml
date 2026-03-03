@@ -245,7 +245,6 @@ eu:
       admin:
         assemblies:
           form:
-            announcement_help: Hemen sartzen duzun testua batzarreko informazioaren azpian agertuko zaio parte-hartzaileari.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
@@ -268,6 +267,7 @@ eu:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         assembly_imports:
           form:
+            document_legend: Gehitu dokumentu bat
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         assembly_members:
           form:
@@ -277,9 +277,14 @@ eu:
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua
+        imports:
+          attachment_error: Ezin izan da "%{title}" eranskina inportatu (%{error}).
+          banner_image_error: Ezin izan da bannerraren irudia inportatu (%{error}).
+          hero_image_error: Ezin izan da heroiaren irudia inportatu (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Inportazio ezaugarri honek aukera ematen du JSON fitxategi esportatu batetik beste batzar bat sortzeko. Beste erakunde bateko edo erakunde bereko batzar bat esporta dezakezu. Inportatutako batzarrak barne hartuko ditu bere ezarpenak, osagaiak eta eranskinak (aukeratuz gero).
       assemblies:
         description:
           area_name: Arloa
@@ -383,7 +388,6 @@ eu:
     open_data:
       help:
         assemblies:
-          announcement: Informazioa iragarpenaz (deia)
           area: Batzarraren arloa
           assembly_type: Batzar mota
           closing_date: Zein datatan ixten den batzarra

@@ -168,7 +168,6 @@ sk:
           error: Došlo k chybe pri novom usporiadaní týchto krokov procesu participácie.
         update:
           error: Pri aktualizácii tohto kroku procesu participácie došlo k chybe.
-          success: Úspešný krok procesu bol úspešne aktualizovaný.
       participatory_process_user_roles:
         create:
           error: Pri pridávaní používateľa pre tento participačné proces došlo k chybe.
@@ -270,7 +269,6 @@ sk:
             document_legend: Pridať dokument
         participatory_processes:
           form:
-            announcement_help: Text, ktorý tu zadáte, sa užívateľovi zobrazí priamo pod informáciami o procese.
             duration: Čas trvania
             images: snímky
             metadata: Metadata

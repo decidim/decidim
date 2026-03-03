@@ -27,7 +27,6 @@ ca-IT:
       initiatives_type:
         area_enabled: Permet a les autores triar l'àrea de la seva iniciativa
         attachments_enabled: Habilitat arxius adjunts
-        banner_image: Imatge del bàner
         child_scope_threshold_enabled: Activar signatures per subàmbit
         collect_user_extra_fields: Recopilar les dades personals de la participant amb la signatura
         comments_enabled: Habilitar comentaris
@@ -550,6 +549,7 @@ ca-IT:
           recent: Més recents
           recently_published: Publicada més recentment
         pending_initiatives:
+          description: Aquestes iniciatives no són públiques encara. Si us plau, revisa-les i envieu-les a validació tècnica, si s'escau, per tal que aquestes puguin fer-se públiques.
           title: Esborranys i iniciatives pendents
         print:
           address: Adreça

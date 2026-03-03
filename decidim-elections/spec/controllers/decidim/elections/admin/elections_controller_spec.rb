@@ -196,7 +196,7 @@ module Decidim
 
             patch :toggle_census_check, params: { id: election.id, allow_census_check_before_start: true }, format: :json
 
-            expect(response).to have_http_status(:unprocessable_entity)
+            expect(response).to have_http_status(:unprocessable_content)
             expect(JSON.parse(response.body)).to include(
               "success" => false,
               "error" => I18n.t("elections.toggle_census_check.error", scope: "decidim.elections.admin")

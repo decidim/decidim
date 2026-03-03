@@ -8,6 +8,7 @@
 module Decidim
   class Command
     include ::Wisper::Publisher
+
     delegate :locale, to: :I18n
 
     def self.call(*, **, &)

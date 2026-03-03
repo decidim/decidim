@@ -196,7 +196,6 @@ el:
       admin:
         assemblies:
           form:
-            announcement_help: Το κείμενο που εισάγετε εδώ θα εμφανίζεται στο χρήστη ακριβώς κάτω από τις πληροφορίες συνέλευσης.
             duration: Διάρκεια
             duration_help: Εάν η διάρκεια αυτής της συνέλευσης είναι περιορισμένη, επιλέξτε την ημερομηνία λήξης. Διαφορετικά, θα εμφανίζεται ως απεριόριστη.
             images: Εικόνες
@@ -207,6 +206,9 @@ el:
             select_parent_assembly: Επιλέξτε «Γονική συνέλευση»
             social_handlers: Μέσα κοινωνικής δικτύωσης
             title: Γενικές πληροφορίες
+        assembly_imports:
+          form:
+            document_legend: Προσθήκη εγγράφου
         assembly_members:
           form:
             explanation: 'Οδηγίες για την εικόνα:'

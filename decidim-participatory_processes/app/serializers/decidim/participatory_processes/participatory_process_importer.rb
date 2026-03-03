@@ -106,27 +106,24 @@ module Decidim
             next
           end
 
-          begin
-            file_tmp = URI.parse(url).open
-          rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-            @warnings << I18n.t(
-              "decidim.participatory_processes.admin.imports.attachment_error",
-              title: attachment_title(file),
-              error: format_error(e)
-            )
-            next
-          end
-
           Decidim.traceability.perform_action!("create", Attachment, @user) do
             attachment = Attachment.new(
               title: file["title"],
               description: file["description"],
-              content_type: file_tmp.content_type,
               attached_to: @imported_process,
-              weight: file["weight"],
-              file: file_tmp, # Define attached_to before this
-              file_size: file_tmp.size
+              weight: file["weight"]
             )
+            begin
+              attachment.attached_uploader(:file).remote_url = url
+              attachment.set_content_type_and_size
+            rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+              @warnings << I18n.t(
+                "decidim.participatory_processes.admin.imports.attachment_error",
+                title: attachment_title(file),
+                error: format_error(e)
+              )
+              next
+            end
             attachment.create_attachment_collection(file["attachment_collection"])
             attachment.save!
             attachment

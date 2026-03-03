@@ -6,6 +6,11 @@ pt-BR:
       token_csv:
         file: Arquivo
         remove_all: Remover todos os dados do censo atual
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Eleição
+        other: Eleições
   decidim:
     admin:
       menu:
@@ -176,6 +181,16 @@ pt-BR:
             invalid: Houve um problema ao iniciar a eleição.
             success: Eleição iniciada com sucesso.
           unknown: Status desconhecido
+      admin_log:
+        election:
+          create: "%{user_name} criou a eleição em %{resource_name} em %{space_name}"
+          publish: "%{user_name} publicou a eleição em %{resource_name} em %{space_name}"
+          restore: "%{user_name} restaurou a eleição em %{resource_name} em %{space_name}"
+          soft_delete: "%{user_name} moveu a eleição %{resource_name} em %{space_name} para a lixeira"
+          unpublish: "%{user_name} não publicou a eleição em %{resource_name} em %{space_name}"
+          update: "%{user_name} atualizou a eleição em %{resource_name} em %{space_name}"
+        question:
+          update: "%{user_name} atualizou as questões da eleição %{resource_name}"
       census_checks:
         show:
           description: Isto significa que, uma vez iniciadas as eleições, se pode votar nelas.
@@ -293,21 +308,36 @@ pt-BR:
         check_census:
           access: Acesso
           election_not_open: A eleição ainda não foi aberta. Por favor, verifique as datas e tente novamente.
+          failed: A sua identidade não pôde ser verificada. Por favor, verifique as informações fornecidas e tente novamente.
           form_title: Verifique sua identidade
+          invalid: Usuário não encontrado no censo.
         confirm:
+          cast_vote: Transmitir voto
           edit_vote: Edite seu voto
+          not_answered: Você não respondeu a esta pergunta.
           title: Confirme seu voto
+        not_authorized: Você não está autorizado a votar nesta eleição.
         question:
           back: Voltar
           cast_vote: Transmitir voto
+          max_choices: 'Escolhas máximas: %{count}'
+          max_choices_alert: Você selecionou muitas opções. Por favor, desmarque algumas para continuar.
+          max_choices_exceeded: Você não pode selecionar mais do que %{max} opções. Por favor, volte e ajuste sua seleção.
           next: Próxima
         receipt:
+          description: Você pode votar novamente a qualquer momento enquanto o período de votação estiver aberto. O seu voto anterior será substituído pelo novo.
           edit_vote: Edite seu voto
           exit_button: Sair da cabine de votação
           title: Seus votos foram enviados com sucesso
+    metadata:
+      progress:
+        published_results: 'Resultados publicados: %{end_date}'
     statistics:
       elections_count: Eleições
   layouts:
     decidim:
       election_votes_header:
         exit: Fechado
+  time:
+    formats:
+      short_with_time: "%b %-d, %Y %-I:%M%p"

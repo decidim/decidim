@@ -245,6 +245,24 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
           expect(default_sort_order_container).to have_content("With more authors")
         end
       end
+
+      context "when there are no proposals with comments" do
+        it "does not include most_commented" do
+          expect(default_sort_order_container).to have_no_content("Most commented")
+        end
+      end
+
+      context "when there are proposals with comments" do
+        let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+        before do
+          visit edit_component_path
+        end
+
+        it "includes most_commented" do
+          expect(default_sort_order_container).to have_content("Most commented")
+        end
+      end
     end
   end
 

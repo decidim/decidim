@@ -9,7 +9,7 @@ pt-BR:
         not_found: "%{type} Não encontrado"
         permission_not_set: A permissão não foi definida para este %{type}
         recursion_limit_exceeded_error: Muitas recursões detectadas na consulta
-        too_many_aliases_error: Foram utilizados muitos aliases. Você usou %{size} aliases, mas são permitidos apenas %{limit}.
+        too_many_aliases_error: Foram utilizados muitos codinomes. Você usou %{size} codinomes, mas são permitidos apenas %{limit}.
         unauthorized_field: Você não pode visualizar ou editar o campo %{field} em %{type} porque não tem permissão
         unauthorized_mutation: Você não tem permissão para realizar esta mutação
         unauthorized_object: Você não pode visualizar ou editar este %{type} porque não possui permissões
