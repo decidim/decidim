@@ -149,6 +149,7 @@ module Decidim
   end
 
   include ActiveSupport::Configurable
+
   # Loads seeds from all engines.
   def self.seed!
     # After running the migrations, some records may have loaded their column

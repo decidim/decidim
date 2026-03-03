@@ -61,7 +61,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth", "~> 2.0"
   s.add_dependency "omniauth-facebook", "~> 5.0"
   s.add_dependency "omniauth-google-oauth2", "~> 1.0"
-  s.add_dependency "omniauth-rails_csrf_protection", "~> 1.0"
+  s.add_dependency "omniauth-rails_csrf_protection", ">= 1", "< 3"
   s.add_dependency "omniauth-twitter", "~> 1.4"
   s.add_dependency "paper_trail", "~> 16.0"
   s.add_dependency "paranoia", "~> 3.0.0"

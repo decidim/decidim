@@ -15,6 +15,7 @@ module Decidim
 
           included do
             include Decidim::Admin::ParticipatorySpace::Concerns::MembersFilterable
+
             helper PaginateHelper
             helper_method :members
 

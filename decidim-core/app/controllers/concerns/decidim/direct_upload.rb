@@ -6,6 +6,7 @@ module Decidim
 
     included do
       include Decidim::NeedsOrganization
+
       skip_before_action :verify_organization
 
       before_action :check_organization!,

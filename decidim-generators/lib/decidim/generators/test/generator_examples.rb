@@ -27,7 +27,6 @@ shared_context "when generating a new application" do
     Bundler.with_original_env { Decidim::GemManager.capture(command, env:) }
   end
 
-  # rubocop:disable RSpec/BeforeAfterAll
   before(:all) do
     Bundler.with_original_env { Decidim::GemManager.install_all(out: File::NULL) }
   end
@@ -35,7 +34,6 @@ shared_context "when generating a new application" do
   after(:all) do
     Bundler.with_original_env { Decidim::GemManager.uninstall_all(out: File::NULL) }
   end
-  # rubocop:enable RSpec/BeforeAfterAll
 end
 
 shared_examples_for "a new production application" do
