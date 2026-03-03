@@ -147,8 +147,11 @@ shared_context "when publishing and unpublishing the component" do
 
       expect(page).to have_admin_callout("The component has been successfully published")
 
-      sleep 1
       perform_enqueued_jobs(except: job_exceptions)
+
+      pp "152"
+      pp Decidim::SearchableResource.where(resource:).count
+      pp enqueued_jobs
 
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
       expect(component.reload).to be_published
@@ -168,6 +171,10 @@ shared_context "when publishing and unpublishing the component" do
     it "removes records from index" do
       perform_enqueued_jobs(except: job_exceptions)
 
+      pp "171"
+      pp Decidim::SearchableResource.where(resource:).count
+      pp enqueued_jobs
+
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
       within ".sidebar-menu" do
@@ -179,6 +186,12 @@ shared_context "when publishing and unpublishing the component" do
         click_on "Hide from menu"
       end
 
+      perform_enqueued_jobs(except: job_exceptions)
+
+      pp "186"
+      pp Decidim::SearchableResource.where(resource:).count
+      pp enqueued_jobs
+
       expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
       within "tr", text: title do
@@ -186,8 +199,10 @@ shared_context "when publishing and unpublishing the component" do
         click_on "Unpublish"
       end
 
-      sleep 1
       perform_enqueued_jobs(except: job_exceptions)
+      pp "201"
+      pp Decidim::SearchableResource.where(resource:).count
+      pp enqueued_jobs
 
       expect(page).to have_admin_callout("The component has been successfully unpublished")
 
