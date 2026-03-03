@@ -127,6 +127,10 @@ module Decidim
           end
 
           context "with upcoming meetings in other month" do
+            let!(:second_meeting) do
+              create(:meeting, :published, start_time: 1.month.from_now, component: meeting.component)
+            end
+
             it "renders the meetings" do
               expect(html).to have_css(".card__list", count: 2)
             end
