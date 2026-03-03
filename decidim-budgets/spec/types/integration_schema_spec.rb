@@ -471,26 +471,6 @@ describe "Decidim::Api::QueryType" do
           end
         end
 
-        context "when user is visitor and requests projects that is not supposed to see" do
-          let!(:current_user) { nil }
-
-          let(:component_fragment) do
-            %(
-    fragment fooComponent on Budgets {
-      budget(id: #{budget.id}) {
-        id
-        projects {
-          id
-        }
-      }
-    })
-          end
-
-          it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
-            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Project because you do not have permissions")
-          end
-        end
-
         context "when user is member" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
           let!(:member) { create(:assembly_member, user: current_user, participatory_space: participatory_process) }

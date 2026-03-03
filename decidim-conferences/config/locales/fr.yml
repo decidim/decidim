@@ -322,7 +322,9 @@ fr:
       conference:
         create: "%{user_name} créé la %{resource_name} conférence"
         publish: "%{user_name} publication la %{resource_name} conférence"
+        restore: "%{user_name} a restauré la conférence %{resource_name}"
         send_conference_diplomas: "%{user_name} certificats de présence envoyés aux %{resource_name} participants à la conférence"
+        soft_delete: "%{user_name} a déplacé la conférence %{resource_name} vers la corbeille"
         unpublish: "%{user_name} non publié la %{resource_name} conférence"
         update: "%{user_name} mis à jour le %{resource_name} conférence"
         update_diploma: "%{user_name} mis à jour la configuration des certificats de participation pour %{resource_name} conférence"
@@ -393,6 +395,7 @@ fr:
         conferences:
           form:
             available_slots_help: Laissez à 0 si vous avez un nombre illimité de places disponibles.
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             registrations_count:
               one: Il y a eu une inscription.
               other: Il y a eu %{count} inscriptions.
@@ -427,7 +430,6 @@ fr:
             certificate_of_attendance_description: Ceci certifie que <strong>%{user}</strong> a assisté et participé aux <strong>%{title}</strong> tenus au <strong>%{location}</strong> sur <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Il y a eu un problème lors de l'envoi des certificats de participation à la conférence.
-          success: Certificats de participation envoyés correctement
       conference:
         registration_confirm:
           cancel: Annuler
@@ -609,6 +611,7 @@ fr:
       help:
         conferences:
           component_settings: Paramètres de fonctionnalité de l'espace conférences
+          published_at: La date de publication de cet espace
     statistics:
       conferences_count: Conférences
       conferences_count_tooltip: Le nombre de conférences publiées.

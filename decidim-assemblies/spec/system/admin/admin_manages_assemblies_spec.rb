@@ -111,13 +111,9 @@ describe "Admin manages assemblies" do
       visit decidim_admin_assemblies.assemblies_path
     end
 
-    it "update a participatory process without images does not delete them" do
+    it "update an assembly without images does not delete them" do
       within "tr", text: translated(assembly3.title) do
         click_on translated(assembly3.title)
-      end
-
-      within_admin_sidebar_menu do
-        click_on "About this assembly"
       end
 
       select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
@@ -133,6 +129,18 @@ describe "Admin manages assemblies" do
       within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
         src = page.find("img")["src"]
         expect(src).to be_blob_url(hero_blob)
+      end
+    end
+
+    describe "when the assembly is transparent" do
+      let!(:assembly3) { create(:assembly, :private, :transparent, organization:) }
+
+      it "shows the transparent checkbox correctly" do
+        within "tr", text: translated(assembly3.title) do
+          click_on translated(assembly3.title)
+        end
+
+        expect(page).to have_checked_field("assembly_is_transparent")
       end
     end
   end

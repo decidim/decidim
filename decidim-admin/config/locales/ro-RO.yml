@@ -48,7 +48,6 @@ ro:
         default_locale: Localizare implicită
         description: Descriere
         enable_omnipresent_banner: Afișează banner omniprezent
-        enable_participatory_space_filters: Activează filtrele pentru spațiul participativ
         facebook_handler: Responsabil Facebook
         favicon: Pictogramă
         force_authentication: Forțează autentificarea
@@ -161,7 +160,7 @@ ro:
           new: Foldere pentru atașamente
         browse: Caută
         configure: Configurează
-        export-selection: Exportă selecția
+        export_all: Exportaţi tot
         import: Importă
         newsletter:
           new: Buletin informativ nou
@@ -795,7 +794,6 @@ ro:
           title: Subiect nou
         update:
           error: A apărut o eroare la actualizarea acestui subiect.
-          success: Subiectul actualizat cu succes
       static_pages:
         create:
           error: A apărut o eroare la crearea unei pagini noi.

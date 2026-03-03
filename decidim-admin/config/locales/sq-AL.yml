@@ -48,7 +48,6 @@ sq:
         default_locale: Lokalizimi i parazgjedhur
         description: Përshkrimi
         enable_omnipresent_banner: Shfaq banerin e gjithëpranishëm
-        enable_participatory_space_filters: Aktivizo filtrat e hapësirës së pjesëmarrjes
         facebook_handler: Emri i përdoruesit Facebook
         favicon: Ikona
         force_authentication: Sforco autentikimin
@@ -133,6 +132,7 @@ sq:
         attachment:
           new: Shtojcë e re
         browse: Shfleto
+        export_all: Eksporto të gjitha
         import: Importo
         newsletter:
           new: Newsletter i ri

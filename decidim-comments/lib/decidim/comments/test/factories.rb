@@ -7,7 +7,7 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    author { build(:user, organization: commentable.organization, skip_injection:) }
+    author { build(:user, :confirmed, organization: commentable.organization, skip_injection:) }
     commentable { build(:dummy_resource, :published, skip_injection:) }
     root_commentable { commentable }
     body { Decidim::Faker::Localized.paragraph }

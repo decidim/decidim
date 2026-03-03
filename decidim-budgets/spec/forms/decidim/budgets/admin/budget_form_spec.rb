@@ -53,4 +53,22 @@ describe Decidim::Budgets::Admin::BudgetForm do
 
     it { is_expected.not_to be_valid }
   end
+
+  describe "when total_budget is negative" do
+    let(:total_budget) { -1 }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "when total_budget is too large" do
+    let(:total_budget) { 9_223_372_036_854_775_808 }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "when total_budget is at the maximum allowed value" do
+    let(:total_budget) { 9_223_372_036_854_775_807 }
+
+    it { is_expected.to be_valid }
+  end
 end

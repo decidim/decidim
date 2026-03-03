@@ -137,7 +137,77 @@ describe "Admin manages taxonomies" do
     end
 
     it "updates the taxonomy" do
-      expect(page).to have_content(translated(translated(attributes[:name])))
+      expect(page).to have_content(translated(attributes[:name]))
+    end
+
+    context "and the organization has multiple languages" do
+      before do
+        I18n.available_locales = %w(en ca es fr it)
+        Decidim.available_locales = %w(en ca es fr it)
+        I18n.backend.reload!
+
+        Decidim::Admin.send(:remove_const, :TaxonomyForm)
+        Decidim::Admin.send(:remove_const, :TaxonomyItemForm)
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/taxonomy_form.rb"
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/taxonomy_item_form.rb"
+
+        organization.update!(available_locales: %w(en ca es fr it))
+      end
+
+      after do
+        I18n.available_locales = %w(en ca es)
+        Decidim.available_locales = %w(en ca es)
+        I18n.backend.reload!
+
+        Decidim::Admin.send(:remove_const, :TaxonomyForm)
+        Decidim::Admin.send(:remove_const, :TaxonomyItemForm)
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/taxonomy_form.rb"
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/taxonomy_item_form.rb"
+      end
+
+      it "updates individually the translations" do
+        within "tr", text: translated(attributes[:name]) do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit"
+        end
+
+        click_on "New item"
+
+        within "#taxonomy-item-form" do
+          select "English", from: "taxonomy-item_name-tabs"
+          first('input[type="text"]', visible: true).set("My english value")
+
+          select "Italiano", from: "taxonomy-item_name-tabs"
+          first('input[type="text"]', visible: true).set("My italian value")
+
+          click_on "Create item"
+        end
+
+        expect(page).to have_content("My english value")
+
+        within "tr", text: "My english value" do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit"
+        end
+
+        expect(page).to have_content("My english value")
+        expect(taxonomy.reload.children.last.name["en"]).to eq("My english value")
+        expect(taxonomy.reload.children.last.name["it"]).to eq("My italian value")
+
+        within "#taxonomy-item-form" do
+          select "English", from: "taxonomy-item_name-tabs"
+          first('input[type="text"]', visible: true).set("My modified english value")
+
+          select "Italiano", from: "taxonomy-item_name-tabs"
+          first('input[type="text"]', visible: true).set("My modified italian value")
+
+          click_on "Update item"
+        end
+
+        expect(page).to have_content("My modified english value")
+        expect(taxonomy.reload.children.last.name["en"]).to eq("My modified english value")
+        expect(taxonomy.reload.children.last.name["it"]).to eq("My modified italian value")
+      end
     end
   end
 

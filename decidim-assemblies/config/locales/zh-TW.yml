@@ -193,7 +193,6 @@ zh-TW:
       admin:
         assemblies:
           form:
-            announcement_help: 您在此處輸入的文字將顯示至使用者的正下方大會信息
             duration: 持續時間
             duration_help: 如果此大會的持續時間有限，請選擇結束日期。 否則，它將顯示為不確定。
             images: 圖片
@@ -204,6 +203,9 @@ zh-TW:
             select_parent_assembly: 選擇父組件
             social_handlers: 社群
             title: 基本資訊
+        assembly_imports:
+          form:
+            document_legend: 添加文檔
         assembly_members:
           form:
             explanation: '圖像的指導'

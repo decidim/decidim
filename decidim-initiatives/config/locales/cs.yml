@@ -27,7 +27,6 @@ cs:
       initiatives_type:
         area_enabled: Povolit autorům vybrat tematickou oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
-        banner_image: Obrázek banneru
         child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
         collect_user_extra_fields: Shromažďovat osobní údaje účastníků při podpisu
         comments_enabled: Povolit komentáře
@@ -101,6 +100,8 @@ cs:
               validating: Technické ověření
           type_id_eq:
             label: Typ
+        search_placeholder:
+          title_or_description_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, nebo jména autora
       initiatives_settings:
         update:
           error: Při aktualizaci nastavení iniciativ došlo k chybě.
@@ -557,6 +558,7 @@ cs:
           recent: Nejnovější
           recently_published: Nedávno publikované
         pending_initiatives:
+          description: Tyto iniciativy ještě nejsou veřejné. Prosím zkontrolujte je a odešlete je k technickému ověření, aby mohly být zveřejněny.
           title: Návrhy a čekající iniciativy
         print:
           address: Adresa
@@ -651,6 +653,7 @@ cs:
             description: Podpis, který ověřuje pouze telefonní číslo, které vyhledává existující autorizaci a kontroluje SMS kód
             name: Zpracovatel podpisu pouze s SMS
           legacy_signature_handler:
+            description: Zpracovatel podpisu založený na starém podpisu, včetně shromáždění osobních dat, SMS kroku a ověření autorizace pomocí dummy_authorization_handler. Upravte libovolný parametr pro přizpůsobení se použité konfiguraci
             name: Zastaralý zpracovatel podpisu
       states:
         accepted: Přijato

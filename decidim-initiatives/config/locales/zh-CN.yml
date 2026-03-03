@@ -20,7 +20,6 @@ zh-CN:
       initiatives_type:
         area_enabled: 使作者能够选择他们倡议的区域
         attachments_enabled: 启用附件
-        banner_image: 横幅图像
         child_scope_threshold_enabled: 启用子范围签名
         collect_user_extra_fields: 在签名时收集参与者个人数据
         custom_signature_end_date_enabled: 允许作者选择签名收集期的结束

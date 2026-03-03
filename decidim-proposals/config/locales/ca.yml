@@ -52,7 +52,7 @@ ca:
         file: Arxiu
       proposals_import:
         import_proposals: Importar propostes
-        keep_answers: Manté l'estat i les respostes
+        keep_answers: Manté els estats i les respostes
         keep_authors: Mantenir l'autoria original
     errors:
       models:
@@ -370,6 +370,12 @@ ca:
             email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
             email_subject: Una proposta que segueixes ha canviat el seu estat (%{state})
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè tens l’autoria de "%{resource_title}".
+            email_subject: La teva proposta ha canviat el seu estat (%{state})
+            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a> ha canviat el seu estat a "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Una administradora ha actualitzat les taxonomies de la teva proposta "%{resource_title}", fes-hi una ullada:'
           email_outro: Has rebut aquesta notificació perquè ets l'autora de la proposta.
@@ -689,7 +695,7 @@ ca:
             create: Importa propostes
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
             select_component: Escull un component
-            select_states: Consulta els estats de les propostes a importar
+            select_states: Importa només les propostes amb aquests estats. Si no s'ha seleccionat cap estat, s'importaran totes les propostes.
             title: Importar projectes des d'un altre component
         proposals_merges:
           create:
