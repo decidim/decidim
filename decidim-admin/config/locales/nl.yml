@@ -141,7 +141,7 @@ nl:
         browse: Browsen
         configure: Configureren
         export: Exporteren
-        export-selection: Selectie exporteren
+        export_all: Alles exporteren
         import: Importeren
         newsletter:
           new: Nieuwe nieuwsbrief

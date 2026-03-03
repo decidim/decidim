@@ -15,7 +15,7 @@ eu:
     errors:
       models:
         questionnaire:
-          request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, saiatu berriro.
+          request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, berriro saiatu.
         response:
           attributes:
             add_documents:
@@ -51,7 +51,7 @@ eu:
             ends_at: Erantzunak noiz arte onartuta
             ends_at_help: Utzi zuriz data zehatzik ez badago
             starts_at: Erantzunak noiztik onartuta
-            starts_at_help: Utzi zuriz data zehatzik ez badago
+            starts_at_help: Zuriz utzi data zehatzik ez badago
             tos: Zerbitzu-baldintzak
         questionnaires:
           actions:

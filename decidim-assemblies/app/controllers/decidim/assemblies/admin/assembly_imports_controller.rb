@@ -16,8 +16,9 @@ module Decidim
           @form = form(AssemblyImportForm).from_params(params)
 
           ImportAssembly.call(@form, current_user) do
-            on(:ok) do
+            on(:ok) do |_assembly, warnings|
               flash[:notice] = I18n.t("assembly_imports.create.success", scope: "decidim.admin")
+              flash[:warning] = warnings.join("<br>") if warnings.any?
               redirect_to assemblies_path
             end
 

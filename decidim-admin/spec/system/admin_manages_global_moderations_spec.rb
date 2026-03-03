@@ -115,6 +115,23 @@ describe "Admin manages global moderations" do
     end
   end
 
+  context "when un-reporting reported participant" do
+    let!(:reported_user) { create(:user, :confirmed, organization:) }
+    let!(:moderation) { create(:user_moderation, user: reported_user, report_count: 1) }
+    let!(:report) { create(:user_report, moderation:, user:, reason: "spam") }
+
+    it "unreports a reported participant" do
+      visit decidim_admin.moderated_users_path
+
+      within "tr[data-id=\"#{moderation.id}\"]" do
+        find("button[data-controller='dropdown']").click
+        click_on "Undo the report"
+      end
+
+      expect(page).to have_admin_callout("Resource successfully unreported.")
+    end
+  end
+
   context "when performing bulk actions" do
     let!(:reportables) { create_list(:dummy_resource, 4, component: current_component) }
     let!(:moderations) do

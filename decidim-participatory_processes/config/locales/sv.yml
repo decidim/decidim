@@ -105,8 +105,6 @@ sv:
           label: Efter processgrupp
       menu:
         participatory_process_groups: Grupper för processer
-        participatory_process_groups_submenu:
-          info: Info
         participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: Mappar
@@ -493,7 +491,7 @@ sv:
         participatory_processes:
           form:
             announcement_help: Den här texten visas direkt under informationen om processen.
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             duration: Varaktighet
             images: Bilder
             metadata: Metadata

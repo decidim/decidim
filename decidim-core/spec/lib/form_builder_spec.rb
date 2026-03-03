@@ -60,6 +60,7 @@ module Decidim
         validates :conditional_presence, presence: true, if: :validate_presence
         validates :born_at, presence: true
         validates :start_time, presence: true
+        validates :short_description, translatable_presence: true
 
         def validate_presence
           false
@@ -199,36 +200,6 @@ module Decidim
           expect(parsed.css("label[for='resource_short_description']")).not_to be_empty
 
           expect(parsed.css("li.tabs-title a").count).to eq 3
-
-          expect(parsed.css(".editor label[for='resource_short_description_en']").first).to be_nil
-
-          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_ca]']")).not_to be_empty
-          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_en]']")).not_to be_empty
-          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_de__CH]']")).not_to be_empty
-
-          expect(parsed.css(".tabs-panel .editor .editor-container").count).to eq 3
-        end
-
-        context "with a single locale" do
-          let(:available_locales) { %w(en) }
-
-          it "renders a single input and a container for the editor" do
-            expect(parsed.css(".editor input[type='hidden'][name='resource[short_description_en]']")).not_to be_empty
-            expect(parsed.css(".editor label")).not_to be_empty
-            expect(parsed.css(".editor .editor-container")).not_to be_empty
-          end
-        end
-      end
-
-      context "with a editor field" do
-        let(:output) do
-          builder.translated :editor, :short_description
-        end
-
-        it "renders a tabbed input hidden for each field and a container for the editor" do
-          expect(parsed.css("label")).not_to be_empty
-
-          expect(parsed.css("li.tabs-title a").count).to eq 3
           expect(parsed.css(".editor").count).to eq 3
 
           expect(parsed.css(".editor label[for='resource_short_description_en']").first).to be_nil
@@ -249,6 +220,226 @@ module Decidim
             expect(parsed.css(".editor label")).not_to be_empty
             expect(parsed.css(".editor .editor-container")).not_to be_empty
           end
+        end
+      end
+
+      context "when there are 2 languages" do
+        let(:available_locales) { %w(en ca) }
+
+        it "calls the correct widget components" do
+          allow(builder).to receive(:translated).and_call_original
+          allow(builder).to receive(:translated_labels).and_call_original
+          allow(builder).to receive(:create_language_selector).and_call_original
+          allow(builder).to receive(:language_tabs).and_call_original
+          allow(builder).to receive(:translated_tabs).and_call_original
+
+          builder.translated :text_field, :short_description
+
+          expect(builder).to have_received(:translated_labels)
+          expect(builder).to have_received(:create_language_selector)
+          expect(builder).to have_received(:language_tabs)
+          expect(builder).to have_received(:translated_tabs)
+        end
+      end
+
+      context "when there are more languages" do
+        let(:available_locales) { %w(ca en es ro fr it) }
+
+        it "calls the correct widget components" do
+          allow(builder).to receive(:translated).and_call_original
+          allow(builder).to receive(:translated_labels).and_call_original
+          allow(builder).to receive(:create_language_selector).and_call_original
+          allow(builder).to receive(:language_selector_select).and_call_original
+          allow(builder).to receive(:translated_tabs).and_call_original
+
+          builder.translated :text_field, :short_description
+
+          expect(builder).to have_received(:translated_labels)
+          expect(builder).to have_received(:create_language_selector)
+          expect(builder).to have_received(:language_selector_select)
+          expect(builder).to have_received(:translated_tabs)
+        end
+      end
+    end
+
+    describe "#translated_tabs" do
+      context "when there are 2 languages" do
+        let(:available_locales) { %w(en ca) }
+
+        it "displays the first tab when there is no error" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
+          output = builder.send(:translated_tabs, :text_field, :short_description, {}, "resource-short_description-tabs", nil)
+
+          expect(output).to match(
+            "<div class=\"tabs-content\" data-tabs-content=\"resource-short_description-tabs\">" \
+            "<div class=\"tabs-panel is-active\" id=\"resource-short_description-tabs-short_description-panel-0\" aria-hidden=\"false\">" \
+            "<input type=\"text\" name=\"resource[short_description_en]\" id=\"resource_short_description_en\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-1\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_ca]\" id=\"resource_short_description_ca\" />" \
+            "</div>" \
+            "</div>"
+          )
+        end
+
+        it "displays the errored tab first" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
+          output = builder.send(:translated_tabs, :text_field, :short_description, {}, "resource-short_description-tabs", "ca")
+
+          expect(output).to match(
+            "<div class=\"tabs-content\" data-tabs-content=\"resource-short_description-tabs\">" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-0\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_en]\" id=\"resource_short_description_en\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel is-active\" id=\"resource-short_description-tabs-short_description-panel-1\" aria-hidden=\"false\">" \
+            "<input type=\"text\" name=\"resource[short_description_ca]\" id=\"resource_short_description_ca\" />" \
+            "</div>" \
+            "</div>"
+          )
+        end
+      end
+
+      context "when there are more languages" do
+        let(:available_locales) { %w(en ca es ro fr it) }
+
+        it "displays the first tab when there is no error" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
+          output = builder.send(:translated_tabs, :text_field, :short_description, {}, "resource-short_description-tabs", nil)
+
+          expect(output).to match(
+            "<div class=\"tabs-content\" data-tabs-content=\"resource-short_description-tabs\">" \
+            "<div class=\"tabs-panel is-active\" id=\"resource-short_description-tabs-short_description-panel-0\" aria-hidden=\"false\">" \
+            "<input type=\"text\" name=\"resource[short_description_en]\" id=\"resource_short_description_en\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-1\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_ca]\" id=\"resource_short_description_ca\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-2\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_es]\" id=\"resource_short_description_es\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-3\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_ro]\" id=\"resource_short_description_ro\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-4\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_fr]\" id=\"resource_short_description_fr\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-5\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_it]\" id=\"resource_short_description_it\" />" \
+            "</div>" \
+            "</div>"
+          )
+        end
+
+        it "displays the errored tab first" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
+          output = builder.send(:translated_tabs, :text_field, :short_description, {}, "resource-short_description-tabs", "ca")
+
+          expect(output).to match(
+            "<div class=\"tabs-content\" data-tabs-content=\"resource-short_description-tabs\">" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-0\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_en]\" id=\"resource_short_description_en\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel is-active\" id=\"resource-short_description-tabs-short_description-panel-1\" aria-hidden=\"false\">" \
+            "<input type=\"text\" name=\"resource[short_description_ca]\" id=\"resource_short_description_ca\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-2\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_es]\" id=\"resource_short_description_es\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-3\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_ro]\" id=\"resource_short_description_ro\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-4\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_fr]\" id=\"resource_short_description_fr\" />" \
+            "</div>" \
+            "<div class=\"tabs-panel\" id=\"resource-short_description-tabs-short_description-panel-5\" aria-hidden=\"true\">" \
+            "<input type=\"text\" name=\"resource[short_description_it]\" id=\"resource_short_description_it\" />" \
+            "</div>" \
+            "</div>"
+          )
+        end
+      end
+    end
+
+    describe "#create_language_selector" do
+      context "when there are 2 languages" do
+        let(:available_locales) { %w(en ca) }
+
+        it "displays the first tab when there is no error" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
+          output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", nil)
+
+          expect(output).to match(
+            "<ul class=\"tabs tabs--lang\" id=\"short_description\" data-tabs=\"true\">" \
+            "<li class=\"tabs-title is-active\">" \
+            "<a href=\"#short_description-resource-short_description-tabs-panel-0\">English</a>" \
+            "</li>" \
+            "<li class=\"tabs-title\">" \
+            "<a href=\"#short_description-resource-short_description-tabs-panel-1\">Català</a>" \
+            "</li>" \
+            "</ul>"
+          )
+        end
+
+        it "displays the errored tab first" do
+          allow(builder).to receive(:locales).and_return(available_locales)
+
+          output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", "ca")
+
+          expect(output).to match(
+            "<ul class=\"tabs tabs--lang\" id=\"short_description\" data-tabs=\"true\">" \
+            "<li class=\"tabs-title\">" \
+            "<a href=\"#short_description-resource-short_description-tabs-panel-0\">English</a>" \
+            "</li>" \
+            "<li class=\"tabs-title is-active\">" \
+            "<a href=\"#short_description-resource-short_description-tabs-panel-1\" class=\"is-tab-error\">Català</a>" \
+            "</li>" \
+            "</ul>"
+          )
+        end
+      end
+
+      context "when there are more languages" do
+        let(:available_locales) { %w(en ca es ro fr it) }
+
+        before do
+          builder.remove_instance_variable(:@locales) if builder.instance_variable_defined?(:@locales)
+          allow(builder).to receive(:locales).and_return(available_locales)
+          I18n.backend.reload!
+        end
+
+        it "displays the first tab when there is no error" do
+          output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", nil)
+
+          expect(output).to match(
+            "<select id=\"short_description\" class=\"language-change\" data-controller=\"language-change\">" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-0\">English</option>" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-1\">Català</option>" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-2\">Castellano</option>" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-3\">Română</option>" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-4\">Français</option>" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-5\">Italiano</option>" \
+            "</select>"
+          )
+        end
+
+        it "displays the errored tab first" do
+          output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", "ca")
+
+          expect(output).to match(
+            "<select id=\"short_description\" class=\"language-change\" data-controller=\"language-change\">" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-0\">English</option>" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-1\" selected=\"selected\">Català \\(error\\!\\)</option>" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-2\">Castellano</option>" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-3\">Română</option>" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-4\">Français</option>" \
+            "<option value=\"#short_description-resource-short_description-tabs-panel-5\">Italiano</option>" \
+            "</select>"
+          )
         end
       end
     end

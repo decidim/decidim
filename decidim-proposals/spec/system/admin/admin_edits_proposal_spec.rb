@@ -112,12 +112,19 @@ describe "Admin edits proposals" do
 
       let!(:document) { create(:attachment, :with_pdf, attached_to: proposal) }
 
-      it "can be remove attachment" do
+      it "can remove attachment" do
         visit_component_admin
         within "tr", text: translated_attribute(proposal.title) do
           find("button[data-controller='dropdown']").click
           click_on "Edit proposal"
         end
+
+        click_on("Edit attachments")
+        within "li[data-filename='#{document.file.blob.filename}']" do
+          click_on("Remove")
+        end
+        click_on("Save")
+
         within ".item__edit-form" do
           click_on "Update"
         end
@@ -129,7 +136,7 @@ describe "Admin edits proposals" do
           find("button[data-controller='dropdown']").click
           click_on "Edit proposal"
         end
-        expect(page).to have_no_content("Current file")
+        expect(page).to have_no_content(document.file.blob.filename)
       end
 
       it "can attach a file" do

@@ -6,7 +6,10 @@ module Decidim
     module InitiativesHelper
       # Items to display in the navigation of an initiative
       def initiative_nav_items(participatory_space)
-        components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
+        components = participatory_space
+                     .components
+                     .published.or(Decidim::Component.where(id: try(:current_component)))
+                     .where(visible: true)
 
         components.map do |component|
           {

@@ -183,7 +183,7 @@ it:
           </ul>
           Se cambi idea, puoi ripristinarlo più tardi.
         export: Esporta
-        export-selection: Esporta selezione
+        export_all: Esporta tutto
         import: Importazione
         newsletter:
           new: Nuova newsletter

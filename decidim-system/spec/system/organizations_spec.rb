@@ -54,7 +54,7 @@ describe "Organizations" do
         check "Example authorization (Direct)"
         click_on "Create organization & invite admin"
 
-        within ".flash__message" do
+        within ".flash.success" do
           expect(page).to have_content("Organization successfully created.")
           expect(page).to have_content("config/environment/production.rb")
           expect(page).to have_content("config.hosts << \"www.example.org\"")

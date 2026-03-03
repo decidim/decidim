@@ -547,6 +547,7 @@ ja:
           recent: 直近のもの
           recently_published: 直近に公開
         pending_initiatives:
+          description: これらのイニシアチブはまだ公開されていません。内容を確認し、技術的な検証のために提出してください。確認次第、公開可能となります。
           title: 下書きと保留中のイニシアチブ
         print:
           address: 住所

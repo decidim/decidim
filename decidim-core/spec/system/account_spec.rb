@@ -31,6 +31,16 @@ describe "Account" do
 
     it_behaves_like "accessible page"
 
+    context "when login is not enabled" do
+      let(:organization) { create(:organization, users_registration_mode: "disabled") }
+      let(:user) { create(:user, :confirmed, password:) }
+
+      it "does not have js errors" do
+        sleep 1
+        expect_no_js_errors
+      end
+    end
+
     describe "update avatar" do
       it "can update avatar" do
         dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
@@ -149,7 +159,10 @@ describe "Account" do
 
       it "toggles old and new password fields" do
         within "form.edit_user" do
-          expect(page).to have_content("must not be too common (e.g. 123456) and must be different from your nickname and your email.")
+          expect(page).to have_content("10 characters minimum")
+          expect(page).to have_content("must contain at least 5 different characters")
+          expect(page).to have_content("must not be too common")
+          expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
           expect(page).to have_field("user[password]", with: "", type: "password")
           expect(page).to have_field("user[old_password]", with: "", type: "password")
           click_on "Change password"

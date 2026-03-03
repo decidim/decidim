@@ -3,4 +3,6 @@ eu:
   decidim:
     api:
       errors:
+        introspection_disabled: Eskaera honetarako introspekzioa ezgaitu egin da
+        recursion_limit_exceeded_error: Kontsultan atzemandako errekurtso gehiegi
         too_many_aliases_error: Ezizen gehiegi erabiltzen dira. %{size} ezizen erabili dituzu, baina %{limit} onartuta daude.
