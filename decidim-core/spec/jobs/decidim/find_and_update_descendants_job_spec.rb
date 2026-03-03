@@ -39,6 +39,16 @@ describe Decidim::FindAndUpdateDescendantsJob do
       end.to have_enqueued_job(Decidim::UpdateSearchIndexesJob).exactly(:twice)
     end
 
+    context "when element is already in the visited set" do
+      it "does not update search indexes" do
+        visited = ["#{participatory_process.class.name}##{participatory_process.id}"]
+
+        expect do
+          Decidim::FindAndUpdateDescendantsJob.perform_now(participatory_process, visited)
+        end.not_to have_enqueued_job(Decidim::UpdateSearchIndexesJob)
+      end
+    end
+
     context "when participatory process has no descendants" do
       let(:proposal_component) { nil }
       let(:post_component) { nil }

@@ -5,7 +5,12 @@ module Decidim
   class FindAndUpdateDescendantsJob < ApplicationJob
     queue_as :default
 
-    def perform(element)
+    def perform(element, visited = [])
+      element_key = "#{element.class.name}##{element.id}"
+      return if visited.include?(element_key)
+
+      visited = visited + [element_key]
+
       descendants_collector = components_for(element)
       descendants_collector << element.comments.to_a if element.respond_to?(:comments)
 
@@ -14,7 +19,7 @@ module Decidim
       descendants_collector.each do |descendants|
         next if descendants.blank?
 
-        Decidim::UpdateSearchIndexesJob.perform_later(descendants)
+        Decidim::UpdateSearchIndexesJob.perform_later(descendants, visited)
       end
     end
 
