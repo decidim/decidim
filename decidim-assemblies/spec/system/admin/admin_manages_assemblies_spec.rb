@@ -134,7 +134,7 @@ describe "Admin manages assemblies" do
     end
 
     describe "when the assembly is transparent" do
-      let!(:assembly3) { create(:assembly, :private, :transparent, organization:) }
+      let!(:assembly3) { create(:assembly, :transparent, organization:) }
 
       it "shows the transparent checkbox correctly" do
         within "tr", text: translated(assembly3.title) do
