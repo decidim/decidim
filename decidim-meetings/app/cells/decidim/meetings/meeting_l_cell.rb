@@ -39,13 +39,13 @@ module Decidim
       def same_month?
         return true if meeting.end_time.blank?
 
-        meeting.start_time.month == meeting.end_time.month
+        meeting.start_time.year == meeting.end_time.year && meeting.start_time.month == meeting.end_time.month
       end
 
       def same_day?
         return true if meeting.end_time.blank?
 
-        meeting.start_time.day == meeting.end_time.day
+        meeting.start_time.to_date == meeting.end_time.to_date
       end
 
       def metadata_cell
