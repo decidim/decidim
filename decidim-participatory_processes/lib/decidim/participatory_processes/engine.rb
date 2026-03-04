@@ -43,17 +43,17 @@ module Decidim
         end
 
         get "/participatory_process_groups/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.parameters[:locale] || request.session[:user_locale] || I18n.locale
+          locale = Decidim::LocaleRouter.new(request, params).locale
           "/#{locale}/processes_groups/#{params[:rest]}"
         }
 
         get "/processes", to: redirect { |params, request|
-          locale = params[:locale] || request.parameters[:locale] || request.session[:user_locale] || I18n.locale
+          locale = Decidim::LocaleRouter.new(request, params).locale
           "/#{locale}/processes"
         }
 
         get "/processes/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.parameters[:locale] || request.session[:user_locale] || I18n.locale
+          locale = Decidim::LocaleRouter.new(request, params).locale
           "/#{locale}/processes/#{params[:rest]}"
         }
       end

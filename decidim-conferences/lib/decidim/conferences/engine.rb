@@ -52,12 +52,12 @@ module Decidim
         end
 
         get "/conferences", to: redirect { |params, request|
-          locale = params[:locale] || request.parameters[:locale] || request.session[:user_locale] || I18n.locale
+          locale = Decidim::LocaleRouter.new(request, params).locale
           "/#{locale}/conferences"
         }
 
         get "/conferences/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.parameters[:locale] || request.session[:user_locale] || I18n.locale
+          locale = Decidim::LocaleRouter.new(request, params).locale
           "/#{locale}/conferences/#{params[:rest]}"
         }
       end
