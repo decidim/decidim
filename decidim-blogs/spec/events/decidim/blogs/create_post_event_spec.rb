@@ -21,4 +21,39 @@ describe Decidim::Blogs::CreatePostEvent do
       expect(subject.resource_text).to eq translated(resource.body)
     end
   end
+
+  describe "email rendering with images" do
+    let(:body_with_image) do
+      {
+        en: '<p>Check this image: <img src="/uploads/decidim/image.jpg" alt="Test"></p>',
+        ca: '<p>Mira aquesta imatge: <img src="/uploads/decidim/image.jpg" alt="Prova"></p>',
+        es: '<p>Mira esta imagen: <img src="/uploads/decidim/image.jpg" alt="Prueba"></p>'
+      }
+    end
+    let(:resource) { create(:post, title: generate_localized_title(:blog_title), body: body_with_image) }
+    let(:organization) { resource.component.organization }
+
+    it "transforms relative image URLs in safe_resource_text" do
+      root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
+      expected_img = %(<img src="#{root_url}/uploads/decidim/image.jpg" alt="Test">)
+
+      expect(subject.safe_resource_text).to include(expected_img)
+    end
+
+    it "includes transformed image URLs in notification email body" do
+      mail = Decidim::NotificationMailer.event_received(
+        event_name,
+        "Decidim::Blogs::CreatePostEvent",
+        resource,
+        user,
+        :follower,
+        {}
+      )
+
+      root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
+      expected_img = %(<img src="#{root_url}/uploads/decidim/image.jpg" alt="Test">)
+
+      expect(mail.body.encoded).to include(expected_img)
+    end
+  end
 end

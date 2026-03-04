@@ -113,7 +113,8 @@ module Decidim
       end
 
       def safe_resource_text
-        translated_attribute(resource_text).to_s.html_safe
+        content = translated_attribute(resource_text).to_s
+        transform_image_urls(content).html_safe
       end
 
       def safe_resource_translated_text; end
@@ -154,6 +155,21 @@ module Decidim
 
       def resource_url_params
         {}
+      end
+
+      def transform_image_urls(content)
+        return content if organization.blank? || organization.host.blank?
+
+        content.scan(/src\s*=\s*"([^"]*)"/).each do |src|
+          src_value = src.first
+          next if src_value.blank? || src_value.start_with?("http://", "https://", "data:", "//")
+
+          root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
+          src_replaced = "#{root_url}#{src_value}"
+          content = content.gsub(/src\s*=\s*"([^"]*#{Regexp.escape(src_value)})"/, %(src="#{src_replaced}"))
+        end
+
+        content
       end
 
       attr_reader :event_name, :resource, :user, :user_role, :extra
