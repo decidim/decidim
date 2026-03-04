@@ -48,6 +48,10 @@ module Decidim
             it { expect(meetings_ids).to include(item_id(second_meeting)) }
             it { expect(meetings_ids).not_to include(item_id(unpublished_meeting)) }
 
+            it "shows the participatory space on homepage" do
+              expect(html).to have_content(decidim_escape_translated(meeting.component.participatory_space.title))
+            end
+
             it "orders them correctly" do
               expect(meetings_ids.length).to eq(2)
               expect(meetings_ids.first).to eq(item_id(meeting))
