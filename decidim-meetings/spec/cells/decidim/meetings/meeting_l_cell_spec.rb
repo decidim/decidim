@@ -48,7 +48,7 @@ module Decidim::Meetings
       let(:my_cell) { cell("decidim/meetings/meeting_l", meeting, show_space: false) }
 
       it "does not show the participatory space" do
-        expect(subject).not_to have_content(decidim_escape_translated(meeting.component.participatory_space.title))
+        expect(subject).to have_no_content(decidim_escape_translated(meeting.component.participatory_space.title))
       end
     end
 
