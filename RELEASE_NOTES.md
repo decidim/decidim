@@ -7,7 +7,7 @@ checking out the last version of this document in the [GitHub page for the relea
 
 As usual, we recommend that you have a full backup, of the database, application code and static files.
 
-NOTE: Please note this release is updating Rails version from 7.2.2 to 7.2.3. Please ensure you back up your `SECRET_KEY_BASE` env variable and also `tmp/local_secret.txt` if you have it.
+NOTE: Please note this release is updating Rails version from 7.2.2 to 8.1.x. Please ensure you back up your `SECRET_KEY_BASE` env variable and also `tmp/local_secret.txt` if you have it.
 On your local development environment, you may need to set your `SECRET_KEY_BASE` env variable to the same value as the one present in your `tmp/local_secret.txt`.
 
 To update, follow these steps:
