@@ -3,8 +3,13 @@
 require "spec_helper"
 
 describe "Admin publishes component" do
-  let(:manifest_name) { "surveys" }
   let!(:resource) { create(:survey, :published, :clean_after_publish, component:) }
 
-  include_context "when cycling through publication states"
+  include_context "when managing a component as an admin" do
+    context "when cycling through publication states" do
+      let!(:component) { create(:surveys_component, participatory_space:) }
+
+      include_examples "cycling through publication states"
+    end
+  end
 end
