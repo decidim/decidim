@@ -140,5 +140,28 @@ module Decidim
 
       decidim_sanitize_editor(content)
     end
+
+    # Transforms relative image URLs in HTML content to absolute URLs using the provided host.
+    # This is used in emails (newsletters and notifications) to ensure images display correctly
+    # in email clients.
+    #
+    # @param content [String] - HTML content with img tags
+    # @param host [String] - the Decidim::Organization host to use for the root URL
+    #
+    # @return [String] - the content with transformed image URLs
+    def decidim_transform_image_urls(content, host)
+      return content if host.blank?
+
+      content.scan(/src\s*=\s*"([^"]*)"/).each do |src|
+        src_value = src.first
+        next if src_value.blank? || src_value.start_with?("http://", "https://", "data:", "//")
+
+        root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:)[0..-2]
+        src_replaced = "#{root_url}#{src_value}"
+        content = content.gsub(/src\s*=\s*"([^"]*#{Regexp.escape(src_value)})"/, %(src="#{src_replaced}"))
+      end
+
+      content
+    end
   end
 end

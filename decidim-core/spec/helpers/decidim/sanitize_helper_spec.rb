@@ -104,6 +104,32 @@ module Decidim
           expect(helper.decidim_sanitize('<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..." onerror="alert(\'XSS\')">', strip_tags: false)).not_to include("onerror")
         end
       end
+
+      context "when decidim_sanitize_editor is invoked" do
+        let(:user_input) do
+          %{(<p>Hello, %{name}</p>
+          <a href="https://meta.decidim.org">Link</a>
+          <img src="/rails/active_storage/blobs/redirect/12345.JPG" alt="image" />
+          <a href="https://meta.decidim.org/">Link</a>
+          <img src="/rails/active_storage/blobs/redirect/56789.JPG" alt="second image" />)}
+        end
+
+        subject { helper.decidim_transform_image_urls(user_input, organization.host) }
+
+        it "transforms image URLs with the host" do
+          root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
+          expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG"))
+          expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/56789.JPG"))
+        end
+
+        context "when host is not present" do
+          subject { helper.decidim_transform_image_urls(user_input, nil) }
+
+          it "returns the full content" do
+            expect(subject).to eq user_input
+          end
+        end
+      end
     end
   end
 end
