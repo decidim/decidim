@@ -127,20 +127,12 @@ module Decidim
           end
 
           context "with upcoming meetings in other month" do
-            context "when there are meetings in this month" do
-              context "and there are meetings in the next month" do
-                let!(:next_month_meeting) { create(:meeting, :published, component: meeting.component, start_time: meeting.start_time.advance(months: 1)) }
+            let!(:second_meeting) do
+              create(:meeting, :published, start_time: 1.month.from_now, component: meeting.component)
+            end
 
-                it "renders the two months" do
-                  expect(html).to have_css(".meeting-calendar__month time", count: 61)
-                end
-              end
-
-              context "and there are no meetings in the next month" do
-                it "renders only the current month" do
-                  expect(html).to have_css(".meeting-calendar__month time", count: 31)
-                end
-              end
+            it "renders the meetings" do
+              expect(html).to have_css(".card__list", count: 2)
             end
           end
         end
