@@ -12,13 +12,13 @@ describe "Admin publishes component" do
       include_examples "cycling through publication states"
     end
 
-    context "when publishing a component" do
+    context "when component is unpublished, and admin publishes" do
       let!(:component) { create(:proposal_component, :unpublished, participatory_space:) }
 
       include_examples "add component resources to search index"
     end
 
-    context "when component is published" do
+    context "when component is published, and admin unpublishes" do
       let!(:component) { create(:proposal_component, :published, participatory_space:) }
 
       include_examples "removes component resources from search index"

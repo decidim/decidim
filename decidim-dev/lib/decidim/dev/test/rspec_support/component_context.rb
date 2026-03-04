@@ -124,7 +124,7 @@ shared_examples "add component resources to search index" do
     perform_enqueued_jobs { example.run }
   end
 
-  it "reindex on publication" do
+  it "adds records to index" do
     expect(Decidim::SearchableResource.where(resource:).count).to be_zero
 
     within "tr", text: translated(current_component.name) do
@@ -175,7 +175,7 @@ end
 shared_examples "cycling through publication states" do
   let(:title) { translated(current_component.name) }
 
-  it "cycles through unpublished and published states successfully" do
+  it "works without raising errors" do
     visit decidim_admin_participatory_processes.components_path(component.participatory_space)
 
     within ".sidebar-menu" do
