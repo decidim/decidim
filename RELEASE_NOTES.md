@@ -55,13 +55,14 @@ module DevelopDevelopmentApp
 end
 ```
 
-##### Removal of official Azure support from Active Storage
+#### Removal of official Azure support from Active Storage
 
-Rails core team decided to remove the Azure Active Storage support from Rails 8.1, as the official Azure libraries are not maintained since September 2024. If you are using Azure for your Active Storage, support, you could use the unfoficial Azure Active Storage gem [Azure Blob](https://github.com/testdouble/azure-blob)
+Rails core team decided to remove the Azure Active Storage support from Rails 8.1, as the official Azure libraries are not maintained since September 2024. If you are using Azure for your Active Storage, support, you could use the unofficial Azure Active Storage gem [Azure Blob](https://github.com/testdouble/azure-blob)
 
-You can read more about this change on PR
- - [Upgrade to Rails 8.0.4](https://github.com/decidim/decidim/pull/16214)
- - [Upgrade to Rails 8.1.2](https://github.com/decidim/decidim/pull/16310).
+You can read more about this change on PR:
+
+- [Upgrade to Rails 8.0.4](https://github.com/decidim/decidim/pull/16214)
+- [Upgrade to Rails 8.1.2](https://github.com/decidim/decidim/pull/16310).
 
 ### 1.4. Run these commands
 
