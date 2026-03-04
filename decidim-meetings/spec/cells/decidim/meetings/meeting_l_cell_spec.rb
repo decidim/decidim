@@ -43,5 +43,21 @@ module Decidim::Meetings
         expect(subject.to_s).to include("&lt;strong&gt;#{title}&lt;/strong&gt; &amp;'&lt;")
       end
     end
+
+    context "when show_space is false" do
+      let(:my_cell) { cell("decidim/meetings/meeting_l", meeting, show_space: false) }
+
+      it "does not show the participatory space" do
+        expect(subject).not_to have_content(decidim_escape_translated(meeting.component.participatory_space.title))
+      end
+    end
+
+    context "when show_space is true" do
+      let(:my_cell) { cell("decidim/meetings/meeting_l", meeting, show_space: true) }
+
+      it "shows the participatory space" do
+        expect(subject).to have_content(decidim_escape_translated(meeting.component.participatory_space.title))
+      end
+    end
   end
 end
