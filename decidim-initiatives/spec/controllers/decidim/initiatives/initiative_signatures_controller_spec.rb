@@ -22,7 +22,7 @@ module Decidim
             it "cannot vote" do
               sign_in initiative_with_user_extra_fields.author, scope: :user
               post :create, params: { initiative_slug: initiative_with_user_extra_fields.slug, locale: I18n.locale, format: :js }
-              expect(response).to have_http_status(:unprocessable_entity)
+              expect(response).to have_http_status(:unprocessable_content)
               expect(response.content_type).to eq("text/javascript; charset=utf-8")
             end
           end

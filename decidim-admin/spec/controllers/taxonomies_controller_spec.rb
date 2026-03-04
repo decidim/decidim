@@ -33,7 +33,7 @@ module Decidim
 
         it "breadcrumbs are set" do
           get :index
-          expect(controller.helpers.breadcrumb_items).to eq([label: "Taxonomies", url: taxonomies_path])
+          expect(controller.helpers.breadcrumb_items).to eq([{ label: "Taxonomies", url: taxonomies_path }])
         end
       end
 

@@ -22,6 +22,7 @@ module Decidim
 
             if defined?(Decidim::Templates::Admin::Concerns::Templatable)
               include Decidim::Templates::Admin::Concerns::Templatable
+
               helper Decidim::DatalistSelectHelper
 
               def templatable_type

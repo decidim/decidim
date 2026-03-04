@@ -8,6 +8,7 @@ module Decidim
       include ::Decidim::MultipleAttachmentsMethods
       include ::Decidim::GalleryMethods
       include CurrentLocale
+
       delegate :current_user, to: :form
 
       # Public: Initializes the command.

@@ -18,7 +18,7 @@ module Decidim
         label_options: {
           "data-children-checkbox": parent_id,
           value:,
-          for: "#{options[:namespace]}_#{options[:id]}"
+          for: options[:id]
         }
       }
       options.merge!(checkbox_options)
