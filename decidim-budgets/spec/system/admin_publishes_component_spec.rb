@@ -3,20 +3,50 @@
 require "spec_helper"
 
 describe "Admin publishes component" do
-  let(:manifest_name) { "budgets" }
+  include_context "when managing a component as an admin" do
+    context "with a budget" do
+      let!(:resource) { create(:budget, component:) }
 
-  context "with a budget" do
-    let!(:resource) { create(:budget, component:) }
+      context "when cycling through publication states" do
+        let!(:component) { create(:budgets_component, participatory_space:) }
 
-    include_context "when publishing and unpublishing the component"
-    include_context "when cycling through publication states"
-  end
+        include_examples "cycling through publication states"
+      end
 
-  context "with a project" do
-    let!(:budget) { create(:budget, component:) }
-    let!(:resource) { create(:project, budget:) }
+      context "when publishing a component" do
+        let!(:component) { create(:budgets_component, :unpublished, participatory_space:) }
 
-    include_context "when publishing and unpublishing the component"
-    include_context "when cycling through publication states"
+        include_examples "add component resources to search index"
+      end
+
+      context "when component is published" do
+        let!(:component) { create(:budgets_component, :published, participatory_space:) }
+
+        include_examples "removes component resources from search index"
+      end
+    end
+
+    context "with a project" do
+      let!(:budget) { create(:budget, component:) }
+      let!(:resource) { create(:project, budget:) }
+
+      context "when cycling through publication states" do
+        let!(:component) { create(:budgets_component, participatory_space:) }
+
+        include_examples "cycling through publication states"
+      end
+
+      context "when publishing a component" do
+        let!(:component) { create(:budgets_component, :unpublished, participatory_space:) }
+
+        include_examples "add component resources to search index"
+      end
+
+      context "when component is published" do
+        let!(:component) { create(:budgets_component, :published, participatory_space:) }
+
+        include_examples "removes component resources from search index"
+      end
+    end
   end
 end
