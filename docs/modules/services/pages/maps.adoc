@@ -95,7 +95,7 @@ config.maps = {
   api_key: ENV["MAPS_API_KEY"],
   dynamic: {
     tile_layer: {
-      url: "https://tiles.example.org/{x}/{y}.png",
+      url: "https://tiles.example.org/{z}/{x}/{y}.png",
       tms: true,
       attribution: %(
         <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
