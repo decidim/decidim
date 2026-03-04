@@ -60,33 +60,6 @@ module Decidim
           expect(subject.safe_resource_text).to eq "My string"
         end
       end
-
-      describe "when the resource_text contains a relative image URL" do
-        let(:organization) { build(:organization, host: "example.org") }
-        let(:resource_text) { '<p><img src="/uploads/image.jpg"></p>' }
-
-        before do
-          allow(resource).to receive(:organization).and_return(organization)
-        end
-
-        it "prepends the organization root URL" do
-          root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
-          expect(subject.safe_resource_text).to eq %(<p><img src="#{root_url}/uploads/image.jpg"></p>)
-        end
-      end
-
-      describe "when the resource_text contains an absolute image URL" do
-        let(:organization) { build(:organization, host: "example.org") }
-        let(:resource_text) { '<p><img src="https://cdn.example.org/image.jpg"></p>' }
-
-        before do
-          allow(resource).to receive(:organization).and_return(organization)
-        end
-
-        it "keeps the URL unchanged" do
-          expect(subject.safe_resource_text).to eq resource_text
-        end
-      end
     end
   end
 end

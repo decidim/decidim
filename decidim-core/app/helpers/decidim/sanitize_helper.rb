@@ -151,12 +151,12 @@ module Decidim
     # @return [String] - the content with transformed image URLs
     def decidim_transform_image_urls(content, host)
       return content if host.blank?
-
+      
+      root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:)[0..-2]
       content.scan(/src\s*=\s*"([^"]*)"/).each do |src|
         src_value = src.first
         next if src_value.blank? || src_value.start_with?("http://", "https://", "data:", "//")
 
-        root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:)[0..-2]
         src_replaced = "#{root_url}#{src_value}"
         content = content.gsub(/src\s*=\s*"([^"]*#{Regexp.escape(src_value)})"/, %(src="#{src_replaced}"))
       end

@@ -25,9 +25,9 @@ describe Decidim::Blogs::CreatePostEvent do
   describe "email rendering with images" do
     let(:body_with_image) do
       {
-        en: '<p>Check this image: <img src="/uploads/decidim/image.jpg" alt="Test"></p>',
-        ca: '<p>Mira aquesta imatge: <img src="/uploads/decidim/image.jpg" alt="Prova"></p>',
-        es: '<p>Mira esta imagen: <img src="/uploads/decidim/image.jpg" alt="Prueba"></p>'
+        en: '<p>Check: <img src="/rails/active_storage/blobs/redirect/12345.JPG" alt="image" /></p>',
+        ca: '<p>Mira: <img src="/rails/active_storage/blobs/redirect/12345.JPG" alt="image" /></p>',
+        es: '<p>Mira: <img src="/rails/active_storage/blobs/redirect/12345.JPG" alt="image" /></p>'
       }
     end
     let(:resource) { create(:post, title: generate_localized_title(:blog_title), body: body_with_image) }
@@ -35,7 +35,7 @@ describe Decidim::Blogs::CreatePostEvent do
 
     it "transforms relative image URLs in safe_resource_text" do
       root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
-      expected_img = %(<img src="#{root_url}/uploads/decidim/image.jpg" alt="Test">)
+      expected_img = %(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG" alt="image" />)
 
       expect(subject.safe_resource_text).to include(expected_img)
     end
@@ -51,7 +51,7 @@ describe Decidim::Blogs::CreatePostEvent do
       )
 
       root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
-      expected_img = %(<img src="#{root_url}/uploads/decidim/image.jpg" alt="Test">)
+      expected_img = %(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG" alt="image" />)
 
       expect(mail.body.encoded).to include(expected_img)
     end
