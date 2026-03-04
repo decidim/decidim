@@ -34,7 +34,7 @@ gem "decidim-dev", github: "decidim/decidim"
 
 ### 1.3. Rails upgrade
 
-This particular release is deploying a new Rails version, 8.0. As a result you need to update your application configuration. Before that, you need to run the following commands:
+This particular release is deploying a new Rails version, 8.1. As a result you need to update your application configuration. Before that, you need to run the following commands:
 
 ```console
 sudo apt install libvips libvips-tools # or the alternative installation process for your operating system. See "3.5. Replace image processing with imagemagick to libvips"
@@ -49,13 +49,19 @@ module DevelopDevelopmentApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
 -    config.load_defaults 7.2
-+    config.load_defaults 8.0
++    config.load_defaults 8.1
     # ....
   end
 end
 ```
 
-You can read more about this change on PR [#16214](https://github.com/decidim/decidim/pull/16214).
+##### Removal of official Azure support from Active Storage
+
+Rails core team decided to remove the Azure Active Storage support from Rails 8.1, as the official Azure libraries are not maintained since September 2024. If you are using Azure for your Active Storage, support, you could use the unfoficial Azure Active Storage gem [Azure Blob](https://github.com/testdouble/azure-blob)
+
+You can read more about this change on PR
+ - [Upgrade to Rails 8.0.4](https://github.com/decidim/decidim/pull/16214)
+ - [Upgrade to Rails 8.1.2](https://github.com/decidim/decidim/pull/16310).
 
 ### 1.4. Run these commands
 
