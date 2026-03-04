@@ -454,7 +454,7 @@ module Decidim::Meetings
       let!(:proposals) do
         proposals = build_list(:proposal, 5, component: proposal_component)
         proposals.each do |proposal|
-          proposal.coauthorships.target.clear
+          proposal.coauthorships = []
           proposal.coauthorships.build(author: meeting)
           proposal.save!
         end
