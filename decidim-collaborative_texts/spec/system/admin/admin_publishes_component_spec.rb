@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin publishes component" do
+describe "Admin manages component" do
   include_context "when managing a component as an admin" do
     let!(:resource) { create(:collaborative_text_document, :published, component:) }
 
