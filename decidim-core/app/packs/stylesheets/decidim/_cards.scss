@@ -116,7 +116,7 @@
   }
 
   &__calendar {
-    @apply w-14 flex flex-col justify-start rounded overflow-hidden bg-background text-center;
+    @apply w-20 flex flex-col justify-start rounded overflow-hidden bg-background text-center;
 
     /* overwrite defaults */
     &-list__reset {
@@ -132,13 +132,21 @@
     }
 
     &-year {
-      @apply text-black text-xs;
+      @apply text-black text-xs mb-0.5;
     }
 
     &-month,
     &-day,
     &-year {
-      @apply inline-flex items-center justify-evenly empty:[&>div]:hidden;
+      @apply inline-flex items-center justify-center empty:[&>div]:hidden;
+    }
+
+    &-separator {
+      @apply mx-2 font-normal text-sm;
+    }
+
+    .card__list-content {
+      @apply mt-0.5;
     }
   }
 

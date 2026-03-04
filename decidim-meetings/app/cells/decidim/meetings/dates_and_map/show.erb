@@ -1,14 +1,18 @@
 <div class="meeting__calendar-container">
   <div class="meeting__calendar meeting__calendar__lg">
     <div class="meeting__calendar-month mb-4">
-      <p><%= l(start_time, format: !same_month? ? "%b" : "%B") %></p>
-      <p class="meeting__calendar-separator"><%= "-" if !same_month? %></p>
-      <p><%= l(end_time, format: "%b") if !same_month? %></p>
+      <p><%= l(start_time, format: same_month? ? "%B" : "%b") %></p>
+      <% unless same_month? %>
+        <p class="meeting__calendar-separator">-</p>
+        <p><%= l(end_time, format: "%b") %></p>
+      <% end %>
     </div>
     <div class="meeting__calendar-day">
       <p><%= l(start_time, format: "%d") %></p>
-      <p class="meeting__calendar-separator"><%= "-" if !same_day? || !same_month? %></p>
-      <p><%= l(end_time, format: "%d") if !same_day? || !same_month? %></p>
+      <% unless same_day? && same_month? %>
+        <p class="meeting__calendar-separator">-</p>
+        <p><%= l(end_time, format: "%d") %></p>
+      <% end %>
     </div>
     <div class="meeting__calendar-year">
       <p><%= year %></p>
