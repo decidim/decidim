@@ -35,11 +35,11 @@
     &-month,
     &-day,
     &-year {
-      @apply inline-flex items-center justify-evenly empty:[&>p]:hidden;
+      @apply inline-flex items-center justify-center empty:[&>p]:hidden;
     }
 
     &-separator {
-      @apply mx-2 font-normal text-sm;
+      @apply mx-4 font-normal text-sm;
     }
 
     &__lg {
