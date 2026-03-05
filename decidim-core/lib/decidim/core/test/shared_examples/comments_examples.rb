@@ -142,6 +142,30 @@ shared_examples "comments" do
     end
   end
 
+  context "when there are more comments than the default per page" do
+    let(:per_page) { Decidim::Comments::SortedComments::DEFAULT_COMMENTS_LIMIT }
+    let!(:extra_comments) { create_list(:comment, per_page - comments.size + 1, commentable:) }
+    let(:all_comments) { comments + extra_comments }
+
+    it "shows a load more button and loads the next page" do
+      visit resource_path
+
+      visible_comments = all_comments.sort_by(&:created_at).first(per_page)
+      hidden_comment = (all_comments.sort_by(&:created_at) - visible_comments).first
+
+      visible_comments.each do |comment|
+        expect(page).to have_css("#comment_#{comment.id}")
+      end
+      expect(page).to have_no_css("#comment_#{hidden_comment.id}")
+      expect(page).to have_button("Load more comments")
+
+      click_on "Load more comments"
+
+      expect(page).to have_css("#comment_#{hidden_comment.id}")
+      expect(page).to have_no_button("Load more comments")
+    end
+  end
+
   context "when not authenticated" do
     it "does not show form to add comments to user" do
       visit resource_path
