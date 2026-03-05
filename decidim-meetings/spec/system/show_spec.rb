@@ -19,6 +19,12 @@ describe "show" do
       expect(page).to have_content meeting.title[I18n.locale.to_s]
     end
 
+    it "shows the meeting reference" do
+      within ".participatory-space__block-reference" do
+        expect(page).to have_content(meeting.reference)
+      end
+    end
+
     it_behaves_like "a 404 page" do
       let(:target_path) do
         decidim_participatory_process_meetings.meeting_path(
