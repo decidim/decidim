@@ -78,16 +78,16 @@ export default class FocusGuard {
 
     let target = null;
     if (guard.dataset.position === "start") {
-      // Focus at the start guard, so focus the first focusable element after that
-      for (let ind = 0; ind < visibleNodes.length; ind += 1) {
+      // Focus at the start guard, so focus the last focusable element (cycle forward to end)
+      for (let ind = visibleNodes.length - 1; ind >= 0; ind -= 1) {
         if (!this.isFocusGuard(visibleNodes[ind]) && this.isFocusable(visibleNodes[ind])) {
           target = visibleNodes[ind];
           break;
         }
       }
     } else {
-      // Focus at the end guard, so focus the first focusable element after that
-      for (let ind = visibleNodes.length - 1; ind >= 0; ind -= 1) {
+      // Focus at the end guard, so focus the first focusable element (cycle back to start)
+      for (let ind = 0; ind < visibleNodes.length; ind += 1) {
         if (!this.isFocusGuard(visibleNodes[ind]) && this.isFocusable(visibleNodes[ind])) {
           target = visibleNodes[ind];
           break;
