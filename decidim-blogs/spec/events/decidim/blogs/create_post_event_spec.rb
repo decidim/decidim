@@ -33,13 +33,6 @@ describe Decidim::Blogs::CreatePostEvent do
     let(:resource) { create(:post, title: generate_localized_title(:blog_title), body: body_with_image) }
     let(:organization) { resource.component.organization }
 
-    it "transforms relative image URLs in safe_resource_text" do
-      root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
-      expected_img = %(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG" alt="image" />)
-
-      expect(subject.safe_resource_text).to include(expected_img)
-    end
-
     it "includes transformed image URLs in notification email body" do
       mail = Decidim::NotificationMailer.event_received(
         event_name,

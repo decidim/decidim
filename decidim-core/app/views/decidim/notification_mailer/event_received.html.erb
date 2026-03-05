@@ -15,7 +15,7 @@
 
   <blockquote>
     <p>
-      <%= decidim_transform_image_urls(@event_instance.safe_resource_text, @organization.host) %>
+      <%= decidim_transform_image_urls(@event_instance.safe_resource_text, @organization.host).html_safe %>
     </p>
   </blockquote>
 <% end %>
@@ -28,7 +28,7 @@
   <p style="font-weight: bold"><%= t(".translated_text") %></p>
   <blockquote>
     <p>
-      <%= decidim_transform_image_urls(@event_instance.safe_resource_translated_text, @organization.host) %>
+      <%= decidim_transform_image_urls(@event_instance.safe_resource_translated_text, @organization.host).html_safe %>
     </p>
   </blockquote>
 <% end %>
@@ -40,7 +40,7 @@
         <table>
           <tr>
             <td>
-              <%= link_to decidim_transform_image_urls(@event_instance.button_text, @organization.host), @event_instance.button_url, target: :blank %>
+              <%= link_to decidim_transform_image_urls(@event_instance.button_text, @organization.host).html_safe, @event_instance.button_url, target: :blank %>
             </td>
           </tr>
         </table>
