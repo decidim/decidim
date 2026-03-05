@@ -120,6 +120,12 @@ describe "Explore posts" do
         expect(page).to have_content(post.created_at.strftime("%d/%m/%Y %H:%M"))
       end
 
+      it "shows the post reference" do
+        within ".participatory-space__block-reference" do
+          expect(page).to have_content(post.reference)
+        end
+      end
+
       it_behaves_like "has embedded video in description", :body
     end
   end

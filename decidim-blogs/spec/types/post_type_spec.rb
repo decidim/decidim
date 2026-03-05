@@ -16,6 +16,7 @@ module Decidim
       include_examples "timestamps interface"
       include_examples "likeable interface"
       include_examples "followable interface"
+      include_examples "referable interface"
 
       shared_examples "unauthorized Post" do
         it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
