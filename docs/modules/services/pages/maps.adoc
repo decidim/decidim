@@ -105,6 +105,13 @@ config.maps = {
 }
 ----
 
+Alternatively, you can use the `MAPS_EXTRA_VARS` xref:configure:environment_variables.adoc[Environment Variable] to set the `tms` option:
+
+[source,bash]
+----
+MAPS_EXTRA_VARS="tms=true"
+----
+
 All configuration options supported by https://leafletjs.com/reference.html#tilelayer[Leaflet's TileLayer] can be passed to the `tile_layer` configuration, including:
 
 * `minZoom` - Minimum zoom level
