@@ -1,5 +1,25 @@
 import { Controller } from "@hotwired/stimulus"
 
+/**
+ * Load More Comments Stimulus Controller
+ *
+ * Handles paginated loading of additional comments via AJAX requests.
+ * When the user clicks the "Load more" button, it fetches the next page of comments
+ * from the server and appends them to the existing comment list.
+ *
+ * Usage:
+ * <div data-controller="load-more-comments"
+ *      data-load-more-comments-url-value="/comments"
+ *      data-load-more-comments-commentable-gid-value="gid://app/Model/1"
+ *      data-load-more-comments-order-value="older"
+ *      data-load-more-comments-offset-value="20"
+ *      data-load-more-comments-per-page-value="20"
+ *      data-load-more-comments-alignment-value="1">
+ *   <button data-load-more-comments-target="button"
+ *           data-action="click->load-more-comments#loadMore">Load more</button>
+ *   <span data-load-more-comments-target="spinner" class="hidden">Loading...</span>
+ * </div>
+ */
 export default class extends Controller {
   static get values() {
     return {

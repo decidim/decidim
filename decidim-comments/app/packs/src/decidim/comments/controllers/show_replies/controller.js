@@ -1,5 +1,23 @@
 import { Controller } from "@hotwired/stimulus"
 
+/**
+ * Show Replies Stimulus Controller
+ *
+ * Handles lazy loading and toggling visibility of comment replies.
+ * On first click, it fetches replies via AJAX. Subsequent clicks toggle visibility.
+ *
+ * Usage:
+ * <div data-controller="show-replies"
+ *      data-show-replies-url-value="/comments"
+ *      data-show-replies-comment-gid-value="gid://app/Comment/1"
+ *      data-show-replies-order-value="older"
+ *      data-show-replies-loaded-value="false">
+ *   <button data-show-replies-target="button"
+ *           data-action="click->show-replies#toggle">Show replies</button>
+ *   <span data-show-replies-target="spinner" class="hidden">Loading...</span>
+ *   <div data-show-replies-target="container" class="hidden"></div>
+ * </div>
+ */
 export default class extends Controller {
   static get values() {
     return {
