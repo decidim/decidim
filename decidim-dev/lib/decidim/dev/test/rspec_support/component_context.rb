@@ -164,8 +164,7 @@ shared_examples "removes component resources from search index" do
       click_on "Unpublish"
     end
 
-    sleep 1
-
+    expect(page).to have_admin_callout("The component has been successfully unpublished")
     expect(Decidim::SearchableResource.where(resource:).count).to be_zero
     expect(current_component.reload).not_to be_published
     expect(resource.reload).not_to be_visible

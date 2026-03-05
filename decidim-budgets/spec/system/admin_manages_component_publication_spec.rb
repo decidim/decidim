@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages component" do
+describe "Admin manages component publication" do
   include_context "when managing a component as an admin" do
     context "with a budget" do
       let!(:resource) { create(:budget, component:) }
