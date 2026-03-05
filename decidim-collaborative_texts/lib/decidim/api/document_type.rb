@@ -9,6 +9,7 @@ module Decidim
       implements Decidim::Core::CoauthorableInterface
       implements Decidim::Core::TraceableInterface
       implements Decidim::Core::TimestampsInterface
+      implements Decidim::Core::ReferableInterface
 
       field :accepting_suggestions, GraphQL::Types::Boolean, "Whether this collaborative text document is accepting suggestions or not", null: true
       field :announcement, Decidim::Core::TranslatedFieldType, "The announcement of this collaborative text document.", null: true

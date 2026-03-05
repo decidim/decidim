@@ -35,5 +35,13 @@ describe "CollaborativeTexts Breadcrumb" do
         expect(page).to have_content(translated(document.title))
       end
     end
+
+    it "shows the document reference" do
+      click_on document.title
+
+      within ".participatory-space__block-reference" do
+        expect(page).to have_content(document.reference)
+      end
+    end
   end
 end
