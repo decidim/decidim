@@ -186,6 +186,8 @@ module Decidim
       end
 
       def self.most_liked_available?(component)
+        return false unless component.current_settings.likes_enabled?
+
         where(component:)
           .published
           .not_hidden
