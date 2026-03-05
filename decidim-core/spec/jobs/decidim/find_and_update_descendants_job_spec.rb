@@ -39,12 +39,10 @@ describe Decidim::FindAndUpdateDescendantsJob do
       end.to have_enqueued_job(Decidim::UpdateSearchIndexesJob).exactly(:twice)
     end
 
-    context "when element is already in the visited set" do
+    context "when recursion reaches max depth" do
       it "does not update search indexes" do
-        visited = ["#{participatory_process.class.name}##{participatory_process.id}"]
-
         expect do
-          Decidim::FindAndUpdateDescendantsJob.perform_now(participatory_process, visited)
+          Decidim::FindAndUpdateDescendantsJob.perform_now(participatory_process, described_class::MAX_DEPTH)
         end.not_to have_enqueued_job(Decidim::UpdateSearchIndexesJob)
       end
     end
