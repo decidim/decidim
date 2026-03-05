@@ -213,6 +213,21 @@ describe "Respond a survey" do
     end
   end
 
+  context "when survey has a reference" do
+    let!(:survey) { create(:survey, :published, :allow_responses, :allow_unregistered, component:, questionnaire:) }
+
+    before do
+      visit_component
+      click_on translated_attribute(questionnaire.title)
+    end
+
+    it "shows the survey reference" do
+      within ".participatory-space__block-reference" do
+        expect(page).to have_content(survey.reference)
+      end
+    end
+  end
+
   context "when survey has action log entry" do
     let!(:action_log) do
       create(:action_log, user:, action: "publish", organization: component.organization, resource: survey, component:, participatory_space: component.participatory_space,

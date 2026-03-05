@@ -9,6 +9,8 @@ module Decidim
       include_context "with a graphql class type"
       let(:model) { create(:survey) }
 
+      include_examples "referable interface"
+
       describe "id" do
         let(:query) { "{ id }" }
 
