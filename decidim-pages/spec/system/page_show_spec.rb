@@ -32,6 +32,12 @@ describe "Show a page" do
       it "renders the content of the page" do
         expect(page).to have_content("Content")
       end
+
+      it "shows the page reference" do
+        within ".participatory-space__block-reference" do
+          expect(page).to have_content(page_component.reference)
+        end
+      end
     end
 
     context "when there is no content in the page" do
