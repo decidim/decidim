@@ -35,7 +35,7 @@ module Decidim
           next if comment.depth < 1
           next if !comment.deleted? && !comment.hidden?
 
-          comment.commentable.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.blank?
+          comment.commentable.replies.blank?
         end
         @comments_count = commentable.comments_count
 
