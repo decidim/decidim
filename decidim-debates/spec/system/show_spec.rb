@@ -68,6 +68,12 @@ describe "show" do
     it "shows the debate title" do
       expect(page).to have_content(translated(debate.title))
     end
+
+    it "shows the debate reference" do
+      within ".participatory-space__block-reference" do
+        expect(page).to have_content(debate.reference)
+      end
+    end
   end
 
   describe "comments metadata" do

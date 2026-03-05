@@ -20,7 +20,7 @@ edit_link(
   }
 %>
 
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debates_path, commentable: debate } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { reference: resource_reference(debate), back_path: debates_path, commentable: debate } do %>
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator">
       <%== present(debate).title(html_escape: true) %>
@@ -108,8 +108,8 @@ edit_link(
 
   <% content_for :item_footer do %>
     <%= comments_for debate %>
+
     <ul class="metadata__container layout-main__section" data-metadata-footer>
-      <%= content_tag :li, resource_reference(debate), class: "metadata__item" %>
       <%= content_tag :li, resource_version(debate, versions_path: debate_version_path(debate, debate.versions.count)), class: "metadata__item" %>
     </ul>
   <% end %>
