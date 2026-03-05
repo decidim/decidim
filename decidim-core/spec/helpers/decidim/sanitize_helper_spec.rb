@@ -106,6 +106,8 @@ module Decidim
       end
 
       context "when decidim_sanitize_editor is invoked" do
+        let(:host) { "example.org" }
+
         let(:user_input) do
           %{(<p>Hello, %{name}</p>
           <a href="https://meta.decidim.org">Link</a>
@@ -114,16 +116,29 @@ module Decidim
           <img src="/rails/active_storage/blobs/redirect/56789.JPG" alt="second image" />)}
         end
 
-        subject { helper.decidim_transform_image_urls(user_input, organization.host) }
+        subject { helper.send(:decidim_transform_image_urls, user_input, host) }
 
         it "transforms image URLs with the host" do
-          root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
+          root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:)[0..-2]
           expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG"))
           expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/56789.JPG"))
         end
 
+        context "when a relative src matches the suffix of an absolute URL" do
+          let(:user_input) do
+            %(<img src="/image.jpg" alt="relative" /><img src="https://example.com/image.jpg" alt="absolute" />)
+          end
+
+          it "transforms only the relative URL" do
+            root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:)[0..-2]
+
+            expect(subject).to include(%(<img src="#{root_url}/image.jpg" alt="relative" />))
+            expect(subject).to include(%(<img src="https://example.com/image.jpg" alt="absolute" />))
+          end
+        end
+
         context "when host is not present" do
-          subject { helper.decidim_transform_image_urls(user_input, nil) }
+          subject { helper.send(:decidim_transform_image_urls, user_input, nil) }
 
           it "returns the full content" do
             expect(subject).to eq user_input
