@@ -12,3 +12,9 @@
     <%= yield %>
   <% end %>
 </div>
+
+<% if local_assigns.has_key?(:reference) %>
+  <section class="participatory-space__block-reference">
+    <p><%= reference %></p>
+  </section>
+<% end %>

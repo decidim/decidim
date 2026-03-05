@@ -13,3 +13,9 @@ css_class = case columns
 <%= content_tag main_tag, class: "layout-1col #{css_class}" do %>
   <%= yield %>
 <% end %>
+
+<% if local_assigns.has_key?(:reference) %>
+  <section class="participatory-space__block-reference">
+    <p><%= reference %></p>
+  </section>
+<% end %>
