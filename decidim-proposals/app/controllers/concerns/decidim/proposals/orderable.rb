@@ -68,7 +68,7 @@ module Decidim
         def most_liked_order_available?
           return @most_liked_order_available if defined?(@most_liked_order_available)
 
-          @most_liked_order_available = current_settings.likes_enabled? && Decidim::Proposals::Proposal.most_liked_available?(current_component)
+          @most_liked_order_available = Decidim::Proposals::Proposal.most_liked_available?(current_component)
         end
 
         def order_by_votes?
