@@ -222,7 +222,7 @@ describe "Respond a survey" do
     end
 
     it "shows the survey reference" do
-      within ".participatory-space__block-reference" do
+      within ".layout-container__reference" do
         expect(page).to have_content(survey.reference)
       end
     end

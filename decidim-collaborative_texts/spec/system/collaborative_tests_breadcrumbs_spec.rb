@@ -39,7 +39,7 @@ describe "CollaborativeTexts Breadcrumb" do
     it "shows the document reference" do
       click_on document.title
 
-      within ".participatory-space__block-reference" do
+      within ".layout-container__reference" do
         expect(page).to have_content(document.reference)
       end
     end

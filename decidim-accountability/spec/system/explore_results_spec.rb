@@ -181,7 +181,7 @@ describe "Explore results", :versioning do
       end
 
       it "shows the result reference" do
-        within ".participatory-space__block-reference" do
+        within ".layout-container__reference" do
           expect(page).to have_content(result.reference)
         end
       end

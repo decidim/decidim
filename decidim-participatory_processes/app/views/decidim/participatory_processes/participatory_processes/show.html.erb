@@ -19,7 +19,7 @@
 <main>
   <%# NOTE: this elements goes outside of the .participatory-space__container block %>
   <% if current_participatory_space.private_space? %>
-    <section class="participatory-space__block-reference alert">
+    <section class="layout-container__reference alert">
       <%= t("private_space", scope: "decidim.participatory_processes.show") %>
     </section>
   <% end %>
@@ -37,7 +37,7 @@
 
   </div>
 
-  <section class="participatory-space__block-reference">
+  <section class="layout-container__reference">
     <p><%= resource_reference(current_participatory_space) %></p>
   </section>
 </main>

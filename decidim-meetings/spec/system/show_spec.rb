@@ -20,7 +20,7 @@ describe "show" do
     end
 
     it "shows the meeting reference" do
-      within ".participatory-space__block-reference" do
+      within ".layout-container__reference" do
         expect(page).to have_content(meeting.reference)
       end
     end

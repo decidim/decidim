@@ -34,7 +34,7 @@ describe "Elections Breadcrumb" do
     it "shows the election reference" do
       click_on translated(election.title)
 
-      within ".participatory-space__block-reference" do
+      within ".layout-container__reference" do
         expect(page).to have_content(election.reference)
       end
     end

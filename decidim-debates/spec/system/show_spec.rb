@@ -70,7 +70,7 @@ describe "show" do
     end
 
     it "shows the debate reference" do
-      within ".participatory-space__block-reference" do
+      within ".layout-container__reference" do
         expect(page).to have_content(debate.reference)
       end
     end

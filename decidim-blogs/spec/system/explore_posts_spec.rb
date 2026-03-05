@@ -121,7 +121,7 @@ describe "Explore posts" do
       end
 
       it "shows the post reference" do
-        within ".participatory-space__block-reference" do
+        within ".layout-container__reference" do
           expect(page).to have_content(post.reference)
         end
       end

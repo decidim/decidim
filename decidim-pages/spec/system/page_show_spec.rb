@@ -34,7 +34,7 @@ describe "Show a page" do
       end
 
       it "shows the page reference" do
-        within ".participatory-space__block-reference" do
+        within ".layout-container__reference" do
           expect(page).to have_content(page_component.reference)
         end
       end

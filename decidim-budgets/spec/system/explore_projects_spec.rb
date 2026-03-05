@@ -38,7 +38,7 @@ describe "Explore projects", :slow do
       it_behaves_like "has embedded video in description", :description
 
       it "shows the project reference" do
-        within ".participatory-space__block-reference" do
+        within ".layout-container__reference" do
           expect(page).to have_content(project.reference)
         end
       end
