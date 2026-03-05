@@ -4,7 +4,7 @@ module Decidim
   class LocaleRouterDetector
     def initialize(request, params)
       @request = request
-      @params = params
+      @input_params = params
     end
 
     def locale
@@ -13,10 +13,10 @@ module Decidim
 
     private
 
-    attr_reader :request, :params
+    attr_reader :request, :input_params
 
     def extracted_locale
-      params[:locale] || request.parameters[:locale] || request.session[:user_locale] || I18n.locale
+      input_params[:locale] || request.parameters[:locale] || request.session[:user_locale] || I18n.locale
     end
 
     def available_locales

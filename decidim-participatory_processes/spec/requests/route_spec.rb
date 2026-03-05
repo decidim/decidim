@@ -56,7 +56,7 @@ describe "redirect routes" do
     it "redirects old url with locale and additional params" do
       get("/participatory_process_groups/foo-bar?locale=es", headers:)
       expect(response).to have_http_status(:moved_permanently)
-      expect(response).to redirect_to("/es/participatory_process_groups/foo-bar")
+      expect(response).to redirect_to("/es/processes_groups/foo-bar")
     end
 
     it "redirects user to the new url" do
@@ -66,7 +66,7 @@ describe "redirect routes" do
       get("/", headers:)
       get("/participatory_process_groups/foo-bar", headers:)
       expect(response).to have_http_status(:moved_permanently)
-      expect(response).to redirect_to("/ca/participatory_process_groups/foo-bar")
+      expect(response).to redirect_to("/ca/processes_groups/foo-bar")
     end
 
     it "redirects user to the new url when using custom locale" do
@@ -76,7 +76,7 @@ describe "redirect routes" do
       get("/", headers:)
       get("/participatory_process_groups/foo-bar?locale=es", headers:)
       expect(response).to have_http_status(:moved_permanently)
-      expect(response).to redirect_to("/es/participatory_process_groups/foo-bar")
+      expect(response).to redirect_to("/es/processes_groups/foo-bar")
     end
   end
 end
