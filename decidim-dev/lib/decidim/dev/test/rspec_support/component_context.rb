@@ -164,6 +164,10 @@ shared_examples "removes component resources from search index" do
       click_on "Unpublish"
     end
 
+    # we really need this otherwise the pipeline fails. We already have perform_enqueued_jobs as an around block,
+    # but it doesn't manage to perform the background jobs when the below assertions are made
+    sleep 1
+
     expect(page).to have_admin_callout("The component has been successfully unpublished")
     expect(Decidim::SearchableResource.where(resource:).count).to be_zero
     expect(current_component.reload).not_to be_published
