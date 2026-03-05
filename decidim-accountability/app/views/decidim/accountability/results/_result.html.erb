@@ -1,4 +1,4 @@
-<%= render layout: "layouts/decidim/shared/layout_item" do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { reference: resource_reference(result) } do %>
   <%= cell("decidim/accountability/result_show", result) %>
   <%= cell("decidim/tags", result) %>
 
