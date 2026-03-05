@@ -36,6 +36,12 @@ describe "Explore projects", :slow do
       end
 
       it_behaves_like "has embedded video in description", :description
+
+      it "shows the project reference" do
+        within ".participatory-space__block-reference" do
+          expect(page).to have_content(project.reference)
+        end
+      end
     end
 
     context "when voting is finished" do
