@@ -28,6 +28,70 @@ module Decidim::Meetings
       it "shows the start time's year" do
         expect(subject).to have_css(".card__calendar-year", text: "2020")
       end
+
+      it "does not show separator" do
+        expect(subject).to have_no_css(".card__calendar-separator")
+      end
+    end
+
+    context "when meeting spans multiple days in the same month" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 10, 15, 10, 0, 0, 0), end_time: Time.new(2020, 10, 17, 12, 0, 0, 0)) }
+
+      it "shows the start day" do
+        expect(subject).to have_css(".card__calendar-day", text: "15")
+      end
+
+      it "shows the end day" do
+        expect(subject).to have_css(".card__calendar-day", text: "17")
+      end
+
+      it "shows the separator" do
+        expect(subject).to have_css(".card__calendar-separator")
+      end
+
+      it "does not show month separator" do
+        expect(subject).to have_css(".card__calendar-month", text: "October")
+      end
+    end
+
+    context "when meeting spans multiple months" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 10, 15, 10, 0, 0, 0), end_time: Time.new(2020, 11, 17, 12, 0, 0, 0)) }
+
+      it "shows the start month" do
+        expect(subject).to have_css(".card__calendar-month", text: "Oct")
+      end
+
+      it "shows the end month" do
+        expect(subject).to have_css(".card__calendar-month", text: "Nov")
+      end
+
+      it "shows the start day" do
+        expect(subject).to have_css(".card__calendar-day", text: "15")
+      end
+
+      it "shows the end day" do
+        expect(subject).to have_css(".card__calendar-day", text: "17")
+      end
+
+      it "shows month separator" do
+        expect(subject).to have_css(".card__calendar-separator")
+      end
+    end
+
+    context "when meeting has no end time" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 10, 15, 10, 0, 0, 0), end_time: nil) }
+
+      it "shows the start time's month" do
+        expect(subject).to have_css(".card__calendar-month", text: "October")
+      end
+
+      it "shows the start time's day" do
+        expect(subject).to have_css(".card__calendar-day", text: "15")
+      end
+
+      it "does not show separator" do
+        expect(subject).to have_no_css(".meeting__calendar-separator")
+      end
     end
 
     context "when title contains special html entities" do
