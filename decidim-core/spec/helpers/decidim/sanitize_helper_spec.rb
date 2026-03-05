@@ -105,7 +105,7 @@ module Decidim
         end
       end
 
-      context "when decidim_sanitize_editor is invoked" do
+      context "when decidim_transform_image_urls is invoked" do
         let(:host) { "example.org" }
 
         let(:user_input) do
@@ -134,6 +134,29 @@ module Decidim
 
             expect(subject).to include(%(<img src="#{root_url}/image.jpg" alt="relative" />))
             expect(subject).to include(%(<img src="https://example.com/image.jpg" alt="absolute" />))
+          end
+        end
+
+        context "when src uses data/protocol-relative/cid URLs" do
+          let(:user_input) do
+            %(<img src="data:image/png;base64,AAAA" alt="data" />
+<img src="//cdn.example.org/image.jpg" alt="protocol-relative" />
+<img src="cid:logo@example.org" alt="cid" />)
+          end
+
+          it "keeps them unchanged" do
+            expect(subject).to include(%(src="data:image/png;base64,AAAA"))
+            expect(subject).to include(%(src="//cdn.example.org/image.jpg"))
+            expect(subject).to include(%(src="cid:logo@example.org"))
+          end
+        end
+
+        context "when src attribute is single-quoted" do
+          let(:user_input) { "<img src='/image.jpg' alt='relative' />" }
+
+          it "transforms the URL preserving single quotes" do
+            root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:).chomp("/")
+            expect(subject).to include(%(<img src='#{root_url}/image.jpg' alt='relative' />))
           end
         end
 

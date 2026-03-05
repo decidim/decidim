@@ -150,7 +150,7 @@ module Decidim
     #
     # @return [String] - the content with transformed image URLs
     def decidim_transform_image_urls(content, host)
-      return content if host.blank?
+      return content if host.blank? || content.blank?
 
       root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:).chomp("/")
 
