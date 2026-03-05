@@ -44,7 +44,7 @@ module Decidim
     end
 
     def button_options
-      params.require(:follow).permit(:button_classes).to_h.symbolize_keys
+      params.expect(follow: [:button_classes]).to_h.symbolize_keys
     end
 
     def button_cell_mobile

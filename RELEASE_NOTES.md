@@ -32,12 +32,34 @@ gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
 
-### 1.3. Run these commands
+### 1.3. Rails upgrade
+
+This particular release is deploying a new Rails version, 8.0. As a result you need to update your application configuration. Before that, you need to run the following commands:
 
 ```console
 sudo apt install libvips libvips-tools # or the alternative installation process for your operating system. See "3.5. Replace image processing with imagemagick to libvips"
 bundle update decidim
 bin/rails decidim:upgrade
+```
+
+Please edit your `config/application.rb` to use the new Rails defaults.
+
+```diff
+module DevelopDevelopmentApp
+  class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+-    config.load_defaults 7.2
++    config.load_defaults 8.0
+    # ....
+  end
+end
+```
+
+You can read more about this change on PR [#16214](https://github.com/decidim/decidim/pull/16214).
+
+### 1.4. Run these commands
+
+```console
 bin/rails db:migrate
 bin/rails decidim:upgrade:encryption
 # skip this command if you have run it before:
@@ -48,7 +70,7 @@ bin/rails decidim:upgrade:fix_deleted_private_follows
 bin/rails data:migrate
 ```
 
-### 1.4. AWS/Azure/Google Cloud assets storage
+### 1.5. AWS/Azure/Google Cloud assets storage
 
 There is a bug related to the cache expiration using Active Storage (assets, such as images). For fixing this issue, the Rails team added an extra active storage parameter, `public: true` that you can add it to your storage configuration. If you followed the step `3.4. Deprecation of Rails.application.secrets` and changed your `config/storage.yml` file you don't need to do anything else.
 
@@ -58,7 +80,7 @@ Apart of that, you also need to configure your preferred cloud service provider 
 
 You can read more about this change on PR [#15005](https://github.com/decidim/decidim/pull/15005/).
 
-### 1.5. Follow the steps and commands detailed in these notes
+### 1.6. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
