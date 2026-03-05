@@ -40,7 +40,7 @@
         <table>
           <tr>
             <td>
-              <%= link_to decidim_transform_image_urls(@event_instance.button_text, @organization.host).html_safe, @event_instance.button_url, target: :blank %>
+              <%= link_to decidim_sanitize(@event_instance.button_text, strip_tags: true), @event_instance.button_url, target: :blank %>
             </td>
           </tr>
         </table>
