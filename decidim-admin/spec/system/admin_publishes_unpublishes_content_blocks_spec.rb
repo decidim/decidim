@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin publishes/unpublishes content blocks", type: :system do
+describe "Admin publishes/unpublishes content blocks" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -54,7 +54,7 @@ describe "Admin publishes/unpublishes content blocks", type: :system do
       expect(hero_block.reload.published_at).to be_nil
 
       visit decidim.root_path
-      expect(page).not_to have_css("[id^=hero]")
+      expect(page).to have_no_css("[id^=hero]")
     end
   end
 end

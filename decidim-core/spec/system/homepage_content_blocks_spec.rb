@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Homepage with content blocks", type: :system do
+describe "Homepage with content blocks" do
   let(:official_url) { "http://test.example.org" }
   let(:organization) { create(:organization, official_url:) }
   let!(:participatory_process) { create(:participatory_process, :promoted, organization:) }
@@ -42,10 +42,10 @@ describe "Homepage with content blocks", type: :system do
     visit decidim.root_path
 
     hero_section = page.find("section.hero__container")
-    sub_hero_section = page.find("#sub_hero")
-    how_to_participate_section = page.find("#how_to_participate")
-    stats_section = page.find("#statistics")
-    footer_sub_hero_section = page.find("#footer_sub_hero")
+    sub_hero_section = page.find_by_id("sub_hero")
+    how_to_participate_section = page.find_by_id("how_to_participate")
+    stats_section = page.find_by_id("statistics")
+    footer_sub_hero_section = page.find_by_id("footer_sub_hero")
 
     hero_position = hero_section.evaluate_script("this.getBoundingClientRect().top")
     sub_hero_position = sub_hero_section.evaluate_script("this.getBoundingClientRect().top")

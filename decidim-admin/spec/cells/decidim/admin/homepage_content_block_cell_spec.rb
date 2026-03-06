@@ -5,10 +5,10 @@ require "spec_helper"
 describe Decidim::Admin::HomepageContentBlockCell, type: :cell do
   controller Decidim::Admin::OrganizationHomepageController
 
+  subject { cell("decidim/admin/homepage_content_block", content_block).call }
+
   let(:organization) { create(:organization) }
   let(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
-
-  subject { cell("decidim/admin/homepage_content_block", content_block).call }
 
   it "renders the content block name" do
     expect(subject).to have_content("Hero image")
@@ -30,8 +30,8 @@ describe Decidim::Admin::HomepageContentBlockCell, type: :cell do
     let(:content_block) { build(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
 
     it "does not render edit or destroy links" do
-      expect(subject).not_to have_link(href: %r{/content_blocks/\d+/edit$})
-      expect(subject).not_to have_css('a[data-method="delete"]')
+      expect(subject).to have_no_link(href: %r{/content_blocks/\d+/edit$})
+      expect(subject).to have_no_css('a[data-method="delete"]')
     end
   end
 
@@ -41,7 +41,7 @@ describe Decidim::Admin::HomepageContentBlockCell, type: :cell do
     end
 
     it "does not render edit link" do
-      expect(subject).not_to have_link(href: /edit/)
+      expect(subject).to have_no_link(href: /edit/)
     end
   end
 end
