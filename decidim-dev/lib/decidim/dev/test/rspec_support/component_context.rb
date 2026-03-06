@@ -145,7 +145,7 @@ end
 shared_examples "removes component resources from search index" do
   before do
     visit decidim_admin_participatory_processes.components_path(resource.reload.component.participatory_space)
-    pp [__LINE__, perform_enqueued_jobs]
+    Decidim.deprecator.warn [__LINE__, perform_enqueued_jobs, enqueued_jobs.size, Decidim::SearchableResource.where(resource:).count].inspect
   end
 
   around do |example|
@@ -155,7 +155,9 @@ shared_examples "removes component resources from search index" do
   it "removes records from index" do
     expect(component.reload).to be_published
     expect(resource.reload).to be_visible
-    pp [__LINE__, perform_enqueued_jobs]
+
+    Decidim.deprecator.warn [__LINE__, perform_enqueued_jobs, enqueued_jobs.size, Decidim::SearchableResource.where(resource:).count].inspect
+
     expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
     within "tr", text: translated(current_component.name) do
@@ -165,7 +167,9 @@ shared_examples "removes component resources from search index" do
 
     expect(component.reload).to be_published
     expect(resource.reload).to be_visible
-    pp [__LINE__, perform_enqueued_jobs]
+
+    Decidim.deprecator.warn [__LINE__, perform_enqueued_jobs, enqueued_jobs.size, Decidim::SearchableResource.where(resource:).count].inspect
+
     expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
     within "tr", text: translated(current_component.name) do
@@ -173,7 +177,7 @@ shared_examples "removes component resources from search index" do
       click_on "Unpublish"
     end
 
-    pp [__LINE__, perform_enqueued_jobs]
+    Decidim.deprecator.warn [__LINE__, perform_enqueued_jobs, enqueued_jobs.size, Decidim::SearchableResource.where(resource:).count].inspect
 
     expect(page).to have_admin_callout("The component has been successfully unpublished")
 
