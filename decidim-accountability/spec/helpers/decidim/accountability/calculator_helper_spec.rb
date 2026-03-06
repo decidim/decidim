@@ -73,10 +73,6 @@ module Decidim::Accountability
         expect(helper.count_calculator(taxonomy.id)).to eq(3)
       end
 
-      it "counts results including child taxonomies" do
-        expect(helper.count_calculator(taxonomy.id)).to eq(3)
-      end
-
       it "handles taxonomy with no results" do
         other_taxonomy = create(:taxonomy, organization: current_component.organization)
         expect(helper.count_calculator(other_taxonomy.id)).to eq(0)
