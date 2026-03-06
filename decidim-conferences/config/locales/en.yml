@@ -321,8 +321,8 @@ en:
         deleted_conferences_info: Conferences can only be deleted if status is "Unpublished".
     admin_log:
       conference:
-        duplicate: "%{user_name} duplicated the %{resource_name} conference"
         create: "%{user_name} created the %{resource_name} conference"
+        duplicate: "%{user_name} duplicated the %{resource_name} conference"
         publish: "%{user_name} published the %{resource_name} conference"
         restore: "%{user_name} restored the %{resource_name} conference"
         send_conference_diplomas: "%{user_name} sent certificates of attendance to the %{resource_name} conference atendees"
