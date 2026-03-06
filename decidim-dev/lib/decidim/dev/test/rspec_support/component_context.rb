@@ -117,6 +117,7 @@ end
 
 shared_examples "add component resources to search index" do
   before do
+    resource.reload.component.manifest.run_hooks(:unpublish, resource.reload.component)
     visit decidim_admin_participatory_processes.components_path(resource.reload.component.participatory_space)
   end
 
@@ -144,8 +145,8 @@ end
 
 shared_examples "removes component resources from search index" do
   before do
+    resource.reload.component.manifest.run_hooks(:publish, resource.reload.component)
     visit decidim_admin_participatory_processes.components_path(resource.reload.component.participatory_space)
-    Decidim.deprecator.warn [__LINE__, perform_enqueued_jobs, enqueued_jobs.size, Decidim::SearchableResource.where(resource:).count].inspect
   end
 
   around do |example|
@@ -153,10 +154,10 @@ shared_examples "removes component resources from search index" do
   end
 
   it "removes records from index" do
-    expect(component.reload).to be_published
-    expect(resource.reload).to be_visible
-
-    Decidim.deprecator.warn [__LINE__, perform_enqueued_jobs, enqueued_jobs.size, Decidim::SearchableResource.where(resource:).count].inspect
+    expect(resource.reload.component).to be_published
+    expect(resource.component.participatory_space).to be_visible
+    expect(resource).to be_visible
+    expect(resource).to be_resource_visible
 
     expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
@@ -168,16 +169,12 @@ shared_examples "removes component resources from search index" do
     expect(component.reload).to be_published
     expect(resource.reload).to be_visible
 
-    Decidim.deprecator.warn [__LINE__, perform_enqueued_jobs, enqueued_jobs.size, Decidim::SearchableResource.where(resource:).count].inspect
-
     expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
     within "tr", text: translated(current_component.name) do
       find("button[data-controller='dropdown']").click
       click_on "Unpublish"
     end
-
-    Decidim.deprecator.warn [__LINE__, perform_enqueued_jobs, enqueued_jobs.size, Decidim::SearchableResource.where(resource:).count].inspect
 
     expect(page).to have_admin_callout("The component has been successfully unpublished")
 
