@@ -117,7 +117,7 @@ end
 
 shared_examples "add component resources to search index" do
   before do
-    visit decidim_admin_participatory_processes.components_path(component.participatory_space)
+    visit decidim_admin_participatory_processes.components_path(resource.reload.component.participatory_space)
   end
 
   around do |example|
@@ -136,15 +136,15 @@ shared_examples "add component resources to search index" do
 
     expect(page).to have_admin_callout("The component has been successfully published")
 
-    expect(Decidim::SearchableResource.where(resource:).count).to be_positive
     expect(component.reload).to be_published
     expect(resource.reload).to be_visible
+    expect(Decidim::SearchableResource.where(resource:).count).to be_positive
   end
 end
 
 shared_examples "removes component resources from search index" do
   before do
-    visit decidim_admin_participatory_processes.components_path(component.participatory_space)
+    visit decidim_admin_participatory_processes.components_path(resource.reload.component.participatory_space)
   end
 
   around do |example|
@@ -152,6 +152,8 @@ shared_examples "removes component resources from search index" do
   end
 
   it "removes records from index" do
+    expect(component.reload).to be_published
+    expect(resource.reload).to be_visible
     expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
     within "tr", text: translated(current_component.name) do
@@ -159,6 +161,8 @@ shared_examples "removes component resources from search index" do
       click_on "Hide from menu"
     end
 
+    expect(component.reload).to be_published
+    expect(resource.reload).to be_visible
     expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
     within "tr", text: translated(current_component.name) do
@@ -169,9 +173,10 @@ shared_examples "removes component resources from search index" do
     perform_enqueued_jobs
 
     expect(page).to have_admin_callout("The component has been successfully unpublished")
-    expect(Decidim::SearchableResource.where(resource:).count).to be_zero
+
     expect(current_component.reload).not_to be_published
     expect(resource.reload).not_to be_visible
+    expect(Decidim::SearchableResource.where(resource:).count).to be_zero
   end
 end
 

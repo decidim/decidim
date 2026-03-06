@@ -28,7 +28,7 @@ describe "Admin manages component publication" do
 
     context "when there are children" do
       let!(:resource) { create(:result, component:) }
-      let(:children) { create(:result, component:, parent: resource) }
+      let!(:children) { create(:result, component:, parent: resource) }
 
       context "when cycling through publication states" do
         let!(:component) { create(:accountability_component, participatory_space:) }
