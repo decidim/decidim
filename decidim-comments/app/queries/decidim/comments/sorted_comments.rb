@@ -112,7 +112,7 @@ module Decidim
       def order_by_most_discussed(scope)
         scope
           .select("decidim_comments_comments.*, COALESCE(descendants.total, 0) as descendants_count")
-          .joins(<<-SQL.squish)
+          .joins(<<~SQL.squish)
             LEFT JOIN LATERAL (
               WITH RECURSIVE comment_tree AS (
                 SELECT id, decidim_commentable_id
