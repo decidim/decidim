@@ -115,116 +115,104 @@ shared_context "when managing a component as a process admin" do
   end
 end
 
-shared_context "when publishing and unpublishing the component" do
-  let(:title) { translated(current_component.name) }
-  # When resources are being created or modified, the following jobs are enqueued among the ones that we need to wait for.
-  # When running in CI, we have situations when job processing takes longer, causing flaky tests.
-  # Adding a list of exceptions here, helps us to avoid those situations.
-  let(:job_exceptions) do
-    [
-      Decidim::MachineTranslationResourceJob,
-      ActiveStorage::AnalyzeJob
-    ]
+shared_examples "add component resources to search index" do
+  before do
+    resource.reload.component.manifest.run_hooks(:unpublish, resource.reload.component)
+    visit decidim_admin_participatory_processes.components_path(resource.reload.component.participatory_space)
   end
 
-  context "when component is unpublished" do
-    before do
-      current_component.unpublish!
-      current_component.participatory_space.try_add_to_index_as_search_resource
-
-      visit decidim_admin_participatory_processes.components_path(current_component.participatory_space)
-    end
-
-    it "reindexes on publication" do
-      Decidim::SearchableResource.where(resource:).delete_all
-      expect(Decidim::SearchableResource.where(resource:).count).to be_zero
-
-      within "tr", text: title do
-        find("button[data-controller='dropdown']").click
-        click_on "Publish"
-      end
-
-      expect(page).to have_admin_callout("The component has been successfully published")
-
-      perform_enqueued_jobs(except: job_exceptions)
-
-      expect(Decidim::SearchableResource.where(resource:).count).to be_positive
-      expect(component.reload).to be_published
-    end
+  around do |example|
+    perform_enqueued_jobs { example.run }
   end
 
-  context "when component is published" do
-    before do
-      current_component.publish!
-      current_component.participatory_space.try_add_to_index_as_search_resource
+  it "adds records to index" do
+    expect(Decidim::SearchableResource.where(resource:).count).to be_zero
 
-      visit decidim_admin_participatory_processes.components_path(current_component.participatory_space)
+    within "tr", text: translated(current_component.name) do
+      find("button[data-controller='dropdown']").click
+      click_on "Publish"
     end
 
-    it "removes records from index" do
-      perform_enqueued_jobs(except: job_exceptions)
+    perform_enqueued_jobs
 
-      expect(Decidim::SearchableResource.where(resource:).count).to be_positive
+    expect(page).to have_admin_callout("The component has been successfully published")
 
-      within ".sidebar-menu" do
-        click_on "Components"
-      end
-
-      within "tr", text: title do
-        find("button[data-controller='dropdown']").click
-        click_on "Hide from menu"
-      end
-
-      perform_enqueued_jobs(except: job_exceptions)
-
-      expect(Decidim::SearchableResource.where(resource:).count).to be_positive
-
-      within "tr", text: title do
-        find("button[data-controller='dropdown']").click
-        click_on "Unpublish"
-      end
-
-      expect(page).to have_admin_callout("The component has been successfully unpublished")
-
-      perform_enqueued_jobs(except: job_exceptions)
-
-      expect(Decidim::SearchableResource.where(resource:).count).to be_zero
-      expect(current_component.reload).not_to be_published
-    end
+    expect(component.reload).to be_published
+    expect(resource.reload).to be_visible
+    expect(Decidim::SearchableResource.where(resource:).count).to be_positive
   end
 end
 
-shared_context "when cycling through publication states" do
-  include_context "when managing a component as an admin" do
-    let(:title) { translated(current_component.name) }
+shared_examples "removes component resources from search index" do
+  before do
+    resource.reload.component.manifest.run_hooks(:publish, resource.reload.component)
+    visit decidim_admin_participatory_processes.components_path(resource.reload.component.participatory_space)
+  end
 
-    it "cycles through unpublished and published states successfully" do
-      visit decidim_admin_participatory_processes.components_path(current_component.participatory_space)
+  around do |example|
+    perform_enqueued_jobs { example.run }
+  end
 
-      within ".sidebar-menu" do
-        click_on "Components"
-      end
+  it "removes records from index" do
+    expect(resource.reload.component).to be_published
+    expect(resource.component.participatory_space).to be_visible
+    expect(resource).to be_visible
+    expect(resource).to be_resource_visible
 
-      within "tr", text: title do
-        find("button[data-controller='dropdown']").click
-        click_on "Hide from menu"
-      end
+    expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
-      expect(page).to have_admin_callout("The component has been successfully hidden from the menu.")
-
-      within "tr", text: title do
-        find("button[data-controller='dropdown']").click
-        click_on "Unpublish"
-      end
-
-      expect(page).to have_admin_callout("The component has been successfully unpublished")
-
-      within "tr", text: title do
-        find("button[data-controller='dropdown']").click
-        click_on "Publish"
-      end
-
-      expect(page).to have_admin_callout("The component has been successfully published")
+    within "tr", text: translated(current_component.name) do
+      find("button[data-controller='dropdown']").click
+      click_on "Hide from menu"
     end
+
+    expect(component.reload).to be_published
+    expect(resource.reload).to be_visible
+
+    expect(Decidim::SearchableResource.where(resource:).count).to be_positive
+
+    within "tr", text: translated(current_component.name) do
+      find("button[data-controller='dropdown']").click
+      click_on "Unpublish"
+    end
+
+    expect(page).to have_admin_callout("The component has been successfully unpublished")
+
+    expect(current_component.reload).not_to be_published
+    expect(resource.reload).not_to be_visible
+    expect(Decidim::SearchableResource.where(resource:).count).to be_zero
+  end
+end
+
+shared_examples "cycling through publication states" do
+  let(:title) { translated(current_component.name) }
+
+  it "works without raising errors" do
+    visit decidim_admin_participatory_processes.components_path(component.participatory_space)
+
+    within ".sidebar-menu" do
+      click_on "Components"
+    end
+
+    within "tr", text: title do
+      find("button[data-controller='dropdown']").click
+      click_on "Hide from menu"
+    end
+
+    expect(page).to have_admin_callout("The component has been successfully hidden from the menu.")
+
+    within "tr", text: title do
+      find("button[data-controller='dropdown']").click
+      click_on "Unpublish"
+    end
+
+    expect(page).to have_admin_callout("The component has been successfully unpublished")
+
+    within "tr", text: title do
+      find("button[data-controller='dropdown']").click
+      click_on "Publish"
+    end
+
+    expect(page).to have_admin_callout("The component has been successfully published")
   end
 end
