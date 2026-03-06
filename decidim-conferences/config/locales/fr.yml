@@ -321,6 +321,7 @@ fr:
     admin_log:
       conference:
         create: "%{user_name} créé la %{resource_name} conférence"
+        duplicate: "%{user_name} a dupliqué la conférence %{resource_name}"
         publish: "%{user_name} publication la %{resource_name} conférence"
         restore: "%{user_name} a restauré la conférence %{resource_name}"
         send_conference_diplomas: "%{user_name} certificats de présence envoyés aux %{resource_name} participants à la conférence"
