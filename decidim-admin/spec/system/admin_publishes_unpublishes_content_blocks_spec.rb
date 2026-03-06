@@ -11,22 +11,49 @@ describe "Admin publishes/unpublishes content blocks", type: :system do
     login_as user, scope: :user
   end
 
-  context "when verifying published blocks appear on homepage" do
-    let!(:hero_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage, weight: 1, published_at: Time.current) }
+  context "when publishing a content block via admin UI" do
+    let!(:hero_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage, weight: nil, published_at: nil) }
 
     it "shows published content block on the homepage" do
-      visit decidim.root_path
+      visit decidim_admin.edit_organization_homepage_path
+      page.refresh
 
+      within ".edit_content_blocks" do
+        within ".js-list-available" do
+          expect(page).to have_css("li", text: "Hero image")
+        end
+
+        first("ul.js-list-available li").drag_to(find("ul.js-list-actives"))
+        sleep 2
+      end
+
+      expect(hero_block.reload.published_at).not_to be_nil
+
+      visit decidim.root_path
       expect(page).to have_css("[id^=hero]")
     end
   end
 
-  context "when verifying unpublished blocks do not appear on homepage" do
-    let!(:hero_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage, weight: nil, published_at: nil) }
+  context "when unpublishing a content block via admin UI" do
+    let!(:hero_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage, weight: 1, published_at: Time.current) }
+    let!(:extra_block) { create(:content_block, organization:, manifest_name: :sub_hero, scope_name: :homepage, weight: 2, published_at: Time.current) }
 
     it "does not show unpublished content block on the homepage" do
-      visit decidim.root_path
+      visit decidim_admin.edit_organization_homepage_path
+      page.refresh
 
+      within ".edit_content_blocks" do
+        within ".js-list-actives" do
+          expect(page).to have_css("li", text: "Hero image")
+        end
+
+        first("ul.js-list-actives li").drag_to(find("ul.js-list-available"))
+        sleep 2
+      end
+
+      expect(hero_block.reload.published_at).to be_nil
+
+      visit decidim.root_path
       expect(page).not_to have_css("[id^=hero]")
     end
   end
