@@ -16,7 +16,7 @@ module Decidim
       context "with dev version" do
         let(:test_version) { "0.27.0.dev" }
 
-        it "returns the chore/rails-8.1 branch" do
+        it "returns the develop branch" do
           expect(subject.edge_git_branch).to eq("develop")
         end
       end
