@@ -62,7 +62,7 @@ module Decidim::Accountability
       it "does not use custom progress when model has progress" do
         html = status_cell(result, progress: 80).call
         expect(html).to have_content("50%")
-        expect(html).not_to have_content("80%")
+        expect(html).to have_no_content("80%")
       end
     end
 
