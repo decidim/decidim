@@ -19,8 +19,8 @@ module Decidim
 
       context "when participatory space is unpublished" do
         let(:participatory_space) { create(:assembly, :unpublished) }
-        let(:component) { create(:dummy_component, :published, participatory_space:) }
-        let(:commentable) { create(:dummy_resource, :published, component:) }
+        let(:current_component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, :published, component: current_component) }
         let!(:moderation) { create(:moderation, reportable: commentable, hidden_at: 2.days.ago) }
 
         let(:model) { create(:comment, commentable:) }
@@ -31,8 +31,8 @@ module Decidim
 
       context "when participatory space is private and transparent" do
         let(:participatory_space) { create(:assembly, :published, :transparent, :private) }
-        let(:component) { create(:dummy_component, :published, participatory_space:) }
-        let(:commentable) { create(:dummy_resource, :published, component:) }
+        let(:current_component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, :published, component: current_component) }
         let(:model) { create(:comment, commentable:) }
         let(:query) { "{ id }" }
 
@@ -43,8 +43,8 @@ module Decidim
 
       context "when participatory space is private" do
         let(:participatory_space) { create(:assembly, :published, :private, :opaque) }
-        let(:component) { create(:dummy_component, :published, participatory_space:) }
-        let(:commentable) { create(:dummy_resource, :published, component:) }
+        let(:current_component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, :published, component: current_component) }
 
         let(:model) { create(:comment, commentable:) }
         let(:query) { "{ id }" }
@@ -53,8 +53,8 @@ module Decidim
       end
 
       context "when component is unpublished" do
-        let(:component) { create(:dummy_component, :unpublished) }
-        let(:commentable) { create(:dummy_resource, :published, component:) }
+        let(:current_component) { create(:dummy_component, :unpublished) }
+        let(:commentable) { create(:dummy_resource, :published, component: current_component) }
 
         let(:model) { create(:comment, commentable:) }
         let(:query) { "{ id }" }
@@ -136,7 +136,7 @@ module Decidim
         end
 
         it "returns true if the comment has comments" do
-          FactoryBot.create(:comment, commentable: model)
+          create(:comment, commentable: model)
           expect(response).to include("hasComments" => true)
         end
 
@@ -160,8 +160,8 @@ module Decidim
       end
 
       describe "comments" do
-        let!(:random_comment) { FactoryBot.create(:comment) }
-        let!(:replies) { Array.new(3) { |n| FactoryBot.create(:comment, commentable: model, created_at: Time.current - n.days) } }
+        let!(:random_comment) { create(:comment) }
+        let!(:replies) { Array.new(3) { |n| create(:comment, commentable: model, created_at: Time.current - n.days) } }
 
         let(:query) { "{ comments { id } }" }
 

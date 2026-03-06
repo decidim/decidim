@@ -6,6 +6,7 @@ module Decidim
     # projects from one budget component to accountability.
     class ImportProjectsMailer < Decidim::ApplicationMailer
       include Decidim::TranslatableAttributes
+
       helper Decidim::TranslationsHelper
 
       # Public: Sends a notification email with the result of importing projects

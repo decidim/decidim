@@ -56,10 +56,8 @@ describe "Admin filters proposals" do
     before { visit_component_admin }
 
     STATES.each do |state|
-      i18n_state = I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")
-
-      context "when filtering proposals by state: #{i18n_state}" do
-        it_behaves_like "a filtered collection", options: "State", filter: i18n_state do
+      context "when filtering proposals by state: #{I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")}" do
+        it_behaves_like "a filtered collection", options: "State", filter: I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values") do
           let(:in_filter) { translated(proposal_with_state(state).title) }
           let(:not_in_filter) { translated(proposal_without_state(state).title) }
         end

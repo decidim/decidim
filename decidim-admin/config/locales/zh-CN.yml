@@ -517,7 +517,6 @@ zh-CN:
           title: 新主题
         update:
           error: 更新这个主题时出现问题。
-          success: 主题更新成功
       static_pages:
         create:
           error: 创建新页面时出现问题。

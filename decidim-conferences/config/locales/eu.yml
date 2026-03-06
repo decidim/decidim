@@ -432,7 +432,7 @@ eu:
             certificate_of_attendance_description: Honek ziurtatzen du <strong>%{user}</strong> bertaratu dela eta hartu parte duela <strong>%{title}</strong> etan ospatua <strong>%{location}</strong> an <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Arazo bat egon da jardunaldiaren bertaratze-agiriak bidaltzean.
-          success: Jardunaldirako asistentzia-ziurtagiriak behar bezala bidali dira
+          success: Asistentzia-ziurtagiriak behar bezala bidali dira.
       conference:
         registration_confirm:
           cancel: Utzi

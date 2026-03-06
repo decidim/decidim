@@ -39,10 +39,16 @@ module Decidim::Surveys
     end
 
     describe "questions_count_item" do
-      it "renders the correct number of questions and survey icon" do
-        questions_count = survey.questionnaire.questions.size
+      let!(:question_separator) { create(:questionnaire_question, questionnaire: survey.questionnaire, question_type: "separator") }
+      let!(:question_title_desc) { create(:questionnaire_question, questionnaire: survey.questionnaire, question_type: "title_and_description") }
+      let!(:question_regular) { create(:questionnaire_question, questionnaire: survey.questionnaire, question_type: "short_response") }
+
+      it "renders only the number of actual questions, excluding separators and title_and_description" do
+        questions_count = survey.questionnaire.question_types.size
         expect(subject.to_s).to include("#{questions_count} #{I18n.t("questions", scope: "decidim.surveys.surveys.show")}")
         expect(subject.to_s).to include("survey-line")
+        # 3 from the factory + 1 question_regular from this spec
+        expect(questions_count).to eq(4)
       end
     end
   end

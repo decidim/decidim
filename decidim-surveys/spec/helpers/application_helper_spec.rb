@@ -21,6 +21,7 @@ module Decidim
         it "returns the correct filter sections structure" do
           expected_sections = [{
             method: :with_any_state,
+            name: "[with_any_state]",
             collection: helper.filter_surveys_date_values,
             label: t("decidim.proposals.proposals.filters.state"),
             id: "state",

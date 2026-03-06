@@ -131,7 +131,7 @@ Decidim::Core::Engine.routes.draw do
   resource :report, only: [:create]
   resource :report_user, only: [:create]
   resources :likes, only: [:create, :destroy]
-  resources :amends, only: [:new, :reject, :accept], controller: :amendments do
+  resources :amends, only: [:new], controller: :amendments do
     collection do
       post :create
     end

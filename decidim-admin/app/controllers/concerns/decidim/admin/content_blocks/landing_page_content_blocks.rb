@@ -5,6 +5,7 @@ module Decidim
     module ContentBlocks
       module LandingPageContentBlocks
         extend ActiveSupport::Concern
+
         included do
           helper_method :content_block, :resource_landing_page_content_block_path, :scoped_resource, :submit_button_text
 
@@ -48,7 +49,7 @@ module Decidim
           def update
             enforce_permission_to_update_resource
 
-            @form = form(ContentBlockForm).from_params(params)
+            @form = form(ContentBlockForm).from_params(params, content_block:)
 
             UpdateContentBlock.call(@form, content_block, content_block_scope) do
               on(:ok) do

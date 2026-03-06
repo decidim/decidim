@@ -19,6 +19,7 @@ activelog
 activemodel
 activerecord
 activestorage
+actualitzar
 actualizado
 addlabel
 Adeu
@@ -280,6 +281,7 @@ erblint
 Errbit
 Esa
 espa
+estar
 estat
 etherpad
 evanfuture
@@ -878,6 +880,7 @@ timeouter
 timestamped
 tiptap
 Tmpname
+tms
 TLDR
 todos
 Tomorrowland

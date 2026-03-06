@@ -7,6 +7,9 @@ checking out the last version of this document in the [GitHub page for the relea
 
 As usual, we recommend that you have a full backup, of the database, application code and static files.
 
+NOTE: Please note this release is updating Rails version from 7.2.2 to 7.2.3. Please ensure you back up your `SECRET_KEY_BASE` env variable and also `tmp/local_secret.txt` if you have it.
+On your local development environment, you may need to set your `SECRET_KEY_BASE` env variable to the same value as the one present in your `tmp/local_secret.txt`.
+
 To update, follow these steps:
 
 ### 1.1. Update your ruby version
@@ -29,12 +32,34 @@ gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
 
-### 1.3. Run these commands
+### 1.3. Rails upgrade
+
+This particular release is deploying a new Rails version, 8.0. As a result you need to update your application configuration. Before that, you need to run the following commands:
 
 ```console
 sudo apt install libvips libvips-tools # or the alternative installation process for your operating system. See "3.5. Replace image processing with imagemagick to libvips"
 bundle update decidim
 bin/rails decidim:upgrade
+```
+
+Please edit your `config/application.rb` to use the new Rails defaults.
+
+```diff
+module DevelopDevelopmentApp
+  class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+-    config.load_defaults 7.2
++    config.load_defaults 8.0
+    # ....
+  end
+end
+```
+
+You can read more about this change on PR [#16214](https://github.com/decidim/decidim/pull/16214).
+
+### 1.4. Run these commands
+
+```console
 bin/rails db:migrate
 bin/rails decidim:upgrade:encryption
 # skip this command if you have run it before:
@@ -45,7 +70,7 @@ bin/rails decidim:upgrade:fix_deleted_private_follows
 bin/rails data:migrate
 ```
 
-### 1.4. AWS/Azure/Google Cloud assets storage
+### 1.5. AWS/Azure/Google Cloud assets storage
 
 There is a bug related to the cache expiration using Active Storage (assets, such as images). For fixing this issue, the Rails team added an extra active storage parameter, `public: true` that you can add it to your storage configuration. If you followed the step `3.4. Deprecation of Rails.application.secrets` and changed your `config/storage.yml` file you don't need to do anything else.
 
@@ -55,7 +80,7 @@ Apart of that, you also need to configure your preferred cloud service provider 
 
 You can read more about this change on PR [#15005](https://github.com/decidim/decidim/pull/15005/).
 
-### 1.5. Follow the steps and commands detailed in these notes
+### 1.6. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
@@ -130,7 +155,15 @@ It also enables the users of multi language platforms to share the links to the 
 
 You can read more about this change on PR [#14432](https://github.com/decidim/decidim/pull/14432).
 
-### 2.7. [[TITLE OF THE ACTION]]
+### 2.8. Removal of User Group related fields
+
+As we deprecated the User Group functionality in v0.31, we are performing some cleanup that will remove all the database fields related to the User Group functionality. This means that `decidim_user_group_id` fields in various tables will be removed.
+
+We are also removing the `decidim_user_group_memberships` tables.
+
+You can read more about this change on PR [#16022](https://github.com/decidim/decidim/pull/16022).
+
+### 2.8. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -247,7 +280,29 @@ end
 
 You can read more about this change on PR [#14800](https://github.com/decidim/decidim/pull/14800).
 
-### 5.2. [[TITLE OF THE CHANGE]]
+### 5.2. Refactor of filters
+
+As part of our ongoing efforts to improve and simplify Decidim, we have changed the way filters are being defined, mainly being forced by rack 3 upgrade.
+
+Previously, the taxonomy filters were defined as follows:
+
+```ruby
+"filter" => {
+  "with_any_taxonomies[4]" => [""]
+}
+```
+
+After the rack upgrade, the filters are defined as follows:
+
+```ruby
+"filter" => {
+  "with_any_taxonomies" => { "4" => [""] }
+}
+```
+
+You can read more about this change on PR [#16103](https://github.com/decidim/decidim/pull/16103).
+
+### 5.3. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 
