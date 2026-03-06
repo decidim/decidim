@@ -119,9 +119,14 @@ module Decidim
         gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
+      def patch_production_file
+        gsub_file "config/environments/production.rb", /config\.action_mailer\.default_url_options = { host: "example.com" }$/,
+                  "# config.action_mailer.default_url_options = { host: \"example.com\" }"
+      end
+
       def patch_test_file
-        gsub_file "config/environments/test.rb", /config\.action_mailer\.default_url_options = { host: "www.example.com" }$/,
-                  "# config.action_mailer.default_url_options = { host: \"www.example.com\" }"
+        gsub_file "config/environments/test.rb", /config\.action_mailer\.default_url_options = { host: "example.com" }$/,
+                  "# config.action_mailer.default_url_options = { host: \"example.com\" }"
       end
 
       def disable_annotate_rendered_view_on_development
@@ -341,18 +346,10 @@ module Decidim
 
       def production_environment
         gsub_file "config/environments/production.rb",
-                  /config.log_level = :info/,
-                  "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :info"
-
-        gsub_file "config/environments/production.rb",
                   %r{# config.asset_host = "http://assets.example.com"},
                   "config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
-        gsub_file "config/environments/production.rb", /# Log to STDOUT by default\n((.*)\n){3}/, <<~CONFIG
-          if ENV["RAILS_LOG_TO_STDOUT"].present?
-            config.logger = ActiveSupport::Logger.new(STDOUT)
-              .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
-              .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
-          end
+        gsub_file "config/environments/production.rb", /config\.logger\s*=\s*ActiveSupport::TaggedLogging\.logger\(STDOUT\)/, <<~CONFIG
+          config.logger   = ActiveSupport::TaggedLogging.logger(STDOUT) if ENV["RAILS_LOG_TO_STDOUT"].present?
         CONFIG
       end
 
