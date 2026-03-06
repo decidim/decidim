@@ -6,6 +6,7 @@ module Decidim
       # This controller allows an admin to manage debates from a Participatory Space
       class DebatesController < Decidim::Debates::Admin::ApplicationController
         include Decidim::Admin::HasTrashableResources
+
         helper Decidim::ApplicationHelper
 
         helper_method :debates

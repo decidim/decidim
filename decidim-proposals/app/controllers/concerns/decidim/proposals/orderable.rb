@@ -23,8 +23,9 @@ module Decidim
             possible_orders = %w(random recent)
             possible_orders << "most_voted" if most_voted_order_available?
             possible_orders << "most_liked" if current_settings.likes_enabled?
-            possible_orders << "most_commented" if component_settings.comments_enabled?
-            possible_orders << "most_followed" << "with_more_authors"
+            possible_orders << "most_commented" if most_commented_order_available?
+            possible_orders << "most_followed"
+            possible_orders << "with_more_authors" if with_more_authors_order_available?
             possible_orders
           end
         end
@@ -50,6 +51,18 @@ module Decidim
 
         def most_voted_order_available?
           current_settings.votes_enabled? && !current_settings.votes_hidden?
+        end
+
+        def with_more_authors_order_available?
+          return @with_more_authors_order_available if defined?(@with_more_authors_order_available)
+
+          @with_more_authors_order_available = Decidim::Proposals::Proposal.with_more_authors_available?(current_component)
+        end
+
+        def most_commented_order_available?
+          return @most_commented_order_available if defined?(@most_commented_order_available)
+
+          @most_commented_order_available = Decidim::Proposals::Proposal.most_commented_available?(current_component)
         end
 
         def order_by_votes?

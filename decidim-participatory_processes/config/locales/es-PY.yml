@@ -66,6 +66,8 @@ es-PY:
           attributes:
             document:
               allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}'
+              empty: El documento está vacío
+              invalid_json: El documento no es JSON válido
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: La fase ha cambiado
@@ -106,7 +108,7 @@ es-PY:
       menu:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
-          info: Información
+          info: Acerca de este grupo de procesos
           landing_page: Disposición de la página de aterrizaje
         participatory_processes: Procesos
         participatory_processes_submenu:
@@ -217,7 +219,7 @@ es-PY:
           error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
         update:
           error: Se ha producido un error en la actualización de esta fase de proceso participativo.
-          success: La fase de proceso participativo se ha actualizado correctamente.
+          success: La fase del proceso participativo se ha actualizado correctamente.
       participatory_process_user_roles:
         create:
           error: Ha habido un error al agregar un usuario a este proceso participativo.
@@ -341,7 +343,6 @@ es-PY:
     open_data:
       help:
         participatory_processes:
-          announcement: La información del anuncio/aviso (llamada)
           area: El área a la que pertenece el proceso
           component_settings: Configuración de los componentes del proceso participativo
           created_at: La fecha en la que se creó este proceso participativo
@@ -489,9 +490,13 @@ es-PY:
             all: Todos
             max_results: Cantidad máxima de elementos para mostrar
             selection_criteria: Criterios de selección
+        imports:
+          attachment_error: No se ha podido importar el archivo adjunto "%{title}" (%{error}).
+          hero_image_error: No se ha podrido importar la imagen principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Esta función de importación te permite crear un nuevo proceso participativo a partir de un archivo JSON exportado. Puedes exportar un proceso particpativo desde otra organización o desde esta misma organización. El proceso participativo importado incluirá sus ajustes, componentes y archivos adjuntos (si se seleccionan).
         participatory_process_duplicates:
           form:
             slug_help_html: 'Los segmentos de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -506,7 +511,6 @@ es-PY:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_processes:
           form:
-            announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             has_members_help: Podrás crear y publicar miembros

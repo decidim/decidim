@@ -21,6 +21,7 @@ module Decidim
         @filter_sections ||= begin
           items = [{
             method: :with_any_state,
+            name: "[with_any_state]",
             collection: filter_elections_state_values,
             label: t("decidim.elections.elections.filters.state"),
             id: "date",

@@ -60,7 +60,7 @@ shared_examples "Managing component permissions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Permissions updated successfully.")
 
       expect(component.reload.permissions["foo"]).to(
         include(
@@ -91,7 +91,7 @@ shared_examples "Managing component permissions" do
     end
 
     it "renders the form again" do
-      expect(page).to have_content("problem")
+      expect(page).to have_content("There was a problem updating the permissions of this component.")
     end
   end
 
@@ -125,7 +125,7 @@ shared_examples "Managing component permissions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Permissions updated successfully.")
 
       expect(component.reload.permissions["foo"]).to be_nil
     end
@@ -162,7 +162,7 @@ shared_examples "Managing component permissions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Permissions updated successfully.")
 
       expect(component.reload.permissions["foo"]).to(
         include(
@@ -185,7 +185,7 @@ shared_examples "Managing component permissions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Permissions updated successfully.")
 
       expect(component.reload.permissions["foo"]).to(
         include(

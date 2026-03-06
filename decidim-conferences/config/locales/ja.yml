@@ -428,7 +428,7 @@ ja:
             certificate_of_attendance_description: これは、<strong>%{user}</strong>が、<strong>%{start} から %{end}</strong>に<strong>%{location}</strong>で開催された<strong>%{title}</strong>に出席し、参加したことを証明するものです。
         send_diploma:
           error: カンファレンス出席証明書の送信に問題がありました。
-          success: カンファレンス出席証明書が正常に送信されました
+          success: カンファレンス参加証明書を送信しました。
       conference:
         registration_confirm:
           cancel: キャンセル

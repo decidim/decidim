@@ -77,7 +77,7 @@ module Decidim
         # the query
         def adjacent_items(item)
           query =
-            <<-SQL.squish
+            <<~SQL.squish
               WITH
                 collection AS (#{session_filtered_collection.select(:id).to_sql}),
                 successors AS (
@@ -198,8 +198,8 @@ module Decidim
           filtered_taxonomies = taxonomies.roots.or(taxonomies.where(id: available_taxonomy_ids))
           return nil if filtered_taxonomies.blank?
 
-          filtered_taxonomies.each_with_object({}) do |taxonomy, hash|
-            hash[taxonomy.id] = taxonomy_ids_hash(taxonomy.children)
+          filtered_taxonomies.to_h do |taxonomy|
+            [taxonomy.id, taxonomy_ids_hash(taxonomy.children)]
           end
         end
 

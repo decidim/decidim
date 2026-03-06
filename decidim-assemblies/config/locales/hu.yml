@@ -209,7 +209,6 @@ hu:
       admin:
         assemblies:
           form:
-            announcement_help: Az itt megadott szöveg a gyűlés információs oldalán fog megjelenni a felhasználók számára. 
             duration: Időtartam
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
             images: képek
@@ -221,6 +220,9 @@ hu:
             social_handlers: Social
             title: Általános információ
             visibility: Láthatóság
+        assembly_imports:
+          form:
+            document_legend: Dokumentum hozzáadása
         assembly_members:
           form:
             explanation: 'Útmutató a képhez:'

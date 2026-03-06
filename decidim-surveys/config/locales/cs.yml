@@ -13,6 +13,7 @@ cs:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Opravdu chcete zrušit publikování této ankety?
         see_survey: Zobrazit průzkum
       admin_log:
         changeset:
@@ -25,6 +26,8 @@ cs:
           settings: Nastavení
     components:
       surveys:
+        actions:
+          respond: Reakce
         name: Průzkumy
         settings:
           announcement: Oznámení
@@ -49,6 +52,12 @@ cs:
         published_survey_user_responses:
           body: Obsah odpovědi
           created_at: Časové razítko, kdy byla odpověď vytvořena
+          id: Jedinečný identifikátor pro odpověď na anketu
+          ip_hash: Hashovaná IP adresa respondenta kvůli soukromí
+          question: Otázka, na kterou bylo reagováno
+          registered: Registrovaný účastník
+          unregistered: Neregistrovaný účastník
+          user_status: Stav uživatele, který odeslal reakci
     statistics:
       responses: 'Odpovědi:'
       responses_count: Odpovědi
@@ -61,10 +70,18 @@ cs:
         manage_questions: Otázky
         new_survey: Nový průzkum
         preview: Náhled
+        responses: Odpovědi
+        responses_alert: Odstranění odpovědí při publikování je aktivní pro tento průzkum. Momentálně je %{responses_count} odpovědi, které budou zničeny, pokud budete pokračovat.
         title: Akce
       admin:
+        exports:
+          survey_user_responses: Odpovědi účastníka na anketu
         publish_responses:
           index:
+            description: |-
+              Zveřejněním odpovědí na otázky je veřejnosti zviditelníte.
+              Můžete vybrat odpovědi, které chcete publikovat, kliknutím na zaškrtávací políčko vedle každé otázky.
+              Můžete publikovat pouze následující typy úloh: "Jedna možnost", "Vícenásobná možnost", "Matice (jedna možnost)", "Matice (více možností)" a "Řazení".
             status:
               not_published: Nezveřejněno
               published: Zveřejněno
@@ -76,6 +93,7 @@ cs:
         responses:
           index:
             no_responses: Zatím nejsou žádné odpovědi
+            title: "%{total} odpovědí celkem"
           show:
             title: 'Odpověď č.%{number}'
         settings:
@@ -131,6 +149,9 @@ cs:
             closed: Uzavřeno
             open: Otevřeno
       survey_confirmation_mailer:
+        confirmation:
+          body: Úspěšně jste odpověděli v anketě %{questionnaire_title} v rámci %{participatory_space}
+          subject: Potvrzení odpovědi na dotazník %{questionnaire_title}
         export_name: Odpovědi na dotazník
       surveys:
         count:

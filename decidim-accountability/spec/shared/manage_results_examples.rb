@@ -42,7 +42,7 @@ shared_examples "manage results" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Result successfully updated.")
+      expect(page).to have_callout("Result successfully updated.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:title]))
@@ -67,7 +67,7 @@ shared_examples "manage results" do
       within ".item__edit-sticky" do
         find("*[type=submit]").click
       end
-      expect(page).to have_admin_callout("Result successfully created.")
+      expect(page).to have_callout("Result successfully created.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:title]))
@@ -113,7 +113,7 @@ shared_examples "manage results" do
         accept_confirm { click_on "Move to trash" }
       end
 
-      expect(page).to have_admin_callout("Result successfully deleted.")
+      expect(page).to have_callout("Result successfully deleted.")
 
       within "table" do
         expect(page).to have_no_content(translated(result2.title))

@@ -20,7 +20,6 @@ tr:
       initiatives_type:
         area_enabled: Yazarların girişimleri için alanı seçmelerine izin verin
         attachments_enabled: Tüm eklentileri aktifleştir
-        banner_image: Afiş resmi
         child_scope_threshold_enabled: Alt kapsam imzalarını etkinleştir
         collect_user_extra_fields: İmzada katılımcıya ait kişisel verileri toplayın
         custom_signature_end_date_enabled: Yazarların imza toplama süresinin sonunu seçmesine izin ver

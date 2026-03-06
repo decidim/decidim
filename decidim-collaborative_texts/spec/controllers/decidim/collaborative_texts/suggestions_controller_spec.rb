@@ -61,7 +61,7 @@ module Decidim
 
         it "returns an error when user is not signed in" do
           post(:create, params:)
-          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response).to have_http_status(:unprocessable_content)
           body = JSON.parse(response.body)
           expect(body["message"]).to eq("You are not authorized to perform this action.")
         end
@@ -85,7 +85,7 @@ module Decidim
 
             it "returns an error" do
               post(:create, params:)
-              expect(response).to have_http_status(:unprocessable_entity)
+              expect(response).to have_http_status(:unprocessable_content)
               body = JSON.parse(response.body)
               expect(body["message"]).to eq("There was a problem creating the suggestion. Invalid selected nodes.")
             end

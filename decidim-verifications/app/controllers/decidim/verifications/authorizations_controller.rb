@@ -14,6 +14,7 @@ module Decidim
       include Decidim::UserProfile
       include Decidim::HtmlSafeFlash
       include Decidim::Verifications::Renewable
+
       helper Decidim::DecidimFormHelper
       helper Decidim::AuthorizationFormHelper
       helper Decidim::TranslationsHelper

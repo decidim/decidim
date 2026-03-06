@@ -66,6 +66,8 @@ fr-CA:
           attributes:
             document:
               allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
+              empty: Le document est vide
+              invalid_json: Le document n'est pas un JSON valide
     models:
       decidim/participatory_process_step_activated_event: Étape activée
       decidim/participatory_process_step_changed_event: Étape modifiée
@@ -106,7 +108,7 @@ fr-CA:
       menu:
         participatory_process_groups: Groupes de concertations
         participatory_process_groups_submenu:
-          info: Information
+          info: À propos de ce groupe de processus
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
@@ -215,7 +217,7 @@ fr-CA:
           error: Une erreur s'est produite lors de la réorganisation des étapes de la concertation.
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette étape de la concertation.
-          success: Étape de la concertation mise à jour avec succès.
+          success: Étape du processus participatif mise à jour avec succès.
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette concertation.
@@ -441,9 +443,13 @@ fr-CA:
             all: Tout
             max_results: Quantité maximale d'éléments à afficher
             selection_criteria: Critères de sélection
+        imports:
+          attachment_error: La pièce jointe «%{title}» n’a pas pu être importée (%{error}).
+          hero_image_error: L'image principale n'a pas pu être importée (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Cette fonction d'importation vous permet de créer un nouveau processus participatif à partir d'un fichier JSON exporté. Vous pouvez exporter un processus depuis une autre organisation ou depuis cette même organisation. Le processus importé inclura ses paramètres, composants et pièces jointes (si sélectionnés).
         participatory_process_duplicates:
           form:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
@@ -458,7 +464,6 @@ fr-CA:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_processes:
           form:
-            announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             has_members_help: Vous pourrez créer et publier des membres

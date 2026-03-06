@@ -94,8 +94,6 @@ hu:
         unpublish: Közzététel visszavonása
       menu:
         participatory_process_groups: Folyamat csoportok
-        participatory_process_groups_submenu:
-          info: Info
         participatory_processes: Folyamatok
         participatory_processes_submenu:
           attachment_collections: Mappák
@@ -190,7 +188,6 @@ hu:
           error: Hiba történt a részvételi folyamat fázisainak átrendezése során.
         update:
           error: Hiba történt a részvételi folyamat fázisainak frissítése során.
-          success: Részvételi folyamat fázis frissítése sikerült.
       participatory_process_user_roles:
         create:
           error: Hiba a felhasználó részvételi folyamathoz való hozzáadásakor.
@@ -329,7 +326,6 @@ hu:
             document_legend: Dokumentum hozzáadása
         participatory_processes:
           form:
-            announcement_help: A megadott szöveg a folyamat információk alatt található felhasználónál jelenik meg.
             duration: Időtartam
             images: Képek
             metadata: Metaadatok

@@ -42,7 +42,6 @@ pl:
         origin_component_id: Komponent z którego kopiuję propozycję
       proposals_import:
         import_proposals: Importuj propozycje
-        keep_answers: Zachowaj stan i odpowiedzi
         keep_authors: Zachowaj oryginalnych autorów
     errors:
       models:
@@ -457,7 +456,6 @@ pl:
             create: Importuj propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do zaimportowania propozycji.
             select_component: Wybierz komponent
-            select_states: Sprawdź statusy propozycji do zaimportowania
             title: Importuj propozycje z innego komponentu
         proposals_merges:
           create:

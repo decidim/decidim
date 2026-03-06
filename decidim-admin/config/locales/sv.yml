@@ -53,8 +53,8 @@ sv:
         customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning
+        enable_machine_translations: Aktivera maskinöversättningar
         enable_omnipresent_banner: Visa banner på alla sidor
-        enable_participatory_space_filters: Aktivera filter för processer
         facebook_handler: Facebook-namn
         favicon: Ikon
         force_authentication: Kräv autentisering
@@ -125,7 +125,7 @@ sv:
         title: Titel
         weight: Position i listan
       taxonomy:
-        item_name: Objektnamn
+        item_name: Namn
         parent_id: Överordnad
       user_group_csv_verification:
         file: Fil
@@ -188,7 +188,8 @@ sv:
           </ul>
           Om du ändrar dig, du kan återställa det senare.
         export: Exportera
-        export-selection: Exportera markerade
+        export_all: Exportera allt
+        export_selection: Exportera markerade
         import: Importera
         member:
           new: Ny medlem
@@ -426,11 +427,11 @@ sv:
           user_invitation_sent_at_not_null:
             label: Inbjudan har skickats
             values:
-              'false': Inte skickat
+              'false': Ej skickad
               'true': Skickad
         moderated_users:
           reports_reason_eq:
-            label: Anledning till anmälan
+            label: Anledning till rapportering
             values:
               does_not_belong: Opassande
               offensive: Stötande
@@ -458,7 +459,7 @@ sv:
         search_placeholder:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn
           report_count_eq: Antal rapporteringar
-          reported_id_string_or_reported_content_cont: Sök %{collection} efter anmälnings-id eller innehåll
+          reported_id_string_or_reported_content_cont: Sök %{collection} efter rapporterings-id eller innehåll
           title_cont: Sök i %{collection} efter titel
           user_name_or_user_nickname_or_user_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn
         state_eq:
@@ -578,10 +579,50 @@ sv:
       members:
         create:
           error: Det gick inte att lägga till en deltagare till processen.
+          success: Medlemsåtkomst har aktiverats.
+        destroy:
+          error: Det gick inte att ta bort deltagaren från deltagarutrymmet.
+          success: Medlemsåtkomst har tagits bort.
+        edit:
+          title: Redigera medlem
+          update: Uppdatera
+        index:
+          import_via_csv: Importera via CSV
+          publish_all: Publicera alla
+          title: Medlem
+          unpublish_all: Avpublicera alla
+        new:
+          create: Skapa
+          title: Ny medlem
+        publish_all:
+          error: Det gick inte att publicera alla medlemmar i deltagarutrymmet.
+          success: Alla medlemmar har publicerats i deltagarutrymmet
+        unpublish_all:
+          error: Det gick inte att avpublicera alla deltagare i deltagarutrymmet.
+          success: Alla medlemmar har avpublicerats från deltagarutrymmet
+        update:
+          error: Det gick inte att uppdatera medlemmen i deltagarutrymmet.
+          success: Medlemmen har uppdaterats
       members_csv_imports:
+        create:
+          invalid: Det gick inte att läsa CSV-filen. Kontrollera att du har följt instruktionerna.
+          success: CSV-filen har laddats upp och vi skickar en inbjudan med e-post till deltagarna. Det kan ta en stund.
         new:
           csv_upload:
             title: Skicka CSV-fil
+          destroy:
+            button: Radera alla medlemmar
+            confirm: Är du säker på att du vill radera alla medlemmar? Den här åtgärden kan inte ångras.
+            empty: Det finns inga medlemmar.
+            explanation: Det finns %{count} medlemmar.
+            title: Radera medlemmar
+          example_file: 'Exempelfil:'
+          explanation: 'Skicka din CSV-fil. Den behöver ha två kolumner för användare som du vill lägga till, utan rubriker, med e-postadressen i den första kolumnen och namnet i den sista kolumnen. Undvik specialtecken som `<>?%&^*#@()[]=+:;"{}\|` i användarnamn.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importera medlemmar via CSV
+          upload: Ladda upp
       menu:
         admin_log: Aktivitetslogg
         admins: Administratörer
@@ -593,6 +634,7 @@ sv:
         content: Rapporterat innehåll
         external_domain_allowlist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
+        homepage: Startsida
         impersonations: Uppträd som
         insights: Insikter
         manage: Hantera
@@ -639,6 +681,8 @@ sv:
             reason: Anledning
             started_at: Började
             user: Deltagare
+        member:
+          name: Medlem
         newsletter:
           fields:
             created_at: Skapad
@@ -695,7 +739,7 @@ sv:
               update_moderated_user_button: Avrapportera användare
             title: Åtgärder
             unblock: Avblockera användare
-            unreport: Ångra rapporten
+            unreport: Dra tillbaka rapportering
           cancel: Avbryt
           name: Namn
           nickname: Användarnamn
@@ -719,11 +763,11 @@ sv:
               title: Dölj
               update_moderation_button: Dölj valda resurser
             unhide:
-              title: Ångra döljande
+              title: Dra tillbaka döljande
               update_moderation_button: Sluta dölja valda resurser
             unreport:
-              title: Ångra rapporten
-              update_moderation_button: Avrapportera valda resurser
+              title: Dra tillbaka rapportering
+              update_moderation_button: Avrapportera valt innehåll
           cancel: Avbryt
           selected: valda
           title: Rapporterat innehåll
@@ -1039,7 +1083,7 @@ sv:
           title: Nytt ämne
         update:
           error: Det gick inte att uppdatera ämnet.
-          success: Ämnet har uppdaterats
+          success: Ämnesområdet har uppdaterats.
       static_pages:
         actions:
           view: Visa
@@ -1198,6 +1242,8 @@ sv:
         taxonomy_filters: Kategorifilter för "%{taxonomy}"
         users: Administratörer
       tooltips:
+        cannot_destroy_taxonomy_filter: Det går inte att ta bort kategorifiltret
+        cannot_edit_taxonomy_filter: Det går inte att redigera kategorifiltret
         deleted_attachment_collections_info: Kan inte ta bort denna mapp eftersom den har bilagor.
         deleted_component_info: Komponenten kan endast tas bort om statusen är 'avpublicerad'.
       trash_management:
@@ -1241,8 +1287,8 @@ sv:
         not_hidden: Inte dold
         parent_hidden: Du kan inte visa innehållet eftersom dess överordnade innehåll fortfarande är dolt.
         title: Åtgärder
-        unhide: Ångra döljande
-        unreport: Ångra rapporten
+        unhide: Dra tillbaka döljande
+        unreport: Dra tillbaka rapportering
       admin:
         reportable:
           bulk_action:

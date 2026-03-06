@@ -117,6 +117,9 @@ sl:
             metadata: Meta podatki
             other: Drugo
             select_parent_assembly: Izberi matično združbo
+        assembly_imports:
+          form:
+            document_legend: Dodaj dokument
       assemblies:
         filters:
           names:

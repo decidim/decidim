@@ -13,6 +13,7 @@ describe "Invite process administrator" do
   let(:role) { "Administrator" }
   let(:participatory_space_user_roles_path) { decidim_admin_participatory_processes.participatory_process_user_roles_path(participatory_space) }
   let(:new_button_label) { "New process admin" }
+  let(:added_callout_message) { "Admin successfully added to this participatory process." }
 
   include_context "when inviting participatory space users"
 

@@ -29,7 +29,6 @@ lt:
         origin_component_id: Komponentas, skirtas kopijuoti pasiūlymams iš
       proposals_import:
         import_proposals: Importuoti pasiūlymus
-        keep_answers: Išlaikyti būseną ir atsakymus
         keep_authors: Išlaikyti originalius autorius
     errors:
       models:
@@ -380,7 +379,6 @@ lt:
             create: Importuoti pasiūlymus
             no_components: Šioje dalyvaujamojo proceso erdvėje nėra kitų pasiūlymų komponentų, iš kurių būtų galima importuoti pasiūlymus.
             select_component: Pasirinkite komponentą
-            select_states: Patikrinti importuoti skirtų pasiūlymų būseną
         proposals_merges:
           create:
             success: Pasiūlymai sulieti į vieną naują pasiūlymą.

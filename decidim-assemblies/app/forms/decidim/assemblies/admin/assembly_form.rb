@@ -31,7 +31,6 @@ module Decidim
         translatable_attribute :subtitle, String
         translatable_attribute :target, String
         translatable_attribute :title, String
-        translatable_attribute :announcement, Decidim::Attributes::RichText
 
         attribute :created_by, String
         attribute :facebook_handler, String
