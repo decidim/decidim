@@ -19,7 +19,7 @@ describe Decidim::Admin::HomepageContentBlockCell, type: :cell do
   end
 
   it "renders a link to destroy the content block" do
-    expect(subject).to have_link(href: /content_blocks/)
+    expect(subject).to have_css('a[data-method="delete"][href*="/content_blocks/"]')
   end
 
   it "renders the drag handle" do
@@ -30,8 +30,8 @@ describe Decidim::Admin::HomepageContentBlockCell, type: :cell do
     let(:content_block) { build(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
 
     it "does not render edit or destroy links" do
-      expect(subject).not_to have_link(href: /edit/)
-      expect(subject).not_to have_link(href: /delete/)
+      expect(subject).not_to have_link(href: %r{/content_blocks/\d+/edit$})
+      expect(subject).not_to have_css('a[data-method="delete"]')
     end
   end
 
