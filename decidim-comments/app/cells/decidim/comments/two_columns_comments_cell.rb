@@ -26,10 +26,11 @@ module Decidim
           @sorted_comments_against = comments_against_query.query
         end
 
-        @has_more_in_favor = comments_in_favor_query.has_more?
-        @has_more_against = comments_against_query.has_more?
+        counts = comments_count_by_alignment
+        @has_more_in_favor = (counts[1] || 0) > comments_in_favor_query.offset + comments_in_favor_query.limit
+        @has_more_against = (counts[-1] || 0) > comments_against_query.offset + comments_against_query.limit
 
-        load_mobile_comments
+        load_mobile_comments(counts.values.sum)
       end
 
       def load_closed_comments
@@ -39,7 +40,7 @@ module Decidim
 
       def sorted_comments(comments)
         top_comment = find_top_comment(comments)
-        sorted_comments = comments.where.not(id: top_comment&.id).order(created_at: :asc)
+        sorted_comments = comments.where.not(id: top_comment&.id)
         [top_comment, sorted_comments]
       end
 
@@ -59,10 +60,14 @@ module Decidim
         @comments_against_query ||= SortedComments.new(model, order_by: order, alignment: -1, offset: 0)
       end
 
-      def load_mobile_comments
+      def load_mobile_comments(total_count)
         @sorted_comments_query = SortedComments.new(model, order_by: order, offset: 0)
         @mobile_comments = @sorted_comments_query.query
-        @has_more_mobile = @sorted_comments_query.has_more?
+        @has_more_mobile = total_count > @sorted_comments_query.offset + @sorted_comments_query.limit
+      end
+
+      def comments_count_by_alignment
+        @comments_count_by_alignment ||= Decidim::Comments::Comment.where(commentable: model).group(:alignment).count
       end
 
       # rubocop:disable Metrics/ParameterLists
