@@ -132,6 +132,8 @@ shared_examples "add component resources to search index" do
       click_on "Publish"
     end
 
+    perform_enqueued_jobs
+    
     expect(page).to have_admin_callout("The component has been successfully published")
 
     expect(Decidim::SearchableResource.where(resource:).count).to be_positive
@@ -164,9 +166,7 @@ shared_examples "removes component resources from search index" do
       click_on "Unpublish"
     end
 
-    # we really need this otherwise the pipeline fails. We already have perform_enqueued_jobs as an around block,
-    # but it does not manage to perform the background jobs when the below assertions are made
-    sleep 1
+    perform_enqueued_jobs
 
     expect(page).to have_admin_callout("The component has been successfully unpublished")
     expect(Decidim::SearchableResource.where(resource:).count).to be_zero
