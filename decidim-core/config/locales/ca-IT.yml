@@ -2056,8 +2056,8 @@ ca-IT:
         confirm_new_password: Confirmar la nova contrasenya
         new_password: Nova contrasenya
         old_password_help: Per tal de confirmar els canvis al teu compte, si us plau, proporciona'ns la teva contrasenya actual.
-        password_help: "La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (e. 123456) i ha de ser diferent del número, sobrenom, correu electrònic i del domini de la plataforma."
-        password_help_admin: "La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (e. 123456) i ha de ser diferent del número, sobrenom, correu electrònic, domini de la plataforma o contrasenyes antigues."
+        password_help: "La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (p. ex. 123456) i ha de ser diferent del número, sobrenom, correu electrònic i del domini de la plataforma."
+        password_help_admin: "La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (p. ex. 123456) i ha de ser diferent del número, sobrenom, correu electrònic, domini de la plataforma o contrasenyes antigues."
         title: Canvi de contrasenya
       new:
         forgot_your_password: Has oblidat la teva contrasenya?
