@@ -133,7 +133,7 @@ shared_examples "add component resources to search index" do
     end
 
     perform_enqueued_jobs
-    
+
     expect(page).to have_admin_callout("The component has been successfully published")
 
     expect(Decidim::SearchableResource.where(resource:).count).to be_positive
