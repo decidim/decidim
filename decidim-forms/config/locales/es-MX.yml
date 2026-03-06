@@ -50,7 +50,7 @@ es-MX:
             description: Descripción
             ends_at: Respuestas aceptadas hasta
             ends_at_help: Dejar en blanco si no hay ninguna fecha específica
-            starts_at: Respuestas aceptadas hasta
+            starts_at: Respuestas aceptadas desde
             starts_at_help: Dejar en blanco si no hay ninguna fecha específica
             tos: Términos y condiciones de uso
         questionnaires:
