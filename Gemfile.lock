@@ -493,8 +493,10 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.8, >= 1.8.1)
       terminal-table (>= 1.5.1)
-    icalendar (2.10.3)
+    icalendar (2.12.1)
+      base64
       ice_cube (~> 0.16)
+      logger
       ostruct
     ice_cube (0.17.0)
     image_processing (1.14.0)
