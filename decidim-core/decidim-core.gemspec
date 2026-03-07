@@ -75,7 +75,7 @@ Gem::Specification.new do |s|
   s.add_dependency "ransack", ">= 4.2", "< 4.5"
   s.add_dependency "redis", ">= 4.1", "< 6.0"
   s.add_dependency "request_store", "~> 1.7.0"
-  s.add_dependency "rqrcode", "~> 2.2.0"
+  s.add_dependency "rqrcode", ">= 2.2", "< 3.3"
   s.add_dependency "ruby-vips", "~> 2.2"
   s.add_dependency "rubyXL", "~> 3.4"
   s.add_dependency "rubyzip", "~> 2.0"
