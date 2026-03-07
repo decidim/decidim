@@ -1140,12 +1140,28 @@ fr:
         index:
           new_taxonomy: Nouvelle taxonomie
         name: Nom
+        new:
+          create: Créer la taxonomie
+          title: Nouvelle taxonomie
+        no_taxonomies: Il n'y a pas de taxonomies actuellement. Créez une liste de taxonomies ici et définissez des éléments pour chacune d'entre elles afin de classer ou filtrer des ressources.
+        table:
+          to_next_page: Faites glisser pour passer à la page suivante
+          to_prev_page: Faites glisser pour passer à la page précédente
         total_filters: Filtres
+        total_items: Éléments de la taxonomie
+        update:
+          invalid: Un problème a été rencontré lors de la mise à jour de cette taxonomie.
+          success: La taxonomie a été mise à jour avec succès.
       taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Nouveau filtre de taxonomie
         breadcrumb:
           edit: Modifier le filtre
           filters: Filtres
           new: Nouveau filtre
+        create:
+          error: Un problème a été rencontré lors de la création de ce filtre de taxonomie.
+          success: Filtre de taxonomie créé avec succès.
         edit:
           back: Revenir en arrière
           title: Modifier le filtre de taxonomie
@@ -1178,6 +1194,7 @@ fr:
         taxonomies_select:
           filters: Filtres
           select_filter: Sélectionnez un filtre
+          taxonomies: Taxonomies
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
