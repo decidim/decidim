@@ -913,11 +913,10 @@ GEM
       dry-configurable (>= 0.13, < 2)
       jwt (>= 2.1, < 4)
       warden (~> 1.2)
-    web-console (4.2.1)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
+    web-console (4.3.0)
+      actionview (>= 8.0.0)
       bindex (>= 0.4.0)
-      railties (>= 6.0.0)
+      railties (>= 8.0.0)
     web-push (3.1.0)
       jwt (~> 3.0)
       openssl (>= 3.0)
@@ -960,7 +959,7 @@ DEPENDENCIES
   listen (~> 3.10)
   parallel_tests (~> 4.2)
   puma (>= 6.3.1)
-  web-console (~> 4.2)
+  web-console (~> 4.3)
 
 RUBY VERSION
    ruby 3.4.7p58
