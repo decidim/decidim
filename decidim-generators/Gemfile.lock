@@ -365,8 +365,8 @@ GEM
       railties (>= 7.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.15.0)
-      devise (>= 4.9.0)
+    devise-i18n (1.16.0)
+      devise (>= 5.0.0)
       rails-i18n
     devise-jwt (0.13.0)
       devise (>= 4.0.0, < 6.0.0)
@@ -487,8 +487,10 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.8, >= 1.8.1)
       terminal-table (>= 1.5.1)
-    icalendar (2.10.3)
+    icalendar (2.12.1)
+      base64
       ice_cube (~> 0.16)
+      logger
       ostruct
     ice_cube (0.17.0)
     image_processing (1.14.0)
