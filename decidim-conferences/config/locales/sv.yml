@@ -322,6 +322,7 @@ sv:
     admin_log:
       conference:
         create: "%{user_name} skapade konferensen %{resource_name}"
+        duplicate: "%{user_name} kopierade konferensen %{resource_name}"
         publish: "%{user_name} publicerade konferensen %{resource_name}"
         restore: "%{user_name} återställde konferensen %{resource_name}"
         send_conference_diplomas: "%{user_name} skickade närvarointyg till deltagarna på konferensen %{resource_name}"
