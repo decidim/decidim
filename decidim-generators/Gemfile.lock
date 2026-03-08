@@ -86,7 +86,7 @@ PATH
       net-smtp (~> 0.5.0)
       nokogiri (~> 1.16, >= 1.16.2)
       omniauth (~> 2.0)
-      omniauth-facebook (~> 5.0)
+      omniauth-facebook (>= 5, < 11)
       omniauth-google-oauth2 (~> 1.0)
       omniauth-rails_csrf_protection (>= 1, < 3)
       omniauth-twitter (~> 1.4)
@@ -504,7 +504,7 @@ GEM
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.19.0)
+    json (2.19.1)
     json-schema (6.2.0)
       addressable (~> 2.8)
       bigdecimal (>= 3.1, < 5)
@@ -599,8 +599,9 @@ GEM
       logger
       rack (>= 2.2.3)
       rack-protection
-    omniauth-facebook (5.0.0)
-      omniauth-oauth2 (~> 1.2)
+    omniauth-facebook (10.0.0)
+      bigdecimal
+      omniauth-oauth2 (>= 1.2, < 3)
     omniauth-google-oauth2 (1.2.2)
       jwt (>= 2.9.2)
       oauth2 (~> 2.0)
@@ -797,7 +798,7 @@ GEM
       faker (>= 2.12.0)
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1)
-    rubocop-graphql (1.5.6)
+    rubocop-graphql (1.6.0)
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1, < 2)
     rubocop-performance (1.26.1)
