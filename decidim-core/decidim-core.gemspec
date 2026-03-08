@@ -69,7 +69,7 @@ Gem::Specification.new do |s|
   s.add_dependency "pg_search", "~> 2.2"
   s.add_dependency "premailer-rails", "~> 1.10"
   s.add_dependency "rack", ">= 3.2.4", "< 4.0"
-  s.add_dependency "rack-attack", "~> 6.7.0"
+  s.add_dependency "rack-attack", ">= 6.7", "< 6.9"
   s.add_dependency "rails", "~> 8.1.0"
   s.add_dependency "rails-i18n", "~> 8.1.0", "< 8.2"
   s.add_dependency "ransack", ">= 4.2", "< 4.5"
