@@ -8,9 +8,9 @@ module Decidim
 
       helper Decidim::TraceabilityHelper
       helper Decidim::Accountability::BreadcrumbHelper
-      include Decidim::Accountability::CalculatorHelper
+      helper Decidim::Accountability::CalculatorHelper
 
-      helper_method :results, :result, :count_calculator, :progress_calculator, :selected_root_taxonomy, :selected_taxonomy_children, :selected_taxonomy_grandchildren?
+      helper_method :results, :result, :selected_root_taxonomy, :selected_taxonomy_children, :selected_taxonomy_grandchildren?
 
       def show
         raise ActionController::RoutingError, "Not Found" unless result
