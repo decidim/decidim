@@ -10,6 +10,7 @@ import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_positi
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 import initLanguageChangeSelect from "src/decidim/admin/choose_language"
+import sortable from "html5sortable/dist/html5sortable.es"
 
 export default function createEditableForm() {
   const wrapperSelector = ".questionnaire-questions";
@@ -391,6 +392,15 @@ export default function createEditableForm() {
       autoButtonsByPosition.run();
 
       initLanguageChangeSelect($field.find("select.language-change").toArray());
+
+      const sortableContainer = document.querySelector(".questionnaire-questions-list[data-draggable-table]");
+      if (sortableContainer) {
+        sortable(sortableContainer, {
+          forcePlaceholderSize: true,
+          items: ".questionnaire-question",
+          handle: sortableContainer.dataset.draggableHandle || ".card-divider"
+        });
+      }
 
       // instead of initialize specific stuff, we send an event, with the DOM fragment we wanna update/refresh/bind
       document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $field[0] }));
