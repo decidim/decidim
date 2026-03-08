@@ -96,7 +96,7 @@ PATH
       pg_search (~> 2.2)
       premailer-rails (~> 1.10)
       rack (>= 3.2.4, < 4.0)
-      rack-attack (~> 6.7.0)
+      rack-attack (>= 6.7, < 6.9)
       rails (~> 8.1.0)
       rails-i18n (~> 8.1.0, < 8.2)
       ransack (>= 4.2, < 4.5)
@@ -658,7 +658,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.5)
-    rack-attack (6.7.0)
+    rack-attack (6.8.0)
       rack (>= 1.0, < 4)
     rack-cors (3.0.0)
       logger
