@@ -17,7 +17,7 @@ module Decidim
         end
 
         on(:invalid) do
-          render json: { error: I18n.t("follows.destroy.error", scope: "decidim") }, status: :unprocessable_entity
+          render json: { error: I18n.t("follows.destroy.error", scope: "decidim") }, status: :unprocessable_content
         end
       end
     end
@@ -32,7 +32,7 @@ module Decidim
         end
 
         on(:invalid) do
-          render json: { error: I18n.t("follows.create.error", scope: "decidim") }, status: :unprocessable_entity
+          render json: { error: I18n.t("follows.create.error", scope: "decidim") }, status: :unprocessable_content
         end
       end
     end

@@ -57,7 +57,7 @@ module Decidim
           on(:invalid) do |newsletter|
             @newsletter = newsletter
             flash.now[:error] = I18n.t("newsletters.create.error", scope: "decidim.admin")
-            render action: :new, status: :unprocessable_entity
+            render action: :new, status: :unprocessable_content
           end
         end
       end
@@ -81,7 +81,7 @@ module Decidim
           on(:invalid) do |newsletter|
             @newsletter = newsletter
             flash.now[:error] = I18n.t("newsletters.update.error", scope: "decidim.admin")
-            render action: :edit, status: :unprocessable_entity
+            render action: :edit, status: :unprocessable_content
           end
         end
       end
@@ -129,12 +129,12 @@ module Decidim
 
           on(:invalid) do
             flash.now[:error] = I18n.t("newsletters.deliver.error", scope: "decidim.admin")
-            render action: :select_recipients_to_deliver, status: :unprocessable_entity
+            render action: :select_recipients_to_deliver, status: :unprocessable_content
           end
 
           on(:no_recipients) do
             flash.now[:error] = I18n.t("newsletters.send.no_recipients", scope: "decidim.admin")
-            render action: :select_recipients_to_deliver, status: :unprocessable_entity
+            render action: :select_recipients_to_deliver, status: :unprocessable_content
           end
         end
       end

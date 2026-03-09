@@ -53,7 +53,7 @@ module Decidim
             render action: :error, locals: {
               error: I18n.t("messaging.conversations.create.error", scope: "decidim"),
               messages:
-            }, status: :unprocessable_entity
+            }, status: :unprocessable_content
           end
         end
       end
@@ -89,7 +89,7 @@ module Decidim
             render action: :error, locals: {
               error: I18n.t("messaging.conversations.update.error", scope: "decidim"),
               messages:
-            }, status: :unprocessable_entity
+            }, status: :unprocessable_content
           end
         end
       end

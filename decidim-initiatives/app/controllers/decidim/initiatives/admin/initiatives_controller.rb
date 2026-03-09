@@ -56,7 +56,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("initiatives.update.error", scope: "decidim.initiatives.admin")
-              render :edit, layout: "decidim/admin/initiative", status: :unprocessable_entity
+              render :edit, layout: "decidim/admin/initiative", status: :unprocessable_content
             end
           end
         end

@@ -39,7 +39,7 @@ module Decidim
 
         on(:invalid) do
           flash.now[:alert] = t("created.error", scope: "decidim.amendments")
-          render :new, status: :unprocessable_entity
+          render :new, status: :unprocessable_content
         end
       end
     end
@@ -63,7 +63,7 @@ module Decidim
 
         on(:invalid) do
           flash.now[:alert] = t("error", scope: "decidim.amendments.update_draft")
-          render :edit_draft, status: :unprocessable_entity
+          render :edit_draft, status: :unprocessable_content
         end
       end
     end
@@ -101,7 +101,7 @@ module Decidim
 
         on(:invalid) do
           flash.now[:alert] = t("error", scope: "decidim.amendments.publish_draft")
-          render :edit_draft, status: :unprocessable_entity
+          render :edit_draft, status: :unprocessable_content
         end
       end
     end
@@ -161,7 +161,7 @@ module Decidim
 
         on(:invalid) do
           flash.now[:alert] = t("accepted.error", scope: "decidim.amendments")
-          render :review, status: :unprocessable_entity
+          render :review, status: :unprocessable_content
         end
       end
     end
