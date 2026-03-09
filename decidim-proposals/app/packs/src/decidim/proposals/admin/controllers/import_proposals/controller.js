@@ -1,36 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
 
-/**
- * ImportProposals Stimulus Controller
- *
- * Handles the dynamic loading of proposal states when the origin component
- * is selected in the proposals import form. When a component is chosen, it
- * fetches the available states via JSON and renders them as checkboxes.
- *
- * Required HTML structure:
- * - A wrapper element with `data-controller="import-proposals"`
- * - A `<select>` inside with `data-import-proposals-target="select"` and
- *   `data-import-proposals-states-url-value` pointing to the states endpoint
- * - A container element with `data-import-proposals-target="container"` and
- *   optionally `data-import-proposals-selected-states-value` (JSON array)
- *
- * @extends Controller
- */
 export default class ImportProposalsController extends Controller {
-  static targets = ["select", "container"]
 
-  static values = {
-    statesUrl: String,
-    selectedStates: { type: Array, default: [] }
-  }
-
+  /**
+   * @returns {void}
+   */
   connect() {
     this._fetchStates(this.selectTarget.value);
   }
 
   /**
    * Triggered when the select value changes.
-   * @param {Event} event
+   * @param {Event} event - The change event fired by the select element.
    * @returns {void}
    */
   onSelectChange(event) {
@@ -39,8 +20,8 @@ export default class ImportProposalsController extends Controller {
 
   /**
    * Escapes a string for safe insertion into HTML.
-   * @param {string} str
-   * @returns {string}
+   * @param {string} str - The string to escape.
+   * @returns {string} The escaped HTML string.
    */
   _escapeHtml(str) {
     const div = document.createElement("div");
@@ -50,12 +31,11 @@ export default class ImportProposalsController extends Controller {
 
   /**
    * Fetches the available states for the given component ID and renders them.
-   * @param {string} componentId
+   * @param {string} componentId - The ID of the selected component to fetch states for.
    * @returns {void}
    */
   _fetchStates(componentId) {
     const container = this.containerTarget;
-
     if (!componentId) {
       container.innerHTML = "";
       container.style.display = "none";
@@ -63,7 +43,6 @@ export default class ImportProposalsController extends Controller {
     }
 
     const url = `${this.statesUrlValue}?origin_id=${componentId}`;
-
     fetch(url, {
       credentials: "same-origin",
       headers: { Accept: "application/json" }
@@ -84,12 +63,10 @@ export default class ImportProposalsController extends Controller {
         const div = document.createElement("div");
         const label = document.createElement("label");
         const input = document.createElement("input");
-
         input.type = "checkbox";
         input.name = "proposals_import[states][]";
         input.value = state.token;
         input.checked = selectedStates.includes(state.token);
-
         label.appendChild(input);
         label.appendChild(document.createTextNode(` ${state.title}`));
         div.appendChild(label);
@@ -104,4 +81,10 @@ export default class ImportProposalsController extends Controller {
       container.style.display = "none";
     });
   }
+}
+
+ImportProposalsController.targets = ["select", "container"]
+ImportProposalsController.values = {
+  statesUrl: String,
+  selectedStates: { type: Array, default: [] }
 }
