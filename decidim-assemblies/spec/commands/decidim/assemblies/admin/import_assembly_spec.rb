@@ -45,10 +45,6 @@ module Decidim::Assemblies::Admin
         "image/jpeg"
       )
       stub_get_request_with_format(
-        "http://localhost:3000/uploads/decidim/assembly/banner_image/1/city2.jpeg",
-        "image/jpeg"
-      )
-      stub_get_request_with_format(
         "http://localhost:3000/uploads/decidim/attachment/file/31/Exampledocument.pdf",
         "application/pdf"
       )

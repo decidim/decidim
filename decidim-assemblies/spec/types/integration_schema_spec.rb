@@ -200,7 +200,6 @@ describe "Decidim::Api::QueryType" do
     it "returns the correct response" do
       data = response["assemblies"].first
       expect(data).to include(assembly_data)
-      expect(data["bannerImage"]).to be_blob_url(assembly.banner_image.blob)
       expect(data["heroImage"]).to be_blob_url(assembly.hero_image.blob)
     end
 
@@ -344,7 +343,6 @@ describe "Decidim::Api::QueryType" do
     it "returns the correct response" do
       data = response["assembly"]
       expect(data).to include(assembly_data)
-      expect(data["bannerImage"]).to be_blob_url(assembly.banner_image.blob)
       expect(data["heroImage"]).to be_blob_url(assembly.hero_image.blob)
     end
 

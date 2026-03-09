@@ -18,8 +18,6 @@ shared_examples "manage assemblies" do
     it "updates an assembly" do
       fill_in_i18n(:assembly_title, "#assembly-title-tabs", **attributes[:title].except("machine_translations"))
 
-      dynamically_attach_file(:assembly_banner_image, image3_path, remove_before: true)
-
       within ".edit_assembly" do
         expect(assembly_parent_id_options).not_to include(assembly.id)
         fill_in_i18n(:assembly_subtitle, "#assembly-subtitle-tabs", **attributes[:subtitle].except("machine_translations"))
