@@ -83,7 +83,7 @@ module Decidim
             flash.now[:alert] = I18n.t("destroy.invalid", scope: "decidim.admin.taxonomies")
           end
         end
-        redirect_back(fallback_location: taxonomies_path)
+        redirect_back_or_to(taxonomies_path)
       end
 
       def reorder

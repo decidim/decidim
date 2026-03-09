@@ -76,12 +76,12 @@ module Decidim
         CloseDebate.call(@form) do
           on(:ok) do |debate|
             flash[:notice] = I18n.t("debates.close.success", scope: "decidim.debates")
-            redirect_back fallback_location: Decidim::ResourceLocatorPresenter.new(debate).path
+            redirect_back_or_to(Decidim::ResourceLocatorPresenter.new(debate).path)
           end
 
           on(:invalid) do
             flash[:alert] = I18n.t("debates.close.invalid", scope: "decidim.debates")
-            redirect_back fallback_location: Decidim::ResourceLocatorPresenter.new(debate).path
+            redirect_back_or_to(Decidim::ResourceLocatorPresenter.new(debate).path)
           end
         end
       end

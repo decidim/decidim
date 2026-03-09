@@ -147,7 +147,7 @@ module Decidim
 
           flash[:notice] = t("decidim.admin.exports.notice")
 
-          redirect_back(fallback_location: initiatives_path)
+          redirect_back_or_to(initiatives_path)
         end
 
         # GET /admin/initiatives/:id/export_votes

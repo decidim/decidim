@@ -22,7 +22,7 @@ module Decidim
             AddLineItem.call(persisted_current_order, project, current_user) do
               on(:ok) do |order|
                 self.current_order = order
-                format.html { redirect_back(fallback_location: budget_path(budget)) }
+                format.html { redirect_back_or_to(budget_path(budget)) }
                 format.js { render "update_budget" }
               end
 
@@ -38,7 +38,7 @@ module Decidim
         respond_to do |format|
           RemoveLineItem.call(current_order, project) do
             on(:ok) do |_order|
-              format.html { redirect_back(fallback_location: budget_path(budget)) }
+              format.html { redirect_back_or_to(budget_path(budget)) }
               format.js { render "update_budget" }
             end
 

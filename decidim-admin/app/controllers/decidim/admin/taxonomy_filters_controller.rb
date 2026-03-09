@@ -78,7 +78,7 @@ module Decidim
             flash[:alert] = I18n.t("destroy.error", scope: "decidim.admin.taxonomy_filters")
           end
         end
-        redirect_back(fallback_location: decidim_admin.taxonomy_filters_path(root_taxonomy))
+        redirect_back_or_to(decidim_admin.taxonomy_filters_path(root_taxonomy))
       end
 
       private

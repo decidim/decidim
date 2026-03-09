@@ -32,7 +32,7 @@ module Decidim
         NewsletterMailer.newsletter(current_user, newsletter).deliver_later
         flash[:notice] = I18n.t("newsletters.send_to_user.sent_successfully", scope: "decidim.admin", email: current_user.email)
 
-        redirect_back fallback_location: newsletters_path
+        redirect_back_or_to(newsletters_path)
       end
 
       def preview
