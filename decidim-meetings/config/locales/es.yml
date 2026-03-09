@@ -486,7 +486,7 @@ es:
         meetings:
           index:
             meetings: Encuentros
-            space_type: Espacio participativo
+            space_type: Espacio de participación
       iframe_access_level:
         all: Todos los visitantes
         registered: Participantes inscritas en este encuentro
