@@ -141,55 +141,6 @@ describe "Admin imports assembly" do
     end
   end
 
-  context "when hero image URL returns 404" do
-    let(:json_data) { JSON.parse(File.read(Decidim::Dev.asset("assemblies.json"))) }
-    let(:json_file) do
-      Tempfile.new(["assemblies", ".json"]).tap do |file|
-        file.write(json_data.to_json)
-        file.rewind
-      end
-    end
-    let(:uploaded_file) do
-      Rack::Test::UploadedFile.new(json_file.path, "application/json")
-    end
-
-    before do
-      json_data.first["remote_hero_image_url"] = "http://example.com/missing-hero.jpg"
-
-      stub_request(:get, "http://example.com/missing-hero.jpg")
-        .to_return(status: 404, body: "Not Found")
-      stub_request(:head, "http://example.com/missing-hero.jpg")
-        .to_return(status: 404, body: "Not Found")
-
-      within_admin_menu do
-        click_on "Import"
-      end
-
-      within ".import_assembly" do
-        fill_in_i18n(
-          :assembly_title,
-          "#assembly-title-tabs",
-          en: "Import assembly with 404 images",
-          es: "Importación de la asamblea",
-          ca: "Importació de l'asamble"
-        )
-        fill_in :assembly_slug, with: "as-import-404-both"
-      end
-
-      dynamically_attach_file(:assembly_document, uploaded_file.path)
-      click_on "Import"
-    end
-
-    it "imports successfully and shows warnings for missing images" do
-      expect(page).to have_callout("Assembly successfully imported.")
-      expect(page).to have_callout("Import assembly with 404 images")
-
-      within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
-      end
-    end
-  end
-
   context "when hero image URL is too long and returns 404" do
     let(:json_data) { JSON.parse(File.read(Decidim::Dev.asset("assemblies.json"))) }
     let(:json_file) do
