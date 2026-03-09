@@ -1347,9 +1347,6 @@ en:
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
-    participatory_space_members:
-      index:
-        members: Members
     offline:
       name: Offline
       show:
@@ -1537,6 +1534,9 @@ en:
           %{organization_name}
         hello: Dear %{username},
         subject: Inactive account deleted
+    participatory_space_members:
+      index:
+        members: Members
     passwords:
       update:
         error: There was a problem updating the password.
