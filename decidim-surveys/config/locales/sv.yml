@@ -54,6 +54,8 @@ sv:
         responses: Svar
       admin:
         surveys:
+          edit:
+            title: Redigera enkät
           new:
             title: Ny undersökning
           update:
@@ -68,3 +70,18 @@ sv:
           published:
             published: Publicerad
             unpublished: Avpublicerad
+      surveys:
+        count:
+          surveys_count:
+            one: "%{count} enkät"
+            other: "%{count} enkäter"
+        filters:
+          all: Alla
+          state_values:
+            closed: Stängda
+            open: Öppna
+        no_surveys_warning: Inga enkäter matchar dina sökkriterier eller så finns det inte några aktiva enkäter.
+        show:
+          closed: Stängd
+          open: Öppen
+          questions: frågor

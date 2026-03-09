@@ -10,6 +10,7 @@ module Decidim
 
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::NeedsPermission
+
         participatory_space_admin_layout
 
         helper Decidim::ResourceHelper

@@ -136,7 +136,7 @@ module Decidim
         end
 
         it "returns true if the comment has comments" do
-          FactoryBot.create(:comment, commentable: model)
+          create(:comment, commentable: model)
           expect(response).to include("hasComments" => true)
         end
 
@@ -160,8 +160,8 @@ module Decidim
       end
 
       describe "comments" do
-        let!(:random_comment) { FactoryBot.create(:comment) }
-        let!(:replies) { Array.new(3) { |n| FactoryBot.create(:comment, commentable: model, created_at: Time.current - n.days) } }
+        let!(:random_comment) { create(:comment) }
+        let!(:replies) { Array.new(3) { |n| create(:comment, commentable: model, created_at: Time.current - n.days) } }
 
         let(:query) { "{ comments { id } }" }
 

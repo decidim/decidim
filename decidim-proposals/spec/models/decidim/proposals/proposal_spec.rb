@@ -82,6 +82,61 @@ module Decidim
         end
       end
 
+      describe ".most_commented_available?" do
+        let(:component) { create(:proposal_component) }
+
+        context "when comments are disabled" do
+          let(:component) { create(:proposal_component, :with_comments_disabled) }
+          let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+          it "returns false" do
+            expect(described_class.most_commented_available?(component)).to be false
+          end
+        end
+
+        context "when comments are enabled" do
+          context "when there are no proposals with comments" do
+            let!(:proposal_without_comments) { create(:proposal, component:) }
+
+            it "returns false" do
+              expect(described_class.most_commented_available?(component)).to be false
+            end
+          end
+
+          context "when there are proposals with comments" do
+            let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+            it "returns true" do
+              expect(described_class.most_commented_available?(component)).to be true
+            end
+          end
+
+          context "when proposals are not published" do
+            let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+            before do
+              proposal_with_comments.update!(published_at: nil)
+            end
+
+            it "returns false" do
+              expect(described_class.most_commented_available?(component)).to be false
+            end
+          end
+
+          context "when proposals are hidden" do
+            let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+            before do
+              create(:moderation, reportable: proposal_with_comments, hidden_at: Time.current)
+            end
+
+            it "returns false" do
+              expect(described_class.most_commented_available?(component)).to be false
+            end
+          end
+        end
+      end
+
       it "has a votes association returning proposal votes" do
         expect(subject.votes.count).to eq(0)
       end

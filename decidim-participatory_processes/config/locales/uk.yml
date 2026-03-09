@@ -155,7 +155,6 @@ uk:
           error: При зміні порядку кроків цього руху співучасті сталася помилка.
         update:
           error: При спробі оновити цей крок руху співучасті сталася помилка.
-          success: Крок руху співучасті успішно оновлено.
       participatory_process_user_roles:
         create:
           error: При спробі додати учасника в цей рух співучасті сталася помилка.
@@ -240,7 +239,6 @@ uk:
       admin:
         participatory_processes:
           form:
-            announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
             related_processes: Супутні рухи
             title: Загальні відомості
       content_blocks:

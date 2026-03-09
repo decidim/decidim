@@ -48,7 +48,6 @@ hu:
         default_locale: Alapértelmezett hely
         description: Leírás
         enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
-        enable_participatory_space_filters: A részvételi terek szűrőjének engedélyezése
         facebook_handler: Facebook handler
         favicon: Ikon
         force_authentication: Kényszerített authentikáció
@@ -164,7 +163,7 @@ hu:
         browse: Böngészés
         configure: Beállítások
         export: Exportálás
-        export-selection: Kiválasztottak exportálása
+        export_all: Összes exportálása
         import: Import
         newsletter:
           new: Új hírlevél
@@ -812,7 +811,6 @@ hu:
           title: Új téma
         update:
           error: Hiba történt a téma frissítésekor.
-          success: Téma frissítve sikeresen
       static_pages:
         create:
           error: Hiba történt az új oldal létrehozásakor.

@@ -36,12 +36,14 @@ Decidim.register_component(:proposals) do |component|
 
   POSSIBLE_SORT_ORDERS = %w(automatic random recent most_liked most_voted most_commented most_followed with_more_authors).freeze
   WITH_MORE_AUTHORS_ORDER = "with_more_authors"
+  MOST_COMMENTED_ORDER = "most_commented"
 
   sort_order_choices = lambda do |context|
     component = context[:component]
     orders = POSSIBLE_SORT_ORDERS.dup
 
-    return orders.excluding(WITH_MORE_AUTHORS_ORDER) unless component && Decidim::Proposals::Proposal.with_more_authors_available?(component)
+    orders = orders.excluding(WITH_MORE_AUTHORS_ORDER) unless component && Decidim::Proposals::Proposal.with_more_authors_available?(component)
+    orders = orders.excluding(MOST_COMMENTED_ORDER) unless component && Decidim::Proposals::Proposal.most_commented_available?(component)
 
     orders
   end

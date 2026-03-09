@@ -1,6 +1,9 @@
 el:
   activemodel:
     attributes:
+      dummy:
+        image: Εικόνα
+      dummy_attribute: Εικονικό χαρακτηριστικό
       dummy_resource:
         created_at: Δημιουργήθηκε στις
         decidim_scope_id: Πεδίο εφαρμογής
@@ -14,14 +17,21 @@ el:
       dummy:
         settings:
           global:
+            clear_all: Εκκαθάριση όλων
+            guided: Καθοδηγούμενη εισαγωγή
+            guided_help: Κείμενο βοήθειας
+            guided_readonly: Απενεργοποιημένη εισαγωγή
+            guided_rich: Καθοδηγούμενη πλούσια εισαγωγή
+            guided_rich_help_html: HTML <strong>βοήθεια</strong> κείμενο
             readonly_attribute: Χαρακτηριστικό μόνο για ανάγνωση
             test: A δοκιμή
+            test_add: Προσθήκη τεστ
             test_choices:
               a: A επιλογή
               b: B επιλογή
               c: C επιλογή
             test_options:
-              bar: Bar
+              bar: Μπάρα
               foo: Foo
           step:
             readonly_step_attribute: Χαρακτηριστικό βήματος μόνο για ανάγνωση
@@ -47,7 +57,7 @@ el:
       test_link:
         dummy_resource_dummy: Σχετικό εικονικό στοιχείο
     statistics:
-      bar: Bar
+      bar: Μπάρα
       dummies_count_high: Εικονικά στοιχεία υψηλά
       dummies_count_medium: Εικονικά στοιχεία μεσαία
       foo: Foo

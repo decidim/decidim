@@ -432,7 +432,6 @@ de:
             certificate_of_attendance_description: Hiermit wird bestätigt, dass <strong>%{user}</strong> an den <strong>%{title}</strong> teilgenommen hat, die am <strong>%{location}</strong> am <strong>%{start} - %{end}</strong>abgehalten wurden
         send_diploma:
           error: Beim Senden der Teilnahmebestätigung der Konferenz ist ein Problem aufgetreten.
-          success: Konferenz-Teilnahmebestätigung korrekt gesendet
       conference:
         registration_confirm:
           cancel: Abbrechen

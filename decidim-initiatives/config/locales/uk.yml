@@ -16,7 +16,6 @@ uk:
       initiatives_committee_member:
         user: Член робочого гурту
       initiatives_type:
-        banner_image: Банерне зображення
         description: Опис
         title: Назва
       organization_data:

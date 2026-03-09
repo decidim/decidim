@@ -29,7 +29,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = t("authorizations.create.error", scope: "decidim.verifications.postal_letter")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end
@@ -53,7 +53,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = t("authorizations.update.error", scope: "decidim.verifications.postal_letter")
-              render :edit, status: :unprocessable_entity
+              render :edit, status: :unprocessable_content
             end
           end
         end

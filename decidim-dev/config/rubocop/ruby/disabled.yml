@@ -104,3 +104,12 @@ Style/EmptyStringInsideInterpolation:
 
 Style/ComparableBetween:
   Enabled: false
+
+Style/FileOpen:
+  Enabled: false
+
+Style/ModuleMemberExistenceCheck:
+  Enabled: false
+
+Style/OneClassPerFile:
+  Enabled: false

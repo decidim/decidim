@@ -16,7 +16,6 @@ ru:
       initiatives_committee_member:
         user: Член рабочей группы
       initiatives_type:
-        banner_image: Изображение баннера
         description: Описание
         title: Название
       organization_data:

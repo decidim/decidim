@@ -718,6 +718,8 @@ fr-CA:
         hidden_participants_count:
           one: et %{count} personne de plus
           other: et %{count} personnes de plus
+        show_less: Afficher moins
+        show_more: Afficher plus
       read_more: "(Voir la suite)"
       registration_mailer:
         confirmation:

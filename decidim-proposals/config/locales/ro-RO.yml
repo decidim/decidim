@@ -31,7 +31,7 @@ ro:
         origin_component_id: Componentă de la care se copiază propunerile
       proposals_import:
         import_proposals: Importă propuneri
-        keep_answers: Păstrează starea și răspunsurile
+        keep_answers: Păstrați statusuri și răspunsuri
         keep_authors: Păstrează autorii originali
     errors:
       models:
@@ -388,7 +388,7 @@ ro:
             create: Importă propuneri
             no_components: Nu există alte componente de propunere în acest spațiu participativ din care să se importe propunerile.
             select_component: Te rugăm selectează o componentă
-            select_states: Verifică stadiul propunerilor de importat
+            select_states: Importați doar propunerile cu aceste statusuri. Dacă nu este selectat, toate propunerile vor fi importate.
         proposals_merges:
           create:
             success: Propunerile au fost combinate cu succes într-o propunere nouă.

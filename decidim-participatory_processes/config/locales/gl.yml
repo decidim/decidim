@@ -79,8 +79,6 @@ gl:
         unpublish: Non publicar
       menu:
         participatory_process_groups: Grupos de procesos
-        participatory_process_groups_submenu:
-          info: Información
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
@@ -167,7 +165,6 @@ gl:
           error: Produciuse un erro ao reordenar estes pasos de proceso participativo.
         update:
           error: Produciuse un erro ao actualizar este paso de proceso participativo.
-          success: Paso de proceso participativo actualizado con éxito.
       participatory_process_user_roles:
         create:
           error: Houbo un erro engadindo un usuario a este proceso participativo.
@@ -287,7 +284,6 @@ gl:
             document_legend: Engadir un documento
         participatory_processes:
           form:
-            announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
             duration: Duración
             images: Imaxes
             metadata: Metadatos

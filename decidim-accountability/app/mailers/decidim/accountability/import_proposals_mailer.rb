@@ -6,6 +6,7 @@ module Decidim
     # proposals to the results.
     class ImportProposalsMailer < Decidim::ApplicationMailer
       include Decidim::TranslatableAttributes
+
       helper Decidim::TranslationsHelper
 
       # Public: Sends a notification email with the result of proposals import selected proposals to Accountability

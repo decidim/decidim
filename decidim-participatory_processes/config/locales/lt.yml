@@ -100,8 +100,6 @@ lt:
         unpublish: Depublikuoti
       menu:
         participatory_process_groups: Procesų grupės
-        participatory_process_groups_submenu:
-          info: Informacija
         participatory_processes: Procesai
         participatory_processes_submenu:
           attachment_collections: Aplankai
@@ -196,7 +194,6 @@ lt:
           error: Pertvarkant šiuos dalyvaujamojo proceso etapus iškilo problema.
         update:
           error: Atnaujinant šio dalyvaujamojo proceso etapą iškilo problema.
-          success: Dalyvaujamasis etapas atnaujintas.
       participatory_process_user_roles:
         create:
           error: Pridedant dalyvį prie dalyvaujamojo proceso iškilo problema.
@@ -351,7 +348,6 @@ lt:
             document_legend: Pridėti dokumentą
         participatory_processes:
           form:
-            announcement_help: Čia įrašytas tekstas naudotojui bus rodomas iš karto po informacijos apie procesą.
             duration: Trukmė
             images: Paveikslėliai
             metadata: Metaduomenys

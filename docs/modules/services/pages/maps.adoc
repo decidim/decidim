@@ -83,6 +83,48 @@ MAPS_API_KEY=your_api_key_here
 
 For further information, see the service provider's documentation or take a look at the <<hosting-your-own-map-services,Hosting your own map services>> section.
 
+==== Tile layer configuration options
+
+Some tile servers use the https://en.wikipedia.org/wiki/Tile_Map_Service[TMS (Tile Map Service)] specification instead of the standard XYZ tile scheme.
+If your tile server requires TMS, you can enable it by setting the `tms` option to `true`:
+
+[source,ruby]
+----
+config.maps = {
+  provider: :osm,
+  api_key: ENV["MAPS_API_KEY"],
+  dynamic: {
+    tile_layer: {
+      url: "https://tiles.example.org/{z}/{x}/{y}.png",
+      tms: true,
+      attribution: %(
+        <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
+      ).strip
+    }
+  }
+}
+----
+
+Alternatively, you can use the `MAPS_EXTRA_VARS` xref:configure:environment_variables.adoc[Environment Variable] to set the `tms` option:
+
+[source,bash]
+----
+MAPS_EXTRA_VARS="tms=true"
+----
+
+All configuration options supported by https://leafletjs.com/reference.html#tilelayer[Leaflet's TileLayer] can be passed to the `tile_layer` configuration, including:
+
+* `minZoom` - Minimum zoom level
+* `maxZoom` - Maximum zoom level
+* `subdomains` - Subdomains for the tile server (e.g., `"abc"` or `["a", "b", "c"]`)
+* `errorTileUrl` - URL for error tiles
+* `zoomOffset` - Zoom offset
+* `tms` - Set to `true` if your tile server uses TMS specification
+* `zoomReverse` - Set to `true` to reverse zoom levels
+* `detectRetina` - Set to `true` to request retina tiles
+* `crossOrigin` - CrossOrigin attribute for tiles (e.g., `"anonymous"`)
+* `referrerPolicy` - Referrer policy for tiles (e.g., `"no-referrer-when-downgrade"`)
+
 === Combining multiple service providers
 
 It is also possible to combine multiple service providers for the different categories of map services.

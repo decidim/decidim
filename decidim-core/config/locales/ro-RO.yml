@@ -1035,6 +1035,9 @@ ro:
           explanation: 'Îndrumare pentru imagine:'
           message_1: De preferință o imagine orizontală care să nu conțină vreun text.
           message_2: Serviciul decupează imaginea.
+        import_file:
+          explanation: 'Instrucțiuni pentru fișierul de import:'
+          message_1: Trebuie să fie un document JSON descărcat prin funcționalitatea de export.
       file_validation:
         allowed_file_extensions: 'Extensii de fișiere permise: %{extensions}'
         max_file_dimension: 'Dimensiunea maximă a fișierului: %{resolution} pixeli'
@@ -1738,7 +1741,7 @@ ro:
         didn_t_receive_unlock_instructions: Nu ați primit instrucțiuni de deblocare?
         forgot_your_password: V-ați uitat parola?
         log_in: Autentificare
-        log_in_with_provider: Autentificați-vă cu {provider}
+        log_in_with_provider: Autentificați-vă cu %{provider}
         sign_up: Creați un cont
       minimum_password_length:
         one: "(minimum %{count} caractere)"

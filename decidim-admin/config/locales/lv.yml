@@ -494,7 +494,6 @@ lv:
           title: Jauna tēma
         update:
           error: Šīs tēmas atjaunināšanas laikā radās problēma.
-          success: Tēma ir veiksmīgi atjaunināta
       static_pages:
         create:
           error: Jaunas lapas izveides laikā radās problēma.

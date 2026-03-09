@@ -38,7 +38,6 @@ gl:
         default_locale: Configuración predeterminada
         description: Descrición
         enable_omnipresent_banner: Mostrar o banner omnipresente
-        enable_participatory_space_filters: Activar os filtros no espazo participativo
         facebook_handler: Administrador de Facebook
         favicon: Ícona
         force_authentication: Forzar autenticación
@@ -132,7 +131,7 @@ gl:
         attachment:
           new: Novo anexo
         browse: Buscar
-        export-selection: Exportar selección
+        export_all: Exportar todo
         import: Importar
         newsletter:
           new: Novo boletín
@@ -678,7 +677,6 @@ gl:
           title: Novo tema
         update:
           error: Produciuse un erro ao actualizar este tema.
-          success: Tema actualizado correctamente
       static_pages:
         create:
           error: Produciuse un erro ao crear unha nova páxina.

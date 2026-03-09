@@ -25,6 +25,7 @@ sv:
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
+        has_members: Det här samrådet har medlemmar
         hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
@@ -73,6 +74,8 @@ sv:
           attributes:
             document:
               allowed_file_content_types: 'Ogiltig dokumenttyp. Endast filer med följande tillägg är tillåtna: %{types}.'
+              empty: Dokumentet är tomt
+              invalid_json: Dokumentet är inte giltigt JSON
   activerecord:
     models:
       decidim/assembly:
@@ -118,7 +121,7 @@ sv:
       assembly_duplicates:
         new:
           duplicate: Duplicera
-          select: Välj vilka data som du vill duplicera
+          select: Välj vilken data du vill duplicera
           title: Duplicera samråd
       assembly_imports:
         create:
@@ -169,6 +172,8 @@ sv:
           attachments: Bilagor
           components: Komponenter
           info: Om samrådet
+          landing_page: Landningssida
+          members: Medlemmar
           moderations: Moderering
           see_assembly: Visa samråd
       models:
@@ -190,7 +195,7 @@ sv:
             vice_president: Vice ordförande
         assembly_user_role:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             email: E-post
             name: Namn
             role: Roll
@@ -216,11 +221,11 @@ sv:
         export: "%{user_name} exporterade samrådet %{resource_name}"
         import: "%{user_name} importerade samrådet %{resource_name}"
         publish: "%{user_name} publicerade samrådet %{resource_name}"
-        publish_all_members: "%{user_name} publicerade samrådet %{resource_name}"
+        publish_all_members: "%{user_name} publicerade alla medlemmar i samrådet %{resource_name}"
         restore: "%{user_name} återställde samrådet %{resource_name}"
         soft_delete: "%{user_name} tog bort samrådet %{resource_name}"
         unpublish: "%{user_name} avpublicerade samrådet %{resource_name}"
-        unpublish_all_members: "%{user_name} avpublicerade samrådet %{resource_name}"
+        unpublish_all_members: "%{user_name} avpublicerade alla medlemmar i samrådet %{resource_name}"
         update: "%{user_name} uppdaterade samrådet %{resource_name}"
       assembly_member:
         create: "%{user_name} skapade medlemmen %{resource_name} i samrådet %{space_name}"
@@ -242,15 +247,16 @@ sv:
       admin:
         assemblies:
           form:
-            announcement_help: Den här texten visas direkt under informationen om samrådet.
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             duration: Varaktighet
             duration_help: Välj ett slutdatum om samrådet är tidsbegränsat.
+            has_members_help: Du kommer att kunna skapa och publicera medlemmar
             images: Bilder
             included_at_help: Markera datumet när samrådet lades till på plattformen. Det behöver inte nödvändigtvis vara samma som datumet det skapades.
             metadata: Metadata
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             other: Övrigt
+            private_notice: Visa endast samrådet för inloggade medlemmar (om det inte är inställt som transparent)
             select_a_created_by: Välj en skapad av
             select_parent_assembly: Välj överordnat samråd
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -263,6 +269,7 @@ sv:
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_imports:
           form:
+            document_legend: Lägg till ett dokument
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_members:
           form:
@@ -272,9 +279,14 @@ sv:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximalt antal element att visa
+        imports:
+          attachment_error: Bilagan "%{title}" kunde inte importeras (%{error}).
+          banner_image_error: Bannerbilden kunde inte importeras (%{error}).
+          hero_image_error: Startbilden kunde inte importeras (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Importfunktionen låter dig skapa ett nytt samråd från en exporterad JSON-fil. Du kan exportera ett samråd från en annan organisation eller från samma organisation. Det importerade samrådet innehåller inställningar, komponenter och bilagor (om det är valt).
       assemblies:
         description:
           area_name: Område
@@ -378,12 +390,11 @@ sv:
     open_data:
       help:
         assemblies:
-          announcement: Meddelande
           area: Samrådets område
           assembly_type: Typ av samråd
           closing_date: Slutdatum för samrådet
           closing_date_reason: Anledning till att samrådet avslutades
-          component_settings: Samrådets sammansättning
+          component_settings: Inställningar för samrådet
           composition: Samrådets sammansättning
           created_at: Datum när processen skapades
           created_by: Initiativtagare till samrådet

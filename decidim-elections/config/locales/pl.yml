@@ -1,4 +1,11 @@
 pl:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Wybory
+        few: Wyborów
+        many: Wyborów
+        other: Wybory
   decidim:
     admin:
       menu:
