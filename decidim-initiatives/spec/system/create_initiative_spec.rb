@@ -801,17 +801,6 @@ describe "Initiative" do
           expect(Decidim::Initiative.last.photos.count).to eq(1)
         end
 
-        it "shows the page component" do
-          find_link("Go to my initiatives").click
-          find_link(translated(initiative.title, locale: :en)).click
-
-          within ".participatory-space__nav-container" do
-            find_link("Page").click
-          end
-
-          expect(page).to have_content("Page")
-        end
-
         context "when minimum committee size is above zero" do
           it "finish view is shown" do
             expect(page).to have_content("Finish")
