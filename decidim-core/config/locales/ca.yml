@@ -1621,7 +1621,7 @@ ca:
         download:
           components: Components
           core: Nucli
-          spaces: Espai participatiu
+          spaces: Espais de participació
           title: Descarregar recursos
         download_open_data: Descarrega tots els fitxers de dades obertes
         download_resource: Descarregar "%{resource_name}" en format CSV
