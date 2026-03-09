@@ -97,11 +97,8 @@ module Decidim
                    end
       end
 
-      # PROVISIONAL if we implement counter cache
       def posts_most_commented
-        @posts_most_commented ||= posts.joins(:comments).group(:id)
-                                       .select("count(decidim_comments_comments.id) as counter")
-                                       .select("decidim_blogs_posts.*").order("counter DESC").published_at_desc.limit(7)
+        @posts_most_commented ||= posts.order(comments_count: :desc).published_at_desc.limit(7)
       end
 
       def add_breadcrumb_item
