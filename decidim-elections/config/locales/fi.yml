@@ -6,6 +6,11 @@ fi:
       token_csv:
         file: Tiedosto
         remove_all: Poista kaikki nykyiset tiedot henkilötietorekisteristä
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Vaali
+        other: Vaalit
   decidim:
     admin:
       menu:

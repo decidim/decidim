@@ -226,7 +226,6 @@ pt:
       admin:
         assemblies:
           form:
-            announcement_help: O texto que introduzir aqui será mostrado ao utilizador imediatamente abaixo da informação sobre a reunião.
             define_taxonomy_filters: Defina alguns filtros para este espaço de participação antes de usar esta configuração.
             duration: Duração
             duration_help: Se a duração desta reunião for limitada, selecione a data final. Caso contrário, aparecerá como indefinida.
@@ -244,6 +243,7 @@ pt:
             visibility: Visibilidade
         assembly_imports:
           form:
+            document_legend: Adicionar um documento
             slug_help_html: 'São usados slugs de URL para gerar URLs que apontam para esta reunião. Aceita apenas letras, números e traços, e deve começar com uma letra. Exemplo: %{url}'
         assembly_members:
           form:
@@ -359,7 +359,6 @@ pt:
     open_data:
       help:
         assemblies:
-          announcement: As informações do anúncio (chamada)
           area: A área da reunião
           assembly_type: O tipo de reunião
           closing_date: Data de encerramento da reunião

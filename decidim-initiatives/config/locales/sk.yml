@@ -17,7 +17,6 @@ sk:
       initiatives_committee_member:
         user: člen komisie
       initiatives_type:
-        banner_image: Obrázok banneru
         collect_user_extra_fields: Zbierajte osobné údaje užívateľov podpisom
         description: Popis
         extra_fields_legal_information: Právne informácie o zbere osobných údajov

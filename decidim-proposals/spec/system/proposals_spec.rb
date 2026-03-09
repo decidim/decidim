@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Proposals" do
   include ActionView::Helpers::TextHelper
+
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -660,6 +661,22 @@ describe "Proposals" do
           expect(page).to have_css("div.order-by a", text: "Random")
           page.find("a", text: "Random").click
           expect(page).to have_no_content("With more authors")
+        end
+      end
+    end
+
+    context "when there are no proposals with comments" do
+      let!(:proposals) { create_list(:proposal, 3, component:) }
+
+      before do
+        visit_component
+      end
+
+      it "does not show 'most_commented' ordering option" do
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          expect(page).to have_no_content("Most commented")
         end
       end
     end

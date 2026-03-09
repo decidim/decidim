@@ -5,7 +5,7 @@ ro:
         announcement: Anunț
         area_id: Zonă
         assembly_type: Tipul grupului de lucru
-        assembly_type_other: Alt tip de grup de lucru
+        assembly_type_other: Alte tipuri de grupuri de lucru
         banner_image: Imagine pentru banner
         closing_date: Data închiderii
         closing_date_reason: Motivul datei de închidere
@@ -42,7 +42,7 @@ ro:
         purpose_of_action: Scopul acțiunii
         short_description: Scurtă descriere
         slug: URL slug
-        special_features: Caracteristici speciale
+        special_features: Funcționalități speciale
         subtitle: Subtitlu
         target: Cine participă
         title: Titlu
@@ -77,8 +77,8 @@ ro:
         other: Grupuri de lucru
       decidim/assembly_member:
         one: Membru al grupului de lucru
-        few: Membrii ai grupului de lucru
-        other: Membrii ai grupului de lucru
+        few: Membri ai grupului de lucru
+        other: Membri ai grupului de lucru
       decidim/assembly_user_role:
         one: Rolul utilizatorului în cadrul grupului de lucru
         few: Rolurile utilizatorului în cadrul grupului de lucru
@@ -147,7 +147,7 @@ ro:
           fields:
             created_at: Creat la
             private: Privat
-            promoted: Evidenţiat
+            promoted: Evidențiat
             published: Publicat
             title: Titlu
           name: Grup de lucru
@@ -201,7 +201,6 @@ ro:
       admin:
         assemblies:
           form:
-            announcement_help: Textul pe care îl introduceți aici va fi prezentat utilizatorului sub informațiile despre grupul de lucru.
             duration: Durată
             duration_help: În cazul în care durata acestui grup de lucru este limitată, selectaţi data de încheiere. În caz contrar, va apărea ca nelimitată.
             has_members_help: Veți putea crea și publica membri
@@ -215,6 +214,9 @@ ro:
             social_handlers: Rețele de socializare
             taxonomies: Taxonomii
             title: Informaţii generale
+        assembly_imports:
+          form:
+            document_legend: Adaugați un document
         assembly_members:
           form:
             explanation: 'Îndrumare pentru imagine:'
@@ -225,6 +227,7 @@ ro:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Această caracteristică de import vă permite să creați o nou grup de lucru dintr-un fișier JSON exportat. Puteți exporta un grup de lucru dintr-o altă organizație sau din aceeași organizație. Grupul de lucru importat va include setările, componentele și atașamentele sale (dacă este selectată).
       assemblies:
         description:
           area_name: Zonă
@@ -272,7 +275,7 @@ ro:
         home:
           highlighted_assemblies:
             active_spaces: Grupuri de lucru active
-            see_all_spaces: Vedeți tot
+            see_all_spaces: Vedeți toate grupurile de lucru
         user_profile:
           member_of:
             member_of: Membru al
@@ -315,7 +318,7 @@ ro:
         related_assemblies: Grupuri de lucru asociate
     statistics:
       assemblies_count: Grupuri de lucru
-      assemblies_count_tooltip: Numărul adunărilor publice în care se iau decizii colective.
+      assemblies_count_tooltip: Numărul grupurilor de lucru publice în care se iau decizii colective.
   layouts:
     decidim:
       assemblies:
@@ -328,7 +331,7 @@ ro:
           children_item:
             one: "%{count} grup de lucru"
             few: "%{count} grupuri de lucru"
-            other: "%{count} grup de lucru"
+            other: "%{count} grupuri de lucru"
         order_by_assemblies:
           assemblies:
             one: "%{count} grup de lucru"

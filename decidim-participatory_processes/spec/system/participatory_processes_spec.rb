@@ -274,8 +274,8 @@ describe "Participatory Processes" do
 
           it "shows the components" do
             within ".participatory-space__nav-container" do
-              expect(page).to have_content(translated(proposals_component.name, locale: :en))
-              expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
+              expect(page).to have_content(decidim_escape_translated(proposals_component.name))
+              expect(page).to have_no_content(decidim_escape_translated(meetings_component.name))
             end
           end
 

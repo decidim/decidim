@@ -28,7 +28,6 @@ pt:
         origin_component_id: Componente para copiar as propostas de
       proposals_import:
         import_proposals: Importar propostas
-        keep_answers: Guardar estado e respostas
         keep_authors: Manter os autores originais
     errors:
       models:
@@ -317,7 +316,6 @@ pt:
             create: Importar propostas
             no_components: Não há outros componentes da proposta neste espaço participativo de onde importar as propostas.
             select_component: Selecione um componente
-            select_states: Verifique os estados das propostas a importar
         proposals_merges:
           create:
             success: Fundiu corretamente as propostas em uma nova.

@@ -350,7 +350,6 @@ ar:
             certificate_of_attendance_description: هذا هو التأكيد على أن <strong>%{user}</strong> قد حضر وشارك في <strong>%{title}</strong> الذي عقد في <strong>%{location}</strong> في <strong>%{start} - %{end}</strong>
         send_diploma:
           error: حدثت مشكلة أثناء إرسال شهادات حضور المؤتمر.
-          success: تم إرسال شهادات حضور المؤتمر بنجاح
       conference:
         registration_confirm:
           cancel: إلغاء

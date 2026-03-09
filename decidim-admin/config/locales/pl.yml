@@ -49,7 +49,6 @@ pl:
         default_locale: Domyślny język
         description: Opis
         enable_omnipresent_banner: Pokaż stały banner
-        enable_participatory_space_filters: Włącz filtry przestrzeni partycypacyjnej
         facebook_handler: Handler Facebooka
         favicon: Ikona
         force_authentication: Wymuś uwierzytelnianie
@@ -165,7 +164,7 @@ pl:
         browse: Przeglądaj
         configure: Skonfiguruj
         export: Eksport
-        export-selection: Eksportuj wybrane
+        export_all: Eksportuj wszystko
         import: Importuj
         newsletter:
           new: Nowy newsletter
@@ -839,7 +838,6 @@ pl:
           title: Nowy temat
         update:
           error: Wystąpił błąd podczas aktualizowania tego tematu.
-          success: Temat został zaktualizowany pomyślnie
       static_pages:
         create:
           error: Podczas tworzenia nowej strony wystąpił błąd.

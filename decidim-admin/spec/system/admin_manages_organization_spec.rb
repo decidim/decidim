@@ -61,6 +61,25 @@ describe "Admin manages organization" do
       expect(page).to have_content("There is an error in this field.")
     end
 
+    it "displays the form error for official language" do
+      visit decidim_admin.edit_organization_path(locale: :ca)
+
+      expect(page).to have_css("#organization_name_ca", visible: :visible)
+      expect(page).to have_field("organization_name_ca", with: organization.name["ca"])
+
+      within "#organization-name-tabs" do
+        click_on "English"
+      end
+      fill_in :organization_name_en, with: ""
+
+      click_on "Actualitzar"
+      expect(page).to have_content("S'ha produït un error en actualitzar aquesta organització.")
+
+      expect(page).to have_css("#organization_name_en", visible: :visible)
+      expect(page).to have_field("organization_name_en", with: "")
+      expect(page).to have_content("no pot estar en blanc")
+    end
+
     context "when there are more than 4 locales in the organization" do
       let(:available_locales) { %w(en ca es fr it) }
       let(:organization_names) do
@@ -91,6 +110,23 @@ describe "Admin manages organization" do
 
         Decidim::Admin.send(:remove_const, :OrganizationForm)
         load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/organization_form.rb"
+      end
+
+      it "displays the form error for official language" do
+        visit decidim_admin.edit_organization_path(locale: :ca)
+
+        expect(page).to have_css("#organization_name_ca", visible: :visible)
+        expect(page).to have_field("organization_name_ca", with: organization_names[:ca])
+
+        select "English", from: "organization-name-tabs"
+        fill_in :organization_name_en, with: ""
+
+        click_on "Actualitzar"
+        expect(page).to have_content("S'ha produït un error en actualitzar aquesta organització.")
+
+        expect(page).to have_css("#organization_name_en", visible: :visible)
+        expect(page).to have_field("organization_name_en", with: "")
+        expect(page).to have_content("no pot estar en blanc")
       end
 
       it "renders a dropdown for the language selector and switches between languages" do

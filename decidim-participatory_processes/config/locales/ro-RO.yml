@@ -99,8 +99,6 @@ ro:
         unpublish: Anulează publicarea
       menu:
         participatory_process_groups: Grupuri ale procesului
-        participatory_process_groups_submenu:
-          info: Informații
         participatory_processes: Procese participative
         participatory_processes_submenu:
           attachment_collections: Dosare
@@ -196,7 +194,6 @@ ro:
           error: A apărut o problemă la reordonarea etapelor acestui procesului participativ.
         update:
           error: A apărut o problemă la actualizarea acestei etape a procesului participativ.
-          success: Etapa procesului participativ a fost actualizată cu succes.
       participatory_process_user_roles:
         create:
           error: A apărut o problemă la adăugarea unui participant pentru acest proces participativ.
@@ -334,6 +331,7 @@ ro:
         new_import:
           accepted_types:
             json: JSON
+          help_html: Această caracteristică de import vă permite să creați un nou proces participativ dintr-un fișier JSON exportat. Puteți exporta un proces dintr-o altă organizație sau din aceeași organizație. Procesul importat va include setările, componentele și atașamentele sale (dacă sunt selectate).
         participatory_process_groups:
           form:
             metadata: Metadate
@@ -343,7 +341,6 @@ ro:
             document_legend: Adaugați un document
         participatory_processes:
           form:
-            announcement_help: Textul pe care îl introduci aici va fi afișat utilizatorului chiar sub informațiile procesului.
             duration: Durată
             has_members_help: Veți putea crea și publica membri
             images: Imagini

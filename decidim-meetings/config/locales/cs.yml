@@ -155,8 +155,13 @@ cs:
       tooltips:
         cannot_close_meetings: Tuto schůzku nelze zavřít, protože ji vytvořil účastník
         cannot_duplicate_meetings: Tuto schůzku nelze duplikovat, protože byla vytvořena účastníkem
+        cannot_edit_meetings: Nelze upravit tuto schůzku tak, jak je vytvořena účastníkem
+        cannot_manage_agenda_meetings: Nelze spravovat program na této schůzce tak, jak je vytvořen účastníkem
         cannot_manage_attachments_meetings: Nelze spravovat přílohy v této schůzce, protože jsou vytvořeny uživatelem
         cannot_manage_poll_meetings: Nelze spravovat anketu na této schůzce, protože je vytvořena účastníkem
+        cannot_manage_registrations_meetings: Nelze spravovat registrace na této schůzce, protože jsou vytvořeny účastníkem, registrace jsou zakázány nebo tyto registrace jsou externími
+        cannot_mark_attendee: Nelze označit jako atteendee, protože již byl označen
+        deleted_meetings_info: Tuto schůzku nelze odstranit, protože ji vytvořil účastník.
     components:
       meetings:
         actions:
@@ -733,11 +738,14 @@ cs:
           few: a %{count} další osoby
           many: a %{count} dalších osob
           other: a %{count} další osoby
+        show_less: Zobrazit méně
+        show_more: Zobrazit více
       read_more: "(Přečtěte si více)"
       registration_mailer:
         confirmation:
           confirmed_html: Vaše registrace pro schůzku <a href="%{url}">%{title}</a> byla potvrzena.
           details: Podrobnosti schůzky naleznete v příloze.
+          registration_code: Váš registrační kód je %{code}. Pro ověření vaší účasti prosím ukažte níže uvedený QR kód správci.
       registration_type:
         on_different_platform: Na jiné platformě
         on_this_platform: Na této platformě
@@ -801,6 +809,7 @@ cs:
           follows_count: Počet sledujících které schůzka má
           id: Jedinečný identifikátor sschůzky
           iframe_access_level: Úroveň přístupu k iframe na schůzce
+          iframe_embed_type: Typ iframe vložený do schůzky
           latitude: Zeměpisná šířka schůzky
           location: Místo schůzky
           location_hints: Nápověda k místu, kde se schůzka koná
@@ -844,6 +853,7 @@ cs:
     statistics:
       attendees_count: Účastníci schůzky
       meetings_count: Setkání
+      meetings_count_tooltip: Počet schůzek, které se konaly jak on-line, tak osobně.
       participatory_space_meetings_count: Schůzky
   devise:
     mailer:

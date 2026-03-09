@@ -247,15 +247,15 @@ describe "Initiative" do
 
       it "shows the components" do
         within ".participatory-space__nav-container" do
-          expect(page).to have_content(translated(meetings_component.name, locale: :en))
-          expect(page).to have_no_content(translated(unpublished_proposals_component.name, locale: :en))
-          expect(page).to have_content(translated(blogs_component.name, locale: :en))
+          expect(page).to have_content(decidim_escape_translated(meetings_component.name))
+          expect(page).to have_no_content(decidim_escape_translated(unpublished_proposals_component.name))
+          expect(page).to have_content(decidim_escape_translated(blogs_component.name))
         end
       end
 
       it "allows visiting the components" do
         within ".participatory-space__nav-container" do
-          click_on translated(meetings_component.name, locale: :en)
+          click_on decidim_escape_translated(meetings_component.name)
         end
 
         expect(page).to have_css('[id^="meetings__meeting"]', count: 3)
@@ -307,6 +307,79 @@ describe "Initiative" do
       end
     end
 
+    context "when initiative state is created" do
+      let(:state) { :created }
+
+      before do
+        initiative.update!(published_at: nil)
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "does not show the components menu" do
+        expect(page).to have_no_css(".participatory-space__nav-container")
+      end
+    end
+
+    context "when initiative state is validating" do
+      let(:state) { :validating }
+
+      before do
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "does not show the components menu" do
+        expect(page).to have_no_css(".participatory-space__nav-container")
+      end
+    end
+
+    context "when initiative state is discarded" do
+      let(:state) { :discarded }
+
+      before do
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "does not show the components menu" do
+        expect(page).to have_no_css(".participatory-space__nav-container")
+      end
+    end
+
+    context "when initiative state is rejected" do
+      let(:state) { :rejected }
+
+      before do
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "does not show the components menu" do
+        expect(page).to have_no_css(".participatory-space__nav-container")
+      end
+    end
+
+    context "when initiative state is open" do
+      let(:state) { :open }
+
+      before do
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "shows the components menu" do
+        expect(page).to have_css(".participatory-space__nav-container")
+      end
+    end
+
+    context "when initiative state is accepted" do
+      let(:state) { :accepted }
+
+      before do
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "shows the components menu" do
+        expect(page).to have_css(".participatory-space__nav-container")
+      end
+    end
+
     context "when signed in as the author of the initiative" do
       before do
         sign_in initiative.author
@@ -315,7 +388,7 @@ describe "Initiative" do
 
       it "has special permissions to create posts" do
         within ".participatory-space__nav-container" do
-          click_on translated(blogs_component.name, locale: :en)
+          click_on decidim_escape_translated(blogs_component.name)
         end
 
         expect(page).to have_content("New post")
@@ -323,7 +396,7 @@ describe "Initiative" do
 
       it "has special permissions to create meetings" do
         within ".participatory-space__nav-container" do
-          click_on translated(meetings_component.name, locale: :en)
+          click_on decidim_escape_translated(meetings_component.name)
         end
 
         expect(page).to have_content("New meeting")

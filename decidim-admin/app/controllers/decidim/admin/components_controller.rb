@@ -7,6 +7,7 @@ module Decidim
     #
     class ComponentsController < Decidim::Admin::ApplicationController
       include Decidim::Admin::HasTrashableResources
+
       helper_method :manifest
 
       def index
@@ -47,7 +48,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("components.create.error", scope: "decidim.admin")
-            render action: "new", status: :unprocessable_entity
+            render action: "new", status: :unprocessable_content
           end
         end
       end
@@ -74,7 +75,7 @@ module Decidim
 
           on(:invalid) do
             flash[:alert] = I18n.t("components.update.error", scope: "decidim.admin")
-            render action: :edit, status: :unprocessable_entity
+            render action: :edit, status: :unprocessable_content
           end
         end
       end

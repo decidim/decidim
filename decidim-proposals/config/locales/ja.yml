@@ -681,7 +681,7 @@ ja:
             create: 提案をインポート
             no_components: この参加スペースには他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
-            select_states: インポートする提案のステータスを確認してください
+            select_states: 選択されたステータスを持つ提案のみをインポートします。何も選択されていない場合、すべての提案をインポートします。
             title: 別のコンポーネントから提案をインポート
         proposals_merges:
           create:

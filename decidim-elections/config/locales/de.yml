@@ -1,4 +1,9 @@
 de:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Wahl
+        other: Wahlen
   decidim:
     admin:
       menu:

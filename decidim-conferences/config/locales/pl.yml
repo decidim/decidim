@@ -373,7 +373,6 @@ pl:
             certificate_of_attendance_description: 'Zaświadcza się, że <strong>%{user}</strong> wziął/wzięła udział w konferencji <strong>%{title}</strong>, która odbyła się w <strong>%{location}</strong> w terminie: <strong>%{start} - %{end}</strong>'
         send_diploma:
           error: Wystąpił błąd podczas wysyłania certyfikatów uczestnictwa.
-          success: Certyfikaty uczestnictwa w konferencji zostały wysłane
       conference:
         registration_confirm:
           cancel: Anuluj
