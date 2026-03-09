@@ -103,7 +103,7 @@ ja:
       menu:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_groups_submenu:
-          info: 情報
+          info: このプロセスグループについて
           landing_page: ランディングページのレイアウト
         participatory_processes: 参加型プロセス
         participatory_processes_submenu:
@@ -214,7 +214,7 @@ ja:
           error: 参加型プロセスのこれらのフェーズの順序変更に問題がありました。
         update:
           error: 参加型プロセスのこの段階の更新に問題がありました。
-          success: 参加段階が正常に更新されました。
+          success: 参加プロセスフェーズを更新しました。
       participatory_process_user_roles:
         create:
           error: この参加型プロセスに参加者を追加する際に問題が発生しました。
@@ -338,7 +338,6 @@ ja:
     open_data:
       help:
         participatory_processes:
-          announcement: アナウンス（コールアウト）情報
           area: プロセスが行われているエリア
           component_settings: プロセスのコンポーネント設定
           created_at: このスペースの作成日時
@@ -485,9 +484,13 @@ ja:
             all: すべて
             max_results: 表示する要素の最大量
             selection_criteria: 選択条件
+        imports:
+          attachment_error: 添付ファイル "%{title}" をインポートできませんでした（%{error}）。
+          hero_image_error: ヒーロー画像をインポートできませんでした（%{error}）。
         new_import:
           accepted_types:
             json: JSON
+          help_html: このインポート機能を使用すると、エクスポートされた JSON ファイルから新しい参加型プロセスを作成できます。別の組織からプロセスをエクスポートするか、または同じ組織内のプロセスをエクスポートすることが可能です。インポートされるプロセスには、その設定、コンポーネント、および添付ファイルがすべて含まれます（選択されている場合）。
         participatory_process_duplicates:
           form:
             slug_help_html: 'URLスラグは、このプロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
@@ -502,7 +505,6 @@ ja:
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_processes:
           form:
-            announcement_help: ここに入力したテキストは、参加型プロセス情報のすぐ下にユーザーに表示されます。
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 期間
             has_members_help: メンバーを作成し、公開することができます

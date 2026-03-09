@@ -24,10 +24,12 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          Conference.transaction do
-            duplicate_conference
-            duplicate_conference_attachments
-            duplicate_conference_components if @form.duplicate_components?
+          Decidim.traceability.perform_action!("duplicate", @conference, form.current_user) do
+            Conference.transaction do
+              duplicate_conference
+              duplicate_conference_attachments
+              duplicate_conference_components if @form.duplicate_components?
+            end
           end
 
           broadcast(:ok, @duplicated_conference)

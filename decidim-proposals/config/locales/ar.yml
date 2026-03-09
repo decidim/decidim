@@ -34,7 +34,6 @@ ar:
         file: ملف
       proposals_import:
         import_proposals: مقترحات الاستيراد
-        keep_answers: الاحتفاظ بالحالة والإجابات
         keep_authors: الحفاظ على المؤلفين الأصلي
     errors:
       models:
@@ -371,7 +370,6 @@ ar:
             create: مقترحات الاستيراد
             no_components: لا توجد مكونات اقتراح أخرى في هذه المساحة التشاركية لاستيراد المقترحات منها.
             select_component: يرجى اختيار عنصر
-            select_states: تحقق من حالة مقترحات الاستيراد
         proposals_merges:
           create:
             success: دمج المقترحات بنجاح في واحدة جديدة.

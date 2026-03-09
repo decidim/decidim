@@ -181,7 +181,6 @@
       admin:
         assemblies:
           form:
-            announcement_help: Teksten du skriver her vil bli vist til brukeren rett under forsamlingsinformasjonen.
             duration: Varighet
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
             images: Bilder
@@ -191,6 +190,9 @@
             select_parent_assembly: Velg foreldre-forsamling
             social_handlers: Sosial
             title: Generell Informasjon
+        assembly_imports:
+          form:
+            document_legend: Legg til et dokument
         assembly_members:
           form:
             explanation: 'Veiledning for bilde:'

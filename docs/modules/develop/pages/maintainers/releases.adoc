@@ -1,14 +1,14 @@
 = Releasing new versions
 
-In order to release new version you need to be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. Try `gem owner decidim` to find out the owners of the gem. It is worth making sure you are owner of all gems.
+In order to release new version you need to:
 
-In order to release any other version of Decidim, is mandatory to have the `decidim-maintainers_toolbox` installed, and to have it on the latest version. What we can, we aim to automate.
-[source,bash]
-----
-gem install decidim-maintainers_toolbox
-----
+. be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. Try `gem owner decidim` to find out the owners of the gem. It is worth making sure you are owner of all gems.
+. be owner of all the NPM packages
+. have the `gh` command line installed. You can install by following the https://github.com/cli/cli/blob/trunk/docs/install_linux.md[GH installation instructions].
+. have the `yq` command line installed. You can install it with `snap install yq` in Ubuntu.
+. have the `decidim-maintainers_toolbox` gem. You can install it with `gem install decidim-maintainers_toolbox`.
 
-Before you begin the release process, make sure you check if there are any open or pending  backports. Currently, is not mandatory to open or merge all the backports, but is something that we usually aim for. Refer to the xref:develop:backports.adoc[backports] page for more information.
+Before you begin the release process, make sure you check if there are any open or pending backports. Currently, is not mandatory to open or merge all the backports, but is something that we usually aim for. Refer to the xref:develop:backports.adoc[backports] page for more information.
 
 == Release Candidates
 
@@ -23,7 +23,7 @@ If this is a *Release Candidate version* release, the steps to follow are:
 [source,bash]
 ----
 gem install decidim-maintainers_toolbox
-decidim-releaser --github-token=(gh auth token) --version-type=rc
+decidim-releaser --github-token=$(gh auth token) --version-type=rc
 ----
 . This will create the stable branch and also create two Pull Requests:
 .. One for changing the development version on the `develop` branch (with title "Bump develop to next release version (x.y.z)")
@@ -54,7 +54,7 @@ Release Candidates will be tested in a production server (usually Metadecidim) d
 [source,bash]
 ----
 gem install decidim-maintainers_toolbox
-decidim-releaser --github-token=(gh auth token) --version-type=minor
+decidim-releaser --github-token=$(gh auth token) --version-type=minor
 ----
 . Wait for the tests to finish and check that everything is passing before releasing the version.
 NOTE: When you bump the version, the generator tests will fail because the gems and NPM packages have not been actually published yet (as in sent to rubygems/npm). You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit.
@@ -108,14 +108,14 @@ After you commit this change in `develop` branch you will have to wait a couple 
 Releasing new versions from a *_release/x.y-stable_* branch is quite easy.
 The process is very similar from releasing a new Decidim version:
 
-. Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that is going to be marged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
+. Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that is going to be merged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
 . Make sure that there are no more PRs to backport. Learn more about xref:develop:backports.adoc[Backports].
-. Checkout the branch you want to release: `git checkout -b release/x.y-stable`
+. Checkout the branch you want to release: `git checkout release/x.y-stable && git pull origin release/x.y-stable`
 . Install the last version of the `decidim-maintainers_toolbox` gem, and run the releaser command. Mind that for this to work you need locally the gh CLI from GitHub.
 [source,bash]
 ----
 gem install decidim-maintainers_toolbox
-decidim-releaser --github-token=(gh auth token) --version-type=patch
+decidim-releaser --github-token=$(gh auth token) --version-type=patch
 ----
 . This will create a Pull Request for the new release with title `Bump to vx.y.z version`. Wait for the tests to finish and check that everything is passing before releasing the version.
 NOTE: When you bump the version, the generator tests will fail because the gems and NPM packages have not been actually published yet (as in sent to rubygems/npm). You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit.

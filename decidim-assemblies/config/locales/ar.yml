@@ -204,7 +204,6 @@ ar:
       admin:
         assemblies:
           form:
-            announcement_help: سيظهر النص الذي أدخلته هنا للمستخدم مباشرة تحت معلومات الجمعية.
             duration: المدة الزمنية
             duration_help: إذا كانت مدة هذه الجمعية محدودة ، فحدد تاريخ الانتهاء. خلاف ذلك ، سوف يظهر على أنه غير مسمى.
             images: الصور
@@ -215,6 +214,9 @@ ar:
             select_parent_assembly: حدد الجمعية الأصلية
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
+        assembly_imports:
+          form:
+            document_legend: إضافة وثيقة
         assembly_members:
           form:
             explanation: 'إرشادات للصورة:'

@@ -17,7 +17,7 @@ module Decidim
 
           flash[:notice] = t("decidim.admin.exports.notice")
 
-          redirect_back(fallback_location: after_export_path)
+          redirect_back_or_to(after_export_path)
         end
 
         # Public: To be implemented at the controller. You need to

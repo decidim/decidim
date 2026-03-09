@@ -293,7 +293,6 @@ lv:
             certificate_of_attendance_description: Ar šo apliecinām, ka <strong>%{user}</strong> ir apmeklējis un piedalījies <strong>%{title}</strong>, kas notika <strong>%{location}</strong> laikā <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Nosūtot konferences apmeklējuma sertifikātus, radās problēma.
-          success: Konferences apmeklējuma sertifikāti ir veiksmīgi nosūtīti
       conference:
         registration_confirm:
           cancel: Atcelt

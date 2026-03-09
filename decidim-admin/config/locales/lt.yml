@@ -46,7 +46,6 @@ lt:
         default_locale: Numatytoji lokalė
         description: Aprašymas
         enable_omnipresent_banner: Rodyti visur naudojamą reklamjuostę
-        enable_participatory_space_filters: Leisti dalyvaujamosios erdvės filtrus
         facebook_handler: '„Facebook“ tvarkyklė'
         favicon: Piktograma
         force_authentication: Priversti autentifikuotis
@@ -159,7 +158,7 @@ lt:
           new: Naujas priedų aplankas
         browse: Naršyti
         configure: Konfigūruoti
-        export-selection: Eksportuoti pasirinktą
+        export_all: Eksportuoti viską
         import: Importuoti
         newsletter:
           new: Naujas naujienlaiškis
@@ -783,7 +782,6 @@ lt:
           title: Nauja tema
         update:
           error: Atnaujinant šią temą iškilo problema.
-          success: Tema atnaujinta
       static_pages:
         create:
           error: Kuriant naują puslapį iškilo problema.

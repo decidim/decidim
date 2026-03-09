@@ -203,26 +203,43 @@ module Decidim
         @filter_sections ||= begin
           items = []
           if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled
-            items.append(method: :with_any_state, collection: filter_proposals_state_values, label: t("decidim.proposals.proposals.filters.state"), id: "state")
+            items.append(method: :with_any_state, name: "[with_any_state]", collection: filter_proposals_state_values, label: t("decidim.proposals.proposals.filters.state"),
+                         id: "state")
           end
           current_component.available_taxonomy_filters.each do |taxonomy_filter|
-            items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+            items.append(method: :with_any_taxonomies,
+                         name: "[with_any_taxonomies][#{taxonomy_filter.root_taxonomy_id}]",
                          collection: filter_taxonomy_values_for(taxonomy_filter),
                          label: decidim_sanitize_translated(taxonomy_filter.name),
                          id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
           end
           if component_settings.official_proposals_enabled
-            items.append(method: :with_any_origin, collection: filter_origin_values, label: t("decidim.proposals.proposals.filters.origin"), id: "origin")
+            items.append(method: :with_any_origin,
+                         name: "[with_any_origin]",
+                         collection: filter_origin_values,
+                         label: t("decidim.proposals.proposals.filters.origin"),
+                         id: "origin")
           end
           if current_user
-            items.append(method: :activity, collection: activity_filter_values, label: t("decidim.proposals.proposals.filters.activity"), id: "activity", type: :radio_buttons)
+            items.append(method: :activity,
+                         name: "[activity]",
+                         collection: activity_filter_values,
+                         label: t("decidim.proposals.proposals.filters.activity"),
+                         id: "activity",
+                         type: :radio_buttons)
           end
           if @proposals.only_emendations.any?
-            items.append(method: :type, collection: filter_type_values, label: t("decidim.proposals.proposals.filters.amendment_type"), id: "amendment_type", type: :radio_buttons)
+            items.append(method: :type,
+                         name: "[type]",
+                         collection: filter_type_values,
+                         label: t("decidim.proposals.proposals.filters.amendment_type"),
+                         id: "amendment_type",
+                         type: :radio_buttons)
           end
           if linked_classes_for(Decidim::Proposals::Proposal).any?
             items.append(
               method: :related_to,
+              name: "[related_to]",
               collection: linked_classes_filter_values_for(Decidim::Proposals::Proposal),
               label: t("decidim.proposals.proposals.filters.related_to"),
               id: "related_to",

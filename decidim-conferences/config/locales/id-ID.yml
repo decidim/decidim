@@ -285,7 +285,6 @@ id:
             certificate_of_attendance_description: Ini untuk menyatakan bahwa <strong>%{user}</strong> telah hadir dan mengambil bagian dalam <strong>%{title}</strong> diadakan pada <strong>%{location}</strong> pada <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Ada masalah saat mengirim sertifikat kehadiran konferensi.
-          success: Sertifikat kehadiran konferensi dikirim dengan benar
       conference:
         registration_confirm:
           cancel: Membatalkan

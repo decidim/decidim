@@ -24,7 +24,7 @@ module Decidim
             end
 
             on(:invalid) do
-              render json: {}, status: :unprocessable_entity
+              render json: {}, status: :unprocessable_content
             end
           end
         end
@@ -38,7 +38,7 @@ module Decidim
             end
 
             on(:invalid) do
-              render json: {}, status: :unprocessable_entity
+              render json: {}, status: :unprocessable_content
             end
           end
         end

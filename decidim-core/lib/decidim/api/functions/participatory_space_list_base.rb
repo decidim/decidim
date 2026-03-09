@@ -10,6 +10,7 @@ module Decidim
     class ParticipatorySpaceListBase
       include NeedsApiFilterAndOrder
       include NeedsApiDefaultOrder
+
       attr_reader :manifest
 
       def initialize(manifest:)

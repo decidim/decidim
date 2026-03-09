@@ -27,7 +27,6 @@ shared_context "when generating a new application" do
     Bundler.with_original_env { Decidim::GemManager.capture(command, env:) }
   end
 
-  # rubocop:disable RSpec/BeforeAfterAll
   before(:all) do
     Bundler.with_original_env { Decidim::GemManager.install_all(out: File::NULL) }
   end
@@ -35,7 +34,6 @@ shared_context "when generating a new application" do
   after(:all) do
     Bundler.with_original_env { Decidim::GemManager.uninstall_all(out: File::NULL) }
   end
-  # rubocop:enable RSpec/BeforeAfterAll
 end
 
 shared_examples_for "a new production application" do
@@ -828,7 +826,7 @@ end
 
 shared_examples_for "an application with cloud storage gems" do
   let(:services) do
-    %w(local s3 gcs azure)
+    %w(local s3 gcs)
   end
   let(:storage_envs) do
     {
@@ -837,10 +835,7 @@ shared_examples_for "an application with cloud storage gems" do
       "AWS_SECRET_ACCESS_KEY" => "my-aws-secret",
       "AWS_REGION" => "eu-west-1",
       # "AWS_ENDPOINT" => "https://s3.amazonaws.com",
-      "AWS_BUCKET" => "test",
-      "AZURE_STORAGE_ACCOUNT_NAME" => "test",
-      "AZURE_STORAGE_ACCESS_KEY" => "dGVzdA==\n", # Base64 of "test"
-      "AZURE_CONTAINER" => "test"
+      "AWS_BUCKET" => "test"
     }
   end
 
@@ -849,7 +844,6 @@ shared_examples_for "an application with cloud storage gems" do
 
     expect(File.read("#{test_app}/Gemfile"))
       .to match(/gem ["']+aws-sdk-s3["']+/)
-      .and match(/gem ["']+azure-storage-blob["']+/)
       .and match(/gem ["']+google-cloud-storage["']+/)
 
     services.each do |service|

@@ -106,7 +106,6 @@ de:
       menu:
         participatory_process_groups: Prozessgruppen
         participatory_process_groups_submenu:
-          info: Info
           landing_page: Startseiten-Layout
         participatory_processes: Beteiligungsprozesse
         participatory_processes_submenu:
@@ -217,7 +216,6 @@ de:
           error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
         update:
           error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
-          success: Partizipativer Prozessschritt erfolgreich aktualisiert.
       participatory_process_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.
@@ -341,7 +339,6 @@ de:
     open_data:
       help:
         participatory_processes:
-          announcement: Die Ankündigungsinformationen (Banner)
           area: Der Bereich, in dem der Prozess stattfindet,
           component_settings: Die Komponenteneinstellungen des Prozesses
           created_at: Erstellungsdatum dieses Bereichs
@@ -506,7 +503,6 @@ de:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         participatory_processes:
           form:
-            announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Prozessinformationen angezeigt.
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Dauer
             has_members_help: Sie können Mitglieder erstellen und veröffentlichen
