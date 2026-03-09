@@ -103,6 +103,29 @@ shared_examples_for "update questions" do
     end
   end
 
+  context "when hovering over card divider" do
+    let!(:question) { create(:questionnaire_question, questionnaire:, body:) }
+
+    before do
+      visit_manage_questions_and_expand_all
+    end
+
+    it "shows resize cursor for editable questions" do
+      within first(".questionnaire-question") do
+        expect(page).to have_css(".card-divider.hover\\:cursor-ns-resize")
+      end
+    end
+
+    it "does not show resize cursor for non-editable questions" do
+      response = create(:response, questionnaire:, question:)
+      visit_manage_questions_and_expand_all
+
+      within first(".questionnaire-question") do
+        expect(page).to have_no_css(".card-divider.hover\\:cursor-ns-resize")
+      end
+    end
+  end
+
   context "when a questionnaire has a title and description" do
     let!(:question) { create(:questionnaire_question, :title_and_description, questionnaire:, body: title_and_description_body) }
 
