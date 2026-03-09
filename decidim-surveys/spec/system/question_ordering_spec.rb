@@ -47,7 +47,7 @@ describe "Question ordering", "#reorder_questions" do
     end
 
     click_on "Save"
-    expect(page).to have_callout("Survey questions successfully saved.")
+    expect(page).to have_content("Survey questions successfully saved.")
 
     expect(page).to have_content("First question #1")
     expect(page).to have_content("Second question #2")
@@ -71,7 +71,7 @@ describe "Question ordering", "#reorder_questions" do
     drag_latest_question_to_first
 
     click_on "Save"
-    expect(page).to have_callout("Survey questions successfully saved.")
+    expect(page).to have_content("Survey questions successfully saved.")
 
     ordered_headers = question_headers
     expect(ordered_headers[0]).to include("Third question #1")
