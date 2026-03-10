@@ -181,7 +181,7 @@ describe "Admin imports assembly" do
       click_on "Import"
     end
 
-    it "imports successfully and shows warnings for missing images" do
+    it "imports successfully and shows warnings for missing hero image" do
       expect(page).to have_callout("Assembly successfully imported.")
       expect(page).to have_callout("Import assembly with long 404 images")
 
