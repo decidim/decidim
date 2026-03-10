@@ -103,7 +103,6 @@ sl:
           attachment_files: Datoteke
           attachments: Priponke
           components: Komponente
-          private_users: Člani
       titles:
         assemblies: Združbe
         assemblies_types: Vrste združb
@@ -126,9 +125,6 @@ sl:
         filters:
           names:
             all: Vsi
-      assembly_members:
-        index:
-          members: Člani
       content_blocks:
         highlighted_assemblies:
           name: Poudarjene združbe
