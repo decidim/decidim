@@ -560,9 +560,6 @@ ja:
         title: 参加型プロセス
       last_activity:
         new_participatory_process: '新しい参加型プロセス:'
-      members:
-        index:
-          title: メンバー
       pages:
         home:
           highlighted_processes:
