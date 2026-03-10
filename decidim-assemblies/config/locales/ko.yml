@@ -70,6 +70,9 @@ ko:
       assembly_members:
         index:
           members: 멤버
+    assembly_members:
+      index:
+        title: 멤버
   layouts:
     decidim:
       assemblies:
