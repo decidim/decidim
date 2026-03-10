@@ -271,11 +271,11 @@ describe "Admin manages surveys" do
     end
   end
 
-  context "when the survey has responses or more" do
+  context "when the survey has answers or more" do
     let!(:question) do
       create(:questionnaire_question, questionnaire:)
     end
-    let!(:response) { create(:response, questionnaire:, question:) }
+    let!(:answer) { create(:answer, questionnaire:, question:) }
 
     before do
       visit manage_questionnaire_path
@@ -283,8 +283,7 @@ describe "Admin manages surveys" do
 
     it "allows access to responses" do
       within "tr", text: decidim_sanitize_translated(survey.title) do
-        find("button[data-controller='dropdown']").click
-        expect(page).to have_link("Responses")
+        expect(page).to have_link("Answers")
       end
     end
   end
@@ -294,8 +293,7 @@ describe "Admin manages surveys" do
 
     it "does not show the Responses button" do
       within "tr", text: decidim_sanitize_translated(survey.title) do
-        find("button[data-controller='dropdown']").click
-        expect(page).to have_no_link("Responses")
+        expect(page).to have_no_link("Answers")
       end
     end
   end
