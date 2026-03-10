@@ -160,9 +160,6 @@ lb:
         filters:
           names:
             all: Alle
-      assembly_members:
-        index:
-          members: Mitglieder
       content_blocks:
         highlighted_assemblies:
           name: Hervorgehobene Gremien
@@ -189,9 +186,6 @@ lb:
       show:
         duration: Dauer
         private_space: Dies ist eine private Versammlung
-    assembly_members:
-      index:
-        title: Mitglieder
     events:
       assemblies:
         create_assembly_member:
