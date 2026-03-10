@@ -24,12 +24,23 @@ describe "Homepage" do
     let!(:meeting_component) { create(:component, manifest_name: :meetings, organization:) }
     let!(:meeting) { create(:meeting, :published, component: meeting_component) }
 
+    let(:highlighted_content_banner_settings) do
+      {
+        "title_en" => "Hello world",
+        "short_description_en" => "Bye world",
+        "action_button_title_en" => "Go!",
+        "action_button_subtitle_en" => "Now",
+        "action_button_url" => "https://example.org"
+      }
+    end
+
     before do
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :sub_hero)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :how_to_participate)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :stats)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :footer_sub_hero)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_content_banner, settings: highlighted_content_banner_settings)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_processes)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_assemblies)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :upcoming_meetings)
@@ -404,6 +415,7 @@ describe "Homepage" do
           expect(page).to have_css("#how_to_participate")
           expect(page).to have_css("#statistics")
           expect(page).to have_css("#footer_sub_hero")
+          expect(page).to have_css("#highlighted_content_banner")
           expect(page).to have_css("#highlighted-processes")
           expect(page).to have_css("#highlighted-assemblies")
           expect(page).to have_css("[id^=meetings]")
@@ -416,17 +428,20 @@ describe "Homepage" do
           how_to_participate_section = page.find_by_id("how_to_participate")
           stats_section = page.find_by_id("statistics")
           footer_sub_hero_section = page.find_by_id("footer_sub_hero")
+          highlighted_content_banner = page.find_by_id("highlighted_content_banner")
 
           hero_position = hero_section.evaluate_script("this.getBoundingClientRect().top")
           sub_hero_position = sub_hero_section.evaluate_script("this.getBoundingClientRect().top")
           how_to_participate_position = how_to_participate_section.evaluate_script("this.getBoundingClientRect().top")
           stats_position = stats_section.evaluate_script("this.getBoundingClientRect().top")
           footer_sub_hero_position = footer_sub_hero_section.evaluate_script("this.getBoundingClientRect().top")
+          highlighted_content_banner_position = highlighted_content_banner.evaluate_script("this.getBoundingClientRect().top")
 
           expect(hero_position).to be < sub_hero_position
           expect(sub_hero_position).to be < how_to_participate_position
           expect(how_to_participate_position).to be < stats_position
           expect(stats_position).to be < footer_sub_hero_position
+          expect(footer_sub_hero_position).to be < highlighted_content_banner_position
         end
 
         it "renders each content block with its corresponding cell content" do
@@ -442,6 +457,8 @@ describe "Homepage" do
           expect(page).to have_content("Statistics")
 
           expect(page).to have_css("#footer_sub_hero")
+
+          expect(page).to have_css("#highlighted_content_banner")
 
           expect(page).to have_css("#highlighted-processes")
           expect(page).to have_css("#highlighted-assemblies")
