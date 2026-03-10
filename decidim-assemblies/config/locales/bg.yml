@@ -262,9 +262,6 @@ bg:
           type: Тип
         show:
           title: Относно това събрание
-      assembly_members:
-        index:
-          members: Членове
       content_blocks:
         children_assemblies:
           name: Събрания
@@ -306,9 +303,6 @@ bg:
         duration: Продължителност
         private_space: Това е частно събрание
         social_networks_title: Посетете събранието на
-    assembly_members:
-      index:
-        title: Членове
     events:
       assemblies:
         create_assembly_member:
