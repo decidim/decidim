@@ -21,8 +21,7 @@ class LinkBubbleMenu extends BubbleMenu {
     }
 
     const selection = view.state.selection;
-    if (this.isImage(selection))
-    {
+    if (this.isImage(selection)) {
       this.updateHref(selection.node.attrs.href);
     }
   }
@@ -46,7 +45,7 @@ class LinkBubbleMenu extends BubbleMenu {
   }
 
   isImage(selection) {
-    return selection instanceof NodeSelection && selection.node.type.name === "image"
+    return selection instanceof NodeSelection && selection.node.type.name === "image";
   }
 }
 
