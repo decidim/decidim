@@ -1425,7 +1425,7 @@ es-MX:
         download:
           components: Componentes
           core: Núcleo
-          spaces: Espacio participativo
+          spaces: Espacio de participación
           title: Descargar recursos
         download_open_data: Descargar todos los archivos de datos abiertos
         download_resource: Descargar "%{resource_name}" en formato CSV
