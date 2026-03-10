@@ -120,7 +120,6 @@ ru:
           attachments: Прикрепленные файлы
           components: Составляющие
           moderations: Действия по модерации
-          private_users: Члены президиума
       models:
         assembly:
           fields:
@@ -175,9 +174,6 @@ ru:
         filters:
           names:
             all: Все
-      assembly_members:
-        index:
-          members: Члены президиума
       content_blocks:
         highlighted_assemblies:
           name: Рекомендуемые собрания
@@ -194,9 +190,6 @@ ru:
       show:
         duration: Длительность
         private_space: Это частное собрание
-    assembly_members:
-      index:
-        title: Члены президиума
     log:
       value_types:
         assembly_presenter:
