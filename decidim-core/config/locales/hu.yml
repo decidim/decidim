@@ -991,6 +991,9 @@ hu:
           modal_btn_exit: Később tekintem át
           modal_button: Feltételek elutasítása
           modal_title: Tényleg elutasítja az ÁSZF frissített szövegét?
+    participatory_space_members:
+      index:
+        members: Belépés
     profile:
       deleted: Törölt résztvevő
     profiles:
