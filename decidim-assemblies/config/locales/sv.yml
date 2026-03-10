@@ -281,7 +281,6 @@ sv:
             max_results: Maximalt antal element att visa
         imports:
           attachment_error: Bilagan "%{title}" kunde inte importeras (%{error}).
-          banner_image_error: Bannerbilden kunde inte importeras (%{error}).
           hero_image_error: Startbilden kunde inte importeras (%{error}).
         new_import:
           accepted_types:
@@ -310,9 +309,6 @@ sv:
           type: Typ
         show:
           title: Om det här samrådet
-      assembly_members:
-        index:
-          members: Medlemmar
       content_blocks:
         children_assemblies:
           name: Samråd
@@ -354,9 +350,6 @@ sv:
         duration: Varaktighet
         private_space: Det här är ett privat samråd
         social_networks_title: Besök samrådet på
-    assembly_members:
-      index:
-        title: Medlemmar
     download_your_data:
       show:
         assemblies: Exportera samråd
