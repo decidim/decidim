@@ -233,9 +233,6 @@ ar:
             all: الكل
         show:
           title: حول الجمعية
-      assembly_members:
-        index:
-          members: الأعضاء
       content_blocks:
         children_assemblies:
           name: جمعيات
@@ -267,9 +264,6 @@ ar:
         duration: المدة الزمنية
         private_space: هذه جمعية خاصة
         social_networks_title: زيارة التجمع على
-    assembly_members:
-      index:
-        title: الأعضاء
     events:
       assemblies:
         create_assembly_member:
