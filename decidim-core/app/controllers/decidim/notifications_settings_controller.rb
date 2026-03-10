@@ -22,7 +22,7 @@ module Decidim
 
         on(:invalid) do
           flash.now[:alert] = t("notifications_settings.update.error", scope: "decidim")
-          render action: :show, status: :unprocessable_entity
+          render action: :show, status: :unprocessable_content
         end
       end
     end

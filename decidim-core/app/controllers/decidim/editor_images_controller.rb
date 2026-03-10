@@ -16,7 +16,7 @@ module Decidim
         end
 
         on(:invalid) do |_message|
-          render json: { message: I18n.t("error", scope: "decidim.editor_images.create") }, status: :unprocessable_entity
+          render json: { message: I18n.t("error", scope: "decidim.editor_images.create") }, status: :unprocessable_content
         end
       end
     end

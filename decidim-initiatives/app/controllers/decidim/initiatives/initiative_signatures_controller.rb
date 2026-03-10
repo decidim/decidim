@@ -48,7 +48,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render :error_on_vote, status: :unprocessable_entity
+            render :error_on_vote, status: :unprocessable_content
           end
         end
       end
@@ -100,7 +100,7 @@ module Decidim
 
           on(:invalid) do
             flash[:alert] = I18n.t("sms_phone.invalid", scope: "decidim.initiatives.initiative_votes")
-            render :sms_phone_number, status: :unprocessable_entity
+            render :sms_phone_number, status: :unprocessable_content
           end
         end
       end
@@ -140,7 +140,7 @@ module Decidim
 
               format.html do
                 flash[:alert] = I18n.t("sms_code.invalid", scope: "decidim.initiatives.initiative_votes")
-                render :sms_code, status: :unprocessable_entity
+                render :sms_code, status: :unprocessable_content
               end
             end
           end
