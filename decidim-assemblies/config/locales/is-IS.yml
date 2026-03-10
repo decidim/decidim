@@ -139,9 +139,6 @@ is-IS:
         filters:
           names:
             all: Allt
-      assembly_members:
-        index:
-          members: Meðlimir
       created_by:
         city_council: Borgarstjórn
         others: Aðrir
@@ -151,9 +148,6 @@ is-IS:
       show:
         duration: Lengd
         private_space: Þetta er einkasamkoma
-    assembly_members:
-      index:
-        title: Meðlimir
     log:
       value_types:
         assembly_presenter:
