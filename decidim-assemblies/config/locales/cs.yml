@@ -285,7 +285,6 @@ cs:
             max_results: Maximální množství prvků, které chcete zobrazit
         imports:
           attachment_error: Přílohu "%{title}" nelze importovat (%{error}).
-          banner_image_error: Obrázek banneru nelze importovat (%{error}).
           hero_image_error: Obrázek hrdiny nelze importovat (%{error}).
         new_import:
           accepted_types:
@@ -314,9 +313,6 @@ cs:
           type: Typ
         show:
           title: O tomto shromáždění
-      assembly_members:
-        index:
-          members: Členové
       content_blocks:
         children_assemblies:
           name: Shromáždění
@@ -358,9 +354,6 @@ cs:
         duration: Doba trvání
         private_space: Toto je soukromé shromáždění
         social_networks_title: Navštivte shromáždění na
-    assembly_members:
-      index:
-        title: Členové
     download_your_data:
       show:
         assemblies: Export shromáždění
