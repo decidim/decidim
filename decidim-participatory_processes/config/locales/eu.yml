@@ -566,9 +566,6 @@ eu:
         title: Partaidetza-prozesuak
       last_activity:
         new_participatory_process: 'Beste partaidetza-prozesu bat:'
-      members:
-        index:
-          title: Kideak
       pages:
         home:
           highlighted_processes:
