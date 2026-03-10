@@ -1526,6 +1526,9 @@ ca:
           %{organization_name}
         hello: Benvolgut/da %{username},
         subject: Avís de compte inactiu
+    participatory_space_members:
+      index:
+        members: Membres
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
