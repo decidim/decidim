@@ -291,6 +291,10 @@ describe "Admin manages surveys" do
   context "when the survey has no responses" do
     let!(:question) { create(:questionnaire_question, questionnaire:) }
 
+    before do
+      visit manage_questionnaire_path
+    end
+
     it "does not show the Responses button" do
       within "tr", text: decidim_sanitize_translated(survey.title) do
         expect(page).to have_no_link("Answers")
