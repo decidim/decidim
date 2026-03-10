@@ -69,8 +69,6 @@ module Decidim
           end
         end
 
-        private
-
         def pretty_attachment(attachment)
           # rubocop:disable Style/StringConcatenation
           # Interpolating strings that are `html_safe` is problematic with Rails.
