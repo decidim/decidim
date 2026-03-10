@@ -256,9 +256,6 @@ hu:
           type: Típus
         show:
           title: Erről a gyűlésről
-      assembly_members:
-        index:
-          members: Tagok
       content_blocks:
         children_assemblies:
           name: Gyűlések
@@ -300,9 +297,6 @@ hu:
         duration: Időtartam
         private_space: Ez egy privát gyűlés
         social_networks_title: Látogasd meg a gyűlést itt
-    assembly_members:
-      index:
-        title: Tagok
     events:
       assemblies:
         create_assembly_member:
