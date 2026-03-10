@@ -319,38 +319,21 @@ describe "Homepage" do
           )
         end
 
-        context "when organization does not have the stats content block" do
-          let(:organization) { create(:organization) }
-
-          it "does not show the statistics block" do
-            expect(page).to have_no_content("Current state of #{translated(organization.name)}")
+        it "shows the statistics block" do
+          within "#statistics" do
+            expect(page).to have_content("Statistics")
+            expect(page).to have_content("Processes")
+            expect(page).to have_content("Participants")
           end
         end
 
-        context "when organization has the stats content block" do
-          let(:organization) { create(:organization) }
-
-          before do
-            create(:content_block, organization:, scope_name: :homepage, manifest_name: :stats)
-            visit current_path
+        it "has the correct values for the statistics" do
+          within ".users_count" do
+            expect(page).to have_content("4")
           end
 
-          it "shows the statistics block" do
-            within "#statistics" do
-              expect(page).to have_content("Statistics")
-              expect(page).to have_content("Processes")
-              expect(page).to have_content("Participants")
-            end
-          end
-
-          it "has the correct values for the statistics" do
-            within ".users_count" do
-              expect(page).to have_content("4")
-            end
-
-            within ".processes_count" do
-              expect(page).to have_content("2")
-            end
+          within ".processes_count" do
+            expect(page).to have_content("2")
           end
         end
       end
