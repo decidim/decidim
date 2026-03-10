@@ -77,7 +77,6 @@ describe "Decidim::Api::QueryType" do
             translation(locale:"#{locale}")
           }
         }
-        bannerImage
         categories {
           id
         }
@@ -230,7 +229,6 @@ describe "Decidim::Api::QueryType" do
             translation(locale:"#{locale}")
           }
         }
-        bannerImage
         categories {
           id
         }
