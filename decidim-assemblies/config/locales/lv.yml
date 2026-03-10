@@ -183,9 +183,6 @@ lv:
         filters:
           names:
             all: Visi
-      assembly_members:
-        index:
-          members: Dalībnieki
       content_blocks:
         highlighted_assemblies:
           name: Izceltās asamblejas
@@ -212,9 +209,6 @@ lv:
       show:
         duration: Ilgums
         private_space: Šī ir privāta asambleja
-    assembly_members:
-      index:
-        title: Dalībnieki
     events:
       assemblies:
         create_assembly_member:
