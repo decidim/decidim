@@ -223,9 +223,6 @@ tr:
         filters:
           names:
             all: Tümü
-      assembly_members:
-        index:
-          members: Üyeler
       content_blocks:
         highlighted_assemblies:
           name: Vurgulanan kurullar
@@ -252,9 +249,6 @@ tr:
       show:
         duration: Süre
         private_space: Bu özel bir kurul
-    assembly_members:
-      index:
-        title: Üyeler
     events:
       assemblies:
         create_assembly_member:
