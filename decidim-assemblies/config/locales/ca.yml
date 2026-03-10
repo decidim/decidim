@@ -281,7 +281,6 @@ ca:
             max_results: Quantitat màxima d'elements que es mostraran
         imports:
           attachment_error: No s'ha pogut importar l'arxiu adjunt "%{title}" (%{error}).
-          banner_image_error: No s'ha pogut importar la imatge del bàner (%{error}).
           hero_image_error: No s'ha pogut importar la imatge principal (%{error}).
         new_import:
           accepted_types:
@@ -310,9 +309,6 @@ ca:
           type: Tipus
         show:
           title: Quant a aquesta assemblea
-      assembly_members:
-        index:
-          members: Membres
       content_blocks:
         children_assemblies:
           name: Assemblees
@@ -354,9 +350,6 @@ ca:
         duration: Durada
         private_space: Aquesta és una assemblea privada
         social_networks_title: Visita l'assemblea a
-    assembly_members:
-      index:
-        title: Membres
     download_your_data:
       show:
         assemblies: Exportar les assemblees
