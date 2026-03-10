@@ -19,8 +19,7 @@ describe "Question ordering", "#reorder_questions" do
 
   before do
     within "tr", text: decidim_sanitize_translated(survey.title) do
-      find("button[data-controller='dropdown']").click
-      click_on "Questions"
+      click_on "Manage questions"
     end
   end
 
@@ -47,7 +46,11 @@ describe "Question ordering", "#reorder_questions" do
     end
 
     click_on "Save"
-    expect(page).to have_callout("Survey questions successfully saved.")
+    expect(page).to have_content("Survey questions successfully saved.")
+
+    within "tr", text: decidim_sanitize_translated(survey.title) do
+      click_on "Manage questions"
+    end
 
     expect(page).to have_content("First question #1")
     expect(page).to have_content("Second question #2")
@@ -71,7 +74,11 @@ describe "Question ordering", "#reorder_questions" do
     drag_latest_question_to_first
 
     click_on "Save"
-    expect(page).to have_callout("Survey questions successfully saved.")
+    expect(page).to have_content("Survey questions successfully saved.")
+
+    within "tr", text: decidim_sanitize_translated(survey.title) do
+      click_on "Manage questions"
+    end
 
     ordered_headers = question_headers
     expect(ordered_headers[0]).to include("Third question #1")
