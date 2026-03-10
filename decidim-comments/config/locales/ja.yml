@@ -65,8 +65,6 @@ ja:
         alignment:
           against: 反対
           in_favor: 賛成
-        answers:
-          other: "%{count} 件の回答"
         cancel_reply: 返信をキャンセル
         comment_label: コメント %{comment_id}
         comment_label_reply: コメント %{comment_id} (コメント %{parent_comment_id} への返信)
