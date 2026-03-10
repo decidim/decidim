@@ -281,7 +281,6 @@ fi-pl:
             max_results: Näytettävien elementtien enimmäismäärä
         imports:
           attachment_error: Liitteen "%{title}" tuonti epäonnistui (%{error}).
-          banner_image_error: Bannerikuvan tuonti epäonnistui (%{error}).
           hero_image_error: Pääkuvan tuonti epäonnistui (%{error}).
         new_import:
           accepted_types:
@@ -310,9 +309,6 @@ fi-pl:
           type: Tyyppi
         show:
           title: Tietoa tästä ryhmästä
-      assembly_members:
-        index:
-          members: Jäsenet
       content_blocks:
         children_assemblies:
           name: Ryhmät
@@ -354,9 +350,6 @@ fi-pl:
         duration: Kesto
         private_space: Tämä on yksityinen ryhmä
         social_networks_title: Vieraile ryhmän sivulla palvelussa
-    assembly_members:
-      index:
-        title: Jäsenet
     download_your_data:
       show:
         assemblies: Ryhmien vienti
