@@ -566,9 +566,6 @@ sv:
         title: Deltagandeprocesser
       last_activity:
         new_participatory_process: 'Ny process:'
-      members:
-        index:
-          title: Medlemmar
       pages:
         home:
           highlighted_processes:
