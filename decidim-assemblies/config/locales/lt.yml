@@ -248,9 +248,6 @@ lt:
           type: Tipas
         show:
           title: Apie šią asamblėją
-      assembly_members:
-        index:
-          members: Nariai
       content_blocks:
         children_assemblies:
           name: Asamblėjos
@@ -292,9 +289,6 @@ lt:
         duration: Trukmė
         private_space: Tai yra uždara asamblėja
         social_networks_title: Aplankyti asamblėją
-    assembly_members:
-      index:
-        title: Nariai
     events:
       assemblies:
         create_assembly_member:
