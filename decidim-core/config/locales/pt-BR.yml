@@ -1526,6 +1526,9 @@ pt-BR:
           %{organization_name}
         hello: Prezado %{username},
         subject: Conta inativa excluída
+    participatory_space_members:
+      index:
+        members: Membros
     passwords:
       update:
         error: Houve um problema ao atualizar a senha.
