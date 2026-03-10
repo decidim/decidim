@@ -321,6 +321,7 @@ ca-IT:
     admin_log:
       conference:
         create: "%{user_name} ha creat la jornada %{resource_name}"
+        duplicate: "%{user_name} ha duplicat la jornada \"%{resource_name}\""
         publish: "%{user_name} ha publicat la jornada %{resource_name}"
         restore: "%{user_name} ha restaurat la jornada %{resource_name}"
         send_conference_diplomas: "%{user_name} ha enviat certificats d'assistència a les assistents de la jornada %{resource_name}"
