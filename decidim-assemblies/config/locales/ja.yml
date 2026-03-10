@@ -276,7 +276,6 @@ ja:
             max_results: 表示する要素の最大量
         imports:
           attachment_error: 添付ファイル "%{title}" をインポートできませんでした（%{error}）。
-          banner_image_error: バナー画像をインポートできませんでした(%{error})。
           hero_image_error: ヒーロー画像をインポートできませんでした（%{error}）。
         new_import:
           accepted_types:
@@ -305,9 +304,6 @@ ja:
           type: 種別
         show:
           title: この参加スペースについて
-      assembly_members:
-        index:
-          members: メンバー
       content_blocks:
         children_assemblies:
           name: 参加スペース
@@ -349,9 +345,6 @@ ja:
         duration: 持続期間
         private_space: これは私的参加スペースです
         social_networks_title: 参加スペースを訪問
-    assembly_members:
-      index:
-        title: メンバー
     download_your_data:
       show:
         assemblies: 参加スペースのエクスポート
