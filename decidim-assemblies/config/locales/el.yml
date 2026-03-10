@@ -225,9 +225,6 @@ el:
             all: Όλα
         show:
           title: Σχετικά με τη συνέλευση
-      assembly_members:
-        index:
-          members: Μέλη
       content_blocks:
         highlighted_assemblies:
           name: Επισημασμένες συνελεύσεις
@@ -257,9 +254,6 @@ el:
         duration: Διάρκεια
         private_space: Αυτή είναι μια ιδιωτική συνέλευση
         social_networks_title: Επίσκεψη στη συνέλευση στις
-    assembly_members:
-      index:
-        title: Μέλη
     events:
       assemblies:
         create_assembly_member:
