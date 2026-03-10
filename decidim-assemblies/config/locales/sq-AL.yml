@@ -149,7 +149,6 @@ sq:
           info: Rreth asamblesë
           landing_page: Faqja hyrëse
           moderations: Moderimet
-          private_users: Anëtarët
           see_assembly: Shiko asamblenë
       models:
         assembly:
@@ -262,9 +261,6 @@ sq:
           type: Tipi
         show:
           title: Rreth asamblesë
-      assembly_members:
-        index:
-          members: Anëtarët
       content_blocks:
         children_assemblies:
           name: Asambletë
@@ -306,9 +302,6 @@ sq:
         duration: Kohëzgjatja
         private_space: Kjo është asamble private
         social_networks_title: Vizito asamblenë në
-    assembly_members:
-      index:
-        title: Anëtarët
     metrics:
       assemblies:
         title: Asambletë
