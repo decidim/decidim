@@ -213,9 +213,6 @@ nl:
             all: Alle
         show:
           title: Over deze groep
-      assembly_members:
-        index:
-          members: Leden
       content_blocks:
         highlighted_assemblies:
           name: Gemarkeerde groepen
@@ -243,9 +240,6 @@ nl:
         duration: Duur
         private_space: Dit is een privé event
         social_networks_title: Bezoek groep op
-    assembly_members:
-      index:
-        title: Leden
     events:
       assemblies:
         create_assembly_member:
