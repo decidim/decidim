@@ -88,9 +88,6 @@ ga:
         filters:
           names:
             all: Uile
-      assembly_members:
-        index:
-          members: Baill
       created_by:
         others: Eile
         public: Poblach
@@ -99,9 +96,6 @@ ga:
         others: Eile
       show:
         duration: Fad
-    assembly_members:
-      index:
-        title: Baill
   layouts:
     decidim:
       assembly_navigation:
