@@ -560,9 +560,6 @@ pt-BR:
         title: Processos participativos
       last_activity:
         new_participatory_process: 'Novo processo participativo:'
-      members:
-        index:
-          title: Membros
       pages:
         home:
           highlighted_processes:
