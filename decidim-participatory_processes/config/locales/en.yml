@@ -567,9 +567,6 @@ en:
         title: Participatory processes
       last_activity:
         new_participatory_process: 'New participatory process:'
-      members:
-        index:
-          title: Members
       pages:
         home:
           highlighted_processes:

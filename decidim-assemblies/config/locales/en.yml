@@ -282,7 +282,6 @@ en:
             max_results: Maximum amount of elements to show
         imports:
           attachment_error: The attachment "%{title}" could not be imported (%{error}).
-          banner_image_error: The banner image could not be imported (%{error}).
           hero_image_error: The hero image could not be imported (%{error}).
         new_import:
           accepted_types:
@@ -311,9 +310,6 @@ en:
           type: Type
         show:
           title: About this assembly
-      assembly_members:
-        index:
-          members: Members
       content_blocks:
         children_assemblies:
           name: Assemblies
@@ -355,9 +351,6 @@ en:
         duration: Duration
         private_space: This is a private assembly
         social_networks_title: Visit assembly on
-    assembly_members:
-      index:
-        title: Members
     download_your_data:
       show:
         assemblies: Assemblies export
