@@ -279,9 +279,6 @@ pt:
           type: Tipo
         show:
           title: Sobre esta reunião
-      assembly_members:
-        index:
-          members: Membros
       content_blocks:
         children_assemblies:
           name: Reuniões
@@ -323,9 +320,6 @@ pt:
         duration: Duração
         private_space: Esta é uma reunião privada
         social_networks_title: Visite a reunião em
-    assembly_members:
-      index:
-        title: Membros
     download_your_data:
       show:
         assemblies: Exportar reuniões
