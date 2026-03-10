@@ -574,9 +574,6 @@ cs:
         title: Participativní procesy
       last_activity:
         new_participatory_process: 'Nový participační proces:'
-      members:
-        index:
-          title: Členové
       pages:
         home:
           highlighted_processes:
