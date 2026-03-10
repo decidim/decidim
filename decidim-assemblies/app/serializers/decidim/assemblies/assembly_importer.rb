@@ -59,6 +59,7 @@ module Decidim
             created_by: attributes["created_by"],
             meta_scope: attributes["meta_scope"]
           )
+          import_hero_image(attributes["remote_hero_image_url"])
           @imported_assembly.save!
           @imported_assembly
         end

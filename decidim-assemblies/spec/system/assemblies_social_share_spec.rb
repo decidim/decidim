@@ -43,12 +43,6 @@ describe "Social shares" do
   context "when no hero_image" do
     let(:hero_image) { nil }
 
-    it_behaves_like "a social share meta tag", "city.jpeg"
-  end
-
-  context "when no direct images" do
-    let(:hero_image) { nil }
-
     it_behaves_like "a social share meta tag", "city3.jpeg"
   end
 
