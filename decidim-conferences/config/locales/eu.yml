@@ -321,6 +321,7 @@ eu:
     admin_log:
       conference:
         create: "%{user_name} parte-hartzaileak sortu du %{resource_name} jardunaldia"
+        duplicate: "%{user_name} parte-hartzaileak %{resource_name} jardunaldia bikoiztu du"
         publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} jardunaldia"
         restore: "%{user_name} parte-hartzaileak %{resource_name} jardunaldia a berreskuratu du"
         send_conference_diplomas: "%{user_name} parte-hartzaileak bertaratze-ziurtagiriak bidali dizkie %{resource_name} jardunaldira bertaratuei"
