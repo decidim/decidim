@@ -120,7 +120,7 @@
   }
 
   // Make sure the anchor with image is positioned for proper icon placement
-  .rich-text-display a:has(.editor-content-image) {
+  a:has(.editor-content-image) {
     @apply block relative;
   }
 }
