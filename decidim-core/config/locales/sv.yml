@@ -1529,6 +1529,9 @@ sv:
           %{organization_name}
         hello: Hej %{username},
         subject: Inaktivt konto raderat
+    participatory_space_members:
+      index:
+        members: Medlemmar
     passwords:
       update:
         error: Det gick inte att uppdatera lösenordet.
