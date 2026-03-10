@@ -619,6 +619,9 @@ sk:
         subheading: Prechádzajte stránky pomocníka%{name}
         title: Pomoc
         topics: Témy
+    participatory_space_members:
+      index:
+        members: Členovia
     profile:
       deleted: Vymazaný účastník
     profiles:
