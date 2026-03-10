@@ -210,9 +210,6 @@ gl:
             all: Todo
         show:
           title: Sobre esta xuntanza
-      assembly_members:
-        index:
-          members: Membros
       content_blocks:
         highlighted_assemblies:
           name: Asembleas destacadas
@@ -239,9 +236,6 @@ gl:
       show:
         duration: Duración
         private_space: Esta é unha asemblea privada
-    assembly_members:
-      index:
-        title: Membros
     events:
       assemblies:
         create_assembly_member:
