@@ -37,6 +37,7 @@ module Decidim
       let(:view) { controller.view_context }
 
       before do
+        allow(component).to receive(:current_settings).and_return(current_settings)
         allow(controller).to receive(:component_settings).and_return(component_settings)
         allow(controller).to receive(:current_settings).and_return(current_settings)
         allow(controller).to receive(:current_participatory_space).and_return(participatory_process)
