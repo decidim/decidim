@@ -558,9 +558,6 @@ de:
         title: Beteiligungsprozesse
       last_activity:
         new_participatory_process: 'Neuer Beteiligungsprozess:'
-      members:
-        index:
-          title: Mitglieder
       pages:
         home:
           highlighted_processes:
