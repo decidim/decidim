@@ -127,7 +127,6 @@ uk:
           attachments: Вкладені файли
           components: Складові
           moderations: Дії з модерації
-          private_users: Члени президії
       models:
         assembly:
           fields:
@@ -182,9 +181,6 @@ uk:
         filters:
           names:
             all: Усі
-      assembly_members:
-        index:
-          members: Члени президії
       content_blocks:
         highlighted_assemblies:
           name: Висвітлені збори
@@ -201,9 +197,6 @@ uk:
       show:
         duration: Тривалість
         private_space: Це приватні збори
-    assembly_members:
-      index:
-        title: Члени президії
     log:
       value_types:
         assembly_presenter:
