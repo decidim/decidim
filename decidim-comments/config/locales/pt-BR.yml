@@ -67,9 +67,6 @@ pt-BR:
         alignment:
           against: Contra
           in_favor: A favor
-        answers:
-          one: "%{count} resposta"
-          other: "%{count} respostas"
         cancel_reply: Cancelar resposta
         comment_label: Comentário %{comment_id}
         comment_label_reply: Comentário %{comment_id} (responder ao comentário %{parent_comment_id})
