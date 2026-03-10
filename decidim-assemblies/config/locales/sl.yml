@@ -124,9 +124,6 @@ sl:
         filters:
           names:
             all: Vsi
-      assembly_members:
-        index:
-          members: Člani
       content_blocks:
         highlighted_assemblies:
           name: Poudarjene združbe
