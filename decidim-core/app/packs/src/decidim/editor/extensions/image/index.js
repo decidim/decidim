@@ -152,7 +152,7 @@ export default Image.extend({
   },
 
   renderHTML({ HTMLAttributes }) {
-    const { href, ...imgAttributes } = HTMLAttributes;
+    const { href, target, ...imgAttributes } = HTMLAttributes;
     const imageContent = [
       "div",
       { "class": "editor-content-image", "data-image": "" },
@@ -164,7 +164,7 @@ export default Image.extend({
 
     if (href) {
       const anchorAttributes = { href };
-      const anchorTarget = HTMLAttributes.target;
+      const anchorTarget = target;
       if (anchorTarget) {
         anchorAttributes.target = anchorTarget;
         anchorAttributes.rel = "noopener noreferrer";
