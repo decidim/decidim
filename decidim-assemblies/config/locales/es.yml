@@ -281,7 +281,6 @@ es:
             max_results: Cantidad máxima de elementos para mostrar
         imports:
           attachment_error: No se ha podido importar el archivo adjunto "%{title}" (%{error}).
-          banner_image_error: No se ha podido importar la imagen del banner (%{error}).
           hero_image_error: No se ha podrido importar la imagen principal (%{error}).
         new_import:
           accepted_types:
@@ -310,9 +309,6 @@ es:
           type: Tipo
         show:
           title: Acerca de esta asamblea
-      assembly_members:
-        index:
-          members: Miembros
       content_blocks:
         children_assemblies:
           name: Asambleas
@@ -354,9 +350,6 @@ es:
         duration: Duración
         private_space: Esta es una asamblea privada
         social_networks_title: Visita la asamblea en
-    assembly_members:
-      index:
-        title: Miembros
     download_your_data:
       show:
         assemblies: Exportar las asambleas
