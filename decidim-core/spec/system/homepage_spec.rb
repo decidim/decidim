@@ -319,6 +319,10 @@ describe "Homepage" do
           )
         end
 
+        before do
+          visit current_path
+        end
+
         it "shows the statistics block" do
           within "#statistics" do
             expect(page).to have_content("Statistics")
@@ -333,7 +337,7 @@ describe "Homepage" do
           end
 
           within ".processes_count" do
-            expect(page).to have_content("2")
+            expect(page).to have_content("3")
           end
         end
       end
