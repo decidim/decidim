@@ -1551,6 +1551,9 @@ cs:
           %{organization_name}
         hello: Dobrý den %{username},
         subject: Neaktivní účet byl smazán
+    participatory_space_members:
+      index:
+        members: Členové
     passwords:
       update:
         error: Došlo k problému s aktualizací hesla.
