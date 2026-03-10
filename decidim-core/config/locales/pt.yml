@@ -703,6 +703,9 @@ pt:
         subheading: Navegar pelas páginas de ajuda de %{name}
         title: Ajuda
         topics: Tópicos
+    participatory_space_members:
+      index:
+        members: Membros
     profile:
       deleted: Participante eliminado
     profiles:
