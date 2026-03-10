@@ -173,9 +173,6 @@ id:
         filters:
           names:
             all: Semua
-      assembly_members:
-        index:
-          members: Anggota
       content_blocks:
         highlighted_assemblies:
           name: Majelis yang disorot
@@ -201,9 +198,6 @@ id:
       show:
         duration: Lamanya
         private_space: Ini adalah pertemuan pribadi
-    assembly_members:
-      index:
-        title: Anggota
     help:
       participatory_spaces:
         assemblies:
