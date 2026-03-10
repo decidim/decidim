@@ -1,7 +1,11 @@
 <% question = form.object %>
 
 <div class="card questionnaire-question" id="<%= id %>-field">
-  <div class="card-divider<% if editable %> hover:cursor-ns-resize<% end %>">
+  <% if editable %>
+    <div class="card-divider hover:cursor-ns-resize">
+  <% else %>
+    <div class="card-divider">
+  <% end %>
     <h2 class="card-title flex items-center">
     <span>
       <% if editable %>
