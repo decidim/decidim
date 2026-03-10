@@ -840,6 +840,9 @@ it:
         subheading: Naviga attraverso le pagine di aiuto di %{name}
         title: Aiuto
         topics: Temi
+    participatory_space_members:
+      index:
+        members: Utenti
     profile:
       deleted: Utente eliminato
     profiles:
