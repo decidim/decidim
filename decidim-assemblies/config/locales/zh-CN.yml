@@ -193,9 +193,6 @@ zh-CN:
         filters:
           names:
             all: 所有的
-      assembly_members:
-        index:
-          members: 成员
       content_blocks:
         highlighted_assemblies:
           name: 突出显示的会议
@@ -222,9 +219,6 @@ zh-CN:
       show:
         duration: 期限
         private_space: 这是一个私人装饰
-    assembly_members:
-      index:
-        title: 成员
     events:
       assemblies:
         create_assembly_member:
