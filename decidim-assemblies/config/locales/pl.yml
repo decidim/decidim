@@ -268,9 +268,6 @@ pl:
           type: Typ
         show:
           title: O tym zgromadzeniu
-      assembly_members:
-        index:
-          members: Członkowie
       content_blocks:
         children_assemblies:
           name: Zgromadzenia
@@ -312,9 +309,6 @@ pl:
         duration: Czas trwania
         private_space: To jest prywatny zespół
         social_networks_title: Odwiedź zespół na
-    assembly_members:
-      index:
-        title: Członkowie
     events:
       assemblies:
         create_assembly_member:
