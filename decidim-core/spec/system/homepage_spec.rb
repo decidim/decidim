@@ -102,6 +102,11 @@ describe "Homepage" do
         let(:snippet) { "<meta data-hello=\"This is the organization header_snippet field\">" }
         let(:organization) { create(:organization, official_url:, header_snippets: snippet) }
 
+        before do
+          allow(Decidim).to receive(:enable_html_header_snippets).and_return(false)
+          visit decidim.root_path
+        end
+
         it "does not include the header snippets" do
           expect(page).to have_no_selector("meta[data-hello]", visible: :all)
         end
