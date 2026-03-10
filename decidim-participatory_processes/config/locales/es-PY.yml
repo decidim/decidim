@@ -566,9 +566,6 @@ es-PY:
         title: Procesos participativos
       last_activity:
         new_participatory_process: 'Nuevo proceso participativo:'
-      members:
-        index:
-          title: Miembros
       pages:
         home:
           highlighted_processes:
