@@ -1097,6 +1097,9 @@ pl:
           alert: Zaktualizowaliśmy nasze warunki świadczenia usługi, prosimy o zapoznanie się z nimi.
           body: Poświęć chwilę na zapoznanie się z naszymi zaktualizowanymi warunkami świadczenia usługi. Inaczej korzystanie z platformy nie będzie możliwe.
           title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
+    participatory_space_members:
+      index:
+        members: Członkowie
     passwords:
       update:
         error: Wystąpił problem podczas aktualizacji hasła.
