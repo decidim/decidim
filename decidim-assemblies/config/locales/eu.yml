@@ -281,7 +281,6 @@ eu:
             max_results: Erakusteko elementu gehienen kopurua
         imports:
           attachment_error: Ezin izan da "%{title}" eranskina inportatu (%{error}).
-          banner_image_error: Ezin izan da bannerraren irudia inportatu (%{error}).
           hero_image_error: Ezin izan da heroiaren irudia inportatu (%{error}).
         new_import:
           accepted_types:
@@ -310,9 +309,6 @@ eu:
           type: Mota
         show:
           title: Batzar honi buruz
-      assembly_members:
-        index:
-          members: Kideak
       content_blocks:
         children_assemblies:
           name: Batzarrak
@@ -354,9 +350,6 @@ eu:
         duration: Iraupena
         private_space: Hau batzar pribatua da
         social_networks_title: 'Bisitatu batzarra:'
-    assembly_members:
-      index:
-        title: Kideak
     download_your_data:
       show:
         assemblies: Esportatu batzarrak
