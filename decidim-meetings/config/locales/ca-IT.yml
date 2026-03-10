@@ -486,7 +486,7 @@ ca-IT:
         meetings:
           index:
             meetings: Trobades
-            space_type: Espai participatiu
+            space_type: Espai de participació
       iframe_access_level:
         all: Totes les visites
         registered: Participants inscrites a aquesta trobada
