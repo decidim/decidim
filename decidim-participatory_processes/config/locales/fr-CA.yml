@@ -502,9 +502,6 @@ fr-CA:
         title: Concertations
       last_activity:
         new_participatory_process: 'Nouveau processus participatif:'
-      members:
-        index:
-          title: Membres
       pages:
         home:
           highlighted_processes:
