@@ -247,9 +247,6 @@ ro:
             all: Toate
         show:
           title: Despre această adunare
-      assembly_members:
-        index:
-          members: Membri
       content_blocks:
         highlighted_assemblies:
           name: Grupuri de lucru evidențiate
@@ -283,9 +280,6 @@ ro:
         duration: Durată
         private_space: Acesta este un grup de lucru privat
         social_networks_title: Vizitează adunarea pe
-    assembly_members:
-      index:
-        title: Membri
     events:
       assemblies:
         create_assembly_member:
