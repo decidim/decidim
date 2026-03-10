@@ -566,9 +566,6 @@ fi:
         title: Osallistumisprosessit
       last_activity:
         new_participatory_process: 'Uusi osallistumisprosessi:'
-      members:
-        index:
-          title: Jäsenet
       pages:
         home:
           highlighted_processes:
