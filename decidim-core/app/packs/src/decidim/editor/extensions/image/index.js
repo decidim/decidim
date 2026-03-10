@@ -163,15 +163,11 @@ export default Image.extend({
     ];
 
     if (href) {
-      const anchorAttributes = {
-        href,
-        rel: "noopener noreferrer"
-      };
+      const anchorAttributes = { href };
       const anchorTarget = HTMLAttributes.target;
       if (anchorTarget) {
         anchorAttributes.target = anchorTarget;
-      } else {
-        Reflect.deleteProperty(anchorAttributes, "rel");
+        anchorAttributes.rel = "noopener noreferrer";
       }
       return [
         "a",
