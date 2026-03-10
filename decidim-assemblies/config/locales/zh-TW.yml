@@ -222,9 +222,6 @@ zh-TW:
             all: 全部
         show:
           title: 關於這個大會
-      assembly_members:
-        index:
-          members: 成員
       content_blocks:
         highlighted_assemblies:
           name: 關注的大會
@@ -254,9 +251,6 @@ zh-TW:
         duration: 持續時間
         private_space: 這是一個私人大會
         social_networks_title: 訪問大會
-    assembly_members:
-      index:
-        title: 成員
     events:
       assemblies:
         create_assembly_member:
