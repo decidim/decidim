@@ -1507,6 +1507,9 @@ ja:
           %{organization_name}
         hello: こんにちは %{username} さん、
         subject: 非アクティブなアカウントが削除されました
+    participatory_space_members:
+      index:
+        members: メンバー
     passwords:
       update:
         error: パスワードの更新中に問題が発生しました。
