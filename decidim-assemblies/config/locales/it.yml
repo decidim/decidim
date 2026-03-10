@@ -282,9 +282,6 @@ it:
           type: Tipo
         show:
           title: Su questa assemblea
-      assembly_members:
-        index:
-          members: Utenti
       content_blocks:
         children_assemblies:
           name: Assemblee
@@ -326,9 +323,6 @@ it:
         duration: Durata
         private_space: Questa è un'assemblea privata
         social_networks_title: Vai alla pagina
-    assembly_members:
-      index:
-        title: Utenti
     download_your_data:
       show:
         assemblies: Esportazione assemblee
