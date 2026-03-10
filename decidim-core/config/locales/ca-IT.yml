@@ -1418,7 +1418,7 @@ ca-IT:
         download:
           components: Components
           core: Nucli
-          spaces: Espai participatiu
+          spaces: Espais de participació
           title: Descarregar recursos
         download_open_data: Descarrega tots els fitxers de dades obertes
         download_resource: Descarregar "%{resource_name}" en format CSV
@@ -1526,6 +1526,9 @@ ca-IT:
           %{organization_name}
         hello: Benvolgut/da %{username},
         subject: Avís de compte inactiu
+    participatory_space_members:
+      index:
+        members: Membres
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
