@@ -1528,6 +1528,9 @@ fi:
           %{organization_name}
         hello: Hei %{username},
         subject: Käyttämättä ollut tili on poistettu
+    participatory_space_members:
+      index:
+        members: Jäsenet
     passwords:
       update:
         error: Salasanan päivitys epäonnistui.
