@@ -302,9 +302,6 @@ de:
           type: Typ
         show:
           title: Über dieses Gremium
-      assembly_members:
-        index:
-          members: Mitglieder
       content_blocks:
         children_assemblies:
           name: Gremien
@@ -346,9 +343,6 @@ de:
         duration: Aktiv bis
         private_space: Dies ist eine private Versammlung
         social_networks_title: Gremium besuchen unter
-    assembly_members:
-      index:
-        title: Mitglieder
     download_your_data:
       show:
         assemblies: Export der Gremien
