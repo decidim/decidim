@@ -207,9 +207,6 @@
         filters:
           names:
             all: Alle
-      assembly_members:
-        index:
-          members: Medlemmer
       content_blocks:
         highlighted_assemblies:
           name: Fremhevede forsamlinger
@@ -236,9 +233,6 @@
       show:
         duration: Varighet
         private_space: Dette er en privat forsamling
-    assembly_members:
-      index:
-        title: Medlemmer
     events:
       assemblies:
         create_assembly_member:
