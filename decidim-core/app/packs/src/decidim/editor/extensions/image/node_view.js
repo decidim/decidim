@@ -64,6 +64,7 @@ export default (self) => {
         currentHeight = null,
         currentHref = node.attrs.href,
         currentSrc = node.attrs.src,
+        currentTarget = node.attrs.target,
         currentWidth = null,
         naturalHeight = img.naturalHeight,
         naturalWidth = img.naturalWidth,
@@ -186,11 +187,11 @@ export default (self) => {
           return false;
         }
 
-        const { alt, src, title, width, href } = updatedNode.attrs;
+        const { alt, src, title, width, href, target } = updatedNode.attrs;
 
-        // If the href changed, we need to recreate the node because the structure
-        // changes (wrapped in <a> vs not wrapped)
-        if (href !== currentHref) {
+        // If the href or target changed, we need to recreate the node because the
+        // structure changes (wrapped in <a> vs not wrapped)
+        if (href !== currentHref || target !== currentTarget) {
           return false;
         }
 
