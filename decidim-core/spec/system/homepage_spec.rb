@@ -21,8 +21,8 @@ describe "Homepage" do
     end
     let!(:participatory_process) { create(:participatory_process, :promoted, organization:) }
     let!(:assembly) { create(:assembly, :promoted, organization:) }
-    let!(:component) { create(:component, manifest_name: :meetings, organization:) }
-    let!(:meeting) { create(:meeting, :published, component:) }
+    let!(:meeting_component) { create(:component, manifest_name: :meetings, organization:) }
+    let!(:meeting) { create(:meeting, :published, component: meeting_component) }
 
     before do
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero)
