@@ -366,9 +366,9 @@ ca:
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
           follower:
             email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
             email_subject: Una proposta que segueixes ha canviat el seu estat (%{state})
-            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
+            notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha canviat el seu estat a "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Una administradora ha actualitzat les taxonomies de la teva proposta "%{resource_title}", fes-hi una ullada:'
           email_outro: Has rebut aquesta notificació perquè ets l'autora de la proposta.
