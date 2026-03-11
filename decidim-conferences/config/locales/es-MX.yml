@@ -311,6 +311,7 @@ es-MX:
     admin_log:
       conference:
         create: "%{user_name} creó la conferencia %{resource_name}"
+        duplicate: "%{user_name} ha duplicado la jornada \"%{resource_name}\""
         publish: "%{user_name} ha publicado la conferencia %{resource_name}"
         restore: "%{user_name} restauró la jornada %{resource_name}"
         send_conference_diplomas: "%{user_name} certificados de asistencia enviados a los asistentes a %{resource_name} conferencia"
