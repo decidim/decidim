@@ -13,7 +13,7 @@
   <% end %>
 </div>
 
-<% if local_assigns.has_key?(:reference) %>
+<% if local_assigns(:reference).present? %>
   <section class="layout-container__reference">
     <p><%= reference %></p>
   </section>
