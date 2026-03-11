@@ -128,9 +128,9 @@ shared_examples "add component resources to search index" do
   it "adds records to index" do
     expect(Decidim::SearchableResource.where(resource:).count).to be_zero
 
-      within "tr", text: title do
-        click_on "Publish"
-      end
+    within "tr", text: title do
+      click_on "Publish"
+    end
 
     perform_enqueued_jobs
 
@@ -161,7 +161,7 @@ shared_examples "removes component resources from search index" do
     expect(Decidim::SearchableResource.where(resource:).count).to be_positive
 
     within "tr", text: translated(current_component.name) do
-        click_on "Hide"
+      click_on "Hide"
     end
 
     expect(component.reload).to be_published
