@@ -3,9 +3,13 @@
 require "spec_helper"
 
 shared_examples_for "manage questionnaire draggable behavior" do
-  let!(:question) { create(:questionnaire_question, :title_and_description, questionnaire:) }
+  let!(:question) { create(:questionnaire_question, body:, questionnaire:) }
 
   context "when questionnaire has no responses (editable)" do
+    before do
+      visit current_path
+    end
+
     it "shows draggable data attributes for questions list" do
       expect(page).to have_css("[data-draggable-table]")
       expect(page).to have_css("[data-draggable-handle]")
@@ -22,6 +26,10 @@ shared_examples_for "manage questionnaire draggable behavior" do
 
   context "when questionnaire has responses (not editable)" do
     let!(:response) { create(:response, questionnaire:) }
+
+    before do
+      visit current_path
+    end
 
     it "does not show draggable data attributes for questions list" do
       expect(page).to have_no_css("[data-draggable-table]")
