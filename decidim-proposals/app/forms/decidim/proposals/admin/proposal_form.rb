@@ -64,8 +64,9 @@ module Decidim
 
         def extract_ids_from_add_documents
           add_documents
-            .select { |doc| doc.is_a?(Hash) && (doc[:id].present? || doc["id"].present?) }
-            .map { |doc| (doc[:id] || doc["id"]).to_i }
+            .with_indifferent_access
+            .select { |doc| doc.is_a?(Hash) && doc[:id].present? }
+            .map { |doc| doc[:id].to_i }
         end
 
         def parse_string_documents(value)
@@ -76,12 +77,12 @@ module Decidim
 
         def parse_document_ids(value)
           ids = begin
-            Array(JSON.parse(value)).map(&:to_i)
+            Array(JSON.parse(value))
           rescue JSON::ParserError
-            value.split(",").map { |v| v.strip.to_i }
+            value.split(",").map(&:strip)
           end
 
-          ids.reject(&:zero?)
+          ids.map(&:to_i).reject(&:zero?)
         end
       end
     end
