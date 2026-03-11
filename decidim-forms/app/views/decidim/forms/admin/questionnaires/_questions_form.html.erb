@@ -41,12 +41,12 @@
   <% end %>
 
   <% list_attributes = {
-    class: "questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0",
-    id: "questionnaire-questions-list"
-  }
-  list_attributes[:"data-draggable-table"] = true if questionnaire.questions_editable?
-  list_attributes[:"data-sort-url"] = "#" if questionnaire.questions_editable?
-  list_attributes[:"data-draggable-handle"] = ".card-divider" if questionnaire.questions_editable? %>
+       class: "questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0",
+       id: "questionnaire-questions-list"
+     }
+     list_attributes[:"data-draggable-table"] = true if questionnaire.questions_editable?
+     list_attributes[:"data-sort-url"] = "#" if questionnaire.questions_editable?
+     list_attributes[:"data-draggable-handle"] = ".card-divider" if questionnaire.questions_editable? %>
 
   <%= content_tag :div, list_attributes do %>
     <% @form.questions.each_with_index do |question, index| %>
