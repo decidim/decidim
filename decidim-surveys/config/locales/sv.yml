@@ -49,6 +49,7 @@ sv:
       answers_count: Svar
     surveys:
       actions:
+        answers: Svar
         answers_alert: Ta bort svar vid publicering är aktivt för enkäten. Det finns %{answers_count} svar som kommer att tas bort om du fortsätter.
         confirm_destroy: Är du säker på att du vill radera?
         destroy: Ta bort
