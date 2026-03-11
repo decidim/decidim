@@ -42,6 +42,8 @@ gl:
     statistics:
       answers_count: Respostas
     surveys:
+      actions:
+        answers: Respostas
       admin:
         exports:
           survey_user_answers: Enquisas respostas dos usuarios
