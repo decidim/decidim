@@ -141,7 +141,7 @@ jobs:
         with:
           name: ${{ inputs.working-directory }}
           flags: ${{ inputs.working-directory }}
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: Screenshots of run ${{ github.run_id }}

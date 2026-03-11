@@ -6,6 +6,11 @@ fr:
       token_csv:
         file: Fichier
         remove_all: Supprimer toutes les données de recensement actuelles
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Élection
+        other: Élections
   decidim:
     admin:
       menu:
@@ -54,24 +59,34 @@ fr:
             success: Recensement mis à jour avec succès.
         dashboard:
           calendar:
+            end_at: 'Heure de fin:'
             published_results_at: Résultats publiés à
+            start_at: 'Heure de début:'
+            title: Calendrier
           census:
             title: Recensement
           main:
             labels:
+              calendar: Calendrier
               description: Description
+              image: Galerie d'images
+              results: Disponibilité des résultats
+              title: Titre
+          publish_confirm: Êtes-vous sûr(e) de vouloir publier cette élection ?
           questions:
             labels:
               answers: Réponses
             title: Questions
           questions_table:
             answer: Réponses
+            percentage: Pourcentage
             total: Total
             votes: Votes
             votes_count:
               one: 1 vote
               other: "%{count} votes"
           results:
+            not_started: L'élection n'a pas encore commencé.
             publish_button: Publier les résultats
             title: Résultats
           status:
@@ -88,6 +103,7 @@ fr:
             success: Élection créée avec succès.
           dashboard:
             subtitle: 'Étape finale: éxaminez vos détails. Des modifications peuvent toujours être apportées avant de publier. Une fois publiée, vous serez toujours en mesure de mettre à jour la description de l''élection.'
+            title: Tableau de bord
           edit:
             title: Modifier l'élection
           form:
@@ -138,6 +154,7 @@ fr:
         statuses:
           publish_results:
             invalid: Un problème est survenu lors de la publication des résultats.
+          unknown: État Inconnu
       admin_log:
         election:
           create: "%{user_name} a créé l'élection %{resource_name} dans %{space_name}"

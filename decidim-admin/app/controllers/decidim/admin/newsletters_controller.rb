@@ -7,6 +7,7 @@ module Decidim
       include Decidim::NewslettersHelper
       include Decidim::Admin::NewslettersHelper
       include Paginable
+
       helper_method :newsletter, :recipients_count_query, :content_block, :selected_options, :newsletter_params
 
       def index
@@ -31,7 +32,7 @@ module Decidim
         NewsletterMailer.newsletter(current_user, newsletter).deliver_later
         flash[:notice] = I18n.t("newsletters.send_to_user.sent_successfully", scope: "decidim.admin", email: current_user.email)
 
-        redirect_back fallback_location: newsletters_path
+        redirect_back_or_to(newsletters_path)
       end
 
       def preview
@@ -56,7 +57,7 @@ module Decidim
           on(:invalid) do |newsletter|
             @newsletter = newsletter
             flash.now[:error] = I18n.t("newsletters.create.error", scope: "decidim.admin")
-            render action: :new, status: :unprocessable_entity
+            render action: :new, status: :unprocessable_content
           end
         end
       end
@@ -80,7 +81,7 @@ module Decidim
           on(:invalid) do |newsletter|
             @newsletter = newsletter
             flash.now[:error] = I18n.t("newsletters.update.error", scope: "decidim.admin")
-            render action: :edit, status: :unprocessable_entity
+            render action: :edit, status: :unprocessable_content
           end
         end
       end
@@ -128,12 +129,12 @@ module Decidim
 
           on(:invalid) do
             flash.now[:error] = I18n.t("newsletters.deliver.error", scope: "decidim.admin")
-            render action: :select_recipients_to_deliver, status: :unprocessable_entity
+            render action: :select_recipients_to_deliver, status: :unprocessable_content
           end
 
           on(:no_recipients) do
             flash.now[:error] = I18n.t("newsletters.send.no_recipients", scope: "decidim.admin")
-            render action: :select_recipients_to_deliver, status: :unprocessable_entity
+            render action: :select_recipients_to_deliver, status: :unprocessable_content
           end
         end
       end

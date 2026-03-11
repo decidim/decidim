@@ -19,12 +19,32 @@ describe "Homepage" do
     let(:organization) do
       create(:organization, official_url:)
     end
+    let!(:participatory_process) { create(:participatory_process, :promoted, organization:) }
+    let!(:assembly) { create(:assembly, :promoted, organization:) }
+    let!(:meeting_component) { create(:component, manifest_name: :meetings, organization:) }
+    let!(:meeting) { create(:meeting, :published, component: meeting_component) }
+
+    let(:highlighted_content_banner_settings) do
+      {
+        "title_en" => "Hello world",
+        "short_description_en" => "Bye world",
+        "action_button_title_en" => "Go!",
+        "action_button_subtitle_en" => "Now",
+        "action_button_url" => "https://example.org"
+      }
+    end
 
     before do
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :sub_hero)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :how_to_participate)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :stats)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :footer_sub_hero)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_content_banner, settings: highlighted_content_banner_settings)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_processes)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_assemblies)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :upcoming_meetings)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :html, settings: { html_content: { en: "<div class=\"custom-html\">Custom HTML Content</div>" } })
 
       switch_to_host(organization.host)
     end
@@ -92,6 +112,11 @@ describe "Homepage" do
       context "with header snippets" do
         let(:snippet) { "<meta data-hello=\"This is the organization header_snippet field\">" }
         let(:organization) { create(:organization, official_url:, header_snippets: snippet) }
+
+        before do
+          allow(Decidim).to receive(:enable_html_header_snippets).and_return(false)
+          visit decidim.root_path
+        end
 
         it "does not include the header snippets" do
           expect(page).to have_no_selector("meta[data-hello]", visible: :all)
@@ -305,38 +330,25 @@ describe "Homepage" do
           )
         end
 
-        context "when organization does not have the stats content block" do
-          let(:organization) { create(:organization) }
+        before do
+          visit current_path
+        end
 
-          it "does not show the statistics block" do
-            expect(page).to have_no_content("Current state of #{translated(organization.name)}")
+        it "shows the statistics block" do
+          within "#statistics" do
+            expect(page).to have_content("Statistics")
+            expect(page).to have_content("Processes")
+            expect(page).to have_content("Participants")
           end
         end
 
-        context "when organization has the stats content block" do
-          let(:organization) { create(:organization) }
-
-          before do
-            create(:content_block, organization:, scope_name: :homepage, manifest_name: :stats)
-            visit current_path
+        it "has the correct values for the statistics" do
+          within ".users_count" do
+            expect(page).to have_content("4")
           end
 
-          it "shows the statistics block" do
-            within "#statistics" do
-              expect(page).to have_content("Statistics")
-              expect(page).to have_content("Processes")
-              expect(page).to have_content("Participants")
-            end
-          end
-
-          it "has the correct values for the statistics" do
-            within ".users_count" do
-              expect(page).to have_content("4")
-            end
-
-            within ".processes_count" do
-              expect(page).to have_content("2")
-            end
+          within ".processes_count" do
+            expect(page).to have_content("3")
           end
         end
       end
@@ -393,6 +405,67 @@ describe "Homepage" do
               expect(page).to have_text(strip_tags(translated(organization.description)))
             end
           end
+        end
+      end
+
+      describe "content blocks" do
+        it "renders all content blocks on the homepage" do
+          expect(page).to have_css("section.hero__container")
+          expect(page).to have_css("#sub_hero")
+          expect(page).to have_css("#how_to_participate")
+          expect(page).to have_css("#statistics")
+          expect(page).to have_css("#footer_sub_hero")
+          expect(page).to have_css("#highlighted_content_banner")
+          expect(page).to have_css("#highlighted-processes")
+          expect(page).to have_css("#highlighted-assemblies")
+          expect(page).to have_css("[id^=meetings]")
+          expect(page).to have_css(".custom-html")
+        end
+
+        it "renders content blocks in the correct order by weight" do
+          hero_section = page.find("section.hero__container")
+          sub_hero_section = page.find_by_id("sub_hero")
+          how_to_participate_section = page.find_by_id("how_to_participate")
+          stats_section = page.find_by_id("statistics")
+          footer_sub_hero_section = page.find_by_id("footer_sub_hero")
+          highlighted_content_banner = page.find_by_id("highlighted_content_banner")
+
+          hero_position = hero_section.evaluate_script("this.getBoundingClientRect().top")
+          sub_hero_position = sub_hero_section.evaluate_script("this.getBoundingClientRect().top")
+          how_to_participate_position = how_to_participate_section.evaluate_script("this.getBoundingClientRect().top")
+          stats_position = stats_section.evaluate_script("this.getBoundingClientRect().top")
+          footer_sub_hero_position = footer_sub_hero_section.evaluate_script("this.getBoundingClientRect().top")
+          highlighted_content_banner_position = highlighted_content_banner.evaluate_script("this.getBoundingClientRect().top")
+
+          expect(hero_position).to be < sub_hero_position
+          expect(sub_hero_position).to be < how_to_participate_position
+          expect(how_to_participate_position).to be < stats_position
+          expect(stats_position).to be < footer_sub_hero_position
+          expect(footer_sub_hero_position).to be < highlighted_content_banner_position
+        end
+
+        it "renders each content block with its corresponding cell content" do
+          expect(page).to have_css("section.hero__container")
+          within "section.hero__container" do
+            expect(page).to have_content("Welcome")
+          end
+
+          expect(page).to have_css("#how_to_participate")
+          expect(page).to have_content("How do I take part in a process?")
+
+          expect(page).to have_css("#statistics")
+          expect(page).to have_content("Statistics")
+
+          expect(page).to have_css("#footer_sub_hero")
+
+          expect(page).to have_css("#highlighted_content_banner")
+
+          expect(page).to have_css("#highlighted-processes")
+          expect(page).to have_css("#highlighted-assemblies")
+          expect(page).to have_css("[id^=meetings]")
+
+          expect(page).to have_css(".custom-html")
+          expect(page).to have_content("Custom HTML Content")
         end
       end
     end

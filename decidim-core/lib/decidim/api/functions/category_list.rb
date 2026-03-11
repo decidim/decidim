@@ -15,6 +15,7 @@ module Decidim
     # searches.
     class CategoryList
       include NeedsApiFilterAndOrder
+
       attr_reader :model_class
 
       def initialize

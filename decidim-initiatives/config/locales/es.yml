@@ -27,7 +27,6 @@ es:
       initiatives_type:
         area_enabled: Permitir a las autoras elegir el área para su iniciativa
         attachments_enabled: Habilitar archivos adjuntos
-        banner_image: Imagen de banner
         child_scope_threshold_enabled: Activar firmas por subámbito
         collect_user_extra_fields: Recopilar datos personales de la participante con la firma
         comments_enabled: Habilitar comentarios
@@ -550,6 +549,7 @@ es:
           recent: Más recientes
           recently_published: Publicada más recientemente
         pending_initiatives:
+          description: Estas iniciativas no son públicas todavía. Por favor, revísalas y envíalas para su validación técnica para que puedan hacerse públicas.
           title: Borradores e iniciativas pendientes
         print:
           address: Dirección

@@ -165,7 +165,6 @@ lv:
           error: Mainot šī līdzdalības procesa fāžu kārtību, radās problēma.
         update:
           error: Šīs līdzdalības procesa fāzes atjaunināšanas laikā radās problēma.
-          success: Līdzdalības procesa fāze ir veiksmīgi atjaunināta.
       participatory_process_user_roles:
         create:
           error: Pievienojot dalībnieku šim līdzdalības procesam, radās problēma.
@@ -272,7 +271,6 @@ lv:
             document_legend: Pievienot dokumentu
         participatory_processes:
           form:
-            announcement_help: Šeit ievadītais teksts tiks parādīts lietotājam tieši zem procesa informācijas.
             duration: Ilgums
             images: Attēli
             metadata: Metadati

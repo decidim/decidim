@@ -410,7 +410,6 @@ describe "Admin manages meetings" do
       expect(page).to have_callout("Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.")
 
       new_meeting = Decidim::Meetings::Meeting.last
-      puts "Meeting location: #{new_meeting.location}"
       expect(new_meeting.location.values).to all(be_blank)
       expect(new_meeting.address).to be_empty
     end

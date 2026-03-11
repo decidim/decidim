@@ -245,7 +245,6 @@ de:
       admin:
         assemblies:
           form:
-            announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Gremien-Informationen angezeigt.
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Aktiv bis
             duration_help: Wenn die Dauer dieses Gremiums begrenzt ist, dann wählen Sie hier das Enddatum aus. Andernfalls wird das Datum als unbestimmt angezeigt.
@@ -267,6 +266,7 @@ de:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_imports:
           form:
+            document_legend: Dokument hinzufügen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
@@ -382,7 +382,6 @@ de:
     open_data:
       help:
         assemblies:
-          announcement: Die Ankündigungsinformationen (Banner)
           area: Der Bereich des Gremiums
           assembly_type: Der Typ des Gremiums
           closing_date: Das Auflösungsdatum des Gremiums

@@ -192,9 +192,7 @@ shared_examples_for "has questionnaire" do
 
         expect(form_fields[0]).to have_i18n_content(question.body)
         expect(form_fields[1]).to have_i18n_content(other_question.body)
-        2.times do |index|
-          expect(form_fields[index]).to have_css("[data-response-idx='#{index + 1}']")
-        end
+        expect(page.text.index(translated_attribute(other_question.body))).to be > page.text.index(translated_attribute(question.body))
       end
     end
 

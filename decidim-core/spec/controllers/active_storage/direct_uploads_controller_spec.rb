@@ -87,7 +87,7 @@ module ActiveStorage
           it "returns renders unprocessable entity" do
             post(:create, params:)
 
-            expect(response).to have_http_status(:unprocessable_entity)
+            expect(response).to have_http_status(:unprocessable_content)
           end
         end
 
@@ -97,7 +97,7 @@ module ActiveStorage
           it "returns renders unprocessable entity" do
             post(:create, params:)
 
-            expect(response).to have_http_status(:unprocessable_entity)
+            expect(response).to have_http_status(:unprocessable_content)
           end
         end
 
@@ -107,7 +107,7 @@ module ActiveStorage
           it "returns renders unprocessable entity" do
             post(:create, params:)
 
-            expect(response).to have_http_status(:unprocessable_entity)
+            expect(response).to have_http_status(:unprocessable_content)
           end
         end
 
@@ -124,7 +124,7 @@ module ActiveStorage
           it "returns renders unprocessable entity" do
             post(:create, params:)
 
-            expect(response).to have_http_status(:unprocessable_entity)
+            expect(response).to have_http_status(:unprocessable_content)
           end
         end
       end

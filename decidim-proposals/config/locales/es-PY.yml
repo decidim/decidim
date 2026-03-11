@@ -52,7 +52,7 @@ es-PY:
         file: Archivo
       proposals_import:
         import_proposals: Propuestas de importación
-        keep_answers: Mantener estado y respuestas
+        keep_answers: Mantener estados y respuestas
         keep_authors: Mantener autores originales
     errors:
       models:
@@ -370,6 +370,12 @@ es-PY:
             email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que sigues ha cambiado su estado (%{state})
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque tienes la autoría de "%{resource_title}".
+            email_subject: Tu propuesta ha cambiado su estado (%{state})
+            notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Una administradora ha actualizado las taxonomías de tu propuesta "%{resource_title}", puedes comprobarlo en esta página:'
           email_outro: Recibiste esta notificación porque eres la autora de la propuesta.
@@ -689,7 +695,7 @@ es-PY:
             create: Importar propuestas
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
-            select_states: Verifique los estados de las propuestas para importar
+            select_states: Importar solo propuestas con estos estados. Si no se selecciona ningún estado, todas las propuestas serán importadas.
             title: Importar propuestas desde otro componente
         proposals_merges:
           create:

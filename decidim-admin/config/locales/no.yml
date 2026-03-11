@@ -38,7 +38,6 @@
         default_locale: Standardspråk
         description: Beskrivelse
         enable_omnipresent_banner: Vis overstyrende banner
-        enable_participatory_space_filters: Aktive filtere for bruk av medvirkningsrommene
         facebook_handler: Facebook brukernavn
         favicon: Ikon
         force_authentication: Tving godkjenning
@@ -135,7 +134,7 @@
         browse: Bla gjennom
         configure: Konfigurer
         export: Eksport
-        export-selection: Eksporter valg
+        export_all: Eksporter alt
         import: Importer
         newsletter:
           new: Nytt nyhetsbrev
@@ -700,7 +699,6 @@
           title: Nytt emne
         update:
           error: Det oppstod et problem med å oppdatere dette emnet.
-          success: Emnet ble oppdatert
       static_pages:
         create:
           error: Det oppstod et problem med å opprette en ny side.

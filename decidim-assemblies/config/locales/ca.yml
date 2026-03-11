@@ -74,6 +74,8 @@ ca:
           attributes:
             document:
               allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}.'
+              empty: El document està buit
+              invalid_json: El document no és un JSON vàlid
   activerecord:
     models:
       decidim/assembly:
@@ -245,7 +247,6 @@ ca:
       admin:
         assemblies:
           form:
-            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació de l'assemblea.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
@@ -268,6 +269,7 @@ ca:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_imports:
           form:
+            document_legend: Afegir un document
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_members:
           form:
@@ -277,9 +279,14 @@ ca:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
+        imports:
+          attachment_error: No s'ha pogut importar l'arxiu adjunt "%{title}" (%{error}).
+          banner_image_error: No s'ha pogut importar la imatge del bàner (%{error}).
+          hero_image_error: No s'ha pogut importar la imatge principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Aquesta funció d'importació et permet crear una nova assemblea a partir d'un fitxer JSON exportat. Pots exportar una assemblea d'una altra organització o de la mateixa organització. L'assemblea importada inclourà la seva configuració, els components i els fitxers adjunts (si s'han seleccionat).
       assemblies:
         description:
           area_name: Àrea
@@ -383,7 +390,6 @@ ca:
     open_data:
       help:
         assemblies:
-          announcement: La informació de l'anunci/avís (crida)
           area: L'àrea a la qual correspon l'assemblea
           assembly_type: El tipus d'assemblea
           closing_date: La data de tancament de l'assemblea

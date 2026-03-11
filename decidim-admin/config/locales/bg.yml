@@ -48,7 +48,6 @@ bg:
         default_locale: Език по подразбиране
         description: Описание
         enable_omnipresent_banner: Показвай всепоказван банер
-        enable_participatory_space_filters: Активиране на филтри за пространство за участие
         facebook_handler: Манипулатор на Facebook
         favicon: Икона
         force_authentication: Принудително оторизиране
@@ -163,7 +162,7 @@ bg:
           new: Нова прикачена папка
         browse: Разглеждане
         configure: Конфигуриране
-        export-selection: Експорт на селекцията
+        export_all: Експорт на всички
         import: Импортиране
         newsletter:
           new: Нов бюлетин
@@ -837,7 +836,6 @@ bg:
           title: Нова тема
         update:
           error: Възникна проблем при актуализирането на тази тема.
-          success: Темата беше актуализирана успешно
       static_pages:
         create:
           error: Възникна проблем при създаването на нова страница.

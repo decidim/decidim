@@ -46,7 +46,6 @@ el:
         default_locale: Προεπιλεγμένες τοπικές ρυθμίσεις
         description: Περιγραφή
         enable_omnipresent_banner: Εμφάνιση διαφημιστικού πλαισίου omnipresent
-        enable_participatory_space_filters: Ενεργοποίηση φίλτρων συμμετοχικού χώρου
         facebook_handler: Πρόγραμμα χειρισμού Facebook
         favicon: Εικονίδιο
         force_authentication: Εξαναγκασμός ταυτοποίησης
@@ -160,7 +159,7 @@ el:
         browse: Αναζήτηση
         configure: Διαμόρφωση
         export: Εξαγωγή
-        export-selection: Εξαγωγή επιλογής
+        export_all: Εξαγωγή όλων
         import: Εισαγωγή
         newsletter:
           new: Νέο ενημερωτικό δελτίο
@@ -763,7 +762,6 @@ el:
           title: Νέο θέμα
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του θέματος.
-          success: Το θέμα ενημερώθηκε με επιτυχία
       static_pages:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας σελίδας.

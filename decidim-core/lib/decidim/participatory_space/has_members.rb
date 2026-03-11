@@ -26,8 +26,8 @@ module Decidim
             where(
               id: public_spaces +
                   private_spaces
-                    .joins(:members)
-                    .where(decidim_members: { decidim_user_id: user.id })
+                  .joins(:members)
+                  .where(decidim_members: { decidim_user_id: user.id })
             )
           else
             public_spaces

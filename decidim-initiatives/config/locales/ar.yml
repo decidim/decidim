@@ -17,7 +17,6 @@ ar:
       initiatives_committee_member:
         user: عضو لجنة
       initiatives_type:
-        banner_image: صورة بانر
         collect_user_extra_fields: جمع البيانات الشخصية للمشاركين عند التوقيع
         description: وصف
         extra_fields_legal_information: معلومات قانونية حول جمع البيانات الشخصية

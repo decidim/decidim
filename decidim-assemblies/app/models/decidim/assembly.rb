@@ -71,9 +71,6 @@ module Decidim
     has_one_attached :hero_image
     validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
-    has_one_attached :banner_image
-    validates_upload :banner_image, uploader: Decidim::BannerImageUploader
-
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 

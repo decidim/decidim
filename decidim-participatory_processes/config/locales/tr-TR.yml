@@ -82,8 +82,6 @@ tr:
         unpublish: Yayından Kaldır
       menu:
         participatory_process_groups: Süreç grupları
-        participatory_process_groups_submenu:
-          info: Bilgi
         participatory_processes: Süreçler
         participatory_processes_submenu:
           attachment_collections: Klasörler
@@ -177,7 +175,6 @@ tr:
           error: Bu katılımcı süreç adımlarını yeniden sıralarken bir hata oluştu.
         update:
           error: Bu katılımcı süreç adımı güncellenirken bir hata oluştu.
-          success: Katılımcı süreç adımı başarıyla güncellendi.
       participatory_process_user_roles:
         create:
           error: Bu katılımcı süreç için bir kullanıcı eklenirken bir hata oluştu.
@@ -306,7 +303,6 @@ tr:
             document_legend: Doküman Ekle
         participatory_processes:
           form:
-            announcement_help: Buraya girdiğiniz metin, işlem bilgilerinin hemen altındaki kullanıcıya gösterilecektir.
             duration: süre
             images: Görüntüler
             metadata: Meta veri

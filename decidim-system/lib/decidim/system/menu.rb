@@ -9,7 +9,7 @@ module Decidim
                         I18n.t("menu.dashboard", scope: "decidim.system"),
                         decidim_system.root_path,
                         position: 1,
-                        active: ["decidim/system/dashboard" => :show]
+                        active: [{ "decidim/system/dashboard" => :show }]
           if Decidim.module_installed?(:api)
             menu.add_item :api_credentials,
                           I18n.t("menu.api_credentials", scope: "decidim.system"),

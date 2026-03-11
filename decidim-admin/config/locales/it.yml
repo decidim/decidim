@@ -48,7 +48,6 @@ it:
         default_locale: Lingua predefinita
         description: Descrizione
         enable_omnipresent_banner: Mostra banner onnipresente
-        enable_participatory_space_filters: Abilita filtri di spazio partecipativo
         facebook_handler: Gestore di Facebook
         favicon: Icona
         force_authentication: Autenticazione obbligata
@@ -173,7 +172,7 @@ it:
           </ul>
           Se cambi idea, puoi ripristinarlo più tardi.
         export: Esporta
-        export-selection: Esporta selezione
+        export_all: Esporta tutto
         import: Importazione
         newsletter:
           new: Nuova newsletter
@@ -951,7 +950,6 @@ it:
           title: Nuovo argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo argomento.
-          success: Argomento aggiornato correttamente
       static_pages:
         create:
           error: Si è verificato un errore creando una nuova pagina.
