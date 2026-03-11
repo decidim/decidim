@@ -18,7 +18,7 @@ shared_examples_for "manage questionnaire draggable behavior" do
         visit_manage_questions
 
         within first(".questionnaire-question") do
-          expect(page).to have_css(".card-divider.hover\\:cursor-ns-resize")
+          expect(page).to have_css(".card-divider.hover\\:cursor-grab")
         end
       end
     end
@@ -39,7 +39,7 @@ shared_examples_for "manage questionnaire draggable behavior" do
         visit_manage_questions
 
         within first(".questionnaire-question") do
-          expect(page).to have_no_css(".card-divider.hover\\:cursor-ns-resize")
+          expect(page).to have_no_css(".card-divider.hover\\:cursor-grab")
         end
       end
     end
