@@ -63,7 +63,7 @@ module Decidim
       end
 
       context "when there is a query string after the gid" do
-        let(:suffix) { "?some=strange&suffix=afterthegid" }
+        let(:suffix) { "?some=strange&suffix=after" }
 
         it_behaves_like "correctly rendered blob URLs"
       end
