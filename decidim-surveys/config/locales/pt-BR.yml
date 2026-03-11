@@ -49,6 +49,7 @@ pt-BR:
       answers_count: Respostas
     surveys:
       actions:
+        answers: Respostas
         answers_alert: Excluir as respostas na publicação está ativo para esta pesquisa. Existem respostas %{answers_count} que serão destruídas se você continuar.
         confirm_destroy: Tem certeza de que deseja excluir isso?
         destroy: Destruir
