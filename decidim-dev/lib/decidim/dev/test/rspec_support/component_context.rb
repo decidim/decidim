@@ -116,6 +116,8 @@ shared_context "when managing a component as a process admin" do
 end
 
 shared_examples "add component resources to search index" do
+  let(:title) { translated(current_component.name) }
+
   before do
     resource.reload.component.manifest.run_hooks(:unpublish, resource.reload.component)
     visit decidim_admin_participatory_processes.components_path(resource.reload.component.participatory_space)
@@ -143,6 +145,8 @@ shared_examples "add component resources to search index" do
 end
 
 shared_examples "removes component resources from search index" do
+  let(:title) { translated(current_component.name) }
+
   before do
     resource.reload.component.manifest.run_hooks(:publish, resource.reload.component)
     visit decidim_admin_participatory_processes.components_path(resource.reload.component.participatory_space)
