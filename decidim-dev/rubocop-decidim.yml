@@ -28,9 +28,3 @@ inherit_from:
   - config/rubocop/yard/configuration.yml
   - config/rubocop/disabled.yml
   - config/rubocop/decidim-linters/configuration.yml
-
-Decidim/MessageAntipattern:
-  Enabled: true
-  Include:
-    - "**/spec/**/*"
-    - "**/test/**/*"
