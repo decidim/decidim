@@ -19,7 +19,7 @@ module Decidim
     # @see BaseRenderer Examples of how to use a content renderer
     class BlobRenderer < BaseRenderer
       # Matches a global id representing a Decidim::User
-      GLOBAL_ID_REGEX = %r{(gid://[\w-]+/ActiveStorage::Blob/\d+)(/([\w=-]+))?}
+      GLOBAL_ID_REGEX = %r{(gid://[\w-]+/ActiveStorage::Blob/\d+)(/([\w=-]+))?(?:[^\s"'<>]*)}
 
       # Replaces found Global IDs matching an existing blob with a URL to
       # that blob. The Global IDs representing an invalid ActiveStorage::Blob

@@ -23,14 +23,15 @@ module Decidim
     let(:image_variant_processed_representation_path) { routes.rails_representation_path(image_variant_processed, only_path: true) }
     let(:image_blob_url) { routes.rails_disk_service_url(image_blob.signed_id, image_blob.filename, host: asset_host) }
     let(:document_blob_url) { routes.rails_disk_service_url(document_blob.signed_id, image_blob.filename, host: asset_host) }
+    let(:suffix) { "" }
 
     let(:content) do
       <<~HTML.squish
-        <p><img src="#{image_blob.to_global_id}/#{image_variant_encoded}" alt="Representation image"></p>
-        <p><img src="#{image_blob.to_global_id}/#{image_variant_processed_encoded}" alt="Representation image processed"></p>
-        <p><img src='#{image_blob.to_global_id}' alt="Blob image"></p>
-        <p><a href='#{document_blob.to_global_id}'>Link to document</a></p>
-        <p class="document-url">#{document_blob.to_global_id}</p>
+        <p><img src="#{image_blob.to_global_id}/#{image_variant_encoded}#{suffix}" alt="Representation image"></p>
+        <p><img src="#{image_blob.to_global_id}/#{image_variant_processed_encoded}#{suffix}" alt="Representation image processed"></p>
+        <p><img src='#{image_blob.to_global_id}#{suffix}' alt="Blob image"></p>
+        <p><a href='#{document_blob.to_global_id}#{suffix}'>Link to document</a></p>
+        <p class="document-url">#{document_blob.to_global_id}#{suffix}</p>
       HTML
     end
 
@@ -57,6 +58,18 @@ module Decidim
 
       context "when current host is not set" do
         let(:current_host) { nil }
+
+        it_behaves_like "correctly rendered blob URLs"
+      end
+
+      context "when there is a query string after the gid" do
+        let(:suffix) { "?some=strange&suffix=afterthegid" }
+
+        it_behaves_like "correctly rendered blob URLs"
+      end
+
+      context "when there is some strange suffix after the gid" do
+        let(:suffix) { "%something" }
 
         it_behaves_like "correctly rendered blob URLs"
       end
