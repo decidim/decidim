@@ -124,17 +124,7 @@ module Decidim::ParticipatoryProcesses
           end
         end
 
-        context "with is_transparent true" do
-          let(:import_data) do
-            super().merge("access_mode" => nil, "is_transparent" => true)
-          end
-
-          it "maps to transparent access mode" do
-            expect(subject.access_mode).to eq("transparent")
-          end
-        end
-
-        context "with both legacy fields set" do
+        context "with private_space true and is_transparent true" do
           let(:import_data) do
             super().merge("access_mode" => nil, "private_space" => true, "is_transparent" => true)
           end
@@ -144,7 +134,7 @@ module Decidim::ParticipatoryProcesses
           end
         end
 
-        context "with no access mode fields" do
+        context "with private_space false and is_transparent false" do
           let(:import_data) do
             super().merge("access_mode" => nil, "private_space" => false, "is_transparent" => false)
           end
