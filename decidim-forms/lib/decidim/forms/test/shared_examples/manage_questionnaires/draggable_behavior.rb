@@ -25,7 +25,7 @@ shared_examples_for "manage questionnaire draggable behavior" do
   end
 
   context "when questionnaire has responses (not editable)" do
-    let!(:response) { create(:response, questionnaire:) }
+    let!(:response) { create(:response, question:, questionnaire:) }
 
     before do
       visit current_path
