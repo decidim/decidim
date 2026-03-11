@@ -22,7 +22,6 @@ module Decidim::Assemblies
         2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: my_assembly) }
       end
       let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
-      let(:banner_image) { my_assembly.banner_image }
       let(:params) do
         {
           assembly: {
@@ -69,8 +68,7 @@ module Decidim::Assemblies
       end
       let(:attachment_params) do
         {
-          hero_image: hero_image.blob,
-          banner_image: banner_image.blob
+          hero_image: hero_image.blob
         }
       end
       let(:context) do
@@ -105,7 +103,6 @@ module Decidim::Assemblies
       context "when the uploaded hero image has too large dimensions" do
         let(:attachment_params) do
           {
-            banner_image: banner_image.blob,
             hero_image: ActiveStorage::Blob.create_and_upload!(
               io: File.open(Decidim::Dev.asset("5000x5000.png")),
               filename: "5000x5000.png",
@@ -125,7 +122,6 @@ module Decidim::Assemblies
           allow(form).to receive(:invalid?).and_return(false)
           expect(my_assembly).to receive(:valid?).at_least(:once).and_return(false)
           my_assembly.errors.add(:hero_image, "File resolution is too large")
-          my_assembly.errors.add(:banner_image, "File resolution is too large")
         end
 
         it "broadcasts invalid" do
@@ -136,7 +132,6 @@ module Decidim::Assemblies
           command.call
 
           expect(form.errors[:hero_image]).not_to be_empty
-          expect(form.errors[:banner_image]).not_to be_empty
         end
       end
 
@@ -176,37 +171,18 @@ module Decidim::Assemblies
           expect(linked_participatory_processes).to match_array(participatory_processes)
         end
 
-        context "when homepage image is not updated" do
+        context "when hero image is not updated" do
           let(:attachment_params) do
-            {
-              banner_image: banner_image.blob
-            }
+            {}
           end
 
-          it "does not replace the homepage image" do
+          it "does not replace the hero image" do
             expect(my_assembly).not_to receive(:hero_image=)
 
             command.call
             my_assembly.reload
 
             expect(my_assembly.hero_image).to be_present
-          end
-        end
-
-        context "when banner image is not updated" do
-          let(:attachment_params) do
-            {
-              hero_image: hero_image.blob
-            }
-          end
-
-          it "does not replace the banner image" do
-            expect(my_assembly).not_to receive(:banner_image=)
-
-            command.call
-            my_assembly.reload
-
-            expect(my_assembly.banner_image).to be_present
           end
         end
 

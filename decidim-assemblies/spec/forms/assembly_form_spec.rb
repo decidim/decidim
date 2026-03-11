@@ -119,7 +119,6 @@ module Decidim
               "short_description_es" => short_description[:es],
               "short_description_ca" => short_description[:ca],
               "hero_image" => attachment,
-              "banner_image" => attachment,
               "slug" => slug,
               "has_members" => has_members,
               "purpose_of_action_en" => purpose_of_action[:en],
@@ -183,7 +182,7 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
-        context "when attachment (hero_image or banner_image) is too big" do
+        context "when attachment (hero_image) is too big" do
           before do
             organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 5
@@ -296,7 +295,6 @@ module Decidim
                 slug: "another-slug",
                 meta_scope: assembly.meta_scope,
                 hero_image: nil,
-                banner_image: nil,
                 promoted: assembly.promoted,
                 description_en: assembly.description,
                 description_ca: assembly.description,
@@ -349,7 +347,6 @@ module Decidim
                 slug: "another-slug",
                 meta_scope: assembly.meta_scope,
                 hero_image: nil,
-                banner_image: nil,
                 promoted: assembly.promoted,
                 description_en: assembly.description,
                 description_ca: assembly.description,

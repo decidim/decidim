@@ -29,7 +29,7 @@ module Decidim
                 I18n.t("proposals_merges.create.invalid", scope: "decidim.proposals.admin"),
                 @form
               ).message
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end

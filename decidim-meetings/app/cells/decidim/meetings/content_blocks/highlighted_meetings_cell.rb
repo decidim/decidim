@@ -10,6 +10,10 @@ module Decidim
           "decidim/meetings/highlighted_meetings_for_component"
         end
 
+        def extra_list_cell_options
+          { show_space: model.scope_name == "homepage" }
+        end
+
         def see_all_path
           meetings_directory_path if model.scope_name == "homepage"
         end

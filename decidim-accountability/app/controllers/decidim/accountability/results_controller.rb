@@ -8,8 +8,9 @@ module Decidim
 
       helper Decidim::TraceabilityHelper
       helper Decidim::Accountability::BreadcrumbHelper
+      helper Decidim::Accountability::CalculatorHelper
 
-      helper_method :results, :result, :count_calculator, :selected_root_taxonomy, :selected_taxonomy_children, :selected_taxonomy_grandchildren?
+      helper_method :results, :result, :selected_root_taxonomy, :selected_taxonomy_children, :selected_taxonomy_grandchildren?
 
       def show
         raise ActionController::RoutingError, "Not Found" unless result
@@ -63,10 +64,6 @@ module Decidim
                                     else
                                       current_component.available_root_taxonomies.find_by(id: params[:root_taxonomy_id])
                                     end
-      end
-
-      def count_calculator(taxonomy_id)
-        Decidim::Accountability::ResultsCalculator.new(current_component, taxonomy_id).count
       end
 
       def add_parent_breadcrumb_item

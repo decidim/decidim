@@ -45,7 +45,7 @@ module Decidim
         render json: serialized_user.merge("avatar" => nil)
       end
 
-      def respond_to_on_destroy
+      def respond_to_on_destroy(*)
         head :ok
       end
 

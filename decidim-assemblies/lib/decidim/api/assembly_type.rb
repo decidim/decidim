@@ -18,7 +18,6 @@ module Decidim
       description "An assembly"
 
       field :access_mode, Decidim::Api::Types::AccessModeEnum, "The access mode of this assembly (open, transparent, or restricted)", null: false
-      field :banner_image, String, "The banner image for this assembly", null: true
       field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Children of this assembly", null: false
       field :children_count, Integer, "Number of children assemblies", null: true
       field :closing_date, Decidim::Core::DateType, "Closing date of the assembly", null: true
@@ -62,10 +61,6 @@ module Decidim
 
       def hero_image
         object.attached_uploader(:hero_image).url
-      end
-
-      def banner_image
-        object.attached_uploader(:banner_image).url
       end
     end
   end

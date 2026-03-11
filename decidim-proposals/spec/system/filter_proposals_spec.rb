@@ -170,6 +170,10 @@ describe "Filter Proposals", :slow do
       end
 
       it "can be ordered by most commented and most followed after filtering" do
+        within "#dropdown-menu-filters div.filter-container", text: "Status" do
+          uncheck "All"
+        end
+
         within "#dropdown-menu-filters div.filter-container", text: "Taxonomy name" do
           uncheck "All"
           check decidim_sanitize_translated(taxonomy.name)

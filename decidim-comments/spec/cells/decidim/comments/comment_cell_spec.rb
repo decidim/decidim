@@ -20,8 +20,6 @@ module Decidim::Comments
     context "when rendering" do
       it "renders the card" do
         expect(subject).to have_css("#comment_#{comment.id}")
-        # An empty replies element is needed when dynamically adding replies
-        expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
         expect(subject).to have_css(".comment__content")
         expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
         expect(subject).to have_css("a[href='/en/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
@@ -33,6 +31,7 @@ module Decidim::Comments
         expect(subject).to have_no_css(".comment-reply")
         expect(subject).to have_no_css("#flagModalComment#{comment.id}")
         expect(subject).to have_no_css(".label.alignment")
+        expect(subject).to have_no_css("#comment-#{comment.id}-replies")
       end
 
       context "when deleted" do
@@ -81,7 +80,6 @@ module Decidim::Comments
 
         it "renders the card with an Edited message" do
           expect(subject).to have_css("#comment_#{comment.id}")
-          expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
           expect(subject).to have_css(".comment__content")
           expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
           expect(subject).to have_css("a[href='/en/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
@@ -93,6 +91,7 @@ module Decidim::Comments
           expect(subject).to have_no_css(".add-comment")
           expect(subject).to have_no_css(".comment-reply")
           expect(subject).to have_no_css(".label.alignment")
+          expect(subject).to have_no_css("#comment-#{comment.id}-replies")
         end
       end
 
@@ -149,12 +148,10 @@ module Decidim::Comments
           allow(resource_locator).to receive(:path).and_return("/dummies")
         end
 
-        it "renders the replies" do
-          element = subject.find("#comment-#{comment.id}-replies")
-          replies.each do |reply|
-            expect(element).to have_css("#comment_#{reply.id}")
-            expect(element).to have_content(reply.body.values.first)
-          end
+        it "renders the load replies button" do
+          expect(subject).to have_css("button[data-action='click->show-replies#toggle']")
+          expect(subject).to have_content(I18n.t("decidim.components.comment.replies_count", count: replies.size))
+          expect(subject).to have_css("#comment-#{comment.id}-replies.hidden")
         end
       end
 
@@ -170,6 +167,7 @@ module Decidim::Comments
           expect(subject).to have_css(".comment__actions button")
           expect(subject).to have_css("button[data-dialog-open='flagModalComment#{comment.id}']")
           expect(subject).to have_css("#flagModalComment#{comment.id}")
+          expect(subject).to have_css("#comment-#{comment.id}-replies")
         end
 
         context "with votes" do

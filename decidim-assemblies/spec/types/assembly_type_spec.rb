@@ -83,14 +83,6 @@ module Decidim
         end
       end
 
-      describe "bannerImage" do
-        let(:query) { "{ bannerImage }" }
-
-        it "returns the banner image field" do
-          expect(response["bannerImage"]).to be_blob_url(model.banner_image.blob)
-        end
-      end
-
       describe "promoted" do
         let(:query) { "{ promoted }" }
 
