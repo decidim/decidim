@@ -8,6 +8,7 @@ module Decidim
         class CensusDataForm < Form
           include Decidim::HasUploadValidations
           include Decidim::ProcessesFileLocally
+
           mimic :census_data
 
           attribute :file, Decidim::Attributes::Blob

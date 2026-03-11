@@ -323,11 +323,11 @@ header {
     @apply container h-full flex justify-between items-center sm:relative last-of-type:[&>svg]:hidden;
 
     &__container {
-      @apply bg-white relative h-14 flex justify-between;
+      @apply bg-primary relative h-14 flex justify-between;
     }
 
     &__breadcrumb-desktop {
-      @apply hidden lg:flex justify-between items-center [&>*]:text-md [&>*]:text-black gap-x-2;
+      @apply hidden lg:flex justify-between items-center [&>*]:text-md [&>*]:text-white gap-x-2;
 
       .no-interactive {
         @apply font-normal px-0;
@@ -420,7 +420,7 @@ header {
       @apply block lg:hidden w-full z-20;
 
       &__dropdown-trigger {
-        @apply flex items-center justify-between text-black;
+        @apply flex items-center justify-between text-white;
 
         svg {
           @apply w-6 h-6 fill-current;

@@ -9,7 +9,7 @@ module Decidim
       before_action do
         if taxonomy_item && taxonomy_item.parent_ids.exclude?(taxonomy.id)
           flash[:alert] = I18n.t("update.invalid", scope: "decidim.admin.taxonomies")
-          render plain: I18n.t("update.invalid", scope: "decidim.admin.taxonomies"), status: :unprocessable_entity
+          render plain: I18n.t("update.invalid", scope: "decidim.admin.taxonomies"), status: :unprocessable_content
         end
       end
 
@@ -29,7 +29,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("create.invalid", scope: "decidim.admin.taxonomies")
-            render action: "new", status: :unprocessable_entity
+            render action: "new", status: :unprocessable_content
           end
         end
       end
@@ -50,7 +50,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("update.invalid", scope: "decidim.admin.taxonomies")
-            render action: "edit", status: :unprocessable_entity
+            render action: "edit", status: :unprocessable_content
           end
         end
       end

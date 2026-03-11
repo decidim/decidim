@@ -61,9 +61,9 @@ module Decidim::Comments
           end
 
           it "renders the thread" do
-            expect(subject).to have_css(".flash.primary.loading-comments", text: "Loading comments ...")
             expect(subject).to have_no_content(comment.body.values.first)
             expect(subject).to have_no_css(".add-comment")
+            expect(subject).to have_css(".comment__moderated")
           end
 
           it "renders the single comment warning" do

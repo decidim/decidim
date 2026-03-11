@@ -27,7 +27,6 @@ FactoryBot.define do
     description { generate_localized_description(:assembly_description, skip_injection:) }
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
-    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
     deleted_at { nil }
     meta_scope { generate_localized_word(:assembly_meta_scope, skip_injection:) }

@@ -1,0 +1,73 @@
+(function() {
+  <% root_resource = commentable.is_a?(Decidim::Comments::Comment) ? commentable.root_commentable : commentable %>
+  <% is_loading_replies = commentable.is_a?(Decidim::Comments::Comment) %>
+  <% new_offset = comments_offset + @comments.size %>
+
+  var commentsContainer = document.getElementById(<%== "comments-for-#{root_resource.commentable_type.demodulize}-#{root_resource.id}".to_json %>);
+  var $comments = $(commentsContainer);
+  var component = $comments.data("comments");
+
+  <% if is_loading_replies %>
+    var targetContainer = document.getElementById("comment-<%= commentable.id %>-replies");
+    var loadMoreWrapper = null;
+  <% else %>
+    <% if alignment.present? %>
+      var targetContainer = commentsContainer.querySelector(<%== ".comments-section__#{alignment == 1 ? "in-favor" : "against"}".to_json %>);
+    <% else %>
+      var targetContainer = commentsContainer.querySelector("#mobileContainer") || commentsContainer.querySelector(".comment-threads");
+    <% end %>
+      var loadMoreWrapper = targetContainer ? targetContainer.querySelector("[data-load-more-comments-wrapper]") : null;
+  <% end %>
+
+  // Insert comments
+  var commentsIds = [];
+  <% @comments.each do |comment| %>
+    (function() {
+      var commentId = <%= comment.id.to_json %>;
+      var commentHtml = '<%== j(render comment).strip %>';
+      var inReplyTo = <%== (reply?(comment) ? comment.commentable.id : nil).to_json %>;
+
+      commentsIds.push(commentId);
+      var existingComment = targetContainer ? targetContainer.querySelector("#comment_" + commentId) : null;
+      if (!existingComment) {
+        if (inReplyTo) {
+          component.addReply(inReplyTo, commentHtml);
+        } else if (loadMoreWrapper) {
+          loadMoreWrapper.insertAdjacentHTML("beforebegin", commentHtml);
+        } else {
+          component.addThread(commentHtml, <%= alignment.presence || "null" %>);
+        }
+      }
+    })();
+  <% end %>
+
+  if (commentsIds.length) {
+    component.lastCommentId = <%= @comments.last&.id || 0 %>;
+    Rails.fire(document, "comments:loaded", { commentsIds: commentsIds });
+  }
+
+  <% if is_loading_replies %>
+    if (targetContainer) {
+      targetContainer.querySelectorAll(".comment-reply.hidden").forEach(function(el) {
+        el.classList.remove("hidden");
+      });
+      targetContainer.querySelectorAll(".show-replies-button").forEach(function(el) {
+        el.remove();
+      });
+    }
+  <% end %>
+
+  <% unless is_loading_replies %>
+    <% if @has_more_comments %>
+      if (loadMoreWrapper) {
+        loadMoreWrapper.setAttribute("data-load-more-comments-offset-value", <%= new_offset %>);
+        var btn = loadMoreWrapper.querySelector("[data-load-more-comments-target='button']");
+        var spin = loadMoreWrapper.querySelector("[data-load-more-comments-target='spinner']");
+        if (btn) { btn.disabled = false; btn.classList.remove("loading"); }
+        if (spin) { spin.classList.add("hidden"); }
+      }
+    <% else %>
+      if (loadMoreWrapper) { loadMoreWrapper.remove(); }
+    <% end %>
+  <% end %>
+}());

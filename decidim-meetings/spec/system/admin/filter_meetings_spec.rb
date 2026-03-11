@@ -38,10 +38,8 @@ describe "Admin filters meetings" do
     before { visit_component_admin }
 
     TYPES.each do |state|
-      i18n_state = I18n.t(state, scope: "decidim.admin.filters.meetings.with_any_type.values")
-
-      context "when filtering meetings by type: #{i18n_state}" do
-        it_behaves_like "a filtered collection", options: "Type", filter: i18n_state do
+      context "when filtering meetings by type: #{I18n.t(state, scope: "decidim.admin.filters.meetings.with_any_type.values")}" do
+        it_behaves_like "a filtered collection", options: "Type", filter: I18n.t(state, scope: "decidim.admin.filters.meetings.with_any_type.values") do
           let(:in_filter) { translated(meeting_with_type(state).title) }
           let(:not_in_filter) { translated(meeting_without_type(state).title) }
         end
