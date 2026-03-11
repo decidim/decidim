@@ -18,7 +18,7 @@ describe "Redirect routes" do
     expect(response).to redirect_to("/es/assemblies")
   end
 
-  it "redirects to default locale" do
+  it "redirects to default locale when the locale is invalid" do
     get("/assemblies?locale=esp", headers:)
     expect(response).to have_http_status(:moved_permanently)
     expect(response).to redirect_to("/en/assemblies")
