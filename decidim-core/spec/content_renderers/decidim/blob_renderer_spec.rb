@@ -22,7 +22,7 @@ module Decidim
     let(:image_representation_path) { routes.rails_representation_path(image_variant, only_path: true) }
     let(:image_variant_processed_representation_path) { routes.rails_representation_path(image_variant_processed, only_path: true) }
     let(:image_blob_url) { routes.rails_disk_service_url(image_blob.signed_id, image_blob.filename, host: asset_host) }
-    let(:document_blob_url) { routes.rails_disk_service_url(document_blob.signed_id, image_blob.filename, host: asset_host) }
+    let(:document_blob_url) { routes.rails_disk_service_url(document_blob.signed_id, document_blob.filename, host: asset_host) }
     let(:suffix) { "" }
 
     let(:content) do
