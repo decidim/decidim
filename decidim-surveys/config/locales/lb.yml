@@ -42,6 +42,8 @@ lb:
     statistics:
       answers_count: Äntwerten
     surveys:
+      actions:
+        answers: Äntwerten
       admin:
         exports:
           survey_user_answers: Umfrage Benutzer Antworten
