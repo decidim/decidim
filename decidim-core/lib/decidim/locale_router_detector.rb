@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# We are using this class to handle the locale redirects in the route files
+# It tries to detect a place where the locale is being present, either as a get param,
+# or a session, or if there is nothing it will return the default locale of the organization
 module Decidim
   class LocaleRouterDetector
     def initialize(request, params)
@@ -16,7 +19,7 @@ module Decidim
     attr_reader :request, :input_params
 
     def extracted_locale
-      input_params[:locale] || request.parameters[:locale] || request.session[:user_locale] || I18n.locale
+      input_params[:locale] || request.parameters[:locale].presence || request.session[:user_locale].presence || I18n.locale
     end
 
     def available_locales
