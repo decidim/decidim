@@ -28,13 +28,32 @@ module Decidim
           return attachments if answer.attachments.any?
           return "-" if answer.choices.empty?
 
-          choices = answer.choices.map do |choice|
+          choices = build_choices
+
+          render_choices_list(choices)
+        end
+
+        private
+
+        def build_choices
+          answer.choices.map do |choice|
+            matrix_row_body = matrix_row_body_for(choice)
             {
               answer_option_body: choice.try(:answer_option).try(:translated_body),
-              choice_body: body_or_custom_body(choice)
+              choice_body: body_or_custom_body(choice),
+              matrix_row_body:
             }
           end
+        end
 
+        def matrix_row_body_for(choice)
+          return unless answer.question.matrix?
+          return unless choice.matrix_row&.body
+
+          translated_attribute(choice.matrix_row.body)
+        end
+
+        def render_choices_list(choices)
           content_tag(:ul) do
             if answer.question.question_type == "single_option"
               choice(choices.first)
@@ -49,8 +68,6 @@ module Decidim
             safe_join(answer.attachments.map { |a| pretty_attachment(a) })
           end
         end
-
-        private
 
         def pretty_attachment(attachment)
           # rubocop:disable Style/StringConcatenation
@@ -70,7 +87,11 @@ module Decidim
 
         def choice(choice_hash)
           content_tag :li do
-            render_body_for choice_hash
+            if choice_hash[:matrix_row_body].present?
+              content_tag(:strong, choice_hash[:matrix_row_body]) + ": " + render_body_for(choice_hash) # rubocop:disable Style/StringConcatenation
+            else
+              render_body_for choice_hash
+            end
           end
         end
 
