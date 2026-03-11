@@ -271,6 +271,37 @@ describe "Admin manages surveys" do
     end
   end
 
+  context "when the survey has answers or more" do
+    let!(:question) do
+      create(:questionnaire_question, questionnaire:)
+    end
+    let!(:answer) { create(:answer, questionnaire:, question:) }
+
+    before do
+      visit manage_questionnaire_path
+    end
+
+    it "allows access to responses" do
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        expect(page).to have_link("Answers")
+      end
+    end
+  end
+
+  context "when the survey has no responses" do
+    let!(:question) { create(:questionnaire_question, questionnaire:) }
+
+    before do
+      visit manage_questionnaire_path
+    end
+
+    it "does not show the Responses button" do
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        expect(page).to have_no_link("Answers")
+      end
+    end
+  end
+
   context "when updates the questionnaire" do
     let(:description) do
       {
@@ -290,6 +321,8 @@ describe "Admin manages surveys" do
     end
   end
 
+  it_behaves_like "uses questionnaire templates", :survey
+
   def manage_questions_path
     Decidim::EngineRouter.admin_proxy(component).edit_questions_survey_path(survey)
   end
@@ -307,7 +340,9 @@ describe "Admin manages surveys" do
     main_component_path(component)
   end
 
-  it_behaves_like "uses questionnaire templates", :survey
+  def manage_questionnaire_path
+    Decidim::EngineRouter.admin_proxy(component).surveys_path
+  end
 
   private
 
