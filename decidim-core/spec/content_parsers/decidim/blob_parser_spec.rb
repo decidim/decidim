@@ -73,6 +73,15 @@ module Decidim
         expect(subject).to eq(parsed_content)
       end
 
+      context "when the image has strange characters in the filename" do
+        let(:image_blob) { create(:blob, :image, filename: "strange fílename @#$%<>\"'.jpg") }
+        let(:document_blob) { create(:blob, :document, filename: "strange fílename @#$%()\\|.pdf") }
+
+        it "rewrites the URLs correctly" do
+          expect(subject).to eq(parsed_content)
+        end
+      end
+
       context "when content is preceded by a link with an URL" do
         let(:parser) { described_class.new(content_with_url, context) }
         let(:content_with_url) do
