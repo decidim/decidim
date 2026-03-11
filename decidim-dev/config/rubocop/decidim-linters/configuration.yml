@@ -3,3 +3,6 @@ require:
 
 Decidim/MessageAntipattern:
   Enabled: true
+  Include:
+    - "**/spec/**/*"
+    - "**/test/**/*"
