@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "redirect routes" do
+describe "Redirect routes" do
   let(:organization) { create(:organization, available_locales: %w(en es ca), default_locale: "en") }
   let(:headers) { { "HOST" => organization.host } }
 
