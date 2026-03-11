@@ -42,6 +42,8 @@
     statistics:
       answers_count: Svar
     surveys:
+      actions:
+        answers: Svar
       admin:
         exports:
           survey_user_answers: Undersøkelsens deltaker svar
