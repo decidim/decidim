@@ -64,9 +64,8 @@ module Decidim
 
         def extract_ids_from_add_documents
           add_documents
-            .with_indifferent_access
-            .select { |doc| doc.is_a?(Hash) && doc[:id].present? }
-            .map { |doc| doc[:id].to_i }
+            .select { |doc| doc.is_a?(Hash) && (doc[:id].present? || doc["id"].present?) }
+            .map { |doc| (doc[:id] || doc["id"]).to_i }
         end
 
         def parse_string_documents(value)
