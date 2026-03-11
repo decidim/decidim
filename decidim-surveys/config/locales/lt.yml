@@ -46,6 +46,8 @@ lt:
     statistics:
       answers_count: Atsakymai
     surveys:
+      actions:
+        answers: Atsakymai
       admin:
         exports:
           survey_user_answers: Apklausos dalyvių atsakymai
