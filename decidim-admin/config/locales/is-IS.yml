@@ -159,8 +159,6 @@ is:
         edit:
           title: Breyta viðhengi
           update: Uppfæra
-        index:
-          attachments_title: Viðhengi
         new:
           create: Búðu til viðhengi
           title: Ný viðhengi
@@ -195,7 +193,6 @@ is:
           title: 'Bæta við hluti: %{name}'
         publish:
           success: Hlutinn hefur verið birtur með góðum árangri.
-        title: Hluti
         unpublish:
           success: Hlutinn hefur verið unpublished með góðum árangri.
         update:
@@ -409,11 +406,10 @@ is:
         new:
           title: Ný síða
       titles:
-        admin_log: Admin log
         area_types: Svæði tegundir
         areas: Svæði
         authorization_workflows: Staðfestingaraðferðir
-        dashboard: Mælaborð
+        pages: Síður
         scope_types: Gildissvið
         scopes: Scopes
       users:
