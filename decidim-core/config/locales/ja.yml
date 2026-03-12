@@ -1868,6 +1868,8 @@ ja:
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
         old_password_help: アカウントの変更を確認するには、現在のパスワードを入力してください。
+        password_help: "%{minimum_characters} 文字以上必要で、少なくとも 5 種類の異なる文字を含める必要があります。一般的な文字列（例：123456）は使用できず、氏名、ニックネーム、メールアドレス、および組織のホスト名とは異なるものでなければなりません。"
+        password_help_admin: "%{minimum_characters}文字以上必要で、少なくとも5種類以上の異なる文字を含む必要があり、一般的なパターン（例：123456）は使用できません。氏名、ニックネーム、メールアドレス、組織のホスト名と重複せず、かつ以前使用していたパスワードとは異なるものでなければなりません。"
         title: パスワードの変更
       new:
         forgot_your_password: パスワードをお忘れですか？
@@ -2109,6 +2111,7 @@ ja:
         confirm_title_close_ephemeral_session: このページから離れる前に…
         log_in: ログイン
         main_menu: メインメニュー
+        mobile_account_greeting: こんにちは、 %{user_name} さん
         user_menu: ユーザーメニュー
       impersonation_warning:
         close_session: セッションを閉じる
