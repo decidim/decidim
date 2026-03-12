@@ -62,8 +62,6 @@ tr:
           success: Bu konferans için konuşmacı başarıyla silindi.
         edit:
           update: Güncelleştirme
-        index:
-          conference_speakers_title: Konferans konuşmacıları
         new:
           create: yaratmak
         update:
@@ -77,8 +75,11 @@ tr:
           success: Yönetici bu konferanstan başarıyla kaldırıldı.
         edit:
           update: Güncelle
+        index:
+          conference_admins_title: Konferans yöneticileri
         new:
           create: Oluştur
+          title: Yeni konferans yöneticisi
         update:
           error: Bu konferans yöneticisini güncellerken bir sorun oluştu.
           success: Konferans yöneticisi başarıyla güncellendi.
@@ -97,6 +98,7 @@ tr:
           published: Yayınlandı
         new:
           create: Oluştur
+          title: Yeni Konferans
         update:
           error: Bu konferans güncellenirken bir hata oluştu.
           success: Konferans başarıyla güncellendi.
@@ -176,7 +178,7 @@ tr:
           update: Güncelle
         new:
           create: Oluştur
-          title: Yeni iş ortağı
+          title: Yeni Ortak
         update:
           error: Bu konferans için bir iş ortağı güncellenirken hata oluştu.
           success: Bu konferans için iş ortağı başarıyla güncellendi.
@@ -254,7 +256,7 @@ tr:
             invites: Davetler
           new:
             invite: Davet et
-            new_invite: Kullanıcı davet et
+            new_invite: Katılımcı Davet Et
         conference_registrations:
           index:
             registrations: Kayıtlar
