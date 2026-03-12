@@ -104,7 +104,6 @@ tr:
         new:
           import: İçe aktar
           select: Hangi verileri içe aktarmak istediğinizi seçin
-          title: Kurulu içe aktar
       assembly_publications:
         create:
           error: Bu kurul yayınlanırken bir hata oluştu.
@@ -124,6 +123,7 @@ tr:
           assembly_admins_title: Kurul yöneticileri
         new:
           create: Oluştur
+          title: Yeni Meclis Yöneticisi
         update:
           error: Bu kurul için bir yönetici güncellenirken bir sorun oluştu.
           success: Yönetici bu kurul için başarıyla güncellendi.
