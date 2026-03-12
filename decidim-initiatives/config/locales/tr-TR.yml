@@ -110,9 +110,6 @@ tr:
             name_and_surname: Ad ve soyadı
             postal_code: Posta kodu
             timestamp: Zaman Damgası
-      titles:
-        initiatives: Girişimler
-        initiatives_types: Girişim türleri
     events:
       initiatives:
         admin:
