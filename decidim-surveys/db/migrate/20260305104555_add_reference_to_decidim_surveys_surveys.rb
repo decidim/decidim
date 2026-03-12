@@ -10,6 +10,7 @@ class AddReferenceToDecidimSurveysSurveys < ActiveRecord::Migration[8.0]
 
   def change
     add_column :decidim_surveys_surveys, :reference, :string
+    Survey.reset_column_information
     Survey.find_each { |survey| survey.send(:store_reference) }
     change_column_null :decidim_surveys_surveys, :reference, false
   end

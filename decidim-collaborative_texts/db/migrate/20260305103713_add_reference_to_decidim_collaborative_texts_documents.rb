@@ -10,6 +10,7 @@ class AddReferenceToDecidimCollaborativeTextsDocuments < ActiveRecord::Migration
 
   def change
     add_column :decidim_collaborative_texts_documents, :reference, :string
+    Document.reset_column_information
     Document.find_each { |document| document.send(:store_reference) }
     change_column_null :decidim_collaborative_texts_documents, :reference, false
   end

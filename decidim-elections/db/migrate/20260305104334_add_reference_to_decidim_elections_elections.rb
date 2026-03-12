@@ -10,6 +10,7 @@ class AddReferenceToDecidimElectionsElections < ActiveRecord::Migration[8.0]
 
   def change
     add_column :decidim_elections_elections, :reference, :string
+    Election.reset_column_information
     Election.find_each { |election| election.send(:store_reference) }
     change_column_null :decidim_elections_elections, :reference, false
   end
