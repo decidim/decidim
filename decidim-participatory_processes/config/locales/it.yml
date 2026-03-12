@@ -89,6 +89,7 @@ it:
           attachment_files: File
           attachments: Allegati
           components: Componenti
+          info: Informazioni su questo processo
           moderations: Moderazione
           process_admins: Amministratrici/tori di processo
           steps: Fasi (Steps)
@@ -128,7 +129,6 @@ it:
         destroy:
           success: Gruppo di processi partecipativi cancellato con successo.
         edit:
-          title: Aggiorna un gruppo di processi
           update: Modifica
         new:
           create: Crea
@@ -143,7 +143,6 @@ it:
         new:
           import: Importa
           select: Seleziona quali dati vuoi importare
-          title: Importa processo partecipativo
       participatory_process_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questo processo partecipativo.
@@ -170,13 +169,11 @@ it:
               Lo abbiamo lasciato qui per voi per migrare i Call To Action di cui avete bisogno. I campi <i>Call to action path</i> e
               <i>Call to action text</i> verranno rimossi nella prossima versione.
             title: CTA deprecato
-          title: Modifica una fase del processo partecipativo.
           update: Modifica
         index:
           steps_title: Fasi (Steps)
         new:
           create: Crea
-          title: Nuova fase del processo partecipativo.
         ordering:
           error: Si è verificato un errore cercando di ri-ordinare le fasi di questo processo partecipativo.
         update:
@@ -189,13 +186,9 @@ it:
         destroy:
           success: Utente rimosso con successo dal ruolo di amministratore di questo processo partecipativo.
         edit:
-          title: Aggiorna amministratore del processo partecipativo
           update: Modifica
-        index:
-          process_admins_title: Amministratori del processo partecipativo
         new:
           create: Crea
-          title: Nuovo amministratore del processo partecipativo
         update:
           error: Si è verificato un errore durante l'aggiornamento di un utente per questo processo partecipativo.
           success: OK, è stato aggiornato l'utente per questo processo partecipativo.
@@ -211,7 +204,6 @@ it:
           published: Pubblicato
         new:
           create: Crea
-          title: Nuovo processo partecipativo.
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo processo partecipativo.
           success: OK, il processo partecipativo è stato aggiornato.
@@ -220,7 +212,7 @@ it:
           error: Si è verificato un errore cercando di creare il nuovo gruppo di processi partecipativi.
           success: OK, il gruppo di processi partecipativi è stato creato.
       titles:
-        participatory_process_groups: Gruppo di processi partecipativi
+        participatory_process_groups: Gruppi di processi partecipativi
         participatory_processes: Processi partecipativi
       users:
         resend_invitation:
