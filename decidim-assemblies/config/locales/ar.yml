@@ -102,7 +102,6 @@ ar:
           published: نشرت
         new:
           create: إنشاء
-          title: جمعية جديدة
         update:
           error: حدثت مشكلة أثناء تحديث هذه الجمعية.
           success: تم تحديث الجمعية بنجاح.
@@ -113,7 +112,6 @@ ar:
         new:
           import: استيراد
           select: اختر البيانات التي ترغب في استيرادها
-          title: استيراد الجمعية
       assembly_publications:
         create:
           error: حدثت مشكلة في نشر هذا التجميع.
@@ -129,8 +127,6 @@ ar:
           success: تمت إزالة المشرف بنجاح من هذا التجميع.
         edit:
           update: تحديث
-        index:
-          assembly_admins_title: مدراء الجمعية
         new:
           create: إنشاء
         update:
@@ -173,7 +169,6 @@ ar:
             collaborator: متعاون
             moderator: مُشرف
       titles:
-        assemblies: الجمعيات
         assemblies_types: أنواع التجمّعات
     admin_log:
       assembly:
