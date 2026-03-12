@@ -681,6 +681,7 @@ pt-BR:
             related_meetings: Reuniões relacionadas
             remove_assignment: Remover Atribuição
             remove_assignment_confirmation: Tem certeza que deseja remover o avaliador desta proposta?
+            title: Responder proposta
             votes_count: Contagem de votos
           update_taxonomies:
             invalid: 'Essas propostas já tinham as taxonomias %{taxonomies}: %{proposals}.'
