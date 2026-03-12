@@ -106,11 +106,8 @@ fi:
           public: Julkinen
           published: Julkaistu
           unpublished: Julkaisematon
-        manage_trash:
-          title: Poistetut ryhmät
         new:
           create: Luo
-          title: Uusi ryhmä
         update:
           error: Ryhmän päivitys epäonnistui.
           success: Ryhmän päivitys onnistui.
@@ -122,7 +119,6 @@ fi:
         new:
           duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi ryhmä
       assembly_imports:
         create:
           error: Ryhmän tuonti epäonnistui.
@@ -130,7 +126,6 @@ fi:
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
-          title: Tuo ryhmä
       assembly_publications:
         create:
           error: Ryhmän julkaiseminen epäonnistui.
@@ -145,13 +140,9 @@ fi:
         destroy:
           success: Hallintakäyttäjän poisto ryhmästä onnistui.
         edit:
-          title: Päivitä ryhmän hallintakäyttäjän tietoja
           update: Päivitä
-        index:
-          assembly_admins_title: Ryhmän hallintakäyttäjät
         new:
           create: Luo
-          title: Uusi ryhmän hallintakäyttäjä
         update:
           error: Ryhmän hallintakäyttäjän päivitys epäonnistui.
           success: Ryhmän hallintakäyttäjän päivitys onnistui.
@@ -209,8 +200,6 @@ fi:
         space_filter_for:
           assemblies: Kaikki ryhmät
       titles:
-        assemblies: Ryhmät
-        assemblies_deleted: Poistetut ryhmät
         assemblies_types: Ryhmien tyypit
       tooltips:
         deleted_assemblies_info: Ryhmä voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
