@@ -84,7 +84,7 @@ nl:
           published: Gepubliceerd
         new:
           create: creëren
-          title: Nieuwe bijeenkomst
+          title: Nieuwe groep
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze groep.
           success: Groep is succesvol bijgewerkt.
@@ -95,7 +95,6 @@ nl:
         new:
           import: Importeren
           select: Selecteer welke gegevens u wilt importeren
-          title: Importeer assemblage
       assembly_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze groep.
