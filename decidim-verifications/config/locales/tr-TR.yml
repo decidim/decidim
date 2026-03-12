@@ -86,12 +86,6 @@ tr:
         skip_verification: Bunu şimdilik %{link} atlayabilirsiniz
         start_exploring: keşfetmeye başla
       csv_census:
-        admin:
-          index:
-            title: Geçerli kayıt verisi
-          instructions:
-            body: Bunu yapmak için sistem yönetimine girmeli ve csv_census yetkilerini kuruluşa eklemelisiniz.
-            title: Bu kuruluş için CSV sayımını etkinleştirmeniz gerekiyor
         authorizations:
           new:
             error: Hesabınızı doğrulayamadık veya kuruluşun sayımına girmediniz.
@@ -111,13 +105,11 @@ tr:
               error: Yapılandırma güncellenirken bir hata oluştu.
           confirmations:
             new:
-              introduce_user_data: Resimdeki verileri tanıtın
               reject: Reddet
               verify: Doğrulama
           offline_confirmations:
             new:
               cancel: İptal Et
-              introduce_user_data: Katılımcı e-postasını ve doküman verilerini tanıtın
               verify: Doğrula
           pending_authorizations:
             index:
