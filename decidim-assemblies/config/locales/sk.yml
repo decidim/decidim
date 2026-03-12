@@ -85,7 +85,6 @@ sk:
           published: Zverejnené
         new:
           create: Vytvoriť
-          title: Nové zhromaždenie
         update:
           error: Pri tvorbe nového zhromaždenia nastala chyba.
           success: Zhromaždenie úspešne aktualizované.
