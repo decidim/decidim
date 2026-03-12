@@ -98,7 +98,6 @@ hu:
           unpublished: Nem publikált
         new:
           create: Létrehozás
-          title: Új gyűlés
         update:
           error: Hiba történt a gyűlés frissítése során.
           success: Gyűlés frissítése sikeres.
@@ -109,7 +108,6 @@ hu:
         new:
           import: Importál
           select: Válaszd ki, mely adatokat szeretnéd importálni
-          title: Gyűlés importálása
       assembly_publications:
         create:
           error: Hiba történt a gyűlés közzététele során.
@@ -124,13 +122,9 @@ hu:
         destroy:
           success: Admin eltávolítása a gyűlésből sikeres.
         edit:
-          title: Gyűlés adminjának frissítése
           update: Frissítés
-        index:
-          assembly_admins_title: Gyűlés adminjai
         new:
           create: Létrehozás
-          title: Új gyűlés admin
         update:
           error: Hiba történt a gyűlés adminjának frissítése során.
           success: Gyűlés adminjának frissítése sikeres.
@@ -178,7 +172,6 @@ hu:
             collaborator: Közreműködő
             moderator: Moderátor
       titles:
-        assemblies: Gyűlések
         assemblies_types: Gyűlés típusa
     admin_log:
       assembly:
