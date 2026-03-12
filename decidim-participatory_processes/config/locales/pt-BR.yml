@@ -163,13 +163,13 @@ pt-BR:
         new:
           duplicate: Duplicar
           select: Selecione os dados que deseja duplicar
-          title: Processos participativos duplicados
+          title: Duplicar processo participativo
       participatory_process_groups:
         destroy:
           error: Ocorreu um erro ao destruir o grupo de processos participativos.
           success: Grupo de processos participativo excluído com sucesso.
         edit:
-          title: Editar grupo de processos
+          title: Editar grupo do processo
           update: Atualizar
         new:
           create: Criar
@@ -207,7 +207,7 @@ pt-BR:
             last_step: Não é possível excluir a última etapa de um processo.
           success: Etapa do processo participativo excluída com sucesso.
         edit:
-          title: Edite o passo do processo participativo
+          title: Edite a etapa do processo participativo
           update: Atualizar
         index:
           steps_title: Passos
@@ -226,10 +226,8 @@ pt-BR:
         destroy:
           success: Usuário removido com sucesso deste processo participativo.
         edit:
-          title: Atualize o administrados do processo participativo
+          title: Atualizar o administrador do processo participativo
           update: Atualizar
-        index:
-          process_admins_title: Usuários do processo participativo
         new:
           create: Criar
           title: Novo administrador do processo participativo
@@ -248,7 +246,7 @@ pt-BR:
           published: Publicados
           unpublished: Não publicado
         manage_trash:
-          title: Excluir processo participativo
+          title: Processos participativos excluídos
         new:
           create: Criar
           title: Novo processo participativo
