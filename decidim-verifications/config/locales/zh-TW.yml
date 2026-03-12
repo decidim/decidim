@@ -130,10 +130,6 @@ zh-TW:
           index:
             data: 總共載入了 %{count} 筆記錄。最後上傳日期為 %{due_date}。
             empty: 目前沒有戶籍資料。使用下面的表格，使用 CSV 檔案進行匯入。
-            title: 目前戶籍資料
-          instructions:
-            body: 您需要進入系統管理，並向組織添加 csv_census 授權以進行操作。
-            title: 您需要為此組織啟用 CSV 戶籍調查。
           new:
             file: "帶有電子郵件數據的.csv 文件"
         authorizations:
@@ -160,7 +156,6 @@ zh-TW:
               error: 驗證不符合。請再試一次或拒絕驗證，以便參與者進行修正。
               success: 參與者驗證成功.
             new:
-              introduce_user_data: 輸入圖片中的數據
               reject: 拒絕
               verify: 驗證
           offline_confirmations:
@@ -169,7 +164,6 @@ zh-TW:
               success: 參與者驗證成功.
             new:
               cancel: 取消
-              introduce_user_data: 輸入參與者電子郵件和文件資料
               verify: 驗證
           pending_authorizations:
             index:
