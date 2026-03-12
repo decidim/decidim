@@ -23,6 +23,7 @@ module Decidim
     let(:image_variant_processed_representation_path) { routes.rails_representation_path(image_variant_processed, only_path: true) }
     let(:image_blob_url) { routes.rails_disk_service_url(image_blob.signed_id, image_blob.filename, host: asset_host) }
     let(:document_blob_url) { routes.rails_disk_service_url(document_blob.signed_id, document_blob.filename, host: asset_host) }
+    let(:invalid_blob_url) { image_blob.to_global_id.to_s.gsub("Blob/", "Blob/123") }
     let(:suffix) { "" }
 
     let(:content) do
@@ -32,6 +33,7 @@ module Decidim
         <p><img src='#{image_blob.to_global_id}#{suffix}' alt="Blob image"></p>
         <p><a href='#{document_blob.to_global_id}#{suffix}'>Link to document</a></p>
         <p class="document-url">#{document_blob.to_global_id}#{suffix}</p>
+        <p><img src="#{invalid_blob_url}" alt="Invalid blob"></p>
       HTML
     end
 
@@ -51,6 +53,9 @@ module Decidim
           expect(doc.at("img[alt='Blob image']").attr(:src)).to be_blob_url(image_blob)
           expect(doc.at("a").attr(:href)).to be_blob_url(document_blob)
           expect(doc.at("p.document-url").inner_html).to be_blob_url(document_blob)
+          # Note, the invalid blob URL is replaced with an empty string,
+          # This might change in the future if we decide to keep the invalid URL instead of removing it
+          expect(doc.at("img[alt='Invalid blob']").attr(:src)).to be_blank
         end
       end
 
