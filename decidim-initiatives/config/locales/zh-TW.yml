@@ -133,7 +133,7 @@ zh-TW:
             timestamp: 時間戳記
       titles:
         initiatives: 倡議
-        initiatives_types: 倡議類型
+        initiatives_types: 倡議種類
     events:
       initiatives:
         admin:
