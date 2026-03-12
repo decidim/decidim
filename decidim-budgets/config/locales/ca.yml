@@ -90,7 +90,7 @@ ca:
             invalid: S'ha produït un error en crear aquest projecte.
             success: Projecte creat correctament.
           edit:
-            title: Editar projecte
+            title: Editar projecte a "%{budget}"
             update: Actualitzar
           index:
             actions: Accions
@@ -113,7 +113,7 @@ ca:
             title: Projectes eliminats
           new:
             create: Crear
-            title: Nou projecte
+            title: Nova projecte a "%{budget}"
           update:
             invalid: S'ha produït un error en actualitzar aquest projecte.
             success: Projecte actualitzat correctament.
