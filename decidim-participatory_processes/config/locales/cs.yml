@@ -170,13 +170,11 @@ cs:
         new:
           duplicate: Duplikovat
           select: Vyberte, která data chcete duplikovat
-          title: Duplikovat participativní proces
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zničení skupiny participačních procesů.
           success: Účastní skupina procesů byla úspěšně smazána.
         edit:
-          title: Upravit skupinu procesů
           update: Aktualizace
         new:
           create: Vytvořit
@@ -191,7 +189,6 @@ cs:
         new:
           import: Importovat
           select: Vyberte, které údaje chcete importovat
-          title: Importovat proces participace
       participatory_process_publications:
         create:
           error: Při publikování tohoto procesu participace došlo k chybě.
@@ -221,13 +218,11 @@ cs:
               Nechali jsme zde pro vás migraci CTA, které potřebujete. Pole <i>Cesta výzvy k akci</i> a
               <i>Text výzvy k akci</i> bude v příští verzi odstraněn.
             title: Zastaralá CTA
-          title: Úprava kroku procesu participace
           update: Aktualizace
         index:
           steps_title: Kroky
         new:
           create: Vytvořit
-          title: Nový krok procesu participace
         ordering:
           error: Došlo k chybě při novém uspořádání těchto kroků procesu participace.
         update:
@@ -240,13 +235,9 @@ cs:
         destroy:
           success: Uživatel byl úspěšně odstraněn z tohoto participačního procesu.
         edit:
-          title: Aktualizovat správce participačního procesu
           update: Aktualizace
-        index:
-          process_admins_title: Uživatelé účastnických procesů
         new:
           create: Vytvořit
-          title: Nový správce participačního procesu
         update:
           error: Došlo k chybě při aktualizaci uživatele pro tento participační proces.
           success: Uživatel byl úspěšně aktualizován pro tento participační proces.
@@ -261,11 +252,8 @@ cs:
           public: Veřejné
           published: Publikováno
           unpublished: Nezveřejněno
-        manage_trash:
-          title: Odstraněné participační procesy
         new:
           create: Vytvořit
-          title: Nový participační proces
         update:
           error: Při aktualizaci tohoto participačního procesu došlo k chybě.
           success: Participační proces byl úspěšně aktualizován.
@@ -284,7 +272,6 @@ cs:
         participatory_process_groups: Skupiny účastnických procesů
         participatory_process_types: Typy participačních procesů
         participatory_processes: Participativní procesy
-        participatory_processes_deleted: Odstraněné participační procesy
       tooltips:
         deleted_processes_info: Proces může být odstraněn pouze v případě, že je stav "Nezveřejněný".
       users:
