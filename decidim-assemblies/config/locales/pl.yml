@@ -116,7 +116,6 @@ pl:
         new:
           import: Importuj
           select: Wybierz dane, które chcesz zaimportować
-          title: Importuj zespół
       assembly_publications:
         create:
           error: Podczas publikowania tego zespołu wystąpił błąd.
@@ -131,7 +130,6 @@ pl:
         destroy:
           success: Administrator został usunięty pomyślnie z tego zespołu.
         edit:
-          title: Aktualizuj administratora zgromadzenia
           update: Aktualizuj
         index:
           assembly_admins_title: Administratorzy zespołu
