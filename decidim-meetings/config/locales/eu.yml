@@ -145,7 +145,6 @@ eu:
           success: Topaketa zuzen bikoiztu da.
         new:
           copy: Kopiatu
-          title: Topaketa bikoiztu
       tooltips:
         cannot_close_meetings: Ezin da topaketa hau itxi parte-hartzaile batek sortu baitu
         cannot_duplicate_meetings: Ezin da topaketa hau bikoiztu parte-hartzaile batek sortu baitu
@@ -354,7 +353,6 @@ eu:
             non_user: Parte-hartzailea ez dago
             select_user: Hautatu parte-hartzailea
           index:
-            invite_attendee: Gonbidatu
             invites: Gonbidapenak
             registrations_disabled: Ezin duzu inor gonbidatu izen-emateak desgaituta daudelako.
         meeting_closes:
@@ -459,7 +457,6 @@ eu:
               other: '%{count} izen-emate izan dira.'
             reserved_slots_help: Utzi 0, ez baduzu erreserbatutako espaziorik.
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
-            title: Izen-emateak
           update:
             invalid: Arazo bat egon da izen-ematearen konfigurazioa gordetzean.
             success: Topaketaren izen-ematearen erregistro-ezarpenak ondo gorde dira.
