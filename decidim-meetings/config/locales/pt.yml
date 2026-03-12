@@ -79,7 +79,6 @@ pt:
           success: Reunião duplicada corretamente.
         new:
           copy: Copiar
-          title: Reunião duplicada
     components:
       meetings:
         actions:
@@ -221,7 +220,6 @@ pt:
             non_user: Participante inexistente
             select_user: Selecione o participante
           index:
-            invite_attendee: Convidar participante
             invites: Convites
         meeting_closes:
           edit:
