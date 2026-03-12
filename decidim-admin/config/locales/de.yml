@@ -219,7 +219,6 @@ de:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
           callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
           cta: Jetzt überprüfen.
-        title: Admin-Nutzungsbedingungen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
@@ -262,8 +261,6 @@ de:
         edit:
           title: Ordner bearbeiten
           update: Aktualisieren
-        index:
-          attachment_collections_title: Anhang Ordner
         new:
           create: Erstellen
           title: Neuer Ordner
@@ -279,8 +276,6 @@ de:
         edit:
           title: Anhang bearbeiten
           update: Aktualisieren
-        index:
-          attachments_title: Anhänge
         new:
           create: Anhang erstellen
           title: Neuer Anhang
@@ -340,7 +335,6 @@ de:
           title: 'Komponente hinzufügen: %{name}'
         publish:
           success: Die Komponente wurde erfolgreich veröffentlicht.
-        title: Komponenten
         unpublish:
           success: Die Veröffentlichung der Komponente wurde erfolgreich zurückgezogen.
         update:
@@ -357,7 +351,6 @@ de:
           text: Duchsuche nach aktueller E-Mail-Adresse, Name oder Spitzname
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
-        title: Überprüfungskonflikte
         transfer:
           email: E-Mail
           error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
@@ -517,7 +510,6 @@ de:
           impersonate: Imitieren
           impersonate_existing_managed_user: Angenommen, dass der Benutzer "%{name}" verwaltet wird
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
-          impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
       imports:
         and: und
         data_errors:
@@ -573,7 +565,6 @@ de:
         promotions:
           new:
             explanation: Verwaltete Benutzer können zu Standardbenutzern heraufgestuft werden. Das bedeutet, dass sie zu der Anwendung eingeladen werden und nicht in der Lage sind, sie erneut zu repräsentieren. Der eingeladene Benutzer erhält eine E-Mail, um Ihre Einladung anzunehmen.
-            new_managed_user_promotion: Neue verwaltete Benutzerwerbung
             promote: Fördern
       members:
         create:
@@ -803,7 +794,6 @@ de:
           title: Newsletter Vorlagen
           use_template: Diese Vorlage verwenden
         show:
-          preview: 'Vorschau der Vorlage: %{template_name}'
           use_template: Diese Vorlage verwenden
       newsletters:
         confirm_recipients:
@@ -868,7 +858,6 @@ de:
         send_to_user:
           sent_successfully: Newsletter wurde erfolgreich an %{email} gesendet
         show:
-          preview: Vorschau
           select_recipients_to_deliver: Empfänger auswählen
           send_me_a_test_email: Mir eine Test-E-Mail senden
           subject: Gegenstand
@@ -963,7 +952,6 @@ de:
           up: Nach oben
         form:
           add: Zur erlaubten Liste hinzufügen
-          title: Liste erlaubter externer Domains
       reminders:
         create:
           error: Beim Erstellen dieser Erinnerungen ist ein Problem aufgetreten.
@@ -1220,25 +1208,12 @@ de:
           none: Keine
           title: Neues Element in %{taxonomy}
       titles:
-        admin_log: Adminprotokoll
-        area_types: Bereichstypen
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
-        dashboard: Instrumententafel
-        edit_external_domains: Liste erlaubter externer Domains
-        impersonatable_users: Überschaubare Benutzer
-        impersonations: Benutzerverwaltung
         menu: Menü
-        page_topics: Themen
-        pages: Seiten
         panel: Admin
-        participants: Benutzer
-        scope_types: Bereichstypen
         scopes: Bereiche
         statistics: Statistiken
-        taxonomies: Klassifizierungen
-        taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
-        users: Administratoren
       tooltips:
         cannot_destroy_taxonomy_filter: Klassifizierungsfilter kann nicht gelöscht werden
         cannot_edit_taxonomy_filter: Klassifizierungsfilter kann nicht bearbeitet werden
