@@ -88,5 +88,76 @@ module Decidim::Meetings
         expect(subject).to have_css(".meeting__calendar-separator")
       end
     end
+
+    describe "#end_year" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 10, 15, 10, 0, 0, 0), end_time: nil) }
+      let(:my_cell) { cell("decidim/meetings/dates_and_map", meeting) }
+
+      it "returns nil when end_time is blank" do
+        expect(my_cell.end_year).to be_nil
+      end
+
+      it "returns formatted year when end_time is present" do
+        meeting.update!(end_time: Time.new(2021, 5, 20, 12, 0, 0, 0))
+        expect(my_cell.end_year).to eq("2021")
+      end
+    end
+
+    describe "#same_month?" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 10, 15, 10, 0, 0, 0), end_time: nil) }
+      let(:my_cell) { cell("decidim/meetings/dates_and_map", meeting) }
+
+      it "returns true when end_time is blank" do
+        expect(my_cell.send(:same_month?)).to be true
+      end
+
+      it "returns true when same month" do
+        meeting.update!(end_time: Time.new(2020, 10, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_month?)).to be true
+      end
+
+      it "returns false when different months" do
+        meeting.update!(end_time: Time.new(2020, 11, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_month?)).to be false
+      end
+    end
+
+    describe "#same_day?" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 10, 15, 10, 0, 0, 0), end_time: nil) }
+      let(:my_cell) { cell("decidim/meetings/dates_and_map", meeting) }
+
+      it "returns true when end_time is blank" do
+        expect(my_cell.send(:same_day?)).to be true
+      end
+
+      it "returns true when same day" do
+        meeting.update!(end_time: Time.new(2020, 10, 15, 18, 0, 0, 0))
+        expect(my_cell.send(:same_day?)).to be true
+      end
+
+      it "returns false when different days" do
+        meeting.update!(end_time: Time.new(2020, 10, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_day?)).to be false
+      end
+    end
+
+    describe "#same_year?" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 10, 15, 10, 0, 0, 0), end_time: nil) }
+      let(:my_cell) { cell("decidim/meetings/dates_and_map", meeting) }
+
+      it "returns true when end_time is blank" do
+        expect(my_cell.send(:same_year?)).to be true
+      end
+
+      it "returns true when same year" do
+        meeting.update!(end_time: Time.new(2020, 12, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_year?)).to be true
+      end
+
+      it "returns false when different years" do
+        meeting.update!(end_time: Time.new(2021, 1, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_year?)).to be false
+      end
+    end
   end
 end

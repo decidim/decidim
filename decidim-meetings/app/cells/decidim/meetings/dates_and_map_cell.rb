@@ -22,20 +22,28 @@ module Decidim
       end
 
       def end_year
+        return nil if model.end_time.blank?
+
         l model.end_time, format: "%Y"
       end
 
       private
 
       def same_month?
+        return true if end_time.blank?
+
         start_time.month == end_time.month
       end
 
       def same_day?
+        return true if end_time.blank?
+
         start_time.day == end_time.day
       end
 
       def same_year?
+        return true if end_time.blank?
+
         start_time.year == end_time.year
       end
 
