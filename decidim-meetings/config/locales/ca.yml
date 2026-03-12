@@ -148,7 +148,6 @@ ca:
           success: Trobada duplicada correctament.
         new:
           copy: Copia
-          title: Duplicar trobada
     components:
       meetings:
         actions:
@@ -333,7 +332,6 @@ ca:
             non_user: Participant no existent
             select_user: Selecciona la participant
           index:
-            invite_attendee: Convidar assistent
             invites: Invitacions
             registrations_disabled: No pots convidar a cap persona perquè les inscripcions estan inhabilitades.
         meeting_closes:
