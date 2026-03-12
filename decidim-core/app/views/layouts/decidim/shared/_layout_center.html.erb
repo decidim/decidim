@@ -14,7 +14,7 @@ css_class = case columns
   <%= yield %>
 <% end %>
 
-<% if local_assigns(:reference).present? %>
+<% if local_assigns[:reference].present? %>
   <section class="layout-container__reference">
     <p><%= reference %></p>
   </section>
