@@ -123,8 +123,6 @@ pl:
           success: Prelegent został pomyślnie usunięty z tej konferencji.
         edit:
           update: Aktualizuj
-        index:
-          conference_speakers_title: Prelegenci konferencyjni
         new:
           create: Utwórz
         publish:
@@ -148,6 +146,7 @@ pl:
           conference_admins_title: Administratorzy konferencji
         new:
           create: Utwórz
+          title: Nowy administrator konferencji
         update:
           error: Wystąpił błąd podczas aktualizacji administratora konferencji.
           success: Administrator konferencji zaktualizowany pomyślnie.
@@ -189,7 +188,6 @@ pl:
           conference_admins: Administratorzy konferencji
           conference_invites: Zaprasza
           conference_speakers: Prelegenci
-          info: O tej konferencji
           moderations: Moderacje
           partners: Partnerzy
           registrations: Rejestracje
@@ -333,7 +331,7 @@ pl:
             select_user: Wybierz użytkownika
           index:
             invite_attendee: Zaproś użytkownika
-            invites: Zaproszeni
+            invites: Zaprasza
           new:
             explanation: Użytkownik zostanie zaproszony do udziału w konferencji. Jeśli e-mail nie został wcześniej zarejestrowany, zostanie również zaproszony do organizacji.
             invite: Zaproś
