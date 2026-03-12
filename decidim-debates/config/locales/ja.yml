@@ -155,6 +155,7 @@ ja:
           title: 新しいディベートを作成
         orders:
           label: '議論の並び替え:'
+          most_commented: コメントの多い順
           random: ランダムに並び替え
           recent: 新着順
           updated: 更新が新しい順
