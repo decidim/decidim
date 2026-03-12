@@ -48,7 +48,6 @@ zh-CN:
           success: 会议成功重复。
         new:
           copy: 复制
-          title: 复制会议
     components:
       meetings:
         actions:
@@ -171,7 +170,6 @@ zh-CN:
             non_user: 非现有参与者
             select_user: 选择参与者
           index:
-            invite_attendee: 邀请参与者
             invites: 邀请
         meeting_closes:
           edit:
