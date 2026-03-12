@@ -88,11 +88,9 @@ is:
           copy: Afrita
       participatory_process_groups:
         edit:
-          title: Breyta ferli hópsins
           update: Uppfæra
         new:
           create: Búa til
-          title: Nýr ferli hópur
       participatory_process_steps:
         default_title: Kynning
         edit:
@@ -113,7 +111,6 @@ is:
           published: Published
         new:
           create: Búa til
-          title: Nýtt þátttökuferli
       titles:
         participatory_process_groups: Þátttaka ferli hópa
         participatory_processes: Þátttökuferli
