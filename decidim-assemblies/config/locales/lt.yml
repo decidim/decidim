@@ -101,7 +101,6 @@ lt:
           published: Publikuota
         new:
           create: Sukurti
-          title: Nauja asamblėja
         update:
           error: Atnaujinant šią asamblėją iškilo problema.
           success: Asamblėja atnaujinta.
@@ -112,7 +111,6 @@ lt:
         new:
           import: Importuoti
           select: Pasirinkite, kuriuos duomenis norėtumėte importuoti
-          title: Importuoti asamblėją
       assembly_publications:
         create:
           error: Skelbiant šią asamblėją iškilo problema.
@@ -128,8 +126,6 @@ lt:
           success: Administratorius sėkmingai panaikintas iš šios asamblėjos.
         edit:
           update: Atnaujinti
-        index:
-          assembly_admins_title: Asamblėjos administratoriai
         new:
           create: Sukurti
         update:
@@ -171,7 +167,6 @@ lt:
             collaborator: Bendraautorius
             moderator: Moderatorius
       titles:
-        assemblies: Asamblėjos
         assemblies_types: Asamblėjų tipai
     admin_log:
       assembly:
