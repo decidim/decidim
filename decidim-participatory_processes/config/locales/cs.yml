@@ -114,7 +114,6 @@ cs:
       menu:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:
-          info: O této skupině procesů
           landing_page: Rozložení vstupní strany
         participatory_processes: Procesy
         participatory_processes_submenu:
@@ -122,7 +121,6 @@ cs:
           attachment_files: Soubory
           attachments: Přílohy
           components: Komponenty
-          info: O tomto procesu
           landing_page: Rozložení vstupní strany
           members: Členové
           moderations: Moderování
@@ -170,17 +168,14 @@ cs:
         new:
           duplicate: Duplikovat
           select: Vyberte, která data chcete duplikovat
-          title: Duplikovat participativní proces
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zničení skupiny participačních procesů.
           success: Účastní skupina procesů byla úspěšně smazána.
         edit:
-          title: Upravit skupinu procesů
           update: Aktualizace
         new:
           create: Vytvořit
-          title: Nová skupina procesů
         update:
           error: Byla chyba při aktualizaci této participační skupiny procesů.
           success: Skupina účastnických procesů byla úspěšně aktualizována.
@@ -191,7 +186,6 @@ cs:
         new:
           import: Importovat
           select: Vyberte, které údaje chcete importovat
-          title: Importovat proces participace
       participatory_process_publications:
         create:
           error: Při publikování tohoto procesu participace došlo k chybě.
@@ -214,13 +208,9 @@ cs:
             last_step: Nelze odstranit poslední fázi procesu.
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
-          title: Úprava kroku procesu participace
           update: Aktualizace
-        index:
-          steps_title: Kroky
         new:
           create: Vytvořit
-          title: Nový krok procesu participace
         ordering:
           error: Došlo k chybě při novém uspořádání těchto kroků procesu participace.
         update:
@@ -233,13 +223,9 @@ cs:
         destroy:
           success: Uživatel byl úspěšně odstraněn z tohoto participačního procesu.
         edit:
-          title: Aktualizovat správce participačního procesu
           update: Aktualizace
-        index:
-          process_admins_title: Uživatelé účastnických procesů
         new:
           create: Vytvořit
-          title: Nový správce participačního procesu
         update:
           error: Došlo k chybě při aktualizaci uživatele pro tento participační proces.
           success: Uživatel byl úspěšně aktualizován pro tento participační proces.
@@ -254,11 +240,8 @@ cs:
           public: Veřejné
           published: Publikováno
           unpublished: Nezveřejněno
-        manage_trash:
-          title: Odstraněné participační procesy
         new:
           create: Vytvořit
-          title: Nový participační proces
         update:
           error: Při aktualizaci tohoto participačního procesu došlo k chybě.
           success: Participační proces byl úspěšně aktualizován.
@@ -274,10 +257,7 @@ cs:
         space_filter_for:
           participatory_processes: Všechny participační procesy
       titles:
-        participatory_process_groups: Skupiny účastnických procesů
         participatory_process_types: Typy participačních procesů
-        participatory_processes: Participativní procesy
-        participatory_processes_deleted: Odstraněné participační procesy
       tooltips:
         deleted_processes_info: Proces může být odstraněn pouze v případě, že je stav "Nezveřejněný".
       users:
