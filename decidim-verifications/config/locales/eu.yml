@@ -221,10 +221,6 @@ eu:
               user_authorized: Parte-hartzailea baimendua?
             import_csv: Inportatu CSV fitxategia
             no_authorized: Parte-hartzailea ez baimendua
-            title: Erroldako oraingo datuak
-          instructions:
-            body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
-            title: CSV errolda aktibatu behar duzu erakunde honetarako
         authorizations:
           new:
             error: Ezin izan dugu zure kontua egiaztatu edo ez zaude erakundearen erroldan.
@@ -255,7 +251,6 @@ eu:
               error: Egiaztapena ez dator bat. Mesedez, saiatu berriro edo ukatu egiaztapena, parte-hartzaileak aldatu dezan.
               success: Parte-hartzailea zuzen egiaztatua.
             new:
-              introduce_user_data: Idatzi datuak irudian
               reject: Ukatu
               verify: Ziurtatu
           offline_confirmations:
@@ -264,7 +259,6 @@ eu:
               success: Parte-hartzailea zuzen egiaztatua.
             new:
               cancel: Ezeztatu
-              introduce_user_data: Sartu parte-hartzailearen helbide elektronikoa eta dokumentuaren datuak
               verify: Ziurtatu
           pending_authorizations:
             index:
