@@ -856,7 +856,7 @@ ja:
         title: '%{number} 票残っていることを忘れないでください'
       forms:
         errors:
-          device_not_supported:
+          device_not_supported: お使いのデバイスは位置情報サービスをサポートしていません。アドレスを手動で入力してください。
           no_device_location: 申し訳ありませんが、場所を検出できませんでした。アドレスを手動で入力してください。
         use_my_location: 現在地を使用
       invite_coauthors:
