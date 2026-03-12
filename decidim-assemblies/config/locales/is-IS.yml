@@ -72,11 +72,10 @@ is:
           published: Published
         new:
           create: Búa til
-          title: Ný samkoma
+          title: Nýtt þing
       assembly_imports:
         new:
           import: Flytja inn
-          title: Flytja inn þing
       assembly_user_roles:
         edit:
           update: Uppfæra
