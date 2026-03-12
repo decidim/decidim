@@ -606,6 +606,7 @@ fr-CA:
             related_meetings: Réunions associées
             remove_assignment: Supprimer l'affectation
             remove_assignment_confirmation: Êtes-vous sûr(e) de vouloir retirer l'évaluateur de cette proposition ?
+            title: Répondre à la proposition
             votes_count: Nombre de votes
         proposals_imports:
           create:
