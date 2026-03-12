@@ -101,11 +101,9 @@ pt:
           public: Público
           published: Publicado
           unpublished: Não publicado
-        manage_trash:
-          title: Reuniões excluídas
         new:
           create: Criar
-          title: Nova assembléia
+          title: Nova reunião
         update:
           error: Ocorreu um problema ao atualizar esta reunião.
           success: Reunião atualizada corretamente.
@@ -116,7 +114,6 @@ pt:
         new:
           import: Importar
           select: Selecione os dados que pretende importar
-          title: Importar reunião
       assembly_publications:
         create:
           error: Ocorreu um problema ao publicar esta reunião.
@@ -131,10 +128,9 @@ pt:
         destroy:
           success: Administrador removido corretamente desta reunião.
         edit:
-          title: Atualizar o administrador da reunião
           update: Atualizar
         index:
-          assembly_admins_title: Administradores da reunião
+          assembly_admins_title: Administradores da Reunião
         new:
           create: Criar
           title: Administrador da nova reunião
@@ -193,7 +189,6 @@ pt:
           assemblies: Todas as reuniões
       titles:
         assemblies: Reuniões
-        assemblies_deleted: Reuniões excluídas
         assemblies_types: Tipos de reuniões
       tooltips:
         deleted_assemblies_info: Só é possível excluir uma reunião se o status for «Não publicado».
