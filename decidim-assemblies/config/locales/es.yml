@@ -151,7 +151,7 @@ es:
           assembly_admins_title: Administradoras de la asamblea
         new:
           create: Crear
-          title: Nueva administradora de la asamblea
+          title: Añadir administradora
         update:
           error: Se ha producido un error al actualizar una administradora para esta asamblea.
           success: Administradora actualizada correctamente para esta asamblea.
