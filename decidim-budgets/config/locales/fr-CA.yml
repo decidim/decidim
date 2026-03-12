@@ -90,7 +90,6 @@ fr-CA:
             invalid: Il y a eu un problème lors de la création de ce projet.
             success: Projet créé avec succès.
           edit:
-            title: Éditer un projet
             update: Mettre à jour
           index:
             actions: Actions
@@ -113,7 +112,6 @@ fr-CA:
             title: Projets supprimés
           new:
             create: Créer
-            title: Nouveau projet
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce projet.
             success: Projet mis à jour avec succès.
