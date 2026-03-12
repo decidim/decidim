@@ -146,7 +146,6 @@ ca-IT:
           success: Trobada duplicada correctament.
         new:
           copy: Copia
-          title: Duplicar trobada
       tooltips:
         cannot_close_meetings: No es pot tancar aquesta trobada en haver estat creada per una participant
         cannot_duplicate_meetings: No es pot duplicar aquesta trobada en haver estat creada per una participant
@@ -354,7 +353,6 @@ ca-IT:
             non_user: Participant no existent
             select_user: Selecciona la participant
           index:
-            invite_attendee: Convidar assistent
             invites: Invitacions
             registrations_disabled: No pots convidar a cap persona perquè les inscripcions estan inhabilitades.
         meeting_closes:
