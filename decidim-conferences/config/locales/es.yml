@@ -122,13 +122,12 @@ es:
         destroy:
           success: Ponente de la jornada eliminada correctamente.
         edit:
-          title: Actualizar la ponente de la conferencia
+          title: Actualizar ponente de la jornada
           update: Actualizar
         index:
-          conference_speakers_title: Ponentes de las jornadas
+          conference_speakers_title: Ponentes de la jornada
         new:
           create: Crear
-          title: Nueva ponente de la jornada
         publish:
           invalid: Se ha producido un error al publicar esta ponente.
           success: Ponente de la conferencia actualizada correctamente.
@@ -145,13 +144,12 @@ es:
         destroy:
           success: Administradora de la jornada eliminada correctamente.
         edit:
-          title: Actualizar administradora de la jornada
           update: Actualizar
         index:
-          conference_admins_title: Administradoras de la jornada
+          conference_admins_title: Administradores de conferencia
         new:
           create: Crear
-          title: Nueva administradora de la jornada
+          title: Añadir administradora
         update:
           error: Se ha producido un error al actualizar la administradora para esta jornada.
           success: Administradora de la jornada actualizada correctamente.
@@ -168,8 +166,6 @@ es:
         index:
           published: Publicado
           unpublished: Despublicada
-        manage_trash:
-          title: Jornadas eliminadas
         new:
           create: Crear
           title: Conferencia
@@ -187,7 +183,6 @@ es:
         destroy:
           success: Enlace multimedia eliminado correctamente.
         edit:
-          title: Actualizar enlace multimedia
           update: Actualizar
         index:
           media_links_title: Enlaces multimedia
@@ -208,7 +203,6 @@ es:
           conference_invites: Invita
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
-          info: Acerca de esta conferencia
           media_links: Enlaces multimedia
           moderations: Moderaciones
           partners: Colaboradoras
@@ -270,11 +264,10 @@ es:
         destroy:
           success: Colaboradora de la jornada eliminada correctamente.
         edit:
-          title: Actualizar colaboradora
           update: Actualizar
         new:
           create: Crear
-          title: Nueva colaboradora
+          title: Añadir colaboradora
         update:
           error: Se ha producido un error al actualizar una colaboradora de esta jornada.
           success: Colaboradora de la jornada actualizada correctamente.
@@ -292,11 +285,10 @@ es:
         destroy:
           success: Tipo de inscripción eliminado correctamente de esta jornada.
         edit:
-          title: Actualizar el tipo de inscripción
           update: Actualizar
         new:
           create: Crear
-          title: Nuevo tipo de registro
+          title: Añadir tipo de inscripción
         update:
           error: Se ha producido un error al actualizar un tipo de inscripción para esta jornada.
           success: Tipo de inscripción actualizado correctamente para esta jornada.
@@ -305,7 +297,6 @@ es:
           conferences: Todas las jornadas
       titles:
         conferences: Jornadas
-        conferences_deleted: Jornadas eliminadas
       tooltips:
         deleted_conferences_info: Las jornadas solo se pueden eliminar si su estado es 'Despublicada'.
     admin_log:
