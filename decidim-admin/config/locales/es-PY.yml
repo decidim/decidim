@@ -229,7 +229,7 @@ es-PY:
           alert: 'Requerido: Revisa nuestros términos del servicio de administración'
           callout: Por favor dedica un momento a revisar los términos del servicio de administración. En caso contrario, no podrás administrar la plataforma.
           cta: Revisarlos ahora.
-        title: Términos y condiciones del servicio de administración
+        title: Términos y condiciones de uso para administradoras
       area_types:
         create:
           error: Hubo un error al crear un nuevo tipo de área.
@@ -579,7 +579,7 @@ es-PY:
         promotions:
           new:
             explanation: Los usuarios gestionados pueden ser promovidos a usuarios estándar. Esto significa que serán invitados a la aplicación y no será capaz de suplantarlos de nuevo. El usuario invitado recibirá un correo electrónico para aceptar su invitación.
-            new_managed_user_promotion: Nueva promoción de usuarios gestionados
+            new_managed_user_promotion: Nueva promoción de participante gestionada
             promote: Promocionar
       menu:
         admin_log: Registro de actividad de administrador
@@ -1246,22 +1246,22 @@ es-PY:
           none: Ninguno
           title: Editar elemento en "%{taxonomy}"
       titles:
-        admin_log: Registro de actividad de administradores
+        admin_log: Registro de actividad de administración
         area_types: Tipos de área
         areas: Áreas
         authorization_workflows: Métodos de verificación
-        dashboard: Panel de control
+        dashboard: Panel de administración
         edit_external_domains: Lista de dominios externos permitidos
         edit_landing_page: Contenidos de la página
         edit_organization_appearance: Editar apariencia de página de inicio
-        impersonatable_users: Usuarios manejables
+        impersonatable_users: Participantes que se pueden gestionar
         impersonations: Gestion de usuarios
         menu: Menú
         metrics: Métricas
         page_topics: Temas
         pages: Páginas
         panel: Administradora
-        participants: Usuarios
+        participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         statistics: Actividad
