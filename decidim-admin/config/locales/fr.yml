@@ -283,7 +283,7 @@ fr:
           title: Modifier le document lié
           update: Mettre à jour
         index:
-          attachments_title: Documents liés
+          attachments_title: Pièces jointes
         new:
           create: Lier un document
           title: Nouveau document lié
@@ -360,7 +360,6 @@ fr:
           text: Recherche par email, nom ou pseudo de l'utilisateur actuel
         managed_user_name: Utilisateur représenté
         solved: Résolu
-        title: Conflits de vérification
         transfer:
           email: Email
           error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
@@ -576,7 +575,6 @@ fr:
         promotions:
           new:
             explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
-            new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
             promote: Promouvoir
       menu:
         admin_log: Journal d'activité personnel
@@ -759,7 +757,6 @@ fr:
           title: Modèles de newsletter
           use_template: Utiliser ce modèle
         show:
-          preview: 'Prévisualiser le modèle: %{template_name}'
           use_template: Utiliser ce modèle
       newsletters:
         confirm_recipients:
@@ -1198,23 +1195,20 @@ fr:
           select_filter: Sélectionnez un filtre
           taxonomies: Taxonomies
       titles:
-        admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
         areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
-        dashboard: Tableau de bord
         edit_external_domains: Liste des domaines externes autorisés
-        impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         menu: Menu
         page_topics: Sujets
-        pages: Page(s)
+        pages: Pages
         panel: Administrateur
-        participants: Utilisateurs
+        participants: Participants
         scope_types: Types de secteur
         scopes: Secteurs
         statistics: Statistiques
-        users: Administrateurs
+        taxonomies: Taxonomies
       tooltips:
         cannot_destroy_taxonomy_filter: Impossible de détruire ce filtre de taxonomie
         cannot_edit_taxonomy_filter: Impossible de modifier ce filtre de taxonomie
