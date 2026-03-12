@@ -207,7 +207,6 @@ lt:
           alert: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
           callout: Kviečiame peržiūrėti administratoriaus nustatytas naudojimosi sąlygas. Priešingu atveju šios platformos administruoti negalėsite.
           cta: Peržiūrėti jas dabar.
-        title: Administratorių naudojimo politika
       area_types:
         create:
           error: Kuriant naujos erdvės tipą iškilo problema.
@@ -249,8 +248,6 @@ lt:
         edit:
           title: Redaguoti aplanką
           update: Atnaujinti
-        index:
-          attachment_collections_title: Priedų aplankai
         new:
           create: Sukurti
           title: Naujas aplankas
@@ -266,8 +263,6 @@ lt:
         edit:
           title: Redaguoti priedą
           update: Atnaujinti
-        index:
-          attachments_title: Priedai
         new:
           create: Sukurti priedą
           title: Naujas priedas
@@ -326,7 +321,6 @@ lt:
         'false': 'Ne'
         managed_user_name: Tvarkomas Dalyvis
         solved: Išspręsta
-        title: Patikros konfliktai
         transfer:
           email: El. paštas
           name: Vardas
@@ -446,7 +440,7 @@ lt:
           impersonate: Naudoti pakaitinę tapatybę
           impersonate_existing_managed_user: Tvarkyti dalyvį "%{name}"
           impersonate_existing_user: Tvarkyti dalyvį "%{name}"
-          impersonate_new_managed_user: Tvarkyti naują naudotoją
+          impersonate_new_managed_user: Tvarkyti naujo dalyvio duomenis
       imports:
         and: ir
         data_errors:
@@ -508,7 +502,6 @@ lt:
         promotions:
           new:
             explanation: Tvarkomi dalyviai gali būti paaukštinti į standartinius dalyvius. Tai reiškia, kad jie bus pakviesti į platformą ir nebegalėsite jų tvarkyti. Pakviesti naudotojai gaus kvietimą prisijungti el. paštu.
-            new_managed_user_promotion: Naujas tvarkomo naudotojo paaukštinimas
             promote: Paaukštinti
       menu:
         admin_log: Administratoriaus veiklos žurnalas
@@ -668,7 +661,6 @@ lt:
           title: Naujienlaiškio šablonai
           use_template: Naudoti šį šabloną
         show:
-          preview: 'Peržiūrėti šabloną: %{template_name}'
           use_template: Naudoti šį šabloną
       newsletters:
         create:
@@ -903,13 +895,10 @@ lt:
           error: Atnaujinant šį puslapį iškilo problema.
           success: Puslapis atnaujintas.
       titles:
-        admin_log: Administratoriaus veiklos žurnalas
-        area_types: Aplinkos tipai
+        area_types: Erdvės tipas
         areas: Aplinkos
         authorization_workflows: Verifikacijos metodai
-        dashboard: Švieslentė
         edit_organization_appearance: Keisti pagrindinio puslapio išvaizdą
-        impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
         impersonations: Dalyvių tvarkymas
         metrics: Duomenys
         pages: Puslapiai
@@ -919,7 +908,6 @@ lt:
         scopes: Apimtys
         statistics: Veikla
         user_groups: Grupės
-        users: Administratoriai
       user_group:
         csv_verify:
           invalid: Skaitant CSV rinkmeną iškilo problema.
