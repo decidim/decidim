@@ -21,6 +21,10 @@ module Decidim
         l model.start_time, format: "%Y"
       end
 
+      def end_year
+        l model.end_time, format: "%Y"
+      end
+
       private
 
       def same_month?
@@ -29,6 +33,10 @@ module Decidim
 
       def same_day?
         start_time.day == end_time.day
+      end
+
+      def same_year?
+        start_time.year == end_time.year
       end
 
       def display_map?

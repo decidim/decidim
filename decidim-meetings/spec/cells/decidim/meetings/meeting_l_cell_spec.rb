@@ -94,6 +94,22 @@ module Decidim::Meetings
       end
     end
 
+    context "when meeting spans multiple years" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 12, 15, 10, 0, 0, 0), end_time: Time.new(2021, 1, 17, 12, 0, 0, 0)) }
+
+      it "shows the start year" do
+        expect(subject).to have_css(".card__calendar-year", text: "2020")
+      end
+
+      it "shows the end year" do
+        expect(subject).to have_css(".card__calendar-year", text: "2021")
+      end
+
+      it "shows the separator" do
+        expect(subject).to have_css(".card__calendar-separator")
+      end
+    end
+
     context "when title contains special html entities" do
       let!(:original_title) { meeting.title["en"] }
 

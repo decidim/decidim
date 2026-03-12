@@ -16,6 +16,10 @@
     </div>
     <div class="meeting__calendar-year">
       <span><%= year %></span>
+      <% unless same_year? %>
+        <span class="meeting__calendar-separator">-</span>
+        <span><%= end_year %></span>
+      <% end %>
     </div>
   </div>
 
