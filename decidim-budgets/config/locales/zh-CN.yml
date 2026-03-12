@@ -20,6 +20,7 @@ zh-CN:
       actions:
         edit: 编辑
         import: 导入提案到项目
+        new_project: 新建项目
         preview: 预览
         title: 行动
       admin:
