@@ -171,8 +171,6 @@ sq:
       attachments:
         edit:
           update: Përditëso
-        index:
-          attachments_title: Skedat e bashkëlidhura
         new:
           create: Krijo bashkangjitje
       autocomplete:
@@ -195,7 +193,7 @@ sq:
         index:
           headers:
             actions: Veprimet
-        title: Komponentet
+        title: Komponentët
       conflicts:
         attempts: Tentativa
         'false': 'Jo'
@@ -457,13 +455,12 @@ sq:
           title: Përpuno faqen
           update: Përditëso
       titles:
-        dashboard: Paneli
+        area_types: Lloji i zonës
         menu: Menu
         page_topics: Temat
         pages: Faqet
         panel: Administrator
         participants: Pjesëmarrësit
-        users: Administratorët
       users:
         form:
           email: Email
