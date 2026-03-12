@@ -108,8 +108,6 @@ lt:
           success: Konferencijos pranešėjas pašalintas.
         edit:
           update: Atnaujinti
-        index:
-          conference_speakers_title: Konferencijos pranešėjai
         new:
           create: Sukurti
         update:
@@ -225,7 +223,6 @@ lt:
           update: Atnaujinti
         new:
           create: Sukurti
-          title: Naujas partneris
         update:
           error: Atnaujinant šios konferencijos partnerį iškilo problema.
           success: Konferencijos partneris atnaujintas.
@@ -246,7 +243,6 @@ lt:
           update: Atnaujinti
         new:
           create: Sukurti
-          title: Naujas registracijos tipas
         update:
           error: Atnaujinant šios konferencijos registracijos tipą iškilo problema.
           success: Konferencijos registracijos tipas atnaujintas.
