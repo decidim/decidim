@@ -272,8 +272,6 @@ eu:
         edit:
           title: Editatu karpeta
           update: Onartu
-        index:
-          attachment_collections_title: Erantsitako karpetak
         new:
           create: Sortu
           title: Beste karpeta bat
@@ -289,8 +287,6 @@ eu:
         edit:
           title: Editatu fitxategi erantsia
           update: Eguneratu
-        index:
-          attachments_title: Fitxategi erantsia
         new:
           create: Sortu fitxategi erantsia
           title: Beste fitxategi erantsi bat
@@ -367,7 +363,6 @@ eu:
           text: Bilatu egungo parte-hartzailearen posta elektronikoaren, izenaren edo ezizenaren bidez.
         managed_user_name: Parte-hartzailearen kudeatua
         solved: Ebatzita
-        title: Egiaztapen-arazoak
         transfer:
           email: Helbide elektronikoa
           error: Arazo bat sortu da parte-hartzailea kudeatutako parte-hartzaileari eskualdatzean.
@@ -579,7 +574,6 @@ eu:
         promotions:
           new:
             explanation: Kudeatutako parte-hartzaileak parte-hartzaile estandar mailara igo daitezke. Horrek esan nahi du aplikaziora gonbidatuak izanen direla eta ezingo direla berriro ere ordeztu. Parte-hartzaile gonbidatuak mezu elektroniko bat jasoko du gonbita onartzeko.
-            new_managed_user_promotion: Kudeatutako parte-hartzaileen beste maila-igoera bat
             promote: Sustatu
       menu:
         admin_log: Administratzaile jarduera-erregistroa
@@ -774,7 +768,6 @@ eu:
           title: Buletinerako txantiloiak
           use_template: Erabili txantiloi hau
         show:
-          preview: 'Aurrebistaratu txantiloia: %{template_name}'
           use_template: Erabili txantiloi hau
       newsletters:
         confirm_recipients:
@@ -941,7 +934,6 @@ eu:
           up: Igo
         form:
           add: Gehitu baimendutako helbideen zerrendara
-          title: Baimendutako kanpoko domeinuen zerrenda
       participatory_space_private_users:
         create:
           error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean partaidetza-espazio honetarako.
@@ -1246,15 +1238,11 @@ eu:
           none: Bat ere ez
           title: 'Beste elementu bat hemen: %{taxonomy}'
       titles:
-        admin_log: Administratzaile-erregistroa
         area_types: Arlo motak
         areas: Arloak
         authorization_workflows: Egiaztapen-metodoak
-        dashboard: Kontrol-panela
-        edit_external_domains: Baimendutako kanpoko domeinuen zerrenda
         edit_landing_page: Orriaren edukiak
         edit_organization_appearance: Editatu hasierako orriaren itxura
-        impersonatable_users: Parte-hartzaile erabilgarriak
         impersonations: Parte-hartzaileen kudeaketa
         menu: Menua
         metrics: Metrikak
@@ -1266,9 +1254,7 @@ eu:
         scopes: Eremuak
         statistics: Jarduera
         taxonomies: Taxonomiak
-        taxonomy_filters: 'Taxonomia-iragazkiak honetarako: "%{taxonomy}"'
         user_groups: Partaide-taldeak
-        users: Administratzaileak
       tooltips:
         deleted_component_info: Osagai hau ezabatu ahal izateko, egoera "Argitaratugabea" izan behar da.
       trash_management:
