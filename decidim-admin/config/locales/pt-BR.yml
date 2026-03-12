@@ -367,7 +367,6 @@ pt-BR:
           text: Pesquisar por e-mail, nome ou apelido do usuário.
         managed_user_name: Usuário gerenciado
         solved: Resolvido
-        title: Conflitos de verificação
         transfer:
           email: E-mail
           error: Ocorreu um erro ao transferir o participante atual para o participante gerenciado.
@@ -1246,11 +1245,10 @@ pt-BR:
           none: Nenhum
           title: Novo item em %{taxonomy}
       titles:
-        admin_log: Log de administração
+        admin_log: Log do Admin
         area_types: Tipos de área
         areas: Áreas
         authorization_workflows: Métodos de verificação
-        dashboard: painel de controle
         edit_external_domains: Lista de domínios externos permitidos
         edit_landing_page: Conteúdo da página
         edit_organization_appearance: Editar aparência da página inicial
@@ -1261,7 +1259,7 @@ pt-BR:
         page_topics: Tópicos
         pages: Páginas
         panel: Administrador
-        participants: Comercial
+        participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         statistics: Atividade
