@@ -187,8 +187,6 @@ nl:
         edit:
           title: Bewerk map
           update: Bijwerken
-        index:
-          attachment_collections_title: Bijlagemappen
         new:
           create: creëren
           title: Nieuwe map
@@ -204,8 +202,6 @@ nl:
         edit:
           title: Bewerk bijlage
           update: Bijwerken
-        index:
-          attachments_title: Bijlagen
         new:
           create: Maak bijlage
           title: Nieuwe bijlage
@@ -251,7 +247,6 @@ nl:
           title: 'Voeg onderdeel toe: %{name}'
         publish:
           success: Het onderdeel is succesvol gepubliceerd.
-        title: Onderdelen
         unpublish:
           success: Het onderdeel is met succes verwijderd.
         update:
@@ -262,7 +257,6 @@ nl:
         'false': 'Nee'
         managed_user_name: Beheerde gebruiker
         solved: Opgelost
-        title: Controle conflicten
         transfer:
           email: E-mail
           name: Naam
@@ -422,7 +416,6 @@ nl:
         promotions:
           new:
             explanation: Beheerde deelnemers kunnen worden gepromoveerd tot standaarddeelnemers. Dit betekent dat ze worden uitgenodigd voor de toepassing en dat u ze niet meer kunt beheren. De uitgenodigde deelnemer ontvangt een e-mail om uw uitnodiging te accepteren.
-            new_managed_user_promotion: Nieuwe promotie voor beheerde deelnemers
             promote: Promoten
       menu:
         admin_log: Admin activiteitenlogboek
@@ -554,7 +547,6 @@ nl:
           title: Nieuwsbrief templates
           use_template: Gebruik deze template
         show:
-          preview: 'Voorbeeld sjabloon: %{template_name}'
           use_template: Gebruik deze template
       newsletters:
         create:
@@ -748,18 +740,15 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
       titles:
-        admin_log: log van de beheerder
-        area_types: Thema's
+        area_types: Pagina types
         areas: Onderwerpen
         authorization_workflows: Verificatiemethoden
-        dashboard: Dashboard
-        impersonatable_users: Beheersbare deelnemers
         impersonations: Beheer van deelnemers
+        pages: Pagina's
         panel: Admin
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
-        users: Beheerders
       users:
         create:
           error: Er is een probleem opgetreden bij het uitnodigen van deze beheerder.
