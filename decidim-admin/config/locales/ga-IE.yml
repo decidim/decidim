@@ -93,8 +93,6 @@ ga:
       attachments:
         edit:
           update: Nuashonraigh
-        index:
-          attachments_title: Ceangaltáin
       categories:
         index:
           categories_title: Catagóirí
@@ -107,7 +105,6 @@ ga:
       conflicts:
         'false': 'Níl'
         solved: Réitithe
-        title: Coimhlintí deimhnithe
         transfer:
           email: Seoladh ríomhphoist
           name: Ainm
@@ -333,6 +330,7 @@ ga:
         areas: Ceantair
         authorization_workflows: Modhanna deimhnithe
         metrics: Méadrachtaí
+        pages: Leathanaigh
         panel: Riarachán
         scopes: Scóip
         user_groups: Grúpaí
