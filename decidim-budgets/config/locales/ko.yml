@@ -26,6 +26,7 @@ ko:
       actions:
         attachment_collections: 폴더
         attachments: 첨부 파일
+        new_project: 새 프로젝트
       admin:
         projects:
           create:
