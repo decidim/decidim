@@ -89,8 +89,6 @@ pt:
           success: Orador da conferência eliminado corretamente.
         edit:
           update: Atualizar
-        index:
-          conference_speakers_title: Oradores da conferência
         new:
           create: Criar
         update:
@@ -104,6 +102,8 @@ pt:
           success: Administrador da conferência eliminado corretamente.
         edit:
           update: Atualizar
+        index:
+          conference_admins_title: Administradores da conferência
         new:
           create: Criar
         update:
@@ -204,7 +204,6 @@ pt:
           update: Atualizar
         new:
           create: Criar
-          title: Novo parceiro
         update:
           error: Ocorreu um erro ao atualizar um parceiro para esta conferência.
           success: Parceiro da conferência atualizado corretamente.
@@ -225,7 +224,6 @@ pt:
           update: Atualizar
         new:
           create: Criar
-          title: Novo tipo de registo
         update:
           error: Ocorreu um problema ao atualizar um tipo de registo para esta conferência.
           success: Tipo de registo da conferência atualizado corretamente.
