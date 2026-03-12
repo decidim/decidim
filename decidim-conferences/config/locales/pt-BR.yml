@@ -101,7 +101,6 @@ pt-BR:
         new:
           duplicate: Duplicado
           select: Selecione quais dados você gostaria de duplicar
-          title: Conferência duplicada
       conference_publications:
         create:
           error: Ocorreu um erro ao publicar esta conferência.
@@ -120,13 +119,9 @@ pt-BR:
         destroy:
           success: Alto-falante excluído com sucesso para esta conferência.
         edit:
-          title: Atualize o orador da conferência
           update: Atualizar
-        index:
-          conference_speakers_title: Alto-falantes da conferência
         new:
           create: Crio
-          title: Novo orador da conferência
         publish:
           invalid: Ocorreu um problema ao publicar esta reunião.
           success: Alto-falante excluído com sucesso para esta conferência.
@@ -143,13 +138,9 @@ pt-BR:
         destroy:
           success: Usuário removido com sucesso desta conferência.
         edit:
-          title: Atualize o usuário da conferência
           update: Atualizar
-        index:
-          conference_admins_title: Administradores da conferência
         new:
           create: Crio
-          title: Novo administrador da conferência
         update:
           error: Houve um erro ao atualizar um usuário para esta conferência.
           success: Usuário atualizado com sucesso para esta conferência.
@@ -172,11 +163,8 @@ pt-BR:
         index:
           published: Publicados
           unpublished: Despublicado
-        manage_trash:
-          title: Conferências excluídas
         new:
           create: Crio
-          title: Nova conferência
         update:
           error: Houve um erro ao atualizar esta conferência.
           success: Conferência atualizada com sucesso.
@@ -191,13 +179,9 @@ pt-BR:
         destroy:
           success: Link de mídia excluído com sucesso.
         edit:
-          title: Atualizar link de mídia
           update: Atualizar
-        index:
-          media_links_title: Links de mídia
         new:
           create: Criar
-          title: Criar link de mídia
         update:
           error: Houve um erro ao atualizar este link de mídia.
           success: Link de mídia atualizado com sucesso.
@@ -212,7 +196,6 @@ pt-BR:
           conference_invites: Convites
           conference_speakers: caixas de som
           diploma: Certificado de participação
-          info: Links sobre esta conferência
           media_links: Links de mídia
           moderations: Moderações
           partners: Parceiros
@@ -280,11 +263,9 @@ pt-BR:
         destroy:
           success: Alto-falante excluído com sucesso para esta conferência.
         edit:
-          title: Atualizar parceiro
           update: Atualizar
         new:
           create: Criar
-          title: Novo parceiro
         update:
           error: Ocorreu um erro ao atualizar um parceiro para esta conferência.
           success: Parceiro atualizado com sucesso para esta conferência.
@@ -302,20 +283,15 @@ pt-BR:
         destroy:
           success: Tipo de registro removido com sucesso desta conferência.
         edit:
-          title: Atualizar tipo de registro
           update: Atualizar
         new:
           create: Crio
-          title: Novo tipo de registro
         update:
           error: Ocorreu um erro ao atualizar um tipo de registro para esta conferência.
           success: Tipo de registro atualizado com sucesso para esta conferência.
       taxonomy_filters:
         space_filter_for:
           conferences: Todas as conferências
-      titles:
-        conferences: Conferências
-        conferences_deleted: Conferências excluídas
       tooltips:
         deleted_conferences_info: As conferências só podem ser excluídas se o status for "Não publicado".
     admin_log:
@@ -364,6 +340,8 @@ pt-BR:
         conference_duplicates:
           form:
             slug_help_html: 'Os slugs de URL são usados para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
+          new:
+            title: Conferência duplicada
         conference_invites:
           create:
             error: Houve um problema ao convidar o usuário para participar da conferência.
@@ -376,15 +354,17 @@ pt-BR:
             select_user: Selecione o usuário
           index:
             invite_attendee: Convidar participante
-            invites: Convites
+            title: Convites
           new:
             explanation: O usuário será convidado a participar de uma conferência. Se o email não estiver registrado, ele será convidado para a organização também.
             invite: Convite
-            new_invite: Convidar Usuário
+            title: Convidar participantes
         conference_registrations:
           index:
-            registrations: Inscrições
+            title: Inscrições
         conference_speakers:
+          edit:
+            title: Atualizar palestrante de conferência
           form:
             existing_user: Usuário existente
             non_user: Não usuário
@@ -392,6 +372,7 @@ pt-BR:
             user_type: Tipo de usuário
           index:
             search: Pesquisa
+            title: Palestrantes da conferência
         conferences:
           form:
             available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis.
