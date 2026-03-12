@@ -33,7 +33,6 @@ eo:
         promotions:
           new:
             explanation: Administritaj partoprenantoj povas esti promociitaj al normaj partoprenantoj. Ĝi signifas, ke ili estos invititaj al la sistemo kaj vi ne povos administri ilin denove. La invitita partoprenanto ricevos retpoŝton por akcepti vian inviton.
-            new_managed_user_promotion: Nova administrita partoprenanto-promocio
       models:
         impersonation_log:
           fields:
