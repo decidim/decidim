@@ -290,7 +290,7 @@ fr:
           title: Modifier le document lié
           update: Mettre à jour
         index:
-          attachments_title: Documents liés
+          attachments_title: Pièces jointes
         new:
           create: Lier un document
           title: Nouveau document lié
@@ -367,7 +367,6 @@ fr:
           text: Recherche par adresse e-mail, nom ou pseudonyme.
         managed_user_name: Utilisateur représenté
         solved: Résolu
-        title: Conflits de vérification
         transfer:
           email: Email
           error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
@@ -579,7 +578,6 @@ fr:
         promotions:
           new:
             explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
-            new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
             promote: Promouvoir
       menu:
         admin_log: Journal d'activité personnel
@@ -774,7 +772,6 @@ fr:
           title: Modèles de newsletter
           use_template: Utiliser ce modèle
         show:
-          preview: 'Prévisualiser le modèle: %{template_name}'
           use_template: Utiliser ce modèle
       newsletters:
         confirm_recipients:
@@ -1220,27 +1217,24 @@ fr:
           select_filter: Sélectionnez un filtre
           taxonomies: Taxonomies
       titles:
-        admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
         areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
-        dashboard: Tableau de bord
         edit_external_domains: Liste des domaines externes autorisés
         edit_landing_page: Contenus de la page
         edit_organization_appearance: Modifier l'apparence de la page d'accueil
-        impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         menu: Menu
         metrics: Indicateurs
         page_topics: Sujets
-        pages: Page(s)
+        pages: Pages
         panel: Administrateur
-        participants: Utilisateurs
+        participants: Participants
         scope_types: Types de secteur
         scopes: Secteurs
         statistics: Activité
+        taxonomies: Taxonomies
         user_groups: Groupes d'utilisateurs
-        users: Administrateurs
       tooltips:
         deleted_component_info: Ce composant ne peut être supprimé que si son statut est 'non publié'.
       trash_management:
