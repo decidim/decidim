@@ -47,7 +47,6 @@ id:
           success: Pertemuan duplikat berhasil.
         new:
           copy: Salinan
-          title: Pertemuan duplikat
     components:
       meetings:
         actions:
@@ -164,7 +163,6 @@ id:
             non_user: Pengguna tidak ada
             select_user: Pilih pengguna
           index:
-            invite_attendee: Undang hadirin
             invites: Undangan
         meeting_closes:
           edit:
@@ -198,6 +196,7 @@ id:
             registrations_count:
               other: Ada %{count} pendaftaran.
             reserved_slots_less_than: Harus kurang dari atau sama dengan %{count}
+            title: Pendaftaran
           update:
             invalid: Terjadi masalah saat menyimpan pengaturan pendaftaran.
             success: Pengaturan pendaftaran rapat berhasil disimpan.
