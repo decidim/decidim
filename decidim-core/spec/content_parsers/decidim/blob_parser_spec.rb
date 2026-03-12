@@ -31,7 +31,7 @@ module Decidim
     let(:document_blob_proxy_url) { routes.rails_service_blob_proxy_url(document_blob.signed_id, document_blob.filename, host: asset_host) }
     let(:document_blob_disk_url) { document_blob.url }
     let(:document_blob_redirect_url) { routes.rails_blob_redirect_url(document_blob, host: asset_host) }
-    let(:missing_blob_url) { document_blob_disk_url.gsub("/disk/", "/disk/i-do-not-exists") }
+    let(:missing_blob_url) { document_blob_disk_url.gsub("/disk/", "/disk/i-do-not-exist") }
 
     let(:content) do
       <<~HTML.squish
