@@ -6,11 +6,6 @@ sr:
         participatory_process_user_role:
           roles:
             valuator: Procenjivač
-      participatory_process_user_roles:
-        edit:
-          title: Ažuriraj administratora participatornog procesa
-        new:
-          title: Novi administrator participatornog prostora
     events:
       participatory_process:
         role_assigned:
