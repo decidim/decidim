@@ -224,8 +224,6 @@ ar:
         edit:
           title: تحرير المجلد
           update: تحديث
-        index:
-          attachment_collections_title: مجلدات المرفقات
         new:
           create: إنشاء
           title: مجلد جديد
@@ -241,8 +239,6 @@ ar:
         edit:
           title: تحرير المرفق
           update: تحديث
-        index:
-          attachments_title: المرفقات
         new:
           create: إنشاء مرفق
           title: مرفق جديد
@@ -283,7 +279,6 @@ ar:
           title: 'إضافة مكون: %{name}'
         publish:
           success: تم نشر المكون بنجاح.
-        title: المكونات
         unpublish:
           success: تم إلغاء نشر المكون بنجاح.
         update:
@@ -294,7 +289,6 @@ ar:
         'false': 'لا'
         managed_user_name: المستخدم المُدار
         solved: تم حلها
-        title: تضارب التحقق
         transfer:
           email: البريد الإلكتروني
           name: الإسم
@@ -436,7 +430,6 @@ ar:
         promotions:
           new:
             explanation: يمكن ترقية المشاركين المدارين إلى مشاركين عاديين. يعني ذلك أنه سيتم دعوتهم إلى التطبيق ولن تتمكن من إدارته مرة أخرى. سيتلقى المشارك المدعو رسالة بريد إلكتروني لقبول دعوتك.
-            new_managed_user_promotion: ترويج مشارك جديد مُدار
             promote: تروج \ يشجع \ يعزز \ ينمى \ يطور
       menu:
         admin_log: سجل نشاط المسؤول
@@ -770,21 +763,17 @@ ar:
         new:
           save: حفظ
       titles:
-        admin_log: سجل المسؤول
         area_types: أنواع المناطق
         areas: المناطق
         authorization_workflows: طرق التحقق
-        dashboard: لوحة القيادة
-        impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
         menu: القائمة الرئيسية
         page_topics: المواضيع
-        pages: الصفحات
+        pages: صفحات
         panel: مدير
-        participants: المشاركين
-        scope_types: أنواع النطاق
+        participants: المشاركون
+        scope_types: أنواع المجال
         scopes: مجالات
-        users: المدراء
       users:
         create:
           error: كانت هناك مشكلة في دعوة هذا المشرف.
