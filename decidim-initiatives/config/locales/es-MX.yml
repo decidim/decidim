@@ -109,8 +109,6 @@ es-MX:
         initiatives_menu:
           see_initiative: Ver la iniciativa
         initiatives_settings: Configuración
-        initiatives_submenu:
-          info: Acerca de esta iniciativa
         initiatives_types: Tipos de Iniciativa
         moderations: Moderaciones
       models:
@@ -155,9 +153,6 @@ es-MX:
       taxonomy_filters:
         space_filter_for:
           initiatives: Todas las iniciativas
-      titles:
-        initiatives: Iniciativas
-        initiatives_types: Tipos de Iniciativa
     download_your_data:
       show:
         initiatives: Exportar las iniciativas
@@ -296,7 +291,6 @@ es-MX:
             publication_date: Publicada más recientemente
             random: Aleatorio
             signatures: Más firmadas
-            title: Configuración de iniciativas
         initiatives_type_scopes:
           create:
             error: Se ha producido un error al crear un nuevo ámbito para la iniciativa seleccionada.
