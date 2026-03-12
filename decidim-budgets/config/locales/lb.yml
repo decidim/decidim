@@ -18,6 +18,7 @@ lb:
       actions:
         edit: Bearbeiten
         import: Vorschläge in Projekte importieren
+        new_project: Neues Projekt
         preview: Vorschau
         title: Aktionen
       admin:
