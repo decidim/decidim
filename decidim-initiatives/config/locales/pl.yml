@@ -110,8 +110,6 @@ pl:
         initiatives_menu:
           see_initiative: Zobacz inicjatywę
         initiatives_settings: Ustawienia
-        initiatives_submenu:
-          info: O tej inicjatywie
         initiatives_types: Typy inicjatyw
         moderations: Moderacja
       models:
