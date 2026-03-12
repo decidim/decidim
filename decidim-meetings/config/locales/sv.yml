@@ -148,7 +148,6 @@ sv:
           success: Mötet har duplicerats.
         new:
           copy: Kopiera
-          title: Duplicera möte
     components:
       meetings:
         actions:
@@ -333,7 +332,6 @@ sv:
             non_user: Icke befintlig deltagare
             select_user: Välj deltagare
           index:
-            invite_attendee: Bjud in deltagare
             invites: Inbjudningar
             registrations_disabled: Det går inte att bjuda in deltagare eftersom registreringen är stängd.
         meeting_closes:
