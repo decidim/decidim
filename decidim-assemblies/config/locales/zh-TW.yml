@@ -93,7 +93,7 @@ zh-TW:
           published: 已發佈
         new:
           create: 創建
-          title: 新集會
+          title: 新大會
         update:
           error: 更新此大會時出現問題
           success: 此大會成功更新
@@ -104,7 +104,6 @@ zh-TW:
         new:
           import: 匯入
           select: 請選擇您想匯入的資料
-          title: 匯入大會
       assembly_publications:
         create:
           error: 發布此大會時出現問題。
