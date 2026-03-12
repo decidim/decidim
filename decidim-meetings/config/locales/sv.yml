@@ -145,7 +145,6 @@ sv:
           success: Mötet har duplicerats.
         new:
           copy: Kopiera
-          title: Duplicera möte
       tooltips:
         cannot_close_meetings: Det går inte att stänga mötet eftersom det är skapat av en deltagare
         cannot_duplicate_meetings: Det går inte att kopiera mötet eftersom det är skapat av en deltagare
@@ -354,7 +353,6 @@ sv:
             non_user: Icke befintlig deltagare
             select_user: Välj deltagare
           index:
-            invite_attendee: Bjud in deltagare
             invites: Inbjudningar
             registrations_disabled: Det går inte att bjuda in deltagare eftersom registreringen är stängd.
         meeting_closes:
@@ -459,7 +457,6 @@ sv:
               other: Det har gjorts %{count} anmälningar.
             reserved_slots_help: Låt det stå 0 om du inte har bokade platser.
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
-            title: Anmälningar
           update:
             invalid: Det gick inte att spara inställningarna för anmälan.
             success: Inställningarna för anmälan till mötet har sparats.
