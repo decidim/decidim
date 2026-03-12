@@ -101,6 +101,7 @@ hu:
           attachment_files: Fájlok
           attachments: Mellékletek
           components: Elemek
+          info: Erről a folyamatról
           moderations: Moderálások
           process_admins: Folyamat adminisztrátorok
           steps: Fázisok
@@ -140,7 +141,6 @@ hu:
         destroy:
           success: Részvételi folyamat csoport törlése sikeres.
         edit:
-          title: Folyamat csoport szerkesztése
           update: Frissítés
         new:
           create: Létrehozás
@@ -155,7 +155,6 @@ hu:
         new:
           import: Importál
           select: Válaszd ki, mely adatokat szeretnéd importálni
-          title: Fontos részvételi folyamat
       participatory_process_publications:
         create:
           error: Hiba történt a részvételi folyamat közzététele során.
@@ -178,13 +177,11 @@ hu:
             last_step: Nem lehet törölni egy folyamat utolsó fázisát.
           success: Sikerült törölni a részvételi folyamat fázisát.
         edit:
-          title: Részvételi folyamat fázis szerkesztése
           update: Frissítés
         index:
           steps_title: Fázisok
         new:
           create: Létrehozás
-          title: Új részvételi folyamat fázis
         ordering:
           error: Hiba történt a részvételi folyamat fázisainak átrendezése során.
         update:
@@ -197,13 +194,9 @@ hu:
         destroy:
           success: Felhasználó eltávolítása a részvételi folyamatból sikeres.
         edit:
-          title: Frissíti a részvételi folyamat adminisztrátorát
           update: Frissítés
-        index:
-          process_admins_title: Részvételi folyamat adminisztrátorok
         new:
           create: Létrehozás
-          title: Új részvételi folyamat adminisztrátor
         update:
           error: Hiba a felhasználó részvételi folyamatban történő frissítése során.
           success: Felhasználó frissítése a részvételi folyamatban sikeres.
@@ -219,7 +212,6 @@ hu:
           published: Közzétéve
         new:
           create: Létrehozás
-          title: Új részvételi folyamat
         update:
           error: Hiba történt a részvételi folyamat frissítése során.
           success: Részvételi folyamat frissítése sikeres.
