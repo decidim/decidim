@@ -107,8 +107,6 @@ pt-BR:
         initiatives_menu:
           see_initiative: Ver iniciativa
         initiatives_settings: Confirgurações
-        initiatives_submenu:
-          info: Sobre essa iniciativa
         initiatives_types: Tipos de iniciativa
         moderations: Moderações
       models:
