@@ -221,10 +221,6 @@ pt-BR:
               user_authorized: Usuário autorizado?
             import_csv: Importar CSV
             no_authorized: Usuário não autorizado
-            title: Dados do censo atual
-          instructions:
-            body: Para fazer isso, você deve entrar na administração do sistema e adicionar as autorizações csv_census à organização
-            title: Você precisa ativar o censo CSV para esta organização
         authorizations:
           new:
             error: Não foi possível confirmar sua conta ou você não está no censo da organização.
