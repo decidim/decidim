@@ -133,6 +133,7 @@ module Decidim
   autoload :ResourceHelper, "decidim/resource_helper"
   autoload :TooltipHelper, "decidim/tooltip_helper"
   autoload :FormFactory, "decidim/form_factory"
+  autoload :LocaleRouterDetector, "decidim/locale_router_detector"
 
   module ParticipatorySpace
     autoload :HasMembers, "decidim/participatory_space/has_members"
