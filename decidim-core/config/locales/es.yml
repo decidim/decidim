@@ -309,7 +309,7 @@ es:
         create: "%{user_name} ha creado un enlace de acceso en %{space_name}"
         create_with_space: "%{user_name} ha creado un enlace de acceso para %{resource_name} en %{space_name}"
         delete: "%{user_name} ha eliminado un enlace de acceso en %{space_name}"
-        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para%{resource_name} en %{space_name}"
+        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualizado un enlace de acceso en %{space_name}"
         update_with_space: "%{user_name} ha actualizado un enlace de acceso para %{resource_name} en %{space_name}"
       static_page:
@@ -1366,7 +1366,7 @@ es:
           subject: "%{group} tiene nuevos mensajes de %{sender}"
         new_message:
           greeting: '¡Hola, %{recipient}!'
-          intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
+          intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Para verlos y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
