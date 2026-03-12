@@ -107,8 +107,6 @@ sv:
           public: Öppen
           published: Publicerad
           unpublished: Ej publicerade
-        manage_trash:
-          title: Borttagna samråd
         new:
           create: Skapa
           title: Nytt samråd
@@ -123,7 +121,6 @@ sv:
         new:
           copy: Kopiera
           select: Välj vilken data du vill duplicera
-          title: Duplicera samråd
       assembly_imports:
         create:
           error: Det gick inte att importera samrådet.
@@ -131,7 +128,6 @@ sv:
         new:
           import: Importera
           select: Välj vilka uppgifter du vill importera
-          title: Importera samråd
       assembly_publications:
         create:
           error: Det gick inte att publicera samrådet.
@@ -146,13 +142,12 @@ sv:
         destroy:
           success: Administratören har tagits bort från samrådet.
         edit:
-          title: Uppdatera administratör av samråd
           update: Uppdatera
         index:
           assembly_admins_title: Administratörer för samråd
         new:
           create: Skapa
-          title: Ny administratör för samråd
+          title: Ny administratör av samråd
         update:
           error: Det gick inte att uppdatera administratör för samrådet.
           success: Administratören för samrådet har uppdaterats.
@@ -210,7 +205,6 @@ sv:
           assemblies: Alla samråd
       titles:
         assemblies: Samråd
-        assemblies_deleted: Borttagna samråd
         assemblies_types: Typer av samråd
       tooltips:
         deleted_assemblies_info: Ett samråd kan endast tas bort om status är "Avpublicerad".
