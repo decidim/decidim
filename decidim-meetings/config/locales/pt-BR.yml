@@ -432,7 +432,7 @@ pt-BR:
               other: Houve %{count} inscrições.
             reserved_slots_help: Deixe em 0 se você não tiver slots reservados.
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
-            title: Registros
+            title: Inscrições
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
