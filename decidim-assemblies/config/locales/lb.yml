@@ -95,7 +95,6 @@ lb:
         new:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
-          title: Gremium importieren
       assembly_publications:
         create:
           error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
@@ -147,6 +146,8 @@ lb:
           fields:
             email: Email
             name: Name
+      titles:
+        assemblies: Gremien
     assemblies:
       admin:
         assembly_imports:
