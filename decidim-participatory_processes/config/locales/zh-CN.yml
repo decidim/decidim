@@ -113,11 +113,9 @@ zh-CN:
         destroy:
           success: 参与进程组已成功删除。
         edit:
-          title: 编辑流程组
           update: 更新
         new:
           create: 创建
-          title: 新建流程组
         update:
           error: 在更新这一参与进程小组方面存在问题。
           success: 参与进程组已成功更新。
@@ -128,7 +126,6 @@ zh-CN:
         new:
           import: 导入
           select: 选择您想要导入的数据
-          title: 导入参与进程
       participatory_process_publications:
         create:
           error: 在公布这一参与过程时遇到了问题。
@@ -148,13 +145,9 @@ zh-CN:
         destroy:
           success: 参与进程阶段已成功删除。
         edit:
-          title: 编辑参与进程阶段
           update: 更新
-        index:
-          steps_title: 阶段
         new:
           create: 创建
-          title: 新的参与进程阶段
         ordering:
           error: 在重新安排参与进程这些阶段的顺序方面存在问题。
         update:
@@ -166,13 +159,9 @@ zh-CN:
         destroy:
           success: 管理员成功地从这个参与进程中移除。
         edit:
-          title: 更新参与进程管理员
           update: 更新
-        index:
-          process_admins_title: 参与性进程管理员
         new:
           create: 创建
-          title: 新的参与进程管理员
         update:
           error: 在更新这一参与进程的管理员时遇到了问题。
           success: 管理员已成功更新此参与进程。
@@ -188,7 +177,6 @@ zh-CN:
           published: 已发布
         new:
           create: 创建
-          title: 新的参与进程
         update:
           error: 在更新这一参与进程方面存在问题。
           success: 参与进程已成功更新。
@@ -196,9 +184,6 @@ zh-CN:
         create:
           error: 建立一个新的参与性进程小组存在问题。
           success: 参与进程组已成功创建。
-      titles:
-        participatory_process_groups: 参与性进程组
-        participatory_processes: 参与进程
       users:
         resend_invitation:
           error: 发出邀请时出现问题。
