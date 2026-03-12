@@ -272,8 +272,6 @@ cs:
         edit:
           title: Upravit složku
           update: Aktualizace
-        index:
-          attachment_collections_title: Složky přílohy
         new:
           create: Vytvořit
           title: Nová složka
@@ -289,8 +287,6 @@ cs:
         edit:
           title: Upravit přílohu
           update: Aktualizace
-        index:
-          attachments_title: Přílohy
         new:
           create: Vytvořit přílohu
           title: Nová příloha
@@ -367,7 +363,6 @@ cs:
           text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky.
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
-        title: Konflikty ověření
         transfer:
           email: E-mail
           error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
@@ -589,7 +584,6 @@ cs:
         promotions:
           new:
             explanation: Spravovaní uživatelé mohou být povýšeni na standardní uživatele. Znamená to, že budou pozváni do aplikace a nebudete je moci znovu předstírat. Pozvaný uživatel obdrží e-mail, ve kterém přijme vaši pozvánku.
-            new_managed_user_promotion: Nová spravovaná podpora pro uživatele
             promote: Podporovat
       menu:
         admin_log: Protokol aktivity správce
@@ -784,7 +778,6 @@ cs:
           title: Šablony zpravodaje
           use_template: Použít tuto šablonu
         show:
-          preview: 'Náhled šablony: %{template_name}'
           use_template: Použít tuto šablonu
       newsletters:
         confirm_recipients:
@@ -951,7 +944,6 @@ cs:
           up: Nahoru
         form:
           add: Přidat na Seznam povolených
-          title: Seznam povolených externích domén
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
@@ -1260,29 +1252,23 @@ cs:
           none: Žádné
           title: Nová položka v %{taxonomy}
       titles:
-        admin_log: Správce protokolu
         area_types: Typy oblastí
         areas: Oblasti
         authorization_workflows: Metody ověření
-        dashboard: Ovládací panel
-        edit_external_domains: Seznam povolených externích domén
         edit_landing_page: Obsah stránky
         edit_organization_appearance: Upravit vzhled domovské stránky
-        impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         menu: Nabídka
         metrics: Metriky
         page_topics: Témata
         pages: Stránky
         panel: Admin
-        participants: Uživatelé
-        scope_types: Typy oblastí působnosti
+        participants: Účastníci
+        scope_types: Typ oblasti působnosti
         scopes: Oblasti působnosti
         statistics: Aktivita
         taxonomies: Taxonomie
-        taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
         user_groups: Skupiny
-        users: Administrátoři
       tooltips:
         deleted_component_info: Tato komponenta může být odstraněna pouze v případě, že je stav 'Nezveřejněno'.
       trash_management:
