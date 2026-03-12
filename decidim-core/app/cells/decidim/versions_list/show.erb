@@ -19,7 +19,7 @@
         </div>
         <div>
           <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.source" %>:</span>
-          <code class="fingerprint-modal__code"><%= versioned_resource.fingerprint.source %></code>
+          <code class="fingerprint-modal__code"><%= decidim_html_escape versioned_resource.fingerprint.source %></code>
         </div>
         <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %></p>
       </div>
