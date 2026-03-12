@@ -211,7 +211,6 @@ tr:
           alert: 'Gerekli: Yönetici kullanım koşullarımızı inceleyin'
           callout: Lütfen Yönetici Kullanım Koşullarını gözden geçirmek için bir dakikanızı ayırın. Aksi takdirde platformu yönetemezsiniz.
           cta: Şimdi gözden geçirin.
-        title: Yönetici kullanım koşulları
       area_types:
         create:
           error: Yeni alan türü oluştururken bir hata oluştu.
@@ -254,8 +253,6 @@ tr:
         edit:
           title: Klasörü düzenle
           update: Güncelleştirme
-        index:
-          attachment_collections_title: Ek klasörleri
         new:
           create: yaratmak
           title: Yeni dosya
@@ -271,8 +268,6 @@ tr:
         edit:
           title: Eki düzenle
           update: Güncelleştirme
-        index:
-          attachments_title: Ekler
         new:
           create: Ek oluştur
           title: Yeni ek
@@ -331,7 +326,6 @@ tr:
           title: 'Bileşen ekle: %{name}'
         publish:
           success: Bileşen başarıyla yayınlandı.
-        title: Bileşenler
         unpublish:
           success: Bileşen başarıyla yayından kaldırıldı.
         update:
@@ -345,7 +339,6 @@ tr:
         'false': 'Hayır'
         managed_user_name: Yönetilen Kullanıcı
         solved: Çözüldü
-        title: Doğrulamaların çatışmaları
         transfer:
           email: E-Posta
           error: Mevcut katılımcıyı yönetilen katılımcıya aktarırken bir sorun oluştu.
@@ -491,7 +484,6 @@ tr:
           impersonate: taklit etmek
           impersonate_existing_managed_user: Yönetilen kullanıcı "%{name}" kimliğine bürün
           impersonate_existing_user: '"%{name}" kullanıcı kimliğine bürün'
-          impersonate_new_managed_user: Yeni yönetilen kullanıcıyı taklit et
       imports:
         and: ve
         data_errors:
@@ -543,7 +535,6 @@ tr:
         promotions:
           new:
             explanation: Yönetilen kullanıcılar standart kullanıcılara yükseltilebilir. Bu, uygulamaya davet edilecekleri anlamına gelir ve onları tekrar taklit edemezsiniz. Davet edilen kullanıcı davetinizi kabul etmek için bir e-posta alacak.
-            new_managed_user_promotion: Yeni yönetilen kullanıcı tanıtımı
             promote: Desteklemek
       members:
         create:
@@ -719,7 +710,6 @@ tr:
           title: Bülten Şablonu
           use_template: Bu şablonu kullan
         show:
-          preview: 'Şablon özizlemesi: %{template_name}'
           use_template: Bu şablonu kullan
       newsletters:
         confirm_recipients:
@@ -778,7 +768,6 @@ tr:
         send_to_user:
           sent_successfully: Bülten %{email} adresine başarıyla gönderildi
         show:
-          preview: Ön izleme
           select_recipients_to_deliver: Teslim etmek için alıcıları seçiniz
           send_me_a_test_email: Bana bir test e-postası gönder
           subject: konu
@@ -862,7 +851,6 @@ tr:
           up: Yukarı
         form:
           add: İzin verilenler listesine ekle
-          title: İzin verilen harici alan adları
       reminders:
         new:
           submit: Gönder
@@ -1080,20 +1068,10 @@ tr:
           none: Hiçbiri
           title: Yeni Öğre
       titles:
-        admin_log: Yönetici günlüğü
-        area_types: Alan türleri
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
-        dashboard: Pano
-        impersonatable_users: Yönetilebilir kullanıcılar
-        impersonations: Kullanıcılar yönetimi
-        pages: Sayfalar
         panel: Yönetici
-        participants: Kullanıcılar
-        scope_types: Kapsam türleri
         scopes: kapsamları
-        taxonomies: Sınıflandırmalar
-        taxonomy_filters: '"%{taxonomy} için kategori filtreleri'
       tooltips:
         cannot_edit_taxonomy_filter: Bu kategori filtresi düzenlenemiyor
         deleted_attachment_collections_info: Bu klasör ek dosyalar içerdiğinden silinemiyor.
