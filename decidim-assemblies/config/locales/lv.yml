@@ -78,7 +78,6 @@ lv:
           published: Publicēts
         new:
           create: Izveidot
-          title: Jauna asambleja
         update:
           error: Šīs asamblejas atjaunināšanas laikā radās problēma.
           success: Asambleja ir veiksmīgi atjaunināta.
@@ -97,8 +96,6 @@ lv:
           success: Administrators ir veiksmīgi noņemts no šīs asamblejas.
         edit:
           update: Atjaunināt
-        index:
-          assembly_admins_title: Asamblejas administratori
         new:
           create: Izveidot
         update:
@@ -140,7 +137,6 @@ lv:
             collaborator: Līdzizstrādātājs
             moderator: Moderators
       titles:
-        assemblies: Asambleja
         assemblies_types: Asambleju veidi
     admin_log:
       assembly:
