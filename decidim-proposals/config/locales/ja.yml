@@ -366,6 +366,12 @@ ja:
             email_outro: '"%{resource_title}" をフォローしているため、この通知を受け取りました。前述のリンクからフォローを解除できます。'
             email_subject: あなたがフォローしている提案のステータスが変更されました (%{state})
             notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> のステータスを「%{state} 」に変更しました。
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: '提案「%{resource_title}」のステータスが「%{state}」に変更されました。回答はこのページで確認できます：'
+            email_outro: あなたが"%{resource_title}"の執筆者であるため、この通知を受け取りました。
+            email_subject: 提案のステータスが変更されました（%{state}）
+            notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> は、そのステータスを「%{state} 」に変更しました。
         proposal_update_taxonomies:
           email_intro: '管理者があなたの提案 "%{resource_title}" のタクソノミーを更新しました。このページでチェックしてください：'
           email_outro: あなたが提案の作成者であるため、この通知を受け取りました。
@@ -667,6 +673,7 @@ ja:
             related_meetings: 関連するミーティング
             remove_assignment: 課題を削除
             remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
+            title: 提案に回答
             votes_count: 投票数
           update_taxonomies:
             invalid: 'これらの提案にはすでに %{taxonomies} タクソノミーがありました: %{proposals}。'
@@ -844,7 +851,7 @@ ja:
         title: '%{number} 票残っていることを忘れないでください'
       forms:
         errors:
-          device_not_supported:
+          device_not_supported: お使いのデバイスは位置情報サービスをサポートしていません。アドレスを手動で入力してください。
           no_device_location: 申し訳ありませんが、場所を検出できませんでした。アドレスを手動で入力してください。
         use_my_location: 現在地を使用
       invite_coauthors:
