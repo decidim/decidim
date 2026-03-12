@@ -117,8 +117,6 @@ bg:
           success: Говорителят на конференцията беше изтрит успешно.
         edit:
           update: Актуализация
-        index:
-          conference_speakers_title: Говорители на конференция
         new:
           create: Създаване
         publish:
@@ -142,6 +140,7 @@ bg:
           conference_admins_title: Администратори на конференция
         new:
           create: Създаване
+          title: Нов администратор на конференция
         update:
           error: Възникна проблем при актуализирането на този администратор на конференцията.
           success: Администраторът на конференцията беше актуализиран успешно.
@@ -183,7 +182,6 @@ bg:
           conference_admins: Администратори на конференция
           conference_invites: Покани
           conference_speakers: Говорители
-          info: Относно тази конференция
           moderations: Модерации
           partners: Партньори
           registrations: Регистрации
