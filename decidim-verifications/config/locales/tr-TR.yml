@@ -92,10 +92,6 @@ tr:
             title: Tüm sayım verilerini sil
           index:
             empty: Sayım verileri yok. Bir CSV dosyası kullanarak almak için aşağıdaki formu kullanın.
-            title: Geçerli kayıt verisi
-          instructions:
-            body: Bunu yapmak için sistem yönetimine girmeli ve csv_census yetkilerini kuruluşa eklemelisiniz.
-            title: Bu kuruluş için CSV sayımını etkinleştirmeniz gerekiyor
           new:
             file: "e-posta verileri içeren .csv dosyası"
         authorizations:
@@ -117,13 +113,11 @@ tr:
               error: Yapılandırma güncellenirken bir hata oluştu.
           confirmations:
             new:
-              introduce_user_data: Resimdeki verileri tanıtın
               reject: Reddet
               verify: Doğrulama
           offline_confirmations:
             new:
               cancel: İptal Et
-              introduce_user_data: Katılımcı e-postasını ve doküman verilerini tanıtın
               verify: Doğrula
           pending_authorizations:
             index:
