@@ -34,6 +34,7 @@ el:
       actions:
         edit: Επεξεργασία
         import: Εισαγωγή προτάσεων σε έργα
+        new_project: Νέο έργο
         preview: Προεπισκόπηση
         send_voting_reminders: Αποστολή υπενθυμίσεων ψήφου
         title: Ενέργειες
