@@ -146,7 +146,6 @@ fi:
           success: Tapaamisen kopioiminen onnistui.
         new:
           copy: Kopioi
-          title: Kopioi tapaaminen
       tooltips:
         cannot_close_meetings: Tätä tapaamista ei voi sulkea, koska se on osallistujan luoma
         cannot_duplicate_meetings: Tätä tapaamista ei voi kopioida, koska se on osallistujan luoma
@@ -354,7 +353,6 @@ fi:
             non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
-            invite_attendee: Kutsu osallistuja
             invites: Kutsut
             registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
         meeting_closes:
