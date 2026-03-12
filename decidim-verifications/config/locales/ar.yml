@@ -69,9 +69,6 @@ ar:
             title: احذف جميع بيانات التعداد
           index:
             empty: لا توجد بيانات التعداد. استخدم النموذج أدناه لاستيراده باستخدام ملف CSV.
-            title: بيانات التعداد الحالية
-          instructions:
-            body: للقيام بذلك ، يجب عليك إدخال إدارة النظام وإضافة تصاريح csv_census إلى المؤسسة
           new:
             file: ".csv ملف مع بيانات رسائل البريد الإلكتروني"
         authorizations:
@@ -97,13 +94,11 @@ ar:
               error: حدثت مشكلة أثناء تحديث التكوين.
           confirmations:
             new:
-              introduce_user_data: إدخال البيانات في الصورة
               reject: رفض
               verify: التحقق
           offline_confirmations:
             new:
               cancel: إلغاء
-              introduce_user_data: تقديم البريد الإلكتروني المشارك وبيانات الوثيقة
               verify: التحقق
           pending_authorizations:
             index:
