@@ -55,7 +55,6 @@ sk:
           success: Duplicitné schôdzka úspešne.
         new:
           copy: kopírovať
-          title: Duplicitné schôdzka
     components:
       meetings:
         actions:
@@ -172,7 +171,6 @@ sk:
             non_user: Neexistujúca užívateľ
             select_user: Vyberte používateľa
           index:
-            invite_attendee: Pozvať účastníka
             invites: Pozvánky
         meeting_closes:
           edit:
@@ -213,7 +211,6 @@ sk:
               many: Bolo tu%{count} registrácií.
               other: Bolo tu%{count} registrácií.
             reserved_slots_less_than: Musí byť menšie alebo rovné%{count}
-            title: Registrácia
           update:
             invalid: Vyskytol sa problém pri ukladaní nastavení registrácie.
             success: Nastavenie úspešných registráciou bolo úspešne uložené.
