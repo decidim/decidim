@@ -110,7 +110,6 @@ hu:
         new:
           import: Importál
           select: Válaszd ki, mely adatokat szeretnéd importálni
-          title: Gyűlés importálása
       assembly_publications:
         create:
           error: Hiba történt a gyűlés közzététele során.
@@ -125,7 +124,6 @@ hu:
         destroy:
           success: Admin eltávolítása a gyűlésből sikeres.
         edit:
-          title: Gyűlés adminjának frissítése
           update: Frissítés
         index:
           assembly_admins_title: Gyűlés adminjai
