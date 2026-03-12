@@ -134,10 +134,6 @@ lt:
           index:
             data: Bendras įkeltų įrašų skaičius – %{count}. Paskutinį kartą įkelta %{due_date}.
             empty: Surašymo duomenų nėra. Naudokite toliau pateikiamą formą, kad ją importuotumėte naudodami CSV rinkmeną.
-            title: Dabartiniai surašymo duomenys
-          instructions:
-            body: Kad tai padarytumėte, turite nueiti į sistemos administravimo laukelį ir organizacijai suteikti „csv_census“ leidimus
-            title: Turite įjungti „cvs_census“ šiai organizacijai
           new:
             file: ".csv rinkmena su el. pašto duomenimis"
         authorizations:
@@ -170,7 +166,6 @@ lt:
               error: Tikrinimo duomenys nesutampa. Bandykite dar kartą arba atmeskite tikrinimą, kad dalyvis galėtų pakeisti duomenis.
               success: Dalyvis patikrintas.
             new:
-              introduce_user_data: Pristatykite duomenis paveikslėlyje
               reject: Atmesti
               verify: Patikrinti
           offline_confirmations:
@@ -179,7 +174,6 @@ lt:
               success: Dalyvis patikrintas.
             new:
               cancel: Atšaukti
-              introduce_user_data: Pristatykite dalyvio el. pašto adresą ir dokumento duomenis
               verify: Patikrinti
           pending_authorizations:
             index:
