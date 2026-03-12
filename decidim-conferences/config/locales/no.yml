@@ -89,8 +89,6 @@
           success: Konferansetaler ble slettet.
         edit:
           update: Oppdater
-        index:
-          conference_speakers_title: Konferansetalere
         new:
           create: Opprett
         update:
@@ -104,6 +102,8 @@
           success: Konferanse administrator ble fjernet.
         edit:
           update: Oppdater
+        index:
+          conference_admins_title: Konferanse administratorer
         new:
           create: Opprett
         update:
@@ -204,7 +204,6 @@
           update: Oppdater
         new:
           create: Opprett
-          title: Ny partner
         update:
           error: Det oppstod et problem med å oppdatere en partner for denne konferansen.
           success: Konferansepartner ble oppdatert.
@@ -225,7 +224,6 @@
           update: Oppdater
         new:
           create: Opprett
-          title: Ny registreringstype
         update:
           error: Det oppstod et problem med å oppdatere en registreringstype for denne konferansen.
           success: Konferanse registrerings-type ble oppdatert.
