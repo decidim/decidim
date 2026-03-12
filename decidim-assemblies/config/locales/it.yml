@@ -101,8 +101,6 @@ it:
           public: Pubblico
           published: Pubblicato
           unpublished: Non pubblicato
-        manage_trash:
-          title: Assemblee eliminate
         new:
           create: Crea
           title: Nuova assemblea
@@ -116,7 +114,6 @@ it:
         new:
           import: Importa
           select: Seleziona quali dati vuoi importare
-          title: Importa assemblea
       assembly_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questa assemblea.
@@ -131,7 +128,6 @@ it:
         destroy:
           success: Utente rimosso con successo da questa assemblea.
         edit:
-          title: Aggiorna gli amministratori dell'assemblea
           update: Aggiorna
         index:
           assembly_admins_title: Amministratori dell'assemblea
@@ -196,7 +192,6 @@ it:
           assemblies: Assemblee
       titles:
         assemblies: Assemblee
-        assemblies_deleted: Assemblee eliminate
         assemblies_types: Tipi di assemblea
       tooltips:
         deleted_assemblies_info: Un'assemblea può essere eliminata solo se lo stato è "Non pubblicato".
