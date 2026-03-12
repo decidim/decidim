@@ -148,7 +148,6 @@ fi:
           success: Tapaamisen kopioiminen onnistui.
         new:
           copy: Kopioi
-          title: Kopioi tapaaminen
     components:
       meetings:
         actions:
@@ -333,7 +332,6 @@ fi:
             non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
-            invite_attendee: Kutsu osallistuja
             invites: Kutsut
             registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
         meeting_closes:
