@@ -142,7 +142,6 @@ lb:
           update: Aktualisieren
         new:
           create: Erstellen
-          title: Neuer Partner
         update:
           error: Bei einem Fehler ist ein Partner für diese Konferenz aktualisiert worden.
           success: Der Partner wurde für diese Konferenz erfolgreich aktualisiert.
@@ -163,12 +162,9 @@ lb:
           update: Aktualisieren
         new:
           create: Erstellen
-          title: Neuer Registrierungstyp
         update:
           error: Bei einem Fehler ist ein Registrierungstyp für diese Konferenz aktualisiert worden.
           success: Die Registrierung wurde für diese Konferenz erfolgreich aktualisiert.
-      titles:
-        conferences: Konferenzen
     admin_log:
       conference:
         create: "%{user_name} hat die Konferenz %{resource_name} erstellt"
@@ -221,13 +217,8 @@ lb:
             select_user: Nutzer wählen
           index:
             invite_attendee: Teilnehmer einladen
-            invites: Lädt ein
           new:
             invite: Einladen
-            new_invite: Nutzer einladen
-        conference_registrations:
-          index:
-            registrations: Anmeldungen
         conference_speakers:
           form:
             existing_user: Existierender Benutzer
