@@ -112,7 +112,6 @@ ro:
           success: Întâlnire duplicată cu succes.
         new:
           copy: Copiază
-          title: Duplicarea reuniunii
       tooltips:
         cannot_close_meetings: Nu se poate închide această întâlnire deoarece este creată de un participant
         cannot_duplicate_meetings: Nu se poate duplica această întâlnire deoarece este creată de un participant
@@ -281,7 +280,6 @@ ro:
             non_user: Participant neexistent
             select_user: Selecteză un participant
           index:
-            invite_attendee: Invită participantul
             invites: Invitații
         meeting_closes:
           edit:
