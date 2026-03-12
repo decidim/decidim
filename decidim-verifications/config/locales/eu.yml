@@ -173,10 +173,6 @@ eu:
           index:
             data: Guztira, badaude %{count} erregistro kargatuta. Azken karga-data izan zen %{due_date}.
             empty: Ez dago zentsu-datuik. Erabili beheko formularioa CSV fitxategiaren bidez inportatzeko.
-            title: Erroldako oraingo datuak
-          instructions:
-            body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
-            title: CSV errolda aktibatu behar duzu erakunde honetarako
           new:
             example: |
               john.doe@example.org
@@ -211,7 +207,6 @@ eu:
               error: Egiaztapena ez dator bat. Mesedez, saiatu berriro edo ukatu egiaztapena, parte-hartzaileak aldatu dezan.
               success: Parte-hartzailea zuzen egiaztatua.
             new:
-              introduce_user_data: Idatzi datuak irudian
               reject: Ukatu
               verify: Ziurtatu
           offline_confirmations:
@@ -220,7 +215,6 @@ eu:
               success: Parte-hartzailea zuzen egiaztatua.
             new:
               cancel: Ezeztatu
-              introduce_user_data: Sartu parte-hartzailearen helbide elektronikoa eta dokumentuaren datuak
               verify: Ziurtatu
           pending_authorizations:
             index:
