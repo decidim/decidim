@@ -92,7 +92,6 @@ zh-TW:
           published: 已發佈
         new:
           create: 創建
-          title: 新集會
         update:
           error: 更新此大會時出現問題
           success: 此大會成功更新
@@ -103,7 +102,6 @@ zh-TW:
         new:
           import: 匯入
           select: 請選擇您想匯入的資料
-          title: 匯入大會
       assembly_publications:
         create:
           error: 發布此大會時出現問題。
@@ -119,8 +117,6 @@ zh-TW:
           success: 管理員已成功從此大會中刪除
         edit:
           update: 更新
-        index:
-          assembly_admins_title: 大會管理員
         new:
           create: 建立
         update:
@@ -162,7 +158,6 @@ zh-TW:
             collaborator: 合作者
             moderator: 版主
       titles:
-        assemblies: 大會
         assemblies_types: 大會類型
     admin_log:
       assembly:
