@@ -109,8 +109,6 @@ eu:
         initiatives_menu:
           see_initiative: Ekimena ikusi
         initiatives_settings: Ezarpenak
-        initiatives_submenu:
-          info: Ekimen honi buruz
         initiatives_types: Ekimen motak
         moderations: Moderazioak
       models:
@@ -155,9 +153,6 @@ eu:
       taxonomy_filters:
         space_filter_for:
           initiatives: Ekimen guztiak
-      titles:
-        initiatives: Ekimenak
-        initiatives_types: Ekimen motak
     download_your_data:
       show:
         initiatives: Ekimenak esportatu
@@ -296,7 +291,6 @@ eu:
             publication_date: Azken argitaratutakoak
             random: Ausaz
             signatures: Sinadura gehiago
-            title: Ekimenen ezarpenak
         initiatives_type_scopes:
           create:
             error: Arazo bat izan da hautatutako ekimenerako eremu berri bat sortzean.
