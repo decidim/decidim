@@ -92,7 +92,6 @@ tr:
           published: Yayınlanan
         new:
           create: Oluştur
-          title: Yeni kurul
         update:
           error: Bu kurul güncellenirken bir hata oluştu.
           success: Kurul başarıyla güncellendi.
@@ -103,7 +102,6 @@ tr:
         new:
           import: İçe aktar
           select: Hangi verileri içe aktarmak istediğinizi seçin
-          title: Kurulu içe aktar
       assembly_publications:
         create:
           error: Bu kurul yayınlanırken bir hata oluştu.
@@ -119,8 +117,6 @@ tr:
           success: Yönetici bu kuruldan başarıyla kaldırıldı.
         edit:
           update: Güncelle
-        index:
-          assembly_admins_title: Kurul yöneticileri
         new:
           create: Oluştur
         update:
@@ -164,7 +160,6 @@ tr:
             collaborator: İşbirlikçi
             moderator: Moderatör
       titles:
-        assemblies: Kurullar
         assemblies_types: Kurul türleri
       tooltips:
         deleted_assemblies_info: Bir meclis yalnızca eğer statüsü "Yayınlanmamış" ise silinebilir.
