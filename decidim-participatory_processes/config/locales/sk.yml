@@ -123,7 +123,6 @@ sk:
         destroy:
           success: Zúčastňujú skupina procesov bola úspešne zmazaná.
         edit:
-          title: Upraviť skupinu procesov
           update: Aktualizácia
         new:
           create: Vytvoriť
@@ -138,7 +137,6 @@ sk:
         new:
           import: Importovať
           select: Vyberte, ktoré údaje chcete importovať
-          title: Importovať proces participácie
       participatory_process_publications:
         create:
           error: Pri publikovaní tohto procesu participácie došlo k chybe.
@@ -158,13 +156,11 @@ sk:
         destroy:
           success: Úspešný krok procesu bol úspešne zmazaný.
         edit:
-          title: Úprava kroku procesu participácie
           update: Aktualizácia
         index:
           steps_title: Kroky
         new:
           create: Vytvoriť
-          title: Nový krok procesu participácie
         ordering:
           error: Došlo k chybe pri novom usporiadaní týchto krokov procesu participácie.
         update:
@@ -177,13 +173,9 @@ sk:
         destroy:
           success: Používateľ bol úspešne odstránený z tohto participačného procesu.
         edit:
-          title: Aktualizovať administrátora participatívneho procesu
           update: Aktualizácia
-        index:
-          process_admins_title: Používatelia účastníckych procesov
         new:
           create: Vytvoriť
-          title: Nový administrátor participatívneho procesu
         update:
           error: Došlo k chybe pri aktualizácii používateľa pre tento participatívnej proces.
           success: Užívateľ bol úspešne aktualizovaný pre tento participatívnej proces.
@@ -199,7 +191,6 @@ sk:
           published: Publikované
         new:
           create: Vytvoriť
-          title: Nový participačné proces
         update:
           error: Pri aktualizácii tohto participatívneho procesu došlo k chybe.
           success: Participatívne proces bol úspešne aktualizovaný.
@@ -208,7 +199,7 @@ sk:
           error: Došlo k chybe pri vytváraní novej skupiny účastníckych procesov.
           success: Skupina úspešne vytvorená skupina účastníkov.
       titles:
-        participatory_process_groups: Skupiny zúčastnených procesov
+        participatory_process_groups: Skupiny participatívnych procesov
         participatory_processes: Participatívna procesy
       users:
         resend_invitation:
