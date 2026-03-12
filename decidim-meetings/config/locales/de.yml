@@ -145,7 +145,6 @@ de:
           success: Veranstaltung erfolgreich dupliziert.
         new:
           copy: Kopieren
-          title: Veranstaltung duplizieren
       tooltips:
         cannot_close_meetings: Diese Veranstaltung kann nicht abgeschlossen werden, da sie von einem Teilnehmenden erstellt wurde
         cannot_duplicate_meetings: Dieses Meeting kann nicht dupliziert werden, da es von einem Teilnehmenden erstellt wurde
@@ -354,7 +353,6 @@ de:
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
-            invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
         meeting_closes:
@@ -459,7 +457,6 @@ de:
               other: Es wurden %{count} Anmeldungen vorgenommen.
             reserved_slots_help: Belassen Sie den Wert auf 0, wenn Sie keine reservierten Slots haben.
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
-            title: Anmeldungen
           update:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
