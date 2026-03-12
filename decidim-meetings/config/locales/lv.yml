@@ -53,7 +53,6 @@ lv:
           success: Sanāksme veiksmīgi dublēta.
         new:
           copy: Kopēt
-          title: Dublēt sanāksmi
     components:
       meetings:
         actions:
@@ -170,7 +169,6 @@ lv:
             non_user: Neeksistējošs dalībnieks
             select_user: Izvēlieties dalībnieku
           index:
-            invite_attendee: Uzaicināt apmeklētāju
             invites: Ielūgumi
         meeting_closes:
           edit:
