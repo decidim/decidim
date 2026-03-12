@@ -27,6 +27,7 @@ ar:
         edit: تعديل
         edit_projects: إدارة المشاريع
         import: استيراد مقترحات للمشاريع
+        new_project: مشروع جديد
         preview: معاينة
         title: أفعال
       admin:
