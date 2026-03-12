@@ -258,8 +258,6 @@ tr:
         edit:
           title: Klasörü düzenle
           update: Güncelleştirme
-        index:
-          attachment_collections_title: Ek klasörleri
         new:
           create: yaratmak
           title: Yeni dosya
@@ -275,8 +273,6 @@ tr:
         edit:
           title: Eki düzenle
           update: Güncelleştirme
-        index:
-          attachments_title: Ekler
         new:
           create: Ek oluştur
           title: Yeni ek
@@ -349,7 +345,6 @@ tr:
         'false': 'Hayır'
         managed_user_name: Yönetilen Kullanıcı
         solved: Çözüldü
-        title: Doğrulamaların çatışmaları
         transfer:
           email: E-Posta
           error: Mevcut katılımcıyı yönetilen katılımcıya aktarırken bir sorun oluştu.
@@ -551,7 +546,6 @@ tr:
         promotions:
           new:
             explanation: Yönetilen kullanıcılar standart kullanıcılara yükseltilebilir. Bu, uygulamaya davet edilecekleri anlamına gelir ve onları tekrar taklit edemezsiniz. Davet edilen kullanıcı davetinizi kabul etmek için bir e-posta alacak.
-            new_managed_user_promotion: Yeni yönetilen kullanıcı tanıtımı
             promote: Desteklemek
       menu:
         admin_log: Yönetici etkinlik günlüğü
@@ -717,7 +711,6 @@ tr:
           title: Bülten Şablonu
           use_template: Bu şablonu kullan
         show:
-          preview: 'Şablon özizlemesi: %{template_name}'
           use_template: Bu şablonu kullan
       newsletters:
         confirm_recipients:
@@ -860,7 +853,6 @@ tr:
           up: Yukarı
         form:
           add: İzin verilenler listesine ekle
-          title: İzin verilen harici alan adları
       participatory_space_private_users:
         create:
           error: Bu katılımcı alan için özel bir kullanıcı eklenirken bir hata oluştu.
@@ -1105,20 +1097,17 @@ tr:
           none: Hiçbiri
           title: Yeni Öğre
       titles:
-        admin_log: Yönetici günlüğü
         area_types: Alan türleri
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
-        dashboard: Pano
-        impersonatable_users: Yönetilebilir kullanıcılar
         impersonations: Kullanıcılar yönetimi
+        page_topics: Konular
         pages: Sayfalar
         panel: Yönetici
-        participants: Kullanıcılar
+        participants: Katılımcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
         taxonomies: Sınıflandırmalar
-        taxonomy_filters: '"%{taxonomy} için kategori filtreleri'
       tooltips:
         cannot_edit_taxonomy_filter: Bu kategori filtresi düzenlenemiyor
         deleted_attachment_collections_info: Bu klasör ek dosyalar içerdiğinden silinemiyor.
