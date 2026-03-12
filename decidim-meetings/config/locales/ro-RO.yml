@@ -114,7 +114,6 @@ ro:
           success: Întâlnire duplicată cu succes.
         new:
           copy: Copiază
-          title: Duplicarea reuniunii
     components:
       meetings:
         actions:
@@ -274,7 +273,6 @@ ro:
             non_user: Participant neexistent
             select_user: Selecteză un participant
           index:
-            invite_attendee: Invită participantul
             invites: Invitații
         meeting_closes:
           edit:
