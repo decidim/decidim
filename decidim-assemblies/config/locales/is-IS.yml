@@ -71,11 +71,9 @@ is-IS:
           published: Published
         new:
           create: Búa til
-          title: Ný samkoma
       assembly_imports:
         new:
           import: Flytja inn
-          title: Flytja inn þing
       assembly_user_roles:
         edit:
           update: Uppfæra
@@ -113,8 +111,6 @@ is-IS:
             admin: Stjórnandi
             collaborator: Samstarfsaðili
             moderator: Moderator
-      titles:
-        assemblies: Þing
     admin_log:
       assembly:
         create: "%{user_name} búið til %{resource_name} samkoma"
