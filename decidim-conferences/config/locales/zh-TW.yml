@@ -99,8 +99,6 @@ zh-TW:
           success: 會議講者已成功刪除。
         edit:
           update: 更新
-        index:
-          conference_speakers_title: 會議講者
         new:
           create: 建立
         update:
@@ -216,7 +214,6 @@ zh-TW:
           update: 更新
         new:
           create: 創建
-          title: 新合夥人
         update:
           error: 在此會議中更新合作夥伴時出現問題。
           success: 成功更新會議夥伴。
@@ -237,7 +234,6 @@ zh-TW:
           update: 更新
         new:
           create: 創建
-          title: 新的註冊類型
         update:
           error: 更新會議註冊類型時發生問題。
           success: 會議註冊類型已成功更新。
