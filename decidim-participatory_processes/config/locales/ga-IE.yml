@@ -73,6 +73,7 @@ ga:
           update: Nuashonraigh
         new:
           create: Cruthaigh
+          title: Grúpa próisis nua
       participatory_process_imports:
         new:
           import: Iompórtáil
