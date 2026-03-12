@@ -115,8 +115,6 @@ cs:
         initiatives_menu:
           see_initiative: Zobrazit iniciativu
         initiatives_settings: Nastavení
-        initiatives_submenu:
-          info: O této iniciativě
         initiatives_types: Typy iniciativ
         moderations: Moderování
       models:
@@ -161,9 +159,6 @@ cs:
       taxonomy_filters:
         space_filter_for:
           initiatives: Všechny iniciativy
-      titles:
-        initiatives: Iniciativy
-        initiatives_types: Typy iniciativ
     download_your_data:
       show:
         initiatives: Export iniciativ
@@ -302,7 +297,6 @@ cs:
             publication_date: Nedávno publikované
             random: Náhodně
             signatures: S nejvíce podpisy
-            title: Nastavení pro iniciativy
         initiatives_type_scopes:
           create:
             error: Při vytváření nového rozsahu pro danou iniciativu došlo k chybě.
