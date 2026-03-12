@@ -17,6 +17,7 @@ lv:
       actions:
         edit: Labot
         import: Importēt priekšlikumus projektos
+        new_project: Jauns projekts
         preview: Priekšskatīt
         title: Darbības
       admin:
