@@ -119,11 +119,9 @@ lv:
         destroy:
           success: Līdzdalības procesa grupa ir veiksmīgi dzēsta.
         edit:
-          title: Rediģēt procesa grupu
           update: Atjaunināt
         new:
           create: Izveidot
-          title: Jauna procesa grupa
         update:
           error: Šīs līdzdalības procesa grupas atjaunināšanas laikā radās problēma.
           success: Līdzdalības procesa grupa ir veiksmīgi atjaunināta.
@@ -134,7 +132,6 @@ lv:
         new:
           import: Importēt
           select: Atlasiet, kurus datus vēlaties importēt
-          title: Importēt līdzdalības procesu
       participatory_process_publications:
         create:
           error: Publicējot šo līdzdalības procesu, radās problēma.
@@ -154,13 +151,9 @@ lv:
         destroy:
           success: Līdzdalības procesa fāze ir veiksmīgi dzēsta.
         edit:
-          title: Rediģēt līdzdalības procesa fāzi
           update: Atjaunināt
-        index:
-          steps_title: Fāzes
         new:
           create: Izveidot
-          title: Jauna līdzdalības procesa fāze
         ordering:
           error: Mainot šī līdzdalības procesa fāžu kārtību, radās problēma.
         update:
@@ -172,13 +165,9 @@ lv:
         destroy:
           success: Administrators ir veiksmīgi noņemts no šī līdzdalības procesa.
         edit:
-          title: Atjaunināt līdzdalības procesa administratoru
           update: Atjaunināt
-        index:
-          process_admins_title: Līdzdalības procesa administratori
         new:
           create: Izveidot
-          title: Jauns līdzdalības procesa administrators
         update:
           error: Šī līdzdalības procesa administratora atjaunināšanas laikā radās problēma.
           success: Līdzdalības procesa administrators ir veiksmīgi atjaunināts.
@@ -194,7 +183,6 @@ lv:
           published: Publicēts
         new:
           create: Izveidot
-          title: Jauns līdzdalības process
         update:
           error: Šī līdzdalības procesa atjaunināšanas laikā radās problēma.
           success: Līdzdalības process ir veiksmīgi atjaunināts.
@@ -202,9 +190,6 @@ lv:
         create:
           error: Jaunas līdzdalības procesa grupas izveides laikā radās problēma.
           success: Līdzdalības procesa grupa ir veiksmīgi izveidota.
-      titles:
-        participatory_process_groups: Līdzdalības procesa grupas
-        participatory_processes: Līdzdalības procesi
       users:
         resend_invitation:
           error: Atkārtoti nosūtot ielūgumu, radās problēma.
