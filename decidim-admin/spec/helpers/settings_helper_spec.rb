@@ -60,7 +60,7 @@ module Decidim
           render_input
         end
 
-        context "when the field should be disbaled" do
+        context "when the field should be disabled" do
           let(:options) { { include_blank: false, readonly: true, label: "A test" } }
 
           it "is supported" do
