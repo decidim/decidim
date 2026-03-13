@@ -188,6 +188,35 @@ module Decidim
           expect(view).to receive(:render).with(partial: "decidim/admin/components/taxonomy_filters_drawer")
           render_input
         end
+
+        context "when component does not exist" do
+          let(:second_component) { build(:dummy_component, participatory_space: current_participatory_space) }
+
+          after do
+            I18n.backend.reload!
+          end
+
+          before do
+            I18n.backend.reload!
+            I18n.backend.store_translations(
+              :en,
+              decidim: {
+                components: {
+                  settings: {
+                    global: {
+                      test_unavailable: "Selecting taxonomy filters will be possible after the component is created."
+                    }
+                  }
+                }
+              }
+            )
+            view.instance_variable_set(:@component, second_component)
+          end
+
+          it "renders a message indicating that the component is missing" do
+            expect(render_input).to include("Selecting taxonomy filters will be possible after the component is created.")
+          end
+        end
       end
 
       describe "help texts" do

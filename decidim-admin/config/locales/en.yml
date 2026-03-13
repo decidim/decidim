@@ -1305,6 +1305,10 @@ en:
           last_week: Last week
           no_users_count_statistics_yet: There are no participant count statistics yet.
           participants: Participants
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Selecting taxonomy filters will be possible after the component is created.
     forms:
       errors:
         impersonate_user:
