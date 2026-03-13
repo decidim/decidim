@@ -22,6 +22,7 @@ class LinkBubbleMenu extends BubbleMenu {
 
     const selection = view.state.selection;
     if (this.isImage(selection)) {
+      this.bubble.style.zIndex = "10";
       this.updateHref(selection.node.attrs.href);
     }
   }
