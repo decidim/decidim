@@ -352,7 +352,7 @@ module Decidim
 
                     dynamic_provider = Decidim::Env.new("MAPS_DYNAMIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
 
-                    if dynamic_provider
+                    if dynamic_provider.present?
                       dynamic_url = ENV.fetch("MAPS_DYNAMIC_URL", nil)
                       maps[:dynamic] = {
                         provider: dynamic_provider,
@@ -630,21 +630,21 @@ module Decidim
     },
     facebook: {
       enabled: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID").present?,
-      app_id: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID", nil),
-      app_secret: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_SECRET", nil),
+      app_id: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID", nil).value,
+      app_secret: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_SECRET", nil).value,
       icon_path: "media/images/facebook.svg"
     },
     twitter: {
       enabled: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY").present?,
-      api_key: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY", nil),
-      api_secret: Decidim::Env.new("OMNIAUTH_TWITTER_API_SECRET", nil),
+      api_key: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY", nil).value,
+      api_secret: Decidim::Env.new("OMNIAUTH_TWITTER_API_SECRET", nil).value,
       icon_path: "media/images/twitter-x.svg"
     },
     google_oauth2: {
       enabled: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID").present?,
       icon_path: "media/images/google.svg",
-      client_id: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID", nil),
-      client_secret: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil)
+      client_id: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID", nil).value,
+      client_secret: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil).value
     }
   }
 
