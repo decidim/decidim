@@ -111,6 +111,8 @@ eu:
         initiatives_menu:
           see_initiative: Ekimena ikusi
         initiatives_settings: Ezarpenak
+        initiatives_submenu:
+          info: Ekimen honi buruz
         initiatives_types: Ekimen motak
         moderations: Moderazioak
       models:
