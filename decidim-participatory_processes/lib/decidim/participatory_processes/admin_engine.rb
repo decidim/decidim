@@ -31,7 +31,7 @@ module Decidim
               patch :restore
             end
 
-            resources :steps, controller: "participatory_process_steps" do
+            resources :steps, controller: "participatory_process_steps", except: [:show] do
               resource :activate, controller: "participatory_process_step_activations", only: [:create, :destroy]
               collection do
                 post :ordering, to: "participatory_process_step_ordering#create"

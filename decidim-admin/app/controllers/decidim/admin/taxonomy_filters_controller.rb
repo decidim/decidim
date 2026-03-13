@@ -41,7 +41,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("create.error", scope: "decidim.admin.taxonomy_filters")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -63,7 +63,7 @@ module Decidim
           end
           on(:invalid) do
             flash.now[:alert] = I18n.t("update.error", scope: "decidim.admin.taxonomy_filters")
-            render :edit, status: :unprocessable_entity
+            render :edit, status: :unprocessable_content
           end
         end
       end
@@ -78,7 +78,7 @@ module Decidim
             flash[:alert] = I18n.t("destroy.error", scope: "decidim.admin.taxonomy_filters")
           end
         end
-        redirect_back(fallback_location: decidim_admin.taxonomy_filters_path(root_taxonomy))
+        redirect_back_or_to(decidim_admin.taxonomy_filters_path(root_taxonomy))
       end
 
       private

@@ -7,7 +7,7 @@ module Decidim
     # This cell renders the status of a taxonomy or a result.
     class StatusCell < Decidim::ViewModel
       include Decidim::Accountability::ApplicationHelper
-      include Decidim::Accountability::BreadcrumbHelper
+      include Decidim::Accountability::CalculatorHelper
       include ActionView::Helpers::NumberHelper
 
       def show
@@ -78,10 +78,6 @@ module Decidim
         return true unless options.has_key?(:render_count)
 
         options[:render_count]
-      end
-
-      def count_calculator(taxonomy_id)
-        Decidim::Accountability::ResultsCalculator.new(current_component, taxonomy_id).count
       end
 
       def decidim

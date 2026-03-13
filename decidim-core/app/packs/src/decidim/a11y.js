@@ -8,6 +8,13 @@ import Dialogs from "a11y-dialog-component";
  * @return {void}
  */
 const createDialog = (component) => {
+  const getFocusableElements = (container) => {
+    const selectors = "a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex='-1'])";
+    return Array.from(container.querySelectorAll(selectors)).filter(
+      (el) => el.offsetParent !== null
+    );
+  };
+
   const {
     dataset: { dialog, ...attrs }
   } = component;
@@ -29,11 +36,33 @@ const createDialog = (component) => {
     backdropSelector: `[data-dialog="${dialog}"]`,
     enableAutoFocus: false,
     onOpen: (params, trigger) => {
+      const keyHandler = (event) => {
+        if (event.key !== "Tab") {
+          return;
+        }
+        const focusable = getFocusableElements(params);
+        if (focusable.length === 0) {
+          return;
+        }
+        if (event.shiftKey && document.activeElement === focusable[0]) {
+          event.preventDefault();
+          focusable[focusable.length - 1].focus({ preventScroll: true });
+        } else if (!event.shiftKey && document.activeElement === focusable[focusable.length - 1]) {
+          event.preventDefault();
+          focusable[0].focus({ preventScroll: true });
+        }
+      };
+      params._focusTrapHandler = keyHandler;
+      params.addEventListener("keydown", keyHandler);
       setFocusOnTitle(params);
       window.focusGuard.trap(params, trigger);
       params.dispatchEvent(new CustomEvent("open.dialog"));
     },
     onClose: (params) => {
+      if (params._focusTrapHandler) {
+        params.removeEventListener("keydown", params._focusTrapHandler);
+        Reflect.deleteProperty(params, "_focusTrapHandler");
+      }
       window.focusGuard.disable();
       params.dispatchEvent(new CustomEvent("close.dialog"));
     },

@@ -26,7 +26,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("participatory_process_imports.create.error", scope: "decidim.admin")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end

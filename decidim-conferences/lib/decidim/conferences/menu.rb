@@ -104,7 +104,7 @@ module Decidim
       def self.register_conference_admin_menu!
         Decidim.menu :conference_admin_menu do |menu|
           menu.add_item :edit_conference,
-                        I18n.t("info", scope: "decidim.admin.menu.conferences_submenu"),
+                        I18n.t("title", scope: "decidim.conferences.admin.conferences.edit"),
                         decidim_admin_conferences.edit_conference_path(current_participatory_space),
                         position: 1,
                         icon_name: "information-line",

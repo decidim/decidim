@@ -63,7 +63,7 @@ module Decidim
         end
 
         def duplicate_assembly_attachments
-          [:hero_image, :banner_image].each do |attribute|
+          [:hero_image].each do |attribute|
             next unless @assembly.attached_uploader(attribute).attached?
 
             @duplicated_assembly.send(attribute).attach(@assembly.send(attribute).blob)

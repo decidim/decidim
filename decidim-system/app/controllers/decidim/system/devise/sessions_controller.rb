@@ -18,7 +18,7 @@ module Decidim
 
         def redirect_to_referer_or_path
           set_flash_message(:alert, "csrf_token", scope: "devise.failure")
-          redirect_back(fallback_location: root_path)
+          redirect_back_or_to(root_path)
         end
 
         def current_organization; end

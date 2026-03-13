@@ -270,7 +270,7 @@ module Decidim
             value_converter,
             &block
           )
-        end.to yield_successive_args([klass, 1..100], [klass, 101..150])
+        end.to yield_successive_args([klass, 1..100], [klass, 101..data.length])
 
         klass.where(component:).each do |record|
           expect(record.title).to eq("en" => "Foobar", "machine_translations" => { "es" => "Foobar ES" })

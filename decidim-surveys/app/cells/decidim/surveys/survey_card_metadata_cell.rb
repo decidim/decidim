@@ -31,7 +31,7 @@ module Decidim
       end
 
       def questions_count_item
-        text = "#{survey.questionnaire.questions.not_separator.size} #{t("questions", scope: "decidim.surveys.surveys.show")}"
+        text = "#{survey.questionnaire.question_types.size} #{t("questions", scope: "decidim.surveys.surveys.show")}"
 
         {
           text:,

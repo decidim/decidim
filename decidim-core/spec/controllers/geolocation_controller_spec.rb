@@ -34,7 +34,7 @@ module Decidim
       it "fails" do
         post :locate, params:, xhr: true
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
         expect(json["message"]).to have_content("not configured")
         expect(json["found"]).to be_blank
       end
@@ -43,7 +43,7 @@ module Decidim
     shared_examples "not found" do
       it "fails" do
         post :locate, params:, xhr: true
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
         expect(json["address"]).not_to eq(address)
         expect(json["message"]).to have_content("not authorized")
         expect(json["found"]).to be_blank

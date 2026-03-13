@@ -157,8 +157,8 @@ en:
           create: Create
           title: Create new debate
         orders:
-          commented: Most commented
           label: Order debates by
+          most_commented: Most commented
           random: Random order
           recent: Most recent
           updated: Recently updated
