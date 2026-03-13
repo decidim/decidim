@@ -480,16 +480,42 @@ eu:
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL Slugs erabiltzen da prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak bakarrik onartzen ditu, eta letra batekin hasi behar da. Adibidea: %{url}'
+          new:
+            title: Bikoiztu prozesu parte-hartzaileak
         participatory_process_groups:
+          edit:
+            title: Editatu prozesu-taldea
           form:
             metadata: Metadatuak
             title: "Prozesu honi buruz\n"
             visibility: Ikusgarritasuna
+          index:
+            title: Prozesu parte-hartzaileen taldeak
+          new:
+            title: Beste prozesu-talde bat
         participatory_process_imports:
           form:
             document_legend: Dokumentu bat atxikitu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+          new:
+            title: Inportatu prozesu parte-hartzailea
+        participatory_process_steps:
+          edit:
+            title: Editatu prozesu parte-hartzailearen fasea
+          index:
+            title: Faseak
+          new:
+            title: Prozesu parte-hartzailearen beste fase bat
+        participatory_process_user_roles:
+          edit:
+            title: Eguneratu prozesu parte-hartzailearen administratzailea
+          index:
+            title: Prozesu parte-hartzailearen administratzaileak
+          new:
+            title: Prozesu parte-hartzailearen beste administratzaile bat
         participatory_processes:
+          edit:
+            title: Prozesu honi buruz
           form:
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
@@ -504,6 +530,12 @@ eu:
             taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
+          index:
+            title: Prozesu parte-hartzaileak
+          manage_trash:
+            title: Ezabatutako prozesu parte-hartzaileak
+          new:
+            title: Beste prozesu parte-hartzaile bat
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
