@@ -102,6 +102,7 @@ eu:
         new:
           duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
+          title: Bikoiztu jardunaldia
       conference_publications:
         create:
           error: Arazo bat egon da jardunaldi hau argitaratzean.
@@ -120,9 +121,13 @@ eu:
         destroy:
           success: Hizlaria behar bezala ezabatua.
         edit:
+          title: Eguneratu jardunaldiaren hizlaria
           update: Eguneratu
+        index:
+          conference_speakers_title: Jardunaldiaren hizlariak
         new:
           create: Sortu
+          title: Beste hizlari bat
         publish:
           invalid: Arazo bat izan da hizlari hau argitaratzean.
           success: Hizlaria behar bezala argitaratua.
@@ -139,6 +144,7 @@ eu:
         destroy:
           success: Jardunaldiren administratzailea behar bezala ezabatua.
         edit:
+          title: Eguneratu jardunaldiaren hizlaria
           update: Eguneratu
         index:
           conference_admins_title: Jardunaldi-administratzaileak
@@ -167,6 +173,8 @@ eu:
         index:
           published: Argitaratua
           unpublished: Argitaragabea
+        manage_trash:
+          title: Ezabatutako jardunaldiak
         new:
           create: Sortu
           title: Beste jardunaldi bat
@@ -184,6 +192,7 @@ eu:
         destroy:
           success: Multimediaren esteka behar bezala ezabatua.
         edit:
+          title: Eguneratu hedabideen lotura
           update: Eguneratu
         index:
           media_links_title: Hedabideen loturak
@@ -204,6 +213,7 @@ eu:
           conference_invites: Gonbidapenak
           conference_speakers: Hizlariak
           diploma: Parte-hartze ziurtagiria
+          info: Jardunaldi honi buruz
           media_links: Hedabideen loturak
           moderations: Moderazioak
           partners: Kideak
@@ -271,6 +281,7 @@ eu:
         destroy:
           success: Kidea behar bezala kenduta.
         edit:
+          title: Eguneratu kidea
           update: Eguneratu
         new:
           create: Sortu
@@ -292,6 +303,7 @@ eu:
         destroy:
           success: Izen-emate mota jardunaldi honetatik atera da.
         edit:
+          title: Eguneratu erregistro mota
           update: Eguneratu
         new:
           create: Sortu
@@ -304,6 +316,7 @@ eu:
           conferences: Jardunaldi guztiak
       titles:
         conferences: Jardunaldiak
+        conferences_deleted: Ezabatutako jardunaldiak
       tooltips:
         deleted_conferences_info: Jardunaldiak soilik ezabatu daitezke egoera "Argitaratugabea" bada.
     admin_log:
