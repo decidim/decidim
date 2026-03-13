@@ -235,6 +235,8 @@ eu:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: Batzar honi buruz
           form:
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
@@ -253,18 +255,35 @@ eu:
             taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
+          index:
+            title: Batzarrak
+          manage_trash:
+            title: Ezabatutako batzarrak
+          new:
+            title: Beste batzar bat
         assembly_duplicates:
           form:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+          new:
+            title: Bikoiztu batzarra
         assembly_imports:
           form:
             document_legend: Gehitu dokumentu bat
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+          new:
+            title: Inportatu batzarra
         assembly_members:
           form:
             explanation: 'Jarraibideak irudirako:'
             image_guide: Ahal dela, testurik gabeko irudi bertikal bat.
             non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratu baino lehen.
+        assembly_user_roles:
+          edit:
+            title: Eguneratu batzarraren administratzailea
+          index:
+            title: Batzarraren administratzaileak
+          new:
+            title: Batzarraren beste administratzaile bat
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua
