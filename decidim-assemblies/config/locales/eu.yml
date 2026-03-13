@@ -107,6 +107,8 @@ eu:
           public: Publikoa
           published: Argitaratua
           unpublished: Ez argitaratua
+        manage_trash:
+          title: Ezabatutako batzarrak
         new:
           create: Sortu
           title: Beste batzar bat
@@ -121,6 +123,7 @@ eu:
         new:
           copy: Kopiatu
           select: Hautatu zein datu bikoiztu nahi dituzun
+          title: Bikoiztu batzarra
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.
@@ -128,6 +131,7 @@ eu:
         new:
           import: Inportatu
           select: Hautatu zein datu inportatu nahi dituzun
+          title: Inportatu batzarra
       assembly_publications:
         create:
           error: Arazo bat egon da batzar hau argitaratzean.
@@ -142,6 +146,7 @@ eu:
         destroy:
           success: Batzar honetatik administratzailea zuzen kendua.
         edit:
+          title: Eguneratu batzarraren administratzailea
           update: Onartu
         index:
           assembly_admins_title: Batzarraren administratzaileak
@@ -205,6 +210,7 @@ eu:
           assemblies: Batzar guztiak
       titles:
         assemblies: Batzarrak
+        assemblies_deleted: Ezabatutako batzarrak
         assemblies_types: Batzar motak
       tooltips:
         deleted_assemblies_info: Batzar bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
