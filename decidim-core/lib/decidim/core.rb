@@ -362,7 +362,7 @@ module Decidim
                       maps[:dynamic][:tile_layer][:url] = dynamic_url if dynamic_url
                       maps[:dynamic][:tile_layer][:attribution] = ENV["MAPS_ATTRIBUTION"] if ENV["MAPS_ATTRIBUTION"]
                     end
-                    if dynamic_provider && Decidim::Env.new("MAPS_EXTRA_VARS").present?
+                    if dynamic_provider.present? && Decidim::Env.new("MAPS_EXTRA_VARS").present?
                       vars = URI.decode_www_form(Decidim::Env.new("MAPS_EXTRA_VARS").to_s)
                       vars.each do |key, value|
                         # perform a naive type conversion
