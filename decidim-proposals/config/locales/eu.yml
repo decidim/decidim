@@ -681,6 +681,7 @@ eu:
             related_meetings: Erlazionatutako topaketak
             remove_assignment: Desegin esleipena
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
+            title: Erantzun proposamenari
             votes_count: Babes kopurua
           update_taxonomies:
             invalid: 'Proposamen hauek bazuten %{taxonomia} taxonomia: %{proposals}.'
