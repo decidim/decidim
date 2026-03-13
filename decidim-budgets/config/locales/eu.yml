@@ -90,6 +90,7 @@ eu:
             invalid: Arazo bat egon da proiektu hau sortzean.
             success: Proiektua zuzen sortua.
           edit:
+            title: 'Editatu proeiktua hemen: %{budget}'
             update: Eguneratu
           index:
             actions: Ekintzak
@@ -112,6 +113,7 @@ eu:
             title: Ezabatutako proiektuak
           new:
             create: Sortu
+            title: 'Beste proiektu bat hemen: %{budget}'
           update:
             invalid: Arazo bat egon da proiektu hau eguneratzean.
             success: Proiektua zuzen eguneratua.
