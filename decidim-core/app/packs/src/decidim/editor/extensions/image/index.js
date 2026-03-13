@@ -98,7 +98,7 @@ export default Image.extend({
 
           this.editor.commands.toggleDialog(true);
           const dialogState = await uploadDialog.toggle(
-            { src, alt, href, target },
+            { src, alt },
             {
               inputLabel: i18n.altLabel,
               uploadHandler: async (file) => uploadImage(file, this.options.uploadImagesPath)
@@ -118,8 +118,6 @@ export default Image.extend({
 
           src = uploadDialog.getValue("src");
           alt = uploadDialog.getValue("alt");
-          href = uploadDialog.getValue("href");
-          target = uploadDialog.getValue("target");
           return this.editor.chain().setImage({ src, alt, width, href, target }).focus(null, { scrollIntoView: false }).run();
         }
 
