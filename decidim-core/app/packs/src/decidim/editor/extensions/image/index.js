@@ -118,6 +118,8 @@ export default Image.extend({
 
           src = uploadDialog.getValue("src");
           alt = uploadDialog.getValue("alt");
+          href = uploadDialog.getValue("href");
+          target = uploadDialog.getValue("target");
           return this.editor.chain().setImage({ src, alt, width, href, target }).focus(null, { scrollIntoView: false }).run();
         }
 
