@@ -1,8 +1,28 @@
 import { Controller } from "@hotwired/stimulus"
 
+/**
+ * Stimulus controller for the admin import-proposals form.
+ *
+ * Watches a `<select>` element (the origin component picker) and dynamically
+ * fetches the available proposal states for the chosen component.
+ * The retrieved states are rendered as a list of checkboxes inside a
+ * container element, so admins can easily filter which proposal states to import.
+ *
+ * Targets:
+ *   - `select`    – The `<select>` element used to choose the origin component.
+ *   - `container` – The wrapper element where the state checkboxes are rendered.
+ *
+ * Values:
+ *   - `statesUrl` {String}  – Base URL of the endpoint that returns available states.
+ *   - `selectedStates` {Array} – Pre-selected state tokens (populated on page load
+ *     when re-rendering a previously submitted form).
+ */
 export default class ImportProposalsController extends Controller {
 
   /**
+   * Lifecycle callback invoked by Stimulus when the controller is connected to
+   * the DOM. Triggers an initial state fetch based on the currently selected
+   * component so that a pre-filled form displays the correct checkboxes.
    * @returns {void}
    */
   connect() {
