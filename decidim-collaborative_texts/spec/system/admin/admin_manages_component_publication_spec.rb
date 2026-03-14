@@ -23,5 +23,11 @@ describe "Admin manages component publication" do
 
       include_examples "removes component resources from search index"
     end
+
+    context "when component is deleted" do
+      let!(:component) { create(:collaborative_text_component, :trashed, participatory_space:) }
+
+      include_examples "cannot browse component data"
+    end
   end
 end

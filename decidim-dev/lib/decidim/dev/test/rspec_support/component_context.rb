@@ -143,6 +143,21 @@ shared_examples "add component resources to search index" do
   end
 end
 
+shared_examples "cannot browse component data" do
+  before do
+    visit decidim_admin_participatory_processes.components_path(component.participatory_space)
+    click_on "View deleted components"
+  end
+
+  it "has no access to the component data" do
+    expect(page).to have_current_path(decidim_admin_participatory_processes.manage_trash_components_path(component.participatory_space))
+    within "tr", text: translated(component.name) do
+      expect(page).to have_content(translated(component.name))
+      expect(page).not_to have_link(translated(component.name))
+    end
+  end
+end
+
 shared_examples "removes component resources from search index" do
   before do
     resource.reload.component.manifest.run_hooks(:publish, resource.reload.component)

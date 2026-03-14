@@ -4,7 +4,7 @@
       <%= icon("draggable", class: "dragger") %>
     </td>
     <td class="!text-left" data-label="<%= t("index.headers.name", scope: "decidim.admin.components") %>">
-      <% if component.manifest.admin_engine %>
+      <% if component.manifest.admin_engine && !component.deleted? %>
         <%= link_to translated_attribute(component.name), manage_component_path(component) %><br>
       <% else %>
         <%= translated_attribute component.name %>
