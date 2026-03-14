@@ -2,7 +2,7 @@
 
 class ReindexSurveys < ActiveRecord::Migration[7.2]
   def up
-    Decidim::Component.where(manifest_name: :surveys).find_each do |component|
+    Decidim::Component.where(manifest_name: :surveys).published.find_each do |component|
       component.manifest.run_hooks(:publish, component)
     end
   end

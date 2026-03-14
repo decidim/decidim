@@ -46,6 +46,7 @@ module Decidim
                         },
                         index_on_create: ->(survey) { survey.visible? },
                         index_on_update: ->(survey) { survey.visible? })
+
       def open?
         return false if allow_responses.blank?
         return true if time_indefinite?
