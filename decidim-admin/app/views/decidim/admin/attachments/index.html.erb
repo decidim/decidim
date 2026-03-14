@@ -1,8 +1,9 @@
-<% add_decidim_page_title(t(".attachments_title")) %>
+<% add_decidim_page_title(t(".title")) %>
+
 <div class="card" id="attachments">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
-      <%= t(".attachments_title") %>
+      <%= t(".title") %>
       <% if allowed_to? :create, :attachment %>
         <%= link_to t("actions.attachment.new", scope: "decidim.admin"), url_for(action: :new), class: "button button__sm button__secondary new" %>
       <% end %>

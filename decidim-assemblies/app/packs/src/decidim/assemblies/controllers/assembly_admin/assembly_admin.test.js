@@ -494,15 +494,6 @@ describe("AssemblyAdminController", () => {
                   <button id="assembly_hero_image_button" name="hero_image" class="button button__sm button__transparent-secondary" type="button" data-dialog-open="upload_c5515a82-b6d4-4c1c-a957-013c9679b956" data-upload="{&quot;addAttribute&quot;:&quot;hero_image&quot;,&quot;resourceName&quot;:&quot;assembly&quot;,&quot;resourceClass&quot;:&quot;Decidim::Assembly&quot;,&quot;required&quot;:false,&quot;maxFileSize&quot;:10485760.0,&quot;multiple&quot;:false,&quot;titled&quot;:false,&quot;formObjectClass&quot;:&quot;Decidim::Assemblies::Admin::AssemblyForm&quot;}" aria-haspopup="dialog">Add image</button>
                 </div>
               </div>
-              <div class="columns">
-                <div class="upload-modal__files-container upload-container-for-banner_image ">
-                  <div>
-                    <label>Banner image</label>
-                    <div class="upload-modal__files" data-active-uploads="upload_0d6b6c3f-3681-450e-dummy-2"></div>
-                  </div>
-                  <button id="assembly_banner_image_button" name="banner_image" class="button button__sm button__transparent-secondary" type="button" data-dialog-open="upload_0d6b6c3f-3681-450e-dummy-2" data-upload="{&quot;addAttribute&quot;:&quot;banner_image&quot;,&quot;resourceName&quot;:&quot;assembly&quot;,&quot;resourceClass&quot;:&quot;Decidim::Assembly&quot;,&quot;required&quot;:false,&quot;maxFileSize&quot;:10485760.0,&quot;multiple&quot;:false,&quot;titled&quot;:false,&quot;formObjectClass&quot;:&quot;Decidim::Assemblies::Admin::AssemblyForm&quot;}" aria-haspopup="dialog">Add image</button>
-                </div>
-              </div>
             </div>
           </div>
         </div>

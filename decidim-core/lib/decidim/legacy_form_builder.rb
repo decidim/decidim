@@ -10,6 +10,7 @@ module Decidim
   class LegacyFormBuilder < ActionView::Helpers::FormBuilder
     include ActionView::Helpers::TagHelper
     include ActionView::Helpers::OutputSafetyHelper
+
     %w(file_field email_field text_field url_field
        number_field search_field color_field)
       .each do |method_name|

@@ -27,12 +27,12 @@ fr-CA:
       initiatives_type:
         area_enabled: Permettre aux auteurs de choisir la zone pour leur initiative
         attachments_enabled: Autoriser les pièces jointes
-        banner_image: Image d'en-tête
         child_scope_threshold_enabled: Activer les signatures de portée enfant
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         comments_enabled: Activer les commentaires
         custom_signature_end_date_enabled: Permettre aux auteurs de choisir la fin de la période de collecte des signatures
         description: Description
+        document_number_authorization_handler: Procédure de signature
         extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
         minimum_committee_members: Minimum de membres du comité
         online_signature_enabled: Signature en ligne activée
@@ -87,6 +87,7 @@ fr-CA:
             label: État
             values:
               accepted: Assez de signatures
+              created: Brouillon
               discarded: Rejetée
               open: Ouverte
               rejected: Pas assez de signatures
@@ -97,6 +98,7 @@ fr-CA:
           title_or_description_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description ou nom de l'auteur
       initiatives_settings:
         update:
+          error: Il y a eu un problème lors de la mise à jour des paramètres de pétitions.
           success: Les paramètres des pétitions ont bien été mis à jour.
       menu:
         attachments: Pièces jointes
@@ -141,15 +143,24 @@ fr-CA:
             hash: Hash
             initiative_end_date: Date de fin
             initiative_id: ID d'initiative
+            initiative_scope: Portée
             initiative_signatures_count: Nombre de signatures
             initiative_start_date: Date de début
             initiative_title: Titre de l'initiative
             name_and_surname: Nom et surnom
+            nickname: Surnom
             postal_code: Code postal
+            signature_count: Nombre de signatures
             timestamp: Horodatage
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Toutes les pétitions
       titles:
         initiatives: Pétitions
         initiatives_types: Types d'initiative
+    download_your_data:
+      show:
+        initiatives: Exporter les pétitions
     events:
       initiatives:
         admin:
@@ -234,7 +245,15 @@ fr-CA:
               most_recent: Les plus récentes
         exports:
           initiatives: Pétitions
+        index:
+          initiatives_types:
+            alert_html: "<p>Vous devez créer au moins un type de pétition pour que les participants puissent commencer à créer des pétitions.</p><p> %{link}</p>"
+            button: Nouveau type de pétition
         initiatives:
+          accept:
+            success: La pétition a été acceptée avec succès.
+          discard:
+            success: La pétition a été abandonnée avec succès.
           edit:
             accept: Accepter l'initiative
             confirm: Êtes-vous sûr(e) ?
@@ -259,7 +278,14 @@ fr-CA:
             edit: Modifier
             new: Nouvelle
             photos: Photos
+          publish:
+            success: La pétition a été publiée avec succès.
+          reject:
+            success: La pétition a été rejetée avec succès.
+          unpublish:
+            success: La pétition a été dépubliée avec succès.
           update:
+            error: Un problème est survenu lors de la mise à jour de la pétition.
             success: La pétition a été mise à jour avec succès.
         initiatives_settings:
           edit:
@@ -273,6 +299,7 @@ fr-CA:
             title: Paramètres des initiatives
         initiatives_type_scopes:
           create:
+            error: Un problème est survenu lors de la création d'un nouveau champ d'application pour la pétition donnée.
             success: Un nouveau secteur pour ce type de pétition a été créé.
           destroy:
             success: Le secteur a été supprimé avec succès.
@@ -283,8 +310,11 @@ fr-CA:
             create: Créer
             title: Créer un type de secteur pour les initiatives
           update:
+            error: Un problème est survenu lors de la mise à jour de la portée.
             success: Le secteur a été mis à jour avec succès.
         initiatives_types:
+          create:
+            error: Un problème est survenu lors de la création du type de pétition.
           destroy:
             success: Le type de pétition a été supprimé avec succès.
           edit:

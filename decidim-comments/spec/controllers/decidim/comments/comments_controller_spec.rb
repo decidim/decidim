@@ -260,7 +260,7 @@ module Decidim
 
           context "when component is present and has comments length setting" do
             before do
-              component.update!(settings: { comments_max_length: random_string.length + 10 }) if component.present?
+              (component.presence&.update!(settings: { comments_max_length: random_string.length + 10 }))
             end
 
             it "renders template update" do

@@ -83,14 +83,6 @@ module Decidim
         end
       end
 
-      describe "bannerImage" do
-        let(:query) { "{ bannerImage }" }
-
-        it "returns the banner image field" do
-          expect(response["bannerImage"]).to be_blob_url(model.banner_image.blob)
-        end
-      end
-
       describe "promoted" do
         let(:query) { "{ promoted }" }
 
@@ -333,14 +325,6 @@ module Decidim
 
         it "returns the assembly githubHandler field" do
           expect(response["githubHandler"]).to eq(model.github_handler)
-        end
-      end
-
-      describe "announcement" do
-        let(:query) { '{ announcement { translation(locale: "en")}}' }
-
-        it "returns all the required fields" do
-          expect(response["announcement"]["translation"]).to eq(model.announcement["en"])
         end
       end
     end

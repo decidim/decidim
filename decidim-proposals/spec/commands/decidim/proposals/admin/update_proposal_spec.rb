@@ -116,7 +116,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
         let(:component) { create(:proposal_component, :with_attachments_allowed) }
         let(:uploaded_files) do
           [
-            file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf")
+            { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
           ]
         end
 

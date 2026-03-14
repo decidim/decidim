@@ -76,8 +76,8 @@ module Decidim
       end
 
       def empty_translatable(locales = Decidim.available_locales)
-        locales.each_with_object({}) do |locale, result|
-          result[locale.to_s] = ""
+        locales.to_h do |locale|
+          [locale.to_s, ""]
         end
       end
     end

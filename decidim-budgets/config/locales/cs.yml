@@ -148,6 +148,8 @@ cs:
             default_budget: Výchozí rozpočet
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             origin_component_id: Původ komponenty
+            proposal_states: Stavy návrhu
+            proposal_states_help: Vyberte jeden nebo více stavů návrhů k importu do projektů. Výběrem ničeho importujete všechny publikované návrhy, které již nebyly importovány do jiných rozpočtů z této složky.
             select_component: Vyberte součást
             title: Importovat návrhy do projektů
         reminders:
@@ -304,6 +306,12 @@ cs:
           minimum: Minimum
           minimum_projects_rule:
             description: "<b>Vyberte alespoň %{minimum_number} projektů</b>, které chcete a hlasujete podle vašich preferencí."
+          projects_rule:
+            description: "<b>Vyberte alespoň %{minimum_number} a až %{maximum_number} projekty</b>, které chcete a hlasujete podle vašich preferencí."
+          projects_rule_maximum_only:
+            description: "<b>Vyberte až %{maximum_number} projektů</b>, které chcete a hlasujte podle vašich preferencí."
+          vote_threshold_percent_rule:
+            description: "<b>Přiřaďte alespoň %{minimum_budget}</b> k projektům, které chcete a hlasujte podle vašich preferencí."
         orders:
           highest_cost: Nejvyšší náklady
           label: Seřadit projekty podle
@@ -351,6 +359,7 @@ cs:
         actions:
           comment: Komentář
           vote: Hlasovat
+          vote_comment: Komentář hlasování
         name: Rozpočty
         settings:
           global:
@@ -452,5 +461,6 @@ cs:
     statistics:
       orders_count: Podpory
       projects_count: Rozpočty
+      projects_count_tooltip: Počet účastnických projektů rozpočtu a celkový počet hlasů, které k nim byly vloženy.
   index:
     confirmed_orders_count: Počet hlasů

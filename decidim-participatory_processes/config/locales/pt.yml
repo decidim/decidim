@@ -82,8 +82,6 @@ pt:
         unpublish: Remover publicação
       menu:
         participatory_process_groups: Grupos do processo
-        participatory_process_groups_submenu:
-          info: Informação
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas
@@ -176,7 +174,6 @@ pt:
           error: Ocorreu um problema ao reordenar estas fases do processo participativo.
         update:
           error: Ocorreu um problema ao atualizar esta fase do processo participativo.
-          success: Fase participativa atualizada corretamente.
       participatory_process_user_roles:
         create:
           error: Ocorreu um problema ao adicionar um participante para este processo participativo.
@@ -304,7 +301,6 @@ pt:
             document_legend: Adicionar um documento
         participatory_processes:
           form:
-            announcement_help: O texto que insere aqui será mostrado ao utilizador logo abaixo das informações do processo.
             duration: Duração
             images: Imagens
             metadata: Metadados

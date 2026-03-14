@@ -68,9 +68,6 @@ en:
         alignment:
           against: Against
           in_favor: In favor
-        answers:
-          one: "%{count} answer"
-          other: "%{count} answers"
         cancel_reply: Cancel reply
         comment_label: Comment %{comment_id}
         comment_label_reply: Comment %{comment_id} (reply to comment %{parent_comment_id})
@@ -84,7 +81,11 @@ en:
         hide_replies:
           one: Hide reply
           other: Hide %{count} replies
+        load_replies: Load replies
         moderated_at: Comment moderated on %{date}
+        replies_count:
+          one: "%{count} reply"
+          other: "%{count} replies"
         reply: Reply
         report:
           action: Report
@@ -116,7 +117,9 @@ en:
         blocked_comments_warning: Comments are currently disabled, only administrators can reply or post new ones.
         comment_details_title: Comment details
         in_favor: In Favor
+        load_more_comments: Load more comments
         loading: Loading comments ...
+        no_comments_yet: No comments yet
         single_comment_warning: <a href="%{url}">View all comments</a>
         single_comment_warning_title: You are seeing a single comment
         title:

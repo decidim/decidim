@@ -45,8 +45,7 @@ module Decidim::ParticipatoryProcesses
         taxonomizations:,
         errors:,
         related_process_ids:,
-        participatory_process_group:,
-        announcement: { en: "message" }
+        participatory_process_group:
       )
     end
     let(:invalid) { false }

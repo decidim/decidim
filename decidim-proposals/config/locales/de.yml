@@ -52,7 +52,6 @@ de:
         file: Datei
       proposals_import:
         import_proposals: Vorschläge importieren
-        keep_answers: Status und Antworten behalten
         keep_authors: Behalten Sie die ursprünglichen Autoren
     errors:
       models:
@@ -686,7 +685,6 @@ de:
             create: Vorschläge importieren
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
             select_component: Bitte wählen Sie eine Komponente aus
-            select_states: Überprüfen Sie die Status der zu importierenden Vorschläge
             title: Vorschläge aus einer anderen Komponente importieren
         proposals_merges:
           create:

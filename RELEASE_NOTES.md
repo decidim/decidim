@@ -7,6 +7,9 @@ checking out the last version of this document in the [GitHub page for the relea
 
 As usual, we recommend that you have a full backup, of the database, application code and static files.
 
+NOTE: Please note this release is updating Rails version from 7.2.2 to 8.1.2. Ensure you back up your `SECRET_KEY_BASE` env variable and also `tmp/local_secret.txt` if you have it.
+On your local development environment, you may need to set your `SECRET_KEY_BASE` env variable to the same value as the one present in your `tmp/local_secret.txt`.
+
 To update, follow these steps:
 
 ### 1.1. Update your ruby version
@@ -35,6 +38,7 @@ gem "decidim-dev", github: "decidim/decidim"
 sudo apt install libvips libvips-tools # or the alternative installation process for your operating system. See "3.5. Replace image processing with imagemagick to libvips"
 bundle update decidim
 bin/rails decidim:upgrade
+sed -i "s/config\.load_defaults 7\.2/config\.load_defaults 8.1/g" config/application.rb # see "2.1. Ruby on Rails update to 8.1"
 bin/rails db:migrate
 bin/rails decidim:upgrade:encryption
 # skip this command if you have run it before:
@@ -59,7 +63,24 @@ You can read more about this change on PR [#15005](https://github.com/decidim/de
 
 ## 2. General notes
 
-### 2.1. Module deprecations
+### 2.1. Ruby on Rails update to 8.1
+
+This particular release is deploying a new Rails version, 8.1. As a result you need to update your application configuration. Before that, you need to run the following commands:
+
+```console
+sed -i "s/config\.load_defaults 7\.2/config\.load_defaults 8.1/g" config/application.rb # see "2.1. Ruby on Rails update to 8.1"
+```
+
+#### Removal of official Azure support from Active Storage
+
+Rails core team decided to remove the Azure Active Storage support from Rails 8.1, as the official Azure libraries are not maintained since September 2024. If you are using Azure for your Active Storage, support, you could use the unofficial Azure Active Storage gem [Azure Blob](https://github.com/testdouble/azure-blob)
+
+You can read more about this change on PR:
+
+- [Upgrade to Rails 8.0.4](https://github.com/decidim/decidim/pull/16214)
+- [Upgrade to Rails 8.1.2](https://github.com/decidim/decidim/pull/16310).
+
+### 2.2. Module deprecations
 
 As part of our ongoing efforts to improve and make simpler Decidim, the following modules will be **deprecated** in this version (v0.31) and **removed** in the next major version (v0.32):
 
@@ -75,7 +96,7 @@ The Sortitions module (`decidim-sortitions`) is removed in v0.32. This module pr
 
 The Polls feature within the Meetings module (`decidim-meetings`) will be removed in a future version (to be determined). This feature allowed meeting organizers to create polls during meetings. Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`).
 
-### 2.2. Old private exports are now expired
+### 2.3. Old private exports are now expired
 
 Due to some data consistency issues with the private exports, we have decided to expire all the previously generated files. Users are able to request and receive a new private export file.
 
@@ -89,13 +110,13 @@ bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 
 You can read more about this change on PR [#15020](https://github.com/decidim/decidim/pull/15020).
 
-### 2.3. Add data migrations
+### 2.4. Add data migrations
 
 At the moment we are adding this gem so we can start doing data migrations for fixes when v0.33.0 is released. You can read more about this at [Data migrations doc](https://docs.decidim.org/en/develop/develop/guide_data_migrations.html).
 
 You can read more about this change on PR [#15501](https://github.com/decidim/decidim/pull/15501).
 
-### 2.4. Fix gitignore for ServiceWorker related files
+### 2.5. Fix gitignore for ServiceWorker related files
 
 We detected a bug where some dynamic files are not added to the gitignore, so they could be committed to the repository. For fixing it, you need to add them to your gitignore file:
 
@@ -105,7 +126,7 @@ echo "/public/sw.js*" >> .gitignore
 
 You can read more about this change on PR [#15601](https://github.com/decidim/decidim/pull/15601).
 
-### 2.5. Data migration for organization short_name
+### 2.6. Data migration for organization short_name
 
 A new data migration has been added to populate the `short_name` field for existing organizations. This field is required for the PWA (Progressive Web App) manifest to properly display the application name on mobile devices' home screens.
 
@@ -115,7 +136,7 @@ This migration runs automatically when executing `bin/rails data:migrate` as par
 
 You can read more about this change on PR [#15729](https://github.com/decidim/decidim/pull/15729).
 
-### 2.6. Add locale to the url
+### 2.7. Add locale to the url
 
 For a long time Decidim has been using internally the user browser to detect the language of the user. This has been changed to use the locale of the url instead.
 
@@ -130,7 +151,15 @@ It also enables the users of multi language platforms to share the links to the 
 
 You can read more about this change on PR [#14432](https://github.com/decidim/decidim/pull/14432).
 
-### 2.7. [[TITLE OF THE ACTION]]
+### 2.8. Removal of User Group related fields
+
+As we deprecated the User Group functionality in v0.31, we are performing some cleanup that will remove all the database fields related to the User Group functionality. This means that `decidim_user_group_id` fields in various tables will be removed.
+
+We are also removing the `decidim_user_group_memberships` tables.
+
+You can read more about this change on PR [#16022](https://github.com/decidim/decidim/pull/16022).
+
+### 2.9. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -247,7 +276,29 @@ end
 
 You can read more about this change on PR [#14800](https://github.com/decidim/decidim/pull/14800).
 
-### 5.2. [[TITLE OF THE CHANGE]]
+### 5.2. Refactor of filters
+
+As part of our ongoing efforts to improve and simplify Decidim, we have changed the way filters are being defined, mainly being forced by rack 3 upgrade.
+
+Previously, the taxonomy filters were defined as follows:
+
+```ruby
+"filter" => {
+  "with_any_taxonomies[4]" => [""]
+}
+```
+
+After the rack upgrade, the filters are defined as follows:
+
+```ruby
+"filter" => {
+  "with_any_taxonomies" => { "4" => [""] }
+}
+```
+
+You can read more about this change on PR [#16103](https://github.com/decidim/decidim/pull/16103).
+
+### 5.3. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 

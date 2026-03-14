@@ -58,10 +58,8 @@ describe "Admin manages initiatives" do
 
   describe "listing initiatives" do
     STATES.each do |state|
-      i18n_state = I18n.t(state, scope: "decidim.admin.filters.initiatives.state_eq.values")
-
-      context "when filtering collection by state: #{i18n_state}" do
-        it_behaves_like "a filtered collection", options: "State", filter: i18n_state do
+      context "when filtering collection by state: #{I18n.t(state, scope: "decidim.admin.filters.initiatives.state_eq.values")}" do
+        it_behaves_like "a filtered collection", options: "State", filter: I18n.t(state, scope: "decidim.admin.filters.initiatives.state_eq.values") do
           let(:in_filter) { translated(initiative_with_state(state).title) }
           let(:not_in_filter) { translated(initiative_without_state(state).title) }
         end
@@ -69,16 +67,15 @@ describe "Admin manages initiatives" do
     end
 
     Decidim::InitiativesTypeScope.all.each do |scoped_type|
-      type = scoped_type.type
-      i18n_type = type.title[I18n.locale.to_s]
+      let(:type) { scoped_type.type }
 
-      context "when filtering collection by type: #{i18n_type}" do
+      context "when filtering collection by type: #{scoped_type.type.title[I18n.locale.to_s]}" do
         before do
           create(:initiative, organization:, scoped_type: scoped_type1)
           create(:initiative, organization:, scoped_type: scoped_type2)
         end
 
-        it_behaves_like "a filtered collection", options: "Type", filter: i18n_type do
+        it_behaves_like "a filtered collection", options: "Type", filter: scoped_type.type.title[I18n.locale.to_s] do
           let(:in_filter) { translated(initiative_with_type(type).title) }
           let(:not_in_filter) { translated(initiative_without_type(type).title) }
         end
@@ -92,15 +89,13 @@ describe "Admin manages initiatives" do
     end
 
     Decidim::Area.all.each do |area|
-      i18n_area = area.name[I18n.locale.to_s]
-
-      context "when filtering collection by area: #{i18n_area}" do
+      context "when filtering collection by area: #{area.name[I18n.locale.to_s]}" do
         before do
           create(:initiative, organization:, area: area1)
           create(:initiative, organization:, area: area2)
         end
 
-        it_behaves_like "a filtered collection", options: "Area", filter: i18n_area do
+        it_behaves_like "a filtered collection", options: "Area", filter: area.name[I18n.locale.to_s] do
           let(:in_filter) { translated(initiative_with_area(area).title) }
           let(:not_in_filter) { translated(initiative_without_area(area).title) }
         end

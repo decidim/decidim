@@ -96,13 +96,6 @@ module Decidim
         let(:instagram_handler) { "lorem" }
         let(:youtube_handler) { "lorem" }
         let(:github_handler) { "lorem" }
-        let(:announcement) do
-          {
-            en: "Announcement",
-            es: "Anuncio",
-            ca: "Anunci"
-          }
-        end
         let(:parent_id) { nil }
         let(:assembly_id) { nil }
         let(:root_taxonomy) { create(:taxonomy, organization:) }
@@ -127,7 +120,6 @@ module Decidim
               "short_description_es" => short_description[:es],
               "short_description_ca" => short_description[:ca],
               "hero_image" => attachment,
-              "banner_image" => attachment,
               "slug" => slug,
               "private_space" => private_space,
               "has_members" => has_members,
@@ -159,9 +151,6 @@ module Decidim
               "github_handler" => github_handler,
               "weight" => weight,
               "parent_id" => parent_id,
-              "announcement_en" => announcement[:en],
-              "announcement_es" => announcement[:es],
-              "announcement_ca" => announcement[:ca],
               "taxonomies" => [taxonomies.first.id, taxonomies.second.id]
             }
           }
@@ -195,7 +184,7 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
-        context "when attachment (hero_image or banner_image) is too big" do
+        context "when attachment (hero_image) is too big" do
           before do
             organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 5
@@ -308,7 +297,6 @@ module Decidim
                 slug: "another-slug",
                 meta_scope: assembly.meta_scope,
                 hero_image: nil,
-                banner_image: nil,
                 promoted: assembly.promoted,
                 description_en: assembly.description,
                 description_ca: assembly.description,
@@ -337,8 +325,7 @@ module Decidim
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
                 weight: assembly.weight,
-                parent_id: child_assembly,
-                announcement: assembly.announcement
+                parent_id: child_assembly
               }
             }
           end
@@ -362,7 +349,6 @@ module Decidim
                 slug: "another-slug",
                 meta_scope: assembly.meta_scope,
                 hero_image: nil,
-                banner_image: nil,
                 promoted: assembly.promoted,
                 description_en: assembly.description,
                 description_ca: assembly.description,
@@ -391,8 +377,7 @@ module Decidim
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
                 weight: assembly.weight,
-                parent_id: grandchild_assembly,
-                announcement: assembly.announcement
+                parent_id: grandchild_assembly
               }
             }
           end

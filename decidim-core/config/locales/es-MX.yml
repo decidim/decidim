@@ -578,6 +578,7 @@ es-MX:
     contact: Contacto
     content_blocks:
       announcement:
+        body: Texto del anuncio o aviso
         name: Aviso
       cta:
         name: Imagen, texto y botón de acción
@@ -1056,6 +1057,9 @@ es-MX:
           explanation: 'Instrucciones para la imagen:'
           message_1: Preferiblemente una imagen apaisada que no tenga ningún texto.
           message_2: El servicio recorta la imagen.
+        import_file:
+          explanation: 'Guía para el archivo de importación:'
+          message_1: Tiene que ser un documento JSON descargado a través de la función de exportación.
       file_validation:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
         max_file_dimension: 'Medidas máximas de archivo: %{resolution} píxeles'
@@ -1799,6 +1803,7 @@ es-MX:
       send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un correo electrónico con instrucciones sobre cómo confirmar tu dirección de correo electrónico en unos minutos.
     failure:
       already_authenticated: Ya has iniciado sesión.
+      csrf_token: No se puede verificar tu solicitud. Por favor, vuelve a intentarlo.
       inactive: Tu cuenta aún no está activada.
       invalid: '%{authentication_keys} o contraseña inválida.'
       invited: Tienes una invitación pendiente, acéptala para terminar de crear tu cuenta.
@@ -2123,6 +2128,7 @@ es-MX:
         confirm_title_close_ephemeral_session: Antes de salir de esta página…
         log_in: Entra
         main_menu: Menú principal
+        mobile_account_greeting: Hola %{user_name},
         user_menu: Menú de usuario
       impersonation_warning:
         close_session: Cerrar la sesión

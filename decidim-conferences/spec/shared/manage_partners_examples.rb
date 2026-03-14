@@ -38,7 +38,7 @@ shared_examples "manage partners examples" do
 
         find("*[type=submit]").click
       end
-      expect(page).to have_admin_callout("Conference partner successfully added.")
+      expect(page).to have_callout("Conference partner successfully added.")
       expect(page).to have_current_path decidim_admin_conferences.conference_partners_path(conference)
 
       within "#partners table" do
@@ -66,7 +66,7 @@ shared_examples "manage partners examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Conference partner successfully updated.")
+      expect(page).to have_callout("Conference partner successfully updated.")
       expect(page).to have_current_path decidim_admin_conferences.conference_partners_path(conference)
 
       within "#partners table" do
@@ -97,7 +97,7 @@ shared_examples "manage partners examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("Conference partner successfully removed.")
+      expect(page).to have_callout("Conference partner successfully removed.")
 
       within "#partners table" do
         expect(page).to have_no_content(conference_partner.name)

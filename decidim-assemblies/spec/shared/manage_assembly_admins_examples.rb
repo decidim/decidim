@@ -37,7 +37,7 @@ shared_examples "manage assembly admins examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("Admin successfully added to this assembly.")
+    expect(page).to have_callout("Admin successfully added to this assembly.")
 
     within "#assembly_admins table" do
       expect(page).to have_content(other_user.email)
@@ -67,7 +67,7 @@ shared_examples "manage assembly admins examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Admin updated successfully for this assembly.")
+      expect(page).to have_callout("Admin updated successfully for this assembly.")
 
       within "#assembly_admins table" do
         expect(page).to have_content("Collaborator")
@@ -82,7 +82,7 @@ shared_examples "manage assembly admins examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("Admin successfully removed from this assembly.")
+      expect(page).to have_callout("Admin successfully removed from this assembly.")
 
       within "#assembly_admins table" do
         expect(page).to have_no_content(other_user.email)
@@ -111,7 +111,7 @@ shared_examples "manage assembly admins examples" do
           click_on "Resend invitation"
         end
 
-        expect(page).to have_admin_callout("Invitation successfully resent.")
+        expect(page).to have_callout("Invitation successfully resent.")
       end
     end
   end

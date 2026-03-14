@@ -106,7 +106,6 @@ fi:
       menu:
         participatory_process_groups: Prosessiryhmät
         participatory_process_groups_submenu:
-          info: Tiedot
           landing_page: Laskeutumissivun asettelu
         participatory_processes: Prosessit
         participatory_processes_submenu:
@@ -217,7 +216,6 @@ fi:
           error: Osallistumisprosessin vaiheiden järjestäminen epäonnistui.
         update:
           error: Osallistumisprosessin vaiheen päivitys epäonnistui.
-          success: Osallistumisprosessin vaiheen päivitys onnistui.
       participatory_process_user_roles:
         create:
           error: Osallistumisprosessin käyttäjän lisääminen epäonnistui.
@@ -341,7 +339,6 @@ fi:
     open_data:
       help:
         participatory_processes:
-          announcement: Ilmoituksen sisältö
           area: Alue, jota prosessi koskee
           component_settings: Prosessin komponenttiasetukset
           created_at: Tilan luontiaika
@@ -506,7 +503,6 @@ fi:
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_processes:
           form:
-            announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
             has_members_help: Voit luoda ja julkaista jäseniä

@@ -341,7 +341,6 @@ zh-TW:
             certificate_of_attendance_description: 此證明憑證明 <strong>%{user}</strong> 於<strong>%{location}</strong>於<strong>%{start} - %{end}</strong>參加了<strong>%{title}</strong>活動
         send_diploma:
           error: 發送會議出席證明時發生問題。
-          success: 成功發送會議出席證明
       conference:
         registration_confirm:
           cancel: 取消
