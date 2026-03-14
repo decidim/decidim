@@ -16,6 +16,6 @@ class AddIndexOnDecidimMembers < ActiveRecord::Migration[8.1]
   end
 
   def down
-    remove_index(:decidim_members, name: "unique_space_members")
+    raise ActiveRecord::IrreversibleMigration
   end
 end
