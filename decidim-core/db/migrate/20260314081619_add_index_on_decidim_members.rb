@@ -2,6 +2,7 @@
 
 class AddIndexOnDecidimMembers < ActiveRecord::Migration[8.1]
   def up
+    execute "DELETE FROM decidim_members WHERE decidim_user_id IS NULL;"
     execute <<~SQL.squish
       DELETE FROM decidim_members m1
       USING decidim_members m2
