@@ -153,7 +153,7 @@ shared_examples "cannot browse component data" do
     expect(page).to have_current_path(decidim_admin_participatory_processes.manage_trash_components_path(component.participatory_space))
     within "tr", text: translated(component.name) do
       expect(page).to have_content(translated(component.name))
-      expect(page).not_to have_link(translated(component.name))
+      expect(page).to have_no_link(translated(component.name))
     end
   end
 end
