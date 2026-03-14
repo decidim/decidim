@@ -255,7 +255,8 @@ module Decidim
 
       def disabled_taxonomy_filters(name, i18n_scope)
         container = content_tag(:div) do
-          content_tag(:p, t("#{name}_unavailable", scope: "decidim.components.settings.global"), class: "help-text")
+          message = t("#{name}_unavailable", scope: i18n_scope, default: t("#{name}_unavailable", scope: "decidim.components.settings.global"))
+          content_tag(:p, message, class: "help-text")
         end
 
         label_tag(name, t(name, scope: i18n_scope)) + container
