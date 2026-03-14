@@ -53,7 +53,7 @@ shared_examples "manage soft deletable component or space" do |resource_name|
       resource.destroy!
       resource.reload
       visit trash_path
-      click_on title[:en]
+      click_on title[:en] unless resource.is_a?(Decidim::Component)
     end
 
     it "shows warning message" do
