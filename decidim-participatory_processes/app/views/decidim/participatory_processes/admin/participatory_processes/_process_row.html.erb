@@ -15,6 +15,9 @@
     <%= l process.created_at, format: :short %>
   </td>
   <td class="table-list__state" data-label="<%= t("models.participatory_process.fields.access_mode", scope: "decidim.admin") %>">
+    <%# i18n-tasks-use t("decidim.admin.participatory_processes.index.access_modes.open") %>
+    <%# i18n-tasks-use t("decidim.admin.participatory_processes.index.access_modes.restricted") %>
+    <%# i18n-tasks-use t("decidim.admin.participatory_processes.index.access_modes.transparent") %>
     <span><%= t(process.access_mode, scope: "decidim.admin.participatory_processes.index.access_modes") %></span>
   </td>
   <td class="table-list__state" data-label="<%= t("models.participatory_process.fields.published", scope: "decidim.admin") %>">

@@ -34,6 +34,9 @@
     <%= l(assembly.created_at, format: :short) %>
   </td>
   <td class="table-list__state" data-label="<%= t("models.assembly.fields.access_mode", scope: "decidim.admin") %>">
+    <%# i18n-tasks-use t("decidim.admin.assemblies.index.access_modes.open") %>
+    <%# i18n-tasks-use t("decidim.admin.assemblies.index.access_modes.restricted") %>
+    <%# i18n-tasks-use t("decidim.admin.assemblies.index.access_modes.transparent") %>
     <span><%= t(assembly.access_mode, scope: "decidim.admin.assemblies.index.access_modes") %></span>
   </td>
   <td class="table-list__state" data-label="<%= t("models.assembly.fields.published", scope: "decidim.admin") %>">
