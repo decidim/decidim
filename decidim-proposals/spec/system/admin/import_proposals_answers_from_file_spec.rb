@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Import proposal answers" do
+describe "Import proposals answers from a file" do
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es]) }
   let(:component) { create(:proposal_component, organization:) }
   let(:proposals) { create_list(:proposal, amount, component:) }
