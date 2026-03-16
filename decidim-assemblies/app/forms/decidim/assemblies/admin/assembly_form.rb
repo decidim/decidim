@@ -44,7 +44,7 @@ module Decidim
         attribute :participatory_processes_ids, Array[Integer]
         attribute :weight, Integer, default: 0
 
-        attribute :access_mode, String
+        attribute :access_mode, String, default: :open
         attribute :has_members, Boolean
         attribute :promoted, Boolean
 
@@ -69,6 +69,7 @@ module Decidim
         validates :hero_image, passthru: { to: Decidim::Assembly }
 
         validates :weight, presence: true
+        validates :access_mode, presence: true
 
         alias organization current_organization
 

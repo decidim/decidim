@@ -30,7 +30,7 @@ module Decidim
         attribute :related_process_ids, Array[Integer]
         attribute :weight, Integer, default: 0
 
-        attribute :access_mode, String
+        attribute :access_mode, String, default: :open
         attribute :has_members, Boolean
         attribute :promoted, Boolean
 
@@ -49,6 +49,7 @@ module Decidim
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcess }
 
         validates :weight, presence: true
+        validates :access_mode, presence: true
 
         validates :start_date, date: { before: :end_date, allow_blank: true, if: proc { |obj| obj.end_date.present? } }
         validates :end_date, date: { after: :start_date, allow_blank: true, if: proc { |obj| obj.start_date.present? } }

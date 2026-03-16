@@ -166,6 +166,36 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
+        context "when access_mode is missing" do
+          let(:access_mode) { nil }
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when access_mode is present" do
+          let(:access_mode) { "open" }
+
+          it { is_expected.to be_valid }
+        end
+
+        describe "default access_mode" do
+          let(:attributes) do
+            {
+              "assembly" => {
+                "title_en" => title[:en],
+                "title_es" => title[:es],
+                "title_ca" => title[:ca],
+                "slug" => slug,
+                "weight" => weight
+              }
+            }
+          end
+
+          it "is :open" do
+            expect(subject.access_mode).to eq("open")
+          end
+        end
+
         context "when everything is OK" do
           it { is_expected.to be_valid }
         end
