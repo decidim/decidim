@@ -34,13 +34,7 @@
     <%= l(assembly.created_at, format: :short) %>
   </td>
   <td class="table-list__state" data-label="<%= t("models.assembly.fields.access_mode", scope: "decidim.admin") %>">
-    <% if assembly.restricted? %>
-      <span><%= t("assemblies.index.access_modes.restricted", scope: "decidim.admin") %></span>
-    <% elsif assembly.transparent? %>
-      <span><%= t("assemblies.index.access_modes.transparent", scope: "decidim.admin") %></span>
-    <% else %>
-      <span><%= t("assemblies.index.access_modes.open", scope: "decidim.admin") %></span>
-    <% end %>
+    <span><%= t(assembly.access_mode, scope: "decidim.admin.assemblies.index.access_modes") %></span>
   </td>
   <td class="table-list__state" data-label="<%= t("models.assembly.fields.published", scope: "decidim.admin") %>">
     <% if assembly.published? %>

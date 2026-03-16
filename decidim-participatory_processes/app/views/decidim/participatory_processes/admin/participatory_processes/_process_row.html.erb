@@ -15,13 +15,7 @@
     <%= l process.created_at, format: :short %>
   </td>
   <td class="table-list__state" data-label="<%= t("models.participatory_process.fields.access_mode", scope: "decidim.admin") %>">
-    <% if process.restricted? %>
-      <span><%= t("participatory_processes.index.access_modes.restricted", scope: "decidim.admin") %></span>
-    <% elsif process.transparent? %>
-      <span><%= t("participatory_processes.index.access_modes.transparent", scope: "decidim.admin") %></span>
-    <% else %>
-      <span><%= t("participatory_processes.index.access_modes.open", scope: "decidim.admin") %></span>
-    <% end %>
+    <span><%= t(process.access_mode, scope: "decidim.admin.participatory_processes.index.access_modes") %></span>
   </td>
   <td class="table-list__state" data-label="<%= t("models.participatory_process.fields.published", scope: "decidim.admin") %>">
     <% if process.published? %>
