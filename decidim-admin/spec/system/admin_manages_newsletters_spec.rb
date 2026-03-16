@@ -471,7 +471,7 @@ describe "Admin manages newsletters" do
 
     context "when members are selected" do
       context "with members" do
-        let!(:participatory_process) { create(:participatory_process, organization:, skip_injection: true) }
+        let!(:participatory_process) { create(:participatory_process, organization:, has_members: true, skip_injection: true) }
         let!(:members) do
           create_list(:member, 30) do |member|
             member.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
