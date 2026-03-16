@@ -4,7 +4,8 @@ shared_examples "fingerprint" do
   include_context("with a component")
 
   it "shows a fingerprint" do
-    visit("#{resource_locator(fingerprintable).path}/versions/1")
+    visit(resource_locator(fingerprintable).path)
+    click_on("see other versions")
     click_on("Check fingerprint")
 
     within ".fingerprint-modal" do
@@ -18,7 +19,8 @@ shared_examples "consistent fingerprint" do
   include_context("with a component")
 
   it "shows the fingerprint source with correct spacing" do
-    visit("#{resource_locator(fingerprintable).path}/versions/1")
+    visit(resource_locator(fingerprintable).path)
+    click_on("see other versions")
     click_on("Check fingerprint")
 
     within ".fingerprint-modal" do
