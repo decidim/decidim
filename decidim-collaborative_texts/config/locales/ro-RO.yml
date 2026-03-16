@@ -15,6 +15,12 @@ ro:
           body: Conținut
           draft: Ciornă
           version_number: Număr versiune
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Text colaborativ
+        few: Texte colaborative
+        other: Texte colaborative
   decidim:
     admin:
       tooltips:

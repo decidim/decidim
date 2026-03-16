@@ -23,6 +23,7 @@ module Decidim
       def filter_sections
         @filter_sections ||= [{
           method: :with_any_state,
+          name: "[with_any_state]",
           collection: filter_surveys_date_values,
           label: t("decidim.proposals.proposals.filters.state"),
           id: "state",

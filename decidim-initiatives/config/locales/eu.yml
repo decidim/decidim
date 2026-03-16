@@ -27,7 +27,6 @@ eu:
       initiatives_type:
         area_enabled: Gaitu egileak beren ekimenerako arloa aukeratzeko
         attachments_enabled: Gaitu eranskinak
-        banner_image: Banner irudia
         child_scope_threshold_enabled: Gaitu sinadurak eremuaren arabera
         collect_user_extra_fields: Bildu parte-hartzailearen datu pertsonalak sinaduraz
         comments_enabled: Gaitu iruzkinak
@@ -444,7 +443,7 @@ eu:
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> k onartu du zure eskaera <a href="%{resource_url}">%{resource_title}</a> ekimenaren batzorde bultzatzailean parte hartzeko.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname} k, jarraitzen ari zarenak, beste ekimen bat sortu du, egiaztatu eta lagundu:"
-          email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_outro: Jakinarazpen hau jaso duzu %{author_nickname} jarraitzen ari zarelako. Aurreko estekan sartu jakinarazpenak jasotzeari uzteko.
           email_subject: '%{author_nickname} ren bete ekimen bat'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
         revoke_membership_request:
@@ -550,6 +549,7 @@ eu:
           recent: Berrienetatik zaharrenetara
           recently_published: Oraintsu argitaratutakoa
         pending_initiatives:
+          description: Ekimen horiek oraindik ez dira publikoak. Berrikus itzazue, mesedez, eta balioztatze teknikorako aurkez itzazue, argitara eman daitezen.
           title: Proiektuak eta egiteke dauden ekimenak
         print:
           address: Helbidea

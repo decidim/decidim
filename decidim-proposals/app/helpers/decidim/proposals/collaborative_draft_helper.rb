@@ -42,12 +42,14 @@ module Decidim
         @collaborative_drafts_filter_sections ||= begin
           items = [{
             method: :with_any_state,
+            name: "[with_any_state]",
             collection: filter_collaborative_drafts_state_values,
             label: t("decidim.proposals.collaborative_drafts.filters.state"),
             id: "state"
           }]
           current_component.available_taxonomy_filters.each do |taxonomy_filter|
-            items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+            items.append(method: :with_any_taxonomies,
+                         name: "[with_any_taxonomies][#{taxonomy_filter.root_taxonomy_id}]",
                          collection: filter_taxonomy_values_for(taxonomy_filter),
                          label: decidim_sanitize_translated(taxonomy_filter.name),
                          id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
@@ -55,6 +57,7 @@ module Decidim
           if linked_classes_for(Decidim::Proposals::CollaborativeDraft).any?
             items.append(
               method: :related_to,
+              name: "[related_to]",
               collection: linked_classes_filter_values_for(Decidim::Proposals::CollaborativeDraft),
               label: t("decidim.proposals.collaborative_drafts.filters.related_to"),
               id: "related_to",

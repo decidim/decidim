@@ -264,7 +264,6 @@ sk:
             create: Návrhy na dovoz
             no_components: V tomto účastníckom priestore neexistujú žiadne iné komponenty návrhu, ktoré by mohli importovať návrhy.
             select_component: Vyberte súčasť
-            select_states: Skontrolujte stav návrhov, ktoré chcete importovať
         proposals_merges:
           create:
             success: Projekty boli úspešne zlúčené do novej.

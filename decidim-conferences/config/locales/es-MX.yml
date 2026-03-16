@@ -432,7 +432,7 @@ es-MX:
             certificate_of_attendance_description: Este documento certifica que <strong>%{user}</strong> ha asistido y participado en los encuentros <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Ha habido un problema al enviar los certificados de asistencia a la conferencia.
-          success: Certificados de asistencia a conferencias enviados correctamente.
+          success: Los certificados de asistencia a la jornada se han enviado correctamente.
       conference:
         registration_confirm:
           cancel: Cancelar

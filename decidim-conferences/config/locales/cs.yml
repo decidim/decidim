@@ -440,7 +440,7 @@ cs:
             certificate_of_attendance_description: Tímto potvrzujeme, že <strong>%{user}</strong> se zúčastnilo a zúčastnilo se <strong>%{title}</strong> konaných na <strong>%{location}</strong> na <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Při odesílání konferenčních certifikátů docházelo k problému.
-          success: Konferenční certifikáty o návštěvě byly zaslány správně
+          success: Konferenční certifikáty o účasti byly úspěšně odeslány.
       conference:
         registration_confirm:
           cancel: Zrušit

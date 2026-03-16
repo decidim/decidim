@@ -28,7 +28,7 @@ module Decidim
               end
 
               on(:invalid) do
-                render json: { error: I18n.t("postages.create.error", scope: "decidim.verifications.postal_letter.admin") }, status: :unprocessable_entity
+                render json: { error: I18n.t("postages.create.error", scope: "decidim.verifications.postal_letter.admin") }, status: :unprocessable_content
               end
             end
           end

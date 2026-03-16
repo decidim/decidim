@@ -32,7 +32,7 @@ shared_examples "manage conference speakers examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Conference speaker successfully created.")
+      expect(page).to have_callout("Conference speaker successfully created.")
       expect(page).to have_current_path decidim_admin_conferences.conference_speakers_path(conference)
 
       within "#conference_speakers table" do
@@ -56,7 +56,7 @@ shared_examples "manage conference speakers examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Conference speaker successfully created.")
+      expect(page).to have_callout("Conference speaker successfully created.")
       expect(page).to have_current_path decidim_admin_conferences.conference_speakers_path(conference)
 
       within "#conference_speakers table" do
@@ -85,7 +85,7 @@ shared_examples "manage conference speakers examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Conference speaker successfully updated.")
+      expect(page).to have_callout("Conference speaker successfully updated.")
       expect(page).to have_current_path decidim_admin_conferences.conference_speakers_path(conference)
 
       within "#conference_speakers table" do
@@ -101,7 +101,7 @@ shared_examples "manage conference speakers examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("Conference speaker successfully deleted.")
+      expect(page).to have_callout("Conference speaker successfully deleted.")
 
       within "#conference_speakers table" do
         expect(page).to have_no_content(conference_speaker.full_name)

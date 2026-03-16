@@ -1,1 +1,15 @@
 sr:
+  decidim:
+    events:
+      initiatives:
+        milestone_completed:
+          affected_user:
+            email_intro: Vaša inicijativa %{resource_title} je postigla %{percentage}% potpisa!
+            email_outro: Primili ste ovo obaveštenje jer ste autor inicijative %{resource_title}.
+            email_subject: Nova prekretnica je završena!
+            notification_title: Vaša <a href="%{resource_path}">%{resource_title}</a> inicijativa je postigla %{percentage}% potpisa.
+          follower:
+            email_intro: Inicijativa %{resource_title} je postigla %{percentage}% potpisa!
+            email_outro: Primili ste ovo obaveštenje jer pratite inicijativu %{resource_title}. Možete prestati da primate obaveštenja koristeći prethodni link.
+            email_subject: Nova prekretnica završena!
+            notification_title: Inicijativa <a href="%{resource_path}">%{resource_title}</a> je postigla %{percentage}% potpisa.

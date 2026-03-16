@@ -52,7 +52,7 @@ fr-CA:
         file: Fichier
       proposals_import:
         import_proposals: Importer des propositions
-        keep_answers: Garder l'état et les réponses
+        keep_answers: Conserver les états et les réponses
         keep_authors: Gardez les auteurs originaux
     errors:
       models:
@@ -75,12 +75,16 @@ fr-CA:
           attributes:
             base:
               not_official: Non officiels
+              voted: Ont reçu des votes ou des soutiens
         proposals_split:
           attributes:
             base:
               not_official: Non officiels
+              voted: Ont reçu des votes ou des soutiens
     models:
+      decidim/proposals/admin/update_proposal_taxonomies_event: Taxonomies de la proposition changées
       decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
+      decidim/proposals/liking_enabled_event: Soutiens des propositions activés
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
       decidim/proposals/voting_enabled_event: Activer le module de vote simple
@@ -91,6 +95,8 @@ fr-CA:
           proposal:
             budget_text: La proposition <span class="resource-link">%{link} a été créée</span>
             import_to_proposal_text: Cette proposition <span "resource-link">%{link} a été créée</span>
+            merge_to_proposal_text: 'Cette proposition a été créée : %{link}'
+            split_to_proposal_text: 'Cette proposition a été créée : %{link}'
       decidim/proposals/collaborative_draft:
         one: Brouillon collaboratif
         other: Brouillons collaboratifs
@@ -149,6 +155,7 @@ fr-CA:
           amend: Amender
           comment: Commentaire
           create: Créer une proposition
+          like: Soutenir
           vote: Voter
           vote_comment: Vote sur le commentaire
           withdraw: Retirer
@@ -173,6 +180,7 @@ fr-CA:
               automatic: Automatique
               most_commented: Les plus commentées
               most_followed: Les plus suivies
+              most_liked: Les plus soutenues
               most_voted: Les plus votées
               random: Aléatoire
               recent: Les plus récents
@@ -182,6 +190,7 @@ fr-CA:
             edit_time_units:
               days: Jours
               hours: Heures
+              minutes: Compte-rendus
             geocoding_enabled: Cartes activées
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
@@ -232,10 +241,13 @@ fr-CA:
               automatic: Automatique
               most_commented: Les plus commentées
               most_followed: Les plus suivies
+              most_liked: Les plus soutenues
               most_voted: Les plus votées
               random: Aléatoire
               recent: Récentes
               with_more_authors: Avec le plus d'auteurs
+            likes_blocked: Soutiens bloqués
+            likes_enabled: Soutiens activés
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
             publish_answers_immediately_help_html: "Notez que si vous répondez à une proposition sans que cette case soit activée, vous devrez publier la réponse manuellement en sélectionnant la proposition et en utilisant l'action de publication.\nPour plus d'informations sur le fonctionnement de cette action, voir <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">la page de documentation sur les réponses aux propositions</a>."
@@ -318,6 +330,9 @@ fr-CA:
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant créer de <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        liking_enabled:
+          email_intro: 'Vous pouvez soutenir les propositions dans %{participatory_space_title}! Commencer à participer sur cette page :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez vous désinscrire des notifications en suivant le lien précédent.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
@@ -350,6 +365,12 @@ fr-CA:
             email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez annuler ce suivi en allant sur le lien précédent.
             email_subject: Une proposition que vous suivez a changé d'état (%{state})
             notification_title: L'état de la proposition <a href="%{resource_path}">%{resource_title}</a> est passé à "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'La proposition "%{resource_title}" est passée à l''état "%{state}". Vous pouvez lire la réponse sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un(e) auteur(e) de "%{resource_title}".
+            email_subject: L'état de votre proposition est passé à %{state}
+            notification_title: L'état de votre proposition <a href="%{resource_path}">%{resource_title}</a> est passé à %{state}.
         rejected_coauthorship:
           notification_title: Vous avez refusé l'invitation de <a href="%{author_path}">%{author_name}</a> à devenir co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
@@ -594,7 +615,7 @@ fr-CA:
             create: Importer des propositions
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
-            select_states: Vérifiez l'état des propositions à importer
+            select_states: Importer uniquement des propositions avec ces états. Si aucun n'est sélectionné, toutes les propositions seront importées.
             title: Importer des propositions depuis une autre fonctionnalité
         proposals_merges:
           create:

@@ -229,7 +229,7 @@ describe "Admin manages newsletters" do
           end
 
           expect(page).to have_content("Newsletters")
-          expect(page).to have_admin_callout("Newsletter delivered successfully.")
+          expect(page).to have_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
@@ -275,7 +275,7 @@ describe "Admin manages newsletters" do
             accept_confirm { click_on("Deliver newsletter") }
 
             expect(page).to have_content("Newsletters")
-            expect(page).to have_admin_callout("Newsletter delivered successfully.")
+            expect(page).to have_callout("Newsletter delivered successfully.")
           end
 
           within "tbody" do
@@ -311,7 +311,7 @@ describe "Admin manages newsletters" do
             accept_confirm { click_on("Deliver newsletter") }
 
             expect(page).to have_content("Newsletters")
-            expect(page).to have_admin_callout("Newsletter delivered successfully.")
+            expect(page).to have_callout("Newsletter delivered successfully.")
           end
 
           within "tbody" do
@@ -352,7 +352,7 @@ describe "Admin manages newsletters" do
           accept_confirm { click_on("Deliver newsletter") }
 
           expect(page).to have_content("Newsletters")
-          expect(page).to have_admin_callout("Newsletter delivered successfully.")
+          expect(page).to have_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
@@ -420,7 +420,7 @@ describe "Admin manages newsletters" do
           accept_confirm { click_on("Deliver newsletter") }
 
           expect(page).to have_content("Newsletters")
-          expect(page).to have_admin_callout("Newsletter delivered successfully.")
+          expect(page).to have_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
@@ -460,7 +460,7 @@ describe "Admin manages newsletters" do
         perform_enqueued_jobs do
           accept_confirm { click_on("Deliver newsletter") }
           expect(page).to have_content("Newsletters")
-          expect(page).to have_admin_callout("Newsletter delivered successfully.")
+          expect(page).to have_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
@@ -503,7 +503,7 @@ describe "Admin manages newsletters" do
           perform_enqueued_jobs do
             accept_confirm { click_on("Deliver newsletter") }
             expect(page).to have_content("Newsletters")
-            expect(page).to have_admin_callout("Newsletter delivered successfully.")
+            expect(page).to have_callout("Newsletter delivered successfully.")
           end
 
           within "tbody" do

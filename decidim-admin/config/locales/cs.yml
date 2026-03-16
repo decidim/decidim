@@ -55,7 +55,6 @@ cs:
         description: Popis
         enable_machine_translations: Povolit strojové překlady
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
-        enable_participatory_space_filters: Povolit filtry participačního prostoru
         facebook_handler: Facebook handler
         favicon: Ikona
         force_authentication: Vynutit ověření
@@ -189,7 +188,8 @@ cs:
           </ul>
           Pokud změníte názor, můžete ji obnovit později.
         export: Exportovat
-        export-selection: Exportovat výběr
+        export_all: Exportovat vše
+        export_selection: Exportovat výběr
         import: Importovat
         member:
           new: Nový člen
@@ -592,6 +592,7 @@ cs:
           success: Přístup člena byl úspěšně vytvořen.
         destroy:
           error: Při mazání člena pro tento participační prostor došlo k chybě.
+          success: Přístup k členům byl úspěšně zničen.
         edit:
           title: Upravit člena
           update: Aktualizovat
@@ -605,7 +606,17 @@ cs:
           title: Nový člen
         publish_all:
           error: Při publikování všech členů tohoto participačního prostoru došlo k chybě.
+          success: Úspěšně publikováni všichni členové tohoto participačního prostoru
+        unpublish_all:
+          error: Při rušení publikování všech členů tohoto participačního prostoru došlo k chybě.
+          success: Úspěšně zneveřejněni všichni členové tohoto participačního prostoru
+        update:
+          error: Při aktualizaci člena pro tento participační prostor došlo k chybě.
+          success: Člen byl úspěšně aktualizován
       members_csv_imports:
+        create:
+          invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
+          success: CSV soubor byl úspěšně nahrán, posíláme účastníkům e-mail s pozvánkou. To může chvíli trvat.
         new:
           csv_upload:
             title: Nahrát soubor CSV
@@ -613,8 +624,13 @@ cs:
             button: Odstranit všechny členy
             confirm: Opravdu chcete odstranit všechny členy? Tuto akci nelze vrátit zpět, nebudete ji moci obnovit.
             empty: Nemáte žádné členy.
+            explanation: Máte %{count} členů.
             title: Smazat členy
           example_file: 'Příklad souboru:'
+          explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru uživatelů, které chcete přidat do participačního prostoru, bez hlaviček. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Importovat členy přes CSV
           upload: Nahrát
       menu:
@@ -1079,7 +1095,7 @@ cs:
           title: Nové téma
         update:
           error: Při aktualizaci tohoto tématu došlo k chybě.
-          success: Téma bylo úspěšně aktualizováno
+          success: Téma bylo úspěšně aktualizováno.
       static_pages:
         actions:
           view: Zobrazit

@@ -27,7 +27,6 @@ fi-pl:
       initiatives_type:
         area_enabled: Salli alueen valinta aloitteille
         attachments_enabled: Salli liitteet
-        banner_image: Bannerikuva
         child_scope_threshold_enabled: Ota käyttöön alateemojen allekirjoitukset
         collect_user_extra_fields: Kerää käyttäjän henkilötietoja allekirjoituksessa
         comments_enabled: Ota kommentit käyttöön

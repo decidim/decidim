@@ -1,4 +1,9 @@
 nl:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Verkiezing
+        other: Verkiezingen
   decidim:
     admin:
       menu:

@@ -57,12 +57,9 @@ module Decidim
             youtube_handler: attributes["youtube_handler"],
             github_handler: attributes["github_handler"],
             created_by: attributes["created_by"],
-            meta_scope: attributes["meta_scope"],
-            announcement: attributes["announcement"]
+            meta_scope: attributes["meta_scope"]
           )
           import_hero_image(attributes["remote_hero_image_url"])
-          import_banner_image(attributes["remote_banner_image_url"])
-
           @imported_assembly.save!
           @imported_assembly
         end
@@ -85,27 +82,24 @@ module Decidim
             next
           end
 
-          begin
-            file_tmp = URI.parse(url).open
-          rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-            @warnings << I18n.t(
-              "decidim.assemblies.admin.imports.attachment_error",
-              title: attachment_title(file),
-              error: format_error(e)
-            )
-            next
-          end
-
           Decidim.traceability.perform_action!("create", Attachment, @user) do
             attachment = Attachment.new(
               title: file["title"],
               description: file["description"],
-              content_type: file_tmp.content_type,
               attached_to: @imported_assembly,
-              weight: file["weight"],
-              file: file_tmp, # Define attached_to before this
-              file_size: file_tmp.size
+              weight: file["weight"]
             )
+            begin
+              attachment.attached_uploader(:file).remote_url = url
+              attachment.set_content_type_and_size
+            rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+              @warnings << I18n.t(
+                "decidim.assemblies.admin.imports.attachment_error",
+                title: attachment_title(file),
+                error: format_error(e)
+              )
+              next
+            end
             attachment.create_attachment_collection(file["attachment_collection"])
             attachment.save!
             attachment
@@ -179,14 +173,6 @@ module Decidim
         @imported_assembly.attached_uploader(:hero_image).remote_url = url
       rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
         @warnings << I18n.t("decidim.assemblies.admin.imports.hero_image_error", error: format_error(e))
-      end
-
-      def import_banner_image(url)
-        return if url.blank?
-
-        @imported_assembly.attached_uploader(:banner_image).remote_url = url
-      rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-        @warnings << I18n.t("decidim.assemblies.admin.imports.banner_image_error", error: format_error(e))
       end
 
       def format_error(error)

@@ -205,7 +205,7 @@ shared_examples "a record with front-end geocoding address field" do |geocoded_m
     # the dummy test geocoding API defined at
     # `decidim-dev/lib/decidim/dev/test/map_server.rb`. Search for
     # `serve_autocomplete`.
-    expect(page).to have_content("successfully")
+    expect(page).to have_callout(geocoded_success_message)
     final = if geocoded_record
               geocoded_model.find(geocoded_record.id)
             else

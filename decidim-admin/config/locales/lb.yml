@@ -38,7 +38,6 @@ lb:
         default_locale: Standardgebietsschema
         description: Beschreibung
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
-        enable_participatory_space_filters: Bereichs- und Gebietsfilter aktivieren
         facebook_handler: Facebook-Handler
         favicon: Icon
         force_authentication: Authentifizierung erzwingen
@@ -135,7 +134,7 @@ lb:
         browse: Durchsuchen
         configure: Konfigurieren
         export: Exportéieren
-        export-selection: Export Auswiel
+        export_all: Alles exportéieren
         import: Importieren
         newsletter:
           new: Neuer Newsletter
@@ -639,7 +638,6 @@ lb:
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
-          success: Thema erfolgreich aktualisiert
       static_pages:
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.

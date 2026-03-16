@@ -7,6 +7,7 @@ module Decidim
       # from another component.
       class ProposalsImportForm < Decidim::Form
         include TranslatableAttributes
+
         mimic :proposals_import
 
         attribute :origin_component_id, Integer

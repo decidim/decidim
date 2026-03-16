@@ -27,7 +27,6 @@ lt:
       initiatives_type:
         area_enabled: Leisti autoriams pasirinkti savo iniciatyvos erdvę
         attachments_enabled: Leisti priedus
-        banner_image: Reklamjuostės paveikslėlis
         child_scope_threshold_enabled: Leisti parašus posritėse
         collect_user_extra_fields: Surinkti dalyvio asmens duomenis gavus parašą
         comments_enabled: Įjungti komentarus

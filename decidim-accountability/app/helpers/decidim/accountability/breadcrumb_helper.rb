@@ -5,10 +5,6 @@ module Decidim
     # Helpers needed to render the navigation breadcrumbs in results.
     #
     module BreadcrumbHelper
-      def progress_calculator(taxonomy_id)
-        Decidim::Accountability::ResultsCalculator.new(current_component, taxonomy_id).progress
-      end
-
       def taxonomy
         return if (taxonomy_id = params.dig(:filter, :taxonomies_part_of_contains)).blank?
 

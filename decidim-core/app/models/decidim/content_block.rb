@@ -36,7 +36,7 @@ module Decidim
     # Returns an object that responds to the settings defined in the content
     # block manifest.
     def settings
-      manifest.settings.schema.new(self[:settings])
+      manifest.settings.schema.new(self[:settings], organization&.default_locale)
     end
 
     def reload(*)
@@ -123,8 +123,8 @@ module Decidim
     private
 
     def manifest_attachments
-      @manifest_attachments ||= manifest.images.each_with_object({}) do |attachment_config, list|
-        list[attachment_config[:name]] = attachments.find_or_initialize_by(name: attachment_config[:name])
+      @manifest_attachments ||= manifest.images.to_h do |attachment_config|
+        [attachment_config[:name], attachments.find_or_initialize_by(name: attachment_config[:name])]
       end
     end
 

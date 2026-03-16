@@ -35,7 +35,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.create.invalid", scope: "decidim.elections.admin")
-              render action: "new", status: :unprocessable_entity
+              render action: "new", status: :unprocessable_content
             end
           end
         end
@@ -58,7 +58,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.update.invalid", scope: "decidim.elections.admin")
-              render action: "edit", status: :unprocessable_entity
+              render action: "edit", status: :unprocessable_content
             end
           end
         end
@@ -74,7 +74,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.publish.invalid", scope: "decidim.elections.admin")
-              render action: "index", status: :unprocessable_entity
+              render action: "index", status: :unprocessable_content
             end
           end
         end
@@ -90,7 +90,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.unpublish.invalid", scope: "decidim.elections.admin")
-              render action: "index", status: :unprocessable_entity
+              render action: "index", status: :unprocessable_content
             end
           end
         end
@@ -130,7 +130,7 @@ module Decidim
 
           render json: { success: true, allow_census_check_before_start: election.allow_census_check_before_start }
         rescue StandardError
-          render json: { success: false, error: I18n.t("elections.toggle_census_check.error", scope: "decidim.elections.admin") }, status: :unprocessable_entity
+          render json: { success: false, error: I18n.t("elections.toggle_census_check.error", scope: "decidim.elections.admin") }, status: :unprocessable_content
         end
 
         private

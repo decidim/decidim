@@ -55,7 +55,6 @@ de:
         description: Beschreibung
         enable_machine_translations: Maschinelle Übersetzungen aktivieren
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
-        enable_participatory_space_filters: Bereichs- und Gebietsfilter aktivieren
         facebook_handler: Facebook-Handler
         favicon: Icon
         force_authentication: Authentifizierung erzwingen
@@ -189,7 +188,7 @@ de:
           </ul>
           Wenn Sie Ihre Meinung ändern, können Sie es später wiederherstellen.
         export: Exportieren
-        export-selection: Auswahl exportieren
+        export_all: Alles exportieren
         import: Importieren
         member:
           new: Neues Mitglied
@@ -1083,7 +1082,6 @@ de:
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
-          success: Thema erfolgreich aktualisiert
       static_pages:
         actions:
           view: Anzeigen

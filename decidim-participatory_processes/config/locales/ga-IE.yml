@@ -37,8 +37,6 @@ ga:
         publish: Foilsigh
       menu:
         participatory_process_groups: Grúpaí próiseas
-        participatory_process_groups_submenu:
-          info: Eolas
         participatory_processes: Próisis
         participatory_processes_submenu:
           attachment_collections: Fillteáin

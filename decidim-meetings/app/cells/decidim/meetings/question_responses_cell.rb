@@ -22,7 +22,7 @@ module Decidim
         #
         # This calculation is a bit complex because of multiple option responses
         question_responses_choices = Decidim::Meetings::ResponseOption.where(decidim_question_id: model.id)
-                                                                      .joins([choices: :response])
+                                                                      .joins([{ choices: :response }])
                                                                       .group(Arel.sql("#{responses_table_name}.id, #{response_options_table_name}.id"))
                                                                       .select(<<~SELECT
                                                                         #{response_options_table_name}.id AS id,

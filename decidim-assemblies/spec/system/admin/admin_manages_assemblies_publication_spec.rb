@@ -9,6 +9,8 @@ describe "Admin manages assembly publication" do
   let(:public_collection_path) { decidim_assemblies.assemblies_path(locale: I18n.locale) }
   let(:title) { "My space" }
   let!(:participatory_space) { assembly }
+  let(:publish_callout_message) { "Assembly successfully published." }
+  let(:unpublish_callout_message) { "Assembly successfully unpublished." }
 
   it_behaves_like "manage participatory space publications"
 

@@ -13,7 +13,6 @@ module Decidim
 
         mimic :participatory_process
 
-        translatable_attribute :announcement, Decidim::Attributes::RichText
         translatable_attribute :description, Decidim::Attributes::RichText
         translatable_attribute :developer_group, String
         translatable_attribute :local_area, String

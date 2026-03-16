@@ -38,7 +38,6 @@ nl:
         default_locale: Standaard taal
         description: Beschrijving
         enable_omnipresent_banner: Toon permanente header
-        enable_participatory_space_filters: Schakel filters in voor de participatieve ruimte
         facebook_handler: Facebook naam
         favicon: Favicon
         force_authentication: Verplicht aanmelden
@@ -135,7 +134,7 @@ nl:
         browse: Browsen
         configure: Configureren
         export: Exporteren
-        export-selection: Selectie exporteren
+        export_all: Alles exporteren
         import: Importeren
         newsletter:
           new: Nieuwe nieuwsbrief
@@ -695,7 +694,6 @@ nl:
           title: Nieuw onderwerp
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit onderwerp.
-          success: Onderwerp met succes bijgewerkt
       static_pages:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.

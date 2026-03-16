@@ -52,7 +52,6 @@ sv:
         file: Fil
       proposals_import:
         import_proposals: Importera förslag
-        keep_answers: Behåll status och svar
         keep_authors: Behåll originalförfattare
     errors:
       models:
@@ -185,7 +184,7 @@ sv:
               random: Slumpvis
               recent: Senaste
               with_more_authors: Med flera författare
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             edit_time: Förslag kan redigeras av författaren inom så här många minuter
             edit_time_units:
               days: Dagar
@@ -362,6 +361,12 @@ sv:
             email_outro: Du har fått det här meddelande eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
             email_subject: Ett förslag som du följer har ändrat status (%{state})
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har ändrat status till "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'Förslaget "%{resource_title}" har ändrats till "%{state}". Du kan läsa svaret på denna sida:'
+            email_outro: Du har fått detta meddelande därför att du har skrivit "%{resource_title}".
+            email_subject: Ditt förslag har förändrats till (%{state})
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har ändrats till "%{state}".
         proposal_update_taxonomies:
           email_intro: 'En administratör har uppdaterat kategorierna för ditt förslag "%{resource_title}", ta en titt på följande sida:'
           email_outro: Du har fått det här meddelandet eftersom du har skrivit förslaget.
@@ -612,7 +617,6 @@ sv:
             create: Importera förslag
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
             select_component: Välj en komponent
-            select_states: Kontrollera status för förslagen som ska importeras
             title: Importera förslag från en annan komponent
         proposals_merges:
           create:
@@ -909,7 +913,7 @@ sv:
             description: Du kan skapa upp till %{limit} förslag.
           success: Din röst har tagits emot
           threshold_per_proposal:
-            description: Förslag behöver få minst %{limit} röster för accepteras.
+            description: Förslag behöver få minst %{limit} röster för att gå vidare.
           title: Regler för omröstning
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
