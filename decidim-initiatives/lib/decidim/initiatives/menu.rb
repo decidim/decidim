@@ -76,7 +76,7 @@ module Decidim
       def self.register_admin_initiative_menu!
         Decidim.menu :admin_initiative_menu do |menu|
           menu.add_item :edit_initiative,
-                        I18n.t("menu.information", scope: "decidim.admin"),
+                        I18n.t("title", scope: "decidim.initiatives.admin.initiatives.edit"),
                         decidim_admin_initiatives.edit_initiative_path(current_participatory_space),
                         icon_name: "information-line",
                         if: allowed_to?(:edit, :initiative, initiative: current_participatory_space)

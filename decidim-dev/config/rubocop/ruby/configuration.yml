@@ -1,7 +1,3 @@
-require:
-  - rubocop
-  - decidim/dev/rubocop/cop/decidim/message_antipattern
-
 # Common configuration.
 AllCops:
   Include:

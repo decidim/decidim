@@ -109,7 +109,6 @@ en:
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
-          info: About this process group
           landing_page: Landing page layout
         participatory_processes: Processes
         participatory_processes_submenu:
@@ -117,7 +116,6 @@ en:
           attachment_files: Files
           attachments: Attachments
           components: Components
-          info: About this process
           landing_page: Landing page layout
           members: Members
           moderations: Moderations
@@ -165,17 +163,14 @@ en:
         new:
           duplicate: Duplicate
           select: Select which data you would like to duplicate
-          title: Duplicate participatory process
       participatory_process_groups:
         destroy:
           error: There was a problem while destroying the participatory process group.
           success: Participatory process group successfully deleted.
         edit:
-          title: Edit process group
           update: Update
         new:
           create: Create
-          title: New process group
         update:
           error: There was a problem updating this participatory process group.
           success: Participatory process group successfully updated.
@@ -186,7 +181,6 @@ en:
         new:
           import: Import
           select: Select which data you would like to import
-          title: Import participatory process
       participatory_process_publications:
         create:
           error: There was a problem publishing this participatory process.
@@ -209,13 +203,9 @@ en:
             last_step: Cannot delete the last phase of a process.
           success: Participatory process phase successfully deleted.
         edit:
-          title: Edit participatory process phase
           update: Update
-        index:
-          steps_title: Phases
         new:
           create: Create
-          title: New participatory process phase
         ordering:
           error: There was a problem in reordering these phases of the participatory process.
         update:
@@ -228,13 +218,9 @@ en:
         destroy:
           success: Admin successfully removed from this participatory process.
         edit:
-          title: Update participatory process admin
           update: Update
-        index:
-          process_admins_title: Participatory process admins
         new:
           create: Create
-          title: New participatory process admin
         update:
           error: There was a problem updating an admin for this participatory process.
           success: Admin successfully updated for this participatory process.
@@ -249,11 +235,8 @@ en:
           public: Public
           published: Published
           unpublished: Unpublished
-        manage_trash:
-          title: Deleted participatory processes
         new:
           create: Create
-          title: New participatory process
         update:
           error: There was a problem updating this participatory process.
           success: Participatory process successfully updated.
@@ -269,10 +252,7 @@ en:
         space_filter_for:
           participatory_processes: All participatory processes
       titles:
-        participatory_process_groups: Participatory process groups
         participatory_process_types: Participatory process types
-        participatory_processes: Participatory processes
-        participatory_processes_deleted: Deleted participatory processes
       tooltips:
         deleted_processes_info: A process can only be deleted if status is "Unpublished".
       users:
@@ -501,16 +481,42 @@ en:
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          new:
+            title: Duplicate participatory process
         participatory_process_groups:
+          edit:
+            title: Edit process group
           form:
             metadata: Metadata
             title: About this process
             visibility: Visibility
+          index:
+            title: Participatory process groups
+          new:
+            title: New process group
         participatory_process_imports:
           form:
             document_legend: Add a document
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          new:
+            title: Import participatory process
+        participatory_process_steps:
+          edit:
+            title: Edit participatory process phase
+          index:
+            title: Phases
+          new:
+            title: New participatory process phase
+        participatory_process_user_roles:
+          edit:
+            title: Update participatory process admin
+          index:
+            title: Participatory process admins
+          new:
+            title: New participatory process admin
         participatory_processes:
+          edit:
+            title: About this process
           form:
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
@@ -525,6 +531,12 @@ en:
             taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
+          index:
+            title: Participatory processes
+          manage_trash:
+            title: Deleted participatory processes
+          new:
+            title: New participatory process
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:

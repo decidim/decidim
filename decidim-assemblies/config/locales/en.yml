@@ -107,11 +107,8 @@ en:
           public: Public
           published: Published
           unpublished: Unpublished
-        manage_trash:
-          title: Deleted assemblies
         new:
           create: Create
-          title: New assembly
         update:
           error: There was a problem updating this assembly.
           success: Assembly successfully updated.
@@ -123,7 +120,6 @@ en:
         new:
           duplicate: Duplicate
           select: Select which data you would like to duplicate
-          title: Duplicate assembly
       assembly_imports:
         create:
           error: There was a problem importing this assembly.
@@ -131,7 +127,6 @@ en:
         new:
           import: Import
           select: Select which data you would like to import
-          title: Import assembly
       assembly_publications:
         create:
           error: There was a problem publishing this assembly.
@@ -146,13 +141,9 @@ en:
         destroy:
           success: Admin successfully removed from this assembly.
         edit:
-          title: Update assembly admin
           update: Update
-        index:
-          assembly_admins_title: Assembly admins
         new:
           create: Create
-          title: New assembly admin
         update:
           error: There was a problem updating an admin for this assembly.
           success: Admin updated successfully for this assembly.
@@ -210,8 +201,6 @@ en:
         space_filter_for:
           assemblies: All assemblies
       titles:
-        assemblies: Assemblies
-        assemblies_deleted: Deleted assemblies
         assemblies_types: Assemblies types
       tooltips:
         deleted_assemblies_info: An assembly can only be deleted if status is "Unpublished".
@@ -247,6 +236,8 @@ en:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: About this assembly
           form:
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
@@ -265,18 +256,35 @@ en:
             taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
+          index:
+            title: Assemblies
+          manage_trash:
+            title: Deleted assemblies
+          new:
+            title: New assembly
         assembly_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          new:
+            title: Duplicate assembly
         assembly_imports:
           form:
             document_legend: Add a document
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          new:
+            title: Import assembly
         assembly_members:
           form:
             explanation: 'Guidance for image:'
             image_guide: Preferably a portrait image that does not have any text.
             non_user_avatar_help: You should get the consent of the persons before publishing them as a member.
+        assembly_user_roles:
+          edit:
+            title: Update assembly admin
+          index:
+            title: Assembly admins
+          new:
+            title: New assembly admin
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show

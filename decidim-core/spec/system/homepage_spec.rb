@@ -423,25 +423,15 @@ describe "Homepage" do
         end
 
         it "renders content blocks in the correct order by weight" do
-          hero_section = page.find("section.hero__container")
-          sub_hero_section = page.find_by_id("sub_hero")
-          how_to_participate_section = page.find_by_id("how_to_participate")
-          stats_section = page.find_by_id("statistics")
-          footer_sub_hero_section = page.find_by_id("footer_sub_hero")
-          highlighted_content_banner = page.find_by_id("highlighted_content_banner")
-
-          hero_position = hero_section.evaluate_script("this.getBoundingClientRect().top")
-          sub_hero_position = sub_hero_section.evaluate_script("this.getBoundingClientRect().top")
-          how_to_participate_position = how_to_participate_section.evaluate_script("this.getBoundingClientRect().top")
-          stats_position = stats_section.evaluate_script("this.getBoundingClientRect().top")
-          footer_sub_hero_position = footer_sub_hero_section.evaluate_script("this.getBoundingClientRect().top")
-          highlighted_content_banner_position = highlighted_content_banner.evaluate_script("this.getBoundingClientRect().top")
-
-          expect(hero_position).to be < sub_hero_position
-          expect(sub_hero_position).to be < how_to_participate_position
-          expect(how_to_participate_position).to be < stats_position
-          expect(stats_position).to be < footer_sub_hero_position
-          expect(footer_sub_hero_position).to be < highlighted_content_banner_position
+          expect(%(class="hero__container")).to appear_before(%(id="sub_hero"))
+          expect(%(id="sub_hero")).to appear_before(%(id="how_to_participate"))
+          expect(%(id="how_to_participate")).to appear_before(%(id="statistics"))
+          expect(%(id="statistics")).to appear_before(%(id="footer_sub_hero"))
+          expect(%(id="footer_sub_hero")).to appear_before(%(id="highlighted_content_banner"))
+          expect(%(id="highlighted_content_banner")).to appear_before(%(id="highlighted-processes"))
+          expect(%(id="highlighted-processes")).to appear_before(%(id="highlighted-assemblies"))
+          expect(%(id="highlighted-assemblies")).to appear_before(%(id="homepage-upcoming-meetings"))
+          expect(%(id="homepage-upcoming-meetings")).to appear_before(%(id="html-block-html"))
         end
 
         it "renders each content block with its corresponding cell content" do
