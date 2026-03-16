@@ -1,12 +1,12 @@
-publiccodeYmlVersion: "0.4"
+publiccodeYmlVersion: "0.5"
 
 name: Decidim
 url: "https://github.com/decidim/decidim.git"
 platforms:
   - web
 developmentStatus: stable
-softwareVersion: "0.29.2"
-releaseDate: "2025-02-12"
+softwareVersion: "0.31.2"
+releaseDate: "2025-02-26"
 logo: "https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/logo.svg"
 softwareType: "library"
 
@@ -54,7 +54,9 @@ description:
 legal:
   license: AGPL-3.0-or-later
   mainCopyrightOwner: Associació de Software Lliure Decidim
-  repoOwner: Associació de Software Lliure Decidim
+
+organization:
+  name: Associació de Software Lliure Decidim
 
 maintenance:
   type: "internal"
