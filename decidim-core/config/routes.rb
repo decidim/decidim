@@ -111,6 +111,16 @@ Decidim::Core::Engine.routes.draw do
     resources :pages, only: [:index, :show], format: false
   end
 
+  get "/pages", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+    "/#{locale}/pages"
+  }
+
+  get "/pages/*rest", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+    "/#{locale}/pages/#{params[:rest]}"
+  }
+
   get "/search", to: "searches#index", as: :search
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 
@@ -131,7 +141,7 @@ Decidim::Core::Engine.routes.draw do
   resource :report, only: [:create]
   resource :report_user, only: [:create]
   resources :likes, only: [:create, :destroy]
-  resources :amends, only: [:new, :reject, :accept], controller: :amendments do
+  resources :amends, only: [:new], controller: :amendments do
     collection do
       post :create
     end

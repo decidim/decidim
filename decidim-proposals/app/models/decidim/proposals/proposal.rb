@@ -185,6 +185,15 @@ module Decidim
           .exists?
       end
 
+      def self.most_liked_available?(component)
+        where(component:)
+          .published
+          .not_hidden
+          .not_withdrawn
+          .where("likes_count > 0")
+          .exists?
+      end
+
       acts_as_list scope: :decidim_component_id
 
       searchable_fields({

@@ -51,12 +51,10 @@ module Decidim::Assemblies
           "created_by" => "citizens",
           "meta_scope" => Decidim::Faker::Localized.sentence(word_count: 3),
           "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
-          "remote_hero_image_url" => hero_image_url,
-          "remote_banner_image_url" => banner_image_url
+          "remote_hero_image_url" => hero_image_url
         }
       end
       let(:hero_image_url) { nil }
-      let(:banner_image_url) { nil }
 
       it "imports the assembly correctly" do
         expect { subject }.to change(Decidim::Assembly, :count).by(1)
@@ -139,95 +137,22 @@ module Decidim::Assemblies
         end
       end
 
-      context "when banner image URL is present and accessible" do
-        let(:banner_image_url) { "http://example.com/banner.jpg" }
-
-        before do
-          stub_request(:get, banner_image_url)
-            .to_return(status: 200, body: File.read(Decidim::Dev.asset("city2.jpeg")))
-          stub_request(:head, banner_image_url)
-            .to_return(status: 200, headers: { "Content-Type" => "image/jpeg" })
-        end
-
-        it "imports the assembly with the banner image" do
-          expect { subject }.to change(Decidim::Assembly, :count).by(1)
-          expect(subject.banner_image).to be_attached
-        end
-
-        it "has no warnings" do
-          subject
-          expect(importer.warnings).to be_empty
-        end
-      end
-
-      context "when banner image URL returns 404 error" do
-        let(:banner_image_url) { "http://example.com/missing-banner.jpg" }
-
-        before do
-          stub_request(:get, banner_image_url)
-            .to_return(status: 404, body: "Not Found")
-          stub_request(:head, banner_image_url)
-            .to_return(status: 404, body: "Not Found")
-        end
-
-        it "imports the assembly successfully" do
-          expect { subject }.to change(Decidim::Assembly, :count).by(1)
-        end
-
-        it "does not attach the banner image" do
-          subject
-          expect(subject.banner_image).not_to be_attached
-        end
-
-        it "collects a warning about the missing banner image" do
-          subject
-          expect(importer.warnings).to include(a_string_matching(/The banner image could not be imported \(404 Not Found\)\./i))
-        end
-      end
-
-      context "when both hero and banner images fail to import" do
-        let(:hero_image_url) { "http://example.com/missing-hero.jpg" }
-        let(:banner_image_url) { "http://example.com/missing-banner.jpg" }
-
-        before do
-          stub_request(:get, hero_image_url).to_return(status: 404)
-          stub_request(:head, hero_image_url).to_return(status: 404)
-          stub_request(:get, banner_image_url).to_return(status: 500)
-          stub_request(:head, banner_image_url).to_return(status: 500)
-        end
-
-        it "imports the assembly successfully" do
-          expect { subject }.to change(Decidim::Assembly, :count).by(1)
-        end
-
-        it "collects warnings for both images" do
-          subject
-          expect(importer.warnings).to include(a_string_matching(/The hero image could not be imported/i))
-          expect(importer.warnings).to include(a_string_matching(/The banner image could not be imported/i))
-          expect(importer.warnings.length).to eq(2)
-        end
-      end
-
       context "when image URL is nil" do
         let(:hero_image_url) { nil }
-        let(:banner_image_url) { nil }
 
         it "imports the assembly without images and no warnings" do
           expect { subject }.to change(Decidim::Assembly, :count).by(1)
           expect(subject.hero_image).not_to be_attached
-          expect(subject.banner_image).not_to be_attached
           expect(importer.warnings).to be_empty
         end
       end
 
       context "when image URL is empty string" do
         let(:hero_image_url) { "" }
-        let(:banner_image_url) { "" }
 
         it "imports the assembly without images and no warnings" do
           expect { subject }.to change(Decidim::Assembly, :count).by(1)
           expect(subject.hero_image).not_to be_attached
-          expect(subject.banner_image).not_to be_attached
           expect(importer.warnings).to be_empty
         end
       end

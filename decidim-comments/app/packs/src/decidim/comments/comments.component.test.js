@@ -10,13 +10,10 @@ window.$ = jest.fn().mockImplementation((...args) => $(...args));
 window.$.ajax = jest.fn().mockImplementation((...args) => $.ajax(...args));
 window.$.extend = jest.fn().mockImplementation((...args) => $.extend(...args));
 
-// Rails.ajax is used by the fetching/polling of the comments
+// Rails.ajax is used by the fetching of the comments
 import Rails from "@rails/ujs";
 jest.mock("@rails/ujs");
 window.Rails = Rails;
-
-// Fake timers for testing polling
-jest.useFakeTimers();
 
 import Configuration from "src/decidim/refactor/implementation/configuration";
 // Component is loaded with require because using import loads it before $ has been mocked
@@ -196,6 +193,36 @@ describe("CommentsComponent", () => {
   }
 
   const generateSingleComment = (commentId, content, replies = "") => {
+    const hasReplies = replies.trim().length > 0;
+    const repliesStructure = hasReplies
+      ? `
+      <div data-controller="show-replies"
+           data-show-replies-url-value="/comments"
+           data-show-replies-comment-gid-value="comment-gid-${commentId}"
+           data-show-replies-order-value="older"
+           data-show-replies-loaded-value="false">
+        <div class="show-replies-button">
+          <button class="button button__xs button__text-secondary"
+                  data-action="click->show-replies#toggle"
+                  data-show-replies-target="button"
+                  aria-expanded="false"
+                  aria-controls="comment-${commentId}-replies"
+                  id="comment-${commentId}-replies-trigger">
+            <span class="font-normal">1 reply</span>
+            <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-down-s-line" tabindex="-1"></use></svg>
+            <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-up-s-line" tabindex="-1"></use></svg>
+          </button>
+          <span data-show-replies-target="spinner" class="ml-2 hidden">
+            <svg width="1em" height="1em" role="img" aria-hidden="true" class="animate-spin fill-secondary"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-loader-3-line" tabindex="-1"></use></svg>
+          </span>
+        </div>
+        <div id="comment-${commentId}-replies"
+             data-show-replies-target="container"
+             class="comment-reply hidden">${replies}</div>
+      </div>
+    `
+      : `<div id="comment-${commentId}-replies" class="comment-reply"></div>`;
+
     return `
       <div id="comment_${commentId}" class="comment" data-comment-id="${commentId}">
         <div class="comment__header">
@@ -232,40 +259,42 @@ describe("CommentsComponent", () => {
         <div class="comment__content">
           <div><p>${content}</p></div>
         </div>
-        <div data-comment-footer data-controller="accordion" role="presentation">
+        <div data-comment-footer data-controller="accordion" id="accordion-${commentId}" class="relative">
           <div class="comment__footer-grid">
-            <div class="comment__actions">
-              <button class="button button__sm button__text-secondary" data-controls="panel-comment${commentId}-reply" role="button" tabindex="0" aria-controls="panel-comment${commentId}-reply" aria-expanded="false" aria-disabled="false">
-                <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-chat-1-line" tabindex="-1"></use></svg>
-                <span class="font-normal">Reply</span>
-                <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-close-circle-line" tabindex="-1"></use></svg>
-                <span class="font-normal">Cancel reply</span>
-              </button>
-            </div>
-            <div class="comment__votes">
-              <form class="button_to" method="post" action="/comments/${commentId}/votes?weight=1" data-remote="true">
-                <button class="button button__sm button__text-secondary js-comment__votes--up" title="I agree with this comment" type="submit">
-                  <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-up-line" tabindex="-1"></use></svg>
-                  <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-up-fill" tabindex="-1"></use></svg>
-                  <span>0</span>
+            <div class="comment__votes-actions">
+              <div class="comment__actions">
+                <button class="button button__sm button__text-secondary" data-controls="panel-${commentId}-reply" id="panel-${commentId}-reply-trigger">
+                  <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-chat-1-line" tabindex="-1"></use></svg>
+                  <span class="font-normal">Reply</span>
+                  <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-close-circle-line" tabindex="-1"></use></svg>
+                  <span class="font-normal">Cancel reply</span>
                 </button>
-                <input type="hidden" name="authenticity_token" value="knr7y99HXbKv5sdm5OlghBlFsjIX7KOnIvHZ5-vXThb87Qszlh8j_CPxdbhsiqcIPAwvofsM9zR0vWFgojq6dA" autocomplete="off">
-              </form>
-              <form class="button_to" method="post" action="/comments/${commentId}/votes?weight=-1" data-remote="true">
-                <button class="button button__sm button__text-secondary js-comment__votes--down" title="I disagree with this comment" type="submit">
-                  <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-down-line" tabindex="-1"></use></svg>
-                  <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-down-fill" tabindex="-1"></use></svg>
-                  <span>0</span>
-                </button>
-                <input type="hidden" name="authenticity_token" value="OOIZTq0QSU1CB6OXV1D6j337zCgOA6al6xDOmy_qlZpWdem25Eg3A84QEUnfMz0DWLJRu-Lj8ja9XHYcZgdh-A" autocomplete="off">
-              </form>
+              </div>
+              <div class="comment__votes">
+                <form class="button_to" method="post" action="/comments/${commentId}/votes?weight=1" data-remote="true">
+                  <button class="button button__sm button__text-secondary js-comment__votes--up" title="I agree with this comment" type="submit">
+                    <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-up-line" tabindex="-1"></use></svg>
+                    <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-up-fill" tabindex="-1"></use></svg>
+                    <span>0</span>
+                  </button>
+                  <input type="hidden" name="authenticity_token" value="knr7y99HXbKv5sdm5OlghBlFsjIX7KOnIvHZ5-vXThb87Qszlh8j_CPxdbhsiqcIPAwvofsM9zR0vWFgojq6dA" autocomplete="off">
+                </form>
+                <form class="button_to" method="post" action="/comments/${commentId}/votes?weight=-1" data-remote="true">
+                  <button class="button button__sm button__text-secondary js-comment__votes--down" title="I disagree with this comment" type="submit">
+                    <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-down-line" tabindex="-1"></use></svg>
+                    <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-down-fill" tabindex="-1"></use></svg>
+                    <span>0</span>
+                  </button>
+                  <input type="hidden" name="authenticity_token" value="OOIZTq0QSU1CB6OXV1D6j337zCgOA6al6xDOmy_qlZpWdem25Eg3A84QEUnfMz0DWLJRu-Lj8ja9XHYcZgdh-A" autocomplete="off">
+                </form>
+              </div>
             </div>
           </div>
-          <div id="panel-comment${commentId}-reply" class="add-comment" role="region" tabindex="-1" aria-labelledby="" aria-hidden="true">
+          <div id="panel-${commentId}-reply" class="add-comment" data-additional-reply>
             ${generateCommentForm("Comment", commentId)}
           </div>
         </div>
-        <div id="comment-${commentId}-replies">${replies}</div>
+        ${repliesStructure}
       </div>
     `;
   }
@@ -359,8 +388,7 @@ describe("CommentsComponent", () => {
       commentsUrl: "/comments",
       rootDepth: 0,
       order: "older",
-      lastCommentId: 456,
-      pollingInterval: 1000
+      lastCommentId: 456
     });
 
     $doc = $(document);
@@ -393,8 +421,7 @@ describe("CommentsComponent", () => {
       data: new URLSearchParams({
         "commentable_gid": "commentable-gid",
         "root_depth": 0,
-        order: "older",
-        after: 456
+        order: "older"
       }),
       success: expect.any(Function)
     });
@@ -410,30 +437,6 @@ describe("CommentsComponent", () => {
     Rails.ajax.mockImplementationOnce((options) => options.success());
 
     subject.mountComponent();
-
-    expect($(`${selector} .add-comment textarea`).prop("disabled")).toBeFalsy();
-  });
-
-  it("starts polling for new comments", () => {
-    jest.spyOn(window, "setTimeout");
-    Rails.ajax.mockImplementationOnce((options) => options.success());
-
-    subject.mountComponent();
-
-    expect(window.setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
-  });
-
-  it("does not disable the textarea when polling comments normally", () => {
-    Rails.ajax.mockImplementationOnce((options) => options.success());
-
-    subject.mountComponent();
-
-    // Delay the success call 2s after the polling has happened to test that
-    // the textarea is still enabled when the polling is happening.
-    Rails.ajax.mockImplementationOnce((options) => {
-      setTimeout(() => options.success(), 2000);
-    });
-    jest.advanceTimersByTime(1500);
 
     expect($(`${selector} .add-comment textarea`).prop("disabled")).toBeFalsy();
   });
@@ -508,7 +511,7 @@ describe("CommentsComponent", () => {
         ).toBeTruthy();
       });
 
-      it("disables the submit button on submit and stops polling", () => {
+      it("disables the submit button on submit", () => {
         jest.spyOn(window, "clearTimeout");
 
         commentText.html("This is a test comment")
@@ -518,8 +521,6 @@ describe("CommentsComponent", () => {
         expect(
           $("button[type='submit']", commentSection.commentForm).is(":disabled")
         ).toBeTruthy();
-
-        expect(window.clearTimeout).toHaveBeenCalledWith(subject.pollTimeout);
       });
     });
 

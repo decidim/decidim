@@ -336,7 +336,7 @@ FactoryBot.define do
 
     trait :participant_author do
       after :build do |proposal, evaluator|
-        proposal.coauthorships.clear
+        proposal.coauthorships.target.clear
         user = build(:user, :confirmed, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
         proposal.coauthorships.build(author: user)
       end
@@ -344,14 +344,14 @@ FactoryBot.define do
 
     trait :official do
       after :build do |proposal|
-        proposal.coauthorships.clear
+        proposal.coauthorships.target.clear
         proposal.coauthorships.build(author: proposal.organization)
       end
     end
 
     trait :official_meeting do
       after :build do |proposal, evaluator|
-        proposal.coauthorships.clear
+        proposal.coauthorships.target.clear
         component = build(:meeting_component, :published, participatory_space: proposal.component.participatory_space, skip_injection: evaluator.skip_injection)
         proposal.coauthorships.build(author: build(:meeting, :published, component:, skip_injection: evaluator.skip_injection))
       end
@@ -504,7 +504,7 @@ FactoryBot.define do
 
     trait :participant_author do
       after :build do |draft, evaluator|
-        draft.coauthorships.clear
+        draft.coauthorships.target.clear
         user = build(:user, organization: draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
         draft.coauthorships.build(author: user)
       end

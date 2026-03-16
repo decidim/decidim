@@ -48,7 +48,7 @@ module Decidim
       def self.register_impersonate_menu!
         Decidim.menu :impersonate_menu do |menu|
           menu.add_item :conflicts,
-                        I18n.t("title", scope: "decidim.admin.conflicts"),
+                        I18n.t("title", scope: "decidim.admin.conflicts.index"),
                         decidim_admin.conflicts_path,
                         active: is_active_link?(decidim_admin.conflicts_path),
                         if: allowed_to?(:index, :impersonatable_user)
