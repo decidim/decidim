@@ -125,7 +125,7 @@ describe "Admin edits proposals" do
       it "can edit a proposal with an attachment" do
         visit_component_admin
         within "tr[data-id='#{proposal.id}']" do
-          find("button[data-controller='dropdown']").click
+          find("button[data-component='dropdown']").click
           click_on "Edit proposal"
         end
 
@@ -140,7 +140,7 @@ describe "Admin edits proposals" do
 
         visit_component_admin
         within "tr[data-id='#{proposal.id}']" do
-          find("button[data-controller='dropdown']").click
+          find("button[data-component='dropdown']").click
           click_on "Edit proposal"
         end
 
