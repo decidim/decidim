@@ -192,24 +192,7 @@ module Decidim
         context "when component does not exist" do
           let(:second_component) { build(:dummy_component, participatory_space: current_participatory_space) }
 
-          after do
-            I18n.backend.reload!
-          end
-
           before do
-            I18n.backend.reload!
-            I18n.backend.store_translations(
-              :en,
-              decidim: {
-                components: {
-                  settings: {
-                    global: {
-                      test_unavailable: "Selecting taxonomy filters will be possible after the component is created."
-                    }
-                  }
-                }
-              }
-            )
             view.instance_variable_set(:@component, second_component)
           end
 
