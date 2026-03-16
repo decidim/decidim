@@ -32,13 +32,13 @@ module Decidim
       def same_month?
         return true if end_time.blank?
 
-        start_time.month == end_time.month
+        start_time.year == end_time.year && start_time.month == end_time.month
       end
 
       def same_day?
         return true if end_time.blank?
 
-        start_time.day == end_time.day
+        start_time.to_date == end_time.to_date
       end
 
       def same_year?

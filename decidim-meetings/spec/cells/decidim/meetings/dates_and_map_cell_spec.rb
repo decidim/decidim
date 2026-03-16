@@ -89,6 +89,22 @@ module Decidim::Meetings
       end
     end
 
+    context "when meeting spans same month and day across different years" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2024, 1, 15, 10, 0, 0, 0), end_time: Time.new(2025, 1, 15, 12, 0, 0, 0)) }
+
+      it "shows the start year" do
+        expect(subject).to have_css(".meeting__calendar-year", text: "2024")
+      end
+
+      it "shows the end year" do
+        expect(subject).to have_css(".meeting__calendar-year", text: "2025")
+      end
+
+      it "shows year separator" do
+        expect(subject).to have_css(".meeting__calendar-separator")
+      end
+    end
+
     describe "#end_year" do
       let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 10, 15, 10, 0, 0, 0), end_time: nil) }
       let(:my_cell) { cell("decidim/meetings/dates_and_map", meeting) }
@@ -120,6 +136,11 @@ module Decidim::Meetings
         meeting.update!(end_time: Time.new(2020, 11, 20, 12, 0, 0, 0))
         expect(my_cell.send(:same_month?)).to be false
       end
+
+      it "returns false when same month but different years" do
+        meeting.update!(end_time: Time.new(2021, 10, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_month?)).to be false
+      end
     end
 
     describe "#same_day?" do
@@ -137,6 +158,11 @@ module Decidim::Meetings
 
       it "returns false when different days" do
         meeting.update!(end_time: Time.new(2020, 10, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_day?)).to be false
+      end
+
+      it "returns false when same day but different years" do
+        meeting.update!(end_time: Time.new(2021, 10, 15, 12, 0, 0, 0))
         expect(my_cell.send(:same_day?)).to be false
       end
     end
