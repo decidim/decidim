@@ -55,11 +55,11 @@ legal:
   license: AGPL-3.0-or-later
   mainCopyrightOwner: Associació de Software Lliure Decidim
 
-organisation:
-  name: Associació de Software Lliure Decidim
 
 maintenance:
   type: "internal"
+  contacts:
+    - name: Associació de Software Lliure Decidim
 
   contacts:
     - name: Andrés Pereira de Lucena
