@@ -189,7 +189,7 @@ module Decidim
           render_input
         end
 
-        context "when component does not exist" do
+        context "when component is not persisted" do
           let(:second_component) { build(:dummy_component, participatory_space: current_participatory_space) }
 
           before do
