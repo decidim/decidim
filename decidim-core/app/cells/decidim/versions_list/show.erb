@@ -2,7 +2,7 @@
   <%= cell("decidim/versions_list_item", version, index:, versioned_resource:, version_path:, i18n_scope:, total:) %>
 <% end %>
 
-<% if versioned_resource.is_a?(Decidim::Proposals::Proposal) %>
+<% if versioned_resource.class.include?(Decidim::Fingerprintable) %>
   <% fingerprint_id = dom_id(versioned_resource, :fingerprint_dialog) %>
   <section class="mt-4 ml-2">
     <%= content_tag :button, t("decidim.fingerprint.check"), class: "button button__lg button__text-secondary font-normal text-sm underline", data: { dialog_open: fingerprint_id } %>
