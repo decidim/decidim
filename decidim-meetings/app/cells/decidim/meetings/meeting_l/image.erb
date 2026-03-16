@@ -1,19 +1,19 @@
 <time class="card__calendar" datetime="<%= meeting.start_time.iso8601 %>">
   <span class="card__calendar-month">
-    <p><%= l(meeting.start_time, format: same_month? ? "%B" : "%b") %></p>
+    <span><%= l(meeting.start_time, format: same_month? ? "%B" : "%b") %></span>
     <% unless same_month? %>
-      <p class="card__calendar-separator">-</p>
-      <p><%= l(meeting.end_time, format: "%b") %></p>
+      <span class="card__calendar-separator">-</span>
+      <span><%= l(meeting.end_time, format: "%b") %></span>
     <% end %>
   </span>
   <span class="card__calendar-day">
-    <p><%= l(meeting.start_time, format: "%d") %></p>
+    <span><%= l(meeting.start_time, format: "%d") %></span>
     <% unless same_day? && same_month? %>
-      <p class="card__calendar-separator">-</p>
-      <p><%= l(meeting.end_time, format: "%d") %></p>
+      <span class="card__calendar-separator">-</span>
+      <span><%= l(meeting.end_time, format: "%d") %></span>
     <% end %>
   </span>
   <span class="card__calendar-year">
-    <p><%= l(meeting.start_time, format: "%Y") %></p>
+    <span><%= l(meeting.start_time, format: "%Y") %></span>
   </span>
 </time>

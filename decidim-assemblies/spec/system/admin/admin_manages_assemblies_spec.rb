@@ -86,7 +86,6 @@ describe "Admin manages assemblies" do
       end
 
       dynamically_attach_file(:assembly_hero_image, image1_path)
-      dynamically_attach_file(:assembly_banner_image, image2_path)
 
       within ".new_assembly" do
         find("*[type=submit]").click
