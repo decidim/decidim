@@ -89,7 +89,9 @@ module Decidim
       end
 
       def visible?
-        participatory_space.try(:visible?) && component.try(:published?)
+        return false if hidden? || deleted?
+
+        commentable.visible?
       end
 
       alias original_participatory_space participatory_space

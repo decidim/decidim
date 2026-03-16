@@ -16,7 +16,7 @@ module Decidim
         end
 
         # We force reindexing of the resource on publication time
-        Decidim::UpdateSearchIndexesJob.perform_later([resource])
+        Decidim::FindAndUpdateDescendantsJob.perform_later([resource])
 
         Decidim::EventsManager.publish(
           event: "decidim.events.blogs.post_created",
