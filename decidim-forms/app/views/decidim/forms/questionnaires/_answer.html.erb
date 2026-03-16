@@ -24,8 +24,7 @@
   <div class="answer-questionnaire__question">
     <%
     label_options = {
-      class: "answer-questionnaire__question-label questionnaire-question",
-      data: { "answer-idx": cleaned_answer_idx }
+      class: "answer-questionnaire__question-label questionnaire-question"
     }
     label_options[:for] = nil if %w(matrix_single matrix_multiple single_option multiple_option).include?(answer.question.question_type)
     %>

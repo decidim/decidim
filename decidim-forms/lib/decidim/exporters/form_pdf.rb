@@ -12,7 +12,14 @@ module Decidim
 
       class QuestionnaireAnswerPresenter < Decidim::Forms::Admin::QuestionnaireAnswerPresenter
         def choice(choice_hash)
-          render_body_for choice_hash
+          if choice_hash[:matrix_row_body].present?
+            row_text = choice_hash[:matrix_row_body]
+            option_text = choice_hash[:answer_option_body]
+            custom_text = choice_hash[:choice_body].present? ? " (#{choice_hash[:choice_body]})" : ""
+            "#{row_text}: #{option_text}#{custom_text}"
+          else
+            render_body_for choice_hash
+          end
         end
 
         delegate :attachments, to: :answer
@@ -25,7 +32,8 @@ module Decidim
           choices = answer.choices.map do |choice|
             {
               answer_option_body: choice.try(:answer_option).try(:translated_body),
-              choice_body: body_or_custom_body(choice)
+              choice_body: body_or_custom_body(choice),
+              matrix_row_body: choice.try(:matrix_row).try(:body) ? translated_attribute(choice.matrix_row.body) : nil
             }
           end
 

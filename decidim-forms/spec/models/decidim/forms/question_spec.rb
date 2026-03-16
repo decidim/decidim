@@ -70,7 +70,7 @@ module Decidim
 
         describe "#not_separator" do
           let(:question_separator) { create(:questionnaire_question, questionnaire:, question_type: "separator") }
-          let(:question_regular) { create(:questionnaire_question, questionnaire:, question_type: "short_response") }
+          let(:question_regular) { create(:questionnaire_question, questionnaire:, question_type: "short_answer") }
 
           it "excludes separator questions" do
             expect(subject.class.not_separator).not_to include(question_separator)
@@ -83,7 +83,7 @@ module Decidim
 
         describe "#not_title_and_description" do
           let(:question_title_desc) { create(:questionnaire_question, questionnaire:, question_type: "title_and_description") }
-          let(:question_regular) { create(:questionnaire_question, questionnaire:, question_type: "short_response") }
+          let(:question_regular) { create(:questionnaire_question, questionnaire:, question_type: "short_answer") }
 
           it "excludes title_and_description questions" do
             expect(subject.class.not_title_and_description).not_to include(question_title_desc)

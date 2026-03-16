@@ -41,7 +41,7 @@ module Decidim::Surveys
     describe "questions_count_item" do
       let!(:question_separator) { create(:questionnaire_question, questionnaire: survey.questionnaire, question_type: "separator") }
       let!(:question_title_desc) { create(:questionnaire_question, questionnaire: survey.questionnaire, question_type: "title_and_description") }
-      let!(:question_regular) { create(:questionnaire_question, questionnaire: survey.questionnaire, question_type: "short_response") }
+      let!(:question_regular) { create(:questionnaire_question, questionnaire: survey.questionnaire, question_type: "short_answer") }
 
       it "renders only the number of actual questions, excluding separators and title_and_description" do
         questions_count = survey.questionnaire.question_types.size

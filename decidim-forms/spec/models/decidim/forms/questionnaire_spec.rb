@@ -97,7 +97,7 @@ module Decidim
       describe "#question_types" do
         let!(:question_separator) { create(:questionnaire_question, questionnaire:, question_type: "separator") }
         let!(:question_title_desc) { create(:questionnaire_question, questionnaire:, question_type: "title_and_description") }
-        let!(:question_short_answer) { create(:questionnaire_question, questionnaire:, question_type: "short_response") }
+        let!(:question_short_answer) { create(:questionnaire_question, questionnaire:, question_type: "short_answer") }
 
         it "returns only actual question types" do
           expect(subject.question_types).to include(question_short_answer)

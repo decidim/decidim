@@ -49,6 +49,7 @@ en:
       answers_count: Answers
     surveys:
       actions:
+        answers: Answers
         answers_alert: Delete answers at publish is active for this survey. There are currently %{answers_count} answers that will be destroyed if you continue.
         confirm_destroy: Are you sure you want to delete this?
         destroy: Destroy
