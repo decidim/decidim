@@ -69,7 +69,7 @@ module Decidim
         validates :hero_image, passthru: { to: Decidim::Assembly }
 
         validates :weight, presence: true
-        validates :access_mode, presence: true
+        validates :access_mode, presence: true, inclusion: { in: Decidim::Assembly.access_modes.keys }
 
         alias organization current_organization
 

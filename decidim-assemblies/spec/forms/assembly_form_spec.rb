@@ -178,6 +178,12 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
+        context "when access_mode is invalid" do
+          let(:access_mode) { "foo" }
+
+          it { is_expected.to be_invalid }
+        end
+
         describe "default access_mode" do
           let(:attributes) do
             {
