@@ -3,12 +3,10 @@
 require "spec_helper"
 
 describe "Import proposals from a file" do
-  let(:component) { create(:proposal_component) }
-  let(:organization) { component.organization }
-
   let(:manifest_name) { "proposals" }
-  let(:participatory_space) { component.participatory_space }
   let(:user) { create(:user, organization:) }
+  let(:organization) { component.organization }
+  let(:participatory_space) { component.participatory_space }
 
   include_context "when managing a component as an admin" do
     let!(:component) { create(:proposal_component, participatory_space:) }
