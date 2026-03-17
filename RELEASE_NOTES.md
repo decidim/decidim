@@ -305,6 +305,7 @@ Once you have upgraded to this version, you may need to check your configuration
 We went ahead and changed the way we handle Decidim configuration, trying to keep the same API as before.
 
 Previously, you may had an initializer with some content like:
+
 ```ruby
 Decidim.configure do |config|
   config.force_ssl = true
@@ -313,6 +314,7 @@ end
 ```
 
 Now we try to keep the same, but if there is some kind of custom configuration that you may have, you will need to change it to:
+
 ```ruby
 Decidim.force_ssl = true
 ```
@@ -354,8 +356,8 @@ end
 ```
 
 To keep the same API, you may want to add the following to your module definition
-```ruby
 
+```ruby
 module Decidim
   module Ai
     module SpamDetection
@@ -376,7 +378,6 @@ end
 ```
 
 You can read more about this change on PR [#16366](https://github.com/decidim/decidim/pull/16366).
-
 
 ### 5.4. [[TITLE OF THE CHANGE]]
 
