@@ -367,12 +367,12 @@ describe Decidim::Search do
         component.update!(settings: { comments_enabled: false })
       end
 
-      it "still returns all comments in search results" do
+      it "does not return comments in search results" do
         described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
           on(:ok) do |results_by_type|
             results = results_by_type["Decidim::Comments::Comment"]
-            expect(results[:count]).to eq 3
-            expect(results[:results]).to contain_exactly(comment1, comment1_1, comment1_1_1)
+            expect(results[:count]).to eq 0
+            expect(results[:results]).to be_empty
           end
           on(:invalid) { raise("Should not happen") }
         end

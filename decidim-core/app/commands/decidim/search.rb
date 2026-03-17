@@ -104,12 +104,17 @@ module Decidim
     end
 
     def commentable_hidden?(object)
-      root_resource = object.respond_to?(:root_commentable) ? object.root_commentable : object.commentable
+      # For nested comments, commentable is another Comment, so we need to use root_commentable
+      # to get the actual resource (Meeting, Proposal, etc.) and check its commentable? status
+      actual_commentable = object.commentable
+      root_resource = actual_commentable.is_a?(Decidim::Comments::Comment) ? object.root_commentable : actual_commentable
+
       return true if root_resource.nil?
 
       root_hidden = root_resource.try(:hidden?) || root_resource.try(:deleted?)
+      comments_disabled = !root_resource.commentable?
 
-      object.try(:hidden?) || object.try(:deleted?) || root_hidden
+      object.try(:hidden?) || object.try(:deleted?) || root_hidden || comments_disabled
     end
   end
 end
