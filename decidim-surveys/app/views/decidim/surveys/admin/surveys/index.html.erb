@@ -22,7 +22,7 @@
         <% surveys.each do |survey| %>
           <tr>
             <td><%= decidim_sanitize_translated(survey.title) %></td>
-            <td><%= survey.questionnaire.questions.not_separator.size %></td>
+            <td><%= survey.questionnaire.question_types.size %></td>
             <td><%= survey.questionnaire.count_participants %></td>
             <td><%= survey.open? ? t("models.survey.status.open", scope: "decidim.surveys") : t("models.survey.status.closed", scope: "decidim.surveys") %></td>
             <td class="table-list__actions">
