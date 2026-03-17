@@ -80,7 +80,7 @@ module Decidim
         }
       ]
 
-      # This config_accessor allows the implementers to change the class being used by the classifier,
+      # This setting allows the implementers to change the class being used by the classifier,
       # in order to change the finder method. or even define own resource visibility criteria.
       # This is the place where new resources can be registered following the pattern
       # Resource => Handler
@@ -137,7 +137,7 @@ module Decidim
         }
       ]
 
-      # This config_accessor allows the implementers to change the class being used by the classifier,
+      # This setting allows the implementers to change the class being used by the classifier,
       # in order to change the finder method or what a hidden user really is.
       mattr_accessor :user_models, default: { "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity" }
 

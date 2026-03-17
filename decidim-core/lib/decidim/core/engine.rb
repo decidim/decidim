@@ -459,7 +459,7 @@ module Decidim
 
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors |= [:user, :link, :blob, :mention_resource]
+          config.content_processors += [:user, :link, :blob, :mention_resource]
         end
       end
 
