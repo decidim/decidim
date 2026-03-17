@@ -682,7 +682,7 @@ describe "Proposals" do
       let!(:resources) { create_list(:proposal, 3, component:) }
 
       before do
-        resources.map(&:add_to_index_as_search_resource)
+        resources.each(&:try_update_index_for_search_resource)
       end
 
       it_behaves_like "an uncommentable component"
