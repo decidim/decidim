@@ -53,7 +53,7 @@ module Decidim
 
                 on(:invalid) do
                   flash.now[:alert] = I18n.t("members.update.error", scope: "decidim.admin")
-                  render template: "decidim/admin/members/edit", status: :unprocessable_entity
+                  render template: "decidim/admin/members/edit", status: :unprocessable_content
                 end
               end
             end
@@ -70,7 +70,7 @@ module Decidim
 
                 on(:invalid) do
                   flash.now[:alert] = I18n.t("members.create.error", scope: "decidim.admin")
-                  render template: "decidim/admin/members/new", status: :unprocessable_entity
+                  render template: "decidim/admin/members/new", status: :unprocessable_content
                 end
               end
             end
@@ -86,7 +86,7 @@ module Decidim
 
                 on(:invalid) do
                   flash.now[:alert] = I18n.t("members.destroy.error", scope: "decidim.admin")
-                  render template: "decidim/admin/members/index", status: :unprocessable_entity
+                  render template: "decidim/admin/members/index", status: :unprocessable_content
                 end
               end
             end

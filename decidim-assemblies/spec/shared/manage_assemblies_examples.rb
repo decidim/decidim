@@ -18,7 +18,7 @@ shared_examples "manage assemblies" do
     it "updates an assembly" do
       fill_in_i18n(:assembly_title, "#assembly-title-tabs", **attributes[:title].except("machine_translations"))
 
-      dynamically_attach_file(:assembly_banner_image, image3_path, remove_before: true)
+      dynamically_attach_file(:assembly_hero_image, image3_path, remove_before: true)
 
       within ".edit_assembly" do
         expect(assembly_parent_id_options).not_to include(assembly.id)
@@ -83,12 +83,6 @@ shared_examples "manage assemblies" do
       within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
         src = page.find("img")["src"]
         expect(src).to be_blob_url(hero_blob)
-      end
-
-      banner_blob = assembly.hero_image.blob
-      within %([data-active-uploads] [data-filename="#{banner_blob.filename}"]) do
-        src = page.find("img")["src"]
-        expect(src).to be_blob_url(banner_blob)
       end
     end
   end

@@ -19,14 +19,14 @@ module Decidim
       # We skip the validation if we are in system panel. `current_admin` refers to the main system admin user.
       return if current_admin.present?
 
-      head :unprocessable_entity unless [
+      head :unprocessable_content unless [
         maximum_allowed_size.try(:to_i) >= blob_args[:byte_size].try(:to_i),
         content_types.any? { |pattern| pattern.match?(blob_args[:content_type]) },
         content_types.any? { |pattern| pattern.match?(MiniMime.lookup_by_extension(extension)&.content_type) },
         allowed_extensions.any? { |pattern| pattern.match?(extension) }
       ].all?
     rescue NoMethodError
-      head :unprocessable_entity
+      head :unprocessable_content
     end
 
     def extension

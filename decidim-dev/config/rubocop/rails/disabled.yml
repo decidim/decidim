@@ -44,3 +44,9 @@ Rails/EnumHash:
 
 Rails/I18nLazyLookup:
   Enabled: false
+
+Rails/FindByOrAssignmentMemoization:
+  Enabled: false
+
+Rails/Exit:
+  Enabled: false

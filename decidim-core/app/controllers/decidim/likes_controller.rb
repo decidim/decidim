@@ -23,7 +23,7 @@ module Decidim
         end
 
         on(:invalid) do
-          render json: { error: I18n.t("resource_likes.create.error", scope: "decidim") }, status: :unprocessable_entity
+          render json: { error: I18n.t("resource_likes.create.error", scope: "decidim") }, status: :unprocessable_content
         end
       end
     end

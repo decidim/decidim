@@ -7,7 +7,7 @@ checking out the last version of this document in the [GitHub page for the relea
 
 As usual, we recommend that you have a full backup, of the database, application code and static files.
 
-NOTE: Please note this release is updating Rails version from 7.2.2 to 7.2.3. Please ensure you back up your `SECRET_KEY_BASE` env variable and also `tmp/local_secret.txt` if you have it.
+NOTE: Please note this release is updating Rails version from 7.2.2 to 8.1.2. Ensure you back up your `SECRET_KEY_BASE` env variable and also `tmp/local_secret.txt` if you have it.
 On your local development environment, you may need to set your `SECRET_KEY_BASE` env variable to the same value as the one present in your `tmp/local_secret.txt`.
 
 To update, follow these steps:
@@ -32,34 +32,13 @@ gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
 
-### 1.3. Rails upgrade
-
-This particular release is deploying a new Rails version, 8.0. As a result you need to update your application configuration. Before that, you need to run the following commands:
+### 1.3. Run these commands
 
 ```console
 sudo apt install libvips libvips-tools # or the alternative installation process for your operating system. See "3.5. Replace image processing with imagemagick to libvips"
 bundle update decidim
 bin/rails decidim:upgrade
-```
-
-Please edit your `config/application.rb` to use the new Rails defaults.
-
-```diff
-module DevelopDevelopmentApp
-  class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
--    config.load_defaults 7.2
-+    config.load_defaults 8.0
-    # ....
-  end
-end
-```
-
-You can read more about this change on PR [#16214](https://github.com/decidim/decidim/pull/16214).
-
-### 1.4. Run these commands
-
-```console
+sed -i "s/config\.load_defaults 7\.2/config\.load_defaults 8.1/g" config/application.rb # see "2.1. Ruby on Rails update to 8.1"
 bin/rails db:migrate
 bin/rails decidim:upgrade:encryption
 # skip this command if you have run it before:
@@ -70,7 +49,7 @@ bin/rails decidim:upgrade:fix_deleted_private_follows
 bin/rails data:migrate
 ```
 
-### 1.5. AWS/Azure/Google Cloud assets storage
+### 1.4. AWS/Azure/Google Cloud assets storage
 
 There is a bug related to the cache expiration using Active Storage (assets, such as images). For fixing this issue, the Rails team added an extra active storage parameter, `public: true` that you can add it to your storage configuration. If you followed the step `3.4. Deprecation of Rails.application.secrets` and changed your `config/storage.yml` file you don't need to do anything else.
 
@@ -80,11 +59,28 @@ Apart of that, you also need to configure your preferred cloud service provider 
 
 You can read more about this change on PR [#15005](https://github.com/decidim/decidim/pull/15005/).
 
-### 1.6. Follow the steps and commands detailed in these notes
+### 1.5. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
-### 2.1. Module deprecations
+### 2.1. Ruby on Rails update to 8.1
+
+This particular release is deploying a new Rails version, 8.1. As a result you need to update your application configuration. Before that, you need to run the following commands:
+
+```console
+sed -i "s/config\.load_defaults 7\.2/config\.load_defaults 8.1/g" config/application.rb # see "2.1. Ruby on Rails update to 8.1"
+```
+
+#### Removal of official Azure support from Active Storage
+
+Rails core team decided to remove the Azure Active Storage support from Rails 8.1, as the official Azure libraries are not maintained since September 2024. If you are using Azure for your Active Storage, support, you could use the unofficial Azure Active Storage gem [Azure Blob](https://github.com/testdouble/azure-blob)
+
+You can read more about this change on PR:
+
+- [Upgrade to Rails 8.0.4](https://github.com/decidim/decidim/pull/16214)
+- [Upgrade to Rails 8.1.2](https://github.com/decidim/decidim/pull/16310).
+
+### 2.2. Module deprecations
 
 As part of our ongoing efforts to improve and make simpler Decidim, the following modules will be **deprecated** in this version (v0.31) and **removed** in the next major version (v0.32):
 
@@ -100,7 +96,7 @@ The Sortitions module (`decidim-sortitions`) is removed in v0.32. This module pr
 
 The Polls feature within the Meetings module (`decidim-meetings`) will be removed in a future version (to be determined). This feature allowed meeting organizers to create polls during meetings. Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`).
 
-### 2.2. Old private exports are now expired
+### 2.3. Old private exports are now expired
 
 Due to some data consistency issues with the private exports, we have decided to expire all the previously generated files. Users are able to request and receive a new private export file.
 
@@ -114,13 +110,13 @@ bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 
 You can read more about this change on PR [#15020](https://github.com/decidim/decidim/pull/15020).
 
-### 2.3. Add data migrations
+### 2.4. Add data migrations
 
 At the moment we are adding this gem so we can start doing data migrations for fixes when v0.33.0 is released. You can read more about this at [Data migrations doc](https://docs.decidim.org/en/develop/develop/guide_data_migrations.html).
 
 You can read more about this change on PR [#15501](https://github.com/decidim/decidim/pull/15501).
 
-### 2.4. Fix gitignore for ServiceWorker related files
+### 2.5. Fix gitignore for ServiceWorker related files
 
 We detected a bug where some dynamic files are not added to the gitignore, so they could be committed to the repository. For fixing it, you need to add them to your gitignore file:
 
@@ -130,7 +126,7 @@ echo "/public/sw.js*" >> .gitignore
 
 You can read more about this change on PR [#15601](https://github.com/decidim/decidim/pull/15601).
 
-### 2.5. Data migration for organization short_name
+### 2.6. Data migration for organization short_name
 
 A new data migration has been added to populate the `short_name` field for existing organizations. This field is required for the PWA (Progressive Web App) manifest to properly display the application name on mobile devices' home screens.
 
@@ -140,7 +136,7 @@ This migration runs automatically when executing `bin/rails data:migrate` as par
 
 You can read more about this change on PR [#15729](https://github.com/decidim/decidim/pull/15729).
 
-### 2.6. Add locale to the url
+### 2.7. Add locale to the url
 
 For a long time Decidim has been using internally the user browser to detect the language of the user. This has been changed to use the locale of the url instead.
 
@@ -163,7 +159,7 @@ We are also removing the `decidim_user_group_memberships` tables.
 
 You can read more about this change on PR [#16022](https://github.com/decidim/decidim/pull/16022).
 
-### 2.8. [[TITLE OF THE ACTION]]
+### 2.9. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

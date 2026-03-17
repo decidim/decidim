@@ -109,7 +109,7 @@ module Decidim
       end
 
       def order
-        options[:order] || "older"
+        options[:order] || (two_columns_layout? ? "recent" : "older")
       end
 
       def decidim

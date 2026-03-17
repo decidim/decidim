@@ -37,7 +37,7 @@ module Decidim
       DownloadYourDataExportJob.perform_later(current_user)
 
       flash[:notice] = t("decidim.account.download_your_data_export.notice")
-      redirect_back(fallback_location: download_your_data_path)
+      redirect_back_or_to(download_your_data_path)
     end
 
     def download_file
