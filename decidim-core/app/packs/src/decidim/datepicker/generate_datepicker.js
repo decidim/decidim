@@ -4,7 +4,7 @@ import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerP
 import { dateKeyDownListener, dateBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners"
 import { getDictionary } from "src/decidim/refactor/moved/i18n"
 
-const adjustCalendarPosition = (input, datePickerContainer) => {
+export const adjustCalendarPosition = (input, datePickerContainer) => {
   const parent = input.closest(".datepicker__date-column");
 
   if (getComputedStyle(parent).position === "static") {
@@ -15,8 +15,9 @@ const adjustCalendarPosition = (input, datePickerContainer) => {
   const calendarHeight = datePickerContainer.offsetHeight;
   const spaceAbove = rect.top;
   const spaceBelow = window.innerHeight - rect.bottom;
+  const openBelow = spaceBelow >= calendarHeight || spaceBelow >= spaceAbove;
 
-  if (calendarHeight <= spaceBelow || spaceAbove < calendarHeight) {
+  if (openBelow) {
     // Open below
     datePickerContainer.style.top = `${input.offsetHeight}px`;
     datePickerContainer.style.bottom = "auto";
