@@ -111,6 +111,13 @@ shared_examples "manage trashed resource" do |resource_name|
       end
     end
 
+    it "allows navigation inside of the space" do
+      click_on title[:en]
+      click_on "Components"
+      expect(page).to have_content("Add component")
+      expect(page).to have_content("You are currently viewing deleted items.")
+    end
+
     it "restores the #{resource_name} from the trash" do
       # To remove once all the actions are migrated to dropdowns
       within("tr", text: title[:en]) do

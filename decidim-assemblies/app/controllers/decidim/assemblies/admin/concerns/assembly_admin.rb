@@ -26,7 +26,7 @@ module Decidim
             participatory_space_admin_layout
 
             def current_assembly
-              @current_assembly ||= organization_assemblies.find_by!(
+              @current_assembly ||= organization_assemblies.with_deleted.find_by!(
                 slug: params[:assembly_slug] || params[:slug]
               )
             end

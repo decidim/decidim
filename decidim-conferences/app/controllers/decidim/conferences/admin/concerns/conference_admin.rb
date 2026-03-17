@@ -26,7 +26,7 @@ module Decidim
             participatory_space_admin_layout
 
             def current_conference
-              @current_conference ||= organization_conferences.find_by!(
+              @current_conference ||= organization_conferences.with_deleted.find_by!(
                 slug: params[:conference_slug] || params[:slug]
               )
             end
