@@ -90,31 +90,27 @@ module Decidim
         end
 
         get "/initiatives", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
+          locale = Decidim::LocaleRouterDetector.new(request, params).locale
           "/#{locale}/initiatives"
         }
 
         get "/initiatives/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
-
+          locale = Decidim::LocaleRouterDetector.new(request, params).locale
           "/#{locale}/initiatives/#{params[:rest]}"
         }
 
         get "/initiative_types/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
-
+          locale = Decidim::LocaleRouterDetector.new(request, params).locale
           "/#{locale}/initiative_types/#{params[:rest]}"
         }
 
         get "/initiative_type_scopes/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
-
+          locale = Decidim::LocaleRouterDetector.new(request, params).locale
           "/#{locale}/initiative_type_scopes/#{params[:rest]}"
         }
 
         get "/initiative_type_signature_types/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
-
+          locale = Decidim::LocaleRouterDetector.new(request, params).locale
           "/#{locale}/initiative_type_signature_types/#{params[:rest]}"
         }
       end

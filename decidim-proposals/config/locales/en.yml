@@ -682,6 +682,7 @@ en:
             related_meetings: Related meetings
             remove_assignment: Remove assignment
             remove_assignment_confirmation: Are you sure you want to remove the evaluator from this proposal?
+            title: Answer proposal
             votes_count: Votes count
           update_taxonomies:
             invalid: 'These proposals already had the %{taxonomies} taxonomies: %{proposals}.'
