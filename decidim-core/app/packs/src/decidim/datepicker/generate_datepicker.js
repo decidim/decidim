@@ -20,10 +20,10 @@ export const adjustCalendarPosition = (input, datePickerContainer) => {
   if (openBelow) {
     // Open below
     datePickerContainer.style.top = `${input.offsetHeight}px`;
-    datePickerContainer.style.bottom = "auto";
+    datePickerContainer.style.bottom = "";
   } else {
     // Open above
-    datePickerContainer.style.top = "auto";
+    datePickerContainer.style.top = "";
     datePickerContainer.style.bottom = `${input.offsetHeight}px`;
   }
 
