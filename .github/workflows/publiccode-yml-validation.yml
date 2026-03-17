@@ -9,6 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install publiccode-parser
-        run: curl -sSL https://github.com/italia/publiccode-parser-go/releases/latest/download/publiccode-parser-linux-amd64 -o publiccode-parser && chmod +x publiccode-parser
+        run: |
+          curl -sSL https://github.com/italia/publiccode-parser-go/releases/latest/download/publiccode-parser-go_Linux_x86_64.tar.gz -o publiccode-parser.tar.gz
+          tar -xzf publiccode-parser.tar.gz publiccode-parser-go
+          chmod +x publiccode-parser-go
       - name: Validate publiccode.yml
-        run: ./publiccode-parser --no-network publiccode.yml
+        run: ./publiccode-parser-go --no-network publiccode.yml
