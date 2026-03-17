@@ -35,16 +35,16 @@ describe "Homepage" do
     end
 
     before do
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :sub_hero)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :how_to_participate)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :stats)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :footer_sub_hero)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_content_banner, settings: highlighted_content_banner_settings)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_processes)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_assemblies)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :upcoming_meetings)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :html, settings: { html_content: { en: "<div class=\"custom-html\">Custom HTML Content</div>" } })
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero, weight: 10)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :sub_hero, weight: 20)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :how_to_participate, weight: 30)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :stats, weight: 40)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :footer_sub_hero, weight: 50)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_content_banner, weight: 60, settings: highlighted_content_banner_settings)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_processes, weight: 70)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_assemblies, weight: 80)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :upcoming_meetings, weight: 90)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :html, weight: 100, settings: { html_content: { en: "<div class=\"custom-html\">Custom HTML Content</div>" } })
 
       switch_to_host(organization.host)
     end
