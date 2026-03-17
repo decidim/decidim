@@ -514,7 +514,6 @@
           "geocoding_enabled": false,
           "attachments_allowed": false,
           "resources_permissions_enabled": true,
-          "collaborative_drafts_enabled": true,
           "participatory_texts_enabled": false,
           "amendments_enabled": false,
           "amendments_wizard_help_text": {
