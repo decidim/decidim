@@ -288,12 +288,12 @@ describe "Participatory Processes" do
               :published,
               participatory_space: participatory_process,
               manifest_name: :proposals,
-              name: { en: "Seguiment \"pop\" & 'test'" }
+              name: { en: "Tracking \"pop\" & 'test'" }
             )
             visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
 
             within ".participatory-space__nav-container" do
-              expect(page).to have_content('Seguiment "pop" & \'test\'')
+              expect(page).to have_content('Tracking "pop" & \'test\'')
               expect(page).to have_no_content("&quot;")
               expect(page).to have_no_content("&amp;")
             end
