@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: italia/publiccode-parser-action@v1
-        with:
-          publiccode: 'publiccode.yml'
+      - name: Install publiccode-parser
+        run: curl -sSL https://github.com/italia/publiccode-parser-go/releases/latest/download/publiccode-parser-linux-amd64 -o publiccode-parser && chmod +x publiccode-parser
+      - name: Validate publiccode.yml
+        run: ./publiccode-parser --no-network publiccode.yml
