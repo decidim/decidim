@@ -45,7 +45,12 @@ class RemoveCollaborativeDraftsReferences < ActiveRecord::Migration[7.2]
     self.table_name = "decidim_attachments"
   end
 
+  class Version < ApplicationRecord
+    self.table_name = "versions"
+  end
+
   COLLABORATIVE_DRAFT_TYPE = "Decidim::Proposals::CollaborativeDraft"
+  COLLABORATIVE_DRAFT_COLLABORATOR_REQUEST_TYPE = "Decidim::Proposals::CollaborativeDraftCollaboratorRequest"
 
   def up
     delete_notifications
@@ -57,6 +62,8 @@ class RemoveCollaborativeDraftsReferences < ActiveRecord::Migration[7.2]
     delete_resource_links
     delete_categorizations
     delete_attachments
+    delete_paper_trail_versions_for_collaborative_drafts
+    delete_paper_trail_versions_for_collaborator_requests
   end
 
   def down
@@ -100,5 +107,13 @@ class RemoveCollaborativeDraftsReferences < ActiveRecord::Migration[7.2]
 
   def delete_attachments
     Attachment.where(attached_to_type: COLLABORATIVE_DRAFT_TYPE).delete_all
+  end
+
+  def delete_paper_trail_versions_for_collaborative_drafts
+    Version.where(item_type: COLLABORATIVE_DRAFT_TYPE).delete_all
+  end
+
+  def delete_paper_trail_versions_for_collaborator_requests
+    Version.where(item_type: COLLABORATIVE_DRAFT_COLLABORATOR_REQUEST_TYPE).delete_all
   end
 end

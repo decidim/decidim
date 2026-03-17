@@ -16,7 +16,13 @@ describe RemoveCollaborativeDraftsReferences do
   let(:another_user) { create(:user, organization:) }
 
   let(:collaborative_draft_type) { "Decidim::Proposals::CollaborativeDraft" }
+  let(:collaborative_draft_collaborator_request_type) { "Decidim::Proposals::CollaborativeDraftCollaboratorRequest" }
   let(:draft_id) { 999_999 }
+  let(:collaborator_request_id) { 888_888 }
+
+  class Version < ApplicationRecord
+    self.table_name = "versions"
+  end
 
   describe "#up" do
     context "with notifications" do
@@ -172,6 +178,61 @@ describe RemoveCollaborativeDraftsReferences do
       it "keeps other comments" do
         migrator.migrate(:up)
         expect(Decidim::Comments::Comment.find_by(id: other_comment.id)).to be_present
+      end
+    end
+
+    context "with paper trail versions" do
+      let!(:version_for_draft) do
+        Version.create!(
+          item_type: collaborative_draft_type,
+          item_id: draft_id,
+          event: "update",
+          whodunnit: user.id.to_s,
+          object: "{}",
+          object_changes: "{}",
+          created_at: Time.current
+        )
+      end
+
+      let!(:version_for_collaborator_request) do
+        Version.create!(
+          item_type: collaborative_draft_collaborator_request_type,
+          item_id: collaborator_request_id,
+          event: "update",
+          whodunnit: user.id.to_s,
+          object: "{}",
+          object_changes: "{}",
+          created_at: Time.current
+        )
+      end
+
+      let!(:other_version) do
+        Version.create!(
+          item_type: "Decidim::Proposal",
+          item_id: 123,
+          event: "update",
+          whodunnit: user.id.to_s,
+          object: "{}",
+          object_changes: "{}",
+          created_at: Time.current
+        )
+      end
+
+      it "deletes paper trail versions for collaborative drafts" do
+        expect(Version.where(item_type: collaborative_draft_type).count).to eq(1)
+        migrator.migrate(:up)
+        expect(Version.where(item_type: collaborative_draft_type).count).to eq(0)
+      end
+
+      it "deletes paper trail versions for collaborator requests" do
+        expect(Version.where(item_type: collaborative_draft_collaborator_request_type).count).to eq(1)
+        migrator.migrate(:up)
+        expect(Version.where(item_type: collaborative_draft_collaborator_request_type).count).to eq(0)
+      end
+
+      it "keeps other versions intact" do
+        migrator.migrate(:up)
+        expect(Version.find_by(id: other_version.id)).to be_present
       end
     end
 
