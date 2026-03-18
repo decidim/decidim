@@ -1304,6 +1304,10 @@ ca-IT:
           last_week: La darrera setmana
           no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte de participants.
           participants: Participants
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Podràs seleccionar filtres de taxonomia un cop creat el component.
     forms:
       errors:
         impersonate_user:
