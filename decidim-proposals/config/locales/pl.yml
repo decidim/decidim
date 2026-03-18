@@ -229,6 +229,9 @@ pl:
           proposal_note_created:
             email_outro: Otrzymujesz to powiadomienie, ponieważ możesz weryfikować propozycję.
             email_subject: Ktoś zostawił notatkę do propozycji %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Akceptuj
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} otrzymał(a) dostęp jako współtwórca wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
@@ -586,11 +589,11 @@ pl:
           all: Wszystko
           amendment: Poprawki
           open: Otwarty
-          published: Opublikowany
+          published: Opublikowano
           related_to: Związany z
           search: Szukaj
           state: Status
-          withdrawn: Wycofane
+          withdrawn: Wycofano
         filters_small_view:
           close_modal: Zamknij okno
           filter: Filtr
@@ -613,7 +616,7 @@ pl:
           label: 'Sortuj szkice według:'
           most_contributed: Najbardziej wspierane
           random: Losowo
-          recent: Najnowszy
+          recent: Najnowsze
         requests:
           accepted_request:
             error: Nie można zaakceptować jako współtwórcy, spróbuj ponownie później.
@@ -645,8 +648,8 @@ pl:
           withdraw: wycofaj szkic
         states:
           open: Otwarty
-          published: Opublikowany
-          withdrawn: Wycofany
+          published: Opublikowano
+          withdrawn: Wycofano
         update:
           error: Wystąpił błąd podczas zapisywania wspólnego szkicu.
           success: Zaktualizowano wspólny szkic.
