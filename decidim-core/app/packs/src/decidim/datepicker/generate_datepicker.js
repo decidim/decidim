@@ -99,7 +99,6 @@ export default function generateDatePicker(input, row, formats) {
     pickedDate = event.detail;
     prevDate = pickedDate;
 
-
     date.value = displayDate(datePicker.value, formats);
     if (input.type === "date") {
       input.value = `${pickedDate}`;
