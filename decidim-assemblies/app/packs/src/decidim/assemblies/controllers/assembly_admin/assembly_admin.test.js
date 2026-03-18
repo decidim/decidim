@@ -363,7 +363,6 @@ describe("AssemblyAdminController", () => {
                       <div aria-disabled="false" aria-label="Choose date" class="wc-datepicker sc-wc-datepicker" role="group">
                       </div>
                     </wc-datepicker>
-                    <button class="datepicker__pick-calendar button button__secondary button__xs" disabled="true" type="button">Select</button>
                     <button class="datepicker__close-calendar button button__transparent-secondary button__xs" type="button">Close</button>
                   </div>
                 </div>
@@ -388,7 +387,6 @@ describe("AssemblyAdminController", () => {
                   <div class="datepicker__container" style="display: none;">
                     <wc-datepicker id="assembly_included_at_date_datepicker" locale="en" class="sc-wc-datepicker-h sc-wc-datepicker-s hydrated">
                     </wc-datepicker>
-                    <button class="datepicker__pick-calendar button button__secondary button__xs" disabled="true" type="button">Select</button>
                     <button class="datepicker__close-calendar button button__transparent-secondary button__xs" type="button">Close</button>
                   </div>
                 </div>
@@ -411,7 +409,6 @@ describe("AssemblyAdminController", () => {
                     </svg>
                   </button>
                   <div class="datepicker__container" style="display: none;">
-                    <button class="datepicker__pick-calendar button button__secondary button__xs" disabled="true" type="button">Select</button>
                     <button class="datepicker__close-calendar button button__transparent-secondary button__xs" type="button">Close</button>
                   </div>
                 </div>
@@ -433,7 +430,6 @@ describe("AssemblyAdminController", () => {
                     </svg>
                   </button>
                   <div class="datepicker__container" style="display: none;">
-                    <button class="datepicker__pick-calendar button button__secondary button__xs" disabled="true" type="button">Select</button>
                     <button class="datepicker__close-calendar button button__transparent-secondary button__xs" type="button">Close</button>
                   </div>
                 </div>
