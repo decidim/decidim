@@ -153,6 +153,9 @@
             publish_answers_immediately: Publiser svar på forslag umiddelbart
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Aksepter
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har blitt akseptert tilgang som bidragsyter til %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>akseptert tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
@@ -508,6 +511,9 @@
           answer: Svar
           changes_at_title: Endring til "%{title}"
           estimated_cost: Estimert kostnad
+          hidden_likes_count:
+            one: og %{count} til person
+            other: og %{count} flere personer
           link_to_collaborative_draft_help_text: Dette forslaget er resultatet av et samarbeids utkast. Gå gjennom historien
           link_to_collaborative_draft_text: Se samarbeids utkastet
           link_to_promoted_emendation_help_text: Dette forslaget er en forfremmet emendasjon
