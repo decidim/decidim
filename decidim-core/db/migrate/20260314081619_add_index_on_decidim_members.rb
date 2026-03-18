@@ -9,7 +9,7 @@ class AddIndexOnDecidimMembers < ActiveRecord::Migration[8.1]
     Member.where(decidim_user_id: nil).delete_all
 
     Member.find_each do |member|
-      member.delete! if Member.where(
+      member.delete if Member.where(
         decidim_user_id: member.decidim_user_id,
         participatory_space_type: member.participatory_space_type,
         participatory_space_id: member.participatory_space_id
