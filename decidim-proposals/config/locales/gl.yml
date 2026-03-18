@@ -130,6 +130,9 @@ gl:
             votes_enabled: Votos habilitados
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Aceptar
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} foi aceptado para acceder como colaborador do %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceptado <strong>para acceder como contribuínte</strong> do borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.
@@ -351,7 +354,7 @@ gl:
           all: Todo
           amendment: Enmendas
           open: Aberto
-          published: Publicado
+          published: Publicadas
           related_to: Relacionado con
           search: Busca
           state: Estado
@@ -401,10 +404,10 @@ gl:
           withdraw: retirar o borrador
         states:
           open: Aberto
-          published: Publicado
+          published: Publicadas
           withdrawn: Retirada
         update:
-          error: Produciuse un erro ao gardar o borrador colaborativo.
+          error: Produciuse un erro ao gardar o borrador da proposta.
           success: Proxecto colaborativo actualizado correctamente.
         wizard_header:
           title: Crea o teu borrador colaborativo
@@ -485,6 +488,9 @@ gl:
           title: Publica a túa proposta
         show:
           answer: Resposta
+          hidden_likes_count:
+            one: e %{count} persoas máis
+            other: e %{count} persoas máis
           link_to_collaborative_draft_help_text: Esta proposta é o resultado dun borrador colaborativo. Repasa o historial
           link_to_collaborative_draft_text: Vexa o borrador colaborativo
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
