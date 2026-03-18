@@ -1211,7 +1211,7 @@ ja:
           confirm_destroy: 'フィルター %{name} を削除してもよろしいですか？ 注意: このフィルタを使用しているリソース自体は影響を受けませんが、このフィルタへの参照は失われます。'
           destroy: 削除
           edit: 編集
-          internal_name: 内部ラベル
+          internal_name: 管理用ラベル
           name: ラベル
         update:
           error: タクソノミーフィルタの更新に問題がありました。
