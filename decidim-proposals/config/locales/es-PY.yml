@@ -768,10 +768,10 @@ es-PY:
         empty: Todavía no hay borradores colaborativos
         empty_filters: No hay ningún borrador colaborativo con este criterio
         filters:
-          all: Todas
+          all: Todos
           amendment: Enmiendas
           open: Abierto
-          published: Publicado
+          published: Publicadas
           related_to: Relacionado con
           search: Buscar
           state: Estado
@@ -827,10 +827,10 @@ es-PY:
           withdraw: retirar el borrador
         states:
           open: Abierto
-          published: Publicado
+          published: Publicadas
           withdrawn: Retirado
         update:
-          error: Ha habido errores al guardar el borrador colaborativo.
+          error: Ha habido errores al guardar el borrador de la propuesta.
           success: Borrador colaborativo actualizado con éxito.
         wizard_aside:
           back_from_collaborative_draft: Volver al borrador colaborativo
