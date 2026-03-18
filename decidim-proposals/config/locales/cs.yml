@@ -301,7 +301,7 @@ cs:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> přijal vaši pozvánku, aby se stal spoluautorem návrhu <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
           actions:
-            accept: Přijmout
+            accept: Akceptovat
             decline: Odmítnout
           email_intro: 'Byli jste pozváni jako spoluautor návrhu "%{resource_title}". Pozvánku můžete přijmout nebo odmítnout na této stránce:'
           email_outro: Obdrželi jste toto oznámení, protože autor návrhu chce uznat vaše příspěvky tím, že se stanete spoluautorem.
@@ -847,7 +847,7 @@ cs:
           published: Publikováno
           withdrawn: Staženo
         update:
-          error: Při ukládání schématu spolupráce došlo k chybám.
+          error: Při ukládání konceptu návrhu došlo k chybám.
           success: Protokol o spolupráci byl úspěšně aktualizován.
         wizard_aside:
           back_from_collaborative_draft: Zpět na koncepty spolupráce
