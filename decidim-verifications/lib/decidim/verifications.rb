@@ -27,10 +27,14 @@ module Decidim
   end
 
   module Verifications
-    include ActiveSupport::Configurable
+    class << self
+      def config = self
 
-    config_accessor :document_types do
-      Decidim::Env.new("VERIFICATIONS_DOCUMENT_TYPES", "identification_number,passport").to_array
+      def configure
+        yield self
+      end
     end
+
+    mattr_accessor :document_types, default: Decidim::Env.new("VERIFICATIONS_DOCUMENT_TYPES", "identification_number,passport").to_array
   end
 end

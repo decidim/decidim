@@ -42,7 +42,11 @@
             <% end %>
           <% end %>
           <% if attachment_blob.present? %>
-            <%= form.hidden_field attribute, value: attachment_blob.signed_id, id: "hidden_#{attribute}_#{attachment_blob.id}" %>
+            <% if is_persisted_attachment %>
+              <%= form.hidden_field attribute, value: attachment.id, id: "hidden_#{attribute}_#{attachment.id}" %>
+            <% else %>
+              <%= form.hidden_field attribute, value: attachment_blob.signed_id, id: "hidden_#{attribute}_#{attachment_blob.id}" %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
