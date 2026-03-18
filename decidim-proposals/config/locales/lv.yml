@@ -130,6 +130,9 @@ lv:
           proposal_note_created:
             email_outro: Jūs saņēmāt šo paziņojumu, jo varat izvērtēt priekšlikumu.
             email_subject: Kāds atstāja piezīmi par priekšlikumu %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Pieņemt
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} ir pieņemts, lai piekļūtu kā līdzautors %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ir <strong> pieņemts, lai piekļūtu kā līdzautors</strong> <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
@@ -372,7 +375,6 @@ lv:
           all: Visi
           amendment: Grozījumi
           open: Atvērti
-          published: Publicēts
           related_to: Saistīts ar
           search: Meklēt
           state: Statuss
@@ -422,7 +424,6 @@ lv:
           withdraw: atsaukt projektu
         states:
           open: Atvērts
-          published: Publicēts
           withdrawn: Atsaukts
         update:
           error: Sadarbības projekta saglabāšanas laikā radās problēma.
