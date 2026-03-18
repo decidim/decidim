@@ -1243,6 +1243,10 @@ fr:
           last_week: La semaine dernière
           no_users_count_statistics_yet: Il n'y a pas encore de statistiques sur le nombre de participants.
           participants: Participants
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: La sélection des filtres de taxonomie sera possible après la création du composant.
     forms:
       errors:
         impersonate_user:
