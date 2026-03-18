@@ -498,7 +498,6 @@ sv:
           deleted_proposals_info: Borttagna förslag kan återställas från papperskorgen.
           preview: Förhandsvisa
           view_deleted_proposals: Visa borttagna förslag
-        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Utgår snart.</b> Funktionen gemensamma utkast kommer att tas bort i Decidim v0.32. Organisationer som använder det kan växla till den nya funktionen för medförfattare."
         evaluation_assignments:
           create:
             invalid: Det gick inte att tilldela förslagen till en utvärderare.
@@ -742,103 +741,6 @@ sv:
           all: Alla
           amendments: Ändringsförslag
           proposals: Förslag
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Det gick inte att publicera det gemensamma utkastet.
-            irreversible_action_modal:
-              body: Efter att utkastet har publicerats som ett förslag går det inte längre att redigera utkastet. Förslaget kommer inte acceptera nya författare eller tillägg.
-              cancel: Avbryt
-              ok: Publicera som ett förslag
-              title: Följande åtgärd kan inte ångras
-            success: Det gemensamma utkastet har publicerats som ett förslag.
-          withdraw:
-            error: Det gick inte att stänga det gemensamma utkastet.
-            irreversible_action_modal:
-              body: Efter att utkastet dragits tillbaka går det inte längre att redigera.
-              cancel: Avbryt
-              ok: Dra tillbaka det gemensamma utkastet
-              title: Det går inte att ångra denna åtgärd
-            success: Det gemensamma utkastet har dragits tillbaka.
-        create:
-          error: Det gick inte att skapa det gemensamma utkastet.
-          success: Det gemensamma utkastet har skapats.
-        edit:
-          attachment_legend: Lägg till ett dokument eller en bild
-          back: Tillbaka
-          send: Skicka
-          title: Redigera gemensamt utkast
-        empty: Det finns inga gemensamma utkast ännu
-        empty_filters: Det finns inget gemensamt utkast med de här kriterierna
-        filters:
-          all: Alla
-          amendment: Ändringsförslag
-          open: Öppna
-          published: Publicerade
-          related_to: Relaterade till
-          search: Sök
-          state: Status
-          withdrawn: Återkallade
-        filters_small_view:
-          close_modal: Stäng fönster
-          filter: Filtrera
-          filter_by: Filtrera efter
-          unfold: Veckla ut
-        index:
-          count:
-            one: "%{count} gemensamt utkast"
-            other: "%{count} gemensamma utkast"
-        name: Gemensamma utkast
-        new:
-          add_file: Lägg till fil
-          edit_file: Redigera fil
-          send: Spara
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nytt gemensamt utkast
-        orders:
-          label: 'Sortera utkast efter:'
-          most_contributed: Flest bidrag
-          random: Slumpmässig
-          recent: Senaste
-        requests:
-          accepted_request:
-            error: Kunde inte godkännas som samarbetspartner, försök igen senare.
-            success: "@%{user} har godkänts som medskapare."
-          access_requested:
-            error: Din begäran kunde inte behandlas, försök igen senare.
-            success: Din förfrågan om samarbete har skickats.
-          collaboration_requests:
-            accept_request: Godkänn
-            reject_request: Avvisa
-            title: Förfrågningar om samarbete
-          rejected_request:
-            error: Kunde inte avvisas som samarbetspartner, försök igen senare.
-            success: "@%{user} har avvisats som medskapare."
-        show:
-          edit: Redigera
-          final_proposal: Färdigt förslag
-          final_proposal_help_text: Detta utkast är klart. Du kan se det slutliga förslaget
-          hidden_authors_count:
-            one: och %{count} mer person
-            other: och %{count} fler personer
-          info-message: Det här är ett <strong>gemensamt utkast</strong> till ett förslag. Det innebär att du kan hjälpa författarna med att utforma förslaget genom kommentarsfältet nedan eller bidra till förslaget direkt genom att begära redigeringsåtkomst. När författarna till förslaget ger dig åtkomst kan du göra ändringar av utkastet.
-          publish: Publicera
-          publish_info: Publicera den här versionen av utkastet eller
-          published_proposal: Publicerat förslag
-          request_access: Begär tillgång
-          requested_access: Tillgång har begärts
-          withdraw: dra tillbaka utkastet
-        states:
-          open: Öppet
-          published: Publicerat
-          withdrawn: Återkallat
-        update:
-          error: Det gick inte att spara det gemensamma utkastet.
-          success: Det gemensamma utkastet har uppdaterats.
-        wizard_aside:
-          back_from_collaborative_draft: Tillbaka till gemensamma utkast
-        wizard_header:
-          title: Skapa ditt gemensamma utkast
       content_blocks:
         highlighted_proposals:
           name: Förslag
@@ -940,7 +842,6 @@ sv:
           voted: Röstat på
         index:
           click_here: Se alla förslag
-          collaborative_drafts_list: Visa gemensamma utkast
           count:
             one: "%{count} förslag"
             other: "%{count} förslag"
@@ -987,8 +888,6 @@ sv:
           hidden_likes_count:
             one: och %{count} person till
             other: och %{count} personer till
-          link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett gemensamt utkast. Läs historiken
-          link_to_collaborative_draft_text: Visa det gemensamma utkastet
           link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
           link_to_promoted_emendation_text: Visa det avvisade ändringsförslaget.
           link_to_proposal_from_emendation_help_text: Detta är ett avvisat ändringsförslag
