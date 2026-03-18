@@ -227,6 +227,8 @@ module Decidim
       # @param i18n_scope (see #settings_attribute_input)
       # @param [Object] form
       def taxonomy_filters(form, name, i18n_scope)
+        return disabled_taxonomy_filters(name, i18n_scope) if @component&.new_record?
+
         current_filters = content_tag(:div, class: "js-current-filters") do
           render partial: "decidim/admin/taxonomy_filters_selector/component_table",
                  locals: { field_name: "#{form.object_name}[#{name}][]", component: @component }
@@ -249,6 +251,15 @@ module Decidim
         end
 
         label_tag(name, t(name, scope: i18n_scope)) + container + drawer
+      end
+
+      def disabled_taxonomy_filters(name, i18n_scope)
+        container = content_tag(:div) do
+          message = t("taxonomy_filters_unavailable", scope: "decidim.components.settings.global")
+          content_tag(:p, message, class: "help-text")
+        end
+
+        label_tag(name, t(name, scope: i18n_scope)) + container
       end
     end
   end
