@@ -290,7 +290,7 @@ ja:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> は提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を承諾しました。
         coauthor_invited:
           actions:
-            accept: 承認
+            accept: 同意する
             decline: 拒否
           email_intro: 'あなたは提案「%{resource_title}」の共著者に招待されています。このページで招待を承認または拒否することができます：'
           email_outro: 提案の著者が共著者になることを認識したいので、この通知を受け取りました。
@@ -772,7 +772,7 @@ ja:
           all: すべて
           amendment: 修正
           open: 開く
-          published: 公開済み
+          published: 公開済
           related_to: 関連
           search: 検索
           state: ステータス
@@ -826,7 +826,7 @@ ja:
           withdraw: 草案を撤回する
         states:
           open: 開く
-          published: 公開済み
+          published: 公開済
           withdrawn: 撤回
         update:
           error: 共同草案を保存する際に問題が発生しました。
