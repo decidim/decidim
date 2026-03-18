@@ -68,7 +68,6 @@ module Decidim::Admin
         subject
       end
 
-
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
