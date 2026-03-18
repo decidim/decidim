@@ -1,8 +1,8 @@
 /* global jest */
 
-import { adjustCalendarPosition } from "src/decidim/datepicker/generate_datepicker"
+import { adjustPickerPosition } from "src/decidim/datepicker/datepicker_functions";
 
-describe("adjustCalendarPosition", () => {
+describe("adjustPickerPosition", () => {
   let datePickerContainer = null,
       input = null,
       parent = null;
@@ -37,13 +37,13 @@ describe("adjustCalendarPosition", () => {
 
   it("sets parent position to relative when static", () => {
     parent.style.position = "static";
-    adjustCalendarPosition(input, datePickerContainer);
+    adjustPickerPosition(input, datePickerContainer, ".datepicker__date-column");
     expect(parent.style.position).toBe("relative");
   });
 
   it("does not change parent position when already positioned", () => {
     parent.style.position = "absolute";
-    adjustCalendarPosition(input, datePickerContainer);
+    adjustPickerPosition(input, datePickerContainer, ".datepicker__date-column");
     expect(parent.style.position).toBe("absolute");
   });
 
@@ -61,7 +61,7 @@ describe("adjustCalendarPosition", () => {
       value: 800
     });
 
-    adjustCalendarPosition(input, datePickerContainer);
+    adjustPickerPosition(input, datePickerContainer, ".datepicker__date-column");
 
     expect(datePickerContainer.style.top).toBe("40px");
     expect(datePickerContainer.style.bottom).toBe("");
@@ -80,7 +80,7 @@ describe("adjustCalendarPosition", () => {
       value: 500
     });
 
-    adjustCalendarPosition(input, datePickerContainer);
+    adjustPickerPosition(input, datePickerContainer, ".datepicker__date-column");
 
     expect(datePickerContainer.style.top).toBe("");
     expect(datePickerContainer.style.bottom).toBe("40px");
@@ -98,7 +98,7 @@ describe("adjustCalendarPosition", () => {
       value: 540
     });
 
-    adjustCalendarPosition(input, datePickerContainer);
+    adjustPickerPosition(input, datePickerContainer, ".datepicker__date-column");
 
     expect(datePickerContainer.style.top).toBe("40px");
     expect(datePickerContainer.style.bottom).toBe("");
@@ -110,7 +110,7 @@ describe("adjustCalendarPosition", () => {
       bottom: 140
     });
 
-    adjustCalendarPosition(input, datePickerContainer);
+    adjustPickerPosition(input, datePickerContainer, ".datepicker__date-column");
 
     expect(datePickerContainer.style.right).toBe("0px");
   });

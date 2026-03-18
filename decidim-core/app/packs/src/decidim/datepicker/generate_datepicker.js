@@ -1,34 +1,8 @@
 /* eslint-disable require-jsdoc */
 import icon from "src/decidim/refactor/moved/icon"
-import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos } from "src/decidim/datepicker/datepicker_functions"
+import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos, adjustPickerPosition } from "src/decidim/datepicker/datepicker_functions"
 import { dateKeyDownListener, dateBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners"
 import { getDictionary } from "src/decidim/refactor/moved/i18n"
-
-export const adjustCalendarPosition = (input, datePickerContainer) => {
-  const parent = input.closest(".datepicker__date-column");
-
-  if (getComputedStyle(parent).position === "static") {
-    parent.style.position = "relative";
-  }
-
-  const rect = input.getBoundingClientRect();
-  const calendarHeight = datePickerContainer.offsetHeight;
-  const spaceAbove = rect.top;
-  const spaceBelow = window.innerHeight - rect.bottom;
-  const openBelow = spaceBelow >= calendarHeight || spaceBelow >= spaceAbove;
-
-  if (openBelow) {
-    // Open below
-    datePickerContainer.style.top = `${input.offsetHeight}px`;
-    datePickerContainer.style.bottom = "";
-  } else {
-    // Open above
-    datePickerContainer.style.top = "";
-    datePickerContainer.style.bottom = `${input.offsetHeight}px`;
-  }
-
-  datePickerContainer.style.right = "0px";
-};
 
 export default function generateDatePicker(input, row, formats) {
   const i18n = getDictionary("date.buttons");
@@ -162,7 +136,7 @@ export default function generateDatePicker(input, row, formats) {
     };
     pickedDate = null;
     datePickerContainer.style.display = "block";
-    adjustCalendarPosition(date, datePickerContainer);
+    adjustPickerPosition(date, datePickerContainer, ".datepicker__date-column");
 
     document.addEventListener("click", datePickerDisplay);
 
