@@ -767,8 +767,8 @@ de:
           amendment: Änderungsanträge
           open: Offen
           published: Veröffentlicht
-          related_to: In Zusammenhang mit
-          search: Suchen
+          related_to: Bezüglich
+          search: Suche
           state: Status
           withdrawn: Zurückgezogen
         filters_small_view:
@@ -825,7 +825,7 @@ de:
           published: Veröffentlicht
           withdrawn: Zurückgezogen
         update:
-          error: Beim Speichern des gemeinsamen Entwurfs sind Fehler aufgetreten.
+          error: Beim Speichern des Vorschlagsentwurfs ist ein Fehler aufgetreten.
           success: Collaborative Draft wurde erfolgreich aktualisiert.
         wizard_aside:
           back_from_collaborative_draft: Zurück zu gemeinschaftlichen Entwürfen
