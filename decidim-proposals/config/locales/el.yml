@@ -169,6 +169,9 @@ el:
         admin:
           proposal_note_created:
             email_subject: Κάποιος άφησε μια σημείωση στην πρόταση %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Αποδοχή
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} έχει γίνει δεκτή η πρόσβαση ως συνεισφέρων του <a href="%{resource_url}">%{resource_title}</a> συνεργατικού σχεδίου.'
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
@@ -582,6 +585,9 @@ el:
           answer: Απάντηση
           changes_at_title: Τροποποίηση σε «%{title}»
           estimated_cost: Εκτιμώμενο κόστος
+          hidden_likes_count:
+            one: και %{count} ακόμη άτομο
+            other: και %{count} ακόμη άτομα
           link_to_collaborative_draft_help_text: Αυτή η πρόταση είναι το αποτέλεσμα ενός προσχεδίου συνεργασίας. Δείτε το ιστορικό
           link_to_collaborative_draft_text: Δείτε το προσχέδιο συνεργασίας
           link_to_promoted_emendation_help_text: Αυτή η πρόταση είναι μια αναβαθμισμένη διόρθωση
