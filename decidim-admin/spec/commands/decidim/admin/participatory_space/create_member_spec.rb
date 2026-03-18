@@ -45,7 +45,7 @@ module Decidim::Admin::ParticipatorySpace
         expect(members.count).to eq 1
       end
 
-      it "creates the user single time" do
+      it "creates the member only one time" do
         expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 0
 
         subject.call
