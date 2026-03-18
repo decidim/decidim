@@ -1304,6 +1304,10 @@ es-PY:
           last_week: La última semana
           no_users_count_statistics_yet: Aún no hay estadísticas de recuento de participantes.
           participants: Participantes
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Podrás seleccionar filtros de taxonomía una vez creado el componente.
     forms:
       errors:
         impersonate_user:
