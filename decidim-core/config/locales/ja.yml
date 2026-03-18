@@ -36,7 +36,7 @@ ja:
       taxonomy:
         name: タクソノミー名
       taxonomy_filter:
-        internal_name: 内部ラベル
+        internal_name: 管理用ラベル
         name: ラベル
         root_taxonomy_id: タクソノミーから
         space_filter: フィルタとして利用可能
