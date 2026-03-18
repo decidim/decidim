@@ -188,6 +188,9 @@ ro:
           proposal_note_created:
             email_outro: Ai primit această notificare pentru a putea evalua propunerea.
             email_subject: Cineva a trimis o notă la propunerea %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Acceptă
         collaborative_draft_access_accepted:
           email_subject: "Utilizatorul %{requester_name} a fost acceptat drept colaborator pentru %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>acceptat drept colaborator</strong> pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
@@ -474,7 +477,7 @@ ro:
           all: Toate
           amendment: Amendamente
           open: Deschise
-          published: Publicate
+          published: Publicat
           related_to: Asociate cu
           search: Caută
           state: Stadiu
@@ -524,7 +527,7 @@ ro:
           withdraw: retrage ciorna
         states:
           open: Deschise
-          published: Publicate
+          published: Publicat
           withdrawn: Retrase
         update:
           error: A apărut o problemă la salvarea ciornei colaborative.
