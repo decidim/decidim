@@ -781,8 +781,8 @@ fi:
           amendment: Muutokset
           open: Avaa
           published: Julkaistu
-          related_to: Liittyy
-          search: Hae
+          related_to: Liittyy aiheeseen
+          search: Haku
           state: Tila
           withdrawn: Peruttu
         filters_small_view:
