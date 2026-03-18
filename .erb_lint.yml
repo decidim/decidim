@@ -32,6 +32,9 @@ linters:
       - decidim-admin/app/views/decidim/admin/imports/new.html.erb
       - decidim-meetings/app/views/decidim/meetings/admin/poll/edit.html.erb
 
+  PartialPath:
+    enabled: true
+
   DeprecatedClasses:
     enabled: true
     exclude:
