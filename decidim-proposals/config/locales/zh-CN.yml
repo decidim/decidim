@@ -121,6 +121,9 @@ zh-CN:
         admin:
           proposal_note_created:
             email_subject: 有人在建议 %{resource_title} 留下了一条笔记。
+        coauthor_invited:
+          actions:
+            accept: 接受
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} 已被接受作为贡献者访问 %{resource_title}。"
         collaborative_draft_access_rejected:
@@ -454,6 +457,8 @@ zh-CN:
           answer: 答案
           changes_at_title: 对"%{title}" 的修正
           estimated_cost: 估计费用
+          hidden_likes_count:
+            other: 和更多 %{count} 人
           link_to_collaborative_draft_help_text: 此建议是协作草稿的结果，请查看历史记录
           link_to_collaborative_draft_text: 查看协作草稿
           link_to_promoted_emendation_help_text: 这项建议是一项提倡的修正
