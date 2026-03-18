@@ -294,7 +294,7 @@ ca-IT:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha acceptat la teva invitació per a ser coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a>".
         coauthor_invited:
           actions:
-            accept: Acceptar
+            accept: Accepta
             decline: Rebutjar
           email_intro: 'T''han convidat a ser coautora de la proposta "%{resource_title}". Pots acceptar o rebutjar la invitació en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè l'autora de la proposta vol reconèixer les contribucions convertint-te en coautora.
@@ -780,11 +780,11 @@ ca-IT:
           all: Tots
           amendment: Esmenes
           open: Obert
-          published: Publicat
+          published: Publicades
           related_to: Relacionat amb
           search: Cerca
           state: Estat
-          withdrawn: Retirat
+          withdrawn: Retirada
         filters_small_view:
           close_modal: Tanca la finestra
           filter: Filtre
@@ -836,10 +836,10 @@ ca-IT:
           withdraw: retira l'esborrany
         states:
           open: Obert
-          published: Publicat
-          withdrawn: Retirat
+          published: Publicades
+          withdrawn: Retirada
         update:
-          error: S'ha produït un error en desar l'esborrany col·laboratiu.
+          error: Hi ha hagut un error en desar l'esborrany col·laboratiu.
           success: L'esborrany col·laboratiu s'ha actualitzat correctament.
         wizard_aside:
           back_from_collaborative_draft: Tornar a l'esborrany col·laboratiu
