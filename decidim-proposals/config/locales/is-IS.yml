@@ -102,6 +102,30 @@ is:
           official: Opinber
         filter_state_values:
           not_answered: Ekki svarað
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            irreversible_action_modal:
+              cancel: Hætta við
+          withdraw:
+            irreversible_action_modal:
+              cancel: Hætta við
+        edit:
+          back: Til baka
+          send: Senda
+        filters:
+          related_to: Tengjast
+          search: Leita
+          withdrawn: Aftakað
+        new:
+          send: Haltu áfram
+        orders:
+          random: Handahófi
+          recent: Nýleg
+        show:
+          publish: Birta
+        states:
+          withdrawn: Aftakað
       models:
         proposal:
           fields:
