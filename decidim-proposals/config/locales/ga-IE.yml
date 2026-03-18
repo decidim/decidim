@@ -47,6 +47,11 @@ ga:
           amend: Leasaigh
           comment: Tabhair Trácht
         name: Moltaí
+    events:
+      proposals:
+        coauthor_invited:
+          actions:
+            accept: Glac
     gamification:
       badges:
         proposals:
