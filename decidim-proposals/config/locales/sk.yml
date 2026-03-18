@@ -107,6 +107,9 @@ sk:
             publish_answers_immediately: Publikovať odpovede na návrhy okamžite
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Akceptovať
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} bol prijatý k prístupu ako prispievateľ %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a> je <strong> má prístup ako prispievateľ </strong> v spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a>.
@@ -322,7 +325,6 @@ sk:
           all: Všetko
           amendment: Zmeny
           open: otvorené
-          published: Publikované
           related_to: súvisiace s
           search: Vyhľadávanie
           state: Štát
@@ -374,10 +376,9 @@ sk:
           withdraw: stiahnuť návrh
         states:
           open: otvorené
-          published: Publikované
           withdrawn: Stiahnuté
         update:
-          error: Pri ukladaní schéme spolupráce došlo k chybám.
+          error: Pri ukladaní konceptu návrhu došlo k chybám.
           success: Protokol o spolupráci bol úspešne aktualizovaný.
         wizard_header:
           title: Vytvorte návrh spolupráca
@@ -455,6 +456,11 @@ sk:
           answer: Odpovedať
           changes_at_title: doplňujúci návrh k "%{title}"
           estimated_cost: Odhadované náklady
+          hidden_likes_count:
+            one: a%{count} ďalšia osoba
+            few: a%{count} ďalších ľudí
+            many: a%{count} ďalších ľudí
+            other: a%{count} ďalších ľudí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkom spoločného návrhu. Skontrolujte históriu
           link_to_collaborative_draft_text: Pozri schému spolupráca
           link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšenia
