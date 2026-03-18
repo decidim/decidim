@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
 class AddIndexOnDecidimMembers < ActiveRecord::Migration[8.1]
+  class Member < ApplicationRecord
+    self.table_name = :decidim_members
+  end
+
   def up
-    execute "DELETE FROM decidim_members WHERE decidim_user_id IS NULL;"
-    execute <<~SQL.squish
-      DELETE FROM decidim_members m1
-      USING decidim_members m2
-      WHERE m1.id < m2.id
-        AND m1.decidim_user_id = m2.decidim_user_id
-        AND m1.participatory_space_type = m2.participatory_space_type
-        AND m1.participatory_space_id = m2.participatory_space_id;
-    SQL
+    Member.where(decidim_user_id: nil).delete_all
+
+    Member.find_each do |member|
+      member.delete! if Member.where(
+        decidim_user_id: member.decidim_user_id,
+        participatory_space_type: member.participatory_space_type,
+        participatory_space_id: member.participatory_space_id
+      ).count > 1
+    end
 
     add_index(:decidim_members, [:decidim_user_id, :participatory_space_type, :participatory_space_id], name: "unique_space_members", unique: true)
   end
