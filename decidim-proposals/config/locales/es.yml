@@ -498,7 +498,6 @@ es:
           deleted_proposals_info: Las propuestas eliminadas se pueden restaurar desde papelera.
           preview: Previsualizar
           view_deleted_proposals: Ver las propuestas eliminadas
-        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Aviso de Desuso/Obsolescencia.</b> La función \"Borradores colaborativos\" se eliminará próximamente. Si la utilizabas, a partir de la versión 0.32 de Decidim podrás utilizar la funcionalidad de coautoría de propuestas."
         evaluation_assignments:
           create:
             invalid: Se ha producido un error al asignar propuestas a una evaluadora.
@@ -742,103 +741,6 @@ es:
           all: Todas
           amendments: Enmiendas
           proposals: Propuestas
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Se ha producido un error al publicar el borrador colaborativo.
-            irreversible_action_modal:
-              body: Después de publicar el borrador como una propuesta, dejará de ser editable. La propuesta no aceptará nuevas autoras o contribuciones.
-              cancel: Cancelar
-              ok: Publicar como una propuesta
-              title: La siguiente acción es irreversible
-            success: Borrador de colaborativo publicado correctamente como una propuesta.
-          withdraw:
-            error: Se ha producido un error al cerrar el borrador colaborativo.
-            irreversible_action_modal:
-              body: Después de cerrar el borrador, ya no será editable. El borrador no aceptará nuevas autoras ni contribuciones.
-              cancel: Cancelar
-              ok: Retirar el borrador colaborativo
-              title: La siguiente acción es irreversible
-            success: Borrador colaborativo retirado correctamente.
-        create:
-          error: Se ha producido un error al crear este borrador colaborativo.
-          success: Borrador colaborativo creado correctamente.
-        edit:
-          attachment_legend: Añadir un documento o una imagen
-          back: Volver
-          send: Enviar
-          title: Editar borrador colaborativo
-        empty: Todavía no hay borradores colaborativos
-        empty_filters: No hay ningún borrador colaborativo con este criterio
-        filters:
-          all: Todas
-          amendment: Enmiendas
-          open: Abierto
-          published: Publicado
-          related_to: Relacionado con
-          search: Buscar
-          state: Estado
-          withdrawn: Retirado
-        filters_small_view:
-          close_modal: Cerrar la ventana
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desplegar
-        index:
-          count:
-            one: "%{count} borrador colaborativo"
-            other: "%{count} borrador colaborativo"
-        name: Borradores colaborativos
-        new:
-          add_file: Añadir archivo
-          edit_file: Editar fichero
-          send: Continuar
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nuevo borrador colaborativo
-        orders:
-          label: 'Ordenar borradores por:'
-          most_contributed: Con más contribuciones
-          random: Aleatorio
-          recent: Reciente
-        requests:
-          accepted_request:
-            error: No has podido ser aceptada como contribuidora. Por favor, inténtalo de nuevo más tarde.
-            success: "Se ha aceptado con éxito a @%{user} como colaboradora."
-          access_requested:
-            error: Tu solicitud no pudo ser completada, por favor inténtalo de nuevo más tarde.
-            success: Tu solicitud para colaborar ha sido enviada correctamente.
-          collaboration_requests:
-            accept_request: Aceptar
-            reject_request: Rechazar
-            title: Solicitudes de contribuciones
-          rejected_request:
-            error: No se ha podido rechazar como colaboradora, por favor inténtalo de nuevo más tarde.
-            success: "Se ha rechazado con éxito @%{user} como colaboradora."
-        show:
-          edit: Editar
-          final_proposal: propuesta final
-          final_proposal_help_text: Este borrador está terminado. Consulta la propuesta definitiva
-          hidden_authors_count:
-            one: y %{count} persona más
-            other: y %{count} personas más
-          info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puedes ayudar a sus autoras a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que las autoras te den acceso, podrás realizar cambios en este borrador.
-          publish: Publicar
-          publish_info: Publicar esta versión del borrador o
-          published_proposal: propuesta publicada
-          request_access: Solicitar acceso
-          requested_access: Acceso solicitado
-          withdraw: retirar el borrador
-        states:
-          open: Abierto
-          published: Publicado
-          withdrawn: Retirado
-        update:
-          error: Se ha producido un error al guardar el borrador colaborativo.
-          success: Borrador colaborativo actualizado correctamente.
-        wizard_aside:
-          back_from_collaborative_draft: Volver a borradores colaborativos
-        wizard_header:
-          title: Crea tu borrador colaborativo
       content_blocks:
         highlighted_proposals:
           name: Propuestas
@@ -940,7 +842,6 @@ es:
           voted: Apoyadas
         index:
           click_here: Ver todas las propuestas
-          collaborative_drafts_list: Acceder a borradores colaborativos
           count:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
@@ -987,8 +888,6 @@ es:
           hidden_likes_count:
             one: y %{count} persona más
             other: y %{count} personas más
-          link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador colaborativo. Revisa el historial
-          link_to_collaborative_draft_text: Ver el borrador colaborativo
           link_to_promoted_emendation_help_text: Esta propuesta es una proviene de una enmienda
           link_to_promoted_emendation_text: Ver la enmienda rechazada.
           link_to_proposal_from_emendation_help_text: Esta es una enmienda rechazada
