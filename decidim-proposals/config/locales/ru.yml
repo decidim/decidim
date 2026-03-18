@@ -147,6 +147,33 @@ ru:
           official: Служебные
         filter_state_values:
           not_answered: Без ответов
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            irreversible_action_modal:
+              cancel: Отменить
+          withdraw:
+            irreversible_action_modal:
+              cancel: Отменить
+        edit:
+          back: Вернуться
+          send: Отправить
+        filters:
+          related_to: Связано с
+          search: Поиск
+          state: Cостояние
+          withdrawn: Отозван
+        new:
+          send: Продолжить
+        orders:
+          random: Произвольно
+          recent: Недавние
+        show:
+          publish: Обнародовать
+        states:
+          withdrawn: Отозван
+        update:
+          error: При попытке сохранить этот черновик предложения произошли ошибки.
       create:
         error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно создано. Сохранено как черновик.
