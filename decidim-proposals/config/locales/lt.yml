@@ -175,6 +175,9 @@ lt:
         admin:
           proposal_note_created:
             email_subject: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“.
+        coauthor_invited:
+          actions:
+            accept: Sutikti
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} buvo priimtas kaip <a href="%{resource_url}">%{resource_title}</a> bendradarbiavimo juodraščio bendradarbis.'
           email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
@@ -441,7 +444,7 @@ lt:
         empty_filters: Su šiais kriterijais nėra juodrasčių
         filters:
           all: Visi
-          amendment: Pataisos
+          amendment: Pakeitimai
           open: Atidaryta
           published: Paskelbta
           related_to: Susiję su
@@ -502,8 +505,8 @@ lt:
           withdraw: atsiimti juodraštį
         states:
           open: Atviras
-          published: Paskelbtas
-          withdrawn: Atsiimtas
+          published: Paskelbta
+          withdrawn: Atsiimta
         update:
           error: Išsaugant bendrąjį juodraštį iškilo problema.
           success: Bendrasis juodraštis atnaujintas.
@@ -609,6 +612,11 @@ lt:
           answer: Atsakymas
           changes_at_title: '„%{title}“ pakeitimas'
           estimated_cost: Numatomos išlaidos
+          hidden_likes_count:
+            one: ir dar %{count} žmogus
+            few: ir dar %{count} žmonės (-ių)
+            many: ir dar %{count} žmonės (-ių)
+            other: ir dar %{count} žmonės (-ių)
           link_to_collaborative_draft_help_text: Šis pasiūlymas yra bendro projekto rezultatas. Peržiūrėkite istoriją
           link_to_collaborative_draft_text: Peržiūrėti bendrą projektą (juodraštį)
           link_to_promoted_emendation_help_text: Šis pasiūlymas yra remiamas pakeitimas
