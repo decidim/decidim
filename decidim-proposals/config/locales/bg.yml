@@ -202,6 +202,9 @@ bg:
         admin:
           proposal_note_created:
             email_subject: Някой е направил бележка в предложението %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Приеми
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} получи достъп като сътрудник в съвместната чернова <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_url}">%{resource_title}</a>.
@@ -689,6 +692,9 @@ bg:
           answer: Отговор
           changes_at_title: Изменение на „%{title}“
           estimated_cost: Предвидени разходи
+          hidden_likes_count:
+            one: и още %{count}
+            other: и още %{count} души
           link_to_collaborative_draft_help_text: Това предложение е резултат от съвместна чернова. Прегледайте хронологията
           link_to_collaborative_draft_text: Вижте съвместната чернова
           link_to_promoted_emendation_help_text: Това предложение е допринасяща поправка
