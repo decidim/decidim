@@ -293,7 +293,7 @@ sv:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> har accepterat din inbjudan att bli medförfattare till förslaget <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
           actions:
-            accept: Acceptera
+            accept: Godkänn
             decline: Avböj
           email_intro: 'Du har blivit inbjuden att vara medförfattare till förslaget "%{resource_title}". Du kan acceptera eller avböja inbjudan på denna sida:'
           email_outro: Du har fått detta meddelande eftersom författaren till förslaget vill erkänna dina bidrag genom att göra dig till medförfattare.
@@ -775,7 +775,7 @@ sv:
           related_to: Relaterade till
           search: Sök
           state: Status
-          withdrawn: Återkallade
+          withdrawn: Tillbakadraget
         filters_small_view:
           close_modal: Stäng fönster
           filter: Filtrera
@@ -789,13 +789,13 @@ sv:
         new:
           add_file: Lägg till fil
           edit_file: Redigera fil
-          send: Spara
+          send: Fortsätt
         new_collaborative_draft_button:
           new_collaborative_draft: Nytt gemensamt utkast
         orders:
           label: 'Sortera utkast efter:'
           most_contributed: Flest bidrag
-          random: Slumpmässig
+          random: Slumpvis
           recent: Senaste
         requests:
           accepted_request:
@@ -827,8 +827,8 @@ sv:
           withdraw: dra tillbaka utkastet
         states:
           open: Öppet
-          published: Publicerat
-          withdrawn: Återkallat
+          published: Publicerade
+          withdrawn: Tillbakadraget
         update:
           error: Det gick inte att spara det gemensamma utkastet.
           success: Det gemensamma utkastet har uppdaterats.
@@ -982,8 +982,8 @@ sv:
           edit_proposal: Redigera
           estimated_cost: Beräknad kostnad
           hidden_likes_count:
-            one: och %{count} person till
-            other: och %{count} personer till
+            one: och %{count} mer person
+            other: och %{count} fler personer
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett gemensamt utkast. Läs historiken
           link_to_collaborative_draft_text: Visa det gemensamma utkastet
           link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
