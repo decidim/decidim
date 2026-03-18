@@ -781,10 +781,10 @@ eu:
           amendment: Zuzenketak
           open: Zabaldu
           published: Argitaratua
-          related_to: Lotutako gaiak
+          related_to: Honekin lotuta
           search: Bilatu
           state: Egoera
-          withdrawn: Baztertu
+          withdrawn: Kendu
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
@@ -839,7 +839,7 @@ eu:
           published: Argitaratua
           withdrawn: Kendu
         update:
-          error: Arazo bat egon da zirriborro kolaboratiboa gordetzen.
+          error: Arazoak izan dira proposamenaren aurrebista gordetzean.
           success: Ziriboro kolaboratiboa ondo eguneratu da.
         wizard_aside:
           back_from_collaborative_draft: Itzuli zirriborro kolaboratzaileetara
