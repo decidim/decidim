@@ -1277,6 +1277,10 @@ eu:
           last_week: Azken astea
           no_users_count_statistics_yet: Oraindik ez dago parte-hartzaileen zenbaketaren estatistikarik.
           participants: Parte-hartzaileak
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Taxonomia-iragazkiak hautatzea posible izango da osagaia sortu ondoren.
     forms:
       errors:
         impersonate_user:
