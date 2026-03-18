@@ -363,7 +363,7 @@ eu:
       conflicts:
         attempts: Saiakerak
         edit:
-          title: Transferitu erabiltzailea
+          title: Parte-hartzailea tansferitu
         'false': 'Ez'
         index:
           text: Bilatu gaur egungo parte-hartzailearen posta elektronikoaren, izenren edo ezizenaren bidez
@@ -1304,6 +1304,10 @@ eu:
           last_week: Azken astea
           no_users_count_statistics_yet: Oraindik ez dago parte-hartzaileen zenbaketaren estatistikarik.
           participants: Parte-hartzaileak
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Taxonomia-iragazkiak hautatzea posible izango da osagaia sortu ondoren.
     forms:
       errors:
         impersonate_user:
