@@ -226,6 +226,9 @@ bg:
           proposal_note_created:
             email_outro: Получихте известие, защото можете да оценяте предложението.
             email_subject: Някой е направил бележка в предложението %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Приеми
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} получи достъп като сътрудник в съвместната чернова <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_url}">%{resource_title}</a>.
