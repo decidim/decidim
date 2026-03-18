@@ -79,7 +79,7 @@ module Decidim
 
       class_option :storage, type: :string,
                              default: "local",
-                             desc: "Setup the Gemfile with the appropriate gem to handle a storage provider. Supported options are: local (default), s3, gcs, azure"
+                             desc: "Setup the Gemfile with the appropriate gem to handle a storage provider. Supported options are: local (default), s3, gcs"
 
       class_option :queue, type: :string,
                            default: "",
@@ -211,14 +211,13 @@ module Decidim
 
         providers = options[:storage].split(",")
 
-        abort("#{providers} is not supported as storage provider, please use local, s3, gcs or azure") unless (providers - %w(local s3 gcs azure)).empty?
+        abort("#{providers} is not supported as storage provider, please use local, s3 or gcs") unless (providers - %w(local s3 gcs)).empty?
         gsub_file "config/environments/production.rb",
                   /config.active_storage.service = :local/,
                   %{config.active_storage.service = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s}
 
         add_production_gems do
           gem "aws-sdk-s3", require: false if providers.include?("s3")
-          gem "azure-storage-blob", require: false if providers.include?("azure")
           gem "google-cloud-storage", "~> 1.11", require: false if providers.include?("gcs")
         end
       end
@@ -371,6 +370,10 @@ module Decidim
             end
           end
         CONFIG
+      end
+
+      def patch_controller
+        gsub_file "app/controllers/application_controller.rb", /\n  stale_when_importmap_changes/, ""
       end
 
       def authorization_handler

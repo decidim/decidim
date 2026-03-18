@@ -216,7 +216,7 @@ describe "Admin invite" do
       check :invitation_user_tos_agreement
       click_on "Save"
 
-      expect(page).to have_content("Your password was set successfully. You are now signed in.")
+      expect(page).to have_content("Invitation accepted successfully. You are now signed in.")
       expect(Decidim::User.find_by(email: "invited_user@example.org")).not_to be_admin
     end
   end

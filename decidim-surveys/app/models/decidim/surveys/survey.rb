@@ -9,6 +9,7 @@ module Decidim
       include Decidim::HasComponent
       include Decidim::FilterableResource
       include Decidim::Publicable
+      include Decidim::Searchable
 
       component_manifest_name "surveys"
 
@@ -36,6 +37,15 @@ module Decidim
       scope :published, -> { where.not(published_at: nil) }
 
       scope_search_multi :with_any_state, [:open, :closed]
+
+      searchable_fields({
+                          participatory_space: { component: :participatory_space },
+                          A: :title,
+                          D: :description,
+                          datetime: :starts_at
+                        },
+                        index_on_create: ->(survey) { survey.visible? },
+                        index_on_update: ->(survey) { survey.visible? })
 
       def open?
         return false if allow_responses.blank?

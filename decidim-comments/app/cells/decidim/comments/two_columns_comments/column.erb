@@ -14,7 +14,12 @@
     <% @comments.each do |comment| %>
       <%= cell("decidim/comments/comment_thread", comment, order:) %>
     <% end %>
-  <% else %>
-    <p class="comments-section__no-comments"><%= @no_comments_message %></p>
+  <% elsif @top_comment.blank? %>
+    <p class="comments-section__no-comments"><%= t("decidim.components.comments.no_comments_yet") %></p>
+  <% end %>
+
+  <% if @has_more %>
+    <% offset = @comments.size + (@top_comment.present? ? 1 : 0) %>
+    <%= controller.view_context.render partial: "decidim/comments/comments/load_more_comments", locals: { commentable: model, order:, offset:, alignment: @alignment } %>
   <% end %>
 </div>
