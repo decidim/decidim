@@ -127,6 +127,9 @@ sk:
             suggested_hashtags: Hashtagy navrhované užívateľom pre ich nové návrhy
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Akceptovať
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} bol prijatý k prístupu ako prispievateľ %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a> je <strong> má prístup ako prispievateľ </strong> v spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a>.
@@ -374,7 +377,6 @@ sk:
           all: Všetko
           amendment: Zmeny
           open: otvorené
-          published: Publikované
           related_to: súvisiace s
           search: Vyhľadávanie
           state: Štát
@@ -426,10 +428,9 @@ sk:
           withdraw: stiahnuť návrh
         states:
           open: otvorené
-          published: Publikované
           withdrawn: Stiahnuté
         update:
-          error: Pri ukladaní schéme spolupráce došlo k chybám.
+          error: Pri ukladaní konceptu návrhu došlo k chybám.
           success: Protokol o spolupráci bol úspešne aktualizovaný.
         wizard_header:
           title: Vytvorte návrh spolupráca
