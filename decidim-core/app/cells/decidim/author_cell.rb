@@ -25,12 +25,6 @@ module Decidim
       render
     end
 
-    def profile_minicard
-      return unless profile_visible?
-
-      render
-    end
-
     def author_name
       options[:author_name_text] || model.name
     end
