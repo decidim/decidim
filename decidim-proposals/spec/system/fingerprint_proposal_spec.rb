@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Fingerprint proposal" do
+describe "Fingerprint proposal", versioning: true do
   let(:manifest_name) { "proposals" }
 
   let!(:fingerprintable) do

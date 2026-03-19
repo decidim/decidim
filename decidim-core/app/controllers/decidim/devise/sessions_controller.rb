@@ -48,7 +48,7 @@ module Decidim
 
       def redirect_to_referer_or_path
         set_flash_message(:alert, "csrf_token", scope: "devise.failure")
-        redirect_back(fallback_location: root_path) && return
+        redirect_back_or_to(root_path) && return
       end
 
       def check_sign_in_enabled

@@ -27,9 +27,4 @@ inherit_from:
   - config/rubocop/factory_bot/disabled.yml
   - config/rubocop/yard/configuration.yml
   - config/rubocop/disabled.yml
-
-Decidim/MessageAntipattern:
-  Enabled: true
-  Include:
-    - "**/spec/**/*"
-    - "**/test/**/*"
+  - config/rubocop/decidim-linters/configuration.yml

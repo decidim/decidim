@@ -26,7 +26,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render json: { message: I18n.t("document.rollout.invalid", scope: "decidim.collaborative_texts", errors: @form.errors.full_messages) }, status: :unprocessable_entity
+            render json: { message: I18n.t("document.rollout.invalid", scope: "decidim.collaborative_texts", errors: @form.errors.full_messages) }, status: :unprocessable_content
           end
         end
       end

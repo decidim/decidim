@@ -37,7 +37,7 @@ module Decidim
         end
 
         def response_params
-          params.require(:response).permit(:question_id, choices: [:body, :response_option_id])
+          params.expect(response: [:question_id, { choices: [[:body, :response_option_id]] }])
         end
       end
     end

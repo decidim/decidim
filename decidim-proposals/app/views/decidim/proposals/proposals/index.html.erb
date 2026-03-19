@@ -20,13 +20,6 @@
         <%= icon "add-line" %>
       <% end %>
     <% end %>
-
-    <% if component_settings.collaborative_drafts_enabled? %>
-      <%= link_to collaborative_drafts_path, class: "button button__sm button__transparent-secondary" do %>
-        <span><%= t("collaborative_drafts_list", scope: "decidim.proposals.proposals.index") %></span>
-        <%= icon "edit-2-line" %>
-      <% end %>
-    <% end %>
   </div>
 
   <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont, skip_to_id: "proposals" } do %>

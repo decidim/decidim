@@ -56,8 +56,7 @@ module Decidim
 
     def resource_types
       @resource_types = begin
-        array = %w(Decidim::Proposals::CollaborativeDraft
-                   Decidim::Comments::Comment
+        array = %w(Decidim::Comments::Comment
                    Decidim::Debates::Debate
                    Decidim::Initiative
                    Decidim::Meetings::Meeting
