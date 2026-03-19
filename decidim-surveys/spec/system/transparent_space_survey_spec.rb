@@ -24,7 +24,6 @@ describe "Transparent Space Respond a survey" do
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:another_user) { create(:user, :confirmed, organization:) }
-
   let!(:member) { create(:member, user: another_user, participatory_space: participatory_space_transparent) }
 
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
@@ -32,79 +31,70 @@ describe "Transparent Space Respond a survey" do
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
   let!(:question_conditioned) { create(:questionnaire_question, :conditioned, questionnaire:, position: 1) }
 
-  let!(:participatory_space) { participatory_space_transparent }
-
+  let!(:participatory_space) { create(:assembly, :published, :transparent, organization:) }
   let!(:component) { create(:component, manifest:, participatory_space:) }
 
   before do
     switch_to_host(organization.host)
   end
 
-  def visit_component
-    page.visit main_component_path(component)
+  context "when the user is not logged in" do
+    it "does not allow responding the survey" do
+      visit_component
+      click_on translated_attribute(questionnaire.title)
+
+      expect(page).to have_i18n_content(questionnaire.title)
+      expect(page).to have_i18n_content(questionnaire.description)
+
+      expect(page).to have_no_css(".form.response-questionnaire")
+
+      within ".response-questionnaire__step" do
+        expect(page).to have_i18n_content(question.body)
+        expect(page).not_to have_i18n_content(question_conditioned.body)
+      end
+    end
   end
 
-  context "when space is transparent" do
-    let!(:participatory_space_transparent) { create(:assembly, :published, :transparent, organization:) }
+  context "when the user is logged in" do
+    context "and is member space" do
+      before do
+        login_as another_user, scope: :user
+      end
 
-    context "when the user is not logged in" do
-      it "does not allow responding the survey" do
+      it "allows responding the survey" do
         visit_component
         click_on translated_attribute(questionnaire.title)
 
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
 
-        expect(page).to have_no_css(".form.response-questionnaire")
+        fill_in question.body["en"], with: "My first response"
 
-        within ".response-questionnaire__step" do
-          expect(page).to have_i18n_content(question.body)
-          expect(page).not_to have_i18n_content(question_conditioned.body)
-        end
+        check "questionnaire_tos_agreement"
+
+        accept_confirm { click_on "Submit" }
+
+        expect(page).to have_callout("Survey successfully responded.")
+        expect(page).to have_content("You have already responded this form.")
+        expect(page).to have_no_i18n_content(question.body)
       end
     end
 
-    context "when the user is logged in" do
-      context "and is member space" do
-        before do
-          login_as another_user, scope: :user
-        end
-
-        it "allows responding the survey" do
-          visit_component
-          click_on translated_attribute(questionnaire.title)
-
-          expect(page).to have_i18n_content(questionnaire.title)
-          expect(page).to have_i18n_content(questionnaire.description)
-
-          fill_in question.body["en"], with: "My first response"
-
-          check "questionnaire_tos_agreement"
-
-          accept_confirm { click_on "Submit" }
-
-          expect(page).to have_callout("Survey successfully responded.")
-          expect(page).to have_content("You have already responded this form.")
-          expect(page).to have_no_i18n_content(question.body)
-        end
+    context "and is not member space" do
+      before do
+        login_as user, scope: :user
       end
 
-      context "and is not member space" do
-        before do
-          login_as user, scope: :user
-        end
+      it "not allows responding the survey" do
+        visit_component
+        click_on translated_attribute(questionnaire.title)
 
-        it "not allows responding the survey" do
-          visit_component
-          click_on translated_attribute(questionnaire.title)
+        expect(page).to have_i18n_content(questionnaire.title)
+        expect(page).to have_i18n_content(questionnaire.description)
+        expect(page).to have_content "The form is available only for members"
+        expect(page).to have_content "Form closed"
 
-          expect(page).to have_i18n_content(questionnaire.title)
-          expect(page).to have_i18n_content(questionnaire.description)
-          expect(page).to have_content "The form is available only for members"
-          expect(page).to have_content "Form closed"
-
-          expect(page).to have_css(".button[disabled]")
-        end
+        expect(page).to have_css(".button[disabled]")
       end
     end
   end

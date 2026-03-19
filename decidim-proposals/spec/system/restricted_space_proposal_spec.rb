@@ -6,11 +6,9 @@ describe "Restricted Space Proposal" do
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
-
   let!(:member) { create(:member, user: other_user, participatory_space: participatory_space_restricted) }
 
-  let!(:participatory_space) { participatory_space_restricted }
-
+  let!(:participatory_space) { create(:assembly, :published, :restricted, organization:) }
   let!(:component) { create(:proposal_component, participatory_space:) }
 
   before do
@@ -18,17 +16,45 @@ describe "Restricted Space Proposal" do
     component.update!(default_step_settings: { creation_enabled: true })
   end
 
-  def visit_component
-    page.visit main_component_path(component)
+  context "when the user is not logged in" do
+    let(:target_path) { main_component_path(component) }
+
+    before do
+      visit target_path
+    end
+
+    it "disallows the access" do
+      expect(page).to have_content("You are not authorized to perform this action")
+    end
   end
 
-  context "when the space is restricted" do
-    let!(:participatory_space_restricted) { create(:assembly, :published, :restricted, organization:) }
+  context "when the user is logged in" do
+    context "and is member space" do
+      before do
+        login_as other_user, scope: :user
+      end
 
-    context "when the user is not logged in" do
+      it "allows create a proposal" do
+        page.visit main_component_path(component)
+
+        click_on "New proposal"
+
+        within ".new_proposal" do
+          fill_in :proposal_title, with: "Creating my proposal"
+          fill_in :proposal_body, with: "This is my proposal's body and I am using it unwisely."
+
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("Publish your proposal")
+      end
+    end
+
+    context "and is not member space" do
       let(:target_path) { main_component_path(component) }
 
       before do
+        login_as user, scope: :user
         visit target_path
       end
 
@@ -37,76 +63,40 @@ describe "Restricted Space Proposal" do
       end
     end
 
-    context "when the user is logged in" do
-      context "and is member space" do
-        before do
-          login_as other_user, scope: :user
-        end
+    context "and is an admin" do
+      let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
-        it "allows create a proposal" do
-          visit_component
-
-          click_on "New proposal"
-
-          within ".new_proposal" do
-            fill_in :proposal_title, with: "Creating my proposal"
-            fill_in :proposal_body, with: "This is my proposal's body and I am using it unwisely."
-
-            find("*[type=submit]").click
-          end
-
-          expect(page).to have_content("Publish your proposal")
-        end
-      end
-
-      context "and is not member space" do
-        let(:target_path) { main_component_path(component) }
+      context "when the component has votes enabled and the proposal has votes" do
+        let!(:proposal) { create(:proposal, :official, :with_votes, component:) }
 
         before do
-          login_as user, scope: :user
-          visit target_path
+          component.default_step_settings = component.default_step_settings.to_h.merge({ votes_enabled: true })
+          component.save!
         end
 
-        it "disallows the access" do
-          expect(page).to have_content("You are not authorized to perform this action")
-        end
-      end
-
-      context "and is an admin" do
-        let!(:user) { create(:user, :admin, :confirmed, organization:) }
-
-        context "when the component has votes enabled and the proposal has votes" do
-          let!(:proposal) { create(:proposal, :official, :with_votes, component:) }
+        context "when accessing the component page" do
+          let(:target_path) { main_component_path(component) }
 
           before do
-            component.default_step_settings = component.default_step_settings.to_h.merge({ votes_enabled: true })
-            component.save!
+            login_as user, scope: :user
+            visit target_path
           end
 
-          context "when accessing the component page" do
-            let(:target_path) { main_component_path(component) }
+          it "displays the proposals votes count" do
+            expect(page).to have_content("Votes")
+          end
+        end
 
-            before do
-              login_as user, scope: :user
-              visit target_path
-            end
+        context "when accessing the proposal page" do
+          let(:target_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
 
-            it "displays the proposals votes count" do
-              expect(page).to have_content("Votes")
-            end
+          before do
+            login_as user, scope: :user
+            visit target_path
           end
 
-          context "when accessing the proposal page" do
-            let(:target_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
-
-            before do
-              login_as user, scope: :user
-              visit target_path
-            end
-
-            it "displays the proposals votes count" do
-              expect(page).to have_content("Votes")
-            end
+          it "displays the proposals votes count" do
+            expect(page).to have_content("Votes")
           end
         end
       end
