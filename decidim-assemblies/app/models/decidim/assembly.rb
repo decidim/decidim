@@ -89,6 +89,10 @@ module Decidim
                       index_on_create: ->(_assembly) { false },
                       index_on_update: ->(assembly) { assembly.visible? })
 
+    # Access modes are consistent across participatory spaces (assemblies and processes)
+    # open: visible and accessible for all
+    # transparent: visible for all but the actions require to be a member of the space
+    # restricted: visible and accessible only for members fo the space
     ACCESS_MODES = { open: 0, transparent: 1, restricted: 2 }.freeze
     enum :access_mode, ACCESS_MODES
 

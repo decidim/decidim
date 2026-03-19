@@ -71,6 +71,10 @@ module Decidim
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
 
+    # Access modes are consistent across participatory spaces (assemblies and processes)
+    # open: visible and accessible for all
+    # transparent: visible for all but the actions require to be a member of the space
+    # restricted: visible and accessible only for members fo the space
     ACCESS_MODES = { open: 0, transparent: 1, restricted: 2 }.freeze
     enum :access_mode, ACCESS_MODES
 
