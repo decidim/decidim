@@ -8,7 +8,7 @@ class RenameSendToMembersInNewsletter < ActiveRecord::Migration[8.1]
   def up
     Newsletter.find_each do |newsletter|
       next unless newsletter.extended_data
-      next unless newsletter.extended_data.key?("send_to_private_members")
+      next unless newsletter.extended_data.has_key?("send_to_private_members")
 
       newsletter.extended_data["send_to_members"] = newsletter.extended_data.delete("send_to_private_members")
       newsletter.save!(validate: false)
@@ -18,7 +18,7 @@ class RenameSendToMembersInNewsletter < ActiveRecord::Migration[8.1]
   def down
     Newsletter.find_each do |newsletter|
       next unless newsletter.extended_data
-      next unless newsletter.extended_data.key?("send_to_members")
+      next unless newsletter.extended_data.has_key?("send_to_members")
 
       newsletter.extended_data["send_to_private_members"] = newsletter.extended_data.delete("send_to_members")
       newsletter.save!(validate: false)
