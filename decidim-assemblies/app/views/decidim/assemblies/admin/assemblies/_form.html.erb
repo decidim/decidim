@@ -203,6 +203,9 @@
           <%= t("access.label", scope: "decidim.assemblies.admin.assemblies.form") %>
         </legend>
         <div class="radio-group">
+          <%# i18n-tasks-use t("decidim.assemblies.admin.assemblies.form.access.options.open") %>
+          <%# i18n-tasks-use t("decidim.assemblies.admin.assemblies.form.access.options.restricted") %>
+          <%# i18n-tasks-use t("decidim.assemblies.admin.assemblies.form.access.options.transparent") %>
           <% Decidim::Assembly::ACCESS_MODES.keys.each do |mode| %>
             <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
               <%= form.radio_button :access_mode, mode %>
