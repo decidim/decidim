@@ -14,7 +14,7 @@
   }
 
   td {
-    @apply align-top cursor-ns-resize;
+    @apply align-top cursor-grab;
 
     &.js-drag-handle .dragger {
       @apply mt-1;
