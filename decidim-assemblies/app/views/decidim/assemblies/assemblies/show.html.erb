@@ -17,9 +17,9 @@ edit_link(
 
 <main>
   <% if current_participatory_space.private_space? %>
-    <section class="layout-container__reference alert">
+    <aside class="layout-container__reference alert" aria-label="reference">
       <%= t("private_space", scope: "decidim.assemblies.show") %>
-    </section>
+    </aside>
   <% end %>
 
   <div class="participatory-space__container">
@@ -33,7 +33,7 @@ edit_link(
 
   </div>
 
-  <section class="layout-container__reference">
+  <aside class="layout-container__reference" aria-label="reference">
     <p><%= resource_reference(current_participatory_space) %></p>
-  </section>
+  </aside>
 </main>
