@@ -16,9 +16,15 @@ module Decidim
       end
 
       context "when is not valid" do
-        let(:user) { build(:user, name: "John\r<script>alert('name')</script>") }
+        let(:user) { build(:user, :confirmed, organization:, name: "John\r<script>alert('name')</script>") }
 
         it { is_expected.to eq("John\ralert('name')") }
+      end
+
+      context "when user is not confirmed" do
+        let(:user) { build(:user, organization:) }
+
+        it { is_expected.to eq("") }
       end
     end
 
