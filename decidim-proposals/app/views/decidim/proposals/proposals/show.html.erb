@@ -114,32 +114,9 @@ extra_admin_link(
     <%= comments_for @proposal %>
 
      <ul class="metadata__container layout-main__section" data-metadata-footer>
-       <%= content_tag :li, resource_reference(@proposal), class: "metadata__item" %>
-       <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_version_path(@proposal, proposal_presenter.versions.count)), class: "metadata__item" %>
-
-      <% fingerprint_id = dom_id(@proposal, :fingerprint_dialog) %>
-      <%= content_tag :li, class: "metadata__item" do %>
-        <%= content_tag :button, t("decidim.fingerprint.check"), data: { dialog_open: fingerprint_id } %>
-      <% end %>
+        <%= content_tag :li, resource_reference(@proposal), class: "metadata__item" %>
+        <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_version_path(@proposal, proposal_presenter.versions.count)), class: "metadata__item" %>
     </ul>
-    <%= decidim_modal id: fingerprint_id, class: "fingerprint-modal" do %>
-      <div data-dialog-container>
-        <%= icon "fingerprint-line" %>
-        <h2 id="dialog-title-<%= fingerprint_id %>" tabindex="-1" data-dialog-title><%= t "decidim.fingerprint.title" %></h2>
-        <div class="fingerprint-modal__container">
-          <p id="dialog-desc-<%= fingerprint_id %>"><%= t "decidim.fingerprint.explanation" %></p>
-          <div>
-            <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.value" %>:</span>
-            <code class="fingerprint-modal__code"><%= decidim_html_escape @proposal.fingerprint.value %></code>
-          </div>
-          <div>
-            <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.source" %>:</span>
-            <code class="fingerprint-modal__code"><%= @proposal.fingerprint.source %></code>
-          </div>
-          <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %></p>
-        </div>
-      </div>
-    <% end %>
   <% end %>
 
 <% end %>
