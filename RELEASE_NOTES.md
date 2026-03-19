@@ -298,7 +298,88 @@ After the rack upgrade, the filters are defined as follows:
 
 You can read more about this change on PR [#16103](https://github.com/decidim/decidim/pull/16103).
 
-### 5.3. [[TITLE OF THE CHANGE]]
+### 5.3. Decidim Configuration changes
+
+Once you have upgraded to this version, you may need to check your configuration. Previously, we were using `ActiveSupport::Configurable` to handle Decidim configuration. Now, this has been deprecated with Rails, and it will be removed in the next Rails version.
+
+We went ahead and changed the way we handle Decidim configuration, trying to keep the same API as before.
+
+Previously, you may had an initializer with some content like:
+
+```ruby
+Decidim.configure do |config|
+  config.force_ssl = true
+  # some other configuration
+end
+```
+
+Now we try to keep the same, but if there is some kind of custom configuration that you may have, you will need to change it to:
+
+```ruby
+Decidim.force_ssl = true
+```
+
+#### Decidim module developer instructions
+
+If you are a module developer, you may want to change your plugin structure to remove `ActiveSupport::Configurable` calls.
+
+If you were using something like:
+
+```ruby
+module Decidim
+  module Ai
+    module SpamDetection
+      include ActiveSupport::Configurable
+
+      config_accessor :reporting_user_email do
+        "my default value"
+      end
+      # some other configuration
+    end
+  end
+end
+```
+
+You can refactor to the following:
+
+```ruby
+module Decidim
+  module Ai
+    module SpamDetection
+
+      mattr_accessor :reporting_user_email, default: "my default value"
+
+      # some other configuration
+    end
+  end
+end
+```
+
+To keep the same API, you may want to add the following to your module definition
+
+```ruby
+module Decidim
+  module Ai
+    module SpamDetection
+      class << self
+        def config = self
+
+        def configure
+          yield self
+        end
+      end
+
+      mattr_accessor :reporting_user_email, default: "my default value"
+
+      # some other configuration
+    end
+  end
+end
+```
+
+You can read more about this change on PR [#16366](https://github.com/decidim/decidim/pull/16366).
+
+### 5.4. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 

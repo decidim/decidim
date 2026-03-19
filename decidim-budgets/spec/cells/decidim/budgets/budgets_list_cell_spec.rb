@@ -69,5 +69,43 @@ module Decidim::Budgets
         end
       end
     end
+
+    describe "#show" do
+      subject { my_cell.call(:show) }
+
+      context "when some budgets have not been voted" do
+        before do
+          allow(my_cell).to receive(:non_voted_budgets).and_return(budgets)
+        end
+
+        it "renders budgets list" do
+          expect(subject).to have_css("#budgets")
+          expect(subject).to have_content("2 budgets")
+        end
+      end
+
+      context "when all budgets have been voted" do
+        before do
+          allow(my_cell).to receive(:non_voted_budgets).and_return([])
+        end
+
+        it "does not render budgets list" do
+          expect(subject).to have_no_css("#budgets")
+          expect(subject).to have_no_content("0 budgets")
+        end
+      end
+
+      context "when all budgets are either voted or in progress" do
+        before do
+          allow(my_cell).to receive(:voted).and_return([budgets.first])
+          allow(my_cell).to receive(:progress_budgets).and_return([budgets.last])
+        end
+
+        it "does not render budgets list" do
+          expect(subject).to have_no_css("#budgets")
+          expect(subject).to have_no_content("0 budgets")
+        end
+      end
+    end
   end
 end

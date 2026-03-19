@@ -60,8 +60,6 @@ module Decidim
             meta_scope: attributes["meta_scope"]
           )
           import_hero_image(attributes["remote_hero_image_url"])
-          import_banner_image(attributes["remote_banner_image_url"])
-
           @imported_assembly.save!
           @imported_assembly
         end
@@ -175,14 +173,6 @@ module Decidim
         @imported_assembly.attached_uploader(:hero_image).remote_url = url
       rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
         @warnings << I18n.t("decidim.assemblies.admin.imports.hero_image_error", error: format_error(e))
-      end
-
-      def import_banner_image(url)
-        return if url.blank?
-
-        @imported_assembly.attached_uploader(:banner_image).remote_url = url
-      rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-        @warnings << I18n.t("decidim.assemblies.admin.imports.banner_image_error", error: format_error(e))
       end
 
       def format_error(error)

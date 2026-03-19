@@ -152,7 +152,7 @@ PATH
       rubocop-rspec (~> 3.0, >= 3.6.0)
       rubocop-rspec_rails (>= 2.31, < 2.33)
       rubocop-rubycw (~> 0.2.0)
-      rubocop-yard (~> 1.0.0)
+      rubocop-yard (>= 1.0, < 1.2)
       selenium-webdriver (~> 4.9)
       simplecov (~> 0.22.0)
       simplecov-cobertura (~> 3.1.0)
@@ -205,7 +205,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    action_text-trix (2.1.16)
+    action_text-trix (2.1.17)
       railties
     actioncable (8.1.2)
       actionpack (= 8.1.2)
@@ -361,7 +361,7 @@ GEM
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
-    devise (5.0.2)
+    devise (5.0.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 7.0)
@@ -453,7 +453,7 @@ GEM
     google-protobuf (4.33.5-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    graphql (2.5.20)
+    graphql (2.5.21)
       base64
       fiber-storage
       logger
@@ -482,13 +482,14 @@ GEM
     htmlentities (4.3.4)
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
-    i18n-tasks (1.0.15)
+    i18n-tasks (1.1.2)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
       erubi
-      highline (>= 2.0.0)
+      highline (>= 3.0.0)
       i18n
       parser (>= 3.2.2.1)
+      prism
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.8, >= 1.8.1)
@@ -546,7 +547,7 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
-    loofah (2.25.0)
+    loofah (2.25.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.9.0)
@@ -737,7 +738,10 @@ GEM
       psych (>= 4.0.0)
       tsort
     redcarpet (3.6.1)
-    redis (4.8.1)
+    redis (5.4.1)
+      redis-client (>= 0.22.0)
+    redis-client (0.27.0)
+      connection_pool
     regexp_parser (2.11.3)
     reline (0.6.3)
       io-console (~> 0.5)
@@ -769,14 +773,14 @@ GEM
     rspec-mocks (3.13.8)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-rails (8.0.3)
+    rspec-rails (8.0.4)
       actionpack (>= 7.2)
       activesupport (>= 7.2)
       railties (>= 7.2)
-      rspec-core (~> 3.13)
-      rspec-expectations (~> 3.13)
-      rspec-mocks (~> 3.13)
-      rspec-support (~> 3.13)
+      rspec-core (>= 3.13.0, < 5.0.0)
+      rspec-expectations (>= 3.13.0, < 5.0.0)
+      rspec-mocks (>= 3.13.0, < 5.0.0)
+      rspec-support (>= 3.13.0, < 5.0.0)
     rspec-retry (0.6.2)
       rspec-core (> 3.3)
     rspec-support (3.13.7)
@@ -830,7 +834,7 @@ GEM
     rubocop-rubycw (0.2.2)
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
-    rubocop-yard (1.0.0)
+    rubocop-yard (1.1.0)
       lint_roller
       rubocop (~> 1.72)
       yard
@@ -937,7 +941,7 @@ GEM
     wisper-rspec (1.1.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yard (0.9.37)
+    yard (0.9.38)
     zeitwerk (2.7.5)
 
 PLATFORMS
