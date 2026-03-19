@@ -20,7 +20,7 @@ module Decidim
       let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
       let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process, settings: { taxonomy_filters: [taxonomy_filter.id] }) }
       let(:current_component) { proposal_component }
-      let(:author) { create(:user, organization:) }
+      let(:author) { create(:user, :confirmed, organization:) }
       let!(:model) { create(:proposal, component: proposal_component, users: [author]) }
       let(:root_value) { model }
       let(:new_title) { "Updated proposal title for testing" }

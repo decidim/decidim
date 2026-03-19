@@ -37,9 +37,7 @@ module Decidim
         let(:model) { create(:user, :confirmed, :blocked) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized User object"
       end
 
       describe "managed user" do
