@@ -6,6 +6,7 @@ module Decidim
   #
   class ConferenceSpeakerPresenter < SimpleDelegator
     include Decidim::ResourceHelper
+    include Decidim::SanitizeHelper
 
     delegate :profile_path, to: :user, allow_nil: true
 
