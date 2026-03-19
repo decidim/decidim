@@ -108,7 +108,8 @@ module Decidim
         html = form.select(
           name,
           choices,
-          { include_blank: attribute.include_blank, label: options[:label] }
+          { include_blank: attribute.include_blank, label: options[:label] },
+          { disabled: options[:readonly] || false }
         )
         html << content_tag(:p, options[:help_text], class: "help-text") if options[:help_text]
         html
