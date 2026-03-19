@@ -3,9 +3,11 @@
 import { adjustPickerPosition } from "src/decidim/datepicker/datepicker_functions";
 
 describe("adjustPickerPosition", () => {
-  let datePickerContainer = null,
-      input = null,
-      parent = null;
+  let input = null;
+  let parent = null;
+  let datePickerContainer = null;
+
+  let originalInnerHeight;
 
   beforeEach(() => {
     // Setup DOM structure
@@ -29,32 +31,45 @@ describe("adjustPickerPosition", () => {
       configurable: true,
       value: 300
     });
+
+    // store original viewport height
+    originalInnerHeight = window.innerHeight;
   });
 
   afterEach(() => {
     document.body.removeChild(parent);
+
+    Reflect.defineProperty(window, "innerHeight", {
+      writable: true,
+      configurable: true,
+      value: originalInnerHeight
+    });
+
+    jest.restoreAllMocks();
   });
 
   it("sets parent position to relative when static", () => {
     parent.style.position = "static";
+
     adjustPickerPosition(input, datePickerContainer, ".datepicker__date-column");
+
     expect(parent.style.position).toBe("relative");
   });
 
   it("does not change parent position when already positioned", () => {
     parent.style.position = "absolute";
+
     adjustPickerPosition(input, datePickerContainer, ".datepicker__date-column");
+
     expect(parent.style.position).toBe("absolute");
   });
 
   it("opens below when sufficient space below", () => {
-    // Mock getBoundingClientRect with space below
     jest.spyOn(input, "getBoundingClientRect").mockReturnValue({
       top: 100,
       bottom: 140
     });
 
-    // Mock window.innerHeight
     Reflect.defineProperty(window, "innerHeight", {
       writable: true,
       configurable: true,
@@ -68,7 +83,6 @@ describe("adjustPickerPosition", () => {
   });
 
   it("opens above when insufficient space below", () => {
-    // Mock getBoundingClientRect with limited space below
     jest.spyOn(input, "getBoundingClientRect").mockReturnValue({
       top: 400,
       bottom: 440

@@ -3,9 +3,11 @@
 import { adjustPickerPosition } from "src/decidim/datepicker/datepicker_functions";
 
 describe("adjustPickerPosition (timepicker)", () => {
-  let timePicker = null,
-    input = null,
-    parent = null;
+  let input = null;
+  let parent = null;
+  let timePicker = null;
+
+  let originalInnerHeight;
 
   beforeEach(() => {
     parent = document.createElement("div");
@@ -27,10 +29,22 @@ describe("adjustPickerPosition (timepicker)", () => {
       configurable: true,
       value: 200
     });
+
+    // store original value before any test mutates it
+    originalInnerHeight = window.innerHeight;
   });
 
   afterEach(() => {
+    // restore DOM
     document.body.removeChild(parent);
+
+    // restore window.innerHeight (fix for CodeRabbit warning)
+    Reflect.defineProperty(window, "innerHeight", {
+      writable: true,
+      configurable: true,
+      value: originalInnerHeight
+    });
+
     jest.restoreAllMocks();
   });
 
