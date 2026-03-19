@@ -8,7 +8,7 @@ describe Decidim::AuthorCell, type: :cell do
   controller Decidim::PagesController
 
   let(:my_cell) { cell("decidim/author", model) }
-  let!(:organization) { build(:organization) }
+  let!(:organization) { build(:organization, tos_version: Time.current) }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:model) { Decidim::UserPresenter.new(user) }
 
