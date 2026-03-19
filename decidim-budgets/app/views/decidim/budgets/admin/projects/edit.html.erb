@@ -1,7 +1,8 @@
-<% add_decidim_page_title("#{translated_attribute(budget.title)} - #{t(".title")}") %>
+<% add_decidim_page_title(t(".title", budget: decidim_sanitize_translated(budget.title))) %>
+
 <div class="item_show__header">
   <h1 class="item_show__header-title">
-    <%= "#{decidim_sanitize_translated(budget.title)} #{t(".title")}" %>
+    <%= t(".title", budget: decidim_sanitize_translated(budget.title)) %>
   </h1>
 </div>
 <div class="item__edit item__edit-1col">

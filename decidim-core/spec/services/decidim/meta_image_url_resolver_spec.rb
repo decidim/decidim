@@ -7,9 +7,8 @@ describe Decidim::MetaImageUrlResolver do
 
   let(:organization) { create(:organization) }
   let(:hero_image) { nil }
-  let(:banner_image) { nil }
   let(:avatar) { nil }
-  let(:participatory_space) { create(:assembly, organization:, hero_image:, banner_image:) }
+  let(:participatory_space) { create(:assembly, organization:, hero_image:) }
   let(:component) { create(:proposal_component, :with_attachments_allowed, participatory_space:) }
   let!(:proposal) { create(:proposal, component:, body:) }
   let(:description_image) do
@@ -38,14 +37,13 @@ describe Decidim::MetaImageUrlResolver do
 
   shared_examples "direct images" do
     let(:hero_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-    let(:banner_image) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
 
     it { is_expected.to end_with("/city.jpeg") }
 
     context "and no hero_image" do
       let(:hero_image) { nil }
 
-      it { is_expected.to end_with("/city2.jpeg") }
+      it { is_expected.to end_with("/icon.png") }
     end
   end
 
@@ -55,7 +53,6 @@ describe Decidim::MetaImageUrlResolver do
 
   context "when there is no image attached" do
     let(:hero_image) { nil }
-    let(:banner_image) { nil }
     let(:resource) { nil }
 
     before do

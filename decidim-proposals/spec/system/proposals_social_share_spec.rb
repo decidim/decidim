@@ -7,7 +7,7 @@ describe "Social shares" do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, hero_image:, organization:) }
   let(:hero_image) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
-  let(:component) { create(:proposal_component, participatory_space: participatory_process, settings: { collaborative_drafts_enabled: true }) }
+  let(:component) { create(:proposal_component, participatory_space: participatory_process) }
   let(:proposal) { create(:proposal, component:, body:) }
   let(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
   let!(:attachment) { create(:attachment, :with_image, attached_to: proposal, file: attachment_file) }
@@ -58,7 +58,7 @@ describe "Social shares" do
     end
 
     context "when the resource's component is not published" do
-      let(:component) { create(:proposal_component, :unpublished, participatory_space: participatory_process, settings: { collaborative_drafts_enabled: true }) }
+      let(:component) { create(:proposal_component, :unpublished, participatory_space: participatory_process) }
       let(:proposal) { create(:proposal, :published, component:, body:) }
 
       it_behaves_like "a 404 page" do
