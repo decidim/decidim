@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe Admin::ConferenceSpeakerPresenter, type: :helper do
-    let(:conference) { create(:conference, skip_injection: true) }
+    let(:conference) { create(:conference) }
     let(:conference_speaker) do
       build(:conference_speaker, full_name: "Full name", conference:)
     end
