@@ -124,7 +124,5 @@ describe RemoveProcessTypesReferences do
         expect { migrator.migrate(:up) }.not_to raise_error
       end
     end
-
   end
 end
-
