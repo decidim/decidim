@@ -119,7 +119,7 @@
     }
 
     .dragging-handle {
-      @apply cursor-ns-resize align-top p-3;
+      @apply cursor-grab align-top p-3;
 
       .dragger {
         @apply text-2xl;
