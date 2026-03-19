@@ -53,6 +53,7 @@ shared_examples "hideable resource during block" do
       fill_in :block_user_justification, with: "This user is a spammer" * 2 # to have at least 15 chars
 
       click_on I18n.t("decidim.admin.block_user.new.action")
+      expect(page).to have_content(I18n.t("decidim.admin.officializations.block.success"))
 
       expect(content.reload).to be_hidden
 
