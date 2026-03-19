@@ -39,6 +39,14 @@ describe Decidim::FindAndUpdateDescendantsJob do
       end.to have_enqueued_job(Decidim::UpdateSearchIndexesJob).exactly(:twice)
     end
 
+    context "when recursion reaches max depth" do
+      it "does not update search indexes" do
+        expect do
+          Decidim::FindAndUpdateDescendantsJob.perform_now(participatory_process, described_class::MAX_DEPTH)
+        end.not_to have_enqueued_job(Decidim::UpdateSearchIndexesJob)
+      end
+    end
+
     context "when participatory process has no descendants" do
       let(:proposal_component) { nil }
       let(:post_component) { nil }
