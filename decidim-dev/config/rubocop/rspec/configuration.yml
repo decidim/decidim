@@ -50,3 +50,8 @@ RSpec/RepeatedExampleGroupDescription:
 
 RSpec/RepeatedExampleGroupBody:
   Enabled: true
+
+RSpec/ExpectActual:
+  Enabled: true
+  Exclude:
+    - decidim-core/spec/system/homepage_spec.rb

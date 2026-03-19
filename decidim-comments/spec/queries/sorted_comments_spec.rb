@@ -9,12 +9,10 @@ module Decidim::Comments
     let(:options) do
       {
         order_by:,
-        id:,
-        after:
+        id:
       }
     end
     let(:id) { nil }
-    let(:after) { nil }
     let!(:organization) { create(:organization) }
     let!(:participatory_process) { create(:participatory_process, organization:) }
     let!(:component) { create(:component, participatory_space: participatory_process) }
@@ -24,10 +22,10 @@ module Decidim::Comments
     let!(:order_by) { nil }
 
     it "returns the commentable's comments" do
-      expect(subject.query).to eq [comment]
+      expect(subject.query.to_a).to eq [comment]
     end
 
-    it "eager loads comment's author, up_votes and down_votes" do
+    it "eager loads comment's author" do
       comment = subject.query[0]
       begin
         subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") do |_, _, _, _, data|
@@ -35,8 +33,6 @@ module Decidim::Comments
         end
 
         expect(comment.author.name).to be_present
-        expect(comment.up_votes.size).to eq(0)
-        expect(comment.down_votes.size).to eq(0)
       rescue RSpec::Expectations::ExpectationNotMetError => e
         ActiveSupport::Notifications.unsubscribe(subscriber)
         raise e
@@ -48,7 +44,7 @@ module Decidim::Comments
     it "return the comments ordered by created_at asc by default" do
       previous_comment = create(:comment, commentable:, author:, created_at: 1.week.ago, updated_at: 1.week.ago)
       future_comment = create(:comment, commentable:, author:, created_at: 1.week.from_now, updated_at: 1.week.from_now)
-      expect(subject.query).to eq [previous_comment, comment, future_comment]
+      expect(subject.query.to_a).to eq [previous_comment, comment, future_comment]
     end
 
     context "when filtering by id" do
@@ -56,25 +52,7 @@ module Decidim::Comments
       let(:id) { comment.id }
 
       it "only returns the requested comment" do
-        expect(subject.query).to eq [comment]
-      end
-    end
-
-    context "when filtering comments after id" do
-      let!(:comments) { create_list(:comment, 10, commentable:, author:) }
-      let(:after) { comments.first.id }
-
-      it "only returns the comments after the specified id" do
-        expect(subject.query).to eq(comments[1..-1])
-      end
-
-      context "when the after comments contain replies" do
-        let(:replies) { create_list(:comment, 5, commentable: comment, root_commentable: commentable, author:) }
-        let(:after) { comments.last.id }
-
-        it "returns the replies" do
-          expect(subject.query).to eq(replies)
-        end
+        expect(subject.query.to_a).to eq [comment]
       end
     end
 
@@ -89,6 +67,58 @@ module Decidim::Comments
       end
     end
 
+    context "when using pagination with limit" do
+      let!(:extra_comments) { create_list(:comment, 15, commentable:, author:) }
+      let(:options) { { order_by:, id:, limit: 5 } }
+
+      it "returns only the limited number of comments" do
+        expect(subject.query.size).to eq(5)
+      end
+
+      it "returns total_count with all comments" do
+        expect(subject.total_count).to eq(16)
+      end
+    end
+
+    context "when using pagination with offset and limit" do
+      let!(:extra_comments) { create_list(:comment, 15, commentable:, author:) }
+      let(:options) { { order_by:, id:, offset: 5, limit: 5 } }
+
+      it "skips the first comments and returns the next batch" do
+        expect(subject.query.size).to eq(5)
+        expect(subject.query.to_a.first).to eq(extra_comments[4])
+      end
+    end
+
+    context "when filtering by alignment" do
+      let!(:comments_in_favor) { create_list(:comment, 3, :in_favor, commentable:, author:) }
+      let!(:comments_against) { create_list(:comment, 2, :against, commentable:, author:) }
+      let(:options) { { order_by:, id:, alignment: 1 } }
+
+      it "returns only in_favor comments" do
+        expect(subject.query.to_a).to match_array(comments_in_favor)
+        expect(subject.total_count).to eq(3)
+      end
+
+      context "when filtering against comments" do
+        let(:options) { { order_by:, id:, alignment: -1 } }
+
+        it "returns only against comments" do
+          expect(subject.query.to_a).to match_array(comments_against)
+          expect(subject.total_count).to eq(2)
+        end
+      end
+
+      context "when combining alignment with pagination" do
+        let(:options) { { order_by:, id:, alignment: 1, limit: 2 } }
+
+        it "applies both filters correctly" do
+          expect(subject.query.size).to eq(2)
+          expect(subject.query.to_a).to all(satisfy { |c| c.alignment == 1 })
+        end
+      end
+    end
+
     context "when order_by is not default" do
       context "when order by recent" do
         let!(:order_by) { "recent" }
@@ -96,7 +126,7 @@ module Decidim::Comments
         it "return the comments ordered by recent" do
           previous_comment = create(:comment, commentable:, author:, created_at: 1.week.ago, updated_at: 1.week.ago)
           future_comment = create(:comment, commentable:, author:, created_at: 1.week.from_now, updated_at: 1.week.from_now)
-          expect(subject.query).to eq [previous_comment, comment, future_comment].reverse
+          expect(subject.query.to_a).to eq [previous_comment, comment, future_comment].reverse
         end
       end
 
@@ -108,7 +138,7 @@ module Decidim::Comments
           less_voted_comment = create(:comment, commentable:, author:, created_at: 1.week.from_now, updated_at: 1.week.from_now)
           create(:comment_vote, comment: most_voted_comment, author:, weight: 1)
           create(:comment_vote, comment: less_voted_comment, author:, weight: -1)
-          expect(subject.query).to eq [most_voted_comment, comment, less_voted_comment]
+          expect(subject.query.to_a).to eq [most_voted_comment, comment, less_voted_comment]
         end
       end
 
@@ -120,7 +150,7 @@ module Decidim::Comments
           less_commented = create(:comment, commentable:, author:, created_at: 1.week.from_now, updated_at: 1.week.from_now)
           create(:comment, commentable: comment)
           create_list(:comment, 3, commentable: most_commented)
-          expect(subject.query).to eq [most_commented, comment, less_commented]
+          expect(subject.query.to_a).to eq [most_commented, comment, less_commented]
         end
       end
     end
