@@ -198,7 +198,7 @@
         <%= form.check_box :has_members, help_text: t(".has_members_help") %>
       </div>
 
-      <div class="row column" id="access_mode">
+      <fieldset class="row column" id="access_mode">
         <legend>
           <%= t("access.label", scope: "decidim.assemblies.admin.assemblies.form") %>
         </legend>
@@ -210,7 +210,7 @@
              <% end %>
           <% end %>
         </div>
-      </div>
+      </fieldset>
     </div>
   </div>
 

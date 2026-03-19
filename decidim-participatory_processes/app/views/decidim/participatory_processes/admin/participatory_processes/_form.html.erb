@@ -168,7 +168,7 @@
         <%= form.check_box :has_members, help_text: t(".has_members_help") %>
       </div>
 
-      <div class="row column" id="access_mode">
+      <fieldset class="row column" id="access_mode">
         <legend>
           <%= t("access.label", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
         </legend>
@@ -180,7 +180,7 @@
              <% end %>
           <% end %>
         </div>
-      </div>
+      </fieldset>
       <div class="row column">
         <%= form.check_box :promoted %>
       </div>
