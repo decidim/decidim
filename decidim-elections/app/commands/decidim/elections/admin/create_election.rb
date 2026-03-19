@@ -34,7 +34,7 @@ module Decidim
 
         def run_after_hooks
           create_attachments if process_attachments?
-          photo_cleanup!
+          document_cleanup!
         end
 
         def run_before_hooks
