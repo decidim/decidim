@@ -9,11 +9,15 @@ module Decidim
       delegate :profile_url, to: :user, allow_nil: true
 
       def name
-        user ? user.name : full_name
+        if user && user.visible?
+          decidim_sanitize_translated(user.name)
+        else
+          ""
+        end
       end
 
       def nickname
-        user.nickname if user
+        user.nickname if user && user.visible?
       end
 
       def avatar_url(variant = nil)

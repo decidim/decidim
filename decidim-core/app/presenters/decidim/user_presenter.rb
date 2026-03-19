@@ -10,7 +10,11 @@ module Decidim
 
     # name sanitized
     def name
-      decidim_sanitize_translated(__getobj__.name)
+      if visible? || deleted?
+        decidim_sanitize_translated(__getobj__.name)
+      else
+        ""
+      end
     end
 
     #
@@ -20,12 +24,6 @@ module Decidim
       return "" unless visible?
 
       "@#{__getobj__.nickname}"
-    end
-
-    def name
-      return super if visible? || deleted?
-
-      ""
     end
 
     def badge
