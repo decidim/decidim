@@ -33,6 +33,7 @@ module Decidim
         end
 
         def run_after_hooks
+          @attached_to = resource
           create_attachments if process_attachments?
           document_cleanup!
         end
