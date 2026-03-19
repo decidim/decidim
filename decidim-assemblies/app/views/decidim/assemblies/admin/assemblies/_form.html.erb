@@ -203,17 +203,11 @@
           <%= t("access.label", scope: "decidim.assemblies.admin.assemblies.form") %>
         </legend>
         <div class="radio-group">
-          <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
-            <%= form.radio_button :access_mode, :open %>
-            <span><%= t("access.options.open", scope: "decidim.assemblies.admin.assemblies.form") %></span>
-          <% end %>
-          <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
-            <%= form.radio_button :access_mode, :transparent %>
-            <%= t("access.options.transparent", scope: "decidim.assemblies.admin.assemblies.form") %>
-          <% end %>
-          <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
-            <%= form.radio_button :access_mode, :restricted %>
-            <%= t("access.options.restricted", scope: "decidim.assemblies.admin.assemblies.form") %>
+          <% Assembly::ACCESS_MODES.keys.each do |mode| %>
+            <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+              <%= form.radio_button :access_mode, mode %>
+              <span><%= t(mode, scope: "decidim.assemblies.admin.assemblies.form.access.options") %></span>
+             <% end %>
           <% end %>
         </div>
       </div>
