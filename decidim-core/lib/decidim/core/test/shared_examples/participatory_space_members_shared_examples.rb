@@ -110,7 +110,7 @@ shared_examples "participatory space members" do
         within ".layout-main__section" do
           expect(page).to have_css(".profile__user", count: 1)
 
-          expect(page).to have_no_content(Decidim::ParticipatorySpace::MemberPresenter.new(ceased_member).name)
+          expect(page).to have_no_content(decidim_sanitize(ceased_member.name))
         end
       end
     end
