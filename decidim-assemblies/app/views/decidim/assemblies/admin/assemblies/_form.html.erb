@@ -203,7 +203,7 @@
           <%= t("access.label", scope: "decidim.assemblies.admin.assemblies.form") %>
         </legend>
         <div class="radio-group">
-          <% Assembly::ACCESS_MODES.keys.each do |mode| %>
+          <% Decidim::Assembly::ACCESS_MODES.keys.each do |mode| %>
             <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
               <%= form.radio_button :access_mode, mode %>
               <span><%= t(mode, scope: "decidim.assemblies.admin.assemblies.form.access.options") %></span>
