@@ -67,6 +67,19 @@ module Decidim
             expect(subject).to eq user_input
           end
         end
+
+        context "when the CDN host is defined" do
+          let(:cdn_host) { "https://cdn.example.org" }
+
+          before do
+            allow(Decidim).to receive(:storage_cdn_host).and_return(cdn_host)
+          end
+
+          it "transforms image URLs with the CDN host" do
+            expect(subject).to include(%(<img src="https://cdn.example.org/rails/active_storage/blobs/redirect/12345.JPG"))
+            expect(subject).to include(%(<img src="https://cdn.example.org/rails/active_storage/blobs/redirect/56789.JPG"))
+          end
+        end
       end
     end
   end

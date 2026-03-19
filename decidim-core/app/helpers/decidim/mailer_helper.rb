@@ -14,7 +14,11 @@ module Decidim
     def decidim_transform_image_urls(content, host)
       return content if host.blank? || content.blank?
 
-      root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:).chomp("/")
+      root_url = if Decidim.storage_cdn_host.present?
+                   Decidim.storage_cdn_host.chomp("/")
+                 else
+                   Decidim::EngineRouter.new("decidim", {}).root_url(host:).chomp("/")
+                 end
 
       content.gsub(/src\s*=\s*(['"])([^'"]*)\1/) do
         quote = Regexp.last_match(1)
