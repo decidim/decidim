@@ -127,7 +127,7 @@
         @apply w-full rounded bg-background flex items-center justify-center py-4 [&_img]:object-cover [&_img]:h-[200px];
       }
 
-      span {
+      p {
         @apply text-sm text-gray-2 mx-auto w-full break-all mb-2;
       }
     }

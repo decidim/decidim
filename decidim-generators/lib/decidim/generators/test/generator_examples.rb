@@ -27,7 +27,6 @@ shared_context "when generating a new application" do
     Bundler.with_original_env { Decidim::GemManager.capture(command, env:) }
   end
 
-  # rubocop:disable RSpec/BeforeAfterAll
   before(:all) do
     Bundler.with_original_env { Decidim::GemManager.install_all(out: File::NULL) }
   end
@@ -35,7 +34,6 @@ shared_context "when generating a new application" do
   after(:all) do
     Bundler.with_original_env { Decidim::GemManager.uninstall_all(out: File::NULL) }
   end
-  # rubocop:enable RSpec/BeforeAfterAll
 end
 
 shared_examples_for "a new production application" do
@@ -677,80 +675,67 @@ shared_examples_for "an application with configurable env vars" do
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
 
-    # Test onto the initializer when ENV vars are empty strings or undefined
-    json_off = initializer_config_for(test_app, env_off)
     initializer_off.each do |key, value|
-      current = json_off[key]
+      # Test onto the initializer when ENV vars are empty strings or undefined
+      current = rails_value("Decidim.#{key}", test_app, env_off)
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:OFF (#{value})"
-    end
 
-    # Test onto the initializer when ENV vars are set to the string "false"
-    json_false = initializer_config_for(test_app, env_false)
-    initializer_off.each do |key, value|
-      current = json_false[key]
+      # Test onto the initializer when ENV vars are set to the string "false"
+      current = rails_value("Decidim.#{key}", test_app, env_false)
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:FALSE (#{value})"
     end
 
     # Test onto the initializer when ENV vars are set
-    json_on = initializer_config_for(test_app, env_on)
     initializer_on.each do |key, value|
-      current = json_on[key]
+      current = rails_value("Decidim.#{key}", test_app, env_on)
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:ON (#{value})"
     end
 
     # Test onto the initializer when ENV vars are set to OpenStreetMap configuration
-    json_on = initializer_config_for(test_app, env_maps_osm)
     initializer_maps_osm.each do |key, value|
-      current = json_on[key]
+      current = rails_value("Decidim.#{key}", test_app, env_maps_osm)
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:Maps OSM (#{value})"
     end
 
     # Test onto the initializer when ENV vars are set to OpenStreetMap-HERE mix configuration
-    json_on = initializer_config_for(test_app, env_maps_mix)
     initializer_maps_mix.each do |key, value|
-      current = json_on[key]
+      current = rails_value("Decidim.#{key}", test_app, env_maps_mix)
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:Maps MIX (#{value})"
     end
 
     # Test onto the initializer with ENV vars OFF for the API module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Api")
     api_initializer_off.each do |key, value|
-      current = json_off[key]
+      current = rails_value("Decidim::Api.#{key}", test_app, env_off)
       expect(current).to eq(value), "API Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
     # Test onto the initializer with ENV vars ON for the API module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Api")
     api_initializer_on.each do |key, value|
-      current = json_on[key]
+      current = rails_value("Decidim::Api.#{key}", test_app, env_on)
       expect(current).to eq(value), "API Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
     # Test onto the initializer with ENV vars OFF for the Proposals module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Proposals")
     proposals_initializer_off.each do |key, value|
-      current = json_off[key]
+      current = rails_value("Decidim::Proposals.#{key}", test_app, env_off)
       expect(current).to eq(value), "Proposals Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
     # Test onto the initializer with ENV vars ON for the Proposals module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Proposals")
     proposals_initializer_on.each do |key, value|
-      current = json_on[key]
+      current = rails_value("Decidim::Proposals.#{key}", test_app, env_on)
       expect(current).to eq(value), "Proposals Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
     # Test onto the initializer with ENV vars OFF for the Meetings module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Meetings")
     meetings_initializer_off.each do |key, value|
-      current = json_off[key]
+      current = rails_value("Decidim::Meetings.#{key}", test_app, env_off)
       expect(current).to eq(value), "Meetings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
     # Test onto the initializer with ENV vars ON for the Meetings module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Meetings")
     meetings_initializer_on.each do |key, value|
-      current = json_on[key]
+      current = rails_value("Decidim::Meetings.#{key}", test_app, env_on)
       expect(current).to eq(value), "Meetings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
@@ -805,16 +790,14 @@ shared_examples_for "an application with extra configurable env vars" do
     expect(result[1]).to be_success, result[0]
 
     # Test onto the initializer with ENV vars OFF for the Initiatives module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Initiatives")
     initiatives_initializer_off.each do |key, value|
-      current = json_off[key]
+      current = rails_value("Decidim::Initiatives.#{key}", test_app, env_off)
       expect(current).to eq(value), "Initiatives Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
     # Test onto the initializer with ENV vars ON for the Initiatives module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Initiatives")
     initiatives_initializer_on.each do |key, value|
-      current = json_on[key]
+      current = rails_value("Decidim::Initiatives.#{key}", test_app, env_on)
       expect(current).to eq(value), "Initiatives Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
   end
@@ -828,7 +811,7 @@ end
 
 shared_examples_for "an application with cloud storage gems" do
   let(:services) do
-    %w(local s3 gcs azure)
+    %w(local s3 gcs)
   end
   let(:storage_envs) do
     {
@@ -837,10 +820,7 @@ shared_examples_for "an application with cloud storage gems" do
       "AWS_SECRET_ACCESS_KEY" => "my-aws-secret",
       "AWS_REGION" => "eu-west-1",
       # "AWS_ENDPOINT" => "https://s3.amazonaws.com",
-      "AWS_BUCKET" => "test",
-      "AZURE_STORAGE_ACCOUNT_NAME" => "test",
-      "AZURE_STORAGE_ACCESS_KEY" => "dGVzdA==\n", # Base64 of "test"
-      "AZURE_CONTAINER" => "test"
+      "AWS_BUCKET" => "test"
     }
   end
 
@@ -849,7 +829,6 @@ shared_examples_for "an application with cloud storage gems" do
 
     expect(File.read("#{test_app}/Gemfile"))
       .to match(/gem ["']+aws-sdk-s3["']+/)
-      .and match(/gem ["']+azure-storage-blob["']+/)
       .and match(/gem ["']+google-cloud-storage["']+/)
 
     services.each do |service|
@@ -895,10 +874,6 @@ shared_examples_for "an application with storage and queue gems" do
                 close_meeting_reminder)
     expect(current["queues"].flatten).to include(*queues), "sidekiq queues (#{current["queues"].flatten}) expected to contain (#{queues})"
   end
-end
-
-def initializer_config_for(path, env, mod = "Decidim")
-  JSON.parse cmd_capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env:)
 end
 
 def rails_value(value, path, env)

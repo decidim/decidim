@@ -327,7 +327,6 @@ pt:
             certificate_of_attendance_description: Certifica-se que <strong>%{user}</strong> participou e fez parte de <strong>%{title}</strong> que tomou lugar em <strong>%{location}</strong> em <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Ocorreu um problema ao enviar os certificados de participação da conferência.
-          success: Certificados de participação da conferência enviados corretamente
       conference:
         registration_confirm:
           cancel: Cancelar

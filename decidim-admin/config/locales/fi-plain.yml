@@ -55,7 +55,6 @@ fi-pl:
         description: Kuvaus
         enable_machine_translations: Ota konekäännökset käyttöön
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
-        enable_participatory_space_filters: Ota käyttöön osallistumistilan suodattimet
         facebook_handler: Facebook-käsittelijä
         favicon: ikoni
         force_authentication: Kirjautuminen vaaditaan
@@ -189,7 +188,7 @@ fi-pl:
           </ul>
           Mikäli muutat mieltäsi, voit palauttaa tuloksen myöhemmin.
         export: Vie
-        export-selection: Vie valitut
+        export_all: Vie kaikki
         import: Tuo
         member:
           new: Uusi jäsen
@@ -1083,7 +1082,6 @@ fi-pl:
           title: Uusi aihe
         update:
           error: Tämän aiheen päivittämisessä tapahtui virhe.
-          success: Aihe päivitettiin onnistuneesti
       static_pages:
         actions:
           view: Näytä

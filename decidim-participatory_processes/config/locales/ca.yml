@@ -66,6 +66,8 @@ ca:
           attributes:
             document:
               allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}'
+              empty: El document està buit
+              invalid_json: El document no és un JSON vàlid
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: Fase modificada
@@ -106,7 +108,7 @@ ca:
       menu:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
-          info: Informació
+          info: Quant a aquest grup de processos
           landing_page: Disposició de la pàgina de destinació
         participatory_processes: Processos
         participatory_processes_submenu:
@@ -217,7 +219,7 @@ ca:
           error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
         update:
           error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
-          success: La fase de procés participatiu s'ha actualitzat correctament.
+          success: La fase del procés participatiu s'ha actualitzat correctament.
       participatory_process_user_roles:
         create:
           error: S'ha produït un error en afegir una participant en aquest procés participatiu.
@@ -341,7 +343,6 @@ ca:
     open_data:
       help:
         participatory_processes:
-          announcement: La informació de l'anunci/avís (crida)
           area: L'àrea a què pertany aquest procés
           component_settings: Configuració dels components del procés participatiu
           created_at: La data en què es va crear aquest procés participatiu
@@ -489,9 +490,13 @@ ca:
             all: Tots
             max_results: Quantitat màxima d'elements que es mostraran
             selection_criteria: Criteris de selecció
+        imports:
+          attachment_error: No s'ha pogut importar l'arxiu adjunt "%{title}" (%{error}).
+          hero_image_error: No s'ha pogut importar la imatge principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Aquesta funció d'importació et permet crear un nou procés participatiu a partir d'un fitxer JSON exportat. Pots exportar un procés participatiu d'una altra organització o de la mateixa organització. El procés participatiu importat inclourà la seva configuració, els components i els fitxers adjunts (si s'han seleccionat).
         participatory_process_duplicates:
           form:
             slug_help_html: 'Els segments d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -506,7 +511,6 @@ ca:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         participatory_processes:
           form:
-            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació del procés.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             has_members_help: Podràs crear i publicar membres

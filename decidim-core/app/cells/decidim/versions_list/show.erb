@@ -1,3 +1,28 @@
 <% reverse_ordered_versions.each_with_index do |version, index| %>
   <%= cell("decidim/versions_list_item", version, index:, versioned_resource:, version_path:, i18n_scope:, total:) %>
 <% end %>
+
+<% if versioned_resource.class.include?(Decidim::Fingerprintable) %>
+  <% fingerprint_id = dom_id(versioned_resource, :fingerprint_dialog) %>
+  <section class="mt-4 ml-2">
+    <%= content_tag :button, t("decidim.fingerprint.check"), class: "button button__lg button__text-secondary font-normal text-sm underline", data: { dialog_open: fingerprint_id } %>
+  </section>
+  <%= decidim_modal id: fingerprint_id, class: "fingerprint-modal" do %>
+    <div data-dialog-container>
+      <%= icon "fingerprint-line" %>
+      <h2 id="dialog-title-<%= fingerprint_id %>" tabindex="-1" data-dialog-title><%= t "decidim.fingerprint.title" %></h2>
+      <div class="fingerprint-modal__container">
+        <p id="dialog-desc-<%= fingerprint_id %>"><%= t "decidim.fingerprint.explanation" %></p>
+        <div>
+          <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.value" %>:</span>
+          <code class="fingerprint-modal__code"><%= decidim_html_escape versioned_resource.fingerprint.value %></code>
+        </div>
+        <div>
+          <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.source" %>:</span>
+          <code class="fingerprint-modal__code"><%= decidim_html_escape versioned_resource.fingerprint.source %></code>
+        </div>
+        <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "https://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

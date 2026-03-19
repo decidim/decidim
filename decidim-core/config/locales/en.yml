@@ -579,6 +579,7 @@ en:
     contact: Contact
     content_blocks:
       announcement:
+        body: Announcement text
         name: Announcement
       cta:
         name: Image, text and Call To Action button
@@ -1533,6 +1534,9 @@ en:
           %{organization_name}
         hello: Dear %{username},
         subject: Inactive account deleted
+    participatory_space_members:
+      index:
+        members: Members
     passwords:
       update:
         error: There was a problem updating the password.
@@ -1807,6 +1811,7 @@ en:
       send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
     failure:
       already_authenticated: You are already signed in.
+      csrf_token: Unable to verify your request. Please retry.
       inactive: Your account is not activated yet.
       invalid: Invalid %{authentication_keys} or password.
       invited: You have a pending invitation, accept it to finish creating your account.
@@ -1889,8 +1894,8 @@ en:
         confirm_new_password: Confirm new password
         new_password: New password
         old_password_help: In order to confirm the changes to your account, please provide your current password.
-        password_help: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
-        password_help_admin: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
+        password_help: "%{minimum_characters} characters minimum, must contain at least 5 different characters, must not be too common (e.g. 123456) and must be different from your name, nickname, email and the organization's host."
+        password_help_admin: "%{minimum_characters} characters minimum, must contain at least 5 different characters, must not be too common (e.g. 123456), must be different from your name, nickname, email, the organization's host and must be different from your old passwords."
         title: Password change
       new:
         forgot_your_password: Forgot your password?
@@ -2135,6 +2140,7 @@ en:
         confirm_title_close_ephemeral_session: Before leaving this page…
         log_in: Log in
         main_menu: Main menu
+        mobile_account_greeting: Hello, %{user_name}
         user_menu: User menu
       impersonation_warning:
         close_session: Close session

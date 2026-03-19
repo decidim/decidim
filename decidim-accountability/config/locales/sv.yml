@@ -113,7 +113,7 @@ sv:
             success: Importen av filen har påbörjats. Inom några minuter kommer du att få ett e-postmeddelande med importresultatet.
         milestones:
           create:
-            invalid: Det gick inte att skapa denna milstolpe.
+            invalid: Det gick inte att skapa milstolpen.
             success: Milstolpen skapades.
           destroy:
             success: Milstolpen togs bort.
@@ -126,7 +126,7 @@ sv:
             create: Skapa milstolpe
             title: Ny milstolpe
           update:
-            invalid: Det gick inte att uppdatera denna milstolpe.
+            invalid: Det gick inte att uppdatera milstolpen.
             success: Milstolpen har uppdaterats.
         models:
           result:
@@ -290,11 +290,12 @@ sv:
           taxonomies_part_of_contains:
             label: Kategori
       tooltips:
-        deleted_results_info: Kan inte ta bort detta resultat
+        deleted_results_info: Resultatet går inte att ta bort
     components:
       accountability:
         actions:
           comment: Kommentera
+          vote_comment: Rösta på en kommentar
         name: Genomförande
         settings:
           global:
@@ -303,7 +304,7 @@ sv:
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             default_taxonomy: Standardkategori
             default_taxonomy_help: Välj vilka kategorier du vill visa som standard. Om ingen kategori är vald, kommer resultatet visas som en lista.
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             display_progress_enabled: Visa behandling
             geocoding_enabled: Aktivera visning på karta
             intro: Intro

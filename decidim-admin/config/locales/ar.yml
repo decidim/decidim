@@ -48,7 +48,6 @@ ar:
         default_locale: اللغة الافتراضية
         description: الوصف
         enable_omnipresent_banner: عرض لافتة في كل مكان
-        enable_participatory_space_filters: تفعيل أختيارات فرز الفضاء التشاركي
         facebook_handler: مُعرّف حساب فيسبوك
         favicon: أيقونة
         force_authentication: فرض المصادقة
@@ -169,7 +168,7 @@ ar:
             <li class="font-bold">%{resources_count} مصادر</li>
           </ul>
           يمكنك استعادة العنصر إذا غيرت رأيك لاحقاً.
-        export-selection: تصدير الإختيار
+        export_all: تصدير الكل
         import: استيراد
         newsletter:
           new: رسالة إخبارية جديدة
@@ -702,7 +701,6 @@ ar:
           title: موضوع جديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا الموضوع.
-          success: تم تحديث الموضوع بنجاح
       static_pages:
         create:
           error: كانت هناك مشكلة في إنشاء صفحة جديدة.

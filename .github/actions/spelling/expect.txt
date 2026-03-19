@@ -19,6 +19,7 @@ activelog
 activemodel
 activerecord
 activestorage
+actualitzar
 actualizado
 addlabel
 Adeu
@@ -139,6 +140,7 @@ cobertura
 codecov
 codefor
 CODEOWNERS
+coderabbit
 codespace
 codeql
 coditramuntana
@@ -279,6 +281,7 @@ erblint
 Errbit
 Esa
 espa
+estar
 estat
 etherpad
 evanfuture
@@ -406,6 +409,7 @@ Ijkl
 ilike
 illgotten
 impersonatable
+importmap
 inbox
 includeurl
 Indicacions
@@ -490,6 +494,7 @@ Llobregat
 lng
 Localret
 localvars
+lockfiles
 loggable
 lon
 LOPD
@@ -510,6 +515,7 @@ markercluster
 marydoe
 Massot
 matrixmultiple
+mattr
 matutes
 maxtimeout
 mcdoggo
@@ -876,6 +882,7 @@ timeouter
 timestamped
 tiptap
 Tmpname
+tms
 TLDR
 todos
 Tomorrowland

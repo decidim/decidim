@@ -23,7 +23,7 @@ module Decidim
       private
 
       def result_items
-        return [dates_item, status_item, status_description] if template == :project_aside
+        return [dates_item, status_item, status_description] if template == :result_aside
         return [reference, versions] if template == :show_footer
 
         [dates_item_compact, status_item_compact] + taxonomy_items

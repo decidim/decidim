@@ -1,1 +1,68 @@
+---
 el:
+  decidim:
+    design:
+      components:
+        accordions:
+          demo: Επίδειξη
+          panel: Πάνελ
+          title: Ακορντεόν
+          usage: Χρήση
+        activities:
+          activities: Δραστηριότητες
+        address:
+          title: Διεύθυνση
+        announcement:
+          iam_an_announcement: Είμαι μια ανακοίνωση
+          this_is_the_title: Αυτός είναι ο τίτλος
+          title: Ανακοίνωση
+        author:
+          title: Δημιουργός
+        buttons:
+          title: Κουμπιά
+        cards:
+          title: Κάρτες
+        dialogs:
+          title: Διάλογοι
+        follow:
+          title: Ακολούθησε
+        forms:
+          disabled: Απενεργοποιημένο
+          errors: Σφάλματα
+          errors_description: Δεν ισχύει για την επιλογή
+          help_texts: Κείμενα βοήθειας
+          multiselect: Πολλαπλή Επιλογή
+          title: Φόρμες
+        report:
+          title: Αναφορά
+        share:
+          title: Κοινοποίηση
+      foundations:
+        accessibility:
+          learn_more_about_html: Διαβάστε περισσότερα για το %{link}
+          links_and_buttons: Σύνδεσμοι και κουμπιά
+        color:
+          color_header: Χρώμα
+        iconography:
+          title: Εικονογραφία
+        layout:
+          centered: Κεντραρισμένο
+          code: Κώδικας
+          desktop: Επιτραπέζιος Υπολογιστής
+          full_width: Πλήρες Πλάτος
+          mobile: Κινητό
+          not_required: Δεν απαιτείται
+          properties: Ιδιότητες
+          title: Διάταξη
+      helpers:
+        assemblies: Συνελεύσεις
+        avatar: Εικόνα Χρήστη
+        background: Φόντο και σύνορα
+        base: Βάση
+        blogs: Ιστολόγια
+        budgets: Προϋπολογισμοί
+        colors: Χρώματα
+        compact: Συμπαγές
+        default: Προεπιλογή
+        description: Περιγραφή
+        disabled: Απενεργοποιημένο

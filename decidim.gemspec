@@ -2,11 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-# Maintain your gem's version:
-require "decidim/version"
-
 Gem::Specification.new do |s|
-  s.version = Decidim.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0-or-later"
@@ -45,24 +43,24 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
 
-  s.add_dependency "decidim-accountability", Decidim.version
-  s.add_dependency "decidim-admin", Decidim.version
-  s.add_dependency "decidim-api", Decidim.version
-  s.add_dependency "decidim-assemblies", Decidim.version
-  s.add_dependency "decidim-blogs", Decidim.version
-  s.add_dependency "decidim-budgets", Decidim.version
-  s.add_dependency "decidim-comments", Decidim.version
-  s.add_dependency "decidim-core", Decidim.version
-  s.add_dependency "decidim-debates", Decidim.version
-  s.add_dependency "decidim-forms", Decidim.version
-  s.add_dependency "decidim-generators", Decidim.version
-  s.add_dependency "decidim-meetings", Decidim.version
-  s.add_dependency "decidim-pages", Decidim.version
-  s.add_dependency "decidim-participatory_processes", Decidim.version
-  s.add_dependency "decidim-proposals", Decidim.version
-  s.add_dependency "decidim-surveys", Decidim.version
-  s.add_dependency "decidim-system", Decidim.version
-  s.add_dependency "decidim-verifications", Decidim.version
+  s.add_dependency "decidim-accountability", version
+  s.add_dependency "decidim-admin", version
+  s.add_dependency "decidim-api", version
+  s.add_dependency "decidim-assemblies", version
+  s.add_dependency "decidim-blogs", version
+  s.add_dependency "decidim-budgets", version
+  s.add_dependency "decidim-comments", version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-debates", version
+  s.add_dependency "decidim-forms", version
+  s.add_dependency "decidim-generators", version
+  s.add_dependency "decidim-meetings", version
+  s.add_dependency "decidim-pages", version
+  s.add_dependency "decidim-participatory_processes", version
+  s.add_dependency "decidim-proposals", version
+  s.add_dependency "decidim-surveys", version
+  s.add_dependency "decidim-system", version
+  s.add_dependency "decidim-verifications", version
 
   s.add_development_dependency "bundler", "~> 2.2", ">= 2.2.18"
   s.add_development_dependency "rake", "~> 12.0"

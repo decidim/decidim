@@ -3,6 +3,13 @@ cs:
     attributes:
       token_csv:
         file: Soubor
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Volby
+        few: Voleb
+        many: Voleb
+        other: Volby
   decidim:
     admin:
       menu:
@@ -65,13 +72,25 @@ cs:
           questions_table:
             answer: Odpovědi
             percentage: Procenta
+            total: Celkem
             votes: Hlasy
+            votes_count:
+              one: 1 hlas
+              few: "%{count} hlasy"
+              many: "%{count} hlasů"
+              other: "%{count} hlasů"
           results:
             not_started: Volba ještě nezačala.
+            per_question_waiting: Hlasování ještě není povoleno pro žádné otázky. Účastníci uvidí zprávu "Čekání na další otázku", dokud se neaktivujete alespoň jednou.
             publish_button: Publikovat výsledky
+            results_availability:
+              after_end: Všechny výsledky můžete publikovat po ukončení voleb. Výsledky zůstanou skryté, dokud je nezveřejníte ručně.
+              per_question: Musíte povolit hlasování a ručně publikovat výsledky pro každou otázku jednotlivě.
             start_question_button: Povolit hlasování
             title: Výsledky
           status:
+            allow_census_check_before_start: Povolit uživatelům zkontrolovat, zda mohou hlasovat před zahájením voleb
+            census: 'Registr obyvatel:'
             results_availability:
               real_time: Výsledky jsou dostupné v reálném čase
             title: Stav voleb

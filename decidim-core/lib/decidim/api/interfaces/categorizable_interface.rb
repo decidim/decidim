@@ -5,6 +5,7 @@ module Decidim
     # This interface represents a categorizable object.
     module CategorizableInterface
       include Decidim::Api::Types::BaseInterface
+
       description "An interface that can be used in categorizable objects."
 
       field :category, Decidim::Core::CategoryType, "The object's category", null: true

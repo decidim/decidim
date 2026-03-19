@@ -184,6 +184,10 @@ en:
               empty: There are no census data. Use %{import_csv} to import a CSV file.
               no_sign_in: Never signed in
               no_user: No user found
+              title: Current census data
+            instructions:
+              body: To do this you must enter system administration and add the csv_census authorizations to the organization
+              title: You need to activate the CSV census for this organization
             last_login:
               no_sign_in: Never signed in
               no_user: No user
@@ -221,10 +225,6 @@ en:
               user_authorized: User authorized?
             import_csv: Import CSV
             no_authorized: User unauthorized
-            title: Current census data
-          instructions:
-            body: To do this you must enter system administration and add the csv_census authorizations to the organization
-            title: You need to activate the CSV census for this organization
         authorizations:
           new:
             error: We could not verify your account or you are not in the organization's census.
@@ -255,8 +255,8 @@ en:
               error: Verification does not match. Please try again or reject the verification so the participant can amend it.
               success: Participant successfully verified.
             new:
-              introduce_user_data: Introduce the data in the picture
               reject: Reject
+              title: Introduce the data in the picture
               verify: Verify
           offline_confirmations:
             create:
@@ -264,7 +264,7 @@ en:
               success: Participant successfully verified.
             new:
               cancel: Cancel
-              introduce_user_data: Introduce the participant email and the document data
+              title: Introduce the participant email and the document data
               verify: Verify
           pending_authorizations:
             index:

@@ -449,7 +449,7 @@ describe "Orders" do
             page.find(".button", text: "Confirm").click
           end
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_content("Your vote has been successfully accepted")
 
           page.find(".button", text: "View votes").click
         end
@@ -590,7 +590,7 @@ describe "Orders" do
           accept_confirm { page.find(".cancel-order", match: :first).click }
         end
 
-        expect(page).to have_content("successfully")
+        expect(page).to have_callout("Your vote has been successfully canceled")
 
         within "#order-progress .budget-summary__content", match: :first do
           expect(page).to have_button(disabled: true)

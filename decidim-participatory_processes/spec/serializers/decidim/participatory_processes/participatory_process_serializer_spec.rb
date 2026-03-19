@@ -20,7 +20,6 @@ module Decidim::ParticipatoryProcesses
         expect(serialized).to include(slug: resource.slug)
         expect(serialized).to include(short_description: resource.short_description)
         expect(serialized).to include(description: resource.description)
-        expect(serialized).to include(announcement: resource.announcement)
         expect(serialized).to include(start_date: resource.start_date)
         expect(serialized).to include(end_date: resource.end_date)
         expect(serialized[:remote_hero_image_url]).to be_blob_url(resource.hero_image.blob)

@@ -42,8 +42,8 @@ sv:
           components:
             allow_editing_responses: Tillåt registrerade användare att redigera egna enkätsvar
             allow_responses: Tillåt svar
-            allow_unregistered: Tillåt oregistrerade användare att besvara enkäten
-            allow_unregistered_help: Om aktiv kommer ingen inloggning att krävas för att besvara enkäten. Detta kan leda till dålig eller opålitlig data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet! Tänk på att en deltagare kan svara på samma enkät flera gånger, genom att använda olika webbläsare eller "privat surfning" i sin webbläsare.
+            allow_unregistered: Tillåt oregistrerade användare att svara på enkäten
+            allow_unregistered_help: Om aktiv kommer ingen inloggning att krävas för att besvara enkäten. Detta kan leda till dålig eller opålitlig data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet! Tänk på att en deltagare kunde svara på samma enkät flera gånger, genom att använda olika webbläsare eller "privat surfning" i sin webbläsare.
             announcement: Meddelande
             clean_after_publish: Ta bort svar vid publicering av enkäten
             description: Beskrivning
@@ -187,6 +187,9 @@ sv:
           of_total_steps: av %{total_steps}
           questionnaire_closed:
             body: Formuläret är stängt och kan inte besvaras.
+            title: Formuläret är stängt
+          questionnaire_for_members:
+            body: Formuläret är endast tillgängligt för medlemmar
             title: Formuläret är stängt
           questionnaire_js_disabled:
             body: Vissa av formulärets funktioner kommer att inaktiveras. Aktivera JavaScript i webbläsaren för att förbättra upplevelsen.

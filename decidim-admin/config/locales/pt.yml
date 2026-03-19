@@ -38,7 +38,6 @@ pt:
         default_locale: Idioma por defeito
         description: Descrição
         enable_omnipresent_banner: Mostrar faixa omnipresente
-        enable_participatory_space_filters: Activar filtros do espaço participativo
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
         force_authentication: Forçar autenticação
@@ -135,7 +134,7 @@ pt:
         browse: Explorar
         configure: Configurar
         export: Exportar
-        export-selection: Exportar selecção
+        export_all: Exportar tudo
         import: Importar
         newsletter:
           new: Novo boletim informativo
@@ -664,7 +663,6 @@ pt:
           title: Novo tópico
         update:
           error: Ocorreu um problema ao atualizar este tópico.
-          success: Tópico atualizado com sucesso
       static_pages:
         create:
           error: Ocorreu um problema ao criar uma nova página.

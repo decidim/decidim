@@ -5,6 +5,7 @@
   "workspaceFolder": "/workspaces/decidim",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/rails/devcontainer/features/bundler-cache:1.0.1": {},
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
       "moby": false
     },

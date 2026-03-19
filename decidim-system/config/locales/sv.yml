@@ -42,11 +42,11 @@ sv:
     system:
       actions:
         api_user:
-          hidden_secret: Hemlighet är dold
-          hide_secret: Dölj hemlighet
-          secret_can_not_be_shown: API:s hemlighet kan bara ses vid skapande eller kopiering
-          show_secret: Visa hemlighet
-          shown_secret: Hemligheten är visad
+          hidden_secret: Hemlig nyckel är dold
+          hide_secret: Dölj hemlig nyckel
+          secret_can_not_be_shown: Den hemliga API-nyckeln visas bara vid skapande eller kopiering
+          show_secret: Visa hemlig nyckel
+          shown_secret: Hemlig nyckel visas
         api_users:
           create: Skapa
           new: Ny API-användare
@@ -212,27 +212,79 @@ sv:
         create:
           error: Det gick inte att skapa en ny organisation.
           error_invitation: Det gick inte att skapa en ny organisation. Granska organisationens administratörsnamn.
+          success_html: |
+            <p>
+              Organisationen har skapats.
+            </p>
+            <ol>
+              <li>Du kan behöva uppdatera din programkod, för att tillåta förfrågningar till %{host} måste du lägga till följande i din
+              miljö konfiguration (i.. <code>config/environment/production.rb</code>) eller din <code>config/application.rb</code>:
+                <p> config. osts << "%{host}" </p>
+              </li>
+              <li>
+                Efter det är klart du kommer att kunna komma åt din plattform via <a href="http://%{host}">http://%{host}</a>
+              </li>
+              <li>
+                Vi har skickat ett e-postmeddelande till <b>%{email}</b> som du måste bekräfta.
+              </li>
+            </ol>
         csp_settings:
           connect_src: Connect src
+          connect_src_hint: |
+            Connect-src-direktivet begränsar de webbadresser som kan laddas med <script> -element.
+            Plattformen kommer att lägga till 'själv', men låter dig lägga till mer. Lämna det tomt om du är osäker.
           default_src: Default src
+          default_src_hint: |
+            Standard-src direktivet är standardpolicyn för att ladda innehåll som JavaScript, Bilder, CSS, Teckensnitt, AJAX förfrågningar, Frames, HTML5 Media.
+            Plattformen kommer att lägga till "'self' 'unsafe-inline'", men låter dig lägga till mer. lämna det tomt om du är osäker.
           font_src: Font src
+          font_src_hint: |
+            Direktivet om font-src begränsar de webbadresser som kan laddas med @font-face.
+            Plattformen kommer att lägga till 'själv', men låter dig lägga till mer. Lämna det tomt om du är osäker.
           frame_src: Frame src
+          frame_src_hint: |
+            Frame-src direktivet begränsar de webbadresser som kan laddas med <frame>, <iframe> och <object> element.
+            Plattformen kommer att lägga till 'själv', men låter dig lägga till mer. lämna det tomt om du är osäker.
           img_src: Img src
+          img_src_hint: |
+            Img-src direktivet begränsar de webbadresser som kan laddas med <img>, <image>, <picture> och <svg> element.
+            Plattformen kommer att lägga till 'själv', men låter dig lägga till mer. lämna det tomt om du är osäker.
           media_src: Media src
+          media_src_hint: |
+            Media-src-direktivet begränsar de webbadresser som kan laddas med elementen <video>, <audio> och <source>.
+            Plattformen kommer att lägga till 'själv', men låter dig lägga till mer. lämna det tomt om du är osäker.
           script_src: Script src
+          script_src_hint: |
+            Script-src-direktivet begränsar de webbadresser som kan laddas med hjälp av <script> -element.
+            Plattformen kommer att lägga till "'själv' 'unsafe-inline' 'unsafe-eval'", men låter dig lägga till mer. Lämna det tomt om du är osäker.
           style_src: Style src
+          style_src_hint: |
+            Direktivet style-src begränsar de webbadresser som kan laddas med <style> element.
+            Plattformen kommer att lägga till "'self' 'unsafe-inline'", men låter dig lägga till mer. Lämna det tomt om du är osäker.
         edit:
           confirm_resend_invitation: Är du säker på att du vill skicka inbjudan igen?
           resend_invitation: Skicka inbjudan igen
           secondary_hosts_hint: Ange var och en av dem på en ny rad
+          short_name_hint: Kortnamn som används för det progressiva webbprogrammet. Det måste ha högst 12 tecken.
           title: Redigera organisation
         file_upload_settings:
           content_types:
+            admin_hint: Dessa MIME-typer är tillåtna för admin-sektionen uppladdningar. Admin användare bör vara medvetna om riskerna med att ladda upp vissa dokumentformat, så du kan förvänta dig att de ska vara mer försiktiga med filuppladdningar.
+            default_hint: Dessa MIME-typer är tillåtna för alla användare som standard.
+            intro_html: Du lägger till jokertecken med asterisk tecken för MIME-typer, t.ex. <code>image/*</code>.
             title: Tillåtna MIME-typer
           file_extensions:
+            admin_hint: Dessa filtillägg är tillåtna för admin-sektionen uppladdningar. Admin användare bör vara medvetna om riskerna med att ladda upp vissa dokumentformat, så du kan förvänta dig att de ska vara mer försiktiga med filuppladdningar.
+            default_hint: Dessa filtillägg är tillåtna för alla användare som standard.
+            image_hint: Dessa filtillägg är tillåtna för alla typer av bilduppladdningar.
             title: Tillåtna filändelser
           file_sizes:
+            avatar_hint: Megabyte (MB). Denna filstorleksgräns används för profilbilder.
+            default_hint: Megabyte (MB). Denna filstorleksgräns är standard som används för alla filuppladdningar om inget annat anges.
             title: Maximal filstorlek
+          intro: |
+            Var extra försiktig när du överväger att ändra dessa inställningar. Ju mindre du tillåter, desto bättre.
+            Att tillåta specifika filtillägg eller MIME-typer kan utsätta systemanvändarna för säkerhetsrisker och det kan också påverka tillgängligheten på webbplatsen.
         header_snippets_help_html: Använd det här fältet för att lägga till saker i HTML-rubriken. Vanligaste användningsområdet är att integrera tredjepartstjänster som kräver extra JavaScript eller CSS. Du kan också lägga till extra metataggar i HTML-koden. Notera att det bara kommer visas på offentliga sidor, inte i admin-sektionen. Om koden interagerar med externa API:er eller inte följer applikationens säkerhetskrav kommer det att vara nödvändigt att ändra innehållssäkerhetspolicyn. Läs mer <a href="https://docs.decidim.org/en/develop/customize/content_security_policy">på dokumentationssidan</a>.
         index:
           title: Organisationer
@@ -240,7 +292,10 @@ sv:
           default: Standard?
           enabled: Aktiverad
           locale: Språk
+          organization_admin_email_hint: Vi kommer att skicka ett e-postmeddelande till denna adress så att du kan bekräfta det och ställa in ditt lösenord.
+          reference_prefix_hint: Referensprefixet används för att unikt identifiera resurser i alla organisationer.
           secondary_hosts_hint: Ange var och en på en ny rad.
+          short_name_hint: Kortnamn som används för det progressiva webbprogrammet. Det måste ha högst 12 tecken.
           title: Ny organisation
         omniauth_settings:
           decidim:

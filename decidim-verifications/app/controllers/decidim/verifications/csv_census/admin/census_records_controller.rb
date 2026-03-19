@@ -22,7 +22,7 @@ module Decidim
               end
 
               on(:invalid) do
-                render :new_record, status: :unprocessable_entity
+                render :new_record, status: :unprocessable_content
               end
             end
           end
@@ -42,7 +42,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("census_records.update_record.invalid", scope: "decidim.verifications.csv_census.admin")
-                render action: "edit_record", status: :unprocessable_entity
+                render action: "edit_record", status: :unprocessable_content
               end
             end
           end

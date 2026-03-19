@@ -53,7 +53,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render json: { message: I18n.t("update.error", scope: "decidim.proposals.invite_coauthors") }, status: :unprocessable_entity
+            render json: { message: I18n.t("update.error", scope: "decidim.proposals.invite_coauthors") }, status: :unprocessable_content
           end
         end
       end
@@ -68,7 +68,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render json: { message: I18n.t("destroy.error", scope: "decidim.proposals.invite_coauthors") }, status: :unprocessable_entity
+            render json: { message: I18n.t("destroy.error", scope: "decidim.proposals.invite_coauthors") }, status: :unprocessable_content
           end
         end
       end

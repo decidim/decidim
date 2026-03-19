@@ -30,8 +30,8 @@ module Decidim
     #
     # Returns a Hash with the locales as keys and the empty strings as values.
     def empty_translatable(locales = Decidim.available_locales)
-      locales.each_with_object({}) do |locale, result|
-        result[locale.to_s] = ""
+      locales.to_h do |locale|
+        [locale.to_s, ""]
       end
     end
 
@@ -49,8 +49,8 @@ module Decidim
     def ensure_translatable(value, locales = Decidim.available_locales)
       return empty_translatable(locales) unless value.is_a?(Hash)
 
-      locales.each_with_object({}) do |locale, result|
-        result[locale.to_s] = value[locale.to_s] || value[locale] || ""
+      locales.to_h do |locale|
+        [locale.to_s, value[locale.to_s] || value[locale] || ""]
       end
     end
 

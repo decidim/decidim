@@ -82,8 +82,6 @@ lb:
         unpublish: Veröffentlichung rückgängig machen
       menu:
         participatory_process_groups: Prozessgruppen
-        participatory_process_groups_submenu:
-          info: Info
         participatory_processes: Beteiligungsprozesse
         participatory_processes_submenu:
           attachment_collections: Dossieren
@@ -175,7 +173,6 @@ lb:
           error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
         update:
           error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
-          success: Partizipativer Prozessschritt erfolgreich aktualisiert.
       participatory_process_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.

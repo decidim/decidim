@@ -285,7 +285,6 @@ zh-CN:
             certificate_of_attendance_description: 这是为了证明 <strong>%{user}</strong> 出席并参加了 <strong>%{title}</strong> 在 <strong>%{location}</strong> 在 <strong>%{start} - %{end}</strong>
         send_diploma:
           error: 签发与会证书时遇到问题。
-          success: 会议出勤证明已成功发送
       conference:
         registration_confirm:
           cancel: 取消

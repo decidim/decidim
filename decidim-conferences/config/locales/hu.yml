@@ -354,7 +354,6 @@ hu:
             certificate_of_attendance_description: Ez azt igazolja, hogy <strong>%{user}</strong> részt vett a <strong>%{title}</strong> című eseményen a <strong>%{location}</strong> címen a követező időpontban, <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Probléma merült fel a konferencia részvételi igazolásainak elküldése közben.
-          success: A konferencia részvételi igazolások helyesen küldtek
       conference:
         registration_confirm:
           cancel: Megszünteti

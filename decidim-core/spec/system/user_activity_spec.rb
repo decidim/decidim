@@ -40,7 +40,7 @@ describe "User activity" do
   end
 
   let(:resource_types) do
-    ["Collaborative draft", "Comment", "Debate", "Initiative", "Meeting", "Post", "Proposal"]
+    %w(Comment Debate Initiative Meeting Post Proposal)
   end
 
   before do

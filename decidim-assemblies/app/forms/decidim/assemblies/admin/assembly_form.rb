@@ -31,7 +31,6 @@ module Decidim
         translatable_attribute :subtitle, String
         translatable_attribute :target, String
         translatable_attribute :title, String
-        translatable_attribute :announcement, Decidim::Attributes::RichText
 
         attribute :created_by, String
         attribute :facebook_handler, String
@@ -55,9 +54,7 @@ module Decidim
         attribute :duration, Decidim::Attributes::LocalizedDate
         attribute :included_at, Decidim::Attributes::LocalizedDate
 
-        attribute :banner_image
         attribute :hero_image
-        attribute :remove_banner_image, Boolean, default: false
         attribute :remove_hero_image, Boolean, default: false
 
         validates :parent, presence: true, if: ->(form) { form.parent.present? }
@@ -70,7 +67,6 @@ module Decidim
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
-        validates :banner_image, passthru: { to: Decidim::Assembly }
         validates :hero_image, passthru: { to: Decidim::Assembly }
 
         validates :weight, presence: true
