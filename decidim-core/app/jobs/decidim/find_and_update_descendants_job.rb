@@ -7,7 +7,10 @@ module Decidim
     MAX_DEPTH = 5
 
     def perform(element, current_depth = 0)
-      return if current_depth >= MAX_DEPTH
+      if current_depth >= MAX_DEPTH
+        Rails.logger.warn "Max depth of #{MAX_DEPTH} reached for element #{element.class.name} with id #{element.id}. Stopping recursion."
+        return
+      end
 
       descendants_collector = components_for(element)
       descendants_collector << element.comments.to_a if element.respond_to?(:comments)
