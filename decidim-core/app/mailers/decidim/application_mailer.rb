@@ -29,7 +29,7 @@ module Decidim
     def set_smtp
       return if organization.nil? || organization.smtp_settings.blank? || organization.smtp_settings.except("from", "from_label", "from_email").all?(&:blank?)
 
-      mail.reply_to = mail.reply_to || Decidim.config.mailer_reply
+      mail.reply_to = mail.reply_to || Decidim.config.mailer_sender
       mail.delivery_method.settings.merge!(
         address: organization.smtp_settings["address"],
         port: organization.smtp_settings["port"],

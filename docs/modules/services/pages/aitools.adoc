@@ -71,7 +71,6 @@ Decidim::Ai::SpamDetection.resource_models = {
   "Decidim::Debates::Debate" => "Decidim::Ai::SpamDetection::Resource::Debate",
   "Decidim::Meetings::Meeting" => "Decidim::Ai::SpamDetection::Resource::Meeting",
   "Decidim::Proposals::Proposal" => "Decidim::Ai::SpamDetection::Resource::Proposal",
-  "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft",
   "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
 }
 

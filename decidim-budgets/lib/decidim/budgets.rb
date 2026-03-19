@@ -12,7 +12,5 @@ module Decidim
   module Budgets
     autoload :ProjectSerializer, "decidim/budgets/project_serializer"
     autoload :OrderPDF, "decidim/budgets/budget_order_pdf"
-
-    include ActiveSupport::Configurable
   end
 end

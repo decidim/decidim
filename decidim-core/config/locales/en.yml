@@ -1534,6 +1534,9 @@ en:
           %{organization_name}
         hello: Dear %{username},
         subject: Inactive account deleted
+    participatory_space_members:
+      index:
+        members: Members
     passwords:
       update:
         error: There was a problem updating the password.

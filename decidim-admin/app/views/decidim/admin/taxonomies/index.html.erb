@@ -1,10 +1,10 @@
-<% add_decidim_page_title(t("taxonomies", scope: "decidim.admin.titles")) %>
+<% add_decidim_page_title(t(".title")) %>
 
 <div class="card" aria-labelledby="taxonomies-title">
   <div class="item_show__header">
     <div class="w-full">
       <h1 class="item_show__header-title" id="taxonomies-title">
-        <%= t "decidim.admin.titles.taxonomies" %>
+        <%= t ".title" %>
         <% if allowed_to? :create, :taxonomy %>
           <%= link_to t(".new_taxonomy"), new_taxonomy_path, class: "button button__sm button__secondary new" %>
         <% end %>

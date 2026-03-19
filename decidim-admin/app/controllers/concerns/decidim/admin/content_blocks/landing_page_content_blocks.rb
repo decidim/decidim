@@ -56,7 +56,7 @@ module Decidim
                 redirect_to edit_resource_landing_page_path
               end
               on(:invalid) do
-                render "decidim/admin/shared/landing_page_content_blocks/edit", status: :unprocessable_entity
+                render "decidim/admin/shared/landing_page_content_blocks/edit", status: :unprocessable_content
               end
             end
           end

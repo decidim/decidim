@@ -22,8 +22,6 @@ module Decidim
   # create external libraries that create test apps and test themselves against
   # them.
   module Dev
-    include ActiveSupport::Configurable
-
     autoload :DummyTranslator, "decidim/dev/dummy_translator"
 
     # Public: Finds an asset.
