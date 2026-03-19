@@ -24,7 +24,7 @@ describe "Transparent Space Respond a survey" do
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:another_user) { create(:user, :confirmed, organization:) }
-  let!(:member) { create(:member, user: another_user, participatory_space: participatory_space_transparent) }
+  let!(:member) { create(:member, user: another_user, participatory_space:) }
 
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
   let!(:survey) { create(:survey, :published, :allow_responses, component:, questionnaire:) }
@@ -33,6 +33,10 @@ describe "Transparent Space Respond a survey" do
 
   let!(:participatory_space) { create(:assembly, :published, :transparent, organization:) }
   let!(:component) { create(:component, manifest:, participatory_space:) }
+
+  def visit_component
+    page.visit main_component_path(component)
+  end
 
   before do
     switch_to_host(organization.host)

@@ -24,7 +24,7 @@ describe "Restricted Space Respond a survey" do
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:another_user) { create(:user, :confirmed, organization:) }
-  let!(:member) { create(:member, user: another_user, participatory_space: participatory_space_restricted) }
+  let!(:member) { create(:member, user: another_user, participatory_space:) }
 
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
   let!(:survey) { create(:survey, :published, :allow_responses, component:, questionnaire:) }

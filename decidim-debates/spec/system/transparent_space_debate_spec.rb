@@ -9,10 +9,14 @@ describe "Transparent Space Debate" do
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
-  let!(:member) { create(:member, user: other_user, participatory_space: participatory_space_transparent) }
+  let!(:member) { create(:member, user: other_user, participatory_space:) }
 
   let!(:participatory_space) { create(:assembly, :published, :transparent, organization:) }
   let!(:component) { create(:component, manifest:, participatory_space:) }
+
+  def visit_component
+    page.visit main_component_path(component)
+  end
 
   before do
     switch_to_host(organization.host)
@@ -36,7 +40,7 @@ describe "Transparent Space Debate" do
       end
 
       it "allows creating a debate" do
-        page.visit main_component_path(component)
+        visit_component
 
         expect(page).to have_link("New debate")
       end

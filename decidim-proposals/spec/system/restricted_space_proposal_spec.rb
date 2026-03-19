@@ -6,7 +6,7 @@ describe "Restricted Space Proposal" do
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
-  let!(:member) { create(:member, user: other_user, participatory_space: participatory_space_restricted) }
+  let!(:member) { create(:member, user: other_user, participatory_space:) }
 
   let!(:participatory_space) { create(:assembly, :published, :restricted, organization:) }
   let!(:component) { create(:proposal_component, participatory_space:) }
