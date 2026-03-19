@@ -44,6 +44,7 @@ module Decidim
         mapped_author = super
         return unless mapped_author
         return mapped_author if mapped_author.is_a?(Decidim::Organization)
+        return mapped_author if mapped_author.try(:group?)
         return mapped_author if mapped_author.try(:visible?)
         return mapped_author if mapped_author.try(:deleted?)
         return mapped_author if mapped_author.try(:ephemeral?)
