@@ -176,7 +176,7 @@
           <% Decidim::ParticipatoryProcess::ACCESS_MODES.keys.each do |mode| %>
             <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
               <%= form.radio_button :access_mode, mode %>
-              <span><%= t(mode, scope: "decidim.participatory_processes.admin.assemblies.form.access.options") %></span>
+              <span><%= t(mode, scope: "decidim.participatory_processes.admin.participatory_processes.form.access.options") %></span>
              <% end %>
           <% end %>
         </div>
