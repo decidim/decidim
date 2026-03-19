@@ -7,7 +7,7 @@ describe("adjustPickerPosition", () => {
   let parent = null;
   let datePickerContainer = null;
 
-  const originalInnerHeight = () => window.innerHeight;
+  let originalInnerHeight = window.innerHeight;
 
   beforeEach(() => {
     // Setup DOM structure
