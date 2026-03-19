@@ -7,7 +7,7 @@ describe("adjustPickerPosition (timepicker)", () => {
   let parent = null;
   let timePicker = null;
 
-  let originalInnerHeight;
+  const originalInnerHeight = () => window.innerHeight;
 
   beforeEach(() => {
     parent = document.createElement("div");
