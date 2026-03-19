@@ -157,6 +157,7 @@ en:
           likes_count: The number of likes this post has
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this post belongs to
           published_at: The date this post was published
+          reference: The unique reference of the post
           title: The title of the post
           updated_at: The last date this post was updated
           url: The URL for this post
