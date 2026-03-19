@@ -7,6 +7,7 @@ module Decidim
     class BaseCell < Decidim::ViewModel
       include Cell::ViewModel::Partial
       include Decidim::NewslettersHelper
+      include Decidim::MailerHelper
 
       def show
         render :show
