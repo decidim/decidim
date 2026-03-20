@@ -107,7 +107,7 @@ shared_examples "participatory space members" do
       end
 
       it "lists all the non ceased members" do
-        within "#assembly_members-grid" do
+        within ".layout-main__section" do
           expect(page).to have_css(".profile__user", count: 1)
 
           expect(page).to have_no_content(Decidim::ParticipatorySpace::MemberPresenter.new(ceased_member).name)

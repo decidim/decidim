@@ -86,10 +86,6 @@ module Decidim
         formatted_body
       end
 
-      def replies
-        SortedComments.for(model, order_by: order)
-      end
-
       def order
         options[:order] || "older"
       end
@@ -234,7 +230,11 @@ module Decidim
       end
 
       def has_replies_in_children?
-        model.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.exists?
+        replies_count.positive?
+      end
+
+      def replies_count
+        @replies_count ||= model.replies.count
       end
 
       # action_authorization_button expects current_component to be available

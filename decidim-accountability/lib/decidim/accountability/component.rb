@@ -14,14 +14,12 @@ Decidim.register_component(:accountability) do |component|
   component.on(:publish) do |instance|
     Decidim::Accountability::Result.where(component: instance).find_each do |result|
       Decidim::UpdateSearchIndexesJob.perform_later([result])
-      Decidim::UpdateSearchIndexesJob.perform_later(result.children.to_a)
     end
   end
 
   component.on(:unpublish) do |instance|
     Decidim::Accountability::Result.where(component: instance).find_each do |result|
       Decidim::RemoveSearchIndexesJob.perform_later([result])
-      Decidim::UpdateSearchIndexesJob.perform_later(result.children.to_a)
     end
   end
 

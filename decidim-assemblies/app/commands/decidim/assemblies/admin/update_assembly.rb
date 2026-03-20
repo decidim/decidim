@@ -6,7 +6,7 @@ module Decidim
       # A command with all the business logic when updating a new assembly
       # in the system.
       class UpdateAssembly < Decidim::Commands::UpdateResource
-        fetch_file_attributes :hero_image, :banner_image
+        fetch_file_attributes :hero_image
 
         fetch_form_attributes :title, :subtitle, :slug, :promoted, :description, :short_description,
                               :taxonomizations, :parent, :private_space, :developer_group, :local_area,

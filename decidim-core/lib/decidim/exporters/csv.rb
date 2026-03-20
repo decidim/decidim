@@ -66,7 +66,7 @@ module Decidim
             result.merge(flatten(value, new_key))
           end
         when Array
-          { key.to_s => object.compact.map(&:to_s).join(", ") }
+          { key.to_s => object.compact.join(", ") }
         else
           { key.to_s => object }
         end

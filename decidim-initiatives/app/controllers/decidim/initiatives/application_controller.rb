@@ -8,6 +8,7 @@ module Decidim
     # this engine inherit.
     class ApplicationController < Decidim::ApplicationController
       include NeedsPermission
+
       register_permissions(::Decidim::Initiatives::ApplicationController,
                            ::Decidim::Initiatives::Permissions,
                            ::Decidim::Admin::Permissions,

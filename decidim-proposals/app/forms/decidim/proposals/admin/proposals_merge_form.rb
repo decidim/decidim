@@ -8,6 +8,7 @@ module Decidim
       class ProposalsMergeForm < ProposalBaseForm
         include Decidim::HasUploadValidations
         include Decidim::AttachmentAttributes
+
         translatable_attribute :title, String do |field, _locale|
           validates field, length: { in: 15..150 }, if: proc { |resource| resource.send(field).present? }
         end

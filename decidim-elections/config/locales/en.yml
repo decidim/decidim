@@ -52,6 +52,7 @@ en:
             choose_census: Choose the census type you want to use for this election
             created_at: Created at
             identifier: User identifier
+            title: Edit election
           preview:
             title:
               one: The preview list is limited to %{count} record.
