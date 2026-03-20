@@ -174,6 +174,11 @@ Devise.setup do |config|
   # the user will need to manually log in after accepting the invite.
   # Default: true
   config.allow_insecure_sign_in_after_accept = true
+
+  # Require password when user accepts the invitation.
+  # Disable if you don't want to ask or enforce to set password while accepting,
+  # because is set when user is invited or it will be set later.
+  # Default: true
   config.require_password_on_accepting = false
 
   # A period that the user is allowed to confirm their account before their
