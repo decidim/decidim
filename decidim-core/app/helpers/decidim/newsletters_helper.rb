@@ -4,6 +4,7 @@ module Decidim
   # Helper that provides methods to render links with utm codes, and replaced name
   module NewslettersHelper
     include Decidim::SanitizeHelper
+    include Decidim::MailerHelper
 
     # If the newsletter body there are some links and the Decidim.track_newsletter_links = true
     # it will be replaced with the utm_codes method described below.
