@@ -55,9 +55,22 @@ module Decidim
           expect(form).to receive(:select).with(
             :test,
             full_choices,
-            options
+            options, { disabled: false }
           )
           render_input
+        end
+
+        context "when the field should be disabled" do
+          let(:options) { { include_blank: false, readonly: true, label: "A test" } }
+
+          it "is supported" do
+            expect(form).to receive(:select).with(
+              :test,
+              full_choices,
+              options.except(:readonly), { disabled: true }
+            )
+            render_input
+          end
         end
       end
 
