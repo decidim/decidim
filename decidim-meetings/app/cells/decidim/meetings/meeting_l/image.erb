@@ -15,5 +15,9 @@
   </span>
   <span class="card__calendar-year">
     <p><%= l(meeting.start_time, format: "%Y") %></p>
+    <% unless same_year? %>
+      <p class="card__calendar-separator">-</p>
+      <p><%= l(meeting.end_time, format: "%Y") %></p>
+    <% end %>
   </span>
 </time>
