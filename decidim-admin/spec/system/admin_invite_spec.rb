@@ -7,8 +7,6 @@ describe "Admin invite" do
     Decidim::System::RegisterOrganizationForm.new(params)
   end
 
-  let(:organization) { Decidim::Organization.last }
-
   let(:params) do
     {
       name: "Gotham City",
@@ -42,7 +40,7 @@ describe "Admin invite" do
   describe "Accept an invitation" do
     context "when users_registration_mode enabled" do
       before do
-        organization.update!(users_registration_mode: "enabled")
+        Decidim::Organization.last.update!(users_registration_mode: "enabled")
         visit last_email_link
       end
 
@@ -78,7 +76,7 @@ describe "Admin invite" do
 
     context "when users_registration_mode existing" do
       before do
-        organization.update!(users_registration_mode: "existing")
+        Decidim::Organization.last.update!(users_registration_mode: "existing")
         visit last_email_link
       end
 
@@ -114,7 +112,7 @@ describe "Admin invite" do
 
     context "when users_registration_mode disabled" do
       before do
-        organization.update!(users_registration_mode: "disabled")
+        Decidim::Organization.last.update!(users_registration_mode: "disabled")
         visit last_email_link
       end
 
