@@ -1312,6 +1312,10 @@ sv:
           last_week: Senaste veckan
           no_users_count_statistics_yet: Det finns ännu ingen statistik över antal användare ännu.
           participants: Deltagare
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Klassificering kan göras efter att komponenten är skapad.
     forms:
       errors:
         impersonate_user:
