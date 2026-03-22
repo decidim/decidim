@@ -1318,6 +1318,10 @@ ja:
           last_week: 直近1週間
           no_users_count_statistics_yet: 参加者数の統計データはまだありません。
           participants: 参加者
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: 分類フィルターの選択は、コンポーネントが作成された後に可能になります。
     forms:
       errors:
         impersonate_user:
