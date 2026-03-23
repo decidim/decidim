@@ -8,7 +8,6 @@ it:
     admin:
       menu:
         elections_menu:
-          election_census: Censimento
           election_questions: Quesiti
     components:
       elections:
@@ -31,8 +30,6 @@ it:
           edit:
             created_at: Creato il
         dashboard:
-          census:
-            title: Censimento
           main:
             labels:
               description: Descrizione
@@ -62,9 +59,6 @@ it:
           edit_questions:
             new_question: Nuovo quesito
             title: Quesiti
-      censuses:
-        token_csv_form:
-          email: Email
       elections:
         count:
           elections_count:
@@ -87,7 +81,6 @@ it:
       models:
         election:
           fields:
-            census: Censimento
             status: Stato
             title: Titolo
       status:
@@ -104,7 +97,3 @@ it:
           next: Successivo
     statistics:
       elections_count: Elezioni
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Chiuso
