@@ -250,8 +250,6 @@ es:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Todos los procesos participativos
-      titles:
-        participatory_process_types: Tipos de procesos participativos
       tooltips:
         deleted_processes_info: Un proceso solo se pueden eliminar si su estado es 'Despublicado'.
       users:
@@ -280,10 +278,6 @@ es:
         create: "%{user_name} creó la fase %{resource_name} en el proceso participativo %{space_name}"
         delete: "%{user_name} eliminó la fase %{resource_name} en el proceso participativo %{space_name}"
         update: "%{user_name} actualizó la fase %{resource_name} en el proceso participativo %{space_name}"
-      participatory_process_type:
-        create: "%{user_name} ha creado el tipo de proceso participativo %{resource_name}"
-        delete: "%{user_name} ha borrado el tipo de proceso participativo %{resource_name}"
-        update: "%{user_name} ha actualizado el tipo de proceso participativo %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} invitó a la participante %{resource_name} al proceso participativo %{space_name}"
         delete: "%{user_name} eliminó a la participante %{resource_name} del proceso participativo %{space_name}"
@@ -314,10 +308,6 @@ es:
           contextual: "<p>Un <strong>proceso participativo</strong> es una secuencia de actividades participativas (p.e. primero rellenar una encuesta, luego realizar propuestas, debatirlas en encuentros presenciales o virtuales, y finalmente priorizarlas) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros de un comité (donde primero se presentan unas candidaturas, luego se debate y finalmente se elige una candidatura), presupuestos participativos (donde se realizan propuestas, se valoran económicamente y se vota con el dinero disponible), un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de políticas públicas.</p>\n"
           page: "<p>Un <strong>proceso participativo</strong> es una secuencia de actividades participativas (p.e. primero rellenar una encuesta, luego realizar propuestas, debatirlas en encuentros presenciales o virtuales, y finalmente priorizarlas) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros de un comité (donde primero se presentan unas candidaturas, luego se debate y finalmente se elige una candidatura), presupuestos participativos (donde se realizan propuestas, se valoran económicamente y se vota con el dinero disponible), un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de políticas públicas.</p>\n"
           title: '¿Qué es un proceso participativo?'
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Este tipo de proceso no se encontró en la base de datos (ID: %{id}).'
     menu:
       processes: Procesos
     open_data:
@@ -480,16 +470,42 @@ es:
         participatory_process_duplicates:
           form:
             slug_help_html: 'Los segmentos de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+          new:
+            title: Duplicar el proceso participativo
         participatory_process_groups:
+          edit:
+            title: Editar el grupo de procesos
           form:
             metadata: Metadatos
             title: Acerca de este proceso
             visibility: Visibilidad
+          index:
+            title: Grupos de procesos participativos
+          new:
+            title: Nuevo grupo de procesos
         participatory_process_imports:
           form:
             document_legend: Añadir un documento
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+          new:
+            title: Importar un proceso participativo
+        participatory_process_steps:
+          edit:
+            title: Editar la fase del proceso participativo
+          index:
+            title: Fases del proceso
+          new:
+            title: Nueva fase del proceso participativo
+        participatory_process_user_roles:
+          edit:
+            title: Actualizar la administradora del proceso participativo
+          index:
+            title: Administradoras del proceso participativo
+          new:
+            title: Nueva administradora del proceso participativo
         participatory_processes:
+          edit:
+            title: Acerca de este proceso
           form:
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
@@ -504,6 +520,12 @@ es:
             taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
+          index:
+            title: Procesos participativos
+          manage_trash:
+            title: Procesos participativos eliminados
+          new:
+            title: Nuevo proceso participativo
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
