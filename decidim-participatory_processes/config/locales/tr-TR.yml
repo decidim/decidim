@@ -5,15 +5,11 @@ tr:
       participatory_process:
         announcement: duyuru
         area_id: alan
-        copy_categories: Kategorileri kopyala
-        copy_components: Bileşenleri kopyala
-        copy_steps: Adımları kopyala
         decidim_area_id: alan
         description: Açıklama
         developer_group: Tanıtım grubu
         domain: domain
         end_date: Bitiş tarihi
-        hashtag: Başlık etiketi
         hero_image: Ana resim
         local_area: Organizasyon alanı
         meta_scope: Kapsam meta verileri
@@ -33,7 +29,6 @@ tr:
         description: Açıklama
         developer_group: Tanıtım grubu
         group_url: Web sitesi
-        hashtag: Etiket
         hero_image: görüntü
         local_area: Organizasyon alanı
         meta_scope: Kapsam meta verileri
@@ -72,7 +67,6 @@ tr:
     admin:
       actions:
         activate: etkinleştirmek
-        configure: Yapılandır
         confirm_destroy: Silmeyi onayla
         destroy: silmek
         duplicate: Çift
@@ -95,7 +89,6 @@ tr:
           attachment_files: Dosyalar
           attachments: Ekler
           components: Bileşenler
-          landing_page: Açılış sayfası
           moderations: Denetimler
           process_admins: İşlemi gerçekleştiren kullanıcılar
           steps: adımlar
@@ -128,14 +121,10 @@ tr:
             admin: yönetici
             collaborator: işbirlikçi
             moderator: arabulucu
-            valuator: Bilirkişi
         user:
           fields:
             invitation_accepted_at: Davet kabul edildi
             invitation_sent_at: Davetiye gönderildi
-      participatory_process_copies:
-        new:
-          copy: kopya
       participatory_process_groups:
         destroy:
           success: Katılımcı süreç grubu başarıyla silindi.
@@ -182,7 +171,6 @@ tr:
           error: Bu katılımcı süreç adımlarını yeniden sıralarken bir hata oluştu.
         update:
           error: Bu katılımcı süreç adımı güncellenirken bir hata oluştu.
-          success: Katılımcı süreç adımı başarıyla güncellendi.
       participatory_process_user_roles:
         create:
           error: Bu katılımcı süreç için bir kullanıcı eklenirken bir hata oluştu.
@@ -268,8 +256,6 @@ tr:
       processes: Süreçler
     metrics:
       participatory_processes:
-        description: Bu kuruluştaki katılımcı süreçlerin sayısı
-        object: katılımcı süreçler
         title: Katılımcı süreçler
     participatory_process_groups:
       content_blocks:
@@ -309,12 +295,8 @@ tr:
         participatory_process_imports:
           form:
             document_legend: Doküman Ekle
-        participatory_process_steps:
-          form:
-            cta_text_help: Ayarlanmazsa, düğme gösterilmeyecektir.
         participatory_processes:
           form:
-            announcement_help: Buraya girdiğiniz metin, işlem bilgilerinin hemen altındaki kullanıcıya gösterilecektir.
             duration: süre
             images: Görüntüler
             metadata: Meta veri
@@ -326,9 +308,6 @@ tr:
           name: Vurgulanan süreçler
       index:
         title: Katılımcı süreçler
-      participatory_process_steps:
-        index:
-          back_to_process: Süreç sayfasına geri dön
       participatory_processes:
         filters:
           counters:
