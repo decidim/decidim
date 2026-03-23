@@ -5,17 +5,13 @@ eu:
       participatory_process:
         announcement: Oharra
         area_id: Arloa
-        copy_categories: Kopiatu kategoriak
-        copy_components: Kopiatu osagaiak
         copy_landing_page_blocks: Bikoiztu lurreratze-orrien blokeak
-        copy_steps: Kopiatu faseak
         decidim_area_id: Arloa
         description: Deskribapena
         developer_group: Talde sustatzailea
         document: Dokumentua
         domain: Domeinua
         end_date: Bukaera-data
-        hashtag: Traola
         hero_image: Orri nagusiko irudia
         import_attachments: Inportatu eranskinak
         import_categories: Inportatu kategoriak
@@ -41,7 +37,6 @@ eu:
         description: Deskribapena
         developer_group: Talde sustatzailea
         group_url: Web gunea
-        hashtag: Traola
         hero_image: Irudia
         local_area: Antolakuntza arloa
         meta_scope: Eremuaren metadatuak
@@ -88,7 +83,6 @@ eu:
     admin:
       actions:
         activate: Aktibatu
-        configure: Konfiguratu
         confirm_delete_process: Ziur zaude prozesu hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         confirm_destroy: Berretsi ezabatu
         destroy: ezabatu
@@ -122,7 +116,6 @@ eu:
           attachments: Eranskinak
           components: Osagaiak
           info: Prozesu honi buruz
-          landing_page: Hasierako orrialdea
           moderations: Moderazioak
           private_users: Kideak
           process_admins: Prozesuaren parte-hartzaileak
@@ -156,7 +149,6 @@ eu:
             admin: Administratzailea
             collaborator: Kolaboratzailea
             moderator: Moderatzailea
-            valuator: Ebaluatzailea
         user:
           fields:
             invitation_accepted_at: Gonbidapena egun honetan onartu zen
@@ -164,7 +156,6 @@ eu:
             published: Argitaratua
       participatory_process_copies:
         new:
-          copy: Kopiatu
           select: Hautatu zein datu bikoiztu nahi dituzun
           title: Bikoiztu prozesu parte-hartzaileak
       participatory_process_groups:
@@ -228,7 +219,6 @@ eu:
           error: Arazo bat egon da partaidetza-prozesu honen faseak berrantolatzean.
         update:
           error: Arazo bat egon da partaidetza-prozesu honan fase hau eguneratzean.
-          success: Parte hartzeko fasea zuzen eguneratua.
       participatory_process_user_roles:
         create:
           error: Arazo bat egon da partaidetza-prozesu honetarako parte-hartzailea gehitzean.
@@ -351,8 +341,6 @@ eu:
       processes: Prozesuak
     metrics:
       participatory_processes:
-        description: Erakundeko partaidetza-prozesu kopurua
-        object: partaidetza-prozesuak
         title: Partaidetza-prozesuak
     open_data:
       help:
@@ -448,13 +436,8 @@ eu:
           form:
             document_legend: Dokumentu bat atxikitu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Erabili ibilbide partzialak, ez dira URL osoak hemen. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Bestela, ez da erakutsiko botoia. Adibidea: %{url}'
-            cta_text_help: Ezartzen bada, botoia ez da agertuko.
         participatory_processes:
           form:
-            announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             images: Irudiak
@@ -485,9 +468,6 @@ eu:
           highlighted_processes:
             active_spaces: Prozesu aktiboak
             see_all_spaces: Ikusi prozesu guztiak
-      participatory_process_steps:
-        index:
-          back_to_process: Itzuli prozesuaren orrialdera
       participatory_processes:
         description:
           area_name: Arloa
