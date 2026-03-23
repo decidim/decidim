@@ -62,14 +62,14 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_user_name
-        decidim_sanitize_translated(extra["name"]).html_safe
+        decidim_sanitize_translated(extra["name"])
       end
 
       # Private: Presents the nickname of the user performing the action.
       #
       # Returns an HTML-safe String.
       def present_user_nickname
-        extra["nickname"].html_safe
+        decidim_html_escape(extra["nickname"])
       end
 
       # Private: Calculates the path for the user. Returns the path of the
