@@ -5,17 +5,13 @@ de:
       participatory_process:
         announcement: Ankündigung
         area_id: Bereich
-        copy_categories: Kategorien kopieren
-        copy_components: Komponenten kopieren
         copy_landing_page_blocks: Startseiten-Blöcke duplizieren
-        copy_steps: Phasen kopieren
         decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
         document: Dokument
         domain: Domäne
         end_date: Enddatum
-        hashtag: Hashtag
         hero_image: Hauptbild
         import_attachments: Anhänge importieren
         import_categories: Kategorien importieren
@@ -41,7 +37,6 @@ de:
         description: Beschreibung
         developer_group: Gruppe der Unterstützer
         group_url: Website
-        hashtag: Hashtag
         hero_image: Bild
         local_area: Organisationsbereich
         meta_scope: Informationen zum Bereich
@@ -86,7 +81,6 @@ de:
     admin:
       actions:
         activate: Aktivieren
-        configure: Konfigurieren
         confirm_delete_process: Sind Sie sicher, dass Sie diesen Prozess löschen möchten? Wenn Sie Ihre Meinung ändern, können Sie ihn später wiederherstellen.
         confirm_destroy: Löschen bestätigen
         destroy: Löschen
@@ -119,7 +113,6 @@ de:
           attachments: Anhänge
           components: Komponenten
           info: Über diesen Prozess
-          landing_page: Startseite
           moderations: Moderationen
           private_users: Mitglieder
           process_admins: Benutzer verarbeiten
@@ -153,7 +146,6 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
-            valuator: Bewertende
         user:
           fields:
             invitation_accepted_at: Einladung akzeptiert am
@@ -161,7 +153,6 @@ de:
             published: Veröffentlicht
       participatory_process_copies:
         new:
-          copy: Kopieren
           select: Zu duplizierende Daten auswählen
       participatory_process_groups:
         destroy:
@@ -220,7 +211,6 @@ de:
           error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
         update:
           error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
-          success: Partizipativer Prozessschritt erfolgreich aktualisiert.
       participatory_process_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.
@@ -335,8 +325,6 @@ de:
       processes: Beteiligungsprozesse
     metrics:
       participatory_processes:
-        description: Anzahl der Beteiligungsprozesse in dieser Organisation
-        object: Beteiligungsprozesse
         title: Beteiligungsprozesse
     open_data:
       help:
@@ -428,13 +416,8 @@ de:
           form:
             document_legend: Dokument hinzufügen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt. Beispiel: %{url}'
-            cta_text_help: Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt.
         participatory_processes:
           form:
-            announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Prozessinformationen angezeigt.
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Dauer
             images: Bilder
@@ -465,9 +448,6 @@ de:
           highlighted_processes:
             active_spaces: Aktive Prozesse
             see_all_spaces: Alle Prozesse anzeigen
-      participatory_process_steps:
-        index:
-          back_to_process: Zurück zur Prozessseite
       participatory_processes:
         description:
           area_name: Gebiet
