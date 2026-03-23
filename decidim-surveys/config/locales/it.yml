@@ -9,9 +9,6 @@ it:
       decidim/surveys/survey:
         one: Questionario
         other: indagini
-      decidim/surveys/survey_answer:
-        one: Risposta
-        other: risposte
   decidim:
     components:
       surveys:
@@ -36,7 +33,7 @@ it:
           notification_title: Il questionario <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è ora aperto.
     metrics:
       survey_answers:
-        description: Numero di sondaggi rispondenti dagli utenti
+        description: Numero di sondaggi a cui gli utenti hanno dato risposta
         object: risposte ai sondaggi
         title: Risposte ai sondaggi
     statistics:
