@@ -81,11 +81,8 @@ ca:
             select_template: Selecciona una plantilla de resposta
         questionnaire_templates:
           choose:
-            create_from_template: Crear des d'una plantilla
-            description: Estàs a punt de crear un nou qüestionari. Pots triar una plantilla predefinida i modificar-la després.
             label: Escollir una plantilla
             placeholder: Escollir una plantilla
-            skip_template: Ometre
           edit:
             edit: Editar
             empty: Encara no hi ha preguntes.
