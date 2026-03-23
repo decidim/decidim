@@ -194,7 +194,7 @@ de:
           components: Komponenten
           conference_admins: Konferenzadministratoren
           conference_invites: Lädt ein
-          conference_speakers: Lautsprecher
+          conference_speakers: Sprechende
           diploma: Teilnahmebestätigung
           media_links: Medienlinks
           moderations: Moderationen
@@ -334,7 +334,7 @@ de:
         title: Programm
     conference_speakers:
       index:
-        title: Lautsprecher
+        title: Sprechende
     conferences:
       admin:
         conference_duplicates:
@@ -639,6 +639,6 @@ de:
             other: "%{count} Konferenzen"
       conferences_nav:
         conference_partners_menu_item: Partner
-        conference_speaker_menu_item: Lautsprecher
+        conference_speaker_menu_item: Sprechende
         media: Medien
         venues: Veranstaltungsorte
