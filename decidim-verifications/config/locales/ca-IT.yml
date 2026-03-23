@@ -183,6 +183,10 @@ ca-IT:
               empty: No hi ha dades del cens. Utilitza %{import_csv} per importar-lo mitjançant un fitxer CSV.
               no_sign_in: Mai no ha iniciat sessió
               no_user: No s'ha trobat cap usuària
+              title: Dades censals actuals
+            instructions:
+              body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de "csv_census" a l'organització
+              title: Necessites activar el "csv_census" d'aquesta organització
             last_login:
               no_sign_in: Mai no ha iniciat sessió
               no_user: Cap usuària
@@ -251,6 +255,7 @@ ca-IT:
               success: Participant convidada correctament.
             new:
               reject: Rebutjar
+              title: Introdueix les dades que apareixen a la imatge
               verify: Verificar
           offline_confirmations:
             create:
@@ -258,6 +263,7 @@ ca-IT:
               success: Participant verificada correctament.
             new:
               cancel: Cancel·lar
+              title: Introdueix el correu electrònic de la participant i les dades del document
               verify: Verificar
           pending_authorizations:
             index:
