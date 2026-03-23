@@ -13,6 +13,7 @@
     height: 1.25rem;
     border-radius: 50%;
     cursor: pointer;
+    background-color: var(--radio-bg-color);
     transition: box-shadow 0.15s ease;
 
     &:checked {
