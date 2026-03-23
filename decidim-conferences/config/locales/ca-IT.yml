@@ -127,6 +127,7 @@ ca-IT:
           conference_speakers_title: Ponents de la jornada
         new:
           create: Crear
+          title: Nova ponent de la jornada
         publish:
           invalid: S'ha produït un error en publicar aquesta ponent.
           success: Ponent de la jornada actualitzada correctament.
@@ -143,6 +144,7 @@ ca-IT:
         destroy:
           success: Administradora de la jornada eliminada correctament.
         edit:
+          title: Actualitzar administradora de la jornada
           update: Actualitzar
         index:
           conference_admins_title: Administradors de conferències
@@ -171,6 +173,8 @@ ca-IT:
         index:
           published: Publicat
           unpublished: Despublicada
+        manage_trash:
+          title: Jornades eliminades
         new:
           create: Crear
           title: Afegir jornada
@@ -188,6 +192,7 @@ ca-IT:
         destroy:
           success: S'ha eliminat correctament l'enllaç multimèdia.
         edit:
+          title: Actualitzar l'enllaç multimèdia
           update: Actualitzar
         index:
           media_links_title: Enllaços multimèdia
@@ -208,6 +213,7 @@ ca-IT:
           conference_invites: Convida
           conference_speakers: Ponents
           diploma: Certificat d'assistència
+          info: Quant a aquesta jornada
           media_links: Enllaços multimèdia
           moderations: Moderacions
           partners: Col·laboradores
@@ -275,6 +281,7 @@ ca-IT:
         destroy:
           success: Col·laboradora de la jornada eliminada correctament.
         edit:
+          title: Actualitzar col·laboradora
           update: Actualitzar
         new:
           create: Crear
@@ -296,6 +303,7 @@ ca-IT:
         destroy:
           success: El tipus d'inscripció s'ha eliminat correctament d'aquesta jornada.
         edit:
+          title: Actualitzar el tipus d'inscripció
           update: Actualitzar
         new:
           create: Crear
@@ -308,6 +316,7 @@ ca-IT:
           conferences: Totes les jornades
       titles:
         conferences: Jornades
+        conferences_deleted: Jornades eliminades
       tooltips:
         deleted_conferences_info: Les jornades només es poden eliminar si el seu estat és 'Despublicada'.
     admin_log:
@@ -573,7 +582,7 @@ ca-IT:
           notification_title: La teva inscripció a jornada <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
         conference_registrations_over_percentage:
           email_intro: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè administres l'espai participatiu de la jornada.
+          email_outro: Has rebut aquesta notificació perquè administres l'espai de participació de la jornada.
           email_subject: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%
           notification_title: Les places ocupades per a la jornada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         conference_updated:
