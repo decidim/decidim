@@ -88,13 +88,6 @@ nl:
         skip_verification: U kunt dit overslaan voor nu en %{link}
         start_exploring: begin met verkennen
       csv_census:
-        admin:
-          destroy:
-            title: Verwijder alle censusgegevens
-          index:
-            empty: Er zijn geen censusgegevens. Gebruik het onderstaande formulier om het te importeren met behulp van een CSV-bestand.
-          new:
-            file: ".csv-bestand met e-mailgegevens"
         authorizations:
           new:
             error: We kunnen uw account niet verifiëren of u staat niet in de ledenadministratie van de organisatie.
