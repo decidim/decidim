@@ -79,13 +79,6 @@ lv:
         skip_verification: Tagad varat to izlaist un %{link}
         start_exploring: sāciet izpētīt
       csv_census:
-        admin:
-          destroy:
-            title: Dzēst visus skaitīšanas datus
-          index:
-            empty: Nav skaitīšanas datu. Izmantojiet turpmāk esošo veidlapu, lai tos importētu, lietojot CSV failu.
-          new:
-            file: ".csv fails ar e-pasta datiem"
         authorizations:
           new:
             error: Mēs nevarējām verificēt jūsu kontu, vai arī jūs nepiedalāties organizācijas skaitīšanā.

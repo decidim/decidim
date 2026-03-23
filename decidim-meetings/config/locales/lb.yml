@@ -17,7 +17,6 @@ lb:
         customize_registration_email: Registrierungs-E-Mail anpassen
         decidim_category_id: Kategorie
         decidim_scope_id: Ëmfang
-        decidim_user_group_id: Benutzergruppe
         description: Beschreiwung
         id: ID
         location: Standuert
@@ -66,9 +65,6 @@ lb:
             values:
               'false': Vergaangenes
               'true': Demnächst stattfannend
-          with_any_origin:
-            values:
-              user_group: Benotzergruppen
           with_any_type:
             label: Typ vu Versammlung
       meeting_copies:
@@ -91,14 +87,12 @@ lb:
             creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
-            registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
             terms_and_conditions_url_for_meeting_creators: Nutzungsbedingungen URL für Meeting-Ersteller
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
-            creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
     events:
       meetings:
         meeting_closed:
@@ -125,10 +119,8 @@ lb:
           email_subject: Slots der Sitzung "%{resource_title}" über %{percentage}% belegt
           notification_title: Die Slots der Sitzung <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
         meeting_updated:
-          email_intro: 'Die Sitzung "%{resource_title}" wurde aktualisiert. Sie können die neue Version auf der Sitzungs-Seite lesen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Sitzung "%{resource_title}" wurde aktualisiert
-          notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde aktualisiert.
         registration_code_validated:
           email_intro: Ihr Registrierungscode "%{registration_code}" für die Sitzung "%{resource_title}" wurde bestätigt.
         upcoming_meeting:
@@ -148,7 +140,6 @@ lb:
             create: Erstellen
             title: Neue Agenda
         exports:
-          answers: Antworten
           meeting_comments: Kommentare
           meetings: Treffen
           registrations: Anmeldungen
@@ -278,7 +269,6 @@ lb:
           meeting_minutes: Sitzungsprotokolle
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
-          registration_code_help_text: Ihr Registrierungscode
           registration_state:
             validated: GÜLTIG
             validation_pending: Validierung ausstehend

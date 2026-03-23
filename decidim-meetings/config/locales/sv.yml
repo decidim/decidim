@@ -19,7 +19,6 @@ sv:
         customize_registration_email: Anpassa e-postmeddelandet till anmälda
         decidim_category_id: Kategori
         decidim_scope_id: Indelning
-        decidim_user_group_id: Användargrupp
         description: Beskrivning
         end_time: Sluttid
         id: ID
@@ -123,7 +122,6 @@ sv:
             values:
               official: Officiella
               participants: Deltagare
-              user_group: Användargrupper
           with_any_type:
             label: Typ av möte
             values:
@@ -167,7 +165,6 @@ sv:
             enable_pads_creation: Aktivera gemensamma anteckningar
             maps_enabled: Aktivera visning på karta
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
-            registration_code_enabled: Aktivera registreringskod
             resources_permissions_enabled: Behörigheter kan ställas in för varje möte
             taxonomy_filters: Välj filter för komponenten
             taxonomy_filters_add: Lägg till filter
@@ -176,7 +173,6 @@ sv:
             announcement: Meddelande
             comments_blocked: Stäng av kommentarer
             creation_enabled_for_participants: Låt deltagare skapa möten
-            creation_enabled_for_user_groups: Låt användargrupper skapa möten
     download_your_data:
       help:
         invites:
@@ -226,10 +222,8 @@ sv:
           email_subject: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%
           notification_title: De tilldelade platserna för mötet <a href="%{resource_path}">%{resource_title}</a> är över %{percentage}%.
         meeting_updated:
-          email_intro: 'Mötet "%{resource_title}" uppdaterades. Du kan se den nya versionen på mötessidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det från föregående länk.
           email_subject: Mötet "%{resource_title}" uppdaterades
-          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
         registration_code_validated:
           email_intro: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats.
           email_outro: Du har fått det här meddelandet eftersom din anmälningskod till mötet "%{resource_title}" har validerats.
@@ -241,10 +235,7 @@ sv:
           email_subject: Mötet "%{resource_title}" har aktiverat registreringar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har aktiverat registreringar.
         upcoming_meeting:
-          email_intro: Mötet "%{resource_title}" börjar om mindre än 48 timmar.
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta att följa det via föregående länk.
-          email_subject: Mötet "%{resource_title}" börjar om mindre än 48 timmar.
-          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar om mindre än 48 timmar.
     forms:
       meetings:
         attendees_count_help_text: Glöm inte att räkna det totala antalet deltagare på mötet, oavsett om det är på plats, digitalt eller ett hybridmöte.
@@ -263,8 +254,6 @@ sv:
     meetings:
       actions:
         agenda: Dagordning
-        attachment_collections: Mappar
-        attachments: Bifogade filer
         close: Avsluta
         confirm_delete_meeting: Är du säker på att du vill radera mötet?
         deleted_meetings_info: Borttagna möten kan återställas från papperskorgen.
@@ -311,7 +300,6 @@ sv:
             invalid: Det gick inte att uppdatera dagordningen.
             success: Dagordningen har uppdaterats.
         exports:
-          answers: Svar
           meeting_comments: Kommentarer
           meetings: Möten
           registrations: Anmälningar
@@ -547,7 +535,6 @@ sv:
             all: Alla
             official: Officiella
             participants: Deltagare
-            user_group: Grupper
           search: Sök
           type: Typ
           type_values:
@@ -558,7 +545,6 @@ sv:
         form:
           address_help: 'Adress: ange en plats för visning på karta'
           available_slots_help: Låt det stå 0 om du har obegränsat antal platser
-          create_as: Skapa möte som
           disclaimer: 'Varning: När du använder ett externt anmälningssystem är administratörerna för %{organization} inte ansvariga för hur användardata hanteras av den externa tjänsten.'
           iframe_embed_type_html: 'Endast ett fåtal tjänster tillåter inbäddade möten eller live-event: %{domains}'
           location_help: 'Plats: mötesplats för deltagare'
@@ -605,7 +591,6 @@ sv:
           no_slots_available: Inga platser kvar
           organizations: Deltagande organisationer
           redirect_notice: Mötet är en del av ett annat utrymme, så du har flyttats till %{current_space_name}. <br>Om du vill kan du gå tillbaka till <a href="%{previous_space_url}">%{previous_space_name}</a>.
-          registration_code_help_text: Din registreringskod
           registration_state:
             validated: VALIDERAD
             validation_pending: VALIDERING PÅGÅR
@@ -655,13 +640,9 @@ sv:
             announcement: Enkätfrågan är stängd.
             question: Fråga
             question_results: Resultat
-          index:
-            empty_questions: Under mötet kommer några frågor att skickas och du kommer kunna svara på dem här.
           index_admin:
             edit: Redigera i admin-panelen
             question: Fråga
-            received_answer: mottaget svar
-            received_answers: mottagna svar
             results: Resultat
             send: Skicka
             sent: Skickat
@@ -685,7 +666,6 @@ sv:
         confirmation:
           confirmed_html: Din anmälan till <a href="%{url}">%{title}</a> har bekräftats.
           details: Kalenderinformation finns i bilagan.
-          registration_code: Din registreringskod är %{code}.
       registration_type:
         on_different_platform: På en annan plattform
         on_this_platform: På den här plattformen
@@ -713,8 +693,6 @@ sv:
         success: Mötet har ställts in.
     metrics:
       meetings:
-        description: Antal skapade möten
-        object: möten
         title: Möten
     open_data:
       help:

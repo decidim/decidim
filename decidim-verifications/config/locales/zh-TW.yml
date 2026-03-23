@@ -126,12 +126,8 @@ zh-TW:
               success: 所有戶籍數據都已刪除.
           destroy:
             confirm: 刪除所有戶籍資料將無法還原，您確定要繼續嗎？
-            title: 刪除所有戶籍資料
           index:
             data: 總共載入了 %{count} 筆記錄。最後上傳日期為 %{due_date}。
-            empty: 目前沒有戶籍資料。使用下面的表格，使用 CSV 檔案進行匯入。
-          new:
-            file: "帶有電子郵件數據的.csv 文件"
         authorizations:
           new:
             error: 我們無法驗證您的帳戶或您不在該組織的人口普查中。

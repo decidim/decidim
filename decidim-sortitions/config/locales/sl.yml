@@ -1,6 +1,1 @@
----
 sl:
-  activemodel:
-    attributes:
-      sortition:
-        title: Naziv

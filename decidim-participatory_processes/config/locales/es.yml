@@ -5,17 +5,13 @@ es:
       participatory_process:
         announcement: Aviso
         area_id: Área
-        copy_categories: Copiar categorías
-        copy_components: Copiar componentes
         copy_landing_page_blocks: Duplicar los bloques de contenido de la página de inicio
-        copy_steps: Copiar las fases
         decidim_area_id: Área
         description: Descripción
         developer_group: Grupo promotor
         document: Documento
         domain: Dominio
         end_date: Fecha de finalización
-        hashtag: Hashtag
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
@@ -41,7 +37,6 @@ es:
         description: Descripción
         developer_group: Grupo promotor
         group_url: Sitio web
-        hashtag: Hashtag
         hero_image: Imagen
         local_area: Área de la organización
         meta_scope: Metadatos de ámbito
@@ -88,7 +83,6 @@ es:
     admin:
       actions:
         activate: Activar
-        configure: Configurar
         confirm_delete_process: '¿Seguro que quieres eliminar este proceso? Si cambias de opinión, puedes restaurarlo más tarde.'
         confirm_destroy: Confirmar eliminación
         destroy: Borrar
@@ -122,7 +116,6 @@ es:
           attachments: Adjuntos
           components: Componentes
           info: Acerca de este proceso
-          landing_page: Página de inicio
           moderations: Moderaciones
           private_users: Miembros
           process_admins: Administradoras del proceso
@@ -156,7 +149,6 @@ es:
             admin: Administradora
             collaborator: Colaboradora
             moderator: Moderadora
-            valuator: Evaluadora
         user:
           fields:
             invitation_accepted_at: Invitación aceptada el
@@ -164,13 +156,14 @@ es:
             published: Publicados
       participatory_process_copies:
         new:
-          copy: Copiar
           select: Selecciona qué datos quieres duplicar
+          title: Duplicar el proceso participativo
       participatory_process_groups:
         destroy:
           error: Se ha producido un error al eliminar el grupo de procesos participativos.
           success: Grupo de procesos participativos eliminado correctamente.
         edit:
+          title: Editar el grupo de procesos
           update: Actualizar
         new:
           create: Crear
@@ -185,6 +178,7 @@ es:
         new:
           import: Importar
           select: Selecciona qué datos quieres importar
+          title: Importar un proceso participativo
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -214,16 +208,17 @@ es:
               Lo hemos dejado aquí para que migres las CTAs que necesites. Los campos <i>Ruta del botón de acción</i> y
               <i>Texto del botón de acción</i> se eliminaran en la próxima versión.
             title: CTA obsoleto
+          title: Editar la fase del proceso participativo
           update: Actualizar
         index:
           steps_title: Fases del proceso
         new:
           create: Crear
+          title: Nueva fase del proceso participativo
         ordering:
           error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
         update:
           error: Se ha producido un error en la actualización de esta fase del proceso participativo.
-          success: La fase del proceso participativo se ha actualizado correctamente.
       participatory_process_user_roles:
         create:
           error: Ha habido un error al añadir una participante a este proceso participativo.
@@ -231,9 +226,13 @@ es:
         destroy:
           success: La administradora ha sido eliminada correctamente de este proceso participativo.
         edit:
+          title: Actualizar la administradora del proceso participativo
           update: Actualizar
+        index:
+          process_admins_title: Administradoras del proceso participativo
         new:
           create: Crear
+          title: Nueva administradora del proceso participativo
         update:
           error: Se ha producido un error al actualizar una administradora para este proceso participativo.
           success: Administradora actualizada correctamente para este proceso participativo.
@@ -248,8 +247,11 @@ es:
           public: Público
           published: Publicada
           unpublished: Despublicado
+        manage_trash:
+          title: Procesos participativos eliminados
         new:
           create: Crear
+          title: Nuevo proceso participativo
         update:
           error: Se ha producido un error al actualizar este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
@@ -268,6 +270,7 @@ es:
         participatory_process_groups: Grupos de procesos participativos
         participatory_process_types: Tipos de procesos participativos
         participatory_processes: Procesos participativos
+        participatory_processes_deleted: Procesos participativos eliminados
       tooltips:
         deleted_processes_info: Un proceso solo se pueden eliminar si su estado es 'Despublicado'.
       users:
@@ -338,8 +341,6 @@ es:
       processes: Procesos
     metrics:
       participatory_processes:
-        description: Número de procesos participativos en esta organización
-        object: procesos participativos
         title: Procesos participativos
     open_data:
       help:
@@ -435,13 +436,8 @@ es:
           form:
             document_legend: Añadir un documento
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Utiliza rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no ese establece ninguna ruta, el botón no se mostrará. Ejemplo: %{url}'
-            cta_text_help: Si no se establece ninguna ruta el botón no se mostrará.
         participatory_processes:
           form:
-            announcement_help: El texto que ingreses aquí se mostrará a la participante justo debajo de la información del proceso.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             images: Imágenes
@@ -472,9 +468,6 @@ es:
           highlighted_processes:
             active_spaces: Procesos activos
             see_all_spaces: Ver todos los procesos
-      participatory_process_steps:
-        index:
-          back_to_process: Volver a la página del proceso
       participatory_processes:
         description:
           area_name: Área

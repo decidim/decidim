@@ -1209,7 +1209,7 @@ cs:
       description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky.
       level: Úroveň %{level}
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
-      title: Jaké jsou odznaky?
+      title: Co jsou odznaky?
     group_admins:
       actions:
         confirm_modal:

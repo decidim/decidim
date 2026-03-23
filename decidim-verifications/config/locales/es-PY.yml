@@ -169,15 +169,16 @@ es-PY:
               success: Todos los datos del censo han sido eliminados.
           destroy:
             confirm: La eliminación de todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
-            title: Borrar todos los datos del censo
           index:
             data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}.
-            empty: No hay datos del censo. Utilice el siguiente formulario para importarlo usando un archivo CSV.
+            title: Datos censales actuales
+          instructions:
+            body: Para ello, debes acceder a la administración del sistema y añadir las autorizaciones "csv_census" a la organización
+            title: Necesitas activar el "csv_census" para esta organización
           new:
             example: |
               john.doe@example.org
               jane.doe@example.org
-            file: "archivo .csv con datos de correos electrónicos"
             info: 'Debe ser un archivo en formato CSV con una sola columna con la dirección de correo electrónico:'
             submit: Subir archivo
             title: Subir un nuevo censo
@@ -207,6 +208,7 @@ es-PY:
               error: La verificación no coincide. Por favor inténtalo de nuevo o rechaza la verificación para que la participante pueda modificarla.
               success: Participante verificada correctamente.
             new:
+              introduce_user_data: Introduce los datos que aparecen en la imagen
               reject: Rechazar
               verify: Verificar
           offline_confirmations:
@@ -215,6 +217,7 @@ es-PY:
               success: Participante verificada correctamente.
             new:
               cancel: Cancelar
+              introduce_user_data: Introduce el correo electrónico de la participante y los datos del documento
               verify: Verificar
           pending_authorizations:
             index:

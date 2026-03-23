@@ -10,14 +10,12 @@ pt-BR:
         scope_id: Escopo
         state: Estado
         title: Título
-        user_group_id: Criar rascunho colaborativo como
       import_participatory_text:
         document: Documento
       proposal:
         address: Endereço
         answer: Responda
         answered_at: Respondido em
-        automatic_hashtags: Hashtags adicionados automaticamente
         body: Corpo
         decidim_proposals_proposal_state_id: Estado
         decidim_scope_id: Escopo
@@ -26,9 +24,7 @@ pt-BR:
         longitude: Longitude
         scope_id: Escopo
         state: Estado
-        suggested_hashtags: Hashtags sugeridos
         title: Título
-        user_group_id: Criar proposta como
       proposal_answer:
         answer: Responder
         cost: Custo
@@ -55,9 +51,6 @@ pt-BR:
       proposals_import:
         import_proposals: Importar propostas
         keep_authors: Mantenha os autores originais
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Nome do Avaliador
     errors:
       models:
         participatory_text:
@@ -88,7 +81,6 @@ pt-BR:
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Taxonomias da proposta alteradas
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
-      decidim/proposals/endorsing_enabled_event: Endosso da proposta ativado
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
       decidim/proposals/publish_proposal_event: Proposta publicada
       decidim/proposals/voting_enabled_event: Proposta de votação ativada
@@ -142,15 +134,11 @@ pt-BR:
               withdrawn: Retirado
           taxonomies_part_of_contains:
             label: Taxonomia
-          valuator_role_ids_has:
-            label: Atribuído ao avaliador
           with_any_state:
             label: Respondido
             values:
               state_not_published: Não respondido
               state_published: Respondido
-        search_placeholder:
-          id_string_or_title_cont: Buscar %{collection} por ID ou título.
     application:
       geocoding:
         not_configured: Geocodificação não está configurado!
@@ -160,7 +148,6 @@ pt-BR:
           amend: Alterar
           comment: Comentar
           create: Criar uma proposta
-          endorse: Endossar
           vote: Voto
           vote_comment: Votar no documento
           withdraw: retirar o
@@ -235,7 +222,6 @@ pt-BR:
             amendments_visibility_help: Se for seleccionada a opção "as alterações são visíveis apenas para os seus autores", será necessário registar o registo dos participantes para ver as alterações introduzidas.
             announcement: Anúncio
             answers_with_costs: Ativar custos na resposta da proposta
-            automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
             creation_enabled: Os participantes podem criar propostas
             creation_enabled_readonly: Essa configuração é desativada quando você ativa a funcionalidade de textos participativos. Para enviar propostas como texto participativo, clique no botão de textos participativos e siga as instruções.
@@ -249,12 +235,9 @@ pt-BR:
               random: Aleatório
               recent: Recente
               with_more_authors: Com mais autores
-            endorsements_blocked: Endossos bloqueados
-            endorsements_enabled: Endossos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
             publish_answers_immediately: Publicar respostas da proposta imediatamente
             publish_answers_immediately_help_html: 'Observe que, se você responder a alguma proposta sem essa opção ativada, precisará publicá-la manualmente, selecionando-a e usando a ação de publicação. Para obter mais informações sobre como isso funciona, consulte <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">página de documentação das respostas às propostas</a>.'
-            suggested_hashtags: Hashtags sugeridos aos usuários para novas propostas
             votes_blocked: Votos bloqueados
             votes_enabled: Votos ativados
             votes_hidden: Votos ocultos (se os votos estiverem ativados, verificar isso esconderá o número de votos)
@@ -269,12 +252,10 @@ pt-BR:
         admin:
           proposal_assigned_to_valuator:
             email_intro: Você foi designado como avaliador da proposta "%{resource_title}". Isso significa que você foi escolhido para fornecer feedback e uma resposta adequada nos próximos dias. Confira no <a href="%{admin_proposal_info_url}">painel de administração</a>.
-            email_outro: Você recebeu esta notificação porque pode avaliar a proposta.
             email_subject: Você foi atribuído como avaliador da proposta %{resource_title}.
             notification_title: Você foi designado como avaliador da proposta <a href="%{resource_path}">%{resource_title}</a>. Confira-a no <a href="%{admin_proposal_info_path}">painel de administração</a>.
           proposal_note_created:
             email_intro: '%{author_name} criou uma nota privada em %{resource_title}. Confira no <a href="%{admin_proposal_info_url}">painel de administração</a>.'
-            email_outro: Você recebeu esta notificação porque pode avaliar a proposta.
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> criou uma nota privada em <a href="%{resource_path}">%{resource_title}</a>. Confira em <a href="%{admin_proposal_info_path}">o painel de administração</a>.
           proposal_note_mentioned:
@@ -291,7 +272,6 @@ pt-BR:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> aceitou seu convite para se tornar um co-autor da proposta <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
           actions:
-            accept: Aceitar
             decline: Recusar
           email_intro: 'Você foi convidado para ser um co-autor da proposta "%{resource_title}". Você pode aceitar ou recusar o convite nesta página:'
           email_outro: Você recebeu esta notificação porque o autor da proposta quer reconhecer suas contribuições tornando-se um co-autor.
@@ -335,9 +315,7 @@ pt-BR:
           email_subject: Propostas agora disponíveis em %{participatory_space_title}
           notification_title: Agora você pode apresentar <a href="%{resource_path}">novas propostas</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
-          email_intro: 'Você pode endossar propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: As propostas de endosso começaram para %{participatory_space_title}
         proposal_mentioned:
           email_intro: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_url}">neste espaço</a> nos comentários.
           email_outro: Você recebeu esta notificação porque é um autor de "%{resource_title}".
@@ -414,16 +392,8 @@ pt-BR:
           unearned_own: Você não criou nenhuma proposta ainda.
     metrics:
       accepted_proposals:
-        description: Número de propostas aceitas pelos usuários
-        object: propostas
         title: Propostas aceitas
-      endorsements:
-        description: Número de endossos gerados nas propostas
-        object: endossos
-        title: Endossos
       proposals:
-        description: Número de propostas geradas
-        object: propostas
         title: Propostas
       votes:
         description: Número de votos das propostas
@@ -636,12 +606,10 @@ pt-BR:
           index:
             actions: Ações
             apply_answer_template: Aplicar modelo de resposta
-            assign_to_valuator: Atribuir ao avaliador
             assign_to_valuator_button: Atribuir
             cancel: Cancelar
             change_taxonomies: Alterar taxonomias
             merge: Junte-se a um novo
-            merge_button: Combinar
             no_templates_available: Nenhum modelo disponível
             publish: Publicar
             publish_answers: Publicar respostas
@@ -652,7 +620,6 @@ pt-BR:
             split_button: Dividir
             statuses: Status
             title: Propostas
-            unassign_from_valuator: Desatribuir do avaliador
             unassign_from_valuator_button: Desatribuir
             update: Atualizar
           manage_trash:
@@ -665,12 +632,9 @@ pt-BR:
             select_a_proposal: Por favor, selecione uma proposta.
           show:
             amendments_count: As alterações contam
-            assigned_valuators: Avaliadores atribuídos
             body: Corpo
             comments_count: Contagem de Comentários
             documents: Documentos
-            endorsements_count: Contagem de endossos
-            endorsers: Endossar
             link: Ver a proposta
             n_more_endorsers:
               one: e mais 1
@@ -679,8 +643,6 @@ pt-BR:
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas
             remove_assignment: Remover Atribuição
-            remove_assignment_confirmation: Tem certeza que deseja remover o avaliador desta proposta?
-            valuators: Avaliadores
             votes_count: Contagem de votos
           update_taxonomies:
             invalid: 'Essas propostas já tinham as taxonomias %{taxonomies}: %{proposals}.'
@@ -712,16 +674,12 @@ pt-BR:
       admin_log:
         proposal:
           answer: "%{user_name} respondeu a proposta %{resource_name} no espaço %{space_name}"
-          create: "%{user_name} criou a proposta %{resource_name} no espaço %{space_name} como uma proposta oficial"
           publish_answer: "%{user_name} publicou a resposta para a proposta %{resource_name} no espaço %{space_name}"
           restore: "%{user_name} restaurou a proposta %{resource_name} no espaço %{space_name}"
           soft_delete: "%{user_name} movido para a lixeira da proposta %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a proposta oficial %{resource_name} no espaço %{space_name}"
         proposal_note:
           create: "%{user_name} deixou uma nota privada na proposta %{resource_name} no espaço %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} atribuiu a proposta %{resource_name} a um valor"
-          delete: "%{user_name} desatribuiu um valor à proposta %{proposal_title}"
       answers:
         accepted: Aceitaram
         evaluating: Avaliando
@@ -734,7 +692,6 @@ pt-BR:
           meetings: Reuniões
           official: Oficial
           participants: Participantes
-          user_groups: Grupos de usuários
         filter_state_values:
           all: Todos
           not_answered: Não respondido
@@ -745,100 +702,51 @@ pt-BR:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Houve erros ao publicar o rascunho colaborativo.
             irreversible_action_modal:
               body: Depois de publicar o rascunho como uma proposta, ele não será mais editável.. A proposta não aceitará novos autores ou contribuições.
               cancel: Cancelar
-              ok: Publicar como uma proposta
-              title: A ação a seguir é irreversível
-            success: Esboço colaborativo publicado com sucesso como uma proposta.
           withdraw:
-            error: Houve erros ao fechar o rascunho colaborativo.
             irreversible_action_modal:
               body: Depois de fechar o rascunho, ele não será mais editável. O rascunho não aceitará novos autores ou contribuições.
               cancel: Cancelar
-              ok: Retirar o rascunho colaborativo
-              title: A ação a seguir é irreversível
-            success: Esboço colaborativo retirado com sucesso.
-        create:
-          error: Houve um problema ao criar este rascunho colaborativo.
-          success: Rascunho colaborativo criado com sucesso.
         edit:
           attachment_legend: Adicionar um documento ou uma imagem
           back: Voltar
           send: Enviar
-          title: Editar rascunho colaborativo
         empty: Ainda não há rascunhos colaborativos
         empty_filters: Não há nenhum rascunho colaborativo com este critério
         filters:
           all: Todos
           amendment: Emendas
-          open: Aberto
           published: Publicado
           related_to: Relacionado a
           search: Pesquisa
           state: Estado
           withdrawn: Retirado
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
-        index:
-          count:
-            one: "%{count} rascunho colaborativo"
-            other: "%{count} rascunho colaborativo"
         name: Rascunhos colaborativos
         new:
-          add_file: Adicionar arquivo
-          edit_file: Editar arquivo
           send: Continuar
-        new_collaborative_draft_button:
-          new_collaborative_draft: Novo rascunho colaborativo
         orders:
-          label: 'Encomenda de rascunhos por:'
-          most_contributed: A maioria contribuiu
           random: Aleatório
           recent: Recente
         requests:
           accepted_request:
-            error: Não foi possível aceitar como colaborador. Tente novamente mais tarde.
             success: "@%{user} foi aceito como colaborador com sucesso."
           access_requested:
-            error: Sua solicitação não pôde ser concluída. Tente novamente mais tarde.
             success: Sua solicitação para colaborar foi enviada com sucesso.
-          collaboration_requests:
-            accept_request: Aceitar
-            reject_request: Rejeitar
-            title: Pedidos de colaboração
           rejected_request:
-            error: Não foi possível rejeitá-lo como colaborador. Tente novamente mais tarde.
             success: "@%{user} foi rejeitado como colaborador com sucesso."
         show:
           edit: Editar
           final_proposal: proposta final
-          final_proposal_help_text: Este rascunho está terminado. Você pode ver a proposta final concluída
-          hidden_authors_count:
-            one: e mais %{count} pessoa
-            other: e mais %{count} pessoas
           info-message: Este é um <strong>rascunho colaborativo</strong> de uma proposta. Isso significa que você pode ajudar os autores a moldar a proposta usando a seção de comentários abaixo ou aprimorá-la diretamente solicitando acesso para editá-la. Assim que os autores concederem o acesso, você poderá fazer alterações neste rascunho.
           publish: Publicar
-          publish_info: Publicar esta versão do rascunho ou
           published_proposal: proposta publicada
-          request_access: Solicitar acesso
-          requested_access: Acesso solicitado
-          withdraw: retirar o rascunho
         states:
-          open: Aberto
           published: Publicado
           withdrawn: Retirado
         update:
           error: Houve erros ao salvar o rascunho da proposta.
-          success: Rascunho colaborativo atualizado com sucesso.
-        wizard_aside:
-          back_from_collaborative_draft: Voltar para rascunhos colaborativos
-        wizard_header:
-          title: Crie seu rascunho colaborativo
       content_blocks:
         highlighted_proposals:
           name: Propostas
@@ -891,8 +799,6 @@ pt-BR:
             state: Estado
             taxonomies: Taxonomias
             title: Título
-            valuator: Avaliador
-            valuators: Avaliadores
             votes: Votos
         proposal_state:
           css_class: Classe CSS
@@ -940,7 +846,6 @@ pt-BR:
           voted: Votado
         index:
           click_here: Veja todas as propostas
-          collaborative_drafts_list: Acesse rascunhos colaborativos
           count:
             one: "%{count} proposta"
             other: "%{count} propostas"
@@ -956,7 +861,6 @@ pt-BR:
         orders:
           label: 'Ordene propostas por:'
           most_commented: Mais comentados
-          most_endorsed: Mais endossados
           most_followed: Mais seguidos
           most_voted: Mais votados
           random: Aleatório
@@ -984,11 +888,6 @@ pt-BR:
           changes_at_title: Alteração para "%{title}"
           edit_proposal: Editar
           estimated_cost: Custo estimado
-          hidden_endorsers_count:
-            one: e mais %{count} pessoa
-            other: e mais %{count} pessoas
-          link_to_collaborative_draft_help_text: Esta proposta é o resultado de um rascunho colaborativo. Revise o histórico
-          link_to_collaborative_draft_text: Veja o rascunho colaborativo
           link_to_promoted_emendation_help_text: Esta proposta é uma emenda promovida
           link_to_promoted_emendation_text: Veja a emenda rejeitada.
           link_to_proposal_from_emendation_help_text: Esta é uma emenda rejeitada
@@ -1028,7 +927,6 @@ pt-BR:
             description: Para serem validadas, as propostas precisam chegar aos %{limit} votos.
           title: Regras de participação
           vote_limit:
-            description: Você pode votar até %{limit} propostas.
             votes: '%{number} votos restantes'
         wizard_aside:
           back: Costas

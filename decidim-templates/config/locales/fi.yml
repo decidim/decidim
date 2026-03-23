@@ -81,11 +81,8 @@ fi:
             select_template: Valitse mallivastaus
         questionnaire_templates:
           choose:
-            create_from_template: Luo mallipohjasta
-            description: Olet luomassa uutta kyselyä. Voit valita etukäteen määritellyn mallipohjan ja muokata sitä sen jälkeen.
             label: Valitse mallipohja
             placeholder: Valitse mallipohja
-            skip_template: Ohita
           edit:
             edit: Muokkaa
             empty: Kysymyksiä ei ole vielä.

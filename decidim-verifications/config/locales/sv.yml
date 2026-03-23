@@ -169,15 +169,12 @@ sv:
               success: All data från medlemslistan har tagits bort.
           destroy:
             confirm: Radering av medlemslistan kan inte ångras. Är du säker på att du vill fortsätta?
-            title: Radera alla medlemsuppgifter
           index:
             data: Det finns totalt %{count} inlästa poster. Datum för senaste uppdatering var %{due_date}.
-            empty: Det finns inga medlemsuppgifter. Importera dem som en CSV-fil med formuläret nedan.
           new:
             example: |
               john.doe@example.org
               jane.doe@example.org
-            file: ".csv-fil med e-postadresser"
             info: 'Filen måste vara i formatet CSV med endast en kolumn med e-postadress:'
             submit: Ladda upp fil
             title: Ladda upp en ny medlemslista

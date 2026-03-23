@@ -5,15 +5,11 @@ pt:
       participatory_process:
         announcement: Anúncio
         area_id: Área
-        copy_categories: Copiar categorias
-        copy_components: Copiar componentes
-        copy_steps: Copiar passos
         decidim_area_id: Área
         description: Descrição
         developer_group: Grupo promotor
         domain: Domínio
         end_date: Data final
-        hashtag: Hashtag
         hero_image: Imagem inicial
         local_area: Área de organização
         meta_scope: Metadados do âmbito
@@ -34,7 +30,6 @@ pt:
         description: Descrição
         developer_group: Grupo promotor
         group_url: Sítio web
-        hashtag: Hashtag
         hero_image: Imagem
         local_area: Área de organização
         meta_scope: Meta dados do âmbito
@@ -73,7 +68,6 @@ pt:
     admin:
       actions:
         activate: Ativar
-        configure: Configurar
         confirm_destroy: Confirmar eliminação
         destroy: Eliminar
         duplicate: Duplicar
@@ -96,7 +90,6 @@ pt:
           attachments: Anexos
           components: Componentes
           info: Sobre este processo
-          landing_page: Página de entrada
           moderations: Moderações
           process_admins: Administradores de processo
           steps: Fases
@@ -128,14 +121,10 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Avaliador
         user:
           fields:
             invitation_accepted_at: Convite aceite em
             invitation_sent_at: Convite enviado em
-      participatory_process_copies:
-        new:
-          copy: Copiar
       participatory_process_groups:
         destroy:
           success: Grupo do processo participativo eliminado corretamente.
@@ -182,7 +171,6 @@ pt:
           error: Ocorreu um problema ao reordenar estas fases do processo participativo.
         update:
           error: Ocorreu um problema ao atualizar esta fase do processo participativo.
-          success: Fase participativa atualizada corretamente.
       participatory_process_user_roles:
         create:
           error: Ocorreu um problema ao adicionar um participante para este processo participativo.
@@ -267,8 +255,6 @@ pt:
       processes: Processos
     metrics:
       participatory_processes:
-        description: Número de processos participativos nesta organização
-        object: processos participativos
         title: Processos participativos
     participatory_process_groups:
       content_blocks:
@@ -308,12 +294,8 @@ pt:
         participatory_process_imports:
           form:
             document_legend: Adicionar um documento
-        participatory_process_steps:
-          form:
-            cta_text_help: Se não estiver definido, o botão não será mostrado.
         participatory_processes:
           form:
-            announcement_help: O texto que insere aqui será mostrado ao utilizador logo abaixo das informações do processo.
             duration: Duração
             images: Imagens
             metadata: Metadados
@@ -325,9 +307,6 @@ pt:
           name: Processos realçados
       index:
         title: Processos participativos
-      participatory_process_steps:
-        index:
-          back_to_process: Retroceder à página do processo
       participatory_processes:
         description:
           title: Sobre este processo

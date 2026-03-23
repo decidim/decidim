@@ -23,7 +23,6 @@ it:
         state: Stato
         suggested_hashtags: Hashtag consigliati
         title: Titolo
-        user_group_id: Crea proposta come
       proposal_answer:
         answer: Risposta
         cost: Costo
@@ -95,16 +94,11 @@ it:
               rejected: Rifiutato
               validating: Convalida Tecnica
               withdrawn: Ritirato
-          valuator_role_ids_has:
-            label: Assegnato al valutatore
-        search_placeholder:
-          id_string_or_title_cont: Cerca %{collection} per ID o titolo.
     components:
       proposals:
         actions:
           amend: Modificare
           comment: Commento
-          endorse: Sostieni
           vote_comment: Vota per il commento
           withdraw: Ritirare
         name: Proposte
@@ -119,6 +113,7 @@ it:
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             default_sort_order_options:
+              most_endorsed: I più approvati
               random: Casuale
               recent: Recenti
             new_proposal_body_template: Nuovo modello di testo della proposta
@@ -154,6 +149,8 @@ it:
             automatic_hashtags: Hashtag aggiunti a tutte le proposte
             comments_blocked: Commenti bloccati
             creation_enabled: I partecipanti possono creare proposte
+            default_sort_order_options:
+              most_endorsed: I più approvati
             endorsements_blocked: Approvazioni bloccate
             endorsements_enabled: Approvazioni abilitate
             proposal_answering_enabled: Risposta alla proposta abilitata
@@ -169,9 +166,6 @@ it:
           proposal_note_created:
             email_outro: Hai ricevuto questa notifica perché puoi valutare la proposta.
             email_subject: Qualcuno ha lasciato una nota sulla proposta %{resource_title}.
-        coauthor_invited:
-          actions:
-            accept: Accettare
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} è stato accettato per accedere come contributore del %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> è stato accettato <strong>come contributore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
@@ -197,7 +191,6 @@ it:
         endorsing_enabled:
           email_intro: 'Puoi sostenere proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
-          email_subject: L'approvazione delle proposte è iniziata per %{participatory_space_title}
           notification_title: Da adesso puoi iniziare <a href="%{resource_path}">a sottoscrivere proposte</a> su <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: La tua proposta%{mentioned_proposal_title}" è stata menzionata <a href="%{resource_url}">in questo spazio</a> nei commenti.
@@ -249,8 +242,6 @@ it:
         title: Proposte accettate
       endorsements:
         description: Numero di approvazioni generate nelle proposte
-        object: Mi piace
-        title: Mi piace
       proposals:
         description: Numero di proposte generate
         object: proposte
@@ -327,10 +318,8 @@ it:
             select_a_meeting: Seleziona una riunione
           index:
             actions: Azioni
-            assign_to_valuator: Assegna al valutatore
             cancel: Annulla
             merge: Unisci a uno nuovo
-            merge_button: fondersi
             publish: Pubblica
             publish_answers: Pubblica risposte
             select_component: Seleziona un componente
@@ -339,25 +328,19 @@ it:
             split: Proposte divise
             split_button: Diviso
             title: Proposte
-            unassign_from_valuator: Annulla assegnazione al valutatore
             update: Aggiornare
           new:
             create: Crea
             title: Crea una proposta
           show:
             amendments_count: Numero di emendamenti
-            assigned_valuators: Valutatori assegnati
             body: Corpo
             comments_count: Conteggio dei Commenti
             documents: Documenti
-            endorsements_count: Numero di Appoggi
-            endorsers: Sostenitori
             photos: Foto
             ranking: "%{ranking} di %{total}"
             related_meetings: Riunioni correlate
             remove_assignment: Rimuovi assegnazione
-            remove_assignment_confirmation: Sei sicuro di voler rimuovere il valutatore da questa proposta?
-            valuators: Valutatori
         proposals_imports:
           new:
             create: Importa proposte
@@ -377,14 +360,10 @@ it:
       admin_log:
         proposal:
           answer: "%{user_name} ha risposto alla proposta %{resource_name} sullo spazio %{space_name}"
-          create: "%{user_name} ha creato la proposta %{resource_name} nello spazio %{space_name} come proposta ufficiale"
           publish_answer: "%{user_name} ha pubblicato la risposta alla proposta %{resource_name} sullo spazio %{space_name}"
           update: "%{user_name} aggiornato la %{resource_name} proposta ufficiale sul %{space_name} spazio"
         proposal_note:
           create: "%{user_name} ha lasciato una nota privata sulla proposta %{resource_name} sullo spazio %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} ha assegnato la proposta %{resource_name} ad un valutatore"
-          delete: "%{user_name} ha rimosso l'assegnazione di un valutatore alla proposta %{proposal_title}"
       answers:
         accepted: Accettata
         evaluating: Valutare
@@ -397,7 +376,6 @@ it:
           meetings: Incontri
           official: Ufficiale
           participants: Utenti
-          user_groups: Gruppi di utenti
         filter_state_values:
           all: Tutti
           not_answered: Non risposto
@@ -408,86 +386,36 @@ it:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Si sono verificati errori durante la pubblicazione della bozza collaborativa.
             irreversible_action_modal:
               cancel: Annulla
-              ok: Pubblica come proposta
-              title: La seguente azione è irreversibile
-            success: Bozza collaborativa pubblicata con successo come proposta.
           withdraw:
-            error: Ci sono stati errori nel chiudere la bozza collaborativa.
             irreversible_action_modal:
               cancel: Annulla
-              ok: Ritirare la bozza collaborativa
-              title: La seguente azione è irreversibile
-            success: Bozza collaborativa ritirata con successo.
-        create:
-          success: Bozza collaborativa creata con successo.
         edit:
           back: Indietro
           send: Inviare
-          title: Modifica bozza collaborativa
         filters:
           all: Tutti
           amendment: Modifiche
-          open: Aperto
           published: Pubblicato
           related_to: Associata a
           search: Cerca
           state: Stato
           withdrawn: Ritirato
-        filters_small_view:
-          close_modal: Chiudi modale
-          filter: Filtro
-          filter_by: Filtra per
-          unfold: spiegare
-        index:
-          count:
-            one: "%{count} bozza collaborativa"
-            other: "%{count} bozza collaborativa"
         new:
           send: Continua
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nuova bozza collaborativa
         orders:
-          label: 'Ordina le bozze di:'
-          most_contributed: La maggior parte ha contribuito
           random: A caso
           recent: le più recenti
-        requests:
-          accepted_request:
-            error: Non può essere accettato come collaboratore, riprova più tardi.
-          access_requested:
-            error: La tua richiesta non può essere completata, riprova più tardi.
-          collaboration_requests:
-            accept_request: Accettare
-            reject_request: Rifiutare
-            title: Richieste di collaborazione
-          rejected_request:
-            error: Non può essere rifiutato come collaboratore, riprova più tardi.
         show:
           final_proposal: proposta finale
-          final_proposal_help_text: Questa bozza è finita. Puoi vedere la proposta finale finale
-          hidden_authors_count:
-            one: e %{count} altra persona
-            other: e altre %{count} persone
           publish: Pubblica
-          publish_info: Pubblica questa versione della bozza o
           published_proposal: proposta pubblicata
-          request_access: Richiesta di accesso
-          requested_access: Accesso richiesto
-          withdraw: ritirare la bozza
         states:
-          open: Aperto
           published: Pubblicato
           withdrawn: Ritirato
         update:
           error: Si sono verificati errori durante il salvataggio della bozza della proposta.
-          success: Bozza collaborativa aggiornata correttamente.
-        wizard_aside:
-          back_from_collaborative_draft: Torna alle bozze collaborative
-        wizard_header:
-          title: Crea la tua bozza collaborativa
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: Proposta creata con successo. Salvato come bozza.
@@ -505,8 +433,6 @@ it:
             published_at: Pubblicato a
             state: Stato
             title: Titolo
-            valuator: Valutatore
-            valuators: Valutatori
             votes: Voti
       participatory_text_proposal:
         alternative_title: Al momento non ci sono testi di partecipazione
@@ -538,7 +464,6 @@ it:
           type: genere
           voted: Votata
         index:
-          collaborative_drafts_list: Accedi alle bozze di collaborazione
           count:
             one: "%{count} proposta"
             other: "%{count} proposte"
@@ -550,7 +475,6 @@ it:
         orders:
           label: 'Ordina le proposte per:'
           most_commented: I più commentati
-          most_endorsed: I più approvati
           most_followed: I più seguiti
           most_voted: Più votate
           random: A caso
@@ -571,11 +495,6 @@ it:
           answer: Risposta
           changes_at_title: Modifica a "%{title}"
           estimated_cost: Costo stimato
-          hidden_endorsers_count:
-            one: e %{count} altra persona
-            other: e altre %{count} persone
-          link_to_collaborative_draft_help_text: Questa proposta è il risultato di una bozza di collaborazione. Rivedere la storia
-          link_to_collaborative_draft_text: Vedi la bozza collaborativa
           link_to_promoted_emendation_help_text: Questa proposta è una modifica promossa
           link_to_promoted_emendation_text: Vedi la modifica rifiutata.
           link_to_proposal_from_emendation_help_text: Questa è una modifica rifiutata
@@ -593,8 +512,6 @@ it:
         voting_rules:
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
-          vote_limit:
-            description: Puoi votare fino a %{limit} proposte.
         wizard_aside:
           back: Indietro
           back_from_step_1: Torna alle proposte

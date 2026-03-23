@@ -5,17 +5,13 @@ fi-pl:
       participatory_process:
         announcement: Ilmoitus
         area_id: Alue
-        copy_categories: Kopioi aihepiirit
-        copy_components: Kopioi komponentit
         copy_landing_page_blocks: Kopioi laskeutumissivun sisältölohkot
-        copy_steps: Kopioi vaiheet
         decidim_area_id: Alue
         description: Kuvaus
         developer_group: Kehittäjäryhmä
         document: Asiakirja
         domain: Toimintaympäristö
         end_date: Päättymispäivä
-        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         import_attachments: Tuo liitteitä
         import_categories: Kopioi aihepiirejä
@@ -41,7 +37,6 @@ fi-pl:
         description: Kuvaus
         developer_group: Edistäjäryhmä
         group_url: Verkkosivusto
-        hashtag: Aihetunniste (hashtag)
         hero_image: Kuva
         local_area: Organisaation alue
         meta_scope: Teeman metatiedot
@@ -88,7 +83,6 @@ fi-pl:
     admin:
       actions:
         activate: Aktivoi
-        configure: Asetukset
         confirm_delete_process: Haluatko varmasti poistaa tämän prosessin? Mikäli muutat mieltäsi, voit palauttaa prosessin myöhemmin.
         confirm_destroy: Vahvista poistaminen
         destroy: Poista
@@ -122,7 +116,6 @@ fi-pl:
           attachments: Liitteet
           components: Komponentit
           info: Tietoa tästä prosessista
-          landing_page: Laskeutumissivu
           moderations: Moderoinnit
           private_users: Jäsenet
           process_admins: Prosessin käyttäjät
@@ -156,7 +149,6 @@ fi-pl:
             admin: Järjestelmänvalvoja
             collaborator: Osallisuuskäyttäjä
             moderator: Moderoija
-            valuator: Arvon arvioija
         user:
           fields:
             invitation_accepted_at: Kutsu hyväksytty
@@ -164,7 +156,6 @@ fi-pl:
             published: Julkaistu
       participatory_process_copies:
         new:
-          copy: Kopio
           select: Valitse, mitkä tiedot haluat kopioida
       participatory_process_groups:
         destroy:
@@ -222,7 +213,6 @@ fi-pl:
           error: Tämän osallisuusprosessin vaiheiden järjestämisessä tapahtui virhe.
         update:
           error: Tämän osallisuusprosessin vaiheen päivityksessä tapahtui virhe.
-          success: Osallisuusprosessin vaihe päivitetty onnistuneesti.
       participatory_process_user_roles:
         create:
           error: Tapahtui virhe lisätessä käyttäjää osallisuusprosessiin.
@@ -337,8 +327,6 @@ fi-pl:
       processes: Prosessit
     metrics:
       participatory_processes:
-        description: Osallisuusprosessien määrä tässä organisaatiossa
-        object: osallisuusprosessit
         title: Osallisuusprosessit
     open_data:
       help:
@@ -434,13 +422,8 @@ fi-pl:
           form:
             document_legend: Lisää asiakirja
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Käytä osittaisia ​​polkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, väliviivat ja kauttaviivat. Arvon täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näytetä. Esimerkki: %{url}'
-            cta_text_help: Jos asetusta ei ole asetettu, painiketta ei näytetä.
         participatory_processes:
           form:
-            announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
             images: kuvat
@@ -471,9 +454,6 @@ fi-pl:
           highlighted_processes:
             active_spaces: Aktiiviset prosessit
             see_all_spaces: Näytä kaikki prosessit
-      participatory_process_steps:
-        index:
-          back_to_process: Takaisin prosessin sivulle
       participatory_processes:
         description:
           area_name: Alue

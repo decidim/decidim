@@ -130,12 +130,8 @@ lt:
               success: Visi surašymo duomenys pašalinti.
           destroy:
             confirm: Pašalinus visus surašymo duomenis, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
-            title: Pašalinti visus surašymo duomenis
           index:
             data: Bendras įkeltų įrašų skaičius – %{count}. Paskutinį kartą įkelta %{due_date}.
-            empty: Surašymo duomenų nėra. Naudokite toliau pateikiamą formą, kad ją importuotumėte naudodami CSV rinkmeną.
-          new:
-            file: ".csv rinkmena su el. pašto duomenimis"
         authorizations:
           new:
             error: Negalėjome patikrinti jūsų paskyros arba jūsų duomenys neįtraukti į organizacijos surašymo duomenis.

@@ -126,12 +126,8 @@ hu:
               success: Minden névjegyzéki adatot töröltek.
           destroy:
             confirm: Az összes névjegyzék törlése nem vonható vissza. Biztos, hogy folytatni szeretné?
-            title: Törölje az összes névjegyzéki adatot
           index:
             data: Összesen %{count} rekord van betöltve. Az utolsó feltöltés dátuma %{due_date} volt.
-            empty: Nincsenek névjegyzéki adatok. Az alábbi űrlap segítségével importálhatja a CSV-fájlt.
-          new:
-            file: ".csv fájl e-mail adatokkal"
         authorizations:
           new:
             error: Nem tudtuk ellenőrizni fiókját, vagy nem szerepel a szervezet névjegyzékében.

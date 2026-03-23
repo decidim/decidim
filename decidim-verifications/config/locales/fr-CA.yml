@@ -167,12 +167,9 @@ fr-CA:
               success: Toutes les données du recensement ont été supprimées.
           destroy:
             confirm: La suppression du recensement est irréversible. Êtes-vous sûr de vouloir continuer ?
-            title: Supprimer toutes les données du recensement
           index:
             data: Il y a %{count} enregistrements chargés au total. La dernière date de téléchargement était le %{due_date}.
-            empty: Il n'y a pas de données de recensement. Utilisez le formulaire ci-dessous pour l'importer à l'aide d'un fichier CSV.
           new:
-            file: "Fichier .csv avec données de courrier électronique"
             submit: Déposer un fichier
         authorizations:
           new:

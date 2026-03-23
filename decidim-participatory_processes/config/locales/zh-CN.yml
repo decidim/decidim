@@ -5,15 +5,11 @@ zh-CN:
       participatory_process:
         announcement: 通 知
         area_id: 区域
-        copy_categories: 复制类别
-        copy_components: 复制组件
-        copy_steps: 复制步骤
         decidim_area_id: 区域
         description: 描述
         developer_group: 促销者组
         domain: 域
         end_date: 结束日期
-        hashtag: 标签
         hero_image: 首页图像
         local_area: 组织区域
         meta_scope: 范围元数据
@@ -60,7 +56,6 @@ zh-CN:
     admin:
       actions:
         activate: 激活
-        configure: 配置
         confirm_destroy: 确认删除
         destroy: 删除
         duplicate: Duplicate
@@ -111,14 +106,10 @@ zh-CN:
             admin: 管理员
             collaborator: 协作者
             moderator: 版主
-            valuator: 值者
         user:
           fields:
             invitation_accepted_at: 邀请接受于
             invitation_sent_at: 邀请发送于
-      participatory_process_copies:
-        new:
-          copy: 复制
       participatory_process_groups:
         destroy:
           success: 参与进程组已成功删除。
@@ -165,7 +156,6 @@ zh-CN:
           error: 在重新安排参与进程这些阶段的顺序方面存在问题。
         update:
           error: 在更新这一阶段的参与进程时遇到了问题。
-          success: 参与阶段更新成功。
       participatory_process_user_roles:
         create:
           error: 在这个参与进程中增加参与者时遇到了问题。
@@ -250,8 +240,6 @@ zh-CN:
       processes: 进程
     metrics:
       participatory_processes:
-        description: 本组织参与进程的数目
-        object: 参与进程
         title: 参与进程
     participatory_process_groups:
       content_blocks:
@@ -270,12 +258,8 @@ zh-CN:
         participatory_process_imports:
           form:
             document_legend: 添加文档
-        participatory_process_steps:
-          form:
-            cta_text_help: 如果未设置，按钮将不会显示。
         participatory_processes:
           form:
-            announcement_help: 您在此输入的文本将会显示给流程信息下方的用户。
             duration: 期限
             images: 图像
             metadata: 元数据
@@ -287,9 +271,6 @@ zh-CN:
           name: 高亮的进程
       index:
         title: 参与进程
-      participatory_process_steps:
-        index:
-          back_to_process: 返回进程页面
       participatory_processes:
         filters:
           counters:

@@ -19,7 +19,6 @@ es-PY:
         customize_registration_email: Personalizar email de inscripción
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
-        decidim_user_group_id: Grupo de usuarias
         description: Descripción
         end_time: Día y hora de finalización
         id: ID
@@ -123,7 +122,6 @@ es-PY:
             values:
               official: Oficial
               participants: Participante
-              user_group: Grupos
           with_any_type:
             label: Tipo de encuentro
             values:
@@ -148,6 +146,7 @@ es-PY:
           success: El encuentro se ha duplicado con éxito.
         new:
           copy: Copiar
+          title: Duplicar encuentro
     components:
       meetings:
         actions:
@@ -167,7 +166,6 @@ es-PY:
             enable_pads_creation: Habilitar la creación de pads
             maps_enabled: Mapas habilitados
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
-            registration_code_enabled: Código de inscripción activado
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada encuentro
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
@@ -176,7 +174,6 @@ es-PY:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             creation_enabled_for_participants: Habilitar la creación de encuentros por parte de las participantes
-            creation_enabled_for_user_groups: Habilitar la creación de encuentros por parte de los grupos de usuarias
     download_your_data:
       help:
         invites:
@@ -226,10 +223,8 @@ es-PY:
           email_subject: Las inscripciones en "%{resource_title}" están por encima del %{percentage}%
           notification_title: Las inscripciones de <a href="%{resource_path}">%{resource_title}</a> están por encima del %{percentage}%.
         meeting_updated:
-          email_intro: 'Se ha cerrado el encuentro "%{resource_title}". Puedes leer las conclusiones en su página:'
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Se ha actualizado el encuentro "%{resource_title}"
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado.
         registration_code_validated:
           email_intro: Su código de registro "%{registration_code}" para la reunión "%{resource_title}" ha sido validado.
           email_outro: Recibió esta notificación porque su código de registro para el encuentro "%{resource_title}" ha sido validado.
@@ -241,10 +236,7 @@ es-PY:
           email_subject: El encuentro "%{resource_title}" ha abierto las inscripciones.
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha abierto las inscripciones.
         upcoming_meeting:
-          email_intro: El encuentro "%{resource_title}" comenzará en menos de 48 h.
           email_outro: Ha recibido esta notificación porque está siguiendo la reunión "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
-          email_subject: El encuentro "%{resource_title}" comenzará en menos de 48 h.
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
     forms:
       meetings:
         attendees_count_help_text: No te olvides de añadir el número total de asistentes a la reunión, ya sea en persona, en línea o híbrido.
@@ -263,8 +255,6 @@ es-PY:
     meetings:
       actions:
         agenda: Orden del día
-        attachment_collections: Carpetas
-        attachments: Archivos adjuntos
         close: Cerrar
         confirm_delete_meeting: '¿Seguro que quiere eliminar este encuentro?'
         deleted_meetings_info: Los encuentros eliminados se pueden restaurar desde papelera.
@@ -311,7 +301,6 @@ es-PY:
             invalid: Se ha producido un error al actualizar este orden del día.
             success: El orden del día se ha actualizado correctamente.
         exports:
-          answers: Respuestas
           meeting_comments: Comentarios
           meetings: Reuniones
           registrations: Inscripciones
@@ -332,6 +321,7 @@ es-PY:
             non_user: Usuario no existente
             select_user: Selecciona un usuario
           index:
+            invite_attendee: Invitar a una asistente
             invites: Invitaciones
             registrations_disabled: No puedes invitar a nadie porque las inscripciones están deshabilitadas.
         meeting_closes:
@@ -547,7 +537,6 @@ es-PY:
             all: Todos
             official: Oficial
             participants: Participantes
-            user_group: Grupos
           search: Buscar
           type: Tipo
           type_values:
@@ -558,7 +547,6 @@ es-PY:
         form:
           address_help: 'Dirección: que utilizará Geocoder para encontrar la ubicación'
           available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
-          create_as: Crear encuentro como
           disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que las organizadoras de %{organization} no son responsables de los datos proporcionados por las usuarias en el servicio externo.'
           iframe_embed_type_html: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en directo desde los siguientes dominios: %{domains}'
           location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
@@ -605,7 +593,6 @@ es-PY:
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
           redirect_notice: Este encuentro pertenece a otro espacio de participación, por lo que se te ha trasladado a %{current_space_name}.<br>Si lo prefieres, puedes volver a <a href="%{previous_space_url}">%{previous_space_name}</a>.
-          registration_code_help_text: Tu codigo de registro
           registration_state:
             validated: Validado
             validation_pending: VALIDACIÓN PENDIENTE
@@ -655,13 +642,9 @@ es-PY:
             announcement: Se han cerrado las respuestas a esta pregunta.
             question: Pregunta
             question_results: Resultados
-          index:
-            empty_questions: A lo largo de este encuentro, se enviarán algunas preguntas y podrás responderlas. Se mostrarán aquí.
           index_admin:
             edit: Editar en el panel de administración
             question: Pregunta
-            received_answer: respuesta recibida
-            received_answers: respuestas recibidas
             results: Resultados
             send: Enviar
             sent: Enviada
@@ -685,7 +668,6 @@ es-PY:
         confirmation:
           confirmed_html: Se ha confirmado su inscripción para el encuentro <a href="%{url}">%{title}</a>.
           details: Encontrarás detalles del encuentro en el archivo adjunto.
-          registration_code: Tu código de registro es %{code}.
       registration_type:
         on_different_platform: En una plataforma diferente
         on_this_platform: En esta plataforma
@@ -713,8 +695,6 @@ es-PY:
         success: El encuentro se ha retirado con éxito.
     metrics:
       meetings:
-        description: Número de reuniones creadas
-        object: reuniones
         title: Encuentros
     open_data:
       help:

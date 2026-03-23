@@ -62,13 +62,6 @@ id:
         skip_verification: Anda dapat melewati ini untuk sekarang dan %{link}
         start_exploring: mulai menjelajah
       csv_census:
-        admin:
-          destroy:
-            title: Hapus semua data sensus
-          index:
-            empty: Tidak ada data sensus. Gunakan formulir di bawah ini untuk mengimpornya menggunakan file CSV.
-          new:
-            file: "File .csv dengan data email"
         authorizations:
           new:
             error: Kami tidak dapat memverifikasi akun Anda atau Anda tidak ada dalam sensus organisasi.

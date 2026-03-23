@@ -5,15 +5,11 @@ gl:
       participatory_process:
         announcement: Anuncio
         area_id: Área
-        copy_categories: Copiar categorías
-        copy_components: Copiar compoñentes
-        copy_steps: Copiar os pasos
         decidim_area_id: Área
         description: Descrición
         developer_group: Grupo promotor
         domain: Dominio
         end_date: Data de finalización
-        hashtag: Etiqueta
         hero_image: Imaxe na casa
         local_area: Área de organización
         meta_scope: Metadatos de ámbito
@@ -33,7 +29,6 @@ gl:
       participatory_process_group:
         description: Descrición
         group_url: Sitio web
-        hashtag: Cancelo
         hero_image: Imaxe
         participatory_process_ids: Procesos relacionados
         participatory_scope: Que se decide
@@ -70,7 +65,6 @@ gl:
     admin:
       actions:
         activate: Activar
-        configure: Configurar
         confirm_destroy: Confirma eliminar
         destroy: Eliminar
         duplicate: Duplicar
@@ -93,7 +87,6 @@ gl:
           attachments: Anexos
           components: Compoñentes
           info: Sobre este proceso
-          landing_page: Páxina de inicio
           moderations: Moderacións
           process_admins: Usuarios do proceso
           steps: Pasos
@@ -129,9 +122,6 @@ gl:
           fields:
             invitation_accepted_at: Invitación aceptada no
             invitation_sent_at: Invitación enviada a
-      participatory_process_copies:
-        new:
-          copy: Copiar
       participatory_process_groups:
         destroy:
           success: Grupo de proceso participativo eliminado con éxito.
@@ -174,7 +164,6 @@ gl:
           error: Produciuse un erro ao reordenar estes pasos de proceso participativo.
         update:
           error: Produciuse un erro ao actualizar este paso de proceso participativo.
-          success: Paso de proceso participativo actualizado con éxito.
       participatory_process_user_roles:
         create:
           error: Houbo un erro engadindo un usuario a este proceso participativo.
@@ -253,8 +242,6 @@ gl:
       processes: Procesos
     metrics:
       participatory_processes:
-        description: Número de procesos participativos nesta organización
-        object: procesos participativos
         title: Procesos participativos
     participatory_process_groups:
       content_blocks:
@@ -293,12 +280,8 @@ gl:
         participatory_process_imports:
           form:
             document_legend: Engadir un documento
-        participatory_process_steps:
-          form:
-            cta_text_help: Se non está establecido, non se mostrará o botón.
         participatory_processes:
           form:
-            announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
             duration: Duración
             images: Imaxes
             metadata: Metadatos
@@ -310,9 +293,6 @@ gl:
           name: Procesos destacados
       index:
         title: Procesos participativos
-      participatory_process_steps:
-        index:
-          back_to_process: Volver á páxina do proceso
       participatory_processes:
         filters:
           counters:

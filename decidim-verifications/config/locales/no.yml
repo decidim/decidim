@@ -88,13 +88,6 @@
         skip_verification: Du kan hoppe over dette for nå og %{link}
         start_exploring: begynn å utforske
       csv_census:
-        admin:
-          destroy:
-            title: Slett alle folketellingsdata
-          index:
-            empty: Det er ingen data for folketellingen. Bruk skjemaet nedenfor for å importere det ved hjelp av en CSV-fil.
-          new:
-            file: ".csv fil med e-postdata"
         authorizations:
           new:
             error: Vi kunne ikke bekrefte kontoen din, eller du er ikke i organisasjonens folketelling.

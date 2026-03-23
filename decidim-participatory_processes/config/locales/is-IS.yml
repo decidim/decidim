@@ -4,13 +4,9 @@ is:
     attributes:
       participatory_process:
         announcement: Tilkynning
-        copy_categories: Afrita flokka
-        copy_components: Afrita hluti
-        copy_steps: Afrita skref
         description: Lýsing
         domain: Lén
         end_date: Loka dagsetning
-        hashtag: Kassamerki
         hero_image: Heima mynd
         meta_scope: Gildissvið lýsigagna
         participatory_process_group_id: Vinnuhópur
@@ -40,7 +36,6 @@ is:
     admin:
       actions:
         activate: Virkja
-        configure: Stilla
         duplicate: Afrit
         edit: Breyta
         preview: Preview
@@ -83,9 +78,6 @@ is:
           fields:
             invitation_accepted_at: Boð samþykkt á
             invitation_sent_at: Boð sendur á
-      participatory_process_copies:
-        new:
-          copy: Afrita
       participatory_process_groups:
         edit:
           update: Uppfæra
@@ -143,7 +135,6 @@ is:
       admin:
         participatory_processes:
           form:
-            announcement_help: Textinn sem þú slærð inn hér verður sýndur fyrir notandann rétt fyrir neðan ferlið.
             related_processes: Tengd ferli
             title: Almennar upplýsingar
       index:

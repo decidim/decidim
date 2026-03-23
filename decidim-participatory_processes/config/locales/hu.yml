@@ -5,16 +5,12 @@ hu:
       participatory_process:
         announcement: Közlemény
         area_id: Terület
-        copy_categories: Kategóriák másolása
-        copy_components: Elemek másolása
-        copy_steps: Lépések másolása
         decidim_area_id: Terület
         description: Leírás
         developer_group: Kezdeményező csoport
         document: Dokumentum
         domain: Domain
         end_date: Befejezés dátuma
-        hashtag: Kettőskereszt
         hero_image: Kezdő kép
         import_attachments: Mellékletek importálása
         import_categories: Importált kategóriák
@@ -40,7 +36,6 @@ hu:
         description: Leírás
         developer_group: Előterjesztő csoport
         group_url: Weboldal
-        hashtag: Hashtag
         hero_image: Kép
         local_area: Szervezeti terület
         meta_scope: Hatókör-metaadatok
@@ -85,7 +80,6 @@ hu:
     admin:
       actions:
         activate: Aktiválás
-        configure: Beállítások
         confirm_destroy: Törlés megerősítése
         destroy: Törlés
         duplicate: Duplikálás
@@ -109,7 +103,6 @@ hu:
           attachments: Mellékletek
           components: Elemek
           info: Erről a folyamatról
-          landing_page: Landing oldal
           moderations: Moderálások
           process_admins: Folyamat adminisztrátorok
           steps: Fázisok
@@ -141,14 +134,10 @@ hu:
             admin: Admin
             collaborator: Közreműködő
             moderator: Moderátor
-            valuator: Értékelő
         user:
           fields:
             invitation_accepted_at: Meghívó elfogadva
             invitation_sent_at: Meghívó elküldve
-      participatory_process_copies:
-        new:
-          copy: Másolás
       participatory_process_groups:
         destroy:
           success: Részvételi folyamat csoport törlése sikeres.
@@ -198,7 +187,6 @@ hu:
           error: Hiba történt a részvételi folyamat fázisainak átrendezése során.
         update:
           error: Hiba történt a részvételi folyamat fázisainak frissítése során.
-          success: Részvételi folyamat fázis frissítése sikerült.
       participatory_process_user_roles:
         create:
           error: Hiba a felhasználó részvételi folyamathoz való hozzáadásakor.
@@ -295,8 +283,6 @@ hu:
       processes: Folyamatok
     metrics:
       participatory_processes:
-        description: A részvételi folyamatok száma ebben a szervezetben
-        object: részvételi folyamatok
         title: Részvételi folyamatok
     participatory_process_groups:
       content_blocks:
@@ -335,12 +321,8 @@ hu:
         participatory_process_imports:
           form:
             document_legend: Dokumentum hozzáadása
-        participatory_process_steps:
-          form:
-            cta_text_help: Ha nincs beállítva, a gomb nem jelenik meg.
         participatory_processes:
           form:
-            announcement_help: A megadott szöveg a folyamat információk alatt található felhasználónál jelenik meg.
             duration: Időtartam
             images: Képek
             metadata: Metaadatok
@@ -352,9 +334,6 @@ hu:
           name: Kiemelt folyamatok
       index:
         title: Részvételi folyamatok
-      participatory_process_steps:
-        index:
-          back_to_process: Vissza a folyamatok oldalára
       participatory_processes:
         filters:
           all_types: Minden típus
