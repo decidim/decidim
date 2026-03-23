@@ -188,7 +188,7 @@ es:
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
-            define_taxonomy_filters: Por favor, define algunos filtros para este espacio participativo antes de utilizar esta configuración.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             edit_time: Las autoras pueden editar las propuestas antes de que pase este tiempo
             edit_time_units:
               days: Días
@@ -680,6 +680,7 @@ es:
             related_meetings: Encuentros relacionados
             remove_assignment: Deshacer asignación
             remove_assignment_confirmation: '¿Seguro que quieres deshacer la asignación a la evaluadora de esta propuesta?'
+            title: Responder a la propuesta
             votes_count: Número de apoyos
           update_taxonomies:
             invalid: 'Estas propuestas ya tenían las taxonomias %{taxonomies}: %{proposals}.'
@@ -692,7 +693,7 @@ es:
             success: El proceso de importación ha comenzado. Te avisaremos cuando haya terminado.
           new:
             create: Importar propuestas
-            no_components: No hay otros componentes de propuestas en este espacio participativo desde donde importarlas.
+            no_components: No hay otros componentes de propuestas en este espacio de participación desde donde importarlas.
             select_component: Selecciona un componente
             select_states: Importar solo propuestas con estos estados. Si no se selecciona ningún estado, todas las propuestas serán importadas.
             title: Importar propuestas desde otro componente
