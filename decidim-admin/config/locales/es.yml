@@ -136,7 +136,7 @@ es:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Selecciona al menos un espacio participativo.
+              at_least_one_space: Selecciona al menos un espacio de participación.
         organization:
           attributes:
             official_img_footer:
@@ -198,7 +198,7 @@ es:
         newsletter:
           new: Nuevo boletín
         participatory_space_private_user:
-          new: Nuevo usuario privado del espacio participativo
+          new: Nuevo usuario privado del espacio de participación
         per_page: Por página
         permissions: Gestionar los permisos
         restore: Restaurar
@@ -645,7 +645,7 @@ es:
             subject: Asunto
           name: Boletín
         participatory_space_private_user:
-          name: Participante de espacio de participación privado
+          name:
         scope:
           fields:
             name: Nombre
@@ -802,8 +802,8 @@ es:
           confirm_deliver: '¿Seguro que quieres enviar este boletín? Esta acción no se puede deshacer.'
           confirm_recipients: Confirmar destinatarias
           deliver: Enviar boletín
-          followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
-          participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio participativo seleccionado de la lista.
+          followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio de participación seleccionado en la lista.
+          participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio de participación seleccionado de la lista.
           private_members_help: Envía un boletín informativo a todas las usuarias confirmadas que han sido añadidas a los espacios de participación privados seleccionados.
           recipients_count: Este boletín se enviará a <strong id='recipients_count'>%{count}</strong> usuarias.
           select_assemblies: Seleccionar asambleas
@@ -922,18 +922,18 @@ es:
           title: Lista de dominios externos permitidos
       participatory_space_private_users:
         create:
-          error: Se ha producido un error al agregar una participante privada a este espacio participativo.
-          success: Acceso privado a participantes del espacio participativo creado correctamente.
+          error: Se ha producido un error al agregar una participante privada a este espacio de participación.
+          success: Acceso privado a participantes del espacio de participación creado correctamente.
         destroy:
-          error: Se ha producido un error al eliminar a una participante privada para este espacio participativo.
-          success: El acceso de la participante al espacio de participación privado se ha eliminado correctamente.
+          error: Se ha producido un error al eliminar a una participante privada para este espacio de participación.
+          success: Acceso privado al espacio de participación eliminado con éxito.
         edit:
           title: Editar participante privada del espacio de participación.
           update: Actualizar
         index:
           import_via_csv: Importar vía csv
           publish_all: Publicar todas
-          title: Participante de espacio de participación privado
+          title: Participante del espacio de participación privado
           unpublish_all: Despublicar todas
         new:
           create: Crear
@@ -961,7 +961,7 @@ es:
             explanation: Hay %{count} participante/s privada/s.
             title: Borrar las participantes privadas
           example_file: 'Archivo de ejemplo:'
-          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo de las participantes que deseas añadir al espacio participativo, sin encabezados. Evita usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuaria.'
+          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo de las participantes que deseas añadir al espacio de participación, sin encabezados. Evita usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuaria.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -1133,7 +1133,7 @@ es:
           back: Atrás
           description: Los elementos de esta taxonomía se utilizarán para clasificar o filtrar recursos, tales como espacios participativos o componentes. Puedes ordenar el listado arrastrando los elementos.
           new_item: Nuevo elemento
-          no_items: Actualmente no hay elementos en esta taxonomía. Crea una lista de elementos para clasificar o filtrar recursos, tales como espacios participativos o componentes. Los elementos pueden anidarse hasta tres niveles.
+          no_items: Actualmente no hay elementos en esta taxonomía. Crea una lista de elementos para clasificar o filtrar recursos, tales como espacios de participación o componentes. Los elementos pueden anidarse hasta tres niveles.
           subtitle: Elementos en "%{taxonomy_name}"
           title: Editar la taxonomía "%{taxonomy_name}"
           update: Actualizar
