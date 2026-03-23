@@ -36,7 +36,8 @@ module Decidim
         define_method :"#{name}=" do |value|
           case value
           when String
-            super(send(:"parse_string_#{name}", value))
+            parsed = send(:"parse_string_#{name}", value)
+            parsed.any? ? super(parsed) : super(value)
           when Integer
             super([value])
           else
