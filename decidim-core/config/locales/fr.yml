@@ -1388,7 +1388,7 @@ fr:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
         success: Mot de passe mis à jour avec succès.
     profile:
-      deleted: Utilisateur ayant supprimé son compte
+      deleted: Utilisateur supprimé
       inaccessible_message: Ce profil est inaccessible en raison d'une violation des conditions d'utilisation !
     profiles:
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel.
@@ -1403,7 +1403,7 @@ fr:
       user:
         actions:
           disabled_message: Message
-          edit_profile: Mettre à jour le profil
+          edit_profile: Modifier le profil
           message: Message
           resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
     qr:
