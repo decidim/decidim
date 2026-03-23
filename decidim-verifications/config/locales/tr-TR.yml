@@ -87,13 +87,6 @@ tr:
         skip_verification: Bunu şimdilik %{link} atlayabilirsiniz
         start_exploring: keşfetmeye başla
       csv_census:
-        admin:
-          destroy:
-            title: Tüm sayım verilerini sil
-          index:
-            empty: Sayım verileri yok. Bir CSV dosyası kullanarak almak için aşağıdaki formu kullanın.
-          new:
-            file: "e-posta verileri içeren .csv dosyası"
         authorizations:
           new:
             error: Hesabınızı doğrulayamadık veya kuruluşun sayımına girmediniz.
