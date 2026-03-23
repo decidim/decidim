@@ -86,6 +86,7 @@ cs:
           few: Skrýt {count} odpovědi
           many: Skrýt {count} odpovědí
           other: Skrýt {count} odpovědí
+        load_replies: Načíst odpovědi
         moderated_at: Komentář moderován dne %{date}
         reply: Odpověď
         report:
@@ -120,6 +121,7 @@ cs:
         blocked_comments_warning: Komentáře jsou momentálně zakázány, pouze administrátoři mohou odpovědět nebo psát nové.
         comment_details_title: Podrobnosti komentáře
         in_favor: Líbí se mi
+        load_more_comments: Načíst další komentáře
         loading: Načítání komentářů ...
         single_comment_warning: <a href="%{url}">Zobrazit všechny komentáře</a>
         single_comment_warning_title: Vidíte jeden komentář
