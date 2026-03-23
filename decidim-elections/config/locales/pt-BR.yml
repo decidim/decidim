@@ -335,10 +335,6 @@ pt-BR:
         published_results: 'Resultados publicados: %{end_date}'
     statistics:
       elections_count: Eleições
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Fechado
   time:
     formats:
       short_with_time: "%b %-d, %Y %-I:%M%p"
