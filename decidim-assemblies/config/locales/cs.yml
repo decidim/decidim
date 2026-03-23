@@ -74,6 +74,8 @@ cs:
           attributes:
             document:
               allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}.'
+              empty: Dokument je prázdný
+              invalid_json: Dokument není platný JSON
   activerecord:
     models:
       decidim/assembly:
@@ -239,6 +241,8 @@ cs:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: O tomto shromáždění
           form:
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
@@ -257,18 +261,35 @@ cs:
             taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
+          index:
+            title: Shromáždění
+          manage_trash:
+            title: Smazané shromáždění
+          new:
+            title: Nové shromáždění
         assembly_duplicates:
           form:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+          new:
+            title: Duplikovat shromáždění
         assembly_imports:
           form:
             document_legend: Přidat dokument
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+          new:
+            title: Importovat shromáždění
         assembly_members:
           form:
             explanation: 'Pokyny pro obrázek:'
             image_guide: Je vhodnější obrázek na výšku, který nemá žádný text.
             non_user_avatar_help: Měli byste získat souhlas osob před jejich zveřejněním jako člena.
+        assembly_user_roles:
+          edit:
+            title: Aktualizovat administrátora shromáždění
+          index:
+            title: Administrátoři shromáždění
+          new:
+            title: Nový administrátor shromáždění
         content_blocks:
           highlighted_assemblies:
             max_results: Maximální množství prvků, které chcete zobrazit
