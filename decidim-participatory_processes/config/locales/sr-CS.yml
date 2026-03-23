@@ -1,11 +1,6 @@
 ---
 sr:
   decidim:
-    admin:
-      models:
-        participatory_process_user_role:
-          roles:
-            valuator: Procenjivač
     events:
       participatory_process:
         role_assigned:
