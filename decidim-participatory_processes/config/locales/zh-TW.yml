@@ -210,8 +210,6 @@ zh-TW:
         create:
           error: 創建新參與程序群組時出現問題。
           success: 成功創建參與過程群組。
-      titles:
-        participatory_process_types: 參與式流程類型
       users:
         resend_invitation:
           error: 重新發送邀請時發生問題。
@@ -233,10 +231,6 @@ zh-TW:
         create: "%{user_name} 在 %{space_name} 參與式流程中創建了 %{resource_name} 階段"
         delete: "%{user_name} 刪除了 %{space_name} 參與式流程中的 %{resource_name} 階段"
         update: "%{user_name} 更新了 %{space_name} 參與式流程中的 %{resource_name} 階段"
-      participatory_process_type:
-        create: "%{user_name} 創建了 %{resource_name} 參與性流程類型"
-        delete: "%{user_name} 刪除了 %{resource_name} 參與性流程類型"
-        update: "%{user_name} 更新了 %{resource_name} 參與式流程類型"
       participatory_process_user_role:
         create: "%{user_name} 邀請了參與者 %{resource_name} 加入 %{space_name} 參與式流程"
         delete: "%{user_name} 將參與者 %{resource_name} 從 %{space_name} 參與式流程中移除"
@@ -264,10 +258,6 @@ zh-TW:
           contextual: "<p>一個<strong>參與式過程</strong>是一系列參與性活動的序列（例如，先填寫調查問卷，然後提出建議，在面對面或虛擬會議中進行討論，最終進行優先排序），旨在定義和就特定主題做出決定。</p> <p>參與式過程的例子包括：選舉委員會成員的過程（候選人首先進行介紹，然後進行辯論，最後選擇一個候選人），參與式預算（提出建議，經濟評估，使用可用的資金進行投票），戰略規劃過程，共同起草法規或標準，城市空間設計或公共政策計畫的製定。</p>\n"
           page: "<p>一個<strong>參與性流程是一系列的參與性活動，(例如先填寫調查，然後提出建議，在面對面或虛擬會議中討論這些建議，最後進行優先排序)，以便針對特定主題進行定義和決策。</p> <p>參與性流程的例子包括：選舉委員會成員的程序（首先提出候選人，然後進行辯論，最後選出候選人），參與式預算（提出建議，經濟評估，用可用的資金進行投票），戰略規劃流程，協作制定規則或標準，城市空間的設計或公共政策計劃的制定。</p>\n"
           title: 什麼是參與式過程？
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: '未在資料庫(ID：%{id}) 中找到此流程類型'
     menu:
       processes: 程序
     participatory_process_groups:
