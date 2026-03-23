@@ -1523,7 +1523,7 @@ de:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
         success: Passwort erfolgreich aktualisiert.
     profile:
-      deleted: Gelöschter Benutzer
+      deleted: Gelöschter Teilnehmer
       inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
     profiles:
       default_officialization_text_for_users: Dieser Teilnehmer ist öffentlich verifiziert, sein/ihr Name oder seine/ihre Rolle wurde auf Übereinstimmung mit dem wirklichen Namen und der wirklichen Rolle überprüft.
@@ -1540,7 +1540,7 @@ de:
           disabled_message: Nachricht
           edit_profile: Profil bearbeiten
           message: Nachricht
-          resend_email_confirmation_instructions: Senden Sie die E-Mail-Bestätigungsanweisungen erneut
+          resend_email_confirmation_instructions: E-Mail-Bestätigungsanweisungen erneut versenden
     qr:
       show:
         scan: QR-Code scannen
