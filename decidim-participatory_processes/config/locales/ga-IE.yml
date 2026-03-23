@@ -4,11 +4,9 @@ ga:
     attributes:
       participatory_process:
         area_id: Ceantar
-        copy_categories: Cóipeáil catagóirí
         decidim_area_id: Ceantar
         domain: Fearann
         end_date: Dáta deiridh
-        hashtag: Haischlib
         participatory_process_group_id: Grúpa próisis
         promoted: Curtha chun cinn
         related_process_ids: Próisis Ceangailte
@@ -17,7 +15,6 @@ ga:
         title: Teideal
       participatory_process_group:
         group_url: Suíomh Gréasáin
-        hashtag: Haischlib
         hero_image: Íomhá
         participatory_process_ids: Próisis Ceangailte
         title: Teideal
@@ -71,10 +68,6 @@ ga:
           name: Riarachán próisis rannpháirtíochta
           roles:
             admin: Riarthóir
-            valuator: Luachálaí
-      participatory_process_copies:
-        new:
-          copy: Cóipeáil
       participatory_process_groups:
         edit:
           update: Nuashonraigh
