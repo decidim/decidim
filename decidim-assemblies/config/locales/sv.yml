@@ -300,7 +300,7 @@ sv:
           title: Om samrådet
         filters:
           names:
-            all: Allt
+            all: Alla
           type: Typ
         show:
           title: Om det här samrådet
