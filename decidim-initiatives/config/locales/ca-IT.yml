@@ -259,6 +259,7 @@ ca-IT:
             reject: Rebutja la iniciativa
             send_to_technical_validation: Enviar a validació tècnica
             success: La iniciativa s'ha enviat a validació tècnica.
+            title: Quant a aquesta iniciativa
             update: Actualitzar
           form:
             attachments_title: Fitxers adjunts
@@ -268,6 +269,7 @@ ca-IT:
             actions_title: Acció
             preview: Vista prèvia
             print: Imprimir
+            title: Iniciatives
           initiative_attachments:
             documents: Documents
             edit: Edita
@@ -284,6 +286,7 @@ ca-IT:
             success: La iniciativa s'ha actualitzat correctament.
         initiatives_settings:
           edit:
+            title: Configuració de la iniciativa
             update: Actualitzar
           form:
             comments: Més comentades
@@ -313,12 +316,15 @@ ca-IT:
           destroy:
             success: S'ha eliminat correctament el tipus d'iniciativa.
           edit:
+            title: Editar el tipus d'iniciativa
             update: Actualitza
           form:
             child_scope_threshold_enabled_help_html: 'Aquest ajust de configuració no admet les votacions sense connexió. Aquest habilita els subàmbits i funciona amb un gestor d''autoritzacions que associa un àmbit a la participant. Assegura''t de seleccionar aquesta autorització, més avall a la configuració d''autoritzacions. Per a que funcioni, els àmbits han de configurar-se de forma jerárquica: 1 Pare - N fills. Per a més informació sobre com funciona aquesta configuració, consulta la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank"> documentació sobre l''administració d''iniciatives</a>.'
             only_global_scope_enabled_help_html: Marca aquesta casella si has habilitat "Activar signatures per subàmbit" i vas configurar l'àmbit global com l'àmbit principal. En habilitar aquesta casella, la selecció del tipus d'iniciativa s'ometrà en l'assistent de creació d'iniciatives. Per a més informació sobre com funciona aquesta configuració, consulta la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentació sobre l'administració d'iniciatives</a>.
             options: Opcions
             signature_workflow_settings: Configuració del procés per a signar
+          index:
+            title: Tipus d'iniciatives
           initiative_type_scopes:
             title: Àmbits del tipus d'iniciativa
           new:
