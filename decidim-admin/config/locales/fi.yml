@@ -189,6 +189,7 @@ fi:
           Mikäli muutat mieltäsi, voit palauttaa tuloksen myöhemmin.
         export: Vie
         export_all: Vie kaikki
+        export_selection: Vie valitut
         import: Tuo
         member:
           new: Uusi jäsen
@@ -219,7 +220,6 @@ fi:
           alert: 'Vaadittu: tutustu hallintakäyttäjän ehtoihimme'
           callout: Ole hyvä ja tutustu hallintakäyttäjän käyttöehtoihin. Ehtojen hyväksyminen vaaditaan, jotta saat oikeudet järjestelmän hallintatoimintoihin.
           cta: Tutustu nyt.
-        title: Hallintakäyttäjän käyttöehdot
       area_types:
         create:
           error: Uuden aluetyypin luonti epäonnistui.
@@ -262,8 +262,6 @@ fi:
         edit:
           title: Muokkaa kansiota
           update: Päivitä
-        index:
-          attachment_collections_title: Liitetiedostojen kansiot
         new:
           create: Luo
           title: Uusi kansio
@@ -279,8 +277,6 @@ fi:
         edit:
           title: Muokkaa liitettä
           update: Päivitä
-        index:
-          attachments_title: Liitteet
         new:
           create: Luo liite
           title: Uusi liite
@@ -340,7 +336,6 @@ fi:
           title: 'Lisää komponentti: %{name}'
         publish:
           success: Komponentin julkaisu onnistui.
-        title: Komponentit
         unpublish:
           success: Komponentin julkaisun peruminen onnistui.
         update:
@@ -357,7 +352,6 @@ fi:
           text: Etsi nykyisen käyttäjän sähköpostiosoitteella, nimellä tai nimimerkillä
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
-        title: Vahvistusten ristiriidat
         transfer:
           email: Sähköposti
           error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
@@ -517,7 +511,6 @@ fi:
           impersonate: Esiinny käyttäjänä
           impersonate_existing_managed_user: Esiinny hallittuna käyttäjänä "%{name}"
           impersonate_existing_user: Esiinny käyttäjänä "%{name}"
-          impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjänä
       imports:
         and: ja
         data_errors:
@@ -573,7 +566,6 @@ fi:
         promotions:
           new:
             explanation: Hallituille käyttäjille voidaan myöntää normaalien käyttäjien oikeudet. Tämä tarkoittaa, että heille lähetetään rekisteröitymiskutsu alustalle ja rekisteröitymisen jälkeen kyseisinä käyttäjinä ei voi enää esiintyä. Kutsutulle käyttäjälle lähetetään sähköposti, jonka avulla he voivat hyväksyä kutsusi.
-            new_managed_user_promotion: Uusi käyttäjätason korotus hallinnoidulle käyttäjälle
             promote: Korota oikeudet
       members:
         create:
@@ -803,7 +795,6 @@ fi:
           title: Uutiskirjeiden pohjat
           use_template: Käytä tätä pohjaa
         show:
-          preview: 'Esikatsele pohjaa: %{template_name}'
           use_template: Käytä tätä pohjaa
       newsletters:
         confirm_recipients:
@@ -868,7 +859,6 @@ fi:
         send_to_user:
           sent_successfully: Uutiskirjeen lähetys osoitteeseen %{email} onnistui
         show:
-          preview: Esikatsele
           select_recipients_to_deliver: Valitse vastaanottajat
           send_me_a_test_email: Lähetä minulle testisähköposti
           subject: Otsikko
@@ -963,7 +953,6 @@ fi:
           up: Ylös
         form:
           add: Lisää sallittujen listalle
-          title: Sallitut ulkoiset verkko-osoitteet
       reminders:
         create:
           error: Muistutusten luonti epäonnistui.
@@ -1082,6 +1071,7 @@ fi:
           title: Uusi aihe
         update:
           error: Aiheen päivitys epäonnistui.
+          success: Aiheen päivitys onnistui.
       static_pages:
         actions:
           view: Näytä
@@ -1220,25 +1210,12 @@ fi:
           none: Ei mitään
           title: Uusi kohde luokittelussa %{taxonomy}
       titles:
-        admin_log: Hallintatoimintojen lokitiedot
-        area_types: Aluetyypit
         areas: Alueet
         authorization_workflows: Vahvistustavat
-        dashboard: Hallintapaneeli
-        edit_external_domains: Sallitut ulkoiset verkko-osoitteet
-        impersonatable_users: Hallittavat käyttäjät
-        impersonations: Käyttäjien hallinta
         menu: Valikko
-        page_topics: Aiheet
-        pages: Sivut
         panel: Hallintakäyttäjä
-        participants: Käyttäjät
-        scope_types: Teematyypit
         scopes: Teemat
         statistics: Tilastot
-        taxonomies: Luokittelut
-        taxonomy_filters: Luokittelun suodattimet kohteelle "%{taxonomy}"
-        users: Hallintakäyttäjät
       tooltips:
         cannot_destroy_taxonomy_filter: Tätä luokittelusuodantinta ei voi poistaa
         cannot_edit_taxonomy_filter: Tätä luokittelusuodantinta ei voi muokata

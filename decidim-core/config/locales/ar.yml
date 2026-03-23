@@ -937,6 +937,9 @@ ar:
       terms_of_service:
         form:
           agreement: أوافق على هذه الشروط
+    participatory_space_members:
+      index:
+        members: أفراد
     profile:
       deleted: مشارك محذوف
     profiles:

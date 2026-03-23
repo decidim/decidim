@@ -83,7 +83,6 @@ lb:
           published: Veröffentlicht
         new:
           create: Erstellen
-          title: Neues Gremium
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich aktualisiert.
@@ -94,7 +93,6 @@ lb:
         new:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
-          title: Gremium importieren
       assembly_publications:
         create:
           error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
@@ -110,8 +108,6 @@ lb:
           success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
           update: Aktualisieren
-        index:
-          assembly_admins_title: Assembly Benutzer
         new:
           create: Erstellen
         update:
@@ -160,9 +156,6 @@ lb:
         filters:
           names:
             all: Alle
-      assembly_members:
-        index:
-          members: Mitglieder
       content_blocks:
         highlighted_assemblies:
           name: Hervorgehobene Gremien
@@ -189,9 +182,6 @@ lb:
       show:
         duration: Dauer
         private_space: Dies ist eine private Versammlung
-    assembly_members:
-      index:
-        title: Mitglieder
     events:
       assemblies:
         create_assembly_member:

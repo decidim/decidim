@@ -79,11 +79,9 @@ is-IS:
             invitation_sent_at: Boð sendur á
       participatory_process_groups:
         edit:
-          title: Breyta ferli hópsins
           update: Uppfæra
         new:
           create: Búa til
-          title: Nýr ferli hópur
       participatory_process_steps:
         default_title: Kynning
         edit:
@@ -104,10 +102,6 @@ is-IS:
           published: Published
         new:
           create: Búa til
-          title: Nýtt þátttökuferli
-      titles:
-        participatory_process_groups: Þátttaka ferli hópa
-        participatory_processes: Þátttökuferli
     admin_log:
       participatory_process:
         create: "%{user_name} búið til %{resource_name} þátttakandi ferli"

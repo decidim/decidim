@@ -104,7 +104,6 @@ pl:
           unpublished: Nieopublikowane
         new:
           create: Utwórz
-          title: Nowy zespół
         update:
           error: Podczas aktualizowania tego zespołu wystąpił błąd.
           success: Zespół został zaktualizowany.
@@ -115,7 +114,6 @@ pl:
         new:
           import: Importuj
           select: Wybierz dane, które chcesz zaimportować
-          title: Importuj zespół
       assembly_publications:
         create:
           error: Podczas publikowania tego zespołu wystąpił błąd.
@@ -130,13 +128,9 @@ pl:
         destroy:
           success: Administrator został usunięty pomyślnie z tego zespołu.
         edit:
-          title: Aktualizuj administratora zgromadzenia
           update: Aktualizuj
-        index:
-          assembly_admins_title: Administratorzy zespołu
         new:
           create: Utwórz
-          title: Nowy administrator zgromadzenia
         update:
           error: Wystąpił błąd podczas aktualizacji administratora tego zespołu.
           success: Administrator zespołu został zaktualizowany pomyślnie.
@@ -187,7 +181,6 @@ pl:
             collaborator: Współpracownik
             moderator: Moderator
       titles:
-        assemblies: Zespoły
         assemblies_types: Typy zespołów
     admin_log:
       assembly:
@@ -268,9 +261,6 @@ pl:
           type: Typ
         show:
           title: O tym zgromadzeniu
-      assembly_members:
-        index:
-          members: Członkowie
       content_blocks:
         children_assemblies:
           name: Zgromadzenia
@@ -312,9 +302,6 @@ pl:
         duration: Czas trwania
         private_space: To jest prywatny zespół
         social_networks_title: Odwiedź zespół na
-    assembly_members:
-      index:
-        title: Członkowie
     events:
       assemblies:
         create_assembly_member:

@@ -1097,6 +1097,9 @@ pl:
           alert: Zaktualizowaliśmy nasze warunki świadczenia usługi, prosimy o zapoznanie się z nimi.
           body: Poświęć chwilę na zapoznanie się z naszymi zaktualizowanymi warunkami świadczenia usługi. Inaczej korzystanie z platformy nie będzie możliwe.
           title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
+    participatory_space_members:
+      index:
+        members: Członkowie
     passwords:
       update:
         error: Wystąpił problem podczas aktualizacji hasła.
@@ -1364,8 +1367,6 @@ pl:
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
         old_password_help: Aby potwierdzić zmiany na koncie, podaj swoje aktualne hasło.
-        password_help: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
-        password_help_admin: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail, a także Twoich poprzednich haseł."
         title: Zmiana hasła
       new:
         forgot_your_password: Zapomniałeś hasła?

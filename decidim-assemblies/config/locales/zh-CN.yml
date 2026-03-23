@@ -77,7 +77,6 @@ zh-CN:
           published: 已发布
         new:
           create: 创建
-          title: 新建程序集
         update:
           error: 更新这个组件时出现问题。
           success: 程序更新成功。
@@ -88,7 +87,6 @@ zh-CN:
         new:
           import: 导入
           select: 选择您想要导入的数据
-          title: 导入程序集
       assembly_publications:
         create:
           error: 发布这个组件时出现问题。
@@ -104,8 +102,6 @@ zh-CN:
           success: 管理员已成功从此组件中移除。
         edit:
           update: 更新
-        index:
-          assembly_admins_title: 集合管理员
         new:
           create: 创建
         update:
@@ -147,7 +143,6 @@ zh-CN:
             collaborator: 协作者
             moderator: 版主
       titles:
-        assemblies: 程序集
         assemblies_types: 程序集类型
     admin_log:
       assembly:
@@ -193,9 +188,6 @@ zh-CN:
         filters:
           names:
             all: 所有的
-      assembly_members:
-        index:
-          members: 成员
       content_blocks:
         highlighted_assemblies:
           name: 突出显示的会议
@@ -222,9 +214,6 @@ zh-CN:
       show:
         duration: 期限
         private_space: 这是一个私人装饰
-    assembly_members:
-      index:
-        title: 成员
     events:
       assemblies:
         create_assembly_member:

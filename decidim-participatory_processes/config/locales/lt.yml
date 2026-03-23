@@ -145,11 +145,9 @@ lt:
         destroy:
           success: Dalyvaujamojo proceso grupė pašalinta.
         edit:
-          title: Keisti procesų grupę
           update: Atnaujinti
         new:
           create: Sukurti
-          title: Nauja procesų grupė
         update:
           error: Atnaujinant šio dalyvaujamojo proceso grupę iškilo problema.
           success: Dalyvaujamojo proceso grupė atnaujinta.
@@ -160,7 +158,6 @@ lt:
         new:
           import: Importuoti
           select: Pasirinkite, kuriuos duomenis norėtumėte importuoti
-          title: Importuoti dalyvaujamąjį procesą
       participatory_process_publications:
         create:
           error: Skelbiant šį dalyvaujamąjį procesą iškilo problema.
@@ -183,13 +180,9 @@ lt:
             last_step: Negalima pašalinti proceso paskutinio etapo.
           success: Dalyvaujamojo proceso etapas pašalintas.
         edit:
-          title: Redaguoti dalyvaujamojo proceso etapą
           update: Atnaujinti
-        index:
-          steps_title: Etapai
         new:
           create: Sukurti
-          title: Naujas dalyvaujamojo proceso etapas
         ordering:
           error: Pertvarkant šiuos dalyvaujamojo proceso etapus iškilo problema.
         update:
@@ -201,13 +194,9 @@ lt:
         destroy:
           success: Šio dalyvaujamojo proceso administratorius pašalintas.
         edit:
-          title: Atnaujinti dalyvaujamojo proceso administratorių
           update: Atnaujinti
-        index:
-          process_admins_title: Dalyvaujamojo proceso administratoriai
         new:
           create: Sukurti
-          title: Naujas dalyvaujamojo proceso administratorius
         update:
           error: Atnaujinant šio dalyvaujamojo proceso administratorių iškilo problema.
           success: Šio dalyvaujamojo proceso administratorius atnaujintas.
@@ -223,7 +212,6 @@ lt:
           published: Paskelbta
         new:
           create: Sukurti
-          title: Naujas dalyvaujamasis procesas
         update:
           error: Atnaujinant šį dalyvaujamąjį procesą iškilo problema.
           success: Dalyvaujamasis procesas atnaujintas.
@@ -232,9 +220,7 @@ lt:
           error: Kuriant naują dalyvaujamojo proceso grupę iškilo problema.
           success: Dalyvaujamojo proceso grupė sukurta.
       titles:
-        participatory_process_groups: Dalyvaujamojo proceso grupės
         participatory_process_types: Dalyvaujamųjų procesų tipai
-        participatory_processes: Dalyvaujamieji procesai
       users:
         resend_invitation:
           error: Dar kartą siunčiant šį kvietimą iškilo problema.

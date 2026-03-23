@@ -109,7 +109,6 @@
           back: Tilbake
           create: Opprett
         orders:
-          commented: Mest kommentert
           label: Ranger debatter etter
           random: Tilfeldig rekkefølge
           recent: Nyeste

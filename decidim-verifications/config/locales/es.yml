@@ -220,10 +220,6 @@ es:
               user_authorized: '¿Usuaria autorizada?'
             import_csv: Importar CSV
             no_authorized: Usuaria no autorizada
-            title: Datos censales actuales
-          instructions:
-            body: Para ello, debes acceder a la administración del sistema y añadir las autorizaciones csv_census a la organización
-            title: Necesitas activar el CSV para esta organización
         authorizations:
           new:
             error: No pudimos verificar tu cuenta o no estás en el censo de la organización.
@@ -254,7 +250,6 @@ es:
               error: La verificación no coincide. Por favor inténtalo de nuevo o rechaza la verificación para que la participante pueda modificarla.
               success: Participante verificada correctamente.
             new:
-              introduce_user_data: Introduce los datos de la imagen
               reject: Rechazar
               verify: Verificar
           offline_confirmations:
@@ -263,7 +258,6 @@ es:
               success: Participante verificada correctamente.
             new:
               cancel: Cancelar
-              introduce_user_data: Introduce el correo electrónico de la participante y los datos del documento
               verify: Verificar
           pending_authorizations:
             index:

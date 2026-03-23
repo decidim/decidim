@@ -471,7 +471,7 @@ sv:
           allowed_postal_codes: Tillåtna postnummer (separerade med kommatecken)
           document_number: Dokumentnummer
           postal_code: Postnummer
-        name: Tillfällig exempel-verifiering
+        name: Exempel-verifiering för tillfälliga användare
       errors:
         duplicate_authorization: En deltagare är redan auktoriserad med samma data. En administratör kommer att kontakta dig för att verifiera dina uppgifter.
       expired_at: Förföll vid %{timestamp}
@@ -1529,6 +1529,9 @@ sv:
           %{organization_name}
         hello: Hej %{username},
         subject: Inaktivt konto raderat
+    participatory_space_members:
+      index:
+        members: Medlemmar
     passwords:
       update:
         error: Det gick inte att uppdatera lösenordet.
@@ -1883,8 +1886,8 @@ sv:
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
         old_password_help: För att bekräfta ändringarna av ditt konto, vänligen ange ditt nuvarande lösenord.
-        password_help: "Minst %{minimum_characters} tecken, får inte vara för vanligt (som 123456) och måste skilja sig från ditt användarnamn och din e-postadress."
-        password_help_admin: "Minst %{minimum_characters} tecken, får inte vara för vanligt (som 123456) och måste skilja sig från ditt användarnamn och din e-postadress."
+        password_help: "Minst %{minimum_characters} tecken. Måste innehålla minst 5 olika tecken, får inte vara för vanligt (t.ex. 123456) och måste skilja sig från ditt namn, användarnamn, e-post och webbplatsens namn."
+        password_help_admin: "Minst %{minimum_characters} tecken. Måste innehålla minst 5 olika tecken, får inte vara för vanligt (t.ex. 123456) och måste skilja sig från ditt namn, användarnamn, e-post, webbplatsens namn och dina tidigare lösenord."
         title: Ändra lösenord
       new:
         forgot_your_password: Glömt ditt lösenord?
@@ -2129,7 +2132,7 @@ sv:
         confirm_title_close_ephemeral_session: Innan du lämnar sidan…
         log_in: Logga in
         main_menu: Huvudmeny
-        mobile_account_greeting: Hej, %{user_name}
+        mobile_account_greeting: Hej %{user_name}
         user_menu: Användarmeny
       impersonation_warning:
         close_session: Stäng session

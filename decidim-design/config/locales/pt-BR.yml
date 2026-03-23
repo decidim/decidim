@@ -51,6 +51,7 @@ pt-BR:
           min_max_length: Tamanho mín/máx
           min_max_length_description: Funciona apenas para entradas de tipo='texto' e textarea
           multiselect: Multiseleção
+          regular_inputs_description: 'Apresenta apenas tipos comuns, lista completa disponível: data, data e hora local, e-mail, mês, número, senha, busca, tel, texto, hora, url, semana'
           textarea_required: textarea necessária
           title: Formulários
         report:
@@ -76,6 +77,7 @@ pt-BR:
           adjacent_links_header: Links de Adjacentes para o mesmo recurso
           adjacent_links_paragraph: Se o mesmo recurso tiver vários links adjacentes apontando para ele, isso dificulta que esses usuários passem pela página porque eles podem precisar passar por vários links para chegar ao próximo recurso.
           color_contrast: Contraste de cor
+          color_contrast_paragraph: Ao criar interfaces de usuário ou modificar as cores, tenha sempre certeza de que você não está quebrando a acessibilidade com suas alterações. Você pode usar o verificador de contraste de cor para garantir que suas cores tenham contraste suficiente contra a cor de fundo onde elas são exibidas.
           decidim_follows_html: Decidim segue o %{link}
           dynamic_changes_header: Funcionalidade dinâmica muda o contexto da página de forma não intuitiva
           dynamic_changes_paragraph: Alterações nas entradas do formulário não devem alterar o contexto da página automaticamente.
@@ -127,7 +129,6 @@ pt-BR:
         background: Fundo e bordas
         blog_cards_html: Usado por <i>Blogs</i> cartões
         blogs: Blogs
-        collaborative_draft_l: Rascunho colaborativo L
         colors: Cores
         compact_description: Esta versão do autor é a maneira comum de identificar o criador do recurso.
         conference_g: Conferência G

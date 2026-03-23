@@ -79,11 +79,6 @@ zh-CN:
         skip_verification: 您现在可以跳过它， %{link}
         start_exploring: 开始探索中
       csv_census:
-        admin:
-          index:
-            title: 目前的普查数据
-          instructions:
-            body: 要做到这一点，您必须输入系统管理并将csv_census授权添加到组织
         authorizations:
           new:
             error: 我们无法验证您的帐户或您不在组织的普查中。
@@ -98,13 +93,11 @@ zh-CN:
               error: 更新配置时出现问题。
           confirmations:
             new:
-              introduce_user_data: 在图片中介绍数据
               reject: 拒绝
               verify: 验证
           offline_confirmations:
             new:
               cancel: 取消
-              introduce_user_data: 介绍参与者电子邮件和文档数据
               verify: 验证
           pending_authorizations:
             index:

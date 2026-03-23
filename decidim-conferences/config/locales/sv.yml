@@ -101,7 +101,6 @@ sv:
         new:
           duplicate: Duplicera
           select: Välj vad du vill duplicera
-          title: Duplicera konferens
       conference_publications:
         create:
           error: Det gick inte att publicera konferensen.
@@ -120,13 +119,9 @@ sv:
         destroy:
           success: Talaren har tagits bort.
         edit:
-          title: Uppdatera konferenstalare
           update: Uppdatera
-        index:
-          conference_speakers_title: Talare
         new:
           create: Skapa
-          title: Ny konferenstalare
         publish:
           invalid: Det gick inte att publicera talaren.
           success: Konferensens talare har publicerats.
@@ -143,13 +138,9 @@ sv:
         destroy:
           success: Konferensadministratören har tagits bort.
         edit:
-          title: Uppdatera konferensadministratör
           update: Uppdatera
-        index:
-          conference_admins_title: Konferensadministratörer
         new:
           create: Skapa
-          title: Ny konferensadministratör
         update:
           error: Det gick inte att uppdatera konferensadministratören.
           success: Konferensadministratören har uppdaterats.
@@ -172,11 +163,8 @@ sv:
         index:
           published: Publicerad
           unpublished: Ej publicerad
-        manage_trash:
-          title: Borttagna konferenser
         new:
           create: Skapa
-          title: Ny konferens
         update:
           error: Det gick inte att uppdatera konferensen.
           success: Konferensen har uppdaterats.
@@ -191,13 +179,9 @@ sv:
         destroy:
           success: Medielänken har raderats.
         edit:
-          title: Uppdatera medialänk
           update: Uppdatera
-        index:
-          media_links_title: Medialänkar
         new:
           create: Skapa
-          title: Skapa medialänk
         update:
           error: Det gick inte att uppdatera medialänken.
           success: Medialänken har uppdaterats.
@@ -212,7 +196,6 @@ sv:
           conference_invites: Inbjudningar
           conference_speakers: Talare
           diploma: Närvarointyg
-          info: Om konferensen
           media_links: Medialänkar
           moderations: Moderering
           partners: Partners
@@ -280,11 +263,9 @@ sv:
         destroy:
           success: Konferenspartnern har tagits bort.
         edit:
-          title: Uppdatera partner
           update: Uppdatera
         new:
           create: Skapa
-          title: Ny partner
         update:
           error: Det gick inte att uppdatera konferenspartnern.
           success: Konferenspartnern har uppdaterats.
@@ -302,25 +283,21 @@ sv:
         destroy:
           success: Registreringstypen har tagits från konferensen.
         edit:
-          title: Uppdatera registreringstyp
           update: Uppdatera
         new:
           create: Skapa
-          title: Ny registreringstyp
         update:
           error: Det gick inte att uppdatera en registreringstyp för konferensen.
           success: Registreringstypen till konferensen har uppdaterats.
       taxonomy_filters:
         space_filter_for:
           conferences: Alla konferenser
-      titles:
-        conferences: Konferenser
-        conferences_deleted: Borttagna konferenser
       tooltips:
         deleted_conferences_info: Konferenser kan endast tas bort om statusen är "Opublicerad".
     admin_log:
       conference:
         create: "%{user_name} skapade konferensen %{resource_name}"
+        duplicate: "%{user_name} kopierade konferensen %{resource_name}"
         publish: "%{user_name} publicerade konferensen %{resource_name}"
         restore: "%{user_name} återställde konferensen %{resource_name}"
         send_conference_diplomas: "%{user_name} skickade närvarointyg till deltagarna på konferensen %{resource_name}"
@@ -376,14 +353,9 @@ sv:
             select_user: Välj deltagare
           index:
             invite_attendee: Bjud in deltagare
-            invites: Inbjudningar
           new:
             explanation: Deltagaren kommer att bjudas in att delta i en konferens. Om deltagarens e-postadress inte har registrerats kommer deltagaren även att bjudas in till organisationen.
             invite: Inbjudan
-            new_invite: Bjud in deltagare
-        conference_registrations:
-          index:
-            registrations: Registreringar
         conference_speakers:
           form:
             existing_user: Befintlig deltagare

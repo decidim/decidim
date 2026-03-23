@@ -156,8 +156,8 @@ es:
           create: Crear
           title: Crear un debate
         orders:
-          commented: Más comentados
           label: Ordenar debates por
+          most_commented: Más comentados
           random: Orden aleatorio
           recent: Más recientes
           updated: Actualizados recientemente

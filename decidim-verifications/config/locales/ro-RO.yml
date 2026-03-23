@@ -141,10 +141,6 @@ ro:
               email: Email
               user_authorized: Utilizator autorizat?
             no_authorized: Utilizator neautorizat
-            title: Date de recensământ curente
-          instructions:
-            body: Pentru a face acest lucru, trebuie să introduci administrarea sistemului şi să adaugi autorizaţiile csv_recensământ în organizaţie
-            title: Trebuie să activezi recensământul CSV pentru această organizație
         authorizations:
           new:
             error: Nu am putut verifica contul tău sau nu ești în recensământul organizației.
@@ -173,13 +169,11 @@ ro:
               success: Configurație actualizată cu succes.
           confirmations:
             new:
-              introduce_user_data: Introdu datele din imagine
               reject: Respingeți
               verify: Verificați
           offline_confirmations:
             new:
               cancel: Anulați
-              introduce_user_data: Introdu adresa de e-mail a participantului și datele documentului
               verify: Verificați
           pending_authorizations:
             index:

@@ -151,7 +151,6 @@ cs:
           success: Duplicitní schůzka úspěšně.
         new:
           copy: Kopírovat
-          title: Duplicitní schůzka
       tooltips:
         cannot_close_meetings: Tuto schůzku nelze zavřít, protože ji vytvořil účastník
         cannot_duplicate_meetings: Tuto schůzku nelze duplikovat, protože byla vytvořena účastníkem
@@ -353,7 +352,6 @@ cs:
             non_user: Neexistující uživatel
             select_user: Vyberte uživatele
           index:
-            invite_attendee: Pozvat účastníka
             invites: Pozvánky
             registrations_disabled: Nemůžete pozvat účastníka, protože registrace jsou blokovány.
         meeting_closes:
@@ -460,7 +458,6 @@ cs:
               other: Bylo zde %{count} registrací.
             reserved_slots_help: Ponechte 0, pokud nemáte vyhrazené sloty.
             reserved_slots_less_than: Musí být menší nebo rovno %{count}
-            title: Registrace
           update:
             invalid: Došlo k potížím při ukládání nastavení registrace.
             success: Nastavení úspěšných registrací bylo úspěšně uloženo.

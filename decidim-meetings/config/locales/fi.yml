@@ -145,7 +145,6 @@ fi:
           success: Tapaamisen kopioiminen onnistui.
         new:
           copy: Kopioi
-          title: Kopioi tapaaminen
       tooltips:
         cannot_close_meetings: Tätä tapaamista ei voi sulkea, koska se on osallistujan luoma
         cannot_duplicate_meetings: Tätä tapaamista ei voi kopioida, koska se on osallistujan luoma
@@ -354,7 +353,6 @@ fi:
             non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
-            invite_attendee: Kutsu osallistuja
             invites: Kutsut
             registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
         meeting_closes:
@@ -459,7 +457,6 @@ fi:
               other: Tapaamiseen on %{count} ilmoittautumista.
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja.
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
-            title: Ilmoittautumiset
           update:
             invalid: Rekisteröitymisasetusten päivitys epäonnistui.
             success: Tapaamisen ilmoittautumisasetusten tallennus onnistui.
@@ -731,6 +728,8 @@ fi:
         hidden_participants_count:
           one: ja %{count} muu henkilö
           other: ja %{count} muuta henkilöä
+        show_less: Näytä vähemmän
+        show_more: Näytä enemmän
       read_more: "(lue lisää)"
       registration_mailer:
         confirmation:

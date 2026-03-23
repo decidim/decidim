@@ -145,7 +145,6 @@ pt-BR:
           success: Evento duplicado com sucesso.
         new:
           copy: cópia de
-          title: Evento duplicado
       tooltips:
         cannot_close_meetings: Não é possível fechar este evento, pois é criada por um participante
         cannot_duplicate_meetings: Não é possível duplicar este evento, como é criada por um participante
@@ -354,13 +353,16 @@ pt-BR:
             non_user: Usuário inexistente
             select_user: Selecionar usuário
           index:
-            invite_attendee: Convidar participante
             invites: Convites
             registrations_disabled: Você não pode convidar um participante porque os registros estão desativados.
+            title: Convidar participante
         meeting_closes:
           edit:
             close: Fechar
             title: Reunião próxima
+        meeting_copies:
+          new:
+            title: Evento duplicado
         meetings:
           close:
             invalid: Houve um problema ao encerrar esta reunião.
@@ -437,15 +439,21 @@ pt-BR:
             invalid: Houve um problema ao atualizar essa enquete de reunião.
             success: Enquete da reunião atualizada com sucesso.
         poll:
+          edit:
+            title: Editar enquete
           form:
             announcement_html:
               - Quando uma pergunta recebe respostas ou é publicada/fechada, ela não poderá mais ser editada.
               - Você pode adicionar uma pergunta a qualquer momento.
               - A enquete será fechada quando os resultados de todas as questões criadas forem publicados.
               - Acesse a <a href='%{admin_link}'>página de administração da enquete</a> para enviar perguntas e publicar resultados.
+        registration_form:
+          edit_questions:
+            title: Editar perguntas
         registrations:
           edit:
             save: Salvar
+            title: Inscrições
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
@@ -459,7 +467,6 @@ pt-BR:
               other: Houve %{count} inscrições.
             reserved_slots_help: Deixe em 0 se você não tiver slots reservados.
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
-            title: Registros
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.

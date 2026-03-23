@@ -106,11 +106,8 @@ fr:
           public: Publique
           published: Publiée
           unpublished: Non publié
-        manage_trash:
-          title: Assemblées supprimées
         new:
           create: Créer
-          title: Nouvelle assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette assemblée.
           success: Assemblée mise à jour avec succès.
@@ -122,7 +119,6 @@ fr:
         new:
           duplicate: Dupliquer
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer l'assemblée
       assembly_imports:
         create:
           error: Un problème est survenu lors de l'import de cette assemblée.
@@ -130,7 +126,6 @@ fr:
         new:
           import: Importer
           select: Sélectionnez les données que vous souhaitez importer
-          title: Importer l'assemblée
       assembly_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette assemblée.
@@ -145,13 +140,9 @@ fr:
         destroy:
           success: Utilisateur supprimé avec succès de cette assemblée.
         edit:
-          title: Mettre à jour l'administrateur de l'assemblée
           update: Mettre à jour
-        index:
-          assembly_admins_title: Administrateurs de l'assemblée
         new:
           create: Créer
-          title: Nouvel administrateur de l'assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
           success: Utilisateur mis à jour avec succès pour cette assemblée.
@@ -208,8 +199,6 @@ fr:
         space_filter_for:
           assemblies: Toutes les assemblées
       titles:
-        assemblies: Assemblées
-        assemblies_deleted: Assemblées supprimées
         assemblies_types: Types d'assemblée
       tooltips:
         deleted_assemblies_info: Une assemblée ne peut être supprimée que si son statut est "non publiée".
@@ -263,24 +252,40 @@ fr:
             taxonomies: Taxonomies
             title: Informations générales
             visibility: Visibilité
+          index:
+            title: Assemblées
+          manage_trash:
+            title: Assemblées supprimées
+          new:
+            title: Nouvelle assemblée
         assembly_duplicates:
           form:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+          new:
+            title: Dupliquer l'assemblée
         assembly_imports:
           form:
             document_legend: Ajouter un document
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+          new:
+            title: Importer l'assemblée
         assembly_members:
           form:
             explanation: 'Instruction concernant l’image :'
             image_guide: De préférence une image au format portrait ne contenant pas de texte.
             non_user_avatar_help: Vous devriez obtenir le consentement de l'utilisateur avant d'ajouter une image à son profil.
+        assembly_user_roles:
+          edit:
+            title: Mettre à jour l'administrateur de l'assemblée
+          index:
+            title: Administrateurs de l'assemblée
+          new:
+            title: Nouvel administrateur de l'assemblée
         content_blocks:
           highlighted_assemblies:
             max_results: Quantité maximale d'éléments à afficher
         imports:
           attachment_error: La pièce jointe «%{title}» n’a pas pu être importée (%{error}).
-          banner_image_error: L'image de la bannière n'a pas pu être importée (%{error}).
           hero_image_error: L'image principale n'a pas pu être importée (%{error}).
         new_import:
           accepted_types:
@@ -309,9 +314,6 @@ fr:
           type: Type
         show:
           title: À propos de cette assemblée
-      assembly_members:
-        index:
-          members: Membres
       content_blocks:
         children_assemblies:
           name: Assemblées
@@ -353,9 +355,6 @@ fr:
         duration: Durée
         private_space: Ceci est une assemblée privée
         social_networks_title: Visiter l'assemblée sur
-    assembly_members:
-      index:
-        title: Membres
     download_your_data:
       show:
         assemblies: Export des assemblées

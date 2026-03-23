@@ -109,8 +109,6 @@ fi-pl:
         initiatives_menu:
           see_initiative: Näytä aloite
         initiatives_settings: Asetukset
-        initiatives_submenu:
-          info: Tietoa tästä aloitteesta
         initiatives_types: Aloitetyypit
         moderations: Moderoinnit
       models:
@@ -155,9 +153,6 @@ fi-pl:
       taxonomy_filters:
         space_filter_for:
           initiatives: Kaikki aloitteet
-      titles:
-        initiatives: Aloitteet
-        initiatives_types: Aloitetyypit
     download_your_data:
       show:
         initiatives: Aloitteiden vienti
@@ -296,7 +291,6 @@ fi-pl:
             publication_date: Viimeisimmäksi julkaistut
             random: Satunnainen
             signatures: Allekirjoitetuimmat
-            title: Aloitteiden asetukset
         initiatives_type_scopes:
           create:
             error: Teeman luominen aloitteelle epäonnistui.
@@ -549,6 +543,7 @@ fi-pl:
           recent: Viimeisimmät
           recently_published: Viimeisimmäksi julkaistut
         pending_initiatives:
+          description: Nämä aloitteet eivät ole vielä julkisia. Tarkista ne ja lähetä ne tekniseen validointiin, jotta ne voidaan julkaista.
           title: Luonnokset ja odottavat aloitteet
         print:
           address: Osoite

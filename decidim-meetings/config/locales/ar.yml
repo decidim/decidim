@@ -110,7 +110,6 @@ ar:
           success: تم تكرار الاجتماع بنجاح.
         new:
           copy: نسخ
-          title: اجتماع مكرر
     components:
       meetings:
         actions:
@@ -244,7 +243,6 @@ ar:
             non_user: مشارك غير موجود
             select_user: اختر المشارك
           index:
-            invite_attendee: دعوة الحضور
             invites: تدعو
         meeting_closes:
           edit:
@@ -314,7 +312,6 @@ ar:
               many: كان هناك %{count} التسجيلات.
               other: كان هناك %{count} التسجيلات.
             reserved_slots_less_than: يجب أن يكون أقل من أو يساوي %{count}
-            title: التسجيلات
           update:
             invalid: حدثت مشكلة أثناء حفظ إعدادات التسجيل.
             success: تم حفظ إعدادات تسجيل الاجتماع بنجاح.

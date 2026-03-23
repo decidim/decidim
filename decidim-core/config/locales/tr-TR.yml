@@ -15,6 +15,8 @@ tr:
         phone: Telefon
       report:
         details: Ek Yorumlar
+      taxonomy:
+        name: Sınıf Adı
       user:
         about: Hakkında
         email: E-posta adresiniz
@@ -126,6 +128,8 @@ tr:
         create: "%{user_name} , %{resource_name} statik sayfayı oluşturdu"
         delete: "%{user_name}, %{resource_name} statik sayfayı sildi"
         update: "%{user_name}, %{resource_name} statik sayfayı güncelledi"
+      taxonomy:
+        delete_with_parent: "%{user_name}, %{parent_taxonomy} sınıflaması içindeki %{resource_name} sınıfını sildi"
       user:
         block: "%{user_name}, %{resource_name} kullanıcısını engelledi"
         invite: "%{user_name} katılımcıyı %{resource_name} rolüyle davet etti: %{role}"
@@ -222,6 +226,7 @@ tr:
           postal_code: Posta kodu
         name: Örnek yetkilendirme
       dummy_authorization_workflow:
+        explanation: Sahte yetkilendirme iş akışı
         name: Sahte yetkilendirme iş akışı
       errors:
         duplicate_authorization: Bir katılımcı zaten aynı verilerle yetkilendirildi. Bir yönetici, bilgilerinizi doğrulamak için sizinle iletişime geçecektir.
@@ -590,6 +595,8 @@ tr:
           not_found: 'Veritabanında kapsam bulunamadı (ID: %{id})'
         scope_type_presenter:
           not_found: 'Veritabanında kapsam tipi bulunamadı (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Sınıflandırma veritabanında bulunamadı (ID: %{id})'
     managed_users:
       expired_session: Mevcut kimliğe bürünme oturumunun süresi doldu.
     map:
@@ -684,6 +691,13 @@ tr:
       update:
         error: Bildirim ayarlarınız güncellenirken bir hata oluştu.
         success: Bildirim ayarlarınız başarıyla güncellendi.
+    onboarding_action_message:
+      click_link: Tıklayınız
+      cta_html: <a href="%{path}">%{link_text}</a> %{resource_name} içindeki %{action} işlemini gerçekleştirmek için <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Yetkinizin süresi doldu.
+      incomplete_authorization_active_title: Gerekli tüm bilgiler girilmediğinden doğrulama işleminiz tamamlanmadı.
+      pending_authorization_active_message: Bu işlemi gerçekleştirmek için lütfen formu doldurun.
+      pending_authorization_active_title: Kimliğinizi doğrulamamız gerekiyor.
     open_data:
       not_available_yet: Açık Veri dosyaları henüz mevcut değil, lütfen birkaç dakika içinde tekrar deneyin.
     pad_iframe:
@@ -710,6 +724,9 @@ tr:
         subheading: '%{name} yardım sayfalarını ziyaret edin'
         title: Yardım
         topics: Başlıklar
+    participatory_space_members:
+      index:
+        members: Üyeler
     profile:
       deleted: Silinmiş kullanıcı
     profiles:

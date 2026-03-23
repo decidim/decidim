@@ -1418,7 +1418,7 @@ ca:
         download:
           components: Components
           core: Nucli
-          spaces: Espai participatiu
+          spaces: Espais de participació
           title: Descarregar recursos
         download_open_data: Descarrega tots els fitxers de dades obertes
         download_resource: Descarregar "%{resource_name}" en format CSV
@@ -1526,6 +1526,9 @@ ca:
           %{organization_name}
         hello: Benvolgut/da %{username},
         subject: Avís de compte inactiu
+    participatory_space_members:
+      index:
+        members: Membres
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
@@ -1882,8 +1885,8 @@ ca:
         confirm_new_password: Confirmar la nova contrasenya
         new_password: Nova contrasenya
         old_password_help: Per tal de confirmar els canvis al teu compte, si us plau, proporciona'ns la teva contrasenya actual.
-        password_help: "%{minimum_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu àlies i la teva adreça de correu electrònic."
-        password_help_admin: "%{minimum_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu àlies, del teu correu electrònic i de les teves antigues contrasenyes."
+        password_help: "La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (p. ex. 123456) i ha de ser diferent del número, sobrenom, correu electrònic i del domini de la plataforma."
+        password_help_admin: "La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (p. ex. 123456) i ha de ser diferent del número, sobrenom, correu electrònic, domini de la plataforma o contrasenyes antigues."
         title: Canvi de contrasenya
       new:
         forgot_your_password: Has oblidat la teva contrasenya?

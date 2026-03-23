@@ -145,17 +145,16 @@ sv:
           success: Mötet har duplicerats.
         new:
           copy: Kopiera
-          title: Duplicera möte
       tooltips:
         cannot_close_meetings: Det går inte att stänga mötet eftersom det är skapat av en deltagare
         cannot_duplicate_meetings: Det går inte att kopiera mötet eftersom det är skapat av en deltagare
         cannot_edit_meetings: Det går inte att redigera mötet eftersom det är skapat av en deltagare
         cannot_manage_agenda_meetings: Det går inte att ändra dagordningen för mötet eftersom den är skapad av en deltagare
-        cannot_manage_attachments_meetings: Kan inte ändra bilagor i detta möte eftersom det är skapat av en deltagare
-        cannot_manage_poll_meetings: Kan inte ändra omröstningar i detta möte eftersom det är skapat av en deltagare
-        cannot_manage_registrations_meetings: Kan inte ändra registreringar i detta möte eftersom det är skapat av en deltagare, har inaktiverade eller externa registreringar
-        cannot_mark_attendee: Kan inte markera som deltagare därför att den redan är markerad
-        deleted_meetings_info: Kan inte ta bort detta möte eftersom det är skapat av en deltagare.
+        cannot_manage_attachments_meetings: Det går inte att redigera bilagor för mötet eftersom det är skapat av en deltagare
+        cannot_manage_poll_meetings: Det går inte att redigera undersökningar för mötet eftersom det är skapat av en deltagare
+        cannot_manage_registrations_meetings: Det går inte att redigera anmälningar för mötet eftersom det är skapat av en deltagare, inte använder anmälningsfunktionen eller använder en extern anmälningsfunktion
+        cannot_mark_attendee: Kan inte markera som deltagare eftersom den redan är markerad
+        deleted_meetings_info: Det går inte att ta bort mötet eftersom det är skapat av en deltagare.
     components:
       meetings:
         actions:
@@ -234,17 +233,17 @@ sv:
           email_subject: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%
           notification_title: De tilldelade platserna för mötet <a href="%{resource_path}">%{resource_title}</a> är över %{percentage}%.
         meeting_updated:
-          email_intro: 'Mötet "%{resource_title}" har uppdaterats med ändringar till %{changed_fields}. Du kan läsa den nya versionen på sidan:'
+          email_intro: 'Mötet "%{resource_title}" har uppdaterats med ändringar av %{changed_fields}. Du kan se den nya versionen på sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det från föregående länk.
           email_subject: Mötet "%{resource_title}" uppdaterades
           field_names:
-            address: Adressen
-            end_time: Sluttiden
-            location: Platsen
-            start_time: Starttiden
-          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har uppdaterats med ändringar till %{changed_fields}.
+            address: adressen
+            end_time: sluttiden
+            location: platsen
+            start_time: starttiden
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har uppdaterats med ändringar av %{changed_fields}.
         meeting_waitlist_added:
-          notification_title: Du har lagts till i väntelistan för <a href="%{resource_url}">%{resource_title}</a> mötet.
+          notification_title: Du har lagts till i väntelistan för mötet <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats.
           email_outro: Du har fått det här meddelandet eftersom din anmälningskod till mötet "%{resource_title}" har validerats.
@@ -261,11 +260,11 @@ sv:
           email_subject: Mötet "%{resource_title}" har aktiverat registreringar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har aktiverat registreringar.
         upcoming_meeting:
-          default_body: Mötet "{{meeting_title}}" startar om mindre än {{before_hours}}h.
-          email_intro: Mötet "%{resource_title}" startar om mindre än %{reminders_before_hours}h.
+          default_body: Mötet "{{meeting_title}}" börjar om mindre än {{before_hours}}h.
+          email_intro: Mötet "%{resource_title}" börjar om mindre än %{reminders_before_hours}h.
           email_outro: Du har fått detta meddelande eftersom du följer mötet %{resource_title}. Du kan sluta följa det från föregående länk.
-          email_subject: Mötet "%{resource_title}" startar om mindre än %{reminders_before_hours}h.
-          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar om mindre än %{reminders_before_hours}h.
+          email_subject: Mötet "%{resource_title}" börjar om mindre än %{reminders_before_hours}h.
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> börjar om mindre än %{reminders_before_hours}h.
     forms:
       meetings:
         attendees_count_help_text: Glöm inte att räkna det totala antalet deltagare på mötet, oavsett om det är på plats, digitalt eller ett hybridmöte.
@@ -354,7 +353,6 @@ sv:
             non_user: Icke befintlig deltagare
             select_user: Välj deltagare
           index:
-            invite_attendee: Bjud in deltagare
             invites: Inbjudningar
             registrations_disabled: Det går inte att bjuda in deltagare eftersom registreringen är stängd.
         meeting_closes:
@@ -386,9 +384,9 @@ sv:
             select_an_iframe_access_level: Välj vem som får tillgång till iframe
           index:
             linked_meeting_warning_html: Mötet måste redigeras från <br><a href="%{href}">%{name}</a>
-            published: Publicerad
+            published: Publicerade
             title: Möten
-            unpublished: Opublicerad
+            unpublished: Opublicerade
           linked_spaces:
             assign: Tilldela
             link_a_space: Länka en process
@@ -408,11 +406,11 @@ sv:
             invalid: Det gick inte att publicera mötet.
             success: Mötet har publicerats.
           reminders:
-            reminder_enabled: Skicka en påminnelse till detta möte
+            reminder_enabled: Skicka en påminnelse om mötet
             reminder_message: Innehåll i påminnelse via e-post
             reminder_message_help_text: Anpassa meddelandet efter behov. Använd {{meeting_title}} för att visa mötesnamnet.
             send_reminder: Schemalagd påminnelse via e-post
-            send_reminder_help_text: Påminnelse om tid i timmar före mötet.
+            send_reminder_help_text: Antal timmar innan mötet som påminnelse ska skickas.
             title: Påminnelser
           service:
             description: Beskrivning
@@ -459,7 +457,6 @@ sv:
               other: Det har gjorts %{count} anmälningar.
             reserved_slots_help: Låt det stå 0 om du inte har bokade platser.
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
-            title: Anmälningar
           update:
             invalid: Det gick inte att spara inställningarna för anmälan.
             success: Inställningarna för anmälan till mötet har sparats.
@@ -731,8 +728,8 @@ sv:
         hidden_participants_count:
           one: och %{count} till person
           other: och %{count} till personer
-        show_less: Visa mindre
-        show_more: Visa mer
+        show_less: Visa färre
+        show_more: Visa fler
       read_more: "(läs mer)"
       registration_mailer:
         confirmation:
@@ -847,7 +844,7 @@ sv:
     statistics:
       attendees_count: Mötesdeltagare
       meetings_count: Möten
-      meetings_count_tooltip: Antalet möten som har ägt rum, både online och personligen.
+      meetings_count_tooltip: Antal möten som har ägt rum, digitalt och fysiskt.
       participatory_space_meetings_count: Möten
   devise:
     mailer:

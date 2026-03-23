@@ -631,6 +631,9 @@ zh-CN:
         subheading: 浏览 %{name} 的帮助页面
         title: 帮助
         topics: 主题
+    participatory_space_members:
+      index:
+        members: 成员
     profile:
       deleted: 删除参与者
     profiles:

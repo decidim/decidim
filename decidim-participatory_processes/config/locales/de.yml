@@ -113,7 +113,6 @@ de:
           attachment_files: Dateien
           attachments: Anhänge
           components: Komponenten
-          info: Über diesen Prozess
           landing_page: Startseiten-Layout
           members: Mitglieder
           moderations: Moderationen
@@ -161,17 +160,14 @@ de:
         new:
           duplicate: Duplizieren
           select: Zu duplizierende Daten auswählen
-          title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
           error: Beim Löschen der Beteiligungsprozessgruppe ist ein Fehler aufgetreten.
           success: Beteiligungsprozess erfolgreich gelöscht.
         edit:
-          title: Prozessgruppe bearbeiten
           update: Aktualisieren
         new:
           create: Erstellen
-          title: Neue Prozessgruppe
         update:
           error: Beim Aktualisieren dieser partizipativen Prozessgruppe ist ein Fehler aufgetreten.
           success: Partizipative Prozessgruppe wurde erfolgreich aktualisiert.
@@ -182,7 +178,6 @@ de:
         new:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
-          title: Beteiligungsprozess importieren
       participatory_process_publications:
         create:
           error: Bei der Veröffentlichung dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
@@ -205,13 +200,9 @@ de:
             last_step: Der letzte Schritt eines Prozesses kann nicht gelöscht werden.
           success: Beteiligungsprozessschritt erfolgreich gelöscht.
         edit:
-          title: Beteiligungsschritt bearbeiten
           update: Aktualisieren
-        index:
-          steps_title: Schritte
         new:
           create: Erstellen
-          title: Neuer partizipativer Prozessschritt
         ordering:
           error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
         update:
@@ -223,13 +214,9 @@ de:
         destroy:
           success: Der Benutzer wurde erfolgreich aus diesem partizipativen Prozess entfernt.
         edit:
-          title: Admin des Beteiligungsprozesses aktualisieren
           update: Aktualisieren
-        index:
-          process_admins_title: Partizipative Prozessbenutzer
         new:
           create: Erstellen
-          title: Neuer Administrator des Beteiligungsprozesses
         update:
           error: Für diesen partizipativen Prozess wurde ein Fehler bei einem Benutzer aktualisiert.
           success: Der Benutzer wurde für diesen partizipativen Prozess erfolgreich aktualisiert.
@@ -244,11 +231,8 @@ de:
           public: Öffentlich
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
-        manage_trash:
-          title: Gelöschte Beteiligungsprozesse
         new:
           create: Erstellen
-          title: Neuer Beteiligungsprozess
         update:
           error: Beim Aktualisieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
           success: Beteiligungsprozess erfolgreich aktualisiert.
@@ -264,10 +248,7 @@ de:
         space_filter_for:
           participatory_processes: Alle Beteiligungsprozesse
       titles:
-        participatory_process_groups: Partizipative Prozessgruppen
         participatory_process_types: Beteiligungsprozesstypen
-        participatory_processes: Beteiligungsprozesse
-        participatory_processes_deleted: Gelöschte Beteiligungsprozesse
       tooltips:
         deleted_processes_info: Prozesse können nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
       users:
@@ -558,9 +539,6 @@ de:
         title: Beteiligungsprozesse
       last_activity:
         new_participatory_process: 'Neuer Beteiligungsprozess:'
-      members:
-        index:
-          title: Mitglieder
       pages:
         home:
           highlighted_processes:

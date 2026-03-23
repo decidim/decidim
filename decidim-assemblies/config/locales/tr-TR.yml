@@ -19,6 +19,8 @@ tr:
         developer_group: Tanıtım grubu
         document: Belge 
         domain: domain
+        duplicate_categories: Yinelenen kategoriler
+        duplicate_features: Yinelenen özellikler
         duration: süre
         facebook: Facebook
         github: GitHub
@@ -90,7 +92,6 @@ tr:
           published: Yayınlanan
         new:
           create: Oluştur
-          title: Yeni kurul
         update:
           error: Bu kurul güncellenirken bir hata oluştu.
           success: Kurul başarıyla güncellendi.
@@ -101,7 +102,6 @@ tr:
         new:
           import: İçe aktar
           select: Hangi verileri içe aktarmak istediğinizi seçin
-          title: Kurulu içe aktar
       assembly_publications:
         create:
           error: Bu kurul yayınlanırken bir hata oluştu.
@@ -117,8 +117,6 @@ tr:
           success: Yönetici bu kuruldan başarıyla kaldırıldı.
         edit:
           update: Güncelle
-        index:
-          assembly_admins_title: Kurul yöneticileri
         new:
           create: Oluştur
         update:
@@ -162,7 +160,6 @@ tr:
             collaborator: İşbirlikçi
             moderator: Moderatör
       titles:
-        assemblies: Kurullar
         assemblies_types: Kurul türleri
       tooltips:
         deleted_assemblies_info: Bir meclis yalnızca eğer statüsü "Yayınlanmamış" ise silinebilir.
@@ -221,9 +218,6 @@ tr:
         filters:
           names:
             all: Tümü
-      assembly_members:
-        index:
-          members: Üyeler
       content_blocks:
         highlighted_assemblies:
           name: Vurgulanan kurullar
@@ -250,9 +244,6 @@ tr:
       show:
         duration: Süre
         private_space: Bu özel bir kurul
-    assembly_members:
-      index:
-        title: Üyeler
     events:
       assemblies:
         create_assembly_member:

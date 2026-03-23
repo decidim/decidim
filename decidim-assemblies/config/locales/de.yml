@@ -104,11 +104,8 @@ de:
           public: Öffentlich
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
-        manage_trash:
-          title: Gelöschte Gremien
         new:
           create: Erstellen
-          title: Neues Gremium
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Die Versammlung wurde erfolgreich aktualisiert.
@@ -120,7 +117,6 @@ de:
         new:
           duplicate: Duplizieren
           select: Wählen Sie, welche Daten Sie duplizieren möchten
-          title: Dupliziertes Gremium
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
@@ -128,7 +124,6 @@ de:
         new:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
-          title: Gremium importieren
       assembly_publications:
         create:
           error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
@@ -143,13 +138,9 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
-          title: Gremienadmin aktualisieren
           update: Aktualisieren
-        index:
-          assembly_admins_title: Assembly Benutzer
         new:
           create: Erstellen
-          title: Neuer Gremienadmin
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
@@ -207,8 +198,6 @@ de:
         space_filter_for:
           assemblies: Alle Gremien
       titles:
-        assemblies: Gremien
-        assemblies_deleted: Gelöschte Gremien
         assemblies_types: Versammlungstypen
       tooltips:
         deleted_assemblies_info: Ein Gremium kann nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
@@ -302,9 +291,6 @@ de:
           type: Typ
         show:
           title: Über dieses Gremium
-      assembly_members:
-        index:
-          members: Mitglieder
       content_blocks:
         children_assemblies:
           name: Gremien
@@ -346,9 +332,6 @@ de:
         duration: Aktiv bis
         private_space: Dies ist eine private Versammlung
         social_networks_title: Gremium besuchen unter
-    assembly_members:
-      index:
-        title: Mitglieder
     download_your_data:
       show:
         assemblies: Export der Gremien

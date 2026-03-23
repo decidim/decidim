@@ -84,7 +84,6 @@ ru:
           published: Обнародовано
         new:
           create: Добавить
-          title: Добавить собрание
         update:
           error: При попытке обновить это собрание произошла ошибка.
           success: Собрание успешно обновлено.
@@ -103,8 +102,6 @@ ru:
           success: Успешно удален участник этого собрания.
         edit:
           update: Обновить
-        index:
-          assembly_admins_title: Участники собрания
         new:
           create: Добавить
         update:
@@ -145,8 +142,6 @@ ru:
             admin: Администратор
             collaborator: Сотрудник
             moderator: Модератор
-      titles:
-        assemblies: Собрания
     admin_log:
       assembly:
         create: "%{user_name} добавил собрание %{resource_name}"
@@ -173,9 +168,6 @@ ru:
         filters:
           names:
             all: Все
-      assembly_members:
-        index:
-          members: Члены президиума
       content_blocks:
         highlighted_assemblies:
           name: Рекомендуемые собрания
@@ -192,9 +184,6 @@ ru:
       show:
         duration: Длительность
         private_space: Это частное собрание
-    assembly_members:
-      index:
-        title: Члены президиума
     log:
       value_types:
         assembly_presenter:

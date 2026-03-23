@@ -33,8 +33,16 @@ el:
       help_section:
         content: Περιεχόμενο
       id: Αναγνωριστικό
+      member:
+        email: Ηλεκτρονικό ταχυδρομείο
+        name: Όνομα
+      member_csv_import:
+        file: Αρχείο
       newsletter:
         body: Σώμα
+        send_to_all_users: Αποστολή σε όλους τους συμμετέχοντες
+        send_to_followers: Αποστολή στους ακολούθους
+        send_to_participants: Αποστολή στους συμμετέχοντες
         subject: Θέμα
       organization:
         admin_terms_of_service_body: Περιεχόμενο για τους όρους χρήσης του διαχειριστή
@@ -45,6 +53,7 @@ el:
         customize_welcome_notification: Προσαρμογή ειδοποίησης καλωσορίσματος
         default_locale: Προεπιλεγμένες τοπικές ρυθμίσεις
         description: Περιγραφή
+        enable_machine_translations: Ενεργοποίηση μηχανικών μεταφράσεων
         enable_omnipresent_banner: Εμφάνιση διαφημιστικού πλαισίου omnipresent
         facebook_handler: Πρόγραμμα χειρισμού Facebook
         favicon: Εικονίδιο
@@ -110,9 +119,13 @@ el:
         weight: Θέση κατάταξης
       static_page_topic:
         description: Περιγραφή
+        name: Όνομα θέματος
         show_in_footer: Εμφάνιση στο υποσέλιδο
         title: Τίτλος
         weight: Θέση κατάταξης
+      taxonomy:
+        item_name: Όνομα αντικειμένου
+        parent_id: Γονικό στοιχείο
       user_group_csv_verification:
         file: Αρχείο
     errors:
@@ -151,24 +164,40 @@ el:
   decidim:
     admin:
       actions:
+        actions: Ενέργειες
+        actions_label: Ενέργειες για το %{resource}
         add: Προσθήκη
         attachment:
           new: Νέο συνημμένο
         attachment_collection:
           new: Νέος φάκελος συνημμένων
+        attachment_collections: Προσθήκη φακέλου
+        attachments: Προσθήκη συνημμένου
         browse: Αναζήτηση
         configure: Διαμόρφωση
         export: Εξαγωγή
         export_all: Εξαγωγή όλων
+        export_selection: Εξαγωγή επιλογής
         import: Εισαγωγή
+        member:
+          new: Νέο μέλος
+        menu_hidden: Απόκρυψη από το μενού
+        moderate: Διαχείριση εποπτεύσεων
         newsletter:
           new: Νέο ενημερωτικό δελτίο
         per_page: Ανά σελίδα
+        permissions: Διαχείριση δικαιωμάτων
+        restore: Επαναφορά
+        send_me_a_test_email: Στείλε μου ένα δοκιμαστικό email
         share: Κοινοποίηση
+        share_tokens: Κοινοποίηση συνδέσμου
+        soft_delete: Μετακίνηση στα Διαγραμμένα
         user:
           new: Νέος διαχειριστής
+        view_deleted_components: Προβολή διαγραμμένων στοιχείων
       admin_terms_of_service:
         accept:
+          error: Υπήρξε ένα πρόβλημα κατά την αποδοχή των όρων της υπηρεσίας διαχείρισης.
           success: Τέλεια! Έχετε αποδεχτεί τους όρους παροχής υπηρεσιών διαχειριστή.
         actions:
           accept: Συμφωνώ με τους όρους
@@ -179,7 +208,6 @@ el:
           alert: 'Απαιτείται: Διαβάστε τους όρους παροχής υπηρεσιών διαχειριστή'
           callout: Παρακαλούμε αφιερώστε λίγο χρόνο για να διαβάσετε τους όρους παροχής υπηρεσιών του διαχειριστή. Διαφορετικά δεν θα μπορείτε να διαχειριστείτε την πλατφόρμα.
           cta: Διαβάστε τους τώρα.
-        title: Όροι παροχής υπηρεσιών διαχειριστή
       area_types:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τύπου περιοχής.
@@ -221,8 +249,6 @@ el:
         edit:
           title: Επεξεργασία φακέλου
           update: Ενημέρωση
-        index:
-          attachment_collections_title: Φάκελοι συνημμένου
         new:
           create: Δημιουργία
           title: Νέος φάκελος
@@ -238,8 +264,6 @@ el:
         edit:
           title: Επεξεργασία συνημμένου
           update: Ενημέρωση
-        index:
-          attachments_title: Συνημμένα
         new:
           create: Δημιουργία συνημμένου
           title: Νέο συνημμένο
@@ -252,6 +276,10 @@ el:
         no_results: Δεν βρέθηκαν αποτελέσματα
         search_prompt: Πληκτρολογήστε τουλάχιστον τρεις χαρακτήρες για αναζήτηση.
       block_user:
+        bulk_new:
+          action: Φραγή λογαριασμών και αποστολή αιτιολόγησης
+          justification: Αιτιολόγηση
+          title: Αποκλεισμός Χρηστών
         new:
           action: Αποκλεισμός λογαριασμού και αποστολή αιτιολόγησης
           description: Ο αποκλεισμός ενός χρήστη θα καταστήσει τον λογαριασμό του μη χρησιμοποιήσιμο. Μπορείτε να δώσετε στην αιτιολόγησή σας οποιεσδήποτε κατευθυντήριες γραμμές σχετικά με τους τρόπους με τους οποίους θα εξετάζατε το ενδεχόμενο άρσης του αποκλεισμού του χρήστη.
@@ -281,23 +309,29 @@ el:
             actions: Ενέργειες
             name: Όνομα στοιχείου
             type: Τύπος στοιχείου
+            visibility: Ορατότητα
+        manage_trash:
+          title: Διαγραμμένα στοιχεία
         new:
           add: Προσθήκη στοιχείου
           title: 'Προσθήκη στοιχείου: %{name}'
         publish:
           success: Το στοιχείο δημοσιεύτηκε με επιτυχία.
-        title: Στοιχεία
         unpublish:
           success: Η δημοσίευση του στοιχείου καταργήθηκε με επιτυχία.
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του στοιχείου.
           success: Το στοιχείο ενημερώθηκε με επιτυχία.
+        visibility_label:
+          published: Δημοσιεύθηκε
+          unpublished: Αδημοσίευτο
       conflicts:
         attempts: Προσπάθειες
         'false': 'Όχι'
+        index:
+          text: Αναζήτηση με email, όνομα ή ψευδώνυμο
         managed_user_name: Διαχειριζόμενα χρήστης
         solved: Λύθηκε
-        title: Διενέξεις επαλήθευσης
         transfer:
           email: E-mail
           name: Όνομα
@@ -306,6 +340,11 @@ el:
           title: Μεταφορά
         'true': 'Ναι'
         user_name: Χρήστης
+      content_blocks:
+        create:
+          success: Το μπλοκ περιεχομένου δημιουργήθηκε επιτυχώς.
+        destroy:
+          error: Παρουσιάστηκε ένα πρόβλημα κατά την προσπάθεια διαγραφής αυτού του μπλοκ περιεχομένου.
       dashboard:
         pending_moderations:
           goto_moderation: Πηγαίνετε στις καθολικές εγκρίσεις
@@ -409,7 +448,6 @@ el:
           impersonate: Αναπαράσταση
           impersonate_existing_managed_user: Διαχείριση συμμετέχοντα «%{name}»
           impersonate_existing_user: Διαχείριση συμμετέχοντα «%{name}»
-          impersonate_new_managed_user: Διαχείριση νέου συμμετέχοντα
       imports:
         and: και
         data_errors:
@@ -462,7 +500,6 @@ el:
         promotions:
           new:
             explanation: Οι διαχειριζόμενοι συμμετέχοντες μπορούν να αναβαθμιστούν σε τυπικούς συμμετέχοντες. Αυτό σημαίνει ότι θα προσκληθούν στην εφαρμογή και δεν θα μπορείτε να τους διαχειριστείτε ξανά. Ο προσκεκλημένος συμμετέχων θα λάβει email για να αποδεχτεί την πρόσκλησή σας.
-            new_managed_user_promotion: Προώθηση νέου διαχειριζόμενου συμμετέχοντα
             promote: Αναβάθμιση
       members_csv_imports:
         new:
@@ -602,7 +639,6 @@ el:
           title: Πρότυπα ενημερωτικών δελτίων
           use_template: Χρήση αυτού του προτύπου
         show:
-          preview: 'Προεπισκόπηση προτύπου: %{template_name}'
           use_template: Χρήση αυτού του προτύπου
       newsletters:
         create:
@@ -647,7 +683,6 @@ el:
         send:
           no_recipients: Δεν υπάρχουν παραλήπτες για αυτήν την επιλογή.
         show:
-          preview: Προεπισκόπηση
           select_recipients_to_deliver: Επιλέξτε παραλήπτες για παράδοση
           subject: Θέμα
         update:
@@ -785,18 +820,10 @@ el:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της σελίδας.
           success: Η σελίδα ενημερώθηκε επιτυχώς.
       titles:
-        admin_log: Αρχείο καταγραφής διαχειριστή
-        area_types: Τύποι τομέα
         areas: Τομείς
         authorization_workflows: Μέθοδοι επαλήθευσης
-        dashboard: Πίνακας εργαλείων
-        impersonatable_users: Διαχειρίσιμοι συμμετέχοντες
-        impersonations: Διαχείριση συμμετεχόντων
         panel: Διαχειριστής
-        participants: Συμμετέχοντες
-        scope_types: Τύποι πεδίου εφαρμογής
         scopes: Πεδία εφαρμογής
-        users: Διαχειριστές
       users:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την πρόσκληση αυτού του διαχειριστή.

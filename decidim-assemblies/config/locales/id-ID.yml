@@ -76,7 +76,6 @@ id:
           published: Diterbitkan
         new:
           create: Membuat
-          title: Perakitan baru
         update:
           error: Ada kesalahan saat memperbarui perakitan ini.
           success: Majelis berhasil diperbarui.
@@ -95,8 +94,6 @@ id:
           success: Pengguna berhasil dihapus dari rakitan ini.
         edit:
           update: Memperbarui
-        index:
-          assembly_admins_title: Pengguna majelis
         new:
           create: Membuat
         update:
@@ -137,8 +134,6 @@ id:
             admin: Administrator
             collaborator: Kolaborator
             moderator: Moderator
-      titles:
-        assemblies: Assemblies
     admin_log:
       assembly:
         create: "%{user_name} menciptakan perakitan %{resource_name}"
@@ -173,9 +168,6 @@ id:
         filters:
           names:
             all: Semua
-      assembly_members:
-        index:
-          members: Anggota
       content_blocks:
         highlighted_assemblies:
           name: Majelis yang disorot
@@ -201,9 +193,6 @@ id:
       show:
         duration: Lamanya
         private_space: Ini adalah pertemuan pribadi
-    assembly_members:
-      index:
-        title: Anggota
     help:
       participatory_spaces:
         assemblies:

@@ -66,6 +66,8 @@ eu:
           attributes:
             document:
               allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
+              empty: Dokumentua hutsik dago
+              invalid_json: JSON dokumentua ez da zuzena
     models:
       decidim/participatory_process_step_activated_event: Fasea aktibatuta
       decidim/participatory_process_step_changed_event: Pasartea aldatu da
@@ -106,7 +108,6 @@ eu:
       menu:
         participatory_process_groups: Prozesu-taldeak
         participatory_process_groups_submenu:
-          info: Partaidetza-talde horri buruz
           landing_page: Lurreratze-orrien antolaketa
         participatory_processes: Prozesuak
         participatory_processes_submenu:
@@ -114,7 +115,6 @@ eu:
           attachment_files: Fitxategiak
           attachments: Eranskinak
           components: Osagaiak
-          info: Prozesu honi buruz
           landing_page: Lurreratze-orrien antolaketa
           members: Kideak
           moderations: Moderazioak
@@ -162,17 +162,14 @@ eu:
         new:
           duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Bikoiztu partaidetza-prozesua
       participatory_process_groups:
         destroy:
           error: Arazo bat izan da prozesu parte-hartzaile multzoa ezabatzean.
           success: Partaidetza-prozesuen taldea zuzen ezabatua.
         edit:
-          title: Editatu prozesu-taldea
           update: Eguneratu
         new:
           create: Sortu
-          title: Beste prozesu-talde bat
         update:
           error: Partaidetza-prozesu talde hori eguneratzeko arazo bat izan da.
           success: Partaidetza-prozesuaren taldea zuzen eguneratua.
@@ -183,7 +180,6 @@ eu:
         new:
           import: Inportatu
           select: Hautatu zein datu inportatu nahi dituzun
-          title: Inportatu partaidetza-prozesua
       participatory_process_publications:
         create:
           error: Arazo bat egon da partaidetza-prozesua hau argitaratzean.
@@ -206,13 +202,9 @@ eu:
             last_step: Ezin da ezabatu prozesuaren azken fasea.
           success: Partaidetza-prozesuaren fasea ondo ezabatua.
         edit:
-          title: Editatu partaidetza-prozesuaren fasea
           update: Eguneratu
-        index:
-          steps_title: Prozesuaren faseak
         new:
           create: Sortu
-          title: Prozesu partaidetza-prozesuaren beste fase bat
         ordering:
           error: Arazo bat egon da partaidetza-prozesu honen faseak berrantolatzean.
         update:
@@ -225,13 +217,9 @@ eu:
         destroy:
           success: Administratzailea behar bezala kendu da partaidetza-prozesutik.
         edit:
-          title: Eguneratu partaidetza-prozesuaren administratzailea
           update: Eguneratu
-        index:
-          process_admins_title: Prozesu partaidetza-prozesuaren administratzaileak
         new:
           create: Sortu
-          title: Partaidetza-prozesuaren beste administratzaile bat
         update:
           error: Arazo bat egon da partaidetza-prozesu honetarako administratzaile bat eguneratzean.
           success: Administratzailea zuzen eguneratu da partaidetza-prozesu honetarako.
@@ -246,11 +234,8 @@ eu:
           public: Publiko
           published: Argitaratua
           unpublished: Argitaratu gabea
-        manage_trash:
-          title: Ezabatutako partaidetza-prozesuak
         new:
           create: Sortu
-          title: Beste partaidetza-prozesu bat
         update:
           error: Arazo bat egon da prozesu partaidetza-prozesu hau eguneratzean.
           success: Partaidetza-prozesua zuzen eguneratua.
@@ -266,10 +251,7 @@ eu:
         space_filter_for:
           participatory_processes: Partaidetza-prozesu guztiak
       titles:
-        participatory_process_groups: Partaidetza-prozesuen taldeak
         participatory_process_types: Partaidetza-prozesu motak
-        participatory_processes: Partaidetza-prozesuak
-        participatory_processes_deleted: Ezabatutako partaidetza-prozesuak
       tooltips:
         deleted_processes_info: Prozesu bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
       users:
@@ -498,16 +480,42 @@ eu:
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL Slugs erabiltzen da prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak bakarrik onartzen ditu, eta letra batekin hasi behar da. Adibidea: %{url}'
+          new:
+            title: Bikoiztu prozesu parte-hartzaileak
         participatory_process_groups:
+          edit:
+            title: Editatu prozesu-taldea
           form:
             metadata: Metadatuak
             title: "Prozesu honi buruz\n"
             visibility: Ikusgarritasuna
+          index:
+            title: Prozesu parte-hartzaileen taldeak
+          new:
+            title: Beste prozesu-talde bat
         participatory_process_imports:
           form:
             document_legend: Dokumentu bat atxikitu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+          new:
+            title: Inportatu prozesu parte-hartzailea
+        participatory_process_steps:
+          edit:
+            title: Editatu prozesu parte-hartzailearen fasea
+          index:
+            title: Faseak
+          new:
+            title: Prozesu parte-hartzailearen beste fase bat
+        participatory_process_user_roles:
+          edit:
+            title: Eguneratu prozesu parte-hartzailearen administratzailea
+          index:
+            title: Prozesu parte-hartzailearen administratzaileak
+          new:
+            title: Prozesu parte-hartzailearen beste administratzaile bat
         participatory_processes:
+          edit:
+            title: Prozesu honi buruz
           form:
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
@@ -522,6 +530,12 @@ eu:
             taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
+          index:
+            title: Prozesu parte-hartzaileak
+          manage_trash:
+            title: Ezabatutako prozesu parte-hartzaileak
+          new:
+            title: Beste prozesu parte-hartzaile bat
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -564,9 +578,6 @@ eu:
         title: Partaidetza-prozesuak
       last_activity:
         new_participatory_process: 'Beste partaidetza-prozesu bat:'
-      members:
-        index:
-          title: Kideak
       pages:
         home:
           highlighted_processes:

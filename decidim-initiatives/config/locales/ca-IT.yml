@@ -109,8 +109,6 @@ ca-IT:
         initiatives_menu:
           see_initiative: Veure la iniciativa
         initiatives_settings: Configuració
-        initiatives_submenu:
-          info: Quant a aquesta iniciativa
         initiatives_types: Tipus d'iniciatives
         moderations: Moderacions
       models:
@@ -155,9 +153,6 @@ ca-IT:
       taxonomy_filters:
         space_filter_for:
           initiatives: Totes les iniciatives
-      titles:
-        initiatives: Iniciatives
-        initiatives_types: Tipus d'iniciatives
     download_your_data:
       show:
         initiatives: Exportar les iniciatives
@@ -296,7 +291,6 @@ ca-IT:
             publication_date: Publicada més recentment
             random: Aleatori
             signatures: Més signades
-            title: Configuració d'iniciatives
         initiatives_type_scopes:
           create:
             error: S'ha produït un error en crear un nou àmbit per la iniciativa seleccionada.

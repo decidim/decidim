@@ -127,11 +127,9 @@ lb:
         destroy:
           success: Beteiligungsprozess erfolgreich gelöscht.
         edit:
-          title: Prozessgruppe bearbeiten
           update: Aktualisieren
         new:
           create: Erstellen
-          title: Neue Prozessgruppe
         update:
           error: Beim Aktualisieren dieser partizipativen Prozessgruppe ist ein Fehler aufgetreten.
           success: Partizipative Prozessgruppe wurde erfolgreich aktualisiert.
@@ -142,7 +140,6 @@ lb:
         new:
           import: Import
           select: Wählen Sie aus, welche Daten Sie importieren möchten
-          title: Beteiligungsprozess importieren
       participatory_process_publications:
         create:
           error: Bei der Veröffentlichung dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
@@ -162,13 +159,9 @@ lb:
         destroy:
           success: Participatory-Prozessschritt erfolgreich gelöscht.
         edit:
-          title: Beteiligungsschritt bearbeiten
           update: Aktualiséieren
-        index:
-          steps_title: Phasen
         new:
           create: Erstellen
-          title: Neuer partizipativer Prozessschritt
         ordering:
           error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
         update:
@@ -180,15 +173,9 @@ lb:
         destroy:
           success: Der Benutzer wurde erfolgreich aus diesem partizipativen Prozess entfernt.
         edit:
-          title: Administrator des Beteiligungsprozesses aktualisieren
           update: Aktualiséieren
-        index:
-          process_admins_title: Partizipative Prozessbenutzer
         new:
           create: Erstellen
-      titles:
-        participatory_process_groups: Prozessgruppen
-        participatory_processes: Bedeelegungsprozesser
       users:
         resend_invitation:
           error: Beim erneuten Senden der Einladung ist ein Fehler aufgetreten.

@@ -127,11 +127,9 @@ nl:
         destroy:
           success: Participatieve procesgroep succesvol verwijderd.
         edit:
-          title: Bewerk groep
           update: Bijwerken
         new:
           create: Creëren
-          title: Nieuwe groep
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze participatief procesgroep.
           success: Participatief procesgroep is succesvol bijgewerkt.
@@ -142,7 +140,6 @@ nl:
         new:
           import: Importeren
           select: Selecteer welke gegevens u wilt importeren
-          title: Importeer participatief proces
       participatory_process_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
@@ -162,13 +159,9 @@ nl:
         destroy:
           success: Participatieve processtap succesvol verwijderd.
         edit:
-          title: Bewerk processtap
           update: Bijwerken
-        index:
-          steps_title: Stappen
         new:
           create: Aanmaken
-          title: Nieuwe processtap
         ordering:
           error: Er is een fout opgetreden bij het herschikken van deze processtappen.
         update:
@@ -180,13 +173,9 @@ nl:
         destroy:
           success: Admin succesvol verwijderd van dit participatief proces.
         edit:
-          title: Update participatieve procesbeheerder
           update: Bijwerken
-        index:
-          process_admins_title: Admins van het participatieve proces
         new:
           create: Aanmaken
-          title: Nieuwe participatieve procesbeheerder
         update:
           error: Er is een probleem opgetreden bij het bijwerken van een admin voor dit participatief proces.
           success: Admin succesvol bijgewerkt voor dit participatief proces.
@@ -202,7 +191,6 @@ nl:
           published: Gepubliceerd
         new:
           create: Aanmaken
-          title: Nieuw participatief proces
         update:
           error: Er was een probleem bij het bijwerken van dit participatief proces.
           success: Participatief proces succesvol bijgewerkt.
@@ -210,9 +198,6 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe groep voor participatieve processen.
           success: Groep van participatieve processen succesvol aangemaakt.
-      titles:
-        participatory_process_groups: Groepen van participatieve processen
-        participatory_processes: Participatieve processen
       users:
         resend_invitation:
           error: Er is een fout opgetreden bij het opnieuw verzenden van de uitnodiging.
