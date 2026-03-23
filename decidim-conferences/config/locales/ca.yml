@@ -374,7 +374,18 @@ ca:
           index:
             search: Cercar
             title: Ponents de la jornada
+          new:
+            title: Nova ponent de la jornada
+        conference_user_roles:
+          edit:
+            title: Actualitzar administradora de la jornada
+          index:
+            title: Administradors de conferències
+          new:
+            title: Afegir nova administradora
         conferences:
+          edit:
+            title: Quant a aquesta jornada
           form:
             available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
@@ -384,6 +395,12 @@ ca:
               other: Hi ha hagut %{count} inscripcions.
             slug_help_html: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta jornada. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             taxonomies: Taxonomies
+          index:
+            title: Jornades
+          manage_trash:
+            title: Jornades eliminades
+          new:
+            title: Nova jornada
         content_blocks:
           highlighted_conferences:
             max_results: Quantitat màxima d'elements a mostrar
@@ -397,14 +414,29 @@ ca:
             invited_existing_user_to_join_a_conference: "%{invited_by} t'ha convidat a unir-te a una conferència a l'%{application}. Pots rebutjar o acceptar a través dels enllaços a continuació."
             invited_user_to_join_a_conference: "%{invited_by} t'ha convidat a unir-te a una conferència a %{application}. Pots acceptar-la a través del següent enllaç."
             registration: Inscripció a '%{conference_title}'
+        media_links:
+          edit:
+            title: Actualitzar l'enllaç multimèdia
+          index:
+            title: Enllaços multimèdia
+          new:
+            title: Afegir enllaç multimèdia
         partners:
+          edit:
+            title: Actualitzar col·laboradora
           index:
             title: Col·laboradores
+          new:
+            title: Nova col·laboradora
         registration_types:
+          edit:
+            title: Actualitzar el tipus d'inscripció
           form:
             select_conference_meetings: Seleccioneu trobades de la conferència
           index:
             title: Tipus d'inscripció
+          new:
+            title: Nou tipus d'inscripció
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Trobaràs el certificat d'assistència a la jornada <a href="%{url}">%{title}</a> als adjunts.
@@ -562,7 +594,7 @@ ca:
           notification_title: La teva inscripció a jornada <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
         conference_registrations_over_percentage:
           email_intro: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè administres l'espai participatiu de la jornada.
+          email_outro: Has rebut aquesta notificació perquè administres l'espai de participació de la jornada.
           email_subject: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%
           notification_title: Les places ocupades per a la jornada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         conference_updated:
