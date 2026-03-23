@@ -81,11 +81,8 @@ de:
             select_template: Antwortvorlage auswählen
         questionnaire_templates:
           choose:
-            create_from_template: Aus Vorlage erstellen
-            description: Sie erstellen in Kürze einen neuen Fragebogen. Hier können Sie eine vordefinierte Vorlage auswählen und anschließend anpassen.
             label: Vorlage auswählen
             placeholder: Vorlage auswählen
-            skip_template: Überspringen
           edit:
             edit: Bearbeiten
             empty: Es gibt noch keine Fragen.
