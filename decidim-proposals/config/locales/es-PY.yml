@@ -191,7 +191,7 @@ es-PY:
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
-            define_taxonomy_filters: Por favor, define algunos filtros para este espacio participativo antes de utilizar esta configuración.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             edit_time: Las autoras pueden editar las propuestas antes de que pase este tiempo
             edit_time_units:
               days: Días
