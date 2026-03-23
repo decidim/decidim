@@ -112,6 +112,8 @@ es-PY:
         initiatives_menu:
           see_initiative: Ver la iniciativa
         initiatives_settings: Configuración
+        initiatives_submenu:
+          info: Acerca de esta iniciativa
         initiatives_types: Tipos de Iniciativa
         moderations: Moderaciones
       models:
