@@ -229,7 +229,7 @@ ca:
           notification_title: S'ha confirmat el teu registre per a la trobada <a href="%{resource_url}">%{resource_title}</a>. El teu codi de registre és %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè administres l'espai participatiu de la trobada.
+          email_outro: Has rebut aquesta notificació perquè administres l'espai de participació en el que s'inclou aquesta trobada.
           email_subject: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%
           notification_title: Les inscripcions per la trobada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         meeting_updated:
@@ -355,10 +355,14 @@ ca:
           index:
             invites: Invitacions
             registrations_disabled: No pots convidar a cap persona perquè les inscripcions estan inhabilitades.
+            title: Convidar a una assistent
         meeting_closes:
           edit:
             close: Tancar
             title: Tancar trobada
+        meeting_copies:
+          new:
+            title: Duplicar trobada
         meetings:
           close:
             invalid: Hi ha hagut un problema en tancar aquesta trobada.
@@ -435,15 +439,21 @@ ca:
             invalid: Hi ha hagut un problema en actualitzar aquesta enquesta.
             success: Enquesta actualitzada correctament.
         poll:
+          edit:
+            title: Edita l'enquesta
           form:
             announcement_html:
               - Quan una pregunta rep respostes o està publicada/tancada, ja no es pot seguir editant.
               - Pots afegir una pregunta en qualsevol moment.
               - El sondeig/la consulta en directe es tancarà quan es publiquin els resultats de totes les preguntes creades.
               - Visita la <a href='%{admin_link}'>pàgina d'administració d'enquestes</a> per enviar preguntes i publicar resultats.
+        registration_form:
+          edit_questions:
+            title: Edita les preguntes
         registrations:
           edit:
             save: Desa
+            title: Inscripcions
           form:
             available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
