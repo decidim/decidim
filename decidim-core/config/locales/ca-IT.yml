@@ -1550,7 +1550,7 @@ ca-IT:
       user:
         actions:
           disabled_message: Missatge
-          edit_profile: Edita el perfil
+          edit_profile: Editar el perfil
           message: Missatge
           resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
     qr:
