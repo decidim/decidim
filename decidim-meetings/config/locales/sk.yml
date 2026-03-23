@@ -97,10 +97,8 @@ sk:
           email_subject: Schôdzky obsadené schôdzkou "%{resource_title}" sú nad%{percentage}%
           notification_title: Počet obsadených slotov <a href="%{resource_path}">%{resource_title} </a> je vyššia ako%{percentage}%.
         meeting_updated:
-          email_intro: 'Schôdzka "%{resource_title}" bola aktualizovaná. Nová verzia si môžete prečítať na stránke: '
           email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Schôdzka "%{resource_title}" bola aktualizovaná
-          notification_title: Schôdzka <a href="%{resource_path}">%{resource_title} </a> bola aktualizovaná.
         registration_code_validated:
           email_intro: Váš registračný kód "%{registration_code}" pre stretnutie "%{resource_title}" bol overený.
           email_outro: Toto oznámenie ste dostali, pretože bol overený váš registračný kód pre schôdzku "%{resource_title}".
@@ -112,10 +110,7 @@ sk:
           email_subject: Schôdzka "%{resource_title}" povolila registrácie.
           notification_title: Schôdzka <a href="%{resource_path}">%{resource_title} </a> povolila registrácie.
         upcoming_meeting:
-          email_intro: Schôdzka "%{resource_title}" začne za menej ako 48 hodín.
           email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-          email_subject: Schôdzka "%{resource_title}" začne za menej ako 48 hodín.
-          notification_title: Stretnutie <a href="%{resource_path}">%{resource_title} </a> sa začne za menej ako 48 hodín.
     gamification:
       badges:
         attended_meetings:
@@ -129,8 +124,6 @@ sk:
     meetings:
       actions:
         agenda: Denný program
-        attachment_collections: Zložky
-        attachments: Prílohy
         close: Zavrieť
         edit: Upraviť
         preview: Náhľad
@@ -272,7 +265,6 @@ sk:
           meeting_minutes: Zápisnica z porady
           no_slots_available: Žiadne sloty nie sú k dispozícii
           organizations: Účastnícke organizácie
-          registration_code_help_text: Váš registračný kód
           registration_state:
             validated: DOKÁZANÝ
             validation_pending: OVERENIE ČAKÁ NA SCHVÁLENIE
@@ -304,7 +296,6 @@ sk:
         confirmation:
           confirmed_html: Vaša registrácia pre stretnutie <a href="%{url}">%{title} </a> bola potvrdená.
           details: Podrobnosti schôdzky nájdete v prílohe.
-          registration_code: Váš registračný kód je %{code}.
       registrations:
         create:
           invalid: Na schôdzi došlo k problému.
@@ -319,8 +310,6 @@ sk:
         transparent: Priehľadný
     metrics:
       meetings:
-        description: Počet vytvorených stretnutí
-        object: stretnutia
         title: Stretnutie
     participatory_spaces:
       highlighted_meetings:
