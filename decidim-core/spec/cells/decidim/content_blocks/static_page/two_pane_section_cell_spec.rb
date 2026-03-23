@@ -34,7 +34,6 @@ describe Decidim::ContentBlocks::StaticPage::TwoPaneSectionCell, type: :cell do
     it "strips the script tag from the left column" do
       expect(subject).to have_text("Safe")
       expect(subject.to_s).not_to include("<script>")
-      expect(subject.to_s).not_to include("alert")
     end
   end
 

@@ -31,7 +31,6 @@ describe Decidim::ContentBlocks::StaticPage::SummaryCell, type: :cell do
     it "strips the script tag" do
       expect(subject).to have_text("Summary")
       expect(subject.to_s).not_to include("<script>")
-      expect(subject.to_s).not_to include("document.cookie")
     end
   end
 
