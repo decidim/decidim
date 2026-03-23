@@ -128,6 +128,7 @@ es-MX:
           conference_speakers_title: Ponentes de la jornada
         new:
           create: Crear
+          title: Nueva ponente de la jornada
         publish:
           invalid: Se ha producido un error al publicar esta ponente.
           success: Ponente de la conferencia actualizada correctamente.
@@ -144,6 +145,7 @@ es-MX:
         destroy:
           success: Usuario eliminado con éxito de esta conferencia.
         edit:
+          title: Actualizar administradora de la jornada
           update: Actualizar
         index:
           conference_admins_title: Administradores de conferencia
@@ -166,6 +168,8 @@ es-MX:
         index:
           published: Publicado
           unpublished: Despublicada
+        manage_trash:
+          title: Jornadas eliminadas
         new:
           create: Crear
           title: Conferencia
@@ -183,6 +187,7 @@ es-MX:
         destroy:
           success: Enlace multimedia eliminado correctamente.
         edit:
+          title: Actualizar el enlace multimedia
           update: Actualizar
         index:
           media_links_title: Enlaces multimedia
@@ -203,6 +208,7 @@ es-MX:
           conference_invites: Invita
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
+          info: Acerca de esta jornada
           media_links: Enlaces multimedia
           moderations: Moderaciones
           partners: Colaboradores
@@ -264,6 +270,7 @@ es-MX:
         destroy:
           success: Colaborador eliminado correctamente de esta jornada.
         edit:
+          title: Actualizar colaboradora
           update: Actualizar
         new:
           create: Crear
@@ -285,6 +292,7 @@ es-MX:
         destroy:
           success: Tipo de registro eliminado con éxito de esta conferencia.
         edit:
+          title: Actualizar el tipo de inscripción
           update: Actualizar
         new:
           create: Crear
@@ -297,6 +305,7 @@ es-MX:
           conferences: Todas las jornadas
       titles:
         conferences: Conferencias
+        conferences_deleted: Jornadas eliminadas
       tooltips:
         deleted_conferences_info: Las jornadas solo se pueden eliminar si su estado es 'Despublicada'.
     admin_log:
