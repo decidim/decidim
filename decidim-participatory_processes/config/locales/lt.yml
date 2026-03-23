@@ -5,16 +5,12 @@ lt:
       participatory_process:
         announcement: Pranešimas
         area_id: Aplinka
-        copy_categories: Kopijuoti kategorijas
-        copy_components: Kopijuoti komponentus
-        copy_steps: Kopijuoti veiksmus
         decidim_area_id: Aplinka
         description: Aprašymas
         developer_group: Rėmėjų grupė
         document: Dokumentas
         domain: Domenas
         end_date: Pabaigos data
-        hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
         import_attachments: Importuoti priedus
         import_categories: Importuoti kategorijas
@@ -40,7 +36,6 @@ lt:
         description: Aprašymas
         developer_group: Rėmėjų grupė
         group_url: Tinklalapis
-        hashtag: Grotažymė
         hero_image: Paveikslėlis
         local_area: Organizacijos aplinka
         meta_scope: Srities metaduomenys
@@ -91,7 +86,6 @@ lt:
     admin:
       actions:
         activate: Aktyvuoti
-        configure: Konfigūruoti
         confirm_destroy: Patvirtinti ištrynimą
         destroy: Ištrinti
         duplicate: Sukurti kopiją
@@ -115,7 +109,6 @@ lt:
           attachments: Priedai
           components: Komponentai
           info: Apie šį procesą
-          landing_page: Pagrindinis puslapis
           moderations: Moderavimai
           process_admins: Proceso administratoriai
           steps: Etapai
@@ -147,14 +140,10 @@ lt:
             admin: Administratorius
             collaborator: Bendraautorius
             moderator: Moderatorius
-            valuator: Vertintojas
         user:
           fields:
             invitation_accepted_at: Kvietimas priimtas
             invitation_sent_at: Kvietimas išsiųstas
-      participatory_process_copies:
-        new:
-          copy: Kopijuoti
       participatory_process_groups:
         destroy:
           success: Dalyvaujamojo proceso grupė pašalinta.
@@ -204,7 +193,6 @@ lt:
           error: Pertvarkant šiuos dalyvaujamojo proceso etapus iškilo problema.
         update:
           error: Atnaujinant šio dalyvaujamojo proceso etapą iškilo problema.
-          success: Dalyvaujamasis etapas atnaujintas.
       participatory_process_user_roles:
         create:
           error: Pridedant dalyvį prie dalyvaujamojo proceso iškilo problema.
@@ -301,8 +289,6 @@ lt:
       processes: Procesai
     metrics:
       participatory_processes:
-        description: Dalyvaujamųjų procesų skaičius šioje organizacijoje
-        object: dalyvaujamieji procesai
         title: Dalyvaujamieji procesai
     participatory_process_groups:
       content_blocks:
@@ -357,12 +343,8 @@ lt:
         participatory_process_imports:
           form:
             document_legend: Pridėti dokumentą
-        participatory_process_steps:
-          form:
-            cta_text_help: Jei nenustatyta, mygtukas nebus matomas.
         participatory_processes:
           form:
-            announcement_help: Čia įrašytas tekstas naudotojui bus rodomas iš karto po informacijos apie procesą.
             duration: Trukmė
             images: Paveikslėliai
             metadata: Metaduomenys
@@ -385,9 +367,6 @@ lt:
           highlighted_processes:
             active_spaces: Aktyvūs procesai
             see_all_spaces: Žiūrėti visus procesus
-      participatory_process_steps:
-        index:
-          back_to_process: Grįžti į procesų puslapį
       participatory_processes:
         description:
           area_name: Aplinka
