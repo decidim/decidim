@@ -5,17 +5,13 @@ fr:
       participatory_process:
         announcement: Annonce
         area_id: Périmètre d'assemblée
-        copy_categories: Copier les catégories
-        copy_components: Copier les fonctionnalités
         copy_landing_page_blocks: Dupliquer les blocs de page d'accueil
-        copy_steps: Copier les étapes
         decidim_area_id: Périmètre d'assemblée
         description: Description
         developer_group: Organisateur
         document: Document
         domain: Domaine
         end_date: Date de fin
-        hashtag: Hashtag
         hero_image: Image de la page d'accueil
         import_attachments: Importer les pièces jointes
         import_categories: Importer les catégories
@@ -41,7 +37,6 @@ fr:
         description: Description
         developer_group: Groupe d'initiateurs
         group_url: Site web
-        hashtag: Hashtag
         hero_image: Image
         local_area: Zone d'organisation
         meta_scope: Secteur
@@ -88,7 +83,6 @@ fr:
     admin:
       actions:
         activate: Activer
-        configure: Configurer
         confirm_delete_process: Êtes-vous sûr(e) de vouloir supprimer ce processus ? Si vous changez d'avis, vous pourrez le restaurer plus tard.
         confirm_destroy: Confirmez la suppression
         destroy: Supprimer
@@ -121,7 +115,6 @@ fr:
           attachments: Documents liés
           components: Fonctionnalités
           info: A propos de cette concertation
-          landing_page: Page d'accueil
           moderations: Modérations
           private_users: Membres
           process_admins: Administrateurs de la concertation
@@ -155,7 +148,6 @@ fr:
             admin: Administrateur
             collaborator: Relecteur
             moderator: Modérateur
-            valuator: Évaluateur
         user:
           fields:
             invitation_accepted_at: Invitation acceptée à
@@ -163,7 +155,6 @@ fr:
             published: Publié
       participatory_process_copies:
         new:
-          copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer le processus participatif
       participatory_process_groups:
@@ -226,7 +217,6 @@ fr:
           error: Une erreur s'est produite lors de la réorganisation des étapes de la concertation.
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette étape de la concertation.
-          success: Étape de la concertation mise à jour avec succès.
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette concertation.
@@ -343,8 +333,6 @@ fr:
       processes: Concertations
     metrics:
       participatory_processes:
-        description: Nombre de concertations dans cette organisation
-        object: concertations
         title: Concertations
     open_data:
       help:
@@ -414,13 +402,8 @@ fr:
           form:
             document_legend: Ajouter un document
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Utilisez ici des chemins partiels, pas des URL complètes. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple : %{url}'
-            cta_text_help: Si non défini, le bouton ne sera pas affiché.
         participatory_processes:
           form:
-            announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             images: Images
@@ -451,9 +434,6 @@ fr:
           highlighted_processes:
             active_spaces: Concertations actives
             see_all_spaces: Voir toutes les concertations
-      participatory_process_steps:
-        index:
-          back_to_process: Retour à la page du processus
       participatory_processes:
         description:
           area_name: Périmètre d'assemblée
