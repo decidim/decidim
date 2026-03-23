@@ -5,17 +5,13 @@ cs:
       participatory_process:
         announcement: Oznámení
         area_id: Oblast
-        copy_categories: Kopírovat kategorie
-        copy_components: Kopírování komponent
         copy_landing_page_blocks: Duplikovat bloky vstupní strany
-        copy_steps: Kopírování kroků
         decidim_area_id: Oblast
         description: Popis
         developer_group: Skupina promotérů
         document: Dokument
         domain: Doména
         end_date: Datum ukončení
-        hashtag: Hashtag
         hero_image: Domácí obrázek
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
@@ -41,7 +37,6 @@ cs:
         description: Popis
         developer_group: Skupina propagátorů
         group_url: Webová stránka
-        hashtag: Hashtag
         hero_image: Obrázek
         local_area: Oblast působnosti organizace
         meta_scope: Metadata oblasti působnosti
@@ -94,7 +89,6 @@ cs:
     admin:
       actions:
         activate: Aktivovat
-        configure: Konfigurovat
         confirm_delete_process: Opravdu chcete odstranit tento proces? Pokud změníte názor, můžete jej obnovit později.
         confirm_destroy: Potvrďte smazání
         destroy: Odstranit
@@ -128,7 +122,6 @@ cs:
           attachments: Přílohy
           components: Komponenty
           info: O tomto procesu
-          landing_page: Úvodní stránka
           moderations: Moderování
           private_users: Členové
           process_admins: Administrátoři procesu
@@ -162,7 +155,6 @@ cs:
             admin: Správce
             collaborator: Spolupracovník
             moderator: Moderátor
-            valuator: Hodnotitel
         user:
           fields:
             invitation_accepted_at: Pozvánka byla přijata na
@@ -170,7 +162,6 @@ cs:
             published: Publikováno
       participatory_process_copies:
         new:
-          copy: Kopírovat
           select: Vyberte, která data chcete duplikovat
       participatory_process_groups:
         destroy:
@@ -229,7 +220,6 @@ cs:
           error: Došlo k chybě při novém uspořádání těchto kroků procesu participace.
         update:
           error: Při aktualizaci tohoto kroku procesu participace došlo k chybě.
-          success: Úspěšný krok procesu byl úspěšně aktualizován.
       participatory_process_user_roles:
         create:
           error: Při přidávání uživatele pro tento participační proces došlo k chybě.
@@ -344,8 +334,6 @@ cs:
       processes: Procesy
     metrics:
       participatory_processes:
-        description: Počet participativních procesů v této organizaci
-        object: participativní procesy
         title: Participativní procesy
     open_data:
       help:
@@ -443,13 +431,8 @@ cs:
           form:
             document_legend: Přidat dokument
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Zde použijte částečné cesty, nikoli úplné adresy URL. Jsou povolena písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Příklad: %{url}'
-            cta_text_help: Není-li nastaveno, tlačítko se nezobrazí.
         participatory_processes:
           form:
-            announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             images: Obrázky
@@ -480,9 +463,6 @@ cs:
           highlighted_processes:
             active_spaces: Aktivní procesy
             see_all_spaces: Zobrazit všechny procesy
-      participatory_process_steps:
-        index:
-          back_to_process: Zpět na stránku procesu
       participatory_processes:
         description:
           area_name: Oblast
