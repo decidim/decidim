@@ -256,8 +256,6 @@ cs:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Všechny participační procesy
-      titles:
-        participatory_process_types: Typy participačních procesů
       tooltips:
         deleted_processes_info: Proces může být odstraněn pouze v případě, že je stav "Nezveřejněný".
       users:
@@ -286,10 +284,6 @@ cs:
         create: "%{user_name} vytvořil %{resource_name} krok ve %{space_name} účastnických procesech"
         delete: "%{user_name} odstraněno %{resource_name} krok ve %{space_name} účastnických procesech"
         update: "%{user_name} aktualizoval %{resource_name} krok ve %{space_name} účastnických procesech"
-      participatory_process_type:
-        create: "%{user_name} vytvořil %{resource_name} typ participačního procesu"
-        delete: "%{user_name} odstranil %{resource_name} typ participačního procesu"
-        update: "%{user_name} aktualizoval %{resource_name} typ participačního procesu"
       participatory_process_user_role:
         create: "%{user_name} pozval uživatele %{resource_name} do procesu participace %{space_name}"
         delete: "%{user_name} odstranil uživatele %{resource_name} z procesu participace %{space_name}"
@@ -320,10 +314,6 @@ cs:
           contextual: "<p> <strong>Participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: <strong>proces volby členů výboru</strong> (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), <strong>participační rozpočty</strong> (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); <strong>proces strategického plánování</strong>, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
           page: "<p> <strong>participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: proces volby členů výboru (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), participační rozpočty (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); proces strategického plánování, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
           title: Co je participační proces?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id}).'
     menu:
       processes: Procesy
     open_data:
@@ -489,10 +479,14 @@ cs:
           form:
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_process_groups:
+          edit:
+            title: Upravit skupinu procesu
           form:
             metadata: Metadata
             title: O tomto procesu
             visibility: Viditelnost
+          new:
+            title: Nová skupina procesu
         participatory_process_imports:
           form:
             document_legend: Přidat dokument
@@ -545,7 +539,7 @@ cs:
         extra_data:
           name: Fáze a doba trvání
         hero:
-          name: Obrázek hrdiny a CTA
+          name: Obrázek hrdiny a výzva k akci
         highlighted_processes:
           name: Zvýrazněné procesy
         related_processes:
