@@ -51,7 +51,7 @@ ro:
           edit:
             title: Modificați șablonul pentru mesajele către participanții blocați
           form:
-            save: Salvează
+            save: Salvaţi
           index:
             confirm_delete: Sunteți sigur că doriți să ștergeți acest șablon?
             title: Mesaje către participanții blocați
@@ -68,7 +68,7 @@ ro:
             hint2_html: "<strong>%{name}</strong> va fi înlocuit cu numele autorului"
             hint3_html: "<strong>%{admin}</strong> va fi înlocuit cu numele administratorului (cel care răspunde propunerii)"
             hint_html: "<strong>Sugestie:</strong> Puteți utiliza aceste variabile oriunde în șablonul de răspuns care va fi înlocuit atunci când utilizați șablonul"
-            save: Salvează
+            save: Salvați
           index:
             component_constraint: Adaugați o constrângere
             confirm_delete: Sunteți sigur că doriți să ștergeți acest șablon?
