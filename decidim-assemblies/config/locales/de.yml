@@ -233,6 +233,8 @@ de:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: Über dieses Gremium
           form:
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Aktiv bis
@@ -250,6 +252,8 @@ de:
             taxonomies: Klassifizierungen
             title: Allgemeine Information
             visibility: Sichtbarkeit
+          index:
+            title: Gremien
         assembly_duplicates:
           form:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
