@@ -128,6 +128,7 @@ es:
           conference_speakers_title: Ponentes de la jornada
         new:
           create: Crear
+          title: Nueva ponente de la jornada
         publish:
           invalid: Se ha producido un error al publicar esta ponente.
           success: Ponente de la conferencia actualizada correctamente.
@@ -144,6 +145,7 @@ es:
         destroy:
           success: Administradora de la jornada eliminada correctamente.
         edit:
+          title: Actualizar administradora de la jornada
           update: Actualizar
         index:
           conference_admins_title: Administradores de conferencia
@@ -166,6 +168,8 @@ es:
         index:
           published: Publicado
           unpublished: Despublicada
+        manage_trash:
+          title: Jornadas eliminadas
         new:
           create: Crear
           title: Conferencia
@@ -183,6 +187,7 @@ es:
         destroy:
           success: Enlace multimedia eliminado correctamente.
         edit:
+          title: Actualizar el enlace multimedia
           update: Actualizar
         index:
           media_links_title: Enlaces multimedia
@@ -203,6 +208,7 @@ es:
           conference_invites: Invita
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
+          info: Acerca de esta jornada
           media_links: Enlaces multimedia
           moderations: Moderaciones
           partners: Colaboradoras
@@ -264,6 +270,7 @@ es:
         destroy:
           success: Colaboradora de la jornada eliminada correctamente.
         edit:
+          title: Actualizar colaboradora
           update: Actualizar
         new:
           create: Crear
@@ -285,6 +292,7 @@ es:
         destroy:
           success: Tipo de inscripción eliminado correctamente de esta jornada.
         edit:
+          title: Actualizar el tipo de inscripción
           update: Actualizar
         new:
           create: Crear
@@ -297,6 +305,7 @@ es:
           conferences: Todas las jornadas
       titles:
         conferences: Jornadas
+        conferences_deleted: Jornadas eliminadas
       tooltips:
         deleted_conferences_info: Las jornadas solo se pueden eliminar si su estado es 'Despublicada'.
     admin_log:
@@ -561,7 +570,7 @@ es:
           notification_title: Tu inscripción en la jornada <a href="%{resource_url}">%{resource_title}</a> está pendiente de confirmación.
         conference_registrations_over_percentage:
           email_intro: Las plazas ocupadas para la conferencia "%{resource_title}" superan el %{percentage}%.
-          email_outro: Recibes esta notificación porque eres administrador del espacio participativo de la jornada.
+          email_outro: Recibes esta notificación porque eres administrador del espacio de participación de la jornada.
           email_subject: Las plazas ocupadas para la jornada "%{resource_title}" son más del %{percentage}%
           notification_title: Las plazas ocupadas para la jornada <a href="%{resource_path}">%{resource_title}</a> son más del %{percentage}%.
         conference_updated:
