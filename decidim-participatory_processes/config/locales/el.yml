@@ -5,16 +5,12 @@ el:
       participatory_process:
         announcement: Ανακοίνωση
         area_id: Τομέας
-        copy_categories: Αντιγραφή κατηγοριών
-        copy_components: Αντιγραφή στοιχείων
-        copy_steps: Αντιγραφή βημάτων
         decidim_area_id: Τομέας
         description: Περιγραφή
         developer_group: Ομάδα προώθησης
         document: Έγγραφο
         domain: Τομέας
         end_date: Ημερομηνία λήξης
-        hashtag: Hashtag
         hero_image: Εικόνα αρχικής σελίδας
         import_attachments: Εισαγωγή συνημμένων
         import_categories: Εισαγωγή κατηγοριών
@@ -40,7 +36,6 @@ el:
         description: Περιγραφή
         developer_group: Ομάδα προώθησης
         group_url: Ιστοσελίδα
-        hashtag: Hashtag
         hero_image: Εικόνα
         local_area: Περιοχή οργανισμού
         meta_scope: Μεταδεδομένα πεδίου εφαρμογής
@@ -85,7 +80,6 @@ el:
     admin:
       actions:
         activate: Ενεργοποίηση
-        configure: Διαμόρφωση
         confirm_destroy: Επιβεβαίωση διαγραφής
         destroy: Διαγραφή
         duplicate: Αντιγραφή
@@ -109,7 +103,6 @@ el:
           attachments: Συνημμένα
           components: Στοιχεία
           info: Σχετικά με αυτή τη διεργασία
-          landing_page: Σελίδα άφιξης
           moderations: Εποπτεύσεις
           process_admins: Διαχειριστές διαδικασιών
           steps: Φάσεις
@@ -141,14 +134,10 @@ el:
             admin: Διαχειριστής
             collaborator: Συνεργάτης
             moderator: Επόπτης
-            valuator: Εκτιμητής
         user:
           fields:
             invitation_accepted_at: Η πρόσκληση έγινε αποδεκτή στις
             invitation_sent_at: Η πρόσκληση στάλθηκε στις
-      participatory_process_copies:
-        new:
-          copy: Αντιγραφή
       participatory_process_groups:
         destroy:
           success: Η ομάδα διαδικασιών συμμετοχής διαγράφηκε με επιτυχία.
@@ -198,7 +187,6 @@ el:
           error: Παρουσιάστηκε πρόβλημα κατά την αναδιάταξη αυτών των φάσεων της διαδικασίας συμμετοχής.
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της διαδικασίας συμμετοχής.
-          success: Η φάση συμμετοχής ενημερώθηκε με επιτυχία.
       participatory_process_user_roles:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός συμμετέχοντα για αυτήν τη διαδικασία συμμετοχής.
@@ -295,8 +283,6 @@ el:
       processes: Διαδικασίες
     metrics:
       participatory_processes:
-        description: Αριθμός διαδικασιών συμμετοχής σε αυτόν τον οργανισμό
-        object: διαδικασίες συμμετοχής
         title: Διαδικασίες συμμετοχής
     participatory_process_groups:
       content_blocks:
@@ -335,12 +321,8 @@ el:
         participatory_process_imports:
           form:
             document_legend: Προσθήκη εγγράφου
-        participatory_process_steps:
-          form:
-            cta_text_help: Εάν δεν οριστεί, το κουμπί δεν θα εμφανιστεί.
         participatory_processes:
           form:
-            announcement_help: Το κείμενο που εισάγετε εδώ θα εμφανίζεται στον χρήστη ακριβώς κάτω από τις πληροφορίες της διαδικασίας.
             duration: Διάρκεια
             images: Εικόνες
             metadata: Μεταδεδομένα
@@ -352,9 +334,6 @@ el:
           name: Επισημασμένες διαδικασίες
       index:
         title: Διαδικασίες συμμετοχής
-      participatory_process_steps:
-        index:
-          back_to_process: Πίσω στην σελίδα της διαδικασίας
       participatory_processes:
         filters:
           all_types: Όλοι οι τύποι
