@@ -5,15 +5,11 @@ nl:
       participatory_process:
         announcement: Aankondiging
         area_id: Onderwerp
-        copy_categories: Categorieën kopiëren
-        copy_components: Kopieer onderdelen
-        copy_steps: Kopieer stappen
         decidim_area_id: Onderwerp
         description: Beschrijving
         developer_group: Organisator
         domain: Domein
         end_date: Einddatum
-        hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
         local_area: Organisatiegebied
         meta_scope: Omvang metadata
@@ -34,7 +30,6 @@ nl:
         description: Beschrijving
         developer_group: Promoter groep
         group_url: Website
-        hashtag: Hashtag
         hero_image: Afbeelding
         local_area: Organisatiegebied
         meta_scope: Scope metadata
@@ -73,7 +68,6 @@ nl:
     admin:
       actions:
         activate: Activeren
-        configure: Configureren
         confirm_destroy: Bevestig verwijderen
         destroy: Verwijder
         duplicate: Dupliceren
@@ -95,7 +89,6 @@ nl:
           attachment_files: Bestanden
           attachments: Bijlagen
           components: Onderdelen
-          landing_page: Landingspagina
           moderations: Moderaties
           process_admins: Admins van het proces
           steps: Stappen
@@ -127,14 +120,10 @@ nl:
             admin: Administrator
             collaborator: Medewerker
             moderator: Moderator
-            valuator: Beoordelaar
         user:
           fields:
             invitation_accepted_at: Uitnodiging geaccepteerd op
             invitation_sent_at: Uitnodiging verzonden op
-      participatory_process_copies:
-        new:
-          copy: Kopiëren
       participatory_process_groups:
         destroy:
           success: Participatieve procesgroep succesvol verwijderd.
@@ -181,7 +170,6 @@ nl:
           error: Er is een fout opgetreden bij het herschikken van deze processtappen.
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze processtap.
-          success: Fase van participatief proces succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan dit inspraakproces.
@@ -266,8 +254,6 @@ nl:
       processes: Inspraakprocessen
     metrics:
       participatory_processes:
-        description: Aantal participatieve processen in deze organisatie
-        object: participatieve processen
         title: Inspraakproces
     participatory_process_groups:
       content_blocks:
@@ -304,12 +290,8 @@ nl:
         participatory_process_imports:
           form:
             document_legend: Document toevoegen
-        participatory_process_steps:
-          form:
-            cta_text_help: Als dit niet is ingesteld, wordt de knop niet weergegeven.
         participatory_processes:
           form:
-            announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             duration: Duur
             images: Afbeeldingen
             metadata: Metadata
@@ -321,9 +303,6 @@ nl:
           name: Uitgelichte processen
       index:
         title: Inspraakproces
-      participatory_process_steps:
-        index:
-          back_to_process: Terug naar de procespagina
       participatory_processes:
         filters:
           counters:
