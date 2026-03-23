@@ -250,8 +250,6 @@ sv:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Alla deltagandeprocesser
-      titles:
-        participatory_process_types: Typer av deltagandeprocesser
       tooltips:
         deleted_processes_info: En process kan endast raderas om status är "avpublicerad".
       users:
@@ -280,10 +278,6 @@ sv:
         create: "%{user_name} skapade steget %{resource_name} i processen %{space_name}"
         delete: "%{user_name} raderade steget %{resource_name} i processen %{space_name}"
         update: "%{user_name} uppdaterade steget %{resource_name} i processen %{space_name}"
-      participatory_process_type:
-        create: "%{user_name} skapade typen av process %{resource_name}"
-        delete: "%{user_name} raderade typen av process %{resource_name}"
-        update: "%{user_name} uppdaterade typen av process %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} bjöd in deltagaren %{resource_name} till processen %{space_name}"
         delete: "%{user_name} tog bort deltagaren %{resource_name} från processen %{space_name}"
@@ -314,10 +308,6 @@ sv:
           contextual: "<p>En <strong>deltagandeprocess</strong> är en följd av deltagande aktiviteter (t.ex. att först göra en enkät, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att rösta) för att definiera frågeställningar och fatta beslut inom ett visst ämne.</p> <p>Exempel på deltagandeprocesser är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs), medborgarbudgetar (där förslag läggs fram, prissätts och röstas om), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning, utformningen av stadsmiljöer eller att skapa en policyplan.</p>\n"
           page: "<p>En <strong>deltagandeprocess</strong> är en följd av deltagande aktiviteter (t.ex. att först göra en enkät, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att rösta) för att definiera frågeställningar och fatta beslut inom ett visst ämne.</p> <p>Exempel på deltagandeprocesser är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs), medborgarbudgetar (där förslag läggs fram, prissätts och röstas om), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning, utformningen av stadsmiljöer eller att skapa en policyplan.</p>\n"
           title: Vad är en deltagandeprocess?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Typen av process hittades inte i databasen (ID: %{id}).'
     menu:
       processes: Processer
     open_data:
