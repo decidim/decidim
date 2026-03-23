@@ -142,7 +142,7 @@ es:
           new:
             create: Importar propuestas a proyectos
             default_budget: Presupuesto por defecto
-            no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
+            no_components: No hay otros componentes de la propuesta en este espacio de participación para importar las propuestas en los proyectos.
             origin_component_id: Componente de origen
             proposal_states: Estados de repuesta a la propuesta
             proposal_states_help: Selecciona uno o más estados de respuesta de las propuestas a importar como proyectos. Si no seleccionas ningún estado de respuesta, se importaran todas las propuestas publicadas que no hayan sido importadas aún a otros presupuestos de este mismo componente.
@@ -240,7 +240,7 @@ es:
         order_summary:
           selected_projects: 'Lo proyectos que has seleccionado son:'
           subject: Has votado en el espacio de participación %{space_name}
-          voted_on_space: Has votado en el presupuesto %{budget_name} para el espacio participativo %{space_name}.
+          voted_on_space: Has votado en el presupuesto %{budget_name} para el espacio de participación "%{space_name}".
       projects:
         back_to_budgets: Volver a los presupuestos
         budget_confirm:
