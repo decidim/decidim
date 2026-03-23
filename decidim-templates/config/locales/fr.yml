@@ -51,7 +51,7 @@ fr:
           edit:
             title: Modifier le modèle de message de blocage utilisateur
           form:
-            save: Sauvegarder
+            save: Enregistrer
           index:
             confirm_delete: Êtes-vous sûr(e) de vouloir supprimer ce modèle ?
             title: Bloquer les messages de l'utilisateur
