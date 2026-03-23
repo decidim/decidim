@@ -111,6 +111,8 @@ ca:
         initiatives_menu:
           see_initiative: Veure la iniciativa
         initiatives_settings: Configuració
+        initiatives_submenu:
+          info: Quant a aquesta iniciativa
         initiatives_types: Tipus d'iniciatives
         moderations: Moderacions
       models:
