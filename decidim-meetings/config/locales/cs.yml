@@ -262,6 +262,8 @@ cs:
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Schůzka "%{resource_title}" povolila registrace.
           notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> povolila registrace.
+        upcoming_meeting:
+          default_body: Schůzka "{{meeting_title}}" začne za méně než {{before_hours}}h.
     forms:
       meetings:
         attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků na vaší schůzce, ať už osobní, online nebo smíšené.
@@ -354,10 +356,14 @@ cs:
           index:
             invites: Pozvánky
             registrations_disabled: Nemůžete pozvat účastníka, protože registrace jsou blokovány.
+            title: Pozvat účastníka
         meeting_closes:
           edit:
             close: Zavřít
             title: Zavřete schůzku
+        meeting_copies:
+          new:
+            title: Duplikovat schůzku
         meetings:
           close:
             invalid: Při uzavření této schůzky došlo k chybě.
@@ -434,15 +440,21 @@ cs:
             invalid: Při aktualizaci této schůze došlo k chybě.
             success: Anketa ke schůzi byla úspěšně aktualizována.
         poll:
+          edit:
+            title: Upravit anketu
           form:
             announcement_html:
               - Pokud otázka obdrží odpovědi nebo je zveřejněna/uzavřena, již ji nelze upravovat.
               - Otázku můžete kdykoliv přidat.
               - Průzkum bude ukončen po zveřejnění výsledků všech vytvořených otázek.
               - Navštivte <a href='%{admin_link}'>stránku administrace anket</a> pro odeslání dotazů a publikování výsledků.
+        registration_form:
+          edit_questions:
+            title: Upravit otázky
         registrations:
           edit:
             save: Uložit
+            title: Registrace
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
             invites: Pozvánky
