@@ -247,8 +247,6 @@ de:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Alle Beteiligungsprozesse
-      titles:
-        participatory_process_types: Beteiligungsprozesstypen
       tooltips:
         deleted_processes_info: Prozesse können nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
       users:
@@ -277,10 +275,6 @@ de:
         create: "%{user_name} hat den Schritt %{resource_name} in %{space_name} erstellt"
         delete: "%{user_name} hat den Schritt %{resource_name} aus %{space_name} gelöscht"
         update: "%{user_name} hat den Schritt %{resource_name} in %{space_name} aktualisiert"
-      participatory_process_type:
-        create: "%{user_name} hat den Beteiligungsprozesstyp %{resource_name} erstellt"
-        delete: "%{user_name} hat den Beteiligungsprozesstyp %{resource_name} gelöscht"
-        update: "%{user_name} hat den Prozesstyp %{resource_name} aktualisiert"
       participatory_process_user_role:
         create: "%{user_name} lud den Benutzer %{resource_name} zu dem %{space_name} Partizipationsprozess ein"
         delete: "%{user_name} entfernte den Benutzer %{resource_name} aus dem %{space_name} Partizipationsprozess"
@@ -311,10 +305,6 @@ de:
           contextual: "<p>Ein <strong>Beteiligungsprozess</strong> ist eine Abfolge von partizipativen Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese an physischen oder virtuellen Veranstaltungen zu diskutieren, und sie schließlich zu priorisieren) mit dem Ziel, ein bestimmtes Thema zu definieren und Entscheidungen dazu zu treffen.</p> <p>Beispiele für Beteiligungsprozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert und anschließend debattiert werden, und schließlich eine Kandidatur ausgewählt wird), partizipative Budgets (bei denen Vorschläge gemacht und wirtschaftlich bewertet werden und über das verfügbare Geld abgestimmt wird), ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung einer öffentlichen Strategie.</p>\n"
           page: "<p>Ein <strong>Partizipationsprozess</strong> ist eine Folge von Partizipations-Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese face-to-face oder an virtuellen Sitzungen diskutieren, und sie schließlich zu priorisieren) mit dem Ziel, ein bestimmtes Thema zu definieren und Entscheidungen dazu zu treffen.</p> <p>Beispiele für partizipatorische Prozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert und anschließend debattiert werden, und schließlich eine Kandidatur ausgewählt wird), die partizipative Budgets (bei denen Vorschläge gemacht und wirtschaftlich bewertet werden und über das verfügbare Geld abgestimmt wird), ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung einer öffentlichen Strategie.</p>\n"
           title: Was ist ein Beteiligungsprozess?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Der Prozesstyp wurde nicht in der Datenbank gefunden (ID: %{id}).'
     menu:
       processes: Beteiligungsprozesse
     open_data:
