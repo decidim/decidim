@@ -10,20 +10,16 @@ zh-TW:
         scope_id: 範圍
         state: 狀態
         title: 標題
-        user_group_id: 建立協作草稿為
       proposal:
         address: 地址
         answer: 回答
         answered_at: 回答
-        automatic_hashtags: 已自動添加標籤
         body: 內容
         decidim_scope_id: 範圍
         has_address: 有地址
         scope_id: 範圍
         state: 狀態
-        suggested_hashtags: 建議使用標籤
         title: 標題
-        user_group_id: 建立提案
       proposal_answer:
         answer: 回答
         cost: 費用
@@ -35,9 +31,6 @@ zh-TW:
       proposals_import:
         import_proposals: 導入提案
         keep_authors: 保留原作者
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: 檢核者名稱
     errors:
       models:
         participatory_text:
@@ -65,7 +58,6 @@ zh-TW:
               not_official: 非正式
     models:
       decidim/proposals/creation_enabled_event: 建立提案已啟用
-      decidim/proposals/endorsing_enabled_event: 提案連署功能已啟用
       decidim/proposals/proposal_mentioned_event: 提案已被提及
       decidim/proposals/publish_proposal_event: 提案已發佈
       decidim/proposals/voting_enabled_event: 提案投票已啟用
@@ -95,16 +87,11 @@ zh-TW:
               rejected: 已拒絕
               validating: 技術驗證
               withdrawn: 已撤回
-          valuator_role_ids_has:
-            label: 已分配給評估人員
-        search_placeholder:
-          id_string_or_title_cont: 透過 ID 或標題搜尋%{collection}
     components:
       proposals:
         actions:
           amend: 修訂
           comment: 評論
-          endorse: 連署
           vote_comment: 投票評論
           withdraw: 撤回
         name: 提案
@@ -121,7 +108,6 @@ zh-TW:
             default_sort_order: 預設提案排序
             default_sort_order_options:
               most_commented: 最多評論
-              most_endorsed: 最多已連署
               most_followed: 最多追蹤者
               random: 隨機
               recent: 最近
@@ -156,35 +142,24 @@ zh-TW:
             amendments_visibility_help: 若選擇「修正案僅限作者可見」選項，參與者必須登入以查看所做的修正。
             announcement: 公告
             answers_with_costs: 啟用提案回答的成本
-            automatic_hashtags: 所有提案都已添加標籤
             comments_blocked: 留言已封鎖
             creation_enabled: 參與者可以建立提案
             creation_enabled_readonly: 啟用參與式文本功能後，此設置將被禁用。要將提案上傳為參與式文本，請點擊“參與式文本”按鈕，然後按照說明進行操作。
             default_sort_order: 預設提案排序
             default_sort_order_options:
               most_commented: 最多評論
-              most_endorsed: 最多已連署
               most_followed: 最多追蹤者
               random: 隨機
               recent: 最近
               with_more_authors: 有更多作者
-            endorsements_blocked: 連署已封鎖
-            endorsements_enabled: 連署已啟用
             proposal_answering_enabled: 提案回答已啟用
             publish_answers_immediately: 立即發布提案回答
             publish_answers_immediately_help_html: '請注意，如果您在未啟用此功能的情況下回答任何提案，您將需要手動選擇它們並使用發布操作進行發布。有關此操作的更多信息，請參閱 <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案答案文檔頁面</a>。'
-            suggested_hashtags: 為新提案建議參與者使用的標籤
     events:
       proposals:
         admin:
-          proposal_assigned_to_valuator:
-            email_outro: 您收到此通知，因為您可以對提案進行評估。
           proposal_note_created:
-            email_outro: 您收到此通知，因為您可以對提案進行評估。
             email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
-        coauthor_invited:
-          actions:
-            accept: 接受
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} 已經被接受成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。'
           email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
@@ -221,9 +196,7 @@ zh-TW:
           email_subject: 現在可以在 %{participatory_space_title} 中建立新的提案了！
           notification_title: 現在您可以在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中提出<a href="%{resource_path}">新提案</a>。
         endorsing_enabled:
-          email_intro: '您可以連署 %{participatory_space_title} 中的提案！請點擊以下連結參與：'
           email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
-          email_subject: 已開始對於 %{participatory_space_title} 的提案進行連署
           notification_title: 現在您可以在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中開始<a href="%{resource_path}">連署提案</a>。
         proposal_mentioned:
           email_intro: 你的提案「%{mentioned_proposal_title}」在評論中被提及，<a href="%{resource_url}">請至此空間查看</a>。
@@ -273,16 +246,8 @@ zh-TW:
           unearned_own: 你還沒有建立提案。
     metrics:
       accepted_proposals:
-        description: 已接受的提案數
-        object: 提案
         title: 已通過的提案
-      endorsements:
-        description: 對提案的連署次數
-        object: 連署
-        title: 連署
       proposals:
-        description: 提案總數
-        object: 提案
         title: 提案
       votes:
         title: 投票
@@ -373,10 +338,8 @@ zh-TW:
             select_a_meeting: 選擇一個會議
           index:
             actions: 操作
-            assign_to_valuator: 分配給評估人員
             cancel: 取消
             merge: 合併為新提案
-            merge_button: 合併
             publish: 發布
             publish_answers: 發佈回應
             select_component: 選擇一個元件
@@ -384,7 +347,6 @@ zh-TW:
             split: 拆分提案
             split_button: 拆分
             title: 提案
-            unassign_from_valuator: 取消分派給評估者
             update: 更新
           new:
             create: 建立
@@ -393,18 +355,13 @@ zh-TW:
             select_a_proposal: 請選擇一個提案。
           show:
             amendments_count: 修改案數量
-            assigned_valuators: 已分配給評估人員
             body: 正文
             comments_count: 評論次數
             documents: 文件
-            endorsements_count: 連署人數
-            endorsers: 贊助人
             photos: 圖片
             ranking: "%{total} 的%{ranking}"
             related_meetings: 相關會議
             remove_assignment: 移除指派
-            remove_assignment_confirmation: 您確定要將評估者從此提案中移除嗎？
-            valuators: 評估者
         proposals_imports:
           create:
             invalid: 匯入提案時發生問題.
@@ -426,14 +383,10 @@ zh-TW:
       admin_log:
         proposal:
           answer: "%{user_name} 回覆了在 %{space_name} 空間的 %{resource_name} 提案。"
-          create: "%{user_name} 在%{space_name} 空間中創建了官方提案%{resource_name}"
           publish_answer: "%{user_name} 在%{space_name} 空間中發表了對%{resource_name} 提案的回答"
           update: "%{user_name} 在%{space_name} 空間中更新了%{resource_name} 官方提案"
         proposal_note:
           create: "%{user_name} 在 %{space_name} 空間的 %{resource_name} 提案中留下了私人註記。"
-        valuation_assignment:
-          create: "%{user_name} 將 %{resource_name} 提案指派給了一個評估者。"
-          delete: "%{user_name} 取消了 %{proposal_title} 提案的評估者指派。"
       answers:
         accepted: 已接受
         evaluating: 評估
@@ -446,7 +399,6 @@ zh-TW:
           meetings: 會議
           official: 官方
           participants: 參與者
-          user_groups: 群組
         filter_state_values:
           all: 全部
           not_answered: 未回答
@@ -457,93 +409,46 @@ zh-TW:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: 發布協作草稿時出現問題。
             irreversible_action_modal:
               body: 發佈這個草案成為提案後，它將不再可編輯。提案將不會接受新的作者或貢獻。
               cancel: 取消
-              ok: 作為提案發布
-              title: 這個動作是不可逆的
-            success: 協作草稿已成功發布為提案。
           withdraw:
-            error: 關閉協作草稿時出現問題
             irreversible_action_modal:
               body: 關閉草稿後，它將不再可編輯。該草稿將不再接受新的作者或貢獻。
               cancel: 取消
-              ok: 撤回協作草稿
-              title: 這個動作是不可逆的
-            success: 協作草稿已成功撤回。
-        create:
-          error: 建立協作草稿時發生問題。
-          success: 協作草稿建立成功。
         edit:
           back: 返回
           send: 發送
-          title: 編輯協作草稿
         filters:
           all: 全部
           amendment: 修正案
-          open: 開啟
           published: 已發佈
           related_to: 相關於
           search: 搜尋
           state: 狀態
           withdrawn: 已撤回
-        filters_small_view:
-          close_modal: 關閉視窗
-          filter: 篩選
-          filter_by: 篩選條件
-          unfold: 展開
-        index:
-          count:
-            other: "%{count} 個協作草稿"
         new:
-          add_file: 添加檔案
-          edit_file: 編輯檔案
           send: 繼續
-        new_collaborative_draft_button:
-          new_collaborative_draft: 新的協作草稿
         orders:
-          label: '依序排列草稿：'
-          most_contributed: 最多貢獻度
           random: 隨機
           recent: 最近
         requests:
           accepted_request:
-            error: 無法接受您的協作者申請，請稍後再試。
             success: "@%{user} 已經成功被接受為協作者."
           access_requested:
-            error: 您的請求無法完成，請稍後再試。
             success: 您的合作請求已成功送出。
-          collaboration_requests:
-            accept_request: 接受
-            reject_request: 拒絕
-            title: 合作邀請
           rejected_request:
-            error: 無法拒絕作為合作者，請稍後再試。
             success: "@%{user} 已被成功拒絕成為協作者。"
         show:
           final_proposal: 最終提案
-          final_proposal_help_text: 此草案已完成。請查看最終提案。
-          hidden_authors_count:
-            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
           info-message: 這是一份提案的<strong>共同合作稿件</strong>，這表示您可以使用下面的評論區幫助作者們塑造提案，或直接請求編輯權限以對其進行改進。一旦作者們授予您訪問權限，您便可以對此起草稿進行更改。
           publish: 發布
-          publish_info: 發佈這個版本的草案或
           published_proposal: 發佈提案
-          request_access: 申請權限
-          requested_access: 授權請求
-          withdraw: 撤回草稿
         states:
-          open: 開啟
           published: 已發佈
           withdrawn: 已撤回
         update:
           error: 在儲存提案時出現問題
-          success: 協作草稿更新成功。
-        wizard_aside:
-          back_from_collaborative_draft: 回到協作草稿
-        wizard_header:
-          title: 建立你的協作草案
       create:
         error: 儲存提案時出現問題。
         success: 提案已成功建立。儲存為草案。
@@ -564,8 +469,6 @@ zh-TW:
             published_at: 發佈於
             state: 狀態
             title: 標題
-            valuator: 評估者
-            valuators: 評估者
             votes: 投票
       new:
         limit_reached: 你已經超過了提案數量的限制，因此無法創建新的提案。
@@ -599,7 +502,6 @@ zh-TW:
           type: 類別
         index:
           click_here: 檢視所有提案
-          collaborative_drafts_list: 進入協作草稿
           count:
             other: "%{count} 個提案"
           new_proposal: 新提案
@@ -611,7 +513,6 @@ zh-TW:
         orders:
           label: '依順序排序提案：'
           most_commented: 最多評論
-          most_endorsed: 最多已連署
           most_followed: 最多追蹤者
           random: 隨機
           recent: 最近
@@ -633,10 +534,6 @@ zh-TW:
           answer: 回答
           changes_at_title: 修正案 "%{title}"
           estimated_cost: 預估成本
-          hidden_endorsers_count:
-            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
-          link_to_collaborative_draft_help_text: 這個提案是由協作草稿所產生的。請查看歷史記錄。
-          link_to_collaborative_draft_text: 查看協作草稿
           link_to_promoted_emendation_help_text: 這份提案是一項推動性的修正案
           link_to_promoted_emendation_text: 查看被拒絕的修正案。
           link_to_proposal_from_emendation_help_text: 這是一個被拒絕的修改動議
@@ -650,8 +547,6 @@ zh-TW:
         voting_rules:
           proposal_limit:
             description: 您最多可以創建 %{limit} 個提案。
-          vote_limit:
-            description: 您最多可以支持 %{limit} 個提案。
         wizard_aside:
           back: 返回
           back_from_step_1: 返回提案
