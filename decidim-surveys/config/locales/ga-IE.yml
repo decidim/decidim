@@ -8,6 +8,8 @@ ga:
     statistics:
       answers_count: Freagraí
     surveys:
+      actions:
+        answers: Freagraí
       models:
         survey:
           fields:

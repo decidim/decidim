@@ -47,6 +47,7 @@ ja:
       answers_count: 回答
     surveys:
       actions:
+        answers: 回答
         answers_alert: この調査では公開時の回答削除機能が有効です。続行すると現状 %{answers_count} 件の回答が破棄されます。
         confirm_destroy: 削除してもよろしいですか？
         destroy: 破棄

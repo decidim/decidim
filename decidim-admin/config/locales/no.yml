@@ -201,8 +201,6 @@
         edit:
           title: Rediger mappe
           update: Oppdater
-        index:
-          attachment_collections_title: Vedleggsmapper
         new:
           create: Opprett
           title: Ny mappe
@@ -218,8 +216,6 @@
         edit:
           title: Rediger vedlegg
           update: Oppdater
-        index:
-          attachments_title: Vedlegg
         new:
           create: Opprett vedlegg
           title: Nytt vedlegg
@@ -265,7 +261,6 @@
           title: 'Legg til komponent: %{name}'
         publish:
           success: Komponenten har blitt publisert.
-        title: Komponenter
         unpublish:
           success: Komponenten har blitt avpublisert.
         update:
@@ -276,7 +271,6 @@
         'false': 'Nei'
         managed_user_name: Håndtert bruker
         solved: Løst
-        title: Verifiseringskonflikter
         transfer:
           email: E-post
           name: Navn
@@ -445,7 +439,6 @@
         promotions:
           new:
             explanation: Styrte deltakere kan bli promotert til standard deltakere. Dette betyr at de vil bli invitert til applikasjonen og du vil ikke kunne administrere dem lenger. De inviterte deltakerene vil motta en email så de kan akseptere invitasjonen.
-            new_managed_user_promotion: Ny administrert deltaker forfremmelse
             promote: Promoter
       menu:
         admin_log: Admin aktivitet logg
@@ -599,7 +592,6 @@
           title: Mal for nyhetsbrev
           use_template: Bruk denne malen
         show:
-          preview: 'Forhåndsvis mal: %{template_name}'
           use_template: Bruk denne malen
       newsletters:
         create:
@@ -811,23 +803,20 @@
         update:
           error: Det oppstod et problem med å oppdatere denne siden.
       titles:
-        admin_log: Admin logg
         area_types: Områdetyper
         areas: Områder
         authorization_workflows: Verifiseringsmetoder
-        dashboard: Skrivebord
         edit_landing_page: Sideinnhold
-        impersonatable_users: Håndterbare deltakere
         impersonations: Deltakernes administrasjon
         menu: Meny
         metrics: Måltall
+        pages: Sider
         panel: Administrator
         participants: Deltakere
         scope_types: Tematyper
         scopes: Tema
         statistics: Aktivitet
         user_groups: Grupper
-        users: Administratorer
       user_group:
         csv_verify:
           invalid: Det oppstod et problem med å lese CSV-filen.

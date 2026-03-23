@@ -167,6 +167,9 @@
             suggested_hashtags: Hashtagger foreslått til deltakere for nye forslag
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Aksepter
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har blitt akseptert tilgang som bidragsyter til %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>akseptert tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.

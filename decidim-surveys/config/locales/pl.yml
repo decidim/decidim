@@ -46,6 +46,8 @@ pl:
     statistics:
       answers_count: Odpowiedzi
     surveys:
+      actions:
+        answers: Odpowiedzi
       admin:
         exports:
           survey_user_answers: Odpowiedzi użytkowników na pytania z ankiety

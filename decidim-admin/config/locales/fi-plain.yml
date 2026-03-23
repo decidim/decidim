@@ -197,6 +197,7 @@ fi-pl:
           </ul>
           Mikäli muutat mieltäsi, voit palauttaa tuloksen myöhemmin.
         export: Vie kaikki
+        export-selection: Vie valitut
         import: Tuo
         manage: Hallitse
         newsletter:
@@ -271,8 +272,6 @@ fi-pl:
         edit:
           title: Muokkaa kansiota
           update: Päivitä
-        index:
-          attachment_collections_title: Liitetiedostojen kansiot
         new:
           create: Luo
           title: Uusi kansio
@@ -288,8 +287,6 @@ fi-pl:
         edit:
           title: Muokkaa liitettä
           update: Päivitä
-        index:
-          attachments_title: Liitteet
         new:
           create: Luo liite
           title: Uusi liite
@@ -366,7 +363,6 @@ fi-pl:
           text: Etsi nykyisen käyttäjän sähköpostin, nimen tai nimimerkin perusteella.
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
-        title: Vahvistusten ristiriidat
         transfer:
           email: Sähköposti
           error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
@@ -522,7 +518,7 @@ fi-pl:
           impersonate: Esiinny käyttäjänä
           impersonate_existing_managed_user: Esiinny hallittuna käyttäjänä "%{name}"
           impersonate_existing_user: Esiinny käyttäjänä "%{name}"
-          impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjää
+          impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjänä
       imports:
         and: ja
         data_errors:
@@ -578,7 +574,6 @@ fi-pl:
         promotions:
           new:
             explanation: Hallituille käyttäjille voidaan myöntää normaalien käyttäjien oikeudet. Tämä tarkoittaa, että heille lähetetään kutsu hakemusprosessiin ja tämän jälkeen kyseisinä tileinä ei voi enää esiintyä. Kutsutulle käyttäjälle lähetetään sähköposti, jonka avulla hän voi hyväksyä kutsusi.
-            new_managed_user_promotion: Uusi käyttäjätason korotus hallinnoidulle käyttäjälle
             promote: Korota oikeudet
       menu:
         admin_log: Hallintatoimintojen tapahtumaloki
@@ -773,7 +768,6 @@ fi-pl:
           title: Uutiskirjeiden pohjat
           use_template: Käytä tätä pohjaa
         show:
-          preview: 'Esikatsele pohjaa: %{template_name}'
           use_template: Käytä tätä pohjaa
       newsletters:
         confirm_recipients:
@@ -940,7 +934,6 @@ fi-pl:
           up: Ylös
         form:
           add: Lisää sallittujen listalle
-          title: Sallitut ulkoiset verkko-osoitteet
       participatory_space_private_users:
         create:
           error: Yksityisen käyttäjän lisäämisessä tähän osallisuustilaan tapahtui virhe.
@@ -1245,29 +1238,23 @@ fi-pl:
           none: Ei mitään
           title: Uusi kohde luokittelussa %{taxonomy}
       titles:
-        admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
         areas: Alueet
         authorization_workflows: Vahvistusmenetelmät
-        dashboard: Hallintapaneeli
-        edit_external_domains: Sallitut ulkoiset verkko-osoitteet
         edit_landing_page: Sivun sisältö
         edit_organization_appearance: Muokkaa kotisivun ulkoasua
-        impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
         menu: Valikko
         metrics: Tilastomittarit
         page_topics: Aiheet
         pages: Sivut
         panel: Hallintakäyttäjä
-        participants: Käyttäjät
+        participants: Osallistujat
         scope_types: Teematyypit
         scopes: Teemat
         statistics: Toiminta
         taxonomies: Luokittelut
-        taxonomy_filters: Luokittelun suodattimet kohteelle "%{taxonomy}"
         user_groups: Käyttäjäryhmät
-        users: Hallintakäyttäjät
       tooltips:
         deleted_component_info: Komponentti voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
       trash_management:

@@ -33,6 +33,7 @@ gl:
         edit: Editar
         edit_projects: Xestionar proxectos
         import: Importa propostas a proxectos
+        new_project: Novo proxecto
         preview: Vista previa
         title: Accións
       admin:

@@ -117,7 +117,6 @@ ro:
         new:
           import: Importă
           select: Selectați ce date doriți să importați
-          title: Importă grupul de lucru
       assembly_publications:
         create:
           error: A apărut o problemă la publicarea acestui grup de lucru.
@@ -134,7 +133,7 @@ ro:
         edit:
           update: Actualizează
         index:
-          assembly_admins_title: Administratori ai grupului de lucru
+          assembly_admins_title: Administratorii grupului de lucru
         new:
           create: Creează
         update:

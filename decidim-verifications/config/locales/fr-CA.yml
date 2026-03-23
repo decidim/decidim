@@ -171,10 +171,6 @@ fr-CA:
           index:
             data: Il y a %{count} enregistrements chargés au total. La dernière date de téléchargement était le %{due_date}.
             empty: Il n'y a pas de données de recensement. Utilisez le formulaire ci-dessous pour l'importer à l'aide d'un fichier CSV.
-            title: Données de recensement actuelles
-          instructions:
-            body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
-            title: Vous devez activer le recensement CSV pour cette organisation
           new:
             file: "Fichier .csv avec données de courrier électronique"
             submit: Déposer un fichier
@@ -204,7 +200,6 @@ fr-CA:
               error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier.
               success: Utilisateur vérifié avec succès.
             new:
-              introduce_user_data: Introduire les données dans l'image
               reject: Rejeter
               verify: Vérifier
           offline_confirmations:
@@ -213,7 +208,6 @@ fr-CA:
               success: Utilisateur vérifié avec succès.
             new:
               cancel: Annuler
-              introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
               verify: Vérifier
           pending_authorizations:
             index:

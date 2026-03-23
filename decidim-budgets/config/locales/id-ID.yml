@@ -17,6 +17,7 @@ id:
         attachments: Lampiran
         edit: Edit
         import: Impor proposal ke proyek
+        new_project: Proyek baru
         preview: Pratinjau
         title: Tindakan
       admin:

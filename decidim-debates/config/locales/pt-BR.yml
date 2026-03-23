@@ -257,6 +257,7 @@ pt-BR:
           depth: O lugar onde este comentário está nos três comentários (se for uma resposta ou uma resposta de uma resposta)
           id: O ID para este comentário
           root_commentable_url: A URL do recurso ligado a este comentário
+          user_group: O nome do grupo de usuários que fez este comentário (se houver)
         debates:
           author: Os dados do autor deste comentário
           closed_at: A data em que este debate foi encerrado
@@ -267,6 +268,7 @@ pt-BR:
           created_at: A data e hora em que o debate foi criado
           description: A descrição do debate
           end_time: Quando este debate termina, se é um debate aberto e tem um tempo limitado
+          endorsements_count: O número de recomendações do debate
           follows_count: O número de seguidores deste debate
           id: O identificador único do debate
           information_updates: As atualizações que o autor fez no debate

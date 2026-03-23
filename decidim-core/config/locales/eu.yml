@@ -1213,7 +1213,7 @@ eu:
           ok_remove: Kendu kidea
           title_remove: Kendu kidea
         confirm_promote_to_admin: Seguru zaude erabiltzaile hau administratzaile moduan gehitu nahi duzula?
-        confirm_remove_from_group: Ziur zaude talde honen erabiltzailea kendu nahi duzula?
+        confirm_remove_from_group: Ziur zaude talde honen parte-hartzaliea kendu nahi duzula?
         promote_to_admin: Administratzaile egin
         remove_from_group: Kendu parte-hartzailea
       index:
@@ -2056,8 +2056,8 @@ eu:
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitza
         old_password_help: Zure kontuaren aldaketak baieztatzeko, mesedez eman zure egungo pasahitza.
-        password_help: "%{minimum_characters} karaktere izan behar ditu gutxienez, arruntegiak izan gabe (adib., 123456). Ezin da izan ezizenaren eta helbide elektronikoaren berdina."
-        password_help_admin: "%{minimum_characters} karaktere izan behar ditu gutxienez, arruntegiak izan gabe (adib., 123456). Ezin da izan ezizenaren eta helbide elektronikoaren berdina eta zure pasahitza ez bezalakoa izan behar du."
+        password_help: "Pasahitzak gutxienez %{minimum_characters} karaktere izan behar ditu, 5 karaktere desberdin izan behar ditu, ez du oso ohikoa izan behar (adibidez, 123456), zure izena, ezizena, posta elektronikoa, erakundearen anfitrioia eta zure pasahitz zaharren desberdina izan behar du."
+        password_help_admin: "Pasahitzak gutxienez %{minimum_characters} karaktere izan behar ditu, 5 karaktere desberdin izan behar ditu, ez du oso ohikoa izan behar (adibidez, 123456), zure izena, ezizena, posta elektronikoa, erakundearen anfitrioia eta zure pasahitz zaharren desberdina izan behar du."
         title: Pasahitza aldatu egin da
       new:
         forgot_your_password: Pasahitza ahaztu duzu?
@@ -2300,6 +2300,7 @@ eu:
         confirm_close_ephemeral_session: Orri honetatik kanpo nabigatzen baduzu, saioa itxita egongo da. Ziur zaude?
         log_in: Hasi saioa
         main_menu: Menu nagusia
+        mobile_account_greeting: Kaixo, %{user_name}
         user_menu: Parte-hartzailearen menua
       impersonation_warning:
         close_session: Itxi saioa

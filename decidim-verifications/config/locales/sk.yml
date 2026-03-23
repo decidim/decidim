@@ -84,9 +84,6 @@ sk:
             title: Zmazať všetky dáta sčítania
           index:
             empty: Neexistujú údaje o sčítaní. Pomocou nižšie uvedeného formulára ho importujte pomocou súboru CSV.
-            title: Aktuálne údaje o sčítaní
-          instructions:
-            body: Ak chcete urobiť, musíte vstúpiť do správy systému a pridať oprávnenia csv_census organizáciu
           new:
             file: ".CSV súbor s dátami e-mailov"
         authorizations:
@@ -110,13 +107,11 @@ sk:
               error: Pri aktualizácii konfigurácie došlo k chybe.
           confirmations:
             new:
-              introduce_user_data: Vložte dáta do obrázku
               reject: Odmietnuť
               verify: Overte
           offline_confirmations:
             new:
               cancel: zrušenie
-              introduce_user_data: Zadajte e-mail používateľa a dáta dokumentu
               verify: Overte
           pending_authorizations:
             index:

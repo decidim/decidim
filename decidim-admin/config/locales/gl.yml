@@ -198,8 +198,6 @@ gl:
         edit:
           title: Editar carpeta
           update: Actualización
-        index:
-          attachment_collections_title: Cartafoles adxuntos
         new:
           create: Crear
           title: Nova carpeta
@@ -215,8 +213,6 @@ gl:
         edit:
           title: Editar anexo
           update: Actualización
-        index:
-          attachments_title: Anexos
         new:
           create: Crear anexo
           title: Novo anexo
@@ -261,7 +257,6 @@ gl:
           title: 'Engadir compoñente: %{name}'
         publish:
           success: O compoñente foi publicado con éxito.
-        title: Compoñentes
         unpublish:
           success: O compoñente foi publicado sen éxito.
         update:
@@ -428,7 +423,6 @@ gl:
         promotions:
           new:
             explanation: Os usuarios xestionados poden ser promocionados a usuarios estándar. Isto significa que serán invitados á aplicación e non poderás suplantarlles de novo. O usuario invitado recibirá un correo electrónico para aceptar a túa invitación.
-            new_managed_user_promotion: Nova promoción de usuarios xestionados
             promote: Promover
       menu:
         admin_log: Rexistro de actividade do administrador
@@ -582,7 +576,6 @@ gl:
           title: Padróns para boletíns
           use_template: Empregar este padrón
         show:
-          preview: 'Vista previa do padrón: %{template_name}'
           use_template: Empregar este padrón
       newsletters:
         create:
@@ -786,21 +779,18 @@ gl:
         update:
           error: Produciuse un erro ao actualizar esta páxina.
       titles:
-        admin_log: Rexistro de administrador
         area_types: Tipos de área
         areas: Campos
         authorization_workflows: Métodos de verificación
-        dashboard: Taboleiro de instrumentos
-        impersonatable_users: Usuarios xestionables
         impersonations: Xestión dos usuarios
         metrics: Métricas
+        pages: Páxinas
         panel: Administrador
-        participants: Usuarios
+        participants: Participantes
         scope_types: Tipos de alcance
         scopes: Ámbitos
         statistics: Actividade
         user_groups: Grupos de usuarios
-        users: Administradores
       user_group:
         csv_verify:
           invalid: Produciuse un erro ao ler o ficheiro CSV.

@@ -7,7 +7,7 @@ sv:
         area_id: Område
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
-        copy_landing_page_blocks: Kopiera elementen från landningssidan
+        copy_landing_page_blocks: Duplicera innehållsblock från landningssidan
         copy_steps: Kopiera steg
         decidim_area_id: Område
         description: Beskrivning
@@ -68,6 +68,8 @@ sv:
           attributes:
             document:
               allowed_file_content_types: 'Ogiltig dokumenttyp. Endast filer med följande tillägg är tillåtna: %{types}'
+              empty: Dokumentet är tomt
+              invalid_json: Filen är inte giltigt JSON
     models:
       decidim/participatory_process_step_activated_event: Steg aktiverat
       decidim/participatory_process_step_changed_event: Steget har ändrats
@@ -110,6 +112,9 @@ sv:
           label: Efter processgrupp
       menu:
         participatory_process_groups: Grupper för processer
+        participatory_process_groups_submenu:
+          info: Om gruppen av processer
+          landing_page: Landningssida
         participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: Mappar
@@ -161,17 +166,15 @@ sv:
         new:
           copy: Kopiera
           select: Välj vilken data du vill duplicera
-          title: Duplicera deltagarprocess
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera gruppen.
           success: Gruppen för processer har raderats.
         edit:
-          title: Redigera processgrupp
           update: Uppdatera
         new:
           create: Skapa
-          title: Ny processgrupp
+          title: Ny grupp av processer
         update:
           error: Det gick inte att uppdatera processgruppen.
           success: Gruppen har uppdaterats.
@@ -182,7 +185,6 @@ sv:
         new:
           import: Importera
           select: Välj vilka data som du vill importera
-          title: Importera process
       participatory_process_publications:
         create:
           error: Det gick inte att publicera processen.
@@ -211,13 +213,11 @@ sv:
               Det görs istället på <b>Landningssidan</b>, med hjälp av <b>hero- och bild-</b>innehållsblocket.
               Det här finns kvar för att du ska kunna migrera de CTAs som du behöver. Fälten <i>Call to Action-länk</i> och <i>Call to Action-text</i> kommer att tas bort i nästa version.
             title: Call to Action från tidigare version
-          title: Redigera steg i processen
           update: Uppdatera
         index:
           steps_title: Steg
         new:
           create: Skapa
-          title: Nytt steg i processen
         ordering:
           error: Det gick inte att ändra ordningen på stegen i processen.
         update:
@@ -230,13 +230,9 @@ sv:
         destroy:
           success: Administratören togs bort från processen.
         edit:
-          title: Uppdatera administratör för processen
           update: Uppdatera
-        index:
-          process_admins_title: Administratörer för processen
         new:
           create: Skapa
-          title: Ny administratör för processen
         update:
           error: Det gick inte att uppdatera administratören för processen.
           success: Administratören har uppdaterats för processen.
@@ -251,18 +247,15 @@ sv:
           public: Offentlig
           published: Publicerad
           unpublished: Ej publicerad
-        manage_trash:
-          title: Raderade deltagandeprocesser
         new:
           create: Skapa
-          title: Ny deltagandeprocess
         update:
           error: Det gick inte att uppdatera processen.
           success: Processen har uppdaterats.
       participatory_processes_copies:
         create:
-          error: Det gick inte att duplicera deltagarprocessen.
-          success: Deltagandeprocessen har duplicerats.
+          error: Det gick inte att duplicera processen.
+          success: Processen har duplicerats.
       participatory_processes_group:
         create:
           error: Det gick inte att skapa en ny grupp för processer.
@@ -274,7 +267,6 @@ sv:
         participatory_process_groups: Grupper av deltagandeprocesser
         participatory_process_types: Typer av deltagandeprocesser
         participatory_processes: Deltagandeprocesser
-        participatory_processes_deleted: Raderade deltagandeprocesser
       tooltips:
         deleted_processes_info: En process kan endast raderas om status är "avpublicerad".
       users:
@@ -288,11 +280,11 @@ sv:
         export: "%{user_name} exporterade processen %{resource_name}"
         import: "%{user_name} importerade processen %{resource_name}"
         publish: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
-        publish_all_members: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
+        publish_all_members: "%{user_name} publicerade alla medlemmar i processen %{resource_name}"
         restore: "%{user_name} återställde deltagandeprocessen %{resource_name}"
         soft_delete: "%{user_name} raderade deltagandeprocessen %{resource_name}"
         unpublish: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
-        unpublish_all_members: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
+        unpublish_all_members: "%{user_name} avpublicerade alla medlemmar i processen %{resource_name}"
         update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
       participatory_process_group:
         create: "%{user_name} skapade gruppen %{resource_name}"
@@ -361,16 +353,24 @@ sv:
           hashtag: Processens hashtag, används för Twitter/X
           id: Unikt id för processen
           local_area: Geografiskt område för processen. Det område där processen genomförs.
+          meta_scope: Processens omfattning
           participatory_process_group: Grupp av processer, om tillämpbart
           participatory_process_type: Typ av process
+          participatory_scope: Processens inflytande
+          participatory_structure: Processens sammansättning. Så fattas beslut.
+          promoted: Om processen är utvald eller inte
           published_at: Datum när processen publicerades
           reference: Unikt id för processen
           remote_hero_image_url: URL till processens huvudbild
+          scope: Processens omfattning
           scopes_enabled: Om indelningar är aktiverat eller inte
           short_description: Kort beskrivning av processen
+          slug: Processens URL-slug (används för identifiering och för URL)
           start_date: Startdatum för processen
           subtitle: Undertitel för processen
+          target: Deltagare i processen.
           title: Processens titel
+          updated_at: Senaste datum när utrymmet uppdaterades
           url: Processens URL
     participatory_process_groups:
       content_blocks:
@@ -400,6 +400,8 @@ sv:
           participatory_processes:
             one: 1 process
             other: "%{count} processer"
+      related_processes:
+        help: Alla valda processer kommer att läggas till i den här gruppen, inklusive de som redan är med i andra grupper.
       show:
         title: Grupper av deltagandeprocesser
     participatory_process_steps:
@@ -413,9 +415,13 @@ sv:
             all: Alla
             max_results: Högsta antal element att visa
             selection_criteria: Urvalskriterier
+        imports:
+          attachment_error: Bilagan "%{title}" kunde inte importeras (%{error}).
+          hero_image_error: Startbilden kunde inte importeras (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Importfunktionen låter dig skapa en ny process från en exporterad JSON-fil. Du kan exportera en process från en annan organisation eller från samma organisation. Den importerade processen innehåller inställningar, komponenter och bilagor (om det är valt).
         participatory_process_copies:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'

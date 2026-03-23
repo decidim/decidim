@@ -49,6 +49,7 @@ fi:
       answers_count: Vastausta
     surveys:
       actions:
+        answers: Vastausta
         answers_alert: Kyselyn vastausten poistaminen julkaisun yhteydessä on otettu käyttöön tälle kyselylle. Kyselyllä on tällä hetkellä %{answers_count} vastausta, jotka poistetaan, mikäli jatkat eteenpäin.
         confirm_destroy: Haluatko varmasti poistaa tämän?
         destroy: Poista

@@ -87,6 +87,9 @@ id:
             suggested_hashtags: Hashtag disarankan kepada pengguna untuk proposal baru
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Menerima
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} telah diterima untuk diakses sebagai kontributor dari %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> telah <strong>diterima untuk mengakses sebagai kontributor</strong> dari <a href="%{resource_path}">%{resource_title}</a> draf kolaboratif.
@@ -311,7 +314,6 @@ id:
           all: Semua
           amendment: Amandemen
           open: Buka
-          published: Diterbitkan
           related_to: Berhubungan dengan
           search: Pencarian
           state: Negara
@@ -357,10 +359,9 @@ id:
           withdraw: tarik draft
         states:
           open: Buka
-          published: Diterbitkan
           withdrawn: Ditarik
         update:
-          error: Sudah ada kesalahan saat menyimpan draf kolaboratif.
+          error: Ada kesalahan saat menyimpan draf proposal.
           success: Draf kolaboratif berhasil diperbarui.
         wizard_header:
           title: Buat draf kolaboratif Anda

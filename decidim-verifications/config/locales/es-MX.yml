@@ -173,10 +173,6 @@ es-MX:
           index:
             data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}.
             empty: No hay datos del censo. Utilice el siguiente formulario para importarlo usando un archivo CSV.
-            title: Datos actuales del censo
-          instructions:
-            body: Para ello, debe ingresar a la administración del sistema y agregar las autorizaciones csv_census a la organización
-            title: Necesitas activar el CSV para esta organización
           new:
             example: |
               john.doe@example.org
@@ -211,7 +207,6 @@ es-MX:
               error: La verificación no coincide. Por favor inténtalo de nuevo o rechaza la verificación para que la participante pueda modificarla.
               success: Participante verificada correctamente.
             new:
-              introduce_user_data: Introduce los datos de la imagen
               reject: Rechazar
               verify: Verificar
           offline_confirmations:
@@ -220,7 +215,6 @@ es-MX:
               success: Participante verificada correctamente.
             new:
               cancel: Cancelar
-              introduce_user_data: Introduce el correo electrónico del usuario y los datos del documento
               verify: Verificar
           pending_authorizations:
             index:

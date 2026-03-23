@@ -56,6 +56,7 @@ pt-BR:
           submit_root_comment: Publicar comentário
           user_group_id:
             label: Comente como
+            your_profile: Seu perfil
         opinion:
           label: Sua opinião sobre este tópico
           negative: Negativo
@@ -163,6 +164,7 @@ pt-BR:
           id: O identificador para este comentário
           locale: A localidade (linguagem) que o usuário teve ao deixar este comentário
           root_commentable_url: A URL do recurso ligado a este comentário
+          user_group: O nome do grupo de usuários que fez este comentário (se houver)
     events:
       comments:
         comment_by_followed_user:

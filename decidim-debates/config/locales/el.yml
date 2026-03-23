@@ -116,7 +116,6 @@ el:
           back: Πίσω
           create: Δημιουργία
         orders:
-          commented: Πιο σχολιασμένα
           label: Ταξινόμηση συζητήσεων κατά
           random: Τυχαία σειρά
           recent: Πιο πρόσφατες

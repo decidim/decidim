@@ -53,6 +53,7 @@ cs:
       answers_count: Odpovědi
     surveys:
       actions:
+        answers: Odpovědi
         answers_alert: Odstranění odpovědí při zveřejnění je pro tento průzkum aktivní. V současné době existuje %{answers_count} odpovědí, které budou zničeny, pokud budete pokračovat.
         confirm_destroy: Opravdu to chcete smazat?
         destroy: Zničit

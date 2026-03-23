@@ -79,10 +79,12 @@ pt-BR:
           attributes:
             base:
               not_official: Não são oficiais
+              voted: Recebeu votos ou recomendações 
         proposals_split:
           attributes:
             base:
               not_official: Não são oficiais
+              voted: Recebeu votos ou recomendações 
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Taxonomias da proposta alteradas
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
@@ -424,6 +426,7 @@ pt-BR:
         object: propostas
         title: Propostas
       votes:
+        description: Número de votos das propostas
         object: votos
         title: Votos
     open_data:
@@ -643,6 +646,7 @@ pt-BR:
             publish: Publicar
             publish_answers: Publicar respostas
             select_component: Selecionar componente
+            select_valuators: Selecione um ou mais avaliadores
             selected: selecionado
             split: Dividir propostas
             split_button: Dividir
@@ -761,7 +765,7 @@ pt-BR:
           success: Rascunho colaborativo criado com sucesso.
         edit:
           attachment_legend: Adicionar um documento ou uma imagem
-          back: Costas
+          back: Voltar
           send: Enviar
           title: Editar rascunho colaborativo
         empty: Ainda não há rascunhos colaborativos
@@ -770,7 +774,7 @@ pt-BR:
           all: Todos
           amendment: Emendas
           open: Aberto
-          published: Publicados
+          published: Publicado
           related_to: Relacionado a
           search: Pesquisa
           state: Estado
@@ -794,7 +798,7 @@ pt-BR:
         orders:
           label: 'Encomenda de rascunhos por:'
           most_contributed: A maioria contribuiu
-          random: Aleatória
+          random: Aleatório
           recent: Recente
         requests:
           accepted_request:
@@ -826,10 +830,10 @@ pt-BR:
           withdraw: retirar o rascunho
         states:
           open: Aberto
-          published: Publicados
+          published: Publicado
           withdrawn: Retirado
         update:
-          error: Houve erros ao salvar o rascunho colaborativo.
+          error: Houve erros ao salvar o rascunho da proposta.
           success: Rascunho colaborativo atualizado com sucesso.
         wizard_aside:
           back_from_collaborative_draft: Voltar para rascunhos colaborativos

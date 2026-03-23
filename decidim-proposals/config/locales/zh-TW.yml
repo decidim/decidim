@@ -182,6 +182,9 @@ zh-TW:
           proposal_note_created:
             email_outro: 您收到此通知，因為您可以對提案進行評估。
             email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
+        coauthor_invited:
+          actions:
+            accept: 接受
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} 已經被接受成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。'
           email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
@@ -533,7 +536,7 @@ zh-TW:
         states:
           open: 開啟
           published: 已發佈
-          withdrawn: 撤回
+          withdrawn: 已撤回
         update:
           error: 在儲存提案時出現問題
           success: 協作草稿更新成功。

@@ -143,7 +143,6 @@ pl:
           success: Zduplikowano spotkanie.
         new:
           copy: Kopiuj
-          title: Duplikat spotkania
     components:
       meetings:
         actions:
@@ -300,7 +299,6 @@ pl:
             non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
           index:
-            invite_attendee: Zaproś uczestnika
             invites: Zaproszeni
             registrations_disabled: Nie można zaprosić uczestnika, ponieważ rejestracja jest wyłączona.
         meeting_closes:

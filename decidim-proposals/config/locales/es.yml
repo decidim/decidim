@@ -777,14 +777,14 @@ es:
         empty: Todavía no hay borradores colaborativos
         empty_filters: No hay ningún borrador colaborativo con este criterio
         filters:
-          all: Todas
+          all: Todos
           amendment: Enmiendas
           open: Abierto
-          published: Publicado
-          related_to: Relacionado con
+          published: Publicada
+          related_to: Relacionadas con
           search: Buscar
           state: Estado
-          withdrawn: Retirado
+          withdrawn: Retirada
         filters_small_view:
           close_modal: Cerrar la ventana
           filter: Filtrar
@@ -836,8 +836,8 @@ es:
           withdraw: retirar el borrador
         states:
           open: Abierto
-          published: Publicado
-          withdrawn: Retirado
+          published: Publicada
+          withdrawn: Retirada
         update:
           error: Se ha producido un error al guardar el borrador colaborativo.
           success: Borrador colaborativo actualizado correctamente.

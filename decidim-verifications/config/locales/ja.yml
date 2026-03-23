@@ -175,8 +175,8 @@ ja:
             empty: センサスデータがありません。CSVファイルを使用してインポートするには、以下のフォームを使用してください。
             title: 現在のセンサスデータ
           instructions:
-            body: これを行うには、システム管理を入力し、csv_census の認証を組織に追加する必要があります。
-            title: この組織のCSVセンサス認証を有効にする必要があります
+            body: これを行うには、システム管理画面から、csv_census の認証を組織に追加する必要があります
+            title: この組織のCSVセンサスを有効にする必要があります
           new:
             example: |
               john.doe@example.org

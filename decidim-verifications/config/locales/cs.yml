@@ -172,10 +172,6 @@ cs:
           index:
             data: Celkem je načteno %{count} záznamů. Poslední datum nahrávání bylo %{due_date}.
             empty: Nejsou data o členech organizace. Pomocí níže uvedeného formuláře je importujte souborem CSV.
-            title: Aktuální údaje o členech organizace
-          instructions:
-            body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
-            title: Musíte aktivovat CSV s kontakty členů organizace
           new:
             example: |
               john.doe@example.org
@@ -213,7 +209,6 @@ cs:
               error: Ověření neodpovídá. Ověřte znovu nebo odmítněte ověření, aby jej uživatel mohl změnit.
               success: Uživatel byl úspěšně ověřen.
             new:
-              introduce_user_data: Vložte data do obrázku
               reject: Odmítnout
               verify: Ověřte
           offline_confirmations:
@@ -222,7 +217,6 @@ cs:
               success: Uživatel byl úspěšně ověřen.
             new:
               cancel: Zrušit
-              introduce_user_data: Zadejte e-mail uživatele a data dokumentu
               verify: Ověřte
           pending_authorizations:
             index:

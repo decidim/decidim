@@ -75,6 +75,8 @@ ja:
           attributes:
             document:
               allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されます: %{types}。'
+              empty: ドキュメントが空です
+              invalid_json: ドキュメントは有効な JSON ではありません
   activerecord:
     models:
       decidim/assembly:
@@ -103,7 +105,7 @@ ja:
           published: 公開済み
           unpublished: 未公開
         manage_trash:
-          title: 削除されたアセンブリ
+          title: 削除された参加スペース
         new:
           create: 作成
           title: 新しい参加スペース
@@ -205,7 +207,7 @@ ja:
           assemblies: すべての参加スペース
       titles:
         assemblies: 参加スペース
-        assemblies_deleted: 削除されたアセンブリ
+        assemblies_deleted: 削除された参加スペース
         assemblies_types: 参加スペース種別
       tooltips:
         deleted_assemblies_info: アセンブリは、ステータスが "未公開" の場合にのみ削除できます。

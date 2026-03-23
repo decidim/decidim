@@ -173,10 +173,6 @@ sv:
           index:
             data: Det finns totalt %{count} inlästa poster. Datum för senaste uppdatering var %{due_date}.
             empty: Det finns inga medlemsuppgifter. Importera dem som en CSV-fil med formuläret nedan.
-            title: Aktuella medlemsuppgifter
-          instructions:
-            body: För att göra detta måste du öppna systemadministrationen och lägga till godkännande via csv_census till organisationen
-            title: Du måste aktivera medlemsregister via CSV för organisationen
           new:
             example: |
               john.doe@example.org
@@ -211,7 +207,6 @@ sv:
               error: Verifieringen stämmer inte. Försök igen eller avvisa verifieringen så att användaren kan rätta den.
               success: Deltagaren har verifierats.
             new:
-              introduce_user_data: För in uppgifterna från bilden
               reject: Avvisa
               verify: Verifiera
           offline_confirmations:
@@ -220,7 +215,6 @@ sv:
               success: Deltagaren har verifierats.
             new:
               cancel: Avbryt
-              introduce_user_data: Mata in deltagarens e-postadress samt identitetsuppgifter
               verify: Verifiera
           pending_authorizations:
             index:

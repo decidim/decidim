@@ -61,8 +61,6 @@ id:
           success: Pembicara berhasil dihapus untuk konferensi ini.
         edit:
           update: Memperbarui
-        index:
-          conference_speakers_title: Pembicara konferensi
         new:
           create: Membuat
         update:
@@ -76,6 +74,8 @@ id:
           success: Pengguna berhasil dihapus dari konferensi ini.
         edit:
           update: Memperbarui
+        index:
+          conference_admins_title: Admin konferensi
         new:
           create: Membuat
         update:
@@ -175,7 +175,6 @@ id:
           update: Memperbarui
         new:
           create: Membuat
-          title: Mitra baru
         update:
           error: Terjadi kesalahan saat memperbarui mitra untuk konferensi ini.
           success: Mitra berhasil diperbarui untuk konferensi ini.
@@ -196,7 +195,6 @@ id:
           update: Memperbarui
         new:
           create: Membuat
-          title: Jenis pendaftaran baru
         update:
           error: Terjadi kesalahan saat memperbarui jenis pendaftaran untuk konferensi ini.
           success: Jenis pendaftaran berhasil diperbarui untuk konferensi ini.
@@ -253,7 +251,7 @@ id:
             invites: Undangan
           new:
             invite: Undang
-            new_invite: Undang pengguna
+            new_invite: Undang Peserta
         conference_registrations:
           index:
             registrations: Pendaftaran

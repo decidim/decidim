@@ -93,10 +93,6 @@ it:
             title: Elimina tutti i dati del censimento
           index:
             empty: Non ci sono dati del censimento. Utilizza il modulo sottostante per importarlo utilizzando un file CSV.
-            title: Dati di censimento attuali
-          instructions:
-            body: Per fare ciò è necessario inserire l'amministrazione del sistema e aggiungere le autorizzazioni csv_census all'organizzazione
-            title: È necessario attivare il censimento CVS per questa organizzazione
           new:
             file: "file .csv con dati di posta elettronica"
         authorizations:
@@ -121,13 +117,11 @@ it:
               error: Si è verificato un errore durante l'aggiornamento della configurazione.
           confirmations:
             new:
-              introduce_user_data: Introduci i dati nella foto
               reject: Rifiuta
               verify: Verifica
           offline_confirmations:
             new:
               cancel: Annulla
-              introduce_user_data: Inserisci l'email dell'utente e i dati del documento
               verify: Verificare
           pending_authorizations:
             index:

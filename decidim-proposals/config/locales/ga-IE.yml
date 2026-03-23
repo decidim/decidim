@@ -52,6 +52,11 @@ ga:
           step:
             endorsements_blocked: Formhuinithe blocáilte
             endorsements_enabled: Formhuinithe cumasaithe
+    events:
+      proposals:
+        coauthor_invited:
+          actions:
+            accept: Glac
     gamification:
       badges:
         proposals:

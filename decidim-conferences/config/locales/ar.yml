@@ -115,8 +115,6 @@ ar:
           success: تم حذف رئيس المؤتمر بنجاح.
         edit:
           update: تحديث
-        index:
-          conference_speakers_title: المتحدثون في المؤتمر
         new:
           create: إنشاء
         update:
@@ -130,6 +128,8 @@ ar:
           success: تمت إزالة مسؤول المؤتمر بنجاح.
         edit:
           update: تحديث
+        index:
+          conference_admins_title: المشرفون على المؤتمر
         new:
           create: إنشاء
         update:
@@ -172,7 +172,6 @@ ar:
           conference_admins: المشرفون على المؤتمر
           conference_invites: تدعو
           conference_speakers: مكبرات الصوت
-          info: عن هذا المؤتمر
           moderations: الإعتدال
           partners: شركاء
           registrations: التسجيلات
@@ -253,7 +252,6 @@ ar:
           update: تحديث
         new:
           create: إنشاء
-          title: نوع التسجيل الجديد
         update:
           error: حدثت مشكلة أثناء تحديث نوع التسجيل لهذا المؤتمر.
           success: تم تحديث نوع تسجيل المؤتمر بنجاح.

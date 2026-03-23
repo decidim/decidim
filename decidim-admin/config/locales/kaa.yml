@@ -141,6 +141,8 @@ kaa:
           and: 'hám '
         new:
           save: Saqlaw
+        show:
+          preview: Aldınnan kóriw
       officializations:
         show_email_modal:
           email_address: Elektron mánzil
@@ -157,6 +159,9 @@ kaa:
       organization_appearance:
         edit:
           update: Jańalaw
+        form:
+          images:
+            preview: Aldınnan kóriw
       participatory_space_private_users:
         edit:
           update: Jańalaw
@@ -184,6 +189,9 @@ kaa:
       static_pages:
         edit:
           update: Jańalaw
+      titles:
+        pages: Betler
+        participants: Qatnasıwshılar
       users_statistics:
         users_count:
           participants: Qatnasıwshılar

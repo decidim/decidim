@@ -93,10 +93,6 @@ pt:
             title: Eliminar todos os dados do censo
           index:
             empty: Não há dados do censo. Use o formulário abaixo para importá-los usando um ficheiro CSV.
-            title: Dados do censo atual
-          instructions:
-            body: Para fazer isto, deverá entrar na administração do sistema e adicionar as autorizações csv_census à organização
-            title: Você precisa ativar o recenseamento CSV para esta organização
           new:
             file: "ficheiro .csv com dados de e-mails"
         authorizations:
@@ -121,13 +117,11 @@ pt:
               error: Ocorreu um problema ao atualizar a configuração.
           confirmations:
             new:
-              introduce_user_data: Introduza os dados na fotografia
               reject: Rejeitar
               verify: Verificar
           offline_confirmations:
             new:
               cancel: Cancelar
-              introduce_user_data: Introduzir o e-mail do participante e os dados do documento
               verify: Verificar
           pending_authorizations:
             index:

@@ -40,6 +40,8 @@ zh-TW:
     statistics:
       answers_count: 回答
     surveys:
+      actions:
+        answers: 回答
       admin:
         exports:
           survey_user_answers: 參與者問卷回答

@@ -49,6 +49,7 @@ ca:
       answers_count: Respostes
     surveys:
       actions:
+        answers: Respostes
         answers_alert: L'opció d'esborrar les respostes en publicar l'enquesta està activada. Si segueixes, s'esborraran les %{answers_count} existents actualment.
         confirm_destroy: Segur que ho vols eliminar?
         destroy: Eliminar

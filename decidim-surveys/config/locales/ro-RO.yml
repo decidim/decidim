@@ -51,6 +51,7 @@ ro:
       answers_count: Răspunsuri
     surveys:
       actions:
+        answers: Răspunsuri
         confirm_destroy: Sunteți sigur că doriți să eliminați asta?
         destroy: Eliminați
         edit: Modificați

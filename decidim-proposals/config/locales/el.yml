@@ -191,6 +191,9 @@ el:
           proposal_note_created:
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή μπορείτε να εκτιμήσετε την πρόταση.
             email_subject: Κάποιος άφησε μια σημείωση στην πρόταση %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Αποδοχή
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} έχει γίνει δεκτή η πρόσβαση ως συνεισφέρων του <a href="%{resource_url}">%{resource_title}</a> συνεργατικού σχεδίου.'
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.

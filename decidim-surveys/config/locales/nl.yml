@@ -42,6 +42,8 @@ nl:
     statistics:
       answers_count: Antwoorden
     surveys:
+      actions:
+        answers: Antwoorden
       admin:
         exports:
           survey_user_answers: Antwoorden van de deelnemers aan de enquête

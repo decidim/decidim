@@ -148,7 +148,6 @@ de:
           success: Veranstaltung erfolgreich dupliziert.
         new:
           copy: Kopieren
-          title: Veranstaltung duplizieren
     components:
       meetings:
         actions:
@@ -333,7 +332,6 @@ de:
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
-            invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
         meeting_closes:

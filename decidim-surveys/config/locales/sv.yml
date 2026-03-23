@@ -13,12 +13,17 @@ sv:
         one: Svar
         other: Svar
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: enkäter
     components:
       surveys:
         actions:
           answer: Svar
         name: Enkäter
         settings:
+          announcement: Meddelande
           global:
             announcement: Meddelande
           step:
@@ -44,10 +49,19 @@ sv:
       answers_count: Svar
     surveys:
       actions:
+        answers: Svar
         answers_alert: Ta bort svar vid publicering är aktivt för enkäten. Det finns %{answers_count} svar som kommer att tas bort om du fortsätter.
+        confirm_destroy: Är du säker på att du vill radera?
+        destroy: Ta bort
+        edit: Redigera
         manage_questions: Hantera frågor
+        new_survey: Ny enkät
+        preview: Förhandsgranska
+        title: Åtgärder
       admin:
         answers:
+          index:
+            title: "%{total} svar totalt"
           show:
             title: 'Svar #%{number}'
         exports:
@@ -61,19 +75,52 @@ sv:
               Genom att publicera svaren blir de synliga för alla besökare.
               Du kan välja de svar du vill publicera genom att klicka på kryssrutan bredvid varje fråga.
               Du kan bara publicera följande frågetyper: "Ett alternativ, "Flera alternativ", "Matris (ett alternativ)", "Matris (flera alternativ)" och "Sortering".
+            status:
+              not_published: Ej publicerad
+              published: Publicerad
             title: Publicera svar
         surveys:
+          create:
+            invalid: Det gick inte att spara enkäten.
+            success: Enkäten har skapats.
+          destroy:
+            success: Enkäten har tagits bort.
           edit:
             title: Redigera enkät
+          index:
+            title: Enkäter
+          publish:
+            invalid: Det gick inte att publicera enkäten.
+            success: Enkäten har publicerats.
+          unpublish:
+            invalid: Det gick inte att avpublicera enkäten.
+            success: Enkäten har avpublicerats.
           update:
             invalid: Det gick inte att spara enkäten.
             success: Enkäten har sparats.
+      admin_log:
+        survey:
+          create: "%{user_name} skapade enkäten %{resource_name} i utrymmet %{space_name}"
+          delete: "%{user_name} raderade enkäten %{resource_name} i utrymmet %{space_name}"
+          publish: "%{user_name} publicerade enkäten %{resource_name} i utrymmet %{space_name}"
+          unpublish: "%{user_name} avpublicerade enkäten %{resource_name} från utrymmet %{space_name}"
+          update: "%{user_name} uppdaterade enkäten %{resource_name} i utrymmet %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Enkäter
       last_activity:
         new_survey: 'Ny enkät:'
       models:
         survey:
           fields:
             answers: Svar
+            questions: Frågor
+            status: Status
+            title: Titel
+          status:
+            closed: Stängd
+            open: Öppen
       survey_confirmation_mailer:
         confirmation:
           body: Du har besvarat enkäten %{questionnaire_title} för %{participatory_space}

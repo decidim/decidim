@@ -49,6 +49,7 @@ de:
       answers_count: Antworten
     surveys:
       actions:
+        answers: Antworten
         answers_alert: Das Löschen von Antworten bei der Veröffentlichung ist für diese Umfrage aktiv. Derzeit gibt es %{answers_count} Antworten, die gelöscht werden, wenn Sie fortfahren.
         confirm_destroy: Möchten Sie fortfahren und die Antworten löschen?
         destroy: Löschen

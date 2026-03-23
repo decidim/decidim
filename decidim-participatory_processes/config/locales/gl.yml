@@ -92,6 +92,7 @@ gl:
           attachment_files: Arquivos
           attachments: Anexos
           components: Compoñentes
+          info: Sobre este proceso
           landing_page: Páxina de inicio
           moderations: Moderacións
           process_admins: Usuarios do proceso
@@ -135,7 +136,6 @@ gl:
         destroy:
           success: Grupo de proceso participativo eliminado con éxito.
         edit:
-          title: Editar o grupo de procesos
           update: Actualización
         new:
           create: Crear
@@ -165,13 +165,11 @@ gl:
         destroy:
           success: Paso de proceso participativo eliminado con éxito.
         edit:
-          title: Edita paso de proceso participativo
           update: Actualización
         index:
           steps_title: Pasos
         new:
           create: Crear
-          title: Novo paso de proceso participativo
         ordering:
           error: Produciuse un erro ao reordenar estes pasos de proceso participativo.
         update:
@@ -185,11 +183,8 @@ gl:
           success: Usuario eliminado con éxito deste proceso participativo.
         edit:
           update: Actualización
-        index:
-          process_admins_title: Usuarios de procesos participativos
         new:
           create: Crear
-          title: Novo/a administrador/a do proceso participativo
         update:
           error: Houbo un erro actualizado por un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.
@@ -205,7 +200,6 @@ gl:
           published: Publicado
         new:
           create: Crear
-          title: Novo proceso participativo
         update:
           error: Produciuse un erro ao actualizar este proceso participativo.
           success: Proceso participativo actualizado con éxito.

@@ -84,9 +84,6 @@ lv:
             title: Dzēst visus skaitīšanas datus
           index:
             empty: Nav skaitīšanas datu. Izmantojiet turpmāk esošo veidlapu, lai tos importētu, lietojot CSV failu.
-            title: Pašreizējie skaitīšanas dati
-          instructions:
-            body: Lai to izdarītu, jums jāizmanto administratora pilnvaras un organizācijai jāpievieno csv_census pilnvaras
           new:
             file: ".csv fails ar e-pasta datiem"
         authorizations:
@@ -103,13 +100,11 @@ lv:
               error: Konfigurācijas atjaunināšanas laikā radās problēma.
           confirmations:
             new:
-              introduce_user_data: Ievadiet attēlā redzamos datus
               reject: Noraidīt
               verify: Verificēt
           offline_confirmations:
             new:
               cancel: Atcelt
-              introduce_user_data: Ievadiet dalībnieka e-pasta adresi un dokumentu datus
               verify: Verificēt
           pending_authorizations:
             index:

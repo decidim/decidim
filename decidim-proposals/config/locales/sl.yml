@@ -18,3 +18,9 @@ sl:
               accepted: Sprejeto
               published: Objavljeno
               rejected: Zavrnjen
+    proposals:
+      collaborative_drafts:
+        filters:
+          published: Objavljeno
+        states:
+          published: Objavljeno

@@ -67,9 +67,6 @@ id:
             title: Hapus semua data sensus
           index:
             empty: Tidak ada data sensus. Gunakan formulir di bawah ini untuk mengimpornya menggunakan file CSV.
-            title: Data sensus saat ini
-          instructions:
-            body: Untuk melakukan ini, Anda harus memasukkan administrasi sistem dan menambahkan otorisasi csv_census ke organisasi
           new:
             file: "File .csv dengan data email"
         authorizations:
@@ -90,13 +87,11 @@ id:
               error: Terjadi kesalahan saat memperbarui konfigurasi.
           confirmations:
             new:
-              introduce_user_data: Perkenalkan data dalam gambar
               reject: Menolak
               verify: Memeriksa
           offline_confirmations:
             new:
               cancel: Membatalkan
-              introduce_user_data: Perkenalkan email pengguna dan data dokumen
               verify: Memeriksa
           pending_authorizations:
             index:

@@ -123,7 +123,7 @@ ca-IT:
         new:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
-          title: Assemblea duplicada
+          title: Duplicar assemblea
       assembly_imports:
         create:
           error: Hi ha hagut un problema important aquesta assemblea.

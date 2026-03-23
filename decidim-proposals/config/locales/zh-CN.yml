@@ -141,6 +141,9 @@ zh-CN:
           proposal_note_created:
             email_outro: 您收到此通知是因为您可以评估提案。
             email_subject: 有人在建议 %{resource_title} 留下了一条笔记。
+        coauthor_invited:
+          actions:
+            accept: 接受
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} 已被接受作为贡献者访问 %{resource_title}。"
         collaborative_draft_access_rejected:

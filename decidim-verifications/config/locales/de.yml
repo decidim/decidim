@@ -173,10 +173,6 @@ de:
           index:
             data: Insgesamt wurden %{count} Datensätze geladen. Das letzte Upload-Datum war am %{due_date}.
             empty: Es gibt keine Daten in dieser Erhebung. Verwenden Sie das folgende Formular, um es mit einer CSV-Datei zu importieren.
-            title: Aktuelle Erhebungsdaten
-          instructions:
-            body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
-            title: Sie müssen die CSV Erhebung für diese Organisation aktivieren
           new:
             example: |
               john.doe@example.org
@@ -211,7 +207,6 @@ de:
               error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder lehnen Sie die Überprüfung ab, damit der Teilnehmer sie ändern kann.
               success: Teilnehmer erfolgreich überprüft.
             new:
-              introduce_user_data: Stellen Sie die Daten in das Bild ein
               reject: Ablehnen
               verify: Überprüfen
           offline_confirmations:
@@ -220,7 +215,6 @@ de:
               success: Benutzer erfolgreich überprüft.
             new:
               cancel: Abbrechen
-              introduce_user_data: Geben Sie die Benutzer-E-Mail und die Dokumentdaten ein
               verify: Überprüfen
           pending_authorizations:
             index:

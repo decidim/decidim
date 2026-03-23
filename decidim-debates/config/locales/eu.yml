@@ -156,7 +156,7 @@ eu:
           create: Sortu
           title: Sortu eztabaida berri bat
         orders:
-          commented: Iruzkin gehien dituztenak
+          commented: Iruzkin gehien dutenak
           label: Ordenatu eztabaidak honen arabera
           random: Ausazko ordena
           recent: Berrienetatik zaharrenetara

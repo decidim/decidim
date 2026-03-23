@@ -122,13 +122,12 @@ es-PY:
         destroy:
           success: Altavoz eliminado con éxito para esta conferencia.
         edit:
-          title: Actualizar la ponente de la conferencia
+          title: Actualizar ponente de la jornada
           update: Actualizar
         index:
-          conference_speakers_title: Conferenciantes
+          conference_speakers_title: Ponentes de la jornada
         new:
           create: Crear
-          title: Nueva ponente de la jornada
         publish:
           invalid: Se ha producido un error al publicar esta ponente.
           success: Ponente de la conferencia actualizada correctamente.
@@ -145,13 +144,12 @@ es-PY:
         destroy:
           success: Usuario eliminado con éxito de esta conferencia.
         edit:
-          title: Actualizar administradora de la jornada
           update: Actualizar
         index:
-          conference_admins_title: Administradoras de la jornada
+          conference_admins_title: Administradores de conferencia
         new:
           create: Crear
-          title: Nueva administradora de la jornada
+          title: Añadir administradora
         update:
           error: Hubo un error al actualizar un usuario para esta conferencia.
           success: Usuario actualizado con éxito para esta conferencia.
@@ -168,8 +166,6 @@ es-PY:
         index:
           published: Publicado
           unpublished: Despublicada
-        manage_trash:
-          title: Jornadas eliminadas
         new:
           create: Crear
           title: Conferencia
@@ -187,7 +183,6 @@ es-PY:
         destroy:
           success: Enlace multimedia eliminado correctamente.
         edit:
-          title: Actualizar enlace multimedia
           update: Actualizar
         index:
           media_links_title: Enlaces multimedia
@@ -208,7 +203,6 @@ es-PY:
           conference_invites: Invita
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
-          info: Acerca de esta conferencia
           media_links: Enlaces multimedia
           moderations: Moderaciones
           partners: Fogonadura
@@ -270,11 +264,10 @@ es-PY:
         destroy:
           success: Socio eliminado con éxito de esta conferencia.
         edit:
-          title: Actualizar colaboradora
           update: Actualizar
         new:
           create: Crear
-          title: Nuevo compañero
+          title: Añadir colaboradora
         update:
           error: Hubo un error actualizado de un socio para esta conferencia.
           success: Socio actualizado exitosamente para esta conferencia.
@@ -292,11 +285,10 @@ es-PY:
         destroy:
           success: Tipo de registro eliminado con éxito de esta conferencia.
         edit:
-          title: Actualizar el tipo de inscripción
           update: Actualizar
         new:
           create: Crear
-          title: Nuevo tipo de registro
+          title: Añadir tipo de inscripción
         update:
           error: Hubo un error al actualizar un tipo de registro para esta conferencia.
           success: Tipo de registro actualizado con éxito para esta conferencia.
@@ -305,12 +297,12 @@ es-PY:
           conferences: Todas las jornadas
       titles:
         conferences: Conferencias
-        conferences_deleted: Jornadas eliminadas
       tooltips:
         deleted_conferences_info: Las jornadas solo se pueden eliminar si su estado es 'Despublicada'.
     admin_log:
       conference:
         create: "%{user_name} creó la %{resource_name} conferencia"
+        duplicate: "%{user_name} ha duplicado la jornada \"%{resource_name}\""
         publish: "%{user_name} publicado la %{resource_name} conferencia"
         restore: "%{user_name} restauró la jornada %{resource_name}"
         send_conference_diplomas: "%{user_name} certificados de asistencia enviados a los asistentes a %{resource_name} conferencia"
@@ -366,11 +358,11 @@ es-PY:
             select_user: Seleccionar usuario
           index:
             invite_attendee: Invitar a un asistente
-            invites: Invitaciones
+            invites: Invita
           new:
             explanation: La participante será invitada a unirse a la jornada. Si su correo electrónico no está registrado, también será invitada a unirse a la organización.
             invite: Invitación
-            new_invite: Invitar usuario
+            new_invite: Invitar a un asistente
         conference_registrations:
           index:
             registrations: Registros

@@ -229,7 +229,7 @@ es:
           alert: 'Requerido: Revisa nuestros términos del servicio de administración'
           callout: Por favor dedica un momento a revisar los términos del servicio de administración. En caso contrario, no podrás administrar la plataforma.
           cta: Revisarlos ahora.
-        title: Términos y condiciones del servicio de administración
+        title: Términos y condiciones de uso para administradoras
       area_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de área.
@@ -290,7 +290,7 @@ es:
           title: Editar adjunto
           update: Actualizar
         index:
-          attachments_title: Adjuntos
+          attachments_title: Archivos adjuntos
         new:
           create: Crear adjunto
           title: Nuevo adjunto
@@ -523,7 +523,7 @@ es:
           impersonate: Impersonar
           impersonate_existing_managed_user: Gestionar participante "%{name}"
           impersonate_existing_user: Gestionar participante "%{name}"
-          impersonate_new_managed_user: Gestionar nueva participante
+          impersonate_new_managed_user: Gestiona una nueva participante
       imports:
         and: "y"
         data_errors:
@@ -579,7 +579,7 @@ es:
         promotions:
           new:
             explanation: Las participantes gestionadas se pueden promocionar a participantes estándar. Significa que serán invitadas al sistema y no podrás volver a administrarlas. La participante invitada recibirá un correo electrónico para aceptar tu invitación.
-            new_managed_user_promotion: Nueva promoción de participante
+            new_managed_user_promotion: Nueva promoción de participante gestionada
             promote: Promocionar
       menu:
         admin_log: Registro de actividad de administración
@@ -1246,11 +1246,11 @@ es:
           none: Ninguno
           title: Editar elemento en "%{taxonomy}"
       titles:
-        admin_log: Registro de actividad de administradores
+        admin_log: Registro de actividad de administración
         area_types: Tipos de área
         areas: Áreas
         authorization_workflows: Métodos de verificación
-        dashboard: Panel de control
+        dashboard: Panel de administración
         edit_external_domains: Lista de dominios externos permitidos
         edit_landing_page: Contenidos de la página
         edit_organization_appearance: Editar apariencia de página de inicio
@@ -1326,6 +1326,10 @@ es:
           last_week: Última semana
           no_users_count_statistics_yet: Aún no hay estadísticas de recuento de participantes.
           participants: Participantes
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Podrás seleccionar filtros de taxonomía una vez creado el componente.
     forms:
       errors:
         impersonate_user:
@@ -1384,7 +1388,7 @@ es:
             created_at: Denunciado el
             deleted_resource: Recurso eliminado
             hidden_at: Fecha de ocultación
-            participatory_space: Espacio participativo
+            participatory_space: Espacio de participación
             report_count: Número de denuncias
             reportable_id: ID
             reportable_type: Tipo

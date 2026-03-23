@@ -42,6 +42,8 @@ it:
     statistics:
       answers_count: Risposte
     surveys:
+      actions:
+        answers: Risposte
       admin:
         exports:
           survey_user_answers: Risposte dei partecipanti al sondaggio
