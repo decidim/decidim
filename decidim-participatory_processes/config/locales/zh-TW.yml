@@ -5,16 +5,12 @@ zh-TW:
       participatory_process:
         announcement: 公告
         area_id: 區域
-        copy_categories: 複製類別
-        copy_components: 複製組件
-        copy_steps: 複製步驟
         decidim_area_id: 區域
         description: 說明
         developer_group: 促銷團隊
         document: 文件
         domain: 網域
         end_date: 結束日期
-        hashtag: 主題標籤
         hero_image: 首頁圖片
         import_attachments: 匯入附件
         import_categories: 匯入類別
@@ -40,7 +36,6 @@ zh-TW:
         description: 說明
         developer_group: 促銷團隊
         group_url: 網站
-        hashtag: 主題標籤
         hero_image: 圖片
         local_area: 組織區域
         meta_scope: 元數據範圍
@@ -82,7 +77,6 @@ zh-TW:
     admin:
       actions:
         activate: 啟動
-        configure: 配置
         confirm_destroy: 確認刪除
         destroy: 刪除
         duplicate: 重複
@@ -106,7 +100,6 @@ zh-TW:
           attachments: 附件
           components: 组件
           info: 關於此流程
-          landing_page: 登陸頁面
           moderations: 版主
           process_admins: 程序管理員
           steps: 分類
@@ -138,14 +131,10 @@ zh-TW:
             admin: 管理員
             collaborator: 合作者
             moderator: 版主
-            valuator: 評估者
         user:
           fields:
             invitation_accepted_at: 邀請已接受時間
             invitation_sent_at: 邀請已發送時間
-      participatory_process_copies:
-        new:
-          copy: 複製
       participatory_process_groups:
         destroy:
           success: 參與式流程組成功刪除。
@@ -195,7 +184,6 @@ zh-TW:
           error: 重新排列這個參與程序階段時出現問題。
         update:
           error: 更新參與程序階段時出現問題。
-          success: 參與式階段成功更新。
       participatory_process_user_roles:
         create:
           error: 新增參與者至此參與式過程時發生問題。
@@ -292,8 +280,6 @@ zh-TW:
       processes: 程序
     metrics:
       participatory_processes:
-        description: 此組織中的參與式過程數量
-        object: 參與程序
         title: 參與程序
     participatory_process_groups:
       content_blocks:
@@ -331,12 +317,8 @@ zh-TW:
         participatory_process_imports:
           form:
             document_legend: 添加文檔
-        participatory_process_steps:
-          form:
-            cta_text_help: 如果未設置，按鈕將不會顯示。
         participatory_processes:
           form:
-            announcement_help: 您在此處輸入的文字將顯示至使用者的正下方程序信息
             duration: 持續時間
             images: 圖片
             metadata: 元數據
@@ -348,9 +330,6 @@ zh-TW:
           name: 精選程序
       index:
         title: 參與程序
-      participatory_process_steps:
-        index:
-          back_to_process: 返回程序頁
       participatory_processes:
         filters:
           all_types: 所有類型
