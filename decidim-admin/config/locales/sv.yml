@@ -600,7 +600,7 @@ sv:
           success: CSV-filen har laddats upp och vi skickar en inbjudan med e-post till deltagarna. Det kan ta en stund.
         new:
           csv_upload:
-            title: Skicka CSV-fil
+            title: Ladda upp din CSV-fil
           destroy:
             button: Radera alla medlemmar
             confirm: Är du säker på att du vill radera alla medlemmar? Den här åtgärden kan inte ångras.
