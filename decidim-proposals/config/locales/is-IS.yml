@@ -9,7 +9,6 @@ is:
         has_address: Hefur heimilisfang
         state: Ríki
         title: Titill
-        user_group_id: Búðu til tillögu sem
       proposal_answer:
         answer: Svara
       proposals_copy:
@@ -18,7 +17,6 @@ is:
     components:
       proposals:
         actions:
-          endorse: Styðja
           withdraw: Afturkalla
         name: Tillögur
         settings:
@@ -35,8 +33,6 @@ is:
           step:
             announcement: Tilkynning
             comments_blocked: Athugasemdir læst
-            endorsements_blocked: Áritanir lokaðar
-            endorsements_enabled: Tilmæli virkt
             proposal_answering_enabled: Tillaga svarað virkt
     events:
       proposals:
@@ -45,9 +41,7 @@ is:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Tillögur nú fáanlegir í %{participatory_space_title}
         endorsing_enabled:
-          email_intro: 'Þú getur samþykkt tillögur í %{participatory_space_title}! Byrja að taka þátt í þessari síðu:'
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
-          email_subject: Tillögur um áritun hafa byrjað fyrir %{participatory_space_title}
         proposal_mentioned:
           email_subject: Tillagan þín "%{mentioned_proposal_title}" hefur verið minnst
           notification_title: Tillaga þín "%{mentioned_proposal_title}" hefur verið nefnd <a href="%{resource_path}">í þessu rými</a> í athugasemdunum.
@@ -102,7 +96,6 @@ is:
       admin_log:
         proposal:
           answer: "%{user_name} svaraði %{resource_name} tillögunni á %{space_name} plássinu"
-          create: "%{user_name} skapaði %{resource_name} tillöguna á %{space_name} plássinu sem opinbera tillögu"
         proposal_note:
           create: "%{user_name} fór með einkapóst á %{resource_name} tillögunni á %{space_name} plássinu"
       answers:
