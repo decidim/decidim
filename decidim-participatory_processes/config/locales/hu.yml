@@ -213,8 +213,6 @@ hu:
         create:
           error: Hiba történt egy új részvételi folyamat csoport létrehozása során.
           success: Részvételi folyamat csoport létrehozása sikeres.
-      titles:
-        participatory_process_types: Részvételi folyamat típusok
       users:
         resend_invitation:
           error: Hiba történt a meghívó újbóli elküldésénél.
@@ -236,10 +234,6 @@ hu:
         create: "%{user_name} létrehozta a(z) %{resource_name} fázis a(z) %{space_name} részvételi folyamatban"
         delete: "%{user_name} törölte a(z) %{resource_name} fázist a(z) %{space_name} részvételi folyamatból"
         update: "%{user_name} frissítette a(z) %{resource_name} lépést a(z) %{space_name} részvételi folyamatban"
-      participatory_process_type:
-        create: "%{user_name} létrehozta a(z) %{resource_name} részvételi folyamat típust"
-        delete: "%{user_name} törölte a(z) %{resource_name} részvételi folyamat típust"
-        update: "%{user_name} frissítette a(z) %{resource_name} részvételi folyamat típust"
       participatory_process_user_role:
         create: "%{user_name} meghívta %{resource_name} felhasználót a(z) %{space_name} részvételi folyamatba"
         delete: "%{user_name} törölte %{resource_name} felhasználót a(z) %{space_name} részvételi folyamatból"
@@ -267,10 +261,6 @@ hu:
           contextual: "<p>A <strong>részvételi folyamat</strong> a részvételi tevékenységek sorrendje (pl. Először egy felmérést tölt be, majd javaslatokat tesz, személyes vagy virtuális találkozókkal foglalkozik, végül pedig kiemelteti őket) a döntés megfogalmazása és meghozatala érdekében egy adott témában.</p> <p>Példák a részvételi folyamatokra: a bizottsági tagok megválasztásának folyamata (ahol a jelölteket először bemutatták, vitatták és végül jelöltségüket választották), részvételi költségvetések (ahol javaslatokat tesznek, gazdaságilag értékelik és szavaznak a rendelkezésre álló pénzzel) egy stratégiai tervezési folyamatot, egy rendelet vagy normaterv kidolgozását, egy városi tér kialakítását vagy egy közpolitikai terv elkészítését.</p>\n"
           page: "<p>A <strong>részvételi folyamat</strong> a részvételi tevékenységek sorrendje (pl. Először egy felmérést tölt be, majd javaslatokat tesz, személyes vagy virtuális találkozókkal foglalkozik, végül pedig kiemelteti őket) a döntés megfogalmazása és meghozatala érdekében egy adott témában.</p> <p>Példák a részvételi folyamatokra: a bizottsági tagok megválasztásának folyamata (ahol a jelölteket először bemutatták, vitatták és végül jelöltségüket választották), részvételi költségvetések (ahol javaslatokat tesznek, gazdaságilag értékelik és szavaznak a rendelkezésre álló pénzzel) egy stratégiai tervezési folyamatot, egy rendelet vagy normaterv kidolgozását, egy városi tér kialakítását vagy egy közpolitikai terv elkészítését.</p>\n"
           title: Mi a részvételi folyamat?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'A folyamat típusa nem található az adatbázisban (ID: %{id}).'
     menu:
       processes: Folyamatok
     participatory_process_groups:
