@@ -1552,7 +1552,7 @@ eu:
           disabled_message: Mezua
           edit_profile: Editatu profila
           message: Mezua
-          resend_email_confirmation_instructions: Birbidali posta elektronikoa berresteko instrukzioekin
+          resend_email_confirmation_instructions: Birbidali helbide elektroniko bat berresteko instrukzioekin
     qr:
       show:
         scan: Eskaneatu QR kodea
