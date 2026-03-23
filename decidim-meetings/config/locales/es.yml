@@ -229,7 +229,7 @@ es:
           notification_title: Tu inscripción al encuentro <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Tu código de registro es %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Las inscripciones para el encuentro "%{resource_title}" superan el %{percentage}%.
-          email_outro: Has recibido esta notificación porque administras el espacio participativo del encuentro.
+          email_outro: Has recibido esta notificación porque administras el espacio de participación del encuentro.
           email_subject: Las inscripciones para el encuentro "%{resource_title}" superan el %{percentage}%
           notification_title: Las inscripciones para el encuentro <a href="%{resource_path}">%{resource_title}</a> superan el %{percentage}%.
         meeting_updated:
@@ -355,10 +355,14 @@ es:
           index:
             invites: Invitaciones
             registrations_disabled: No puedes invitar a nadie porque las inscripciones están deshabilitadas.
+            title: Invitar a una asistente
         meeting_closes:
           edit:
             close: Cerrar
             title: Cerrar encuentro
+        meeting_copies:
+          new:
+            title: Duplicar encuentro
         meetings:
           close:
             invalid: Se ha producido un error al cerrar este encuentro.
@@ -435,15 +439,21 @@ es:
             invalid: Se ha producido un error al actualizar esta encuesta.
             success: Encuesta actualizada correctamente.
         poll:
+          edit:
+            title: Editar la encuesta
           form:
             announcement_html:
               - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
               - Puedes añadir una pregunta en cualquier momento.
               - La consulta se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
               - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
+        registration_form:
+          edit_questions:
+            title: Editar las preguntas
         registrations:
           edit:
             save: Guardar
+            title: Inscripciones
           form:
             available_slots_help: Dejar a 0 si las inscripciones son ilimitadas.
             invites: Invitaciones
