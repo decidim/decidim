@@ -20,7 +20,7 @@ module Decidim
         let(:end_at) { 2.days.from_now }
         let(:manual_start) { false }
         let(:uploaded_photos) { [] }
-        let(:current_documents) { [] }
+        let(:current_photos) { [] }
         let(:invalid) { false }
 
         let(:form) do
@@ -35,7 +35,7 @@ module Decidim
             end_at:,
             manual_start:,
             results_availability: "after_end",
-            documents: current_documents,
+            documents: current_photos,
             add_documents: uploaded_photos
           )
         end
@@ -132,7 +132,6 @@ module Decidim
             let!(:resource) { election }
             let(:resource_class) { Decidim::Elections::Election }
             let(:command) { described_class.new(form, resource) }
-            let(:current_documents) { current_photos }
           end
         end
       end

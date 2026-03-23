@@ -65,6 +65,7 @@ module Decidim
 
       documents_attached_to.reload
       documents_attached_to.instance_variable_set(:@documents, nil)
+      documents_attached_to.instance_variable_set(:@photos, nil)
     end
 
     def process_attachments?
