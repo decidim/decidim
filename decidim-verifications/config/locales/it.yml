@@ -88,13 +88,6 @@ it:
         skip_verification: Puoi saltare questo per ora e %{link}
         start_exploring: comincia ad esplorare
       csv_census:
-        admin:
-          destroy:
-            title: Elimina tutti i dati del censimento
-          index:
-            empty: Non ci sono dati del censimento. Utilizza il modulo sottostante per importarlo utilizzando un file CSV.
-          new:
-            file: "file .csv con dati di posta elettronica"
         authorizations:
           new:
             error: Non è stato possibile verificare il tuo account o non ci si trova nel censimento dell'organizzazione.
