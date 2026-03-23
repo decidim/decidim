@@ -142,7 +142,7 @@ ca-IT:
           new:
             create: Importa propostes a projectes
             default_budget: Pressupost per defecte
-            no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
+            no_components: No hi ha cap component de propostes en aquest espai de participació des del que importar les propostes a projectes.
             origin_component_id: Component d'origen
             proposal_states: Estats de resposta a la proposta
             proposal_states_help: Selecciona un o més estats de resposta de les propostes a importar com a projectes. Si no seleccioneu cap estat de resposta, s'importaran totes les propostes publicades que encara no hagin estat importades a altres pressupostos d'aquest mateix component.
