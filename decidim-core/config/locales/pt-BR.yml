@@ -1553,7 +1553,7 @@ pt-BR:
           disabled_message: Mensagem
           edit_profile: Editar perfil
           message: Mensagem
-          resend_email_confirmation_instructions: Reenvie as instruções de confirmação por email
+          resend_email_confirmation_instructions: Reenviar instruções de confirmação
     qr:
       show:
         scan: Digitalizar código QR
