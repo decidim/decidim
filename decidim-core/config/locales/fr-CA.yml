@@ -1403,7 +1403,7 @@ fr-CA:
       user:
         actions:
           disabled_message: Message
-          edit_profile: Mettre à jour le profil
+          edit_profile: Modifier le profil
           message: Message
           resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
     qr:
