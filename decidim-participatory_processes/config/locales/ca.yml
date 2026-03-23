@@ -250,8 +250,6 @@ ca:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Tots els processos participatius
-      titles:
-        participatory_process_types: Tipus de processos participatius
       tooltips:
         deleted_processes_info: Un procés només es poden eliminar si el seu estat és 'Despublicat'.
       users:
@@ -280,10 +278,6 @@ ca:
         create: "%{user_name} ha creat la fase %{resource_name} en el procés participatiu %{space_name}"
         delete: "%{user_name} ha eliminat la fase %{resource_name} en el procés participatiu %{space_name}"
         update: "%{user_name} ha actualitzat la fase %{resource_name} en el procés participatiu %{space_name}"
-      participatory_process_type:
-        create: "%{user_name} ha creat el tipus de procés participatiu %{resource_name}"
-        delete: "%{user_name} ha esborrat el tipus de procés participatiu %{resource_name}"
-        update: "%{user_name} ha actualitzat el tipus de procés participatiu %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} ha convidat la participant %{resource_name} al procés participatiu %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} del procés participatiu %{space_name}"
@@ -314,10 +308,6 @@ ca:
           contextual: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
           page: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
           title: Què és un procés participatiu?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Aquest tipus de procés no s''ha trobat a la base de dades (ID: %{id}).'
     menu:
       processes: Processos
     open_data:
@@ -480,16 +470,42 @@ ca:
         participatory_process_duplicates:
           form:
             slug_help_html: 'Els segments d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          new:
+            title: Duplicar el procés participatiu
         participatory_process_groups:
+          edit:
+            title: Editar el grup de procés
           form:
             metadata: Metadades
             title: Quant a aquest procés
             visibility: Visibilitat
+          index:
+            title: Grups de processos participatius
+          new:
+            title: Nou grup de processos
         participatory_process_imports:
           form:
             document_legend: Afegeix un document
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          new:
+            title: Importar un procés participatiu
+        participatory_process_steps:
+          edit:
+            title: Editar la fase de procés participatiu
+          index:
+            title: Fases del procés
+          new:
+            title: Nova fase del procés participatiu
+        participatory_process_user_roles:
+          edit:
+            title: Actualitzar l'administradora del procés participatiu
+          index:
+            title: Administradores del procés participatiu
+          new:
+            title: Nova administradora del procés participatiu
         participatory_processes:
+          edit:
+            title: Quant a aquest procés
           form:
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
@@ -504,6 +520,12 @@ ca:
             taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
+          index:
+            title: Processos participatius
+          manage_trash:
+            title: Processos participatius eliminats
+          new:
+            title: Nou procés participatiu
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
