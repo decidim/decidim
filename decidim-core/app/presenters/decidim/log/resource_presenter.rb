@@ -70,7 +70,7 @@ module Decidim
         if resource.present? && resource.respond_to?(:presenter) && resource.presenter.respond_to?(:title)
           resource.presenter.title(html_escape: true)
         else
-          decidim_escape_translated(extra["title"]).html_safe
+          decidim_escape_translated(extra["title"])
         end
       end
     end
