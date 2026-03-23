@@ -169,15 +169,12 @@ de:
               success: Alle Erhebungsdaten wurden gelöscht.
           destroy:
             confirm: Das Löschen der Erhebungsdaten kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
-            title: Löschen Sie alle Erhebungsdaten
           index:
             data: Insgesamt wurden %{count} Datensätze geladen. Das letzte Upload-Datum war am %{due_date}.
-            empty: Es gibt keine Daten in dieser Erhebung. Verwenden Sie das folgende Formular, um es mit einer CSV-Datei zu importieren.
           new:
             example: |
               john.doe@example.org
               jane.doe@example.org
-            file: "CSV-Datei mit E-Mail-Daten"
             info: 'Muss eine Datei im CSV-Format sein, mit nur einer Spalte mit E-Mail-Adressen:'
             submit: Datei hochladen
             title: Neue Volkszählung hochladen
