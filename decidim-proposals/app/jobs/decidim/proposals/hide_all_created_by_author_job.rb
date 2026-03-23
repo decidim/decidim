@@ -11,9 +11,6 @@ module Decidim
         Decidim::Proposals::Proposal.not_hidden.from_author(resource).find_each do |content|
           hide_content(content, extra[:event_author], extra[:justification])
         end
-        Decidim::Proposals::CollaborativeDraft.not_hidden.from_author(resource).find_each do |content|
-          hide_content(content, extra[:event_author], extra[:justification])
-        end
       end
     end
   end

@@ -25,7 +25,7 @@ module Decidim
           let!(:attachment) { create(:attachment, :with_image, attachment_collection: model) }
 
           it "returns the attachment id field" do
-            expect(response["attachments"]).to eq(["id" => attachment.id.to_s])
+            expect(response["attachments"]).to eq([{ "id" => attachment.id.to_s }])
           end
         end
 

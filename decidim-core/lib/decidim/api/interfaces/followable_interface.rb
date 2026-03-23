@@ -5,6 +5,7 @@ module Decidim
     # This interface represents a followable object.
     module FollowableInterface
       include Decidim::Api::Types::BaseInterface
+
       description "An interface that can be used in followable objects."
 
       field :followers, [Decidim::Core::AuthorInterface, { null: true }], "The followers of this resource", null: false

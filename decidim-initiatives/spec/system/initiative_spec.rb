@@ -307,6 +307,79 @@ describe "Initiative" do
       end
     end
 
+    context "when initiative state is created" do
+      let(:state) { :created }
+
+      before do
+        initiative.update!(published_at: nil)
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "does not show the components menu" do
+        expect(page).to have_no_css(".participatory-space__nav-container")
+      end
+    end
+
+    context "when initiative state is validating" do
+      let(:state) { :validating }
+
+      before do
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "does not show the components menu" do
+        expect(page).to have_no_css(".participatory-space__nav-container")
+      end
+    end
+
+    context "when initiative state is discarded" do
+      let(:state) { :discarded }
+
+      before do
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "does not show the components menu" do
+        expect(page).to have_no_css(".participatory-space__nav-container")
+      end
+    end
+
+    context "when initiative state is rejected" do
+      let(:state) { :rejected }
+
+      before do
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "does not show the components menu" do
+        expect(page).to have_no_css(".participatory-space__nav-container")
+      end
+    end
+
+    context "when initiative state is open" do
+      let(:state) { :open }
+
+      before do
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "shows the components menu" do
+        expect(page).to have_css(".participatory-space__nav-container")
+      end
+    end
+
+    context "when initiative state is accepted" do
+      let(:state) { :accepted }
+
+      before do
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+      end
+
+      it "shows the components menu" do
+        expect(page).to have_css(".participatory-space__nav-container")
+      end
+    end
+
     context "when signed in as the author of the initiative" do
       before do
         sign_in initiative.author

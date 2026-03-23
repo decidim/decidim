@@ -26,15 +26,15 @@
       %>
     </div>
 
-    <div class="row column">
-      <%=
-        form.check_box(
-          :free_text,
-          label: t(".free_text"),
-          disabled: !questionnaire.questions_editable?
-        )
-      %>
-    </div>
+    <div class="row column questionnaire-question-response-option-free-text">
+        <%=
+          form.check_box(
+            :free_text,
+            label: t(".free_text"),
+            disabled: !questionnaire.questions_editable?
+          )
+        %>
+      </div>
   </div>
 
   <% if response_option.persisted? %>

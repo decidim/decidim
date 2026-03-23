@@ -35,7 +35,8 @@ module Decidim
       end
 
       def non_voted_budgets
-        budgets.where.not(id: voted.map(&:id))
+        budgets_to_exclude = progress_budgets + voted
+        budgets.where.not(id: budgets_to_exclude.map(&:id))
       end
 
       def highlighted?

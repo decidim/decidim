@@ -26,7 +26,7 @@ describe "Admin manages meetings polls" do
         click_on "Manage poll"
       end
 
-      expect(page).to have_content("Edit poll questionnaire for #{Decidim::Meetings::MeetingPresenter.new(meeting).title}")
+      expect(page).to have_content("Edit poll")
     end
   end
 

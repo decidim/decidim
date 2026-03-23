@@ -13,12 +13,46 @@
     hideButton.find("[data-show-comment-reply]").first().html('<%= t("decidim.components.comment.show_replies", count: Decidim::Comments::SortedComments.for(root_comment.reload).size) %>');
 
   } else {
-    component.addThread(commentHtml, alignment, true);
+    var params = new URLSearchParams({
+      "commentable_gid": component.commentableGid,
+      "root_depth": component.rootDepth,
+      "order": component.order,
+      "reload": 1
+    });
+
+    var csrfToken = document.querySelector('meta[name="csrf-token"]');
+    var headers = {
+      "Accept": "text/javascript",
+      "X-Requested-With": "XMLHttpRequest"
+    };
+    if (csrfToken) { headers["X-CSRF-Token"] = csrfToken.getAttribute("content"); }
+
+    fetch(component.commentsUrl + "?" + params.toString(), {
+      method: "GET",
+      headers: headers,
+      credentials: "same-origin"
+    }).then(function(response) {
+      if (!response.ok) { throw new Error("Network response was not ok"); }
+      return response.text();
+    }).then(function(script) {
+      var scriptElement = document.createElement("script");
+      scriptElement.textContent = script;
+      document.body.appendChild(scriptElement);
+      document.body.removeChild(scriptElement);
+      component._finalizeCommentCreation(null, true);
+    }).catch(function() {
+      var commentsContainer = document.getElementById(rootCommentableId);
+      var loadingElement = commentsContainer.querySelector(".loading-comments");
+      var commentsElement = commentsContainer.querySelector(".comments");
+      if (loadingElement) { loadingElement.classList.add("hidden"); }
+      if (commentsElement) { commentsElement.classList.remove("hidden"); }
+      component._finalizeCommentCreation(null, true);
+    });
   }
 
-  Rails.fire(document, "comments:loaded", {
-    commentsIds: [<%= @comment.id %>, <%= @comment.commentable.id %>]
-  });
+  document.dispatchEvent(new CustomEvent("comments:loaded", {
+    detail: { commentsIds: [<%= @comment.id %>, <%= @comment.commentable.id %>] }
+  }));
 
   // Update the comments count
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);

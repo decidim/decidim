@@ -14,6 +14,7 @@ module Decidim
       include Decidim::UserProfile
       include Decidim::HtmlSafeFlash
       include Decidim::Verifications::Renewable
+
       helper Decidim::DecidimFormHelper
       helper Decidim::AuthorizationFormHelper
       helper Decidim::TranslationsHelper
@@ -25,7 +26,7 @@ module Decidim
       def index; end
 
       def onboarding_pending
-        return redirect_back(fallback_location: authorizations_path) unless onboarding_manager.valid?
+        return redirect_back_or_to(authorizations_path) unless onboarding_manager.valid?
 
         authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
 
@@ -86,7 +87,7 @@ module Decidim
 
           on(:invalid) do
             flash[:alert] = t("authorizations.create.error", scope: "decidim.verifications")
-            render action: :new, status: :unprocessable_entity
+            render action: :new, status: :unprocessable_content
           end
         end
       end

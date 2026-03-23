@@ -15,7 +15,7 @@ module Decidim
       else
         schedule_open_data_generation(resource)
         flash[:alert] = t("decidim.open_data.not_available_yet")
-        redirect_back fallback_location: open_data_path
+        redirect_back_or_to(open_data_path)
       end
     end
 
