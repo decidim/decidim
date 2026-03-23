@@ -183,6 +183,10 @@ es-MX:
               empty: No hay datos del censo. Utiliza %{import_csv} para importarlo usando un archivo CSV.
               no_sign_in: Nunca ha iniciado sesión
               no_user: No se ha encontrado ninguna usuaria
+              title: Datos censales actuales
+            instructions:
+              body: Para ello, debes acceder a la administración del sistema y añadir las autorizaciones "csv_census" a la organización
+              title: Necesitas activar el "csv_census" para esta organización
             last_login:
               no_sign_in: Nunca ha iniciado sesión
               no_user: Ninguna usuaria
@@ -251,6 +255,7 @@ es-MX:
               success: Participante verificada correctamente.
             new:
               reject: Rechazar
+              title: Introduce los datos que aparecen en la imagen
               verify: Verificar
           offline_confirmations:
             create:
@@ -258,6 +263,7 @@ es-MX:
               success: Participante verificada correctamente.
             new:
               cancel: Cancelar
+              title: Introduce el correo electrónico de la participante y los datos del documento
               verify: Verificar
           pending_authorizations:
             index:
