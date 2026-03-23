@@ -176,8 +176,8 @@ Devise.setup do |config|
   config.allow_insecure_sign_in_after_accept = true
 
   # Require password when user accepts the invitation.
-  # Disable if you do not want to ask or enforce to set password while accepting,
-  # because is set when user is invited or it will be set later.
+  # Disable if you do not want to ask for or enforce setting a password while accepting,
+  # because it is set when the user is invited or will be set later.
   # Default: true
   config.require_password_on_accepting = false
 
