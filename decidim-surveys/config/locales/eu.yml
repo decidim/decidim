@@ -9,9 +9,6 @@ eu:
       decidim/surveys/survey:
         one: Inkesta
         other: Inkestak
-      decidim/surveys/survey_answer:
-        one: Erantzuna
-        other: Erantzunak
   decidim:
     admin:
       admin_log:
@@ -19,8 +16,6 @@ eu:
           surveys: inkestak
     components:
       surveys:
-        actions:
-          answer: Erantzuna
         name: Inkestak
         settings:
           announcement: Oharra
@@ -40,16 +35,8 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan sartuz jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: Beste inkesta bat %{participatory_space_title} izeneko espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> inkesta <a href="%{participatory_space_url}">%{participatory_space_title}</a> espazioan irekita dago.
-    metrics:
-      survey_answers:
-        description: Parte-hartzaileek erantzundako inkesta kopurua
-        object: inkestei erantzunak
-        title: Inkestei erantzunak
-    statistics:
-      answers_count: Erantzunak
     surveys:
       actions:
-        answers: Erantzunak
         answers_alert: Erantzunak ezabatzea argitalpenean aktibatuta dago inkesta honetarako. Une honetan, erantzunen %{answers_count}  suntsitu egingo dira, jarraitzen baduzu.
         confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
         destroy: Suntsitu
@@ -64,8 +51,6 @@ eu:
             title: "Guztira, %{total} erantzun"
           show:
             title: '#%{number} erantzun'
-        exports:
-          survey_user_answers: Inkestako parte-hartzaileen erantzunak
         publish_answers:
           index:
             answers:
@@ -114,7 +99,6 @@ eu:
       models:
         survey:
           fields:
-            answers: Erantzunak
             questions: Galderak
             status: Egoera
             title: Izenburua
@@ -128,9 +112,7 @@ eu:
         export_name: Inkestaren erantzunak
       surveys:
         answer:
-          invalid: Inkesta erantzutean errorea gertatu da.
           spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
-          success: Inkesta ondo bete da.
         count:
           surveys_count:
             one: "Inkesta bat"
