@@ -4,8 +4,6 @@ shared_examples "access mode restricted participatory spaces" do
   let!(:organization) { create(:organization) }
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
-  let!(:other_user) { create(:user, :confirmed, organization:) }
-  let!(:other_user2) { create(:user, :confirmed, organization:) }
 
   context "and no user is logged in" do
     before do
@@ -108,6 +106,67 @@ shared_examples "access mode restricted participatory spaces" do
 
       expect(page).to have_current_path restricted_participatory_space_path
       expect(page).to have_content "This is a restricted space"
+    end
+  end
+end
+
+shared_examples "access mode restricted participatory spaces comments" do
+  let!(:participatory_space) { restricted_participatory_space }
+  let!(:member) { create(:member, user: member_user, participatory_space:) }
+  let!(:component) { create(:dummy_component, participatory_space:) }
+  let!(:commentable) { create(:dummy_resource, component:) }
+  let!(:comment) { create(:comment, commentable:, author: user) }
+
+  let!(:organization) { create(:organization) }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:other_user) { create(:user, :confirmed, organization:) }
+  let!(:member_user) { create(:user, :confirmed, organization:) }
+
+  let(:resource_path) { resource_locator(commentable).path }
+
+  before do
+    switch_to_host(organization.host)
+  end
+
+  context "when the user is not logged in" do
+    it "cannot access the page" do
+      visit resource_path
+      expect(page).to have_content("You are not authorized to perform this action")
+    end
+  end
+
+  context "when the user is logged in and is a member" do
+    before do
+      login_as member_user, scope: :user
+      visit resource_path
+    end
+
+    it "can see the comments" do
+      expect(page).to have_css("#comments")
+      expect(page).to have_content(comment.body["en"])
+    end
+
+    it "can see the comment form" do
+      expect(page).to have_css("form#new_comment_for_DummyResource_#{commentable.id}")
+    end
+
+    it "can see the vote buttons" do
+      if commentable.comments_have_votes?
+        expect(page).to have_css(".comment__votes button", minimum: 2)
+      else
+        expect(page).to have_no_css(".comment__votes button")
+      end
+    end
+  end
+
+  context "when the user is logged in and is not a member" do
+    before do
+      login_as other_user, scope: :user
+      visit resource_path
+    end
+
+    it "cannot access the page" do
+      expect(page).to have_content("You are not authorized to perform this action")
     end
   end
 end

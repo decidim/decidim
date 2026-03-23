@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "access mode transparent participatory spaces" do
-  let!(:organization) { create(:organization) }
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
@@ -69,6 +68,174 @@ shared_examples "access mode transparent participatory spaces" do
           expect(page).to have_no_content("Any participant could share this document to others")
         end
       end
+    end
+  end
+end
+
+shared_examples "access mode transparent participatory spaces comments" do
+  let!(:participatory_space) { transparent_participatory_space }
+  let!(:component) { create(:dummy_component, participatory_space:) }
+  let!(:commentable) { create(:dummy_resource, component:) }
+  let!(:comment) { create(:comment, commentable:, author: user) }
+
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:other_user) { create(:user, :confirmed, organization:) }
+  let!(:member_user) { create(:user, :confirmed, organization:) }
+  let!(:member) { create(:member, user: member_user, participatory_space:) }
+
+  let(:resource_path) { resource_locator(commentable).path }
+
+  before do
+    switch_to_host(organization.host)
+  end
+
+  context "when the user is not logged in" do
+    before do
+      visit resource_path
+    end
+
+    it "can see the comments" do
+      expect(page).to have_css("#comments")
+      expect(page).to have_content(comment.body["en"])
+    end
+
+    it "cannot see the comment form" do
+      expect(page).to have_no_css("form#new_comment_for_DummyResource_#{commentable.id}")
+    end
+
+    it "cannot see the vote buttons" do
+      expect(page).to have_no_css(".js-comment__votes--up")
+      expect(page).to have_no_css(".js-comment__votes--down")
+    end
+  end
+
+  context "when the user is logged in and is a member" do
+    before do
+      login_as member_user, scope: :user
+      visit resource_path
+    end
+
+    it "can see the comments" do
+      expect(page).to have_css("#comments")
+      expect(page).to have_content(comment.body["en"])
+    end
+
+    it "can see the comment form" do
+      expect(page).to have_css("form#new_comment_for_DummyResource_#{commentable.id}")
+    end
+
+    it "can add a new comment" do
+      within "form#new_comment_for_DummyResource_#{commentable.id}" do
+        fill_in "add-comment-DummyResource-#{commentable.id}", with: "This is a test comment from a member"
+        click_on "Publish comment"
+      end
+
+      expect(page).to have_content("This is a test comment from a member")
+    end
+
+    it "can see the vote buttons" do
+      if commentable.comments_have_votes?
+        expect(page).to have_css(".comment__votes button", minimum: 2)
+      else
+        expect(page).to have_no_css(".comment__votes button")
+      end
+    end
+
+    it "can vote on a comment" do
+      skip "Commentable comments has no votes" unless commentable.comments_have_votes?
+
+      within "#comment_#{comment.id}" do
+        find(".comment__votes button", match: :first).click
+      end
+
+      expect(page).to have_css(".comment__votes button.is-vote-selected")
+    end
+  end
+
+  context "when the user is logged in and is not a member" do
+    before do
+      login_as other_user, scope: :user
+      visit resource_path
+    end
+
+    it "can see the comments" do
+      expect(page).to have_css("#comments")
+      expect(page).to have_content(comment.body["en"])
+    end
+
+    it "cannot see the comment form" do
+      expect(page).to have_no_css("form#new_comment_for_DummyResource_#{commentable.id}")
+      expect(page).to have_content("You are not able to comment at this moment")
+    end
+
+    it "cannot see the vote buttons" do
+      expect(page).to have_no_css(".js-comment__votes--up")
+      expect(page).to have_no_css(".js-comment__votes--down")
+    end
+  end
+
+  context "when the user is logged in and is a member" do
+    before do
+      login_as member_user, scope: :user
+      visit resource_path
+    end
+
+    it "can see the comments" do
+      expect(page).to have_css("#comments")
+      expect(page).to have_content(comment.body["en"])
+    end
+
+    it "can see the comment form" do
+      expect(page).to have_css("form#new_comment_for_DummyResource_#{commentable.id}")
+    end
+
+    it "can add a new comment" do
+      within "form#new_comment_for_DummyResource_#{commentable.id}" do
+        fill_in "add-comment-DummyResource-#{commentable.id}", with: "This is a test comment from a member"
+        click_on "Publish comment"
+      end
+
+      expect(page).to have_content("This is a test comment from a member")
+    end
+
+    it "can see the vote buttons" do
+      if commentable.comments_have_votes?
+        expect(page).to have_css(".comment__votes button", minimum: 2)
+      else
+        expect(page).to have_no_css(".comment__votes button")
+      end
+    end
+
+    it "can vote on a comment" do
+      skip "Commentable comments has no votes" unless commentable.comments_have_votes?
+
+      within "#comment_#{comment.id}" do
+        find(".comment__votes button", match: :first).click
+      end
+
+      expect(page).to have_css(".comment__votes button.is-vote-selected")
+    end
+  end
+
+  context "when the user is logged in and is not a member" do
+    before do
+      login_as other_user, scope: :user
+      visit resource_path
+    end
+
+    it "can see the comments" do
+      expect(page).to have_css("#comments")
+      expect(page).to have_content(comment.body["en"])
+    end
+
+    it "cannot see the comment form" do
+      expect(page).to have_no_css("form#new_comment_for_DummyResource_#{commentable.id}")
+      expect(page).to have_content("You are not able to comment at this moment")
+    end
+
+    it "cannot see the vote buttons" do
+      expect(page).to have_no_css(".js-comment__votes--up")
+      expect(page).to have_no_css(".js-comment__votes--down")
     end
   end
 end

@@ -4,6 +4,7 @@ require "spec_helper"
 require "decidim/core/test/shared_examples/access_mode_transparent_participatory_spaces"
 
 describe "Access Mode Transparent Assemblies" do
+  let!(:organization) { create(:organization) }
   let!(:participatory_space) { create(:assembly, :published, organization:) }
   let!(:transparent_participatory_space) { create(:assembly, :published, :transparent, organization:) }
 
@@ -13,4 +14,5 @@ describe "Access Mode Transparent Assemblies" do
   let(:css_class_selector) { "#assemblies-grid" }
 
   it_behaves_like "access mode transparent participatory spaces"
+  it_behaves_like "access mode transparent participatory spaces comments"
 end
