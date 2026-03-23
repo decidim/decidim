@@ -374,7 +374,18 @@ es-PY:
           index:
             search: Buscar
             title: Ponentes de la jornada
+          new:
+            title: Nueva ponente de la jornada
+        conference_user_roles:
+          edit:
+            title: Actualizar administradora de la jornada
+          index:
+            title: Administradores de la jornada
+          new:
+            title: Añadir nova administradora
         conferences:
+          edit:
+            title: Acerca de esta jornada
           form:
             available_slots_help: Déjalo en 0 si tienes ranuras ilimitadas disponibles.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
@@ -384,6 +395,12 @@ es-PY:
               other: Ha habido %{count} registros.
             slug_help_html: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             taxonomies: Taxonomías
+          index:
+            title: Jornadas
+          manage_trash:
+            title: Jornadas eliminadas
+          new:
+            title: Nueva jornada
         content_blocks:
           highlighted_conferences:
             max_results: Cantidad máxima de elementos a mostrar
@@ -397,14 +414,29 @@ es-PY:
             invited_existing_user_to_join_a_conference: "%{invited_by} ha invitado a unirse a una conferencia en %{application}. Puede rechazarlo o aceptarlo a través de los enlaces a continuación."
             invited_user_to_join_a_conference: "%{invited_by} te ha invitado a unirte a un encuentro en %{application}. Puedes aceptarla a través del siguiente enlace."
             registration: Registro para '%{conference_title}'
+        media_links:
+          edit:
+            title: Actualizar el enlace multimedia
+          index:
+            title: Enlaces multimedia
+          new:
+            title: Añadir enlace multimedia
         partners:
+          edit:
+            title: Actualizar colaboradora
           index:
             title: Fogonadura
+          new:
+            title: Nueva colaboradora
         registration_types:
+          edit:
+            title: Actualizar el tipo de inscripción
           form:
             select_conference_meetings: Seleccionar los encuentros de la conferencia
           index:
             title: Tipos de inscripción
+          new:
+            title: Nuevo tipo de inscripción
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Encontrará el certificado de asistencia para la conferencia <a href="%{url}">%{title}</a> en los adjuntos.
