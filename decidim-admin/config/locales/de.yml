@@ -189,6 +189,7 @@ de:
           Wenn Sie Ihre Meinung ändern, können Sie es später wiederherstellen.
         export: Exportieren
         export_all: Alles exportieren
+        export_selection: Auswahl exportieren
         import: Importieren
         member:
           new: Neues Mitglied
@@ -206,6 +207,9 @@ de:
         user:
           new: Neuer Administrator
         view_deleted_components: Gelöschte Komponenten ansehen
+      admin_terms:
+        show:
+          title: Admin-Nutzungsbedingungen
       admin_terms_of_service:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
