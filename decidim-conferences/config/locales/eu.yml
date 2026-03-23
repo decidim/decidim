@@ -102,7 +102,7 @@ eu:
         new:
           duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Jardunaldia bikoiztu
+          title: Bikoiztu jardunaldia
       conference_publications:
         create:
           error: Arazo bat egon da jardunaldi hau argitaratzean.
@@ -147,10 +147,10 @@ eu:
           title: Eguneratu jardunaldiaren hizlaria
           update: Eguneratu
         index:
-          conference_admins_title: Jardunaldiaren administratzaileak
+          conference_admins_title: Jardunaldi-administratzaileak
         new:
           create: Sortu
-          title: Beste jardunaldiaren administratzaile bat
+          title: Jardunaldiaren beste administratzaile bat
         update:
           error: Arazo bat egon da hitzaldi-administratzaile hau eguneratzean.
           success: Jardunaldiaren administratzailea zuzen eguneratua.
@@ -192,7 +192,7 @@ eu:
         destroy:
           success: Multimediaren esteka behar bezala ezabatua.
         edit:
-          title: Multimedia esteka eguneratu
+          title: Eguneratu hedabideen lotura
           update: Eguneratu
         index:
           media_links_title: Hedabideen loturak
@@ -322,6 +322,7 @@ eu:
     admin_log:
       conference:
         create: "%{user_name} parte-hartzaileak sortu du %{resource_name} jardunaldia"
+        duplicate: "%{user_name} parte-hartzaileak %{resource_name} jardunaldia bikoiztu du"
         publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} jardunaldia"
         restore: "%{user_name} parte-hartzaileak %{resource_name} jardunaldia a berreskuratu du"
         send_conference_diplomas: "%{user_name} parte-hartzaileak bertaratze-ziurtagiriak bidali dizkie %{resource_name} jardunaldira bertaratuei"
@@ -381,7 +382,7 @@ eu:
           new:
             explanation: Parte-hartzailea gonbidatuko da jardunaldi batera lotzera. Bere posta elektronikoa erregistratuta ez badago, erakundera ere gonbidatuko dute.
             invite: gonbidatu
-            new_invite: Gonbidatu parte-hartzaile
+            new_invite: Gonbidatu parte-hartzailea
         conference_registrations:
           index:
             registrations: Izen-emateak

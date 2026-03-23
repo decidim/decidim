@@ -293,7 +293,7 @@ ca:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha acceptat la teva invitació per a ser coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a>".
         coauthor_invited:
           actions:
-            accept: Acceptar
+            accept: Accepta
             decline: Rebutjar
           email_intro: 'T''han convidat a ser coautora de la proposta "%{resource_title}". Pots acceptar o rebutjar la invitació en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè l'autora de la proposta vol reconèixer les contribucions convertint-te en coautora.
@@ -370,9 +370,9 @@ ca:
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
           follower:
             email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
             email_subject: Una proposta que segueixes ha canviat el seu estat (%{state})
-            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
+            notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha canviat el seu estat a "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Una administradora ha actualitzat les taxonomies de la teva proposta "%{resource_title}", fes-hi una ullada:'
           email_outro: Has rebut aquesta notificació perquè ets l'autora de la proposta.
@@ -771,11 +771,11 @@ ca:
           all: Tots
           amendment: Esmenes
           open: Obert
-          published: Publicat
+          published: Publicades
           related_to: Relacionat amb
           search: Cerca
           state: Estat
-          withdrawn: Retirat
+          withdrawn: Retirada
         filters_small_view:
           close_modal: Tanca la finestra
           filter: Filtre
@@ -827,10 +827,10 @@ ca:
           withdraw: retira l'esborrany
         states:
           open: Obert
-          published: Publicat
-          withdrawn: Retirat
+          published: Publicades
+          withdrawn: Retirada
         update:
-          error: S'ha produït un error en desar l'esborrany col·laboratiu.
+          error: Hi ha hagut un error en desar l'esborrany col·laboratiu.
           success: L'esborrany col·laboratiu s'ha actualitzat correctament.
         wizard_aside:
           back_from_collaborative_draft: Tornar a l'esborrany col·laboratiu
@@ -982,7 +982,7 @@ ca:
           edit_proposal: Editar
           estimated_cost: Cost estimat
           hidden_likes_count:
-            one: i %{count} persones més
+            one: i %{count} persona més
             other: i %{count} persones més
           link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany col·laboratiu. Revisa l'historial
           link_to_collaborative_draft_text: Veure l'esborrany col·laboratiu

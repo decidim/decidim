@@ -66,6 +66,8 @@ ja:
           attributes:
             document:
               allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみが許可されています: %{types}'
+              empty: ドキュメントが空です
+              invalid_json: ドキュメントは有効な JSON ではありません
     models:
       decidim/participatory_process_step_activated_event: フェーズ有効化
       decidim/participatory_process_step_changed_event: フェーズ変更
@@ -165,7 +167,7 @@ ja:
           error: 参加型プロセスグループを削除する際に問題が発生しました。
           success: 参加型プロセスグループが正常に削除されました。
         edit:
-          title: 参加型プロセスグループを編集
+          title: プロセスグループを編集
           update: 更新
         new:
           create: 作成
@@ -215,7 +217,7 @@ ja:
           steps_title: フェーズ
         new:
           create: 作成
-          title: 新しい参加型プロセスのフェーズ
+          title: 新しい参加型プロセスフェーズ
         ordering:
           error: 参加型プロセスのこれらのフェーズの順序変更に問題がありました。
         update:

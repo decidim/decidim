@@ -290,7 +290,7 @@ fr:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> a accepté votre invitation à devenir co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
           actions:
-            accept: Accepter
+            accept: Accepté
             decline: Refuser
           email_intro: 'Vous avez été invité à être co-auteur de la proposition "%{resource_title}". Vous pouvez accepter ou refuser l''invitation sur cette page :'
           email_outro: Vous avez reçu cette notification parce que l'auteur de la proposition veut reconnaître vos contributions en devenant co-auteur.
@@ -689,11 +689,11 @@ fr:
           all: Tout
           amendment: Amendements
           open: Ouvrir
-          published: Publié
-          related_to: Lié à
-          search: Chercher
+          published: Publiée
+          related_to: Liées à
+          search: Rechercher
           state: État
-          withdrawn: Retiré
+          withdrawn: Retirée
         filters_small_view:
           close_modal: Fermer la fenêtre
           filter: Filtre
@@ -714,7 +714,7 @@ fr:
           label: 'Ordre des brouillons par:'
           most_contributed: La plupart ont contribué
           random: Aléatoire
-          recent: Récent
+          recent: Les plus récentes
         requests:
           accepted_request:
             error: Ne peut être accepté en tant que collaborateur, réessayez plus tard.
@@ -730,7 +730,7 @@ fr:
             error: Ne peut être rejeté en tant que collaborateur, réessayez plus tard.
             success: "@%{user} a été rejeté en tant que collaborateur avec succès."
         show:
-          edit: Modifier
+          edit:
           final_proposal: Proposition finale
           final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée
           hidden_authors_count:
@@ -745,10 +745,10 @@ fr:
           withdraw: retirer le projet
         states:
           open: Ouvrir
-          published: Publié
-          withdrawn: Retiré
+          published: Publiée
+          withdrawn: Retirée
         update:
-          error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
+          error: Des erreurs sont survenues lors de l'enregistrement du brouillon de la proposition.
           success: Brouillon collaboratif mis à jour avec succès.
         wizard_aside:
           back_from_collaborative_draft: Retour aux brouillons collaboratifs
@@ -892,6 +892,9 @@ fr:
           changes_at_title: Amendement de "%{title}"
           edit_proposal:
           estimated_cost: Coût estimé
+          hidden_likes_count:
+            one: et %{count} personne de plus
+            other: et %{count} autres personnes
           link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
           link_to_collaborative_draft_text: Voir le brouillon collaboratif
           link_to_promoted_emendation_help_text: Cette proposition est un amendement promu

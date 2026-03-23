@@ -74,6 +74,8 @@ eu:
           attributes:
             document:
               allowed_file_content_types: 'Dokumentu mota ez da baliozkoa. Honako luzapen hauek dituzten fitxategiak baino ez dira onartzen: %{types}.'
+              empty: Dokumentua hutsik dago
+              invalid_json: JSON dokumentua ez da zuzena
   activerecord:
     models:
       decidim/assembly:
@@ -120,7 +122,7 @@ eu:
         new:
           duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Batzarra bikoiuztu
+          title: Bikoiztu batzarra
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.

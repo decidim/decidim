@@ -102,7 +102,6 @@ de:
         new:
           duplicate: Duplizieren
           select: Zu duplizierende Daten auswählen
-          title: Konferenz duplizieren
       conference_publications:
         create:
           error: Beim Veröffentlichen dieser Konferenz ist ein Fehler aufgetreten.
@@ -121,13 +120,9 @@ de:
         destroy:
           success: Der Redner wurde für diese Konferenz erfolgreich gelöscht.
         edit:
-          title: Referierende Person aktualisieren
           update: Aktualisieren
-        index:
-          conference_speakers_title: Konferenzsprecher
         new:
           create: Erstellen
-          title: Neue referierende Person
         publish:
           invalid: Beim Veröffentlichen dieser RednerIn ist ein Problem aufgetreten.
           success: KonferenzrednerIn erfolgreich veröffentlicht.
@@ -144,13 +139,12 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Referierende Person aktualisieren
           update: Aktualisieren
         index:
-          conference_admins_title: Konferenzadmins
+          conference_admins_title: Konferenzadministratoren
         new:
           create: Erstellen
-          title: Neuer Konferenzadmin
+          title: Neuer Konferenz-Admin
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Konferenz aktualisiert worden.
           success: Der Benutzer wurde für diese Konferenz erfolgreich aktualisiert.
@@ -173,8 +167,6 @@ de:
         index:
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
-        manage_trash:
-          title: Gelöschte Konferenzen
         new:
           create: Erstellen
           title: Neue Konferenz
@@ -192,7 +184,6 @@ de:
         destroy:
           success: Medienlink erfolgreich gelöscht.
         edit:
-          title: Medienlink aktualisieren
           update: Aktualisieren
         index:
           media_links_title: Medienlinks
@@ -213,7 +204,6 @@ de:
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
           diploma: Teilnahmebestätigung
-          info: Über diese Konferenz
           media_links: Medienlinks
           moderations: Moderationen
           partners: Partner
@@ -281,7 +271,6 @@ de:
         destroy:
           success: Der Partner wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Partner aktualisieren
           update: Aktualisieren
         new:
           create: Erstellen
@@ -303,7 +292,6 @@ de:
         destroy:
           success: Der Registrierungstyp wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Registrierungsart aktualisieren
           update: Aktualisieren
         new:
           create: Erstellen
@@ -316,7 +304,6 @@ de:
           conferences: Alle Konferenzen
       titles:
         conferences: Konferenzen
-        conferences_deleted: Gelöschte Konferenzen
       tooltips:
         deleted_conferences_info: Konferenzen können nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
     admin_log:
@@ -381,7 +368,7 @@ de:
           new:
             explanation: Die Person wird zur Teilnahme an der Konferenz eingeladen. Wenn die E-Mail nicht registriert ist, werden sie ebenfalls zur Organisation eingeladen.
             invite: Einladen
-            new_invite: Nutzer einladen
+            new_invite: Teilnehmer einladen
         conference_registrations:
           index:
             registrations: Anmeldungen

@@ -111,8 +111,6 @@ fr-CA:
         initiatives_menu:
           see_initiative: Voir la pétition
         initiatives_settings: Paramètres
-        initiatives_submenu:
-          info: À propos de cette pétition
         initiatives_types: Types d'initiatives
         moderations: Modérations
       models:
@@ -160,7 +158,7 @@ fr-CA:
           initiatives: Toutes les pétitions
       titles:
         initiatives: Pétitions
-        initiatives_types: Types d'initiative
+        initiatives_types: Types d'initiatives
     download_your_data:
       show:
         initiatives: Exporter les pétitions

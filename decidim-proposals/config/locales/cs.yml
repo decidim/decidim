@@ -94,6 +94,7 @@ cs:
       decidim:
         proposals:
           proposal:
+            budget_text: Návrh <span class="resource-link">%{link} byl vytvořen</span>
             import_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             merge_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             merge_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
@@ -299,7 +300,7 @@ cs:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> přijal vaši pozvánku, aby se stal spoluautorem návrhu <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
           actions:
-            accept: Přijmout
+            accept: Akceptovat
             decline: Odmítnout
           email_intro: 'Byli jste pozváni jako spoluautor návrhu "%{resource_title}". Pozvánku můžete přijmout nebo odmítnout na této stránce:'
           email_outro: Obdrželi jste toto oznámení, protože autor návrhu chce uznat vaše příspěvky tím, že se stanete spoluautorem.
@@ -834,7 +835,7 @@ cs:
           published: Publikováno
           withdrawn: Staženo
         update:
-          error: Při ukládání schématu spolupráce došlo k chybám.
+          error: Při ukládání konceptu návrhu došlo k chybám.
           success: Protokol o spolupráci byl úspěšně aktualizován.
         wizard_aside:
           back_from_collaborative_draft: Zpět na koncepty spolupráce
@@ -988,6 +989,11 @@ cs:
           changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit
           estimated_cost: Odhadované náklady
+          hidden_likes_count:
+            one: a %{count} další osoba
+            few: a %{count} dalších lidí
+            many: a %{count} dalších lidí
+            other: a %{count} dalších lidí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného návrhu. Zkontrolujte historii
           link_to_collaborative_draft_text: Viz schéma spolupráce
           link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšení

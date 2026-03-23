@@ -143,6 +143,33 @@ uk:
           official: Службове
         filter_state_values:
           not_answered: Без відповідей
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            irreversible_action_modal:
+              cancel: Скасувати
+          withdraw:
+            irreversible_action_modal:
+              cancel: Скасувати
+        edit:
+          back: Повернутись
+          send: Надіслати
+        filters:
+          related_to: Пов'язане з
+          search: Шукати
+          state: Стан
+          withdrawn: Відкликана
+        new:
+          send: Продовжити
+        orders:
+          random: Довільно
+          recent: Нещодавні
+        show:
+          publish: Оприлюднити
+        states:
+          withdrawn: Відкликана
+        update:
+          error: При спробі збереження чернетки цієї пропозиції сталися помилки.
       create:
         error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.

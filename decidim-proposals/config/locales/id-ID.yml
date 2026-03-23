@@ -77,6 +77,9 @@ id:
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Menerima
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} telah diterima untuk diakses sebagai kontributor dari %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> telah <strong>diterima untuk mengakses sebagai kontributor</strong> dari <a href="%{resource_path}">%{resource_title}</a> draf kolaboratif.
@@ -279,7 +282,6 @@ id:
           all: Semua
           amendment: Amandemen
           open: Buka
-          published: Diterbitkan
           related_to: Berhubungan dengan
           search: Pencarian
           state: Negara
@@ -325,10 +327,9 @@ id:
           withdraw: tarik draft
         states:
           open: Buka
-          published: Diterbitkan
           withdrawn: Ditarik
         update:
-          error: Sudah ada kesalahan saat menyimpan draf kolaboratif.
+          error: Ada kesalahan saat menyimpan draf proposal.
           success: Draf kolaboratif berhasil diperbarui.
         wizard_header:
           title: Buat draf kolaboratif Anda
@@ -391,6 +392,8 @@ id:
           title: Publikasikan proposal Anda
         show:
           answer: Menjawab
+          hidden_likes_count:
+            other: dan %{count} lebih banyak orang
           link_to_collaborative_draft_help_text: Proposal ini adalah hasil dari draf kolaboratif. Tinjau sejarahnya
           link_to_collaborative_draft_text: Lihat draf kolaboratif
           proposal_accepted_reason: 'Proposal ini telah diterima karena:'

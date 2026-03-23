@@ -24,8 +24,13 @@ pt-BR:
         name: Sorteios
         settings:
           global:
+            clear_all: Limpar tudo
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
+            taxonomy_filters: Selecione filtros para o componente
+            taxonomy_filters_add: Adicionar filtro
     events:
       sortitions:
         sortition_created:
@@ -52,6 +57,7 @@ pt-BR:
               request_timestamp: Tempo de sorteio
               seed: Semente
               target_items: Itens para selecionar
+              taxonomies: Taxonomias
               title: Título
         sortitions:
           confirm_destroy:
@@ -68,6 +74,7 @@ pt-BR:
             title: Atualizar as informações sobre a classificação
             update: Atualizar
           form:
+            all_taxonomies: Todas as taxonomias
             select_proposal_component: Selecione o conjunto de propostas
           index:
             title: Sorteios
@@ -110,13 +117,16 @@ pt-BR:
             other: propostas selecionadas
         show:
           algorithm: Código de Algoritmo da Classificação
+          any_taxonomy: de todas as taxonomias
           cancelled: Sortição cancelada
           candidate_proposal_ids: Ordem de propostas de classificação e IDs
+          candidate_proposals_info: 'A ordenação foi realizada entre as seguintes propostas (%{taxonomy_labels}), com os seguintes IDs (em negrito as propostas selecionadas)  '
           dice_result: (1) resultado dado
           introduction: 'Esta página contém os resultados da ordenação %{reference}. Por meio dessa classificação, %{target_items} número de resultados foram selecionados aleatoriamente e com uma distribuição de probabilidade igual ao conjunto de propostas exibidas abaixo. Juntamente com os resultados, as informações exibidas nesta página fornecem todas as informações necessárias para maximizar as garantias e reproduzir os resultados. A chave para a qualidade dessa classificação é a dupla aleatoriedade fornecida pela rolagem de dados (verificada por testemunhas) e o tempo preciso da classificação que fornece dados para um algoritmo que gera uma seleção aleatória. A semente do tempo para a classificação é tão precisa (segundos) que é impossível controlar pelos humanos, fornecendo assim uma entrada dupla "incontrolável" para garantir um resultado justo.  '
           mathematical_result: Resultado (1) x (2)
           proposals_selected_by_sortition: Propostas selecionadas por classificação
           sortition_reproducibility_details: Detalhes de reprodutibilidade de ordenação
+          taxonomies: das taxonomias %{taxonomies}
           time_seed: (2) semente do tempo
           witnesses: Testemunhas
         sortition:

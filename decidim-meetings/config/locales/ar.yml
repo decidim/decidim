@@ -111,7 +111,6 @@ ar:
           success: تم تكرار الاجتماع بنجاح.
         new:
           copy: نسخ
-          title: اجتماع مكرر
     components:
       meetings:
         actions:
@@ -245,7 +244,6 @@ ar:
             non_user: مشارك غير موجود
             select_user: اختر المشارك
           index:
-            invite_attendee: دعوة الحضور
             invites: تدعو
         meeting_closes:
           edit:

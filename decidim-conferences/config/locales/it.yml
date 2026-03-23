@@ -89,8 +89,6 @@ it:
           success: Relatore della conferenza cancellato con successo.
         edit:
           update: Aggiorna
-        index:
-          conference_speakers_title: Relatori della conferenza
         new:
           create: Crea
         update:
@@ -104,6 +102,8 @@ it:
           success: Amministratore della conferenza rimosso con successo.
         edit:
           update: Aggiornare
+        index:
+          conference_admins_title: Amministratori della conferenza
         new:
           create: Creare
         update:
@@ -205,7 +205,6 @@ it:
           update: Aggiornare
         new:
           create: Crea
-          title: Nuovo partner
         update:
           error: Si è verificato un errore durante l'aggiornamento di un partner per questa conferenza.
           success: Partner aggiornato correttamente per questa conferenza.
@@ -226,7 +225,6 @@ it:
           update: Aggiorna
         new:
           create: Crea
-          title: Nuovo tipo di iscrizione
         update:
           error: Si è verificato un errore durante l'aggiornamento di un tipo di iscrizione per questa conferenza.
           success: Tipo di iscrizione aggiornato correttamente in questa conferenza.
@@ -287,7 +285,7 @@ it:
             invites: Inviti
           new:
             invite: Invita
-            new_invite: Invita partecipante
+            new_invite: Invita il partecipante
         conference_registrations:
           index:
             registrations: Iscrizioni

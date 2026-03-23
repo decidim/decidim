@@ -148,10 +148,10 @@ es-PY:
           title: Actualizar administradora de la asamblea
           update: Actualizar
         index:
-          assembly_admins_title: Usuarios de la Asamblea
+          assembly_admins_title: Usuarios de la asamblea
         new:
           create: Crear
-          title: Nueva administradora de la asamblea
+          title: Añadir administradora
         update:
           error: Ha habido un error al actualizar un usuario para esta asamblea.
           success: Usuario actualizado con éxito para esta asamblea.
@@ -172,7 +172,7 @@ es-PY:
           attachments: Archivos adjuntos
           components: Componentes
           info: Acerca de esta asamblea
-          landing_page: Disposición de la página de aterrizaje
+          landing_page: Disposición de la página de inicio
           moderations: Moderaciones
           private_users: Miembros
           see_assembly: Ver la asamblea

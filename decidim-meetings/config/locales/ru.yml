@@ -56,7 +56,6 @@ ru:
           success: Успешно создана копия встречи.
         new:
           copy: Копировать
-          title: Скопировать встречу
     components:
       meetings:
         actions:
@@ -171,7 +170,6 @@ ru:
             non_user: Не существующий участник
             select_user: Выберите участника
           index:
-            invite_attendee: Пригласить участника
             invites: Приглашения
         meeting_closes:
           edit:

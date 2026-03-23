@@ -130,7 +130,7 @@ fr-CA:
         new:
           import: Importation
           select: Sélectionnez les données que vous souhaitez importer
-          title: Importer un assemblage
+          title: Importer l'assemblée
       assembly_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette assemblée.

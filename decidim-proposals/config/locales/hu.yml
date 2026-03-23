@@ -146,6 +146,9 @@ hu:
         admin:
           proposal_note_created:
             email_subject: Valaki egy jegyzetet írt a(z) "%{resource_title}" javaslathoz.
+        coauthor_invited:
+          actions:
+            accept: Elfogad
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} jóváhagyva, mint közreműködő ebben: %{resource_title}."
           notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> jóváhagyva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
@@ -392,7 +395,7 @@ hu:
           send: Küldés
           title: Közös vázlat szerkesztése
         filters:
-          all: Összes
+          all: Minden
           amendment: Módosítások
           open: Megnyitás
           published: Közzétéve
@@ -448,7 +451,7 @@ hu:
           published: Közzétéve
           withdrawn: Visszavonva
         update:
-          error: Hiba történt a közösen szerkesztett vázlat mentése során.
+          error: Hiba történt a javaslat vázlatának mentése során.
           success: Közös vázlat frissítése sikeres.
         wizard_header:
           title: Hozd létre a közös vázlatod
@@ -528,6 +531,9 @@ hu:
           answer: Válasz
           changes_at_title: A (z) "%{title}" módosítása
           estimated_cost: Becsült költség
+          hidden_likes_count:
+            one: és még %{count} személy
+            other: és még %{count} személy
           link_to_collaborative_draft_help_text: Ez a javaslat egy közös vázlat eredménye. Nézd át az előzményeket
           link_to_collaborative_draft_text: Közös vázlat megtekintése
           link_to_promoted_emendation_help_text: Ez a javaslat egy támogatott helyreigazítás

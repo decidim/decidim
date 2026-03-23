@@ -114,7 +114,6 @@ ar:
         new:
           import: استيراد
           select: اختر البيانات التي ترغب في استيرادها
-          title: استيراد الجمعية
       assembly_publications:
         create:
           error: حدثت مشكلة في نشر هذا التجميع.

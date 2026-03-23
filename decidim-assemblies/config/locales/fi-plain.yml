@@ -74,6 +74,8 @@ fi-pl:
           attributes:
             document:
               allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot ovat sallittuja: %{types}.'
+              empty: Asiakirja on tyhjä
+              invalid_json: Asiakirja ei ole kelvollinen JSON
   activerecord:
     models:
       decidim/assembly:
@@ -104,8 +106,6 @@ fi-pl:
           public: Julkinen
           published: Julkaistu
           unpublished: Julkaisematon
-        manage_trash:
-          title: Poistetut ryhmät
         new:
           create: Luo
           title: Uusi ryhmä
@@ -120,7 +120,6 @@ fi-pl:
         new:
           duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi ryhmä
       assembly_imports:
         create:
           error: Ryhmän tuonti epäonnistui.
@@ -128,7 +127,6 @@ fi-pl:
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
-          title: Tuo ryhmä
       assembly_publications:
         create:
           error: Ryhmän julkaisussa tapahtui virhe.
@@ -143,7 +141,6 @@ fi-pl:
         destroy:
           success: Käyttäjä poistettiin onnistuneesti ryhmästä.
         edit:
-          title: Päivitä ryhmän hallintakäyttäjän tietoja
           update: Päivitä
         index:
           assembly_admins_title: Ryhmän käyttäjät
@@ -208,7 +205,6 @@ fi-pl:
           assemblies: Kaikki ryhmät
       titles:
         assemblies: Ryhmät
-        assemblies_deleted: Poistetut ryhmät
         assemblies_types: Ryhmien tyypit
       tooltips:
         deleted_assemblies_info: Ryhmä voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
@@ -277,9 +273,14 @@ fi-pl:
         content_blocks:
           highlighted_assemblies:
             max_results: Näytettävien elementtien enimmäismäärä
+        imports:
+          attachment_error: Liitteen "%{title}" tuonti epäonnistui (%{error}).
+          banner_image_error: Bannerikuvan tuonti epäonnistui (%{error}).
+          hero_image_error: Pääkuvan tuonti epäonnistui (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Tämän tuontiominaisuuden avulla voit luoda uuden ryhmän JSON-tiedostosta. Voit viedä ryhmän toisesta organisaatiosta tai samasta organisaatiosta. Tuotu ryhmä sisältää sen asetukset, komponentit ja liitetiedostot (jos valittu).
       assemblies:
         description:
           area_name: Alue

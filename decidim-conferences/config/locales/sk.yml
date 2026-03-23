@@ -62,8 +62,6 @@ sk:
           success: Rečník úspešne odstránený.
         edit:
           update: Aktualizovať
-        index:
-          conference_speakers_title: Rečníci na konferencii
         new:
           create: Vytvoriť
         update:
@@ -77,6 +75,8 @@ sk:
           success: Administrátor konferencie úspešne odstránený.
         edit:
           update: Aktualizovať
+        index:
+          conference_admins_title: Administrátori konferencie
         new:
           create: Vytvoriť
         update:
@@ -176,7 +176,6 @@ sk:
           update: Aktualizovať
         new:
           create: Vytvoriť
-          title: Nový partner
         update:
           error: Vyskytol sa problém pri zmene partnera konferencie.
           success: Partner konferencie úspešne aktualizovaný.
@@ -197,7 +196,6 @@ sk:
           update: Aktualizovať
         new:
           create: Vytvoriť
-          title: Nový typ registrácie
         update:
           error: Vyskytol sa problém pri zmene typu registrácie na konferenciu.
           success: Typ registrácie na konferenciu úspešne zmenený.

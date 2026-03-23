@@ -121,13 +121,12 @@ ca-IT:
         destroy:
           success: Ponent de la jornada eliminada correctament.
         edit:
-          title: Actualitzar la ponent de la jornada
+          title: Actualitzar ponent de la jornada
           update: Actualitzar
         index:
-          conference_speakers_title: Ponents de les conferències
+          conference_speakers_title: Ponents de la jornada
         new:
           create: Crear
-          title: Nova ponent de la jornada
         publish:
           invalid: S'ha produït un error en publicar aquesta ponent.
           success: Ponent de la jornada actualitzada correctament.
@@ -144,13 +143,12 @@ ca-IT:
         destroy:
           success: Administradora de la jornada eliminada correctament.
         edit:
-          title: Actualitzar administradora de la jornada
           update: Actualitzar
         index:
-          conference_admins_title: Administradores de la jornada
+          conference_admins_title: Administradors de conferències
         new:
           create: Crear
-          title: Nova administradora de jornada
+          title: Afegir administradora
         update:
           error: S'ha produït un error en actualitzar l'administradora per a aquesta jornada.
           success: Administradora de la jornada actualitzada correctament.
@@ -173,11 +171,9 @@ ca-IT:
         index:
           published: Publicat
           unpublished: Despublicada
-        manage_trash:
-          title: Jornades eliminades
         new:
           create: Crear
-          title: Nova jornada
+          title: Afegir jornada
         update:
           error: S'ha produït un error en actualitzar aquesta jornada.
           success: Jornada actualitzada correctament.
@@ -192,7 +188,6 @@ ca-IT:
         destroy:
           success: S'ha eliminat correctament l'enllaç multimèdia.
         edit:
-          title: Actualitzar l'enllaç multimèdia
           update: Actualitzar
         index:
           media_links_title: Enllaços multimèdia
@@ -213,7 +208,6 @@ ca-IT:
           conference_invites: Convida
           conference_speakers: Ponents
           diploma: Certificat d'assistència
-          info: Quant a aquesta jornada
           media_links: Enllaços multimèdia
           moderations: Moderacions
           partners: Col·laboradores
@@ -281,11 +275,10 @@ ca-IT:
         destroy:
           success: Col·laboradora de la jornada eliminada correctament.
         edit:
-          title: Actualitzar col·laboradora
           update: Actualitzar
         new:
           create: Crear
-          title: Nova col·laboradora
+          title: Afegir col·laboradora
         update:
           error: S'ha produït un error en actualitzar un col·laborador per a aquesta jornada.
           success: Col·laboradora de la jornada actualtizada correctament.
@@ -303,11 +296,10 @@ ca-IT:
         destroy:
           success: El tipus d'inscripció s'ha eliminat correctament d'aquesta jornada.
         edit:
-          title: Actualitzar el tipus d'inscripció
           update: Actualitzar
         new:
           create: Crear
-          title: Nou tipus de registre
+          title: Afegir tipus de registre
         update:
           error: S'ha produït un error en actualitzar un tipus d'inscripció per a aquesta jornada.
           success: El tipus d'inscripció s'ha actualitzat correctament per a aquesta jornada.
@@ -316,12 +308,12 @@ ca-IT:
           conferences: Totes les jornades
       titles:
         conferences: Jornades
-        conferences_deleted: Jornades eliminades
       tooltips:
         deleted_conferences_info: Les jornades només es poden eliminar si el seu estat és 'Despublicada'.
     admin_log:
       conference:
         create: "%{user_name} ha creat la jornada %{resource_name}"
+        duplicate: "%{user_name} ha duplicat la jornada \"%{resource_name}\""
         publish: "%{user_name} ha publicat la jornada %{resource_name}"
         restore: "%{user_name} ha restaurat la jornada %{resource_name}"
         send_conference_diplomas: "%{user_name} ha enviat certificats d'assistència a les assistents de la jornada %{resource_name}"

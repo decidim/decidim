@@ -72,11 +72,10 @@ is:
           published: Published
         new:
           create: Búa til
-          title: Ný samkoma
+          title: Nýtt þing
       assembly_imports:
         new:
           import: Flytja inn
-          title: Flytja inn þing
       assembly_user_roles:
         edit:
           update: Uppfæra
@@ -89,7 +88,6 @@ is:
           attachments: Viðhengi
           components: Hluti
           moderations: Moderations
-          private_users: Meðlimir
       models:
         assembly:
           fields:
@@ -141,9 +139,6 @@ is:
         filters:
           names:
             all: Allt
-      assembly_members:
-        index:
-          members: Meðlimir
       created_by:
         city_council: Borgarstjórn
         others: Aðrir
@@ -153,9 +148,6 @@ is:
       show:
         duration: Lengd
         private_space: Þetta er einkasamkoma
-    assembly_members:
-      index:
-        title: Meðlimir
     log:
       value_types:
         assembly_presenter:

@@ -148,8 +148,6 @@ lv:
         edit:
           title: Rediģēt mapi
           update: Atjaunināt
-        index:
-          attachment_collections_title: Pielikumu mapes
         new:
           create: Izveidot
           title: Jauna mape
@@ -165,8 +163,6 @@ lv:
         edit:
           title: Rediģēt pielikumu
           update: Atjaunināt
-        index:
-          attachments_title: Pielikumi
         new:
           create: Izveidot pielikumu
           title: Jauns pielikums
@@ -204,7 +200,6 @@ lv:
           title: 'Pievienot komponentu: %{name}'
         publish:
           success: Komponents ir veiksmīgi publicēts.
-        title: Komponenti
         unpublish:
           success: Komponenta publicēšana ir veiksmīgi atcelta.
         update:
@@ -282,7 +277,6 @@ lv:
         promotions:
           new:
             explanation: Pārvaldītos dalībniekus var paaugstināt par standarta dalībniekiem. Tas nozīmē, ka viņi tiks uzaicināti uz lietojumprogrammu un jūs viņus vairs nevarēsiet pārvaldīt. Uzaicinātais dalībnieks saņems e-pastu ar jūsu ielūgumu.
-            new_managed_user_promotion: Jauna pārvaldīta dalībnieka paaugstināšana
             promote: Paaugstināt
       menu:
         admin_log: Administratora darbību žurnāls
@@ -372,7 +366,6 @@ lv:
           title: Informatīvo biļetenu veidnes
           use_template: Izmantot šo veidni
         show:
-          preview: 'Priekšskatīt veidni: %{template_name}'
           use_template: Izmantot šo veidni
       newsletters:
         create:
@@ -540,13 +533,11 @@ lv:
         update:
           error: Šīs lapas atjaunināšanas laikā radās problēma.
       titles:
-        admin_log: Administratora žurnāls
         area_types: Jomu veidi
         areas: Jomas
         authorization_workflows: Verifikācijas metodes
-        dashboard: Informācijas panelis
-        impersonatable_users: Pārvaldāmie dalībnieki
         impersonations: Dalībnieku pārvaldība
+        pages: Lapas
         participants: Dalībnieki
         scope_types: Tvēruma veidi
         scopes: Darbības tvērums

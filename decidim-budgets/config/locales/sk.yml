@@ -18,6 +18,7 @@ sk:
       actions:
         edit: Upraviť
         import: Importovať návrhy do projektov
+        new_project: Nový projekt
         preview: Ukážka
         title: Akcie
       admin:

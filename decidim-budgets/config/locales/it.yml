@@ -23,6 +23,7 @@ it:
       actions:
         edit: Modifica
         import: Importa proposte nei progetti
+        new_project: Nuovo progetto
         preview: Anteprima
         title: Azioni
       admin:

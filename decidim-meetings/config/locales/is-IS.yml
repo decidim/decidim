@@ -27,7 +27,6 @@ is:
       meeting_copies:
         new:
           copy: Afrita
-          title: Afrita fundi
     components:
       meetings:
         actions:
@@ -107,6 +106,7 @@ is:
           form:
             available_slots_help: Leyfi það til 0 ef þú hefur ótakmarkaða rifa í boði.
             reserved_slots_less_than: Verður að vera minna en eða jafnt við %{count}
+            title: Skráningar
           update:
             success: Fundir skráningarstillingar voru vistaðar með góðum árangri.
       admin_log:

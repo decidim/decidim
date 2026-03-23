@@ -147,6 +147,9 @@ it:
         admin:
           proposal_note_created:
             email_subject: Qualcuno ha lasciato una nota sulla proposta %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Accettare
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} è stato accettato per accedere come contributore del %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> è stato accettato <strong>come contributore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
@@ -366,8 +369,8 @@ it:
           amendment: Modifiche
           open: Aperto
           published: Pubblicato
-          related_to: Relativo a
-          search: Ricerca
+          related_to: Associata a
+          search: Cerca
           state: Stato
           withdrawn: Ritirato
         filters_small_view:
@@ -386,8 +389,8 @@ it:
         orders:
           label: 'Ordina le bozze di:'
           most_contributed: La maggior parte ha contribuito
-          random: Casuale
-          recent: Recente
+          random: A caso
+          recent: le più recenti
         requests:
           accepted_request:
             error: Non può essere accettato come collaboratore, riprova più tardi.
@@ -416,7 +419,7 @@ it:
           published: Pubblicato
           withdrawn: Ritirato
         update:
-          error: Si sono verificati errori durante il salvataggio della bozza collaborativa.
+          error: Si sono verificati errori durante il salvataggio della bozza della proposta.
           success: Bozza collaborativa aggiornata correttamente.
         wizard_aside:
           back_from_collaborative_draft: Torna alle bozze collaborative
@@ -502,6 +505,9 @@ it:
           answer: Risposta
           changes_at_title: Modifica a "%{title}"
           estimated_cost: Costo stimato
+          hidden_likes_count:
+            one: e %{count} altra persona
+            other: e altre %{count} persone
           link_to_collaborative_draft_help_text: Questa proposta è il risultato di una bozza di collaborazione. Rivedere la storia
           link_to_collaborative_draft_text: Vedi la bozza collaborativa
           link_to_promoted_emendation_help_text: Questa proposta è una modifica promossa

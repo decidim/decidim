@@ -133,7 +133,7 @@ hu:
             timestamp: Időbélyeg
       titles:
         initiatives: Kezdeményezések
-        initiatives_types: Kezdeményezési típusai
+        initiatives_types: Kezdeményezések típusa
     events:
       initiatives:
         admin:

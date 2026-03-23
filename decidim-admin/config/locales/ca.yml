@@ -198,7 +198,7 @@ ca:
         newsletter:
           new: Nou butlletí
         participatory_space_private_user:
-          new: Nou usuari privat de l'espai participatiu
+          new: Nova participant privada de l'espai de participació
         per_page: Per pàgina
         permissions: Gestionar els permisos
         restore: Restaurar
@@ -222,7 +222,7 @@ ca:
           alert: 'Necessari: revisa les nostres condicions del servei d''administració'
           callout: Si us plau, dedica un moment a revisar les condicions del servei d'administració. En cas contrari, no podràs administrar la plataforma.
           cta: Revisar-les ara.
-        title: Termes i condicions del servei d'administració
+        title: Termes i condicions d'ús para administradores
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
@@ -283,7 +283,7 @@ ca:
           title: Edita adjunt
           update: Actualitza
         index:
-          attachments_title: Adjunts
+          attachments_title: Fitxers adjunts
         new:
           create: Crea adjunt
           title: Nou adjunt
@@ -520,7 +520,7 @@ ca:
           impersonate: Impersonar
           impersonate_existing_managed_user: Gestionar la participant "%{name}"
           impersonate_existing_user: Gestionar la participant "%{name}"
-          impersonate_new_managed_user: Gestionar una nova participant
+          impersonate_new_managed_user: Gestiona una nova participant
       imports:
         and: i
         data_errors:
@@ -576,7 +576,7 @@ ca:
         promotions:
           new:
             explanation: Les participants gestionades es poden promocionar a participants estàndard. Significa que seran convidades al sistema i no podràs tornar a administrar-les. La participant convidada rebrà un correu electrònic per acceptar la vostra invitació.
-            new_managed_user_promotion: Nova promoció de participant
+            new_managed_user_promotion: Nova promoció de participant gestionada
             promote: Promocionar
       menu:
         admin_log: Registre d'activitat d'administració
@@ -1224,11 +1224,11 @@ ca:
           none: Cap
           title: Editar element a "%{taxonomy}"
       titles:
-        admin_log: Registre d'administració
+        admin_log: Registre d'activitat d'administració
         area_types: Tipus d'àrees
         areas: Àrees
         authorization_workflows: Mètodes de verificació
-        dashboard: Tauler de control
+        dashboard: Tauler d'administració
         edit_external_domains: Llistat de dominis externs permesos
         impersonatable_users: Participants que es poden gestionar
         impersonations: Gestió de participants
@@ -1241,7 +1241,7 @@ ca:
         scopes: Àmbits
         statistics: Estadístiques
         taxonomies: Taxonomies
-        taxonomy_filters: Filtre de taxonomia per a "%{taxonomy}"
+        taxonomy_filters: Filtres de taxonomia per a "%{taxonomy}"
         users: Administradores
       tooltips:
         cannot_destroy_taxonomy_filter: No es pot eliminar aquest filtre de taxonomia
@@ -1277,6 +1277,10 @@ ca:
           last_week: La darrera setmana
           no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte de participants.
           participants: Participants
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Podràs seleccionar filtres de taxonomia un cop creat el component.
     forms:
       errors:
         impersonate_user:

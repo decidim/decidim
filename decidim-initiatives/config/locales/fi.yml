@@ -111,8 +111,6 @@ fi:
         initiatives_menu:
           see_initiative: Näytä aloite
         initiatives_settings: Asetukset
-        initiatives_submenu:
-          info: Tietoa tästä aloitteesta
         initiatives_types: Aloitetyypit
         moderations: Moderoinnit
       models:
@@ -552,6 +550,7 @@ fi:
           recent: Viimeisimmät
           recently_published: Viimeisimmäksi julkaistut
         pending_initiatives:
+          description: Nämä aloitteet eivät ole vielä julkisia. Tarkista ne ja lähetä ne tekniseen validointiin, jotta ne voidaan julkaista.
           title: Luonnokset ja odottavat aloitteet
         print:
           address: Osoite

@@ -772,10 +772,10 @@ eu:
           amendment: Zuzenketak
           open: Zabaldu
           published: Argitaratua
-          related_to: Lotutako gaiak
+          related_to: Honekin lotuta
           search: Bilatu
           state: Egoera
-          withdrawn: Baztertu
+          withdrawn: Kendu
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
@@ -830,7 +830,7 @@ eu:
           published: Argitaratua
           withdrawn: Kendu
         update:
-          error: Arazo bat egon da zirriborro kolaboratiboa gordetzen.
+          error: Arazoak izan dira proposamenaren aurrebista gordetzean.
           success: Ziriboro kolaboratiboa ondo eguneratu da.
         wizard_aside:
           back_from_collaborative_draft: Itzuli zirriborro kolaboratzaileetara
@@ -982,7 +982,7 @@ eu:
           edit_proposal: Editatu
           estimated_cost: Gutxi gorabeherako kostua
           hidden_likes_count:
-            one: eta %{count} pertsona gehiago
+            one: eta pertsona %{count} gehiago
             other: eta %{count} pertsona gehiago
           link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
           link_to_collaborative_draft_text: Ikusi zirriborro kolaboratiboaren testua

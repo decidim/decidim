@@ -95,7 +95,6 @@ gl:
         new:
           import: Importar
           select: Selecciona que tipo de datos desexas importar
-          title: Importar xuntanza
       assembly_publications:
         create:
           error: Produciuse un erro ao publicar esta asemblea.

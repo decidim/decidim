@@ -55,7 +55,6 @@ uk:
           success: Успішно створено копію зустрічі.
         new:
           copy: Скопіювати
-          title: Створити копію зустрічі
     components:
       meetings:
         actions:
@@ -153,7 +152,6 @@ uk:
             non_user: Не чинний учасник
             select_user: Оберіть учасника
           index:
-            invite_attendee: Запросити учасника
             invites: Запрошення
         meeting_closes:
           edit:
@@ -184,6 +182,7 @@ uk:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
             invites: Запрошення
             reserved_slots_less_than: Має бути меншим або рівним %{count}
+            title: Реєстрації
           update:
             invalid: При спробі зберегти налаштування реєстрації сталася помилка.
             success: Налаштування реєстрації на зустріч успішно збережено.

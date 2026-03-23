@@ -64,7 +64,6 @@ gl:
           success: Reunión duplicada con éxito.
         new:
           copy: Copiar
-          title: Reunión duplicada
     components:
       meetings:
         actions:
@@ -183,7 +182,6 @@ gl:
             non_user: Usuario non existente
             select_user: Seleccionar usuario
           index:
-            invite_attendee: Invitar asistente
             invites: Invitacións
         meeting_closes:
           edit:
@@ -220,6 +218,7 @@ gl:
               one: Houbo un rexistro de %{count}.
               other: Houbo %{count} rexistros.
             reserved_slots_less_than: Debe ser inferior ou igual a %{count}
+            title: Rexistros
           update:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
             success: A configuración das inscricións da xuntanza gardouse correctamente.

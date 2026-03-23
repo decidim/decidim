@@ -56,7 +56,6 @@ sk:
           success: Duplicitné schôdzka úspešne.
         new:
           copy: kopírovať
-          title: Duplicitné schôdzka
     components:
       meetings:
         actions:
@@ -173,7 +172,6 @@ sk:
             non_user: Neexistujúca užívateľ
             select_user: Vyberte používateľa
           index:
-            invite_attendee: Pozvať účastníka
             invites: Pozvánky
         meeting_closes:
           edit:

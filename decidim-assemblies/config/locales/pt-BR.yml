@@ -106,8 +106,6 @@ pt-BR:
           public: Público
           published: Publicados
           unpublished: Despublicado
-        manage_trash:
-          title: Assembléias excluídas
         new:
           create: Criar
           title: Nova assembleia
@@ -122,7 +120,6 @@ pt-BR:
         new:
           duplicate: Duplicado
           select: Selecione quais dados você gostaria de duplicar
-          title: Duplicar assembléia
       assembly_imports:
         create:
           error: Ocorreu um erro ao importar esta assembleia.
@@ -130,7 +127,6 @@ pt-BR:
         new:
           import: Importar
           select: Selecione quais dados você gostaria de importar
-          title: Importar assembleia
       assembly_publications:
         create:
           error: Ocorreu um erro ao publicar esta assembleia.
@@ -145,7 +141,6 @@ pt-BR:
         destroy:
           success: Usuário removido com sucesso deste assembleia.
         edit:
-          title: Atualizar administrador da assembleia
           update: Atualizar
         index:
           assembly_admins_title: Administradores da assembleia
@@ -210,7 +205,6 @@ pt-BR:
           assemblies: Todas as assembléias
       titles:
         assemblies: Assembleias
-        assemblies_deleted: Assembleias excluídas
         assemblies_types: Tipos de assembleia
       tooltips:
         deleted_assemblies_info: Uma assembleia só pode ser excluída se o status for "Não publicada".

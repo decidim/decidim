@@ -66,6 +66,8 @@ eu:
           attributes:
             document:
               allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
+              empty: Dokumentua hutsik dago
+              invalid_json: JSON dokumentua ez da zuzena
     models:
       decidim/participatory_process_step_activated_event: Fasea aktibatuta
       decidim/participatory_process_step_changed_event: Pasartea aldatu da
@@ -162,7 +164,7 @@ eu:
         new:
           duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Bikoiztu partaidetza-prozesua
+          title: Bikoiztu prozesu parte-hartzaileak
       participatory_process_groups:
         destroy:
           error: Arazo bat izan da prozesu parte-hartzaile multzoa ezabatzean.
@@ -183,7 +185,7 @@ eu:
         new:
           import: Inportatu
           select: Hautatu zein datu inportatu nahi dituzun
-          title: Inportatu partaidetza-prozesua
+          title: Inportatu prozesu parte-hartzailea
       participatory_process_publications:
         create:
           error: Arazo bat egon da partaidetza-prozesua hau argitaratzean.
@@ -213,13 +215,13 @@ eu:
               Hemen utzi dugu behar dituzun CTAak egin ditzazun. <i>Ekintzaren ibilbidea</i> eta
               <i>Ekintza botoiaren</i> testuak hurrengo bertsioan ezabatuko dira.
             title: CTA zaharkituta
-          title: Editatu partaidetza-prozesuaren fasea
+          title: Editatu prozesu parte-hartzailearen fasea
           update: Eguneratu
         index:
           steps_title: Prozesuaren faseak
         new:
           create: Sortu
-          title: Prozesu partaidetza-prozesuaren beste fase bat
+          title: Prozesu parte-hartzailearen beste fase bat
         ordering:
           error: Arazo bat egon da partaidetza-prozesu honen faseak berrantolatzean.
         update:
@@ -232,13 +234,13 @@ eu:
         destroy:
           success: Administratzailea behar bezala kendu da partaidetza-prozesutik.
         edit:
-          title: Eguneratu partaidetza-prozesuaren administratzailea
+          title: Eguneratu prozesu parte-hartzailearen administratzailea
           update: Eguneratu
         index:
-          process_admins_title: Prozesu partaidetza-prozesuaren administratzaileak
+          process_admins_title: Prozesu parte-hartzailearen administratzaileak
         new:
           create: Sortu
-          title: Partaidetza-prozesuaren beste administratzaile bat
+          title: Prozesu parte-hartzailearen beste administratzaile bat
         update:
           error: Arazo bat egon da partaidetza-prozesu honetarako administratzaile bat eguneratzean.
           success: Administratzailea zuzen eguneratu da partaidetza-prozesu honetarako.
@@ -254,10 +256,10 @@ eu:
           published: Argitaratua
           unpublished: Argitaratu gabea
         manage_trash:
-          title: Ezabatutako partaidetza-prozesuak
+          title: Ezabatutako prozesu parte-hartzaileak
         new:
           create: Sortu
-          title: Beste partaidetza-prozesu bat
+          title: Beste prozesu parte-hartzaile bat
         update:
           error: Arazo bat egon da prozesu partaidetza-prozesu hau eguneratzean.
           success: Partaidetza-prozesua zuzen eguneratua.
@@ -276,7 +278,7 @@ eu:
         participatory_process_groups: Partaidetza-prozesuen taldeak
         participatory_process_types: Partaidetza-prozesu motak
         participatory_processes: Partaidetza-prozesuak
-        participatory_processes_deleted: Ezabatutako partaidetza-prozesuak
+        participatory_processes_deleted: Ezabatutako prozesu parte-hartzaileak
       tooltips:
         deleted_processes_info: Prozesu bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
       users:

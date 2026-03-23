@@ -283,7 +283,7 @@ eu:
           title: Editatu fitxategi erantsia
           update: Eguneratu
         index:
-          attachments_title: Fitxategi erantsia
+          attachments_title: Erantsitako fitxategiak
         new:
           create: Sortu fitxategi erantsia
           title: Beste fitxategi erantsi bat
@@ -576,7 +576,7 @@ eu:
         promotions:
           new:
             explanation: Kudeatutako parte-hartzaileak parte-hartzaile estandar mailara igo daitezke. Horrek esan nahi du aplikaziora gonbidatuak izanen direla eta ezingo direla berriro ere ordeztu. Parte-hartzaile gonbidatuak mezu elektroniko bat jasoko du gonbita onartzeko.
-            new_managed_user_promotion: Kudeatutako parte-hartzaileen beste maila-igoera bat
+            new_managed_user_promotion: Parte-hartzailearen beste maila-igoera bat kudeatuta
             promote: Sustatu
       menu:
         admin_log: Administratzaile jarduera-erregistroa
@@ -1277,6 +1277,10 @@ eu:
           last_week: Azken astea
           no_users_count_statistics_yet: Oraindik ez dago parte-hartzaileen zenbaketaren estatistikarik.
           participants: Parte-hartzaileak
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Taxonomia-iragazkiak hautatzea posible izango da osagaia sortu ondoren.
     forms:
       errors:
         impersonate_user:

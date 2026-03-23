@@ -23,6 +23,8 @@ ko:
           selected_at_null:
             label: 선택됨
     budgets:
+      actions:
+        new_project: 새 프로젝트
       admin:
         projects:
           create:

@@ -360,7 +360,7 @@ ja:
           text: 現在のユーザーのメールアドレス、名前、ニックネームで検索
         managed_user_name: 管理対象ユーザー
         solved: 解決済み
-        title: 確認の競合
+        title: 検証の競合
         transfer:
           email: Eメールアドレス
           error: 現在の参加者を管理対象の参加者に移行する際に問題が発生しました。
@@ -754,7 +754,7 @@ ja:
           title: ニュースレターテンプレート
           use_template: このテンプレートを使用
         show:
-          preview: 'テンプレートをプレビュー: %{template_name}'
+          preview: 'テンプレートのプレビュー: %{template_name}'
           use_template: このテンプレートを使用
       newsletters:
         confirm_recipients:
@@ -914,7 +914,7 @@ ja:
           up: 上へ
         form:
           add: 許可されたリストに追加
-          title: 許可された外部ドメインのリスト
+          title: 外部ドメインの許可リスト
       participatory_space_private_users:
         create:
           error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
@@ -1189,7 +1189,7 @@ ja:
           confirm_destroy: 'フィルター %{name} を削除してもよろしいですか？ 注意: このフィルタを使用しているリソース自体は影響を受けませんが、このフィルタへの参照は失われます。'
           destroy: 削除
           edit: 編集
-          internal_name: 内部ラベル
+          internal_name: 管理用ラベル
           name: ラベル
         update:
           error: タクソノミーフィルタの更新に問題がありました。
@@ -1197,10 +1197,10 @@ ja:
       taxonomy_filters_selector:
         new:
           add_new_items_html: 新しいフィルターや項目を設定する必要がある場合は、設定画面を通じて行うか、<a href="%{url}">こちら</a>をクリックしてください。
-          items_count: "{count}個の項目"
+          items_count: "%{count}個の項目"
           save: 保存
         show:
-          items_count: "{count}個の項目"
+          items_count: "%{count}個の項目"
           remove: 削除
         taxonomies_select:
           filters: フィルター
@@ -1221,7 +1221,7 @@ ja:
         areas: エリア
         authorization_workflows: 確認方法
         dashboard: ダッシュボード
-        edit_external_domains: 許可された外部ドメインのリスト
+        edit_external_domains: 外部ドメインの許可リスト
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
         menu: メニュー
@@ -1269,6 +1269,10 @@ ja:
           last_week: 直近1週間
           no_users_count_statistics_yet: 参加者数の統計データはまだありません。
           participants: 参加者
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: 分類フィルターの選択は、コンポーネントが作成された後に可能になります。
     forms:
       errors:
         impersonate_user:
@@ -1295,7 +1299,7 @@ ja:
               success: 参加者の報告を解除しました。
             unhide:
               failed: 'リソースの非表示を解除する際に問題が発生しました: %{errored}'
-              invalid:
+              invalid: モデレーションが選択されていません。
               success: リソースの非表示を解除しました。
             unreport:
               failed: 'リソースの報告を解除中に問題が発生しました: %{errored}'

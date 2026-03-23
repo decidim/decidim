@@ -109,7 +109,7 @@ es:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
           info: Acerca de este grupo de procesos
-          landing_page: Disposición de la página de aterrizaje
+          landing_page: Disposición de la página de inicio
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
@@ -117,7 +117,7 @@ es:
           attachments: Adjuntos
           components: Componentes
           info: Acerca de este proceso
-          landing_page: Disposición de la página de aterrizaje
+          landing_page: Disposición de la página de inicio
           moderations: Moderaciones
           private_users: Miembros
           process_admins: Administradoras del proceso
@@ -164,13 +164,11 @@ es:
         new:
           duplicate: Duplicar
           select: Selecciona qué datos quieres duplicar
-          title: Duplicar el proceso participativo
       participatory_process_groups:
         destroy:
           error: Se ha producido un error al eliminar el grupo de procesos participativos.
           success: Grupo de procesos participativos eliminado correctamente.
         edit:
-          title: Editar grupo de procesos
           update: Actualizar
         new:
           create: Crear
@@ -185,7 +183,6 @@ es:
         new:
           import: Importar
           select: Selecciona qué datos quieres importar
-          title: Importar proceso participativo
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -215,13 +212,11 @@ es:
               Lo hemos dejado aquí para que migres las CTAs que necesites. Los campos <i>Ruta del botón de acción</i> y
               <i>Texto del botón de acción</i> se eliminaran en la próxima versión.
             title: CTA obsoleto
-          title: Editar fase del proceso participativo
           update: Actualizar
         index:
           steps_title: Fases del proceso
         new:
           create: Crear
-          title: Nueva fase del proceso participativo
         ordering:
           error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
         update:
@@ -234,13 +229,9 @@ es:
         destroy:
           success: La administradora ha sido eliminada correctamente de este proceso participativo.
         edit:
-          title: Actualitzar administradora del proceso particiaptivo
           update: Actualizar
-        index:
-          process_admins_title: Administradoras del proceso participativo
         new:
           create: Crear
-          title: Nueva administradora del proceso participativo
         update:
           error: Se ha producido un error al actualizar una administradora para este proceso participativo.
           success: Administradora actualizada correctamente para este proceso participativo.
@@ -255,11 +246,8 @@ es:
           public: Público
           published: Publicada
           unpublished: Despublicado
-        manage_trash:
-          title: Procesos participativos eliminados
         new:
           create: Crear
-          title: Nuevo proceso participativo
         update:
           error: Se ha producido un error al actualizar este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
@@ -278,7 +266,6 @@ es:
         participatory_process_groups: Grupos de procesos participativos
         participatory_process_types: Tipos de procesos participativos
         participatory_processes: Procesos participativos
-        participatory_processes_deleted: Procesos participativos eliminados
       tooltips:
         deleted_processes_info: Un proceso solo se pueden eliminar si su estado es 'Despublicado'.
       users:

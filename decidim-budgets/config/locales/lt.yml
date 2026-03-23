@@ -36,6 +36,7 @@ lt:
       actions:
         edit: Redaguoti
         import: Importuoti pasiūlymus į projektus
+        new_project: Naujas projektas
         preview: Peržiūra
         send_voting_reminders: Siųsti balsavimo priminimus
         title: Veiksmai

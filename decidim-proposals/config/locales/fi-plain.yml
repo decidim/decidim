@@ -53,6 +53,7 @@ fi-pl:
         file: Tiedosto
       proposals_import:
         import_proposals: Tuo ehdotuksia
+        keep_answers: Säilytä tilat ja vastaukset ennallaan
         keep_authors: Säilytä alkuperäiset laatijat
     errors:
       models:
@@ -691,6 +692,7 @@ fi-pl:
             create: Tuo ehdotuksia
             no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
+            select_states: Tuo ainoastaan ehdotukset, joilla on nämä tilat. Jos yhtään tilaa ei ole valittuna, kaikki ehdotukset tuodaan.
             title: Tuo ehdotuksia toisesta komponentista
         proposals_merges:
           create:
@@ -770,10 +772,10 @@ fi-pl:
           amendment: Muutokset
           open: Avaa
           published: Julkaistu
-          related_to: Liittyy
-          search: Hae
+          related_to: Liittyy aiheeseen
+          search: Haku
           state: Tila
-          withdrawn: Peruttu
+          withdrawn: Peruutettu
         filters_small_view:
           close_modal: Sulje modaalinen
           filter: Rajaa
@@ -828,7 +830,7 @@ fi-pl:
           published: Julkaistu
           withdrawn: Peruutettu
         update:
-          error: Yhteistyöluonnoksen tallentamisessa on tapahtunut virheitä.
+          error: Ehdotusluonnoksen tallentamisessa tapahtui virheitä.
           success: Yhteistyöluonnos on päivitetty onnistuneesti.
         wizard_aside:
           back_from_collaborative_draft: Takaisin yhteistyöluonnoksiin

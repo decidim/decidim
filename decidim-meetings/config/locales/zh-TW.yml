@@ -111,7 +111,6 @@ zh-TW:
           success: 成功複製會議。
         new:
           copy: 複製
-          title: 複製會議
     components:
       meetings:
         actions:
@@ -251,7 +250,6 @@ zh-TW:
             non_user: 不存在的參與者。
             select_user: 選擇參與者
           index:
-            invite_attendee: 邀請的與會者
             invites: 邀請
             registrations_disabled: 你無法邀請參加者，因為註冊已被禁用。
         meeting_closes:

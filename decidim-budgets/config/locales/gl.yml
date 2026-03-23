@@ -30,6 +30,7 @@ gl:
       actions:
         edit: Editar
         import: Importa propostas a proxectos
+        new_project: Novo proxecto
         preview: Vista previa
         title: Accións
       admin:

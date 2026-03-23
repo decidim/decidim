@@ -459,7 +459,7 @@ pt-BR:
               other: Houve %{count} inscrições.
             reserved_slots_help: Deixe em 0 se você não tiver slots reservados.
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
-            title: Registros
+            title: Inscrições
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
@@ -802,6 +802,7 @@ pt-BR:
           follows_count: O número de seguir que o evento tem
           id: O identificador único do evento
           iframe_access_level: O nível de acesso iframe do evento
+          iframe_embed_type: O tipo de iframe incorporado na reunião
           latitude: A latitude do evento
           location: A localização do evento
           location_hints: Uma dica sobre a localização em que o evento está acontecendo

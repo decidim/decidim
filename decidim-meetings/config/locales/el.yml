@@ -113,7 +113,6 @@ el:
           success: Η σύσκεψη αντιγράφτηκε με επιτυχία.
         new:
           copy: Αντιγραφή
-          title: Διπλή σύσκεψη
     components:
       meetings:
         actions:
@@ -254,7 +253,6 @@ el:
             non_user: Ο συμμετέχων δεν υπάρχει
             select_user: Επιλέξτε συμμετέχοντα
           index:
-            invite_attendee: Πρόσκληση συμμετέχοντα
             invites: Προσκλήσεις
             registrations_disabled: Δεν μπορείτε να προσκαλέσετε έναν συμμετέχοντα επειδή οι εγγραφές είναι απενεργοποιημένες.
         meeting_closes:

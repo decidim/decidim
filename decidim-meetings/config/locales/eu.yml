@@ -146,7 +146,7 @@ eu:
           success: Topaketa zuzen bikoiztu da.
         new:
           copy: Kopiatu
-          title: Topaketa bikoiztu
+          title: Bikoiztu topaketa
       tooltips:
         cannot_close_meetings: Ezin da topaketa hau itxi parte-hartzaile batek sortu baitu
         cannot_duplicate_meetings: Ezin da topaketa hau bikoiztu parte-hartzaile batek sortu baitu
@@ -354,7 +354,7 @@ eu:
             non_user: Parte-hartzailea ez dago
             select_user: Hautatu parte-hartzailea
           index:
-            invite_attendee: Gonbidatu
+            invite_attendee: Gonbidatu laguntzailea
             invites: Gonbidapenak
             registrations_disabled: Ezin duzu inor gonbidatu izen-emateak desgaituta daudelako.
         meeting_closes:

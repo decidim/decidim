@@ -129,11 +129,10 @@ pt:
         destroy:
           success: Grupo do processo participativo eliminado corretamente.
         edit:
-          title: Editar grupo do processo
           update: Atualizar
         new:
           create: Criar
-          title: Novo grupo do processo
+          title: Novo grupo de processo
         update:
           error: Ocorreu um problema ao atualizar este grupo do processo participativo.
           success: Grupo do processo participativo atualizado corretamente.
@@ -144,7 +143,6 @@ pt:
         new:
           import: Importar
           select: Selecione os dados que pretende importar
-          title: Importar processo participativo
       participatory_process_publications:
         create:
           error: Ocorreu um problema ao publicar este processo participativo.
@@ -164,13 +162,11 @@ pt:
         destroy:
           success: Fase do processo participativo eliminada corretamente.
         edit:
-          title: Editar a fase do processo participativo
           update: Atualizar
         index:
           steps_title: Fases
         new:
           create: Criar
-          title: Nova fase de processo participativo
         ordering:
           error: Ocorreu um problema ao reordenar estas fases do processo participativo.
         update:
@@ -183,13 +179,9 @@ pt:
         destroy:
           success: Administrador removido corretamente deste processo participativo.
         edit:
-          title: Atualizar administrador do processo participativo
           update: Atualizar
-        index:
-          process_admins_title: Administradores do processo participativo
         new:
           create: Criar
-          title: Novo administrador do processo participativo
         update:
           error: Ocorreu um problema ao atualizar um administrador para este processo participativo.
           success: Administrador atualizado corretamente neste processo participativo.
@@ -205,7 +197,6 @@ pt:
           published: Publicado
         new:
           create: Criar
-          title: Novo processo participativo
         update:
           error: Ocorreu um problema ao atualizar este processo participativo.
           success: Processo participativo atualizado corretamente.

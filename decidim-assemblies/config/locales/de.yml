@@ -104,8 +104,6 @@ de:
           public: Öffentlich
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
-        manage_trash:
-          title: Gelöschte Gremien
         new:
           create: Erstellen
           title: Neues Gremium
@@ -120,7 +118,6 @@ de:
         new:
           duplicate: Duplizieren
           select: Wählen Sie, welche Daten Sie duplizieren möchten
-          title: Dupliziertes Gremium
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
@@ -128,7 +125,6 @@ de:
         new:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
-          title: Gremium importieren
       assembly_publications:
         create:
           error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
@@ -143,13 +139,12 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
-          title: Gremienadmin aktualisieren
           update: Aktualisieren
         index:
           assembly_admins_title: Assembly Benutzer
         new:
           create: Erstellen
-          title: Neuer Gremienadmin
+          title: Neuer Gremium-Admin
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
@@ -208,7 +203,6 @@ de:
           assemblies: Alle Gremien
       titles:
         assemblies: Gremien
-        assemblies_deleted: Gelöschte Gremien
         assemblies_types: Versammlungstypen
       tooltips:
         deleted_assemblies_info: Ein Gremium kann nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.

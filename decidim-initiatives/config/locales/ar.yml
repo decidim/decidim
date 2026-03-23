@@ -61,8 +61,6 @@ ar:
         information: معلومات
         initiatives: المبادرات
         initiatives_settings: الإعدادات
-        initiatives_submenu:
-          info: عن هذه المبادرة
         initiatives_types: أنواع المبادرة
         moderations: الإشراف
       models:

@@ -82,7 +82,6 @@ nl:
           success: Vergadering succesvol gedupliceerd.
         new:
           copy: Kopiëren
-          title: Event dupliceren
     components:
       meetings:
         actions:
@@ -212,7 +211,6 @@ nl:
             non_user: Niet-bestaande gebruiker
             select_user: Selecteer gebruiker
           index:
-            invite_attendee: Nodig een deelnemer uit
             invites: Uitnodigingen
         meeting_closes:
           edit:
@@ -265,7 +263,7 @@ nl:
               one: Er is %{count} registratie geweest.
               other: Er zijn %{count} registraties geweest.
             reserved_slots_less_than: Moet kleiner of gelijk zijn aan %{count}
-            title: Inschrijvingen
+            title: registraties
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.

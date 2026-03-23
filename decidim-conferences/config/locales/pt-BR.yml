@@ -121,13 +121,12 @@ pt-BR:
         destroy:
           success: Alto-falante excluído com sucesso para esta conferência.
         edit:
-          title: Atualize o orador da conferência
+          title: Atualizar palestrante de conferência
           update: Atualizar
         index:
-          conference_speakers_title: Alto-falantes da conferência
+          conference_speakers_title: Palestrantes da conferência
         new:
           create: Crio
-          title: Novo orador da conferência
         publish:
           invalid: Ocorreu um problema ao publicar esta reunião.
           success: Alto-falante excluído com sucesso para esta conferência.
@@ -144,13 +143,12 @@ pt-BR:
         destroy:
           success: Usuário removido com sucesso desta conferência.
         edit:
-          title: Atualize o usuário da conferência
           update: Atualizar
         index:
           conference_admins_title: Administradores da conferência
         new:
           create: Crio
-          title: Novo administrador da conferência
+          title: Novo usuário da conferência
         update:
           error: Houve um erro ao atualizar um usuário para esta conferência.
           success: Usuário atualizado com sucesso para esta conferência.
@@ -173,8 +171,6 @@ pt-BR:
         index:
           published: Publicados
           unpublished: Despublicado
-        manage_trash:
-          title: Conferências excluídas
         new:
           create: Crio
           title: Nova conferência
@@ -192,7 +188,6 @@ pt-BR:
         destroy:
           success: Link de mídia excluído com sucesso.
         edit:
-          title: Atualizar link de mídia
           update: Atualizar
         index:
           media_links_title: Links de mídia
@@ -213,7 +208,6 @@ pt-BR:
           conference_invites: Convites
           conference_speakers: caixas de som
           diploma: Certificado de participação
-          info: Links sobre esta conferência
           media_links: Links de mídia
           moderations: Moderações
           partners: Parceiros
@@ -281,7 +275,6 @@ pt-BR:
         destroy:
           success: Alto-falante excluído com sucesso para esta conferência.
         edit:
-          title: Atualizar parceiro
           update: Atualizar
         new:
           create: Criar
@@ -303,7 +296,6 @@ pt-BR:
         destroy:
           success: Tipo de registro removido com sucesso desta conferência.
         edit:
-          title: Atualizar tipo de registro
           update: Atualizar
         new:
           create: Crio
@@ -316,7 +308,6 @@ pt-BR:
           conferences: Todas as conferências
       titles:
         conferences: Conferências
-        conferences_deleted: Conferências excluídas
       tooltips:
         deleted_conferences_info: As conferências só podem ser excluídas se o status for "Não publicado".
     admin_log:
@@ -381,7 +372,7 @@ pt-BR:
           new:
             explanation: O usuário será convidado a participar de uma conferência. Se o email não estiver registrado, ele será convidado para a organização também.
             invite: Convite
-            new_invite: Convidar Usuário
+            new_invite: Convidar participante
         conference_registrations:
           index:
             registrations: Inscrições

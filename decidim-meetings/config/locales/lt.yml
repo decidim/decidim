@@ -122,7 +122,6 @@ lt:
           success: Susitikimas dubliuotas.
         new:
           copy: Kopijuoti
-          title: Dubliuoti susirinkimą
     components:
       meetings:
         actions:
@@ -265,7 +264,6 @@ lt:
             non_user: Neegzistuojantis dalyvis
             select_user: Pasirinkti dalyvį
           index:
-            invite_attendee: Kviesti dalyvį
             invites: Pakvietimai
             registrations_disabled: Negalite kviesti dalyvio, nes registracija išjungta.
         meeting_closes:

@@ -82,7 +82,6 @@ hu:
           success: Találkozó duplikálása sikeres.
         new:
           copy: Másolás
-          title: Találkozó duplikálása
     components:
       meetings:
         actions:
@@ -214,7 +213,6 @@ hu:
             non_user: Nemlétező felhasználó
             select_user: Felhasználó kiválasztása
           index:
-            invite_attendee: Résztvevő meghívása
             invites: Meghívottak
         meeting_closes:
           edit:

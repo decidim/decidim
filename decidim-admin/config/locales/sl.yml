@@ -137,3 +137,5 @@ sl:
         new:
           create: Ustvari tip področja
           title: Novo področje
+      titles:
+        scope_types: Tipi področja

@@ -108,8 +108,6 @@ hu:
           success: A hangszóró sikeresen törölve lett a konferencia számára.
         edit:
           update: frissítés
-        index:
-          conference_speakers_title: Konferencia hangszórók
         new:
           create: Teremt
         update:
@@ -127,6 +125,7 @@ hu:
           conference_admins_title: Konferencia adminisztrátorok
         new:
           create: Teremt
+          title: Új konferencia admin
         update:
           error: Hiba történt a konferencia felhasználójának frissítéséhez.
           success: A felhasználó sikeresen frissítette ezt a konferenciát.
@@ -146,6 +145,7 @@ hu:
           unpublished: Nem publikált
         new:
           create: Teremt
+          title: Új konferencia
         update:
           error: Hiba történt a konferencia frissítésekor.
           success: A konferencia sikeresen frissült.
@@ -168,7 +168,6 @@ hu:
           conference_admins: Konferencia adminisztrátorok
           conference_invites: Meghívottak
           conference_speakers: Előadók
-          info: Erről a konferenciáról
           moderations: moderálások
           partners: Partnerek
           registrations: Regisztrációk
@@ -249,7 +248,7 @@ hu:
           update: Frissítés
         new:
           create: Létrehozás
-          title: Új regisztrációs típus
+          title: Új regisztrációtípus
         update:
           error: Hiba történt a konferencia regisztrációs típusának frissítése során.
           success: A regisztrációs típus sikeresen frissült a konferencia számára.
@@ -312,7 +311,7 @@ hu:
           new:
             explanation: A résztvevő meghívást kap egy konferenciára. Ha az e-mail cím nincs regisztrálva, akkor a szervezethez is meghívást kap.
             invite: Meghívás
-            new_invite: Felhasználó meghívása
+            new_invite: Hívja meg a résztvevőt
         conference_registrations:
           index:
             registrations: regisztrációk

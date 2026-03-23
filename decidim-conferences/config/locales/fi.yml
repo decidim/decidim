@@ -102,7 +102,6 @@ fi:
         new:
           duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi konferenssi
       conference_publications:
         create:
           error: Konferenssin julkaiseminen epäonnistui.
@@ -121,13 +120,9 @@ fi:
         destroy:
           success: Puhujan poisto konferenssista onnistui.
         edit:
-          title: Päivitä konferenssin puhujaa
           update: Päivitä
-        index:
-          conference_speakers_title: Konferenssin puhujat
         new:
           create: Luo
-          title: Uusi konferenssin puhuja
         publish:
           invalid: Puhujan julkaiseminen epäonnistui.
           success: Konferenssin puhujan julkaiseminen onnistui.
@@ -144,7 +139,6 @@ fi:
         destroy:
           success: Hallintakäyttäjä poisto konferenssista onnistui.
         edit:
-          title: Päivitä konferenssin hallintakäyttäjää
           update: Päivitä
         index:
           conference_admins_title: Konferenssin ylläpitäjät
@@ -173,8 +167,6 @@ fi:
         index:
           published: Julkaistu
           unpublished: Julkaisematon
-        manage_trash:
-          title: Poistetut konferenssit
         new:
           create: Luo
           title: Uusi konferenssi
@@ -192,7 +184,6 @@ fi:
         destroy:
           success: Medialinkin poisto onnistui.
         edit:
-          title: Päivitä medialinkkiä
           update: Päivitä
         index:
           media_links_title: Medialinkit
@@ -213,7 +204,6 @@ fi:
           conference_invites: Kutsut
           conference_speakers: Puhujat
           diploma: Läsnäolotodistus
-          info: Tietoja tästä konferenssista
           media_links: Medialinkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
@@ -281,7 +271,6 @@ fi:
         destroy:
           success: Yhteistyökumppanin poisto tästä konferenssista onnistui.
         edit:
-          title: Päivitä yhteistyökumppania
           update: Päivitä
         new:
           create: Luo
@@ -303,7 +292,6 @@ fi:
         destroy:
           success: Ilmoittautumistyypin poisto onnistui.
         edit:
-          title: Päivitä ilmoittautumistyyppiä
           update: Päivitä
         new:
           create: Luo
@@ -316,7 +304,6 @@ fi:
           conferences: Kaikki konferenssit
       titles:
         conferences: Konferenssit
-        conferences_deleted: Poistetut konferenssit
       tooltips:
         deleted_conferences_info: Konferenssi voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
     admin_log:

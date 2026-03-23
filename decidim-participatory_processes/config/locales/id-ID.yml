@@ -113,7 +113,6 @@ id:
         destroy:
           success: Kelompok proses partisipatif berhasil dihapus.
         edit:
-          title: Edit grup proses
           update: Memperbarui
         new:
           create: Membuat
@@ -140,13 +139,11 @@ id:
         destroy:
           success: Langkah proses partisipatif berhasil dihapus.
         edit:
-          title: Edit langkah proses partisipatif
           update: Memperbarui
         index:
           steps_title: Tangga
         new:
           create: Membuat
-          title: Langkah proses partisipatif baru
         ordering:
           error: Ada kesalahan saat menata ulang langkah-langkah proses partisipatif ini.
         update:
@@ -160,8 +157,6 @@ id:
           success: Pengguna berhasil dihapus dari proses partisipatif ini.
         edit:
           update: Memperbarui
-        index:
-          process_admins_title: Pengguna proses partisipatif
         new:
           create: Membuat
         update:
@@ -179,7 +174,6 @@ id:
           published: Diterbitkan
         new:
           create: Membuat
-          title: Proses partisipatif baru
         update:
           error: Ada kesalahan saat memperbarui proses partisipatif ini.
           success: Proses partisipatif berhasil diperbarui.

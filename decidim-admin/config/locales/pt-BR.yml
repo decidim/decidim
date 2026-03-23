@@ -360,7 +360,6 @@ pt-BR:
           text: Pesquisar por email, nome ou apelido do usuário atual
         managed_user_name: Usuário gerenciado
         solved: Resolvido
-        title: Conflitos de verificação
         transfer:
           email: E-mail
           error: Ocorreu um erro ao transferir o participante atual para o participante gerenciado.
@@ -1224,11 +1223,10 @@ pt-BR:
           none: Nenhum
           title: Novo item em %{taxonomy}
       titles:
-        admin_log: Log de administração
+        admin_log: Log do Admin
         area_types: Tipos de área
         areas: Áreas
         authorization_workflows: Métodos de verificação
-        dashboard: painel de controle
         edit_external_domains: Lista de domínios externos permitidos
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
@@ -1236,7 +1234,7 @@ pt-BR:
         page_topics: Tópicos
         pages: Páginas
         panel: Administrador
-        participants: Comercial
+        participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         statistics: Estatísticas
@@ -1277,6 +1275,10 @@ pt-BR:
           last_week: Última semana
           no_users_count_statistics_yet: Ainda não há nenhuma estatística de participantes.
           participants: Participantes
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Selecionar filtros de taxonomia será possível após a criação do componente.
     forms:
       errors:
         impersonate_user:

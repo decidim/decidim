@@ -152,7 +152,6 @@ pl:
         destroy:
           success: Grupa procesu partycypacyjnego została usunięta.
         edit:
-          title: Edytuj grupę procesu
           update: Aktualizuj
         new:
           create: Utwórz
@@ -167,7 +166,6 @@ pl:
         new:
           import: Importuj
           select: Wybierz dane, które chcesz zaimportować
-          title: Importuj proces partycypacyjny
       participatory_process_publications:
         create:
           error: Wystąpił błąd podczas publikowania tego procesu partycypacyjnego.
@@ -197,13 +195,11 @@ pl:
               Zostawiliśmy to tutaj, aby można było dokonać potrzebnych migracji CTA. Pola <i>Ścieżka CTA</i>
               i <i>Tekst CTA</i> zostaną usunięte w następnej wersji.
             title: Przestarzałe CTA
-          title: Edytuj etap procesu partycypacyjnego
           update: Aktualizuj
         index:
           steps_title: Etapy
         new:
           create: Utwórz
-          title: Nowy etap procesu partycypacyjnego
         ordering:
           error: Wystąpił błąd podczas zmiany kolejności etapów procesu partycypacyjnego.
         update:
@@ -216,13 +212,9 @@ pl:
         destroy:
           success: Administrator został usunięty z tego procesu partycypacyjnego.
         edit:
-          title: Aktualizuj administratora procesu partycypacyjnego
           update: Aktualizuj
-        index:
-          process_admins_title: Administratorzy procesu partycypacyjnego
         new:
           create: Utwórz
-          title: Nowy administrator procesu partycypacyjnego
         update:
           error: Wystąpił błąd podczas aktualizacji administratora procesu partycypacyjnego.
           success: Administrator procesu partycypacyjnego został zaktualizowany.
@@ -239,7 +231,6 @@ pl:
           unpublished: Nieopublikowany
         new:
           create: Utwórz
-          title: Nowy proces partycypacyjny
         update:
           error: Wystąpił błąd podczas aktualizowania tego procesu partycypacyjnego.
           success: Proces partycypacyjny został zaktualizowany.
@@ -248,7 +239,7 @@ pl:
           error: Podczas tworzenia nowej grupy procesu partycypacyjnego wystąpił błąd.
           success: Grupa procesu partycypacyjnego została utworzona.
       titles:
-        participatory_process_groups: Grupy procesu partycypacyjnego
+        participatory_process_groups: Uczestniczące grupy procesów
         participatory_process_types: Typy procesów partycypacyjnych
         participatory_processes: Procesy partycypacyjne
       users:

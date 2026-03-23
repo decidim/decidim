@@ -160,6 +160,9 @@ zh-TW:
         admin:
           proposal_note_created:
             email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
+        coauthor_invited:
+          actions:
+            accept: 接受
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} 已經被接受成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。'
           email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
@@ -473,7 +476,7 @@ zh-TW:
         states:
           open: 開啟
           published: 已發佈
-          withdrawn: 撤回
+          withdrawn: 已撤回
         update:
           error: 在儲存提案時出現問題
           success: 協作草稿更新成功。
@@ -567,6 +570,8 @@ zh-TW:
           answer: 回答
           changes_at_title: 修正案 "%{title}"
           estimated_cost: 預估成本
+          hidden_likes_count:
+            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
           link_to_collaborative_draft_help_text: 這個提案是由協作草稿所產生的。請查看歷史記錄。
           link_to_collaborative_draft_text: 查看協作草稿
           link_to_promoted_emendation_help_text: 這份提案是一項推動性的修正案

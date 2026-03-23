@@ -59,8 +59,6 @@ lv:
           success: Konferences runātājs ir veiksmīgi izdzēsts.
         edit:
           update: Atjaunināt
-        index:
-          conference_speakers_title: Konferences runātāji
         new:
           create: Izveidot
         update:
@@ -74,6 +72,8 @@ lv:
           success: Konferences administrators ir veiksmīgi noņemts.
         edit:
           update: Atjaunināt
+        index:
+          conference_admins_title: Konferences administratori
         new:
           create: Izveidot
         update:
@@ -173,7 +173,6 @@ lv:
           update: Atjaunināt
         new:
           create: Izveidot
-          title: Jauns partneris
         update:
           error: Šīs konferences partnera atjaunināšanas laikā radās problēma.
           success: Konferences partneris ir veiksmīgi atjaunināts.
@@ -194,7 +193,6 @@ lv:
           update: Atjaunināt
         new:
           create: Izveidot
-          title: Jauns reģistrācijas veids
         update:
           error: Šīs konferences reģistrācijas veida pievienošanas laikā radās problēma.
           success: Konferences reģistrācijas veids ir veiksmīgi atjaunināts.

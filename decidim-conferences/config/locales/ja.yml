@@ -98,7 +98,7 @@ ja:
       conference_duplicates:
         new:
           duplicate: 複製
-          select:
+          select: 複製したいデータを選択してください
           title: カンファレンスを複製
       conference_publications:
         create:
@@ -319,6 +319,7 @@ ja:
     admin_log:
       conference:
         create: "%{user_name} が %{resource_name} カンファレンスを作成しました"
+        duplicate: "%{user_name} が %{resource_name} カンファレンスを複製しました"
         publish: "%{user_name} が %{resource_name} カンファレンスを公開しました"
         restore: "%{user_name} が %{resource_name} カンファレンスを復元しました"
         send_conference_diplomas: "%{user_name} が %{resource_name} カンファレンスに出席証明書を送信しました"

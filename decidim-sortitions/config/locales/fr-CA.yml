@@ -75,6 +75,7 @@ fr-CA:
           form:
             all_taxonomies: Toutes les taxonomies
             select_proposal_component: Sélectionnez un ensemble de propositions
+            select_taxonomies: proposition
           index:
             title: Tirages au sort
           new:

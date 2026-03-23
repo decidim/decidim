@@ -157,6 +157,9 @@ pt:
         admin:
           proposal_note_created:
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Aceitar
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} foi aceite para aceder como contribuidor de %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceite <strong>para aceder como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
@@ -367,14 +370,14 @@ pt:
         create:
           success: Rascunho colaborativo criado corretamente.
         edit:
-          back: Retroceder
+          back: Voltar
           send: Enviar
           title: Editar rascunho colaborativo
         filters:
           all: Todos
           amendment: Modificações
           open: Abrir
-          published: Publicados
+          published: Publicado
           related_to: Relacionado com
           search: Pesquisar
           state: Estado
@@ -511,6 +514,9 @@ pt:
           answer: Responder
           changes_at_title: Modificação a "%{title}"
           estimated_cost: Custo estimado
+          hidden_likes_count:
+            one: e mais %{count} pessoa
+            other: e mais %{count} pessoas
           link_to_collaborative_draft_help_text: Esta proposta é o resultado de um rascunho colaborativo. Reveja o histórico
           link_to_collaborative_draft_text: Ver o rascunho colaborativo
           link_to_promoted_emendation_help_text: Esta proposta é uma correção promovida

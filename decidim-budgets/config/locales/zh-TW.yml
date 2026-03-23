@@ -33,6 +33,7 @@ zh-TW:
       actions:
         edit: 編輯
         import: 將提案匯入專案
+        new_project: 新專案
         preview: 預覽
         send_voting_reminders: 發送投票提醒
         title: 操作

@@ -150,8 +150,6 @@ sk:
         edit:
           title: Upraviť priečinok
           update: Aktualizovať
-        index:
-          attachment_collections_title: Priečinky s prílohami
         new:
           create: Vytvoriť
           title: Nový priečinok
@@ -167,8 +165,6 @@ sk:
         edit:
           title: Upraviť prílohu
           update: Aktualizovať
-        index:
-          attachments_title: Prílohy
         new:
           create: Vytvoriť prílohu
           title: Nová príloha
@@ -206,7 +202,6 @@ sk:
           title: 'Pridať súčasť: %{name}'
         publish:
           success: Súčasť bola úspešne publikovaná.
-        title: Súčasti
         unpublish:
           success: Publikácia súčasti bola úspešne zrušená.
         update:
@@ -281,7 +276,6 @@ sk:
         promotions:
           new:
             explanation: Spravovaní účastníci môžu byť povýšení na štandardných účastníkov. To znamená, že budú pozvaní do aplikácie, a už ich nebudete môcť spravovať. Pozvaný účastník obdrží e-mail s Vašou pozvánkou.
-            new_managed_user_promotion: Povýšenie nového spravovaného účastníka
             promote: Povýšiť
       menu:
         admin_log: Záznam aktivity administrátora
@@ -372,7 +366,6 @@ sk:
           title: Šablóny spravodaja
           use_template: Použiť túto šablónu
         show:
-          preview: 'Ukážka šablóny: %{template_name}'
           use_template: Použiť túto šablónu
       newsletters:
         create:
@@ -544,15 +537,13 @@ sk:
         update:
           error: Pri aktualizácii stránky nastala chyba.
       titles:
-        admin_log: Záznam činnosti admina
         area_types: Typy oblastí
         areas: Oblasti
         authorization_workflows: Metódy overovania
-        dashboard: Hlavný panel
-        impersonatable_users: Spravovateľní účastníci
         impersonations: Správa účastníkov
+        pages: Stránky
         participants: Účastníci
-        scope_types: Typy rozsahov
+        scope_types: Typy rozsahu
         scopes: Rozsahy
       users:
         create:

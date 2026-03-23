@@ -168,7 +168,7 @@ fr:
           error: Une erreur s'est produite lors de la suppression du groupe de concertations.
           success: Groupe de concertations supprimé avec succès.
         edit:
-          title: Modifier le groupe de concertations
+          title: Modifier le groupe de processus
           update: Mettre à jour
         new:
           create: Créer
@@ -183,7 +183,7 @@ fr:
         new:
           import: Importer
           select: Sélectionnez les données que vous souhaitez importer
-          title: Importer une concertation
+          title: Importer un processus participatif
       participatory_process_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette concertation.
@@ -212,13 +212,13 @@ fr:
               Cela est maintenant fait via la <b>page d'accueil</b> de la concertation, en utilisant le bloc de contenu<b>Hero et image</b>.
               Nous l'avons laissé ici pour migrer les boutons d'actions dont vous avez besoin. Les champs <i>Chemin d'appel à l'action</i> et <i>Texte d'appel à l'action</i> seront supprimés dans une prochaine version.
             title: Bouton d'action obsolète
-          title: Modifier l'étape de la concertation
+          title: Modifier l'étape du processus participatif
           update: Mettre à jour
         index:
           steps_title: Étapes
         new:
           create: Créer
-          title: Nouvelle étape de la concertation
+          title: Nouvelle étape du processus participatif
         ordering:
           error: Une erreur s'est produite lors de la réorganisation des étapes de la concertation.
         update:
@@ -231,13 +231,9 @@ fr:
         destroy:
           success: Utilisateur supprimé avec succès de cette concertation.
         edit:
-          title: Mettre à jour l'administrateur de la concertation
           update: Mettre à jour
-        index:
-          process_admins_title: Administrateurs de la concertation
         new:
           create: Créer
-          title: Nouvel administrateur de la concertation
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette concertation.
           success: L'utilisateur a été mis à jour avec succès pour cette concertation.
@@ -256,7 +252,7 @@ fr:
           title: Processus participatifs supprimés
         new:
           create: Créer
-          title: Nouvelle concertation
+          title: Nouveau processus participatif
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette concertation.
           success: Concertation mise à jour avec succès.

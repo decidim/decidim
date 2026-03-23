@@ -255,7 +255,7 @@ eu:
               error: Egiaztapena ez dator bat. Mesedez, saiatu berriro edo ukatu egiaztapena, parte-hartzaileak aldatu dezan.
               success: Parte-hartzailea zuzen egiaztatua.
             new:
-              introduce_user_data: Idatzi datuak irudian
+              introduce_user_data: Idatzi datua irudian
               reject: Ukatu
               verify: Ziurtatu
           offline_confirmations:

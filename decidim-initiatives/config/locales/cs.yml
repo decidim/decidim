@@ -117,8 +117,6 @@ cs:
         initiatives_menu:
           see_initiative: Zobrazit iniciativu
         initiatives_settings: Nastavení
-        initiatives_submenu:
-          info: O této iniciativě
         initiatives_types: Typy iniciativ
         moderations: Moderování
       models:

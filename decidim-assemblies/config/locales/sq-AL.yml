@@ -98,7 +98,6 @@ sq:
         new:
           import: Importo
           select: Zgjidh të dhënat që dëshiron të importosh
-          title: Importo asamblenë
       assembly_publications:
         create:
           error: Ndodhi një gabim gjatë publikimit të asamblesë.
@@ -113,13 +112,12 @@ sq:
         destroy:
           success: Administratori i asamblesë u hoq me sukses.
         edit:
-          title: Përditëso administratorin e asamblesë
           update: Përditëso
         index:
           assembly_admins_title: Administratorët e asamblesë
         new:
           create: Krijo
-          title: Administrator i ri i asamblesë
+          title: Administrator i ri asambleje
         update:
           error: Ndodhi një gabim gjatë përditësimit të administratorit të asamblesë.
           success: Administratori i asamblesë u përditësua me sukses.
@@ -141,7 +139,6 @@ sq:
           components: Komponentet
           info: Rreth asamblesë
           moderations: Moderimet
-          private_users: Anëtarët
           see_assembly: Shiko asamblenë
       models:
         assembly:
@@ -250,9 +247,6 @@ sq:
           type: Tipi
         show:
           title: Rreth asamblesë
-      assembly_members:
-        index:
-          members: Anëtarët
       content_blocks:
         children_assemblies:
           name: Asambletë
@@ -294,6 +288,3 @@ sq:
         duration: Kohëzgjatja
         private_space: Kjo është asamble private
         social_networks_title: Vizito asamblenë në
-    assembly_members:
-      index:
-        title: Anëtarët

@@ -180,6 +180,9 @@ ar:
         admin:
           proposal_note_created:
             email_subject: ترك شخص ملاحظة على الاقتراح %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: قبول
         collaborative_draft_access_accepted:
           email_intro: 'تم قبول %{requester_name} لأن يكون مسجلاً كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: لقد تلقيت هذا الإشعار لأنك مساهم مع <a href="%{resource_url}">%{resource_title}</a>.
@@ -431,7 +434,7 @@ ar:
           all: الكل
           amendment: تعديلات
           open: افتح
-          published: نشرت
+          published: تم نشره
           related_to: متعلق ب
           search: بحث
           state: الحالة
@@ -489,7 +492,7 @@ ar:
           withdraw: سحب المشروع
         states:
           open: افتح
-          published: نشرت
+          published: تم نشره
           withdrawn: سحب
         update:
           error: حدثت مشكلة في حفظ المسودة التعاونية.
@@ -592,6 +595,13 @@ ar:
           answer: إجابة
           changes_at_title: تعديل على "%{title}"
           estimated_cost: التكلفة التقديرية
+          hidden_likes_count:
+            zero: و %{count} المزيد من الناس
+            one: و %{count} شخص آخر
+            two: و %{count} المزيد من الناس
+            few: و %{count} المزيد من الناس
+            many: و %{count} المزيد من الناس
+            other: و %{count} المزيد من الناس
           link_to_collaborative_draft_help_text: هذا الاقتراح هو نتيجة لمشروع تعاوني. مراجعة التاريخ
           link_to_collaborative_draft_text: انظر المسودة التعاونية
           link_to_promoted_emendation_help_text: هذا الاقتراح عبارة عن تعديل مروج له

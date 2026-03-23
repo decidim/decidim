@@ -113,7 +113,6 @@ lt:
         new:
           import: Importuoti
           select: Pasirinkite, kuriuos duomenis norėtumėte importuoti
-          title: Importuoti asamblėją
       assembly_publications:
         create:
           error: Skelbiant šią asamblėją iškilo problema.

@@ -50,7 +50,7 @@ ca-IT:
             description: Descripció
             ends_at: Respostes acceptades fins a
             ends_at_help: Deixar en blanc si no hi ha cap data específica
-            starts_at: Respostes acceptades fins a
+            starts_at: Respostes acceptades des de
             starts_at_help: Deixar en blanc si no hi ha cap data específica
             tos: Termes del servei
         questionnaires:

@@ -102,7 +102,6 @@ fr-CA:
         new:
           duplicate: Dupliquer
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer la conférence
       conference_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette conférence.
@@ -121,13 +120,9 @@ fr-CA:
         destroy:
           success: Conférencier supprimé avec succès pour cette conférence.
         edit:
-          title: Mettre à jour le conférencier
           update: Mettre à jour
-        index:
-          conference_speakers_title: Conférenciers
         new:
           create: Créer
-          title: Nouveau conférencier
         publish:
           invalid: Il y a eu un problème lors de la publication de cet intervenant.
           success: L'intervenant de la conférence a été publié avec succès.
@@ -192,7 +187,6 @@ fr-CA:
         destroy:
           success: Lien média supprimé avec succès.
         edit:
-          title: Mettre à jour le lien média
           update: Mettre à jour
         index:
           media_links_title: Liens média
@@ -303,7 +297,6 @@ fr-CA:
         destroy:
           success: Le type d'inscription a bien été supprimé de cette conférence.
         edit:
-          title: Mettre à jour le type d'inscription
           update: Mettre à jour
         new:
           create: Créer
@@ -322,6 +315,7 @@ fr-CA:
     admin_log:
       conference:
         create: "%{user_name} créé la %{resource_name} conférence"
+        duplicate: "%{user_name} a dupliqué la conférence %{resource_name}"
         publish: "%{user_name} publication la %{resource_name} conférence"
         restore: "%{user_name} a restauré la conférence %{resource_name}"
         send_conference_diplomas: "%{user_name} certificats de présence envoyés aux %{resource_name} participants à la conférence"
@@ -377,11 +371,11 @@ fr-CA:
             select_user: Sélectionnez l'utilisateur
           index:
             invite_attendee: Inviter un participant
-            invites: Invite
+            invites: Invitations
           new:
             explanation: Le participant sera invité à se joindre à une conférence. Si son adresse électronique n'est pas enregistrée, il sera également invité à s'inscrire sur la plateforme.
             invite: Inviter
-            new_invite: Inviter un utilisateur
+            new_invite: Inviter un participant
         conference_registrations:
           index:
             registrations: Inscriptions

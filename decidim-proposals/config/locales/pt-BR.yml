@@ -761,7 +761,7 @@ pt-BR:
           success: Rascunho colaborativo criado com sucesso.
         edit:
           attachment_legend: Adicionar um documento ou uma imagem
-          back: Costas
+          back: Voltar
           send: Enviar
           title: Editar rascunho colaborativo
         empty: Ainda não há rascunhos colaborativos
@@ -770,7 +770,7 @@ pt-BR:
           all: Todos
           amendment: Emendas
           open: Aberto
-          published: Publicados
+          published: Publicado
           related_to: Relacionado a
           search: Pesquisa
           state: Estado
@@ -794,7 +794,7 @@ pt-BR:
         orders:
           label: 'Encomenda de rascunhos por:'
           most_contributed: A maioria contribuiu
-          random: Aleatória
+          random: Aleatório
           recent: Recente
         requests:
           accepted_request:
@@ -826,10 +826,10 @@ pt-BR:
           withdraw: retirar o rascunho
         states:
           open: Aberto
-          published: Publicados
+          published: Publicado
           withdrawn: Retirado
         update:
-          error: Houve erros ao salvar o rascunho colaborativo.
+          error: Houve erros ao salvar o rascunho da proposta.
           success: Rascunho colaborativo atualizado com sucesso.
         wizard_aside:
           back_from_collaborative_draft: Voltar para rascunhos colaborativos

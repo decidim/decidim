@@ -104,8 +104,6 @@ bg:
         initiatives_menu:
           see_initiative: Вижте инициативата
         initiatives_settings: Настройки
-        initiatives_submenu:
-          info: Относно тази инициатива
         initiatives_types: Типове инициативи
         moderations: Модерации
       models:
