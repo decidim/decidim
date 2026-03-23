@@ -219,8 +219,6 @@ lt:
         create:
           error: Kuriant naują dalyvaujamojo proceso grupę iškilo problema.
           success: Dalyvaujamojo proceso grupė sukurta.
-      titles:
-        participatory_process_types: Dalyvaujamųjų procesų tipai
       users:
         resend_invitation:
           error: Dar kartą siunčiant šį kvietimą iškilo problema.
@@ -242,10 +240,6 @@ lt:
         create: "%{user_name} sukūrė %{space_name} dalyvaujamojo proceso %{resource_name} etapą"
         delete: "%{user_name} pašalino %{space_name} dalyvaujamojo proceso %{resource_name} etapą"
         update: "%{user_name} atnaujino %{space_name} dalyvaujamojo proceso %{resource_name} etapą"
-      participatory_process_type:
-        create: "%{user_name} sukūrė %{resource_name} dalyvaujamojo proceso tipą"
-        delete: "%{user_name} ištrynė %{resource_name} dalyvaujamojo proceso tipą"
-        update: "%{user_name} atnaujino %{resource_name} dalyvaujamojo proceso tipą"
       participatory_process_user_role:
         create: "%{user_name} pakvietė %{resource_name} dalyvį į %{space_name} dalyvaujamąjį procesą"
         delete: "%{user_name} pašalino %{resource_name} dalyvį iš %{space_name} dalyvaujamojo proceso"
@@ -273,10 +267,6 @@ lt:
           contextual: "<p> <strong>dalyvaujamasis procesas</strong> – dalyvaujamųjų veiklų seka (pvz., visų pirma surengiama apklausa, tada pateikiami pasiūlymai, jie aptariami tiesioginiuose susitikimuose arba vaizdo konferencijose ir galiausiai nustatomi pasiūlymų prioritetai). Šios veiklos tikslas – nustatyti ir priimti sprendimus konkrečia tema.</p> <p>Dalyvaujamojo proceso pavyzdžiai: komiteto narių rinkimo procesas (pirmiausia pateikiamos kandidatūros, po to diskutuojama ir galiausiai pasirenkamas kandidatas), dalyvaujamojo biudžeto nustatymas (teikiami pasiūlymai, jie vertinami ekonomiškai ir dėl jų balsuojama remiantis turimomis lėšomis), strateginio planavimo procesas, bendras reglamento ar standarto rengimas, miesto erdvės planavimas arba viešosios politikos plano rengimas.</p>\n"
           page: "<p> <strong>dalyvaujamasis procesas</strong> – dalyvaujamųjų veiklų seka (pvz., visų pirma surengiama apklausa, tada pateikiami pasiūlymai, jie aptariami tiesioginiuose susitikimuose arba vaizdo konferencijose ir galiausiai nustatomi pasiūlymų prioritetai). Šios veiklos tikslas – nustatyti ir priimti sprendimus konkrečia tema.</p> <p>Dalyvaujamojo proceso pavyzdžiai: komiteto narių rinkimo procesas (pirmiausia pateikiamos kandidatūros, po to diskutuojama ir galiausiai pasirenkamas kandidatas), dalyvaujamojo biudžeto nustatymas (teikiami pasiūlymai, jie vertinami ekonomiškai ir dėl jų balsuojama remiantis turimomis lėšomis), strateginio planavimo procesas, bendras reglamento ar standarto rengimas, miesto erdvės planavimas arba viešosios politikos plano rengimas.</p>\n"
           title: Kas yra dalyvaujamasis procesas?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Proceso tipas duomenų bazėje nerastas (ID: %{id}).'
     menu:
       processes: Procesai
     participatory_process_groups:
