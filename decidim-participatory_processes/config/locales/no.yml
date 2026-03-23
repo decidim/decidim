@@ -219,8 +219,6 @@
         create:
           error: Det oppstod et problem med å lage en ny prosessgruppe.
           success: Prosessgruppen ble opprettet.
-      titles:
-        participatory_process_types: Prosesstyper
       users:
         resend_invitation:
           error: Det oppstod et problem med å sende invitasjonen på nytt.
