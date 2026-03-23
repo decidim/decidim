@@ -598,7 +598,7 @@ es-MX:
             title: Nueva promoción de participante gestionada
       members:
         create:
-          error: Se ha producido un error al agregar una participante privada a este espacio participativo.
+          error: Se ha producido un error al agregar una participante privada a este espacio de participación.
           success: Acceso como miembro creado correctamente.
         destroy:
           error: Se ha producido un error al eliminar a una participante privada para este espacio de participación.
@@ -637,7 +637,7 @@ es-MX:
             explanation: Hay %{count} miembros.
             title: Eliminar miembros
           example_file: 'Archivo de ejemplo:'
-          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo de las participantes que deseas añadir al espacio participativo, sin encabezados. Evita usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuaria.'
+          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo de las participantes que deseas añadir al espacio de participación, sin encabezados. Evita usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuaria.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -1165,7 +1165,7 @@ es-MX:
           back: Atrás
           description: Los elementos de esta taxonomía se utilizarán para clasificar o filtrar recursos, tales como espacios participativos o componentes. Puedes ordenar el listado arrastrando los elementos.
           new_item: Nuevo elemento
-          no_items: Actualmente no hay elementos en esta taxonomía. Crea una lista de elementos para clasificar o filtrar recursos, tales como espacios participativos o componentes. Los elementos pueden anidarse hasta tres niveles.
+          no_items: Actualmente no hay elementos en esta taxonomía. Crea una lista de elementos para clasificar o filtrar recursos, tales como espacios de participación o componentes. Los elementos pueden anidarse hasta tres niveles.
           subtitle: Elementos en "%{taxonomy_name}"
           title: Editar la taxonomía "%{taxonomy_name}"
           update: Actualizar
