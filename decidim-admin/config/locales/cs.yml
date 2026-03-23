@@ -207,6 +207,9 @@ cs:
         user:
           new: Nový administrátor
         view_deleted_components: Zobrazit odstraněné komponenty
+      admin_terms:
+        show:
+          title: Administrátorské podmínky použití
       admin_terms_of_service:
         accept:
           error: Při přijímání podmínek služby administrátora došlo k chybě.
@@ -229,6 +232,8 @@ cs:
         edit:
           title: Upravit typ oblasti
           update: Aktualizace
+        index:
+          title: Typy oblasti
         new:
           create: Vytvořit typ oblasti
           title: Nový typ oblasti
@@ -246,6 +251,8 @@ cs:
         edit:
           title: Upravit oblast
           update: Aktualizace
+        index:
+          title: Oblasti
         new:
           create: Vytvořit oblast
           title: Nová oblast
@@ -262,6 +269,8 @@ cs:
         edit:
           title: Upravit složku
           update: Aktualizace
+        index:
+          title: Složky příloh
         new:
           create: Vytvořit
           title: Nová složka
@@ -277,6 +286,8 @@ cs:
         edit:
           title: Upravit přílohu
           update: Aktualizace
+        index:
+          title: Přílohy
         new:
           create: Vytvořit přílohu
           title: Nová příloha
@@ -285,6 +296,9 @@ cs:
           success: Příloha byla úspěšně aktualizována.
       attachments_privacy_warning:
         message: Buďte opatrní při práci s přílohami v soukromém prostoru. Každý účastník by mohl sdílet tento dokument s ostatními.
+      authorization_workflows:
+        index:
+          title: Metody ověřování
       autocomplete:
         no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte alespoň tři znaky pro vyhledávání.
@@ -386,6 +400,7 @@ cs:
           title: Čekající moderování
         show:
           dropdown: Rozbalovací nabídka
+          title: Ovládací panel
           view_more_logs: Zobrazit další protokoly
       domain_allowlist:
         form:
@@ -482,6 +497,8 @@ cs:
         form:
           save: Uložit
         success: Sekce nápovědy byly úspěšně aktualizovány.
+        update:
+          title: Sekce nápovědy
       impersonatable_users:
         index:
           filter:
@@ -872,6 +889,7 @@ cs:
           select_recipients_to_deliver: Vybrat příjemce k doručení
           send_me_a_test_email: Pošlete mi testovací e-mail
           subject: Předmět
+          title: Náhled
         update:
           error: Při aktualizaci tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
@@ -905,12 +923,15 @@ cs:
           send_message: Odeslat zprávu
           show_email: Zobrazit e-mail
           status: Stav
+          title: Účastníci
           unblock: Odblokovat
           unofficialize: Zrušit ověření
         new:
           badge: Odznak ověření
           officialize: Ověřit
           title: Oficializovat účastníka "%{name}"
+        show_email:
+          title: Zobrazit e-mail
         show_email_modal:
           description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.
           email_address: E-mailová adresa
@@ -955,6 +976,7 @@ cs:
           success: Organizace byla úspěšně aktualizována.
       organization_external_domain_allowlist:
         edit:
+          title: Seznam povolených externích domén
           update: Aktualizovat
         external_domain:
           down: Dolů
@@ -973,6 +995,7 @@ cs:
             other: "%{count} uživatelů bude upozorněno."
         new:
           submit: Odeslat
+          title: Odeslat připomenutí
       resource_permissions:
         edit:
           submit: Předložit
@@ -990,6 +1013,8 @@ cs:
         edit:
           title: Upravit typ oblasti působnosti
           update: Aktualizace
+        index:
+          title: Typy oblastí působnosti
         new:
           create: Vytvořit typ oblasti působnosti
           title: Nová oblast působnosti
@@ -1006,6 +1031,8 @@ cs:
         edit:
           title: Upravit oblast působnosti
           update: Aktualizace
+        index:
+          title: Oblasti působnosti
         new:
           create: Vytvořit oblast působnosti
           title: Nová oblast působnosti
@@ -1078,6 +1105,8 @@ cs:
         edit:
           title: Upravit téma
           update: Aktualizovat téma
+        index:
+          title: Témata
         new:
           create: Nové téma
           title: Nové téma
@@ -1102,6 +1131,7 @@ cs:
           slug_help_html: 'Použijte v tomto případě částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Příklad: %{url}'
         index:
           last_notable_change: Poslední významná změna
+          title: Stránky
         new:
           create: Nová stránka
           title: Nová stránka
@@ -1111,6 +1141,9 @@ cs:
         update:
           error: Při aktualizaci této stránky došlo k chybě.
           success: Stránka byla úspěšně aktualizována.
+      statistics:
+        index:
+          title: Statistiky
       taxonomies:
         actions:
           actions: Akce
@@ -1141,6 +1174,7 @@ cs:
           description: Taxonomie a filtry umožňují správcům třídit a organizovat obsah. Přidejte například taxonomii s městskými okresy a čtvrti a pak vytvořte filtry pouze s okresy nebo pro konkrétní čtvrť.
           new_taxonomy: Nová taxonomie
           no_items_found: Nebyly nalezeny žádné taxonomie odpovídající kritériím vyhledávání.
+          title: Taxonomie
         name: Název
         new:
           create: Vytvořit taxonomii
@@ -1187,6 +1221,7 @@ cs:
           description: Filtr taxonomie umožňuje správcům seřadit a filtrovat participační prostory na základě taxonomie. Přidejte například taxonomický filtr pro řazení procesů podle geografického rozsahu.
           empty: V současné době nejsou žádné filtry taxonomie. Vytvořte seznam taxonomických filtrů pro řazení a filtrování participačních prostor na základě taxonomie.
           new_filter: Nový filtr
+          title: Filtry taxonomie pro "%{taxonomy}"
         new:
           back: Zpět
           create: Vytvořit filtr taxonomie
@@ -1203,13 +1238,17 @@ cs:
           error: Při aktualizaci tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně aktualizován.
       taxonomy_filters_selector:
+        index:
+          title: Filtry taxonomie
         new:
           add_new_items_html: Pokud potřebujete nastavit nový filtr nebo položku, proveďte to prostřednictvím nastavení konfigurace nebo kliknutím <a href="%{url}">zde</a>.
           items_count: "%{count} položek"
           save: Uložit
+          title: Výběr nového taxonomického filtru
         show:
           items_count: "%{count} položek"
           remove: Odebrat
+          title: Výběr taxonomického filtru
         taxonomies_select:
           filters: Filtry
           select_filter: Vyberte filtr
@@ -1253,6 +1292,8 @@ cs:
           email: E-mail
           name: Jméno
           role: Role
+        index:
+          title: Administrátoři
         new:
           create: Pozvat
           title: Pozvat nového administrátora
@@ -1264,6 +1305,10 @@ cs:
           last_week: Minulý týden
           no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu účastníků.
           participants: Účastníci
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Výběr taxonomických filtrů bude možný po vytvoření komponenty.
     forms:
       errors:
         impersonate_user:
