@@ -225,8 +225,6 @@ pl:
         create:
           error: Podczas tworzenia nowej grupy procesu partycypacyjnego wystąpił błąd.
           success: Grupa procesu partycypacyjnego została utworzona.
-      titles:
-        participatory_process_types: Typy procesów partycypacyjnych
       users:
         resend_invitation:
           error: Wystąpił błąd podczas ponownego wysyłania zaproszenia.
@@ -248,10 +246,6 @@ pl:
         create: "%{user_name} utworzył(a) etap %{resource_name} w procesie partycypacyjnym %{space_name}"
         delete: "%{user_name} usunął/usunęła etap %{resource_name} z procesu partycypacyjnego %{space_name}"
         update: "%{user_name} zaktualizował(a) etap %{resource_name} w procesie partycypacyjnym %{space_name}"
-      participatory_process_type:
-        create: "%{user_name} utworzył(a) typ procesu partycypacyjnego %{resource_name}"
-        delete: "Użytkownik %{user_name} usunął typ procesu partycypacyjnego %{resource_name}"
-        update: "%{user_name} zaktualizował(a) typ procesu partycypacyjnego %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} zaprosił(a) użytkownika %{resource_name} do procesu partycypacyjnego %{space_name}"
         delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} z procesu partycypacyjnego %{space_name}"
@@ -279,10 +273,6 @@ pl:
           contextual: "<p> <strong>Proces partycypacyjny</strong> jest sekwencją działań partycypacyjnych (np najpierw wypełnij ankietę, a następnie złóż propozycję, omów je twarzą w twarz lub w trakcie wirtualnych spotkań, a na końcu ustal swoje priorytety) w celu definiowania i podejmowania decyzji na określony temat.</p> <p>Przykładami procesów partycypacyjnych są: proces wybierania członków komitetu (w którym kandydatury są najpierw przedstawiane, następnie omawiane, a ostatecznie kandydat jest wybierany), budżety partycypacyjne (w których składane są propozycje, dokonuje się wycen ekonomicznych i głosuje w granicy dostępnego budżetu), proces planowania strategicznego, wspólne opracowywanie rozporządzenia lub normy, projektowanie przestrzeni miejskiej lub opracowywanie planu polityki publicznej.</p>\n"
           page: "<p> <strong>Proces partycypacyjny</strong> jest sekwencją działań partycypacyjnych (np najpierw wypełnij ankietę, a następnie złóż propozycję, omów je twarzą w twarz lub w trakcie wirtualnych spotkań, a na końcu ustal swoje priorytety) w celu definiowania i podejmowania decyzji na określony temat.</p> <p>Przykładami procesów partycypacyjnych są: proces wybierania członków komitetu (w którym kandydatury są najpierw przedstawiane, następnie omawiane, a ostatecznie kandydat jest wybierany), budżety partycypacyjne (w których składane są propozycje, dokonuje się wycen ekonomicznych i głosuje w granicy dostępnego budżetu), proces planowania strategicznego, wspólne opracowywanie rozporządzenia lub normy, projektowanie przestrzeni miejskiej lub opracowywanie planu polityki publicznej.</p>\n"
           title: Czym jest proces partycypacyjny?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'W bazie danych nie znaleziono typu procesu (ID: %{id}).'
     menu:
       processes: Procesy
     participatory_process_groups:
