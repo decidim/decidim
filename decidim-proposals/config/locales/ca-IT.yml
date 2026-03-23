@@ -680,6 +680,7 @@ ca-IT:
             related_meetings: Trobades relacionades
             remove_assignment: Desfer assignació
             remove_assignment_confirmation: Segur que vols desfer l'assignació a l'avaluadora d'aquesta proposta?
+            title: Respondre a la proposta
             votes_count: Nombre de suports
           update_taxonomies:
             invalid: 'Aquestes propostes ja tenien les taxonomies %{taxonomies}: %{proposals}.'
@@ -692,7 +693,7 @@ ca-IT:
             success: El procés d'importació ha començat. T'avisarem quan hagi finalitzat.
           new:
             create: Importa propostes
-            no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
+            no_components: No hi ha cap altre component de propostes en aquest espai de participació des d'on importar-les.
             select_component: Escull un component
             select_states: Importa només les propostes amb aquests estats. Si no s'ha seleccionat cap estat, s'importaran totes les propostes.
             title: Importar projectes des d'un altre component
