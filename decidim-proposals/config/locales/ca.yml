@@ -690,7 +690,7 @@ ca:
             success: El procés d'importació ha començat. T'avisarem quan hagi finalitzat.
           new:
             create: Importa propostes
-            no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
+            no_components: No hi ha cap altre component de propostes en aquest espai de participació des d'on importar-les.
             select_component: Escull un component
             select_states: Importa només les propostes amb aquests estats. Si no s'ha seleccionat cap estat, s'importaran totes les propostes.
             title: Importar projectes des d'un altre component
