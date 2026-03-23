@@ -296,7 +296,7 @@ ca:
         variations: Variacions
         variations_cards_description: Cada targeta es veurà diferent d'acord amb les propietats del recurs que es mostri. Pot anul·lar aquest comportament a la cel·la específica.
         variations_description: Hi ha tres versions diferents d'aquesta cel·la. Cadascuna encaixa millor en el context en què es mostra.
-        variations_text: Pel que fa al tipus d'activitat, la cel·la podria mostrar diferents continguts, informant dels diferents recursos, pertanyin o no a un espai participatiu, tinguin autoria o no.
+        variations_text: Pel que fa al tipus d'activitat, la cel·la podria mostrar diferents continguts, informant dels diferents recursos, pertanyin o no a un espai de participació, tinguin autoria o no.
       home:
         index:
           by_sharing_principles: Compartint els principis, filosofia i els raonaments darrere de les decisions de disseny volem empoderar a la comunitat perquè contribueixin amb consistència per arribar a la millor experiència per a les participants.
