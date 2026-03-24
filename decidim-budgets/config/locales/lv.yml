@@ -26,6 +26,7 @@ lv:
             name: Projekts
         projects:
           edit:
+            title: Rediģēt projektu
             update: Atjaunināt
           index:
             finished_orders: Pabeigtie balsojumi
