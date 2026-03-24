@@ -24,7 +24,6 @@ id:
             name: Proyek
         projects:
           edit:
-            title: Edit proyek
             update: Memperbarui
           index:
             finished_orders: Suara jadi
