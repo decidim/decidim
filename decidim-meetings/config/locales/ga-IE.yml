@@ -42,6 +42,8 @@ ga:
     meetings:
       actions:
         agenda: Clár
+        attachment_collections: Fillteáin
+        attachments: Ceangaltáin
         close: Dún
         edit: Eagar
         preview: Réamhamharc
@@ -63,6 +65,7 @@ ga:
           new:
             create: Cruthaigh
         exports:
+          answers: Freagraí
           meeting_comments: Tráchtanna
           meetings: Cruinnithe
         invites:
@@ -159,6 +162,7 @@ ga:
         online: Ar líne
     metrics:
       meetings:
+        object: cruinnithe
         title: Cruinnithe
     statistics:
       meetings_count: Cruinnithe
