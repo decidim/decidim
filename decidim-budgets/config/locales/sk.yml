@@ -27,7 +27,6 @@ sk:
             name: Projekt
         projects:
           edit:
-            title: Upraviť projekt
             update: Aktualizovať
           index:
             finished_orders: Dokončené hlasy
