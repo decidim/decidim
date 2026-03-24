@@ -1821,6 +1821,7 @@ es-MX:
         nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu nombre de usuario/a y contraseña.
+        subtitle_no_password: Si aceptas la invitación, por favor establece tu apodo (nickname).
       invitation_removed: Tu invitación fue eliminada.
       invitation_token_invalid: '¡El token de invitación proporcionado no es válido!'
       new:
@@ -1828,8 +1829,8 @@ es-MX:
         submit_button: Enviar una invitación
       no_invitations_remaining: No quedan invitaciones
       send_instructions: Se envió un correo electrónico de invitación a %{email}.
-      updated: Tu contraseña fue establecida con éxito. Ya has iniciado sesión.
-      updated_not_active: Tu contraseña fue establecida con éxito.
+      updated: La invitación se ha aceptado correctamente. Se ha iniciado tu sesión.
+      updated_not_active: La invitación se ha aceptado correctamente.
     mailer:
       confirmation_instructions:
         action: Confirmar mi cuenta
