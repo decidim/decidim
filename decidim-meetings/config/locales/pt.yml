@@ -17,6 +17,7 @@ pt:
         customize_registration_email: Personalizar o e-mail de registo
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
+        decidim_user_group_id: Grupo de utilizadores
         description: Descrição
         id: IDENTIFICAÇÃO
         location: Localização
@@ -65,6 +66,9 @@ pt:
             values:
               'false': Passado
               'true': Seguinte
+          with_any_origin:
+            values:
+              user_group: Grupos de utilizadores
           with_any_type:
             label: Tipo de reunião
             values:
@@ -90,12 +94,14 @@ pt:
             default_registration_terms: Termos de registo predefinidos
             enable_pads_creation: Ativar criação de blocos
             maps_enabled: Mapas activados
+            registration_code_enabled: Código de registo activado
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada reunião
             terms_and_conditions_url_for_meeting_creators: URL dos termos e condições para criadores de reuniões
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled_for_participants: Criação de reunião por participantes ativada
+            creation_enabled_for_user_groups: Criação de reunião por grupo de utilizadores ativada
     events:
       meetings:
         meeting_closed:
@@ -123,8 +129,10 @@ pt:
           email_subject: Os intervalos de tempo alocados à reunião "%{resource_title}" estão acima de %{percentage}%
           notification_title: Os intervalos de tempo alocados à reunião <a href="%{resource_path}">%{resource_title}</a> estão acima de %{percentage}%.
         meeting_updated:
+          email_intro: 'A reunião "%{resource_title}" foi atualizada. Pode ler a nova versão a partir da sua página:'
           email_outro: Recebeu esta notificação porque segue a reunião "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
           email_subject: A reunião "%{resource_title}" foi atualizada
+          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi atualizada.
         registration_code_validated:
           email_intro: O seu código de registo "%{registration_code}" para a reunião "%{resource_title}" foi validado.
           email_outro: Recebeu esta notificação porque o seu código de registo para a reunião "%{resource_title}" foi validado.
@@ -136,7 +144,10 @@ pt:
           email_subject: A reunião "%{resource_title}" ativou os registos.
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> ativou os registos.
         upcoming_meeting:
+          email_intro: A reunião "%{resource_title}" começará em menos de 48h.
           email_outro: Recebeu esta notificação porque segue a reunião "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
+          email_subject: A reunião "%{resource_title}" começará em menos de 48h.
+          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
     gamification:
       badges:
         attended_meetings:
@@ -150,6 +161,8 @@ pt:
     meetings:
       actions:
         agenda: Agenda
+        attachment_collections: Pastas
+        attachments: Anexos
         close: Fechar
         edit: Editar
         invalid_destroy:
@@ -186,6 +199,7 @@ pt:
             create: Criar
             title: Nova agenda
         exports:
+          answers: Respostas
           meeting_comments: Comentários
           meetings: Reuniões
           registrations: Registos
@@ -339,6 +353,7 @@ pt:
         form:
           address_help: 'Endereço: utilizado pelo Geocoder para encontrar a localização'
           available_slots_help: Deixar em 0 se tiver número ilimitado de intervalos de tempo disponíveis
+          create_as: Criar reunião como
           location_help: 'Localização: mensagem direcionada aos utilizadores sugerindo o local onde se encontrarem'
           location_hints_help: 'Sugestões de localização: informação adicional. Exemplo: o piso do edifício se for uma reunião presencial, ou a palavra-chave se for uma reunião on-line de acesso restrito.'
           online_meeting_url_help: 'Ligação: permitir aos participantes ligarem-se directamente à sua reunião'
@@ -368,6 +383,7 @@ pt:
           micro_camera_permissions_warning: Quando clicar no botão abaixo irá ser pedida autorização para microfone e/ou câmara, e poderá irá juntar-se à videoconferência
           no_slots_available: Não há intervalos de tempo disponíveis
           organizations: Organizações participantes
+          registration_code_help_text: O seu código de registo
           registration_state:
             validated: VALIDADO
             validation_pending: VALIDAÇÃO PENDENTE
@@ -400,8 +416,12 @@ pt:
             title: Título
       polls:
         questions:
+          index:
+            empty_questions: Durante esta reunião irão ser-lhe enviadas algumas questões e poderá responder-lhes. Serão exibidas aqui.
           index_admin:
             question: Questão
+            received_answer: resposta recebida
+            received_answers: respostas recebidas
             results: Resultados
             send: Enviar
             sent: Enviado
@@ -420,6 +440,7 @@ pt:
         confirmation:
           confirmed_html: O seu registo para a reunião <a href="%{url}">%{title}</a> foi confirmado.
           details: Encontrará os detalhes da reunião no anexo.
+          registration_code: O seu código de registo é %{code}.
       registration_type:
         on_different_platform: Numa plataforma diferente
         on_this_platform: Nesta plataforma
@@ -441,6 +462,8 @@ pt:
         transparent: Transparente
     metrics:
       meetings:
+        description: Número de reuniões criadas
+        object: reuniões
         title: Reuniões
     participatory_spaces:
       highlighted_meetings:
