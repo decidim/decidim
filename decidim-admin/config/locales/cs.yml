@@ -272,6 +272,8 @@ cs:
         edit:
           title: Upravit složku
           update: Aktualizace
+        index:
+          attachment_collections_title: Složky příloh
         new:
           create: Vytvořit
           title: Nová složka
@@ -287,6 +289,8 @@ cs:
         edit:
           title: Upravit přílohu
           update: Aktualizace
+        index:
+          attachments_title: Přílohy
         new:
           create: Vytvořit přílohu
           title: Nová příloha
@@ -944,6 +948,7 @@ cs:
           up: Nahoru
         form:
           add: Přidat na Seznam povolených
+          title: Seznam povolených externích domén
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
@@ -1255,6 +1260,8 @@ cs:
         area_types: Typy oblastí
         areas: Oblasti
         authorization_workflows: Metody ověření
+        dashboard: Ovládací panel
+        edit_external_domains: Seznam povolených externích domén
         edit_landing_page: Obsah stránky
         edit_organization_appearance: Upravit vzhled domovské stránky
         impersonations: Správa účastníků
@@ -1268,7 +1275,9 @@ cs:
         scopes: Oblasti působnosti
         statistics: Aktivita
         taxonomies: Taxonomie
+        taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
         user_groups: Skupiny
+        users: Administrátoři
       tooltips:
         deleted_component_info: Tato komponenta může být odstraněna pouze v případě, že je stav 'Nezveřejněno'.
       trash_management:
@@ -1326,6 +1335,10 @@ cs:
           last_week: Minulý týden
           no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu účastníků.
           participants: Účastníci
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Výběr taxonomických filtrů bude možný po vytvoření komponenty.
     forms:
       errors:
         impersonate_user:
