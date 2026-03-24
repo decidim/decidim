@@ -868,8 +868,6 @@ lb:
         submit_button: Eng Invitatioun verschécken
       no_invitations_remaining: Keng Invitatiounen iwwreg
       send_instructions: Eng Invitatiouns-Email gouf un %{email} geschéckt.
-      updated: Däin Passwuert gouf dir attribuéiert. Du bass elo registréiert.
-      updated_not_active: Däin Passwuert gouf dir attribuéiert.
     mailer:
       confirmation_instructions:
         action: Kont bestätegen
