@@ -19,6 +19,7 @@ de:
         customize_registration_email: Registrierungs-E-Mail anpassen
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
+        decidim_user_group_id: Benutzergruppe
         description: Beschreibung
         end_time: Endzeit
         id: ID
@@ -122,6 +123,7 @@ de:
             values:
               official: Offiziell
               participants: Teilnehmer
+              user_group: Benutzergruppen
           with_any_type:
             label: Art der Veranstaltung
             values:
@@ -165,6 +167,7 @@ de:
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             maps_enabled: Karten aktiviert
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
+            registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jede Veranstaltung festgelegt werden
             taxonomy_filters: Filter für die Komponente auswählen
             taxonomy_filters_add: Filter hinzufügen
@@ -173,6 +176,7 @@ de:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
+            creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
     download_your_data:
       help:
         invites:
@@ -222,8 +226,10 @@ de:
           email_subject: Die Plätze der Veranstaltung "%{resource_title}" sind zu %{percentage}% belegt
           notification_title: Die Plätze der Veranstaltung <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
         meeting_updated:
+          email_intro: 'Die Veranstaltung "%{resource_title}" wurde aktualisiert. Sie können die neue Version auf der Veranstaltungsseite lesen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
           email_subject: Die Veranstaltung "%{resource_title}" wurde aktualisiert
+          notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde aktualisiert.
         registration_code_validated:
           email_intro: Ihr Registrierungscode "%{registration_code}" für die Veranstaltung "%{resource_title}" wurde bestätigt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Registrierungscode für die Veranstaltung "%{resource_title}" validiert wurde.
@@ -235,7 +241,10 @@ de:
           email_subject: Die Veranstaltung "%{resource_title}" hat die Anmeldung aktiviert.
           notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> hat die Anmeldung aktiviert.
         upcoming_meeting:
+          email_intro: Die Veranstaltung "%{resource_title}" beginnt in weniger als 48 Stunden.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Die Veranstaltung "%{resource_title}" beginnt in weniger als 48 Stunden.
+          notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als 48 Stunden.
     forms:
       meetings:
         attendees_count_help_text: Vergessen Sie nicht, die Gesamtzahl der Teilnehmenden an Ihrer Veranstaltung anzugeben, egal ob sie persönlich, online oder hybrid stattgefunden hat.
@@ -254,6 +263,8 @@ de:
     meetings:
       actions:
         agenda: Agenda
+        attachment_collections: Ordner
+        attachments: Anhänge
         close: Schließen
         confirm_delete_meeting: Möchten Sie diese Veranstaltung wirklich löschen?
         deleted_meetings_info: Gelöschte Veranstaltungen können aus dem Papierkorb wiederhergestellt werden.
@@ -300,6 +311,7 @@ de:
             invalid: Beim Aktualisieren des Traktandums ist ein Problem aufgetreten.
             success: Traktandum erfolgreich aktualisiert.
         exports:
+          answers: Antworten
           meeting_comments: Kommentare
           meetings: Veranstaltungen
           registrations: Anmeldungen
@@ -535,6 +547,7 @@ de:
             all: Alle
             official: Offiziell
             participants: Teilnehmer
+            user_group: Gruppen
           search: Suche
           type: Art
           type_values:
@@ -545,6 +558,7 @@ de:
         form:
           address_help: 'Adresse: wird vom Geocoder zur Lokalisierung verwendet'
           available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
+          create_as: Besprechung erstellen als
           disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungsdienstes ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
           iframe_embed_type_html: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
@@ -591,6 +605,7 @@ de:
           no_slots_available: Keine Plätze verfügbar
           organizations: Teilnahme an Organisationen
           redirect_notice: Diese Veranstaltung ist Teil eines anderen Bereichs, daher wurden Sie zu %{current_space_name} weitergeleitet. <br>Wenn Sie es bevorzugen, können Sie zu <a href="%{previous_space_url}">%{previous_space_name}</a> zurückkehren.
+          registration_code_help_text: Ihr Registrierungscode
           registration_state:
             validated: GÜLTIG
             validation_pending: Validierung ausstehend
@@ -640,9 +655,13 @@ de:
             announcement: Die Beantwortung dieser Frage wurde beendet.
             question: Frage
             question_results: Resultate
+          index:
+            empty_questions: Während dieser Veranstaltung werden einige Fragen gestellt, die Sie beantworten können. Sie werden hier angezeigt.
           index_admin:
             edit: Im Adminbereich bearbeiten
             question: Frage
+            received_answer: Antwort erhalten
+            received_answers: erhaltene Antworten
             results: Ergebnisse
             send: Senden
             sent: Gesendet
@@ -666,6 +685,7 @@ de:
         confirmation:
           confirmed_html: Ihre Anmeldung für die Veranstaltung <a href="%{url}">%{title}</a> wurde bestätigt.
           details: Sie finden die Details zur Veranstaltung im Anhang.
+          registration_code: Ihr Registrierungscode ist %{code}.
       registration_type:
         on_different_platform: Auf einer anderen Plattform
         on_this_platform: Auf dieser Plattform
@@ -693,6 +713,8 @@ de:
         success: Die Verantstaltung wurde erfolgreich zurückgezogen.
     metrics:
       meetings:
+        description: Anzahl der erstellten Veranstaltungen
+        object: Veranstaltungen
         title: Veranstaltungen
     open_data:
       help:
