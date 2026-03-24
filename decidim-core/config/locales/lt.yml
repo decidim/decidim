@@ -1277,8 +1277,6 @@ lt:
         submit_button: Siųsti pakvietimą
       no_invitations_remaining: Kvietimų neliko
       send_instructions: Kvietimo e. laiškas išsiųstas %{email}.
-      updated: Jūsų slaptažodis buvo sėkmingai nustatytas. Dabar esate prisijungę.
-      updated_not_active: Jūsų slaptažodis nustatytas.
     mailer:
       confirmation_instructions:
         action: Patvirtinti mano paskyrą
