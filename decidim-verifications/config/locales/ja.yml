@@ -169,8 +169,10 @@ ja:
               success: すべてのセンサスデータが削除されました。
           destroy:
             confirm: すべてのセンサスを削除すると、元に戻すことができません。本当に続行しますか？
+            title: センサスデータをすべて削除する
           index:
             data: 合計%{count} 件のレコードが読み込まれました。最後アップロード日は%{due_date} です。
+            empty: センサスデータがありません。CSVファイルを使用してインポートするには、以下のフォームを使用してください。
             title: 現在のセンサスデータ
           instructions:
             body: これを行うには、システム管理画面から、csv_census の認証を組織に追加する必要があります
@@ -179,6 +181,7 @@ ja:
             example: |
               john.doe@example.org
               jane.doe@example.org
+            file: "電子メールデータを含む.csvファイル"
             info: 'メールアドレスの列が 1 つだけの CSV 形式のファイルである必要があります:'
             submit: ファイルをアップロード
             title: 新しいセンサスをアップロード
