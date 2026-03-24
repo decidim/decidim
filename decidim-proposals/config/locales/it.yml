@@ -119,7 +119,7 @@ it:
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             default_sort_order_options:
-              most_endorsed: I più approvati
+              most_endorsed: Le più appoggiate
               random: Casuale
               recent: Recenti
             new_proposal_body_template: Nuovo modello di testo della proposta
@@ -156,7 +156,7 @@ it:
             comments_blocked: Commenti bloccati
             creation_enabled: I partecipanti possono creare proposte
             default_sort_order_options:
-              most_endorsed: I più approvati
+              most_endorsed: Le più appoggiate
             endorsements_blocked: Approvazioni bloccate
             endorsements_enabled: Approvazioni abilitate
             proposal_answering_enabled: Risposta alla proposta abilitata
