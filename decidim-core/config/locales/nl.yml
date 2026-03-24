@@ -861,8 +861,6 @@ nl:
         submit_button: Een uitnodiging sturen
       no_invitations_remaining: Er zijn nog geen uitnodigingen
       send_instructions: Er is een uitnodigingsmail verzonden naar %{email}.
-      updated: Uw wachtwoord is succesvol ingesteld. U bent nu ingelogd.
-      updated_not_active: Uw wachtwoord is succesvol ingesteld.
     mailer:
       confirmation_instructions:
         action: Bevestig mijn account
