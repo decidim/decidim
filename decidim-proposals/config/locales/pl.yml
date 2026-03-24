@@ -10,16 +10,20 @@ pl:
         scope_id: Zakres
         state: Stan
         title: Tytuł
+        user_group_id: Utwórz wspólny szkic jako
       proposal:
         address: Adres
         answer: Odpowiedź
         answered_at: Odpowiedziano
+        automatic_hashtags: Hashtagi zostały dodane automatycznie
         body: Treść
         decidim_scope_id: Zakres
         has_address: Ma adres
         scope_id: Zakres
         state: Stan
+        suggested_hashtags: Sugerowane hashtagi
         title: Tytuł
+        user_group_id: Utwórz propozycję jako
       proposal_answer:
         answer: Odpowiedź
         cost: Koszt
@@ -44,6 +48,9 @@ pl:
       proposals_import:
         import_proposals: Importuj propozycje
         keep_authors: Zachowaj oryginalnych autorów
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Imię weryfikatora
     errors:
       models:
         participatory_text:
@@ -73,6 +80,7 @@ pl:
               voted: Otrzymano głosy lub potwierdzenia
     models:
       decidim/proposals/creation_enabled_event: Włączono tworzenie propozycji
+      decidim/proposals/endorsing_enabled_event: Możliwe rekomendowanie propozycji
       decidim/proposals/proposal_mentioned_event: Wspomniana propozycja
       decidim/proposals/publish_proposal_event: Propozycja została opublikowana
       decidim/proposals/voting_enabled_event: Można głosować na propozycje
@@ -114,16 +122,21 @@ pl:
               rejected: Odrzucono
               validating: Walidacja techniczna
               withdrawn: Wycofaj
+          valuator_role_ids_has:
+            label: Przypisano do weryfikatora
           with_any_state:
             label: Z odpowiedziami
             values:
               state_not_published: Bez odpowiedzi
               state_published: Z odpowiedziami
+        search_placeholder:
+          id_string_or_title_cont: Wyszukaj %{collection} według ID lub tytułu.
     components:
       proposals:
         actions:
           amend: Popraw
           comment: Skomentuj
+          endorse: Rekomendacje
           vote: Głosuj
           vote_comment: Poprzyj komentarz
           withdraw: Wycofywanie
@@ -145,6 +158,7 @@ pl:
             default_sort_order_options:
               automatic: Automatyczne
               most_commented: Najczęściej komentowane
+              most_endorsed: Najbardziej popierane
               most_followed: Najczęściej obserwowane
               most_voted: Z największą liczbą głosów
               random: Losowo
@@ -183,6 +197,7 @@ pl:
             amendments_visibility_help: W przypadku zaznaczenia opcji „Poprawki są widoczne tylko dla ich autorów” użytkownik musi być zalogowany, aby zobaczyć wprowadzone poprawki.
             announcement: Ogłoszenie
             answers_with_costs: Zezwalaj na koszty w odpowiedziach na propozycje
+            automatic_hashtags: Hashtagi dodane do wszystkich propozycji
             comments_blocked: Komentarze zablokowane
             creation_enabled: Uczestnicy mogą tworzyć propozycje
             creation_enabled_readonly: To ustawienie jest wyłączone, gdy aktywujesz funkcjonalność tekstów partycypacyjnych. Aby przesłać propozycje jako tekst partycypacyjny, kliknij przycisk "Tekst partycypacyjny" i postępuj zgodnie z instrukcjami.
@@ -191,22 +206,32 @@ pl:
             default_sort_order_options:
               automatic: Automatyczne
               most_commented: Najczęściej komentowane
+              most_endorsed: Najbardziej popierane
               most_followed: Najczęściej obserwowane
               most_voted: Z największą liczbą głosów
               random: Losowo
               recent: Ostatnie
               with_more_authors: Z większą liczbą autorów
+            endorsements_blocked: Rekomendacje zostały zablokowane
+            endorsements_enabled: Rekomendacje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             publish_answers_immediately: Natychmiast publikuj odpowiedzi na propozycje
             publish_answers_immediately_help_html: 'Pamiętaj, że jeśli odpowiesz na dowolną propozycję bez włączonej tej opcji, musisz ją opublikować ręcznie, wybierając ją i korzystając z akcji do publikacji. Aby uzyskać więcej informacji na temat tego, jak to działa, zobacz stronę <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">z dokumentacją odpowiedzi na propozycje</a>.'
+            suggested_hashtags: Hashtagi sugerowane użytkownikom dodającym nowe propozycje
             votes_blocked: Głosy zablokowane
             votes_enabled: Głosowanie włączone
             votes_hidden: Ukryte głosy (jeśli głosy są włączone, sprawdzenie to ukryje liczbę głosów)
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Otrzymujesz to powiadomienie, ponieważ możesz weryfikować propozycję.
           proposal_note_created:
+            email_outro: Otrzymujesz to powiadomienie, ponieważ możesz weryfikować propozycję.
             email_subject: Ktoś zostawił notatkę do propozycji %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Akceptuj
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} otrzymał(a) dostęp jako współtwórca wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
@@ -243,7 +268,9 @@ pl:
           email_subject: Propozycje są teraz dostępne w %{participatory_space_title}
           notification_title: Możesz teraz przedstawiać <a href="%{resource_path}">nowe propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
+          email_intro: 'Możesz rekomendować propozycje w %{participatory_space_title}! Dołącz na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
+          email_subject: Rozpoczęto rekomendację propozycji w %{participatory_space_title}
           notification_title: Możesz teraz zacząć <a href="%{resource_path}">rekomendować propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Twoja propozycja „%{mentioned_proposal_title}” została wspomniana <a href="%{resource_url}"> w tej przestrzeni</a> w komentarzach.
@@ -314,8 +341,16 @@ pl:
           unearned_own: Nie utworzyłeś jeszcze żadnych propozycji.
     metrics:
       accepted_proposals:
+        description: Liczba zaakceptowanych propozycji
+        object: propozycje
         title: Zaakceptowane propozycje
+      endorsements:
+        description: Liczba rekomendacji propozycji
+        object: rekomendacje
+        title: Rekomendacje
       proposals:
+        description: Liczba propozycji
+        object: propozycje
         title: Propozycje
       votes:
         description: Liczba głosów na propozycje
@@ -436,8 +471,10 @@ pl:
             select_a_meeting: Wybierz spotkanie
           index:
             actions: Działania
+            assign_to_valuator: Przypisz do weryfikatora
             cancel: Anuluj
             merge: Przyłącz do nowego
+            merge_button: Przyłącz
             publish: Publikuj
             publish_answers: Publikuj odpowiedzi
             select_component: Wybierz komponent
@@ -447,6 +484,7 @@ pl:
             split_button: Podziel
             statuses: Statusy
             title: Propozycje
+            unassign_from_valuator: Anuluj przypisanie do weryfikatora
             update: Aktualizuj
           new:
             create: Utwórz
@@ -456,14 +494,19 @@ pl:
             select_a_proposal: Wybierz propozycję.
           show:
             amendments_count: Liczba poprawek
+            assigned_valuators: Przypisani weryfikatorzy
             body: Treść
             comments_count: Liczba komentarzy
             documents: Dokumenty
+            endorsements_count: Liczba rekomendacji
+            endorsers: Rekomendujący
             link: Zobacz propozycję
             photos: Zdjęcia
             ranking: "%{ranking} z %{total}"
             related_meetings: Powiązane spotkania
             remove_assignment: Usuń zadanie
+            remove_assignment_confirmation: Czy na pewno chcesz usunąć przypisanie weryfikatora z tej propozycji?
+            valuators: Weryfikatorzy
             votes_count: Liczba głosów
         proposals_imports:
           create:
@@ -487,10 +530,14 @@ pl:
       admin_log:
         proposal:
           answer: "%{user_name} odpowiedział(a) na propozycję %{resource_name} w przestrzeni %{space_name}"
+          create: "%{user_name} stworzył(a) propozycję %{resource_name} w przestrzeni %{space_name} jako oficjalną propozycję"
           publish_answer: "%{user_name} opublikował(a) odpowiedź na propozycję %{resource_name} w przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował(a) oficjalną propozycję %{resource_name} w przestrzeni %{space_name}"
         proposal_note:
           create: "%{user_name} zostawił(a) prywatną notatkę do propozycji %{resource_name} w przestrzeni %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} przypisał(a) propozycję %{resource_name} do weryfikatora"
+          delete: "%{user_name} anulował(a) przypisanie taksatora do propozycji %{proposal_title}"
       answers:
         accepted: Zaakceptowano
         evaluating: Ocena
@@ -503,6 +550,7 @@ pl:
           meetings: Spotkania
           official: Urzędnik
           participants: Użytkownicy
+          user_groups: Grupy użytkowników
         filter_state_values:
           all: Wszystko
           not_answered: Bez odpowiedzi
@@ -513,49 +561,102 @@ pl:
       collaborative_drafts:
         collaborative_draft:
           publish:
+            error: Wystąpił błąd podczas publikowania wspólnego szkicu.
             irreversible_action_modal:
               body: Po opublikowaniu szkicu jako propozycji nie będzie już można jej edytować. Propozycja nie zaakceptuje nowych autorów ani współautorów.
               cancel: Anuluj
+              ok: Opublikuj jako propozycję
+              title: Poniższe działanie jest nieodwracalne
+            success: Wspólny szkic został opublikowany jako propozycja.
           withdraw:
+            error: Podczas zamykania wspólnego szkicu wystąpił błąd.
             irreversible_action_modal:
               body: Po zamknięciu szkicu nie będzie on już edytowalny. Nie będzie można dodawać nowych autorów i zmian.
               cancel: Anuluj
+              ok: Wycofaj wspólny szkic
+              title: Poniższe działanie jest nieodwracalne
+            success: Wspólny szkic został wycofany.
+        create:
+          error: Przy tworzeniu wspólnego szkicu pojawił się problem.
+          success: Utworzono wspólny szkic.
         edit:
           back: Wróć
           send: Wyślij
+          title: Edytuj wspólny szkic
         empty: Nie ma jeszcze żadnych wspólnych wersji roboczych
         empty_filters: Nie ma wspólnego szkicu z tymi kryteriami
         filters:
           all: Wszystko
           amendment: Poprawki
+          open: Otwarty
           published: Opublikowano
           related_to: Związany z
           search: Szukaj
           state: Status
           withdrawn: Wycofano
+        filters_small_view:
+          close_modal: Zamknij okno
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwiń
+        index:
+          count:
+            one: "%{count} wspólny szkic"
+            few: "%{count} wspólne szkice"
+            many: "%{count} wspólne szkice"
+            other: "%{count} wspólne szkice"
         name: Wspólne szkice
         new:
+          add_file: Dodaj plik
+          edit_file: Edytuj plik
           send: Dalej
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nowy wspólny szkic
         orders:
+          label: 'Sortuj szkice według:'
+          most_contributed: Najbardziej wspierane
           random: Losowo
           recent: Najnowsze
         requests:
           accepted_request:
+            error: Nie można zaakceptować jako współtwórcy, spróbuj ponownie później.
             success: "Użytkownik @%{user} został pomyślnie zaakceptowany jako współpracownik."
           access_requested:
+            error: Twoje żądanie nie może zostać zrealizowanie, spróbuj ponownie później.
             success: Twoja prośba o współpracę została wysłana.
+          collaboration_requests:
+            accept_request: Akceptuj
+            reject_request: Odrzuć
+            title: Prośby współpracy
           rejected_request:
+            error: Nie można odrzucić, spróbuj ponownie później.
             success: "Użytkownik @%{user} został odrzucony jako współtwórca."
         show:
           final_proposal: ostateczna propozycja
+          final_proposal_help_text: Ten szkic jest zakończony. zobacz ostateczną propozycję
+          hidden_authors_count:
+            one: i %{count} więcej osoba
+            few: i %{count} więcej osób
+            many: i %{count} więcej osób
+            other: i %{count} więcej osób
           info-message: Jest to <strong>wspólny szkic</strong> dla propozycji. Oznacza to, że możesz pomóc autorom w kształtowaniu propozycji za pomocą sekcji komentarzy lub poprawić ją bezpośrednio, prosząc o dostęp do edycji. Gdy autorzy przyznają Ci dostęp, będziesz mógł wprowadzać zmiany w tym szkicu.
           publish: Publikuj
+          publish_info: Opublikuj tę wersję szkicu lub
           published_proposal: opublikowana propozycja
+          request_access: Poproś o dostęp
+          requested_access: Poproszono o dostęp
+          withdraw: wycofaj szkic
         states:
+          open: Otwarty
           published: Opublikowano
           withdrawn: Wycofano
         update:
           error: Wystąpił błąd podczas zapisywania wspólnego szkicu.
+          success: Zaktualizowano wspólny szkic.
+        wizard_aside:
+          back_from_collaborative_draft: Powrót do wspólnych szkiców
+        wizard_header:
+          title: Utwórz swój wspólny szkic
       content_blocks:
         highlighted_proposals:
           name: Propozycje
@@ -579,6 +680,8 @@ pl:
             published_at: Opublikowano
             state: Status
             title: Tytuł
+            valuator: Weryfikator
+            valuators: Weryfikatorzy
             votes: Głosy
         proposal_state:
           css_class: klasa CSS
@@ -621,6 +724,7 @@ pl:
           voted: Głosował
         index:
           click_here: Zobacz wszystkie propozycje
+          collaborative_drafts_list: Wspólne szkice
           count:
             one: "%{count} propozycja"
             few: "%{count} propozycji"
@@ -637,6 +741,7 @@ pl:
         orders:
           label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane
+          most_endorsed: Najbardziej rekomendowane
           most_followed: Najczęściej obserwowane
           most_voted: Większość głosów
           random: Losowo
@@ -665,6 +770,13 @@ pl:
           answer: Odpowiedź
           changes_at_title: Poprawka do „%{title}”
           estimated_cost: Szacowany koszt
+          hidden_endorsers_count:
+            one: i %{count} więcej osoba
+            few: i %{count} więcej osób
+            many: i %{count} więcej osób
+            other: i %{count} więcej osób
+          link_to_collaborative_draft_help_text: Ta propozycja jest wynikiem wspólnego szkicu. Przejrzyj historię
+          link_to_collaborative_draft_text: Zobacz wspólny szkic
           link_to_promoted_emendation_help_text: Ta propozycja jest awansowaną poprawką
           link_to_promoted_emendation_text: Zobacz odrzuconą poprawkę.
           link_to_proposal_from_emendation_help_text: To jest odrzucona poprawka
@@ -689,6 +801,7 @@ pl:
           threshold_per_proposal:
             description: Aby propozycje zostały zatwierdzone, muszą osiągnąć limit %{limit} głosów.
           vote_limit:
+            description: Możesz wesprzeć maksymalnie %{limit} propozycji.
             votes: Pozostało %{number} głosów
         wizard_aside:
           back: Wróć
