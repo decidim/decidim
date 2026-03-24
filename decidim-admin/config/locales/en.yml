@@ -1096,8 +1096,8 @@ en:
           previous_title: Previous item
         attachments:
           add_attachments: Add attachments
-          edit_attachments: Edit attachments
           attachment_legend: Add an attachment gallery (Optional)
+          edit_attachments: Edit attachments
       static_page_topics:
         create:
           error: There was a problem creating a new topic.
