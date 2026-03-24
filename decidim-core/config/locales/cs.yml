@@ -316,7 +316,7 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} aplikaci OAuth"
         update: "%{user_name} aktualizovala %{resource_name} aplikaci OAuth"
       organization:
-        update: "%{user_name} aktualizovala nastavení organizace"
+        update: "%{user_name} aktualizoval nastavení organizace"
         update_external_domain: "%{user_name} aktualizoval externí domény organizace"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
@@ -635,7 +635,7 @@ cs:
       global_menu:
         name: Globální menu
       hero:
-        name: Obrázek hrdiny a CTA
+        name: Obrázek hrdiny a výzva k akci
       hero_settings_form:
         background_image: Obrázek pozadí
         welcome_text: Uvítací text
@@ -1768,7 +1768,7 @@ cs:
         actions:
           create_user_group: Vytvořit skupinu
           disabled_message: Zpráva
-          edit_profile: Editovat profil
+          edit_profile: Upravit profil
           edit_user_group: Upravit profil skupiny
           invite_user: Pozvat uživatele
           join_user_group: Žádost o připojení ke skupině
@@ -2332,6 +2332,7 @@ cs:
         confirm_close_ephemeral_session: Pokud z této stránky odejdete, vaše relace bude ukončena. Jste si jisti?
         log_in: Přihlásit
         main_menu: Hlavní menu
+        mobile_account_greeting: Dobrý den %{user_name}
         user_menu: Uživatelské Menu
       impersonation_warning:
         close_session: Zavřít sezení
