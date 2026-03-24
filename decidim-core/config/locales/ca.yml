@@ -1739,7 +1739,7 @@ ca:
         actions:
           create_user_group: Crea un grup
           disabled_message: Missatge
-          edit_profile: Edita el perfil
+          edit_profile: Editar el perfil
           edit_user_group: Edita el perfil del grup
           invite_user: Convida la participant
           join_user_group: Sol·licita unir-se al grup
