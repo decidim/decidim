@@ -1825,8 +1825,6 @@ eu:
         submit_button: Bidali gonbidapena
       no_invitations_remaining: Ez da gonbidapenik geratzen
       send_instructions: Gonbidapen-mezu elektroniko bat %{email} helbidera bidali da.
-      updated: Pasahitza ondo ezarri da. Saioa hasi duzu.
-      updated_not_active: Pasahitza ondo ezarri da.
     mailer:
       confirmation_instructions:
         action: Berretsi nire kontua
