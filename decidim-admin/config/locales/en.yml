@@ -1094,10 +1094,10 @@ en:
           next_title: Next item
           previous: Previous
           previous_title: Previous item
-        gallery:
-          add_images: Add images
-          edit_images: Edit images
-          gallery_legend: Add an image gallery (Optional)
+        attachments:
+          add_attachments: Add attachments
+          edit_attachments: Edit attachments
+          attachment_legend: Add an attachment gallery (Optional)
       static_page_topics:
         create:
           error: There was a problem creating a new topic.
