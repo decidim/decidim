@@ -1309,8 +1309,6 @@ bg:
         submit_button: Изпрати покана
       no_invitations_remaining: Няма останали покани
       send_instructions: Писмо с покана беше изпратено до %{email}.
-      updated: Вашата парола беше зададена успешно. Вече сте влезли.
-      updated_not_active: Вашата парола беше зададена успешно.
     mailer:
       confirmation_instructions:
         action: Потвърди профила ми
