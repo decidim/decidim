@@ -5,12 +5,16 @@ bg:
       participatory_process:
         announcement: Обявление
         area_id: Район
+        copy_categories: Копирай категории
+        copy_components: Копирай компоненти
+        copy_steps: Копирай стъпки
         decidim_area_id: Район
         description: Описание
         developer_group: Група за популяризиране
         document: Документ
         domain: Домейн
         end_date: Крайна дата
+        hashtag: Хаштаг
         hero_image: Изображение за начална страница
         import_attachments: Импортиране на прикачени файлове
         import_categories: Импортиране на категории
@@ -36,6 +40,7 @@ bg:
         description: Описание
         developer_group: Група за популяризиране
         group_url: Уебсайт
+        hashtag: Хаштаг
         hero_image: Изображение
         local_area: Област на организацията
         meta_scope: Метаданни за обхвата
@@ -80,6 +85,7 @@ bg:
     admin:
       actions:
         activate: Активиране
+        configure: Конфигуриране
         confirm_destroy: Потвърждаване за изтриване
         destroy: Изтрий
         duplicate: Дубликирай
@@ -107,6 +113,7 @@ bg:
           attachments: Прикачени файлове
           components: Компоненти
           info: Относно този процес
+          landing_page: Целева страница
           moderations: Модерации
           process_admins: Администратори на процеси
           steps: Фази
@@ -139,10 +146,14 @@ bg:
             admin: Администратор
             collaborator: Сътрудник
             moderator: Модератор
+            valuator: Оценител
         user:
           fields:
             invitation_accepted_at: 'Поканата е приета на:'
             invitation_sent_at: Поканата е изпратена на
+      participatory_process_copies:
+        new:
+          copy: Копиране
       participatory_process_groups:
         destroy:
           success: Групата на процеса на участие беше изтрита успешно.
@@ -199,6 +210,7 @@ bg:
           error: Възникна проблем при промяната на реда на тези етапи на процеса на участие.
         update:
           error: Възникна проблем при актуализирането на тази фаза от процеса на участие.
+          success: Фазата на участие е актуализирана успешно.
       participatory_process_user_roles:
         create:
           error: Възникна проблем при добавянето на участник за този процес на участие.
@@ -296,6 +308,8 @@ bg:
       processes: Процеси
     metrics:
       participatory_processes:
+        description: Брой на процесите на участие в тази организация
+        object: процеси на участие
         title: Процеси на участие
     participatory_process_groups:
       content_blocks:
@@ -353,8 +367,13 @@ bg:
           form:
             document_legend: Добавяне на документ
             slug_help_html: 'Съкратените URL се използват за генериране на URL адреси, които сочат към този процес. Приема само букви, цифри и тирета и трябва да започва с буква. Пример: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help_html: 'Използвайте частични пътища, а не пълни URL адреси тук. Приема букви, цифри, тирета и наклонени черти и трябва да започва с буква. Ако не е зададено, бутонът няма да се показва. Пример: %{url}'
+            cta_text_help: Ако не бъде настроен, бутонът няма да се показва.
         participatory_processes:
           form:
+            announcement_help: Текстът, който въведете тук, ще се показва на потребителите под информацията за процеса.
             duration: Продължителност
             images: Изображения
             metadata: Метаданни
@@ -379,6 +398,9 @@ bg:
           highlighted_processes:
             active_spaces: Активни процеси
             see_all_spaces: Вижте всички процеси
+      participatory_process_steps:
+        index:
+          back_to_process: Назад към страницата на процеса
       participatory_processes:
         description:
           area_name: Област
