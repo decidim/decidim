@@ -872,8 +872,6 @@ pt:
         submit_button: Enviar um convite
       no_invitations_remaining: Nenhum convite restante
       send_instructions: Um e-mail de convite foi enviado para %{email}.
-      updated: A sua palavra-passe foi configurada corretamente. Agora tem sessão iniciada.
-      updated_not_active: A sua palavra-passe foi configurada corretamente.
     mailer:
       confirmation_instructions:
         action: Confirmar a minha conta
