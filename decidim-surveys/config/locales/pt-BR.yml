@@ -9,6 +9,9 @@ pt-BR:
       decidim/surveys/survey:
         one: Enquete
         other: Enquetes
+      decidim/surveys/survey_answer:
+        one: Resposta
+        other: Respostas
   decidim:
     admin:
       admin_log:
@@ -16,6 +19,8 @@ pt-BR:
           surveys: Pesquisas
     components:
       surveys:
+        actions:
+          answer: Responda
         name: Pesquisas
         settings:
           announcement: Avisos
@@ -35,8 +40,16 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Uma nova pesquisa em %{participatory_space_title}
           notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
+    metrics:
+      survey_answers:
+        description: Número de pesquisas respondidas por usuários
+        object: respostas para pesquisas
+        title: Respostas para pesquisas
+    statistics:
+      answers_count: Respostas
     surveys:
       actions:
+        answers: Respostas
         answers_alert: Excluir as respostas na publicação está ativo para esta pesquisa. Existem respostas %{answers_count} que serão destruídas se você continuar.
         confirm_destroy: Tem certeza de que deseja excluir isso?
         destroy: Destruir
@@ -51,6 +64,8 @@ pt-BR:
             title: "%{total} Respostas totais"
           show:
             title: 'Resposta #%{number}'
+        exports:
+          survey_user_answers: Avalie as respostas dos usuários
         publish_answers:
           index:
             answers:
@@ -99,6 +114,7 @@ pt-BR:
       models:
         survey:
           fields:
+            answers: Respostas
             questions: Questões
             status: Estado
             title: Titulo
@@ -106,6 +122,9 @@ pt-BR:
             closed: Fechado
             open: Aberto
       surveys:
+        answer:
+          invalid: Houve erros ao responder a pesquisa.
+          success: Pesquisa respondida com sucesso.
         count:
           surveys_count:
             one: "%{count} Pesquisa"
