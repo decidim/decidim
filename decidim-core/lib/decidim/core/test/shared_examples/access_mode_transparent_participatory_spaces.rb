@@ -145,7 +145,7 @@ shared_examples "access mode transparent participatory spaces comments" do
       skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
       within "#comment_#{comment.id}" do
-        find(".comment__votes button", match: :first).click
+        click_on(".comment__votes button", match: :first)
       end
 
       expect(page).to have_css(".comment__votes button.is-vote-selected")
@@ -210,7 +210,7 @@ shared_examples "access mode transparent participatory spaces comments" do
       skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
       within "#comment_#{comment.id}" do
-        find(".comment__votes button", match: :first).click
+        click_on(".comment__votes button", match: :first)
       end
 
       expect(page).to have_css(".comment__votes button.is-vote-selected")
