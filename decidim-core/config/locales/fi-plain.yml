@@ -1827,8 +1827,6 @@ fi-pl:
         submit_button: Lähetä kutsu
       no_invitations_remaining: Ei kutsuja jäljellä
       send_instructions: Kutsuviesti on lähetetty %{email}.
-      updated: Salasanasi on asetettu onnistuneesti. Olet nyt kirjautunut sisään.
-      updated_not_active: Salasanasi on asetettu onnistuneesti.
     mailer:
       confirmation_instructions:
         action: Vahvista käyttäjätilini
