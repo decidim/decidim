@@ -2,4 +2,27 @@
   label {
     @apply sr-only;
   }
+
+  // Custom radio button styling to ensure color visibility across all browsers.
+  // Safari does not apply accent-color to native radio inputs, so we use
+  // appearance: none and manually style the checked/unchecked states.
+  input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--radio-bg-color);
+    transition: box-shadow 0.15s ease;
+
+    &:checked {
+      background-color: var(--radio-fg-color);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--radio-fg-color);
+      outline-offset: 2px;
+    }
+  }
 }

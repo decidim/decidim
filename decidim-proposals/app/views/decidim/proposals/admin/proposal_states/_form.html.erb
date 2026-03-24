@@ -13,11 +13,12 @@
           <% state_id = "proposal_state_text_color_#{color_values[:foreground].delete("#").downcase}" %>
           <style>
             <%= "##{state_id}" %> {
-              box-shadow:  0 0 0 1.5px <%= color_values[:foreground] %>, 0 0 0 6px <%= color_values[:background] %>;
-              accent-color: <%= color_values[:foreground] %>;
+              --radio-fg-color: <%= color_values[:foreground] %>;
+              --radio-bg-color: <%= color_values[:background] %>;
+              box-shadow: 0 0 0 1.5px <%= color_values[:foreground] %>, 0 0 0 6px <%= color_values[:background] %>;
             }
 
-            <%= "##{state_id}" %>:checked  {
+            <%= "##{state_id}" %>:checked {
               box-shadow: 0 0 0 6px <%= color_values[:foreground] %>;
             }
           </style>
