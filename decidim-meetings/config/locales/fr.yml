@@ -19,6 +19,7 @@ fr:
         customize_registration_email: Personnaliser l'email d'inscription
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
+        decidim_user_group_id: Groupe d'utilisateurs
         description: Description
         end_time: Heure de fin
         id: ID
@@ -122,6 +123,7 @@ fr:
             values:
               official: Officiel
               participants: Participants
+              user_group: Groupes d’utilisateurs
           with_any_type:
             label: Type de rencontre
             values:
@@ -164,6 +166,7 @@ fr:
             enable_pads_creation: Activer la création de pads
             maps_enabled: Cartes activées
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
+            registration_code_enabled: Code d'enregistrement activé
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             taxonomy_filters_add: Ajouter un filtre
             terms_and_conditions_url_for_meeting_creators: URL des conditions générales pour les auteurs de rencontres
@@ -171,6 +174,7 @@ fr:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
             creation_enabled_for_participants: La création de rencontre par les participants est activée
+            creation_enabled_for_user_groups: La création de rencontres par des groupes d'utilisateurs est activée
     download_your_data:
       help:
         invites:
@@ -217,8 +221,10 @@ fr:
           email_subject: Les places réservées pour la rencontre "%{resource_title}" dépassent %{percentage}%
           notification_title: Les places réservées pour la rencontre <a href="%{resource_path}">%{resource_title}</a> dépassent %{percentage}%.
         meeting_updated:
+          email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder aux modifications sur la page de la rencontre :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La rencontre "%{resource_title}" a été mise à jour
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
         registration_code_validated:
           email_intro: Votre code d'enregistrement "%{registration_code}" pour la réunion "%{resource_title}" a été validé.
           email_outro: Vous avez reçu cette notification parce que votre code d'enregistrement pour la réunion "%{resource_title}" a été validé. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -230,7 +236,10 @@ fr:
           email_subject: Les inscriptions pour la rencontre "%{resource_title}" sont ouvertes.
           notification_title: Les inscriptions pour la rencontre <a href="%{resource_path}">%{resource_title}</a> sont ouvertes.
         upcoming_meeting:
+          email_intro: La rencontre "%{resource_title}" commencera dans moins de 48h.
           email_outro: Vous avez reçu cette notification parce que vous suivez la réunion "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+          email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
     forms:
       meetings:
         attendees_count_help_text: N'oubliez pas d'inclure le nombre total de participants à votre réunion, que ce soit en personne, en ligne ou hybride.
@@ -249,6 +258,8 @@ fr:
     meetings:
       actions:
         agenda: Ordre du jour
+        attachment_collections: Dossiers
+        attachments: Documents liés
         close: Clore
         confirm_delete_meeting: Êtes-vous sûr(e) de vouloir supprimer cette rencontre ?
         deleted_meetings_info: Les rencontres supprimées peuvent être restaurées depuis la corbeille.
@@ -295,6 +306,7 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour.
             success: Ordre du jour mis à jour avec succès.
         exports:
+          answers: Réponses
           meeting_comments: Commentaires
           meetings: Rencontres
           registrations: Inscriptions
@@ -530,6 +542,7 @@ fr:
             all: Toutes
             official: Officiel
             participants: Participants
+            user_group: Groupes
           search: Rechercher
           type: Type
           type_values:
@@ -540,6 +553,7 @@ fr:
         form:
           address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
           available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité
+          create_as: Créer une rencontre en tant que
           disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
           iframe_embed_type_html: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre'
@@ -586,6 +600,7 @@ fr:
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           redirect_notice: Cette rencontre fait partie d'un autre espace, vous avez donc été redirigé(e) vers %{current_space_name}. <br>Si vous préférez, vous pouvez revenir à <a href="%{previous_space_url}">%{previous_space_name}</a>.
+          registration_code_help_text: Votre code d'inscription
           registration_state:
             validated: Validé
             validation_pending: EN ATTENTE DE VALIDATION
@@ -635,9 +650,13 @@ fr:
             announcement: Les réponses à cette question sont closes.
             question: Question
             question_results: Résultats
+          index:
+            empty_questions: Tout au long de cette rencontre, certaines questions seront envoyées et vous pourrez y répondre. Elles seront affichées ici.
           index_admin:
             edit: Modifier dans le panneau d'administration
             question: Question
+            received_answer: réponse reçue
+            received_answers: réponses reçues
             results: Résultats
             send: Publier
             sent: Publiée
@@ -661,6 +680,7 @@ fr:
         confirmation:
           confirmed_html: Votre inscription pour la rencontre <a href="%{url}">%{title}</a> a été confirmée.
           details: Vous trouverez les détails de la rencontre dans la pièce jointe.
+          registration_code: Votre code d'inscription est %{code}.
       registration_type:
         on_different_platform: Sur une plateforme différente
         on_this_platform: Sur cette plateforme
@@ -688,6 +708,8 @@ fr:
         success: La rencontre a été annulée avec succès.
     metrics:
       meetings:
+        description: Nombre de rencontres créées
+        object: rencontres
         title: Rencontres
     open_data:
       help:
