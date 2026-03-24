@@ -53,7 +53,7 @@ es:
         edit_projects: Gestionar proyectos
         import: Importar propuestas a proyectos
         new_budget: Añadir presupuesto
-        new_project: Nuevo proyecto
+        new_project: Añadir proyecto
         preview: Previsualizar
         send_voting_reminders: Enviar recordatorios de votación
         title: Acciones
@@ -116,7 +116,7 @@ es:
             title: Proyectos eliminados
           new:
             create: Crear
-            title: Nuevo proyecto
+            title: Añadir proyecto
           update:
             invalid: Se ha producido un error al actualizar este proyecto.
             success: Proyecto actualizado correctamente.
