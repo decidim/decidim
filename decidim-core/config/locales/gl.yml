@@ -686,8 +686,6 @@ gl:
         submit_button: Enviar unha invitación
       no_invitations_remaining: Non hai invitacións restantes
       send_instructions: Enviouse un correo electrónico de invitación a %{email}.
-      updated: O seu contrasinal configurouse con éxito. Agora iniciaches sesión.
-      updated_not_active: O seu contrasinal configurouse con éxito.
     mailer:
       confirmation_instructions:
         action: Confirme a miña conta
