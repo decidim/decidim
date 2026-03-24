@@ -106,11 +106,8 @@ es:
           public: Público
           published: Publicado
           unpublished: Despublicada
-        manage_trash:
-          title: Asambleas eliminadas
         new:
           create: Crear
-          title: Nueva asamblea
         update:
           error: Se ha producido un error al actualizar esta asamblea.
           success: La asamblea se ha actualizado correctamente.
@@ -122,7 +119,6 @@ es:
         new:
           duplicate: Duplicar
           select: Selecciona qué datos quieres duplicar
-          title: Duplicar asamblea
       assembly_imports:
         create:
           error: Ha habido un problema importando esta asamblea.
@@ -130,7 +126,6 @@ es:
         new:
           import: Importar
           select: Selecciona qué datos quieres importar
-          title: Importar asamblea
       assembly_publications:
         create:
           error: Se ha producido un error al publicar esta asamblea.
@@ -145,13 +140,9 @@ es:
         destroy:
           success: Administradora eliminada correctamente de esta asamblea.
         edit:
-          title: Actualizar administradora de la asamblea
           update: Actualizar
-        index:
-          assembly_admins_title: Administradoras de la asamblea
         new:
           create: Crear
-          title: Nueva administradora de la asamblea
         update:
           error: Se ha producido un error al actualizar una administradora para esta asamblea.
           success: Administradora actualizada correctamente para esta asamblea.
@@ -172,7 +163,7 @@ es:
           attachments: Adjuntos
           components: Componentes
           info: Acerca de esta asamblea
-          landing_page: Disposición de la página de aterrizaje
+          landing_page: Disposición de la página de inicio
           members: Miembros
           moderations: Moderaciones
           see_assembly: Ver la asamblea
@@ -209,8 +200,6 @@ es:
         space_filter_for:
           assemblies: Todas las asambleas
       titles:
-        assemblies: Asambleas
-        assemblies_deleted: Asambleas eliminadas
         assemblies_types: Tipo de asamblea
       tooltips:
         deleted_assemblies_info: Una asamblea solo se puede eliminar si su estado es 'Despublicada'.
@@ -246,6 +235,8 @@ es:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: Acerca de esta asamblea
           form:
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
@@ -264,24 +255,40 @@ es:
             taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
+          index:
+            title: Asambleas
+          manage_trash:
+            title: Asambleas eliminadas
+          new:
+            title: Nueva asamblea
         assembly_duplicates:
           form:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+          new:
+            title: Duplicar asamblea
         assembly_imports:
           form:
             document_legend: Añadir un documento
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+          new:
+            title: Importar asamblea
         assembly_members:
           form:
             explanation: 'Instrucciones para la imagen:'
             image_guide: Preferiblemente una imagen apaisada que no tenga ningún texto.
             non_user_avatar_help: Debes obtener el consentimiento de las personas antes de publicarlas como miembros.
+        assembly_user_roles:
+          edit:
+            title: Actualizar administradora de la asamblea
+          index:
+            title: Administradoras de la asamblea
+          new:
+            title: Nueva administradora de la asamblea
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidad máxima de elementos para mostrar
         imports:
           attachment_error: No se ha podido importar el archivo adjunto "%{title}" (%{error}).
-          banner_image_error: No se ha podido importar la imagen del banner (%{error}).
           hero_image_error: No se ha podrido importar la imagen principal (%{error}).
         new_import:
           accepted_types:
@@ -310,9 +317,6 @@ es:
           type: Tipo
         show:
           title: Acerca de esta asamblea
-      assembly_members:
-        index:
-          members: Miembros
       content_blocks:
         children_assemblies:
           name: Asambleas
@@ -354,9 +358,6 @@ es:
         duration: Duración
         private_space: Esta es una asamblea privada
         social_networks_title: Visita la asamblea en
-    assembly_members:
-      index:
-        title: Miembros
     download_your_data:
       show:
         assemblies: Exportar las asambleas

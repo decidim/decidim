@@ -1412,6 +1412,9 @@ ro:
           %{organization_name}
         hello: Dragă %{username},
         subject: Cont inactiv șters
+    participatory_space_members:
+      index:
+        members: Membri
     profile:
       deleted: Participant șters
     profiles:
@@ -1708,8 +1711,6 @@ ro:
         confirm_new_password: Confirmați parola nouă
         new_password: Parola nouă
         old_password_help: Pentru a confirma modificările aduse contului dumneavoastră, vă rugăm să introduceți parola curentă.
-        password_help: "%{minimum_characters} nr. minim de caractere, nu trebuie să fie prea des întâlnite (de exemplu, 123456) și trebuie să fie diferite de numele dvs. și de adresa dvs. e-mail."
-        password_help_admin: "Minim %{minimum_characters} caractere, nu trebuie să fie prea comun (ex. 123456), trebuie să fie diferit de porecla și adresa de e-mail și trebuie să fie diferită de parola veche."
         title: Schimbare parolă
       new:
         forgot_your_password: Ați uitat parola?

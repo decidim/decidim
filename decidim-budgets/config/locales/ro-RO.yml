@@ -34,6 +34,7 @@ ro:
       actions:
         edit: Editare
         import: Importă propuneri în proiecte
+        new_project: Proiect nou
         preview: Previzualizare
         send_voting_reminders: Trimite memento-uri de votare
         title: Acțiuni
@@ -58,7 +59,6 @@ ro:
             name: Proiect
         projects:
           edit:
-            title: Editare proiect
             update: Actualizare
           index:
             actions: Acțiuni
@@ -72,7 +72,6 @@ ro:
             update: Actualizare
           new:
             create: Creează
-            title: Proiect nou
         proposals_imports:
           new:
             create: Importă propuneri în proiecte

@@ -1379,6 +1379,9 @@ fr-CA:
           %{organization_name}
         hello: Cher(ère) %{username},
         subject: Compte inactif supprimé
+    participatory_space_members:
+      index:
+        members: Membres
     passwords:
       update:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
@@ -1727,8 +1730,8 @@ fr-CA:
         confirm_new_password: Confirmer le nouveau mot de passe
         new_password: Nouveau mot de passe
         old_password_help: Afin de confirmer les modifications apportées à votre compte, veuillez saisir votre mot de passe actuel.
-        password_help: "%{minimum_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
-        password_help_admin: "%{minimum_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email, ainsi que de vos précédents mots de passe."
+        password_help: "%{minimum_characters} caractères minimum, doit contenir au moins 5 caractères différents, ne doit pas être trop commun (ex. 123456) et doit être différent de votre nom, de votre pseudo, de votre courriel et du nom de l'organisation."
+        password_help_admin: "%{minimum_characters} caractères minimum, doit contenir au moins 5 caractères différents, ne doit pas être trop commun (ex. 123456) et doit être différent de votre nom, de votre pseudo, de votre courriel, du nom de l'organisation et de vos anciens mots de passe."
         title: Changement de mot de passe
       new:
         forgot_your_password: Mot de passe oublié?
@@ -1969,6 +1972,7 @@ fr-CA:
         confirm_title_close_ephemeral_session: Avant de quitter cette page…
         log_in: Se connecter
         main_menu: Menu principal
+        mobile_account_greeting: Bonjour %{user_name},
         user_menu: Menu utilisateur
       impersonation_warning:
         close_session: Fermer la session

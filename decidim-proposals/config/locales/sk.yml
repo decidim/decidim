@@ -106,6 +106,9 @@ sk:
             publish_answers_immediately: Publikovať odpovede na návrhy okamžite
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Akceptovať
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} bol prijatý k prístupu ako prispievateľ %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a> je <strong> má prístup ako prispievateľ </strong> v spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a>.
@@ -295,91 +298,6 @@ sk:
           all: Všetko
           amendments: Zmeny
           proposals: Návrhy
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Pri publikovaní konceptu spolupráce došlo k chybám.
-            irreversible_action_modal:
-              cancel: zrušenie
-              ok: Publikovať ako návrh
-              title: Nasledujúci akcia je nevratná
-            success: Projekt spolupráce bol úspešne zverejnený ako návrh.
-          withdraw:
-            error: Došlo k chybe pri uzatvorení návrhu spolupráce.
-            irreversible_action_modal:
-              cancel: zrušenie
-              ok: Vyberte návrh spolupráca
-              title: Nasledujúci akcia je nevratná
-            success: Kolaboratívne návrh bol úspešne zrušený.
-        create:
-          success: Projekt spolupráce bol úspešne vytvorený.
-        edit:
-          back: Zadná
-          send: Poslať
-          title: Úprava konceptu spolupráce
-        filters:
-          all: Všetko
-          amendment: Zmeny
-          open: otvorené
-          published: Publikované
-          related_to: súvisiace s
-          search: Vyhľadávanie
-          state: Štát
-          withdrawn: Stiahnuté
-        filters_small_view:
-          close_modal: Zatvoriť modálne
-          filter: Filter
-          filter_by: Filtrovať podľa
-          unfold: Rozbaliť
-        index:
-          count:
-            one: "%{count} návrh spolupráce"
-            few: "%{count} návrh spolupráce"
-            many: "%{count} návrh spolupráce"
-            other: "%{count} návrh spolupráce"
-        new:
-          send: Pokračovať
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nový návrh spolupráca
-        orders:
-          label: 'Objednajte návrhy podľa:'
-          most_contributed: Väčšina prispela
-          random: Náhodný
-          recent: Nedávno
-        requests:
-          accepted_request:
-            error: Nemožno prijať ako spolupracovník, skúste to znova neskôr.
-          access_requested:
-            error: Vaša žiadosť nebola dokončená, skúste to znova neskôr.
-          collaboration_requests:
-            accept_request: Akceptovať
-            reject_request: Odmietnuť
-            title: Žiadosti o spolupráci
-          rejected_request:
-            error: Nemohol byť odmietnutý ako spolupracovník, skúste to znova neskôr.
-        show:
-          final_proposal: konečný návrh
-          final_proposal_help_text: Tento návrh je dokončený. Môžete vidieť konečný konečný návrh
-          hidden_authors_count:
-            one: a%{count} ďalšia osoba
-            few: a%{count} ďalších ľudí
-            many: a%{count} ďalších ľudí
-            other: a%{count} ďalších ľudí
-          publish: Publikovať
-          publish_info: Publikujte túto verziu konceptu alebo
-          published_proposal: zverejnený návrh
-          request_access: Požiadať o prístup
-          requested_access: Požadovaný prístup
-          withdraw: stiahnuť návrh
-        states:
-          open: otvorené
-          published: Publikované
-          withdrawn: Stiahnuté
-        update:
-          error: Pri ukladaní schéme spolupráce došlo k chybám.
-          success: Protokol o spolupráci bol úspešne aktualizovaný.
-        wizard_header:
-          title: Vytvorte návrh spolupráca
       create:
         error: Pri ukladaní návrhu došlo k chybám.
         success: Návrh bol úspešne vytvorený. Uložené ako návrh.
@@ -424,7 +342,6 @@ sk:
           state: Štát
           type: Typ
         index:
-          collaborative_drafts_list: Získajte prístup k spolupráci
           count:
             one: "%{count} návrh"
             few: "%{count} návrhov"
@@ -454,8 +371,11 @@ sk:
           answer: Odpovedať
           changes_at_title: doplňujúci návrh k "%{title}"
           estimated_cost: Odhadované náklady
-          link_to_collaborative_draft_help_text: Tento návrh je výsledkom spoločného návrhu. Skontrolujte históriu
-          link_to_collaborative_draft_text: Pozri schému spolupráca
+          hidden_likes_count:
+            one: a%{count} ďalšia osoba
+            few: a%{count} ďalších ľudí
+            many: a%{count} ďalších ľudí
+            other: a%{count} ďalších ľudí
           link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšenia
           link_to_promoted_emendation_text: Pozrite sa na zamietnuté vylepšení.
           link_to_proposal_from_emendation_help_text: Toto je zamietnuté vylepšenie

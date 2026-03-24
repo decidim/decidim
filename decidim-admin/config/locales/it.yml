@@ -196,7 +196,6 @@ it:
           alert: 'Richiesto: rivedi i nostri termini di utilizzo per l''amministratrice/tore'
           callout: Prenditi un momento per leggere i Termini di utilizzo per l'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
           cta: Rivedili ora.
-        title: Termini di servizio amministrativi
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
@@ -239,8 +238,6 @@ it:
         edit:
           title: Modifica cartella
           update: Aggiorna
-        index:
-          attachment_collections_title: Cartelle dell'allegato
         new:
           create: Creare
           title: Nuova cartella
@@ -256,8 +253,6 @@ it:
         edit:
           title: Modifica allegato
           update: Aggiorna
-        index:
-          attachments_title: Allegati
         new:
           create: Crea allegato
           title: Nuovo allegato
@@ -315,7 +310,6 @@ it:
           title: 'Aggiungi componente: %{name}'
         publish:
           success: Il componente è stato pubblicato con successo.
-        title: Componenti
         unpublish:
           success: Il componente è stato pubblicato con successo.
         update:
@@ -332,7 +326,6 @@ it:
           text: Cerca per email utente, nome o nickname
         managed_user_name: Gestione utente
         solved: Risolto
-        title: Verifica dei conflitti
         transfer:
           email: Email
           error: Si è verificato un problema durante il trasferimento dell'utente corrente al partecipante gestito.
@@ -479,7 +472,6 @@ it:
           impersonate: Impersonare
           impersonate_existing_managed_user: Gestisci partecipante %{name}"
           impersonate_existing_user: Gestisci partecipante %{name}"
-          impersonate_new_managed_user: Gestisci nuovo partecipante
       imports:
         and: e
         data_errors:
@@ -535,7 +527,6 @@ it:
         promotions:
           new:
             explanation: I partecipanti gestiti possono essere promossi a partecipanti standard. Significa che saranno invitati ad effettuare la richiesta e non sarai in grado di gestirli di nuovo. Il partecipante invitato riceverà un'email per accettare il tuo invito.
-            new_managed_user_promotion: Nuova promozione di partecipanti gestiti
             promote: Promuovere
       members_csv_imports:
         new:
@@ -717,7 +708,6 @@ it:
           title: Modelli Newsletter
           use_template: Utilizza questo Modello
         show:
-          preview: 'Anteprima Modello: %{template_name}'
           use_template: Utilizza questo Modello
       newsletters:
         confirm_recipients:
@@ -782,7 +772,6 @@ it:
         send_to_user:
           sent_successfully: Newsletter inviata con successo a %{email}
         show:
-          preview: Anteprima
           select_recipients_to_deliver: Seleziona destinatari a cui inviare
           send_me_a_test_email: Inviami una email di prova
           subject: Oggetto
@@ -873,7 +862,6 @@ it:
           up: Su
         form:
           add: Aggiungi alla lista consentita
-          title: Elenco di domini esterni consentiti
       reminders:
         create:
           error: Si è verificato un errore durante la creazione dei promemoria.
@@ -1037,16 +1025,9 @@ it:
           internal_name: Etichetta interna
           name: Etichetta
       titles:
-        admin_log: Registro di amministrazione
-        area_types: Tipi di ambito territoriale
         areas: Ambiti territoriali
         authorization_workflows: Metodi di verifica
-        dashboard: Cruscotto (Dashboard)
-        impersonatable_users: Partecipanti gestibili
-        impersonations: Gestione dei partecipanti
         panel: Amministratrice/tore
-        participants: Partecipanti
-        scope_types: Tipi di ambito
         scopes: Ambiti
       users:
         create:

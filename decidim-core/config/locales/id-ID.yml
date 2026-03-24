@@ -519,6 +519,9 @@ id:
         subheading: Menavigasi melalui halaman bantuan %{name}
         title: Membantu
         topics: Topik
+    participatory_space_members:
+      index:
+        members: Anggota
     profile:
       deleted: Pengguna yang dihapus
     profiles:

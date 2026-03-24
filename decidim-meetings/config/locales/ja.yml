@@ -142,7 +142,6 @@ ja:
           success: ミーティングを複製しました。
         new:
           copy: コピー
-          title: ミーティングを複製
       tooltips:
         cannot_close_meetings: 参加者によって作成されたため、このミーティングを閉じることはできません
         cannot_duplicate_meetings: 参加者によって作成されたため、このミーティングは複製できません
@@ -350,13 +349,16 @@ ja:
             non_user: 非参加者
             select_user: 参加者を選択
           index:
-            invite_attendee: 参加者を招待
             invites: 招待
             registrations_disabled: 登録が無効になっているため、参加者を招待することはできません。
+            title: 参加者を招待
         meeting_closes:
           edit:
             close: 閉じる
             title: ミーティングを閉じる
+        meeting_copies:
+          new:
+            title: ミーティングを複製
         meetings:
           close:
             invalid: このミーティングを終了する際に問題が発生しました。
@@ -433,15 +435,21 @@ ja:
             invalid: このミーティングの投票の更新に問題がありました．
             success: ミーティングの投票を更新しました。
         poll:
+          edit:
+            title: 投票を編集
           form:
             announcement_html:
               - 質問が回答を受信または公開/閉鎖した場合は、編集できなくなります。
               - 質問はいつでも追加できます。
               - 作成されたすべての質問の結果が公開されると、投票は終了します。
               - 質問を送信し、結果を公開するには、 <a href='%{admin_link}'>投票管理ページ</a> にアクセスしてください。
+        registration_form:
+          edit_questions:
+            title: 質問を編集
         registrations:
           edit:
             save: 保存
+            title: 登録
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
@@ -454,7 +462,6 @@ ja:
               other: '%{count} 件の登録がありました。'
             reserved_slots_help: 予約スロットがない場合は0にしておいてください。
             reserved_slots_less_than: '%{count} 以下にしてください'
-            title: 登録
           update:
             invalid: 登録設定の保存中に問題が発生しました。
             success: ミーティングの登録設定を保存しました。

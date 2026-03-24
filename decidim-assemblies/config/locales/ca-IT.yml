@@ -106,11 +106,8 @@ ca-IT:
           public: Públic
           published: Publicat
           unpublished: Despublicada
-        manage_trash:
-          title: Assemblees eliminades
         new:
           create: Crea
-          title: Nova assemblea
         update:
           error: S'ha produït un error en actualitzar aquesta assemblea.
           success: L'assemblea s'ha actualitzat correctament.
@@ -122,7 +119,6 @@ ca-IT:
         new:
           duplicate: Duplicar
           select: Selecciona quines dades vols duplicar
-          title: Assemblea duplicada
       assembly_imports:
         create:
           error: Hi ha hagut un problema important aquesta assemblea.
@@ -130,7 +126,6 @@ ca-IT:
         new:
           import: Importar
           select: Selecciona quines dades vols importar
-          title: Importar assemblea
       assembly_publications:
         create:
           error: S'ha produït un error en publicar aquesta assemblea.
@@ -145,13 +140,9 @@ ca-IT:
         destroy:
           success: L'administradora s'ha eliminat correctament d'aquesta assemblea.
         edit:
-          title: Actualitzar administradora de l'assemblea
           update: Actualitza
-        index:
-          assembly_admins_title: Administradores de l'assemblea
         new:
           create: Crea
-          title: Afegir administradora
         update:
           error: S'ha produït un error en actualitzar una administradora per a aquesta assemblea.
           success: L'administradora s'ha actualitzat correctament per a aquesta assemblea.
@@ -209,8 +200,6 @@ ca-IT:
         space_filter_for:
           assemblies: Totes les assemblees
       titles:
-        assemblies: Assemblees
-        assemblies_deleted: Assemblees eliminades
         assemblies_types: Tipus d'assemblees
       tooltips:
         deleted_assemblies_info: Aquesta assemblea es pot eliminar si el seu estat és 'Despublicada'.
@@ -246,6 +235,8 @@ ca-IT:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: Quant a aquesta assemblea
           form:
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
@@ -264,24 +255,40 @@ ca-IT:
             taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
+          index:
+            title: Assemblees
+          manage_trash:
+            title: Assemblees eliminades
+          new:
+            title: Nova assemblea
         assembly_duplicates:
           form:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          new:
+            title: Duplicar assemblea
         assembly_imports:
           form:
             document_legend: Afegir un document
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          new:
+            title: Importar assemblea
         assembly_members:
           form:
             explanation: 'Instruccions per a la imatge:'
             image_guide: Preferiblement una imatge apaïsada que no tingui cap text.
             non_user_avatar_help: Cal tenir el consentiment de la persona abans publicar-la com a membre.
+        assembly_user_roles:
+          edit:
+            title: Actualitzar administradora de l'assemblea
+          index:
+            title: Administradores de l'assemblea
+          new:
+            title: Nova administradora de l'assemblea
         content_blocks:
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
         imports:
           attachment_error: No s'ha pogut importar l'arxiu adjunt "%{title}" (%{error}).
-          banner_image_error: No s'ha pogut importar la imatge del bàner (%{error}).
           hero_image_error: No s'ha pogut importar la imatge principal (%{error}).
         new_import:
           accepted_types:
@@ -310,9 +317,6 @@ ca-IT:
           type: Tipus
         show:
           title: Quant a aquesta assemblea
-      assembly_members:
-        index:
-          members: Membres
       content_blocks:
         children_assemblies:
           name: Assemblees
@@ -354,9 +358,6 @@ ca-IT:
         duration: Durada
         private_space: Aquesta és una assemblea privada
         social_networks_title: Visita l'assemblea a
-    assembly_members:
-      index:
-        title: Membres
     download_your_data:
       show:
         assemblies: Exportar les assemblees

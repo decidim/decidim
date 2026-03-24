@@ -723,6 +723,9 @@
         subheading: Naviger gjennom hjelpesidene til %{name}
         title: Hjelp
         topics: Emner
+    participatory_space_members:
+      index:
+        members: Medlemmer
     profile:
       deleted: Slettet deltaker
     profiles:

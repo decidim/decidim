@@ -42,7 +42,6 @@ tr:
             name: proje
         projects:
           edit:
-            title: Projeyi düzenle
             update: Güncelle
           index:
             finished_orders: Tamamlanan oylar
@@ -51,7 +50,6 @@ tr:
             title: Projeler
           new:
             create: Oluştur
-            title: Yeni proje
         proposals_imports:
           new:
             create: Teklifleri projelere aktarın

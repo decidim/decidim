@@ -110,11 +110,8 @@ cs:
           public: Veřejné
           published: Publikováno
           unpublished: Nezveřejněno
-        manage_trash:
-          title: Smazané shromáždění
         new:
           create: Vytvořit
-          title: Nové shromáždění
         update:
           error: Při aktualizaci tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně aktualizováno.
@@ -126,7 +123,6 @@ cs:
         new:
           duplicate: Duplikovat
           select: Vyberte, která data chcete duplikovat
-          title: Duplikovat shromáždění
       assembly_imports:
         create:
           error: Při importu tohoto shromáždění došlo k chybě.
@@ -134,7 +130,6 @@ cs:
         new:
           import: Importovat
           select: Vyberte data, která chcete importovat
-          title: Importovat shromáždění
       assembly_publications:
         create:
           error: Při publikování tohoto shromáždění došlo k chybě.
@@ -149,13 +144,9 @@ cs:
         destroy:
           success: Administrátor byl z tohoto shromáždění úspěšně odstraněn.
         edit:
-          title: Aktualizovat administrátora shromáždění
           update: Aktualizace
-        index:
-          assembly_admins_title: Administrátoři shromáždění
         new:
           create: Vytvořit
-          title: Nový administrátor shromáždění
         update:
           error: Při aktualizaci administrátora pro toto shromáždění došlo k chybě.
           success: Administrátor úspěšně aktualizován pro toto shromáždění.
@@ -213,8 +204,6 @@ cs:
         space_filter_for:
           assemblies: Všechna shromáždění
       titles:
-        assemblies: Shromáždění
-        assemblies_deleted: Smazané shromáždění
         assemblies_types: Typy shromáždění
       tooltips:
         deleted_assemblies_info: Shromáždění může být odstraněno pouze v případě, že je stav "Nezveřejněný".
@@ -285,7 +274,6 @@ cs:
             max_results: Maximální množství prvků, které chcete zobrazit
         imports:
           attachment_error: Přílohu "%{title}" nelze importovat (%{error}).
-          banner_image_error: Obrázek banneru nelze importovat (%{error}).
           hero_image_error: Obrázek hrdiny nelze importovat (%{error}).
         new_import:
           accepted_types:
@@ -314,9 +302,6 @@ cs:
           type: Typ
         show:
           title: O tomto shromáždění
-      assembly_members:
-        index:
-          members: Členové
       content_blocks:
         children_assemblies:
           name: Shromáždění
@@ -358,9 +343,6 @@ cs:
         duration: Doba trvání
         private_space: Toto je soukromé shromáždění
         social_networks_title: Navštivte shromáždění na
-    assembly_members:
-      index:
-        title: Členové
     download_your_data:
       show:
         assemblies: Export shromáždění

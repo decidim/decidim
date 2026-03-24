@@ -220,7 +220,6 @@ cs:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
           callout: Věnujte prosím chvíli a zkontrolujte podmínky používání administrátora. V opačném případě nebudete moci platformu spravovat.
           cta: Zkontrolovat je nyní.
-        title: Administrátorské podmínky použití
       area_types:
         create:
           error: Při vytváření nového typu oblasti došlo k chybě.
@@ -263,8 +262,6 @@ cs:
         edit:
           title: Upravit složku
           update: Aktualizace
-        index:
-          attachment_collections_title: Složky přílohy
         new:
           create: Vytvořit
           title: Nová složka
@@ -280,8 +277,6 @@ cs:
         edit:
           title: Upravit přílohu
           update: Aktualizace
-        index:
-          attachments_title: Přílohy
         new:
           create: Vytvořit přílohu
           title: Nová příloha
@@ -341,7 +336,6 @@ cs:
           title: 'Přidat komponentu: %{name}'
         publish:
           success: Komponenta byla úspěšně publikována.
-        title: Komponenty
         unpublish:
           success: Komponenta byla úspěšně zrušena.
         update:
@@ -358,7 +352,6 @@ cs:
           text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
-        title: Konflikty ověření
         transfer:
           email: E-mail
           error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
@@ -520,7 +513,6 @@ cs:
           impersonate: V zastoupení
           impersonate_existing_managed_user: Spravovat účastníka "%{name}"
           impersonate_existing_user: Spravovat účastníka "%{name}"
-          impersonate_new_managed_user: Spravovat nového účastníka
       imports:
         and: a
         data_errors:
@@ -584,7 +576,6 @@ cs:
         promotions:
           new:
             explanation: Spravovaní uživatelé mohou být povýšeni na standardní uživatele. Znamená to, že budou pozváni do aplikace a nebudete je moci znovu předstírat. Pozvaný uživatel obdrží e-mail, ve kterém přijme vaši pozvánku.
-            new_managed_user_promotion: Nová spravovaná podpora pro uživatele
             promote: Podporovat
       members:
         create:
@@ -814,7 +805,6 @@ cs:
           title: Šablony zpravodaje
           use_template: Použít tuto šablonu
         show:
-          preview: 'Náhled šablony: %{template_name}'
           use_template: Použít tuto šablonu
       newsletters:
         confirm_recipients:
@@ -879,7 +869,6 @@ cs:
         send_to_user:
           sent_successfully: Zpravodaj byl úspěšně odeslán na %{email}
         show:
-          preview: Náhled
           select_recipients_to_deliver: Vybrat příjemce k doručení
           send_me_a_test_email: Pošlete mi testovací e-mail
           subject: Předmět
@@ -974,7 +963,6 @@ cs:
           up: Nahoru
         form:
           add: Přidat na Seznam povolených
-          title: Seznam povolených externích domén
       reminders:
         create:
           error: Při vytváření připomenutí došlo k chybě.
@@ -1236,25 +1224,12 @@ cs:
           none: Žádné
           title: Nová položka v %{taxonomy}
       titles:
-        admin_log: Správce protokolu
-        area_types: Typy oblastí
         areas: Oblasti
         authorization_workflows: Metody ověření
-        dashboard: Ovládací panel
-        edit_external_domains: Seznam povolených externích domén
-        impersonatable_users: Spravovatelní účastníci
-        impersonations: Správa účastníků
         menu: Nabídka
-        page_topics: Témata
-        pages: Stránky
         panel: Admin
-        participants: Uživatelé
-        scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti
         statistics: Statistiky
-        taxonomies: Taxonomie
-        taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
-        users: Administrátoři
       tooltips:
         cannot_destroy_taxonomy_filter: Nelze zničit tento filtr taxonomie
         cannot_edit_taxonomy_filter: Nelze upravit tento filtr taxonomie

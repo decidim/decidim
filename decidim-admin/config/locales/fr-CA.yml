@@ -220,7 +220,6 @@ fr-CA:
           alert: 'Requis: Consultez nos conditions d’utilisation administrateur'
           callout: Veuillez prendre le temps de lire les conditions d'utilisation administrateur. Dans le cas contraire, vous ne serrez pas en mesure d'administrer la plateforme.
           cta: Consultez les maintenant.
-        title: Conditions d'utilisation administrateur
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
@@ -264,7 +263,7 @@ fr-CA:
           title: Modifier le dossier
           update: Mettre à jour
         index:
-          attachment_collections_title: Dossiers de pièces jointes
+          title: Dossiers de pièces jointes
         new:
           create: Créer
           title: Nouveau dossier
@@ -281,7 +280,7 @@ fr-CA:
           title: Modifier le document lié
           update: Mettre à jour
         index:
-          attachments_title: Documents liés
+          title: Pièces jointes
         new:
           create: Lier un document
           title: Nouveau document lié
@@ -341,7 +340,6 @@ fr-CA:
           title: 'Ajouter une fonctionnalité : %{name}'
         publish:
           success: La fonctionnalité a été publiée avec succès.
-        title: Fonctionnalités
         unpublish:
           success: La fonctionnalité a été dépubliée avec succès.
         update:
@@ -358,7 +356,6 @@ fr-CA:
           text: Recherche par email, nom ou pseudo de l'utilisateur actuel
         managed_user_name: Utilisateur représenté
         solved: Résolu
-        title: Conflits de vérification
         transfer:
           email: Email
           error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
@@ -518,7 +515,6 @@ fr-CA:
           impersonate: Représenter
           impersonate_existing_managed_user: Représenter l'utilisateur "%{name}"
           impersonate_existing_user: Représenter l'utilisateur standard "%{name}"
-          impersonate_new_managed_user: Représenter un nouvel utilisateur
       imports:
         and: et
         data_errors:
@@ -574,7 +570,6 @@ fr-CA:
         promotions:
           new:
             explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
-            new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
             promote: Promouvoir
       members:
         create:
@@ -804,7 +799,6 @@ fr-CA:
           title: Modèles de newsletter
           use_template: Utiliser ce modèle
         show:
-          preview: 'Prévisualiser le modèle: %{template_name}'
           use_template: Utiliser ce modèle
       newsletters:
         confirm_recipients:
@@ -869,10 +863,10 @@ fr-CA:
         send_to_user:
           sent_successfully: La newsletter a été envoyée avec succès à %{email}
         show:
-          preview: Aperçu
           select_recipients_to_deliver: Sélectionner les destinataires
           send_me_a_test_email: Envoyez-moi un e-mail de test
           subject: Objet
+          title: Aperçu
         update:
           error: Erreur lors de la mise à jour de la newsletter.
           success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
@@ -912,6 +906,8 @@ fr-CA:
           badge: Badge de validation
           officialize: Valider
           title: Valider l'utilisateur "%{name}"
+        show_email:
+          title: Afficher l'e-mail
         show_email_modal:
           description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir leur adresse mèl. Cette action sera enregistrée.
           email_address: Adresse e-mail
@@ -956,6 +952,7 @@ fr-CA:
           success: Organisation mise à jour avec succès.
       organization_external_domain_allowlist:
         edit:
+          title: Liste des domaines externes autorisés
           update: Mettre à jour
         external_domain:
           down: Descendre
@@ -964,7 +961,6 @@ fr-CA:
           up: Monter
         form:
           add: Ajouter à la liste autorisée
-          title: Liste des domaines externes autorisés
       reminders:
         create:
           error: Il y a eu un problème lors de la création des rappels.
@@ -973,6 +969,7 @@ fr-CA:
             other: "%{count} utilisateurs recevront un rappel."
         new:
           submit: Envoyer
+          title: Envoyer des rappels
       resource_permissions:
         edit:
           submit: Soumettre
@@ -1078,6 +1075,8 @@ fr-CA:
         edit:
           title: Modifier le sujet
           update: Mettre à jour le sujet
+        index:
+          title: Sujets
         new:
           create: Nouveau sujet
           title: Nouveau sujet
@@ -1102,6 +1101,7 @@ fr-CA:
           slug_help_html: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Exemple : %{url}'
         index:
           last_notable_change: Dernier changement notable
+          title: Pages
         new:
           create: Nouvelle page
           title: Nouvelle page
@@ -1111,6 +1111,9 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès.
+      statistics:
+        index:
+          title: Statistiques
       taxonomies:
         actions:
           actions: Actions
@@ -1140,12 +1143,28 @@ fr-CA:
         index:
           new_taxonomy: Nouvelle taxonomie
         name: Nom
+        new:
+          create: Créer la taxonomie
+          title: Nouvelle taxonomie
+        no_taxonomies: Il n'y a pas de taxonomies actuellement. Créez une liste de taxonomies ici et définissez des éléments pour chacune d'entre elles afin de classer ou filtrer des ressources.
+        table:
+          to_next_page: Faites glisser pour passer à la page suivante
+          to_prev_page: Faites glisser pour passer à la page précédente
         total_filters: Filtres
+        total_items: Éléments de la taxonomie
+        update:
+          invalid: Un problème a été rencontré lors de la mise à jour de cette taxonomie.
+          success: La taxonomie a été mise à jour avec succès.
       taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Nouveau filtre de taxonomie
         breadcrumb:
           edit: Modifier le filtre
           filters: Filtres
           new: Nouveau filtre
+        create:
+          error: Un problème a été rencontré lors de la création de ce filtre de taxonomie.
+          success: Filtre de taxonomie créé avec succès.
         edit:
           back: Revenir en arrière
           title: Modifier le filtre de taxonomie
@@ -1178,24 +1197,14 @@ fr-CA:
         taxonomies_select:
           filters: Filtres
           select_filter: Sélectionnez un filtre
+          taxonomies: Taxonomies
       titles:
-        admin_log: Journal d'administration
-        area_types: Types de périmètre d'assemblée
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
-        dashboard: Tableau de bord
-        edit_external_domains: Liste des domaines externes autorisés
-        impersonatable_users: Utilisateurs gérables
-        impersonations: Gestion des utilisateurs
         menu: Menu
-        page_topics: Sujets
-        pages: Page(s)
         panel: Administrateur
-        participants: Utilisateurs
-        scope_types: Types de secteur
         scopes: Périmètres d'application
         statistics: Statistiques
-        users: Administrateurs
       tooltips:
         cannot_destroy_taxonomy_filter: Impossible de détruire ce filtre de taxonomie
         cannot_edit_taxonomy_filter: Impossible de modifier ce filtre de taxonomie
@@ -1230,6 +1239,10 @@ fr-CA:
           last_week: La semaine dernière
           no_users_count_statistics_yet: Il n'y a pas encore de statistiques sur le nombre de participants.
           participants: Participants
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: La sélection des filtres de taxonomie sera possible après la création du composant.
     forms:
       errors:
         impersonate_user:

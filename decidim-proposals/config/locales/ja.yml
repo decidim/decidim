@@ -366,6 +366,12 @@ ja:
             email_outro: '"%{resource_title}" をフォローしているため、この通知を受け取りました。前述のリンクからフォローを解除できます。'
             email_subject: あなたがフォローしている提案のステータスが変更されました (%{state})
             notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> のステータスを「%{state} 」に変更しました。
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: '提案「%{resource_title}」のステータスが「%{state}」に変更されました。回答はこのページで確認できます：'
+            email_outro: あなたが"%{resource_title}"の執筆者であるため、この通知を受け取りました。
+            email_subject: 提案のステータスが変更されました（%{state}）
+            notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> は、そのステータスを「%{state} 」に変更しました。
         proposal_update_taxonomies:
           email_intro: '管理者があなたの提案 "%{resource_title}" のタクソノミーを更新しました。このページでチェックしてください：'
           email_outro: あなたが提案の作成者であるため、この通知を受け取りました。
@@ -488,7 +494,6 @@ ja:
           deleted_proposals_info: 削除された提案はゴミ箱から復元することができます。
           preview: プレビュー
           view_deleted_proposals: 削除された提案を表示
-        deprecation_warning_collaborative_drafts_html: "⚠️ <b>非推奨通知</b> 共同草案機能は Decidim v0.32 で廃止されます。この機能を現在使用している組織は、新しい提案共同作成機能に移行することができます。"
         evaluation_assignments:
           create:
             invalid: 評価者に提案を割り当てる際に問題が発生しました。
@@ -667,6 +672,7 @@ ja:
             related_meetings: 関連するミーティング
             remove_assignment: 課題を削除
             remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
+            title: 提案に回答
             votes_count: 投票数
           update_taxonomies:
             invalid: 'これらの提案にはすでに %{taxonomies} タクソノミーがありました: %{proposals}。'
@@ -728,101 +734,6 @@ ja:
           all: すべて
           amendments: 修正
           proposals: 提案
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: 共同草案を公開する際に問題が発生しました。
-            irreversible_action_modal:
-              body: 提案として草案を公開した後は、編集できなくなります。提案は新しい著者や貢献者を受け入れません。
-              cancel: キャンセル
-              ok: 提案として公開
-              title: 次のアクションは取り消せません
-            success: 共同草案は提案として正常に公開されました。
-          withdraw:
-            error: 共同草案を閉じる際に問題が発生しました。
-            irreversible_action_modal:
-              body: 草案を閉じた後は、もう編集できません。草案に新しい著者や投稿を追加することはできません。
-              cancel: キャンセル
-              ok: 共同草案を撤回する
-              title: 次のアクションは取り消せません
-            success: 共同草案は正常に撤回されました。
-        create:
-          error: 共同草案の作成中に問題が発生しました.
-          success: 共同草案を作成しました。
-        edit:
-          attachment_legend: ドキュメントまたは画像を追加
-          back: 戻る
-          send: 送信
-          title: 共同草案を編集
-        empty: 共同草案はまだありません
-        empty_filters: この基準との共同草案はありません
-        filters:
-          all: すべて
-          amendment: 修正
-          open: 開く
-          published: 公開済み
-          related_to: 関連
-          search: 検索
-          state: ステータス
-          withdrawn: 撤回
-        filters_small_view:
-          close_modal: モーダルを閉じる
-          filter: フィルター
-          filter_by: フィルター
-          unfold: 展開する
-        index:
-          count:
-            other: "%{count} 件の共同草案"
-        name: 共同草案
-        new:
-          add_file: ファイルを追加
-          edit_file: ファイルを編集
-          send: 続ける
-        new_collaborative_draft_button:
-          new_collaborative_draft: 新しい共同草案を作成
-        orders:
-          label: '草案の並び順:'
-          most_contributed: 貢献の多い順
-          random: ランダム
-          recent: 新しい順
-        requests:
-          accepted_request:
-            error: コラボレーターとして受け入れることができませんでした。後でもう一度お試しください。
-            success: "@%{user} はコラボレーターとして正常に承認されました。"
-          access_requested:
-            error: リクエストを完了できませんでした。後でもう一度お試しください。
-            success: 共同作業のリクエストが正常に送信されました。
-          collaboration_requests:
-            accept_request: 同意する
-            reject_request: 拒否
-            title: コラボレーションリクエスト
-          rejected_request:
-            error: コラボレーターとして拒否できませんでした。後でもう一度やり直してください。
-            success: "@%{user} さんはコラボレーターとして正常に拒否されました。"
-        show:
-          edit: 編集
-          final_proposal: 最終的な提案
-          final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
-          hidden_authors_count:
-            other: '%{count} 人以上'
-          info-message: これは提案のための <strong>共同草案</strong> です。 これは、以下のコメントセクションを使用して提案を作成したり、編集するためのアクセスを要求することで、提案を改善したりすることができることを意味します。 作成者がアクセスを許可すると、この草案を変更できるようになります。
-          publish: 公開
-          publish_info: このバージョンの草案を公開するか、
-          published_proposal: 公開された提案
-          request_access: アクセスを要求する
-          requested_access: アクセスがリクエストされました
-          withdraw: 草案を撤回する
-        states:
-          open: 開く
-          published: 公開済み
-          withdrawn: 撤回
-        update:
-          error: 共同草案を保存する際に問題が発生しました。
-          success: 共同草案が正常に更新されました。
-        wizard_aside:
-          back_from_collaborative_draft: 共同草案に戻る
-        wizard_header:
-          title: 共同草案を作成する
       content_blocks:
         highlighted_proposals:
           name: 提案
@@ -844,7 +755,7 @@ ja:
         title: '%{number} 票残っていることを忘れないでください'
       forms:
         errors:
-          device_not_supported:
+          device_not_supported: お使いのデバイスは位置情報サービスをサポートしていません。アドレスを手動で入力してください。
           no_device_location: 申し訳ありませんが、場所を検出できませんでした。アドレスを手動で入力してください。
         use_my_location: 現在地を使用
       invite_coauthors:
@@ -924,7 +835,6 @@ ja:
           voted: 投票
         index:
           click_here: すべての提案を見る
-          collaborative_drafts_list: 共同草案にアクセスする
           count:
             other: "%{count} の提案"
           grid_mode: グリッドモード
@@ -968,8 +878,6 @@ ja:
           estimated_cost: 推定コスト
           hidden_likes_count:
             other: 他 %{count} 人
-          link_to_collaborative_draft_help_text: この提案は共同草案の結果です。履歴を確認してください
-          link_to_collaborative_draft_text: 共同草案を見る
           link_to_promoted_emendation_help_text: この提案は奨励された提案です
           link_to_promoted_emendation_text: 拒否されたemendationを参照してください。
           link_to_proposal_from_emendation_help_text: これが拒否されました

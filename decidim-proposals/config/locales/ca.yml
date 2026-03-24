@@ -367,9 +367,9 @@ ca:
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
           follower:
             email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
             email_subject: Una proposta que segueixes ha canviat el seu estat (%{state})
-            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
+            notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha canviat el seu estat a "%{state}".
         proposal_state_changed_for_authors:
           affected_user:
             email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
@@ -498,7 +498,6 @@ ca:
           deleted_proposals_info: Les propostes eliminades es poden restaurar des de la paperera.
           preview: Previsualitzar
           view_deleted_proposals: Veure les propostes eliminades
-        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Avís de Desús/Obsolescència.</b> La funció \"Esborranys col·laboratius\" s'eliminarà pròximament. Si la feies servir, a partir de la versió 0.32 de Decidim podràs fer servir la funcionalitat de coautoria de propostes."
         evaluation_assignments:
           create:
             invalid: S'ha produït un error en assignar propostes a una avaluadora.
@@ -742,103 +741,6 @@ ca:
           all: Totes
           amendments: Esmenes
           proposals: Propostes
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: S'ha produït un error en publicar l'esborrany col·laboratiu.
-            irreversible_action_modal:
-              body: Després de publicar l'esborrany com a proposta, deixarà de ser editable. La proposta no acceptarà noves autores ni contribucions.
-              cancel: Cancel·lar
-              ok: Publica com a proposta
-              title: La següent acció és irreversible
-            success: L'esborrany col·laboratiu s'ha publicat correctament com a proposta.
-          withdraw:
-            error: S'ha produït un error en tancar l'esborrany col·laboratiu.
-            irreversible_action_modal:
-              body: Després de tancar l'esborrany, ja no serà editable. L'esborrany no acceptarà noves autores ni contribucions.
-              cancel: Cancel·lar
-              ok: Retira l'esborrany col·laboratiu
-              title: La següent acció és irreversible
-            success: L'esborrany col·laboratiu s'ha retirat correctamente.
-        create:
-          error: S'ha produït un error en crear aquest esborrany col·laboratiu.
-          success: Esborrany col·laboratiu creat correctament.
-        edit:
-          attachment_legend: Afegir un document o una imatge
-          back: Torna
-          send: Envia
-          title: Edita l'esborrany col·laboratiu
-        empty: Encara no hi ha cap esborrany col·laboratiu
-        empty_filters: No hi ha cap esborrany col·laboratiu amb aquest criteri
-        filters:
-          all: Tots
-          amendment: Esmenes
-          open: Obert
-          published: Publicat
-          related_to: Relacionat amb
-          search: Cerca
-          state: Estat
-          withdrawn: Retirat
-        filters_small_view:
-          close_modal: Tanca la finestra
-          filter: Filtre
-          filter_by: Filtra per
-          unfold: Desplega
-        index:
-          count:
-            one: "%{count} esborrany de col·laboració"
-            other: "%{count} esborrany de col·laboració"
-        name: Esborranys col·laboratius
-        new:
-          add_file: Afegir fitxer
-          edit_file: Editar el fitxer
-          send: Continua
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nou esborrany col·laboratiu
-        orders:
-          label: 'Ordenar esborranys per:'
-          most_contributed: Amb més contribucions
-          random: Aleatori
-          recent: Recent
-        requests:
-          accepted_request:
-            error: No has pogut ser acceptada com a contribuïdora. Si us plau, torna-ho a provar més tard.
-            success: "S'ha acceptat amb èxit a @%{user} com a col·laboradora."
-          access_requested:
-            error: No s'ha pogut completar la teva sol·licitud, si us plau torna-ho a provar més tard.
-            success: La teva sol·licitud de contribució s'ha enviat correctament.
-          collaboration_requests:
-            accept_request: Accepta
-            reject_request: Rebutja
-            title: Sol·licituds de col·laboració
-          rejected_request:
-            error: No s'ha pogut rebutjar com a contribuïdora, si us plau tornau-ho a provar més tard.
-            success: "S'ha rebutjat amb èxit a @%{user} com a col·laboradora."
-        show:
-          edit: Editar
-          final_proposal: Proposta final
-          final_proposal_help_text: Aquest esborrany està finalitzat. Consulta la proposta final
-          hidden_authors_count:
-            one: i %{count} persona més
-            other: i %{count} persones més
-          info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar les seves autores a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un vegada les autores et donin accés, podràs fer canvis en aquest esborrany.
-          publish: Publica
-          publish_info: Publica aquesta versió de l'esborrany o
-          published_proposal: Proposta publicada
-          request_access: Sol·licitud d'accés
-          requested_access: S'ha sol·licitat l'accés
-          withdraw: retira l'esborrany
-        states:
-          open: Obert
-          published: Publicat
-          withdrawn: Retirat
-        update:
-          error: S'ha produït un error en desar l'esborrany col·laboratiu.
-          success: L'esborrany col·laboratiu s'ha actualitzat correctament.
-        wizard_aside:
-          back_from_collaborative_draft: Tornar a l'esborrany col·laboratiu
-        wizard_header:
-          title: Crea el teu esborrany col·laboratiu
       content_blocks:
         highlighted_proposals:
           name: Propostes
@@ -940,7 +842,6 @@ ca:
           voted: Has donat suport
         index:
           click_here: Veure totes les propostes
-          collaborative_drafts_list: Accedeix a esborranys col·laboratius
           count:
             one: "%{count} proposta"
             other: "%{count} propostes"
@@ -987,8 +888,6 @@ ca:
           hidden_likes_count:
             one: i %{count} persones més
             other: i %{count} persones més
-          link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany col·laboratiu. Revisa l'historial
-          link_to_collaborative_draft_text: Veure l'esborrany col·laboratiu
           link_to_promoted_emendation_help_text: Aquesta proposta és una esmena promocionada
           link_to_promoted_emendation_text: Veure l'esmena rebutjada.
           link_to_proposal_from_emendation_help_text: Això és una esmena rebutjada

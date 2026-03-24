@@ -302,7 +302,7 @@ es-PY:
         create: "%{user_name} ha creado un enlace de acceso en %{space_name}"
         create_with_space: "%{user_name} ha creado un enlace de acceso para %{resource_name} en %{space_name}"
         delete: "%{user_name} ha eliminado un enlace de acceso en %{space_name}"
-        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para%{resource_name} en %{space_name}"
+        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualizado un enlace de acceso en %{space_name}"
         update_with_space: "%{user_name} ha actualizado un enlace de acceso para %{resource_name} en %{space_name}"
       static_page:
@@ -1421,7 +1421,7 @@ es-PY:
         download:
           components: Componentes
           core: Núcleo
-          spaces: Espacio participativo
+          spaces: Espacio de participación
           title: Descargar recursos
         download_open_data: Descargar todos los archivos de datos abiertos
         download_resource: Descargar "%{resource_name}" en formato CSV
@@ -1512,9 +1512,9 @@ es-PY:
     participants_account_mailer:
       inactivity_notification:
         body_html: |
-          <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection}</strong></p>.
+          <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection</strong></p>}.
           <p>Para proteger tu privacidad, se ha programado la eliminación automática de esta cuenta en <strong>%{days} días</strong>.</p>
-          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente inicia sesión %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
+          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
         greetings_html: |
           Atentamente,<br>
           %{organization_name}
@@ -1529,6 +1529,9 @@ es-PY:
           %{organization_name}
         hello: Estimado/a %{username},
         subject: Aviso de cuenta inactiva
+    participatory_space_members:
+      index:
+        members: Miembros
     passwords:
       update:
         error: Ha habido un problema al actualizar la contraseña.
@@ -1885,8 +1888,8 @@ es-PY:
         confirm_new_password: Confirmar nueva contraseña
         new_password: Contraseña
         old_password_help: Para confirmar los cambios en tu cuenta, por favor proporciónanos tu contraseña actual.
-        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias y tu correo electrónico."
-        password_help_admin: "%{minimum_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, tu correo electrónico y de tus antiguas contraseñas."
+        password_help: "La contraseña debe tener al menos %{minimum_characters} caracteres, de estos, al menos 5 caracteres deben ser diferentes, no deben ser demasiado comunes (e. 123456) y debe ser diferente del número, apodo, correo electrónico y del dominio de la plataforma."
+        password_help_admin: "La contraseña debe tener al menos %{minimum_characters} caracteres, de estos, al menos 5 caracteres deben ser diferentes, no deben ser demasiado comunes (e. 123456) y debe ser diferente del número, apodo, correo electrónico, dominio de la plataforma o contraseñas antiguas."
         title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'

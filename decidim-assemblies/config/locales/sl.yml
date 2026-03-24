@@ -82,7 +82,6 @@ sl:
           published: Objavljeno
         new:
           create: Ustvari
-          title: Nova združba
         update:
           error: Pojavila se je težava pri urejanju združbe.
           success: Združba uspešno posodobljena.
@@ -93,7 +92,6 @@ sl:
         new:
           import: Uvozi
           select: Izberi, katere podatke želiš uvoziti
-          title: Uvozi združbo
       menu:
         assemblies: Združbe
         assemblies_submenu:
@@ -103,7 +101,6 @@ sl:
           attachments: Priponke
           components: Komponente
       titles:
-        assemblies: Združbe
         assemblies_types: Vrste združb
     admin_log:
       assembly_setting:
@@ -124,9 +121,6 @@ sl:
         filters:
           names:
             all: Vsi
-      assembly_members:
-        index:
-          members: Člani
       content_blocks:
         highlighted_assemblies:
           name: Poudarjene združbe

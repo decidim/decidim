@@ -207,6 +207,9 @@ es-PY:
         user:
           new: Nueva administradora
         view_deleted_components: Ver los componentes eliminados
+      admin_terms:
+        show:
+          title: Términos y condiciones de uso para administradoras
       admin_terms_of_service:
         accept:
           error: Se ha producido un problema al aceptar los términos de servicio de administración.
@@ -220,7 +223,6 @@ es-PY:
           alert: 'Requerido: Revisa nuestros términos del servicio de administración'
           callout: Por favor dedica un momento a revisar los términos del servicio de administración. En caso contrario, no podrás administrar la plataforma.
           cta: Revisarlos ahora.
-        title: Términos y condiciones del servicio de administración
       area_types:
         create:
           error: Hubo un error al crear un nuevo tipo de área.
@@ -230,6 +232,8 @@ es-PY:
         edit:
           title: Editar tipo de área
           update: Actualizar
+        index:
+          title: Tipos de área
         new:
           create: Crear tipo de área
           title: Nuevo tipo de área
@@ -247,6 +251,8 @@ es-PY:
         edit:
           title: Editar área
           update: Actualizar
+        index:
+          title: Áreas
         new:
           create: Crear área
           title: Nueva área
@@ -264,7 +270,7 @@ es-PY:
           title: Editar carpeta
           update: Actualizar
         index:
-          attachment_collections_title: Carpetas de archivos adjuntos
+          title: Carpetas de archivos adjuntos
         new:
           create: Crear
           title: Nueva carpeta
@@ -281,7 +287,7 @@ es-PY:
           title: Editar archivo adjunto
           update: Actualizar
         index:
-          attachments_title: Archivos adjuntos
+          title: Archivos adjuntos
         new:
           create: Crear archivo adjunto
           title: Nuevo archivo adjunto
@@ -290,6 +296,9 @@ es-PY:
           success: Adjunto actualizado correctamente.
       attachments_privacy_warning:
         message: Por favor ten cuidado al trabajar con archivos adjuntos en un espacio privado. Cualquier participante puede compartir este documento con otras.
+      authorization_workflows:
+        index:
+          title: Métodos de verificación
       autocomplete:
         no_results: No se han encontrado resultados
         search_prompt: Escriba al menos tres caracteres para buscar.
@@ -334,6 +343,7 @@ es-PY:
             name: Nombre del componente
             type: Tipo de componente
             visibility: Visibilidad
+          title: Componentes
         manage_trash:
           title: Componentes eliminados
         new:
@@ -341,7 +351,6 @@ es-PY:
           title: 'Agregar componente: %{name}'
         publish:
           success: El componente se ha publicado con éxito.
-        title: Componentes
         unpublish:
           success: El componente se ha despublicado sin éxito.
         update:
@@ -353,12 +362,14 @@ es-PY:
           unpublished: Despublicado
       conflicts:
         attempts: Intentos
+        edit:
+          title: Transferir usuaria
         'false': 'No'
         index:
           text: Buscar por correo electrónico, nombre o alias
+          title: Conflictos de verificación
         managed_user_name: Usuario gestionado
         solved: Resuelto
-        title: Conflictos de verificación
         transfer:
           email: Correo electrónico
           error: Se ha producido un error transfiriendo la participante actual a una participante gestionada.
@@ -391,6 +402,7 @@ es-PY:
           title: Moderaciones pendientes
         show:
           dropdown: Desplegable
+          title: Panel de administración
           view_more_logs: Ver más registros
       domain_allowlist:
         form:
@@ -487,6 +499,8 @@ es-PY:
         form:
           save: Salvar
         success: Las secciones de ayuda se han actualizado correctamente.
+        update:
+          title: Secciones de ayuda
       impersonatable_users:
         index:
           filter:
@@ -502,6 +516,7 @@ es-PY:
           promote: Promover
           search: Buscar
           status: Estado
+          title: Participantes que se pueden gestionar
           view_logs: Ver los registros
       impersonations:
         close_session:
@@ -518,7 +533,7 @@ es-PY:
           impersonate: Suplantar
           impersonate_existing_managed_user: Impersonar al usuario administrado "%{name}"
           impersonate_existing_user: Impersonar usuario "%{name}"
-          impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
+          title: Impersonar participante
       imports:
         and: "y"
         data_errors:
@@ -562,20 +577,25 @@ es-PY:
           participatory_space: Encontrar espacio de participación
           text: Buscar por correo electrónico, nombre o alias
           user: Usuaria
+        index:
+          title: Registro de actividad de administración
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad.
           no_matching_logs: No hay registros con los filtros de búsqueda seleccionados. Prueba con otros e inténtalo de nuevo.
       manage_trash:
         deleted_items_warning: Actualmente estás viendo elementos eliminados. Para realizar cualquier modificación o cambio, primero debes restaurarlos.
       managed_users:
+        impersonation_logs:
+          index:
+            title: Impersonaciones
         promotion:
           error: Se ha producido un error al promocionar el usuario gestionado.
           success: El usuario gestionado se ha promocionado correctamente.
         promotions:
           new:
             explanation: Los usuarios gestionados pueden ser promovidos a usuarios estándar. Esto significa que serán invitados a la aplicación y no será capaz de suplantarlos de nuevo. El usuario invitado recibirá un correo electrónico para aceptar su invitación.
-            new_managed_user_promotion: Nueva promoción de usuarios gestionados
             promote: Promocionar
+            title: Nueva promoción de participante gestionada
       members:
         create:
           error: Se ha producido un error al agregar una participante privada a este espacio participativo.
@@ -804,7 +824,7 @@ es-PY:
           title: Plantillas para el boletín
           use_template: Utilizar esta plantilla
         show:
-          preview: 'Previsualizar la plantilla: %{template_name}'
+          title: 'Previsualizar la plantilla: %{template_name}'
           use_template: Utilizar esta plantilla
       newsletters:
         confirm_recipients:
@@ -869,10 +889,10 @@ es-PY:
         send_to_user:
           sent_successfully: El boletín ha sido enviado correctamente a %{email}
         show:
-          preview: Previsualizar
           select_recipients_to_deliver: Selecciona los destinatarios
           send_me_a_test_email: Envíame un correo electrónico de prueba
           subject: Asunto
+          title: Previsualizar
         update:
           error: Se ha producido un error al actualizar este boletín.
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
@@ -906,12 +926,15 @@ es-PY:
           send_message: Enviar un mensaje
           show_email: Mostrar la dirección electrónica
           status: Estado
+          title: Participantes
           unblock: Desbloquear
           unofficialize: Des-oficializar
         new:
           badge: Insignia de oficialización
           officialize: Oficializar
           title: Oficializar el usuario "%{name}"
+        show_email:
+          title: Mostrar el correo electrónico
         show_email_modal:
           description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
           email_address: Dirección de correo electrónico
@@ -956,6 +979,7 @@ es-PY:
           success: Organización actualizada correctamente.
       organization_external_domain_allowlist:
         edit:
+          title: Lista de dominios externos permitidos
           update: Actualizar
         external_domain:
           down: Bajar
@@ -964,7 +988,6 @@ es-PY:
           up: Subir
         form:
           add: Añadir a la lista de direcciones permitidas
-          title: Lista de dominios externos permitidos
       reminders:
         create:
           error: Se ha producido un error al crear los recordatorios.
@@ -973,6 +996,7 @@ es-PY:
             other: "%{count} usuarias serán recordadas."
         new:
           submit: Enviar
+          title: Enviar recordatorios
       resource_permissions:
         edit:
           submit: Enviar
@@ -990,6 +1014,8 @@ es-PY:
         edit:
           title: Editar tipo de ámbito
           update: Actualizar
+        index:
+          title: Tipos de ámbito
         new:
           create: Crear tipo de ámbito
           title: Nuevo ámbito
@@ -1006,6 +1032,8 @@ es-PY:
         edit:
           title: Editar alcance
           update: Actualizar
+        index:
+          title: Ámbitos
         new:
           create: Crear ámbito
           title: Nuevo ámbito
@@ -1078,6 +1106,8 @@ es-PY:
         edit:
           title: Editar tema
           update: Actualizar tema
+        index:
+          title: Temas
         new:
           create: Nuevo tema
           title: Nuevo tema
@@ -1102,6 +1132,7 @@ es-PY:
           slug_help_html: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
         index:
           last_notable_change: Último cambio notable
+          title: Páginas
         new:
           create: Nueva página
           title: Nueva página
@@ -1111,6 +1142,9 @@ es-PY:
         update:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
+      statistics:
+        index:
+          title: Estadísticas
       taxonomies:
         actions:
           actions: Acciones
@@ -1141,6 +1175,7 @@ es-PY:
           description: Las taxonomías y los filtros permiten a las administradoras ordenar y organizar los contenidos. Por ejemplo, añadir una taxonomía con los distritos de la ciudad y los barrios y luego crear filtros solo con los distritos o para un barrio en concreto.
           new_taxonomy: Nueva taxonomía
           no_items_found: No se encontraron taxonomías que coincidan con los criterios de búsqueda.
+          title: Taxonomías
         name: Nombre
         new:
           create: Crear taxonomía
@@ -1185,6 +1220,7 @@ es-PY:
           description: Un filtro de taxonomía permite a las administradoras ordenar y filtrar espacios de participación basados en una taxonomía. Por ejemplo, añadir un filtro de taxonomías para ordenar procesos por ámbito territorial.
           empty: Actualmente no hay ningún filtro de taxonomía. Crea una lista de filtros de taxonomía aquí para ordenar y filtrar los espacios de participación basados en una taxonomía.
           new_filter: Nuevo filtro
+          title: Filtros de taxonomía para "%{taxonomy}"
         new:
           back: Atrás
           create: Crear un filtro de taxonomía
@@ -1201,13 +1237,17 @@ es-PY:
           error: Se ha producido un problema actualizando este filtro de taxonomía.
           success: Filtro de taxonomía actualizado correctamente.
       taxonomy_filters_selector:
+        index:
+          title: Filtros de taxonomía
         new:
           add_new_items_html: Si necesitas establecer un nuevo filtro o elemento, hazlo a través de la configuración o clicando <a href="%{url}">aquí</a>.
           items_count: "%{count} elementos"
           save: Guardar
+          title: Nuevo selector de filtro de taxonomía
         show:
           items_count: "%{count} elementos"
           remove: Eliminar
+          title: Selector de filtro de taxonomía
         taxonomies_select:
           filters: Filtros
           select_filter: Seleccionar un filtro
@@ -1222,25 +1262,12 @@ es-PY:
           none: Ninguno
           title: Editar elemento en "%{taxonomy}"
       titles:
-        admin_log: Registro de actividad de administradores
-        area_types: Tipos de área
         areas: Áreas
         authorization_workflows: Métodos de verificación
-        dashboard: Panel de control
-        edit_external_domains: Lista de dominios externos permitidos
-        impersonatable_users: Usuarios manejables
-        impersonations: Gestion de usuarios
         menu: Menú
-        page_topics: Temas
-        pages: Páginas
         panel: Administradora
-        participants: Usuarios
-        scope_types: Tipos de ámbito
         scopes: Ámbitos
         statistics: Estadísticas
-        taxonomies: Taxonomías
-        taxonomy_filters: Filtros de taxonomía para "%{taxonomy}"
-        users: Administradoras
       tooltips:
         cannot_destroy_taxonomy_filter: No se puede eliminar este filtro de taxonomía
         cannot_edit_taxonomy_filter: No se puede editar este filtro de taxonomía
@@ -1264,6 +1291,8 @@ es-PY:
           email: Correo electrónico
           name: Nombre
           role: Rol
+        index:
+          title: Administradoras
         new:
           create: Invitar
           title: Invitar nueva administradora
@@ -1275,6 +1304,10 @@ es-PY:
           last_week: La última semana
           no_users_count_statistics_yet: Aún no hay estadísticas de recuento de participantes.
           participants: Participantes
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Podrás seleccionar filtros de taxonomía una vez creado el componente.
     forms:
       errors:
         impersonate_user:

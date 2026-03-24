@@ -699,6 +699,9 @@ lb:
         subheading: Duerch d'Hëllefs-Säiten vun %{name} navigéieren
         title: Hëllef
         topics: Themen
+    participatory_space_members:
+      index:
+        members: Memberen
     profile:
       deleted: Teilnehmer geläscht
     profiles:

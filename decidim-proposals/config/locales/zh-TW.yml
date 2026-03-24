@@ -159,6 +159,9 @@ zh-TW:
         admin:
           proposal_note_created:
             email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
+        coauthor_invited:
+          actions:
+            accept: 接受
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} 已經被接受成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。'
           email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
@@ -390,96 +393,6 @@ zh-TW:
           all: 全部
           amendments: 修正案
           proposals: 提案
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: 發布協作草稿時出現問題。
-            irreversible_action_modal:
-              body: 發佈這個草案成為提案後，它將不再可編輯。提案將不會接受新的作者或貢獻。
-              cancel: 取消
-              ok: 作為提案發布
-              title: 這個動作是不可逆的
-            success: 協作草稿已成功發布為提案。
-          withdraw:
-            error: 關閉協作草稿時出現問題
-            irreversible_action_modal:
-              body: 關閉草稿後，它將不再可編輯。該草稿將不再接受新的作者或貢獻。
-              cancel: 取消
-              ok: 撤回協作草稿
-              title: 這個動作是不可逆的
-            success: 協作草稿已成功撤回。
-        create:
-          error: 建立協作草稿時發生問題。
-          success: 協作草稿建立成功。
-        edit:
-          back: 返回
-          send: 發送
-          title: 編輯協作草稿
-        filters:
-          all: 全部
-          amendment: 修正案
-          open: 開啟
-          published: 已發佈
-          related_to: 相關於
-          search: 搜尋
-          state: 狀態
-          withdrawn: 已撤回
-        filters_small_view:
-          close_modal: 關閉視窗
-          filter: 篩選
-          filter_by: 篩選條件
-          unfold: 展開
-        index:
-          count:
-            other: "%{count} 個協作草稿"
-        new:
-          add_file: 添加檔案
-          edit_file: 編輯檔案
-          send: 繼續
-        new_collaborative_draft_button:
-          new_collaborative_draft: 新的協作草稿
-        orders:
-          label: '依序排列草稿：'
-          most_contributed: 最多貢獻度
-          random: 隨機
-          recent: 最近
-        requests:
-          accepted_request:
-            error: 無法接受您的協作者申請，請稍後再試。
-            success: "@%{user} 已經成功被接受為協作者."
-          access_requested:
-            error: 您的請求無法完成，請稍後再試。
-            success: 您的合作請求已成功送出。
-          collaboration_requests:
-            accept_request: 接受
-            reject_request: 拒絕
-            title: 合作邀請
-          rejected_request:
-            error: 無法拒絕作為合作者，請稍後再試。
-            success: "@%{user} 已被成功拒絕成為協作者。"
-        show:
-          final_proposal: 最終提案
-          final_proposal_help_text: 此草案已完成。請查看最終提案。
-          hidden_authors_count:
-            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
-          info-message: 這是一份提案的<strong>共同合作稿件</strong>，這表示您可以使用下面的評論區幫助作者們塑造提案，或直接請求編輯權限以對其進行改進。一旦作者們授予您訪問權限，您便可以對此起草稿進行更改。
-          publish: 發布
-          publish_info: 發佈這個版本的草案或
-          published_proposal: 發佈提案
-          request_access: 申請權限
-          requested_access: 授權請求
-          withdraw: 撤回草稿
-        states:
-          open: 開啟
-          published: 已發佈
-          withdrawn: 撤回
-        update:
-          error: 在儲存提案時出現問題
-          success: 協作草稿更新成功。
-        wizard_aside:
-          back_from_collaborative_draft: 回到協作草稿
-        wizard_header:
-          title: 建立你的協作草案
       create:
         error: 儲存提案時出現問題。
         success: 提案已成功建立。儲存為草案。
@@ -533,7 +446,6 @@ zh-TW:
           type: 類別
         index:
           click_here: 檢視所有提案
-          collaborative_drafts_list: 進入協作草稿
           count:
             other: "%{count} 個提案"
           new_proposal: 新提案
@@ -566,8 +478,8 @@ zh-TW:
           answer: 回答
           changes_at_title: 修正案 "%{title}"
           estimated_cost: 預估成本
-          link_to_collaborative_draft_help_text: 這個提案是由協作草稿所產生的。請查看歷史記錄。
-          link_to_collaborative_draft_text: 查看協作草稿
+          hidden_likes_count:
+            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
           link_to_promoted_emendation_help_text: 這份提案是一項推動性的修正案
           link_to_promoted_emendation_text: 查看被拒絕的修正案。
           link_to_proposal_from_emendation_help_text: 這是一個被拒絕的修改動議

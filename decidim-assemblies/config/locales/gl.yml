@@ -83,7 +83,6 @@ gl:
           published: Publicado
         new:
           create: Crear
-          title: Nova montaxe
         update:
           error: Produciuse un erro ao actualizar este conxunto.
           success: Asemblea actualizouse con éxito.
@@ -94,7 +93,6 @@ gl:
         new:
           import: Importar
           select: Selecciona que tipo de datos desexas importar
-          title: Importar xuntanza
       assembly_publications:
         create:
           error: Produciuse un erro ao publicar esta asemblea.
@@ -110,8 +108,6 @@ gl:
           success: O usuario eliminouse con éxito deste conxunto.
         edit:
           update: Actualización
-        index:
-          assembly_admins_title: Usuarios da asemblea
         new:
           create: Crear
         update:
@@ -153,7 +149,6 @@ gl:
             collaborator: Colaborador
             moderator: Moderador
       titles:
-        assemblies: Asembleas
         assemblies_types: Tipo de xuntanzas
     admin_log:
       assembly:
@@ -210,9 +205,6 @@ gl:
             all: Todo
         show:
           title: Sobre esta xuntanza
-      assembly_members:
-        index:
-          members: Membros
       content_blocks:
         highlighted_assemblies:
           name: Asembleas destacadas
@@ -239,9 +231,6 @@ gl:
       show:
         duration: Duración
         private_space: Esta é unha asemblea privada
-    assembly_members:
-      index:
-        title: Membros
     events:
       assemblies:
         create_assembly_member:

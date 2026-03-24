@@ -310,9 +310,10 @@ FactoryBot.define do
   factory :assembly_member, class: "Decidim::ParticipatorySpace::Member" do
     transient do
       skip_injection { false }
+      organization { create(:organization, skip_injection:) }
     end
-    user
-    participatory_space { create(:assembly, organization: user.organization, skip_injection:) }
+    user { create(:user, :confirmed, organization:, skip_injection:) }
+    participatory_space { create(:assembly, organization:, skip_injection:) }
   end
 
   factory :identity, class: "Decidim::Identity" do

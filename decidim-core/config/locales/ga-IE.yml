@@ -167,6 +167,9 @@ ga:
         standalone_pages: Leathanaigh
         title: Cabhair
         topics: Ábhair
+    participatory_space_members:
+      index:
+        members: Baill
     profiles:
       show:
         activity: Gníomhaíocht

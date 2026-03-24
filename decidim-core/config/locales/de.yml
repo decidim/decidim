@@ -1502,6 +1502,9 @@ de:
           %{organization_name}
         hello: Hallo %{username},
         subject: Inaktives Konto gelöscht
+    participatory_space_members:
+      index:
+        members: Mitglieder
     passwords:
       update:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
@@ -1840,8 +1843,6 @@ de:
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
         old_password_help: Um die Änderungen an Ihrem Konto zu bestätigen, geben Sie bitte Ihr aktuelles Passwort ein.
-        password_help: "Das Passwort muss aus mindestens %{minimum_characters} Zeichen bestehen, darf nicht zu gewöhnlich sein (z. B. 123456) oder Ihren Kontonamen bzw. Ihre E-Mail-Adresse enthalten."
-        password_help_admin: "Das Passwort muss aus mindestens %{minimum_characters} Zeichen bestehen, darf nicht zu gewöhnlich sein (z. B. 123456) oder Ihren Kontonamen oder Ihre E-Mail-Adresse enthalten und muss sich von Ihren alten Passwörtern unterscheiden."
         title: Passwort ändern
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?

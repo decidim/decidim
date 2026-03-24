@@ -104,7 +104,6 @@
           attachment_files: Filer
           attachments: Vedlegg
           components: Komponenter
-          info: Om denne prosessen
           moderations: Moderering
           process_admins: Prosessadministratorer
           steps: Faser
@@ -145,11 +144,9 @@
         destroy:
           success: Prosessgruppen ble slettet.
         edit:
-          title: Rediger prosessgruppe
           update: Oppdater
         new:
           create: Opprett
-          title: Ny prosessgruppe
         update:
           error: Det oppstod et problem med å oppdatere denne prosessgruppen.
           success: Prosessgruppen ble oppdatert.
@@ -160,7 +157,6 @@
         new:
           import: Importer
           select: Velg hvilke data du vil importere
-          title: Importer deltakende prosess
       participatory_process_publications:
         create:
           error: Det oppstod et problem med å publisere denne prosessen.
@@ -183,13 +179,9 @@
             last_step: Kan ikke slette siste fase i en prosess.
           success: Medvirkningsfasen ble slettet.
         edit:
-          title: Rediger medvirkningsfase
           update: Oppdater
-        index:
-          steps_title: Faser
         new:
           create: Opprett
-          title: Ny medvirkningsfase
         ordering:
           error: Det oppstod et problem med å omorganisere medvirkningsfasene.
         update:
@@ -201,13 +193,9 @@
         destroy:
           success: En administrator er slettet fra denne prosessen.
         edit:
-          title: Oppdater administrator for prosess
           update: Oppdater
-        index:
-          process_admins_title: Prosessadministratorer
         new:
           create: Opprett
-          title: Ny prosessadministrator
         update:
           error: Det oppstod et problem med å oppdatere en administrator for denne prosessen.
           success: Admin ble oppdatert for denne prosessen.
@@ -224,7 +212,6 @@
           unpublished: Upublisert
         new:
           create: Opprett
-          title: Ny prosess
         update:
           error: Det oppstod et problem med å oppdatere denne prosessen.
           success: Prosessen er oppdatert.
@@ -233,9 +220,7 @@
           error: Det oppstod et problem med å lage en ny prosessgruppe.
           success: Prosessgruppen ble opprettet.
       titles:
-        participatory_process_groups: Prosessgrupper
         participatory_process_types: Prosesstyper
-        participatory_processes: Deltakende prosesser
       users:
         resend_invitation:
           error: Det oppstod et problem med å sende invitasjonen på nytt.

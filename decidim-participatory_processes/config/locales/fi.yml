@@ -66,6 +66,8 @@ fi:
           attributes:
             document:
               allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
+              empty: Asiakirja on tyhjä
+              invalid_json: Asiakirja ei ole kelvollinen JSON
     models:
       decidim/participatory_process_step_activated_event: Vaihe aktivoitu
       decidim/participatory_process_step_changed_event: Vaihe muutettu
@@ -113,7 +115,6 @@ fi:
           attachment_files: Tiedostot
           attachments: Liitteet
           components: Komponentit
-          info: Tietoa tästä prosessista
           landing_page: Laskeutumissivun asettelu
           members: Jäsenet
           moderations: Moderoinnit
@@ -161,17 +162,14 @@ fi:
         new:
           duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
           error: Osallistumistilojen ryhmän poisto epäonnistui.
           success: Osallistumisprosessien ryhmän poisto onnistui.
         edit:
-          title: Muokkaa prosessiryhmää
           update: Päivitä
         new:
           create: Luo
-          title: Uusi prosessiryhmä
         update:
           error: Osallistumisprosessien ryhmän päivitys epäonnistui.
           success: Osallistumisprosessien ryhmän päivitys onnistui.
@@ -182,7 +180,6 @@ fi:
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
-          title: Tuo osallistumisprosessi
       participatory_process_publications:
         create:
           error: Osallistumisprosessin julkaisu epäonnistui.
@@ -205,17 +202,14 @@ fi:
             last_step: Prosessin viimeistä vaihetta ei voi poistaa.
           success: Osallistumisprosessin vaiheen poisto onnistui.
         edit:
-          title: Muokkaa osallistumisprosessin vaihetta
           update: Päivitä
-        index:
-          steps_title: Vaiheet
         new:
           create: Luo
-          title: Uusi osallistumisprosessin vaihe
         ordering:
           error: Osallistumisprosessin vaiheiden järjestäminen epäonnistui.
         update:
           error: Osallistumisprosessin vaiheen päivitys epäonnistui.
+          success: Osallistumisprosessin vaiheen päivitys onnistui.
       participatory_process_user_roles:
         create:
           error: Osallistumisprosessin käyttäjän lisääminen epäonnistui.
@@ -223,13 +217,9 @@ fi:
         destroy:
           success: Käyttäjä poisto tästä osallistumisprosessista onnistui.
         edit:
-          title: Päivitä osallistumisprosessin hallintakäyttäjä
           update: Päivitä
-        index:
-          process_admins_title: Osallistumisprosessin hallintakäyttäjät
         new:
           create: Luo
-          title: Uusi osallistumisprosessin hallintakäyttäjä
         update:
           error: Tämän osallistumisprosessin hallintakäyttäjän päivitys epäonnistui.
           success: Osallistumisprosessin hallintakäyttäjän päivitys onnistui.
@@ -244,11 +234,8 @@ fi:
           public: Julkinen
           published: Julkaistu
           unpublished: Julkaisematon
-        manage_trash:
-          title: Poistetut osallistumisprosessit
         new:
           create: Luo
-          title: Uusi osallistumisprosessi
         update:
           error: Osallistumisprosessin päivitys epäonnistui.
           success: Osallistumisprosessin päivitys onnistui.
@@ -264,10 +251,7 @@ fi:
         space_filter_for:
           participatory_processes: Kaikki osallistumisprosessit
       titles:
-        participatory_process_groups: Osallistumisprosessiryhmät
         participatory_process_types: Osallistumisprosessien tyypit
-        participatory_processes: Osallistumisprosessit
-        participatory_processes_deleted: Poistetut osallistumisprosessit
       tooltips:
         deleted_processes_info: Prosessi voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
       users:
@@ -486,9 +470,13 @@ fi:
             all: Kaikki
             max_results: Näytettävien elementtien enimmäismäärä
             selection_criteria: Valintakriteerit
+        imports:
+          attachment_error: Liitteen "%{title}" tuonti epäonnistui (%{error}).
+          hero_image_error: Pääkuvan tuonti epäonnistui (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Tämän tuontiominaisuuden avulla voit luoda uuden osallistumisprosessin JSON-tiedostosta. Voit viedä prosessin toisesta organisaatiosta tai samasta organisaatiosta. Tuotu prosessi sisältää sen asetukset, komponentit ja liitetiedostot (jos valittu).
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
@@ -558,9 +546,6 @@ fi:
         title: Osallistumisprosessit
       last_activity:
         new_participatory_process: 'Uusi osallistumisprosessi:'
-      members:
-        index:
-          title: Jäsenet
       pages:
         home:
           highlighted_processes:

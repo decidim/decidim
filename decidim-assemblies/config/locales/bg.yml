@@ -98,7 +98,6 @@ bg:
           unpublished: Непубликувано
         new:
           create: Създаване
-          title: Ново събрание
         update:
           error: Възникна проблем при актуализирането на това събрание.
           success: Събранието беше актуализирано успешно.
@@ -109,7 +108,6 @@ bg:
         new:
           import: Импортиране
           select: Изберете кои данни искате да импортирате
-          title: Импортиране на събрание
       assembly_publications:
         create:
           error: Възникна проблем при публикуването на това събрание.
@@ -124,13 +122,9 @@ bg:
         destroy:
           success: Администраторът беше премахнат успешно от това събрание.
         edit:
-          title: Актуализиране на администратора на събранието
           update: Актуализация
-        index:
-          assembly_admins_title: Администратори на събранието
         new:
           create: Създаване
-          title: Нов администратор на събранието
         update:
           error: Възникна проблем при актуализирането на администратор за това събрание.
           success: Администраторът беше актуализиран успешно за това събрание.
@@ -181,7 +175,6 @@ bg:
             collaborator: Сътрудник
             moderator: Модератор
       titles:
-        assemblies: Събрания
         assemblies_types: Типове събрания
     admin_log:
       assembly:
@@ -262,9 +255,6 @@ bg:
           type: Тип
         show:
           title: Относно това събрание
-      assembly_members:
-        index:
-          members: Членове
       content_blocks:
         children_assemblies:
           name: Събрания
@@ -306,9 +296,6 @@ bg:
         duration: Продължителност
         private_space: Това е частно събрание
         social_networks_title: Посетете събранието на
-    assembly_members:
-      index:
-        title: Членове
     events:
       assemblies:
         create_assembly_member:

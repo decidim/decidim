@@ -83,7 +83,6 @@
           published: Publisert
         new:
           create: Opprett
-          title: Ny forsamling
         update:
           error: Det oppstod et problem med å oppdatere denne forsamlingen.
           success: Forsamlingen ble oppdatert.
@@ -94,7 +93,6 @@
         new:
           import: Importer
           select: Velg hvilke data du vil importere
-          title: Importer forsamling
       assembly_publications:
         create:
           error: Det oppstod et problem med å publisere denne forsamlingen.
@@ -110,8 +108,6 @@
           success: Admin slettet fra denne forsamlingen.
         edit:
           update: Oppdater
-        index:
-          assembly_admins_title: Forsamlings adminer
         new:
           create: Opprett
         update:
@@ -153,7 +149,6 @@
             collaborator: Samarbeidspartner
             moderator: Moderator
       titles:
-        assemblies: Forsamlinger
         assemblies_types: Forsamlingstyper
     admin_log:
       assembly:
@@ -207,9 +202,6 @@
         filters:
           names:
             all: Alle
-      assembly_members:
-        index:
-          members: Medlemmer
       content_blocks:
         highlighted_assemblies:
           name: Fremhevede forsamlinger
@@ -236,9 +228,6 @@
       show:
         duration: Varighet
         private_space: Dette er en privat forsamling
-    assembly_members:
-      index:
-        title: Medlemmer
     events:
       assemblies:
         create_assembly_member:

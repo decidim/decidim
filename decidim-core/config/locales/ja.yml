@@ -35,7 +35,7 @@ ja:
       taxonomy:
         name: タクソノミー名
       taxonomy_filter:
-        internal_name: 内部ラベル
+        internal_name: 管理用ラベル
         name: ラベル
         root_taxonomy_id: タクソノミーから
         space_filter: フィルタとして利用可能
@@ -561,6 +561,7 @@ ja:
     contact: お問い合わせ
     content_blocks:
       announcement:
+        body: お知らせテキスト
         name: お知らせ
       cta:
         name: 画像、テキスト、行動喚起 (CTA) ボタン
@@ -1507,6 +1508,9 @@ ja:
           %{organization_name}
         hello: こんにちは %{username} さん、
         subject: 非アクティブなアカウントが削除されました
+    participatory_space_members:
+      index:
+        members: メンバー
     passwords:
       update:
         error: パスワードの更新中に問題が発生しました。
@@ -1863,8 +1867,8 @@ ja:
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
         old_password_help: アカウントの変更を確認するには、現在のパスワードを入力してください。
-        password_help: "半角英数字%{minimum_characters}文字以上で入力してください。単純すぎる文字列ではいけません（例：123456）。ニックネームやメールアドレスと異なる必要があります。"
-        password_help_admin: "半角英数字%{minimum_characters}文字以上で入力してください。単純すぎる文字列ではいけません（例：123456）。ニックネームやメールアドレス、以前のパスワードと異なる必要があります。"
+        password_help: "%{minimum_characters} 文字以上必要で、少なくとも 5 種類の異なる文字を含める必要があります。一般的な文字列（例：123456）は使用できず、氏名、ニックネーム、メールアドレス、および組織のホスト名とは異なるものでなければなりません。"
+        password_help_admin: "%{minimum_characters}文字以上必要で、少なくとも5種類以上の異なる文字を含む必要があり、一般的なパターン（例：123456）は使用できません。氏名、ニックネーム、メールアドレス、組織のホスト名と重複せず、かつ以前使用していたパスワードとは異なるものでなければなりません。"
         title: パスワードの変更
       new:
         forgot_your_password: パスワードをお忘れですか？
@@ -2106,6 +2110,7 @@ ja:
         confirm_title_close_ephemeral_session: このページから離れる前に…
         log_in: ログイン
         main_menu: メインメニュー
+        mobile_account_greeting: こんにちは、 %{user_name} さん
         user_menu: ユーザーメニュー
       impersonation_warning:
         close_session: セッションを閉じる

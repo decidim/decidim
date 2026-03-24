@@ -207,6 +207,9 @@ ca-IT:
         user:
           new: Nova administradora
         view_deleted_components: Veure els components eliminats
+      admin_terms:
+        show:
+          title: Termes i condicions d'ús para administradores
       admin_terms_of_service:
         accept:
           error: Hi ha hagut un problema en acceptar els Termes i Condicions d'administració.
@@ -220,7 +223,6 @@ ca-IT:
           alert: 'Necessari: revisa les nostres condicions del servei d''administració'
           callout: Si us plau, dedica un moment a revisar les condicions del servei d'administració. En cas contrari, no podràs administrar la plataforma.
           cta: Revisar-les ara.
-        title: Termes i condicions del servei d'administració
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
@@ -230,6 +232,8 @@ ca-IT:
         edit:
           title: Editar el tipus d'àrea
           update: Actualitzar
+        index:
+          title: Tipus d'àrees
         new:
           create: Crea un tipus d'àrea
           title: Nou tipus d'àrea
@@ -247,6 +251,8 @@ ca-IT:
         edit:
           title: Editar àrea
           update: Actualitzar
+        index:
+          title: Àrees
         new:
           create: Crear àrea
           title: Nova àrea
@@ -264,7 +270,7 @@ ca-IT:
           title: Edita la carpeta
           update: Actualitzar
         index:
-          attachment_collections_title: Carpetes de fitxers adjunts
+          title: Carpetes de fitxers adjunts
         new:
           create: Crear
           title: Carpeta nova
@@ -281,7 +287,7 @@ ca-IT:
           title: Edita adjunt
           update: Actualitza
         index:
-          attachments_title: Adjunts
+          title: Fitxers adjunts
         new:
           create: Crea adjunt
           title: Nou adjunt
@@ -290,6 +296,9 @@ ca-IT:
           success: Adjunt actualitzat correctament.
       attachments_privacy_warning:
         message: Tingues cura quan treballis amb adjunts en un espai privat. Qualsevol participant pot compartir aquest document amb tercers.
+      authorization_workflows:
+        index:
+          title: Mètodes de verificació
       autocomplete:
         no_results: No s'han trobat resultats
         search_prompt: Escriu com a mínim tres caràcters per cercar.
@@ -334,6 +343,7 @@ ca-IT:
             name: Nom del component
             type: Tipus de component
             visibility: Visibilitat
+          title: Components
         manage_trash:
           title: Components eliminats
         new:
@@ -341,7 +351,6 @@ ca-IT:
           title: 'Afegir component: %{name}'
         publish:
           success: El component s'ha publicat correctament.
-        title: Components
         unpublish:
           success: El component s'ha despublicat correctament.
         update:
@@ -353,12 +362,14 @@ ca-IT:
           unpublished: Despublicat
       conflicts:
         attempts: Intents
+        edit:
+          title: Transferir usuària
         'false': 'No'
         index:
           text: Cercar per correu electrònic, nom o àlies
+          title: Conflictes de verificació
         managed_user_name: Usuari gestionat
         solved: Resolt
-        title: Conflictes de verificació
         transfer:
           email: Correu electrònic
           error: Hi ha hagut un problema transferint la participant actual a una participant gestionada.
@@ -391,6 +402,7 @@ ca-IT:
           title: Moderacions pendents
         show:
           dropdown: Desplegable
+          title: Tauler d'administració
           view_more_logs: Veure més registres
       domain_allowlist:
         form:
@@ -487,6 +499,8 @@ ca-IT:
         form:
           save: Desa
         success: Les seccions d'ajuda s'han actualitzat correctament.
+        update:
+          title: Seccions d'ajuda
       impersonatable_users:
         index:
           filter:
@@ -502,6 +516,7 @@ ca-IT:
           promote: Promocionar
           search: Cercar
           status: Estat
+          title: Participants que es poden gestionar
           view_logs: Veure els registres
       impersonations:
         close_session:
@@ -518,7 +533,7 @@ ca-IT:
           impersonate: Impersonar
           impersonate_existing_managed_user: Gestionar la participant "%{name}"
           impersonate_existing_user: Gestionar la participant "%{name}"
-          impersonate_new_managed_user: Gestionar una nova participant
+          title: Impersonar participant
       imports:
         and: i
         data_errors:
@@ -562,20 +577,25 @@ ca-IT:
           participatory_space: Trobar espai de participació
           text: Cerca per correu electrònic, nom o àlies
           user: Usuària
+        index:
+          title: Registre d'activitat d'administració
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat.
           no_matching_logs: No hi ha cap registre d'activitat amb els filtres de cerca seleccionats. Prova de canviar-los i intenta-ho de nou.
       manage_trash:
         deleted_items_warning: Actualment estàs veient elements eliminats. Per fer qualsevol modificació o canvi, primer els has de restaurar.
       managed_users:
+        impersonation_logs:
+          index:
+            title: Impersonacions
         promotion:
           error: S'ha produït un error en promoure aquesta participant.
           success: La participant s'ha promogut correctament.
         promotions:
           new:
             explanation: Les participants gestionades es poden promocionar a participants estàndard. Significa que seran convidades al sistema i no podràs tornar a administrar-les. La participant convidada rebrà un correu electrònic per acceptar la vostra invitació.
-            new_managed_user_promotion: Nova promoció de participant
             promote: Promocionar
+            title: Nova promoció de participant gestionada
       members:
         create:
           error: S'ha produït un error en actualitzar una administradora per a aquest procés participatiu.
@@ -804,7 +824,7 @@ ca-IT:
           title: Plantilles per al butlletí
           use_template: Utilitzar aquesta plantilla
         show:
-          preview: 'Previsualitzar la plantilla: %{template_name}'
+          title: 'Previsualitzar la plantilla: %{template_name}'
           use_template: Utilitzar aquesta plantilla
       newsletters:
         confirm_recipients:
@@ -869,10 +889,10 @@ ca-IT:
         send_to_user:
           sent_successfully: El butlletí s'ha enviat correctament a %{email}
         show:
-          preview: Previsualitzar
           select_recipients_to_deliver: Selecciona les destinatàries a lliurar
           send_me_a_test_email: Envia'm un correu electrònic de prova
           subject: Assumpte
+          title: Previsualitzar
         update:
           error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
@@ -906,12 +926,15 @@ ca-IT:
           send_message: Envia un missatge
           show_email: Mostra l'adreça electrònica
           status: Estat
+          title: Participants
           unblock: Desbloquejar
           unofficialize: Des-oficialitzar
         new:
           badge: Ensenya d'oficialització
           officialize: Oficialitza
           title: Oficialitza la participant "%{name}"
+        show_email:
+          title: Mostra el correu electrònic
         show_email_modal:
           description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció es registrarà.
           email_address: Adreça de correu electrònic
@@ -956,6 +979,7 @@ ca-IT:
           success: Organització actualitzada correctament.
       organization_external_domain_allowlist:
         edit:
+          title: Llistat de dominis externs permesos
           update: Actualizar
         external_domain:
           down: Baixar
@@ -964,7 +988,6 @@ ca-IT:
           up: Pujar
         form:
           add: Afegeix a la llista de permesos
-          title: Llistat de dominis externs permesos
       reminders:
         create:
           error: Hi ha hagut un problema en crear els recordatoris.
@@ -973,6 +996,7 @@ ca-IT:
             other: "Es recordarà a %{count} usuàries."
         new:
           submit: Envia
+          title: Enviar recordatoris
       resource_permissions:
         edit:
           submit: Enviar
@@ -990,6 +1014,8 @@ ca-IT:
         edit:
           title: Editar tipus d'àmbit
           update: Actualitzar
+        index:
+          title: Tipus d'àmbit
         new:
           create: Crea tipus d'àmbit
           title: Nou àmbit
@@ -1006,6 +1032,8 @@ ca-IT:
         edit:
           title: Edita àmbit
           update: Actualitzar
+        index:
+          title: Àmbits
         new:
           create: Crea àmbit
           title: Nou àmbit
@@ -1078,6 +1106,8 @@ ca-IT:
         edit:
           title: Edita el tema
           update: Actualitza el tema
+        index:
+          title: Temes
         new:
           create: Nou tema
           title: Nou tema
@@ -1102,6 +1132,7 @@ ca-IT:
           slug_help_html: 'Utilitza rutes parcials, no URL completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Exemple: %{url}'
         index:
           last_notable_change: Últims canvis notables
+          title: Pàgines
         new:
           create: Nova pàgina
           title: Nova pàgina
@@ -1111,6 +1142,9 @@ ca-IT:
         update:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
           success: La pàgina s'ha actualitzat correctament.
+      statistics:
+        index:
+          title: Estadístiques
       taxonomies:
         actions:
           actions: Accions
@@ -1141,6 +1175,7 @@ ca-IT:
           description: Les taxonomies i els filtres permeten a les administradores ordenar i organitzar els continguts. Per exemple, afegir una taxonomia amb els districtes de la ciutat i els barris i després crear filtres només amb els districtes o per a un barri concret.
           new_taxonomy: Nova taxonomia
           no_items_found: No s'han trobat taxonomies que coincideixin amb els criteris de cerca.
+          title: Taxonomies
         name: Nom
         new:
           create: Crear taxonomia
@@ -1185,6 +1220,7 @@ ca-IT:
           description: Un filtre de taxonomia permet a les administradores ordenar i filtrar espais de participació basats en una taxonomia. Per exemple, afegir un filtre de taxonomies per ordenar processos per àmbit territorial.
           empty: Actualment no hi ha cap filtre de taxonomia. Creeu una llista de filtres de taxonomia aquí per ordenar i filtrar els espais de participació basats en una taxonomia.
           new_filter: Nou filtre
+          title: Filtres de taxonomia per a "%{taxonomy}"
         new:
           back: Enrere
           create: Crear un filtre de taxonomia
@@ -1201,13 +1237,17 @@ ca-IT:
           error: Hi ha hagut un problema actualitzant aquest filtre de taxonomia.
           success: Filtre de taxonomia actualitzat correctament.
       taxonomy_filters_selector:
+        index:
+          title: Filtres de taxonomia
         new:
           add_new_items_html: Si necessites establir un nou filtre o element, feu-ho a través de la configuració o clicant <a href="%{url}">aquí</a>.
           items_count: "%{count} elements"
           save: Desar
+          title: Nou selector de filtre de taxonomia
         show:
           items_count: "%{count} elements"
           remove: Eliminar
+          title: Selector de filtre de taxonomia
         taxonomies_select:
           filters: Filtres
           select_filter: Seleccionar un filtre
@@ -1222,25 +1262,12 @@ ca-IT:
           none: Cap
           title: Editar element a "%{taxonomy}"
       titles:
-        admin_log: Registre d'administració
-        area_types: Tipus d'àrees
         areas: Àrees
         authorization_workflows: Mètodes de verificació
-        dashboard: Tauler de control
-        edit_external_domains: Llistat de dominis externs permesos
-        impersonatable_users: Participants que es poden gestionar
-        impersonations: Gestió de participants
         menu: Menú
-        page_topics: Temes
-        pages: Pàgines
         panel: Administradora
-        participants: Participants
-        scope_types: Tipus d'àmbit
         scopes: Àmbits
         statistics: Estadístiques
-        taxonomies: Taxonomies
-        taxonomy_filters: Filtre de taxonomia per a "%{taxonomy}"
-        users: Administradores
       tooltips:
         cannot_destroy_taxonomy_filter: No es pot eliminar aquest filtre de taxonomia
         cannot_edit_taxonomy_filter: No es pot editar aquest filtre de taxonomia
@@ -1264,6 +1291,8 @@ ca-IT:
           email: Correu electrònic
           name: Nom
           role: Rol
+        index:
+          title: Administradores
         new:
           create: Convidar
           title: Convidar una nova administradora
@@ -1275,6 +1304,10 @@ ca-IT:
           last_week: La darrera setmana
           no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte de participants.
           participants: Participants
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Podràs seleccionar filtres de taxonomia un cop creat el component.
     forms:
       errors:
         impersonate_user:

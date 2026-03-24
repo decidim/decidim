@@ -578,6 +578,9 @@ gl:
         subheading: Navega polas páxinas de axuda de %{name}
         title: Axuda
         topics: Temas
+    participatory_space_members:
+      index:
+        members: Membros
     profile:
       deleted: Usuario eliminado
     profiles:

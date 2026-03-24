@@ -109,8 +109,6 @@ eu:
         initiatives_menu:
           see_initiative: Ekimena ikusi
         initiatives_settings: Ezarpenak
-        initiatives_submenu:
-          info: Ekimen honi buruz
         initiatives_types: Ekimen motak
         moderations: Moderazioak
       models:
@@ -155,9 +153,6 @@ eu:
       taxonomy_filters:
         space_filter_for:
           initiatives: Ekimen guztiak
-      titles:
-        initiatives: Ekimenak
-        initiatives_types: Ekimen motak
     download_your_data:
       show:
         initiatives: Ekimenak esportatu
@@ -264,6 +259,7 @@ eu:
             reject: Ekimena ukatu
             send_to_technical_validation: Baliozkotze teknikorako bidali
             success: Ekimena baliozkotze teknikora bidali da.
+            title: Ekimen honi buruz
             update: Eguneratu
           form:
             attachments_title: Erantsitako fitxategiak
@@ -273,6 +269,7 @@ eu:
             actions_title: Ekintza
             preview: Aurreikusi
             print: Inprimatu
+            title: Ekimenak
           initiative_attachments:
             documents: Dokumentuak
             edit: Editatu
@@ -289,6 +286,7 @@ eu:
             success: Ekimena zuzen eguneratu da.
         initiatives_settings:
           edit:
+            title: Ekimenaren ezarpenak
             update: Eguneratu
           form:
             comments: Iruzkin gehien dituztenak
@@ -296,7 +294,6 @@ eu:
             publication_date: Azken argitaratutakoak
             random: Ausaz
             signatures: Sinadura gehiago
-            title: Ekimenen ezarpenak
         initiatives_type_scopes:
           create:
             error: Arazo bat izan da hautatutako ekimenerako eremu berri bat sortzean.
@@ -319,12 +316,15 @@ eu:
           destroy:
             success: Ekimen mota zuzen kendu da.
           edit:
+            title: Editatu ekimen mota
             update: Eguneratu
           form:
             child_scope_threshold_enabled_help_html: 'Konfigurazio-ezarpen honek ez ditu onartzen konexiorik gabeko bozketak. Azpiesparruak gaitzen ditu eta eremu bat parte-hartzailearekin lotzen duen baimen-kudeatzaile batekin lan egiten du. Ziurtatu baimen hori hautatu duzula, beherago, baimenen konfigurazioan. Funtziona dezan, esparruak hierarkikoki eratu behar dira: 1 Nagusia - N Txikiak. Konfigurazio honen funtzionamenduari buruzko informazio gehiago, ikusi <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ekimenen administrazioari buruzko dokumentazioa</a>.'
             only_global_scope_enabled_help_html: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta eremu globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             options: Aukerak
             signature_workflow_settings: Sinatzeko prozesuaren ezarpena
+          index:
+            title: Ekimen motak
           initiative_type_scopes:
             title: Ekimen motaren eremuak
           new:

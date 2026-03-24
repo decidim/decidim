@@ -71,11 +71,9 @@ is-IS:
           published: Published
         new:
           create: Búa til
-          title: Ný samkoma
       assembly_imports:
         new:
           import: Flytja inn
-          title: Flytja inn þing
       assembly_user_roles:
         edit:
           update: Uppfæra
@@ -113,8 +111,6 @@ is-IS:
             admin: Stjórnandi
             collaborator: Samstarfsaðili
             moderator: Moderator
-      titles:
-        assemblies: Þing
     admin_log:
       assembly:
         create: "%{user_name} búið til %{resource_name} samkoma"
@@ -139,9 +135,6 @@ is-IS:
         filters:
           names:
             all: Allt
-      assembly_members:
-        index:
-          members: Meðlimir
       created_by:
         city_council: Borgarstjórn
         others: Aðrir
@@ -151,9 +144,6 @@ is-IS:
       show:
         duration: Lengd
         private_space: Þetta er einkasamkoma
-    assembly_members:
-      index:
-        title: Meðlimir
     log:
       value_types:
         assembly_presenter:

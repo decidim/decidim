@@ -220,7 +220,6 @@ sv:
           alert: 'Obligatoriskt: Granska användarvillkoren för administratörer'
           callout: Var vänlig granska de uppdaterade användarvillkoren för administratörer för att kunna fortsätta använda plattformen.
           cta: Granska dem nu.
-        title: Användarvillkor för administratörer
       area_types:
         create:
           error: Det gick inte att skapa en ny områdestyp.
@@ -263,8 +262,6 @@ sv:
         edit:
           title: Redigera mapp
           update: Uppdatera
-        index:
-          attachment_collections_title: Mappar för bilagor
         new:
           create: Skapa
           title: Ny mapp
@@ -280,8 +277,6 @@ sv:
         edit:
           title: Redigera bilaga
           update: Uppdatera
-        index:
-          attachments_title: Bilagor
         new:
           create: Skapa bilaga
           title: Ny bifogad fil
@@ -341,7 +336,6 @@ sv:
           title: 'Lägg till komponent: %{name}'
         publish:
           success: Komponenten har publicerats.
-        title: Komponenter
         unpublish:
           success: Komponenten har avpublicerats.
         update:
@@ -358,7 +352,6 @@ sv:
           text: Sök efter e-post, namn eller användarnamn
         managed_user_name: Hanterad användare
         solved: Löst
-        title: Verifieringskonflikter
         transfer:
           email: E-post
           error: Det gick inte att konvertera användaren till hanterad användare.
@@ -518,7 +511,6 @@ sv:
           impersonate: Uppträd som
           impersonate_existing_managed_user: Hantera deltagaren "%{name}"
           impersonate_existing_user: Hantera deltagaren "%{name}"
-          impersonate_new_managed_user: Hantera ny deltagare
       imports:
         and: och
         data_errors:
@@ -574,7 +566,6 @@ sv:
         promotions:
           new:
             explanation: Hanterade deltagare kan befordras till vanliga deltagare. Det innebär att de kommer att bli inbjudna till programmet och du kommer inte att kunna hantera dem igen. Den inbjudna deltagaren får ett e-brev om att godkänna inbjudan.
-            new_managed_user_promotion: Befordra ny hanterad användare
             promote: Befordra
       members:
         create:
@@ -804,7 +795,6 @@ sv:
           title: Mallar för nyhetsbrev
           use_template: Använd den här mallen
         show:
-          preview: 'Förhandsgranska mall: %{template_name}'
           use_template: Använd den här mallen
       newsletters:
         confirm_recipients:
@@ -869,7 +859,6 @@ sv:
         send_to_user:
           sent_successfully: Nyhetsbrevet har skickats till %{email}
         show:
-          preview: Förhandsvisa
           select_recipients_to_deliver: Välj mottagare
           send_me_a_test_email: Skicka ett testmeddelande till mig
           subject: Ämne
@@ -964,7 +953,6 @@ sv:
           up: Upp
         form:
           add: Lägg till i lista över tillåtna domännamn
-          title: Tillåtna externa domäner
       reminders:
         create:
           error: Det gick inte att skapa påminnelser.
@@ -1222,25 +1210,12 @@ sv:
           none: Ingen
           title: Ny underkategori i %{taxonomy}
       titles:
-        admin_log: Administratörslogg
-        area_types: Områdestyper
         areas: Områden
         authorization_workflows: Verifieringsmetoder
-        dashboard: Adminpanel
-        edit_external_domains: Tillåtna externa domäner
-        impersonatable_users: Hanterbara deltagare
-        impersonations: Deltagarhantering
         menu: Meny
-        page_topics: Ämnesområden
-        pages: Sidor
         panel: Administratör
-        participants: Deltagare
-        scope_types: Typer av indelningar
         scopes: Indelningar
         statistics: Statistik
-        taxonomies: Kategorier
-        taxonomy_filters: Kategorifilter för "%{taxonomy}"
-        users: Administratörer
       tooltips:
         cannot_destroy_taxonomy_filter: Det går inte att ta bort kategorifiltret
         cannot_edit_taxonomy_filter: Det går inte att redigera kategorifiltret
@@ -1275,6 +1250,10 @@ sv:
           last_week: Senaste veckan
           no_users_count_statistics_yet: Det finns ännu ingen statistik över antal användare ännu.
           participants: Deltagare
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Klassificering kan göras efter att komponenten är skapad.
     forms:
       errors:
         impersonate_user:

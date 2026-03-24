@@ -112,11 +112,9 @@ id:
         destroy:
           success: Kelompok proses partisipatif berhasil dihapus.
         edit:
-          title: Edit grup proses
           update: Memperbarui
         new:
           create: Membuat
-          title: Grup proses baru
         update:
           error: Terjadi kesalahan saat memutakhirkan grup proses partisipatif ini.
           success: Kelompok proses partisipatif berhasil diperbarui.
@@ -139,13 +137,9 @@ id:
         destroy:
           success: Langkah proses partisipatif berhasil dihapus.
         edit:
-          title: Edit langkah proses partisipatif
           update: Memperbarui
-        index:
-          steps_title: Tangga
         new:
           create: Membuat
-          title: Langkah proses partisipatif baru
         ordering:
           error: Ada kesalahan saat menata ulang langkah-langkah proses partisipatif ini.
         update:
@@ -158,8 +152,6 @@ id:
           success: Pengguna berhasil dihapus dari proses partisipatif ini.
         edit:
           update: Memperbarui
-        index:
-          process_admins_title: Pengguna proses partisipatif
         new:
           create: Membuat
         update:
@@ -177,7 +169,6 @@ id:
           published: Diterbitkan
         new:
           create: Membuat
-          title: Proses partisipatif baru
         update:
           error: Ada kesalahan saat memperbarui proses partisipatif ini.
           success: Proses partisipatif berhasil diperbarui.
@@ -185,9 +176,6 @@ id:
         create:
           error: Terjadi kesalahan saat membuat grup proses partisipatif baru.
           success: Kelompok proses partisipatif berhasil dibuat.
-      titles:
-        participatory_process_groups: Kelompok proses partisipatif
-        participatory_processes: Proses partisipatif
       users:
         resend_invitation:
           error: Terjadi kesalahan saat mengirim ulang undangan.

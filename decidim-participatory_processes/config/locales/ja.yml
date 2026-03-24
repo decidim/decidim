@@ -66,6 +66,8 @@ ja:
           attributes:
             document:
               allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみが許可されています: %{types}'
+              empty: ドキュメントが空です
+              invalid_json: ドキュメントは有効な JSON ではありません
     models:
       decidim/participatory_process_step_activated_event: フェーズ有効化
       decidim/participatory_process_step_changed_event: フェーズ変更
@@ -103,7 +105,6 @@ ja:
       menu:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_groups_submenu:
-          info: このプロセスグループについて
           landing_page: ランディングページのレイアウト
         participatory_processes: 参加型プロセス
         participatory_processes_submenu:
@@ -111,7 +112,6 @@ ja:
           attachment_files: ファイル
           attachments: 添付ファイル
           components: コンポーネント
-          info: このプロセスについて
           landing_page: ランディングページのレイアウト
           members: メンバー
           moderations: モデレーション
@@ -159,17 +159,14 @@ ja:
         new:
           duplicate: 複製
           select: 複製したいデータを選択してください
-          title: 参加型プロセスを複製
       participatory_process_groups:
         destroy:
           error: 参加型プロセスグループを削除する際に問題が発生しました。
           success: 参加型プロセスグループが正常に削除されました。
         edit:
-          title: 参加型プロセスグループを編集
           update: 更新
         new:
           create: 作成
-          title: 新規参加型プロセスグループ
         update:
           error: この参加型プロセスグループの更新に問題がありました。
           success: 参加型プロセスグループが正常に更新されました。
@@ -180,7 +177,6 @@ ja:
         new:
           import: インポート
           select: インポートしたいデータを選択
-          title: 参加型プロセスをインポート
       participatory_process_publications:
         create:
           error: この参加型プロセスを公開する際に問題が発生しました。
@@ -203,13 +199,9 @@ ja:
             last_step: プロセスの最後のフェーズを削除できません。
           success: 参加型プロセスのフェーズが正常に削除されました。
         edit:
-          title: 参加型プロセスのフェーズを編集
           update: 更新
-        index:
-          steps_title: フェーズ
         new:
           create: 作成
-          title: 新しい参加型プロセスのフェーズ
         ordering:
           error: 参加型プロセスのこれらのフェーズの順序変更に問題がありました。
         update:
@@ -222,13 +214,9 @@ ja:
         destroy:
           success: 管理者がこの参加型プロセスから削除しました。
         edit:
-          title: 参加型プロセス管理者を更新
           update: 更新
-        index:
-          process_admins_title: 参加型プロセス管理者
         new:
           create: 作成
-          title: 新しい参加型プロセス管理者
         update:
           error: 参加型プロセスの管理者を更新中に問題が発生しました。
           success: 管理者がこの参加プロセスの更新に成功しました。
@@ -243,11 +231,8 @@ ja:
           public: 公開
           published: 公開済み
           unpublished: 未公開
-        manage_trash:
-          title: 削除された参加型プロセス
         new:
           create: 作成
-          title: 新しい参加型プロセス
         update:
           error: この参加型プロセスの更新に問題がありました。
           success: 参加型プロセスが正常に更新されました。
@@ -263,10 +248,7 @@ ja:
         space_filter_for:
           participatory_processes: すべての参加型プロセス
       titles:
-        participatory_process_groups: 参加型プロセスグループ
         participatory_process_types: 参加型プロセス種別
-        participatory_processes: 参加型プロセス
-        participatory_processes_deleted: 削除された参加型プロセス
       tooltips:
         deleted_processes_info: プロセスは、ステータスが "未公開" の場合にのみ削除できます。
       users:
@@ -494,16 +476,42 @@ ja:
         participatory_process_duplicates:
           form:
             slug_help_html: 'URLスラグは、このプロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+          new:
+            title: 参加型プロセスを複製
         participatory_process_groups:
+          edit:
+            title: プロセスグループを編集
           form:
             metadata: メタデータ
             title: このプロセスについて
             visibility: 公開範囲
+          index:
+            title: 参加型プロセスグループ
+          new:
+            title: 新しいプロセスグループ
         participatory_process_imports:
           form:
             document_legend: ドキュメントを追加
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+          new:
+            title: 参加型プロセスをインポート
+        participatory_process_steps:
+          edit:
+            title: 参加型プロセスのフェーズを編集
+          index:
+            title: フェーズ
+          new:
+            title: 新しい参加型プロセスフェーズ
+        participatory_process_user_roles:
+          edit:
+            title: 参加型プロセス管理者を更新
+          index:
+            title: 参加型プロセス管理者
+          new:
+            title: 新しい参加型プロセス管理者
         participatory_processes:
+          edit:
+            title: このプロセスについて
           form:
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 期間
@@ -518,6 +526,12 @@ ja:
             taxonomies: タクソノミー
             title: 一般情報
             visibility: 公開範囲
+          index:
+            title: 参加型プロセス
+          manage_trash:
+            title: 削除された参加型プロセス
+          new:
+            title: 新しい参加型プロセス
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -560,9 +574,6 @@ ja:
         title: 参加型プロセス
       last_activity:
         new_participatory_process: '新しい参加型プロセス:'
-      members:
-        index:
-          title: メンバー
       pages:
         home:
           highlighted_processes:

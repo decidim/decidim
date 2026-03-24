@@ -136,11 +136,9 @@ zh-TW:
         destroy:
           success: 參與式流程組成功刪除。
         edit:
-          title: 編輯程序群組
           update: 更新
         new:
           create: 建立
-          title: 新的程序群組
         update:
           error: 更新參與程序群組時出現問題。
           success: 參與程序群組已成功更新。
@@ -151,7 +149,6 @@ zh-TW:
         new:
           import: 匯入
           select: 請選擇您想匯入的資料
-          title: 匯入參與流程
       participatory_process_publications:
         create:
           error: 發佈參與流程時出現問題。
@@ -174,13 +171,9 @@ zh-TW:
             last_step: 無法刪除流程的最後一階段。
           success: 參與程序階段成功刪除。
         edit:
-          title: 編輯參與式過程階段
           update: 更新
-        index:
-          steps_title: 階段
         new:
           create: 建立
-          title: 新的參與式過程階段
         ordering:
           error: 重新排列這個參與程序階段時出現問題。
         update:
@@ -192,13 +185,9 @@ zh-TW:
         destroy:
           success: 管理員已成功從此參與過程中移除。
         edit:
-          title: 更新參與程序管理員
           update: 更新
-        index:
-          process_admins_title: 參與程序管理員
         new:
           create: 建立
-          title: 新的參與程序管理員
         update:
           error: 更新參與程序管理員時出現問題。
           success: 管理員已成功更新此參與過程。
@@ -214,7 +203,6 @@ zh-TW:
           published: 已發佈
         new:
           create: 建立
-          title: 新的參與程序
         update:
           error: 更新此參與程序時出現問題。
           success: 參與程序已成功更新。
@@ -223,9 +211,7 @@ zh-TW:
           error: 創建新參與程序群組時出現問題。
           success: 成功創建參與過程群組。
       titles:
-        participatory_process_groups: 參與式流程群組
         participatory_process_types: 參與式流程類型
-        participatory_processes: 參與程序
       users:
         resend_invitation:
           error: 重新發送邀請時發生問題。

@@ -108,16 +108,14 @@ es-PY:
       menu:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
-          info: Acerca de este grupo de procesos
-          landing_page: Disposición de la página de aterrizaje
+          landing_page: Disposición de la página de inicio
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
           components: Componentes
-          info: Acerca de este proceso
-          landing_page: Disposición de la página de aterrizaje
+          landing_page: Disposición de la página de inicio
           members: Miembros
           moderations: Moderaciones
           process_admins: Usuarios del proceso
@@ -164,17 +162,14 @@ es-PY:
         new:
           duplicate: Duplicar
           select: Selecciona qué datos quieres duplicar
-          title: Duplicar el proceso participativo
       participatory_process_groups:
         destroy:
           error: Se ha producido un error al eliminar el grupo de procesos participativos.
           success: El grupo de proceso participativo se eliminó con éxito.
         edit:
-          title: Editar grupo de procesos
           update: Actualizar
         new:
           create: Crear
-          title: Nuevo grupo de procesos
         update:
           error: Se ha producido un error actualizando este grupo.
           success: Grupo actualizado correctamente.
@@ -185,7 +180,6 @@ es-PY:
         new:
           import: Importar
           select: Selecciona qué datos quieres importar
-          title: Importar proceso participativo
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -208,13 +202,9 @@ es-PY:
             last_step: No se puede eliminar la última fase de un proceso.
           success: Fase de proceso participativo eliminada con éxito.
         edit:
-          title: Editar fase de proceso participativo
           update: Actualizar
-        index:
-          steps_title: Fases del proceso
         new:
           create: Crear
-          title: Nuevo fase de proceso participativo
         ordering:
           error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
         update:
@@ -227,13 +217,9 @@ es-PY:
         destroy:
           success: Usuario eliminado con éxito de este proceso participativo.
         edit:
-          title: Actualitzar administradora del proceso particiaptivo
           update: Actualizar
-        index:
-          process_admins_title: Usuarios del proceso
         new:
           create: Crear
-          title: Nueva administradora del proceso participativo
         update:
           error: Ha habido un error al actualizar un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.
@@ -248,11 +234,8 @@ es-PY:
           public: Público
           published: Publicada
           unpublished: Despublicado
-        manage_trash:
-          title: Procesos participativos eliminados
         new:
           create: Crear
-          title: Nuevo proceso participativo
         update:
           error: Se ha producido un error en la actualización de este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
@@ -268,10 +251,7 @@ es-PY:
         space_filter_for:
           participatory_processes: Todos los procesos participativos
       titles:
-        participatory_process_groups: Grupos de procesos participativos
         participatory_process_types: Tipos de procesos participativos
-        participatory_processes: Procesos participativos
-        participatory_processes_deleted: Procesos participativos eliminados
       tooltips:
         deleted_processes_info: Un proceso solo se pueden eliminar si su estado es 'Despublicado'.
       users:
@@ -566,9 +546,6 @@ es-PY:
         title: Procesos participativos
       last_activity:
         new_participatory_process: 'Nuevo proceso participativo:'
-      members:
-        index:
-          title: Miembros
       pages:
         home:
           highlighted_processes:

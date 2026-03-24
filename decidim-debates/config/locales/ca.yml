@@ -156,8 +156,8 @@ ca:
           create: Crear
           title: Crear un debat
         orders:
-          commented: Més comentats
           label: Ordenar debats per
+          most_commented: Més comentats
           random: Ordre aleatori
           recent: Més recents
           updated: Recentment actualitzats
@@ -205,7 +205,7 @@ ca:
             email_intro: |-
               Hola,
               %{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat "%{resource_title}". Consulta i contribueix:
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{author_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Nou debat "%{resource_title}" de %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:

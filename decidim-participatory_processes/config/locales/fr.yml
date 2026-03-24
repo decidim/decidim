@@ -107,15 +107,12 @@ fr:
           label: Par groupe de concertations
       menu:
         participatory_process_groups: Groupes de concertations
-        participatory_process_groups_submenu:
-          info: À propos de ce groupe de processus
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
           components: Fonctionnalités
-          info: A propos de cette concertation
           members:
           moderations: Modérations
           process_admins: Administrateurs de la concertation
@@ -162,17 +159,14 @@ fr:
         new:
           duplicate: Dupliquer
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
           error: Une erreur s'est produite lors de la suppression du groupe de concertations.
           success: Groupe de concertations supprimé avec succès.
         edit:
-          title: Modifier le groupe de concertations
           update: Mettre à jour
         new:
           create: Créer
-          title: Nouveau groupe de concertations
         update:
           error: Il y a eu une erreur lors de la mise à jour de ce groupe de concertations.
           success: Groupe de concertations mis à jour avec succès.
@@ -183,7 +177,6 @@ fr:
         new:
           import: Importer
           select: Sélectionnez les données que vous souhaitez importer
-          title: Importer une concertation
       participatory_process_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette concertation.
@@ -206,13 +199,9 @@ fr:
             last_step: Vous ne pouvez pas supprimer la dernière étape d'une concertation.
           success: L'étape de la concertation a été supprimée avec succès.
         edit:
-          title: Modifier l'étape de la concertation
           update: Mettre à jour
-        index:
-          steps_title: Étapes
         new:
           create: Créer
-          title: Nouvelle étape de la concertation
         ordering:
           error: Une erreur s'est produite lors de la réorganisation des étapes de la concertation.
         update:
@@ -225,13 +214,9 @@ fr:
         destroy:
           success: Utilisateur supprimé avec succès de cette concertation.
         edit:
-          title: Mettre à jour l'administrateur de la concertation
           update: Mettre à jour
-        index:
-          process_admins_title: Administrateurs de la concertation
         new:
           create: Créer
-          title: Nouvel administrateur de la concertation
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette concertation.
           success: L'utilisateur a été mis à jour avec succès pour cette concertation.
@@ -246,11 +231,8 @@ fr:
           public: Publique
           published: Publiée
           unpublished: Non publié
-        manage_trash:
-          title: Processus participatifs supprimés
         new:
           create: Créer
-          title: Nouvelle concertation
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette concertation.
           success: Concertation mise à jour avec succès.
@@ -266,10 +248,7 @@ fr:
         space_filter_for:
           participatory_processes: Tous les processus participatifs
       titles:
-        participatory_process_groups: Groupes de concertations
         participatory_process_types: Types de concertation
-        participatory_processes: Concertations
-        participatory_processes_deleted: Processus participatifs supprimés
       tooltips:
         deleted_processes_info: Un processus ne peut être supprimé que si son statut est "non publié".
       users:
@@ -453,16 +432,35 @@ fr:
         participatory_process_duplicates:
           form:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+          new:
+            title: Dupliquer le processus participatif
         participatory_process_groups:
+          edit:
+            title: Modifier le groupe de processus
           form:
             metadata: Métadonnées
             title: A propos de cette concertation
             visibility: Visibilité
+          index:
+            title: Groupes de processus participatifs
+          new:
+            title: Nouveau groupe de processus
         participatory_process_imports:
           form:
             document_legend: Ajouter un document
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+          new:
+            title: Importer un processus participatif
+        participatory_process_steps:
+          edit:
+            title: Modifier l'étape du processus participatif
+          index:
+            title: Étapes
+          new:
+            title: Nouvelle étape du processus participatif
         participatory_processes:
+          edit:
+            title: À propos de ce processus
           form:
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
@@ -477,6 +475,12 @@ fr:
             taxonomies: Taxonomies
             title: Informations générales
             visibility: Visibilité
+          index:
+            title: Processus participatifs
+          manage_trash:
+            title: Processus participatifs supprimés
+          new:
+            title: Nouveau processus participatif
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -502,9 +506,6 @@ fr:
         title: Concertations
       last_activity:
         new_participatory_process: 'Nouveau processus participatif:'
-      members:
-        index:
-          title: Membres
       pages:
         home:
           highlighted_processes:

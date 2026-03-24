@@ -145,7 +145,6 @@ ca:
           success: Trobada duplicada correctament.
         new:
           copy: Copia
-          title: Duplicar trobada
       tooltips:
         cannot_close_meetings: No es pot tancar aquesta trobada en haver estat creada per una participant
         cannot_duplicate_meetings: No es pot duplicar aquesta trobada en haver estat creada per una participant
@@ -354,7 +353,6 @@ ca:
             non_user: Participant no existent
             select_user: Selecciona la participant
           index:
-            invite_attendee: Convidar assistent
             invites: Invitacions
             registrations_disabled: No pots convidar a cap persona perquè les inscripcions estan inhabilitades.
         meeting_closes:
@@ -459,7 +457,6 @@ ca:
               other: Hi ha hagut %{count} inscripcions.
             reserved_slots_help: Deixar a 0 si no hi ha espais reservats.
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
-            title: Inscripcions
           update:
             invalid: S'ha produït un error en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
@@ -521,7 +518,7 @@ ca:
         meetings:
           index:
             meetings: Trobades
-            space_type: Espai participatiu
+            space_type: Espai de participació
       iframe_access_level:
         all: Totes les visites
         registered: Participants inscrites a aquesta trobada

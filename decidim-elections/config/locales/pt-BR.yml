@@ -51,6 +51,7 @@ pt-BR:
             choose_census: Escolha o tipo de censo que deseja usar para esta eleição
             created_at: Criado em
             identifier: Identificador de usuário
+            title: Editar eleição
           preview:
             title:
               one: A lista de pré-visualização é limitada ao registro %{count}.

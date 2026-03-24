@@ -99,7 +99,6 @@ ro:
           published: Publicat
         new:
           create: Creați
-          title: Grup de lucru nou
         update:
           error: A apărut o eroare la actualizarea acestui grup de lucru.
           success: Grupul de lucru a fost actualizat cu succes.
@@ -110,7 +109,6 @@ ro:
         new:
           import: Importă
           select: Selectați ce date doriți să importați
-          title: Importă grupul de lucru
       assembly_publications:
         create:
           error: A apărut o problemă la publicarea acestui grup de lucru.
@@ -126,8 +124,6 @@ ro:
           success: Administratorul a fost șters cu succes de la acest grup de lucru.
         edit:
           update: Actualizează
-        index:
-          assembly_admins_title: Administratori ai grupului de lucru
         new:
           create: Creează
         update:
@@ -170,7 +166,6 @@ ro:
             evaluator: Evaluator
             moderator: Moderator
       titles:
-        assemblies: Grupuri de lucru
         assemblies_types: Tipuri de grupuri de lucru
     admin_log:
       assembly:
@@ -247,9 +242,6 @@ ro:
             all: Toate
         show:
           title: Despre această adunare
-      assembly_members:
-        index:
-          members: Membri
       content_blocks:
         highlighted_assemblies:
           name: Grupuri de lucru evidențiate
@@ -283,9 +275,6 @@ ro:
         duration: Durată
         private_space: Acesta este un grup de lucru privat
         social_networks_title: Vizitează adunarea pe
-    assembly_members:
-      index:
-        title: Membri
     events:
       assemblies:
         create_assembly_member:

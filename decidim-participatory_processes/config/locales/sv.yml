@@ -11,9 +11,10 @@ sv:
         domain: Domän
         duplicate_categories: Duplicera kategorier
         duplicate_components: Duplicera komponenter
-        duplicate_landing_page_blocks: Kopiera elementen från landningssidan
+        duplicate_landing_page_blocks: Duplicera innehållsblock från landningssidan
         duplicate_steps: Duplicera steg
         end_date: Slutdatum
+        has_members: Utrymmet har medlemmar
         hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
@@ -65,6 +66,8 @@ sv:
           attributes:
             document:
               allowed_file_content_types: 'Ogiltig dokumenttyp. Endast filer med följande tillägg är tillåtna: %{types}'
+              empty: Dokumentet är tomt
+              invalid_json: Filen är inte giltigt JSON
     models:
       decidim/participatory_process_step_activated_event: Steg aktiverat
       decidim/participatory_process_step_changed_event: Steget har ändrats
@@ -104,13 +107,16 @@ sv:
           label: Efter processgrupp
       menu:
         participatory_process_groups: Grupper för processer
+        participatory_process_groups_submenu:
+          landing_page: Landningssida
         participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bilagor
           components: Komponenter
-          info: Om processen
+          landing_page: Landningssida
+          members: Medlemmar
           moderations: Moderering
           process_admins: Administratörer för process
           steps: Steg
@@ -130,14 +136,14 @@ sv:
           name: Grupp av processer
         participatory_process_step:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             end_date: Slutdatum
             start_date: Startdatum
             title: Titel
           name: Steg i process
         participatory_process_user_role:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             email: E-post
             name: Namn
             role: Roll
@@ -156,17 +162,14 @@ sv:
         new:
           duplicate: Duplicera
           select: Välj vilken data du vill duplicera
-          title: Duplicera deltagarprocess
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera gruppen.
           success: Gruppen för processer har raderats.
         edit:
-          title: Redigera processgrupp
           update: Uppdatera
         new:
           create: Skapa
-          title: Ny processgrupp
         update:
           error: Det gick inte att uppdatera processgruppen.
           success: Gruppen har uppdaterats.
@@ -177,7 +180,6 @@ sv:
         new:
           import: Importera
           select: Välj vilka data som du vill importera
-          title: Importera process
       participatory_process_publications:
         create:
           error: Det gick inte att publicera processen.
@@ -200,17 +202,14 @@ sv:
             last_step: Kan inte ta bort det sista steget i en process.
           success: Steget i processen har raderats.
         edit:
-          title: Redigera steg i processen
           update: Uppdatera
-        index:
-          steps_title: Steg
         new:
           create: Skapa
-          title: Nytt steg i processen
         ordering:
           error: Det gick inte att ändra ordningen på stegen i processen.
         update:
           error: Det gick inte att uppdatera steget i processen.
+          success: Steget i processen har uppdaterats.
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en deltagare till processen.
@@ -218,13 +217,9 @@ sv:
         destroy:
           success: Administratören togs bort från processen.
         edit:
-          title: Uppdatera administratör för processen
           update: Uppdatera
-        index:
-          process_admins_title: Administratörer för processen
         new:
           create: Skapa
-          title: Ny administratör för processen
         update:
           error: Det gick inte att uppdatera administratören för processen.
           success: Administratören har uppdaterats för processen.
@@ -239,18 +234,15 @@ sv:
           public: Offentlig
           published: Publicerad
           unpublished: Ej publicerad
-        manage_trash:
-          title: Raderade deltagandeprocesser
         new:
           create: Skapa
-          title: Ny deltagandeprocess
         update:
           error: Det gick inte att uppdatera processen.
           success: Processen har uppdaterats.
       participatory_processes_duplicates:
         create:
-          error: Det gick inte att duplicera deltagarprocessen.
-          success: Deltagandeprocessen har duplicerats.
+          error: Det gick inte att duplicera processen.
+          success: Processen har duplicerats.
       participatory_processes_group:
         create:
           error: Det gick inte att skapa en ny grupp för processer.
@@ -259,10 +251,7 @@ sv:
         space_filter_for:
           participatory_processes: Alla deltagandeprocesser
       titles:
-        participatory_process_groups: Grupper av deltagandeprocesser
         participatory_process_types: Typer av deltagandeprocesser
-        participatory_processes: Deltagandeprocesser
-        participatory_processes_deleted: Raderade deltagandeprocesser
       tooltips:
         deleted_processes_info: En process kan endast raderas om status är "avpublicerad".
       users:
@@ -276,11 +265,11 @@ sv:
         export: "%{user_name} exporterade processen %{resource_name}"
         import: "%{user_name} importerade processen %{resource_name}"
         publish: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
-        publish_all_members: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
+        publish_all_members: "%{user_name} publicerade alla medlemmar i processen %{resource_name}"
         restore: "%{user_name} återställde deltagandeprocessen %{resource_name}"
         soft_delete: "%{user_name} raderade deltagandeprocessen %{resource_name}"
         unpublish: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
-        unpublish_all_members: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
+        unpublish_all_members: "%{user_name} avpublicerade alla medlemmar i processen %{resource_name}"
         update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
       participatory_process_group:
         create: "%{user_name} skapade gruppen %{resource_name}"
@@ -343,16 +332,24 @@ sv:
           follows_count: Antal följare
           id: Unikt id för processen
           local_area: Geografiskt område för processen. Det område där processen genomförs.
+          meta_scope: Processens omfattning
           participatory_process_group: Grupp av processer, om tillämpbart
           participatory_process_type: Typ av process
+          participatory_scope: Processens inflytande
+          participatory_structure: Processens sammansättning. Så fattas beslut.
+          promoted: Om processen är utvald eller inte
           published_at: Datum när processen publicerades
           reference: Unikt id för processen
           remote_hero_image_url: URL till processens huvudbild
+          scope: Processens omfattning
           scopes_enabled: Om indelningar är aktiverat eller inte
           short_description: Kort beskrivning av processen
+          slug: Processens URL-slug (används för identifiering och för URL)
           start_date: Startdatum för processen
           subtitle: Undertitel för processen
+          target: Deltagare i processen.
           title: Processens titel
+          updated_at: Senaste datum när utrymmet uppdaterades
           url: Processens URL
     participatory_process_groups:
       content_blocks:
@@ -382,6 +379,8 @@ sv:
           participatory_processes:
             one: 1 process
             other: "%{count} processer"
+      related_processes:
+        help: Alla valda processer kommer att läggas till i den här gruppen, inklusive de som redan är med i andra grupper.
       show:
         title: Grupper av deltagandeprocesser
     participatory_process_steps:
@@ -391,9 +390,16 @@ sv:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
+            announcement:
+              body_html: |-
+                <ul>
+                <li>Dessa beräknas automatiskt från Decidim data. De kommer att bli synliga när du publicerar innehållsblocket.</li>
+                <li>Dessa är baserade på dina svar i följande formulär. De kommer att synas när du har svarat på alla frågor.</li>
+                </ul>
+              title: 'Det här innehållsblocket innehåller två typer av mätvärden:'
             citizen_influence:
               citizen_decisional_intervention:
-                legend: Av alla faser i processen (från att välja frågor till att övervaka genomförande), hur många har allmänheten möjlighet att besluta eller utföra handlingar i?
+                legend: Under hur många av stegen i processen (från att lämna förslag till att visa genomförande) har allmänheten mandat att fatta beslut eller verkställa beslut?
                 options:
                   five: 80 - 100%
                   four: 60 - 80%
@@ -401,13 +407,16 @@ sv:
                   three: 40 - 60%
                   two: 20 - 40%
               citizen_influence_level:
+                legend: I vilken utsträckning har medborgarna beslutsmandat i processen, i allt från att bara ta emot information till att påverka beslut?
                 options:
-                  five: Deltagarna deltog i beslutsfattandet samt i hanteringen av resurserna eller i genomförandet
+                  five: Deltagarna deltog i beslutsfattandet eller genomförandet
                   four: Deltagarna hade en beslutsfattande roll
                   one: Deltagare fick information från organisationen
-                  three: Deltagarna deltog genom att fördela beslutsfattande makt
-                  two: Deltagarna tillfrågades på ett rådgivande sätt eller gav feedback till organisationen
+                  three: Deltagarna var del i beslutsfattandet
+                  two: Deltagarna var rådgivande eller gav synpunkter till organisationen
+              name: Medborgarinflytande
             inclusiveness:
+              description: Inkludering vad gäller kulturell bakgrund och funktionsvariationer.
               digital_support_offered:
                 legend: Har deltagarna erbjudits digitalt stöd?
                 options:
@@ -415,24 +424,25 @@ sv:
                   two_five: Delvis
                   zero: 'Nej'
               functional_diversity_invited:
-                legend: Hur är graden av mångfald hos processens agenter och deltagare i relation till mångfalden hos de som påverkas av beslutet?
+                legend: Hur är graden av mångfald hos processens aktörer och deltagare i relation till mångfalden hos de som påverkas av besluten?
                 options:
                   five: Bra
                   one: Låg
                   two_five: Tillräcklig
-                  zero: Ingen
+                  zero: Obefintlig
               languages_communicated:
-                legend: Hur många språk har använts inom processen?
+                legend: Hur många språk har använts i processen?
                 options:
-                  five: Mer än hälften av de språk som talas i samhället
+                  five: Mer än hälften av de språk som talas i upptagningsområdet
                   one: Ett språk
-                  two_five: Mindre än hälften av de språk som talas i samhället
+                  two_five: Mindre än hälften av de språk som talas i upptagningsområdet
               mobility_meeting_access:
-                legend: Var mötesplatserna för möten ansikte mot ansikte tillgängliga för personer med nedsatt rörlighet?
+                legend: Var möteslokalerna tillgängliga för personer med fysiska funktionsvariationer?
                 options:
                   five: 'Ja'
                   two_five: Delvis
                   zero: 'Nej'
+              name: Inkludering
               participation_scheduling_times:
                 legend: Deltagarsessionerna har schemalagts vid olika tidpunkter (morgon, middag, eftermiddag, kväll och helger).
                 options:
@@ -441,28 +451,32 @@ sv:
                   zero: 'Nej'
             informativeness:
               information_provided:
-                legend: Har information lämnats om deltagarnas möjligheter att påverka ämnet som diskuteras? (både i kommunikationen av processen och inbjudningarna, liksom i början av varje debattsession)
+                legend: Har deltagarna informerats om sina möjligheter att påverka frågeställningen? (I kommunikationen om processen, inbjudan och i början av varje session)
                 options:
                   five: Alltid
                   one: Nästan aldrig
                   two_five: Vanligtvis
                   zero: Aldrig
-              name: Informationsförmåga
+              name: Informationskvalitet
               published_information_clarity:
-                legend: Är den publicerade informationen tydlig med beslutsmekanismerna? (t.ex. omröstning, konsensus, direkta förhandlingar)
+                legend: Beskriver den publicerade informationen tydligt formerna för beslutsfattande? (t.ex. omröstning, konsensus, förhandlingar)
                 options:
-                  five: Full klarhet
-                  one: Låg tydlighet
-                  two_five: Tillfällig tydlighet
-                  zero: Ingen klarhet
+                  five: Väldigt tydligt
+                  one: Ganska otydligt
+                  two_five: Tillräckligt tydligt
+                  zero: Väldigt otydligt
           highlighted_processes:
             active: Pågående
             all: Alla
             max_results: Högsta antal element att visa
             selection_criteria: Urvalskriterier
+        imports:
+          attachment_error: Bilagan "%{title}" kunde inte importeras (%{error}).
+          hero_image_error: Startbilden kunde inte importeras (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Importfunktionen låter dig skapa en ny process från en exporterad JSON-fil. Du kan exportera en process från en annan organisation eller från samma organisation. Den importerade processen innehåller inställningar, komponenter och bilagor (om det är valt).
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -479,9 +493,11 @@ sv:
           form:
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             duration: Varaktighet
+            has_members_help: Du kommer att kunna skapa och publicera medlemmar
             images: Bilder
             metadata: Metadata
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
+            private_notice: Visa endast processen för inloggade medlemmar (om det inte är inställt som transparent)
             related_processes: Relaterade processer
             select_process_group: Välj en grupp av processer
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -490,14 +506,34 @@ sv:
             visibility: Synlighet
       content_blocks:
         democratic_quality_stats:
+          automatic_metrics:
+            description: De här uppgifterna hämtas automatiskt från plattformen.
+            indicators:
+              hybridization: Hybridprocesser
+              hybridization_tooltip: De här uppgifterna visar hur digitalt och fysiskt deltagande kombinerats under processen
+              influence: Medborgarinflytande
+              influence_tooltip: De här uppgifterna visar nivån av medborgarinflytande för beslutade förslag och för resultatet av processen.
+              traceability: Spårbarhet
+              traceability_tooltip: De här uppgifterna visar transparensen och spårbarheten för processen. De visar hur enkelt deltagarna kunnat följa utvecklingen av förslag och kontrollera genomförandet.
+              transparency: Lyhördhet
+              transparency_tooltip: De här uppgifterna mäter lyhördhet för deltagarnas förslag. Det visar på engagemang genom officiella svar och hur beslut genomförts.
+            name: Automatisk statistik
           global_score:
-            note: "*De indikativa värdena mäts på en skala från 1 till 5, där 1 representerar den lägsta och 5 den högsta kvalitetsmätaren."
+            description_html: Nedan följer uppgifter som används för att bedöma den demokratiska kvaliteten i deltagandeprocessen. För mer information om hur de beräknas, se sidan <a href="%{info_url}">information om demokratiska kvalitetsindikatorer</a>.
+            name: Totala poäng
+            note: "*De indikativa värdena mäts på en skala från 1 till 5, där 1 representerar den lägsta och 5 den högsta nivån."
+            tooltip: Beräknat medelvärde av alla uppgifter
           name: Kvalitetsindikator
           qualitative_metrics:
+            description: Uppgifterna hämtas från svaren på en självskattningsenkät, ifylld av plattformens administratörer.
             indicators:
+              citizen_influence: Medborgarinflytande
+              citizen_influence_tooltip: Mäter deltagarnas inflytande över beslutsfattande.
+              inclusiveness: Inkludering
               inclusiveness_tooltip: Bedömer om olika berörda parter är rättvist representerade.
-              informativeness: Informationsförmåga
+              informativeness: Informationskvalitet
               informativeness_tooltip: Mäter graden av tydlighet och information som tillhandahålls i processen.
+            name: Självskattning
         extra_data:
           name: Steg & varaktighet
         hero:
@@ -560,9 +596,163 @@ sv:
         belongs_to_group: Den här processen tillhör
         private_space: Det här är en privat process
         related_processes: Relaterade processer
+      static_pages:
+        democratic_quality_indicators:
+          content: |-
+            <h2>Indikatorsystem för att mäta kvalitetsindikatorer i Decidim.</h2>
+            <h3>Introduktion</h3>
+            <p>Demokratisk kvalitet är en grundläggande princip i Decidim. För att upprätthålla detta har vi utvecklat ett system av indikatorer som hjälper till att utvärdera kvaliteten på deltagarprocesser på plattformen. Den här artikeln förklarar hur dessa indikatorer beräknas.</p>
+            <h3>Hur beräknas indikatorerna?</h3>
+            <p>Vi har definierat två metoder för att samla in kvalitetsindikatorer:</p>
+            <ol>
+            <li><strong>Automatiska mätvärden:</strong> Dessa beräknas direkt från data i Decidim-plattformen.</li>
+            <li><strong>Självskattningsfrågor:</strong> Dessa baseras på ett formulär som fylls i av en administratör.</li>
+            </ol>
+            <p>Varje indikator uttrycks som en procentandel (n/totalt). Denna procentandel omvandlas sedan till ett betyg på en skala från 1 till 5:</p>
+            <ul>
+            <li>1 = 0–20%</li>
+            <li>2 = 20–40%</li>
+            <li>3 = 40–60%</li>
+            <li>4 = 60–80%</li>
+            <li>5 = 80–100%</li>
+            </ul>
+            <br><br>
+            <h3>Automatiska mätvärden</h3>
+            <p>Dessa mätvärden beräknas automatiskt från data som finns tillgänglig i Decidim. De utvärderas per deltagarprocess och kan göras offentliga av administratörer så att alla deltagare kan ta del av dem.</p>
+            <p>Vi har definierat fyra huvudindikatorer: Medborgarinflytande, Hybridprocesser, Lyhördhet och Spårbarhet:</p>
+            <h3>Medborgarinflytande</h3>
+            <p>Denna indikator mäter nivån av medborgarinflytande på de godkända förslagen och processens utfall.</p>
+            <ul>
+            <li>
+            Medborgarinflytande på förslag
+            <ul>
+            <li>Andel godkända förslag (n/totalt)</li>
+            <li>Andel godkända <em>medborgar</em>förslag av totalt antal medborgarförslag (totalt medborgarinflytande på godkända förslag)</li>
+            <li>Andel godkända medborgarförslag av totalt antal godkända förslag (relativt medborgarinflytande på godkända förslag)</li>
+            </ul>
+            </li>
+            <li>
+            Medborgarinflytande på resultat
+            <ul>
+            <li>Andel resultat kopplade till medborgarförslag av totalt antal resultat (totalt medborgarinflytande på resultat)</li>
+            </ul>
+            </li>
+            </ul>
+            <h3>Hybridprocesser</h3>
+            <p>Denna indikator mäter graden av kombination mellan online- och offlineutrymmen under processen.</p>
+            <ul>
+            <li>Är en möteskomponent aktiv? (Ja=5, Nej=0)</li>
+            <li>Finns det fysiska möten? (Ja=5, Nej=0)</li>
+            <li>Finns det onlinemöten? (Ja=5, Nej=0)</li>
+            <li>Finns det hybridmöten? (Ja=5, Nej=0)</li>
+            <li>Finns det förslag skapade från möten? (Ja=5, Nej=0)</li>
+            </ul>
+            <h3>Lyhördhet</h3>
+            <p>Denna indikator mäter organisationens lyhördhet gentemot deltagarnas bidrag. Den speglar deras engagemang genom officiella svar och genomförda beslut.</p>
+            <ul>
+            <li>Andel förslag med svar (n/totalt) – Institutionell lyhördhet för förslag</li>
+            <li>Andel resultat slutförda till 100% (n/totalt)</li>
+            </ul>
+            <h3>Spårbarhet</h3>
+            <p>Denna indikator mäter transparensen och spårbarheten i den deltagande processen. Den speglar hur enkelt deltagarna kan följa förslagets utveckling och verifiera institutionella åtgärder genom publicerade handlingar.</p>
+            <ul>
+            <li>Antal förslag med historik (n/totalt)</li>
+            <li>Andel resultat kopplade till förslag (n/totalt)</li>
+            <li>Andel möten avslutade med publicerade protokoll (n/totalt)</li>
+            <li>Aktivering av öppna data-modulen (dikotomisk: 0 eller 5)</li>
+            <li>Andel förslag kopplade till budgetar (n/totalt)</li>
+            </ul>
+            <br><br>
+            <h3>Självskattningsmätvärden</h3>
+            <p>Utöver automatiska mätvärden föreslår vi användning av ett <strong>självskattningsformulär</strong> för att bedöma de kvalitativa dimensionerna av varje deltagande process. Detta formulär fylls i av plattformsadministratörer i slutet av varje process, och svaren visas offentligt i indikatorernas innehållsblock.</p>
+            <p>Dessa frågor syftar till att fånga aspekter av demokratisk kvalitet som inte kan bedömas enbart genom kvantitativa data. Det är viktigt att notera att svaren på denna enkät påverkas av plattformsadministratörernas egna uppfattningar.</p>
+            <br><br>
+            <h3>Självskattningsfrågor</h3>
+            <p>Nedan redovisas de frågor som utgör självskattningsformuläret som besvaras av administratörerna, samt de värden som är kopplade till varje svar.</p>
+            <h4>Informativitet</h4>
+            <ol>
+            <li>Ger den publicerade informationen tydlighet kring beslutsfattandets mekanismer (t.ex. omröstning, konsensus, direkta förhandlingar)?
+            <ul>
+            <li>Ingen tydlighet = 0</li>
+            <li>Låg tydlighet = 1</li>
+            <li>Tillräcklig tydlighet = 2,5</li>
+            <li>Full tydlighet = 5</li>
+            </ul>
+            </li>
+            <li>Har information lämnats om deltagarnas möjlighet att påverka det ämne som diskuteras (både i processens kommunikation och inbjudningar, samt i början av varje debattsession)?
+            <ul>
+            <li>Aldrig = 0</li>
+            <li>Nästan aldrig = 1</li>
+            <li>Vanligtvis = 2,5</li>
+            <li>Alltid = 5</li>
+            </ul>
+            </li>
+            </ol>
+            <h4>Medborgarinflytande</h4>
+            <ol>
+            <li>Bedömning av graden av deltagande i processen
+            <ul>
+            <li>Deltagarna fick information från organisationen. = 1</li>
+            <li>Deltagarna tillfrågades på ett rådgivande sätt eller gav återkoppling till organisationen. = 2</li>
+            <li>Deltagarna involverades för att dela beslutandemakt. = 3</li>
+            <li>Deltagarna involverades avgörande i beslutsfattandet. = 4</li>
+            <li>Deltagarna involverades i beslutsfattandet och förvaltningen av resurser eller genomförandet. = 5</li>
+            </ul>
+            </li>
+            <li>Andel faser med 0–5 medborgares beslutande inflytande.
+            <p>Av alla faser i processen (från val av frågor till tillsyn av genomförandet), i hur många har allmänheten möjlighet att fatta beslut eller vidta verkställande åtgärder?</p>
+            <ul>
+            <li>0–20% = 1</li>
+            <li>20–40% = 2</li>
+            <li>40–60% = 3</li>
+            <li>60–80% = 4</li>
+            <li>80–100% = 5</li>
+            </ul>
+            </li>
+            </ol>
+            <h4>Inkludering</h4>
+            <ol>
+            <li>Hur bedöms graden av mångfald bland aktörer och deltagare i förhållande till referensbefolkningen i processen?
+            <ul>
+            <li>Ingen = 0</li>
+            <li>Låg = 1</li>
+            <li>Tillräcklig = 2,5</li>
+            <li>God = 5</li>
+            </ul>
+            </li>
+            <li>På hur många språk har processen kommunicerats?
+            <ul>
+            <li>Ett språk = 1</li>
+            <li>Färre än hälften av de språk som talas i samhället = 2,5</li>
+            <li>Fler än hälften av de språk som talas i samhället = 5</li>
+            </ul>
+            </li>
+            <li>Var lokalerna för de fysiska mötena tillgängliga för personer med nedsatt rörlighet?
+            <ul>
+            <li>Nej = 0</li>
+            <li>Delvis = 2,5</li>
+            <li>Ja = 5</li>
+            </ul>
+            </li>
+            <li>Deltagandesessionerna har schemalagts på varierande tider (morgon, middag, eftermiddag, kväll och helger).
+            <ul>
+            <li>Nej = 0</li>
+            <li>Delvis = 2,5</li>
+            <li>Ja = 5</li>
+            </ul>
+            </li>
+            <li>Har digitalt stöd erbjudits till deltagarna?
+            <ul>
+            <li>Nej = 0</li>
+            <li>Delvis = 2,5</li>
+            <li>Ja = 5</li>
+            </ul>
+            </li>
+            </ol>
+          title: Demokratiska kvalitetsindikatorer
     statistics:
       processes_count: Processer
-      processes_count_tooltip: Antalet deltagande processer som är allmänt tillgängliga.
+      processes_count_tooltip: Antal deltagandeprocesser som är tillgängliga publikt.
   layouts:
     decidim:
       participatory_process_groups:
