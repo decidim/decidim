@@ -69,7 +69,6 @@ hu:
             invalid: Probléma történt a projekt létrehozása során.
             success: Projekt létrehozása sikeres.
           edit:
-            title: Projekt szerkesztése
             update: Frissítés
           index:
             actions: Műveletek
@@ -154,14 +153,11 @@ hu:
             total_budget: Teljes költségvetés
         project:
           fields:
-            id: Azonosító
             map: Térkép
             title: Cím
       order:
         status:
           title: A szavazatod elfogadása sikeres volt
-      order_pdf:
-        title: A szavazatodat sikeresen leadtad.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Az általad kiválasztott projektek a következők:'
@@ -291,13 +287,6 @@ hu:
               disabled: Szavazás letiltva
               enabled: Szavazás engedélyezve
               finished: A szavazás véget ért
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'A(z) %{resource_title} költségvetés mostantól aktív itt: %{participatory_space_title}. Ezen az oldalon láthatja:'
-          email_outro: Azért kapta ezt az értesítést, mert a %{participatory_space_title}-t követi. Az értesítések küldését leállíthatja az előző linkkel.
-          email_subject: 'A(z) %{resource_title} költségvetés mostantól aktív itt: %{participatory_space_title}.'
-          notification_title: 'A(z)<a href="%{resource_path}">%{resource_title}</a> költségvetés mostantól aktív a következő helyen: %{participatory_space_title}.'
     orders:
       checkout:
         error: Hiba történt a szavazatod feldolgozása során.
