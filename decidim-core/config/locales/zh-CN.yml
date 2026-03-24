@@ -771,8 +771,6 @@ zh-CN:
         submit_button: 发送邀请
       no_invitations_remaining: 没有剩余邀请
       send_instructions: 邀请邮件已发送至 %{email}。
-      updated: 您的密码设置成功。您现在已登录。
-      updated_not_active: 您的密码设置成功。
     mailer:
       confirmation_instructions:
         action: 确认我的帐户
