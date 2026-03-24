@@ -169,8 +169,10 @@ ca-IT:
               success: S'han eliminat totes les dades del cens.
           destroy:
             confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
+            title: Eliminar totes les dades del cens
           index:
             data: Hi ha %{count} registres carregats en total. La darrera data de pujada va ser el dia %{due_date}.
+            empty: No hi ha dades del cens. Utilitza el formulari següent per importar-lo mitjançant un fitxer CSV.
             title: Dades censals actuals
           instructions:
             body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de "csv_census" a l'organització
@@ -179,6 +181,7 @@ ca-IT:
             example: |
               john.doe@example.org
               jane.doe@example.org
+            file: "fitxer .csv amb dades de correus electrònics"
             info: 'Ha de ser un fitxer en format CSV amb una sola columna amb l''adreça de correu electrònic:'
             submit: Puja arxiu
             title: Puja un nou cens
