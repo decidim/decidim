@@ -1191,8 +1191,6 @@ hu:
         submit_button: Küldjön meghívót
       no_invitations_remaining: Nincsenek meghívók
       send_instructions: Meghívó e-mailt küldött %{email}.
-      updated: A jelszó sikeresen be lett állítva. Most bejelentkezett.
-      updated_not_active: A jelszó sikeresen be lett állítva.
     mailer:
       confirmation_instructions:
         action: Fiókom megerősítése
