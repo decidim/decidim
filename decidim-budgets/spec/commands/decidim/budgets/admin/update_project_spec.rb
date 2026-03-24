@@ -40,8 +40,8 @@ module Decidim::Budgets
         proposal_ids: proposals.map(&:id),
         taxonomizations:,
         selected:,
-        photos: current_photos,
-        add_photos: uploaded_photos,
+        documents: current_photos,
+        add_documents: uploaded_photos,
         address:,
         latitude:,
         longitude:
