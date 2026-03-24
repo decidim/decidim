@@ -9,6 +9,9 @@ it:
       decidim/surveys/survey:
         one: Questionario
         other: indagini
+      decidim/surveys/survey_answer:
+        one: Risposta
+        other: Risposte
   decidim:
     components:
       surveys:
