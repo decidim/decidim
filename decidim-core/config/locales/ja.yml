@@ -1807,8 +1807,6 @@ ja:
         submit_button: 招待状を送信
       no_invitations_remaining: 招待状は残っていません
       send_instructions: '%{email} に招待メールが送信されました。'
-      updated: パスワードは正常に設定され、ログイン完了しました。
-      updated_not_active: パスワードが正常に設定されました。
     mailer:
       confirmation_instructions:
         action: アカウントを確認する
