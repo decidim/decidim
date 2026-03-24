@@ -5,11 +5,15 @@ id:
       participatory_process:
         announcement: Pengumuman
         area_id: Daerah
+        copy_categories: Salin kategori
+        copy_components: Salin komponen
+        copy_steps: Salin langkah
         decidim_area_id: Daerah
         description: Deskripsi
         developer_group: Grup promotor
         domain: Domain
         end_date: Tanggal akhir
+        hashtag: Tanda pagar
         hero_image: Gambar rumah
         local_area: Area organisasi
         meta_scope: Ruang lingkup metadata
@@ -56,6 +60,7 @@ id:
     admin:
       actions:
         activate: Mengaktifkan
+        configure: Konfigurasikan
         confirm_destroy: Konfirmasikan penghapusan
         destroy: Menghapus
         duplicate: Duplikat
@@ -109,6 +114,9 @@ id:
           fields:
             invitation_accepted_at: Undangan diterima di
             invitation_sent_at: Undangan dikirim pada
+      participatory_process_copies:
+        new:
+          copy: Salinan
       participatory_process_groups:
         destroy:
           success: Kelompok proses partisipatif berhasil dihapus.
@@ -148,6 +156,7 @@ id:
           error: Ada kesalahan saat menata ulang langkah-langkah proses partisipatif ini.
         update:
           error: Ada kesalahan saat memperbarui langkah proses partisipatif ini.
+          success: Langkah proses partisipatif berhasil diperbarui.
       participatory_process_user_roles:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna untuk proses partisipatif ini.
@@ -224,6 +233,8 @@ id:
       processes: Proses
     metrics:
       participatory_processes:
+        description: Jumlah proses partisipatif dalam organisasi ini
+        object: proses partisipatif
         title: Proses partisipatif
     participatory_process_groups:
       content_blocks:
@@ -239,8 +250,12 @@ id:
         content_blocks:
           highlighted_processes:
             max_results: Jumlah maksimum elemen untuk ditampilkan
+        participatory_process_steps:
+          form:
+            cta_text_help: Jika tidak disetel, tombol tidak akan ditampilkan.
         participatory_processes:
           form:
+            announcement_help: Teks yang Anda masukkan di sini akan ditampilkan kepada pengguna tepat di bawah informasi proses.
             duration: Lamanya
             images: Gambar
             metadata: Metadata
