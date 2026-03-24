@@ -89,7 +89,6 @@ ja:
             invalid: プロジェクトの作成中に問題が発生しました。
             success: プロジェクトが正常に作成されました。
           edit:
-            title: プロジェクトを編集
             update: 更新
           index:
             actions: アクション
@@ -211,7 +210,6 @@ ja:
             total_budget: 予算の合計
         project:
           fields:
-            id: ID
             map: 地図
             taxonomies: タクソノミー
             title: タイトル
@@ -230,7 +228,6 @@ ja:
             other: あなたの%{count}票は、%{budget_name}に対してすでに登録されています。
       order_pdf:
         text: '%{space_name}で、以下のプロジェクトに投票しました'
-        title: 投票が正常に受理されました。
       order_summary_mailer:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'
@@ -395,13 +392,6 @@ ja:
           updated_at: 注文の更新日時
       show:
         projects: プロジェクトのエクスポート
-    events:
-      budgets:
-        budget_published:
-          email_intro: '%{resource_title} の予算が %{participatory_space_title} に有効になりました。このページから確認できます:'
-          email_outro: '%{participatory_space_title} をフォローしているため、この通知を受け取りました。前のリンク先から、通知の受信を停止することができます。'
-          email_subject: '%{resource_title} の予算が %{participatory_space_title} に有効になりました。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> の予算が %{participatory_space_title} に有効になりました。
     open_data:
       help:
         projects:

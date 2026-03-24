@@ -108,7 +108,7 @@ de:
   date:
     buttons:
       close: Schliessen
-      select: Wählen
+      select: Auswählen
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -1799,8 +1799,6 @@ de:
         submit_button: Eine Einladung schicken
       no_invitations_remaining: Keine Einladungen übrig
       send_instructions: Eine Einladungs-E-Mail wurde an %{email}gesendet.
-      updated: Ihr Passwort wurde erfolgreich vergeben. Sie sind jetzt angemeldet.
-      updated_not_active: Ihr Passwort wurde erfolgreich vergeben.
     mailer:
       confirmation_instructions:
         action: Konto bestätigen
@@ -2200,7 +2198,7 @@ de:
     buttons:
       close: Schliessen
       reset: Zurücksetzen
-      select: Wählen
+      select: Auswählen
     formats:
       day_of_month: "%d. %b"
       day_of_week: "%a"

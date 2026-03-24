@@ -91,7 +91,6 @@ de:
             invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten.
             success: Projekt erfolgreich erstellt.
           edit:
-            title: Projekt bearbeiten
             update: Aktualisieren
           index:
             actions: Aktionen
@@ -213,7 +212,6 @@ de:
             total_budget: Gesamt Budget
         project:
           fields:
-            id: ID
             map: Karte
             taxonomies: Klassifizierungen
             title: Titel
@@ -235,7 +233,6 @@ de:
             other: Ihre %{count} Stimmen für %{budget_name} wurden bereits registriert.
       order_pdf:
         text: Sie haben in %{space_name} für folgende Projekte abgestimmt
-        title: Ihre Stimme wurde erfolgreich abgegeben.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Die ausgewählten Projekte sind:'
@@ -403,13 +400,6 @@ de:
           updated_at: Datum und Uhrzeit der Anfrageaktualisierung
       show:
         projects: Export der Projekte
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sehen Sie es sich auf dieser Seite an:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv.
-          notification_title: Das Budget <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
     open_data:
       help:
         projects:

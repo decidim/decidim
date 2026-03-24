@@ -39,7 +39,6 @@ ar:
             name: مشروع
         projects:
           edit:
-            title: تحرير المشروع
             update: تحديث
           index:
             actions: الإجراءات

@@ -71,7 +71,6 @@ pl:
             invalid: Podczas tworzenia tego projektu wystąpił błąd.
             success: Projekt został utworzony.
           edit:
-            title: Edytuj projekt
             update: Aktualizuj
           index:
             actions: Działania
@@ -161,7 +160,6 @@ pl:
             total_budget: Całkowity budżet
         project:
           fields:
-            id: Identyfikator
             map: Mapa
             title: Tytuł
       order:
@@ -169,8 +167,6 @@ pl:
           continue_voting: Kontynuuj głosowanie
           download_vote: Pobierz swój głos
           title: Twój głos został przyjęty
-      order_pdf:
-        title: Twój głos został przyjęty.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Wybrane przez Ciebie projekty to:'
@@ -304,13 +300,6 @@ pl:
               disabled: Głosowanie wyłączone
               enabled: Włączone głosowanie
               finished: Głosowanie zakończone
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Budżet %{resource_title} jest teraz aktywny w %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Budżet %{resource_title} jest teraz aktywny w %{participatory_space_title}.
-          notification_title: Budżet <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
     orders:
       checkout:
         error: Podczas przetwarzania Twojego głosu wystąpił błąd.

@@ -47,7 +47,6 @@ it:
             name: Progetto
         projects:
           edit:
-            title: Modifica il progetto
             update: Aggiorna
           index:
             finished_orders: Votazione finale
@@ -102,8 +101,6 @@ it:
       order:
         status:
           title: OK, il tuo voto è stato acquisito.
-      order_pdf:
-        title: Ok, il tuo voto è stato acquisito.
       order_summary_mailer:
         order_summary:
           selected_projects: 'I progetti che hai selezionato sono:'
@@ -201,13 +198,6 @@ it:
               disabled: Votazioni disabilitate
               enabled: Voto abilitato
               finished: Votazione conclusa
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Il budget %{resource_title} è ora attivo per %{participatory_space_title}. Puoi vederlo su questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. Puoi smettere di ricevere notifiche cliccando il link precedente.
-          email_subject: Il budget %{resource_title} è ora attivo per %{participatory_space_title}.
-          notification_title: Il budget <a href="%{resource_path}">%{resource_title}</a> è ora attivo per %{participatory_space_title}.
     resource_links:
       included_proposals:
         project_proposal: Proposte incluse in questo progetto

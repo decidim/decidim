@@ -91,7 +91,6 @@ fr:
             invalid: Il y a eu un problème lors de la création de ce projet.
             success: Projet créé avec succès.
           edit:
-            title: Éditer un projet
             update: Mettre à jour
           index:
             actions: Actions
@@ -207,7 +206,6 @@ fr:
             total_budget: Budget total
         project:
           fields:
-            id: ID
             map: Carte
             title: Titre
       order:
@@ -228,7 +226,6 @@ fr:
             other: Vos votes %{count} pour %{budget_name} ont déjà été enregistrés.
       order_pdf:
         text: Vous avez voté pour les projets suivants dans %{space_name}
-        title: Votre vote a été enregistré avec succès.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Les projets que vous avez sélectionnés sont :'
@@ -383,13 +380,6 @@ fr:
     download_your_data:
       show:
         projects: Export des projets
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page :'
-          email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}.
-          notification_title: Le budget <a href="%{resource_path}">%{resource_title}</a> est maintenant actif pour %{participatory_space_title}.
     open_data:
       help:
         projects:
