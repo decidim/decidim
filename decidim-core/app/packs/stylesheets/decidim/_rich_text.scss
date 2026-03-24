@@ -108,7 +108,7 @@
   }
 
   // Style for external link icon inside linked images
-  .editor-content-image + [data-external-link="true"] {
+  a:has(.editor-content-image) [data-external-link="true"] {
     @apply block relative;
 
     margin: -1.5rem 0 1em auto;
