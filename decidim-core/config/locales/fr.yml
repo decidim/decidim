@@ -1663,6 +1663,7 @@ fr:
         nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne peut contenir que des lettres, des chiffres ainsi que les caractères "-" et "_".
         submit_button: Sauvegarder
         subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudonyme et votre mot de passe.
+        subtitle_no_password: Si vous acceptez l'invitation, veuillez définir votre pseudonyme.
       invitation_removed: Votre invitation a été supprimée.
       invitation_token_invalid: Le jeton d'invitation fourni n'est pas valide!
       new:
@@ -1670,8 +1671,8 @@ fr:
         submit_button: Envoyer une invitation
       no_invitations_remaining: Aucune invitation restante
       send_instructions: Un email d'invitation a été envoyé à %{email}.
-      updated: Votre mot de passe a été défini avec succès. Vous êtes maintenant inscrit.
-      updated_not_active: Votre mot de passe a été défini avec succès.
+      updated: Invitation acceptée avec succès. Vous êtes maintenant connecté(e).
+      updated_not_active: Invitation acceptée avec succès.
     mailer:
       confirmation_instructions:
         action: Confirmer mon compte
