@@ -79,6 +79,13 @@ sk:
         skip_verification: Môžete to teraz preskočiť a %{link}
         start_exploring: začať skúmať
       csv_census:
+        admin:
+          destroy:
+            title: Zmazať všetky dáta sčítania
+          index:
+            empty: Neexistujú údaje o sčítaní. Pomocou nižšie uvedeného formulára ho importujte pomocou súboru CSV.
+          new:
+            file: ".CSV súbor s dátami e-mailov"
         authorizations:
           new:
             error: Váš účet nebol overený, alebo nie ste v sčítanie organizácie.
