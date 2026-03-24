@@ -18,6 +18,7 @@ is:
             name: Verkefni
         projects:
           edit:
+            title: Breyta verkefnum
             update: Uppfæra
           index:
             finished_orders: Lokið atkvæði
