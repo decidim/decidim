@@ -91,7 +91,6 @@ pt-BR:
             invalid: Ocorreu um erro ao criar este projeto.
             success: Projeto criado com sucesso.
           edit:
-            title: Editar projeto
             update: Atualizar
           index:
             actions: Ações
@@ -215,7 +214,6 @@ pt-BR:
             total_budget: Orçamento total
         project:
           fields:
-            id: ID
             map: Mapa
             taxonomies: Taxonomias
             title: Título
@@ -237,7 +235,6 @@ pt-BR:
             other: Seus votos %{count} para %{budget_name} já foram registrados.
       order_pdf:
         text: Você votou em %{space_name}, para os seguintes projetos
-        title: Seu voto foi aceito com sucesso.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Os projetos que você selecionou são:'
@@ -405,13 +402,6 @@ pt-BR:
           updated_at: A data e hora em que o pedido foi atualizado
       show:
         projects: Exportação de projetos
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'O orçamento %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: O orçamento %{resource_title} agora está ativo para %{participatory_space_title}.
-          notification_title: O orçamento <a href="%{resource_path}">%{resource_title}</a> agora está ativo para %{participatory_space_title}.
     open_data:
       help:
         projects:
