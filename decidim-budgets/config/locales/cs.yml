@@ -95,6 +95,7 @@ cs:
             invalid: Při vytváření tohoto projektu došlo k chybě.
             success: Projekt byl úspěšně vytvořen.
           edit:
+            title: Upravit projekt
             update: Aktualizace
           index:
             actions: Akce
@@ -222,6 +223,7 @@ cs:
             total_budget: Celkový rozpočet
         project:
           fields:
+            id: ID
             map: Mapa
             taxonomies: Taxonomie
             title: Titul
@@ -249,6 +251,7 @@ cs:
             other: Vašich %{count} hlasů pro %{budget_name} již bylo zaregistrováno.
       order_pdf:
         text: Hlasovali jste v %{space_name}, pro následující projekty
+        title: Váš hlas byl úspěšně přijat.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Vybrané projekty jsou:'
@@ -422,6 +425,13 @@ cs:
           updated_at: Datum a čas, kdy byl pokyn aktualizován
       show:
         projects: Export projektů
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Rozpočet %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete jej vidět z této stránky:'
+          email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení na předchozím odkazu.
+          email_subject: Rozpočet %{resource_title} je nyní aktivní pro %{participatory_space_title}.
+          notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
     open_data:
       help:
         projects:

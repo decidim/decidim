@@ -91,6 +91,7 @@ eu:
             invalid: Arazo bat egon da proiektu hau sortzean.
             success: Proiektua zuzen sortua.
           edit:
+            title: Editatu proiektua
             update: Eguneratu
           index:
             actions: Ekintzak
@@ -214,6 +215,7 @@ eu:
             total_budget: Aurrekontua guztira
         project:
           fields:
+            id: ID
             map: Mapa
             taxonomies: Taxonomiak
             title: Izenburua
@@ -235,6 +237,7 @@ eu:
             other: 'Zure %{count} babes honentzat: %{budget_name} erregistratu dira.'
       order_pdf:
         text: Botoa eman duzu hemen %{space_name}, honako proiektu hauetan
+        title: Zure botua zuzen onartu da.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
@@ -402,6 +405,13 @@ eu:
           updated_at: Zein datatan eta zein ordutan eguneratu zen ordena
       show:
         projects: Esportatu proiektuak
+    events:
+      budgets:
+        budget_published:
+          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title} espziorako. Orrialde honetatik ikus dezakezu:'
+          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko lotura jarraituz.
+          email_subject: '%{resource_title} osagaia aktibatu egin da %{participatory_space_title} espazioan.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> aurrekontua aktibo dago hemen %{participatory_space_title}.
     open_data:
       help:
         projects:

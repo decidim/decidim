@@ -215,6 +215,7 @@ es-PY:
             total_budget: Presupuesto total
         project:
           fields:
+            id: ID
             map: Mapa
             taxonomies: Taxonomías
             title: Título
@@ -236,6 +237,7 @@ es-PY:
             other: Tus %{count} votos en %{budget_name} ya se han registrado.
       order_pdf:
         text: 'Has votado en "%{space_name}", donde has seleccionado los siguientes proyectos:'
+        title: Tu voto se ha aceptado correctamente.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Lo proyectos que has seleccionado son:'
@@ -403,6 +405,13 @@ es-PY:
           updated_at: La fecha y la hora en que se actualizó la petición
       show:
         projects: Exportar los proyectos
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Ya está activa la fase %{resource_title} para %{participatory_space_title}. Puedes verla desde esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: El componente %{resource_title} está ahora activo para %{participatory_space_title}.
+          notification_title: El presupuesto <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title} ya está activo.
     open_data:
       help:
         projects:
