@@ -74,6 +74,8 @@ eu:
           attributes:
             document:
               allowed_file_content_types: 'Dokumentu mota ez da baliozkoa. Honako luzapen hauek dituzten fitxategiak baino ez dira onartzen: %{types}.'
+              empty: Dokumentua hutsik dago
+              invalid_json: JSON dokumentua ez da zuzena
   activerecord:
     models:
       decidim/assembly:
@@ -104,11 +106,8 @@ eu:
           public: Publikoa
           published: Argitaratua
           unpublished: Ez argitaratua
-        manage_trash:
-          title: Ezabatutako batzarrak
         new:
           create: Sortu
-          title: Beste batzar bat
         update:
           error: Arazo bat egon da batzar hau eguneratzean.
           success: Batzarra zuzen eguneratua.
@@ -120,7 +119,6 @@ eu:
         new:
           duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Batzarra bikoiuztu
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.
@@ -128,7 +126,6 @@ eu:
         new:
           import: Inportatu
           select: Hautatu zein datu inportatu nahi dituzun
-          title: Inportatu batzarra
       assembly_publications:
         create:
           error: Arazo bat egon da batzar hau argitaratzean.
@@ -143,13 +140,9 @@ eu:
         destroy:
           success: Batzar honetatik administratzailea zuzen kendua.
         edit:
-          title: Eguneratu batzarraren administratzailea
           update: Onartu
-        index:
-          assembly_admins_title: Batzarraren administratzaileak
         new:
           create: Sortu
-          title: Batzarraren beste administratzaile bat
         update:
           error: Arazo bat egon da administratzailea gehitzean batzar honetarako.
           success: Batzar honetarako administratzailea zuzen eguneratua.
@@ -207,8 +200,6 @@ eu:
         space_filter_for:
           assemblies: Batzar guztiak
       titles:
-        assemblies: Batzarrak
-        assemblies_deleted: Ezabatutako batzarrak
         assemblies_types: Batzar motak
       tooltips:
         deleted_assemblies_info: Batzar bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
@@ -244,6 +235,8 @@ eu:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: Batzar honi buruz
           form:
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
@@ -262,24 +255,40 @@ eu:
             taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
+          index:
+            title: Batzarrak
+          manage_trash:
+            title: Ezabatutako batzarrak
+          new:
+            title: Beste batzar bat
         assembly_duplicates:
           form:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+          new:
+            title: Bikoiztu batzarra
         assembly_imports:
           form:
             document_legend: Gehitu dokumentu bat
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+          new:
+            title: Inportatu batzarra
         assembly_members:
           form:
             explanation: 'Jarraibideak irudirako:'
             image_guide: Ahal dela, testurik gabeko irudi bertikal bat.
             non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratu baino lehen.
+        assembly_user_roles:
+          edit:
+            title: Eguneratu batzarraren administratzailea
+          index:
+            title: Batzarraren administratzaileak
+          new:
+            title: Batzarraren beste administratzaile bat
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua
         imports:
           attachment_error: Ezin izan da "%{title}" eranskina inportatu (%{error}).
-          banner_image_error: Ezin izan da bannerraren irudia inportatu (%{error}).
           hero_image_error: Ezin izan da heroiaren irudia inportatu (%{error}).
         new_import:
           accepted_types:
@@ -308,9 +317,6 @@ eu:
           type: Mota
         show:
           title: Batzar honi buruz
-      assembly_members:
-        index:
-          members: Kideak
       content_blocks:
         children_assemblies:
           name: Batzarrak
@@ -352,9 +358,6 @@ eu:
         duration: Iraupena
         private_space: Hau batzar pribatua da
         social_networks_title: 'Bisitatu batzarra:'
-    assembly_members:
-      index:
-        title: Kideak
     download_your_data:
       show:
         assemblies: Esportatu batzarrak

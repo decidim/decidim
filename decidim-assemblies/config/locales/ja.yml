@@ -74,6 +74,8 @@ ja:
           attributes:
             document:
               allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されます: %{types}。'
+              empty: ドキュメントが空です
+              invalid_json: ドキュメントは有効な JSON ではありません
   activerecord:
     models:
       decidim/assembly:
@@ -101,11 +103,8 @@ ja:
           public: 公開
           published: 公開済み
           unpublished: 未公開
-        manage_trash:
-          title: 削除されたアセンブリ
         new:
           create: 作成
-          title: 新しい参加スペース
         update:
           error: 参加スペースの更新に問題がありました。
           success: 参加スペースを更新しました。
@@ -117,7 +116,6 @@ ja:
         new:
           duplicate: 複製
           select: 複製したいデータを選択してください
-          title: 参加スペースを複製
       assembly_imports:
         create:
           error: この参加スペースのインポート中に問題が発生しました。
@@ -125,7 +123,6 @@ ja:
         new:
           import: インポート
           select: インポートしたいデータを選択
-          title: 参加スペースをインポート
       assembly_publications:
         create:
           error: この参加スペースの公開中に問題がありました。
@@ -140,13 +137,9 @@ ja:
         destroy:
           success: 管理者がこの参加スペースから削除されました。
         edit:
-          title: 参加スペース管理者を更新
           update: 更新
-        index:
-          assembly_admins_title: 参加スペース管理者
         new:
           create: 作成
-          title: 新しい参加スペース管理者
         update:
           error: この参加スペースの管理者を更新中に問題が発生しました。
           success: 管理者はこの参加スペースの更新に成功しました。
@@ -204,8 +197,6 @@ ja:
         space_filter_for:
           assemblies: すべての参加スペース
       titles:
-        assemblies: 参加スペース
-        assemblies_deleted: 削除されたアセンブリ
         assemblies_types: 参加スペース種別
       tooltips:
         deleted_assemblies_info: アセンブリは、ステータスが "未公開" の場合にのみ削除できます。
@@ -241,6 +232,8 @@ ja:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: この参加スペースについて
           form:
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 持続期間
@@ -259,24 +252,40 @@ ja:
             taxonomies: タクソノミー
             title: 一般情報
             visibility: 公開範囲
+          index:
+            title: 参加スペース
+          manage_trash:
+            title: 削除された参加スペース
+          new:
+            title: 新しい参加スペース
         assembly_duplicates:
           form:
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。使用できる文字は英字・数字・ハイフンのみで、必ず英字で始める必要があります。例: %{url}'
+          new:
+            title: 参加スペースを複製
         assembly_imports:
           form:
             document_legend: ドキュメントを追加
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+          new:
+            title: 参加スペースをインポート
         assembly_members:
           form:
             explanation: '画像のガイダンス:'
             image_guide: テキストを含まない縦長の画像をお勧めします。
             non_user_avatar_help: メンバーとして公開する前に同意を得る必要があります。
+        assembly_user_roles:
+          edit:
+            title: 参加スペース管理者を更新
+          index:
+            title: 参加スペース管理者
+          new:
+            title: 新しい参加スペース管理者
         content_blocks:
           highlighted_assemblies:
             max_results: 表示する要素の最大量
         imports:
           attachment_error: 添付ファイル "%{title}" をインポートできませんでした（%{error}）。
-          banner_image_error: バナー画像をインポートできませんでした(%{error})。
           hero_image_error: ヒーロー画像をインポートできませんでした（%{error}）。
         new_import:
           accepted_types:
@@ -305,9 +314,6 @@ ja:
           type: 種別
         show:
           title: この参加スペースについて
-      assembly_members:
-        index:
-          members: メンバー
       content_blocks:
         children_assemblies:
           name: 参加スペース
@@ -349,9 +355,6 @@ ja:
         duration: 持続期間
         private_space: これは私的参加スペースです
         social_networks_title: 参加スペースを訪問
-    assembly_members:
-      index:
-        title: メンバー
     download_your_data:
       show:
         assemblies: 参加スペースのエクスポート

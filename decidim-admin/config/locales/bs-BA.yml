@@ -142,8 +142,6 @@ bs:
         edit:
           title: Izmeni fasciklu
           update: Ažuriraj
-        index:
-          attachment_collections_title: Fascikle priloga
         new:
           create: Stvori
           title: Nova fascikla
@@ -159,8 +157,6 @@ bs:
         edit:
           title: Izmeni prilog
           update: Ažuriraj
-        index:
-          attachments_title: Prilozi
         new:
           create: Stvori prilog
           title: Novi prilog
@@ -198,7 +194,6 @@ bs:
           title: 'Dodaj komponentu: %{name}'
         publish:
           success: Komponenta je uspešno objavljena.
-        title: Komponente
         unpublish:
           success: Objava komponente je uspešno povučena.
         update:
@@ -261,7 +256,6 @@ bs:
           impersonate: Predstavlja
           impersonate_existing_managed_user: Upravljaj učesnikom "%{name}"
           impersonate_existing_user: Upravljaj učesnikom "%{name}"
-          impersonate_new_managed_user: Upravljanje novim učesnikom
       managed_users:
         promotion:
           error: Pojavio se problem pri unapređivanju učesnika.
@@ -269,7 +263,6 @@ bs:
         promotions:
           new:
             explanation: Upravljani učesnici mogu biti unapređeni u regularne učesnike. To znači da će biti pozvani da se prijave, nakon čega nećete više biti u mogućnosti da upravljate njihovim nalozima. Pozvani učesnici će primiti e-mail i potrebno je da prihvate poziv.
-            new_managed_user_promotion: Unapređenje novog upravljanog učesnika
             promote: Unapredi
       menu:
         admin_log: Zapisnik aktivnosti administratora
@@ -358,7 +351,6 @@ bs:
           title: Šabloni biltena
           use_template: Koristite ovaj šablon
         show:
-          preview: 'Pregledajte šablon %{template_name}'
           use_template: Koristite ovaj šablon
       newsletters:
         create:
@@ -400,7 +392,6 @@ bs:
           title: Izaberi primaoce za dostavu
           warning: "Pažnja: Ovaj bilten će biti poslan samo korisnicima koji su aktivirali Želim da dobijam biltene u svojim podešavanjima obaveštenja."
         show:
-          preview: Pregled
           select_recipients_to_deliver: Izaberi primaoce za dostavu
           subject: Naslov
         update:

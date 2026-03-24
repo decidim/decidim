@@ -220,10 +220,6 @@ fi:
               user_authorized: Onko käyttäjän henkilöllisyys on vahvistettu?
             import_csv: Tuo CSV
             no_authorized: Käyttäjän henkilöllisyyttä ei ole vahvistettu
-            title: Nykyiset rekisteritiedot
-          instructions:
-            body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmähallintaosioon ja lisättävä csv_census-vahvistustapa organisaatiolle
-            title: Sinun on aktivoitava CSV-rekisteritiedot tälle organisaatiolle
         authorizations:
           new:
             error: Emme voineet vahvistaa tiliäsi, koska tietojasi ei löytynyt organisaation rekisteristä.
@@ -254,7 +250,6 @@ fi:
               error: Vahvistustiedot eivät täsmää. Yritä uudestaan tai hylkää vahvistus, jolloin käyttäjä voi muuttaa sitä.
               success: Osallistujan vahvistaminen onnistui.
             new:
-              introduce_user_data: Syötä kuvassa näkyvät tiedot
               reject: Hylkää
               verify: Vahvista
           offline_confirmations:
@@ -263,7 +258,6 @@ fi:
               success: Osallistujan vahvistaminen onnistui.
             new:
               cancel: Peruuta
-              introduce_user_data: Lisää käyttäjän sähköposti ja asiakirjan tiedot
               verify: Vahvista
           pending_authorizations:
             index:

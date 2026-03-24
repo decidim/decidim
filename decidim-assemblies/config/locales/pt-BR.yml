@@ -106,11 +106,8 @@ pt-BR:
           public: Público
           published: Publicados
           unpublished: Despublicado
-        manage_trash:
-          title: Assembléias excluídas
         new:
           create: Criar
-          title: Nova assembleia
         update:
           error: Ocorreu um erro ao atualizar esta assembleia.
           success: Assembleia atualizada com sucesso.
@@ -122,7 +119,6 @@ pt-BR:
         new:
           duplicate: Duplicado
           select: Selecione quais dados você gostaria de duplicar
-          title: Duplicar assembléia
       assembly_imports:
         create:
           error: Ocorreu um erro ao importar esta assembleia.
@@ -130,7 +126,6 @@ pt-BR:
         new:
           import: Importar
           select: Selecione quais dados você gostaria de importar
-          title: Importar assembleia
       assembly_publications:
         create:
           error: Ocorreu um erro ao publicar esta assembleia.
@@ -145,13 +140,9 @@ pt-BR:
         destroy:
           success: Usuário removido com sucesso deste assembleia.
         edit:
-          title: Atualizar administrador da assembleia
           update: Atualizar
-        index:
-          assembly_admins_title: Administradores da assembleia
         new:
           create: Criar
-          title: Novo administrador da assembleia
         update:
           error: Ocorreu um erro ao atualizar um administrador para esta assembleia.
           success: Administrador atualizado com sucesso para esta assembleia.
@@ -209,8 +200,6 @@ pt-BR:
         space_filter_for:
           assemblies: Todas as assembléias
       titles:
-        assemblies: Assembleias
-        assemblies_deleted: Assembleias excluídas
         assemblies_types: Tipos de assembleia
       tooltips:
         deleted_assemblies_info: Uma assembleia só pode ser excluída se o status for "Não publicada".
@@ -305,9 +294,6 @@ pt-BR:
           type: Tipo
         show:
           title: Sobre essa assembleia
-      assembly_members:
-        index:
-          members: Membros
       content_blocks:
         children_assemblies:
           name: Assembleias
@@ -349,9 +335,6 @@ pt-BR:
         duration: Duração
         private_space: Esta é uma assembleia privada
         social_networks_title: Visite assembleia em
-    assembly_members:
-      index:
-        title: Membros
     download_your_data:
       show:
         assemblies: Exportação de assembléias

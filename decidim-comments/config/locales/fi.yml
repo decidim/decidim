@@ -67,9 +67,6 @@ fi:
         alignment:
           against: Vastaan
           in_favor: Puolesta
-        answers:
-          one: "%{count} vastaus"
-          other: "%{count} vastausta"
         cancel_reply: Peruuta vastaus
         comment_label: Kommentti %{comment_id}
         comment_label_reply: Kommentti %{comment_id} (vastauksena kommenttiin %{parent_comment_id})

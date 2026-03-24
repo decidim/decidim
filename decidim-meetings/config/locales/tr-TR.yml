@@ -55,7 +55,6 @@ tr:
           success: Toplantı başarıyla kopyalandı.
         new:
           copy: Kopyala
-          title: Yinelenen toplantı
     components:
       meetings:
         actions:
@@ -182,7 +181,6 @@ tr:
             non_user: Mevcut olmayan katılımcı
             select_user: Katılımcı seç
           index:
-            invite_attendee: Katılımcı davet et
             invites: Davetler
         meeting_closes:
           edit:
@@ -227,7 +225,6 @@ tr:
               one: '%{count} kayıt oldu.'
               other: '%{count} kayıt oldu.'
             reserved_slots_less_than: Daha az ya da buna eşit olmalıdır %{count}
-            title: Kayıtlar
           update:
             invalid: Kayıt ayarları kaydedilirken bir sorun oluştu.
             success: Toplantı kayıtları ayarları başarıyla kaydedildi.

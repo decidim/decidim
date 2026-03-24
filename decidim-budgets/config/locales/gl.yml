@@ -29,6 +29,7 @@ gl:
       actions:
         edit: Editar
         import: Importa propostas a proxectos
+        new_project: Novo proxecto
         preview: Vista previa
         title: Accións
       admin:
@@ -50,7 +51,6 @@ gl:
             name: Proxecto
         projects:
           edit:
-            title: Editar proxecto
             update: Actualización
           index:
             finished_orders: Votos rematados
@@ -59,7 +59,6 @@ gl:
             title: Proxectos
           new:
             create: Crear
-            title: Novo proxecto
         proposals_imports:
           new:
             create: Importa propostas a proxectos

@@ -514,8 +514,6 @@ ru:
         submit_button: Отправить приглашение
       no_invitations_remaining: Приглашений не осталось
       send_instructions: Приглашение было отправлено на %{email}.
-      updated: Ваш пароль был успешно установлен. Вы вошли в систему.
-      updated_not_active: Ваш пароль был успешно установлен.
     mailer:
       confirmation_instructions:
         action: Подтвердить мой аккаунт

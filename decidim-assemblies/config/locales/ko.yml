@@ -65,9 +65,6 @@ ko:
           duration: 지속 기간
         filters:
           type: 유형
-      assembly_members:
-        index:
-          members: 멤버
   layouts:
     decidim:
       assemblies:

@@ -129,18 +129,15 @@ ar:
         destroy:
           success: تم حذف مجموعة العملية التشاركية بنجاح.
         edit:
-          title: تحرير مجموعة العملية
           update: تحديث
         new:
           create: إنشاء
-          title: مجموعة عملية جديدة
         update:
           error: حدثت مشكلة أثناء تحديث مجموعة العملية التشاركية هذه.
           success: تم تحديث مجموعة العملية التشاركية بنجاح.
       participatory_process_imports:
         new:
           import: استيراد
-          title: استيراد مسار تشاركي
       participatory_process_publications:
         create:
           error: كانت هناك مشكلة في نشر هذه العملية التشاركية.
@@ -160,13 +157,9 @@ ar:
         destroy:
           success: تم حذف مرحلة العملية التشاركية بنجاح.
         edit:
-          title: تحرير مرحلة العملية التشاركية
           update: تحديث
-        index:
-          steps_title: المراحل
         new:
           create: إنشاء
-          title: مرحلة عملية تشاركية جديدة
         ordering:
           error: كانت هناك مشكلة في إعادة ترتيب هذه المراحل من العملية التشاركية.
         update:
@@ -179,8 +172,6 @@ ar:
           success: تمت إزالة المشرف بنجاح من هذه العملية التشاركية.
         edit:
           update: تحديث
-        index:
-          process_admins_title: مدراء العملية التشاركية
         new:
           create: إنشاء
         update:
@@ -198,7 +189,6 @@ ar:
           published: نشرت
         new:
           create: إنشاء
-          title: عملية تشاركية جديدة
         update:
           error: حدثت مشكلة أثناء تحديث هذه العملية التشاركية.
           success: عملية المشاركة تم تحديثها بنجاح.
@@ -206,9 +196,6 @@ ar:
         create:
           error: كانت هناك مشكلة في إنشاء مجموعة عملية تشاركية جديدة.
           success: تم إنشاء مجموعة عملية المشاركة بنجاح.
-      titles:
-        participatory_process_groups: مجموعات العملية التشاركية
-        participatory_processes: العمليات التشاركية
       users:
         resend_invitation:
           error: حدثت مشكلة أثناء إعادة إرسال الدعوة.

@@ -84,7 +84,6 @@ uk:
           published: Оприлюднено
         new:
           create: Додати
-          title: Додати збори
         update:
           error: При спробі оновити ці збори сталася помилка.
           success: Збори успішно оновлено.
@@ -103,8 +102,6 @@ uk:
           success: Учасника цих зборів успішно видалено.
         edit:
           update: Оновити
-        index:
-          assembly_admins_title: Учасники зборів
         new:
           create: Створити
         update:
@@ -145,8 +142,6 @@ uk:
             admin: Адміністратор
             collaborator: Співробітник
             moderator: Модератор
-      titles:
-        assemblies: Збори
     admin_log:
       assembly:
         create: "%{user_name} додав збори %{resource_name}"
@@ -173,9 +168,6 @@ uk:
         filters:
           names:
             all: Усі
-      assembly_members:
-        index:
-          members: Члени президії
       content_blocks:
         highlighted_assemblies:
           name: Висвітлені збори
@@ -192,9 +184,6 @@ uk:
       show:
         duration: Тривалість
         private_space: Це приватні збори
-    assembly_members:
-      index:
-        title: Члени президії
     log:
       value_types:
         assembly_presenter:

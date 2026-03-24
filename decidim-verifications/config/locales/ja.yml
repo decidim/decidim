@@ -183,6 +183,10 @@ ja:
               empty: センサスデータがありません。CSVファイルをインポートするには %{import_csv} を使用してください。
               no_sign_in: ログインしたことがありません
               no_user: ユーザーが見つかりません
+              title: 現在のセンサスデータ
+            instructions:
+              body: これを行うには、システム管理画面から、csv_census の認証を組織に追加する必要があります
+              title: この組織のCSVセンサスを有効にする必要があります
             last_login:
               no_sign_in: ログインしたことがありません
               no_user: ユーザーがいません
@@ -220,10 +224,6 @@ ja:
               user_authorized: 承認済み？
             import_csv: CSVをインポート
             no_authorized: 承認されていないユーザー
-            title: 現在のセンサスデータ
-          instructions:
-            body: これを行うには、システム管理を入力し、csv_census の認証を組織に追加する必要があります。
-            title: この組織のCSVセンサス認証を有効にする必要があります
         authorizations:
           new:
             error: お客様のアカウントを確認できませんでした。また、組織のセンサスに入っていない場合もあります。
@@ -252,8 +252,8 @@ ja:
               error: 検証が一致しません。再度お試しいただくか、検証を拒否して参加者が修正できるようにしてください。
               success: 参加者が正常に検証されました。
             new:
-              introduce_user_data: 写真のデータを入力する
               reject: 拒否
+              title: 写真のデータを入力する
               verify: 確認する
           offline_confirmations:
             create:
@@ -261,7 +261,7 @@ ja:
               success: 参加者が正常に検証されました。
             new:
               cancel: キャンセル
-              introduce_user_data: 参加者のメールアドレスと文書データを入力
+              title: 参加者のメールアドレスと文書データを入力
               verify: 確認する
           pending_authorizations:
             index:

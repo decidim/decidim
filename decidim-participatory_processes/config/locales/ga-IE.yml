@@ -79,8 +79,6 @@ ga:
         default_title: Réamhrá
         edit:
           update: Nuashonraigh
-        index:
-          steps_title: Céimeanna
         new:
           create: Cruthaigh
       participatory_process_user_roles:

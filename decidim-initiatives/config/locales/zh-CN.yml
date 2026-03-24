@@ -106,9 +106,6 @@ zh-CN:
             name_and_surname: 姓名：
             postal_code: 邮政编码
             timestamp: 时间戳
-      titles:
-        initiatives: 倡议
-        initiatives_types: 倡议类型
     events:
       initiatives:
         admin:
