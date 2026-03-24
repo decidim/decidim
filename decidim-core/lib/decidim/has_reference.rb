@@ -9,17 +9,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      # Two callbacks are needed here:
-      #
-      # 1. `before_save`: Sets the reference *before* the first save to satisfy NOT NULL
-      #    constraints. At this point the record has no ID yet, so a temporary reference
-      #    is generated without the ID. This is necessary for data importers.
-      #
-      # 2. `after_commit`: After the record is saved and has an ID, recalculates the
-      #    reference with the ID included (see `Decidim.reference_generator`) and
-      #    persists it via `update_column`. This runs outside the transaction.
-      before_save :store_reference
-      after_commit :store_reference
+      after_commit :store_reference, on: [:create, :update]
 
       validates :reference, presence: true, on: :update
 
@@ -47,7 +37,6 @@ module Decidim
       # Returns nothing.
       def store_reference
         self[:reference] ||= calculate_reference
-        return unless persisted? && changed?
 
         # rubocop:disable Rails/SkipsModelValidations
         update_column(:reference, self[:reference])
