@@ -279,7 +279,7 @@ shared_examples "manage impersonations examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_admin_callout(I18n.t("updated", scope: "devise.invitations"))
       within_user_menu do
         click_on "My public profile"
       end
