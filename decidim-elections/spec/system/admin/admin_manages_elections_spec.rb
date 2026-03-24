@@ -303,4 +303,37 @@ describe "Admin manages elections" do
       end
     end
   end
+
+  context "when the election has an attachment" do
+    let!(:election_with_attachment) do
+      create(:election, component: current_component)
+    end
+
+    let!(:document) { create(:attachment, :with_image, attached_to: election_with_attachment) }
+
+    before { visit_component_admin }
+
+    it "can edit an election with an attachment" do
+      within "tr", text: translated(election_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit election"
+      end
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+
+      fill_in_i18n(:election_title, "#election-title-tabs", en: "Updated election title with attachments")
+      click_on "Save and continue"
+
+      expect(page).to have_callout "Election updated successfully"
+
+      visit_component_admin
+
+      within "tr", text: "Updated election title with attachments" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit election"
+      end
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+    end
+  end
 end
