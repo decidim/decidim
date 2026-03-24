@@ -11,6 +11,11 @@ cs:
         few: Průzkumy
         many: Průzkumy
         other: Průzkumy
+      decidim/surveys/survey_answer:
+        one: Odpovědět
+        few: Odpovědi
+        many: Odpovědi
+        other: Odpovědi
   decidim:
     admin:
       admin_log:
@@ -18,6 +23,8 @@ cs:
           surveys: průzkumy
     components:
       surveys:
+        actions:
+          answer: Odpovědět
         name: Průzkumy
         settings:
           announcement: Oznámení
@@ -37,8 +44,16 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Nový průzkum v %{participatory_space_title}
           notification_title: Průzkum <a href="%{resource_path}">%{resource_title}</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a> je nyní otevřený.
+    metrics:
+      survey_answers:
+        description: Počet průzkumů, které uživatelé zodpověděli
+        object: odpovědi na průzkumy
+        title: Odpovědi na průzkumy
+    statistics:
+      answers_count: Odpovědi
     surveys:
       actions:
+        answers: Odpovědi
         answers_alert: Odstranění odpovědí při zveřejnění je pro tento průzkum aktivní. V současné době existuje %{answers_count} odpovědí, které budou zničeny, pokud budete pokračovat.
         confirm_destroy: Opravdu to chcete smazat?
         destroy: Zničit
@@ -53,6 +68,8 @@ cs:
             title: "%{total} odpovědí celkem"
           show:
             title: 'Odpověď č.%{number}'
+        exports:
+          survey_user_answers: Odpovědi účastníka na průzkum
         publish_answers:
           index:
             answers:
@@ -103,6 +120,7 @@ cs:
       models:
         survey:
           fields:
+            answers: Odpovědi
             questions: Otázky
             status: Status
             title: Název
@@ -116,7 +134,9 @@ cs:
         export_name: Odpovědi na dotazník
       surveys:
         answer:
+          invalid: Při odpovědi na průzkum došlo k chybám.
           spam_detected: Vyskytl se problém s odpovědí na formulář. Možná jste byl příliš rychlý, můžete to zkusit znovu?
+          success: Průzkum úspěšně odpověděl.
         count:
           surveys_count:
             one: "%{count} anketa"
