@@ -91,6 +91,7 @@ sv:
             invalid: Det gick inte att skapa projektet.
             success: Projektet har skapats.
           edit:
+            title: Redigera projekt
             update: Uppdatera
           index:
             actions: Åtgärder
@@ -214,6 +215,7 @@ sv:
             total_budget: Total budget
         project:
           fields:
+            id: ID
             map: Karta
             taxonomies: Kategorisering
             title: Titel
@@ -235,6 +237,7 @@ sv:
             other: Dina %{count} röster för %{budget_name} har redan registrerats.
       order_pdf:
         text: Du har röstat på följande projekt i %{space_name}
+        title: Din röst har tagits emot.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Du har valt följande projekt:'
@@ -402,6 +405,13 @@ sv:
           updated_at: Datum och tid för när omröstningen uppdaterades
       show:
         projects: Projektexport
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Budgeten %{resource_title} för %{participatory_space_title} är nu aktiv. Du kan se den från den här sidan:'
+          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
+          email_subject: Budgeten %{resource_title} för %{participatory_space_title} är nu aktiv.
+          notification_title: Budgeten <a href="%{resource_path}">%{resource_title}</a> för %{participatory_space_title} är nu aktiv.
     open_data:
       help:
         projects:
