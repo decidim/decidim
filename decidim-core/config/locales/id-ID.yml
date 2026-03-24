@@ -609,8 +609,6 @@ id:
         submit_button: Kirim undangan
       no_invitations_remaining: Tidak ada undangan yang tersisa
       send_instructions: Email undangan telah dikirim ke %{email}.
-      updated: Kata sandi Anda berhasil ditetapkan. Anda sekarang masuk.
-      updated_not_active: Kata sandi Anda berhasil ditetapkan.
     mailer:
       confirmation_instructions:
         action: Konfirmasikan akun saya
