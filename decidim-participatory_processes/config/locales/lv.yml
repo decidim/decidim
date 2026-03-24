@@ -5,11 +5,15 @@ lv:
       participatory_process:
         announcement: Paziņojums
         area_id: Joma
+        copy_categories: Kopēt kategorijas
+        copy_components: Kopēt komponentus
+        copy_steps: Kopēt soļus
         decidim_area_id: Joma
         description: Apraksts
         developer_group: Atbalstītāju grupa
         domain: Domēns
         end_date: Beigu datums
+        hashtag: Tēmturis
         hero_image: Sākuma attēls
         local_area: Organizācijas joma
         meta_scope: Tvēruma metadati
@@ -62,6 +66,7 @@ lv:
     admin:
       actions:
         activate: Aktivizēt
+        configure: Konfigurēt
         confirm_destroy: Apstiprināt dzēšanu
         destroy: Dzēst
         duplicate: Dublēt
@@ -112,10 +117,14 @@ lv:
             admin: Administrators
             collaborator: Līdzizstrādātājs
             moderator: Moderators
+            valuator: Vērtētājs
         user:
           fields:
             invitation_accepted_at: Ielūgums pieņemts
             invitation_sent_at: Ielūgumus nosūtīts
+      participatory_process_copies:
+        new:
+          copy: Kopēt
       participatory_process_groups:
         destroy:
           success: Līdzdalības procesa grupa ir veiksmīgi dzēsta.
@@ -162,6 +171,7 @@ lv:
           error: Mainot šī līdzdalības procesa fāžu kārtību, radās problēma.
         update:
           error: Šīs līdzdalības procesa fāzes atjaunināšanas laikā radās problēma.
+          success: Līdzdalības procesa fāze ir veiksmīgi atjaunināta.
       participatory_process_user_roles:
         create:
           error: Pievienojot dalībnieku šim līdzdalības procesam, radās problēma.
@@ -246,6 +256,8 @@ lv:
       processes: Procesi
     metrics:
       participatory_processes:
+        description: Līdzdalības procesu skaits šajā organizācijā
+        object: līdzdalības procesi
         title: Līdzdalības procesi
     participatory_process_groups:
       content_blocks:
@@ -264,8 +276,12 @@ lv:
         participatory_process_imports:
           form:
             document_legend: Pievienot dokumentu
+        participatory_process_steps:
+          form:
+            cta_text_help: Ja tas nav iestatīts, poga netiks rādīta.
         participatory_processes:
           form:
+            announcement_help: Šeit ievadītais teksts tiks parādīts lietotājam tieši zem procesa informācijas.
             duration: Ilgums
             images: Attēli
             metadata: Metadati
