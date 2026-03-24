@@ -81,8 +81,11 @@ fr-CA:
             select_template: Sélectionnez un modèle de réponse
         questionnaire_templates:
           choose:
+            create_from_template: Créer depuis un modèle
+            description: Vous êtes sur le point de créer un nouveau questionnaire. Vous pouvez choisir un modèle prédéfini et le modifier par la suite.
             label: Choisir un modèle
             placeholder: Choisir un modèle
+            skip_template: Passer
           edit:
             edit: Modifier
             empty: Il n'y a pas encore de question.
