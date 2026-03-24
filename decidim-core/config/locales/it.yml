@@ -1012,8 +1012,6 @@ it:
         submit_button: Invia un invito
       no_invitations_remaining: Nessun invito rimanente
       send_instructions: Una email di invito è stata inviata a %{email}.
-      updated: La tua password è stata impostata correttamente. Ora hai effettuato l'accesso.
-      updated_not_active: La tua password è stata impostata correttamente.
     mailer:
       confirmation_instructions:
         action: Conferma il mio account
