@@ -973,8 +973,6 @@ el:
         submit_button: Στείλτε μια πρόσκληση
       no_invitations_remaining: Δεν απομένουν προσκλήσεις
       send_instructions: Στάλθηκε ένα email πρόσκλησης στη διεύθυνση %{email}.
-      updated: Ο κωδικός πρόσβασης ορίστηκε με επιτυχία. Έχετε συνδεθεί.
-      updated_not_active: Ο κωδικός πρόσβασης ορίστηκε με επιτυχία.
     mailer:
       confirmation_instructions:
         action: Επιβεβαίωση του λογαριασμού μου
