@@ -75,6 +75,8 @@ cs:
           attributes:
             document:
               allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}.'
+              empty: Dokument je prázdný
+              invalid_json: Dokument není platný JSON
   activerecord:
     models:
       decidim/assembly:
@@ -111,6 +113,8 @@ cs:
           public: Veřejné
           published: Publikováno
           unpublished: Nezveřejněno
+        manage_trash:
+          title: Smazané shromáždění
         new:
           create: Vytvořit
           title: Nové shromáždění
@@ -125,6 +129,7 @@ cs:
         new:
           copy: Kopírovat
           select: Vyberte, která data chcete duplikovat
+          title: Duplikovat shromáždění
       assembly_imports:
         create:
           error: Při importu tohoto shromáždění došlo k chybě.
@@ -132,6 +137,7 @@ cs:
         new:
           import: Importovat
           select: Vyberte data, která chcete importovat
+          title: Importovat shromáždění
       assembly_publications:
         create:
           error: Při publikování tohoto shromáždění došlo k chybě.
@@ -146,6 +152,7 @@ cs:
         destroy:
           success: Administrátor byl z tohoto shromáždění úspěšně odstraněn.
         edit:
+          title: Aktualizovat administrátora shromáždění
           update: Aktualizace
         index:
           assembly_admins_title: Administrátoři shromáždění
@@ -209,6 +216,7 @@ cs:
           assemblies: Všechna shromáždění
       titles:
         assemblies: Shromáždění
+        assemblies_deleted: Smazané shromáždění
         assemblies_types: Typy shromáždění
       tooltips:
         deleted_assemblies_info: Shromáždění může být odstraněno pouze v případě, že je stav "Nezveřejněný".
