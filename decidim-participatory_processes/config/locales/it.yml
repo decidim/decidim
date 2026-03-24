@@ -5,11 +5,15 @@ it:
       participatory_process:
         announcement: Avviso
         area_id: Area
+        copy_categories: Copia le categorie
+        copy_components: Copia le componenti
+        copy_steps: Copia le fasi
         decidim_area_id: Area
         description: Descrizione
         developer_group: Promotore
         domain: Dominio
         end_date: Data di fine
+        hashtag: Hashtag
         hero_image: Immagine della Home Page
         local_area: Area organizzativa
         meta_scope: Metadati di ambito
@@ -30,6 +34,7 @@ it:
         description: Descrizione
         developer_group: Gruppo promotore
         group_url: Sito web
+        hashtag: Hashtag
         hero_image: Immagine
         local_area: Area di organizzazione
         meta_scope: Ambito metadati
@@ -68,6 +73,7 @@ it:
     admin:
       actions:
         activate: Attiva
+        configure: Configura
         confirm_destroy: Conferma cancellazione
         destroy: Elimina
         duplicate: Duplica
@@ -91,6 +97,7 @@ it:
           attachments: Allegati
           components: Componenti
           info: Informazioni su questo processo
+          landing_page: Pagina di destinazione
           moderations: Moderazione
           process_admins: Amministratrici/tori di processo
           steps: Fasi (Steps)
@@ -122,10 +129,14 @@ it:
             admin: Amministratore
             collaborator: Collaboratore
             moderator: Moderatore
+            valuator: Valutatore
         user:
           fields:
             invitation_accepted_at: Invito accettato su
             invitation_sent_at: Invito inviato a
+      participatory_process_copies:
+        new:
+          copy: Copia
       participatory_process_groups:
         destroy:
           success: Gruppo di processi partecipativi cancellato con successo.
@@ -179,6 +190,7 @@ it:
           error: Si è verificato un errore cercando di ri-ordinare le fasi di questo processo partecipativo.
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa fase del processo partecipativo.
+          success: Questa fase del processo partecipativo è stata aggiornata.
       participatory_process_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questo processo partecipativo.
@@ -263,6 +275,8 @@ it:
       processes: Processi
     metrics:
       participatory_processes:
+        description: Numero di processi partecipativi in ​​questa organizzazione
+        object: processi partecipativi
         title: Processi partecipativi
     participatory_process_groups:
       content_blocks:
@@ -301,8 +315,13 @@ it:
         participatory_process_imports:
           form:
             document_legend: Aggiungi documento
+        participatory_process_steps:
+          form:
+            cta_path_help_html: 'Inserisci un percorso parziale e non un URL completo in questo campo. Può contenere solo lettere, numeri, trattini e barre e deve iniziare con una lettera. Se non impostato, il pulsante non sarà visualizzato. Esempio: %{url}'
+            cta_text_help: Se non impostato, il pulsante non verrà mostrato.
         participatory_processes:
           form:
+            announcement_help: Il testo che inserisci qui verrà mostrato all'utente sotto le informazioni di processo.
             duration: Durata
             images: immagini
             metadata: Metadati
@@ -314,6 +333,9 @@ it:
           name: Processi evidenziati
       index:
         title: Processi partecipativi
+      participatory_process_steps:
+        index:
+          back_to_process: Torna alla pagina di processo
       participatory_processes:
         filters:
           counters:
