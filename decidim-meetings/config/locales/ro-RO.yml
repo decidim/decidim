@@ -17,6 +17,7 @@ ro:
         customize_registration_email: Personalizați e-mail-ul de înregistrare
         decidim_category_id: Categorie
         decidim_scope_id: Domeniu de interes
+        decidim_user_group_id: Grup de utilizatori
         description: Descriere
         end_time: Data sfarsit
         id: ID
@@ -100,6 +101,7 @@ ro:
             values:
               official: Oficial
               participants: Participant
+              user_group: Grupuri de utilizatori
           with_any_type:
             label: Tip de întâlnire
             values:
@@ -127,12 +129,14 @@ ro:
             default_registration_terms: Condiții de înregistrare implicite
             enable_pads_creation: Activează crearea de pad-uri
             maps_enabled: Hărți activate
+            registration_code_enabled: Cod de înregistrare activat
             resources_permissions_enabled: Drepturile de acțiune pot fi setate pentru fiecare întâlnire
             terms_and_conditions_url_for_meeting_creators: URL condiții pentru întrunirea creatorilor
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
             creation_enabled_for_participants: Crearea de şedinţe de către participanţi este activată
+            creation_enabled_for_user_groups: Crearea de ședințe de către grupuri de utilizatori activată
     download_your_data:
       help:
         invites:
@@ -175,8 +179,10 @@ ro:
           email_subject: Sloturile alocate pentru întâlnirea "%{resource_title}" sunt de peste %{percentage}%
           notification_title: Sloturile alocate pentru ședința de <a href="%{resource_path}">%{resource_title}</a> sunt de peste %{percentage}%.
         meeting_updated:
+          email_intro: 'Întâlnirea "%{resource_title}" a fost actualizată. Poți citi noua versiune din pagina sa:'
           email_outro: Ai primit această notificare deoarece urmărești întâlnirea „%{resource_title}”. O puteți anula de la link-ul anterior.
           email_subject: Întâlnirea „%{resource_title}” a fost actualizată
+          notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> a fost actualizată.
         registration_code_validated:
           email_intro: Codul tău de înregistrare "%{registration_code}" pentru întâlnirea "%{resource_title}" a fost validat.
           email_outro: Ai primit această notificare deoarece codul tău de înregistrare pentru întâlnirea „%{resource_title}” a fost validat.
@@ -188,7 +194,10 @@ ro:
           email_subject: Întâlnirea "%{resource_title}" a permis înregistrări.
           notification_title: Întâlnirea <a href="%{resource_path}">%{resource_title}</a> a permis înregistrări.
         upcoming_meeting:
+          email_intro: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
           email_outro: Ai primit această notificare deoarece urmărești ședința „%{resource_title}”. Poți opri notificările accesând link-ul anterior.
+          email_subject: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
+          notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> va începe în mai puțin de 48 de ore.
     gamification:
       badges:
         attended_meetings:
@@ -204,6 +213,8 @@ ro:
     meetings:
       actions:
         agenda: Agendă
+        attachment_collections: Dosare
+        attachments: Atașamente
         close: Închide
         edit: Editare
         invalid_destroy:
@@ -241,6 +252,7 @@ ro:
             create: Creează
             title: Agenda nouă
         exports:
+          answers: Răspunsuri
           meeting_comments: Comentarii
           meetings: Întâlniri
           registrations: Înregistrări
@@ -423,6 +435,7 @@ ro:
             all: Toate
             official: Oficial
             participants: Participanți
+            user_group: Grupuri
           search: Caută
           type: Tip
           type_values:
@@ -433,6 +446,7 @@ ro:
         form:
           address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
           available_slots_help: Lasă această opțiune la 0 dacă ai sloturi disponibile nelimitate
+          create_as: Creeaza o întâlnire ca
           location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
           location_hints_help: 'Sugestii privind locaţia: informaţii suplimentare. Exemplu: parterul clădirii dacă este o întâlnire în persoană, sau parola dacă este vorba de o întâlnire online cu acces restrâns.'
           online_meeting_url_help: 'Link: permite participanților să se conecteze direct la întâlnirea ta'
@@ -467,6 +481,7 @@ ro:
           micro_camera_permissions_warning: Când dai click pe butonul de mai jos, ți se va cere dreptul de a accesa microfonul și/sau camera, și apoi te vei putea alătura videoconferinței
           no_slots_available: Niciun slot disponibil
           organizations: Organizații participante
+          registration_code_help_text: Codul tău de înregistrare
           registration_state:
             validated: VALIDAT
             validation_pending: VALIDARE PENDARE
@@ -502,9 +517,13 @@ ro:
             title: Titlu
       polls:
         questions:
+          index:
+            empty_questions: Pe parcursul acestei întâlniri, vor fi trimise câteva întrebări și vei putea răspunde la acestea. Acestea vor fi afișate aici.
           index_admin:
             edit: Editează în panoul de administrare
             question: Întrebare
+            received_answer: răspuns primit
+            received_answers: răspunsuri primite
             results: Rezultate
             send: Trimite
             sent: Trimis
@@ -524,6 +543,7 @@ ro:
         confirmation:
           confirmed_html: Înregistrarea dvs. pentru ședința <a href="%{url}">%{title}</a> a fost confirmată.
           details: Vei găsi detaliile întâlnirii în atașament.
+          registration_code: Codul tău de înregistrare este %{code}.
       registration_type:
         on_different_platform: Pe o platformă diferită
         on_this_platform: Pe această platformă
@@ -547,6 +567,8 @@ ro:
         withdraw: Retrasă
     metrics:
       meetings:
+        description: Numărul de întâlniri create
+        object: ședințe
         title: Întâlniri
     open_data:
       help:
