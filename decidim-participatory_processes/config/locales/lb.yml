@@ -5,11 +5,15 @@ lb:
       participatory_process:
         announcement: Ukënnegung
         area_id: Bereich
+        copy_categories: Kategorien kopieren
+        copy_components: Komponenten kopieren
+        copy_steps: Phasen kopieren
         decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
         domain: Domäne
         end_date: Enddatum
+        hashtag: Hashtag
         hero_image: Hauptbild
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
@@ -30,6 +34,7 @@ lb:
         description: Beschreibung
         developer_group: Gruppe der Unterstützer
         group_url: Website
+        hashtag: Hashtag
         hero_image: Bild
         local_area: Organisationsbereich
         meta_scope: Informationen zum Bereich
@@ -68,6 +73,7 @@ lb:
     admin:
       actions:
         activate: Aktivieren
+        configure: Konfigurieren
         confirm_destroy: Läsche bestätegen
         destroy: Läschen
         duplicate: Duplizieren
@@ -89,6 +95,7 @@ lb:
           attachment_files: Dateien
           attachments: Unhäng
           components: Komponenten
+          landing_page: Startseite
           moderations: Moderationen
           process_admins: Benutzer verarbeiten
           steps: Phasen
@@ -120,10 +127,14 @@ lb:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
+            valuator: Schätzer
         user:
           fields:
             invitation_accepted_at: Einladung akzeptiert am
             invitation_sent_at: Einladung gesendet am
+      participatory_process_copies:
+        new:
+          copy: Kopieren
       participatory_process_groups:
         destroy:
           success: Beteiligungsprozess erfolgreich gelöscht.
@@ -170,6 +181,7 @@ lb:
           error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
         update:
           error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
+          success: Partizipativer Prozessschritt erfolgreich aktualisiert.
       participatory_process_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.
@@ -232,6 +244,8 @@ lb:
       processes: Bedeelegungsprozesser
     metrics:
       participatory_processes:
+        description: Anzahl der Beteiligungsprozesse in dieser Organisation
+        object: Bedeelegungsprozesser
         title: Bedeelegungsprozesser
     participatory_process_groups:
       content_blocks:
@@ -261,6 +275,9 @@ lb:
           name: Hervorgehobene Beteiligungsprozesse
       index:
         title: Bedeelegungsprozesser
+      participatory_process_steps:
+        index:
+          back_to_process: Zurück zur Prozessseite
       participatory_processes:
         filters:
           counters:
