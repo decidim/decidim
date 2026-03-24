@@ -1118,8 +1118,6 @@ ar:
         submit_button: ارسل دعوة
       no_invitations_remaining: لا توجد دعوات متبقية
       send_instructions: تم إرسال دعوة بريد إلكتروني إلى %{email}.
-      updated: تم ضبط كلمة مرورك بنجاح. انت الآن مسجل دخولك.
-      updated_not_active: تم ضبط كلمة مرورك بنجاح.
     mailer:
       confirmation_instructions:
         action: تأكيد حسابي
