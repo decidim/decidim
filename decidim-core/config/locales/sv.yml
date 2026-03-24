@@ -1825,8 +1825,6 @@ sv:
         submit_button: Skicka en inbjudan
       no_invitations_remaining: Inga inbjudningar kvar
       send_instructions: Ett e-brev med inbjudan har skickats till %{email}.
-      updated: Lösenordet har nu ställts in. Du är nu inloggad.
-      updated_not_active: Ditt lösenord har ställts in.
     mailer:
       confirmation_instructions:
         action: Bekräfta mitt konto
