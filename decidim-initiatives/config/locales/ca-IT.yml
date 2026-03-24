@@ -9,6 +9,7 @@ ca-IT:
         decidim_scope_id: Àmbit
         decidim_user_group_id: Autora
         description: Descripció
+        hashtag: Etiqueta (hashtag)
         offline_votes: Signatures presencials
         offline_votes_for_scope: Signatures presencials per a %{scope_name}
         scope_id: Àmbit
@@ -29,11 +30,13 @@ ca-IT:
       initiatives_type:
         area_enabled: Permet a les autores triar l'àrea de la seva iniciativa
         attachments_enabled: Habilitat arxius adjunts
+        banner_image: Imatge del bàner
         child_scope_threshold_enabled: Activar signatures per subàmbit
         collect_user_extra_fields: Recopilar les dades personals de la participant amb la signatura
         comments_enabled: Habilitar comentaris
         custom_signature_end_date_enabled: Permet a les autores triar la fi del període de recollida de signatures
         description: Descripció
+        document_number_authorization_handler: Autorització per verificar el número de document en les signatures
         extra_fields_legal_information: Informació legal sobre la recollida de dades personals
         minimum_committee_members: Nombre mínim de membres de la comissió
         online_signature_enabled: S'ha activat la signatura digital
@@ -65,6 +68,9 @@ ca-IT:
               title: El títol no pot quedar buit
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciatives
       decidim/initiative_comittee:
         one: Comitè
         other: Comitès
@@ -84,12 +90,15 @@ ca-IT:
             label: Estat
             values:
               accepted: Ha aconseguit les signatures
+              created: Creada
               discarded: Descartada
               open: Oberta
               rejected: No ha aconseguit les signatures
               validating: Validació tècnica
           type_id_eq:
             label: Tipus
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
       initiatives_settings:
         update:
           error: S'ha produït un error en actualitzar la configuració de les iniciatives.
@@ -111,6 +120,7 @@ ca-IT:
         initiatives:
           fields:
             created_at: Data de creació
+            id: ID
             published_at: Publicat el
             state: Estat
             supports_count: Signatures
@@ -285,6 +295,7 @@ ca-IT:
             publication_date: Publicada més recentment
             random: Aleatori
             signatures: Més signades
+            title: Configuració d'iniciatives
         initiatives_type_scopes:
           create:
             error: S'ha produït un error en crear un nou àmbit per la iniciativa seleccionada.
@@ -309,6 +320,7 @@ ca-IT:
           edit:
             update: Actualitza
           form:
+            authorizations: Configuració de l'autorització
             child_scope_threshold_enabled_help_html: 'Aquest ajust de configuració no admet les votacions sense connexió. Aquest habilita els subàmbits i funciona amb un gestor d''autoritzacions que associa un àmbit a la participant. Assegura''t de seleccionar aquesta autorització, més avall a la configuració d''autoritzacions. Per a que funcioni, els àmbits han de configurar-se de forma jerárquica: 1 Pare - N fills. Per a més informació sobre com funciona aquesta configuració, consulta la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank"> documentació sobre l''administració d''iniciatives</a>.'
             only_global_scope_enabled_help_html: Marca aquesta casella si has habilitat "Activar signatures per subàmbit" i vas configurar l'àmbit global com l'àmbit principal. En habilitar aquesta casella, la selecció del tipus d'iniciativa s'ometrà en l'assistent de creació d'iniciatives. Per a més informació sobre com funciona aquesta configuració, consulta la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentació sobre l'administració d'iniciatives</a>.
             options: Opcions
@@ -334,6 +346,7 @@ ca-IT:
           update: "%{user_name} ha actualitzat el tipus d'iniciativa %{resource_name}"
       admin_states:
         accepted: Ha aconseguit les signatures necessàries
+        created: Creada
         discarded: Rebutjada
         open: Oberta
         rejected: No ha aconseguit les signatures necessàries
@@ -366,22 +379,36 @@ ca-IT:
           back: Torna
           continue: Continua
           fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. Presencial, digital o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa?</li> </ul>"
+          more_information: "(Més informació)"
           select_area: Selecciona una àrea
           select_scope: Selecciona un àmbit d'aplicació
         finish:
           back: Torna
+          back_to_initiatives: Torna a iniciatives
           callout_text: Enhorabona! La teva iniciativa s'ha creat correctament.
           confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. Segur?
+          edit_my_initiative: Editar la meva iniciativa
+          go_to_my_initiatives: Ves a les meves iniciatives
+          more_information: "(Més informació)"
+          send_my_initiative: Enviar la meva iniciativa a validació tècnica
+        finish_help:
+          publish_helper_text: Recorda que per publicar la teva iniciativa has de completar la informació requerida i <strong>enviar-la a la validació tècnica</strong> perquè una administradora la revisi.
         previous_form:
           back: Torna
           continue: Continua
+        promotal_committee:
+          individual_help_text: Aquest tipus d'iniciativa requereix una Comissió Promotora que consta d'almenys %{committee_size} persones (testimonis). Has de compartir el següent enllaç amb les altres persones que formen part d'aquesta iniciativa. Quan els teus contactes rebin aquest enllaç, hauran de seguir els passos indicats.
+          more_information: "(Més informació)"
         select_initiative_type:
           back: Torna
           choose_html: Vull <strong>%{title}</strong>
           more_information: (Més informació)
           new: Crea una nova iniciativa
           select: Vull promoure aquesta iniciativa
+          select_initiative_type_help: Les iniciatives són un mitjà pel qual les participants poden intervenir perquè l'organització pugui emprendre accions en defensa de l'interès general. Quina iniciativa vols iniciar?
           verification_required: Verifica el teu compte per a impulsar la iniciativa
+        share_committee_link:
+          invite_to_committee_help: Enllaç per convidar a les persones que formaran part de la Comisió Promotora
       edit:
         accept: Accepta la iniciativa
         back: Tornar
@@ -404,7 +431,10 @@ ca-IT:
           email_subject: Nova iniciativa de %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser creada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha donat suport a la següent iniciativa. Potser vols contribuir a la conversa:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{author_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Iniciativa adherida per %{author_nickname}
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser adherida per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la iniciativa %{resource_title}."
           email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa: "%{resource_title}".'
@@ -430,13 +460,19 @@ ca-IT:
           help: Si us plau, omple els següents camps amb les teves dades personals per signar la iniciativa.
         finish:
           back_to_initiative: Torna a la iniciativa
+        sms_code:
+          continue: Comprova el codi i continua
+          help: Consulta el SMS rebut al teu mòbil
         sms_phone_number:
+          continue: Envia'm un SMS
           help: Omple el formulari amb el teu número de telèfon mòbil verificat per sol·licitar el teu codi de verificació.
       initiative_votes:
         create:
           error: S'ha produït un error en signar la iniciativa.
           invalid: Les dades proporcionades per signar la iniciativa no són vàlides.
           success_html: Enhorabona! Has signat la iniciativa <strong> %{title}</strong> correctament.
+        personal_data:
+          invalid: Les dades personals no són coherents amb les dades proporcionades per a l'autorització.
         sms_code:
           invalid: El codi de verificació que has introduït no coincideix amb el nostre. Si us plau, torna a revisar l'SMS que t'hem enviat.
         sms_phone:
@@ -472,6 +508,11 @@ ca-IT:
         initiatives:
           closed_initiatives_warning: Actualment no hi ha iniciatives obertes, però aquí pots trobar el llistat de totes les iniciatives tancades.
           no_initiatives_warning: No hi ha iniciatives que coincideixin amb el teu criteri de cerca.
+        interactions:
+          comments_count:
+            count:
+              one: Comentari
+              other: Comentaris
         orders:
           label: 'Ordena iniciatives per:'
           most_commented: Més comentades
@@ -538,6 +579,11 @@ ca-IT:
         status_change_for: La iniciativa %{title} ha canviat el seu estat
       last_activity:
         new_initiative: 'Nova iniciativa:'
+      modal:
+        not_authorized:
+          authorizations_page: Veure les autoritzacions
+          explanation: Cal que estiguis verificada per tal de crear una nova iniciativa.
+          title: Es requereix autorització
       pages:
         home:
           highlighted_initiatives:
@@ -546,6 +592,7 @@ ca-IT:
       show:
         badge_name:
           accepted: Amb les signatures necessàries
+          created: Creada
           discarded: Descartada
           open: Obertes
           rejected: No ha aconseguit les signatures
@@ -601,7 +648,15 @@ ca-IT:
     decidim:
       initiative_creation_header:
         fill_data: Crear
+        finish: Finalitzar
+        promotal_committee: Comissió Promotora
         select_initiative_type: Tria
+      initiative_signature_creation_header:
+        fill_personal_data: Completa les teves dades
+        finish: Finalitzar
+        sms_code: Verificació per codi SMS
+        sms_phone_number: Número de telèfon mòbil
+        title: Signa %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Encara no hi ha iniciatives!
