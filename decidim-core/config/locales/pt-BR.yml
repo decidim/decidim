@@ -1824,8 +1824,6 @@ pt-BR:
         submit_button: Envie um convite
       no_invitations_remaining: Nenhum convite restante
       send_instructions: Um email de convite foi enviado para %{email}.
-      updated: Sua senha foi configurada com sucesso. Agora você está conectado.
-      updated_not_active: Sua senha foi configurada com sucesso.
     mailer:
       confirmation_instructions:
         action: Confirme minha conta
