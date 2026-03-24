@@ -82,7 +82,7 @@ hu:
   date:
     buttons:
       close: Bezár
-      select: Kijelölés
+      select: Kiválaszt
     formats:
       decidim_short: "%Y.%m.%d"
       decidim_short_dashed: "%d-%m-%Y"
@@ -1431,8 +1431,6 @@ hu:
         submit_button: Küldjön meghívót
       no_invitations_remaining: Nincsenek meghívók
       send_instructions: Meghívó e-mailt küldött %{email}.
-      updated: A jelszó sikeresen be lett állítva. Most bejelentkezett.
-      updated_not_active: A jelszó sikeresen be lett állítva.
     mailer:
       confirmation_instructions:
         action: Fiókom megerősítése
@@ -1800,7 +1798,7 @@ hu:
     buttons:
       close: Bezárás
       reset: Visszaállítás
-      select: Kijelölés
+      select: Kiválaszt
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
