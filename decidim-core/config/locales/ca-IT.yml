@@ -1818,7 +1818,7 @@ ca-IT:
         nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' i '_'.
         submit_button: Desa
         subtitle: Si acceptes la invitació, si us plau, estableix el teu àlies i contrasenya.
-        subtitle_no_password: Si acceptes la invitació, si us plau, estableix el teu àlies o sobrenom (nickname).
+        subtitle_no_password: Si acceptes la invitació, si us plau, estableix el teu àlies o sobrenom.
       invitation_removed: S'ha eliminat la teva invitació.
       invitation_token_invalid: El token de invitació proporcionat no és vàlid!
       new:
