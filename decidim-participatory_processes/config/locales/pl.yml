@@ -5,12 +5,16 @@ pl:
       participatory_process:
         announcement: Ogłoszenie
         area_id: Kategoria
+        copy_categories: Kopiuj kategorie
+        copy_components: Kopiuj komponenty
+        copy_steps: Skopiuj etapy
         decidim_area_id: Kategoria
         description: Opis
         developer_group: Grupa inicjatorów
         document: Dokument
         domain: Domena
         end_date: Data zakończenia
+        hashtag: Hashtag
         hero_image: Obraz główny
         import_attachments: Importuj załączniki
         import_categories: Importuj kategorie
@@ -36,6 +40,7 @@ pl:
         description: Opis
         developer_group: Grupa inicjatorów
         group_url: Strona internetowa
+        hashtag: Hashtag
         hero_image: Obraz
         local_area: Obszar organizacji
         meta_scope: Zakres metadanych
@@ -86,6 +91,7 @@ pl:
     admin:
       actions:
         activate: Aktywuj
+        configure: Skonfiguruj
         confirm_destroy: Potwierdź usunięcie
         destroy: Usuń
         duplicate: Duplikuj
@@ -113,6 +119,7 @@ pl:
           attachments: Załączniki
           components: Komponenty
           info: O tym procesie
+          landing_page: Strona startowa
           moderations: Moderacje
           process_admins: Użytkownicy procesu
           steps: Etapy
@@ -145,10 +152,14 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+            valuator: Weryfikator
         user:
           fields:
             invitation_accepted_at: Zaproszenie przyjęli w
             invitation_sent_at: Zaproszenie wysłano
+      participatory_process_copies:
+        new:
+          copy: Kopiuj
       participatory_process_groups:
         destroy:
           success: Grupa procesu partycypacyjnego została usunięta.
@@ -205,6 +216,7 @@ pl:
           error: Wystąpił błąd podczas zmiany kolejności etapów procesu partycypacyjnego.
         update:
           error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
+          success: Etap procesu partycypacyjnego został zaktualizowany.
       participatory_process_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego procesu partycypacyjnego.
@@ -302,6 +314,8 @@ pl:
       processes: Procesy
     metrics:
       participatory_processes:
+        description: Liczba procesów partycypacyjnych w tej organizacji
+        object: procesy partycypacyjne
         title: Procesy partycypacyjne
     participatory_process_groups:
       content_blocks:
@@ -361,8 +375,13 @@ pl:
           form:
             document_legend: Dodaj dokument
             slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help_html: 'Użyj ścieżek częściowych, a nie pełnych adresów URL. Można używać liter, cyfr, łączników i ukośników, przy czym należy rozpocząć od litery. Przycisk nie zostanie wyświetlony, jeżeli nie zostanie to ustawione. Przykład: %{url}'
+            cta_text_help: Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany.
         participatory_processes:
           form:
+            announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
             duration: Czas trwania
             images: Obrazy
             metadata: Metadane
@@ -387,6 +406,9 @@ pl:
           highlighted_processes:
             active_spaces: Aktywne procesy
             see_all_spaces: Zobacz wszystkie procesy
+      participatory_process_steps:
+        index:
+          back_to_process: Powrót do strony procesu
       participatory_processes:
         description:
           area_name: Obszar
