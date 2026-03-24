@@ -719,8 +719,6 @@ lv:
         submit_button: Nosūtiet ielūgumu
       no_invitations_remaining: Neviens ielūgums nav atlicis
       send_instructions: Ielūguma e-pasts ir nosūtīts uz adresi %{email}.
-      updated: Jūsu parole tika veiksmīgi iestatīta. Tagad esat pierakstīts.
-      updated_not_active: Jūsu parole tika veiksmīgi iestatīta.
     mailer:
       confirmation_instructions:
         action: Apstiprināt manu kontu
