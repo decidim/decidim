@@ -1818,6 +1818,7 @@ ca:
         nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' i '_'.
         submit_button: Desa
         subtitle: Si acceptes la invitació, si us plau, estableix el teu àlies i contrasenya.
+        subtitle_no_password: Si acceptes la invitació, si us plau, estableix el teu àlies o sobrenom (nickname).
       invitation_removed: S'ha eliminat la teva invitació.
       invitation_token_invalid: El token de invitació proporcionat no és vàlid!
       new:
@@ -1825,8 +1826,8 @@ ca:
         submit_button: Enviar una invitació
       no_invitations_remaining: No queden invitacions
       send_instructions: S'ha enviat una invitació via correu electrònic a %{email}.
-      updated: La teva contrasenya s'ha establert correctament. Ja has iniciat sessió.
-      updated_not_active: La teva contrasenya s'ha establert correctament.
+      updated: La invitació s'ha acceptat correctament. S'ha iniciat la teva sessió.
+      updated_not_active: La invitació s'ha acceptat correctament.
     mailer:
       confirmation_instructions:
         action: Confirma el meu compte
