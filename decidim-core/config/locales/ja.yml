@@ -1517,7 +1517,7 @@ ja:
         error: パスワードの更新中に問題が発生しました。
         success: パスワードを更新しました。
     profile:
-      deleted: 削除された参加者
+      deleted: 参加者を削除しました
       inaccessible_message: このプロフィールは利用規約違反のためアクセスできません！
     profiles:
       default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名・実際の役割に対応していることが確認されています。
@@ -1534,7 +1534,7 @@ ja:
           disabled_message: メッセージ
           edit_profile: プロフィールを編集
           message: メッセージ
-          resend_email_confirmation_instructions: 確認メールを再送信する
+          resend_email_confirmation_instructions: 確認メールを再送する
     qr:
       show:
         scan: QRコードをスキャン
@@ -2045,7 +2045,7 @@ ja:
             description: 説明
             name: 名前
             service: サービス
-            type: タイプ
+            type: 種別
           items:
             _session_id:
               description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。

@@ -1553,7 +1553,7 @@ es-PY:
       user:
         actions:
           disabled_message: Mensaje
-          edit_profile: Editar perfil
+          edit_profile: Editar el perfil
           message: Mensaje
           resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
     qr:

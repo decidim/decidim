@@ -74,7 +74,3 @@
           title: Bekreft stemmen din
         question:
           next: Neste
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Lukk

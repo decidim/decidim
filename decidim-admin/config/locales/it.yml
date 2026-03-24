@@ -913,7 +913,7 @@ it:
             button: Elimina tutti i partecipanti privati
             confirm: Sei sicuro di voler eliminare tutti i partecipanti privati? Questa azione non può essere annullata, non sarai in grado di recuperarli.
             empty: Non hai partecipanti privati.
-            explanation: Hai %{count} partecipanti privati.
+            explanation: Non hai partecipanti privati.
             title: Elimina tutti i partecipanti privati
           title: Importa partecipanti privati tramite CSV
       reminders:

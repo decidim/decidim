@@ -807,7 +807,7 @@ sv:
           select_users_for_participatory_space: Skicka nyhetsbrev till ett eller flera deltagarutrymmen
           select_users_general: Skicka ett allmänt nyhetsbrev
           select_verification_types: Välj verifieringsmetoder
-          send_to_all_users: Skicka till alla deltagare
+          send_to_all_users: Skicka till alla användare
           send_to_verified_users: Skicka till verifierade användare
           title: Välj mottagare att skicka till
           verified_users_help: Skicka nyhetsbrev till alla verifierade användare.
@@ -945,7 +945,7 @@ sv:
           success: CSV-filen har laddats upp och vi skickar en inbjudan med e-post till deltagarna. Det kan ta en stund.
         new:
           csv_upload:
-            title: Skicka CSV-fil
+            title: Ladda upp din CSV-fil
           destroy:
             button: Radera alla privata deltagare
             confirm: Är du säker på att du vill radera alla privata deltagare? Den här åtgärden kan inte ångras.
@@ -1077,7 +1077,7 @@ sv:
           title: Nytt ämne
         update:
           error: Det gick inte att uppdatera ämnet.
-          success: Ämnet har uppdaterats
+          success: Ämnesområdet har uppdaterats
       static_pages:
         actions:
           view: Visa

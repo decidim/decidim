@@ -146,6 +146,7 @@ ca-IT:
           success: Trobada duplicada correctament.
         new:
           copy: Copia
+          title: Duplicar trobada
       tooltips:
         cannot_close_meetings: No es pot tancar aquesta trobada en haver estat creada per una participant
         cannot_duplicate_meetings: No es pot duplicar aquesta trobada en haver estat creada per una participant
@@ -229,7 +230,7 @@ ca-IT:
           notification_title: S'ha confirmat el teu registre per a la trobada <a href="%{resource_url}">%{resource_title}</a>. El teu codi de registre és %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè administres l'espai participatiu de la trobada.
+          email_outro: Has rebut aquesta notificació perquè administres l'espai de participació en el que s'inclou aquesta trobada.
           email_subject: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%
           notification_title: Les inscripcions per la trobada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         meeting_updated:
@@ -353,6 +354,7 @@ ca-IT:
             non_user: Participant no existent
             select_user: Selecciona la participant
           index:
+            invite_attendee: Convidar a una assistent
             invites: Invitacions
             registrations_disabled: No pots convidar a cap persona perquè les inscripcions estan inhabilitades.
         meeting_closes:

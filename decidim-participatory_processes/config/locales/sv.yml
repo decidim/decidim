@@ -504,7 +504,7 @@ sv:
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help_html: 'Använd relativa sökvägar, inte fullständiga URL:er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Om fältet inte fylls i visas inte knappen. Exempel: %{url}'
+            cta_path_help_html: 'Använd relativa sökvägar, inte fullständiga URL: er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Om fältet inte fylls i visas inte knappen. Exempel: %{url}'
             cta_text_help: Om fältet är tomt visas inte knappen.
         participatory_processes:
           form:

@@ -1537,7 +1537,7 @@ fi:
         error: Salasanan päivitys epäonnistui.
         success: Salasanan päivitys onnistui.
     profile:
-      deleted: Käyttäjä poistettu
+      deleted: Poistettu osallistuja
       inaccessible_message: Tämä käyttäjäprofiili ei ole käytettävissä, koska käyttäjä on rikkonut käyttöehtoja!
     profiles:
       default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu, ja hänen nimensä sekä asemansa oikeellisuus on varmistettu.

@@ -307,7 +307,7 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} aplikaci OAuth"
         update: "%{user_name} aktualizovala %{resource_name} aplikaci OAuth"
       organization:
-        update: "%{user_name} aktualizovala nastavení organizace"
+        update: "%{user_name} aktualizoval nastavení organizace"
         update_external_domain: "%{user_name} aktualizoval externí domény organizace"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
@@ -625,7 +625,7 @@ cs:
       global_menu:
         name: Globální menu
       hero:
-        name: Obrázek hrdiny a CTA
+        name: Obrázek hrdiny a výzva k akci
       hero_settings_form:
         background_image: Obrázek pozadí
         cta_button_path: URL tlačítka Výzvy k akci
@@ -1142,7 +1142,7 @@ cs:
       description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky.
       level: Úroveň %{level}
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
-      title: Jaké jsou odznaky?
+      title: Co jsou odznaky?
     groups:
       roles:
         admin: Správce
@@ -1575,7 +1575,7 @@ cs:
       user:
         actions:
           disabled_message: Zpráva
-          edit_profile: Editovat profil
+          edit_profile: Upravit profil
           message: Zpráva
           resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
     qr:
@@ -2157,6 +2157,7 @@ cs:
         confirm_title_close_ephemeral_session: Před opuštěním této stránky…
         log_in: Přihlásit
         main_menu: Hlavní menu
+        mobile_account_greeting: Dobrý den %{user_name}
         user_menu: Uživatelské Menu
       impersonation_warning:
         close_session: Zavřít sezení

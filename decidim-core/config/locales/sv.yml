@@ -1555,7 +1555,7 @@ sv:
           disabled_message: Meddelande
           edit_profile: Redigera profil
           message: Meddelande
-          resend_email_confirmation_instructions: Skicka anvisningarna om bekräftelse om e-post igen
+          resend_email_confirmation_instructions: Skicka e-postmeddelande med bekräftelseinstruktioner igen
     qr:
       show:
         scan: Scanna QR-koden

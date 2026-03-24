@@ -191,6 +191,7 @@ de:
           Wenn Sie Ihre Meinung ändern, können Sie es später wiederherstellen.
         export: Exportieren
         export_all: Alles exportieren
+        export_selection: Auswahl exportieren
         import: Importieren
         menu_hidden: Im Menü ausblenden
         moderate: Moderationen verwalten

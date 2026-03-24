@@ -175,6 +175,7 @@ cs:
           error: Došlo k chybě při zničení skupiny participačních procesů.
           success: Účastní skupina procesů byla úspěšně smazána.
         edit:
+          title: Upravit skupinu procesu
           update: Aktualizace
         new:
           create: Vytvořit
@@ -563,7 +564,7 @@ cs:
         extra_data:
           name: Fáze a doba trvání
         hero:
-          name: Obrázek hrdiny a CTA
+          name: Obrázek hrdiny a výzva k akci
         highlighted_processes:
           name: Zvýrazněné procesy
         related_processes:

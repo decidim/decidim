@@ -925,7 +925,7 @@ ca:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
           success: L'accés de la participant a l'espai de participació privat s'ha creat correctament.
         destroy:
-          error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
+          error: S'ha produït un error en eliminar una participant participada d'aquest espai de participació.
           success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
         edit:
           title: Editar participant privada de l'espai de participació.
@@ -933,7 +933,7 @@ ca:
         index:
           import_via_csv: Importar des de CSV
           publish_all: Publicar totes
-          title: Participant de l'espai participatiu privat
+          title: Participant de l'espai de participació privat
           unpublish_all: Despublicar totes
         new:
           create: Crear

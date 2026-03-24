@@ -1550,9 +1550,9 @@ es:
       user:
         actions:
           disabled_message: Mensaje
-          edit_profile: Edita el perfil
+          edit_profile: Editar el perfil
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
     qr:
       show:
         scan: Escanea el código QR
