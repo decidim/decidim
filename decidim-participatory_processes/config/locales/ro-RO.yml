@@ -5,12 +5,16 @@ ro:
       participatory_process:
         announcement: Anunţ
         area_id: Zonă
+        copy_categories: Copiază categoriile
+        copy_components: Copiază componentele
+        copy_steps: Copiază pașii
         decidim_area_id: Zonă
         description: Descriere
         developer_group: Grup promotor
         document: Document
         domain: Domeniu
         end_date: Dată de sfârșit
+        hashtag: Hashtag
         hero_image: Imagine pentru pagina principală
         import_attachments: Importă atașamente
         import_categories: Importă categorii
@@ -36,6 +40,7 @@ ro:
         description: Descriere
         developer_group: Grup promotor
         group_url: Pagină web
+        hashtag: Hashtag
         hero_image: Imagine
         local_area: Zona organizației
         meta_scope: Metadate privind domeniul de interes
@@ -83,6 +88,7 @@ ro:
     admin:
       actions:
         activate: Activează
+        configure: Configurează
         confirm_destroy: Confirmă ștergerea
         destroy: Șterge
         duplicate: Duplică
@@ -106,6 +112,7 @@ ro:
           attachments: Atașamente
           components: Componente
           info: Despre acest proces
+          landing_page: Pagina principală
           moderations: Moderări
           process_admins: Administratori de proces
           steps: Etape
@@ -137,10 +144,14 @@ ro:
             admin: Administrator
             collaborator: Colaborator
             moderator: Moderator
+            valuator: Evaluator
         user:
           fields:
             invitation_accepted_at: Invitație acceptată la
             invitation_sent_at: Invitație trimisă la
+      participatory_process_copies:
+        new:
+          copy: Copiază
       participatory_process_groups:
         destroy:
           success: Grupul procesului participativ a fost şters cu succes.
@@ -190,6 +201,7 @@ ro:
           error: A apărut o problemă la reordonarea etapelor acestui procesului participativ.
         update:
           error: A apărut o problemă la actualizarea acestei etape a procesului participativ.
+          success: Etapa procesului participativ a fost actualizată cu succes.
       participatory_process_user_roles:
         create:
           error: A apărut o problemă la adăugarea unui participant pentru acest proces participativ.
@@ -286,6 +298,8 @@ ro:
       processes: Procese participative
     metrics:
       participatory_processes:
+        description: Numărul de procese participative ale acestei organizații
+        object: procese participative
         title: Procese participative
     participatory_process_groups:
       content_blocks:
@@ -333,8 +347,12 @@ ro:
         participatory_process_imports:
           form:
             document_legend: Adaugați un document
+        participatory_process_steps:
+          form:
+            cta_text_help: Dacă nu este setat, butonul nu va fi afișat.
         participatory_processes:
           form:
+            announcement_help: Textul pe care îl introduci aici va fi afișat utilizatorului chiar sub informațiile procesului.
             duration: Durată
             images: Imagini
             metadata: Metadate
@@ -354,6 +372,9 @@ ro:
           highlighted_processes:
             active_spaces: Procese participative active
             see_all_spaces: Vedeți tot
+      participatory_process_steps:
+        index:
+          back_to_process: Înapoi la pagina de proces
       participatory_processes:
         description:
           developer_group: Grup de promotori
