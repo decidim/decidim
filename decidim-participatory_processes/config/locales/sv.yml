@@ -5,13 +5,17 @@ sv:
       participatory_process:
         announcement: Meddelande
         area_id: Område
+        copy_categories: Kopiera kategorier
+        copy_components: Kopiera komponenter
         copy_landing_page_blocks: Duplicera innehållsblock från landningssidan
+        copy_steps: Kopiera steg
         decidim_area_id: Område
         description: Beskrivning
         developer_group: Arrangör
         document: Dokument
         domain: Domän
         end_date: Slutdatum
+        hashtag: Hashtag
         hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
@@ -37,6 +41,7 @@ sv:
         description: Beskrivning
         developer_group: Arrangör
         group_url: Webbplats
+        hashtag: Hashtag
         hero_image: Bild
         local_area: Område
         meta_scope: Omfattning
@@ -83,6 +88,7 @@ sv:
     admin:
       actions:
         activate: Aktivera
+        configure: Konfigurera
         confirm_delete_process: Är du säker på att du vill ta bort den här processen? Om du ändrar dig kan du återställa den senare.
         confirm_destroy: Bekräfta radering
         destroy: Radera
@@ -116,6 +122,7 @@ sv:
           attachments: Bilagor
           components: Komponenter
           info: Om processen
+          landing_page: Landningssida
           moderations: Moderering
           private_users: Medlemmar
           process_admins: Administratörer för process
@@ -149,6 +156,7 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
+            valuator: Värderare
         user:
           fields:
             invitation_accepted_at: Inbjudan godkänd
@@ -156,6 +164,7 @@ sv:
             published: Publicerad
       participatory_process_copies:
         new:
+          copy: Kopiera
           select: Välj vilken data du vill duplicera
       participatory_process_groups:
         destroy:
@@ -213,6 +222,7 @@ sv:
           error: Det gick inte att ändra ordningen på stegen i processen.
         update:
           error: Det gick inte att uppdatera steget i processen.
+          success: Steget i processen har uppdaterats.
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en deltagare till processen.
@@ -427,6 +437,7 @@ sv:
         participatory_process_steps:
           form:
             cta_path_help_html: 'Använd relativa sökvägar, inte fullständiga URL: er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Om fältet inte fylls i visas inte knappen. Exempel: %{url}'
+            cta_text_help: Om fältet är tomt visas inte knappen.
         participatory_processes:
           form:
             announcement_help: Den här texten visas direkt under informationen om processen.
