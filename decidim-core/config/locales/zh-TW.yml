@@ -1164,8 +1164,6 @@ zh-TW:
         submit_button: 發送一個邀請
       no_invitations_remaining: 沒有待處理的邀請
       send_instructions: 已向 %{email} 發送了一封邀請郵件。
-      updated: 您的密碼已成功設定。您現在已登入。
-      updated_not_active: 您的密碼已成功設定。
     mailer:
       confirmation_instructions:
         action: 確認我的帳戶
