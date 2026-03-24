@@ -5,11 +5,15 @@ ar:
       participatory_process:
         announcement: إعلان
         area_id: منطقة
+        copy_categories: نسخ الفئات
+        copy_components: نسخ المكونات
+        copy_steps: نسخ الخطوات
         decidim_area_id: منطقة
         description: وصف
         developer_group: مجموعة المروجين
         domain: نطاق
         end_date: تاريخ الانتهاء
+        hashtag: رابطة هاشتاق
         hero_image: الصورة الرئيسية
         local_area: منطقة التنظيم
         meta_scope: نطاق البيانات الوصفية
@@ -71,6 +75,7 @@ ar:
     admin:
       actions:
         activate: تفعيل
+        configure: تهيئة
         confirm_destroy: تأكيد الحذف
         destroy: حذف
         duplicate: مكرر
@@ -126,6 +131,9 @@ ar:
           fields:
             invitation_accepted_at: تم قبول الدعوة في
             invitation_sent_at: تم إرسال الدعوة في
+      participatory_process_copies:
+        new:
+          copy: نسخ
       participatory_process_groups:
         destroy:
           success: تم حذف مجموعة العملية التشاركية بنجاح.
@@ -168,6 +176,7 @@ ar:
           error: كانت هناك مشكلة في إعادة ترتيب هذه المراحل من العملية التشاركية.
         update:
           error: حدثت مشكلة أثناء تحديث هذه المرحلة من العملية التشاركية.
+          success: تم تحديث المرحلة التشاركية بنجاح.
       participatory_process_user_roles:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك لهذه العملية التشاركية.
@@ -246,6 +255,8 @@ ar:
       processes: العمليات
     metrics:
       participatory_processes:
+        description: عدد العمليات التشاركية في هذه المنظمة
+        object: العمليات التشاركية
         title: العمليات التشاركية
     participatory_process_groups:
       content_blocks:
@@ -264,8 +275,12 @@ ar:
         participatory_process_imports:
           form:
             document_legend: إضافة وثيقة
+        participatory_process_steps:
+          form:
+            cta_text_help: إذا لم يتم تعيينه ، فلن يظهر الزر.
         participatory_processes:
           form:
+            announcement_help: سيتم عرض النص الذي تدخله هنا للمستخدم مباشرة أسفل معلومات العملية.
             duration: المدة الزمنية
             images: صور
             metadata: البيانات الوصفية
