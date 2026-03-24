@@ -22,7 +22,7 @@ module Decidim
         attribute :attachment, AttachmentForm
         attribute :selected, Boolean
 
-        attachments_attribute :photos
+        attachments_attribute :documents
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -36,6 +36,8 @@ module Decidim
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
           self.selected = model.selected?
+          self.documents = model.attachments.ids
+          self.add_documents = model.attachments.map { |att| { id: att.id, title: att.title } }
         end
 
         def participatory_space_manifest
