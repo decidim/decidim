@@ -892,8 +892,6 @@
         submit_button: Send en invitasjon
       no_invitations_remaining: Ingen invitasjoner igjen
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
-      updated: Passordet ditt ble angitt. Du er nå pålogget.
-      updated_not_active: Passordet ditt ble angitt.
     mailer:
       confirmation_instructions:
         action: Bekreft kontoen min
