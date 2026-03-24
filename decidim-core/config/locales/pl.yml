@@ -1311,8 +1311,6 @@ pl:
         submit_button: Wyślij zaproszenie
       no_invitations_remaining: Brak innych zaproszeń
       send_instructions: Wiadomość e-mail z zaproszeniem została wysłana na adres %{email}.
-      updated: Twoje hasło zostało pomyślnie ustawione. Jesteś teraz zalogowany.
-      updated_not_active: Twoje hasło zostało pomyślnie ustawione.
     mailer:
       confirmation_instructions:
         action: Potwierdź moje konto
