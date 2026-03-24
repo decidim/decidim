@@ -19,6 +19,7 @@ cs:
         customize_registration_email: Přizpůsobit registrační e-mail
         decidim_category_id: Kategorie
         decidim_scope_id: Rozsah
+        decidim_user_group_id: Uživatelská skupina
         description: Popis
         end_time: Čas ukončení
         id: ID
@@ -128,6 +129,7 @@ cs:
             values:
               official: Úředník
               participants: Účastník
+              user_group: Skupiny uživatelů
           with_any_type:
             label: Typ schůzky
             values:
@@ -152,6 +154,7 @@ cs:
           success: Duplicitní schůzka úspěšně.
         new:
           copy: Kopírovat
+          title: Duplikovat schůzku
     components:
       meetings:
         actions:
@@ -171,6 +174,7 @@ cs:
             enable_pads_creation: Povolit vytvoření sdíleného textu
             maps_enabled: Mapy povoleny
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
+            registration_code_enabled: Registrační kód povolen
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
@@ -179,6 +183,7 @@ cs:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
             creation_enabled_for_participants: Vytváření schůzek od účastníků povoleno
+            creation_enabled_for_user_groups: Vytvoření schůzky od skupin uživatelů povoleno
     download_your_data:
       help:
         invites:
@@ -228,8 +233,10 @@ cs:
           email_subject: Schůzky obsazené schůzkou "%{resource_title}" jsou nad %{percentage}%
           notification_title: Počet obsazených slotů <a href="%{resource_path}">%{resource_title}</a> je vyšší než %{percentage}%.
         meeting_updated:
+          email_intro: 'Schůzka "%{resource_title}" byla aktualizována. Nová verze si můžete přečíst na stránce:'
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Schůzka "%{resource_title}" byla aktualizována
+          notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> byla aktualizována.
         registration_code_validated:
           email_intro: Váš registrační kód "%{registration_code}" pro setkání "%{resource_title}" byl ověřen.
           email_outro: Toto oznámení jste obdrželi, protože byl ověřen váš registrační kód pro schůzku "%{resource_title}".
@@ -241,7 +248,10 @@ cs:
           email_subject: Schůzka "%{resource_title}" povolila registrace.
           notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> povolila registrace.
         upcoming_meeting:
+          email_intro: Schůzka "%{resource_title}" začne za méně než 48 hodin.
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
+          email_subject: Schůzka "%{resource_title}" začne za méně než 48 hodin.
+          notification_title: Setkání <a href="%{resource_path}">%{resource_title}</a> bude zahájeno za méně než 48 hodin.
     forms:
       meetings:
         attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků na vaší schůzce, ať už osobní, online nebo smíšené.
@@ -260,6 +270,8 @@ cs:
     meetings:
       actions:
         agenda: Denní program
+        attachment_collections: Složky
+        attachments: Přílohy
         close: Zavřít
         confirm_delete_meeting: Opravdu chcete smazat tuto schůzi?
         deleted_meetings_info: Smazané schůzky mohou být obnoveny z koše.
@@ -308,6 +320,7 @@ cs:
             invalid: Při aktualizaci této agendy došlo k problému.
             success: Program schůze byl úspěšně aktualizován.
         exports:
+          answers: Odpovědi
           meeting_comments: Komentáře
           meetings: Setkání
           registrations: Registrace
@@ -328,6 +341,7 @@ cs:
             non_user: Neexistující uživatel
             select_user: Vyberte uživatele
           index:
+            invite_attendee: Pozvat účastníka
             invites: Pozvánky
             registrations_disabled: Nemůžete pozvat účastníka, protože registrace jsou blokovány.
         meeting_closes:
@@ -547,6 +561,7 @@ cs:
             all: Vše
             official: Úředník
             participants: Účastníci
+            user_group: Skupiny
           search: Vyhledávání
           type: Typ
           type_values:
@@ -557,6 +572,7 @@ cs:
         form:
           address_help: 'Adresa: použita Geocoderem k nalezení polohy'
           available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
+          create_as: Vytvořit schůzku jako
           disclaimer: 'Prohlášení o zřeknutí: použitím externího registračního systému, jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
           iframe_embed_type_html: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
           location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
@@ -603,6 +619,7 @@ cs:
           no_slots_available: Žádné sloty nejsou k dispozici
           organizations: Účastnické organizace
           redirect_notice: Tato schůzka je součástí jiné skupiny, takže jste byli přesunuti do %{current_space_name}. <br>Pokud chcete, můžete se vrátit do <a href="%{previous_space_url}">%{previous_space_name}</a>.
+          registration_code_help_text: Váš registrační kód
           registration_state:
             validated: OVĚŘENÝ
             validation_pending: OVĚŘENÍ ČEKÁ NA SCHVÁLENÍ
@@ -654,9 +671,13 @@ cs:
             announcement: Odpovědi na tuto otázku byly uzavřeny.
             question: Otázka
             question_results: Výsledky
+          index:
+            empty_questions: Během této schůzky budou zaslány některé dotazy a vy na ně budete moci odpovědět. Zobrazí se zde.
           index_admin:
             edit: Upravit v panelu administrace
             question: Otázka
+            received_answer: přijatá odpověď
+            received_answers: přijaté odpovědi
             results: Výsledky
             send: Odeslat
             sent: Odesláno
@@ -682,6 +703,7 @@ cs:
         confirmation:
           confirmed_html: Vaše registrace pro schůzku <a href="%{url}">%{title}</a> byla potvrzena.
           details: Podrobnosti schůzky naleznete v příloze.
+          registration_code: Váš registrační kód je %{code}.
       registration_type:
         on_different_platform: Na jiné platformě
         on_this_platform: Na této platformě
@@ -709,6 +731,8 @@ cs:
         success: Schůzka byla úspěšně stažena.
     metrics:
       meetings:
+        description: Počet vytvořených schůzek
+        object: setkání
         title: Setkání
     open_data:
       help:
