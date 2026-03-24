@@ -717,8 +717,6 @@ sk:
         submit_button: Odoslať pozvánku
       no_invitations_remaining: Žiadne zostávajúce pozvánky
       send_instructions: Pozvánka bola odoslaná na%{email}.
-      updated: Vaše heslo bolo úspešne nastavené. Teraz ste prihlásení.
-      updated_not_active: Vaše heslo bolo úspešne nastavené.
     mailer:
       confirmation_instructions:
         action: Potvrďte svoj účet
