@@ -169,8 +169,10 @@ es:
               success: Todos los datos del censo han sido eliminados.
           destroy:
             confirm: La eliminación de todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
+            title: Borrar todos los datos del censo
           index:
             data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}.
+            empty: No hay datos del censo. Utiliza el siguiente formulario para importarlo usando un archivo CSV.
             title: Datos censales actuales
           instructions:
             body: Para ello, debes acceder a la administración del sistema y añadir las autorizaciones "csv_census" a la organización
@@ -179,6 +181,7 @@ es:
             example: |
               john.doe@example.org
               jane.doe@example.org
+            file: "archivo .csv con datos de correos electrónicos"
             info: 'Debe ser un archivo en formato CSV con una sola columna con la dirección de correo electrónico:'
             submit: Subir archivo
             title: Subir un nuevo censo
