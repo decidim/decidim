@@ -17,6 +17,7 @@ hu:
         customize_registration_email: Regisztrációs email beállítása
         decidim_category_id: Kategória
         decidim_scope_id: Hatáskör
+        decidim_user_group_id: Felhasználói csoport
         description: Leírás
         id: ID
         location: Helye
@@ -70,6 +71,7 @@ hu:
             values:
               official: Hivatalos
               participants: Résztvevő
+              user_group: Felhasználói csoportok
           with_any_type:
             label: Értekezlet típusa
             values:
@@ -97,12 +99,14 @@ hu:
             default_registration_terms: Alapértelmezett regisztrációs feltételek
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             maps_enabled: Térképek engedélyezve
+            registration_code_enabled: Regisztrációs kód engedélyezve
             resources_permissions_enabled: Minden találkozóra saját műveleti engedélyt állíthat be
             terms_and_conditions_url_for_meeting_creators: A találkozó szervezői számára a felhasználás feltételek URL-je
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
             creation_enabled_for_participants: Résztvevők általi találkozók engedélyezve
+            creation_enabled_for_user_groups: Felhasználói csoportok általi találkozó szervezése engedélyezve
     events:
       meetings:
         meeting_closed:
@@ -130,8 +134,10 @@ hu:
           email_subject: 'A(z) "%{resource_title}" találkozó résztvevői helye ilyen arányban telt be: %{percentage}%'
           notification_title: A(z) rendelkezésre álló helyek a <a href="%{resource_path}">%{resource_title}</a> találkozóra több mint %{percentage}% -ban teltek meg.
         meeting_updated:
+          email_intro: 'A(z) "%{resource_title}" találkozót frissítettük. Az új verzióról ezen az oldalon olvashatsz:'
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A "%{resource_title}" találkozót frissítettük
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozót frissítettük.
         registration_code_validated:
           email_intro: A(z) "%{resource_title}" találkozó "%{registration_code}" regisztrációs kódja érvényesítve lett.
           email_outro: Ezt az értesítést azért kaptad, mert a(z) "%{resource_title}" találkozó regisztrációs kódjának érvényesítése elkészült.
@@ -143,7 +149,10 @@ hu:
           email_subject: A(z) "%{resource_title}" találkozóra mostantól regisztrálhatsz.
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozóra mostantól regisztrálhatsz.
         upcoming_meeting:
+          email_intro: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
           email_outro: Ezt az értesítést azért kapta, mert a "%{resource_title}" találkozót követi. Leiratkozhat az értesítésről az előző linken.
+          email_subject: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra múlva kezdődik.
     gamification:
       badges:
         attended_meetings:
@@ -157,6 +166,8 @@ hu:
     meetings:
       actions:
         agenda: Napirend
+        attachment_collections: Mappák
+        attachments: Mellékletek
         close: Bezárás
         edit: Szerkesztés
         invalid_destroy:
@@ -195,6 +206,7 @@ hu:
             create: Létrehozás
             title: Új napirend
         exports:
+          answers: Válaszok
           meeting_comments: Hozzászólások
           meetings: Találkozók
           registrations: Regisztrációk
@@ -373,6 +385,7 @@ hu:
         form:
           address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
           available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan
+          create_as: Ülés létrehozása mint
         meetings:
           upcoming_meetings_warning: Jelenleg nincs ütemezett találkozó, de itt megtalálhatod az összes korábbi találkozó listáját.
         new:
@@ -387,6 +400,7 @@ hu:
           meeting_minutes: Találkozó jegyzőkönyve
           no_slots_available: Nincs szabad hely
           organizations: Résztvevő szervezetek
+          registration_code_help_text: A regisztrációs kódod
           registration_state:
             validated: JÓVÁHAGYOTT
             validation_pending: ÉRVÉNYESÍTÉS FÜGGŐBEN
@@ -424,6 +438,7 @@ hu:
         confirmation:
           confirmed_html: Regisztrációd a(z) <a href="%{url}">%{title}</a> találkozóra megerősítve.
           details: A találkozó részletei megtalálhatók a mellékletben.
+          registration_code: 'Regisztrációs kódod: %{code}.'
       registration_type:
         on_different_platform: Egy másik platformon
         on_this_platform: Ezen a platformon
@@ -448,6 +463,8 @@ hu:
         withdraw: Visszavonva
     metrics:
       meetings:
+        description: A létrehozott találkozók száma
+        object: ülések
         title: Találkozók
     participatory_spaces:
       highlighted_meetings:

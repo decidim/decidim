@@ -5,12 +5,16 @@
       participatory_process:
         announcement: Kunngjøring
         area_id: Område
+        copy_categories: Kopier kategorier
+        copy_components: Kopier komponenter
+        copy_steps: Kopier trinn
         decidim_area_id: Område
         description: Beskrivelse
         developer_group: Promotørgruppe
         document: Dokument
         domain: Domene
         end_date: Sluttdato
+        hashtag: Emneknagg
         hero_image: Hovedbilde
         import_attachments: Importer vedlegg
         import_categories: Importer kategorier
@@ -36,6 +40,7 @@
         description: Beskrivelse
         developer_group: Promotørgruppe
         group_url: Nettside
+        hashtag: Emneknagg
         hero_image: Bilde
         local_area: Organisasjonsområde
         meta_scope: Tema metadata
@@ -80,6 +85,7 @@
     admin:
       actions:
         activate: Aktiver
+        configure: Konfigurer
         confirm_destroy: Bekreft sletting
         destroy: Slett
         duplicate: Kopier
@@ -107,6 +113,7 @@
           attachments: Vedlegg
           components: Komponenter
           info: Om denne prosessen
+          landing_page: Landingsside
           moderations: Moderering
           process_admins: Prosessadministratorer
           steps: Faser
@@ -139,10 +146,14 @@
             admin: Administrator
             collaborator: Samarbeidspartner
             moderator: Moderator
+            valuator: Evaluator
         user:
           fields:
             invitation_accepted_at: Invitasjon godtatt
             invitation_sent_at: Invitasjonen sendt
+      participatory_process_copies:
+        new:
+          copy: Kopier
       participatory_process_groups:
         destroy:
           success: Prosessgruppen ble slettet.
@@ -199,6 +210,7 @@
           error: Det oppstod et problem med å omorganisere medvirkningsfasene.
         update:
           error: Det oppstod et problem med å oppdatere denne medvirkningsfasen.
+          success: Medvirkningsfase oppdatert.
       participatory_process_user_roles:
         create:
           error: Det oppstod et problem med å legge til en deltaker for denne prosessen.
@@ -285,6 +297,8 @@
       processes: Prosesser
     metrics:
       participatory_processes:
+        description: Antall deltakende prosesser gjennom denne siden
+        object: deltakende prosesser
         title: Deltakende prosesser
     participatory_process_groups:
       content_blocks:
@@ -338,8 +352,12 @@
         participatory_process_imports:
           form:
             document_legend: Legg til et dokumentet
+        participatory_process_steps:
+          form:
+            cta_text_help: Hvis ikke angitt, vil ikke knappen vises.
         participatory_processes:
           form:
+            announcement_help: Teksten du skriver inn her vil vises til brukeren rett under prosessinformasjonen.
             duration: Varighet
             images: Bilder
             metadata: Metadata
@@ -351,6 +369,9 @@
           name: Fremhevede prosesser
       index:
         title: Deltakende prosesser
+      participatory_process_steps:
+        index:
+          back_to_process: Tilbake til prosesssiden
       participatory_processes:
         filters:
           all_types: Alle prosesser

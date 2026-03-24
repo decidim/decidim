@@ -9,6 +9,9 @@ sv:
       decidim/surveys/survey:
         one: Enkät
         other: Enkäter
+      decidim/surveys/survey_answer:
+        one: Svar
+        other: Svar
   decidim:
     admin:
       admin_log:
@@ -16,6 +19,8 @@ sv:
           surveys: enkäter
     components:
       surveys:
+        actions:
+          answer: Svar
         name: Enkäter
         settings:
           announcement: Meddelande
@@ -35,8 +40,16 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: En ny enkät i %{participatory_space_title}
           notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
+    metrics:
+      survey_answers:
+        description: Antal enkäter besvarade av deltagarna
+        object: svar på enkäter
+        title: Svar på enkäter
+    statistics:
+      answers_count: Svar
     surveys:
       actions:
+        answers: Svar
         answers_alert: Ta bort svar vid publicering är aktivt för enkäten. Det finns %{answers_count} svar som kommer att tas bort om du fortsätter.
         confirm_destroy: Är du säker på att du vill radera?
         destroy: Ta bort
@@ -51,6 +64,8 @@ sv:
             title: "%{total} svar totalt"
           show:
             title: 'Svar #%{number}'
+        exports:
+          survey_user_answers: Svar från enkätdeltagarna
         publish_answers:
           index:
             answers:
@@ -99,6 +114,7 @@ sv:
       models:
         survey:
           fields:
+            answers: Svar
             questions: Frågor
             status: Status
             title: Titel
@@ -112,7 +128,9 @@ sv:
         export_name: Enkätsvar
       surveys:
         answer:
+          invalid: Det gick inte att besvara enkäten.
           spam_detected: Det gick inte att svara på formuläret. Kanske har du varit för snabb, kan du försöka igen?
+          success: Enkäten har besvarats.
         count:
           surveys_count:
             one: "%{count} enkät"

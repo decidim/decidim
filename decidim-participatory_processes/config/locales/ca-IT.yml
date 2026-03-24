@@ -5,13 +5,17 @@ ca-IT:
       participatory_process:
         announcement: Avís
         area_id: Àrea
+        copy_categories: Copiar les categories
+        copy_components: Copiar els components
         copy_landing_page_blocks: Duplicar els blocs de contingut de la pàgina d'inici
+        copy_steps: Copiar les fases
         decidim_area_id: Àrea
         description: Descripció
         developer_group: Grup promotor
         document: Document
         domain: Àrees municipals
         end_date: Data de finalització
+        hashtag: Etiqueta (hashtag)
         hero_image: Imatge de portada
         import_attachments: Importar arxius adjunts
         import_categories: Importar categories
@@ -37,6 +41,7 @@ ca-IT:
         description: Descripció
         developer_group: Grup promotor
         group_url: Lloc web
+        hashtag: Hashtag
         hero_image: Imatge
         local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
@@ -83,6 +88,7 @@ ca-IT:
     admin:
       actions:
         activate: Activar
+        configure: Configurar
         confirm_delete_process: Segur que vols esborrar aquest procés? Si canvies d'opinió, el pots restaurar més endavant.
         confirm_destroy: Confirma l'eliminació
         destroy: Suprimeix
@@ -116,6 +122,7 @@ ca-IT:
           attachments: Adjunts
           components: Components
           info: Quant a aquest procés
+          landing_page: Pàgina d'inici
           moderations: Moderacions
           private_users: Membres
           process_admins: Administradores del procés
@@ -149,6 +156,7 @@ ca-IT:
             admin: Administradora
             collaborator: Col·laboradora
             moderator: Moderadora
+            valuator: Avaluadora
         user:
           fields:
             invitation_accepted_at: Invitació acceptada el
@@ -156,6 +164,7 @@ ca-IT:
             published: Publicats
       participatory_process_copies:
         new:
+          copy: Còpia
           select: Selecciona quines dades vols duplicar
           title: Duplicar el procés participatiu
       participatory_process_groups:
@@ -218,6 +227,7 @@ ca-IT:
           error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
         update:
           error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
+          success: La fase de procés participatiu s'ha actualitzat correctament.
       participatory_process_user_roles:
         create:
           error: S'ha produït un error en afegir una participant en aquest procés participatiu.
@@ -340,6 +350,8 @@ ca-IT:
       processes: Processos
     metrics:
       participatory_processes:
+        description: Nombre de processos participatius d'aquesta organització
+        object: processos participatius
         title: Processos participatius
     open_data:
       help:
@@ -435,8 +447,13 @@ ca-IT:
           form:
             document_legend: Afegeix un document
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help_html: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Si no s''estableix cap ruta, el botó no es mostrarà. Exemple: %{url}'
+            cta_text_help: Si no s'estableix cap ruta el botó no es mostrarà.
         participatory_processes:
           form:
+            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació del procés.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             images: Imatges
@@ -467,6 +484,9 @@ ca-IT:
           highlighted_processes:
             active_spaces: Processos actius
             see_all_spaces: Veure tots els processos
+      participatory_process_steps:
+        index:
+          back_to_process: Torna a la pàgina de procés
       participatory_processes:
         description:
           area_name: Àrea

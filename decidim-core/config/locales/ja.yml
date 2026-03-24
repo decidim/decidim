@@ -1701,7 +1701,7 @@ ja:
         error: パスワードの更新中に問題が発生しました。
         success: パスワードを更新しました。
     profile:
-      deleted: 削除された参加者
+      deleted: 参加者を削除しました
       inaccessible_message: このプロフィールは利用規約違反のためアクセスできません！
     profiles:
       default_officialization_text_for_user_groups: このグループは公的に検証されており、その名前が実際の名前に対応していることが検証されています。
@@ -1731,7 +1731,7 @@ ja:
           manage_user_group_admins: 管理者の管理
           manage_user_group_users: メンバーの管理
           message: メッセージ
-          resend_email_confirmation_instructions: 確認メールを再送信する
+          resend_email_confirmation_instructions: 確認メールを再送する
         confirmation_instructions_sent: メール確認の手順を送信しました。
         fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください。
     reported_mailer:
@@ -2216,7 +2216,7 @@ ja:
             description: 説明
             name: 名前
             service: サービス
-            type: タイプ
+            type: 種別
           items:
             _session_id:
               description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。

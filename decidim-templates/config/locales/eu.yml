@@ -81,8 +81,11 @@ eu:
             select_template: Aukeratu erantzun-txantiloi bat.
         questionnaire_templates:
           choose:
+            create_from_template: Sortu txantiloitik
+            description: Galdeketa berri bat sortuko duzu. Aurretik zehaztutako txantiloi bat aukeratu ahal duzu eta gero moldatu.
             label: Aukeratu txantiloi bat
             placeholder: Aukeratu txantiloi bat
+            skip_template: Saltatu
           edit:
             edit: Editatu
             empty: Oraindik ez dago galderarik.

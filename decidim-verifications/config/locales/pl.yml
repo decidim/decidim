@@ -151,8 +151,12 @@ pl:
               success: Wszystkie dane spisu zostały usunięte.
           destroy:
             confirm: Operacji usunięcia całości spisu nie można cofnąć. Czy na pewno chcesz kontynuować?
+            title: Usuń wszystkie dane spisu
           index:
             data: Łącznie załadowano %{count} rekordów. Ostatnia data przesyłki to %{due_date}.
+            empty: Brak danych spisu. Użyj poniższego formularza, aby zaimportować spis za pomocą pliku CSV.
+          new:
+            file: "plik .csv z danymi e-maili"
         authorizations:
           new:
             error: Nie mogliśmy zweryfikować Twojego konta lub nie znajdujesz się w spisie organizacji.

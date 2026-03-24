@@ -80,6 +80,13 @@ zh-CN:
         skip_verification: 您现在可以跳过它， %{link}
         start_exploring: 开始探索中
       csv_census:
+        admin:
+          destroy:
+            title: 删除所有普查数据
+          index:
+            empty: 没有普查数据。使用下面的表单导入CSV文件。
+          new:
+            file: "带有电子邮件数据的.csv 文件"
         authorizations:
           new:
             error: 我们无法验证您的帐户或您不在组织的普查中。

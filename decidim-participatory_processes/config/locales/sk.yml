@@ -5,11 +5,15 @@ sk:
       participatory_process:
         announcement: Oznámenie
         area_id: Plocha
+        copy_categories: Kopírovať kategórie
+        copy_components: Kopírovanie komponentov
+        copy_steps: Kopírovanie krokov
         decidim_area_id: Plocha
         description: Popis
         developer_group: Skupina promotérov
         domain: Doména
         end_date: Dátum ukončenia
+        hashtag: hashtag
         hero_image: Domáce obrázok
         local_area: Oblasť organizácie
         meta_scope: Rozsah metadát
@@ -65,6 +69,7 @@ sk:
     admin:
       actions:
         activate: Aktivovať
+        configure: Konfigurovať
         confirm_destroy: Potvrďte zmazanie
         destroy: Odstrániť
         duplicate: Duplikát
@@ -115,10 +120,14 @@ sk:
             admin: Správca
             collaborator: Spolupracovník
             moderator: Moderátor
+            valuator: Hodnotiteľ
         user:
           fields:
             invitation_accepted_at: Pozvánka bola prijatá na
             invitation_sent_at: Pozvánka odoslaná na
+      participatory_process_copies:
+        new:
+          copy: kopírovať
       participatory_process_groups:
         destroy:
           success: Zúčastňujú skupina procesov bola úspešne zmazaná.
@@ -165,6 +174,7 @@ sk:
           error: Došlo k chybe pri novom usporiadaní týchto krokov procesu participácie.
         update:
           error: Pri aktualizácii tohto kroku procesu participácie došlo k chybe.
+          success: Úspešný krok procesu bol úspešne aktualizovaný.
       participatory_process_user_roles:
         create:
           error: Pri pridávaní používateľa pre tento participačné proces došlo k chybe.
@@ -244,6 +254,8 @@ sk:
       processes: Procesy
     metrics:
       participatory_processes:
+        description: Počet participatívnych procesov v tejto organizácii
+        object: participatívne procesy
         title: Participatívna procesy
     participatory_process_groups:
       content_blocks:
@@ -262,8 +274,12 @@ sk:
         participatory_process_imports:
           form:
             document_legend: Pridať dokument
+        participatory_process_steps:
+          form:
+            cta_text_help: Ak nie je nastavené, tlačidlo sa nezobrazí.
         participatory_processes:
           form:
+            announcement_help: Text, ktorý tu zadáte, sa užívateľovi zobrazí priamo pod informáciami o procese.
             duration: Čas trvania
             images: snímky
             metadata: Metadata

@@ -306,7 +306,7 @@ fr:
           title: À propos de cette assemblée
         filters:
           names:
-            all: Tout
+            all: Toutes
           type: Type
         show:
           title: À propos de cette assemblée

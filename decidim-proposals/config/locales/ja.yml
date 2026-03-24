@@ -10,12 +10,14 @@ ja:
         scope_id: 対象範囲
         state: 状態
         title: タイトル
+        user_group_id: 共同草案として作成します
       import_participatory_text:
         document: ドキュメント
       proposal:
         address: 住所
         answer: 回答
         answered_at: 回答日時
+        automatic_hashtags: ハッシュタグが自動的に追加されました
         body: 本文
         decidim_proposals_proposal_state_id: 状態
         decidim_scope_id: スコープ
@@ -24,7 +26,9 @@ ja:
         longitude: 経度
         scope_id: 対象範囲
         state: 状態
+        suggested_hashtags: 推奨ハッシュタグ
         title: タイトル
+        user_group_id: 次のように提案を作成
       proposal_answer:
         answer: 回答
         cost: コスト
@@ -52,6 +56,9 @@ ja:
         import_proposals: 提案をインポート
         keep_answers: ステータスと回答を保持
         keep_authors: オリジナルの作者を保持
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: 評価者名
     errors:
       models:
         participatory_text:
@@ -82,6 +89,7 @@ ja:
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: 提案のタクソノミーが変更されました
       decidim/proposals/creation_enabled_event: 提案の作成を有効にする
+      decidim/proposals/endorsing_enabled_event: 提案の推奨が有効になりました
       decidim/proposals/proposal_mentioned_event: 提案について述べました
       decidim/proposals/publish_proposal_event: 提案が公開
       decidim/proposals/voting_enabled_event: 提案投票を有効にしました
@@ -131,11 +139,15 @@ ja:
               withdrawn: 撤回
           taxonomies_part_of_contains:
             label: タクソノミー
+          valuator_role_ids_has:
+            label: 評価者にアサインされました
           with_any_state:
             label: 回答済み
             values:
               state_not_published: 未回答
               state_published: 回答済み
+        search_placeholder:
+          id_string_or_title_cont: '%{collection} をIDまたはタイトルで検索します。'
     application:
       geocoding:
         not_configured: ジオコーディングが設定されていません
@@ -145,6 +157,7 @@ ja:
           amend: 修正
           comment: コメント
           create: 提案を作成
+          endorse: オススメする
           vote: 投票
           vote_comment: コメントに投票
           withdraw: 撤回する
@@ -167,6 +180,7 @@ ja:
             default_sort_order_options:
               automatic: 自動
               most_commented: コメントの多い順
+              most_endorsed: オススメの多い順
               most_followed: フォローの多い順
               most_voted: 得票数順
               random: ランダム
@@ -219,6 +233,7 @@ ja:
             amendments_visibility_help: '「修正は作成者にのみ表示される」オプションを選択した場合、参加者は修正内容を確認するためにログインする必要があります。'
             announcement: お知らせ
             answers_with_costs: 提案の回答時にコストを有効にする
+            automatic_hashtags: すべての提案に下記のハッシュタグを追加する
             comments_blocked: コメントをブロック
             creation_enabled: 参加者は提案を作成できます
             creation_enabled_readonly: 参加テキスト機能を有効にするとこの設定は無効になります。 参加テキストとして提案をアップロードするには、参加テキストボタンをクリックし、指示に従ってください。
@@ -227,14 +242,18 @@ ja:
             default_sort_order_options:
               automatic: 自動
               most_commented: コメントの多い順
+              most_endorsed: オススメの多い順
               most_followed: フォローの多い順
               most_voted: 得票数順
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
+            endorsements_blocked: オススメをブロック
+            endorsements_enabled: オススメを有効にする
             proposal_answering_enabled: 提案への回答を有効にする
             publish_answers_immediately: 提案の回答をすぐに公開
             publish_answers_immediately_help_html: 'これを有効にせずに提案に回答する場合、選択して公開アクションを使用して、手動で公開する必要があります。これがどのように機能するかの詳細については、<a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案の回答に関するドキュメントページ</a>を参照してください。'
+            suggested_hashtags: 提案作成時に参加者に提案するハッシュタグ
             votes_blocked: 投票をブロックしました
             votes_enabled: 投票を有効にしました
             votes_hidden: 投票を非表示にしました (投票が有効な場合、チェックを入れると投票数が非表示になります)
@@ -249,10 +268,12 @@ ja:
         admin:
           proposal_assigned_to_valuator:
             email_intro: 提案「%{resource_title}」の評価者として割り当てられました。これは、今後数日以内にフィードバックや適切な対応を行うために信頼されていることを意味します。詳細は<a href="%{admin_proposal_info_url}">管理パネル</a>で確認してください。
+            email_outro: 提案を評価できるため、この通知を受け取りました。
             email_subject: あなたは提案 %{resource_title} に評価者として割り当てられています。
             notification_title: 誰かがあなたを提案 <a href="%{resource_path}">%{resource_title}</a> の評価者に割り当てました。詳細は<a href="%{admin_proposal_info_path}">管理者パネル</a>で確認してください。
           proposal_note_created:
             email_intro: '%{author_name} は %{resource_title} でプライベートノートを作成しました。 <a href="%{admin_proposal_info_url}">管理パネル</a> で確認してください。'
+            email_outro: 提案を評価できるため、この通知を受け取りました。
             email_subject: 誰かが提案 %{resource_title} にメモを残しました。
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a>にプライベートノートを作成しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください。
           proposal_note_mentioned:
@@ -269,6 +290,7 @@ ja:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> は提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を承諾しました。
         coauthor_invited:
           actions:
+            accept: 同意する
             decline: 拒否
           email_intro: 'あなたは提案「%{resource_title}」の共著者に招待されています。このページで招待を承認または拒否することができます：'
           email_outro: 提案の著者が共著者になることを認識したいので、この通知を受け取りました。
@@ -312,7 +334,9 @@ ja:
           email_subject: '%{participatory_space_title} で現在利用可能な提案'
           notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a>において、<a href="%{resource_path}">新しい提案</a>を出すことができます。
         endorsing_enabled:
+          email_intro: 'あなたは %{participatory_space_title} で提案をオススメすることができます! このページへの参加を開始します:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+          email_subject: '%{participatory_space_title} の推薦提案が開始されました'
           notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a>において、<a href="%{resource_path}">提案を支持する</a>ことができます。
         proposal_mentioned:
           email_intro: あなたの提案 "%{mentioned_proposal_title}" が <a href="%{resource_url}">のコメント欄で</a> に言及されました。
@@ -390,8 +414,16 @@ ja:
           unearned_own: 提案はまだ作成されていません。
     metrics:
       accepted_proposals:
+        description: 提案数が承認されました
+        object: 提案
         title: 承認された提案
+      endorsements:
+        description: 提案へのオススメ数
+        object: オススメ
+        title: オススメ
       proposals:
+        description: 提案数
+        object: 提案
         title: 提案
       votes:
         description: 提案への投票数
@@ -600,10 +632,12 @@ ja:
           index:
             actions: アクション
             apply_answer_template: 回答テンプレートを適用
+            assign_to_valuator: 評価者に割り当てる
             assign_to_valuator_button: 割り当て
             cancel: キャンセル
             change_taxonomies: タクソノミーを変更
             merge: 新しいものにマージ
+            merge_button: 結合
             no_templates_available: 利用可能なテンプレートはありません
             publish: 公開
             publish_answers: 回答を公開
@@ -614,6 +648,7 @@ ja:
             split_button: 分割
             statuses: ステータス
             title: 提案
+            unassign_from_valuator: 評価者からの割り当てを解除
             unassign_from_valuator_button: 割り当ての解除
             update: 更新
           manage_trash:
@@ -626,9 +661,12 @@ ja:
             select_a_proposal: 提案を選択してください。
           show:
             amendments_count: 修正数
+            assigned_valuators: 割り当てられた評価者
             body: 本文
             comments_count: コメント数
             documents: ドキュメント
+            endorsements_count: オススメ数
+            endorsers: オススメしている人
             link: 提案を見る
             n_more_endorsers:
               other: 他%{count}件
@@ -636,6 +674,8 @@ ja:
             ranking: "%{ranking} / %{total}"
             related_meetings: 関連するミーティング
             remove_assignment: 課題を削除
+            remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
+            valuators: 評価者
             votes_count: 投票数
           update_taxonomies:
             invalid: 'これらの提案にはすでに %{taxonomies} タクソノミーがありました: %{proposals}。'
@@ -670,12 +710,16 @@ ja:
       admin_log:
         proposal:
           answer: "%{user_name} が %{resource_name} スペースで %{space_name} の提案に回答しました"
+          create: "%{user_name} が公式提案として %{resource_name} スペースに %{space_name} 提案を作成しました"
           publish_answer: "%{user_name} が %{resource_name} の提案に対する回答を %{space_name} スペースに公開しました"
           restore: "%{user_name} は %{resource_name} 提案を %{space_name} スペースに復元しました"
           soft_delete: "%{user_name} が %{resource_name} スペースの %{space_name} 提案をゴミ箱に移動しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} 公式提案を更新しました"
         proposal_note:
           create: "%{user_name} が %{resource_name} スペースに %{space_name} 提案にプライベートノートを残しました"
+        valuation_assignment:
+          create: "%{user_name} は、評価者に %{resource_name} の提案を割り当てました"
+          delete: "%{user_name} が %{proposal_title} の提案から評価者を解除しました"
       answers:
         accepted: 承認済み
         evaluating: 評価
@@ -688,6 +732,7 @@ ja:
           meetings: ミーティング
           official: 事務局
           participants: 参加者
+          user_groups: グループ
         filter_state_values:
           all: すべて
           not_answered: 応答がありません
@@ -698,51 +743,98 @@ ja:
       collaborative_drafts:
         collaborative_draft:
           publish:
+            error: 共同草案を公開する際に問題が発生しました。
             irreversible_action_modal:
               body: 提案として草案を公開した後は、編集できなくなります。提案は新しい著者や貢献者を受け入れません。
               cancel: キャンセル
+              ok: 提案として公開
+              title: 次のアクションは取り消せません
+            success: 共同草案は提案として正常に公開されました。
           withdraw:
+            error: 共同草案を閉じる際に問題が発生しました。
             irreversible_action_modal:
               body: 草案を閉じた後は、もう編集できません。草案に新しい著者や投稿を追加することはできません。
               cancel: キャンセル
+              ok: 共同草案を撤回する
+              title: 次のアクションは取り消せません
+            success: 共同草案は正常に撤回されました。
+        create:
+          error: 共同草案の作成中に問題が発生しました.
+          success: 共同草案を作成しました。
         edit:
           attachment_legend: ドキュメントまたは画像を追加
           back: 戻る
           send: 送信
+          title: 共同草案を編集
         empty: 共同草案はまだありません
         empty_filters: この基準との共同草案はありません
         filters:
           all: すべて
           amendment: 修正
+          open: 開く
           published: 公開済
           related_to: 関連
           search: 検索
           state: ステータス
           withdrawn: 撤回
+        filters_small_view:
+          close_modal: モーダルを閉じる
+          filter: フィルター
+          filter_by: フィルター
+          unfold: 展開する
+        index:
+          count:
+            other: "%{count} 件の共同草案"
         name: 共同草案
         new:
+          add_file: ファイルを追加
+          edit_file: ファイルを編集
           send: 続ける
+        new_collaborative_draft_button:
+          new_collaborative_draft: 新しい共同草案を作成
         orders:
+          label: '草案の並び順:'
+          most_contributed: 貢献の多い順
           random: ランダム
           recent: 新しい順
         requests:
           accepted_request:
+            error: コラボレーターとして受け入れることができませんでした。後でもう一度お試しください。
             success: "@%{user} はコラボレーターとして正常に承認されました。"
           access_requested:
+            error: リクエストを完了できませんでした。後でもう一度お試しください。
             success: 共同作業のリクエストが正常に送信されました。
+          collaboration_requests:
+            accept_request: 同意する
+            reject_request: 拒否
+            title: コラボレーションリクエスト
           rejected_request:
+            error: コラボレーターとして拒否できませんでした。後でもう一度やり直してください。
             success: "@%{user} さんはコラボレーターとして正常に拒否されました。"
         show:
           edit: 編集
           final_proposal: 最終的な提案
+          final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
+          hidden_authors_count:
+            other: '%{count} 人以上'
           info-message: これは提案のための <strong>共同草案</strong> です。 これは、以下のコメントセクションを使用して提案を作成したり、編集するためのアクセスを要求することで、提案を改善したりすることができることを意味します。 作成者がアクセスを許可すると、この草案を変更できるようになります。
           publish: 公開
+          publish_info: このバージョンの草案を公開するか、
           published_proposal: 公開された提案
+          request_access: アクセスを要求する
+          requested_access: アクセスがリクエストされました
+          withdraw: 草案を撤回する
         states:
+          open: 開く
           published: 公開済
           withdrawn: 撤回
         update:
           error: 共同草案を保存する際に問題が発生しました。
+          success: 共同草案が正常に更新されました。
+        wizard_aside:
+          back_from_collaborative_draft: 共同草案に戻る
+        wizard_header:
+          title: 共同草案を作成する
       content_blocks:
         highlighted_proposals:
           name: 提案
@@ -795,6 +887,8 @@ ja:
             state: ステータス
             taxonomies: タクソノミー
             title: タイトル
+            valuator: 評価者
+            valuators: 評価者
             votes: 投票
         proposal_state:
           css_class: CSS クラス
@@ -842,6 +936,7 @@ ja:
           voted: 投票
         index:
           click_here: すべての提案を見る
+          collaborative_drafts_list: 共同草案にアクセスする
           count:
             other: "%{count} の提案"
           grid_mode: グリッドモード
@@ -856,6 +951,7 @@ ja:
         orders:
           label: '提案の並び順：'
           most_commented: コメントの多い順
+          most_endorsed: オススメの多い順
           most_followed: フォローの多い順
           most_voted: 得票数順
           random: ランダム
@@ -882,6 +978,10 @@ ja:
           changes_at_title: '「%{title} 」に修正'
           edit_proposal: 編集
           estimated_cost: 推定コスト
+          hidden_endorsers_count:
+            other: '%{count} 人以上'
+          link_to_collaborative_draft_help_text: この提案は共同草案の結果です。履歴を確認してください
+          link_to_collaborative_draft_text: 共同草案を見る
           link_to_promoted_emendation_help_text: この提案は奨励された提案です
           link_to_promoted_emendation_text: 拒否されたemendationを参照してください。
           link_to_proposal_from_emendation_help_text: これが拒否されました
@@ -920,6 +1020,7 @@ ja:
             description: 提案が検証されるためには、 %{limit} 票に到達する必要があります。
           title: 参加ルール
           vote_limit:
+            description: 最大 %{limit} 件の提案をサポートできます。
             votes: 残り %{number} 票
         wizard_aside:
           back: 戻る

@@ -53,7 +53,7 @@ ca-IT:
         edit_projects: Gestionar projectes
         import: Importa propostes a projectes
         new_budget: Afegir pressupost
-        new_project: Nou projecte
+        new_project: Afegir projecte
         preview: Previsualitzar
         send_voting_reminders: Enviar recordatoris de votació
         title: Accions
@@ -116,7 +116,7 @@ ca-IT:
             title: Projectes eliminats
           new:
             create: Crear
-            title: Nou projecte
+            title: Afegir projecte
           update:
             invalid: S'ha produït un error en actualitzar aquest projecte.
             success: Projecte actualitzat correctament.

@@ -48,8 +48,8 @@ sv:
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
         comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
-        cta_button_path: Knappens länk
-        cta_button_text: Text på knapp
+        cta_button_path: Sökväg till Call To Action-knapp
+        cta_button_text: Text till Call To Action-knapp
         customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning
@@ -463,7 +463,7 @@ sv:
         search_placeholder:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
           report_count_eq: Antal rapporteringar
-          reported_id_string_or_reported_content_cont: Sök i %{collection} efter rapporteringens Id eller innehåll.
+          reported_id_string_or_reported_content_cont: Sök %{collection} efter anmälnings-ID eller innehåll.
           title_cont: Sök i %{collection} efter titel.
           user_name_or_user_nickname_or_user_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
         state_eq:
@@ -822,7 +822,7 @@ sv:
           select_users_for_participatory_space: Skicka nyhetsbrev till ett eller flera deltagarutrymmen
           select_users_general: Skicka ett allmänt nyhetsbrev
           select_verification_types: Välj verifieringsmetoder
-          send_to_all_users: Skicka till alla deltagare
+          send_to_all_users: Skicka till alla användare
           send_to_verified_users: Skicka till verifierade användare
           title: Välj mottagare att skicka till
           verified_users_help: Skicka nyhetsbrev till alla verifierade användare.
@@ -913,8 +913,8 @@ sv:
             saturation: Mättnad
             title: Färgväljare
             update_suggested_colors: Uppdatera valda färger
-          cta_button_path_help_html: 'Du kan ändra vad Call To Action-knappen på startsidan länkar till. Använd relativa sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Knappen visas på startsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
-          cta_button_text_help: Du kan ha separata texter på Call to Action-knappen på startsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Call to Action-knappen visas på startsidan mellan välkomsttexten och beskrivningen.
+          cta_button_path_help_html: 'Du kan ändra vad knappen på startsidan länkar till. Använd relativa sökvägar, inte fullständiga URL: er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Uppmaningsknappen visas på startsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
+          cta_button_text_help: Du kan ha olika texter på uppmaningsknappen på startsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Uppmaningsknappen visas på startsidan mellan välkomsttexten och beskrivningen.
           header_snippets:
             header_snippets_help_html: Använd det här fältet för att göra tillägg till saker HTML-huvudet. Den vanligaste användningen är att integrera tredjepartstjänster som kräver extra JavaScript eller CSS. Du kan också använda den för att lägga till extra metataggar till HTML. Observera att detta endast kommer att visas på offentliga sidor, inte i admin-sektionen. Om koden interagerar med externa API:er eller inte följer webbplatsens säkerhetsriktlinjer behöver du ändra säkerhetspolicyn. Läs mer <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">på dokumentationssidan</a>.
             title: HTML header snippets
@@ -967,7 +967,7 @@ sv:
           success: CSV-filen har laddats upp och vi skickar en inbjudan med e-post till deltagarna. Det kan ta en stund.
         new:
           csv_upload:
-            title: Skicka CSV-fil
+            title: Ladda upp din CSV-fil
           destroy:
             button: Radera alla privata deltagare
             confirm: Är du säker på att du vill radera alla privata deltagare? Den här åtgärden kan inte ångras.
@@ -1095,11 +1095,11 @@ sv:
           title: Redigera ämne
           update: Uppdatera ämne
         new:
-          create: Skapa ämne
+          create: Skapa ämnesområde
           title: Nytt ämne
         update:
           error: Det gick inte att uppdatera ämnet.
-          success: Ämnet har uppdaterats
+          success: Ämnesområdet har uppdaterats
       static_pages:
         actions:
           view: Visa offentlig sida

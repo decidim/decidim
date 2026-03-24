@@ -1582,7 +1582,7 @@ fr:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
         success: Mot de passe mis à jour avec succès.
     profile:
-      deleted: Utilisateur ayant supprimé son compte
+      deleted: Utilisateur supprimé
       inaccessible_message: Ce profil est inaccessible en raison d'une violation des conditions d'utilisation !
     profiles:
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
@@ -1603,7 +1603,7 @@ fr:
         actions:
           create_user_group: Créer un groupe
           disabled_message: Message
-          edit_profile: Mettre à jour le profil
+          edit_profile: Modifier le profil
           edit_user_group: Modifier le profil du groupe
           invite_user: Inviter un utilisateur
           join_user_group: Demander à rejoindre ce groupe

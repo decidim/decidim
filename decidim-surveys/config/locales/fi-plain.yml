@@ -9,6 +9,9 @@ fi-pl:
       decidim/surveys/survey:
         one: Kysely
         other: Kyselyt
+      decidim/surveys/survey_answer:
+        one: Vastaus
+        other: Vastaukset
   decidim:
     admin:
       admin_log:
@@ -16,6 +19,8 @@ fi-pl:
           surveys: kyselyt
     components:
       surveys:
+        actions:
+          answer: Vastaus
         name: Kyselyt
         settings:
           announcement: Ilmoitus
@@ -35,8 +40,16 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi kysely kohteessa %{participatory_space_title}
           notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
+    metrics:
+      survey_answers:
+        description: Kyselyvastausten määrä
+        object: kyselyvastaukset
+        title: Kyselyvastaukset
+    statistics:
+      answers_count: Vastausta
     surveys:
       actions:
+        answers: Vastausta
         answers_alert: Kyselyn vastausten poistaminen julkaisun yhteydessä on otettu käyttöön tälle kyselylle. Kyselyllä on tällä hetkellä %{answers_count} vastausta, jotka poistetaan, mikäli jatkat eteenpäin.
         confirm_destroy: Haluatko varmasti poistaa tämän?
         destroy: Poista
@@ -51,6 +64,8 @@ fi-pl:
             title: "yhteensä %{total} vastausta"
           show:
             title: 'Vastaus #%{number}'
+        exports:
+          survey_user_answers: Kyselyn vastaukset
         publish_answers:
           index:
             answers:
@@ -99,6 +114,7 @@ fi-pl:
       models:
         survey:
           fields:
+            answers: Vastausta
             questions: Kysymykset
             status: Tila
             title: Otsikko
@@ -112,7 +128,9 @@ fi-pl:
         export_name: Kyselyn vastaukset
       surveys:
         answer:
+          invalid: Kyselyyn vastaaminen epäonnistui.
           spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yrittäisitkö uudestaan?
+          success: Kyselyyn vastattu onnistuneesti.
         count:
           surveys_count:
             one: "%{count} kysely"

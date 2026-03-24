@@ -4,10 +4,14 @@ uk:
     attributes:
       participatory_process:
         announcement: Оголошення
+        copy_categories: Скопіювати категорії
+        copy_components: Копіювати складові
+        copy_steps: Скопіювати кроки
         description: Опис
         developer_group: Робочий гурт з просування
         domain: Домен
         end_date: Дата закінчення
+        hashtag: Хештег
         hero_image: Зображення головної сторінки
         local_area: Дільниця організації
         meta_scope: Метавідомості обсягу
@@ -61,6 +65,7 @@ uk:
     admin:
       actions:
         activate: Започаткувати
+        configure: Налаштувати
         confirm_destroy: Підтвердьте видалення
         destroy: Видалити
         duplicate: Створити копію
@@ -114,6 +119,9 @@ uk:
           fields:
             invitation_accepted_at: 'Запрошення прийняте:'
             invitation_sent_at: 'Запрошення надіслане:'
+      participatory_process_copies:
+        new:
+          copy: Скопіювати
       participatory_process_groups:
         destroy:
           success: Сукупність рухів співучасті успішно видалено.
@@ -153,6 +161,7 @@ uk:
           error: При зміні порядку кроків цього руху співучасті сталася помилка.
         update:
           error: При спробі оновити цей крок руху співучасті сталася помилка.
+          success: Крок руху співучасті успішно оновлено.
       participatory_process_user_roles:
         create:
           error: При спробі додати учасника в цей рух співучасті сталася помилка.
@@ -237,6 +246,7 @@ uk:
       admin:
         participatory_processes:
           form:
+            announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
             related_processes: Супутні рухи
             title: Загальні відомості
       content_blocks:

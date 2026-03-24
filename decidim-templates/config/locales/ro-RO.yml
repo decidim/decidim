@@ -81,8 +81,11 @@ ro:
             select_template: Selectați șablon de răspuns pentru propuneri
         questionnaire_templates:
           choose:
+            create_from_template: Creează după model
+            description: Ești pe cale de a crea un nou chestionar. Poți alege un model predefinit și să-l modifici ulterior.
             label: Alegeți un șablon
             placeholder: Alegeți un șablon
+            skip_template: Treci peste
           edit:
             edit: Modificați
             empty: Nu există întrebări încă.

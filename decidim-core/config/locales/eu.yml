@@ -1748,7 +1748,7 @@ eu:
           manage_user_group_admins: Kudeatu kudeatzaileak
           manage_user_group_users: Kudeatu kideak
           message: Mezua
-          resend_email_confirmation_instructions: Birbidali posta elektronikoa berresteko instrukzioekin
+          resend_email_confirmation_instructions: Birbidali helbide elektroniko bat berresteko instrukzioekin
         confirmation_instructions_sent: Berresteko jarraibideak helbide elektronikoz bidalita.
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen helbide elektronikoa, berresteko.
     reported_mailer:

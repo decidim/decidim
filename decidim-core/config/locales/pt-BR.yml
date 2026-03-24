@@ -1749,7 +1749,7 @@ pt-BR:
           manage_user_group_admins: Gerenciar administradores
           manage_user_group_users: Gerenciar membros
           message: Mensagem
-          resend_email_confirmation_instructions: Reenvie as instruções de confirmação por email
+          resend_email_confirmation_instructions: Reenviar instruções de confirmação
         confirmation_instructions_sent: Reenviar instruções de confirmação.
         fill_in_email_to_confirm_it: Por favor, preencha o e-mail do seu grupo para confirmar.
     reported_mailer:

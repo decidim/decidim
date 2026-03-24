@@ -164,10 +164,15 @@ pt-BR:
           census:
             create:
               error: Houve um problema na importação do censo.
+          destroy:
+            title: Excluir todos os dados do censo
+          index:
+            empty: Não há dados do censo. Use o formulário abaixo para importá-lo usando um arquivo CSV.
           new:
             example: |
               john.doe@example.org
               jane.doe@example.org
+            file: "arquivo .csv com dados de e-mails"
             info: 'Deve ser um arquivo em formato CSV com apenas uma coluna contendo o endereço de e-mail:'
             submit: Enviar um arquivo
             title: Faça o 'upload' de um novo censo

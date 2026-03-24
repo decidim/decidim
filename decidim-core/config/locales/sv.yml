@@ -1751,7 +1751,7 @@ sv:
           manage_user_group_admins: Hantera administratörer
           manage_user_group_users: Hantera medlemmar
           message: Meddelande
-          resend_email_confirmation_instructions: Skicka anvisningarna om bekräftelse om e-post igen
+          resend_email_confirmation_instructions: Skicka e-postmeddelande med bekräftelseinstruktioner igen
         confirmation_instructions_sent: Instruktioner för e-postbekräftelse har skickats.
         fill_in_email_to_confirm_it: Fyll i gruppens e-postadress för att bekräfta den.
     reported_mailer:

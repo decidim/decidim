@@ -88,6 +88,13 @@ gl:
         skip_verification: Podes ignorar isto por agora e %{link}
         start_exploring: comezar a explorar
       csv_census:
+        admin:
+          destroy:
+            title: Elimine todos os datos do censo
+          index:
+            empty: Non hai datos censuais. Usa o seguinte formulario para importalo usando un ficheiro CSV.
+          new:
+            file: "Ficheiro .csv con datos de correo electrónico"
         authorizations:
           new:
             error: Non puidemos verificar a túa conta ou non estás no censo da organización.

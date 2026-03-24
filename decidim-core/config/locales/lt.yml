@@ -1326,7 +1326,7 @@ lt:
           manage_user_group_admins: Valdyti administratorių duomenis
           manage_user_group_users: Valdyti narius
           message: Pranešimas
-          resend_email_confirmation_instructions: Persiųsti patvirtinimo nurodymus el. paštu
+          resend_email_confirmation_instructions: Išsiųsti patvirtinimo instrukcijas dar kartą
         confirmation_instructions_sent: Patvirtinimo el. laiškas išsiųstas.
         fill_in_email_to_confirm_it: Prašau įveskite grupės el. paštą tam, kad jį patvirtinti.
     reported_mailer:

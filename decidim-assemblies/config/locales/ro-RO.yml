@@ -223,7 +223,7 @@ ro:
             title: Informaţii generale
         assembly_imports:
           form:
-            document_legend: Adaugă un document
+            document_legend: Adaugați un document
         assembly_members:
           form:
             explanation: 'Îndrumare pentru imagine:'
@@ -251,7 +251,7 @@ ro:
           title: Despre această adunare
         filters:
           names:
-            all: Toți
+            all: Toate
         show:
           title: Despre această adunare
       assembly_members:

@@ -10,12 +10,14 @@ es-MX:
         scope_id: Ámbito
         state: Estado
         title: Título
+        user_group_id: Crear borrador colaborativo como
       import_participatory_text:
         document: Documento
       proposal:
         address: Dirección
         answer: Respuesta
         answered_at: Respondido en
+        automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
         decidim_proposals_proposal_state_id: Estado
         decidim_scope_id: Ámbito
@@ -24,7 +26,9 @@ es-MX:
         longitude: Longitud
         scope_id: Ámbito
         state: Estado
+        suggested_hashtags: Hashtags sugeridos
         title: Título
+        user_group_id: Crear propuesta como
       proposal_answer:
         answer: Respuesta
         cost: Coste
@@ -52,6 +56,9 @@ es-MX:
         import_proposals: Propuestas de importación
         keep_answers: Mantener estados y respuestas
         keep_authors: Mantener autores originales
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Nombre de la evaluadora
     errors:
       models:
         participatory_text:
@@ -82,6 +89,7 @@ es-MX:
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Las taxonomías de la propuesta han cambiado
       decidim/proposals/creation_enabled_event: Creación de propuestas habilitada
+      decidim/proposals/endorsing_enabled_event: Adhesión a propuesta habilitada
       decidim/proposals/proposal_mentioned_event: Propuesta mencionada
       decidim/proposals/publish_proposal_event: Propuesta publicada
       decidim/proposals/voting_enabled_event: Apoyo de propuestas habilitado
@@ -135,11 +143,15 @@ es-MX:
               withdrawn: Retiradas
           taxonomies_part_of_contains:
             label: Taxonomía
+          valuator_role_ids_has:
+            label: Asignada a evaluadora
           with_any_state:
             label: Respondidas
             values:
               state_not_published: Sin respuesta
               state_published: Respondidas
+        search_placeholder:
+          id_string_or_title_cont: Buscar %{collection} por ID o título.
     application:
       geocoding:
         not_configured: '¡La geocodificación no está configurada!'
@@ -149,6 +161,7 @@ es-MX:
           amend: Enmendar
           comment: Comentar
           create: Crear una propuesta
+          endorse: Adherirse
           vote: Apoyar
           vote_comment: Votar comentario
           withdraw: Retirar
@@ -171,6 +184,7 @@ es-MX:
             default_sort_order_options:
               automatic: Automático
               most_commented: Más comentadas
+              most_endorsed: Con más adhesiones
               most_followed: Más seguidas
               most_voted: Con más apoyos
               random: Aleatorio
@@ -223,6 +237,7 @@ es-MX:
             amendments_visibility_help: Si se selecciona la opción "Las enmiendas son visibles sólo para sus autoras", las participantes deberán iniciar sesión para ver las enmiendas realizadas.
             announcement: Aviso
             answers_with_costs: Habilitar coste en las respuestas a propuestas
+            automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
             creation_enabled: Las participantes pueden crear propuestas
             creation_enabled_readonly: Esta opción se desactiva cuando activas la funcionalidad de Textos Participativos. Para subir propuestas como texto participativo haz clic en el botón Textos Participativos y sigue las instrucciones.
@@ -231,14 +246,18 @@ es-MX:
             default_sort_order_options:
               automatic: Automático
               most_commented: Más comentadas
+              most_endorsed: Con más adhesiones
               most_followed: Más seguidas
               most_voted: Con más apoyos
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
+            endorsements_blocked: Adhesiones bloqueadas
+            endorsements_enabled: Adhesiones habilitadas
             proposal_answering_enabled: Respuesta a propuestas activadas
             publish_answers_immediately: Publicar respuestas a las propuestas inmediatamente
             publish_answers_immediately_help_html: 'Ten en cuenta que si respondes a alguna propuesta sin que esto esté habilitado, tendrás que publicarlas manualmente seleccionándolas y utilizando la acción de publicar. Para más información sobre el funcionamiento, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">página de documentación de respuestas a las propuestas</a>.'
+            suggested_hashtags: Hashtags sugeridos a los usuarios para nuevas propuestas.
             votes_blocked: Apoyos bloqueados
             votes_enabled: Apoyos habilitados
             votes_hidden: Apoyos ocultos (si los apoyos están habilitados, marcando esta opción ocultará el número de apoyos)
@@ -253,10 +272,12 @@ es-MX:
         admin:
           proposal_assigned_to_valuator:
             email_intro: Se te ha asignado como evaluadora de la propuesta "%{resource_title}". Esto significa que se  ha confiado en ti para dar tu opinión y dar una respuesta adecuada en los próximos días. Puedes ver la propuesta en el <a href="%{admin_proposal_info_url}">panel de administración</a>.
+            email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
             email_subject: Has sido asignada como evaluadora de la propuesta "%{resource_title}".
             notification_title: Se te ha asignado como evaluadora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>". Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
           proposal_note_created:
             email_intro: '%{author_name} ha creado una nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
+            email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creado una nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
           proposal_note_mentioned:
@@ -273,6 +294,7 @@ es-MX:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha aceptado tu invitación para ser coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         coauthor_invited:
           actions:
+            accept: Aceptar
             decline: Rechazar
           email_intro: 'Te han invitado a ser coautora de la propuesta "%{resource_title}". Puedes aceptar o rechazar la invitación en esta página:'
           email_outro: Has recibido esta notificación porque la autora de la propuesta quiere reconocer tus contribuciones convirtiéndote en coautora.
@@ -316,7 +338,9 @@ es-MX:
           email_subject: Propuestas ahora disponibles en %{participatory_space_title}
           notification_title: Ahora puedes presentar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
+          email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes empezar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}">en este espacio</a> en los comentarios.
@@ -394,8 +418,16 @@ es-MX:
           unearned_own: Aún no has creado propuestas.
     metrics:
       accepted_proposals:
+        description: Número de propuestas aceptadas por los usuarios
+        object: propuestas
         title: Propuestas aceptadas
+      endorsements:
+        description: Número de adhesiones generadas en las propuestas
+        object: adhesiones
+        title: Adhesiones
       proposals:
+        description: Número de propuestas generadas
+        object: propuestas
         title: Propuestas
       votes:
         description: Número de apoyos a propuestas
@@ -607,10 +639,12 @@ es-MX:
           index:
             actions: Acciones
             apply_answer_template: Aplicar la plantilla de respuesta
+            assign_to_valuator: Asignar a evaluadora
             assign_to_valuator_button: Asignar
             cancel: Cancelar
             change_taxonomies: Cambiar taxonomías
             merge: Fusionar en una nueva
+            merge_button: Fusionar
             no_templates_available: No hay pantillas disponibles
             publish: Publicar
             publish_answers: Publicar respuestas
@@ -621,6 +655,7 @@ es-MX:
             split_button: Dividir
             statuses: Estados
             title: Propuestas
+            unassign_from_valuator: Desasignar de evaluadora
             unassign_from_valuator_button: Deshacer la asignación
             update: Actualizar
           manage_trash:
@@ -633,9 +668,12 @@ es-MX:
             select_a_proposal: Por favor, selecciona una propuesta.
           show:
             amendments_count: Número de enmiendas
+            assigned_valuators: Evaluadoras asignadas
             body: Cuerpo
             comments_count: Número de comentarios
             documents: Documentos
+            endorsements_count: Número de adhesiones
+            endorsers: Se han adherido
             link: Ver la propuesta
             n_more_endorsers:
               one: y 1 más
@@ -644,6 +682,8 @@ es-MX:
             ranking: "%{ranking} de %{total}"
             related_meetings: Encuentros relacionados
             remove_assignment: Deshacer asignación
+            remove_assignment_confirmation: '¿Seguro que quieres desasignar a la evaluadora de esta propuesta?'
+            valuators: Evaluadoras
             votes_count: Número de apoyos
           update_taxonomies:
             invalid: 'Estas propuestas ya tenían las taxonomias %{taxonomies}: %{proposals}.'
@@ -678,12 +718,16 @@ es-MX:
       admin_log:
         proposal:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
+          create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
           publish_answer: "%{user_name} publicó la respuesta a la propuesta %{resource_name} en el espacio %{space_name}"
           restore: "%{user_name} restauró la propuesta %{resource_name} en el espacio %{space_name}"
           soft_delete: "%{user_name} ha movido a la papelera la propuesta %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha actualizado la propuesta oficial %{resource_name} en el espacio %{space_name}"
         proposal_note:
           create: "%{user_name} dejó una nota privada sobre la propuesta %{resource_name} en el espacio %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} asignó la propuesta %{resource_name} a una evaluadora"
+          delete: "%{user_name} desasignó una evaluadora de la propuesta %{proposal_title}"
       answers:
         accepted: Aceptadas
         evaluating: En evaluación
@@ -696,6 +740,7 @@ es-MX:
           meetings: Encuentros
           official: Oficial
           participants: Participantes
+          user_groups: Grupos de Usuarios
         filter_state_values:
           all: Todos
           not_answered: No contestada
@@ -706,51 +751,100 @@ es-MX:
       collaborative_drafts:
         collaborative_draft:
           publish:
+            error: Ha habido errores al publicar el borrador colaborativo.
             irreversible_action_modal:
               body: Después de publicar el borrador como una propuesta, dejará de ser editable. La propuesta no aceptará nuevas autoras o contribuciones.
               cancel: Cancelar
+              ok: Publicar como una propuesta
+              title: La siguiente acción es irreversible
+            success: Borrador de colaborativo publicado con éxito como una propuesta.
           withdraw:
+            error: Ha habido errores al cerrar el borrador colaborativo.
             irreversible_action_modal:
               body: Después de cerrar el borrador, ya no será editable. El borrador no aceptará nuevas autoras ni contribuciones.
               cancel: Cancelar
+              ok: Retirar el borrador colaborativo
+              title: La siguiente acción es irreversible
+            success: Borrador colaborativo retirado con éxito.
+        create:
+          error: Se ha producido un error al crear este borrador colaborativo.
+          success: Borrador colaborativo creado con éxito.
         edit:
           attachment_legend: Añadir un documento o una imagen
           back: Atrás
           send: Enviar
+          title: Editar borrador colaborativo
         empty: Todavía no hay borradores colaborativos
         empty_filters: No hay ningún borrador colaborativo con este criterio
         filters:
           all: Todos
           amendment: Enmiendas
+          open: Abierto
           published: Publicadas
           related_to: Relacionadas con
           search: Buscar
           state: Estado
           withdrawn: Retirada
+        filters_small_view:
+          close_modal: Cerrar modal
+          filter: Filtrar
+          filter_by: Filtrado por
+          unfold: Desplegar
+        index:
+          count:
+            one: "%{count} borrador colaborativo"
+            other: "%{count} borrador colaborativo"
         name: Borradores colaborativos
         new:
+          add_file: Añadir archivo
+          edit_file: Editar fichero
           send: Continuar
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nuevo borrador colaborativo
         orders:
+          label: 'Ordenar borradores por:'
+          most_contributed: Con más contribuciones
           random: Aleatorio
           recent: Reciente
         requests:
           accepted_request:
+            error: No se pudo aceptar como contribuidor. Inténtalo de nuevo más tarde.
             success: "Se ha acceptado con éxito a @%{user} como colaboradora."
           access_requested:
+            error: Tu solicitud no pudo ser completada, intenta de nuevo más tarde.
             success: Tu solicitud para colaborar ha sido enviada correctamente.
+          collaboration_requests:
+            accept_request: Aceptar
+            reject_request: Rechazar
+            title: Solicitudes de contribuciones
           rejected_request:
+            error: No se pudo rechazar como colaborador, inténtalo de nuevo más tarde.
             success: "Se ha rechazado con éxito @%{user} como colaboradora."
         show:
           edit: Editar
           final_proposal: propuesta final
+          final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
+          hidden_authors_count:
+            one: y %{count} persona más
+            other: y %{count} personas más
           info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puedes ayudar a sus autoras a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que las autoras te den acceso, podrás realizar cambios en este borrador.
           publish: Publicar
+          publish_info: Publicar esta versión del borrador o
           published_proposal: propuesta publicada
+          request_access: Solicitar acceso
+          requested_access: Acceso solicitado
+          withdraw: retirar el borrador
         states:
+          open: Abierto
           published: Publicadas
           withdrawn: Retirada
         update:
           error: Ha habido errores al guardar el borrador de la propuesta.
+          success: Borrador colaborativo actualizado con éxito.
+        wizard_aside:
+          back_from_collaborative_draft: Volver al borrador colaborativo
+        wizard_header:
+          title: Crea tu borrador colaborativo
       content_blocks:
         highlighted_proposals:
           name: Propuestas
@@ -803,6 +897,8 @@ es-MX:
             state: Estado
             taxonomies: Taxonomías
             title: Título
+            valuator: Evaluadora
+            valuators: Evaluadoras
             votes: Apoyos
         proposal_state:
           css_class: Clase CSS
@@ -850,6 +946,7 @@ es-MX:
           voted: Apoyadas
         index:
           click_here: Ver todas las propuestas
+          collaborative_drafts_list: Acceder a borradores colaborativos
           count:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
@@ -865,6 +962,7 @@ es-MX:
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas
+          most_endorsed: Con más adhesiones
           most_followed: Con más seguidoras
           most_voted: Con más apoyos
           random: Aleatorio
@@ -892,6 +990,11 @@ es-MX:
           changes_at_title: Enmienda a "%{title}"
           edit_proposal: Editar
           estimated_cost: Coste estimado
+          hidden_endorsers_count:
+            one: y %{count} persona más
+            other: y %{count} personas más
+          link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador colaborativo. Revisa el historial
+          link_to_collaborative_draft_text: Ver el borrador colaborativo
           link_to_promoted_emendation_help_text: Esta propuesta es una proviene de una enmienda
           link_to_promoted_emendation_text: Ver la enmienda rechazada.
           link_to_proposal_from_emendation_help_text: Esta es una enmienda rechazada
@@ -931,6 +1034,7 @@ es-MX:
             description: Para que una propuesta se valide, debe recibir %{limit} apoyos.
           title: Reglas de participación
           vote_limit:
+            description: Puedes apoyar hasta %{limit} propuestas.
             votes: Queda/n %{number} apoyo/s
         wizard_aside:
           back: Volver

@@ -1028,7 +1028,7 @@ hu:
           no_conversations: Még nem rendelkezik beszélgetésekkel.
           title: Beszélgetések
         reply_form:
-          placeholder: A válaszod...
+          placeholder: Az Ön válasza...
           send: Küldés
         show:
           back: Vissza az összes beszélgetéshez
@@ -1362,7 +1362,7 @@ hu:
         no_conversations_warning: Még nincsenek beszélgetések.
         time_ago: "%{time} ideje"
       reply:
-        placeholder: A válaszod...
+        placeholder: Az Ön válasza...
         send: Küldés
       update:
         error: Üzenet elküldése sikertelen. Próbáld újra később
@@ -1652,7 +1652,7 @@ hu:
             description: Leírás
             name: Név
             service: Szolgáltatás
-            type: típus
+            type: Típus
           items:
             _session_id:
               description: Lehetővé teszi a weboldalak számára, hogy emlékezzenek a felhasználóra a weboldalon belül, amikor az a weboldalak között mozog.

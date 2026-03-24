@@ -1742,7 +1742,7 @@ es-MX:
         actions:
           create_user_group: Crear un grupo
           disabled_message: Mensaje
-          edit_profile: Editar perfil
+          edit_profile: Editar el perfil
           edit_user_group: Editar el perfil del grupo
           invite_user: Invitar al usuario
           join_user_group: Solicitar unirse al grupo
