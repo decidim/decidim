@@ -1,1 +1,16 @@
+---
 ga:
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Freagair
+    statistics:
+      answers_count: Freagraí
+    surveys:
+      actions:
+        answers: Freagraí
+      models:
+        survey:
+          fields:
+            answers: Freagraí
