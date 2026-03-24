@@ -1663,8 +1663,6 @@ ro:
         submit_button: Trimiteți o invitație
       no_invitations_remaining: Nicio invitație rămasă
       send_instructions: Un e-mail de invitație a fost trimis la %{email}.
-      updated: Parola dvs. a fost setată cu succes. Acum ești conectat.
-      updated_not_active: Parola dvs. a fost setată cu succes.
     mailer:
       confirmation_instructions:
         action: Confirmaţi contul
