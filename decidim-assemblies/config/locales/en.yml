@@ -242,11 +242,11 @@ en:
           form:
             access:
               label: Access
-              set_this_space_as: Set this space as
               options:
                 open: Everyone can see the assembly and participate.
                 restricted: Only members can see and participate.
                 transparent: Everyone can see the assembly, but only members can participate.
+              set_this_space_as: Set this space as
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
