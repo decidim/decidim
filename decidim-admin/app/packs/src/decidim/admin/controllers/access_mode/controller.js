@@ -8,8 +8,10 @@ import { Controller } from "@hotwired/stimulus"
  * query the checkbox and the `#access_mode` fieldset that lives inside.
  */
 export default class extends Controller {
+
   /**
    * Find the relevant inputs and attach the change listener.
+   * @returns {void}
    */
   connect() {
     this.hasMembersCheckbox = this.element.querySelector("#has_members input[type='checkbox']")
@@ -26,6 +28,7 @@ export default class extends Controller {
 
   /**
    * Remove the listener bound during `connect`.
+   * @returns {void}
    */
   disconnect() {
     if (this.hasMembersCheckbox && this.toggleAccessMode) {
@@ -35,11 +38,14 @@ export default class extends Controller {
 
   /**
    * Show or hide the access mode fieldset depending on the checkbox state.
+   * @returns {void}
    */
   toggleAccessMode() {
     const showAccessMode = this.hasMembersCheckbox.checked
 
     this.accessModeFieldset.hidden = !showAccessMode
-    this.accessModeFieldset.style.display = showAccessMode ? "" : "none"
+    this.accessModeFieldset.style.display = showAccessMode
+      ? ""
+      : "none"
   }
 }
