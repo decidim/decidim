@@ -173,6 +173,7 @@ describe "Admin manages projects" do
         click_on "Edit"
       end
 
+      expect(page).to have_field("project_title_en", with: "Updated project title with attachments")
       expect(page.html).to include(document.file.blob.filename.to_s)
     end
   end
