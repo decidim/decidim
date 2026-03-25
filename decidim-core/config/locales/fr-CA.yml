@@ -1041,6 +1041,12 @@ fr-CA:
         update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Ouvert
+            restricted: Restreint
+            transparent: Transparent
+          not_found: Le mode d'accès %{id} est introuvable
         area_presenter:
           not_found: 'Le périmètre d''assemblée n''a pas été trouvée dans la base de données (ID: %{id})'
         area_type_presenter:
@@ -1382,6 +1388,10 @@ fr-CA:
     participatory_space_members:
       index:
         members: Membres
+    participatory_spaces:
+      show:
+        restricted_space: Ceci est un espace restreint. Seuls les membres peuvent le voir et y participer.
+        transparent_space: Ceci est un espace transparent. N'importe qui peut voir le contenu, mais seuls les membres peuvent participer.
     passwords:
       update:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
