@@ -888,7 +888,7 @@ ar:
         not_hidden: غير مخفي
         title: أفعال
         unhide: إظهار
-        unreport: Unreport
+        unreport: إلغاء التبليغ
       admin:
         reportable:
           hide:
