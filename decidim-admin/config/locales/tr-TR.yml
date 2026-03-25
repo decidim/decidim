@@ -752,7 +752,6 @@ tr:
           deliver: Bülten sunun
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
-          private_members_help: Seçilen özel katılımcı alanlarına eklenen ve onaylanmış tüm kullanıcılara bir haber bülteni gönderir.
           recipients_count: Bu haber bülteni <strong id='recipients_count'>%{count}</strong> kullanıcıya gönderilecektir.
           select_assemblies: Aktif kurullar
           select_conferences: Konferans seçin
