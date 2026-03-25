@@ -1164,6 +1164,12 @@ sv:
         update_permissions_with_space: "%{user_name} uppdaterade behörigheterna för %{resource_name} i %{space_name}"
         update_with_space: "%{user_name} uppdaterade %{resource_name} i %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Öppen
+            restricted: Begränsad
+            transparent: Transparent
+          not_found: Åtkomstläge %{id} hittades inte
         area_presenter:
           not_found: 'Området hittades inte i databasen (ID: %{id})'
         area_type_presenter:
@@ -1532,6 +1538,10 @@ sv:
     participatory_space_members:
       index:
         members: Medlemmar
+    participatory_spaces:
+      show:
+        restricted_space: Detta är ett begränsat rum. Bara medlemmar kan se och delta i det.
+        transparent_space: Detta är ett transparent rum. Alla kan se innehållet, men bara medlemmar kan delta.
     passwords:
       update:
         error: Det gick inte att uppdatera lösenordet.
