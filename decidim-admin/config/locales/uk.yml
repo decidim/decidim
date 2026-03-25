@@ -503,7 +503,6 @@ uk:
         hide: Приховати
         not_hidden: Не приховано
         title: Дії
-        unreport: Скасувати скаргу
       admin:
         reportable:
           hide:
