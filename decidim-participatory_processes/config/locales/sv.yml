@@ -25,7 +25,6 @@ sv:
         participatory_process_group_id: Grupp av processer
         participatory_scope: Vad beslutas
         participatory_structure: Hur fattas beslut
-        private_space: Privat process
         promoted: Utvald
         published_at: Publicerad
         related_process_ids: Relaterade processer
@@ -125,7 +124,6 @@ sv:
           fields:
             actions: Åtgärder
             created_at: Skapad
-            private: Privat
             published: Publicerad
             title: Titel
           name: Deltagandeprocess
@@ -230,8 +228,6 @@ sv:
         edit:
           update: Uppdatera
         index:
-          private: Privat
-          public: Offentlig
           published: Publicerad
           unpublished: Ej publicerad
         new:
@@ -487,7 +483,6 @@ sv:
             images: Bilder
             metadata: Metadata
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
-            private_notice: Visa endast processen för inloggade medlemmar (om det inte är inställt som transparent)
             related_processes: Relaterade processer
             select_process_group: Välj en grupp av processer
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -584,7 +579,6 @@ sv:
           title: Om processen
       show:
         belongs_to_group: Den här processen tillhör
-        private_space: Det här är en privat process
         related_processes: Relaterade processer
       static_pages:
         democratic_quality_indicators:
