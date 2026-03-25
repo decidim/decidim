@@ -25,7 +25,6 @@ eu:
         participatory_process_group_id: Prozesu-multzoa
         participatory_scope: Zer erabaki da
         participatory_structure: Nola erabakitzen da?
-        private_space: Prozesu pribatua
         promoted: Nabarmendua
         published_at: Argitaratze-data
         related_process_ids: Elkarrekin lotutako prozesuak
@@ -105,6 +104,12 @@ eu:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Prozesu-taldeen arabera
+        with_any_access_mode:
+          label: Sarbide modua
+          values:
+            open: Zabaldu
+            restricted: Murriztua
+            transparent: Gardena
       menu:
         participatory_process_groups: Prozesu-taldeak
         participatory_process_groups_submenu:
@@ -123,9 +128,9 @@ eu:
       models:
         participatory_process:
           fields:
+            access_mode: Sarbide modua
             actions: Ekintzak
             created_at: Sortze-data
-            private: Pribatua
             published: Argitaratua
             title: Izenburua
           name: Partaidetza-prozesua
@@ -230,8 +235,10 @@ eu:
         edit:
           update: Eguneratu
         index:
-          private: Pribatua
-          public: Publiko
+          access_modes:
+            open: Zabaldu
+            restricted: Murriztua
+            transparent: Gardena
           published: Argitaratua
           unpublished: Argitaratu gabea
         new:
@@ -313,6 +320,7 @@ eu:
     open_data:
       help:
         participatory_processes:
+          access_mode: Sarbide mota. Batzarra irekia, murriztua edo gardena bada.
           area: Prozesua zein arlotan gertatzen ari da
           component_settings: Prozesuaren osagaien konfigurazioa
           created_at: Zein datatan sortu zen espazio hau
@@ -507,13 +515,18 @@ eu:
           edit:
             title: Prozesu honi buruz
           form:
+            access:
+              label: Sarbidea
+              options:
+                open: Edonork ikus dezake prozesua eta parte hartu.
+                restricted: Soilik kideek ikus dezakete batzarra eta parte hartu.
+                transparent: Edonork ikus dezake prozesua, baina soilik kideek har dezakete parte.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             has_members_help: Kideak sortu eta argitaratu ahal izango dituzu
             images: Irudiak
             metadata: Metadatuak
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            private_notice: Bisitarientzat eta bazkideentzat soilik (gardena bada izan ezik) ez da partaidetza-espazioa ikusten
             related_processes: Elkarrekin lotutako prozesuak
             select_process_group: Prozesu-talde bat hautatu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
@@ -616,7 +629,6 @@ eu:
           title: Prozesu honi buruz
       show:
         belongs_to_group: Prozesu hau nori dagokio
-        private_space: Prozesu pribatua da
         related_processes: Elkarrekin lotutako prozesuak
       static_pages:
         democratic_quality_indicators:
