@@ -68,7 +68,10 @@ module Decidim
       end
 
       def can_add_comments?
-        return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)
+        if current_participatory_space
+          return true if user_has_any_role?(current_user, current_participatory_space)
+          return false unless current_participatory_space.can_participate?(current_user)
+        end
         return if single_comment?
         return if comments_blocked?
         return if user_comments_blocked?
@@ -159,6 +162,7 @@ module Decidim
 
       def user_comments_blocked?
         return false unless user_signed_in?
+        return true if current_participatory_space && !current_participatory_space.can_participate?(current_user)
 
         !model.user_allowed_to_comment?(current_user)
       end

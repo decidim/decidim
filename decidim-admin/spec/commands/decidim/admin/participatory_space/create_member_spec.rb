@@ -45,6 +45,19 @@ module Decidim::Admin::ParticipatorySpace
         expect(members.count).to eq 1
       end
 
+      it "creates the member only one time" do
+        expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 0
+
+        subject.call
+
+        expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1
+
+        form = double(invalid?: false, email:, current_user:, name:, role:, published: false)
+        described_class.new(form, participatory_space, via_csv:).call
+
+        expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1
+      end
+
       it "creates a new user with no application admin privileges" do
         subject.call
         expect(Decidim::User.last).not_to be_admin

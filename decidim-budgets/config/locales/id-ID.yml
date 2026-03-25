@@ -14,6 +14,7 @@ id:
       actions:
         edit: Edit
         import: Impor proposal ke proyek
+        new_project: Proyek baru
         preview: Pratinjau
         title: Tindakan
       admin:
@@ -22,7 +23,6 @@ id:
             name: Proyek
         projects:
           edit:
-            title: Edit proyek
             update: Memperbarui
           index:
             finished_orders: Suara jadi
@@ -30,7 +30,6 @@ id:
             title: Proyek
           new:
             create: Membuat
-            title: Proyek baru
         proposals_imports:
           new:
             create: Impor proposal ke proyek

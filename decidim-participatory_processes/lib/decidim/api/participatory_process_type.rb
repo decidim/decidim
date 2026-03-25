@@ -15,6 +15,7 @@ module Decidim
 
       description "A participatory process"
 
+      field :access_mode, Decidim::Api::Types::AccessModeEnum, "The access mode of this process (open, transparent, or restricted)", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description of this participatory process.", null: true
       field :developer_group, Decidim::Core::TranslatedFieldType, "The promoter group of this participatory process.", null: true
       field :end_date, Decidim::Core::DateType, "This participatory process' end date.", null: true
@@ -27,7 +28,6 @@ module Decidim
             description: "The participatory process group in which this process belong to"
       field :participatory_scope, Decidim::Core::TranslatedFieldType, "What is decided on this participatory process", null: true
       field :participatory_structure, Decidim::Core::TranslatedFieldType, "How it is decided on this participatory process", null: true
-      field :private_space, GraphQL::Types::Boolean, "Specifies if the space is public or private", null: true
       field :promoted, GraphQL::Types::Boolean, "If this participatory process is promoted (therefore in the homepage)", null: true
       field :published_at, Decidim::Core::DateTimeType, "The time this page was published", null: false
       field :short_description, Decidim::Core::TranslatedFieldType, "The short description of this participatory process", null: true

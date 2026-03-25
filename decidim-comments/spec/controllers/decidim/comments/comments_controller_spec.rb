@@ -106,8 +106,8 @@ module Decidim
             end
           end
 
-          context "when trying to comment on a private space where the user is not assigned to" do
-            let(:participatory_process) { create(:participatory_process, :private, organization:) }
+          context "when trying to comment on a restricted space where the user is not assigned to" do
+            let(:participatory_process) { create(:participatory_process, :restricted, organization:) }
 
             it "redirects with a flash alert" do
               post :create, xhr: true, params: { comment: comment_params }

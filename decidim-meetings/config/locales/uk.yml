@@ -54,7 +54,6 @@ uk:
           success: Успішно створено копію зустрічі.
         new:
           copy: Скопіювати
-          title: Створити копію зустрічі
     components:
       meetings:
         actions:
@@ -152,7 +151,6 @@ uk:
             non_user: Не чинний учасник
             select_user: Оберіть учасника
           index:
-            invite_attendee: Запросити учасника
             invites: Запрошення
         meeting_closes:
           edit:

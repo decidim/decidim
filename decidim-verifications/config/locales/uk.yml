@@ -59,7 +59,6 @@ uk:
         admin:
           confirmations:
             new:
-              introduce_user_data: Введіть відомості на картинці
               reject: Відхилити
               verify: Підтвердити
           pending_authorizations:

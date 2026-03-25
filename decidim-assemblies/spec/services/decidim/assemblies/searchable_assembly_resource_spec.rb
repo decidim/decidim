@@ -16,7 +16,7 @@ module Decidim
           short_description: Decidim::Faker::Localized.sentence,
           description: description1,
           users: [author],
-          is_transparent: false
+          access_mode: :open
         )
       end
       let(:participatory_space) { assembly }
@@ -44,15 +44,15 @@ module Decidim
         }
       end
 
-      context "when participatory_spaces ARE private but transparent" do
+      context "when participatory_spaces are restricted or transparent" do
         it "does NOT indexes a SearchableResource after ParticipatorySpace update" do
-          participatory_space.update(published_at: Time.current, private_space: true)
+          participatory_space.update(published_at: Time.current, access_mode: :restricted)
           organization.available_locales.each do |locale|
             searchables = Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale:)
             expect(searchables.size).to eq(0)
           end
 
-          participatory_space.update(published_at: Time.current, private_space: true, is_transparent: true)
+          participatory_space.update(published_at: Time.current, access_mode: :transparent)
           organization.available_locales.each do |locale|
             searchables = Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale:)
             expect(searchables.size).to eq(1)

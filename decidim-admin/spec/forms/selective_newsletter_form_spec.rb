@@ -18,7 +18,7 @@ module Decidim
       let(:selected_participatory_processes) { [participatory_processes.first.id.to_s] }
       let(:send_to_all_users) { user.admin? }
       let(:send_to_verified_users) { false }
-      let(:send_to_private_members) { false }
+      let(:send_to_members) { false }
       let(:send_to_participants) { false }
       let(:send_to_followers) { false }
       let(:participatory_space_types) { [] }
@@ -29,7 +29,7 @@ module Decidim
           "newsletter" => {
             "send_to_all_users" => send_to_all_users,
             "send_to_verified_users" => send_to_verified_users,
-            "send_to_private_members" => send_to_private_members,
+            "send_to_members" => send_to_members,
             "send_to_participants" => send_to_participants,
             "send_to_followers" => send_to_followers,
             "verification_types" => verification_types,
@@ -99,8 +99,8 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when send_to_private_members is true" do
-          let(:send_to_private_members) { true }
+        context "when send_to_members is true" do
+          let(:send_to_members) { true }
 
           it_behaves_like "selective newsletter form"
         end

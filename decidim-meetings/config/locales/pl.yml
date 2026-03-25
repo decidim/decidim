@@ -140,7 +140,6 @@ pl:
           success: Zduplikowano spotkanie.
         new:
           copy: Kopiuj
-          title: Duplikat spotkania
     components:
       meetings:
         actions:
@@ -285,7 +284,6 @@ pl:
             non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
           index:
-            invite_attendee: Zaproś uczestnika
             invites: Zaproszeni
             registrations_disabled: Nie można zaprosić uczestnika, ponieważ rejestracja jest wyłączona.
         meeting_closes:
@@ -367,7 +365,6 @@ pl:
               other: Było %{count} rejestracji.
             reserved_slots_help: Pozostaw 0, jeśli nie masz zarezerwowanych miejsc.
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
-            title: Rejestracje
           update:
             invalid: Wystąpił błąd przy zapisywaniu ustawień rejestracji.
             success: Zapisano ustawienia rejestracji.

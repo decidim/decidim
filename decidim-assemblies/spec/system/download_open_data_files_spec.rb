@@ -36,22 +36,22 @@ describe "Download Open Data files", download: true do
       it_behaves_like "does not include it in the open data ZIP file"
     end
 
-    context "when the assembly is published and not private" do
-      let!(:assembly) { create(:assembly, :published, organization:, private_space: false) }
+    context "when the assembly is published and open" do
+      let!(:assembly) { create(:assembly, :published, :open, organization:) }
       let(:resource_title) { translated_attribute(assembly.title).gsub('"', '""') }
 
       it_behaves_like "includes it in the open data ZIP file"
     end
 
-    context "when the assembly is published, private and transparent" do
-      let!(:assembly) { create(:assembly, :published, organization:, private_space: true, is_transparent: true) }
+    context "when the assembly is published and transparent" do
+      let!(:assembly) { create(:assembly, :published, :transparent, organization:) }
       let(:resource_title) { translated_attribute(assembly.title).gsub('"', '""') }
 
       it_behaves_like "includes it in the open data ZIP file"
     end
 
-    context "when the assembly is published, private and not transparent" do
-      let!(:assembly) { create(:assembly, :published, organization:, private_space: true, is_transparent: false) }
+    context "when the assembly is published and restricted" do
+      let!(:assembly) { create(:assembly, :published, :restricted, organization:) }
       let(:resource_title) { translated_attribute(assembly.title).gsub('"', '""') }
 
       it_behaves_like "does not include it in the open data ZIP file"
@@ -60,7 +60,7 @@ describe "Download Open Data files", download: true do
 
   describe "open data page" do
     let(:resource_type) { "assemblies" }
-    let!(:assembly) { create(:assembly, :published, organization:, private_space: false) }
+    let!(:assembly) { create(:assembly, :published, :open, organization:) }
     let(:resource_title) { translated_attribute(assembly.title).gsub('"', '""') }
 
     it_behaves_like "includes it in the open data CSV file"

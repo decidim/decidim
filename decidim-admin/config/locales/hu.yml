@@ -184,7 +184,6 @@ hu:
           alert: 'Szükséges: Tekintse át admin szolgáltatási feltételeinket'
           callout: Kérjük, szánjon egy percet az adminisztrátori szolgáltatási feltételek áttekintésére. Ellenkező esetben nem lesz képes kezelni a platformot.
           cta: Tekintse át őket most.
-        title: Admin szolgáltatási feltételek
       area_types:
         create:
           error: Hiba történt az új területtípus létrehozásakor.
@@ -226,8 +225,6 @@ hu:
         edit:
           title: Mappa szerkesztése
           update: Frissítés
-        index:
-          attachment_collections_title: Melléklet mappák
         new:
           create: Létrehozás
           title: Új mappa
@@ -243,8 +240,6 @@ hu:
         edit:
           title: Melléklet szerkesztése
           update: Frissítés
-        index:
-          attachments_title: Mellékletek
         new:
           create: Melléklet létrehozása
           title: Új melléklet
@@ -291,7 +286,6 @@ hu:
           title: '%{name} nevű elem hozzáadása'
         publish:
           success: Az elem közzététele sikeres volt.
-        title: Elemek
         unpublish:
           success: Az elem közzétételének visszavonása sikeres volt.
         update:
@@ -302,7 +296,6 @@ hu:
         'false': 'Nincs'
         managed_user_name: Kezelt felhasználó
         solved: Megoldva
-        title: Ellenőrzési konfliktusok
         transfer:
           email: Email
           error: Hiba történt a jelenlegi résztvevő kezelt résztvevővé átminősítése során.
@@ -434,7 +427,6 @@ hu:
           impersonate: Megszemélyesítés
           impersonate_existing_managed_user: '"%{name}" felhasználó kezelése'
           impersonate_existing_user: '"%{name}" felhasználó kezelése'
-          impersonate_new_managed_user: Új résztvevő kezelése
       imports:
         and: és
         data_errors:
@@ -487,7 +479,6 @@ hu:
         promotions:
           new:
             explanation: A kezelt résztvevők sztenderd résztvevőkké alakíthatóak. Ez azt jelenti, hogy meghívást kapnak az alkalmazáshoz és nem lehet őket újra kezelni. Erről emailben kapnak értesítést.
-            new_managed_user_promotion: Új résztvevő előléptetése
             promote: Előléptetés
       members_csv_imports:
         new:
@@ -631,7 +622,6 @@ hu:
           title: Hírlevél sablonok
           use_template: Sablon használata
         show:
-          preview: 'Sablon előnézet: %{template_name}'
           use_template: Sablon használata
       newsletters:
         create:
@@ -678,7 +668,6 @@ hu:
         send_to_user:
           sent_successfully: A hírlevél sikeresen kiküldésre került ide %{email}
         show:
-          preview: Előnézet
           select_recipients_to_deliver: Címzettek kiválasztása
           send_me_a_test_email: Teszt e-mail küldése
           subject: Tárgy
@@ -744,7 +733,6 @@ hu:
           up: Fel
         form:
           add: Hozzáadás az engedélyezett listához
-          title: Engedélyezett külső domainek listája
       reminders:
         create:
           error: Hiba történt a bejegyzés létrehozása során.
@@ -834,22 +822,11 @@ hu:
           error: Hiba történt az oldal frissítése során.
           success: Az oldal módosítása sikeres.
       titles:
-        admin_log: Admin napló
-        area_types: Terület típusok
         areas: Területek
         authorization_workflows: Ellenőrzési módszerek
-        dashboard: Vezérlőpult
-        edit_external_domains: Engedélyezett külső domainek listája
-        impersonatable_users: Kezelhető résztvevők
-        impersonations: Résztvevők kezelése
         menu: Menü
-        page_topics: Témák
-        pages: Oldalak
         panel: Admin
-        participants: Résztvevők
-        scope_types: Hatáskör típusok
         scopes: Hatáskörök
-        users: Adminisztrátorok
       users:
         create:
           error: Hiba történt a felhasználó adminnak történő meghívása során.

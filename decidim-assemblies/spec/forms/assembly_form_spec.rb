@@ -41,7 +41,6 @@ module Decidim
         end
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
-        let(:private_space) { true }
         let(:has_members) { true }
         let(:purpose_of_action) do
           {
@@ -83,7 +82,7 @@ module Decidim
             ca: "Organització interna"
           }
         end
-        let(:is_transparent) { true }
+        let(:access_mode) { "open" }
         let(:special_features) do
           {
             en: "Special features",
@@ -121,7 +120,6 @@ module Decidim
               "short_description_ca" => short_description[:ca],
               "hero_image" => attachment,
               "slug" => slug,
-              "private_space" => private_space,
               "has_members" => has_members,
               "purpose_of_action_en" => purpose_of_action[:en],
               "purpose_of_action_es" => purpose_of_action[:es],
@@ -140,7 +138,7 @@ module Decidim
               "internal_organisation_en" => internal_organisation[:en],
               "internal_organisation_es" => internal_organisation[:es],
               "internal_organisation_ca" => internal_organisation[:ca],
-              "is_transparent" => is_transparent,
+              "access_mode" => access_mode,
               "special_features_en" => special_features[:en],
               "special_features_es" => special_features[:es],
               "special_features_ca" => special_features[:ca],
@@ -166,6 +164,42 @@ module Decidim
           let(:has_members) { false }
 
           it { is_expected.to be_valid }
+        end
+
+        context "when access_mode is missing" do
+          let(:access_mode) { nil }
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when access_mode is present" do
+          let(:access_mode) { "open" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when access_mode is invalid" do
+          let(:access_mode) { "foo" }
+
+          it { is_expected.to be_invalid }
+        end
+
+        describe "default access_mode" do
+          let(:attributes) do
+            {
+              "assembly" => {
+                "title_en" => title[:en],
+                "title_es" => title[:es],
+                "title_ca" => title[:ca],
+                "slug" => slug,
+                "weight" => weight
+              }
+            }
+          end
+
+          it "is :open" do
+            expect(subject.access_mode).to eq("open")
+          end
         end
 
         context "when everything is OK" do
@@ -317,7 +351,7 @@ module Decidim
                 closing_date: assembly.closing_date,
                 closing_date_reason: assembly.closing_date_reason,
                 internal_organisation: assembly.internal_organisation,
-                is_transparent: assembly.is_transparent,
+                access_mode: assembly.access_mode,
                 special_features: assembly.special_features,
                 twitter_handler: assembly.twitter_handler,
                 facebook_handler: assembly.facebook_handler,
@@ -369,7 +403,7 @@ module Decidim
                 closing_date: assembly.closing_date,
                 closing_date_reason: assembly.closing_date_reason,
                 internal_organisation: assembly.internal_organisation,
-                is_transparent: assembly.is_transparent,
+                access_mode: assembly.access_mode,
                 special_features: assembly.special_features,
                 twitter_handler: assembly.twitter_handler,
                 facebook_handler: assembly.facebook_handler,

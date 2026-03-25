@@ -12,9 +12,9 @@ module Decidim
 
     it { is_expected.to act_as_paranoid }
 
-    describe ".private_non_transparent_space?" do
-      # since the initiatives do not respond to private_space? we are testing and make sure it does not fail
-      it { expect(subject).not_to be_private_non_transparent_space }
+    describe ".restricted_space?" do
+      # since the initiatives do not respond to restricted_space? we are testing and make sure it does not fail
+      it { expect(subject).not_to be_restricted_space }
     end
   end
 end

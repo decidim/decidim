@@ -88,8 +88,6 @@ it:
           success: Relatore della conferenza cancellato con successo.
         edit:
           update: Aggiorna
-        index:
-          conference_speakers_title: Relatori della conferenza
         new:
           create: Crea
         update:
@@ -204,7 +202,6 @@ it:
           update: Aggiornare
         new:
           create: Crea
-          title: Nuovo partner
         update:
           error: Si è verificato un errore durante l'aggiornamento di un partner per questa conferenza.
           success: Partner aggiornato correttamente per questa conferenza.
@@ -225,12 +222,9 @@ it:
           update: Aggiorna
         new:
           create: Crea
-          title: Nuovo tipo di iscrizione
         update:
           error: Si è verificato un errore durante l'aggiornamento di un tipo di iscrizione per questa conferenza.
           success: Tipo di iscrizione aggiornato correttamente in questa conferenza.
-      titles:
-        conferences: Conferenze
     admin_log:
       conference:
         create: "%{user_name} ha creato la conferenza %{resource_name}"
@@ -283,13 +277,8 @@ it:
             select_user: Seleziona utente
           index:
             invite_attendee: Invita il partecipante
-            invites: Inviti
           new:
             invite: Invita
-            new_invite: Invita partecipante
-        conference_registrations:
-          index:
-            registrations: Iscrizioni
         conference_speakers:
           form:
             existing_user: Utente esistente

@@ -102,8 +102,6 @@ bg:
         initiatives_menu:
           see_initiative: Вижте инициативата
         initiatives_settings: Настройки
-        initiatives_submenu:
-          info: Относно тази инициатива
         initiatives_types: Типове инициативи
         moderations: Модерации
       models:
@@ -137,9 +135,6 @@ bg:
             name_and_surname: Име и фамилия
             postal_code: Пощенски код
             timestamp: Времево клеймо
-      titles:
-        initiatives: Инициативи
-        initiatives_types: Типове инициативи
     events:
       initiatives:
         admin:
@@ -259,7 +254,6 @@ bg:
             publication_date: Най-скоро публикувани
             random: Произволно
             signatures: С най-много подписи
-            title: Настройки за инициативи
         initiatives_type_scopes:
           create:
             success: Създаден е нов обхват за дадения тип инициатива.

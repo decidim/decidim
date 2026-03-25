@@ -67,9 +67,6 @@ es-MX:
         alignment:
           against: En contra
           in_favor: A favor
-        answers:
-          one: "%{count} respuesta"
-          other: "%{count} respuestas"
         cancel_reply: Cancelar respuesta
         comment_label: Comentario %{comment_id}
         comment_label_reply: Comentario %{comment_id} (responder al comentario %{parent_comment_id})
@@ -83,7 +80,11 @@ es-MX:
         hide_replies:
           one: Ocultar respuesta
           other: Ocultar %{count} respuestas
+        load_replies: Cargar las respuestas
         moderated_at: Comentario moderado el %{date}
+        replies_count:
+          one: "%{count} respuesta"
+          other: "%{count} respuestas"
         reply: Respuesta
         report:
           action: Denunciar
@@ -115,7 +116,9 @@ es-MX:
         blocked_comments_warning: Los comentarios están desactivados en estos momentos, solo las administradoras pueden responder o publicar nuevos.
         comment_details_title: Detalles del comentario
         in_favor: A favor
+        load_more_comments: Cargar más comentarios
         loading: Cargando los comentarios ...
+        no_comments_yet: Aún no hay comentarios
         single_comment_warning: <a href="%{url}">Ver todos los comentarios</a>
         single_comment_warning_title: Estás viendo un solo comentario
         title:
