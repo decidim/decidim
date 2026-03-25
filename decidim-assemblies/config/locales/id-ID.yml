@@ -30,7 +30,6 @@ id:
         participatory_processes_ids: Proses Partisipatif Terkait
         participatory_scope: Apa yang diputuskan
         participatory_structure: Bagaimana cara memutuskannya
-        private_space: Ruang pribadi
         promoted: Dipromosikan
         published_at: Diterbitkan di
         purpose_of_action: Tujuan tindakan
@@ -71,8 +70,6 @@ id:
         edit:
           update: Memperbarui
         index:
-          private: Pribadi
-          public: Publik
           published: Diterbitkan
         new:
           create: Membuat
@@ -112,7 +109,6 @@ id:
         assembly:
           fields:
             created_at: Dibuat di
-            private: Pribadi
             promoted: Disorot
             published: Diterbitkan
             title: Judul
@@ -192,7 +188,6 @@ id:
             member_of: Anggota dari
       show:
         duration: Lamanya
-        private_space: Ini adalah pertemuan pribadi
     help:
       participatory_spaces:
         assemblies:
