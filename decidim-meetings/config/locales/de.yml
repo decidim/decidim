@@ -391,7 +391,6 @@ de:
             assign: Zuweisen
             link_a_space: Bereich verknüpfen
             private_meeting_warning: Verknüpfte Bereiche werden nicht angewendet, wenn die Veranstaltung privat und nicht transparent ist.
-            private_space_warning: Verknüpfte Bereiche werden nicht angewendet, wenn die Veranstaltung privat und nicht transparent ist.
             select: Einen Bereich auswählen
             table:
               actions: Aktionen
