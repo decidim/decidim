@@ -814,7 +814,7 @@ es-PY:
           select_users_for_participatory_space: Enviar el boletín informativo a uno o más espacios de participación
           select_users_general: Enviar un boletín general
           select_verification_types: Seleccionar métodos de verificación
-          send_to_all_users: Enviar a todas las usuarias
+          send_to_all_users: Enviar a todos los usuarios
           send_to_verified_users: Enviar a usuarias verificadas
           title: Selecciona los destinatarios
           verified_users_help: Envía un boletín informativo a todas las usuarias confirmadas y verificadas con cualquiera de los métodos de verificación seleccionados.
