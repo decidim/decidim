@@ -100,7 +100,7 @@ ja:
           update: 更新
         index:
           private: プライベート
-          public: 公開
+          public: 一般
           published: 公開済み
           unpublished: 未公開
         manage_trash:
