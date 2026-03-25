@@ -95,7 +95,6 @@ pt:
         participatory_process:
           fields:
             created_at: Criado em
-            private: Privado
             published: Publicado
             title: Título
           name: Processo participativo
@@ -186,8 +185,6 @@ pt:
         edit:
           update: Atualizar
         index:
-          private: Privado
-          public: Público
           published: Publicado
         new:
           create: Criar
@@ -325,7 +322,6 @@ pt:
           title: Sobre este processo
       show:
         belongs_to_group: Este processo pertence a
-        private_space: Este é um processo privado
         related_processes: Processos relacionados
     statistics:
       processes_count: Processos
