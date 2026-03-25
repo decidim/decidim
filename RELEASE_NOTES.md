@@ -39,6 +39,7 @@ sudo apt install libvips libvips-tools # or the alternative installation process
 bundle update decidim
 bin/rails decidim:upgrade
 sed -i "s/config\.load_defaults 7\.2/config\.load_defaults 8.1/g" config/application.rb # see "2.1. Ruby on Rails update to 8.1"
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-core/lib/decidim/shakapacker/shakapacker.yml -O config/shakapacker.yml # see 2.9. Shakapacker upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:encryption
 # skip this command if you have run it before:
@@ -159,7 +160,25 @@ We are also removing the `decidim_user_group_memberships` tables.
 
 You can read more about this change on PR [#16022](https://github.com/decidim/decidim/pull/16022).
 
-### 2.9. [[TITLE OF THE ACTION]]
+### 2.9. Shakapacker upgrade
+
+In our efforts to improve the performance of the application, we are upgrading Shakapacker to version 9.7.0.
+
+Please check if you have the following file package.json, and edit the version:
+
+```json
+    "shakapacker": "~9.7.0",
+```
+
+You will need to patch your `shakapacker.yml` file to adjust to the latest changes
+
+```bash
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-core/lib/decidim/shakapacker/shakapacker.yml -O config/shakapacker.yml
+```
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
+### 2.10. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

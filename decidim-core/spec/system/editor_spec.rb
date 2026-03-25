@@ -67,6 +67,7 @@ describe "Editor" do
         <!doctype html>
         <html lang="en">
         <head>
+          <meta charset="UTF-8">
           <title>Editor Test</title>
           <!--
             The CSRF token has to exist on the page for the image uploads to
