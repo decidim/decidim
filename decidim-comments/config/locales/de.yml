@@ -19,7 +19,7 @@ de:
     admin:
       admin_log:
         changeset:
-          comments: Bemerkungen
+          comments: Kommentare
     comments:
       admin:
         shared:
