@@ -30,7 +30,6 @@
         participatory_processes_ids: Relaterte deltakerprosesser
         participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
-        private_space: Privat området
         promoted: Fremhevet
         published_at: Publisert på
         purpose_of_action: Formål
@@ -78,8 +77,6 @@
         edit:
           update: Oppdater
         index:
-          private: Privat
-          public: Offentlig
           published: Publisert
         new:
           create: Opprett
@@ -126,7 +123,6 @@
         assembly:
           fields:
             created_at: Opprettet på
-            private: Privat
             promoted: Fremhevet
             published: Publisert
             title: Tittel
@@ -227,7 +223,6 @@
             member_of: Medlem av
       show:
         duration: Varighet
-        private_space: Dette er en privat forsamling
     events:
       assemblies:
         create_assembly_member:
