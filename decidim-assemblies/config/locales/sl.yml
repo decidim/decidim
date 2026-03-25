@@ -27,7 +27,6 @@ sl:
         participatory_processes_ids: Povezani participativni procesi
         participatory_scope: Kar je bilo odločeno
         participatory_structure: Kot je bilo odločeno
-        private_space: Zasebni prostor
         promoted: Poudarjeno
         published_at: Objavljeno
         purpose_of_action: Namen ukrepanja
@@ -77,8 +76,6 @@ sl:
         edit:
           update: Posodobi
         index:
-          private: Zasebno
-          public: Javno
           published: Objavljeno
         new:
           create: Ustvari
