@@ -1161,6 +1161,12 @@ es:
         update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Abierta
+            restricted: Restringida
+            transparent: Transparente
+          not_found: No se ha encontrado el tipo de acceso %{id}
         area_presenter:
           not_found: 'El área no se encontró en la base de datos (ID: %{id})'
         area_type_presenter:
@@ -1529,6 +1535,10 @@ es:
     participatory_space_members:
       index:
         members: Miembros
+    participatory_spaces:
+      show:
+        restricted_space: Este es un espacio restringido. Solo las miembros pueden verlo y participar.
+        transparent_space: Este es un espacio restringido pero transparente. Cualquiera puede ver el contenido, pero solo las miembros pueden participar.
     passwords:
       update:
         error: Se ha producido un error al actualizar la contraseña.
