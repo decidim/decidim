@@ -571,7 +571,6 @@ id:
         not_hidden: tidak tersembunyi
         title: Tindakan
         unhide: Tidak terlihat
-        unreport: Unreport
       admin:
         reportable:
           hide:
