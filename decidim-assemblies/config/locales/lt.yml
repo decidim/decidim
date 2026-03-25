@@ -35,7 +35,6 @@ lt:
         participatory_processes_ids: Susiję dalyvaujamieji procesai
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
-        private_space: Privati erdvė
         promoted: Paryškinta
         published_at: Publikuota
         purpose_of_action: Veiksmo tikslas
@@ -96,8 +95,6 @@ lt:
         edit:
           update: Atnaujinti
         index:
-          private: Privati
-          public: Vieša
           published: Publikuota
         new:
           create: Sukurti
@@ -144,7 +141,6 @@ lt:
         assembly:
           fields:
             created_at: Sukurta
-            private: Privatu
             promoted: Paryškinta
             published: Publikuota
             title: Pavadinimas
@@ -282,7 +278,6 @@ lt:
             member_of: Narys
       show:
         duration: Trukmė
-        private_space: Tai yra uždara asamblėja
         social_networks_title: Aplankyti asamblėją
     events:
       assemblies:
