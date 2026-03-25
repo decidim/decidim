@@ -334,6 +334,7 @@ describe "Admin manages elections" do
       end
 
       expect(page.html).to include(document.file.blob.filename.to_s)
+      expect(page).to have_field("election_title_en", with: "Updated election title with attachments")
     end
   end
 end
