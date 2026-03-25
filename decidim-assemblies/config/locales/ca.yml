@@ -40,7 +40,6 @@ ca:
         participatory_processes_ids: Processos participatius relacionats
         participatory_scope: Què es decideix?
         participatory_structure: Com es decideix
-        private_space: Espai privat
         promoted: Destacat
         published_at: Publicat el
         purpose_of_action: Propòsit de l'acció
@@ -102,8 +101,10 @@ ca:
         edit:
           update: Actualitzar
         index:
-          private: Privat
-          public: Públic
+          access_modes:
+            open: Oberta
+            restricted: Restringida
+            transparent: Transparent
           published: Publicat
           unpublished: Despublicada
         new:
@@ -170,9 +171,9 @@ ca:
       models:
         assembly:
           fields:
+            access_mode: Tipus d'accés
             actions: Accions
             created_at: Data de creació
-            private: Privada
             promoted: Destacada
             published: Publicada
             title: Títol
@@ -238,6 +239,12 @@ ca:
           edit:
             title: Quant a aquesta assemblea
           form:
+            access:
+              label: Accés
+              options:
+                open: Qualsevol pot veure i participar a l'assemblea.
+                restricted: Només les membres poden veure i participar a l'assemblea.
+                transparent: Qualsevol pot veure l'assemblea, però només les membres hi poden participar.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
@@ -247,7 +254,6 @@ ca:
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             other: Altre
-            private_notice: Fa que l'espai de participació no sigui visible per a les visitants i només ho sigui per a les usuàries membre (a no ser que també sigui transparent)
             select_a_created_by: Selecciona una creadora
             select_parent_assembly: Selecciona una assemblea mare
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -356,7 +362,6 @@ ca:
             member_of: Membre de
       show:
         duration: Durada
-        private_space: Aquesta és una assemblea privada
         social_networks_title: Visita l'assemblea a
     download_your_data:
       show:
@@ -391,6 +396,7 @@ ca:
     open_data:
       help:
         assemblies:
+          access_mode: 'Tipus d''accés: Si l''assemblea és oberta, restringida o transparent.'
           area: L'àrea a la qual correspon l'assemblea
           assembly_type: El tipus d'assemblea
           closing_date: La data de tancament de l'assemblea
