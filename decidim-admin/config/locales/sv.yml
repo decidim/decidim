@@ -820,6 +820,7 @@ sv:
           confirm_delete: Vill du radera nyhetsbrevet?
           followers: 'följare '
           has_been_sent_to: 'Har skickats till: '
+          members: 'medlemmar '
           not_sent: Inte skickat
           participants: 'deltagare '
           segmented_to: 'Segmenterad till %{subject}: '
@@ -837,6 +838,7 @@ sv:
           confirm_recipients: Bekräfta mottagare
           deliver: Leverera nyhetsbrev
           followers_help: Skickar nyhetsbrevet till alla verifierade användare som följer något av de markerade deltagarutrymmena i listan.
+          members_help: Skickar ett nyhetsbrev till alla användare som har lagts till som medlemmar i valda rum för deltagande.
           participants_help: Skickar nyhetsbrevet till alla verifierade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
           recipients_count: Nyhetsbrevet kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
           select_assemblies: Välj samråd
