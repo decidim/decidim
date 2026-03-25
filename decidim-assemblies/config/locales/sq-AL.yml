@@ -34,7 +34,6 @@ sq:
         participatory_processes_ids: Procese pjesëmarrëse të përafërta
         participatory_scope: Çfarë u vendos
         participatory_structure: Si u vendos
-        private_space: Hapësirë private
         promoted: Në pah
         published_at: Publikuar në
         purpose_of_action: Qëllimi i aksionit
@@ -80,8 +79,6 @@ sq:
         edit:
           update: Përditëso
         index:
-          private: Private
-          public: Publike
           published: E publikuar
           unpublished: E papublikuar
         new:
@@ -140,7 +137,6 @@ sq:
           fields:
             actions: Veprimet
             created_at: Krijuar më
-            private: Private
             promoted: Në pah
             published: E publikuar
             title: Titulli
@@ -279,5 +275,4 @@ sq:
             member_of: Anëtar i
       show:
         duration: Kohëzgjatja
-        private_space: Kjo është asamble private
         social_networks_title: Vizito asamblenë në
