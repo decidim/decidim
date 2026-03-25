@@ -104,7 +104,7 @@ sv:
           update: Uppdatera
         index:
           private: Privat
-          public: Öppen
+          public: Medborgare
           published: Publicerad
           unpublished: Ej publicerade
         new:
