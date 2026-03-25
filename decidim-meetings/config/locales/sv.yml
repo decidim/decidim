@@ -391,7 +391,6 @@ sv:
             assign: Tilldela
             link_a_space: Länka en process
             private_meeting_warning: Processer kan inte länkas om mötet är privat eller inte transparent.
-            private_space_warning: Processer kan inte länkas om mötet är privat eller inte transparent.
             select: Välj en process
             table:
               actions: Åtgärder
