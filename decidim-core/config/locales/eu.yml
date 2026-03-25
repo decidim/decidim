@@ -1161,6 +1161,12 @@ eu:
         update_permissions_with_space: "%{user_name} k %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
         update_with_space: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} hemen %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Zabaldu
+            restricted: Murriztua
+            transparent: Gardena
+          not_found: Ez da aurkitu %{id} sarbide mota
         area_presenter:
           not_found: 'Arloa ez da (ID: %{id}) datu-basean aurkitu'
         area_type_presenter:
@@ -1529,6 +1535,10 @@ eu:
     participatory_space_members:
       index:
         members: Kideak
+    participatory_spaces:
+      show:
+        restricted_space: Hau espazio murriztua da. Kideek soilik ikus dezakete eta parte hartu.
+        transparent_space: Hau espazio murriztua, baina gardena da. Edonork ikus dezake edukia, baina soilik kideek har dezakete parte.
     passwords:
       update:
         error: Arazo bat egon da pasahitza eguneratzean.
