@@ -381,7 +381,6 @@ fr:
             assign: Assigner
             link_a_space: Lier un espace
             private_meeting_warning: Les espaces liés ne seront pas appliqués si la rencontre est privée et non transparente.
-            private_space_warning: Les espaces liés ne seront pas appliqués lorsque la rencontre appartient à un espace privé non transparent.
             select: Sélectionner un espace
             table:
               actions: Actions
