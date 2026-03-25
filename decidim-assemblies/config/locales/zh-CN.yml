@@ -30,7 +30,6 @@ zh-CN:
         participatory_processes_ids: 相关的参与进程
         participatory_scope: 决定的内容
         participatory_structure: 如何决定
-        private_space: 私有空间
         promoted: 高亮
         published_at: 发布于
         purpose_of_action: 行动的目的
@@ -72,8 +71,6 @@ zh-CN:
         edit:
           update: 更新
         index:
-          private: 非公开的
-          public: 公开的
           published: 已发布
         new:
           create: 创建
@@ -120,7 +117,6 @@ zh-CN:
         assembly:
           fields:
             created_at: 创建于
-            private: 非公开的
             promoted: 高亮
             published: 已发布
             title: 标题
@@ -213,7 +209,6 @@ zh-CN:
             member_of: 成员
       show:
         duration: 期限
-        private_space: 这是一个私人装饰
     events:
       assemblies:
         create_assembly_member:
