@@ -35,7 +35,6 @@ bg:
         participatory_processes_ids: Свързани процеси за участие
         participatory_scope: Какво е решено
         participatory_structure: Как е решено
-        private_space: Частно пространство
         promoted: Акцентирано
         published_at: Публикувано на
         purpose_of_action: Цел на действието
@@ -92,8 +91,6 @@ bg:
         edit:
           update: Актуализация
         index:
-          private: Частни
-          public: Публични
           published: Публикувано
           unpublished: Непубликувано
         new:
@@ -152,7 +149,6 @@ bg:
           fields:
             actions: Активности
             created_at: Създадено на
-            private: Частни
             promoted: Акцентирано
             published: Публикувано
             title: Заглавие
@@ -294,7 +290,6 @@ bg:
             member_of: Член на
       show:
         duration: Продължителност
-        private_space: Това е частно събрание
         social_networks_title: Посетете събранието на
     events:
       assemblies:
