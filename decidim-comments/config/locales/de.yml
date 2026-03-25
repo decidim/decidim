@@ -20,7 +20,7 @@ de:
     admin:
       admin_log:
         changeset:
-          comments: Bemerkungen
+          comments: Kommentare
     comments:
       admin:
         shared:
@@ -211,7 +211,7 @@ de:
       comments:
         description: Anzahl der von Benutzern generierten Kommentare
         object: Bemerkungen
-        title: Bemerkungen
+        title: Kommentare
   errors:
     messages:
       cannot_have_comments: kann keine Kommentare haben
