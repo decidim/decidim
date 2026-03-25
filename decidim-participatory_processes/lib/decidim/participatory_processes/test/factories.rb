@@ -57,10 +57,12 @@ FactoryBot.define do
     end
 
     trait :transparent do
+      has_members { true }
       access_mode { :transparent }
     end
 
     trait :restricted do
+      has_members { true }
       access_mode { :restricted }
     end
 
