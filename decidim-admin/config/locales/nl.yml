@@ -585,6 +585,7 @@ nl:
           participants_help: Verstuurt nieuwsbrief naar alle bevestigde gebruikers die hebben deelgenomen aan een van de geselecteerde participatieve ruimten in de lijst.
           recipients_count: Deze nieuwsbrief zal worden verzonden naar <strong id='recipients_count'>%{count}</strong> gebruikers.
           select_spaces: Selecteer ruimtes om de nieuwsbrief te segmenteren
+          send_to_all_users: Stuur naar alle gebruikers
           title: Selecteer ontvangers
           warning: "<strong>Opgelet:</strong> Deze nieuwsbrief zal alleen worden verzonden naar gebruikers die <em>Ik wil nieuwsbrieven ontvangen</em> in hun notificatie instellingen hebben geactiveerd."
         show:

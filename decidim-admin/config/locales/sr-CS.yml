@@ -403,6 +403,7 @@ sr:
           participants_help: Pošalji bilten svim potvrđenim učesnicima koji su učestvovali u bilo kojem od odabranih prostora za učešće sa liste.
           recipients_count: Ovaj bilten biće dostavljen <strong id='recipients_count'>%{count}</strong> korisnicima.
           select_spaces: Izaberite prostore da podelite bilten
+          send_to_all_users: Pošalji svim korisnicima
           title: Izaberi primaoce za dostavu
           warning: "<strong>Pažnja:</strong> Ovaj bilten će biti poslan samo korisnicima koji su aktivirali <em>Želim da dobijam biltene</em> u svojim podešavanjima obaveštenja."
         show:

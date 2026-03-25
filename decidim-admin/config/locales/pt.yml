@@ -563,7 +563,7 @@ pt:
           participants_help: Envia um boletim informativo para todos os utilizadores confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
           recipients_count: Este boletim informativo será enviado para <strong id='recipients_count'>%{count}</strong> utilizadores.
           select_spaces: Selecione os espaços para segmentar o boletim informativo
-          send_to_all_users: Enviar para todas as pessoas utilizadoras
+          send_to_all_users: Enviar para todos os utilizadores
           title: Selecione os destinatários
           warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
         show:

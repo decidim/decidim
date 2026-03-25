@@ -401,6 +401,7 @@ bs:
           participants_help: Pošalji bilten svim potvrđenim učesnicima koji su učestvovali u bilo kojem od odabranih prostora za učešće sa liste.
           recipients_count: Ovaj bilten biće dostavljen %{count} korisnicima.
           select_spaces: Izaberite prostore da podelite bilten
+          send_to_all_users: Pošalji svim korisnicima
           title: Izaberi primaoce za dostavu
           warning: "Pažnja: Ovaj bilten će biti poslan samo korisnicima koji su aktivirali Želim da dobijam biltene u svojim podešavanjima obaveštenja."
         show:

@@ -403,6 +403,7 @@ lv:
           participants_help: Nosūta informatīvo biļetenu visiem apstiprinātajiem lietotājiem, kuri ir piedalījušies jebkurā no sarakstā atzīmētajām līdzdalības telpām.
           recipients_count: Šis informatīvais biļetens tiks nosūtīts <strong id='recipients_count'>%{count}</strong> lietotājiem.
           select_spaces: Izvēlieties telpas, lai segmentētu informatīvo biļetenu
+          send_to_all_users: Nosūtīt visiem lietotājiem
           title: Izvēlieties adresātus, kuriem nosūtīt
           warning: "<strong>Uzmanību:</strong> šis informatīvais biļetens tiks nosūtīts tikai tiem lietotājiem, kuri savos paziņojumu iestatījumos ir aktivizējuši <em>Vēlos saņemt informatīvos biļetenus</em>."
         show:

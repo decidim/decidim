@@ -657,7 +657,7 @@ tr:
                 title: Engelli kaldır
                 update_moderated_user_button: Kullanıcıların Engelini Kaldır
               unreport:
-                title: Bildirilmedi
+                title: Şikayeti geri çek
             ignore:
               update_moderated_user_button: Kullanıcıların şikayetlerini geri çek
             title: Eylemler
@@ -761,7 +761,7 @@ tr:
           select_participatory_processes: Katılımcı süreçleri seç
           select_spaces: Haber bültenini bölmek için alanları seçin
           select_users_for_participatory_space: Bir veya daha fazla katılımcı alana bülten gönderin
-          send_to_all_users: Bütün kullanıcılara gönder
+          send_to_all_users: Tüm kullanıcılara gönder
           title: Teslim etmek için alıcıları seçiniz
           warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
         send:

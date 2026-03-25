@@ -689,7 +689,7 @@ ca:
                 title: Desbloquejar
                 update_moderated_user_button: Desbloquejar usuàries
               unreport:
-                title: Desfer denúncia
+                title: Desfer la denúncia
             ignore:
               update_moderated_user_button: Desfer la denúncia a les usuàries
             title: Accions
@@ -814,7 +814,7 @@ ca:
           select_users_for_participatory_space: Enviar el butlletí informatiu a un o més espais de participació
           select_users_general: Enviar un butlletí general
           select_verification_types: Seleccionar mètodes de verificació
-          send_to_all_users: Envia a totes les usuàries
+          send_to_all_users: Envia a totes les participants
           send_to_verified_users: Enviar a usuàries verificades
           title: Selecciona les destinatàries a lliurar
           verified_users_help: Envia un butlletí informatiu a tots els usuaris confirmats i verificats amb qualsevol dels mètodes de verificació seleccionats.

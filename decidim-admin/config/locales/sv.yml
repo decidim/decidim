@@ -683,7 +683,7 @@ sv:
                 title: Häv blockering
                 update_moderated_user_button: Avblockera användare
               unreport:
-                title: Ta bort rapport
+                title: Dra tillbaka rapport
             ignore:
               update_moderated_user_button: Avrapportera användare
             title: Åtgärder

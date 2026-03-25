@@ -811,7 +811,7 @@ fr-CA:
           select_users_for_participatory_space: Envoyer la newsletter à un ou plusieurs espaces participatifs
           select_users_general: Envoyer la newsletter générale
           select_verification_types: Choisissez les méthodes de vérification
-          send_to_all_users: Envoyer à tous les utilisateurs
+          send_to_all_users: Envoyer à tous
           send_to_verified_users: Envoyer aux utilisateurs vérifiés
           title: Sélectionner les destinataires
           verified_users_help: Envoie une newsletter à tous les utilisateurs confirmés et vérifiés via n'importe quelle méthode de vérification sélectionnée.

@@ -290,7 +290,7 @@ fr:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> a accepté votre invitation à devenir co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
           actions:
-            accept: Accepté
+            accept: Accepter
             decline: Refuser
           email_intro: 'Vous avez été invité à être co-auteur de la proposition "%{resource_title}". Vous pouvez accepter ou refuser l''invitation sur cette page :'
           email_outro: Vous avez reçu cette notification parce que l'auteur de la proposition veut reconnaître vos contributions en devenant co-auteur.
@@ -723,7 +723,7 @@ fr:
             error: Votre demande n'a pas pu être complétée, réessayez plus tard.
             success: Votre demande de collaboration a été envoyée avec succès.
           collaboration_requests:
-            accept_request: Accepté
+            accept_request: Accepter
             reject_request: Rejeté
             title: Demandes de collaboration
           rejected_request:

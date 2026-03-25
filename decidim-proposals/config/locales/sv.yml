@@ -293,7 +293,7 @@ sv:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> har accepterat din inbjudan att bli medförfattare till förslaget <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
           actions:
-            accept: Godkänn
+            accept: Acceptera
             decline: Avböj
           email_intro: 'Du har blivit inbjuden att vara medförfattare till förslaget "%{resource_title}". Du kan acceptera eller avböja inbjudan på denna sida:'
           email_outro: Du har fått detta meddelande eftersom författaren till förslaget vill erkänna dina bidrag genom att göra dig till medförfattare.
@@ -805,7 +805,7 @@ sv:
             error: Din begäran kunde inte behandlas, försök igen senare.
             success: Din förfrågan om samarbete har skickats.
           collaboration_requests:
-            accept_request: Godkänn
+            accept_request: Acceptera
             reject_request: Avvisa
             title: Förfrågningar om samarbete
           rejected_request:

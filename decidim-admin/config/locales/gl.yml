@@ -571,6 +571,7 @@ gl:
           participants_help: Enviar boletíns a todos os usuarios confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
           recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> usuarios.
           select_spaces: Seleccionar espazos para segmentar o boletín
+          send_to_all_users: Enviar a todos os usuarios
           title: Seleccionar os destinatarios
           warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
         show:
