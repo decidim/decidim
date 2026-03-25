@@ -81,7 +81,7 @@ uk:
           update: Оновити
         index:
           private: Приватні
-          public: Оприлюдені
+          public: Громадяни
           published: Оприлюднено
         new:
           create: Додати
