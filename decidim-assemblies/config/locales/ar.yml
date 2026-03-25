@@ -35,7 +35,6 @@ ar:
         participatory_processes_ids: العمليات التشاركية ذات الصلة
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
-        private_space: مساحة خاصة
         promoted: سلط الضوء
         published_at: نشرت في
         purpose_of_action: الغرض من العمل
@@ -97,8 +96,6 @@ ar:
         edit:
           update: تحديث
         index:
-          private: خاص
-          public: عامة
           published: نشرت
         new:
           create: إنشاء
@@ -146,7 +143,6 @@ ar:
           fields:
             actions: الإجراءات
             created_at: تاريخ الإنشاء
-            private: خاص
             promoted: سلط الضوء
             published: نشرت
             title: العنوان
@@ -257,7 +253,6 @@ ar:
             member_of: عضو في
       show:
         duration: المدة الزمنية
-        private_space: هذه جمعية خاصة
         social_networks_title: زيارة التجمع على
     events:
       assemblies:
