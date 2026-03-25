@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-verifications version.
   module Verifications
     def self.version
-      "0.30.6"
+      "0.30.7"
     end
   end
 end
