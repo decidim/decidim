@@ -822,7 +822,6 @@ sv:
           has_been_sent_to: 'Har skickats till: '
           not_sent: Inte skickat
           participants: 'deltagare '
-          private_members: 'privata medlemmar '
           segmented_to: 'Segmenterad till %{subject}: '
           subscribed_count: 'Prenumeranter:'
           title: Nyhetsbrev
@@ -839,7 +838,6 @@ sv:
           deliver: Leverera nyhetsbrev
           followers_help: Skickar nyhetsbrevet till alla verifierade användare som följer något av de markerade deltagarutrymmena i listan.
           participants_help: Skickar nyhetsbrevet till alla verifierade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
-          private_members_help: Skickar ett nyhetsbrev till alla bekräftade användare som har lagts till de valda privata deltagarutrymmena.
           recipients_count: Nyhetsbrevet kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
           select_assemblies: Välj samråd
           select_conferences: Välj konferenser
