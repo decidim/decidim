@@ -53,7 +53,6 @@ is-IS:
         participatory_process:
           fields:
             created_at: Búið til á
-            private: Einkamál
             published: Published
             title: Titill
           name: Þátttökuferli
@@ -97,8 +96,6 @@ is-IS:
         edit:
           update: Uppfæra
         index:
-          private: Einkamál
-          public: Opinber
           published: Published
         new:
           create: Búa til
@@ -133,7 +130,6 @@ is-IS:
       index:
         title: Þátttökuferli
       show:
-        private_space: Þetta er einkarekið ferli
         related_processes: Tengd ferli
   layouts:
     decidim:
