@@ -643,6 +643,7 @@ zh-TW:
           participants_help: 發送通訊給所有在列表中任何選定的參與空間中參與過的已確認使用者。
           recipients_count: 此通訊將發送給<strong id='recipients_count'>%{count}</strong>位使用者。
           select_spaces: 選擇要將通訊進行分割的空間
+          send_to_all_users: 傳送給所有使用者
           title: 選擇要傳送的收件人
           warning: "<strong>注意：</strong>此通訊將僅傳送給已在其通知設定中啟用<em>我想收到通訊</em>的使用者。"
         send:
