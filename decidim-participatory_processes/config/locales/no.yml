@@ -20,7 +20,6 @@
         participatory_process_group_id: Prosessgruppe
         participatory_scope: Medvirkningen gjelder
         participatory_structure: Hvordan det blir gjort
-        private_space: Privat prosess
         promoted: Fremhevet
         published_at: Publisert på
         related_process_ids: Relaterte prosesser
@@ -112,7 +111,6 @@
           fields:
             actions: Handlinger
             created_at: Opprettet på
-            private: Privat
             published: Publisert
             title: Tittel
           name: Deltakende prosess
@@ -206,8 +204,6 @@
         edit:
           update: Oppdater
         index:
-          private: Privat
-          public: Offentlig
           published: Publisert
           unpublished: Upublisert
         new:
@@ -360,7 +356,6 @@
           title: Om denne prosessen
       show:
         belongs_to_group: Denne prosessen tilhører
-        private_space: Dette er en lukket prosess
         related_processes: Relaterte prosesser
     statistics:
       processes_count: Prosesser
