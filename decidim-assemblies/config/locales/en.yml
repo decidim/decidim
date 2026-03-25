@@ -242,6 +242,7 @@ en:
           form:
             access:
               label: Access
+              set_this_space_as: Set this space as
               options:
                 open: Everyone can see the assembly and participate.
                 restricted: Only members can see and participate.
