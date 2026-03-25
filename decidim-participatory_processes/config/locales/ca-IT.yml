@@ -25,7 +25,6 @@ ca-IT:
         participatory_process_group_id: Grup de processos
         participatory_scope: El que es decideix
         participatory_structure: Com es decideix
-        private_space: Procés privat
         promoted: Destacat
         published_at: Publicat el
         related_process_ids: Processos relacionats
@@ -105,6 +104,12 @@ ca-IT:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Per grup de processos
+        with_any_access_mode:
+          label: Tipus d'accés
+          values:
+            open: Obert
+            restricted: Restringit
+            transparent: Transparent
       menu:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
@@ -123,9 +128,9 @@ ca-IT:
       models:
         participatory_process:
           fields:
+            access_mode: Tipus d'accés
             actions: Accions
             created_at: Data de creació
-            private: Privat
             published: Publicat
             title: Títol
           name: Procés participatiu
@@ -230,8 +235,10 @@ ca-IT:
         edit:
           update: Actualitza
         index:
-          private: Privat
-          public: Públic
+          access_modes:
+            open: Obert
+            restricted: Restringit
+            transparent: Transparent
           published: Publicat
           unpublished: Despublicat
         new:
@@ -313,6 +320,7 @@ ca-IT:
     open_data:
       help:
         participatory_processes:
+          access_mode: 'Tipus d''accés: Si el procés participatiu és obert, restringit o transparent.'
           area: L'àrea a què pertany aquest procés
           component_settings: Configuració dels components del procés participatiu
           created_at: La data en què es va crear aquest procés participatiu
@@ -507,13 +515,18 @@ ca-IT:
           edit:
             title: Quant a aquest procés
           form:
+            access:
+              label: Accés
+              options:
+                open: Qualsevol pot veure i participar en el procés participatiu.
+                restricted: Només les membres poden veure i participar en el procés participatiu.
+                transparent: Qualsevol pot veure el procés participatiu, però només les membres hi poden participar.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             has_members_help: Podràs crear i publicar membres
             images: Imatges
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
-            private_notice: Fa que l'espai de participació no sigui visible per a les visitants i només ho sigui per a les usuàries membre (a no ser que també sigui transparent)
             related_processes: Processos relacionats
             select_process_group: Selecciona un grup de processos
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -616,7 +629,6 @@ ca-IT:
           title: Quant a aquest procés
       show:
         belongs_to_group: Aquest procés pertany a
-        private_space: Aquest és un procés privat
         related_processes: Processos relacionats
       static_pages:
         democratic_quality_indicators:
