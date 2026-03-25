@@ -29,7 +29,6 @@ ru:
         participatory_processes_ids: Сопутствующие движения соучастия
         participatory_scope: Что решается
         participatory_structure: Как это решается
-        private_space: Частное пространство
         promoted: Рекомендуется
         published_at: 'Обнародовано:'
         purpose_of_action: Цель действия
@@ -79,8 +78,6 @@ ru:
         edit:
           update: Обновить
         index:
-          private: Частное
-          public: Обнародованные
           published: Обнародовано
         new:
           create: Добавить
@@ -120,7 +117,6 @@ ru:
         assembly:
           fields:
             created_at: 'Добавлено:'
-            private: Частное
             promoted: Рекомендуемые
             published: Обнародовано
             title: Название
@@ -183,7 +179,6 @@ ru:
             member_of: 'Входит в состав:'
       show:
         duration: Длительность
-        private_space: Это частное собрание
     log:
       value_types:
         assembly_presenter:
