@@ -20,7 +20,6 @@ pl:
         participatory_process_group_id: Grupa procesów
         participatory_scope: Zaproponowano
         participatory_structure: Jak decydowano
-        private_space: Proces prywatny
         promoted: Promowany
         published_at: Opublikowano
         related_process_ids: Powiązane procesy
@@ -118,7 +117,6 @@ pl:
           fields:
             actions: Działania
             created_at: Utworzono
-            private: Prywatny
             published: Opublikowany
             title: Tytuł
           name: Proces partycypacyjny
@@ -212,8 +210,6 @@ pl:
         edit:
           update: Aktualizuj
         index:
-          private: Prywatny
-          public: Publiczny
           published: Opublikowany
           unpublished: Nieopublikowany
         new:
@@ -423,7 +419,6 @@ pl:
           title: O tym procesie
       show:
         belongs_to_group: Ten proces należy do
-        private_space: To jest prywatny proces
         related_processes: Powiązane procesy
     statistics:
       processes_count: Procesy
