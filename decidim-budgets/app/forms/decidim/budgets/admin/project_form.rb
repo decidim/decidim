@@ -76,7 +76,7 @@ module Decidim
         # an error, the attachment is lost, so we need a way to inform the user of
         # this problem.
         def notify_missing_attachment_if_errored
-          errors.add(:add_photos, :needs_to_be_reattached) if errors.any? && add_photos.present?
+          errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
         end
       end
     end
