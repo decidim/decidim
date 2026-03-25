@@ -658,6 +658,7 @@ lt:
           participants_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie dalyvavo bet kurioje sąraše nurodytoje pasirinktoje dalyvaujamojo proceso erdvėje.
           recipients_count: Šis naujienlaiškis bus išsiųstas <strong id='recipients_count'>%{count}</strong> naudotojams.
           select_spaces: Pasirinkite naujienlaiškio segmentacijos vietas
+          send_to_all_users: Siųsti visiems naudotojams
           title: Pasirinkti gavėjus, kuriems išsiųsti
           warning: "<strong>Dėmesio:</strong> Šis naujienlaiškis bus išsiųstas tik tiems dalyviams, kurie savo pranešimų nuostatose aktyvino<em> „noriu gauti naujienlaiškius“</em>."
         send:
