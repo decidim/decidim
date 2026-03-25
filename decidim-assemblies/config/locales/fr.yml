@@ -103,7 +103,7 @@ fr:
           update: Mettre à jour
         index:
           private: Privée
-          public: Publique
+          public: Public
           published: Publiée
           unpublished: Non publié
         manage_trash:
