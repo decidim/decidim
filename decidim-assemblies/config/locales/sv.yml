@@ -101,6 +101,10 @@ sv:
         edit:
           update: Uppdatera
         index:
+          access_modes:
+            open: Öppen
+            restricted: Begränsad
+            transparent: Transparent
           published: Publicerad
           unpublished: Ej publicerade
         new:
@@ -167,6 +171,7 @@ sv:
       models:
         assembly:
           fields:
+            access_mode: Åtkomstläge
             actions: Åtgärder
             created_at: Skapad
             promoted: Utvald
@@ -232,6 +237,12 @@ sv:
       admin:
         assemblies:
           form:
+            access:
+              label: Åtkomst
+              options:
+                open: Alla kan se och delta i sammankomsten.
+                restricted: Endast medlemmar kan se och delta.
+                transparent: Alla kan se sammankomsten, men bara medlemmar kan delta.
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             duration: Varaktighet
             duration_help: Välj ett slutdatum om samrådet är tidsbegränsat.
@@ -366,6 +377,7 @@ sv:
     open_data:
       help:
         assemblies:
+          access_mode: Åtkomstläge. Huruvida sammankomsten är öppen, begränsad eller transparent.
           area: Samrådets område
           assembly_type: Typ av samråd
           closing_date: Slutdatum för samrådet
