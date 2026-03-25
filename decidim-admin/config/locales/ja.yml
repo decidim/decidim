@@ -699,12 +699,12 @@ ja:
                 title: ブロック解除
                 update_moderated_user_button: ユーザーのブロックを解除
               unreport:
-                title: 報告解除
+                title: 通報を解除
             ignore:
               update_moderated_user_button: ユーザーの通報を解除
             title: アクション
             unblock: ユーザーのブロックを解除
-            unreport: 報告解除
+            unreport: 通報を解除
           cancel: キャンセル
           name: 名前
           nickname: ニックネーム
@@ -731,7 +731,7 @@ ja:
               title: 非表示解除
               update_moderation_button: 選択したリソースの非表示を解除
             unreport:
-              title: 報告解除
+              title: 通報を解除
               update_moderation_button: 選択したリソースの通報を解除
           cancel: キャンセル
           selected: 選択済み
@@ -1345,7 +1345,7 @@ ja:
         parent_hidden: 親がまだ非表示になっているため、このリソースを表示できません。
         title: アクション
         unhide: 非表示解除
-        unreport: 報告解除
+        unreport: 通報を解除
       admin:
         reportable:
           bulk_action:

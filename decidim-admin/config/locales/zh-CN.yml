@@ -661,7 +661,6 @@ zh-CN:
         not_hidden: 不隐藏
         title: 行动
         unhide: Unhide
-        unreport: 取消报告
       admin:
         reportable:
           hide:

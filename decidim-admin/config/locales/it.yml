@@ -682,12 +682,12 @@ it:
                 title: Sblocca
                 update_moderated_user_button: Sblocca Utenti
               unreport:
-                title: Non inserire
+                title: Annulla segnalazione
             ignore:
               update_moderated_user_button: Annulla segnalazione utenti
             title: Azioni
             unblock: Sblocca Utente
-            unreport: Non inserire
+            unreport: Annulla segnalazione
           cancel: Annulla
           name: Nome
           nickname: Nickname
@@ -714,7 +714,7 @@ it:
               title: unhide
               update_moderation_button: Nascondi le risorse selezionate
             unreport:
-              title: Non inserire
+              title: Annulla segnalazione
               update_moderation_button: Annulla segnalazione per le risorse selezionate
           cancel: Annulla
           selected: selezionato
@@ -1199,7 +1199,7 @@ it:
         not_hidden: Non nascosto
         title: Azioni
         unhide: unhide
-        unreport: Non inserire
+        unreport: Annulla segnalazione
       admin:
         reportable:
           hide:

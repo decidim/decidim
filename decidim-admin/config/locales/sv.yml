@@ -698,12 +698,12 @@ sv:
                 title: Häv blockering
                 update_moderated_user_button: Avblockera användare
               unreport:
-                title: Ta bort rapport
+                title: Dra tillbaka rapport
             ignore:
               update_moderated_user_button: Avrapportera användare
             title: Åtgärder
             unblock: Avblockera användare
-            unreport: Ta bort rapport
+            unreport: Dra tillbaka rapport
           cancel: Avbryt
           name: Namn
           nickname: Användarnamn
@@ -730,7 +730,7 @@ sv:
               title: Sluta dölja
               update_moderation_button: Sluta dölja valda resurser
             unreport:
-              title: Ta bort rapport
+              title: Dra tillbaka rapport
               update_moderation_button: Avrapportera valt innehåll
           cancel: Avbryt
           selected: valda
@@ -1339,7 +1339,7 @@ sv:
         parent_hidden: Du kan inte visa innehållet eftersom dess överordnade innehåll fortfarande är dolt.
         title: Åtgärder
         unhide: Sluta dölja
-        unreport: Ta bort rapport
+        unreport: Dra tillbaka rapport
       admin:
         reportable:
           bulk_action:

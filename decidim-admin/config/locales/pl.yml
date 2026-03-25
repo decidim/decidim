@@ -1039,7 +1039,7 @@ pl:
         not_hidden: Widoczny
         title: Działania
         unhide: Pokaż
-        unreport: Brak oceny
+        unreport: Cofnij zgłoszenie
       admin:
         reportable:
           hide:
