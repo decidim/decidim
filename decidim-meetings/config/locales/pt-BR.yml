@@ -395,7 +395,6 @@ pt-BR:
             assign: Atribuir
             link_a_space: Vincular um espaço
             private_meeting_warning: Espaços vinculados não serão aplicados se o evento for privado e não transparente.
-            private_space_warning: Espaços vinculados não serão aplicados quando o evento pertencer a um espaço privado não transparente.
             select: Selecione um espaço
             table:
               actions: Ações
