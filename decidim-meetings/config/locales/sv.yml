@@ -391,6 +391,7 @@ sv:
             assign: Tilldela
             link_a_space: Länka en process
             private_meeting_warning: Processer kan inte länkas om mötet är privat eller inte transparent.
+            restricted_space_warning: Länkade rum tillämpas inte när mötet tillhör ett begränsat rum.
             select: Välj en process
             table:
               actions: Åtgärder
