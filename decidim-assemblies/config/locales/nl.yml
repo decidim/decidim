@@ -30,7 +30,6 @@ nl:
         participatory_processes_ids: Verwante inspraakprocessen
         participatory_scope: Wat is besloten
         participatory_structure: Hoe wordt er besloten
-        private_space: Privé ruimte
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         purpose_of_action: Doelstelling
@@ -78,8 +77,6 @@ nl:
         edit:
           update: Bijwerken
         index:
-          private: Privé
-          public: Openbaar
           published: Gepubliceerd
         new:
           create: creëren
@@ -126,7 +123,6 @@ nl:
         assembly:
           fields:
             created_at: Aangemaakt op
-            private: Privaat
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
@@ -233,7 +229,6 @@ nl:
             member_of: Lid van
       show:
         duration: Duur
-        private_space: Dit is een privé event
         social_networks_title: Bezoek groep op
     events:
       assemblies:
