@@ -40,7 +40,6 @@ de:
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         participatory_scope: Was wird entschieden?
         participatory_structure: Wie wird es entschieden?
-        private_space: Privatsphäre
         promoted: Hervorgehoben
         published_at: Veröffentlicht am
         purpose_of_action: Handlungszweck
@@ -100,8 +99,6 @@ de:
         edit:
           update: Aktualisieren
         index:
-          private: Privat
-          public: Öffentlich
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
         new:
@@ -170,7 +167,6 @@ de:
           fields:
             actions: Aktionen
             created_at: Erstellt am
-            private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
@@ -334,7 +330,6 @@ de:
             member_of: Mitglied von
       show:
         duration: Aktiv bis
-        private_space: Dies ist eine private Versammlung
         social_networks_title: Gremium besuchen unter
     download_your_data:
       show:
