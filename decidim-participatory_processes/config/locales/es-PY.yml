@@ -25,7 +25,6 @@ es-PY:
         participatory_process_group_id: Grupo de procesos
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
-        private_space: Proceso privado
         promoted: Destacado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
@@ -105,6 +104,12 @@ es-PY:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Por grupo de procesos
+        with_any_access_mode:
+          label: Tipo de acceso
+          values:
+            open: Abierto
+            restricted: Restringido
+            transparent: Transparente
       menu:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
@@ -123,9 +128,9 @@ es-PY:
       models:
         participatory_process:
           fields:
+            access_mode: Tipo de acceso
             actions: Acciones
             created_at: Fecha de creación
-            private: Privado
             published: Publicada
             title: Título
           name: Proceso participativo
@@ -230,8 +235,10 @@ es-PY:
         edit:
           update: Actualizar
         index:
-          private: Privado
-          public: Público
+          access_modes:
+            open: Abierto
+            restricted:
+            transparent: Transparente
           published: Publicada
           unpublished: Despublicado
         new:
@@ -313,6 +320,7 @@ es-PY:
     open_data:
       help:
         participatory_processes:
+          access_mode: Tipos de acceso. Si el proceso es abierto, restringido o transparente.
           area: El área a la que pertenece el proceso
           component_settings: Configuración de los componentes del proceso participativo
           created_at: La fecha en la que se creó este proceso participativo
@@ -507,13 +515,18 @@ es-PY:
           edit:
             title: Acerca de este proceso
           form:
+            access:
+              label: Acceso
+              options:
+                open: Cualquiera puede ver y participar en el proceso participativo.
+                restricted: Solo las miembros pueden ver y participar en el proceso participativo.
+                transparent: Cualquiera puede ver el proceso participativo, pero solo las miembros pueden participar.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             has_members_help: Podrás crear y publicar miembros
             images: Imágenes
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
-            private_notice: Hace que el espacio de participación no sea visible para las visitantes y sólo lo sea para las usuarias miembro (excepto si también es transparente)
             related_processes: Procesos relacionados
             select_process_group: Seleccione un grupo de proceso
             slug_help_html: 'Los nombres cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -616,7 +629,6 @@ es-PY:
           title: Acerca de este proceso
       show:
         belongs_to_group: Este proceso pertenece a
-        private_space: Este es un proceso privado
         related_processes: Procesos relacionados
       static_pages:
         democratic_quality_indicators:
