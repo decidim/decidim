@@ -92,7 +92,9 @@ export default class extends Controller {
       params.append("alignment", this.alignmentValue);
     }
 
-    const separator = this.urlValue.includes("?") ? "&" : "?";
+    const separator = this.urlValue.includes("?")
+      ? "&"
+      : "?";
     return `${this.urlValue}${separator}${params.toString()}`;
   }
 

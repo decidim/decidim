@@ -101,7 +101,9 @@ export default class extends Controller {
       "load_more": 1
     });
 
-    const separator = this.urlValue.includes("?") ? "&" : "?";
+    const separator = this.urlValue.includes("?")
+      ? "&"
+      : "?";
     return `${this.urlValue}${separator}${params.toString()}`;
   }
 
