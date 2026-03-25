@@ -40,7 +40,6 @@ sv:
         participatory_processes_ids: Relaterade deltagandeprocesser
         participatory_scope: Vad beslutas
         participatory_structure: Hur fattas beslut
-        private_space: Privat utrymme
         promoted: Utvald
         published_at: Publicerad
         purpose_of_action: Syfte
@@ -102,8 +101,6 @@ sv:
         edit:
           update: Uppdatera
         index:
-          private: Privat
-          public: Öppen
           published: Publicerad
           unpublished: Ej publicerade
         new:
@@ -172,7 +169,6 @@ sv:
           fields:
             actions: Åtgärder
             created_at: Skapad
-            private: Privat
             promoted: Utvald
             published: Publicerad
             title: Titel
@@ -245,7 +241,6 @@ sv:
             metadata: Metadata
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             other: Övrigt
-            private_notice: Visa endast samrådet för inloggade medlemmar (om det inte är inställt som transparent)
             select_a_created_by: Välj en skapad av
             select_parent_assembly: Välj överordnat samråd
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -337,7 +332,6 @@ sv:
             member_of: Medlem av
       show:
         duration: Varaktighet
-        private_space: Det här är ett privat samråd
         social_networks_title: Besök samrådet på
     download_your_data:
       show:
