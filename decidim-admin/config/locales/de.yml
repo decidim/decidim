@@ -825,7 +825,6 @@ de:
           has_been_sent_to: 'Wurde gesendet an: '
           not_sent: Nicht gesendet
           participants: 'Teilnehmer: '
-          private_members: 'private Mitglieder '
           segmented_to: 'Unterteilt in %{subject}: '
           subscribed_count: 'Abonniert:'
           title: Newsletter
@@ -842,7 +841,6 @@ de:
           deliver: Newsletter versenden
           followers_help: Sendet den Newsletter an alle bestätigten Benutzer, die den ausgewählten Teilnehmerräumen in der Liste folgen.
           participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
-          private_members_help: Sendet einen Newsletter an alle bestätigten Teilnehmende, die den ausgewählten privaten Teilnahmebereichen hinzugefügt wurden.
           recipients_count: Dieser Newsletter wird an <strong id='recipients_count'>%{count}</strong> Teilnehmer gesendet.
           select_assemblies: Gremien auswählen
           select_conferences: Konferenzen auswählen
