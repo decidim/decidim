@@ -850,9 +850,9 @@ es-MX:
           confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
           followers: 'seguidores '
           has_been_sent_to: 'Se ha enviado a: '
+          members: 'miembros '
           not_sent: No enviado
           participants: 'participantes '
-          private_members: 'miembros privadas'
           segmented_to: 'Segmentado para %{subject}: '
           subscribed_count: 'Suscritas:'
           title: Boletines
@@ -868,8 +868,8 @@ es-MX:
           confirm_recipients: Confirmar destinatarias
           deliver: Enviar boletín
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
+          members_help: Envía un boletín informativo a todas las usuarias confirmadas que han sido añadidas a los espacios de participación privados seleccionados.
           participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio participativo seleccionado de la lista.
-          private_members_help: Envía un boletín informativo a todas las usuarias confirmadas que han sido añadidas a los espacios de participación privados seleccionados.
           recipients_count: Este boletín se enviará a <strong id='recipients_count'>%{count}</strong> usuarias.
           select_assemblies: Seleccionar asambleas
           select_conferences: Seleccionar jornadas
