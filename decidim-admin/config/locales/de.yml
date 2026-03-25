@@ -683,7 +683,7 @@ de:
                 title: Blockierung aufheben
                 update_moderated_user_button: Blockierung aufheben
               unreport:
-                title: Meldung Rückgängig machen
+                title: Meldung zurückweisen
             ignore:
               update_moderated_user_button: Gemeldete Teilnehmende zurückweisen
             title: Aktionen
@@ -807,7 +807,7 @@ de:
           select_users_for_participatory_space: Newsletter an einen oder mehrere partizipative Bereiche senden
           select_users_general: Plattformweiter Newsletter senden
           select_verification_types: Verifizierungsmethoden auswählen
-          send_to_all_users: An alle Benutzenden senden
+          send_to_all_users: An alle Benutzer senden
           send_to_verified_users: An verifizierte Teilnehmende senden
           title: Empfänger auswählen
           verified_users_help: Sendet einen Newsletter an alle bestätigten und verifizierten Teilnehmenden über jede ausgewählte Verifikationsmethode.
