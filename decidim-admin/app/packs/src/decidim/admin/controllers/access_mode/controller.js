@@ -43,6 +43,7 @@ export default class extends Controller {
   toggleAccessMode() {
     const showAccessMode = this.hasMembersCheckbox.checked
 
+    this.accessModeFieldset.disabled = !showAccessMode
     this.accessModeFieldset.hidden = !showAccessMode
     this.accessModeFieldset.style.display = showAccessMode
       ? ""
