@@ -391,7 +391,6 @@ fi:
             assign: Määritä
             link_a_space: Liitä osallistumistila
             private_meeting_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on yksityinen ja läpinäkymätön.
-            private_space_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on yksityisessä ja läpinäkymättömässä osallistumistilassa.
             select: Valitse osallistumistila
             table:
               actions: Toiminnot
