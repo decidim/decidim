@@ -89,7 +89,7 @@ tr:
           update: Güncelle
         index:
           private: Kişisel
-          public: Ortak
+          public: Genel
           published: Yayınlanan
         new:
           create: Oluştur
