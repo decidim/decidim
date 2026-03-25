@@ -20,7 +20,6 @@ el:
         participatory_process_group_id: Ομάδα διαδικασιών
         participatory_scope: Τι αποφασίστηκε
         participatory_structure: Πώς αποφασίζεται
-        private_space: Ιδιωτική διαδικασία
         promoted: Προωθήθηκε
         published_at: Δημοσιεύτηκε στις
         related_process_ids: Σχετικές διαδικασίες
@@ -107,7 +106,6 @@ el:
         participatory_process:
           fields:
             created_at: Δημιουργήθηκε στις
-            private: Ιδιωτικό
             published: Δημοσιεύτηκε
             title: Τίτλος
           name: Διαδικασία συμμετοχής
@@ -201,8 +199,6 @@ el:
         edit:
           update: Ενημέρωση
         index:
-          private: Ιδιωτικό
-          public: Δημόσιο
           published: Δημοσιεύτηκε
         new:
           create: Δημιουργία
@@ -344,7 +340,6 @@ el:
           title: Σχετικά με αυτή τη διεργασία
       show:
         belongs_to_group: Αυτή η διεργασία ανήκει σε
-        private_space: Αυτή είναι μια ιδιωτική διαδικασία
         related_processes: Σχετικές διαδικασίες
     statistics:
       processes_count: Διεργασίες
