@@ -57,7 +57,7 @@ module Decidim::Admin
         subject
       end
 
-      it "does not notify the followers on a unpublished resource" do
+      it "does not notify the followers on an unpublished resource" do
         follower = create(:user, organization: attached_to.organization)
         create(:follow, followable: attached_to, user: follower)
         attached_to.unpublish!
