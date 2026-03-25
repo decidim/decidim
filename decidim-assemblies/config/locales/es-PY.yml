@@ -40,7 +40,6 @@ es-PY:
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
-        private_space: Espacio privado
         promoted: Destacado
         published_at: Publicado
         purpose_of_action: Propósito de la acción
@@ -102,8 +101,10 @@ es-PY:
         edit:
           update: Actualizar
         index:
-          private: Privado
-          public: Público
+          access_modes:
+            open: Abierta
+            restricted: Restringida
+            transparent: Transparente
           published: Publicado
           unpublished: Despublicada
         new:
@@ -170,9 +171,9 @@ es-PY:
       models:
         assembly:
           fields:
+            access_mode: Tipo de acceso
             actions: Acciones
             created_at: Fecha de creación
-            private: Privada
             promoted: Destacado
             published: Publicada
             title: Título
@@ -238,6 +239,12 @@ es-PY:
           edit:
             title: Acerca de esta asamblea
           form:
+            access:
+              label: Acceso
+              options:
+                open: Cualquiera puede ver y participar a la asamblea.
+                restricted: Solo las miembros pueden ver y participar en la asamblea.
+                transparent: Cualquiera puede ver la asamblea, pero solo las miembros pueden participar.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
@@ -247,7 +254,6 @@ es-PY:
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             other: Otro
-            private_notice: Hace que el espacio de participación no sea visible para las visitantes y sólo lo sea para las usuarias miembro (excepto si también es transparente)
             select_a_created_by: Selecciona creada por
             select_parent_assembly: Seleccionar ensamblaje principal
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -356,7 +362,6 @@ es-PY:
             member_of: Miembro de
       show:
         duration: Duración
-        private_space: Esta es una asamblea privada
         social_networks_title: Visita la asamblea en
     download_your_data:
       show:
@@ -391,6 +396,7 @@ es-PY:
     open_data:
       help:
         assemblies:
+          access_mode: Tipos de acceso. Si la asamblea es abierta, restringida o transparente.
           area: El área a la que corresponde la asamblea
           assembly_type: El tipo de asamblea
           closing_date: La fecha de cierre de la asamblea
