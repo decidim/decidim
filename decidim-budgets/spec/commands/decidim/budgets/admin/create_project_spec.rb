@@ -42,8 +42,8 @@ module Decidim::Budgets
         longitude:,
         taxonomizations:,
         proposal_ids: proposals.map(&:id),
-        photos:,
-        add_photos: uploaded_photos,
+        documents: photos,
+        add_documents: uploaded_photos,
         budget:
       )
     end
