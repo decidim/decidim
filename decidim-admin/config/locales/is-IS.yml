@@ -462,7 +462,6 @@ is:
         hide: Fela
         not_hidden: Ekki falið
         title: Aðgerðir
-        unreport: Unreport
       admin:
         reportable:
           hide:
