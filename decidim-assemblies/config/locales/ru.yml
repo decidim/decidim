@@ -85,7 +85,7 @@ ru:
           update: Обновить
         index:
           private: Частное
-          public: Обнародованные
+          public: Граждане
           published: Обнародовано
         new:
           create: Добавить

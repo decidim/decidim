@@ -98,7 +98,7 @@ bg:
           update: Актуализация
         index:
           private: Частни
-          public: Публични
+          public: Публично
           published: Публикувано
           unpublished: Непубликувано
         new:
