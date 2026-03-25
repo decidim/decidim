@@ -86,7 +86,7 @@ sq:
           update: Përditëso
         index:
           private: Private
-          public: Publike
+          public: Publiku
           published: E publikuar
           unpublished: E papublikuar
         new:
