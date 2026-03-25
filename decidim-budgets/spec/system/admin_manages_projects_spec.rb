@@ -130,4 +130,50 @@ describe "Admin manages projects" do
   def format_title(budget)
     "     #{translated(budget.title)}"
   end
+
+  context "when a project has an attachment" do
+    let!(:budget_with_attachment) { create(:budget, component: current_component) }
+    let!(:project_with_attachment) do
+      create(:project, budget: budget_with_attachment)
+    end
+
+    let!(:document) { create(:attachment, :with_image, attached_to: project_with_attachment) }
+
+    before do
+      visit_component_admin
+
+      within "tr", text: translated(budget_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Add projects"
+      end
+    end
+
+    it "can edit a project with an attachment" do
+      within "tr", text: translated(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+
+      fill_in_i18n(:project_title, "#project-title-tabs", en: "Updated project title with attachments")
+      click_on "Update"
+
+      expect(page).to have_callout "Project successfully updated."
+
+      visit_component_admin
+
+      within "tr", text: translated(budget_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Add projects"
+      end
+
+      within "tr", text: "Updated project title with attachments" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+    end
+  end
 end
