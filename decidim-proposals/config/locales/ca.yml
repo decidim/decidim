@@ -293,7 +293,7 @@ ca:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha acceptat la teva invitació per a ser coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a>".
         coauthor_invited:
           actions:
-            accept: Accepta
+            accept: Acceptar
             decline: Rebutjar
           email_intro: 'T''han convidat a ser coautora de la proposta "%{resource_title}". Pots acceptar o rebutjar la invitació en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè l'autora de la proposta vol reconèixer les contribucions convertint-te en coautora.
@@ -805,7 +805,7 @@ ca:
             error: No s'ha pogut completar la teva sol·licitud, si us plau torna-ho a provar més tard.
             success: La teva sol·licitud de contribució s'ha enviat correctament.
           collaboration_requests:
-            accept_request: Accepta
+            accept_request: Acceptar
             reject_request: Rebutja
             title: Sol·licituds de col·laboració
           rejected_request:
