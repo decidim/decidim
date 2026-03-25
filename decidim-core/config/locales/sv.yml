@@ -1818,6 +1818,7 @@ sv:
         nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla små bokstäver a-z, siffror, '-' och '_'.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
+        subtitle_no_password: Om du accepterar inbjudan var vänlig ange ditt alias.
       invitation_removed: Din inbjudan har tagits bort.
       invitation_token_invalid: Ogiltig token för inbjudan!
       new:
@@ -1825,6 +1826,8 @@ sv:
         submit_button: Skicka en inbjudan
       no_invitations_remaining: Inga inbjudningar kvar
       send_instructions: Ett e-brev med inbjudan har skickats till %{email}.
+      updated: Inbjudan godtogs. Du är nu inloggad.
+      updated_not_active: Inbjudan godtogs.
     mailer:
       confirmation_instructions:
         action: Bekräfta mitt konto
