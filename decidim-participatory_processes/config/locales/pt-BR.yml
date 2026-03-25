@@ -25,7 +25,6 @@ pt-BR:
         participatory_process_group_id: Grupo de processos
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
-        private_space: Processo privado
         promoted: Destacado
         published_at: Publicado em
         related_process_ids: Processos relacionados
@@ -125,7 +124,6 @@ pt-BR:
           fields:
             actions: Ações
             created_at: Criado em
-            private: Privado
             published: Publicados
             title: Título
           name: Processo participativo
@@ -229,8 +227,6 @@ pt-BR:
         edit:
           update: Atualizar
         index:
-          private: Privado
-          public: Público
           published: Publicados
           unpublished: Não publicado
         new:
@@ -506,7 +502,6 @@ pt-BR:
             images: Imagens
             metadata: Metadados
             no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
-            private_notice: Torna o espaço não visível para visitantes e apenas para membros (exceto se também for transparente)
             related_processes: Processos relacionados
             select_process_group: Selecione um grupo de processos
             slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
@@ -609,7 +604,6 @@ pt-BR:
           title: Sobre este processo
       show:
         belongs_to_group: Este processo pertence a
-        private_space: Este é um processo privado
         related_processes: Processos relacionados
       static_pages:
         democratic_quality_indicators:
