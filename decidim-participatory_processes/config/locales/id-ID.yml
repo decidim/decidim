@@ -82,7 +82,6 @@ id:
         participatory_process:
           fields:
             created_at: Dibuat di
-            private: Pribadi
             published: Diterbitkan
             title: Judul
           name: Proses partisipatif
@@ -164,8 +163,6 @@ id:
         edit:
           update: Memperbarui
         index:
-          private: Pribadi
-          public: Publik
           published: Diterbitkan
         new:
           create: Membuat
@@ -262,7 +259,6 @@ id:
             upcoming: Mendatang
           see: Lihat
       show:
-        private_space: Ini adalah proses pribadi
         related_processes: Proses terkait
   layouts:
     decidim:
