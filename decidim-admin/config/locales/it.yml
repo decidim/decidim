@@ -659,7 +659,7 @@ it:
                 title: Sblocca
                 update_moderated_user_button: Sblocca Utenti
               unreport:
-                title: Non inserire
+                title: Annulla segnalazione
             ignore:
               update_moderated_user_button: Annulla segnalazione utenti
             title: Azioni
