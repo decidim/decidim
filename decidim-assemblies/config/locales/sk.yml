@@ -86,7 +86,6 @@ sk:
           update: Aktualizovať
         index:
           private: Súkromné
-          public: Verejné
           published: Zverejnené
         new:
           create: Vytvoriť
