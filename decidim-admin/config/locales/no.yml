@@ -590,6 +590,7 @@
           participants_help: Sender nyhetsbrev til alle bekreftede brukere som har deltatt i noen av de valgte deltakerområdene på listen.
           recipients_count: Dette nyhetsbrevet vil bli sendt til <strong id='recipients_count'>%{count}</strong> brukere.
           select_spaces: Velg rom for å segmentere nyhetsbrevet
+          send_to_all_users: Send til alle brukere
           title: Velg mottakere som skal leveres
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
         show:
