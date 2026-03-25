@@ -289,7 +289,7 @@ ja:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> は提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を承諾しました。
         coauthor_invited:
           actions:
-            accept: 同意する
+            accept: 承認
             decline: 拒否
           email_intro: 'あなたは提案「%{resource_title}」の共著者に招待されています。このページで招待を承認または拒否することができます：'
           email_outro: 提案の著者が共著者になることを認識したいので、この通知を受け取りました。
@@ -796,7 +796,7 @@ ja:
             error: リクエストを完了できませんでした。後でもう一度お試しください。
             success: 共同作業のリクエストが正常に送信されました。
           collaboration_requests:
-            accept_request: 同意する
+            accept_request: 承認
             reject_request: 拒否
             title: コラボレーションリクエスト
           rejected_request:
