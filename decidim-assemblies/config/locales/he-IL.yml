@@ -97,7 +97,6 @@ he:
           update: עדכון
         index:
           private: פרטי
-          public: ציבורי
           published: מפורסם
           unpublished: לא מפורסם
         new:
