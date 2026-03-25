@@ -1161,6 +1161,12 @@ ca-IT:
         update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} a %{space_name}"
         update_with_space: "%{user_name} ha actualitzat %{resource_name} a %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Oberta
+            restricted: Restringida
+            transparent: Transparent
+          not_found: No s'ha trobat el tipus d'accéso %{id}
         area_presenter:
           not_found: 'L''àrea no s''ha trobat a la base de dades (ID: %{id})'
         area_type_presenter:
@@ -1529,6 +1535,10 @@ ca-IT:
     participatory_space_members:
       index:
         members: Membres
+    participatory_spaces:
+      show:
+        restricted_space: Aquest és un espai restringit. Només les membres el poden veure i participar-hi.
+        transparent_space: Aquest és un espai restringit però transparent. Qualsevol pot veure'n el contingut, però només les membres hi poden participar.
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
