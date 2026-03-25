@@ -96,7 +96,6 @@ tr:
           fields:
             actions: Eylemler
             created_at: Düzenlendi
-            private: Özel
             published: Yayınlanan
             title: Başlık
           name: Katılımcı süreç
@@ -187,8 +186,6 @@ tr:
         edit:
           update: Güncelleştirme
         index:
-          private: Özel
-          public: halka açık
           published: Yayınlanan
           unpublished: Yayınlanmamış
         new:
@@ -323,7 +320,6 @@ tr:
           see: Görmek
       show:
         belongs_to_group: Bu süreç,
-        private_space: Bu özel bir süreç
         related_processes: İlgili süreçler
   layouts:
     decidim:
