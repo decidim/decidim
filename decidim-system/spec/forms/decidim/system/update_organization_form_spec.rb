@@ -303,6 +303,151 @@ module Decidim::System
         end
       end
 
+      describe "host format" do
+        context "when host contains spaces" do
+          before { subject.host = "example .org" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host has leading space" do
+          before { subject.host = " example.org" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host has trailing space" do
+          before { subject.host = "example.org " }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host has special characters" do
+          before { subject.host = "example@org!" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host has leading hyphen" do
+          before { subject.host = "-example.org" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host has trailing hyphen" do
+          before { subject.host = "example-.org" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host is localhost" do
+          before { subject.host = "localhost" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid simple domain" do
+          before { subject.host = "example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid subdomain" do
+          before { subject.host = "sub.example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid multi-level subdomain" do
+          before { subject.host = "my-site.example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv4" do
+          before { subject.host = "127.0.0.1" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv4 full" do
+          before { subject.host = "192.168.1.1" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv4 max value" do
+          before { subject.host = "255.255.255.255" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is invalid IPv4 octet > 255" do
+          before { subject.host = "256.0.0.1" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host is valid IPv6 loopback" do
+          before { subject.host = "::1" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv6 bracketed" do
+          before { subject.host = "[::1]" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv6 full" do
+          before { subject.host = "2001:db8::1" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv6 standard" do
+          before { subject.host = "fe80:0:0:0:1:0:0:1" }
+
+          it { is_expected.to be_valid }
+        end
+      end
+
       describe "organization uniqueness" do
         let!(:existing_organization) do
           create(
