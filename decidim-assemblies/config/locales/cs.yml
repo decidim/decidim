@@ -107,6 +107,10 @@ cs:
         edit:
           update: Aktualizace
         index:
+          access_modes:
+            open: Otevřený
+            restricted: Omezený
+            transparent: Transparentní
           published: Publikováno
           unpublished: Nezveřejněno
         new:
@@ -173,6 +177,7 @@ cs:
       models:
         assembly:
           fields:
+            access_mode: Přístupový režim
             actions: Akce
             created_at: Vytvořeno v
             promoted: Zvýrazněno
@@ -240,6 +245,12 @@ cs:
           edit:
             title: O tomto shromáždění
           form:
+            access:
+              label: Přístup
+              options:
+                open: Každý může vidět shromáždění a zúčastnit.
+                restricted: Pouze členové se mohou podívat a zúčastnit.
+                transparent: Každý může shromáždění vidět, ale mohou se účastnit pouze členové.
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
@@ -391,6 +402,7 @@ cs:
     open_data:
       help:
         assemblies:
+          access_mode: Režim přístupu. Zda je shromáždění otevřené, omezené nebo transparentní.
           area: Oblast shromáždění
           assembly_type: Typ shromáždění
           closing_date: Datum ukončení shromáždění
