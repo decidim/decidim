@@ -8,6 +8,7 @@ shared_examples_for "a translated meeting event" do
     let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
     let(:translatable) { true }
     let(:en_version) { resource.description["en"] }
+    let(:untranslated_content) { en_version }
     let(:machine_translated) { resource.description["machine_translations"]["ca"] }
 
     let(:resource) do

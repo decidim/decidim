@@ -14,11 +14,11 @@ module Decidim
       delegate :name, to: :coauthor, prefix: true, allow_nil: true
 
       def author_path
-        profile_path(author.nickname)
+        profile_path(author.nickname, locale: I18n.locale)
       end
 
       def coauthor_path
-        profile_path(coauthor.nickname) if coauthor
+        profile_path(coauthor.nickname, locale: I18n.locale) if coauthor
       end
 
       def author

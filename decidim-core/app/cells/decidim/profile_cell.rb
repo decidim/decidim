@@ -77,7 +77,7 @@ module Decidim
     # i18n-tasks-use t("decidim.profiles.show.followers")
     def tab_item(key)
       values = TABS_ITEMS[key].dup
-      values[:path] = send(values[:path], nickname: profile_holder.nickname)
+      values[:path] = send(values[:path], nickname: profile_holder.nickname, locale: current_locale)
       values[:text] = t(key, scope: "decidim.profiles.show")
       values
     end

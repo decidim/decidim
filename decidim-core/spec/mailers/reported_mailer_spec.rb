@@ -87,7 +87,7 @@ module Decidim
 
         context "when the author is a user" do
           it "includes the name of the author and a link to their profile" do
-            expect(mail).to have_link(author.name, href: decidim.profile_url(author.nickname, host: organization.host))
+            expect(mail).to have_link(author.name, href: decidim.profile_url(author.nickname, locale: I18n.locale, host: organization.host))
           end
         end
 
