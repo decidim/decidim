@@ -224,7 +224,7 @@ You can read more about this change on PR [#15670](https://github.com/decidim/de
 
 ### 3.6. Fix the "SMTP_STARTTLS_AUTO" env var in `production.rb`
 
-It was detected a bug with the enable_starttls_auto configuration for the Action Mailer (SMTP) configuration. For fixing it you need to replace in `config/environmets/production.rb`
+It was detected a bug with the enable_starttls_auto configuration for the Action Mailer (SMTP) configuration. For fixing it you need to replace in `config/environments/production.rb`
 
 If your `config/environments/production.rb` contains an SMTP configuration like this:
 
@@ -246,7 +246,7 @@ config.action_mailer.smtp_settings = {
 }
 ```
 
-You can do this with the following oneliner:
+You can do this with the following command:
 
 ```bash
 sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).to_boolean_string,/' config/environments/production.rb
