@@ -39,10 +39,10 @@ en:
           attributes:
             host:
               invalid: is invalid
-            secondary_hosts:
-              invalid: is invalid
             password:
               secret_key: You need to define the SECRET_KEY_BASE environment variable to be able to save this field
+            secondary_hosts:
+              invalid: is invalid
   decidim:
     system:
       actions:
