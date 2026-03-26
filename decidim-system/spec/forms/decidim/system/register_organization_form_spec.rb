@@ -402,7 +402,7 @@ module Decidim::System
         end
 
         context "when host is valid multi-level subdomain" do
-          before { subject.host = "my-site.example.org" }
+          before { subject.host = "mysite.example.org" }
 
           it { is_expected.to be_valid }
         end

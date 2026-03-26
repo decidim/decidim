@@ -173,7 +173,7 @@ module Decidim
           (?:\[[\da-fA-F:]+\]|[\da-fA-F:]+\z)
         )
         \z
-      }x.freeze
+      }x
 
       def validate_host_format
         return if host.blank?
