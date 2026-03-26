@@ -1,6 +1,12 @@
+/* global jest */
 /* eslint max-lines: ["error", 400] */
 
 import DropdownController from "src/decidim/controllers/dropdown/controller";
+
+jest.mock("a11y-dropdown-component", () => ({
+  render: jest.fn(),
+  destroy: jest.fn()
+}));
 
 describe("DropdownController", () => {
   let element = null;
@@ -18,6 +24,13 @@ describe("DropdownController", () => {
   };
 
   beforeEach(() => {
+    window.matchMedia = jest.fn().mockImplementation((query) => ({
+      matches: false,
+      media: query,
+      addListener: jest.fn(),
+      removeListener: jest.fn()
+    }));
+
     document.body.innerHTML = `
       <button
         id="dropdown-trigger"
@@ -42,6 +55,7 @@ describe("DropdownController", () => {
 
   afterEach(() => {
     document.body.innerHTML = "";
+    Reflect.deleteProperty(window, "matchMedia");
   });
 
   describe("removeAriaRoles", () => {
@@ -129,31 +143,45 @@ describe("DropdownController", () => {
   });
 
   describe("data-add-aria-roles option", () => {
-    it("detects when data-add-aria-roles is false", () => {
-      element.setAttribute("data-add-aria-roles", "false");
-      expect(element.dataset.addAriaRoles).toBe("false");
-    });
-
-    it("detects when data-add-aria-roles is true", () => {
+    it("keeps role menu when data-add-aria-roles is true", () => {
       element.setAttribute("data-add-aria-roles", "true");
-      expect(element.dataset.addAriaRoles).toBe("true");
+      dropdownMenuEl.setAttribute("role", "menu");
+      dropdownMenuEl.querySelector("li").setAttribute("role", "none");
+      dropdownMenuEl.querySelector("a").setAttribute("role", "menuitem");
+      const testController = createController(element);
+
+      testController.connect();
+
+      expect(dropdownMenuEl.getAttribute("role")).toBe("menu");
+      expect(dropdownMenuEl.querySelector("li").getAttribute("role")).toBe("none");
+      expect(dropdownMenuEl.querySelector("a").getAttribute("role")).toBe("menuitem");
     });
 
-    it("evaluates addAriaRoles correctly when false", () => {
+    it("keeps role menu when data-add-aria-roles is not set (default)", () => {
+      dropdownMenuEl.setAttribute("role", "menu");
+      dropdownMenuEl.querySelector("li").setAttribute("role", "none");
+      dropdownMenuEl.querySelector("a").setAttribute("role", "menuitem");
+      const testController = createController(element);
+
+      testController.connect();
+
+      expect(dropdownMenuEl.getAttribute("role")).toBe("menu");
+      expect(dropdownMenuEl.querySelector("li").getAttribute("role")).toBe("none");
+      expect(dropdownMenuEl.querySelector("a").getAttribute("role")).toBe("menuitem");
+    });
+
+    it("removes role menu when data-add-aria-roles is false", () => {
       element.setAttribute("data-add-aria-roles", "false");
-      const addAriaRoles = element.dataset.addAriaRoles !== "false";
-      expect(addAriaRoles).toBe(false);
-    });
+      dropdownMenuEl.setAttribute("role", "menu");
+      dropdownMenuEl.querySelector("li").setAttribute("role", "none");
+      dropdownMenuEl.querySelector("a").setAttribute("role", "menuitem");
+      const testController = createController(element);
 
-    it("evaluates addAriaRoles correctly when true", () => {
-      element.setAttribute("data-add-aria-roles", "true");
-      const addAriaRoles = element.dataset.addAriaRoles !== "false";
-      expect(addAriaRoles).toBe(true);
-    });
+      testController.connect();
 
-    it("evaluates addAriaRoles correctly when undefined", () => {
-      const addAriaRoles = element.dataset.addAriaRoles !== "false";
-      expect(addAriaRoles).toBe(true);
+      expect(dropdownMenuEl.getAttribute("role")).toBeNull();
+      expect(dropdownMenuEl.querySelector("li").getAttribute("role")).toBeNull();
+      expect(dropdownMenuEl.querySelector("a").getAttribute("role")).toBeNull();
     });
   });
 });
