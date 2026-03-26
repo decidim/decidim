@@ -146,6 +146,9 @@ it:
         admin:
           proposal_note_created:
             email_subject: Qualcuno ha lasciato una nota sulla proposta %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Accettare
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} è stato accettato per accedere come contributore del %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> è stato accettato <strong>come contributore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
@@ -338,89 +341,6 @@ it:
           all: Tutti
           amendments: Modifiche
           proposals: proposte
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Si sono verificati errori durante la pubblicazione della bozza collaborativa.
-            irreversible_action_modal:
-              cancel: Annulla
-              ok: Pubblica come proposta
-              title: La seguente azione è irreversibile
-            success: Bozza collaborativa pubblicata con successo come proposta.
-          withdraw:
-            error: Ci sono stati errori nel chiudere la bozza collaborativa.
-            irreversible_action_modal:
-              cancel: Annulla
-              ok: Ritirare la bozza collaborativa
-              title: La seguente azione è irreversibile
-            success: Bozza collaborativa ritirata con successo.
-        create:
-          success: Bozza collaborativa creata con successo.
-        edit:
-          back: Indietro
-          send: Inviare
-          title: Modifica bozza collaborativa
-        filters:
-          all: Tutti
-          amendment: Modifiche
-          open: Aperto
-          published: Pubblicato
-          related_to: Relativo a
-          search: Ricerca
-          state: Stato
-          withdrawn: Ritirato
-        filters_small_view:
-          close_modal: Chiudi modale
-          filter: Filtro
-          filter_by: Filtra per
-          unfold: spiegare
-        index:
-          count:
-            one: "%{count} bozza collaborativa"
-            other: "%{count} bozza collaborativa"
-        new:
-          send: Continua
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nuova bozza collaborativa
-        orders:
-          label: 'Ordina le bozze di:'
-          most_contributed: La maggior parte ha contribuito
-          random: Casuale
-          recent: Recente
-        requests:
-          accepted_request:
-            error: Non può essere accettato come collaboratore, riprova più tardi.
-          access_requested:
-            error: La tua richiesta non può essere completata, riprova più tardi.
-          collaboration_requests:
-            accept_request: Accettare
-            reject_request: Rifiutare
-            title: Richieste di collaborazione
-          rejected_request:
-            error: Non può essere rifiutato come collaboratore, riprova più tardi.
-        show:
-          final_proposal: proposta finale
-          final_proposal_help_text: Questa bozza è finita. Puoi vedere la proposta finale finale
-          hidden_authors_count:
-            one: e %{count} altra persona
-            other: e altre %{count} persone
-          publish: Pubblica
-          publish_info: Pubblica questa versione della bozza o
-          published_proposal: proposta pubblicata
-          request_access: Richiesta di accesso
-          requested_access: Accesso richiesto
-          withdraw: ritirare la bozza
-        states:
-          open: Aperto
-          published: Pubblicato
-          withdrawn: Ritirato
-        update:
-          error: Si sono verificati errori durante il salvataggio della bozza collaborativa.
-          success: Bozza collaborativa aggiornata correttamente.
-        wizard_aside:
-          back_from_collaborative_draft: Torna alle bozze collaborative
-        wizard_header:
-          title: Crea la tua bozza collaborativa
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: Proposta creata con successo. Salvato come bozza.
@@ -469,7 +389,6 @@ it:
           type: genere
           voted: Votata
         index:
-          collaborative_drafts_list: Accedi alle bozze di collaborazione
           count:
             one: "%{count} proposta"
             other: "%{count} proposte"
@@ -501,8 +420,9 @@ it:
           answer: Risposta
           changes_at_title: Modifica a "%{title}"
           estimated_cost: Costo stimato
-          link_to_collaborative_draft_help_text: Questa proposta è il risultato di una bozza di collaborazione. Rivedere la storia
-          link_to_collaborative_draft_text: Vedi la bozza collaborativa
+          hidden_likes_count:
+            one: e %{count} altra persona
+            other: e altre %{count} persone
           link_to_promoted_emendation_help_text: Questa proposta è una modifica promossa
           link_to_promoted_emendation_text: Vedi la modifica rifiutata.
           link_to_proposal_from_emendation_help_text: Questa è una modifica rifiutata

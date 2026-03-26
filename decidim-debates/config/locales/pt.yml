@@ -148,7 +148,6 @@ pt:
           back: Retroceder
           create: Criar
         orders:
-          commented: Mais comentado
           label: Ordenar debates por
           random: Ordem aleatória
           recent: Mais recente

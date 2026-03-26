@@ -128,9 +128,6 @@ zh-TW:
             name_and_surname: 名字與姓氏
             postal_code: 郵政編碼
             timestamp: 時間戳記
-      titles:
-        initiatives: 倡議
-        initiatives_types: 倡議類型
     events:
       initiatives:
         admin:
@@ -250,7 +247,6 @@ zh-TW:
             publication_date: 最近發布的
             random: 隨機
             signatures: 最多簽署的
-            title: 倡議設定
         initiatives_type_scopes:
           create:
             success: 已為給定的倡議類型建立新範圍.

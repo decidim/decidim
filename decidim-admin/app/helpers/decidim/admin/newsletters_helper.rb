@@ -83,7 +83,7 @@ module Decidim
           recipients << content_tag(:strong, t("index.verified_users", scope: "decidim.admin.newsletters")) if newsletter.sent_to_verified_users?
           recipients << content_tag(:strong, t("index.followers", scope: "decidim.admin.newsletters")) if newsletter.sent_to_followers?
           recipients << content_tag(:strong, t("index.participants", scope: "decidim.admin.newsletters")) if newsletter.sent_to_participants?
-          recipients << content_tag(:strong, t("index.private_members", scope: "decidim.admin.newsletters")) if newsletter.sent_to_private_members?
+          recipients << content_tag(:strong, t("index.members", scope: "decidim.admin.newsletters")) if newsletter.sent_to_members?
 
           concat recipients.join(t("index.and", scope: "decidim.admin.newsletters")).html_safe
         end

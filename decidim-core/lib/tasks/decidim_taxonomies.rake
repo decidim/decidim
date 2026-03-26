@@ -106,7 +106,7 @@ namespace :decidim do
     end
 
     def planner(organization)
-      models = ENV.fetch("IMPORTS", "ParticipatoryProcessType AssemblyType Scope Area Category").split.map do |model_name|
+      models = ENV.fetch("IMPORTS", "AssemblyType Scope Area Category").split.map do |model_name|
         "Decidim::Maintenance::ImportModels::#{model_name}".constantize
       end
       Decidim::Maintenance::TaxonomyPlan.new(organization, models)

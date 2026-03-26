@@ -15,7 +15,7 @@ cs:
       menu:
         elections_menu:
           basic_elections: Hlavní
-          election_census: Seznam obyvatel
+          election_census: Rejstřík obyvatel
           election_dashboard: Ovládací panel
           election_questions: Otázky
     components:
@@ -54,7 +54,7 @@ cs:
             start_election: Zahájit volbu
             title: Kalendář
           census:
-            title: Seznam obyvatel
+            title: Rejstřík obyvatel
           main:
             labels:
               calendar: Kalendář
@@ -138,6 +138,7 @@ cs:
           form:
             errors:
               at_least_one_question: Je vyžadována alespoň jedna otázka.
+            form_description: Otázka musí mít alespoň dvě odpovědi, aby mohla jít k dalšímu kroku.
         statuses:
           publish_results:
             invalid: Při publikování výsledků došlo k chybě.
@@ -213,7 +214,7 @@ cs:
       models:
         election:
           fields:
-            census: Seznam obyvatel
+            census: Rejstřík obyvatel
             end_at: Čas ukončení
             start_at: Čas zahájení
             status: Stav
@@ -254,4 +255,4 @@ cs:
   layouts:
     decidim:
       election_votes_header:
-        exit: Zavřít
+        exit: Zavřít‏

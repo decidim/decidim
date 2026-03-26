@@ -25,7 +25,7 @@
             <tr data-id="<%= step.id %>">
               <td data-label="<%= t("models.participatory_process_step.fields.title", scope: "decidim.admin") %>">
                 <div class="flex items-center gap-x-2">
-                  <%= icon "drag-move-2-line" %>
+                  <%= icon("draggable", class: "dragger hover:cursor-grab") %>
                   <% if step.active? %>
                     <span class="icon-active"></span>
                   <% end %>

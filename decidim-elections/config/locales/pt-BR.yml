@@ -51,6 +51,7 @@ pt-BR:
             choose_census: Escolha o tipo de censo que deseja usar para esta eleição
             created_at: Criado em
             identifier: Identificador de usuário
+            title: Editar eleição
           preview:
             title:
               one: A lista de pré-visualização é limitada ao registro %{count}.
@@ -334,10 +335,6 @@ pt-BR:
         published_results: 'Resultados publicados: %{end_date}'
     statistics:
       elections_count: Eleições
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Fechado
   time:
     formats:
       short_with_time: "%b %-d, %Y %-I:%M%p"

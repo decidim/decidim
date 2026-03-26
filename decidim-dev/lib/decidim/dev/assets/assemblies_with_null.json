@@ -58,7 +58,7 @@
       "es": "Et molestiae."
     },
     "scopes_enabled": true,
-    "private_space": false,
+    "access_mode": "open",
     "reference": "PhD-ASSE-2020-01-1",
     "purpose_of_action": {
       "ca": "<p>Velit a qui. Debitis rem occaecati. Id minus est.</p>",

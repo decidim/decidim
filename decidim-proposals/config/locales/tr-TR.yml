@@ -95,6 +95,7 @@ tr:
       proposals:
         actions:
           amend: Değiştir
+          create: Bir teklif oluşturun
           withdraw: Geri çek
         name: Teklifler
         settings:
@@ -142,6 +143,9 @@ tr:
         admin:
           proposal_note_created:
             email_subject: Birisi %{resource_title} teklifine not bıraktı.
+        coauthor_invited:
+          actions:
+            accept: Kabul Et
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name}, %{resource_title} katkı sağlayıcısı olarak erişim için kabul edildi."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a> için <strong> katkıda bulunan </strong> olarak erişim için kabul edildi <a href = "%{resource_path}">%{resource_title} </a> ortak çalışma taslağı.
@@ -369,89 +373,6 @@ tr:
           all: Tümü
           amendments: Değişiklikler
           proposals: Teklif
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Ortak taslak yayınlanırken bir sorun oluştu.
-            irreversible_action_modal:
-              cancel: İptal etmek
-              ok: Teklif olarak yayınla
-              title: Aşağıdaki işlem geri alınamaz
-            success: Ortak taslak, teklif olarak başarıyla yayınlandı.
-          withdraw:
-            error: Ortak taslak kapanırken bir sorun oluştu.
-            irreversible_action_modal:
-              cancel: İptal Et
-              ok: İşbirliği taslağını geri çekme
-              title: Aşağıdaki işlem geri alınamaz
-            success: Ortak taslak başarıyla geri çekildi.
-        create:
-          success: Ortak taslak başarıyla oluşturuldu.
-        edit:
-          back: Geri
-          send: Gönder
-          title: Ortak taslak düzenle
-        filters:
-          all: Tümü
-          amendment: Değişiklikler
-          open: Aç
-          published: Yayınlandı
-          related_to: İle ilgili
-          search: Arama
-          state: Statü
-          withdrawn: Geri çekildi
-        filters_small_view:
-          close_modal: Pencereyi kapat
-          filter: Filtrele
-          filter_by: Şuna göre filtrele
-          unfold: Aç
-        index:
-          count:
-            one: "%{count} ortak taslak"
-            other: "%{count} ortak taslak"
-        new:
-          send: Devam et
-        new_collaborative_draft_button:
-          new_collaborative_draft: Yeni ortak taslak
-        orders:
-          label: 'Taslakları şuna göre sırala:'
-          most_contributed: En çok katkıda bulunan
-          random: Rastgele
-          recent: En son
-        requests:
-          accepted_request:
-            error: Ortak çalışan olarak kabul edilemedi, lütfen daha sonra tekrar deneyin.
-          access_requested:
-            error: İsteğiniz tamamlanamadı, lütfen daha sonra tekrar deneyin.
-          collaboration_requests:
-            accept_request: Kabul Et
-            reject_request: Reddet
-            title: İşbirliği istekleri
-          rejected_request:
-            error: Ortak çalışan olarak reddedilemedi, lütfen daha sonra tekrar deneyin.
-        show:
-          final_proposal: son teklif
-          final_proposal_help_text: Bu taslak bitti. Son teklife göz atın
-          hidden_authors_count:
-            one: ve %{count} kişi daha
-            other: ve %{count} kişi daha
-          publish: Yayınla
-          publish_info: Taslağın bu sürümünü yayınlayın veya
-          published_proposal: yayınlanan teklif
-          request_access: Erişim talep et
-          requested_access: Erişim istendi
-          withdraw: taslağı geri çekmek
-        states:
-          open: Açık
-          published: Yayınlandı
-          withdrawn: Geri çekildi
-        update:
-          error: Ortak taslak kaydedilirken hatalar oluştu.
-          success: Ortak taslak başarıyla güncellendi.
-        wizard_aside:
-          back_from_collaborative_draft: Ortak çalışmaya dayalı taslaklara dön
-        wizard_header:
-          title: Ortak çalışmaya dayalı taslağınızı oluşturun
       create:
         error: Teklif kaydedilirken bir sorun oluştu.
         success: Teklif başarıyla oluşturuldu. Taslak olarak kaydedildi.
@@ -501,7 +422,6 @@ tr:
           state: Statü
           type: tip
         index:
-          collaborative_drafts_list: Ortak çalışmaya dayalı taslaklara erişin
           count:
             one: "%{count} teklif"
             other: "%{count} teklif"
@@ -529,8 +449,9 @@ tr:
           answer: Cevap
           changes_at_title: Değişiklikler "%{title}"
           estimated_cost: Tahmini maliyet
-          link_to_collaborative_draft_help_text: Bu teklif, işbirlikçi bir taslağın sonucudur. Geçmişi gözden geçirin
-          link_to_collaborative_draft_text: Ortak taslaka bakın
+          hidden_likes_count:
+            one: ve %{count} kişi daha
+            other: ve %{count} kişi daha
           link_to_promoted_emendation_help_text: Bu teklif, önerilen bir düzeltmedir
           link_to_promoted_emendation_text: Reddedilen düzeltmeye bakın.
           link_to_proposal_from_emendation_help_text: Bu reddedilmiş bir düzeltmedir

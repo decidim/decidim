@@ -111,9 +111,6 @@ pt:
             name_and_surname: Nome e apelido
             postal_code: Código postal
             timestamp: Data e hora
-      titles:
-        initiatives: Iniciativas
-        initiatives_types: Tipos de iniciativa
     events:
       initiatives:
         admin:

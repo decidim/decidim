@@ -499,7 +499,6 @@ en:
           deleted_proposals_info: Deleted proposals can be restored from the trash.
           preview: Preview
           view_deleted_proposals: View deleted proposals
-        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Deprecation Notice.</b> The Collaborative Drafts feature will be removed in Decidim v0.32. Organizations using it can switch to the new proposal co-authorship feature."
         evaluation_assignments:
           create:
             invalid: There was a problem assigning proposals to a evaluator.
@@ -744,103 +743,6 @@ en:
           all: All
           amendments: Amendments
           proposals: Proposals
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: There was a problem publishing the collaborative draft.
-            irreversible_action_modal:
-              body: After publishing the draft as a proposal, it will not be editable anymore. The proposal will not accept new authors or contributions.
-              cancel: Cancel
-              ok: Publish as a Proposal
-              title: The following action is irreversible
-            success: Collaborative draft published successfully as a proposal.
-          withdraw:
-            error: There was a problem closing the collaborative draft.
-            irreversible_action_modal:
-              body: After closing the draft, it will not be editable anymore. The draft will not accept new authors or contributions.
-              cancel: Cancel
-              ok: Withdraw the collaborative draft
-              title: The following action is irreversible
-            success: Collaborative draft withdrawn successfully.
-        create:
-          error: There was a problem creating this collaborative draft.
-          success: Collaborative draft successfully created.
-        edit:
-          attachment_legend: Add a document or an image
-          back: Back
-          send: Send
-          title: Edit collaborative draft
-        empty: There are no collaborative drafts yet
-        empty_filters: There is no collaborative draft with this criteria
-        filters:
-          all: All
-          amendment: Amendments
-          open: Open
-          published: Published
-          related_to: Related to
-          search: Search
-          state: Status
-          withdrawn: Withdrawn
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
-        index:
-          count:
-            one: "%{count} collaborative draft"
-            other: "%{count} collaborative drafts"
-        name: Collaborative drafts
-        new:
-          add_file: Add file
-          edit_file: Edit file
-          send: Continue
-        new_collaborative_draft_button:
-          new_collaborative_draft: New collaborative draft
-        orders:
-          label: 'Order drafts by:'
-          most_contributed: Most contributed
-          random: Random
-          recent: Recent
-        requests:
-          accepted_request:
-            error: Could not be accepted as a collaborator, please try again later.
-            success: "@%{user} has been accepted as a collaborator successfully."
-          access_requested:
-            error: Your request could not be completed, please try again later.
-            success: Your request to collaborate has been successfully sent.
-          collaboration_requests:
-            accept_request: Accept
-            reject_request: Reject
-            title: Collaboration requests
-          rejected_request:
-            error: Could not be rejected as a collaborator, please try again later.
-            success: "@%{user} has been successfully rejected as a collaborator."
-        show:
-          edit: Edit
-          final_proposal: Final proposal
-          final_proposal_help_text: This draft is finished. Check out the final proposal
-          hidden_authors_count:
-            one: and %{count} more person
-            other: and %{count} more people
-          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, you will be able to make changes to this draft.
-          publish: Publish
-          publish_info: Publish this version of the draft or
-          published_proposal: Published proposal
-          request_access: Request access
-          requested_access: Access requested
-          withdraw: withdraw the draft
-        states:
-          open: Open
-          published: Published
-          withdrawn: Withdrawn
-        update:
-          error: There was a problem saving the collaborative draft.
-          success: Collaborative draft successfully updated.
-        wizard_aside:
-          back_from_collaborative_draft: Back to collaborative drafts
-        wizard_header:
-          title: Create your collaborative draft
       content_blocks:
         highlighted_proposals:
           name: Proposals
@@ -942,7 +844,6 @@ en:
           voted: Voted
         index:
           click_here: See all proposals
-          collaborative_drafts_list: Access collaborative drafts
           count:
             one: "%{count} proposal"
             other: "%{count} proposals"
@@ -989,8 +890,6 @@ en:
           hidden_likes_count:
             one: and %{count} more person
             other: and %{count} more people
-          link_to_collaborative_draft_help_text: This proposal is the result of a collaborative draft. Review the history
-          link_to_collaborative_draft_text: See the collaborative draft
           link_to_promoted_emendation_help_text: This proposal is a promoted emendation
           link_to_promoted_emendation_text: See the rejected emendation.
           link_to_proposal_from_emendation_help_text: This is a rejected emendation

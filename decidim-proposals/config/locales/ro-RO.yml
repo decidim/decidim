@@ -176,6 +176,9 @@ ro:
           proposal_note_created:
             email_outro: Ați primit această notificare deoarece puteți evalua propunerea.
             email_subject: Cineva a trimis o notă la propunerea %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Acceptă
         collaborative_draft_access_accepted:
           email_subject: "Utilizatorul %{requester_name} a fost acceptat drept colaborator pentru %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>acceptat drept colaborator</strong> pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
@@ -430,91 +433,6 @@ ro:
           all: Toate
           amendments: Amendamente
           proposals: Propuneri
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: A apărut o problemă la publicarea ciornei colaborative.
-            irreversible_action_modal:
-              cancel: Anulează
-              ok: Publică drept propunere
-              title: Următoarea acţiune este ireversibilă
-            success: Ciorna colaborativă a fost publicată cu succes drept propunere.
-          withdraw:
-            error: A apărut o problemă la închiderea ciornei colaborative.
-            irreversible_action_modal:
-              cancel: Anulează
-              ok: Retrage ciorna colaborativă
-              title: Următoarea acţiune este ireversibilă
-            success: Ciorna colaborativă a fost retrasă cu succes.
-        create:
-          success: Ciorna colaborativă a fost creată cu succes.
-        edit:
-          back: Înapoi
-          send: Trimite
-          title: Editează ciorna colaborativă
-        filters:
-          all: Toate
-          amendment: Amendamente
-          open: Deschise
-          published: Publicate
-          related_to: Asociate cu
-          search: Caută
-          state: Stadiu
-          withdrawn: Retrase
-        filters_small_view:
-          close_modal: Închide fereastra
-          filter: Filtrează
-          filter_by: Filtrează după
-          unfold: Extinde
-        index:
-          count:
-            one: "%{count} ciornă colaborativă"
-            few: "%{count} ciorne colaborative"
-            other: "%{count} ciorne colaborative"
-        new:
-          send: Continuă
-        new_collaborative_draft_button:
-          new_collaborative_draft: Ciornă nouă colaborativă
-        orders:
-          label: 'Ordonează ciornele după:'
-          most_contributed: Cu cele mai multe colaborări
-          random: Aleatoriu
-          recent: Recente
-        requests:
-          accepted_request:
-            error: Nu ai putut fi acceptat drept colaborator, te rugăm să încerci din nou mai târziu.
-          access_requested:
-            error: Cererea ta nu a putut fi finalizată, te rugăm să încerci din nou mai târziu.
-          collaboration_requests:
-            accept_request: Acceptă
-            reject_request: Respinge
-            title: Cereri de colaborare
-          rejected_request:
-            error: Nu ai putut fi respins drept colaborator, te rugăm să încerci din nou mai târziu.
-        show:
-          final_proposal: propunere finală
-          final_proposal_help_text: Această ciornă este finalizată. Verifică propunerea finală
-          hidden_authors_count:
-            one: și încă %{count} persoană
-            few: și încă %{count} persoane
-            other: și încă %{count} persoane
-          publish: Publică
-          publish_info: Publică această versiune a ciornei sau
-          published_proposal: propunere publicată
-          request_access: Cere acces
-          requested_access: Acces solicitat
-          withdraw: retrage ciorna
-        states:
-          open: Deschise
-          published: Publicate
-          withdrawn: Retrase
-        update:
-          error: A apărut o problemă la salvarea ciornei colaborative.
-          success: Ciorna colaborativă a fost actualizată cu succes.
-        wizard_aside:
-          back_from_collaborative_draft: Înapoi la ciorne colaborative
-        wizard_header:
-          title: Creează ciorna ta colaborativă
       create:
         error: A apărut o problemă la salvarea propunerii.
         success: Propunere creată cu succes. Salvată drept ciornă.
@@ -574,7 +492,6 @@ ro:
           type: Tip
         index:
           click_here: Afișează toate propunerile
-          collaborative_drafts_list: Accesează ciorne colaborative
           count:
             one: "%{count} propunere"
             few: "%{count} propuneri"
@@ -609,8 +526,10 @@ ro:
           answer: Răspuns
           changes_at_title: Amendament pentru „%{title}”
           estimated_cost: Cost estimat
-          link_to_collaborative_draft_help_text: Această propunere este rezultatul unei ciorne colaborative. Revizuiește istoricul colaborării
-          link_to_collaborative_draft_text: Vezi ciorna colaborativă
+          hidden_likes_count:
+            one: și încă %{count} persoană
+            few: și încă %{count} persoane
+            other: și încă %{count} persoane
           link_to_promoted_emendation_help_text: Această propunere este un amendament promovat
           link_to_promoted_emendation_text: Vizualizează amendamentul respins.
           link_to_proposal_from_emendation_help_text: Acesta este un amendament respins

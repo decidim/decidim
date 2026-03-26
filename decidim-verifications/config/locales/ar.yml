@@ -63,11 +63,6 @@ ar:
         skip_verification: يمكنك تخطي هذا الآن و %{link}
         start_exploring: البدء في استكشاف
       csv_census:
-        admin:
-          index:
-            title: بيانات التعداد الحالية
-          instructions:
-            body: للقيام بذلك ، يجب عليك إدخال إدارة النظام وإضافة تصاريح csv_census إلى المؤسسة
         authorizations:
           new:
             error: لم نتمكن من التحقق من حسابك أو لم تكن في تعداد المنظمة.
@@ -91,13 +86,11 @@ ar:
               error: حدثت مشكلة أثناء تحديث التكوين.
           confirmations:
             new:
-              introduce_user_data: إدخال البيانات في الصورة
               reject: رفض
               verify: التحقق
           offline_confirmations:
             new:
               cancel: إلغاء
-              introduce_user_data: تقديم البريد الإلكتروني المشارك وبيانات الوثيقة
               verify: التحقق
           pending_authorizations:
             index:

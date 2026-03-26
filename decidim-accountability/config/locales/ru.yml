@@ -37,6 +37,9 @@ ru:
       admin:
         exports:
           results: Итоги
+        import_components:
+          form:
+            no_components:
         models:
           result:
             name: Итог

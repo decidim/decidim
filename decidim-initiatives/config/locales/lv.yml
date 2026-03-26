@@ -93,9 +93,6 @@ lv:
             name_and_surname: Vārds un uzvārds
             postal_code: Pasta indekss
             timestamp: Laikspiedols
-      titles:
-        initiatives: Iniciatīvas
-        initiatives_types: Iniciatīvu veidi
     events:
       initiatives:
         admin:

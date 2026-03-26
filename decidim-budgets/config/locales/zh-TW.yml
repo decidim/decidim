@@ -32,6 +32,7 @@ zh-TW:
       actions:
         edit: 編輯
         import: 將提案匯入專案
+        new_project: 新專案
         preview: 預覽
         send_voting_reminders: 發送投票提醒
         title: 操作
@@ -65,7 +66,6 @@ zh-TW:
             invalid: 這個專案創建時出了問題
             success: 專案建立成功
           edit:
-            title: 編輯專案
             update: 更新
           index:
             actions: 操作
@@ -80,7 +80,6 @@ zh-TW:
             update: 更新
           new:
             create: 建立
-            title: 新專案
           update:
             invalid: 更新此專案時出現問題
             success: 專案更新成功。
