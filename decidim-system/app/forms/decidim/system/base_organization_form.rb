@@ -66,6 +66,7 @@ module Decidim
       validate :validate_short_name_format
       validate :validate_secret_key_base_for_encryption
       validate :validate_host_format
+      validate :validate_secondary_hosts_format
 
       def map_model(model)
         self.default_locale = model.default_locale
@@ -180,6 +181,17 @@ module Decidim
         return if host.match?(HOST_FORMAT_REGEX)
 
         errors.add(:host, :invalid)
+      end
+
+      def validate_secondary_hosts_format
+        return if secondary_hosts.blank?
+
+        clean_secondary_hosts.each do |secondary_host|
+          next if secondary_host.match?(HOST_FORMAT_REGEX)
+
+          errors.add(:secondary_hosts, :invalid)
+          break
+        end
       end
     end
   end

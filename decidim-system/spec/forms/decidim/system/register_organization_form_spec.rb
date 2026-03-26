@@ -467,6 +467,71 @@ module Decidim::System
         end
       end
 
+      describe "secondary_hosts format" do
+        context "when secondary_hosts contains spaces" do
+          before { subject.secondary_hosts = "example .org" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:secondary_hosts]).to include("is invalid")
+          end
+        end
+
+        context "when secondary_hosts has special characters" do
+          before { subject.secondary_hosts = "example@org!" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:secondary_hosts]).to include("is invalid")
+          end
+        end
+
+        context "when one of multiple secondary_hosts is invalid" do
+          before { subject.secondary_hosts = "valid.example.org\ninvalid .host" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:secondary_hosts]).to include("is invalid")
+          end
+        end
+
+        context "when secondary_hosts is valid simple domain" do
+          before { subject.secondary_hosts = "example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when secondary_hosts is localhost" do
+          before { subject.secondary_hosts = "localhost" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when secondary_hosts is valid IPv4" do
+          before { subject.secondary_hosts = "127.0.0.1" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when secondary_hosts has multiple valid hosts" do
+          before { subject.secondary_hosts = "foo.example.org\nbar.example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when secondary_hosts has empty lines" do
+          before { subject.secondary_hosts = "foo.example.org\r\n\r\nbar.example.org" }
+
+          it { is_expected.to be_valid }
+        end
+      end
+
       describe "organization uniqueness" do
         let!(:existing_organization) do
           create(
