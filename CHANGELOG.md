@@ -1,5 +1,64 @@
 # Changelog
 
+## [0.31.3](https://github.com/decidim/decidim/tree/0.31.3)
+
+### Added
+
+Nothing.
+
+### Changed
+
+- **decidim-core**, **decidim-proposals**: Backport 'Show only component specific states in proposal to proposal import' to v0.31 [\#16403](https://github.com/decidim/decidim/pull/16403)
+
+### Fixed
+
+- **decidim-budgets**: Backport 'Fix ux resolve encoding issues in the admin budget title' to v0.31 [\#16231](https://github.com/decidim/decidim/pull/16231)
+- **decidim-admin**, **decidim-core**: Backport 'Fix password help text for admins and users' to v0.31 [\#16224](https://github.com/decidim/decidim/pull/16224)
+- **decidim-admin**, **decidim-core**: Backport 'Fix error state is not visible when translation is missing' to v0.31 [\#16229](https://github.com/decidim/decidim/pull/16229)
+- **decidim-admin**: Backport 'Fix long names and components counter in admin' to v0.31 [\#16252](https://github.com/decidim/decidim/pull/16252)
+- **decidim-budgets**: Backport 'Add a validation and increase the amounts for budgets' to v0.31 [\#16262](https://github.com/decidim/decidim/pull/16262)
+- **decidim-forms**, **decidim-surveys**: Backport 'Fix count of valid questions types in survey' to v0.31 [\#16267](https://github.com/decidim/decidim/pull/16267)
+- **decidim-forms**: Backport 'Remove 'free text' option from sorting questions' responses options' to v0.31 [\#16268](https://github.com/decidim/decidim/pull/16268)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Fix importing attachments within processes/assemblies' to v0.31 [\#16278](https://github.com/decidim/decidim/pull/16278)
+- **decidim-core**, **decidim-elections**, **decidim-forms**, **decidim-meetings**: Backport 'Avoid removing questions with "enter" key in surveys' admin' to v0.31 [\#16283](https://github.com/decidim/decidim/pull/16283)
+- **decidim-meetings**: Backport 'Fix for editing a meeting page from related process' to v0.31 [\#16305](https://github.com/decidim/decidim/pull/16305)
+- **decidim-assemblies**: Backport 'Fix grandchildren navigation in assemblies' to v0.31 [\#16311](https://github.com/decidim/decidim/pull/16311)
+- **decidim-meetings**: Backport 'Remove calendar from highlighted meetings content block' to v0.31 [\#16312](https://github.com/decidim/decidim/pull/16312)
+- **decidim-core**, **decidim-meetings**: Backport 'Fix showing end dates when meetings have multiple dates' to v0.31 [\#16314](https://github.com/decidim/decidim/pull/16314)
+- **decidim-conferences**: Backport 'Add action log for conferences' duplicate action' to v0.31 [\#16331](https://github.com/decidim/decidim/pull/16331)
+- **decidim-core**: Backport 'Fix focus guard related bugs' to v0.31 [\#16318](https://github.com/decidim/decidim/pull/16318)
+- **decidim-core**, **decidim-meetings**: Backport 'Show spaces names in meetings outside of its space' to v0.31 [\#16347](https://github.com/decidim/decidim/pull/16347)
+- **decidim-initiatives**: Backport 'Show or not initiatives components menu depending on state' to v0.31 [\#16350](https://github.com/decidim/decidim/pull/16350)
+- **decidim-forms**, **decidim-surveys**: Backport 'Fix for sorting newly added questions' to v0.31 [\#16352](https://github.com/decidim/decidim/pull/16352)
+- **decidim-meetings**: Backport 'Show agenda before the tab panels in meetings' to v0.31 [\#16362](https://github.com/decidim/decidim/pull/16362)
+- **decidim-forms**: Backport 'Remove automatic numbering of questions in the frontend' to v0.31 [\#16372](https://github.com/decidim/decidim/pull/16372)
+- **decidim-accountability**, **decidim-blogs**, **decidim-budgets**, **decidim-collaborative_texts**, **decidim-core**, **decidim-debates**, **decidim-dev**, **decidim-elections**, **decidim-meetings**, **decidim-pages**, **decidim-proposals**, **decidim-surveys**: Backport 'Fix search indexing rules on component publication' to v0.31 [\#16379](https://github.com/decidim/decidim/pull/16379)
+- **decidim-core**, **decidim-proposals**: Backport 'Show only component specific states in proposal to proposal import' to v0.31 [\#16403](https://github.com/decidim/decidim/pull/16403)
+- **decidim-core**, **decidim-proposals**: Backport 'Fix edit proposal with attachment' to v0.31 [\#16386](https://github.com/decidim/decidim/pull/16386)
+- **decidim-admin**: Backport 'Fix entire duplicate page appears when adding a filter to a debate' to v0.31 [\#16417](https://github.com/decidim/decidim/pull/16417)
+- **decidim-core**: Backport 'Prevent taxonomy importer from removing custom component settings' to v0.31 [\#16423](https://github.com/decidim/decidim/pull/16423)
+- **decidim-admin**, **decidim-elections**, **decidim-forms**, **decidim-participatory processes**: Backport 'Fix cursor for hover and icon for draggable' to v0.31 [\#16427](https://github.com/decidim/decidim/pull/16427)
+- **decidim-admin**: Backport 'Fix component settings disabled when it is readonly' to v0.31 [\#16430](https://github.com/decidim/decidim/pull/16430)
+- **decidim-budgets**: Backport 'Fix budgets list still displayed empty after voting on all budgets' to v0.31 [\#16431](https://github.com/decidim/decidim/pull/16431)
+- **decidim-core**, **decidim-meetings**: Backport 'Prevent infinite loops on FindAndUpdateDescendantsJob' to v0.31 [\#16434](https://github.com/decidim/decidim/pull/16434)
+- **decidim-admin**: Backport 'Fix flaky spec on `admin_moderates_user_spec.rb`' to v0.31 [\#16436](https://github.com/decidim/decidim/pull/16436)
+- **decidim-core**: Backport 'Fix datepicker position when is placed at the bottom of the page' to v0.31 [\#16446](https://github.com/decidim/decidim/pull/16446)
+- **decidim-core**: Backport 'Fix bug with the announcements break words rules' to v0.31 [\#16440](https://github.com/decidim/decidim/pull/16440)
+- **decidim-admin**, **decidim-assemblies**, **decidim-budgets**, **decidim-conferences**, **decidim-core**, **decidim-dev**, **decidim-elections**, **decidim-forms**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**, **decidim-surveys**, **decidim-verifications**: Backport 'Fix meetings end date when it is multiyear' to v0.31 [\#16443](https://github.com/decidim/decidim/pull/16443)
+- **decidim-admin**, **decidim-core**: Backport 'Do not ask password on invitations when organization has only external accounts' to v0.31 [\#16467](https://github.com/decidim/decidim/pull/16467)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
+
 ## [0.31.2](https://github.com/decidim/decidim/tree/0.31.2)
 
 ### Added
