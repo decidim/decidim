@@ -156,7 +156,7 @@ sv:
           create: Skapa
           title: Skapa ny debatt
         orders:
-          label: Sortera debater efter
+          label: Sortera debatter efter
           most_commented: Mest kommenterad
           random: Slumpmässig ordning
           recent: Senaste
