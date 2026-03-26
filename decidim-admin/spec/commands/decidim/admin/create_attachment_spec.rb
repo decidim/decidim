@@ -41,7 +41,7 @@ module Decidim::Admin
         expect(Decidim::Attachment.count).to eq(1)
       end
 
-      it "notifies the followers" do
+      it "notifies the followers on a published resource" do
         follower = create(:user, organization: attached_to.organization)
         create(:follow, followable: attached_to, user: follower)
 
@@ -53,6 +53,17 @@ module Decidim::Admin
             resource: kind_of(Decidim::Attachment),
             followers: [follower]
           )
+
+        subject
+      end
+
+      it "does not notify the followers on an unpublished resource" do
+        follower = create(:user, organization: attached_to.organization)
+        create(:follow, followable: attached_to, user: follower)
+        attached_to.unpublish!
+
+        expect(Decidim::EventsManager)
+          .not_to receive(:publish)
 
         subject
       end
