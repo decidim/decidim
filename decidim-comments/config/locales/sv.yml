@@ -102,7 +102,7 @@ sv:
         order:
           best_rated: Högst betyg
           most_discussed: Mest diskuterade
-          older: Gamla
+          older: Äldsta
           recent: Nya
         title: 'Sortera efter:'
       comments:
