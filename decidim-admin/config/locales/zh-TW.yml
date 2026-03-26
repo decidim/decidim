@@ -177,7 +177,6 @@ zh-TW:
           alert: '必填：請審閱我們的管理者服務條款'
           callout: 請花點時間審閱管理者服務條款，否則將無法管理平台
           cta: 現在審閱
-        title: 管理者服務條款
       area_types:
         create:
           error: 新增區域類型時發生錯誤
@@ -219,8 +218,6 @@ zh-TW:
         edit:
           title: 編輯資料夾
           update: 更新
-        index:
-          attachment_collections_title: 附件資料夾
         new:
           create: 建立
           title: 新資料夾
@@ -236,8 +233,6 @@ zh-TW:
         edit:
           title: 編輯附件
           update: 更新
-        index:
-          attachments_title: 附件
         new:
           create: 建立附件
           title: 新增附件
@@ -284,7 +279,6 @@ zh-TW:
           title: '新增元件： %{name}'
         publish:
           success: 這個元件已經成功發佈
-        title: 元件
         unpublish:
           success: 這個元件已經成功取消發佈
         update:
@@ -295,7 +289,6 @@ zh-TW:
         'false': '否'
         managed_user_name: 管理的使用者
         solved: 已解決
-        title: 驗證衝突
         transfer:
           email: 電子郵件
           name: 名稱
@@ -407,7 +400,6 @@ zh-TW:
           impersonate: 模擬
           impersonate_existing_managed_user: 管理參與者 "%{name}"
           impersonate_existing_user: 管理參與者 "%{name}"
-          impersonate_new_managed_user: 管理新參與者
       imports:
         and: 和
         data_errors:
@@ -456,7 +448,6 @@ zh-TW:
         promotions:
           new:
             explanation: 受管理的參與者可以晉升為標準參與者。這意味著他們將受邀加入應用程式，您將無法再對其進行管理。被邀請的參與者將收到一封電子郵件，以接受您的邀請。
-            new_managed_user_promotion: 晉升新的受管理參與者
             promote: 推廣
       members_csv_imports:
         new:
@@ -597,7 +588,6 @@ zh-TW:
           title: 通訊範本
           use_template: 使用這個範本
         show:
-          preview: '預覽範本： %{template_name}'
           use_template: 使用這個範本
       newsletters:
         create:
@@ -642,7 +632,6 @@ zh-TW:
         send:
           no_recipients: 沒有選擇收件人.
         show:
-          preview: 預覽
           select_recipients_to_deliver: 選擇要傳送的收件人
           subject: 主旨
         update:
@@ -784,18 +773,10 @@ zh-TW:
           error: 更新此頁面時出現問題。
           success: 頁面已更新成功.
       titles:
-        admin_log: 管理日誌
-        area_types: 區域類型
         areas: 區域
         authorization_workflows: 驗證方式
-        dashboard: 儀表板
-        impersonatable_users: 可管理的參與者
-        impersonations: 參與者管理
         panel: 管理員
-        participants: 參與者
-        scope_types: 範圍類型
         scopes: 範圍
-        users: 管理員
       users:
         create:
           error: 邀請此管理員時出現問題。

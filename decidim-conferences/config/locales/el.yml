@@ -101,8 +101,6 @@ el:
           success: Ο ομιλητής διάσκεψης διαγράφηκε με επιτυχία.
         edit:
           update: Ενημέρωση
-        index:
-          conference_speakers_title: Ομιλητές διάσκεψης
         new:
           create: Δημιουργία
         update:
@@ -116,8 +114,6 @@ el:
           success: Ο διαχειριστής διάσκεψης καταργήθηκε με επιτυχία.
         edit:
           update: Ενημέρωση
-        index:
-          conference_admins_title: Διαχειριστές διάσκεψης
         new:
           create: Δημιουργία
         update:
@@ -218,7 +214,6 @@ el:
           update: Ενημέρωση
         new:
           create: Δημιουργία
-          title: Νέος συνεργάτης
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση ενός συνεργάτη για αυτήν τη διάσκεψη.
           success: Ο συνεργάτης διάσκεψης ενημερώθηκε με επιτυχία.
@@ -239,12 +234,9 @@ el:
           update: Ενημέρωση
         new:
           create: Δημιουργία
-          title: Νέος τύπος εγγραφής
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση ενός τύπου εγγραφής για αυτήν τη διάσκεψη.
           success: Ο τύπος εγγραφής διάσκεψης ενημερώθηκε με επιτυχία.
-      titles:
-        conferences: Διασκέψεις
     admin_log:
       conference:
         create: "Ο χρήστης %{user_name} δημιούργησε τη διάσκεψη %{resource_name}"
@@ -298,14 +290,9 @@ el:
             select_user: Επιλέξτε συμμετέχοντα
           index:
             invite_attendee: Πρόσκληση συμμετέχοντα
-            invites: Προσκλήσεις
           new:
             explanation: Ο συμμετέχων θα προσκληθεί να συμμετάσχει σε διάσκεψη. Εάν το email του δεν είναι καταχωρημένο, θα προσκληθεί και στον οργανισμό.
             invite: Πρόσκληση
-            new_invite: Πρόσκληση συμμετέχοντα
-        conference_registrations:
-          index:
-            registrations: Εγγραφές
         conference_speakers:
           form:
             existing_user: Υπάρχων συμμετέχων

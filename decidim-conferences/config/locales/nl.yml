@@ -88,8 +88,6 @@ nl:
           success: Conferentiespreker is met succes verwijderd.
         edit:
           update: Bijwerken
-        index:
-          conference_speakers_title: Sprekers van de conferentie
         new:
           create: Creëren
         update:
@@ -203,7 +201,6 @@ nl:
           update: Bijwerken
         new:
           create: Creëren
-          title: Nieuwe partner
         update:
           error: Er is een probleem opgetreden bij het bijwerken van een partner voor deze conferentie.
           success: Partner is succesvol geüpdatet voor deze conferentie.
@@ -224,12 +221,9 @@ nl:
           update: Bijwerken
         new:
           create: Creëren
-          title: Nieuw registratietype
         update:
           error: Er is een fout opgetreden bij het updaten van een registratietype voor deze conferentie.
           success: Registratietype is succesvol bijgewerkt voor deze conferentie.
-      titles:
-        conferences: Conferenties
     admin_log:
       conference:
         create: "%{user_name} heeft de %{resource_name} conferentie gemaakt"
@@ -282,13 +276,8 @@ nl:
             select_user: Selecteer gebruiker
           index:
             invite_attendee: Nodig deelnemer uit
-            invites: Uitnodigingen
           new:
             invite: Nodig uit
-            new_invite: Nodig deelnemer uit
-        conference_registrations:
-          index:
-            registrations: Inschrijvingen
         conference_speakers:
           form:
             existing_user: Bestaande deelnemer

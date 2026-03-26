@@ -87,12 +87,6 @@
         skip_verification: Du kan hoppe over dette for nå og %{link}
         start_exploring: begynn å utforske
       csv_census:
-        admin:
-          index:
-            title: Nåværende folketelling data
-          instructions:
-            body: For å gjøre dette må du gå inn i systemadministrasjon og legge til cvs_census autoriseringen til organisasjonen
-            title: Du må aktivere CSV-tellingen for denne organisasjonen
         authorizations:
           new:
             error: Vi kunne ikke bekrefte kontoen din, eller du er ikke i organisasjonens folketelling.
@@ -115,13 +109,11 @@
               error: Det oppsto et problem med å oppdatere konfigurasjonen.
           confirmations:
             new:
-              introduce_user_data: Introduser dataene på bildet
               reject: Avvis
               verify: Verifiser
           offline_confirmations:
             new:
               cancel: Avbryt
-              introduce_user_data: Introduser deltakerens email og dokumentdata
               verify: Verifiser
           pending_authorizations:
             index:

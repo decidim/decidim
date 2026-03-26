@@ -41,7 +41,6 @@ en:
         participatory_processes_ids: Related participatory processes
         participatory_scope: What is decided
         participatory_structure: How is it decided
-        private_space: Private space
         promoted: Highlighted
         published_at: Published at
         purpose_of_action: Purpose of action
@@ -103,8 +102,10 @@ en:
         edit:
           update: Update
         index:
-          private: Private
-          public: Public
+          access_modes:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
           published: Published
           unpublished: Unpublished
         new:
@@ -171,9 +172,9 @@ en:
       models:
         assembly:
           fields:
+            access_mode: Access mode
             actions: Actions
             created_at: Created at
-            private: Private
             promoted: Highlighted
             published: Published
             title: Title
@@ -239,6 +240,12 @@ en:
           edit:
             title: About this assembly
           form:
+            access:
+              label: Access
+              options:
+                open: Everyone can see the assembly and participate.
+                restricted: Only members can see and participate.
+                transparent: Everyone can see the assembly, but only members can participate.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
@@ -248,7 +255,6 @@ en:
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
-            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
             select_a_created_by: Select a created by
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -357,7 +363,6 @@ en:
             member_of: Member of
       show:
         duration: Duration
-        private_space: This is a private assembly
         social_networks_title: Visit assembly on
     download_your_data:
       show:
@@ -392,6 +397,7 @@ en:
     open_data:
       help:
         assemblies:
+          access_mode: Access mode. Whether the assembly is open, restricted, or transparent.
           area: The area of the assembly
           assembly_type: The type of the assembly
           closing_date: The closing date of the assembly

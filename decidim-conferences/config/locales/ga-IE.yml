@@ -114,8 +114,6 @@ ga:
     conferences:
       admin:
         conference_invites:
-          index:
-            invites: Cuirí
           new:
             invite: Tabhair Cuireadh
         conference_speakers:

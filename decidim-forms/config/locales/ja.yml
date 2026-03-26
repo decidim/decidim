@@ -180,6 +180,7 @@ ja:
         response:
           invalid: フォームへの応答で問題が発生しました。
           max_choices_alert: 選択された選択肢が多すぎます
+          spam_detected: フォームへの応答に問題が発生しました。おそらく入力が速すぎたようです。もう一度お試しいただけますか？
           success: フォームに応答しました。
         show:
           current_step: ステップ %{step}

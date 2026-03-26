@@ -88,7 +88,7 @@ ja:
             invalid: プロジェクトの作成中に問題が発生しました。
             success: プロジェクトが正常に作成されました。
           edit:
-            title: プロジェクトを編集
+            title: '%{budget} のプロジェクトを編集'
             update: 更新
           index:
             actions: アクション
@@ -111,7 +111,7 @@ ja:
             title: 削除されたプロジェクト
           new:
             create: 作成
-            title: 新規プロジェクト
+            title: '%{budget} の新規プロジェクト'
           update:
             invalid: プロジェクトの更新中に問題が発生しました。
             success: プロジェクトを更新しました。

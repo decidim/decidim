@@ -256,26 +256,26 @@ describe "Assemblies" do
         end
       end
 
-      context "when the assembly has children private and transparent assemblies and related assemblies block is active" do
-        let!(:private_transparent_child_assembly) { create(:assembly, organization:, parent: assembly, private_space: true, is_transparent: true) }
-        let!(:private_transparent_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: true) }
+      context "when the assembly has children with transparent assemblies and related assemblies block is active" do
+        let!(:transparent_child_assembly) { create(:assembly, organization:, parent: assembly, access_mode: :transparent) }
+        let!(:transparent_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, access_mode: :transparent) }
         let(:blocks_manifests) { [:related_assemblies] }
 
         before do
           visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
         end
 
-        it "shows only the published, private and transparent children assemblies" do
+        it "shows only the published and transparent children assemblies" do
           within(".participatory-space__block-grid") do
-            expect(page).to have_link translated(private_transparent_child_assembly.title)
-            expect(page).to have_no_link translated(private_transparent_unpublished_child_assembly.title)
+            expect(page).to have_link translated(transparent_child_assembly.title)
+            expect(page).to have_no_link translated(transparent_unpublished_child_assembly.title)
           end
         end
       end
 
-      context "when the assembly has children private and not transparent assemblies" do
-        let!(:private_child_assembly) { create(:assembly, organization:, parent: assembly, private_space: true, is_transparent: false) }
-        let!(:private_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: false) }
+      context "when the assembly has children with restricted assemblies" do
+        let!(:child_assembly) { create(:assembly, organization:, parent: assembly, access_mode: :restricted) }
+        let!(:unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, access_mode: :restricted) }
 
         before do
           visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)

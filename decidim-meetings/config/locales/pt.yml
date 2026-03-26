@@ -74,7 +74,6 @@ pt:
           success: Reunião duplicada corretamente.
         new:
           copy: Copiar
-          title: Reunião duplicada
     components:
       meetings:
         actions:
@@ -204,7 +203,6 @@ pt:
             non_user: Participante inexistente
             select_user: Selecione o participante
           index:
-            invite_attendee: Convidar participante
             invites: Convites
         meeting_closes:
           edit:
@@ -256,7 +254,6 @@ pt:
               one: Houve %{count} registo.
               other: Houve %{count} registos.
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
-            title: Registos
           update:
             invalid: Ocorreu um problema ao guardar as configurações de registo.
             success: Configurações de registo de reunião guardadas corretamente.

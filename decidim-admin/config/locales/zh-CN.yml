@@ -150,8 +150,6 @@ zh-CN:
         edit:
           title: 编辑文件夹
           update: 更新
-        index:
-          attachment_collections_title: 附件文件夹
         new:
           create: 创建
           title: 新建文件夹
@@ -167,8 +165,6 @@ zh-CN:
         edit:
           title: 编辑附件
           update: 更新
-        index:
-          attachments_title: 附件
         new:
           create: 创建附件
           title: 新附件
@@ -206,7 +202,6 @@ zh-CN:
           title: '添加组件: %{name}'
         publish:
           success: 组件已成功发布。
-        title: 组件
         unpublish:
           success: 组件已成功取消发布。
         update:
@@ -276,7 +271,6 @@ zh-CN:
           impersonate: 仿冒的
           impersonate_existing_managed_user: 管理参与者 "%{name}"
           impersonate_existing_user: 管理参与者 "%{name}"
-          impersonate_new_managed_user: 管理新参与者
       managed_users:
         promotion:
           error: 在促进管理下的参与者方面存在问题。
@@ -284,7 +278,6 @@ zh-CN:
         promotions:
           new:
             explanation: 管理下的参与者可以提升到标准参与者。 这意味着他们将被邀请到应用程序中，您将无法再次管理他们。 邀请的参与者将收到一封电子邮件来接受您的邀请。
-            new_managed_user_promotion: 新管理的参与者促销活动
             promote: 升级
       members_csv_imports:
         new:
@@ -381,7 +374,6 @@ zh-CN:
           title: 通讯模板
           use_template: 使用此模板
         show:
-          preview: '预览模板： %{template_name}'
           use_template: 使用此模板
       newsletters:
         create:
@@ -422,7 +414,6 @@ zh-CN:
           title: 选择要交付的收件人
           warning: "<strong>注意:</strong> 这份通讯将只发送给已激活 <em>我想在其通知设置中接收新闻简讯</em>。"
         show:
-          preview: 预览
           select_recipients_to_deliver: 选择要交付的收件人
           subject: 议 题
         update:
@@ -537,15 +528,8 @@ zh-CN:
         update:
           error: 更新此页面时出现问题。
       titles:
-        admin_log: 管理员日志
-        area_types: 区域类型
         areas: 地区
         authorization_workflows: 核查方法
-        dashboard: 仪表板
-        impersonatable_users: 可管理的参与者
-        impersonations: 参与者管理
-        participants: 参加者
-        scope_types: 范围类型
         scopes: 范围
       users:
         create:

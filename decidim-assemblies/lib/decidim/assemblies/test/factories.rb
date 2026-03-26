@@ -35,7 +35,6 @@ FactoryBot.define do
     target { generate_localized_title(:assembly_target, skip_injection:) }
     participatory_scope { generate_localized_title(:assembly_participatory_scope, skip_injection:) }
     participatory_structure { generate_localized_title(:assembly_participatory_structure, skip_injection:) }
-    private_space { false }
     has_members { false }
     purpose_of_action { generate_localized_description(:assembly_purpose_of_action, skip_injection:) }
     composition { generate_localized_description(:assembly_composition, skip_injection:) }
@@ -47,7 +46,6 @@ FactoryBot.define do
     closing_date { 2.months.from_now.at_midnight }
     closing_date_reason { generate_localized_description(:assembly_closing_date_reason, skip_injection:) }
     internal_organisation { generate_localized_description(:assembly_internal_organisation, skip_injection:) }
-    is_transparent { true }
     special_features { generate_localized_description(:assembly_special_features, skip_injection:) }
     twitter_handler { "others" }
     facebook_handler { "others" }
@@ -77,20 +75,16 @@ FactoryBot.define do
       parent { create(:assembly, organization:, skip_injection:) }
     end
 
-    trait :public do
-      private_space { false }
-    end
-
-    trait :private do
-      private_space { true }
+    trait :open do
+      access_mode { :open }
     end
 
     trait :transparent do
-      is_transparent { true }
+      access_mode { :transparent }
     end
 
-    trait :opaque do
-      is_transparent { false }
+    trait :restricted do
+      access_mode { :restricted }
     end
 
     trait :with_content_blocks do

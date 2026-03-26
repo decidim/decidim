@@ -6,7 +6,7 @@
       <h2 class="card-title flex items-center">
         <span>
           <% if editable %>
-            <%= icon("drag-move-2-fill") %>
+            <%= icon("draggable", class: "dragger hover:cursor-grab") %>
           <% else %>
             <%= icon("lock-line") %>
           <% end %>
