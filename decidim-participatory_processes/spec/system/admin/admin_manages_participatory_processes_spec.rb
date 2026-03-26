@@ -87,6 +87,7 @@ describe "Admin manages participatory processes", versioning: true do
         select group_title, from: :participatory_process_participatory_process_group_id
 
         select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
+        choose(:participatory_process_access_mode_open)
 
         fill_in :participatory_process_slug, with: "slug"
         fill_in :participatory_process_weight, with: 1

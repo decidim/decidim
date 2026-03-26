@@ -22,6 +22,7 @@ it:
       actions:
         edit: Modifica
         import: Importa proposte nei progetti
+        new_project: Nuovo progetto
         preview: Anteprima
         title: Azioni
       admin:
@@ -45,7 +46,6 @@ it:
             name: Progetto
         projects:
           edit:
-            title: Modifica il progetto
             update: Aggiorna
           index:
             finished_orders: Votazione finale
@@ -54,7 +54,6 @@ it:
             title: Progetti
           new:
             create: Crea
-            title: Nuovo progetto
         proposals_imports:
           new:
             create: Importa proposte per progetti

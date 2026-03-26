@@ -194,8 +194,6 @@ ko:
         edit:
           title: 첨부파일 편집
           update: 업데이트
-        index:
-          attachments_title: 첨부 파일
         new:
           create: 첨부파일 생성
           title: 새 첨부 파일
@@ -243,7 +241,6 @@ ko:
           title: '구성요소 추가: %{name}'
         publish:
           success: 구성 요소가 성공적으로 게시되었습니다.
-        title: 구성요소
         unpublish:
           success: 구성 요소가 성공적으로 게시되지 않았습니다.
         update:
@@ -254,7 +251,6 @@ ko:
         'false': '아니오'
         managed_user_name: 관리된 사용자
         solved: 해결됨
-        title: 인증 충돌 발생
         transfer:
           email: 이메일
           name: 이름
@@ -352,7 +348,6 @@ ko:
         new:
           impersonate_existing_managed_user: 참가자 "% {name}" 관리
           impersonate_existing_user: 참가자 "% {name}" 관리
-          impersonate_new_managed_user: 새로운 참여자 관리
       imports:
         and: 그리고
         new:
@@ -449,7 +444,6 @@ ko:
         index:
           use_template: 이 템플릿 사용하기
         show:
-          preview: '미리보기 템플릿: %{template_name}'
           use_template: 이 템플릿 사용하기
       newsletters:
         create:
@@ -495,7 +489,6 @@ ko:
         send_to_user:
           sent_successfully: 뉴스레터가 %{email}(으) 로 전송되었습니다
         show:
-          preview: 미리보기
           select_recipients_to_deliver: 전송 받는 사람 선택
           send_me_a_test_email: 나에게 테스트 메일 보내기
           subject: 주제
@@ -572,21 +565,11 @@ ko:
           error: 이 페이지를 업데이트하는 동안 문제가 발생했습니다.
           success: 페이지가 성공적으로 업데이트되었습니다.
       titles:
-        admin_log: 관리자 로그
-        area_types: 영역 유형
         areas: 영역
         authorization_workflows: 인증 방식
-        dashboard: 대시보드
-        impersonatable_users: 관리 가능한 참가자
-        impersonations: 참가자 관리
         menu: 메뉴
-        page_topics: 주제
-        pages: 페이지
         panel: 관리자
-        participants: 참가자
-        scope_types: 범위 종류
         scopes: 범위
-        users: 관리자
       users:
         form:
           email: 이메일

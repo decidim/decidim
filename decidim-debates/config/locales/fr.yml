@@ -144,8 +144,8 @@ fr:
           create: Créer
           title: Créer un nouveau débat
         orders:
-          commented: Les plus commentés
           label: Trier les débats par
+          most_commented: Les plus commentés
           random: Ordre aléatoire
           recent: Les plus récents
           updated: Mis à jour récemment

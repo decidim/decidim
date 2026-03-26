@@ -30,6 +30,7 @@
       actions:
         edit: Editar
         import: Importer forslag til prosjekter
+        new_project: Nytt prosjekt
         preview: Forhåndsvis
         title: Handlinger
       admin:
@@ -53,7 +54,6 @@
             name: Prosjekt
         projects:
           edit:
-            title: Rediger prosjekt
             update: Oppdater
           index:
             finished_orders: Avsluttede stemmer
@@ -62,7 +62,6 @@
             title: Prosjekter
           new:
             create: Opprett
-            title: Nytt prosjekt
         proposals_imports:
           new:
             create: Importer forslag til prosjekter

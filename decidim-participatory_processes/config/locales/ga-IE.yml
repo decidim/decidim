@@ -47,7 +47,6 @@ ga:
       models:
         participatory_process:
           fields:
-            private: Príobháideach
             title: Teideal
           name: Próiseas Rannpháirtíochta
         participatory_process_group:
@@ -79,8 +78,6 @@ ga:
         default_title: Réamhrá
         edit:
           update: Nuashonraigh
-        index:
-          steps_title: Céimeanna
         new:
           create: Cruthaigh
       participatory_process_user_roles:
@@ -91,9 +88,6 @@ ga:
       participatory_processes:
         edit:
           update: Nuashonraigh
-        index:
-          private: Príobháideach
-          public: Poblach
         new:
           create: Cruthaigh
     participatory_process_groups:

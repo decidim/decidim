@@ -37,9 +37,6 @@ ga:
       assemblies:
         edit:
           update: Nuashonraigh
-        index:
-          private: Príobháideach
-          public: Poblach
         new:
           create: Cruthaigh
       assembly_imports:
@@ -58,7 +55,6 @@ ga:
       models:
         assembly:
           fields:
-            private: Príobháideach
             title: Teideal
           name: Tionól
         assembly_member:
@@ -88,9 +84,6 @@ ga:
         filters:
           names:
             all: Uile
-      assembly_members:
-        index:
-          members: Baill
       created_by:
         others: Eile
         public: Poblach
@@ -99,9 +92,6 @@ ga:
         others: Eile
       show:
         duration: Fad
-    assembly_members:
-      index:
-        title: Baill
   layouts:
     decidim:
       assembly_navigation:

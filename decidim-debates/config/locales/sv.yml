@@ -156,8 +156,8 @@ sv:
           create: Skapa
           title: Skapa ny debatt
         orders:
-          commented: Flest kommentarer
           label: Sortera debater efter
+          most_commented: Mest kommenterad
           random: Slumpmässig ordning
           recent: Senaste
           updated: Senast uppdaterade

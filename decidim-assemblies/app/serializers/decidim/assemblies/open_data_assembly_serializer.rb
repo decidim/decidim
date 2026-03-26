@@ -37,7 +37,7 @@ module Decidim
             creation_date: resource.creation_date,
             closing_date_reason: resource.closing_date_reason,
             internal_organisation: resource.internal_organisation,
-            is_transparent: resource.is_transparent,
+            access_mode: resource.access_mode,
             special_features: resource.special_features,
             twitter_handler: resource.twitter_handler,
             instagram_handler: resource.instagram_handler,

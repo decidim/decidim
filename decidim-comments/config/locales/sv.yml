@@ -67,9 +67,6 @@ sv:
         alignment:
           against: Mot
           in_favor: För
-        answers:
-          one: "%{count} svar"
-          other: "%{count} svar"
         cancel_reply: Avbryt svar
         comment_label: Kommentar %{comment_id}
         comment_label_reply: Kommentar %{comment_id} (svar på kommentar %{parent_comment_id})

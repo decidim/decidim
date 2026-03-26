@@ -109,7 +109,6 @@ it:
           back: Indietro
           create: Crea
         orders:
-          commented: I più commentati
           label: Ordina i dibattiti per
           random: Ordine casuale
           recent: Più recenti

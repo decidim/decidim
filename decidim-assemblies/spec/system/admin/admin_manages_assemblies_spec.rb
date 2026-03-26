@@ -80,6 +80,7 @@ describe "Admin manages assemblies" do
         fill_in_i18n(:assembly_target, "#assembly-target-tabs", **attributes[:target].except("machine_translations"))
 
         select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
+        choose(:assembly_access_mode_open)
 
         fill_in :assembly_slug, with: "slug"
         fill_in :assembly_weight, with: 1
@@ -132,14 +133,14 @@ describe "Admin manages assemblies" do
     end
 
     describe "when the assembly is transparent" do
-      let!(:assembly3) { create(:assembly, :private, :transparent, organization:) }
+      let!(:assembly3) { create(:assembly, :transparent, organization:) }
 
-      it "shows the transparent checkbox correctly" do
+      it "shows the transparent radio button correctly" do
         within "tr", text: translated(assembly3.title) do
           click_on translated(assembly3.title)
         end
 
-        expect(page).to have_checked_field("assembly_is_transparent")
+        expect(page).to have_checked_field("assembly_access_mode_transparent")
       end
     end
   end
@@ -161,7 +162,7 @@ describe "Admin manages assemblies" do
 
     describe "listing parent assemblies" do
       it_behaves_like "filtering collection by published/unpublished"
-      it_behaves_like "filtering collection by private/public"
+      it_behaves_like "filtering collection by open/restricted/transparent"
     end
   end
 

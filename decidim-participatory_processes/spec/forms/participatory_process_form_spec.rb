@@ -50,6 +50,7 @@ module Decidim
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:private_space) { true }
         let(:has_members) { true }
+        let(:access_mode) { "open" }
         let(:attributes) do
           {
             "participatory_process" => {
@@ -72,6 +73,7 @@ module Decidim
               "slug" => slug,
               "private_space" => private_space,
               "has_members" => has_members,
+              "access_mode" => access_mode,
               "taxonomies" => [taxonomies.first.id, taxonomies.second.id]
             }
           }
@@ -87,6 +89,42 @@ module Decidim
           let(:has_members) { false }
 
           it { is_expected.to be_valid }
+        end
+
+        context "when access_mode is missing" do
+          let(:access_mode) { nil }
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when access_mode is present" do
+          let(:access_mode) { "open" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when access_mode is invalid" do
+          let(:access_mode) { "foo" }
+
+          it { is_expected.to be_invalid }
+        end
+
+        describe "default access_mode" do
+          let(:attributes) do
+            {
+              "participatory_process" => {
+                "title_en" => title[:en],
+                "title_es" => title[:es],
+                "title_ca" => title[:ca],
+                "slug" => slug,
+                "weight" => weight
+              }
+            }
+          end
+
+          it "is :open" do
+            expect(subject.access_mode).to eq("open")
+          end
         end
 
         context "when everything is OK" do

@@ -469,9 +469,9 @@ describe "Admin manages newsletters" do
       end
     end
 
-    context "when private members are selected" do
-      context "with private members" do
-        let!(:participatory_process) { create(:participatory_process, organization:, skip_injection: true, private_space: true) }
+    context "when members are selected" do
+      context "with members" do
+        let!(:participatory_process) { create(:participatory_process, organization:, has_members: true, skip_injection: true) }
         let!(:members) do
           create_list(:member, 30) do |member|
             member.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
@@ -482,11 +482,11 @@ describe "Admin manages newsletters" do
 
         let(:recipients_count) { members.size }
 
-        it "sends to private members", :slow do
+        it "sends to members", :slow do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
-          check("Send to private members")
+          check("Send to members")
 
-          expect(find("input[name='newsletter[send_to_private_members]']")).to be_checked
+          expect(find("input[name='newsletter[send_to_members]']")).to be_checked
 
           select_all
 
@@ -512,12 +512,12 @@ describe "Admin manages newsletters" do
         end
       end
 
-      context "when the private members count is 0" do
+      context "when the members count is 0" do
         it "does not display any recipients", :slow do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
-          check("Send to private members")
+          check("Send to members")
 
-          expect(find("input[name='newsletter[send_to_private_members]']")).to be_checked
+          expect(find("input[name='newsletter[send_to_members]']")).to be_checked
 
           select_all
 

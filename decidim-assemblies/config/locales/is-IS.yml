@@ -26,7 +26,6 @@ is-IS:
         meta_scope: Gildissvið lýsigagna
         participatory_scope: Hvað er ákveðið
         participatory_structure: Hvernig það er ákveðið
-        private_space: Einkasvæði
         published_at: Birt á
         purpose_of_action: Tilgangur aðgerða
         short_description: Stutt lýsing
@@ -66,16 +65,12 @@ is-IS:
         edit:
           update: Uppfæra
         index:
-          private: Einkamál
-          public: Opinber
           published: Published
         new:
           create: Búa til
-          title: Ný samkoma
       assembly_imports:
         new:
           import: Flytja inn
-          title: Flytja inn þing
       assembly_user_roles:
         edit:
           update: Uppfæra
@@ -92,7 +87,6 @@ is-IS:
         assembly:
           fields:
             created_at: Búið til á
-            private: Einkamál
             promoted: Hápunktur
             published: Published
             title: Titill
@@ -113,8 +107,6 @@ is-IS:
             admin: Stjórnandi
             collaborator: Samstarfsaðili
             moderator: Moderator
-      titles:
-        assemblies: Þing
     admin_log:
       assembly:
         create: "%{user_name} búið til %{resource_name} samkoma"
@@ -139,9 +131,6 @@ is-IS:
         filters:
           names:
             all: Allt
-      assembly_members:
-        index:
-          members: Meðlimir
       created_by:
         city_council: Borgarstjórn
         others: Aðrir
@@ -150,10 +139,6 @@ is-IS:
         title: Þing
       show:
         duration: Lengd
-        private_space: Þetta er einkasamkoma
-    assembly_members:
-      index:
-        title: Meðlimir
     log:
       value_types:
         assembly_presenter:

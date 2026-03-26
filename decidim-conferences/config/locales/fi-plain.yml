@@ -101,7 +101,6 @@ fi-pl:
         new:
           duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi konferenssi
       conference_publications:
         create:
           error: Konferenssin julkaisemisesta tapahtui virhe.
@@ -120,13 +119,9 @@ fi-pl:
         destroy:
           success: Puhuja poistettiin onnistuneesti konferenssista.
         edit:
-          title: Päivitä konferenssin puhujaa
           update: Päivitä
-        index:
-          conference_speakers_title: Konferenssin puhujat
         new:
           create: Luo
-          title: Uusi konferenssin puhuja
         publish:
           invalid: Puhujan julkaiseminen epäonnistui.
           success: Konferenssin puhujan julkaiseminen onnistui.
@@ -143,13 +138,9 @@ fi-pl:
         destroy:
           success: Käyttäjä poistettiin onnistuneesti konferenssista.
         edit:
-          title: Päivitä konferenssin hallintakäyttäjää
           update: Päivitä
-        index:
-          conference_admins_title: Konferenssin ylläpitäjät
         new:
           create: Luo
-          title: Uusi konferenssin hallintakäyttäjä
         update:
           error: Konferenssin käyttäjän päivittämisessä tapahtui virhe.
           success: Konferenssin käyttäjä päivitettiin onnistuneesti.
@@ -172,11 +163,8 @@ fi-pl:
         index:
           published: Julkaistu
           unpublished: Julkaisematon
-        manage_trash:
-          title: Poistetut konferenssit
         new:
           create: Luo
-          title: Uusi konferenssi
         update:
           error: Konferenssin päivittämisessä tapahtui virhe.
           success: Konferenssi päivitetty onnistuneesti.
@@ -191,13 +179,9 @@ fi-pl:
         destroy:
           success: Medialinkin poisto onnistui.
         edit:
-          title: Päivitä medialinkkiä
           update: Päivitä
-        index:
-          media_links_title: Medialinkit
         new:
           create: Luo
-          title: Luo medialinkki
         update:
           error: Medialinkin päivittämisessä esiintyi virhe.
           success: Medialinkin päivitys onnistui.
@@ -212,7 +196,6 @@ fi-pl:
           conference_invites: Kutsut
           conference_speakers: Puhujat
           diploma: Läsnäolotodistus
-          info: Tietoja tästä konferenssista
           media_links: Medialinkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
@@ -280,11 +263,9 @@ fi-pl:
         destroy:
           success: Yhteistyökumppani poistettu onnistuneesti tästä konferenssista.
         edit:
-          title: Päivitä yhteistyökumppania
           update: Päivitä
         new:
           create: Luo
-          title: Uusi yhteistyökumppani
         update:
           error: Tapahtui virhe päivitettäessä tämän konferenssin yhteistyökumppania.
           success: Konferenssin yhteistyökumppani päivitettiin onnistuneesti.
@@ -302,20 +283,15 @@ fi-pl:
         destroy:
           success: Ilmoittautumistyyppi poistettiin onnistuneesti tästä konferenssista.
         edit:
-          title: Päivitä ilmoittautumistyyppiä
           update: Päivitä
         new:
           create: Luo
-          title: Uusi ilmoittautumistyyppi
         update:
           error: Tapahtui virhe päivitettäessä tämän konferenssin ilmoittautumistyyppiä.
           success: Konferenssin ilmoittautumistyyppi päivitettiin onnistuneesti.
       taxonomy_filters:
         space_filter_for:
           conferences: Kaikki konferenssit
-      titles:
-        conferences: Konferenssit
-        conferences_deleted: Poistetut konferenssit
       tooltips:
         deleted_conferences_info: Konferenssi voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
     admin_log:
@@ -376,14 +352,9 @@ fi-pl:
             select_user: Valitse käyttäjä
           index:
             invite_attendee: Kutsu osallistuja
-            invites: Kutsut
           new:
             explanation: Käyttäjä kutsutaan mukaan konferenssiin. Jos sähköpostiosoitteella ei ole käyttäjätiliä, käyttäjä kutsutaan myös organisaatioon.
             invite: Kutsu
-            new_invite: Kutsu käyttäjä
-        conference_registrations:
-          index:
-            registrations: Ilmoittautumiset
         conference_speakers:
           form:
             existing_user: Olemassa oleva käyttäjä
@@ -432,6 +403,7 @@ fi-pl:
             certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Konferenssin läsnäolotodistuksien lähetys epäonnistui.
+          success: Konferenssin läsnäolotodistusten lähetys onnistui.
       conference:
         registration_confirm:
           cancel: Peruuta
