@@ -1,30 +1,20 @@
 /* eslint max-lines: ["error", 400] */
 
-describe("DropdownController - removeAriaRoles", () => {
+import DropdownController from "src/decidim/controllers/dropdown/controller";
+
+describe("DropdownController", () => {
   let element = null;
   let dropdownMenuEl = null;
+  let controller = null;
 
-  const createRemoveAriaRoles = (dropdownElement) => {
-    return function() {
-      const target = dropdownElement.dataset.target;
-      const dropdownMenu = document.getElementById(target);
-      if (!dropdownMenu) {
-        return;
-      }
-
-      dropdownMenu.removeAttribute("role");
-      dropdownMenu.removeAttribute("aria-labelledby");
-      dropdownMenu.removeAttribute("tabindex");
-
-      dropdownMenu.querySelectorAll("li").forEach((li) => {
-        li.removeAttribute("role");
-      });
-
-      dropdownMenu.querySelectorAll("a").forEach((anchor) => {
-        anchor.removeAttribute("role");
-        anchor.removeAttribute("tabindex");
-      });
-    };
+  const createController = (controllerElement) => {
+    const ControllerClass = DropdownController;
+    const instance = Object.create(ControllerClass.prototype);
+    Reflect.defineProperty(instance, "element", {
+      get: () => controllerElement,
+      configurable: true
+    });
+    return instance;
   };
 
   beforeEach(() => {
@@ -47,6 +37,7 @@ describe("DropdownController - removeAriaRoles", () => {
 
     element = document.getElementById("dropdown-trigger");
     dropdownMenuEl = document.getElementById("dropdown-menu");
+    controller = createController(element);
   });
 
   afterEach(() => {
@@ -56,27 +47,24 @@ describe("DropdownController - removeAriaRoles", () => {
   describe("removeAriaRoles", () => {
     it("removes role attribute from dropdown menu", () => {
       dropdownMenuEl.setAttribute("role", "menu");
-      const removeAriaRoles = createRemoveAriaRoles(element);
 
-      removeAriaRoles();
+      controller.removeAriaRoles();
 
       expect(dropdownMenuEl.getAttribute("role")).toBeNull();
     });
 
     it("removes aria-labelledby attribute from dropdown menu", () => {
       dropdownMenuEl.setAttribute("aria-labelledby", "trigger");
-      const removeAriaRoles = createRemoveAriaRoles(element);
 
-      removeAriaRoles();
+      controller.removeAriaRoles();
 
       expect(dropdownMenuEl.getAttribute("aria-labelledby")).toBeNull();
     });
 
     it("removes tabindex attribute from dropdown menu", () => {
       dropdownMenuEl.setAttribute("tabindex", "-1");
-      const removeAriaRoles = createRemoveAriaRoles(element);
 
-      removeAriaRoles();
+      controller.removeAriaRoles();
 
       expect(dropdownMenuEl.getAttribute("tabindex")).toBeNull();
     });
@@ -84,9 +72,8 @@ describe("DropdownController - removeAriaRoles", () => {
     it("removes role from li elements", () => {
       const li = dropdownMenuEl.querySelector("li");
       li.setAttribute("role", "none");
-      const removeAriaRoles = createRemoveAriaRoles(element);
 
-      removeAriaRoles();
+      controller.removeAriaRoles();
 
       expect(li.getAttribute("role")).toBeNull();
     });
@@ -96,9 +83,8 @@ describe("DropdownController - removeAriaRoles", () => {
       listItems.forEach((li) => {
         li.setAttribute("role", "none");
       });
-      const removeAriaRoles = createRemoveAriaRoles(element);
 
-      removeAriaRoles();
+      controller.removeAriaRoles();
 
       listItems.forEach((li) => {
         expect(li.getAttribute("role")).toBeNull();
@@ -108,9 +94,8 @@ describe("DropdownController - removeAriaRoles", () => {
     it("removes role from anchor elements", () => {
       const anchor = dropdownMenuEl.querySelector("a");
       anchor.setAttribute("role", "menuitem");
-      const removeAriaRoles = createRemoveAriaRoles(element);
 
-      removeAriaRoles();
+      controller.removeAriaRoles();
 
       expect(anchor.getAttribute("role")).toBeNull();
     });
@@ -118,9 +103,8 @@ describe("DropdownController - removeAriaRoles", () => {
     it("removes tabindex from anchor elements", () => {
       const anchor = dropdownMenuEl.querySelector("a");
       anchor.setAttribute("tabindex", "-1");
-      const removeAriaRoles = createRemoveAriaRoles(element);
 
-      removeAriaRoles();
+      controller.removeAriaRoles();
 
       expect(anchor.getAttribute("tabindex")).toBeNull();
     });
@@ -128,18 +112,16 @@ describe("DropdownController - removeAriaRoles", () => {
     it("handles missing dropdown menu gracefully", () => {
       const mockElement = document.createElement("button");
       mockElement.dataset.target = "nonexistent-menu";
-      const removeAriaRoles = createRemoveAriaRoles(mockElement);
+      const mockController = createController(mockElement);
 
       expect(() => {
-        removeAriaRoles();
+        mockController.removeAriaRoles();
       }).not.toThrow();
     });
 
     it("handles elements without the attributes gracefully", () => {
-      const removeAriaRoles = createRemoveAriaRoles(element);
-
       expect(() => {
-        removeAriaRoles();
+        controller.removeAriaRoles();
       }).not.toThrow();
 
       expect(dropdownMenuEl.getAttribute("role")).toBeNull();
