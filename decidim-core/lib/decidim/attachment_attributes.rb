@@ -36,8 +36,7 @@ module Decidim
         define_method :"#{name}=" do |value|
           case value
           when String
-            parsed = send(:"parse_string_#{name}", value)
-            parsed.any? ? super(parsed) : super(value)
+            super(send(:"parse_string_#{name}", value))
           when Integer
             super([value])
           else
@@ -53,13 +52,8 @@ module Decidim
           return instance_variable_get(variable_name) if instance_variable_defined?(variable_name)
 
           original = @attributes[name.to_s].value_before_type_cast
-          return original if original && !original.is_a?(Array)
-
-          ids = if super().blank? && send(:"add_#{name}").present?
-                  send(:"extract_ids_from_add_#{name}")
-                else
-                  super()
-                end
+          ids = original.is_a?(String) ? send(:"parse_string_#{name}", original) : super()
+          ids = send(:"extract_ids_from_add_#{name}") if ids.blank? && send(:"add_#{name}").present?
 
           instance_variable_set(
             variable_name,
