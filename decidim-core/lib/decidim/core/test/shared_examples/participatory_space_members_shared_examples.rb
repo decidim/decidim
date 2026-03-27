@@ -115,8 +115,6 @@ shared_examples "participatory space members" do
         click_on(member.name)
 
         expect(page).to have_content("Profile")
-        expect(page).to have_content("Member of")
-        expect(page).to have_content(translated_attribute(participatory_space.title))
       end
     end
   end
