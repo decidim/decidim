@@ -46,7 +46,7 @@ bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 echo "/public/sw.js*" >> .gitignore
 bin/rails decidim:upgrade:remove_deleted_users_left_data
 bin/rails decidim:upgrade:fix_deleted_private_follows
-sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).to_boolean_string,/' config/environments/production.rb
+sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).present?/' config/environments/production.rb
 bin/rails data:migrate
 ```
 
@@ -241,7 +241,7 @@ You should update it to:
 ```ruby
 config.action_mailer.smtp_settings = {
   # ... other settings ...
-  :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO", true).to_boolean_string,
+  :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO", true).present?,
   # ... other settings ...
 }
 ```
@@ -249,7 +249,7 @@ config.action_mailer.smtp_settings = {
 You can do this with the following command:
 
 ```bash
-sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).to_boolean_string,/' config/environments/production.rb
+sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).present?/' config/environments/production.rb
 ```
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
