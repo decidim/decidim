@@ -3,10 +3,10 @@
 require "spec_helper"
 
 module Decidim::System
-  describe UpdateOrganizationForm do
+  describe RegisterOrganizationForm do
     subject do
       described_class.new(
-        name: { ca: "", en: "Gotham City", es: "" },
+        name: "Gotham City",
         host: "decide.example.org",
         secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
         reference_prefix: "JKR",
@@ -125,70 +125,140 @@ module Decidim::System
     end
 
     describe "validations" do
-      describe "organization name presence" do
-        let(:organization) { create(:organization, default_locale: "en") }
+      describe "organization_admin_email" do
+        context "when organization_admin_email is blank" do
+          before { subject.organization_admin_email = "" }
 
-        before do
-          subject.id = organization.id
-          allow(subject).to receive(:current_organization).and_return(organization)
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:organization_admin_email]).to include("cannot be blank")
+          end
         end
 
-        context "when name in default locale is present" do
-          before { subject.name = { en: "Gotham City" } }
+        context "when organization_admin_email is nil" do
+          before { subject.organization_admin_email = nil }
+
+          it { is_expected.not_to be_valid }
+        end
+      end
+
+      describe "organization_admin_name" do
+        context "when organization_admin_name is blank" do
+          before { subject.organization_admin_name = "" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:organization_admin_name]).to include("cannot be blank")
+          end
+        end
+
+        context "when organization_admin_name is nil" do
+          before { subject.organization_admin_name = nil }
+
+          it { is_expected.not_to be_valid }
+        end
+      end
+
+      describe "name" do
+        context "when name is blank" do
+          before { subject.name = "" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:name]).to include("cannot be blank")
+          end
+        end
+
+        context "when name is nil" do
+          before { subject.name = nil }
+
+          it { is_expected.not_to be_valid }
+        end
+      end
+
+      describe "reference_prefix" do
+        context "when reference_prefix is blank" do
+          before { subject.reference_prefix = "" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:reference_prefix]).to include("cannot be blank")
+          end
+        end
+
+        context "when reference_prefix is nil" do
+          before { subject.reference_prefix = nil }
+
+          it { is_expected.not_to be_valid }
+        end
+      end
+
+      describe "available_locales" do
+        context "when available_locales is blank" do
+          before { subject.available_locales = [] }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:available_locales]).to include("cannot be blank")
+          end
+        end
+
+        context "when available_locales is nil" do
+          before { subject.available_locales = nil }
+
+          it { is_expected.not_to be_valid }
+        end
+      end
+
+      describe "default_locale" do
+        context "when default_locale is blank" do
+          before { subject.default_locale = "" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:default_locale]).to include("cannot be blank")
+          end
+        end
+
+        context "when default_locale is nil" do
+          before { subject.default_locale = nil }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when default_locale is not included in available_locales" do
+          before do
+            subject.available_locales = %w(en es)
+            subject.default_locale = "fr"
+          end
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:default_locale]).to include("is not included in the list")
+          end
+        end
+
+        context "when default_locale is included in available_locales" do
+          before do
+            subject.available_locales = %w(en es fr)
+            subject.default_locale = "fr"
+          end
 
           it { is_expected.to be_valid }
-        end
-
-        context "when name in default locale is blank" do
-          before { subject.name = { en: "" } }
-
-          it { is_expected.not_to be_valid }
-
-          it "adds an error to the default locale name attribute" do
-            subject.valid?
-            expect(subject.errors[:name_en]).to include("cannot be blank")
-          end
-        end
-
-        context "when name in default locale is nil" do
-          before { subject.name = { en: nil } }
-
-          it { is_expected.not_to be_valid }
-
-          it "adds an error to the default locale name attribute" do
-            subject.valid?
-            expect(subject.errors[:name_en]).to include("cannot be blank")
-          end
-        end
-
-        context "when organization has different default locale" do
-          let(:organization) { create(:organization, default_locale: "es") }
-
-          before do
-            subject.default_locale = "es"
-            subject.name = { es: "" }
-          end
-
-          it { is_expected.not_to be_valid }
-
-          it "adds an error to the correct locale name attribute" do
-            subject.valid?
-            expect(subject.errors[:name_es]).to include("cannot be blank")
-          end
-        end
-
-        context "when current_organization is not set" do
-          before do
-            allow(subject).to receive(:current_organization).and_return(nil)
-            subject.send(:"name_#{Decidim.default_locale}=", "")
-          end
-
-          it { is_expected.not_to be_valid }
-
-          it "uses Decidim default locale" do
-            subject.valid?
-            expect(subject.errors[:"name_#{Decidim.default_locale}"]).to include("cannot be blank")
-          end
         end
       end
 
@@ -278,6 +348,12 @@ module Decidim::System
         end
 
         context "when host is valid multi-level subdomain" do
+          before { subject.host = "mysite.example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid with hyphen" do
           before { subject.host = "my-site.example.org" }
 
           it { is_expected.to be_valid }
@@ -411,159 +487,49 @@ module Decidim::System
           )
         end
 
-        context "when creating a new organization" do
-          context "when organization name already exists (case-insensitive)" do
-            before { subject.name_en = "EXISTING CITY" }
+        context "when organization name already exists (case-insensitive)" do
+          before { subject.name = "EXISTING CITY" }
 
-            it { is_expected.not_to be_valid }
+          it { is_expected.not_to be_valid }
 
-            it "adds an error to the name attribute" do
-              subject.valid?
-              expect(subject.errors[:name_en]).to include("has already been taken")
-            end
-          end
-
-          context "when organization name already exists in different locale" do
-            before { subject.name_en = "Ciudad Existente" }
-
-            it { is_expected.not_to be_valid }
-
-            it "adds an error" do
-              subject.valid?
-              expect(subject.errors[:name_en]).to include("has already been taken")
-            end
-          end
-
-          context "when multiple locale names conflict" do
-            before do
-              subject.name_en = "Existing City"
-              subject.name_es = "Ciudad Existente"
-            end
-
-            it { is_expected.not_to be_valid }
-
-            it "adds errors to both locale attributes" do
-              subject.valid?
-              expect(subject.errors[:name_en]).to include("has already been taken")
-              expect(subject.errors[:name_es]).to include("has already been taken")
-            end
-          end
-
-          context "when host already exists" do
-            before { subject.host = "existing.example.org" }
-
-            it { is_expected.not_to be_valid }
-
-            it "adds an error" do
-              subject.valid?
-              expect(subject.errors[:host]).to include("has already been taken")
-            end
-          end
-
-          context "when organization name is unique" do
-            before { subject.name_en = "Unique City" }
-
-            it { is_expected.to be_valid }
-          end
-
-          context "when host is unique" do
-            before { subject.host = "unique.example.org" }
-
-            it { is_expected.to be_valid }
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:name]).to include("has already been taken")
           end
         end
 
-        context "when updating an existing organization" do
-          let(:organization_to_update) do
-            create(
-              :organization,
-              name: { en: "My City", es: "Mi Ciudad" },
-              host: "mycity.example.org"
-            )
-          end
+        context "when organization name already exists in different locale" do
+          before { subject.name = "Ciudad Existente" }
 
-          before do
-            subject.id = organization_to_update.id
-          end
+          it { is_expected.not_to be_valid }
 
-          context "when keeping the same name" do
-            before { subject.name_en = "My City" }
-
-            it { is_expected.to be_valid }
-          end
-
-          context "when keeping the same host" do
-            before { subject.host = "mycity.example.org" }
-
-            it { is_expected.to be_valid }
-          end
-
-          context "when changing name to an existing one" do
-            before { subject.name_en = "Existing City" }
-
-            it { is_expected.not_to be_valid }
-
-            it "adds an error" do
-              subject.valid?
-              expect(subject.errors[:name_en]).to include("has already been taken")
-            end
-          end
-
-          context "when changing host to an existing one" do
-            before { subject.host = "existing.example.org" }
-
-            it { is_expected.not_to be_valid }
-
-            it "adds an error" do
-              subject.valid?
-              expect(subject.errors[:host]).to include("has already been taken")
-            end
-          end
-
-          context "when changing name to a unique one" do
-            before { subject.name_en = "Brand New City" }
-
-            it { is_expected.to be_valid }
-          end
-
-          context "when changing host to a unique one" do
-            before { subject.host = "other.example.org" }
-
-            it { is_expected.to be_valid }
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:name]).to include("has already been taken")
           end
         end
 
-        context "when name contains machine_translations" do
-          let!(:org_with_translations) do
-            create(
-              :organization,
-              name: {
-                :en => "City",
-                "machine_translations" => { fr: "Ville" }
-              }
-            )
-          end
+        context "when host already exists" do
+          before { subject.host = "existing.example.org" }
 
-          context "when new name conflicts with machine translation" do
-            before { subject.name_en = "Ville" }
+          it { is_expected.not_to be_valid }
 
-            it { is_expected.not_to be_valid }
-
-            it "adds an error" do
-              subject.valid?
-              expect(subject.errors[:name_en]).to include("has already been taken")
-            end
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("has already been taken")
           end
         end
 
-        context "when name value is a Hash (nested structure)" do
-          before do
-            allow(subject).to receive(:name).and_return({ en: { nested: "value" }, es: "Valid Name" })
-          end
+        context "when organization name is unique" do
+          before { subject.name = "Unique City" }
 
-          it "skips Hash values during validation" do
-            expect { subject.valid? }.not_to raise_error
-          end
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is unique" do
+          before { subject.host = "unique.example.org" }
+
+          it { is_expected.to be_valid }
         end
       end
     end
