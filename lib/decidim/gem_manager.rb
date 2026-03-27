@@ -199,7 +199,7 @@ module Decidim
 
       def plugins
         Dir.glob("#{root}/decidim-*/").select do |dir|
-          File.exist?(File.join(dir, "lib", "decidim", File.basename(dir).gsub("decidim-", ""), "version.rb"))
+          File.exist?(File.join(dir, "lib", "decidim"))
         end
       end
 
