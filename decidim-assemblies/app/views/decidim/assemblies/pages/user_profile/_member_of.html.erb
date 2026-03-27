@@ -3,7 +3,7 @@
     <div class="font-semibold"><%= t(".member_of") %></div>
     <% assemblies.each_with_index do |assembly, i| %>
       <%= "&nbsp;&#183;&nbsp;".html_safe if i.positive? %>
-      <%= link_to translated_attribute(assembly.title), decidim_assemblies.assembly_path(assembly), class: "hover:underline" %>
+      <%= link_to translated_attribute(assembly.title), decidim_assemblies.assembly_path(assembly, locale: I18n.locale), class: "hover:underline" %>
     <% end %>
   </div>
 <% end %>
