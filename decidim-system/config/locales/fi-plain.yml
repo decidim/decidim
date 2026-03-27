@@ -36,8 +36,12 @@ fi-pl:
               must_be_ssl: Uudelleenohjaus osoite (URI) on oltava SSL-muotoinen osoite (URI)
         organization:
           attributes:
+            host:
+              invalid: on virheellinen
             password:
               secret_key: Sinun täytyy määritellä SECRET_KEY_BASE ympäristömuuttuja, jotta voit tallentaa tämän kentän.
+            secondary_hosts:
+              invalid: on virheellinen
   decidim:
     system:
       actions:
