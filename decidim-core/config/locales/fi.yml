@@ -1163,6 +1163,12 @@ fi:
         update_permissions_with_space: "%{user_name} päivitti kohteen %{resource_name} oikeuksia tilassa %{space_name}"
         update_with_space: "%{user_name} päivitti %{resource_name} osallistumistilassa %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Avoimet
+            restricted: Rajoitetut
+            transparent: Läpinäkyvät
+          not_found: Pääsyoikeuksien tilaa %{id} ei löytynyt
         area_presenter:
           not_found: 'Aluetta ei löytynyt tietokannasta (ID: %{id})'
         area_type_presenter:
@@ -1531,6 +1537,10 @@ fi:
     participatory_space_members:
       index:
         members: Jäsenet
+    participatory_spaces:
+      show:
+        restricted_space: Tämä on rajattu osallistumistila. Ainoastaan jäsenet näkevät tämän osallistumistilan ja voivat osallistua sen sisällä.
+        transparent_space: Tämä on läpinäkyvä osallistumistila. Kuka tahansa voi tarkastella osallistumistilan sisältöä, mutta ainoastaan osallistumistilan jäsenet voivat osallistua sen sisällä.
     passwords:
       update:
         error: Salasanan päivitys epäonnistui.
