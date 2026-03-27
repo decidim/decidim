@@ -19,7 +19,7 @@ shared_examples "searchable results" do
       fill_in "term", with: term
       find(search_input_selector).native.send_keys :enter
 
-      expect(page).to have_current_path decidim.search_path, ignore_query: true
+      expect(page).to have_current_path decidim.search_path(locale: I18n.locale), ignore_query: true
       expect(page).to have_content(%(results for the search: "#{term}"))
       expect(page).to have_css(".filter-search.filter-container")
       expect(page.find("#search-count h2").text.to_i).to be_positive
@@ -33,7 +33,7 @@ shared_examples "searchable results" do
         fill_in "term", with: term
         find(search_input_selector).native.send_keys :enter
 
-        expect(page).to have_current_path decidim.search_path, ignore_query: true
+        expect(page).to have_current_path decidim.search_path(locale: I18n.locale), ignore_query: true
         expect(page).to have_content(%(results for the search: "#{term}"))
         expect(page).to have_css(".filter-search.filter-container")
         expect(page.find("#search-count h2").text.to_i).to be_positive
@@ -52,7 +52,7 @@ shared_examples "searchable results" do
         fill_in "term", with: term
         find(search_input_selector).native.send_keys :enter
 
-        expect(page).to have_current_path decidim.search_path, ignore_query: true
+        expect(page).to have_current_path decidim.search_path(locale: I18n.locale), ignore_query: true
         expect(page).to have_content(%(results for the search: "#{term}"))
         expect(page).to have_css(".filter-search.filter-container")
         expect(page.find("#search-count h2").text.to_i).not_to be_positive
@@ -68,7 +68,7 @@ shared_examples "searchable results" do
           fill_in "term", with: term
           find(search_input_selector).native.send_keys :enter
 
-          expect(page).to have_current_path decidim.search_path, ignore_query: true
+          expect(page).to have_current_path decidim.search_path(locale: I18n.locale), ignore_query: true
           expect(page).to have_content(%(results for the search: "#{term}"))
           expect(page).to have_css(".filter-search.filter-container")
           expect(page.find("#search-count h2").text.to_i).not_to be_positive

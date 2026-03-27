@@ -1,4 +1,4 @@
-<%= form_tag(decidim.search_path, method: :get, id: "form-search_topbar") do %>
+<%= form_tag(decidim.search_path(locale: current_locale), method: :get, id: "form-search_topbar") do %>
   <button type="submit" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
     <%= icon "search-line" %>
   </button>

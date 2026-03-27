@@ -28,7 +28,7 @@ describe "Search" do
     end
 
     it "displays the results page" do
-      expect(page).to have_current_path decidim.search_path, ignore_query: true
+      expect(page).to have_current_path decidim.search_path(locale: I18n.locale), ignore_query: true
       expect(page).to have_content(/results for the search: "#{term}"/i)
       expect(page).to have_css(".filter-search.filter-container")
     end
@@ -76,7 +76,7 @@ describe "Search" do
     end
 
     it "displays the results page" do
-      visit %{/search?filter[with_resource_type]=Decidim::Proposals::Proposal&page=2&per_page=25'"()%26%25<zzz><ScRiPt >alert("XSS")</ScRiPt>}
+      visit %{/en/search?filter[with_resource_type]=Decidim::Proposals::Proposal&page=2&per_page=25'"()%26%25<zzz><ScRiPt >alert("XSS")</ScRiPt>}
 
       expect(page).to have_content("100 results for the search")
       expect(page).to have_content("Results per page")

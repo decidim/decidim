@@ -265,7 +265,7 @@ describe "Explore projects", :slow do
   describe "search" do
     before do
       switch_to_host(organization.host)
-      visit decidim.search_path
+      visit decidim.search_path(locale: I18n.locale)
     end
 
     it "shows the project" do

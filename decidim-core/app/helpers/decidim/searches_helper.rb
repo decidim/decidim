@@ -25,6 +25,7 @@ module Decidim
     # space_state - An optional String with the name of the state of the space
     def search_path_by(resource_type: nil, space_state: nil)
       new_params = {
+        locale: current_locale,
         utf8: params[:utf8],
         filter: {
           with_scope: params.dig(:filter, :with_scope),

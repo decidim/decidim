@@ -54,7 +54,7 @@ module Decidim
       {
         label: t("decidim.search.name"),
         active: true,
-        url: search_path
+        url: search_path(locale: I18n.locale)
       }
     end
   end

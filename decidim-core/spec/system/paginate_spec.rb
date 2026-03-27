@@ -20,7 +20,7 @@ describe "Paginate specs" do
     end
 
     it "shows the paginator" do
-      page_params = { filter: { with_resource_type: "Decidim::Proposals::Proposal" }, host: organization.host, port: Capybara.server_port }
+      page_params = { locale: I18n.locale, filter: { with_resource_type: "Decidim::Proposals::Proposal" }, host: organization.host, port: Capybara.server_port }
       visit decidim.search_path(per_page:, **page_params)
 
       expect(page).to have_content("Results per page:")
@@ -52,7 +52,7 @@ describe "Paginate specs" do
     end
 
     it "shows the paginator" do
-      page_params = { filter: { with_resource_type: "Decidim::Proposals::Proposal" }, host: organization.host, port: Capybara.server_port }
+      page_params = { locale: I18n.locale, filter: { with_resource_type: "Decidim::Proposals::Proposal" }, host: organization.host, port: Capybara.server_port }
       visit decidim.search_path(**page_params)
 
       expect(page).to have_content("Results per page:")

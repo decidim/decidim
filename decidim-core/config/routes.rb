@@ -109,7 +109,20 @@ Decidim::Core::Engine.routes.draw do
 
   scope "/:locale" do
     resources :pages, only: [:index, :show], format: false
+    get "/search", to: "searches#index", as: :search
   end
+
+  get "/search", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+
+    query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
+    query_string.delete("locale")
+    query_string = CGI.unescape(query_string.to_query)
+
+    path = "/#{locale}/search"
+    path += "?#{query_string}" unless query_string.empty?
+    path
+  }
 
   get "/pages", to: redirect { |params, request|
     locale = Decidim::LocaleRouterDetector.new(request, params).locale
@@ -121,7 +134,6 @@ Decidim::Core::Engine.routes.draw do
     "/#{locale}/pages/#{params[:rest]}"
   }
 
-  get "/search", to: "searches#index", as: :search
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 
   get "/link", to: "links#new", as: :link

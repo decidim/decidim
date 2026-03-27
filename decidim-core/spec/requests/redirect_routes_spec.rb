@@ -49,4 +49,51 @@ describe "Redirect routes" do
     expect(response).to have_http_status(:moved_permanently)
     expect(response).to redirect_to("/es/pages")
   end
+
+  context "when checking the search page" do
+    it "redirects old url with missing locale" do
+      get("/search", headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/search")
+    end
+
+    it "redirects old url with query string with missing locale" do
+      page_with_query_string = "/search?filter[term]=&filter[with_resource_type]=Decidim::Comments::Comment&filter[with_scope]&per_page=50"
+      get(page_with_query_string, headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en#{page_with_query_string}")
+    end
+
+    it "redirects old url with locale" do
+      get("/search?locale=es", headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/es/search")
+    end
+
+    it "redirects to default locale when the locale is invalid" do
+      get("/search?locale=esp", headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/search")
+    end
+
+    it "redirects user to the new url" do
+      user = create(:user, :confirmed, organization:, locale: "ca")
+      login_as user, scope: :user
+
+      get("/", headers:)
+      get("/search", headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/ca/search")
+    end
+
+    it "redirects user to the new url when using custom locale" do
+      user = create(:user, :confirmed, organization:, locale: "ca")
+      login_as user, scope: :user
+
+      get("/", headers:)
+      get("/search?locale=es", headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/es/search")
+    end
+  end
 end

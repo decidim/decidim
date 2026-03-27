@@ -66,7 +66,7 @@ shared_examples "higher user role hides resource with comments" do
     end
 
     it "hides the resource" do
-      visit decidim.search_path
+      visit decidim.search_path(locale: I18n.locale)
       expect(page).to have_content(translated(comments.first.body))
       expect(page).to have_content(translated(comments.second.body))
 
@@ -95,7 +95,7 @@ shared_examples "higher user role hides resource with comments" do
       expect(comments.first.reload).to be_hidden
       expect(comments.second.reload).to be_hidden
 
-      visit decidim.search_path
+      visit decidim.search_path(locale: I18n.locale)
       expect(page).to have_no_content(translated(comments.first.body))
       expect(page).to have_no_content(translated(comments.second.body))
     end
