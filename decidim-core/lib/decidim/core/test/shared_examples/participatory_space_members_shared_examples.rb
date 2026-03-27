@@ -110,13 +110,13 @@ shared_examples "participatory space members" do
         within ".layout-main__section" do
           expect(page).to have_css(".profile__user", count: 1)
           expect(page).to have_no_content(Decidim::ParticipatorySpace::MemberPresenter.new(unpublished_member).name)
-
-          click_on(member.name)
-
-          expect(page).to have_content("Profile")
-          expect(page).to have_content("Member of")
-          expect(page).to have_content(translated_attribute(participatory_space.name))
         end
+
+        click_on(member.name)
+
+        expect(page).to have_content("Profile")
+        expect(page).to have_content("Member of")
+        expect(page).to have_content(translated_attribute(participatory_space.title))
       end
     end
   end
