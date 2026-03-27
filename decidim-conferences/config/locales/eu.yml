@@ -103,7 +103,7 @@ eu:
         new:
           copy: Kopiatu
           select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Bikoiztu jardunaldia
+          title: Jardunaldia bikoiztu
       conference_publications:
         create:
           error: Arazo bat egon da jardunaldi hau argitaratzean.
@@ -187,7 +187,7 @@ eu:
         destroy:
           success: Multimediaren esteka behar bezala ezabatua.
         edit:
-          title: Eguneratu hedabideen lotura
+          title: Eguneratu hedabideen esteka
           update: Eguneratu
         index:
           media_links_title: Hedabideen loturak
@@ -270,7 +270,7 @@ eu:
         destroy:
           success: Kidea behar bezala kenduta.
         edit:
-          title: Eguneratu kidea
+          title: Kidea eguneratu
           update: Eguneratu
         new:
           create: Sortu
@@ -292,7 +292,7 @@ eu:
         destroy:
           success: Izen-emate mota jardunaldi honetatik atera da.
         edit:
-          title: Eguneratu erregistro mota
+          title: Erregistro mota eguneratu
           update: Eguneratu
         new:
           create: Sortu
