@@ -1543,6 +1543,11 @@ en:
     participatory_space_members:
       index:
         members: Members
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Member of
     participatory_spaces:
       show:
         restricted_space: This is a restricted space. Only members can view it and participate.
