@@ -265,6 +265,8 @@ fi:
         edit:
           title: Muokkaa kansiota
           update: Päivitä
+        index:
+          attachment_collections_title: Liitetiedostojen kansiot
         new:
           create: Luo
           title: Uusi kansio
@@ -280,6 +282,8 @@ fi:
         edit:
           title: Muokkaa liitettä
           update: Päivitä
+        index:
+          attachments_title: Liitteet
         new:
           create: Luo liite
           title: Uusi liite
