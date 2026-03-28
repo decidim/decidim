@@ -25,7 +25,6 @@ cs:
         participatory_process_group_id: Skupina procesů
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
-        private_space: Soukromý proces
         promoted: Propagováno
         published_at: Publikováno v
         related_process_ids: Související procesy
@@ -131,7 +130,6 @@ cs:
           fields:
             actions: Akce
             created_at: Vytvořeno v
-            private: Soukromé
             published: Publikováno
             title: Titul
           name: Participační proces
@@ -236,8 +234,6 @@ cs:
         edit:
           update: Aktualizace
         index:
-          private: Soukromé
-          public: Veřejné
           published: Publikováno
           unpublished: Nezveřejněno
         new:
@@ -499,7 +495,6 @@ cs:
             images: Obrázky
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
-            private_notice: Udělá prostor neviditelný pro návštěvníky a viditelný pouze pro členy (s výjimkou zda je také transparentní)
             related_processes: Související procesy
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -604,7 +599,6 @@ cs:
           title: O tomto procesu
       show:
         belongs_to_group: Tento proces patří do
-        private_space: Jedná se o soukromý proces
         related_processes: Související procesy
       static_pages:
         democratic_quality_indicators:

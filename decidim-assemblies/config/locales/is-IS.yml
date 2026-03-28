@@ -26,7 +26,6 @@ is-IS:
         meta_scope: Gildissvið lýsigagna
         participatory_scope: Hvað er ákveðið
         participatory_structure: Hvernig það er ákveðið
-        private_space: Einkasvæði
         published_at: Birt á
         purpose_of_action: Tilgangur aðgerða
         short_description: Stutt lýsing
@@ -66,8 +65,6 @@ is-IS:
         edit:
           update: Uppfæra
         index:
-          private: Einkamál
-          public: Opinber
           published: Published
         new:
           create: Búa til
@@ -90,7 +87,6 @@ is-IS:
         assembly:
           fields:
             created_at: Búið til á
-            private: Einkamál
             promoted: Hápunktur
             published: Published
             title: Titill
@@ -143,7 +139,6 @@ is-IS:
         title: Þing
       show:
         duration: Lengd
-        private_space: Þetta er einkasamkoma
     log:
       value_types:
         assembly_presenter:

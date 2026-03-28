@@ -395,7 +395,7 @@ ca:
             assign: Assignar
             link_a_space: Vincular un espai
             private_meeting_warning: Els espais enllaçats no s'aplicaran si la reunió és privada i no transparent.
-            private_space_warning: Els espais enllaçats no s'aplicaran quan la reunió pertanyi a un espai privat no transparent.
+            restricted_space_warning: Els espais enllaçats no s'aplicaran quan la reunió pertanyi a un espai restringit no transparent.
             select: Selecciona un espai
             table:
               actions: Accions

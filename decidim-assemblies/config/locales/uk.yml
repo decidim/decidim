@@ -29,7 +29,6 @@ uk:
         participatory_processes_ids: Пов'язані рухи співучасті
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
-        private_space: Приватний простір
         promoted: Висвітлено
         published_at: 'Оприлюднено:'
         purpose_of_action: Мета дії
@@ -79,8 +78,6 @@ uk:
         edit:
           update: Оновити
         index:
-          private: Приватні
-          public: Оприлюдені
           published: Оприлюднено
         new:
           create: Додати
@@ -120,7 +117,6 @@ uk:
         assembly:
           fields:
             created_at: 'Додано:'
-            private: Приватні
             promoted: Висвітлено
             published: Оприлюднено
             title: Назва
@@ -183,7 +179,6 @@ uk:
             member_of: 'Входить у склад:'
       show:
         duration: Тривалість
-        private_space: Це приватні збори
     log:
       value_types:
         assembly_presenter:

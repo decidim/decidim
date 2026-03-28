@@ -25,7 +25,6 @@ fi:
         participatory_process_group_id: Prosessiryhmä
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
-        private_space: Yksityinen prosessi
         promoted: Korostettu
         published_at: Julkaisuaika
         related_process_ids: Liittyvät prosessit
@@ -125,7 +124,6 @@ fi:
           fields:
             actions: Toiminnot
             created_at: Luonnin ajankohta
-            private: Yksityinen
             published: Julkaistu
             title: Otsikko
           name: Osallistumisprosessi
@@ -230,8 +228,6 @@ fi:
         edit:
           update: Päivitä
         index:
-          private: Yksityinen
-          public: Julkinen
           published: Julkaistu
           unpublished: Julkaisematon
         new:
@@ -487,7 +483,6 @@ fi:
             images: Kuvat
             metadata: Metatiedot
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            private_notice: Piilottaa osallistumistilan verkkosivuston vierailijoiden näkyvistä (ellei osallistumistila ole myös läpinäkyvä)
             related_processes: Liittyvät prosessit
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
@@ -584,7 +579,6 @@ fi:
           title: Tietoa tästä prosessista
       show:
         belongs_to_group: Tämä prosessi kuuluu ryhmään
-        private_space: Tämä on yksityinen prosessi
         related_processes: Liittyvät prosessit
       static_pages:
         democratic_quality_indicators:

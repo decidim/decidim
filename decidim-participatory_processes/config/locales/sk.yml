@@ -92,7 +92,6 @@ sk:
         participatory_process:
           fields:
             created_at: Vytvorené u
-            private: Súkromné
             published: Publikované
             title: Titul
           name: Participatívne proces
@@ -181,8 +180,6 @@ sk:
         edit:
           update: Aktualizácia
         index:
-          private: Súkromné
-          public: Verejnosť
           published: Publikované
         new:
           create: Vytvoriť
@@ -297,7 +294,6 @@ sk:
             upcoming: Nadchádzajúce
           see: Vidieť
       show:
-        private_space: Jedná sa o súkromný proces
         related_processes: Súvisiace procesy
   layouts:
     decidim:

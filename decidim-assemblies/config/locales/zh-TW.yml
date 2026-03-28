@@ -35,7 +35,6 @@ zh-TW:
         participatory_processes_ids: 相關參與程序
         participatory_scope: 決定了什麼
         participatory_structure: 如何決定
-        private_space: 私人空間
         promoted: 重點顯示
         published_at: 發佈於
         purpose_of_action: 行動目的
@@ -87,8 +86,6 @@ zh-TW:
         edit:
           update: 更新
         index:
-          private: 不公開
-          public: 公開
           published: 已發佈
         new:
           create: 創建
@@ -135,7 +132,6 @@ zh-TW:
         assembly:
           fields:
             created_at: 建立於
-            private: 不公開
             promoted: 重點顯示
             published: 已發佈
             title: 標題
@@ -244,7 +240,6 @@ zh-TW:
             member_of: 的成員
       show:
         duration: 持續時間
-        private_space: 這是一個私人大會
         social_networks_title: 訪問大會
     events:
       assemblies:

@@ -1169,6 +1169,12 @@ en:
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
+          not_found: Access mode %{id} not found
         area_presenter:
           not_found: 'The area was not found on the database (ID: %{id})'
         area_type_presenter:
@@ -1537,6 +1543,10 @@ en:
     participatory_space_members:
       index:
         members: Members
+    participatory_spaces:
+      show:
+        restricted_space: This is a restricted space. Only members can view it and participate.
+        transparent_space: This is a transparent space. Anyone can view the content, but only members can participate.
     passwords:
       update:
         error: There was a problem updating the password.

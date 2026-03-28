@@ -99,7 +99,6 @@ ar:
           fields:
             actions: الإجراءات
             created_at: أنشئت في
-            private: نشر
             published: نشرت
             title: عنوان
           name: عملية المشاركة
@@ -184,8 +183,6 @@ ar:
         edit:
           update: تحديث
         index:
-          private: نشر
-          public: عامة
           published: نشرت
         new:
           create: إنشاء
@@ -307,7 +304,6 @@ ar:
             upcoming: القادمة
           see: نرى
       show:
-        private_space: هذه عملية خاصة
         related_processes: العمليات ذات الصلة
   layouts:
     decidim:

@@ -735,7 +735,6 @@ it:
           has_been_sent_to: 'E'' stata inviata a: '
           not_sent: Non inviato
           participants: 'partecipanti '
-          private_members: 'membri privati '
           segmented_to: 'Segmentato a %{subject}: '
           subscribed_count: 'Sottoscrittori:'
           title: Newsletters
@@ -752,7 +751,6 @@ it:
           deliver: Invia la newsletter
           followers_help: Invia newsletter a tutti gli utenti confermati che seguono tutti gli spazi partecipativi selezionati nella lista.
           participants_help: Invia newsletter a tutti gli utenti confermati che hanno partecipato a uno degli spazi partecipativi selezionati nella lista.
-          private_members_help: Invia una newsletter a tutti gli utenti confermati aggiunti agli spazi partecipativi privati selezionati.
           recipients_count: Questa newsletter verrà inviata agli utenti <strong id='recipients_count'>%{count}</strong>.
           select_assemblies: Scegli assemblee
           select_conferences: Scegli conferenze

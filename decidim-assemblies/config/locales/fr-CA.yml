@@ -40,7 +40,6 @@ fr-CA:
         participatory_processes_ids: Concertations associées
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
-        private_space: Espace privé
         promoted: Mise en avant
         published_at: Publiée à
         purpose_of_action: But de l'action
@@ -102,8 +101,10 @@ fr-CA:
         edit:
           update: Mettre à jour
         index:
-          private: Privée
-          public: Publique
+          access_modes:
+            open: Ouverte
+            restricted: Restreinte
+            transparent: Transparente
           published: Publiée
           unpublished: Non publié
         new:
@@ -169,9 +170,9 @@ fr-CA:
       models:
         assembly:
           fields:
+            access_mode: Mode d'accès
             actions: Actions
             created_at: Créée le
-            private: Privée
             promoted: Mise en avant
             published: Publiée
             title: Titre
@@ -235,6 +236,12 @@ fr-CA:
       admin:
         assemblies:
           form:
+            access:
+              label: Accès
+              options:
+                open: Tout le monde peut voir l'assemblée et participer.
+                restricted: Seuls les membres peuvent voir et participer.
+                transparent: Tout le monde peut voir l'assemblée, mais seuls les membres peuvent y participer.
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
@@ -244,7 +251,6 @@ fr-CA:
             metadata: Métadonnées
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             other: Autre
-            private_notice: Rend l'espace non visible pour les visiteurs et visible seulement pour les membres (sauf s'il est également transparent)
             select_a_created_by: Sélectionnez un créateur
             select_parent_assembly: Sélectionnez l'assemblée parente
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
@@ -353,7 +359,6 @@ fr-CA:
             member_of: Membre de
       show:
         duration: Durée
-        private_space: Ceci est une assemblée privée
         social_networks_title: Visiter l'assemblée sur
     download_your_data:
       show:
@@ -388,6 +393,7 @@ fr-CA:
     open_data:
       help:
         assemblies:
+          access_mode: Mode d'accès. Définir si l'assemblée est ouverte, restreinte ou transparente.
           assembly_type: Le type de l'assemblée
           closing_date: La date de clôture de l'assemblée
           closing_date_reason: Pourquoi l'assemblée a été clôturée

@@ -395,7 +395,7 @@ eu:
             assign: Esleitu
             link_a_space: Lotu espazioa
             private_meeting_warning: Loturiko espazioak ez dira aplikatuko topaketa pribatua bada eta gardena ez bada.
-            private_space_warning: Loturiko espazioak ez dira aplikatuko topketa espazio pribaturako eta ez gardenerako denean.
+            restricted_space_warning: Loturiko espazioak ez dira aplikatuko topaketa espazio murrizturako eta ez gardenerako denean.
             select: Hautatu espazioa
             table:
               actions: Ekintzak

@@ -87,7 +87,6 @@ ru:
         participatory_process:
           fields:
             created_at: 'Создано:'
-            private: Частное
             published: Обнародовано
             title: Название
           name: Движение соучастия
@@ -169,8 +168,6 @@ ru:
         edit:
           update: Обновить
         index:
-          private: Частное
-          public: Обнародованные
           published: Обнародовано
         new:
           create: Создать
@@ -266,7 +263,6 @@ ru:
             upcoming: Грядущие
           see: Посмотреть
       show:
-        private_space: Это частное движение
         related_processes: Подобные движения
   layouts:
     decidim:

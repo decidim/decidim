@@ -37,9 +37,6 @@ ga:
       assemblies:
         edit:
           update: Nuashonraigh
-        index:
-          private: Príobháideach
-          public: Poblach
         new:
           create: Cruthaigh
       assembly_imports:
@@ -58,7 +55,6 @@ ga:
       models:
         assembly:
           fields:
-            private: Príobháideach
             title: Teideal
           name: Tionól
         assembly_member:

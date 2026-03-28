@@ -396,7 +396,6 @@ cs:
             assign: Přiřadit
             link_a_space: Propojit prostor
             private_meeting_warning: Propojené prostory nebudou použity, pokud je schůzka soukromá a netransparentní.
-            private_space_warning: Propojené prostory nebudou použity, pokud schůzka patří do soukromého netransparentního prostoru.
             select: Vyberte prostor
             table:
               actions: Akce

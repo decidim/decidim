@@ -40,7 +40,6 @@ cs:
         participatory_processes_ids: Související participativní procesy
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
-        private_space: Soukromý prostor
         promoted: Propagováno
         published_at: Publikováno v
         purpose_of_action: Účel akce
@@ -108,8 +107,6 @@ cs:
         edit:
           update: Aktualizace
         index:
-          private: Soukromé
-          public: Veřejné
           published: Publikováno
           unpublished: Nezveřejněno
         new:
@@ -178,7 +175,6 @@ cs:
           fields:
             actions: Akce
             created_at: Vytvořeno v
-            private: Soukromé
             promoted: Zvýrazněno
             published: Publikováno
             title: Název
@@ -253,7 +249,6 @@ cs:
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             other: Ostatní
-            private_notice: Udělá prostor neviditelný pro návštěvníky a viditelný pouze pro členy (s výjimkou zda je také transparentní)
             select_a_created_by: Vybrat vytvořeno od
             select_parent_assembly: Vybrat nadřazené shromáždění
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -362,7 +357,6 @@ cs:
             member_of: Člen
       show:
         duration: Doba trvání
-        private_space: Toto je soukromé shromáždění
         social_networks_title: Navštivte shromáždění na
     download_your_data:
       show:

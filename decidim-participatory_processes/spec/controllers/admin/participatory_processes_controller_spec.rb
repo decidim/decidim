@@ -31,6 +31,7 @@ module Decidim
               title: participatory_process.title,
               subtitle: participatory_process.subtitle,
               weight: participatory_process.weight,
+              access_mode: participatory_process.access_mode,
               description: participatory_process.description,
               short_description: participatory_process.short_description,
               slug: participatory_process.slug

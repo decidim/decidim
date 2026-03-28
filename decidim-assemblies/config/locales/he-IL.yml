@@ -35,7 +35,6 @@ he:
         participatory_processes_ids: תהליך השתתפותי מקושר
         participatory_scope: מה הוחלט
         participatory_structure: איך זה מוחלט
-        private_space: מרחב פרטי
         promoted: הודגש
         published_at: פורסם בתאריך
         purpose_of_action: מטרת הפעולה
@@ -95,8 +94,6 @@ he:
         edit:
           update: עדכון
         index:
-          private: פרטי
-          public: ציבורי
           published: מפורסם
           unpublished: לא מפורסם
         new:
@@ -149,7 +146,6 @@ he:
           fields:
             actions: פעולות
             created_at: נוצרו ב
-            private: פרטי
             promoted: מודגשים
             published: פורסמו
             title: כותרת

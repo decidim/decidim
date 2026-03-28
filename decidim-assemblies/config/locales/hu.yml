@@ -35,7 +35,6 @@ hu:
         participatory_processes_ids: Kapcsolódó részvételi folyamatok
         participatory_scope: Miről születik döntés
         participatory_structure: Hogyan döntenek
-        private_space: Privát tér
         promoted: Kiemelt
         published_at: Közzétéve
         purpose_of_action: A fellépés célja
@@ -92,8 +91,6 @@ hu:
         edit:
           update: Frissítés
         index:
-          private: Privát
-          public: Nyilvános
           published: Közzétéve
           unpublished: Nem publikált
         new:
@@ -149,7 +146,6 @@ hu:
           fields:
             actions: Műveletek
             created_at: 'Létrehozva:'
-            private: Privát
             promoted: Kiemelt
             published: Közzétéve
             title: Cím
@@ -288,7 +284,6 @@ hu:
             member_of: 'Tagja következőnek:'
       show:
         duration: Időtartam
-        private_space: Ez egy privát gyűlés
         social_networks_title: Látogasd meg a gyűlést itt
     events:
       assemblies:

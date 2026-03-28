@@ -20,7 +20,6 @@ bg:
         participatory_process_group_id: Група процеси
         participatory_scope: Какво е решено
         participatory_structure: Как е решено
-        private_space: Частен процес
         promoted: Промотирано
         published_at: Публикувано на
         related_process_ids: Свързани процеси
@@ -112,7 +111,6 @@ bg:
           fields:
             actions: Активности
             created_at: Създадено на
-            private: Частни
             published: Публикувано
             title: Заглавие
           name: Процес на участие
@@ -206,8 +204,6 @@ bg:
         edit:
           update: Актуализация
         index:
-          private: Частни
-          public: Публично
           published: Публикувано
           unpublished: Непубликувано
         new:
@@ -391,7 +387,6 @@ bg:
           title: Относно този процес
       show:
         belongs_to_group: Този процес принадлежи на
-        private_space: Това е частен процес
         related_processes: Свързани процеси
     statistics:
       processes_count: Процеси

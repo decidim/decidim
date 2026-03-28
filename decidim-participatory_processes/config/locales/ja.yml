@@ -25,7 +25,6 @@ ja:
         participatory_process_group_id: 参加型プロセスグループ
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
-        private_space: プライベートプロセス
         promoted: プロモート
         published_at: 公開日時
         related_process_ids: 関連する参加型プロセス
@@ -122,7 +121,6 @@ ja:
           fields:
             actions: アクション
             created_at: 作成日時
-            private: プライベート
             published: 公開済み
             title: タイトル
           name: 参加型プロセス
@@ -227,8 +225,6 @@ ja:
         edit:
           update: 更新
         index:
-          private: プライベート
-          public: 公開
           published: 公開済み
           unpublished: 未公開
         new:
@@ -509,7 +505,6 @@ ja:
             images: 画像
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
-            private_notice: 訪問者にはスペースを非表示にし、メンバーのみ表示します（透明化している場合を除きます）
             related_processes: 関連する参加型プロセス
             select_process_group: 参加型プロセス グループを選択
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
@@ -608,7 +603,6 @@ ja:
           title: このプロセスについて
       show:
         belongs_to_group: このプロセスの所属グループ
-        private_space: これはプライベートな参加型プロセスです
         related_processes: 関連する参加型プロセス
       static_pages:
         democratic_quality_indicators:

@@ -83,7 +83,6 @@ zh-CN:
         participatory_process:
           fields:
             created_at: 创建于
-            private: 非公开的
             published: 已发布
             title: 标题
           name: 参与性进程
@@ -172,8 +171,6 @@ zh-CN:
         edit:
           update: 更新
         index:
-          private: 非公开的
-          public: 公开的
           published: 已发布
         new:
           create: 创建
@@ -281,7 +278,6 @@ zh-CN:
             upcoming: 即将到来的
           see: 查看
       show:
-        private_space: 这是一个私密进程
         related_processes: 相关进程
   layouts:
     decidim:

@@ -25,7 +25,6 @@ fr-CA:
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
-        private_space: Processus privé
         promoted: Mise en avant
         published_at: Publiée à
         related_process_ids: Concertations liées
@@ -105,6 +104,12 @@ fr-CA:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Par groupe de concertations
+        with_any_access_mode:
+          label: Mode d'accès
+          values:
+            open: Ouvert
+            restricted: Restreint
+            transparent: Transparent
       menu:
         participatory_process_groups: Groupes de concertations
         participatory_processes: Concertations
@@ -120,9 +125,9 @@ fr-CA:
       models:
         participatory_process:
           fields:
+            access_mode: Mode d'accès
             actions: Actions
             created_at: Créée le
-            private: Privée
             published: Publiée
             title: Titre
           name: Concertation
@@ -227,8 +232,10 @@ fr-CA:
         edit:
           update: Mettre à jour
         index:
-          private: Privée
-          public: Publique
+          access_modes:
+            open: Ouvert
+            restricted: Restreint
+            transparent: Transparent
           published: Publiée
           unpublished: Non publié
         new:
@@ -308,6 +315,7 @@ fr-CA:
     open_data:
       help:
         participatory_processes:
+          access_mode: Mode d'accès. Définit si le processus est ouvert, restreint ou transparent.
           component_settings: Les paramètres de fonctionnalité de la concertation
           updated_at: La dernière date de mise à jour de cet espace
           url: L'URL de l'espace
@@ -452,13 +460,18 @@ fr-CA:
           edit:
             title: À propos de ce processus
           form:
+            access:
+              label: Accès
+              options:
+                open: Tout le monde peut voir le processus et y participer.
+                restricted: Seuls les membres peuvent voir et participer.
+                transparent: Tout le monde peut voir le processus, mais seuls les membres peuvent participer.
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             has_members_help: Vous pourrez créer et publier des membres
             images: Images
             metadata: Métadonnées
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
-            private_notice: Rend l'espace non visible pour les visiteurs et visible seulement pour les membres (sauf s'il est également transparent)
             related_processes: Concertations liées
             select_process_group: Sélectionnez un groupe de concertations
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
@@ -544,7 +557,6 @@ fr-CA:
           title: A propos de cette concertation
       show:
         belongs_to_group: Cette concertation appartient à
-        private_space: Ceci est une concertation privée
         related_processes: Concertations liées
       static_pages:
         democratic_quality_indicators:

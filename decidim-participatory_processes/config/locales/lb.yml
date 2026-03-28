@@ -95,7 +95,6 @@ lb:
         participatory_process:
           fields:
             created_at: Erstallt den
-            private: Privat
             published: Verëffentlecht
             title: Titel
           name: Bedeelegungsprozess
@@ -267,7 +266,6 @@ lb:
           see: Sehen
       show:
         belongs_to_group: Dieser Prozess gehört zu
-        private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
     statistics:
       processes_count: Bedeelegungsprozesser

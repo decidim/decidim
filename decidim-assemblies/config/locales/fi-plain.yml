@@ -40,7 +40,6 @@ fi-pl:
         participatory_processes_ids: Liittyvät osallisuusprosessit
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
-        private_space: Yksityinen tila
         promoted: Korostettu
         published_at: Julkaisuaika
         purpose_of_action: Toiminnan tarkoitus
@@ -102,8 +101,6 @@ fi-pl:
         edit:
           update: Päivitä
         index:
-          private: Yksityinen
-          public: Julkinen
           published: Julkaistu
           unpublished: Julkaisematon
         new:
@@ -172,7 +169,6 @@ fi-pl:
           fields:
             actions: Toiminnot
             created_at: Luonnin ajankohta
-            private: Yksityinen
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
@@ -245,7 +241,6 @@ fi-pl:
             metadata: metadata
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             other: muut
-            private_notice: Piilottaa osallistumistilan verkkosivuston vierailijoiden näkyvistä (ellei osallistumistila ole myös läpinäkyvä)
             select_a_created_by: Valitse luoja
             select_parent_assembly: Valitse pääryhmä
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
@@ -337,7 +332,6 @@ fi-pl:
             member_of: Jäsen ryhmässä
       show:
         duration: Kesto
-        private_space: Tämä on yksityinen ryhmä
         social_networks_title: Vieraile ryhmän sivulla palvelussa
     download_your_data:
       show:

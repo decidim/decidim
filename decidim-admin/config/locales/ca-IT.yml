@@ -850,9 +850,9 @@ ca-IT:
           confirm_delete: Segur que vols suprimir aquest butlletí?
           followers: 'seguidores '
           has_been_sent_to: 'Ha estat enviat a: '
+          members: 'membres '
           not_sent: No enviat
           participants: 'participants '
-          private_members: 'membres privades'
           segmented_to: 'Segmentat a %{subject}: '
           subscribed_count: 'Subscrites:'
           title: Butlletins
@@ -868,8 +868,8 @@ ca-IT:
           confirm_recipients: Confirmar destinatàries
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
+          members_help: Envia un butlletí informatiu a totes les usuàries confirmades que han estat afegides als espais de participació privats seleccionats.
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
-          private_members_help: Envia un butlletí informatiu a totes les usuàries confirmades que han estat afegides als espais de participació privats seleccionats.
           recipients_count: Aquest bulleti s'enviarà a <strong id='recipients_count'>%{count}</strong> participants.
           select_assemblies: Seleccionar assemblees
           select_conferences: Seleccionar jornades

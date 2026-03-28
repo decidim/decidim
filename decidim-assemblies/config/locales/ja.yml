@@ -40,7 +40,6 @@ ja:
         participatory_processes_ids: 関連する参加型プロセス
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
-        private_space: プライベートスペース
         promoted: 強調表示
         published_at: 公開日時
         purpose_of_action: アクションの目的
@@ -99,8 +98,6 @@ ja:
         edit:
           update: 更新
         index:
-          private: プライベート
-          public: 公開
           published: 公開済み
           unpublished: 未公開
         new:
@@ -169,7 +166,6 @@ ja:
           fields:
             actions: アクション
             created_at: 作成日時
-            private: プライベート
             promoted: 強調表示
             published: 公開済み
             title: タイトル
@@ -244,7 +240,6 @@ ja:
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             other: その他
-            private_notice: 訪問者にはスペースを非表示にし、メンバーのみ表示します（透明化している場合を除きます）
             select_a_created_by: 作成者を選択してください
             select_parent_assembly: 親参加スペースを選択
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
@@ -353,7 +348,6 @@ ja:
             member_of: メンバー
       show:
         duration: 持続期間
-        private_space: これは私的参加スペースです
         social_networks_title: 参加スペースを訪問
     download_your_data:
       show:

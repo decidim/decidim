@@ -87,7 +87,6 @@ uk:
         participatory_process:
           fields:
             created_at: 'Додано:'
-            private: Приватний
             published: Оприлюднено
             title: Назва
           name: Рух співучасті
@@ -169,8 +168,6 @@ uk:
         edit:
           update: Оновити
         index:
-          private: Приватний
-          public: Оприлюдені
           published: Оприлюднено
         new:
           create: Створити
@@ -266,7 +263,6 @@ uk:
             upcoming: Прийдешні
           see: Подивитися
       show:
-        private_space: Це приватний рух
         related_processes: Супутні рухи
   layouts:
     decidim:

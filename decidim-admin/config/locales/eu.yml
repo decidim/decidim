@@ -850,9 +850,9 @@ eu:
           confirm_delete: Ziur zaude buletin hau ezabatu nahi duzula?
           followers: 'jarraitzaileak '
           has_been_sent_to: 'Honi bidalia: '
+          members: 'kideak '
           not_sent: Ez da bidali
           participants: 'parte-hartzaileak '
-          private_members: 'kide pribatuak '
           segmented_to: 'Honentzat zatitua %{subject}:'
           subscribed_count: 'Harpidetuak:'
           title: Buletinak
@@ -868,8 +868,8 @@ eu:
           confirm_recipients: Baieztatu hartzaileak
           deliver: Bidali buletina
           followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein partaidetza-espazio jarraitzen duten parte-hartzaile guztiei bidaltzen die.
+          members_help: Buletin bat bidaltzen die baieztatutako erabiltzaile guztiei, kide gisa hautatutako partaidetza-espazioei gehitu zaizkienei.
           participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein espazio parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
-          private_members_help: Bidali buletin bat aukeratutako partaidetza-espazio pribatuetan gehitu diren baieztatutako parte-hartzaile guztiei.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
           select_assemblies: Hautatu batzarrak
           select_conferences: Hautatu jardunaldiak

@@ -29,7 +29,7 @@ module Decidim::ParticipatoryProcesses
         expect(serialized).to include(participatory_scope: resource.participatory_scope)
         expect(serialized).to include(participatory_structure: resource.participatory_structure)
         expect(serialized).to include(target: resource.target)
-        expect(serialized).to include(private_space: resource.private_space)
+        expect(serialized).to include(access_mode: resource.access_mode)
         expect(serialized).to include(promoted: resource.promoted)
         expect(serialized).to include(scopes_enabled: resource.scopes_enabled)
       end

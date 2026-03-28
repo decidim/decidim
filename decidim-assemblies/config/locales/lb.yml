@@ -30,7 +30,6 @@ lb:
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         participatory_scope: Was wird entschieden?
         participatory_structure: Wie wird es entschieden?
-        private_space: Privatsphäre
         promoted: Hervorgehoben
         published_at: Veröffentlicht am
         purpose_of_action: Zweck der Aktion
@@ -78,8 +77,6 @@ lb:
         edit:
           update: Aktualisieren
         index:
-          private: Privat
-          public: Öffentlich
           published: Veröffentlicht
         new:
           create: Erstellen
@@ -125,7 +122,6 @@ lb:
         assembly:
           fields:
             created_at: Hergestellt in
-            private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
@@ -181,7 +177,6 @@ lb:
             member_of: Mitglied von
       show:
         duration: Dauer
-        private_space: Dies ist eine private Versammlung
     events:
       assemblies:
         create_assembly_member:

@@ -95,7 +95,6 @@ nl:
         participatory_process:
           fields:
             created_at: Aangemaakt op
-            private: Privé
             published: Gepubliceerd
             title: Titel
           name: Inspraakproces
@@ -186,8 +185,6 @@ nl:
         edit:
           update: Bijwerken
         index:
-          private: Privé
-          public: Openbaar
           published: Gepubliceerd
         new:
           create: Aanmaken
@@ -318,7 +315,6 @@ nl:
           see: Bekijk
       show:
         belongs_to_group: Dit proces hoort bij
-        private_space: Dit is een privéthema
         related_processes: Verwante thema's
     statistics:
       processes_count: Inspraakprocessen

@@ -30,7 +30,6 @@ sk:
         participatory_processes_ids: Súvisiace participatívne procesy
         participatory_scope: O čom sa rozhoduje
         participatory_structure: Ako sa o tom rozhoduje
-        private_space: Súkromný priestor
         promoted: Zvýraznené
         published_at: Publikované
         purpose_of_action: Cieľ aktivity
@@ -80,8 +79,6 @@ sk:
         edit:
           update: Aktualizovať
         index:
-          private: Súkromné
-          public: Verejné
           published: Zverejnené
         new:
           create: Vytvoriť

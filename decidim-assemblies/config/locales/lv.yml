@@ -27,7 +27,6 @@ lv:
         participatory_processes_ids: Saistītie līdzdalības procesi
         participatory_scope: Kas tiek izlemts
         participatory_structure: Kā tas tiek izlemts
-        private_space: Privātā telpa
         promoted: Izcelts
         published_at: Publicēts plkst.
         purpose_of_action: Darbības mērķis
@@ -73,8 +72,6 @@ lv:
         edit:
           update: Atjaunināt
         index:
-          private: Privāts
-          public: Publisks
           published: Publicēts
         new:
           create: Izveidot
@@ -114,7 +111,6 @@ lv:
         assembly:
           fields:
             created_at: Izveidots plkst.
-            private: Privāts
             promoted: Izcelts
             published: Publicēts
             title: Nosaukums
@@ -204,7 +200,6 @@ lv:
             member_of: Dalībnieks
       show:
         duration: Ilgums
-        private_space: Šī ir privāta asambleja
     events:
       assemblies:
         create_assembly_member:

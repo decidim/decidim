@@ -20,7 +20,6 @@ zh-TW:
         participatory_process_group_id: 程序群組
         participatory_scope: 決定了什麼
         participatory_structure: 如何決定
-        private_space: 私有程序
         promoted: 推廣
         published_at: 發佈於
         related_process_ids: 相關程序
@@ -104,7 +103,6 @@ zh-TW:
         participatory_process:
           fields:
             created_at: 建立於
-            private: 隱私模式
             published: 已發佈
             title: 標題
           name: 參與程序
@@ -198,8 +196,6 @@ zh-TW:
         edit:
           update: 更新
         index:
-          private: 隱私模式
-          public: 公開
           published: 已發佈
         new:
           create: 建立
@@ -336,7 +332,6 @@ zh-TW:
           title: 關於此流程
       show:
         belongs_to_group: 此程序屬於
-        private_space: 這是不公開程序。
         related_processes: 相關程序
     statistics:
       processes_count: 程序

@@ -40,7 +40,6 @@ eu:
         participatory_processes_ids: Erlazionatutako partaidetza-prozesuak
         participatory_scope: Zer erabakitzen den
         participatory_structure: Nola erabakitzen den
-        private_space: Espazio pribatua
         promoted: Nabarmendua
         published_at: Noiz argitaratua
         purpose_of_action: Ekintzaren xedea
@@ -102,8 +101,10 @@ eu:
         edit:
           update: Eguneratu
         index:
-          private: Pribatua
-          public: Publikoa
+          access_modes:
+            open: Zabaldu
+            restricted: Murriztua
+            transparent: Gardena
           published: Argitaratua
           unpublished: Ez argitaratua
         new:
@@ -170,9 +171,9 @@ eu:
       models:
         assembly:
           fields:
+            access_mode: Sarbide modua
             actions: Ekintzak
             created_at: Noiz sortua
-            private: Pribatua
             promoted: Nabarmendua
             published: Argitaratua
             title: Izenburua
@@ -238,6 +239,12 @@ eu:
           edit:
             title: Batzar honi buruz
           form:
+            access:
+              label: Sarbidea
+              options:
+                open: Edonork ikus dezake batzarra eta parte hartu.
+                restricted: Soilik kideek ikus dezakete batzarra eta parte hartu.
+                transparent: Edonork ikus dezake batzarra, baina soilik kideek har dezakete parte.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
@@ -247,7 +254,6 @@ eu:
             metadata: Metadata
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             other: Beste bat
-            private_notice: Bisitarientzat eta bazkideentzat solikik (gardena bada izan ezik) ez da partaidetza-espazioa ikusten
             select_a_created_by: Hautatu egilea
             select_parent_assembly: Hautatu batzar nagusia
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
@@ -356,7 +362,6 @@ eu:
             member_of: 'Honen kidea:'
       show:
         duration: Iraupena
-        private_space: Hau batzar pribatua da
         social_networks_title: 'Bisitatu batzarra:'
     download_your_data:
       show:
@@ -391,6 +396,7 @@ eu:
     open_data:
       help:
         assemblies:
+          access_mode: Sarbide mota. Batzarra irekia, murriztua edo gardena bada.
           area: Batzarraren arloa
           assembly_type: Batzar mota
           closing_date: Zein datatan ixten den batzarra

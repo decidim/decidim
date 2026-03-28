@@ -37,7 +37,6 @@ tr:
         participatory_processes_ids: İlgili Katılımcı süreçler
         participatory_scope: Karar nedir
         participatory_structure: Nasıl karar verilir
-        private_space: Özel alan
         promoted: Tanıtılan
         published_at: Yayınlandı
         purpose_of_action: Eylem amacı
@@ -87,8 +86,6 @@ tr:
         edit:
           update: Güncelle
         index:
-          private: Kişisel
-          public: Ortak
           published: Yayınlanan
         new:
           create: Oluştur
@@ -137,7 +134,6 @@ tr:
         assembly:
           fields:
             created_at: Düzenlendi
-            private: Özel
             promoted: Vurgulanan
             published: Yayınlanan
             title: Başlık
@@ -243,7 +239,6 @@ tr:
             member_of: Üyesi
       show:
         duration: Süre
-        private_space: Bu özel bir kurul
     events:
       assemblies:
         create_assembly_member:

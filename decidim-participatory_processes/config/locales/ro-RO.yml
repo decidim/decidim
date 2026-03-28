@@ -22,7 +22,6 @@ ro:
         participatory_process_group_id: Grupul proceselor
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
-        private_space: Proces privat
         promoted: Promovat
         published_at: Publicat la
         related_process_ids: Procese asociate
@@ -112,7 +111,6 @@ ro:
         participatory_process:
           fields:
             created_at: Creat la
-            private: Privat
             published: Publicat
             title: Titlu
           name: Proces participativ
@@ -207,8 +205,6 @@ ro:
         edit:
           update: Actualizează
         index:
-          private: Private
-          public: Publice
           published: Publicate
         new:
           create: Creează
@@ -321,7 +317,6 @@ ro:
             has_members_help: Veți putea crea și publica membri
             images: Imagini
             metadata: Metadate
-            private_notice: Face spațiul invizibil pentru vizitatori și vizibil doar pentru membri (cu excepția cazului în care este de asemenea transparent)
             related_processes: Procese asociate
             select_process_group: Selectați un grup de procese
             taxonomies: Taxonomii
@@ -381,7 +376,6 @@ ro:
           title: Despre acest proces
       show:
         belongs_to_group: Acest proces aparține de
-        private_space: Acesta este un proces privat
         related_processes: Procese asociate
     statistics:
       processes_count: Procese

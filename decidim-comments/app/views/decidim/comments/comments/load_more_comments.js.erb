@@ -34,6 +34,7 @@
           component.addReply(inReplyTo, commentHtml);
         } else if (loadMoreWrapper) {
           loadMoreWrapper.insertAdjacentHTML("beforebegin", commentHtml);
+          component._initializeComments($(loadMoreWrapper.previousElementSibling));
         } else {
           component.addThread(commentHtml, <%= alignment.presence || "null" %>);
         }

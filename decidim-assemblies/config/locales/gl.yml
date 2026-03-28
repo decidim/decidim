@@ -30,7 +30,6 @@ gl:
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: O que se decide
         participatory_structure: Como se decide
-        private_space: Espazo privado
         promoted: Promocionado
         published_at: Publicado en
         purpose_of_action: Propósito da acción
@@ -78,8 +77,6 @@ gl:
         edit:
           update: Actualización
         index:
-          private: Privado
-          public: Público
           published: Publicado
         new:
           create: Crear
@@ -126,7 +123,6 @@ gl:
         assembly:
           fields:
             created_at: Creado en
-            private: Privado
             promoted: Destacado
             published: Publicado
             title: Título
@@ -230,7 +226,6 @@ gl:
             member_of: Membro de
       show:
         duration: Duración
-        private_space: Esta é unha asemblea privada
     events:
       assemblies:
         create_assembly_member:

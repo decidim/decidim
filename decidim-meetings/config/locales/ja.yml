@@ -391,7 +391,6 @@ ja:
             assign: 割り当て
             link_a_space: スペースをリンク
             private_meeting_warning: ミーティングが非公開で透明性のない場合、リンクされたスペースは適用されません。
-            private_space_warning: ミーティングが非透明なスペースに属している場合、リンクされたスペースは適用されません。
             select: スペースを選択
             table:
               actions: アクション

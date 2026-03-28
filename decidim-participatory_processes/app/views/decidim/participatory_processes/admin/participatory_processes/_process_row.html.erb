@@ -14,12 +14,11 @@
   <td class="table-list__date" data-label="<%= t("models.participatory_process.fields.created_at", scope: "decidim.admin") %>">
     <%= l process.created_at, format: :short %>
   </td>
-  <td class="table-list__state" data-label="<%= t("models.participatory_process.fields.private", scope: "decidim.admin") %>">
-    <% if process.private_space? %>
-      <span><%= t("participatory_processes.index.private", scope: "decidim.admin") %></span>
-    <% else %>
-      <span><%= t("participatory_processes.index.public", scope: "decidim.admin") %></span>
-    <% end %>
+  <td class="table-list__state" data-label="<%= t("models.participatory_process.fields.access_mode", scope: "decidim.admin") %>">
+    <%# i18n-tasks-use t("decidim.admin.participatory_processes.index.access_modes.open") %>
+    <%# i18n-tasks-use t("decidim.admin.participatory_processes.index.access_modes.restricted") %>
+    <%# i18n-tasks-use t("decidim.admin.participatory_processes.index.access_modes.transparent") %>
+    <span><%= t(process.access_mode, scope: "decidim.admin.participatory_processes.index.access_modes") %></span>
   </td>
   <td class="table-list__state" data-label="<%= t("models.participatory_process.fields.published", scope: "decidim.admin") %>">
     <% if process.published? %>

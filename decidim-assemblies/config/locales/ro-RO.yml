@@ -36,7 +36,6 @@ ro:
         participatory_processes_ids: Procese participative asociate
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
-        private_space: Spațiu privat
         promoted: Evidențiat
         published_at: Publicat la
         purpose_of_action: Scopul acțiunii
@@ -94,8 +93,6 @@ ro:
         edit:
           update: Actualizați
         index:
-          private: Privat
-          public: Public
           published: Publicat
         new:
           create: Creați
@@ -142,7 +139,6 @@ ro:
         assembly:
           fields:
             created_at: Creat la
-            private: Privat
             promoted: Evidențiat
             published: Publicat
             title: Titlu
@@ -203,7 +199,6 @@ ro:
             included_at_help: Selectați data la care acest grup de lucru a fost adăugat în platformă. Nu trebuie să fie neapărat aceeași dată cu data creării.
             metadata: Metadate
             other: Altul
-            private_notice: Face spațiul invizibil pentru vizitatori și vizibil doar pentru membri (cu excepția cazului în care este de asemenea transparent)
             select_a_created_by: Selectați după persoana care a creat
             select_parent_assembly: Selectați grupul de lucru părinte
             social_handlers: Rețele de socializare
@@ -273,7 +268,6 @@ ro:
             member_of: Membru al
       show:
         duration: Durată
-        private_space: Acesta este un grup de lucru privat
         social_networks_title: Vizitează adunarea pe
     events:
       assemblies:

@@ -18,6 +18,7 @@ module Decidim
             meta_scope: resource.meta_scope,
             participatory_scope: resource.participatory_scope,
             participatory_structure: resource.participatory_structure,
+            access_mode: resource.access_mode,
             target: resource.target,
             area: {
               id: resource.area.try(:id),

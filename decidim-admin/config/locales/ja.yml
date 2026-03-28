@@ -847,7 +847,6 @@ ja:
           has_been_sent_to: '送信先: '
           not_sent: 送信されていません
           participants: '参加者 '
-          private_members: 'プライベートメンバー '
           segmented_to: '%{subject}にセグメント : '
           subscribed_count: '購読済み:'
           title: ニュースレター
@@ -864,7 +863,6 @@ ja:
           deliver: ニュースレターを配信する
           followers_help: リスト内の選択した参加型スペースに従っているすべての確認済みユーザーにニュースレターを送信します。
           participants_help: 選択した参加型スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
-          private_members_help: 選択した非公開の参加型スペースに追加された、確認済みのすべてのユーザーにニュースレターを送信します。
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
           select_assemblies: 参加スペースを選択
           select_conferences: カンファレンスを選択

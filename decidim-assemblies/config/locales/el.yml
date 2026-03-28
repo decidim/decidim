@@ -35,7 +35,6 @@ el:
         participatory_processes_ids: Σχετικές διαδικασίες συμμετοχής
         participatory_scope: Τι αποφασίστηκε
         participatory_structure: Πώς αποφασίζεται
-        private_space: Ιδιωτικός χώρος
         promoted: Επισημάνθηκε
         published_at: Δημοσιεύτηκε στις
         purpose_of_action: Σκοπός της δράσης
@@ -90,8 +89,6 @@ el:
         edit:
           update: Ενημέρωση
         index:
-          private: Ιδιωτικό
-          public: Δημόσιο
           published: Δημοσιεύτηκε
         new:
           create: Δημιουργία
@@ -138,7 +135,6 @@ el:
         assembly:
           fields:
             created_at: Δημιουργήθηκε στις
-            private: Ιδιωτικό
             promoted: Επισημάνθηκε
             published: Δημοσιεύτηκε
             title: Τίτλος
@@ -247,7 +243,6 @@ el:
             member_of: Μέλος
       show:
         duration: Διάρκεια
-        private_space: Αυτή είναι μια ιδιωτική συνέλευση
         social_networks_title: Επίσκεψη στη συνέλευση στις
     events:
       assemblies:

@@ -822,7 +822,6 @@ fi:
           has_been_sent_to: 'Lähetettiin vastaanottajille: '
           not_sent: Ei lähetetty
           participants: 'osallistujat '
-          private_members: 'yksityiset käyttäjät '
           segmented_to: 'Kohdennettu vastaanottajille %{subject}: '
           subscribed_count: 'Tilaukset:'
           title: Uutiskirjeet
@@ -839,7 +838,6 @@ fi:
           deliver: Toimita uutiskirje
           followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallistumistiloista.
           participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallistumistiloista.
-          private_members_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka on lisätty yksityisiin osallistumistiloihin.
           recipients_count: Tämä uutiskirje lähetetään <strong id='recipients_count'>%{count}</strong>:lle käyttäjälle.
           select_assemblies: Valitse ryhmät
           select_conferences: Valitse konferenssit

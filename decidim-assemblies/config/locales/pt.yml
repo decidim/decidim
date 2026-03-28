@@ -36,7 +36,6 @@ pt:
         participatory_processes_ids: Processos participativos relacionados
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
-        private_space: Espaço privado
         promoted: Realçado
         published_at: Publicado em
         purpose_of_action: Objetivo da ação
@@ -96,8 +95,6 @@ pt:
         edit:
           update: Atualizar
         index:
-          private: Privado
-          public: Público
           published: Publicado
           unpublished: Não publicado
         new:
@@ -156,7 +153,6 @@ pt:
           fields:
             actions: Ações
             created_at: Criado em
-            private: Privado
             promoted: Realçado
             published: Publicado
             title: Título
@@ -308,7 +304,6 @@ pt:
             member_of: Membro de
       show:
         duration: Duração
-        private_space: Esta é uma reunião privada
         social_networks_title: Visite a reunião em
     download_your_data:
       show:

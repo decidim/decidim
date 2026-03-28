@@ -824,9 +824,9 @@ fr-CA:
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette newsletter ?
           followers: 'abonnés '
           has_been_sent_to: 'A été envoyé à : '
+          members: 'membres '
           not_sent: Envoi non effectué
           participants: 'participants '
-          private_members: 'membres privés '
           segmented_to: 'Segmenté à %{subject}: '
           subscribed_count: 'Abonné:'
           title: Newsletters
@@ -842,8 +842,8 @@ fr-CA:
           confirm_recipients: Confirmer les destinataires
           deliver: Envoyer la newsletter
           followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
+          members_help: Envoie une newsletter à tous les utilisateurs confirmés qui ont été ajoutés aux espaces participatifs sélectionnés en tant que membres.
           participants_help: Envoie la newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
-          private_members_help: Envoie une newsletter à tous les utilisateurs confirmés qui ont été ajoutés aux espaces privés participatifs sélectionnés.
           recipients_count: Cette newsletter sera envoyé à <strong id='recipients_count'>%{count}</strong> users.
           select_assemblies: Choisissez les assemblées
           select_conferences: Choisissez les conférences
