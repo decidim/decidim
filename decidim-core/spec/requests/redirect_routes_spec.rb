@@ -96,4 +96,44 @@ describe "Redirect routes" do
       expect(response).to redirect_to("/es/search")
     end
   end
+
+  context "when checking the badges page" do
+    it "redirects old url with missing locale" do
+      get("/gamification/badges", headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/gamification/badges")
+    end
+
+    it "redirects old url with locale" do
+      get("/gamification/badges?locale=es", headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/es/gamification/badges")
+    end
+
+    it "redirects to default locale when the locale is invalid" do
+      get("/gamification/badges?locale=esp", headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/gamification/badges")
+    end
+
+    it "redirects user to the new url" do
+      user = create(:user, :confirmed, organization:, locale: "ca")
+      login_as user, scope: :user
+
+      get("/", headers:)
+      get("/gamification/badges", headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/ca/gamification/badges")
+    end
+
+    it "redirects user to the new url when using custom locale" do
+      user = create(:user, :confirmed, organization:, locale: "ca")
+      login_as user, scope: :user
+
+      get("/", headers:)
+      get("/gamification/badges?locale=es", headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/es/gamification/badges")
+    end
+  end
 end

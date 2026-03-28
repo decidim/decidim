@@ -110,6 +110,9 @@ Decidim::Core::Engine.routes.draw do
   scope "/:locale" do
     resources :pages, only: [:index, :show], format: false
     get "/search", to: "searches#index", as: :search
+    namespace :gamification do
+      resources :badges, only: [:index]
+    end
   end
 
   get "/search", to: redirect { |params, request|
@@ -132,6 +135,11 @@ Decidim::Core::Engine.routes.draw do
   get "/pages/*rest", to: redirect { |params, request|
     locale = Decidim::LocaleRouterDetector.new(request, params).locale
     "/#{locale}/pages/#{params[:rest]}"
+  }
+
+  get "/gamification/*rest", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+    "/#{locale}/gamification/#{params[:rest]}"
   }
 
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
@@ -172,10 +180,6 @@ Decidim::Core::Engine.routes.draw do
   end
 
   resources :editor_images, only: [:create]
-
-  namespace :gamification do
-    resources :badges, only: [:index]
-  end
 
   resources :newsletters, only: [:show] do
     get :unsubscribe, on: :collection

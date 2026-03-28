@@ -4,7 +4,7 @@
     <h2 class="h4"><%= t "decidim.gamification.title" %></h2>
     <p>
       <%= t "decidim.gamification.description" %>
-      <%= link_to t("decidim.gamification.all_badges_link"), gamification_badges_path, class: "text-secondary underline" %>
+      <%= link_to t("decidim.gamification.all_badges_link"), gamification_badges_path(locale: current_locale), class: "text-secondary underline" %>
     </p>
   </div>
 </div>
