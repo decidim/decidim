@@ -86,7 +86,7 @@ describe "Admin manages meetings" do
         expect(page).to have_content("Unpublish")
       end
 
-      visit decidim.last_activities_path
+      visit decidim.last_activities_path(locale: I18n.locale)
       expect(page).to have_content("New meeting: #{decidim_sanitize_translated(meeting.title)}")
 
       within "#filters" do

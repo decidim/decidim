@@ -97,7 +97,7 @@ describe "Admin manages initiative publication" do
       click_on "OK"
     end
 
-    visit decidim.last_activities_path
+    visit decidim.last_activities_path(locale: I18n.locale)
     expect(page).to have_content("New initiative: #{title}")
 
     within "#filters" do

@@ -29,7 +29,7 @@ module Decidim
 
     def filter_url(resource_type)
       if options[:source] == :last_activities
-        last_activities_path(filter: { with_resource_type: resource_type })
+        last_activities_path(locale: current_locale, filter: { with_resource_type: resource_type })
       else
         profile_activity_path(nickname: params[:nickname], filter: { resource_type: })
       end

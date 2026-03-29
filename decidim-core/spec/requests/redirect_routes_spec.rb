@@ -70,4 +70,15 @@ describe "Redirect routes" do
   context "when browsing gamification" do
     it_behaves_like "redirects to the new url", "gamification/badges"
   end
+
+  context "when browsing last_activities" do
+    it_behaves_like "redirects to the new url", "last_activities" do
+      it "redirects old url with query string with missing locale" do
+        page_with_query_string = "/last_activities?filter[with_resource_type]=Decidim::Comments::Comment&per_page=50"
+        get(page_with_query_string, headers:)
+        expect(response).to have_http_status(:moved_permanently)
+        expect(response).to redirect_to("/en#{page_with_query_string}")
+      end
+    end
+  end
 end

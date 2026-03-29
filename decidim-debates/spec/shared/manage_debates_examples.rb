@@ -172,7 +172,7 @@ RSpec.shared_examples "manage debates" do
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} debate on the")
 
-    visit decidim.last_activities_path
+    visit decidim.last_activities_path(locale: I18n.locale)
     expect(page).to have_content("New debate: #{decidim_sanitize_translated(attributes[:title])}")
 
     within "#filters" do

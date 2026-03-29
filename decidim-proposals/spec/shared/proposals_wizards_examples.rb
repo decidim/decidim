@@ -218,7 +218,7 @@ shared_examples "proposals wizards" do |options|
       it "shows the activity logs" do
         click_on "Publish"
 
-        visit decidim.last_activities_path
+        visit decidim.last_activities_path(locale: I18n.locale)
         expect(page).to have_content("New proposal: #{translated(proposal_draft.title)}")
 
         within "#filters" do

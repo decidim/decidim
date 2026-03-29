@@ -68,7 +68,7 @@ shared_examples "manage posts" do |audit_check: true|
 
     perform_enqueued_jobs
 
-    visit decidim.last_activities_path
+    visit decidim.last_activities_path(locale: I18n.locale)
     expect(page).to have_content("New post: #{translated(attributes[:title])}")
 
     within "#filters" do

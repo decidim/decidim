@@ -78,7 +78,7 @@ shared_examples "manage results" do
       expect(page).to have_content("created result")
       expect(page).to have_content(attributes[:title]["en"])
 
-      visit decidim.last_activities_path
+      visit decidim.last_activities_path(locale: I18n.locale)
       expect(page).to have_content("New result: #{translated(attributes[:title])}")
 
       within "#filters" do

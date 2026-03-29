@@ -109,11 +109,24 @@ Decidim::Core::Engine.routes.draw do
 
   scope "/:locale" do
     resources :pages, only: [:index, :show], format: false
+    resources :last_activities, only: [:index]
     get "/search", to: "searches#index", as: :search
     namespace :gamification do
       resources :badges, only: [:index]
     end
   end
+
+  get "/last_activities", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+
+    query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
+    query_string.delete("locale")
+    query_string = CGI.unescape(query_string.to_query)
+
+    path = "/#{locale}/last_activities"
+    path += "?#{query_string}" unless query_string.empty?
+    path
+  }
 
   get "/search", to: redirect { |params, request|
     locale = Decidim::LocaleRouterDetector.new(request, params).locale
@@ -186,8 +199,6 @@ Decidim::Core::Engine.routes.draw do
   end
 
   resources :upload_validations, only: [:create]
-
-  resources :last_activities, only: [:index]
 
   resources :short_links, only: [:index, :show], path: "s"
 

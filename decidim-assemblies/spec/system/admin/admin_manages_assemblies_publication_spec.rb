@@ -29,7 +29,7 @@ describe "Admin manages assembly publication" do
     end
 
     visit decidim.root_path
-    visit decidim.last_activities_path
+    visit decidim.last_activities_path(locale: I18n.locale)
 
     expect(page).to have_content("New assembly: #{title}")
 

@@ -37,7 +37,7 @@ module Decidim
       {
         label: t("decidim.last_activities.name"),
         active: true,
-        url: last_activities_path
+        url: last_activities_path(locale: current_locale)
       }
     end
   end

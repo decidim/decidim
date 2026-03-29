@@ -29,7 +29,7 @@ describe "Admin manages participatory process publication" do |_options|
     end
 
     visit decidim.root_path
-    visit decidim.last_activities_path
+    visit decidim.last_activities_path(locale: I18n.locale)
 
     expect(page).to have_content("New participatory process: #{title}")
 

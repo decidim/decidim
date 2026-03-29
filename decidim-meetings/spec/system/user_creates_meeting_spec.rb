@@ -125,7 +125,7 @@ describe "User creates meeting" do
           expect(page).to have_content(meeting_end_time)
           expect(page).to have_css("[data-author]", text: user.name)
 
-          visit decidim.last_activities_path
+          visit decidim.last_activities_path(locale: I18n.locale)
           expect(page).to have_content("New meeting: #{meeting_title}")
 
           within "#filters" do

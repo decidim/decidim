@@ -641,7 +641,7 @@ shared_examples "comments" do
       end
 
       it "shows the entry in last activities" do
-        visit decidim.last_activities_path
+        visit decidim.last_activities_path(locale: I18n.locale)
         expect(page).to have_content("New comment: #{content}")
 
         within "#filters" do
