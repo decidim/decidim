@@ -1,1 +1,7 @@
+---
 cs:
+  decidim:
+    api:
+      errors:
+        recursion_limit_exceeded_error: V dotazu bylo zjištěno příliš mnoho rekurzí
+        too_many_aliases_error: Příliš mnoho aliasů. Použili jste aliasy %{size}, ale %{limit} jsou povoleny.
