@@ -23,6 +23,7 @@ linters:
       - text/javascript
       - text/template
       - application/ld+json
+      - application/json
 
   AdminPageTitleLinter:
     enabled: true

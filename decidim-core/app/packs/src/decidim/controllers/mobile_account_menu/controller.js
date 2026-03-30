@@ -1,8 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["closeButton"]
-  static values = { menuId: String, triggerId: String }
+  static get values() {
+    return { menuId: String, triggerId: String }
+  }
 
   closeOnKey(event) {
     if (event.key === "Enter" || event.key === " ") {
