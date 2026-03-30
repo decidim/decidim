@@ -59,13 +59,16 @@ Decidim::Core::Engine.routes.draw do
       put "apply_password" => "devise/passwords"
     end
 
-    resource :account, only: [:show, :update, :destroy], controller: "account" do
-      member do
-        get :delete
-        post :resend_confirmation_instructions
-        post :cancel_email_change
+    scope "/:locale" do
+      resource :account, only: [:show, :update, :destroy], controller: "account" do
+        member do
+          get :delete
+          post :resend_confirmation_instructions
+          post :cancel_email_change
+        end
       end
     end
+
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
     post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
     resources :notifications, only: [:index, :destroy] do
@@ -92,6 +95,15 @@ Decidim::Core::Engine.routes.draw do
       to: "free_resource_authorization_modals#show",
       as: :free_resource_authorization_modal
     )
+
+    get "/account/*rest", to: redirect { |params, request|
+      locale = Decidim::LocaleRouterDetector.new(request, params).locale
+      "/#{locale}/account/#{params[:rest]}"
+    }
+    get "/account", to: redirect { |params, request|
+      locale = Decidim::LocaleRouterDetector.new(request, params).locale
+      "/#{locale}/account"
+    }
   end
 
   resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^/]+} }, format: false

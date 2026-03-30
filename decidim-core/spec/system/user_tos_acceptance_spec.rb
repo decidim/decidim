@@ -88,7 +88,7 @@ describe "UserTosAcceptance" do
 
         it "shows an option delete the account" do
           within "#tos-refuse-modal" do
-            expect(page).to have_link("delete your account", href: decidim.delete_account_path)
+            expect(page).to have_link("delete your account", href: decidim.delete_account_path(locale: I18n.locale))
           end
         end
       end

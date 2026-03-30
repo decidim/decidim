@@ -71,6 +71,20 @@ describe "Redirect routes" do
     it_behaves_like "redirects to the new url", "gamification/badges"
   end
 
+  context "when browsing account" do
+    let!(:user) { create(:user, :confirmed, organization:) }
+
+    before do
+      login_as user, scope: :user
+    end
+
+    it_behaves_like "redirects to the new url", "account"
+
+    context "and account delete section" do
+      it_behaves_like "redirects to the new url", "account/delete"
+    end
+  end
+
   context "when browsing last_activities" do
     it_behaves_like "redirects to the new url", "last_activities" do
       it "redirects old url with query string with missing locale" do

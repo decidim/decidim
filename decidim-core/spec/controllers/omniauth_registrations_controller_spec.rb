@@ -43,10 +43,10 @@ module Decidim
             let(:user) { build(:user, :admin, sign_in_count: 1) }
 
             before do
-              controller.store_location_for(user, account_path)
+              controller.store_location_for(user, account_path(locale: I18n.locale))
             end
 
-            it { is_expected.to eq account_path }
+            it { is_expected.to eq account_path(locale: I18n.locale) }
           end
 
           context "and is not an admin" do
@@ -63,10 +63,10 @@ module Decidim
 
                 context "when there is a pending redirection" do
                   before do
-                    controller.store_location_for(user, account_path)
+                    controller.store_location_for(user, account_path(locale: I18n.locale))
                   end
 
-                  it { is_expected.to eq account_path }
+                  it { is_expected.to eq account_path(locale: I18n.locale) }
                 end
 
                 context "when there is a pending onboarding action with the authorization pending" do

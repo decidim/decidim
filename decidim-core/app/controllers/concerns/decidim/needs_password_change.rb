@@ -24,7 +24,7 @@ module Decidim
 
     def password_update_permitted_path?(target_path)
       permitted_paths = [(tos_path if respond_to?(:tos_path, true)),
-                         decidim.delete_account_path,
+                         decidim.delete_account_path(locale: current_locale),
                          decidim.accept_tos_path,
                          decidim.download_your_data_path,
                          decidim.export_download_your_data_path,

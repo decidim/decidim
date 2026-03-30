@@ -26,7 +26,7 @@ describe "Account" do
 
   context "when on the account page" do
     before do
-      visit decidim.account_path
+      visit decidim.account_path(locale: I18n.locale)
     end
 
     it_behaves_like "accessible page"
@@ -314,7 +314,7 @@ describe "Account" do
 
     context "when on the delete my account page" do
       before do
-        visit decidim.delete_account_path
+        visit decidim.delete_account_path(locale: I18n.locale)
       end
 
       it "does not display the authorizations message by default" do
@@ -347,7 +347,7 @@ describe "Account" do
         let!(:authorization) { create(:authorization, :granted, user:) }
 
         it "displays the authorizations message" do
-          visit decidim.delete_account_path
+          visit decidim.delete_account_path(locale: I18n.locale)
 
           expect(page).to have_content("Some data bound to your authorization will be saved for security.")
         end

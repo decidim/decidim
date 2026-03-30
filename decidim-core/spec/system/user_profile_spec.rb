@@ -46,7 +46,7 @@ describe "Profile" do
         click_on "Edit profile"
       end
 
-      expect(page).to have_current_path(decidim.account_path)
+      expect(page).to have_current_path(decidim.account_path(locale: I18n.locale))
     end
   end
 

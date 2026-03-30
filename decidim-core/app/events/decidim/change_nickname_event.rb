@@ -13,7 +13,7 @@ module Decidim
 
     def i18n_options
       {
-        link_to_account_settings: url_helpers.account_path
+        link_to_account_settings: url_helpers.account_path(locale: I18n.locale)
       }
     end
   end

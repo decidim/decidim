@@ -22,12 +22,12 @@ module Decidim
       values[:options] = values.delete(:options) || {}
       return values if values.has_key?(:cell)
 
-      values[:path] = send(values[:path]) if values[:path].present?
+      values[:path] = send(values[:path], locale: current_locale) if values[:path].present?
       values[:text] = t(key, scope: translations_scope)
       values
     end
 
-    def new_conversation_path
+    def new_conversation_path(*)
       current_or_new_conversation_path_with(profile_holder)
     end
 

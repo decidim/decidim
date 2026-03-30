@@ -44,7 +44,7 @@ module Decidim
         elsif Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?
           decidim_participatory_processes.participatory_processes_path(locale: current_locale)
         elsif current_user
-          decidim.account_path
+          decidim.account_path(locale: current_locale)
         elsif current_organization.sign_up_enabled?
           decidim.new_user_registration_path
         else

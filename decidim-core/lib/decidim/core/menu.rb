@@ -7,7 +7,7 @@ module Decidim
         Decidim.menu :user_menu do |menu|
           menu.add_item :account,
                         t("account", scope: "layouts.decidim.user_profile"),
-                        decidim.account_path,
+                        decidim.account_path(locale: I18n.locale),
                         position: 1.0,
                         active: :exact
 
@@ -30,7 +30,7 @@ module Decidim
 
           menu.add_item :delete_account,
                         t("delete_my_account", scope: "layouts.decidim.user_profile"),
-                        decidim.delete_account_path,
+                        decidim.delete_account_path(locale: I18n.locale),
                         position: 999,
                         active: :exact
         end

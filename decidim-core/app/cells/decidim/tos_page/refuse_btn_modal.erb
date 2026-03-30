@@ -9,7 +9,7 @@
       <%= t("refuse.modal_title", scope: "decidim.pages.terms_of_service") %>
     </h3>
     <p id="dialog-desc-tos-refuse-modal">
-      <%= t("refuse.modal_body", scope: "decidim.pages.terms_of_service", download_your_data_path: decidim.download_your_data_path, delete_path: decidim.delete_account_path) %>
+      <%= t("refuse.modal_body", scope: "decidim.pages.terms_of_service", download_your_data_path: decidim.download_your_data_path, delete_path: decidim.delete_account_path(locale: current_locale)) %>
     </p>
   </div>
   <div data-dialog-actions>
