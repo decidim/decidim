@@ -21,8 +21,10 @@ default: &default
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
 
-  # Select loader to use, available options are 'babel' (default), 'swc' or 'esbuild'
-  #  webpack_loader: 'esbuild'
+  # Select JavaScript transpiler to use
+  # Available options: 'swc' (default, 20x faster), 'babel', 'esbuild', or 'none'
+  # Use 'none' when providing a completely custom webpack configuration
+  # Note: When using rspack, swc is used automatically regardless of this setting
   javascript_transpiler: 'esbuild'
   assets_bundler: "webpack"
 
@@ -35,7 +37,7 @@ default: &default
   # Select whether the compiler will always use a content hash and not just in production
   # Do not use contentHash except for production for performance
   # https://webpack.js.org/guides/build-performance/#avoid-production-specific-tooling
-  useContentHash: true
+  useContentHash: false
 
   # Utilizing webpack-subresource-integrity plugin, will generate integrity hashes for all entries in manifest.json
   # https://github.com/waysact/webpack-subresource-integrity/tree/main/webpack-subresource-integrity

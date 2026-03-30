@@ -164,11 +164,6 @@ You can read more about this change on PR [#16022](https://github.com/decidim/de
 
 In our efforts to improve the performance of the application, we are upgrading Shakapacker to version 9.7.0.
 
-Please check if you have the following file package.json, and edit the version:
-
-```json
-    "shakapacker": "~9.7.0",
-```
 
 You will need to patch your `shakapacker.yml` file to adjust to the latest changes
 
@@ -176,7 +171,7 @@ You will need to patch your `shakapacker.yml` file to adjust to the latest chang
 wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-core/lib/decidim/shakapacker/shakapacker.yml -O config/shakapacker.yml
 ```
 
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+You can read more about this change on PR [#16516](https://github.com/decidim/decidim/pull/16516).
 
 ### 2.10. [[TITLE OF THE ACTION]]
 
