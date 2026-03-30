@@ -13,6 +13,7 @@ import Configuration from "src/decidim/refactor/implementation/configuration"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration();
+window.Decidim.config.hydrate();
 
 let parameters = {};
 

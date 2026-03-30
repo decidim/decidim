@@ -2,4 +2,5 @@
 <%= csrf_meta_tags %>
 <%= append_stylesheet_pack_tag "decidim_system_overrides", media: "all" %>
 <%= stylesheet_pack_tag "decidim_core", "decidim_system", media: "all" %>
+<%= render partial: "layouts/decidim/system/js_configuration" %>
 <%= javascript_pack_tag "decidim_core", "decidim_admin", "decidim_system", defer: false %>
