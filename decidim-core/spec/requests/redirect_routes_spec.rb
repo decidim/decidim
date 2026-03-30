@@ -95,4 +95,12 @@ describe "Redirect routes" do
       end
     end
   end
+
+  context "when browsing open-data" do
+    it_behaves_like "redirects to the new url", "open-data"
+
+    context "and the download" do
+      it_behaves_like "redirects to the new url", "open-data/download"
+    end
+  end
 end

@@ -19,7 +19,7 @@ module Decidim
     describe "GET download" do
       before do
         OpenDataJob.perform_now(organization) if generate_file
-        get :download
+        get :download, params: { locale: I18n.locale }
       end
 
       context "when the open data file exists" do
@@ -35,7 +35,7 @@ module Decidim
         let(:generate_file) { false }
 
         it "redirects to the open data page" do
-          expect(controller).to redirect_to(open_data_path)
+          expect(controller).to redirect_to(open_data_path(locale: I18n.locale))
         end
 
         it "warns the user" do

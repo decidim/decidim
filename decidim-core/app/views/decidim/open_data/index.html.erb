@@ -81,27 +81,27 @@
       <h3 class="h5"><%= t("components", scope: "decidim.open_data.index.download") %></h3>
       <ul>
         <% open_data_component_manifests.each do |manifest| %>
-          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name)) %></li>
+          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name, locale: current_locale)) %></li>
         <% end %>
       </ul>
 
       <h3 class="h5"><%= t("spaces", scope: "decidim.open_data.index.download") %></h3>
       <ul>
         <% open_data_participatory_space_manifests.each do |manifest| %>
-          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name)) %></li>
+          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name, locale: current_locale)) %></li>
         <% end %>
       </ul>
 
       <h3 class="h5"><%= t("core", scope: "decidim.open_data.index.download") %></h3>
       <ul>
         <% open_data_core_manifests.each do |manifest| %>
-          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name)) %></li>
+          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name, locale: current_locale)) %></li>
         <% end %>
       </ul>
     </div>
 
     <div class="mt-4 flex flex-col items-center">
-      <%= link_to t("download_open_data", scope: "decidim.open_data.index"), decidim.open_data_download_path, class: "button button__primary button__xl" %>
+      <%= link_to t("download_open_data", scope: "decidim.open_data.index"), decidim.open_data_download_path(locale: current_locale), class: "button button__primary button__xl" %>
     </div>
   </div>
 
