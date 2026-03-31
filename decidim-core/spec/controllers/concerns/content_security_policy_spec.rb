@@ -42,7 +42,7 @@ module Decidim
       it "sets the appropriate headers" do
         get :show
         expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline' localhost:* #{organization.host}:*; ")
-        expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval' localhost:* #{organization.host}:*; ")
+        expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' localhost:* #{organization.host}:*; ")
         expect(response.headers["Content-Security-Policy"]).to include("style-src 'self' 'unsafe-inline' localhost:* #{organization.host}:*;")
         expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://via.placeholder.com #{maps_host} localhost:* #{organization.host}:*;")
         expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com data: #{maps_host} localhost:* #{organization.host}:*; ")
@@ -57,7 +57,7 @@ module Decidim
         it "sets the appropriate headers" do
           get :show
           expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline' https://example.org; ")
-          expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval' https://script.example.org;")
+          expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' https://script.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("style-src 'self' 'unsafe-inline' https://style.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://via.placeholder.com #{maps_host} https://img.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com data: #{maps_host} https://connect.example.org;")
@@ -72,7 +72,7 @@ module Decidim
           allow(Decidim).to receive(:content_security_policies_extra).and_return(additional_content_security_policies)
           get :show
           expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline' https://example.org localhost:* #{organization.host}:*; ")
-          expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval' https://script.example.org localhost:* #{organization.host}:*; ")
+          expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' https://script.example.org localhost:* #{organization.host}:*; ")
           expect(response.headers["Content-Security-Policy"]).to include("style-src 'self' 'unsafe-inline' https://style.example.org localhost:* #{organization.host}:*;")
           expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://img.example.org localhost:* #{organization.host}:*;")
           expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com data: https://connect.example.org localhost:* #{organization.host}:*; ")
@@ -118,7 +118,7 @@ module Decidim
         it "sets the appropriate headers" do
           get :show
           expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline' https://example.org localhost:* #{organization.host}:*; ")
-          expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval' https://script.example.org localhost:* #{organization.host}:*; ")
+          expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' https://script.example.org localhost:* #{organization.host}:*; ")
           expect(response.headers["Content-Security-Policy"]).to include("style-src 'self' 'unsafe-inline' https://style.example.org localhost:* #{organization.host}:*; ")
           expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://img.example.org https://via.placeholder.com #{maps_host} localhost:* #{organization.host}:*;")
           expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com data: https://connect.example.org #{maps_host} localhost:* #{organization.host}:*;")

@@ -13,7 +13,7 @@ module Decidim
       it { is_expected.to respond_to(:output_policy) }
       it { expect(subject.output_policy).to be_a(String) }
       it { expect(subject.output_policy).to include("default-src 'self' 'unsafe-inline'") }
-      it { expect(subject.output_policy).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval'") }
+      it { expect(subject.output_policy).to include("script-src 'self'") }
       it { expect(subject.output_policy).to include("style-src 'self' 'unsafe-inline'") }
       it { expect(subject.output_policy).to include("img-src 'self' *.hereapi.com data:") }
       it { expect(subject.output_policy).to include("connect-src 'self' *.hereapi.com data:") }
