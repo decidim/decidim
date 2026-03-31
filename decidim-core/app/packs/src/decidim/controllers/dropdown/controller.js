@@ -76,6 +76,32 @@ export default class extends Controller {
     }
 
     Dropdowns.render(this.element.id, dropdownOptions);
+
+    const addAriaRoles = this.element.dataset.addAriaRoles !== "false";
+    if (!addAriaRoles) {
+      this.removeAriaRoles();
+    }
+  }
+
+  removeAriaRoles() {
+    const target = this.element.dataset.target;
+    const dropdownMenu = document.getElementById(target);
+    if (!dropdownMenu) {
+      return;
+    }
+
+    dropdownMenu.removeAttribute("role");
+    dropdownMenu.removeAttribute("aria-labelledby");
+    dropdownMenu.removeAttribute("tabindex");
+
+    dropdownMenu.querySelectorAll("li").forEach((li) => {
+      li.removeAttribute("role");
+    });
+
+    dropdownMenu.querySelectorAll("a").forEach((anchor) => {
+      anchor.removeAttribute("role");
+      anchor.removeAttribute("tabindex");
+    });
   }
 
   /**
