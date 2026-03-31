@@ -14,6 +14,10 @@
                                         disabled:,
                                         maxlength:,
                                         class: "w-full",
-                                        onchange: "setFormFieldValue('#{field_id}', 'questionnaire[responses][#{response_idx}][choices][][body]')"
+                                        data: {
+                                          controller: "select-sync",
+                                          select_sync_target_value: "questionnaire[responses][#{response_idx}][choices][][body]",
+                                          action: "change->select-sync#sync"
+                                        }
                                       } %>
 </div>

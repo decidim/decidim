@@ -81,9 +81,5 @@
 <%= append_javascript_pack_tag "decidim_forms_admin" %>
 
 <% if questionnaire.questions_editable? %>
-   <script>
-    document.addEventListener("turbo:load", function () {
-      window.Decidim.createEditableForm();
-    });
-  </script>
+  <div data-controller="editable-form"></div>
 <% end %>

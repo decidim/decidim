@@ -16,10 +16,3 @@
   <%= render partial: "decidim/demographics/demographics/questionnaire" %>
 <% end %>
 
-<script>
-  function setFormFieldValue(field_id, field_to_update) {
-    const element  = document.getElementById(field_id);
-
-    document.querySelector(`input[name='${field_to_update}']`).value = element.options[element.selectedIndex].text;
-  }
-</script>
