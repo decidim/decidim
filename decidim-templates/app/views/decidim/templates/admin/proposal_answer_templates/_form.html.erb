@@ -39,7 +39,8 @@
                             help_text: t(".component_constraint_help"),
                             include_blank: true
                           },
-                          onchange: "this.form.submit()",
+                          "data-controller": "click-delegate",
+                          "data-action": "change->click-delegate#submitForm",
                           disabled: form.object.component_constraint.present? %>
         </div>
       <%= form.hidden_field(:select_component, value: true) %>

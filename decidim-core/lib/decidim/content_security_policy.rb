@@ -118,7 +118,7 @@ module Decidim
     def default_policy
       {
         "default-src" => %w('self' 'unsafe-inline'),
-        "script-src" => %w('self'),
+        "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval'),
         "style-src" => %w('self' 'unsafe-inline'),
         "img-src" => %w('self' *.hereapi.com data:),
         "font-src" => %w('self'),

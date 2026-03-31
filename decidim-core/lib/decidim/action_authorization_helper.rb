@@ -88,7 +88,10 @@ module Decidim
         end
       end
 
-      html_options["onclick"] = "event.preventDefault();" if url == ""
+      if url == ""
+        html_options["data-controller"] = [html_options["data-controller"], "prevent-default"].compact.join(" ")
+        html_options["data-action"] = [html_options["data-action"], "click->prevent-default#prevent"].compact.join(" ")
+      end
 
       if block
         send("#{tag}_to", url, html_options, &body)
