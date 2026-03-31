@@ -1,6 +1,6 @@
 <%= form.collection_check_boxes :taxonomy_items, collection, :value, :name do |item| %>
   <div>
-    <%= item.label { item.check_box(autocomplete: false) + item.text } %>
+    <%= item.label { item.check_box(autocomplete: false, data: { action: "change->taxonomy-filter-form#toggleItem" }) + item.text } %>
   </div>
   <% if item.object.children.any? %>
     <div class="ml-4 js-taxonomy-children" data-parent="<%= item.object.value %>">

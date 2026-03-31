@@ -16,16 +16,16 @@
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" data-controller="taxonomy-filter-form" data-taxonomy-filter-form-auto-select-value="<%= local_assigns.fetch(:auto_select, false) %>">
     <div class="card-section">
       <% if root_taxonomy.children.any? %>
         <div class="card-divider">
-          <h2><%= t(".items", count: "<strong class=\"js-filter-children-count\">#{root_taxonomy.all_children.count}</strong>").html_safe %></h2>
+          <h2><%= t(".items", count: "<strong data-taxonomy-filter-form-target=\"counter\">#{root_taxonomy.all_children.count}</strong>").html_safe %></h2>
         </div>
 
         <div class="row column">
           <div class="table-scroll half-vh">
-            <label><%= check_box_tag "selectAll" %> <%= t(".all") %></label>
+            <label><%= check_box_tag "selectAll", nil, false, data: { taxonomy_filter_form_target: "selectAll", action: "change->taxonomy-filter-form#toggleAll" } %> <%= t(".all") %></label>
             <%= render "decidim/admin/taxonomy_filters/check_boxes", form:, collection: @form.items_collection %>
           </div>
         </div>
@@ -52,45 +52,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener("turbo:load", function() {
-    var selectAll = document.querySelector("[name='selectAll']");
-    var checkBoxes = document.querySelectorAll("[type='checkbox'][name='taxonomy_filter[taxonomy_items][]']");
-    var notChecked = document.querySelectorAll("[type='checkbox'][name='taxonomy_filter[taxonomy_items][]']:not([checked])");
-    var count = document.querySelector(".js-filter-children-count");
-
-    var updateCounter = function() {
-      var checked = Array.from(checkBoxes).filter(function(checkbox) {
-        return checkbox.checked;
-      });
-      count.innerHTML = checked.length;
-    };
-
-    var toggleChildrenSelect = function(checkbox) {
-      var children = document.querySelectorAll(".js-taxonomy-children[data-parent='" + checkbox.value + "'] [type='checkbox'][name='taxonomy_filter[taxonomy_items][]']");
-      children.forEach(function(child) {
-        child.checked = checkbox.checked;
-        toggleChildrenSelect(child);
-      });
-      updateCounter();
-    }
-
-    selectAll.checked = notChecked.length === 0;
-    selectAll.addEventListener("change", function() {
-      checkBoxes.forEach(function(checkbox) {
-        checkbox.checked = selectAll.checked;
-      });
-      updateCounter();
-    });
-
-    checkBoxes.forEach(function(checkbox) {
-      checkbox.addEventListener("change", function() {
-        updateCounter();
-        toggleChildrenSelect(checkbox);
-      });
-    });
-
-    updateCounter();
-  });
-</script>

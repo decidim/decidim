@@ -11,7 +11,7 @@
 
 <div class="item__edit-form">
   <%= decidim_form_for(@form, url: taxonomy_filters_path(root_taxonomy), html: { class: "form form-defaults new_taxonomy_filter_" }) do |f| %>
-    <%= render partial: "decidim/admin/taxonomy_filters/form", object: f %>
+    <%= render partial: "decidim/admin/taxonomy_filters/form", object: f, locals: { auto_select: true } %>
 
     <div class="item__edit-sticky">
       <div class="item__edit-sticky-container">
@@ -20,13 +20,3 @@
     </div>
   <% end %>
 </div>
-
-<script>
-  document.addEventListener("turbo:load", function() {
-    var selectAll = document.querySelector("[name='selectAll']");
-
-    // check all checkboxes on load
-    selectAll.checked = true;
-    selectAll.dispatchEvent(new Event("change"));
-  });
-</script>
