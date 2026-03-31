@@ -49,9 +49,9 @@
     <div class="row column">
       <div class="meeting-agenda-items">
         <%= fields_for "meeting_agenda[agenda_items][#{blank_agenda_item.to_param}]", blank_agenda_item do |agenda_item_form| %>
-          <script type="text/template" class="decidim-template">
+          <template class="decidim-template">
             <%= render "agenda_item", form: agenda_item_form, tabs_id: tabs_id_for_agenda_item(blank_agenda_item), editable: true, child_template_selector: "#agenda-item-child-template-dummy" %>
-          </script>
+          </template>
           <%= render "agenda_item_child_template", form: agenda_item_form, editable: true, template_id: "agenda-item-child-template-dummy" %>
         <% end %>
 

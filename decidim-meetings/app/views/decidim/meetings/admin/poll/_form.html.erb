@@ -14,13 +14,13 @@
   <%= cell("decidim/announcement", { body: announcement_body }, callout_class: "info") %>
 
   <%= fields_for "questionnaire[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
-    <script type="text/template" class="decidim-question-template decidim-template" id="question-template">
+    <template class="decidim-question-template decidim-template" id="question-template">
       <%= render "decidim/meetings/admin/poll/question",
                  form: question_form,
                  id: tabs_id_for_question(blank_question),
                  editable: true,
                  response_option_template_selector: "#response-option-template-dummy" %>
-    </script>
+    </template>
     <%= render "decidim/meetings/admin/poll/response_option_template", form: question_form, editable: true, template_id: "response-option-template-dummy" %>
   <% end %>
 
