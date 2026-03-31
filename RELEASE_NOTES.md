@@ -164,7 +164,6 @@ You can read more about this change on PR [#16022](https://github.com/decidim/de
 
 In our efforts to improve the performance of the application, we are upgrading Shakapacker to version 9.7.0.
 
-
 You will need to patch your `shakapacker.yml` file to adjust to the latest changes
 
 ```bash
