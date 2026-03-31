@@ -1,4 +1,4 @@
-<div class="card edit_content_blocks">
+<div class="card edit_content_blocks" data-controller="content-blocks-sort" data-action="dragend->content-blocks-sort#sort">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
       <%= content_blocks_title %>
@@ -53,17 +53,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener("dragend", function (event) {
-    const activeBlocks = Array.prototype.slice.call(document.querySelectorAll(".js-list-actives li"));
-    const activeBlocksId = activeBlocks.map(block => block.dataset.contentBlockId);
-
-    $.ajax({
-      method: "PUT",
-      url: document.querySelector(".js-list-actives").dataset.sortUrl,
-      contentType: "application/json",
-      data: JSON.stringify({ ids_order: activeBlocksId })
-    });
-  })
-</script>
