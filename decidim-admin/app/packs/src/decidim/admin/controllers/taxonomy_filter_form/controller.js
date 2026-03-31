@@ -13,12 +13,8 @@ export default class extends Controller {
     if (this.autoSelectValue && this.hasSelectAllTarget) {
       this.selectAllTarget.checked = true;
       this.selectAllTarget.dispatchEvent(new Event("change"));
-    } else if (this.hasSelectAllTarget) {
-      const notChecked = this.element.querySelectorAll(
-        "[type='checkbox'][name='taxonomy_filter[taxonomy_items][]']:not([checked])"
-      );
-      this.selectAllTarget.checked = notChecked.length === 0;
     }
+    this.syncSelectAll();
     this.updateCounter();
   }
 
@@ -32,7 +28,16 @@ export default class extends Controller {
 
   toggleItem(event) {
     this.toggleChildrenSelect(event.target);
+    this.syncSelectAll();
     this.updateCounter();
+  }
+
+  syncSelectAll() {
+    if (!this.hasSelectAllTarget) {
+      return;
+    }
+    const allChecked = Array.from(this.checkboxes).every((cb) => cb.checked);
+    this.selectAllTarget.checked = allChecked;
   }
 
   toggleChildrenSelect(checkbox) {
