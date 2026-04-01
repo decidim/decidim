@@ -64,7 +64,9 @@ export default class MapMarkersController extends MapController {
           if (item.icon) {
             span.innerHTML = item.icon;
           }
-          span.appendChild(document.createTextNode(item.text));
+          const textWrapper = document.createElement("span");
+          textWrapper.innerHTML = item.text;
+          span.appendChild(textWrapper);
           itemsEl.appendChild(span);
         });
       }
