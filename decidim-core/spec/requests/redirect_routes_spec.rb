@@ -71,6 +71,17 @@ describe "Redirect routes" do
     it_behaves_like "redirects to the new url", "gamification/badges"
   end
 
+  context "when browsing notifications" do
+    let!(:user) { create(:user, :confirmed, organization:) }
+
+    before do
+      login_as user, scope: :user
+    end
+
+    it_behaves_like "redirects to the new url", "notifications"
+    it_behaves_like "redirects to the new url", "notifications_settings"
+  end
+
   context "when browsing account" do
     let!(:user) { create(:user, :confirmed, organization:) }
 

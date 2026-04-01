@@ -41,7 +41,7 @@ describe Decidim::Admin::FakeNewsletter do
   end
 
   describe "#notifications_settings_url" do
-    subject { newsletter.notifications_settings_url }
+    subject { newsletter.notifications_settings_url(locale: I18n.locale) }
 
     it { is_expected.to eq("#") }
   end

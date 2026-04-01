@@ -28,7 +28,7 @@ module Decidim
       end
 
       def resource_url
-        notifications_url(host: component.organization.host)
+        notifications_url(locale: I18n.locale, host: component.organization.host)
       end
 
       private

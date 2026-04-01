@@ -13,7 +13,7 @@ module Decidim
 
           menu.add_item :notifications_settings,
                         t("notifications_settings", scope: "layouts.decidim.user_profile"),
-                        decidim.notifications_settings_path,
+                        decidim.notifications_settings_path(locale: I18n.locale),
                         position: 1.1
 
           if available_verification_workflows.any?

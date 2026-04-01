@@ -42,6 +42,6 @@ describe "Explore budget notifications", :slow do
   private
 
   def visit_notifications
-    page.visit decidim.notifications_path
+    page.visit decidim.notifications_path(locale: I18n.locale)
   end
 end

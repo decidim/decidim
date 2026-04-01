@@ -51,7 +51,7 @@ describe "Admin manages assembly attachments" do
         expect(page).to have_callout("Attachment created successfully.")
 
         wait_enqueued_jobs do
-          visit decidim.notifications_path
+          visit decidim.notifications_path(locale: I18n.locale)
           expect(page).to have_content("A new document has been added to")
         end
       end

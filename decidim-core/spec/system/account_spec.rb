@@ -277,7 +277,7 @@ describe "Account" do
 
     context "when on the notifications settings page" do
       before do
-        visit decidim.notifications_settings_path
+        visit decidim.notifications_settings_path(locale: I18n.locale)
       end
 
       it "updates the user's notifications" do
@@ -295,7 +295,7 @@ describe "Account" do
 
         before do
           login_as user, scope: :user
-          visit decidim.notifications_settings_path
+          visit decidim.notifications_settings_path(locale: I18n.locale)
         end
 
         it "updates the administrator's notifications" do
@@ -375,7 +375,7 @@ describe "Account" do
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
-        visit decidim.notifications_settings_path
+        visit decidim.notifications_settings_path(locale: I18n.locale)
       end
 
       context "when on the account page" do
@@ -403,7 +403,7 @@ describe "Account" do
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
-        visit decidim.notifications_settings_path
+        visit decidim.notifications_settings_path(locale: I18n.locale)
       end
 
       it "does not show the push notifications switch" do
@@ -417,7 +417,7 @@ describe "Account" do
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
-        visit decidim.notifications_settings_path
+        visit decidim.notifications_settings_path(locale: I18n.locale)
       end
 
       it "does not show the push notifications switch" do

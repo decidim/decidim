@@ -89,7 +89,7 @@ describe "Interact with commenters" do
 
     before do
       login_as commenter, scope: :user
-      visit decidim.notifications_path
+      visit decidim.notifications_path(locale: I18n.locale)
     end
 
     it "coauthor can accept invitation" do
@@ -102,7 +102,7 @@ describe "Interact with commenters" do
         expect(proposal.reload.authors).to include(commenter)
         expect { notification.reload }.to raise_error(ActiveRecord::RecordNotFound)
 
-        visit decidim.notifications_path
+        visit decidim.notifications_path(locale: I18n.locale)
         expect(page).to have_no_content("would like to invite you as a co-author of the proposal")
         expect(page).to have_content("You have been added as a co-author of the proposal")
         expect(last_email).to be_nil
@@ -119,7 +119,7 @@ describe "Interact with commenters" do
         expect(proposal.reload.authors).not_to include(commenter)
         expect { notification.reload }.to raise_error(ActiveRecord::RecordNotFound)
 
-        visit decidim.notifications_path
+        visit decidim.notifications_path(locale: I18n.locale)
         expect(page).to have_no_content("would like to invite you as a co-author of the proposal")
         expect(page).to have_content("You have declined the invitation from")
         expect(last_email).to be_nil

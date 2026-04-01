@@ -67,26 +67,27 @@ Decidim::Core::Engine.routes.draw do
           post :cancel_email_change
         end
       end
+
       resource :download_your_data, only: [:show], controller: "download_your_data" do
         member do
           post :export
           get "/:uuid", to: "download_your_data#download_file", as: :download
         end
       end
+
+      resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
+      resources :notifications_subscriptions, param: :auth, only: [:create, :destroy]
+      resources :notifications, only: [:index, :destroy] do
+        collection do
+          delete :read_all
+        end
+      end
     end
 
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
     post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
-    resources :notifications, only: [:index, :destroy] do
-      collection do
-        delete :read_all
-      end
-    end
-    resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
 
     get "/newsletters_opt_in/:token", to: "newsletters_opt_in#update", as: :newsletters_opt_in
-
-    resources :notifications_subscriptions, param: :auth, only: [:create, :destroy]
 
     get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal
     get(
@@ -111,6 +112,22 @@ Decidim::Core::Engine.routes.draw do
     get "/download_your_data", to: redirect { |params, request|
       locale = Decidim::LocaleRouterDetector.new(request, params).locale
       "/#{locale}/download_your_data"
+    }
+    get "/notifications_settings", to: redirect { |params, request|
+      locale = Decidim::LocaleRouterDetector.new(request, params).locale
+      "/#{locale}/notifications_settings"
+    }
+
+    get "/notifications", to: redirect { |params, request|
+      locale = Decidim::LocaleRouterDetector.new(request, params).locale
+
+      query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
+      query_string.delete("locale")
+      query_string = CGI.unescape(query_string.to_query)
+
+      path = "/#{locale}/notifications"
+      path += "?#{query_string}" unless query_string.empty?
+      path
     }
   end
 

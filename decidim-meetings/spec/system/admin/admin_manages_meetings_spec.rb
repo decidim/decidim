@@ -224,7 +224,7 @@ describe "Admin manages meetings" do
     sleep 1
     expect(email.subject).to include("updated")
     expect(email.body.encoded).to include(%(The "#{decidim_sanitize_translated(attributes[:title])}" meeting has been updated with changes to the address and the location))
-    page.visit decidim.notifications_path
+    page.visit decidim.notifications_path(locale: I18n.locale)
     expect(page).to have_content("The #{decidim_sanitize_translated(attributes[:title])} meeting has been updated with changes to the address and the location")
 
     visit decidim_admin.root_path

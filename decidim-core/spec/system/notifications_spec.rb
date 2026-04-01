@@ -25,7 +25,7 @@ describe "Notifications" do
         click_on("Notifications")
       end
 
-      expect(page).to have_current_path decidim.notifications_path
+      expect(page).to have_current_path decidim.notifications_path(locale: I18n.locale)
       expect(page).to have_no_content("No notifications yet")
       expect(page).to have_content("An event occurred")
     end
@@ -42,7 +42,7 @@ describe "Notifications" do
           click_on("Notifications")
         end
 
-        expect(page).to have_current_path decidim.notifications_path
+        expect(page).to have_current_path decidim.notifications_path(locale: I18n.locale)
         expect(page).to have_content("No notifications yet")
       end
     end
@@ -70,7 +70,7 @@ describe "Notifications" do
     let!(:notification) { nil }
 
     before do
-      page.visit decidim.notifications_path
+      page.visit decidim.notifications_path(locale: I18n.locale)
     end
 
     it "does not show any notification" do
@@ -81,7 +81,7 @@ describe "Notifications" do
 
   context "with notifications" do
     before do
-      page.visit decidim.notifications_path
+      page.visit decidim.notifications_path(locale: I18n.locale)
     end
 
     it "shows the notifications" do
@@ -121,7 +121,7 @@ describe "Notifications" do
       end
 
       before do
-        page.visit decidim.notifications_path
+        page.visit decidim.notifications_path(locale: I18n.locale)
       end
 
       it "shows the notifications" do
@@ -147,7 +147,7 @@ describe "Notifications" do
       allow_any_instance_of(Decidim::Dev::DummyResourceEvent).to receive(:action_cell).and_return("decidim/notification_actions/buttons")
       allow_any_instance_of(Decidim::Dev::DummyResourceEvent).to receive(:action_data).and_return(data)
       # rubocop:enable RSpec/AnyInstance
-      page.visit decidim.notifications_path
+      page.visit decidim.notifications_path(locale: I18n.locale)
     end
 
     it "shows the notification with the action buttons" do

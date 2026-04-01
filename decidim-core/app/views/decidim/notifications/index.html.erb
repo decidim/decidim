@@ -4,7 +4,7 @@
   <h1 class="title-decorator"><%= t("notifications", scope: "layouts.decidim.user_menu") %></h1>
 
   <% if current_user.notifications.exists? %>
-    <%= link_to read_all_notifications_path, class: "button button__sm md:button__lg button__secondary w-full md:w-fit", method: :delete, data: { disable: true, "notification-read-all": "" }, remote: true do %>
+    <%= link_to read_all_notifications_path(locale: current_locale), class: "button button__sm md:button__lg button__secondary w-full md:w-fit", method: :delete, data: { disable: true, "notification-read-all": "" }, remote: true do %>
       <span><%= t("mark_all_as_read", scope: "layouts.decidim.notifications_dashboard") %></span>
       <%= icon "check-double-line", class: "fill-current" %>
     <% end %>

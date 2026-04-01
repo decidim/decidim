@@ -46,7 +46,7 @@ describe "Participatory Process Steps" do
 
       it "triggers a notification" do
         wait_enqueued_jobs do
-          visit decidim.notifications_path
+          visit decidim.notifications_path(locale: I18n.locale)
           expect(page).to have_content("phase is now active for")
         end
       end

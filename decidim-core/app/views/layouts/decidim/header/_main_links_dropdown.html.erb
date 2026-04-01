@@ -12,7 +12,7 @@
   <% end %>
 </li>
 <li class="dropdown__item">
-  <%= link_to decidim.notifications_path, class: "dropdown__button" do %>
+  <%= link_to decidim.notifications_path(locale: current_locale), class: "dropdown__button" do %>
     <%= icon "notification-3-line" %>
     <span><%= t("layouts.decidim.user_menu.notifications") %></span>
     <% if unread_data[:unread_notifications] %>

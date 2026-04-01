@@ -50,12 +50,12 @@ module Decidim
     end
 
     describe "#notifications_settings_url" do
-      subject { newsletter.notifications_settings_url }
+      subject { newsletter.notifications_settings_url(locale: I18n.locale) }
 
       let(:newsletter) { create(:newsletter, :sent) }
       let(:organization) { newsletter.organization }
 
-      it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/notifications_settings") }
+      it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/#{I18n.locale}/notifications_settings") }
 
       context "when the newsletter is not sent" do
         let(:newsletter) { create(:newsletter) }
