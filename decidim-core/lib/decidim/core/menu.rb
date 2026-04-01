@@ -25,7 +25,7 @@ module Decidim
 
           menu.add_item :download_your_data,
                         t("my_data", scope: "layouts.decidim.user_profile"),
-                        decidim.download_your_data_path,
+                        decidim.download_your_data_path(locale: I18n.locale),
                         position: 1.5
 
           menu.add_item :delete_account,

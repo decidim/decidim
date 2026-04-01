@@ -83,6 +83,14 @@ describe "Redirect routes" do
     context "and account delete section" do
       it_behaves_like "redirects to the new url", "account/delete"
     end
+
+    context "when browsing download-data" do
+      it_behaves_like "redirects to the new url", "download_your_data"
+
+      context "and there is a download" do
+        it_behaves_like "redirects to the new url", "download_your_data/some-existing-uuid"
+      end
+    end
   end
 
   context "when browsing last_activities" do

@@ -33,7 +33,7 @@ module Decidim
     end
 
     def permitted_paths?
-      return true if request.path.starts_with?(decidim.download_your_data_path)
+      return true if request.path.starts_with?(decidim.download_your_data_path(locale: current_locale))
 
       permitted_paths = [tos_path,
                          decidim.delete_account_path(locale: current_locale),

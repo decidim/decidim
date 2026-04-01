@@ -37,7 +37,7 @@
     <% end %>
 
     <div class="py-10 flex flex-col gap-4 only:[&_*]:ml-auto">
-      <%= button_to t("request_data", scope:"decidim.download_your_data.show"), export_download_your_data_path, class: "button button__sm md:button__lg button__secondary mr-auto !ml-0", data: { disable: true } %>
+      <%= button_to t("request_data", scope:"decidim.download_your_data.show"), export_download_your_data_path(locale: current_locale), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0", data: { disable: true } %>
     </div>
 
     <% unless @exports.size.zero? %>

@@ -67,6 +67,12 @@ Decidim::Core::Engine.routes.draw do
           post :cancel_email_change
         end
       end
+      resource :download_your_data, only: [:show], controller: "download_your_data" do
+        member do
+          post :export
+          get "/:uuid", to: "download_your_data#download_file", as: :download
+        end
+      end
     end
 
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
@@ -79,13 +85,6 @@ Decidim::Core::Engine.routes.draw do
     resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
 
     get "/newsletters_opt_in/:token", to: "newsletters_opt_in#update", as: :newsletters_opt_in
-
-    resource :download_your_data, only: [:show], controller: "download_your_data" do
-      member do
-        post :export
-        get "/:uuid", to: "download_your_data#download_file", as: :download
-      end
-    end
 
     resources :notifications_subscriptions, param: :auth, only: [:create, :destroy]
 
@@ -103,6 +102,15 @@ Decidim::Core::Engine.routes.draw do
     get "/account", to: redirect { |params, request|
       locale = Decidim::LocaleRouterDetector.new(request, params).locale
       "/#{locale}/account"
+    }
+
+    get "/download_your_data/*rest", to: redirect { |params, request|
+      locale = Decidim::LocaleRouterDetector.new(request, params).locale
+      "/#{locale}/download_your_data/#{params[:rest]}"
+    }
+    get "/download_your_data", to: redirect { |params, request|
+      locale = Decidim::LocaleRouterDetector.new(request, params).locale
+      "/#{locale}/download_your_data"
     }
   end
 

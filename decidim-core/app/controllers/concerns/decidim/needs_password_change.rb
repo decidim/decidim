@@ -26,8 +26,8 @@ module Decidim
       permitted_paths = [(tos_path if respond_to?(:tos_path, true)),
                          decidim.delete_account_path(locale: current_locale),
                          decidim.accept_tos_path,
-                         decidim.download_your_data_path,
-                         decidim.export_download_your_data_path,
+                         decidim.download_your_data_path(locale: current_locale),
+                         decidim.export_download_your_data_path(locale: current_locale),
                          decidim.change_password_path].compact
       # ensure that path with or without query string pass
       permitted_paths.find { |el| el.split("?").first == target_path }

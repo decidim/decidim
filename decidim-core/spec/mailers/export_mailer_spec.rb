@@ -24,7 +24,7 @@ module Decidim
       end
 
       it "has a link" do
-        expect(mail).to have_link("Download", href: decidim.download_download_your_data_url(uuid: private_download.uuid, host: organization.host))
+        expect(mail).to have_link("Download", href: decidim.download_download_your_data_url(uuid: private_download.uuid, locale: I18n.locale, host: organization.host))
       end
     end
 
@@ -44,7 +44,7 @@ module Decidim
       end
 
       it "has a link" do
-        expect(mail).to have_link("Download", href: decidim.download_download_your_data_url(uuid: private_download.uuid, host: organization.host))
+        expect(mail).to have_link("Download", href: decidim.download_download_your_data_url(uuid: private_download.uuid, locale: I18n.locale, host: organization.host))
       end
     end
   end

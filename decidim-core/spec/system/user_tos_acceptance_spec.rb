@@ -75,7 +75,7 @@ describe "UserTosAcceptance" do
 
         it "shows an option to download the users data" do
           within "#tos-refuse-modal" do
-            expect(page).to have_link("download your data", href: decidim.download_your_data_path)
+            expect(page).to have_link("download your data", href: decidim.download_your_data_path(locale: I18n.locale))
           end
         end
 

@@ -29,7 +29,7 @@ describe "DownloadYourData", download: true do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim.download_your_data_path
+    visit decidim.download_your_data_path(locale: I18n.locale)
   end
 
   shared_examples_for "downloading data" do
@@ -44,34 +44,34 @@ describe "DownloadYourData", download: true do
       it "displays only links from current_user" do
         [expired_export, active_export, other_user_expired_export, other_user_active_export].each(&:reload)
 
-        expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(uuid: expired_export.uuid)}\"]")
-        within "form[action=\"#{decidim.download_download_your_data_path(uuid: expired_export.uuid)}\"]" do
+        expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(uuid: expired_export.uuid, locale: I18n.locale)}\"]")
+        within "form[action=\"#{decidim.download_download_your_data_path(uuid: expired_export.uuid, locale: I18n.locale)}\"]" do
           expect(page).to have_button("Download", disabled: true)
         end
-        expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(uuid: active_export.uuid)}\"]")
-        within "form[action=\"#{decidim.download_download_your_data_path(uuid: active_export.uuid)}\"]" do
+        expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(uuid: active_export.uuid, locale: I18n.locale)}\"]")
+        within "form[action=\"#{decidim.download_download_your_data_path(uuid: active_export.uuid, locale: I18n.locale)}\"]" do
           expect(page).to have_button("Download", disabled: false)
         end
-        expect(page).to have_no_css("form[action=\"#{decidim.download_download_your_data_path(uuid: other_user_expired_export.uuid)}\"]")
-        expect(page).to have_no_css("form[action=\"#{decidim.download_download_your_data_path(uuid: other_user_active_export.uuid)}\"]")
+        expect(page).to have_no_css("form[action=\"#{decidim.download_download_your_data_path(uuid: other_user_expired_export.uuid, locale: I18n.locale)}\"]")
+        expect(page).to have_no_css("form[action=\"#{decidim.download_download_your_data_path(uuid: other_user_active_export.uuid, locale: I18n.locale)}\"]")
       end
     end
 
     describe "downloading attachments" do
       it "when requesting the file of other user's data" do
-        visit decidim.download_download_your_data_path(uuid: other_user_active_export.uuid)
+        visit decidim.download_download_your_data_path(uuid: other_user_active_export.uuid, locale: I18n.locale)
 
         expect(page).to have_content("The export you have accessed does not exist, or you do not have access to download it")
       end
 
       it "when requesting the expired file of other user's data" do
-        visit decidim.download_download_your_data_path(uuid: other_user_expired_export.uuid)
+        visit decidim.download_download_your_data_path(uuid: other_user_expired_export.uuid, locale: I18n.locale)
 
         expect(page).to have_content("The export you have accessed does not exist, or you do not have access to download it")
       end
 
       it "when requesting current user's expired file" do
-        visit decidim.download_download_your_data_path(uuid: expired_export.uuid)
+        visit decidim.download_download_your_data_path(uuid: expired_export.uuid, locale: I18n.locale)
 
         expect(page).to have_content("The export has expired. Try to generate a new export.")
       end
@@ -79,7 +79,7 @@ describe "DownloadYourData", download: true do
       it "when requesting current user's active file", :slow do
         expect(downloads("*.zip").length).to eq(0)
 
-        visit decidim.download_download_your_data_path(uuid: active_export.uuid)
+        visit decidim.download_download_your_data_path(uuid: active_export.uuid, locale: I18n.locale)
         wait_for_download
 
         expect(downloads("*.zip").length).to eq(1)
