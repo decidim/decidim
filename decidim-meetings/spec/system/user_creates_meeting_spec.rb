@@ -79,6 +79,25 @@ describe "User creates meeting" do
           component.update!(settings: { creation_enabled_for_participants: true, taxonomy_filters: taxonomy_filter_ids })
         end
 
+        # rubocop:disable Capybara/SpecificMatcher
+        # since we need to test for data attributes, we cannot use have_no_button as the finder matches would be
+        # Invalid option(s) :"data-disable", should be one of :above, :below, :left_of, :right_of, :near, :count, :minimum, :maximum, :between, :text, :id, :class,
+        # :style, :visible, :obscured, :exact, :exact_text, :normalize_ws, :match, :wait, :filter_set, :focused, :disabled, :name, :value, :title, :type
+        it "submits empty form" do
+          visit_component
+          click_on "New meeting"
+
+          expect(page).to have_no_css("button[type=submit][data-disable='true']")
+
+          within ".new_meeting" do
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_no_css("button[type=submit][data-disable='true']")
+          expect(page).to have_no_css("button[type=submit][disabled='']")
+        end
+        # rubocop:enable Capybara/SpecificMatcher
+
         context "and rich_editor_public_view component setting is enabled" do
           before do
             organization.update(rich_text_editor_in_public_views: true)
