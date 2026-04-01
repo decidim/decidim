@@ -87,14 +87,14 @@ describe "User creates meeting" do
           visit_component
           click_on "New meeting"
 
-          expect(page).to have_no_css("button[type=submit][data-disable='true']")
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
 
           within ".new_meeting" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_no_css("button[type=submit][data-disable='true']")
-          expect(page).to have_no_css("button[type=submit][disabled='']")
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+          expect(page).to have_no_css("*[type=submit][disabled]")
         end
         # rubocop:enable Capybara/SpecificMatcher
 
