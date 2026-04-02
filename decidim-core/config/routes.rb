@@ -82,10 +82,13 @@ Decidim::Core::Engine.routes.draw do
           delete :read_all
         end
       end
-    end
 
-    resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
-    post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
+      resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations" do
+        collection do
+          post :check_multiple
+        end
+      end
+    end
 
     get "/newsletters_opt_in/:token", to: "newsletters_opt_in#update", as: :newsletters_opt_in
 
@@ -128,6 +131,15 @@ Decidim::Core::Engine.routes.draw do
       path = "/#{locale}/notifications"
       path += "?#{query_string}" unless query_string.empty?
       path
+    }
+
+    get "/conversations", to: redirect { |params, request|
+      locale = Decidim::LocaleRouterDetector.new(request, params).locale
+      "/#{locale}/conversations"
+    }
+    get "/conversations/*rest", to: redirect { |params, request|
+      locale = Decidim::LocaleRouterDetector.new(request, params).locale
+      "/#{locale}/conversations/#{params[:rest]}"
     }
   end
 

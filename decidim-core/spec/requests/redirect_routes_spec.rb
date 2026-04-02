@@ -82,6 +82,17 @@ describe "Redirect routes" do
     it_behaves_like "redirects to the new url", "notifications_settings"
   end
 
+  context "when browsing conversations" do
+    let!(:user) { create(:user, :confirmed, organization:) }
+
+    before do
+      login_as user, scope: :user
+    end
+
+    it_behaves_like "redirects to the new url", "conversations"
+    it_behaves_like "redirects to the new url", "conversations/20"
+  end
+
   context "when browsing account" do
     let!(:user) { create(:user, :confirmed, organization:) }
 

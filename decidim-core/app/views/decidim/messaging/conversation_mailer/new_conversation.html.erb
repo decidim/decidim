@@ -9,7 +9,7 @@
 </blockquote>
 
 <p class="email-button email-button__cta">
-  <%= link_to decidim.conversation_url(@conversation, host: @host), decidim.conversation_url(@conversation, host: @host) %>
+  <%= link_to decidim.conversation_url(@conversation, locale: I18n.locale, host: @host), decidim.conversation_url(@conversation, locale: I18n.locale, host: @host) %>
 </p>
 
 <p class="email-closing"><%= t(".outro") %></p>

@@ -44,7 +44,7 @@ module Decidim
 
     describe "#url" do
       it "returns the conversation url" do
-        expect(subject.url).to eq("/conversations/#{conversation.id}")
+        expect(subject.url).to eq("/en/conversations/#{conversation.id}")
       end
     end
   end

@@ -37,7 +37,7 @@ describe "Conversations" do
       start_conversation("Is this a Ryanair style democracy?")
       expect(page).to have_css(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")
 
-      visit decidim.new_conversation_path(recipient_id: recipient.id)
+      visit decidim.new_conversation_path(recipient_id: recipient.id, locale: I18n.locale)
       expect(page).to have_css(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")
     end
   end
@@ -46,14 +46,14 @@ describe "Conversations" do
     let(:recipient) { create(:user, organization:) }
 
     before do
-      visit decidim.new_conversation_path(recipient_id: recipient.id)
+      visit decidim.new_conversation_path(recipient_id: recipient.id, locale: I18n.locale)
     end
 
     it_behaves_like "accessible page"
 
     it "shows an empty conversation page" do
       expect(page).to have_no_selector(".card--list__item")
-      expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
+      expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id, locale: I18n.locale)
     end
 
     it_behaves_like "conversation field with maximum length", "conversation_body"
@@ -65,7 +65,7 @@ describe "Conversations" do
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
-          expect(page).to have_no_current_path decidim.new_conversation_path(recipient_id: recipient.id)
+          expect(page).to have_no_current_path decidim.new_conversation_path(recipient_id: recipient.id, locale: I18n.locale)
           expect(page).to have_content("You are not authorized to perform this action")
         end
 
@@ -79,7 +79,7 @@ describe "Conversations" do
           end
 
           it "redirects to the existing conversation" do
-            visit decidim.new_conversation_path(recipient_id: recipient.id)
+            visit decidim.new_conversation_path(recipient_id: recipient.id, locale: I18n.locale)
             expect(page).to have_css(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")
           end
         end
@@ -89,7 +89,7 @@ describe "Conversations" do
         let!(:follow) { create(:follow, user: recipient, followable: user) }
 
         before do
-          visit decidim.new_conversation_path(recipient_id: recipient.id)
+          visit decidim.new_conversation_path(recipient_id: recipient.id, locale: I18n.locale)
         end
 
         it_behaves_like "create new conversation"
@@ -267,14 +267,14 @@ describe "Conversations" do
       end
 
       it "has a contact link" do
-        expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id))
+        expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id, locale: I18n.locale))
       end
 
       context "and recipient has restricted communications" do
         let(:recipient) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
 
         it "has contact muted" do
-          expect(page).to have_no_link(href: decidim.new_conversation_path(recipient_id: recipient.id))
+          expect(page).to have_no_link(href: decidim.new_conversation_path(recipient_id: recipient.id, locale: I18n.locale))
         end
       end
     end
@@ -333,7 +333,7 @@ describe "Conversations" do
 
       context "when starting the conversation" do
         before do
-          visit decidim.new_conversation_path(recipient_id: user1.id)
+          visit decidim.new_conversation_path(recipient_id: user1.id, locale: I18n.locale)
         end
 
         it "shows only the other participant name" do
@@ -346,7 +346,7 @@ describe "Conversations" do
 
       context "when going to the conversation" do
         before do
-          visit decidim.conversation_path(id: conversation2.id)
+          visit decidim.conversation_path(id: conversation2.id, locale: I18n.locale)
         end
 
         it "shows only the other participant name" do
@@ -358,7 +358,7 @@ describe "Conversations" do
 
       context "when listing the conversations" do
         before do
-          visit decidim.conversations_path
+          visit decidim.conversations_path(locale: I18n.locale)
         end
 
         it "shows only the other participant name" do
@@ -386,7 +386,7 @@ describe "Conversations" do
         before do
           visit decidim.new_conversation_path(recipient_id: [
                                                 user1.id, user2.id, user3.id
-                                              ])
+                                              ], locale: I18n.locale)
         end
 
         it "shows the other three participants names" do
@@ -401,7 +401,7 @@ describe "Conversations" do
 
       context "when going to the conversation" do
         before do
-          visit decidim.conversation_path(id: conversation4.id)
+          visit decidim.conversation_path(id: conversation4.id, locale: I18n.locale)
         end
 
         it "shows the other three participants names" do
@@ -416,7 +416,7 @@ describe "Conversations" do
 
       context "when listing the conversations" do
         before do
-          visit decidim.conversations_path
+          visit decidim.conversations_path(locale: I18n.locale)
         end
 
         it "shows only the 3 other participant avatars" do
@@ -454,7 +454,7 @@ describe "Conversations" do
                                                 user1.id, user2.id, user3.id,
                                                 user4.id, user5.id, user6.id,
                                                 user7.id, user8.id, user9.id
-                                              ])
+                                              ], locale: I18n.locale)
         end
 
         it_behaves_like "accessible page"
@@ -477,7 +477,7 @@ describe "Conversations" do
 
       context "when going to the conversation" do
         before do
-          visit decidim.conversation_path(id: conversation10.id)
+          visit decidim.conversation_path(id: conversation10.id, locale: I18n.locale)
         end
 
         it "shows the other nine participants names" do

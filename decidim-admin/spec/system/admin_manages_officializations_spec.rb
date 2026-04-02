@@ -203,7 +203,7 @@ describe "Admin manages officializations" do
         find("button[data-controller='dropdown']").click
         click_on "Send message"
       end
-      expect(page).to have_current_path decidim.new_conversation_path(recipient_id: user.id)
+      expect(page).to have_current_path decidim.new_conversation_path(locale: I18n.locale, recipient_id: user.id)
     end
   end
 

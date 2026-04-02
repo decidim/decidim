@@ -32,7 +32,7 @@ module Decidim
         end
 
         it "includes the conversation link" do
-          expect(subject.body).to include(router.conversation_path(conversation))
+          expect(subject.body).to include(router.conversation_path(conversation, locale: I18n.locale))
         end
       end
 

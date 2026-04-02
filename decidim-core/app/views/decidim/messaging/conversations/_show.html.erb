@@ -7,7 +7,7 @@
     </h1>
 
     <div class="conversation__aside-actions">
-      <%= link_to decidim.conversations_path, class: "button button__sm button__transparent-secondary md:button__text-secondary" do %>
+      <%= link_to decidim.conversations_path(locale: current_locale), class: "button button__sm button__transparent-secondary md:button__text-secondary" do %>
         <%= icon "arrow-left-line", class: "fill-current" %>
         <span class="sr-only md:not-sr-only"><%= t("decidim.messaging.conversations.show.back") %></span>
       <% end %>

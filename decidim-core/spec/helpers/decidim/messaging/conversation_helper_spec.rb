@@ -24,7 +24,7 @@ module Decidim
         context "when user does not restrict private messaging" do
           let(:user) { create(:user, :confirmed) }
           let(:message_link) do
-            "<a title=\"Send private message\" href=\"/conversations/new?recipient_id=#{user.id}\">Send private message</a>"
+            "<a title=\"Send private message\" href=\"/en/conversations/new?recipient_id=#{user.id}\">Send private message</a>"
           end
 
           it "returns private message link" do

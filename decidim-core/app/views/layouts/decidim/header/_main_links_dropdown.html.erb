@@ -22,7 +22,7 @@
   <% end %>
 </li>
 <li class="dropdown__item">
-  <%= link_to decidim.conversations_path, class: "dropdown__button" do %>
+  <%= link_to decidim.conversations_path(locale: current_locale), class: "dropdown__button" do %>
     <%= icon "mail-send-line" %>
     <span><%= t("layouts.decidim.user_menu.conversations") %></span>
     <% if unread_data[:unread_conversations] %>
