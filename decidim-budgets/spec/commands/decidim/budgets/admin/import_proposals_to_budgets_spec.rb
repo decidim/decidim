@@ -169,6 +169,27 @@ module Decidim
                 expect(new_project.budget_amount).to eq(default_budget)
               end
             end
+
+            describe "proposal states" do
+              let(:states) { %w(not_answered rejected) }
+              let!(:rejected_proposal) { create(:proposal, :rejected, component: proposals_component) }
+              let!(:random_proposal) { create(:proposal, component: proposals_component) }
+              let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component: proposals_component) }
+              let!(:hidden_proposal) { create(:proposal, component: proposals_component) }
+              let!(:moderation) { create(:moderation, reportable: hidden_proposal, hidden_at: 1.day.ago) }
+
+              it "only imports proposals from the selected states" do
+                expect do
+                  command.call
+                end.to change { Project.where(budget:).count }.by(2)
+
+                expect(Project.where(budget:).map(&:title)).to include(random_proposal.title)
+                expect(Project.where(budget:).map(&:title)).to include(rejected_proposal.title)
+                expect(Project.where(budget:).map(&:title)).not_to include(proposal.title)
+                expect(Project.where(budget:).map(&:title)).not_to include(withdrawn_proposal.title)
+                expect(Project.where(budget:).map(&:title)).not_to include(hidden_proposal.title)
+              end
+            end
           end
         end
       end
