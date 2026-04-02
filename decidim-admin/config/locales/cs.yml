@@ -360,6 +360,7 @@ cs:
           text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
+        title: Konflikty ověření
         transfer:
           email: E-mail
           error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
@@ -1240,6 +1241,7 @@ cs:
         authorization_workflows: Metody ověření
         dashboard: Ovládací panel
         edit_external_domains: Seznam povolených externích domén
+        impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         menu: Nabídka
         page_topics: Témata

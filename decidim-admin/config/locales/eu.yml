@@ -1241,7 +1241,7 @@ eu:
         scopes: Eremuak
         statistics: Estatistikak
         taxonomies: Taxonomiak
-        taxonomy_filters: 'Taxonomia-iragazkiak honetarako: "%{taxonomy}"'
+        taxonomy_filters: Taxonomia-iragazkiak "%{taxonomy}"-erako
         users: Administratzaileak
       tooltips:
         cannot_destroy_taxonomy_filter: Ezin da suntsitu taxonomi-iragazki hau

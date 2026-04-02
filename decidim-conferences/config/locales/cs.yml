@@ -126,9 +126,13 @@ cs:
         destroy:
           success: Řečník byl úspěšně smazán pro tuto konferenci.
         edit:
+          title: Aktualizovat řečníka konference
           update: Aktualizace
+        index:
+          conference_speakers_title: Řečníci konference
         new:
           create: Vytvořit
+          title: Nový řečník konference
         publish:
           invalid: Při publikování tohoto řečníka došlo k chybě.
           success: Řečník konference byl úspěšně zveřejněn.
@@ -145,6 +149,7 @@ cs:
         destroy:
           success: Administrátor konference byl úspěšně odstraněn.
         edit:
+          title: Aktualizovat správce konference
           update: Aktualizace
         index:
           conference_admins_title: Administrátoři konference
@@ -173,6 +178,8 @@ cs:
         index:
           published: Publikováno
           unpublished: Nezveřejněno
+        manage_trash:
+          title: Smazané konference
         new:
           create: Vytvořit
           title: Nová konference
@@ -190,6 +197,7 @@ cs:
         destroy:
           success: Odkaz na média byl úspěšně odstraněn.
         edit:
+          title: Aktualizovat odkaz na média
           update: Aktualizace
         index:
           media_links_title: Odkazy na média
@@ -210,6 +218,7 @@ cs:
           conference_invites: Pozvánky
           conference_speakers: Řečníci
           diploma: Certifikát o účasti
+          info: O této konferenci
           media_links: Odkazy na média
           moderations: Moderování
           partners: Partneři
@@ -277,6 +286,7 @@ cs:
         destroy:
           success: Partner byl úspěšně odstraněn z této konference.
         edit:
+          title: Aktualizovat partnera
           update: Aktualizace
         new:
           create: Vytvořit
@@ -298,6 +308,7 @@ cs:
         destroy:
           success: Typ registrace byl z této konference úspěšně odstraněn.
         edit:
+          title: Aktualizovat typ registrace
           update: Aktualizace
         new:
           create: Vytvořit
@@ -310,6 +321,7 @@ cs:
           conferences: Všechny konference
       titles:
         conferences: Konference
+        conferences_deleted: Smazané konference
       tooltips:
         deleted_conferences_info: Konference mohou být smazané pouze v případě, že je stav "Nezveřejněný".
     admin_log:

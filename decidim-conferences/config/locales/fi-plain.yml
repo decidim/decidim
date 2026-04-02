@@ -102,6 +102,7 @@ fi-pl:
         new:
           duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
+          title: Kopioi konferenssi
       conference_publications:
         create:
           error: Konferenssin julkaisemisesta tapahtui virhe.
@@ -309,6 +310,7 @@ fi-pl:
     admin_log:
       conference:
         create: "%{user_name} loi konferenssin %{resource_name}"
+        duplicate: "%{user_name} kopioi konferenssin %{resource_name}"
         publish: "%{user_name} julkaisi konferenssin %{resource_name}"
         restore: "%{user_name} palautti konferenssin %{resource_name}"
         send_conference_diplomas: "%{user_name} lähetti konferenssin %{resource_name} läsnäolotodistukset osallistujille"

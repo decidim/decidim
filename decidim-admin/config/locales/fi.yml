@@ -265,6 +265,8 @@ fi:
         edit:
           title: Muokkaa kansiota
           update: Päivitä
+        index:
+          attachment_collections_title: Liitetiedostojen kansiot
         new:
           create: Luo
           title: Uusi kansio
@@ -280,6 +282,8 @@ fi:
         edit:
           title: Muokkaa liitettä
           update: Päivitä
+        index:
+          attachments_title: Liitteet
         new:
           create: Luo liite
           title: Uusi liite
@@ -356,6 +360,7 @@ fi:
           text: Etsi nykyisen käyttäjän sähköpostiosoitteella, nimellä tai nimimerkillä
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
+        title: Vahvistusten ristiriidat
         transfer:
           email: Sähköposti
           error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
@@ -571,6 +576,7 @@ fi:
         promotions:
           new:
             explanation: Hallituille käyttäjille voidaan myöntää normaalien käyttäjien oikeudet. Tämä tarkoittaa, että heille lähetetään rekisteröitymiskutsu alustalle ja rekisteröitymisen jälkeen kyseisinä käyttäjinä ei voi enää esiintyä. Kutsutulle käyttäjälle lähetetään sähköposti, jonka avulla he voivat hyväksyä kutsusi.
+            new_managed_user_promotion: Uusi hallinnoitavan osallistujan käyttäjätason korotus
             promote: Korota oikeudet
       menu:
         admin_log: Hallintatoimintojen tapahtumaloki
@@ -753,6 +759,7 @@ fi:
           title: Uutiskirjeiden pohjat
           use_template: Käytä tätä pohjaa
         show:
+          preview: 'Esikatsele mallipohjaa: %{template_name}'
           use_template: Käytä tätä pohjaa
       newsletters:
         confirm_recipients:
@@ -912,6 +919,7 @@ fi:
           up: Ylös
         form:
           add: Lisää sallittujen listalle
+          title: Sallitut ulkoiset verkko-osoitteet
       participatory_space_private_users:
         create:
           error: Yksityisen käyttäjän lisääminen tähän osallistumistilaan epäonnistui.
@@ -1216,9 +1224,13 @@ fi:
           none: Ei mitään
           title: Uusi kohde luokittelussa %{taxonomy}
       titles:
+        admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
         areas: Alueet
         authorization_workflows: Vahvistustavat
+        dashboard: Hallintapaneeli
+        edit_external_domains: Sallitut ulkoiset verkko-osoitteet
+        impersonatable_users: Hallinnoitavat osallistujat
         impersonations: Käyttäjien hallinta
         menu: Valikko
         page_topics: Aiheet
@@ -1229,6 +1241,8 @@ fi:
         scopes: Teemat
         statistics: Tilastot
         taxonomies: Luokittelut
+        taxonomy_filters: Luokittelun suodattimet kohteelle "%{taxonomy}"
+        users: Hallintakäyttäjät
       tooltips:
         cannot_destroy_taxonomy_filter: Tätä luokittelusuodantinta ei voi poistaa
         cannot_edit_taxonomy_filter: Tätä luokittelusuodantinta ei voi muokata
@@ -1263,6 +1277,10 @@ fi:
           last_week: Viimeinen viikko
           no_users_count_statistics_yet: Käyttäjämäärätilastoja ei vielä ole.
           participants: Osallistujat
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Luokittelusuodattimien valinta on mahdollista komponentin luonnin jälkeen.
     forms:
       errors:
         impersonate_user:

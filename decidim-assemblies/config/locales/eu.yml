@@ -122,7 +122,7 @@ eu:
         new:
           duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Bikoiztu batzarra
+          title: Batzarra bikoiztu
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.
@@ -130,7 +130,7 @@ eu:
         new:
           import: Inportatu
           select: Hautatu zein datu inportatu nahi dituzun
-          title: Inportatu batzarra
+          title: Batzarra inportatu
       assembly_publications:
         create:
           error: Arazo bat egon da batzar hau argitaratzean.
@@ -145,7 +145,7 @@ eu:
         destroy:
           success: Batzar honetatik administratzailea zuzen kendua.
         edit:
-          title: Eguneratu batzarraren administratzailea
+          title: Batzarraren administratzailea eguneratu
           update: Onartu
         index:
           assembly_admins_title: Batzarraren administratzaileak

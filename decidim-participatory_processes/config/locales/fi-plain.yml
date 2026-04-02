@@ -164,11 +164,13 @@ fi-pl:
         new:
           duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
+          title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
           error: Osallistumistilojen ryhmän poisto epäonnistui.
           success: Osallisuusprosessiryhmä poistettiin onnistuneesti.
         edit:
+          title: Muokkaa prosessiryhmää
           update: Päivitä
         new:
           create: Luo
@@ -183,6 +185,7 @@ fi-pl:
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
+          title: Tuo osallistumisprosessi
       participatory_process_publications:
         create:
           error: Tämän osallisuusprosessin julkaisussa tapahtui virhe.
@@ -211,11 +214,13 @@ fi-pl:
               Voit muuttaa tätä asetusta <b>Laskeutumssivun asetusten kautta</b> käyttämällä sisältölohkoa nimeltä <b>Pääkuva</b>.
               Asetus on jätetty tähän paikkaan muuttaaksesi toimintopainikkeet (call to action) sellaiseksi kuin haluat. Kentät <i>toimintopainikkeen (call to action) polulle</i> ja <i>toimintopainikkeen (call to action) tekstille</i> poistetaan seuraavassa versiossa.
             title: Käytöstä poistettu CTA (call to action)
+          title: Muokkaa osallistumisprosessin vaihetta
           update: Päivitä
         index:
           steps_title: Vaiheet
         new:
           create: Luo
+          title: Uusi osallistumisprosessin vaihe
         ordering:
           error: Tämän osallisuusprosessin vaiheiden järjestämisessä tapahtui virhe.
         update:
@@ -228,9 +233,13 @@ fi-pl:
         destroy:
           success: Käyttäjä poistettiin onnistuneesti tästä osallisuusprosessista.
         edit:
+          title: Päivitä osallistumisprosessin hallintakäyttäjän tietoja
           update: Päivitä
+        index:
+          process_admins_title: Osallistumisprosessin hallintakäyttäjät
         new:
           create: Luo
+          title: Uusi osallistumisprosessin hallintakäyttäjä
         update:
           error: Tapahtui virhe päivitettäessä käyttäjää tälle osallisuusprosessille.
           success: Tämän osallisuusprosessin käyttäjä päivitetty onnistuneesti.
@@ -245,8 +254,11 @@ fi-pl:
           public: Julkinen
           published: Julkaistu
           unpublished: Julkaisematon
+        manage_trash:
+          title: Poistetut osallistumisprosessit
         new:
           create: Luo
+          title: Uusi osallistumisprosessi
         update:
           error: Tämän osallisuusprosessin päivityksessä tapahtui virhe.
           success: Osallisuusprosessi päivitetty onnistuneesti.
@@ -265,6 +277,7 @@ fi-pl:
         participatory_process_groups: Osallisuusprosessiryhmät
         participatory_process_types: Osallistumisprosessien tyypit
         participatory_processes: Osallisuusprosessit
+        participatory_processes_deleted: Poistetut osallistumisprosessit
       tooltips:
         deleted_processes_info: Prosessi voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
       users:
