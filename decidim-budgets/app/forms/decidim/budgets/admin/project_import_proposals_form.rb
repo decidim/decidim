@@ -14,7 +14,6 @@ module Decidim
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
         validates :default_budget, presence: true, numericality: { greater_than: 0 }
-        validates :states, presence: true
 
         def states
           super.compact_blank
