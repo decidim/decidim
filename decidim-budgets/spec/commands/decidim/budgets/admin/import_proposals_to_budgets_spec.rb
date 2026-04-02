@@ -29,14 +29,14 @@ module Decidim
               current_component:,
               current_user:,
               default_budget:,
-              internal_states:,
+              states:,
               budget:,
               valid?: valid
             )
           end
 
           let(:default_budget) { 1000 }
-          let(:internal_states) { ["accepted"] }
+          let(:states) { ["accepted"] }
 
           let(:command) { described_class.new(form) }
 
@@ -67,7 +67,7 @@ module Decidim
 
             context "when importing multiple states" do
               let!(:rejected_proposals) { create_list(:proposal, 2, :rejected, component: proposals_component) }
-              let(:internal_states) { %w(accepted rejected) }
+              let(:states) { %w(accepted rejected) }
 
               it "imports proposals from all selected states" do
                 expect { command.call }.to change { Project.where(budget:).count }.by(5)
@@ -81,7 +81,7 @@ module Decidim
                   proposal.update!(proposal_state: custom_state)
                 end
               end
-              let(:internal_states) { ["custom_state"] }
+              let(:states) { ["custom_state"] }
 
               it "imports proposals with custom states" do
                 expect { command.call }.to change { Project.where(budget:).count }.by(2)
