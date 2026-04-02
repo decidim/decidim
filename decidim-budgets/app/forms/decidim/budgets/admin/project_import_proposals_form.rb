@@ -10,10 +10,15 @@ module Decidim
 
         attribute :origin_component_id, Integer
         attribute :default_budget, Integer
-        attribute :internal_states, Array[String]
+        attribute :states, Array[String]
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
         validates :default_budget, presence: true, numericality: { greater_than: 0 }
+        validates :states, presence: true
+
+        def states
+          super.compact_blank
+        end
 
         def origin_component
           @origin_component ||= origin_components.find_by(id: origin_component_id)
