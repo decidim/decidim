@@ -367,6 +367,7 @@ cs:
           text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky.
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
+        title: Konflikty ověření
         transfer:
           email: E-mail
           error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
@@ -1264,6 +1265,7 @@ cs:
         edit_external_domains: Seznam povolených externích domén
         edit_landing_page: Obsah stránky
         edit_organization_appearance: Upravit vzhled domovské stránky
+        impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         menu: Nabídka
         metrics: Metriky

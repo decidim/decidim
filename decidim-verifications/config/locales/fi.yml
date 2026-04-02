@@ -173,6 +173,10 @@ fi:
           index:
             data: Ladattuja tietueita on yhteensä %{count}. Viimeisin latauspäivä oli %{due_date}.
             empty: Rekisteritietoja ei ole. Käytä alla olevaa lomaketta tuodaksesi rekisteritiedot järjestelmään CSV-tiedostosta.
+            title: Henkilötietorekisterin tiedot
+          instructions:
+            body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmänvalvojan hallinnointinäkymään ja lisättävä csv_census-vahvistustapa organisaatiolle
+            title: Sinun on otettava käyttöön CSV-henkilötietorekisteri tälle organisaatiolle
           new:
             example: |
               matti.meikalainen@esimerkki.fi
@@ -207,6 +211,7 @@ fi:
               error: Vahvistustiedot eivät täsmää. Yritä uudestaan tai hylkää vahvistus, jolloin käyttäjä voi muuttaa sitä.
               success: Osallistujan vahvistaminen onnistui.
             new:
+              introduce_user_data: Syötä kuvassa näkyvät tiedot
               reject: Hylkää
               verify: Vahvista
           offline_confirmations:
@@ -215,6 +220,7 @@ fi:
               success: Osallistujan vahvistaminen onnistui.
             new:
               cancel: Peruuta
+              introduce_user_data: Syötä osallistujan sähköpostiosoite ja henkilöllisyystodistuksen tiedot
               verify: Vahvista
           pending_authorizations:
             index:
