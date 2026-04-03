@@ -46,14 +46,14 @@ module Decidim
       end
 
       def filters_present?
-        @form.send_to_followers || @form.send_to_participants || @form.send_to_private_members
+        @form.send_to_followers || @form.send_to_participants || @form.send_to_members
       end
 
       def apply_filters(recipients)
         filters = [
           user_id_of_followers,
           participant_ids,
-          private_member_ids
+          member_ids
         ].compact.flatten.uniq
 
         filters.empty? ? recipients.none : recipients.where(id: filters)
@@ -119,17 +119,17 @@ module Decidim
         participant_ids.flatten.compact.uniq
       end
 
-      def private_spaces
+      def spaces_with_members
         return [] if spaces.blank?
 
-        spaces.select { |space| space.try(:private_space?) }
+        spaces.select { |space| space.respond_to?(:members) && space.members.exists? }
       end
 
-      def private_member_ids
-        return unless @form.send_to_private_members
-        return [] if private_spaces.blank?
+      def member_ids
+        return unless @form.send_to_members
+        return [] if spaces_with_members.blank?
 
-        Decidim::ParticipatorySpace::Member.member_ids_for_participatory_spaces(private_spaces)
+        Decidim::ParticipatorySpace::Member.member_ids_for_participatory_spaces(spaces_with_members)
       end
     end
   end

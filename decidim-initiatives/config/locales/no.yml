@@ -112,9 +112,6 @@
             name_and_surname: Navn og etternavn
             postal_code: Postnummer
             timestamp: Tidsstempel
-      titles:
-        initiatives: Initiativer
-        initiatives_types: Initiativtyper
     events:
       initiatives:
         admin:
@@ -227,7 +224,6 @@
             publication_date: Sist publisert
             random: Tilfeldig
             signatures: Flest signeringer
-            title: Innstillinger for initiativer
         initiatives_type_scopes:
           edit:
             title: Rediger initiativtypens omgang

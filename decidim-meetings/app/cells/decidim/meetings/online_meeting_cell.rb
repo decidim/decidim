@@ -37,15 +37,15 @@ module Decidim
       end
 
       def assembly_privacy_allowed?
-        return true if !private_transparent_assembly? || current_user&.admin?
+        return true if !transparent_assembly? || current_user&.admin?
 
         model.participatory_space.users.include?(current_user)
       end
 
-      def private_transparent_assembly?
+      def transparent_assembly?
         return unless model.participatory_space.is_a?(Decidim::Assembly)
 
-        model.participatory_space.private_space? && model.participatory_space.is_transparent?
+        model.participatory_space.transparent?
       end
     end
   end

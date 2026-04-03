@@ -16,12 +16,12 @@ module Decidim
         end
 
         def run_after_hooks
-          return unless resource.participatory_space.respond_to?(:private_space?)
-          return unless resource.participatory_space.private_space?
-          return if resource.participatory_space.respond_to?(:is_transparent) && resource.participatory_space.is_transparent?
+          return unless resource.participatory_space.respond_to?(:restricted?)
+          return unless resource.participatory_space.restricted?
+          return if resource.participatory_space.respond_to?(:transparent?) && resource.participatory_space.transparent?
 
-          # When member is destroyed, a hook to destroy the follows of user on private non-transparent assembly
-          # or private participatory process and the follows of their children
+          # When member is destroyed, a hook to destroy the follows of user on restricted or transparent spaces
+          # and the follows of their children
           DestroyMembersFollowsJob.perform_later(resource.decidim_user_id, resource.participatory_space)
         end
       end

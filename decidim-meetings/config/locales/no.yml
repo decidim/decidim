@@ -73,7 +73,6 @@
           success: Møtet ble duplisert.
         new:
           copy: Kopier
-          title: Duplisert møte
     components:
       meetings:
         actions:
@@ -203,7 +202,6 @@
             non_user: Ikke eksisterende deltaker
             select_user: Velg deltaker
           index:
-            invite_attendee: Inviter deltaker
             invites: Invitasjoner
         meeting_closes:
           edit:
@@ -255,7 +253,6 @@
               one: Det har vært %{count} registrering.
               other: Det har vært %{count} registreringer.
             reserved_slots_less_than: Må være mindre enn eller lik %{count}
-            title: Registreringer
           update:
             invalid: Det oppstod et problem med å lagre registrerings innstillingene.
             success: Innstillinger for møte registreringer er lagret.

@@ -6,6 +6,8 @@ module Decidim
     # Decorator for participatory space members
     #
     class MemberPresenter < SimpleDelegator
+      include Decidim::SanitizeHelper
+
       delegate :profile_url, to: :user, allow_nil: true
 
       def name

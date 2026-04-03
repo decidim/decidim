@@ -37,15 +37,15 @@ module Decidim::Admin::ParticipatorySpace
       expect(action_log.version).to be_nil
     end
 
-    context "when assembly is private and user follows assembly" do
+    context "when assembly is restricted and user follows assembly" do
       let(:normal_user) { create(:user, organization:) }
-      let(:assembly) { create(:assembly, :private, :published, organization: user.organization) }
+      let(:assembly) { create(:assembly, :restricted, :published, organization: user.organization) }
       let!(:member) { create(:member, user: normal_user, participatory_space: assembly) }
       let!(:follow) { create(:follow, followable: assembly, user: normal_user) }
 
       context "and assembly is transparent" do
         it "does not enqueue a job" do
-          assembly.update(is_transparent: true)
+          assembly.update(access_mode: :transparent)
           expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
           expect { subject.call }.not_to have_enqueued_job(DestroyMembersFollowsJob)
         end
@@ -53,16 +53,16 @@ module Decidim::Admin::ParticipatorySpace
 
       context "when assembly is not transparent" do
         it "enqueues a job" do
-          assembly.update(is_transparent: false)
+          assembly.update(access_mode: :restricted)
           expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
           expect { subject.call }.to have_enqueued_job(DestroyMembersFollowsJob)
         end
       end
     end
 
-    context "when participatory process is private" do
+    context "when participatory process is restricted" do
       let(:normal_user) { create(:user, organization:) }
-      let(:participatory_process) { create(:participatory_process, :private, :published, organization: user.organization) }
+      let(:participatory_process) { create(:participatory_process, :restricted, :published, organization: user.organization) }
       let!(:member) { create(:member, user: normal_user, participatory_space: participatory_process) }
 
       context "and user follows process" do

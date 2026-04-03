@@ -90,7 +90,6 @@ de:
             invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten.
             success: Projekt erfolgreich erstellt.
           edit:
-            title: Projekt bearbeiten
             update: Aktualisieren
           index:
             actions: Aktionen
@@ -113,7 +112,6 @@ de:
             title: Gelöschte Projekte
           new:
             create: Erstellen
-            title: Neues Projekt
           update:
             invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten.
             success: Projekt erfolgreich aktualisiert.

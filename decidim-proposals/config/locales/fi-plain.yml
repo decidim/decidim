@@ -52,6 +52,7 @@ fi-pl:
         file: Tiedosto
       proposals_import:
         import_proposals: Tuo ehdotuksia
+        keep_answers: Säilytä tilat ja vastaukset ennallaan
         keep_authors: Säilytä alkuperäiset laatijat
     errors:
       models:
@@ -369,6 +370,12 @@ fi-pl:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotuksen tila on muuttunut (%{state})
             notification_title: Ehdotuksen <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'Ehdotuksesi "%{resource_title}" tilaksi on muutettu "%{state}". Voit lukea vastauksen täältä:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_title}".
+            email_subject: Ehdotuksesi tila on muuttunut (%{state})
+            notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Hallintakäyttäjä on muuttanut ehdotuksesi "%{resource_title}" luokitteluja, voit tarkastaa muutoksen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
@@ -491,7 +498,6 @@ fi-pl:
           deleted_proposals_info: Poistetut ehdotukset voidaan palauttaa roskakorista.
           preview: Esikatsele
           view_deleted_proposals: Näytä poistetut ehdotukset
-        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Poistamisilmoitus</b> Yhteistyöluonnokset-ominaisuus poistetaan Decidim-alustan versiossa 0.32. Organisaatioiden, jotka käyttävät tätä ominaisuutta, tulisi siirtyä käyttämään ehdotusten laatijat-ominaisuutta."
         evaluation_assignments:
           create:
             invalid: Arvioijan määritys ehdotuksille epäonnistui.
@@ -688,6 +694,7 @@ fi-pl:
             create: Tuo ehdotuksia
             no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
+            select_states: Tuo ainoastaan ehdotukset, joilla on nämä tilat. Jos yhtään tilaa ei ole valittuna, kaikki ehdotukset tuodaan.
             title: Tuo ehdotuksia toisesta komponentista
         proposals_merges:
           create:
@@ -734,103 +741,6 @@ fi-pl:
           all: Kaikki
           amendments: Muutokset
           proposals: Ehdotukset
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Yhteistyöluonnoksen julkaisemisessa on tapahtunut virheitä.
-            irreversible_action_modal:
-              body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Uusia tekijöitä tai muutoksia ehdotukseen ei enää hyväksytä tämän jälkeen.
-              cancel: Peruuta
-              ok: Julkaise ehdotuksena
-              title: Seuraavat toimenpiteet ovat peruuttamattomia
-            success: Yhteistyöluonnos julkaistiin onnistuneesti ehdotuksena.
-          withdraw:
-            error: Yhteistyöluonnoksen sulkemisessa on tapahtunut virheitä.
-            irreversible_action_modal:
-              body: Luonnoksen sulkemisen jälkeen luonnos ei enää ole muokattavissa. Luonnos ei hyväksy uusia tekijöitä tai osallistumisia.
-              cancel: Peruuta
-              ok: Peru yhteistyöluonnos
-              title: Seuraavat toimenpiteet ovat peruuttamattomia
-            success: Yhteistyöluonnos peruutettiin onnistuneesti.
-        create:
-          error: Yhteistyöluonnoksen luominen epäonnistui.
-          success: Yhteistyöluonnos luotu onnistuneesti.
-        edit:
-          attachment_legend: Lisää asiakirja tai kuva
-          back: Takaisin
-          send: Lähetä
-          title: Muokkaa yhteistyöluonnosta
-        empty: Yhteistyöluonnoksia ei ole vielä
-        empty_filters: Haluehdoilla ei löytynyt yhtään yhteistyöluonnosta
-        filters:
-          all: Kaikki
-          amendment: Muutokset
-          open: Avaa
-          published: Julkaistu
-          related_to: Liittyy
-          search: Hae
-          state: Tila
-          withdrawn: Peruttu
-        filters_small_view:
-          close_modal: Sulje modaalinen
-          filter: Rajaa
-          filter_by: Rajaa hakua
-          unfold: Avaa
-        index:
-          count:
-            one: "%{count} yhteistyöluonnos"
-            other: "%{count} yhteistyöluonnosta"
-        name: Yhteistyöluonnokset
-        new:
-          add_file: Lisää tiedosto
-          edit_file: Muokkaa tiedostoa
-          send: Jatka
-        new_collaborative_draft_button:
-          new_collaborative_draft: Uusi yhteistyöluonnos
-        orders:
-          label: 'Järjestä luonnokset:'
-          most_contributed: Eniten osallistumisia
-          random: Satunnainen
-          recent: Viimeisimmät
-        requests:
-          accepted_request:
-            error: Yhteistyökumppania ei voitu hyväksyä, yritä myöhemmin uudelleen.
-            success: "Käyttäjän @%{user} hyväksyminen muokkaajaksi onnistui."
-          access_requested:
-            error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudelleen.
-            success: Osallistumispyyntösi lähetys onnistui.
-          collaboration_requests:
-            accept_request: Hyväksy
-            reject_request: Hylkää
-            title: Yhteistyöpyynnöt
-          rejected_request:
-            error: Ei voitu hylätä osallistujaa, yritä myöhemmin uudelleen.
-            success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui."
-        show:
-          edit: Muokkaa
-          final_proposal: lopullinen ehdotus
-          final_proposal_help_text: Tämä luonnos on valmis. Voi katsoa lopullista ehdotusta
-          hidden_authors_count:
-            one: ja %{count} muu henkilö
-            other: ja %{count} muuta henkilöä
-          info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa laatijoita muodostamaan ehdotuksen alhaalta löytyvän kommentointitoiminnon avulla tai parantaa sitä suoraan pyytämällä muokkausoikeutta ehdotukseen. Kun laatijat antavat sinulle muokkausoikeuden, voit tehdä muutoksia tähän luonnokseen.
-          publish: Julkaise
-          publish_info: Julkaise tämän luonnosversio tai
-          published_proposal: julkaistu ehdotus
-          request_access: Pyydä käyttöoikeutta
-          requested_access: Käyttöoikeutta pyydetty
-          withdraw: peruuttaa luonnos
-        states:
-          open: Avaa
-          published: Julkaistu
-          withdrawn: Peruutettu
-        update:
-          error: Yhteistyöluonnoksen tallentamisessa on tapahtunut virheitä.
-          success: Yhteistyöluonnos on päivitetty onnistuneesti.
-        wizard_aside:
-          back_from_collaborative_draft: Takaisin yhteistyöluonnoksiin
-        wizard_header:
-          title: Luo yhteistyöluonnoksesi
       content_blocks:
         highlighted_proposals:
           name: Ehdotukset
@@ -932,7 +842,6 @@ fi-pl:
           voted: Äänestetty
         index:
           click_here: Näytä kaikki ehdotukset
-          collaborative_drafts_list: Mene yhteistyöluonnoksiin
           count:
             one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
@@ -979,8 +888,6 @@ fi-pl:
           hidden_likes_count:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
-          link_to_collaborative_draft_help_text: Tämä ehdotus on yhteistyöluonnoksen tulos. Tarkastele historiaa
-          link_to_collaborative_draft_text: Katso yhteistyöluonnosta
           link_to_promoted_emendation_help_text: Tämä ehdotus on peräisin toisen ehdotuksen muutoksesta
           link_to_promoted_emendation_text: Näytä hylätty muutos.
           link_to_proposal_from_emendation_help_text: Tämä on hylätty muutos

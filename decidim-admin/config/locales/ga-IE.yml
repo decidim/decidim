@@ -83,8 +83,6 @@ ga:
       attachments:
         edit:
           update: Nuashonraigh
-        index:
-          attachments_title: Ceangaltáin
       categories:
         index:
           categories_title: Catagóirí
@@ -97,7 +95,6 @@ ga:
       conflicts:
         'false': 'Níl'
         solved: Réitithe
-        title: Coimhlintí deimhnithe
         transfer:
           email: Seoladh ríomhphoist
           name: Ainm
@@ -251,7 +248,6 @@ ga:
         select_recipients_to_deliver:
           all_spaces: Uile
         show:
-          preview: Réamhamharc
           subject: Ábhar
       officializations:
         index:

@@ -180,6 +180,7 @@ sv:
         response:
           invalid: Det gick inte att besvara formuläret.
           max_choices_alert: Du har valt för många alternativ
+          spam_detected: Det gick inte att svara på formuläret. Kanske har du varit för snabb, kan du försöka igen?
           success: Formuläret har besvarats.
         show:
           current_step: Steg %{step}

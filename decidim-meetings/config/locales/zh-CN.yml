@@ -47,7 +47,6 @@ zh-CN:
           success: 会议成功重复。
         new:
           copy: 复制
-          title: 复制会议
     components:
       meetings:
         actions:
@@ -170,7 +169,6 @@ zh-CN:
             non_user: 非现有参与者
             select_user: 选择参与者
           index:
-            invite_attendee: 邀请参与者
             invites: 邀请
         meeting_closes:
           edit:
@@ -208,7 +206,6 @@ zh-CN:
             registrations_count:
               other: 有 %{count} 个注册。
             reserved_slots_less_than: 必须小于或等于 %{count}
-            title: 注册
           update:
             invalid: 保存注册设置时出现问题。
             success: 会议注册设置保存成功。

@@ -19,6 +19,7 @@ zh-CN:
       actions:
         edit: 编辑
         import: 导入提案到项目
+        new_project: 新建项目
         preview: 预览
         title: 行动
       admin:
@@ -36,7 +37,6 @@ zh-CN:
             name: 项目
         projects:
           edit:
-            title: 编辑项目
             update: 更新
           index:
             finished_orders: 完成的投票
@@ -45,7 +45,6 @@ zh-CN:
             title: 项目
           new:
             create: 创建
-            title: 新建项目
         proposals_imports:
           new:
             create: 导入提案到项目

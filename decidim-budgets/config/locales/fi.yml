@@ -90,7 +90,6 @@ fi:
             invalid: Projektin luonti epäonnistui.
             success: Projektin luonti onnistui.
           edit:
-            title: Muokkaa projektia
             update: Päivitä
           index:
             actions: Toiminnot
@@ -113,7 +112,6 @@ fi:
             title: Poistetut projektit
           new:
             create: Luo
-            title: Uusi projekti
           update:
             invalid: Projektin poisto epäonnistui.
             success: Projektin päivitys onnistui.

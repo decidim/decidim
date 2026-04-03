@@ -17,6 +17,7 @@ uk:
       actions:
         edit: Редагувати
         import: Внести до проектів запозичені пропозиції
+        new_project: Додати новий проект
         preview: Попередній перегляд
         title: Дії
       admin:
@@ -25,7 +26,6 @@ uk:
             name: Проект
         projects:
           edit:
-            title: Редагувати проект
             update: Оновити
           index:
             finished_orders: Завершені голосування
@@ -33,7 +33,6 @@ uk:
             title: Проекти
           new:
             create: Додати
-            title: Додати новий проект
         proposals_imports:
           new:
             create: Внести до проектів запозичені пропозиції

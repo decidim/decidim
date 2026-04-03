@@ -121,12 +121,6 @@ lt:
         skip_verification: Dabar tai galite praleisti ir %{link}
         start_exploring: pradėti naršyti
       csv_census:
-        admin:
-          index:
-            title: Dabartiniai surašymo duomenys
-          instructions:
-            body: Kad tai padarytumėte, turite nueiti į sistemos administravimo laukelį ir organizacijai suteikti „csv_census“ leidimus
-            title: Turite įjungti „cvs_census“ šiai organizacijai
         authorizations:
           new:
             error: Negalėjome patikrinti jūsų paskyros arba jūsų duomenys neįtraukti į organizacijos surašymo duomenis.
@@ -157,7 +151,6 @@ lt:
               error: Tikrinimo duomenys nesutampa. Bandykite dar kartą arba atmeskite tikrinimą, kad dalyvis galėtų pakeisti duomenis.
               success: Dalyvis patikrintas.
             new:
-              introduce_user_data: Pristatykite duomenis paveikslėlyje
               reject: Atmesti
               verify: Patikrinti
           offline_confirmations:
@@ -166,7 +159,6 @@ lt:
               success: Dalyvis patikrintas.
             new:
               cancel: Atšaukti
-              introduce_user_data: Pristatykite dalyvio el. pašto adresą ir dokumento duomenis
               verify: Patikrinti
           pending_authorizations:
             index:

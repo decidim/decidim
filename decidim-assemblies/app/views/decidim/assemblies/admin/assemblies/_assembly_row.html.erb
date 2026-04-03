@@ -33,12 +33,11 @@
   <td class="table-list__date" data-label="<%= t("models.assembly.fields.created_at", scope: "decidim.admin") %>">
     <%= l(assembly.created_at, format: :short) %>
   </td>
-  <td class="table-list__state" data-label="<%= t("models.assembly.fields.private", scope: "decidim.admin") %>">
-    <% if assembly.private_space? %>
-      <span><%= t("assemblies.index.private", scope: "decidim.admin") %></span>
-    <% else %>
-      <span><%= t("assemblies.index.public", scope: "decidim.admin") %></span>
-    <% end %>
+  <td class="table-list__state" data-label="<%= t("models.assembly.fields.access_mode", scope: "decidim.admin") %>">
+    <%# i18n-tasks-use t("decidim.admin.assemblies.index.access_modes.open") %>
+    <%# i18n-tasks-use t("decidim.admin.assemblies.index.access_modes.restricted") %>
+    <%# i18n-tasks-use t("decidim.admin.assemblies.index.access_modes.transparent") %>
+    <span><%= t(assembly.access_mode, scope: "decidim.admin.assemblies.index.access_modes") %></span>
   </td>
   <td class="table-list__state" data-label="<%= t("models.assembly.fields.published", scope: "decidim.admin") %>">
     <% if assembly.published? %>

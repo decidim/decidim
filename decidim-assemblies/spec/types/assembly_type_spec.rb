@@ -139,11 +139,11 @@ module Decidim
         end
       end
 
-      describe "privateSpace" do
-        let(:query) { "{ privateSpace }" }
+      describe "accessMode" do
+        let(:query) { "{ accessMode }" }
 
-        it "returns the privateSpace field" do
-          expect(response["privateSpace"]).to eq(model.private_space)
+        it "returns the accessMode field" do
+          expect(response["accessMode"]).to eq(model.access_mode.upcase)
         end
       end
 
@@ -269,14 +269,6 @@ module Decidim
 
         it "returns the internalOrganisation field" do
           expect(response["internalOrganisation"]["translation"]).to eq(model.internal_organisation["en"])
-        end
-      end
-
-      describe "isTransparent" do
-        let(:query) { "{ isTransparent }" }
-
-        it "returns the assembly isTransparent field" do
-          expect(response["isTransparent"]).to eq(model.is_transparent)
         end
       end
 

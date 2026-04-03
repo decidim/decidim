@@ -25,14 +25,18 @@ module Decidim
           end
 
           def filters
-            [:private_space_eq, :published_at_null]
+            [:with_any_access_mode, :published_at_null]
           end
 
           def filters_with_values
             {
-              private_space_eq: [true, false],
+              with_any_access_mode: access_modes,
               published_at_null: [true, false]
             }
+          end
+
+          def access_modes
+            Assembly::ACCESS_MODES.keys
           end
         end
       end
