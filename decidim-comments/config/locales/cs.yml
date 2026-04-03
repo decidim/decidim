@@ -123,6 +123,7 @@ cs:
         in_favor: Líbí se mi
         load_more_comments: Načíst další komentáře
         loading: Načítání komentářů ...
+        no_comments_yet: Zatím žádné komentáře
         single_comment_warning: <a href="%{url}">Zobrazit všechny komentáře</a>
         single_comment_warning_title: Vidíte jeden komentář
         title:
