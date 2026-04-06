@@ -4,20 +4,42 @@ namespace :decidim do
   namespace :mailers do
     desc "Sends the notification digest email with the daily report"
     task notifications_digest_daily: :environment do
-      notifications_digest(:daily)
+      time = Time.now.utc
+      notification_users =
+        Decidim::Notification
+        .daily(time)
+        .select(:decidim_user_id)
+        .distinct
+
+      target_users =
+        Decidim::User.where(
+          id: notification_users,
+          notifications_sending_frequency: :daily
+        )
+
+      target_users.find_each do |user|
+        Decidim::EmailNotificationsDigestGeneratorJob.perform_later(user.id, :daily, time:)
+      end
     end
 
     desc "Sends the notification digest email with the weekly report"
     task notifications_digest_weekly: :environment do
-      notifications_digest(:weekly)
-    end
-  end
+      time = Time.now.utc
+      notification_users =
+        Decidim::Notification
+        .weekly(time)
+        .select(:decidim_user_id)
+        .distinct
 
-  def notifications_digest(frequency)
-    target_users = Decidim::User.where(notifications_sending_frequency: frequency)
-    time = Time.now.utc
-    target_users.find_each do |user|
-      Decidim::EmailNotificationsDigestGeneratorJob.perform_later(user.id, frequency, time:)
+      target_users =
+        Decidim::User.where(
+          id: notification_users,
+          notifications_sending_frequency: :weekly
+        )
+
+      target_users.find_each do |user|
+        Decidim::EmailNotificationsDigestGeneratorJob.perform_later(user.id, :weekly, time:)
+      end
     end
   end
 end
