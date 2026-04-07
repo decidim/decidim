@@ -88,12 +88,11 @@ describe "User creates meeting" do
 
             within ".new_meeting" do
               find("*[type=submit]").click
+              expect(page).to have_content("There is an error in this field.", count: 6)
+
+              expect(page).to have_no_css("*[type=submit][data-disable='true']")
+              expect(find("button[type='submit']")).not_to be_disabled
             end
-
-            expect(page).to have_content("There is an error in this field.", count: 6)
-
-            expect(page).to have_no_css("*[type=submit][data-disable='true']")
-            expect(page).to have_no_css("*[type=submit][disabled]")
           end
         end
 
