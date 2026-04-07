@@ -39,7 +39,7 @@ sudo apt install libvips libvips-tools # or the alternative installation process
 bundle update decidim
 bin/rails decidim:upgrade
 sed -i "s/config\.load_defaults 7\.2/config\.load_defaults 8.1/g" config/application.rb # see "2.1. Ruby on Rails update to 8.1"
-wget wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/release/0.32-stable/decidim-core/lib/decidim/shakapacker/shakapacker.yml -O config/shakapacker.yml -O config/shakapacker.yml # see 2.9. Shakapacker upgrade
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/release/0.32-stable/decidim-core/lib/decidim/shakapacker/shakapacker.yml -O config/shakapacker.yml -O config/shakapacker.yml # see "2.9. Shakapacker upgrade"
 bin/rails db:migrate
 bin/rails decidim:upgrade:encryption
 # skip this command if you have run it before:
