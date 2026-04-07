@@ -252,7 +252,7 @@ You can do this with the following command:
 sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).present?/' config/environments/production.rb
 ```
 
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+You can read more about this change on PR [#16491](https://github.com/decidim/decidim/pull/16491).
 
 ### 3.7. [[TITLE OF THE ACTION]]
 
