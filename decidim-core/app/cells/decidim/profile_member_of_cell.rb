@@ -8,7 +8,7 @@ module Decidim
       @members ||= Decidim::ParticipatorySpace::Member.where(user:)
                                                       .includes(:participatory_space)
                                                       .published
-                                                      .select { |m| m.participatory_space.present? }
+                                                      .select { |m| m.participatory_space.present? && m.participatory_space.published? }
                                                       .sort_by { |m| translated_attribute(m.participatory_space.title) }
     end
 
