@@ -121,7 +121,7 @@ jobs:
           verbose: true
           files: coverage/coverage.xml
           add-prefix: ${{ env.DECIDIM_MODULE }}
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v6
         name: Upload coverage
         with:
           name: decidim-generators

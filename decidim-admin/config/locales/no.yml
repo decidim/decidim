@@ -178,8 +178,6 @@
         edit:
           title: Rediger mappe
           update: Oppdater
-        index:
-          attachment_collections_title: Vedleggsmapper
         new:
           create: Opprett
           title: Ny mappe
@@ -195,8 +193,6 @@
         edit:
           title: Rediger vedlegg
           update: Oppdater
-        index:
-          attachments_title: Vedlegg
         new:
           create: Opprett vedlegg
           title: Nytt vedlegg
@@ -242,7 +238,6 @@
           title: 'Legg til komponent: %{name}'
         publish:
           success: Komponenten har blitt publisert.
-        title: Komponenter
         unpublish:
           success: Komponenten har blitt avpublisert.
         update:
@@ -253,7 +248,6 @@
         'false': 'Nei'
         managed_user_name: Håndtert bruker
         solved: Løst
-        title: Verifiseringskonflikter
         transfer:
           email: E-post
           name: Navn
@@ -371,7 +365,6 @@
           impersonate: Etterligne
           impersonate_existing_managed_user: Administrer deltaker "%{name}"
           impersonate_existing_user: Administrer deltaker "%{name}"
-          impersonate_new_managed_user: Administrer ny deltaker
       imports:
         and: og
         data_errors:
@@ -414,7 +407,6 @@
         promotions:
           new:
             explanation: Styrte deltakere kan bli promotert til standard deltakere. Dette betyr at de vil bli invitert til applikasjonen og du vil ikke kunne administrere dem lenger. De inviterte deltakerene vil motta en email så de kan akseptere invitasjonen.
-            new_managed_user_promotion: Ny administrert deltaker forfremmelse
             promote: Promoter
       members_csv_imports:
         new:
@@ -548,7 +540,6 @@
           title: Mal for nyhetsbrev
           use_template: Bruk denne malen
         show:
-          preview: 'Forhåndsvis mal: %{template_name}'
           use_template: Bruk denne malen
       newsletters:
         create:
@@ -591,7 +582,6 @@
           title: Velg mottakere som skal leveres
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
         show:
-          preview: Forhåndsvis
           select_recipients_to_deliver: Velg mottakere som skal leveres
           subject: Emne
         update:
@@ -719,19 +709,11 @@
         update:
           error: Det oppstod et problem med å oppdatere denne siden.
       titles:
-        admin_log: Admin logg
-        area_types: Områdetyper
         areas: Områder
         authorization_workflows: Verifiseringsmetoder
-        dashboard: Skrivebord
-        impersonatable_users: Håndterbare deltakere
-        impersonations: Deltakernes administrasjon
         menu: Meny
         panel: Administrator
-        participants: Deltakere
-        scope_types: Tematyper
         scopes: Tema
-        users: Administratorer
       users:
         create:
           error: Det oppstod et problem med å invitere denne administratoren.

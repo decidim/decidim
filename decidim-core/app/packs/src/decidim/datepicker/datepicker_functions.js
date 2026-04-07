@@ -1,5 +1,31 @@
 // Utility helper functions for the date and time picker functionality
 
+export const adjustPickerPosition = (input, datePickerContainer, selector) => {
+  const parent = input.closest(selector);
+
+  if (getComputedStyle(parent).position === "static") {
+    parent.style.position = "relative";
+  }
+
+  const rect = input.getBoundingClientRect();
+  const calendarHeight = datePickerContainer.offsetHeight;
+  const spaceAbove = rect.top;
+  const spaceBelow = window.innerHeight - rect.bottom;
+  const openBelow = spaceBelow >= calendarHeight || spaceBelow >= spaceAbove;
+
+  if (openBelow) {
+    // Open below
+    datePickerContainer.style.top = `${input.offsetHeight}px`;
+    datePickerContainer.style.bottom = "";
+  } else {
+    // Open above
+    datePickerContainer.style.top = "";
+    datePickerContainer.style.bottom = `${input.offsetHeight}px`;
+  }
+
+  datePickerContainer.style.right = "0px";
+};
+
 export const setHour = (value, format) => {
   const hour = value.split(":")[0];
   if (format === 12) {

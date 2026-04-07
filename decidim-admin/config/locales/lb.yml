@@ -176,8 +176,6 @@ lb:
         edit:
           title: Ordner bearbeiten
           update: Aktualisieren
-        index:
-          attachment_collections_title: Anhang Ordner
         new:
           create: Erstellen
           title: Neuer Ordner
@@ -193,8 +191,6 @@ lb:
         edit:
           title: Anhang bearbeiten
           update: Aktualisieren
-        index:
-          attachments_title: Anhänge
         new:
           create: Anhang erstellen
           title: Neuer Anhang
@@ -238,7 +234,6 @@ lb:
           title: 'Komponente hinzufügen: %{name}'
         publish:
           success: Die Komponente wurde erfolgreich veröffentlicht.
-        title: Komponenten
         unpublish:
           success: Die Komponente wurde erfolgreich veröffentlicht.
         update:
@@ -249,7 +244,6 @@ lb:
         'false': 'Nein'
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
-        title: "Überprüfungskonflikte\n\n"
         transfer:
           email: E-Mail
           name: Name
@@ -346,7 +340,6 @@ lb:
           impersonate: Imitieren
           impersonate_existing_managed_user: Angenommen, dass der Benutzer "%{name}" verwaltet wird
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
-          impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
       imports:
         new:
           accepted_mime_types:
@@ -362,7 +355,6 @@ lb:
         promotions:
           new:
             explanation: Verwaltete Benutzer können zu Standardbenutzern heraufgestuft werden. Das bedeutet, dass sie zu der Anwendung eingeladen werden und nicht in der Lage sind, sie erneut zu repräsentieren. Der eingeladene Benutzer erhält eine E-Mail, um Ihre Einladung anzunehmen.
-            new_managed_user_promotion: Neue verwaltete Benutzerwerbung
             promote: Fördern
       members_csv_imports:
         new:
@@ -496,7 +488,6 @@ lb:
           title: Newsletter Vorlagen
           use_template: Diese Vorlage verwenden
         show:
-          preview: 'Vorschau der Vorlage: %{template_name}'
           use_template: Diese Vorlage verwenden
       newsletters:
         create:
@@ -539,7 +530,6 @@ lb:
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
         show:
-          preview: Vorschau
           select_recipients_to_deliver: Empfänger auswählen
           subject: Gegenstand
         update:
@@ -658,16 +648,9 @@ lb:
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
       titles:
-        admin_log: Adminprotokoll
-        area_types: Bereichstypen
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
-        dashboard: Instrumententafel
-        impersonatable_users: Überschaubare Benutzer
-        impersonations: Benutzerverwaltung
         panel: Admin
-        participants: Benutzer
-        scope_types: Bereichstypen
         scopes: Bereiche
       users:
         create:

@@ -87,12 +87,6 @@ pt:
         skip_verification: Pode ignorar isto por agora e %{link}
         start_exploring: comece a explorar
       csv_census:
-        admin:
-          index:
-            title: Dados do censo atual
-          instructions:
-            body: Para fazer isto, deverá entrar na administração do sistema e adicionar as autorizações csv_census à organização
-            title: Você precisa ativar o recenseamento CSV para esta organização
         authorizations:
           new:
             error: Não foi possível verificar a sua conta ou não está no censo da organização.
@@ -115,13 +109,11 @@ pt:
               error: Ocorreu um problema ao atualizar a configuração.
           confirmations:
             new:
-              introduce_user_data: Introduza os dados na fotografia
               reject: Rejeitar
               verify: Verificar
           offline_confirmations:
             new:
               cancel: Cancelar
-              introduce_user_data: Introduzir o e-mail do participante e os dados do documento
               verify: Verificar
           pending_authorizations:
             index:

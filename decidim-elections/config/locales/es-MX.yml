@@ -51,6 +51,7 @@ es-MX:
             choose_census: Elige el tipo de censo que quieres vincular esta elección
             created_at: Creado el
             identifier: Identificador de usuaria
+            title: Editar la elección
           preview:
             title:
               one: La vista previa de la lista está limitada a %{count} registro.

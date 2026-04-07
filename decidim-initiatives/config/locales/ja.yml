@@ -106,8 +106,6 @@ ja:
         initiatives_menu:
           see_initiative: イニシアチブを見る
         initiatives_settings: 設定
-        initiatives_submenu:
-          info: このイニシアチブについて
         initiatives_types: イニシアチブ種別
         moderations: モデレーション
       models:
@@ -152,9 +150,6 @@ ja:
       taxonomy_filters:
         space_filter_for:
           initiatives: すべてのイニシアチブ
-      titles:
-        initiatives: イニシアチブ
-        initiatives_types: イニシアチブ種別
     download_your_data:
       show:
         initiatives: イニシアチブのエクスポート
@@ -261,6 +256,7 @@ ja:
             reject: イニシアチブを拒否する
             send_to_technical_validation: 技術検証に提出する
             success: イニシアチブは技術的な検証に送信されました。
+            title: このイニシアチブについて
             update: 更新
           form:
             attachments_title: 添付ファイル
@@ -270,6 +266,7 @@ ja:
             actions_title: アクション
             preview: プレビュー
             print: 印刷
+            title: イニシアチブ
           initiative_attachments:
             documents: ドキュメント
             edit: 編集
@@ -286,6 +283,7 @@ ja:
             success: イニシアチブを更新しました。
         initiatives_settings:
           edit:
+            title: イニシアチブの設定
             update: 更新
           form:
             comments: コメント数の多い順
@@ -293,7 +291,6 @@ ja:
             publication_date: 公開日の新しい順
             random: ランダム
             signatures: 署名数順
-            title: イニシアチブの設定
         initiatives_type_scopes:
           create:
             error: イニシアチブの新しいスコープの作成中に問題が発生しました。
@@ -316,12 +313,15 @@ ja:
           destroy:
             success: イニシアチブ種別を削除しました。
           edit:
+            title: イニシアチブ種別を編集
             update: 更新
           form:
             child_scope_threshold_enabled_help_html: 'この設定フラグはオフライン投票に対応していません。サブスコープを有効にし、ユーザーにスコープを関連付ける権限ハンドラと連携します。認証設定の下部で、その認証を選択することを確認してください。これを動作させるためには、スコープを階層的に設定する必要があります：1つの親 - N個の子。この設定がどのように機能するかの詳細は、 <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">イニシアチブの管理者向けドキュメントページ</a> を参照してください。'
             only_global_scope_enabled_help_html: '「子スコープ署名」を有効にし、グローバルスコープを親スコープとして設定した場合、このフラグをチェックします。これを有効にすると、イニシアチブ作成ウィザードでのイニシアチブタイプの選択がスキップされます。この仕組みについての詳細は、こちらの <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">リンク</a> を参照してください。'
             options: オプション
             signature_workflow_settings: 署名ワークフローの設定
+          index:
+            title: イニシアチブ種別
           initiative_type_scopes:
             title: イニシアチブ種別のスコープ
           new:

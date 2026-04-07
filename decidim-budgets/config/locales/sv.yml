@@ -90,7 +90,6 @@ sv:
             invalid: Det gick inte att skapa projektet.
             success: Projektet har skapats.
           edit:
-            title: Redigera projekt
             update: Uppdatera
           index:
             actions: Åtgärder
@@ -113,7 +112,6 @@ sv:
             title: Raderade projekt
           new:
             create: Skapa
-            title: Nytt projekt
           update:
             invalid: Det gick inte att uppdatera projektet.
             success: Projektet har uppdaterats.

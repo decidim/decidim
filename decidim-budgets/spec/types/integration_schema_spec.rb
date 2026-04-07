@@ -347,8 +347,8 @@ describe "Decidim::Api::QueryType" do
       end
     end
 
-    context "when space is published but private" do
-      let!(:participatory_process) { create(process_space_factory, :published, :private, :with_steps, organization: current_organization) }
+    context "when space is published but restricted" do
+      let!(:participatory_process) { create(process_space_factory, :published, :restricted, :with_steps, organization: current_organization) }
 
       context "when component is published" do
         let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
@@ -395,7 +395,7 @@ describe "Decidim::Api::QueryType" do
       end
     end
 
-    context "when space is published, private and transparent" do
+    context "when space is published and transparent" do
       let(:process_space_factory) { :assembly }
       let(:space_type) { "assembly" }
 
@@ -415,7 +415,7 @@ describe "Decidim::Api::QueryType" do
       }
     )
       end
-      let!(:participatory_process) { create(process_space_factory, :published, :private, :transparent, organization: current_organization) }
+      let!(:participatory_process) { create(process_space_factory, :published, :transparent, organization: current_organization) }
 
       context "when component is published" do
         let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }

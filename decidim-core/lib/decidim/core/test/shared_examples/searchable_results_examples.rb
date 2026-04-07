@@ -83,9 +83,9 @@ shared_examples "searchable results" do
         it_behaves_like "no searches found"
       end
 
-      context "when participatory space is private" do
+      context "when participatory space is restricted" do
         before do
-          perform_enqueued_jobs { participatory_space.update!(private_space: true) }
+          perform_enqueued_jobs { participatory_space.update!(access_mode: :restricted) }
         end
 
         it_behaves_like "no searches found"

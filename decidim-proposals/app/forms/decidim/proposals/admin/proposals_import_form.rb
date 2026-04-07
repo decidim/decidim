@@ -15,15 +15,9 @@ module Decidim
         attribute :keep_authors, Boolean
         attribute :states, Array[String]
 
-        validates :origin_component_id, :origin_component, :states, :current_component, presence: true
+        validates :origin_component_id, :origin_component, :current_component, presence: true
+        validates :states, presence: true
         validate :valid_states
-
-        def states_collection
-          @states_collection ||= ProposalState.where(component: current_component) + [ProposalState.new(token: "not_answered",
-                                                                                                        title: I18n.t(
-                                                                                                          :not_answered, scope: "decidim.proposals.answers"
-                                                                                                        ))]
-        end
 
         def states
           super.compact_blank
@@ -43,23 +37,14 @@ module Decidim
           end
         end
 
-        def available_states(component_id = nil)
-          scope = Decidim::Proposals::ProposalState
-          scope = scope.where(component: Decidim::Component.find(component_id)) if component_id.present?
-
-          states = scope.pluck(:token).uniq.map do |token|
-            OpenStruct.new(token:, title: token.humanize)
-          end
-
-          states + [OpenStruct.new(token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered"))]
-        end
-
         private
 
         def valid_states
-          return if states.all? do |state|
-            available_states(origin_component_id).pluck(:token).include?(state)
-          end
+          return unless origin_component
+          return if states.empty?
+
+          valid_tokens = Decidim::Proposals::ProposalState.where(component: origin_component).pluck(:token) + ["not_answered"]
+          return if states.all? { |state| valid_tokens.include?(state) }
 
           errors.add(:states, :invalid)
         end

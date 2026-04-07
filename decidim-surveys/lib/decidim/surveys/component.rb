@@ -12,6 +12,18 @@ Decidim.register_component(:surveys) do |component|
   component.specific_data_importer_class_name = "Decidim::Surveys::DataImporter"
   component.query_type = "Decidim::Surveys::SurveysType"
 
+  component.on(:publish) do |instance|
+    Decidim::Surveys::Survey.where(component: instance).find_each do |result|
+      Decidim::UpdateSearchIndexesJob.perform_later([result])
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Surveys::Survey.where(component: instance).find_each do |result|
+      Decidim::RemoveSearchIndexesJob.perform_later([result])
+    end
+  end
+
   component.data_portable_entities = ["Decidim::Forms::Response"]
 
   component.newsletter_participant_entities = ["Decidim::Forms::Response"]
@@ -19,6 +31,7 @@ Decidim.register_component(:surveys) do |component|
   component.register_resource(:survey) do |resource|
     resource.model_class_name = "Decidim::Surveys::Survey"
     resource.card = "decidim/surveys/survey"
+    resource.searchable = true
     resource.actions = %w(respond)
   end
 

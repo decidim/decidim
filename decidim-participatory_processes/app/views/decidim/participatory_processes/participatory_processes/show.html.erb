@@ -17,10 +17,15 @@
 <%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
 
 <main>
-  <%# NOTE: this elements goes outside of the .participatory-space__container block %>
-  <% if current_participatory_space.private_space? %>
+  <% if current_participatory_space.restricted? %>
     <section class="participatory-space__block-reference alert">
-      <%= t("private_space", scope: "decidim.participatory_processes.show") %>
+      <%= t("restricted_space", scope: "decidim.participatory_spaces.show") %>
+    </section>
+  <% end %>
+
+  <% if current_participatory_space.transparent? %>
+    <section class="participatory-space__block-reference alert">
+      <%= t("transparent_space", scope: "decidim.participatory_spaces.show") %>
     </section>
   <% end %>
 

@@ -79,11 +79,6 @@ el:
         skip_verification: Μπορείτε να την παραλείψετε για τώρα και %{link}
         start_exploring: ξεκινήστε την εξερεύνηση
       csv_census:
-        admin:
-          index:
-            title: Τρέχοντα δεδομένα απογραφής
-          instructions:
-            body: Για να το κάνετε αυτό, πρέπει να εισαγάγετε τη διαχείριση συστήματος και να προσθέσετε τις εξουσιοδοτήσεις csv_census στον οργανισμό
         authorizations:
           new:
             error: Δεν ήταν δυνατή η επαλήθευση του λογαριασμού σας ή δεν περιλαμβάνεστε στην απογραφή του οργανισμού.
@@ -103,13 +98,11 @@ el:
               error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση της διαμόρφωσης.
           confirmations:
             new:
-              introduce_user_data: Εισαγάγετε τα δεδομένα στην εικόνα
               reject: Απόρριψη
               verify: Επαλήθευση
           offline_confirmations:
             new:
               cancel: Ακύρωση
-              introduce_user_data: Εισαγάγετε τη διεύθυνση email του συμμετέχοντα και τα δεδομένα εγγράφου
               verify: Επαλήθευση
           pending_authorizations:
             index:

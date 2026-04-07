@@ -107,8 +107,6 @@ lt:
           success: Konferencijos pranešėjas pašalintas.
         edit:
           update: Atnaujinti
-        index:
-          conference_speakers_title: Konferencijos pranešėjai
         new:
           create: Sukurti
         update:
@@ -122,8 +120,6 @@ lt:
           success: Konferencijos administratorius pašalintas.
         edit:
           update: Atnaujinti
-        index:
-          conference_admins_title: Konferencijos administratoriai
         new:
           create: Sukurti
         update:
@@ -224,7 +220,6 @@ lt:
           update: Atnaujinti
         new:
           create: Sukurti
-          title: Naujas partneris
         update:
           error: Atnaujinant šios konferencijos partnerį iškilo problema.
           success: Konferencijos partneris atnaujintas.
@@ -245,12 +240,9 @@ lt:
           update: Atnaujinti
         new:
           create: Sukurti
-          title: Naujas registracijos tipas
         update:
           error: Atnaujinant šios konferencijos registracijos tipą iškilo problema.
           success: Konferencijos registracijos tipas atnaujintas.
-      titles:
-        conferences: Konferencijos
     admin_log:
       conference:
         create: "%{user_name} sukūrė %{resource_name} konferenciją"
@@ -304,14 +296,9 @@ lt:
             select_user: Pasirinkti dalyvį
           index:
             invite_attendee: Kviesti dalyvį
-            invites: Pakvietimai
           new:
             explanation: Dalyvis bus pakviestas dalyvauti konferencijoje. Jei e. laiškas nebus užregistruotas, dalyvis bus taip pat pakviestas būti organizacijos dalimi.
             invite: Pakviesti
-            new_invite: Kviesti dalyvį
-        conference_registrations:
-          index:
-            registrations: Registracijos
         conference_speakers:
           form:
             existing_user: Esamas dalyvis

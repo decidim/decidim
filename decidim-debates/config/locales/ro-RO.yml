@@ -128,7 +128,6 @@ ro:
           create: Creează
           title: Creați o dezbatere
         orders:
-          commented: Cele mai comentate
           label: Ordonează dezbaterile după
           random: Ordine aleatorie
           recent: Cele mai recente
