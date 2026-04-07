@@ -263,7 +263,7 @@ describe "Profile" do
       it "does not show the member of section" do
         visit decidim.profile_path(user.nickname)
 
-        expect(page).not_to have_content("Member of")
+        expect(page).to have_no_content("Member of")
       end
     end
 
