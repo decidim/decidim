@@ -123,6 +123,9 @@ Decidim::Core::Engine.routes.draw do
   get "/profiles/*rest", to: redirect { |params, request|
     locale = Decidim::LocaleRouterDetector.new(request, params).locale
 
+    # Handle explicitly the query strings, as we have some filters and pagination on the activity tab.
+    # We need to handle URLs like
+    # https://nightly.decidim.org/profiles/visitant_bqqppvus/activity?filter[resource_type]=Decidim::Initiative
     query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
     query_string.delete("locale")
     query_string = CGI.unescape(query_string.to_query)
