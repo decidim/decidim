@@ -108,7 +108,7 @@ describe("AccordionController", () => {
       accordionElement.dataset.panelRole = "group";
 
       const nonExistentTrigger = document.createElement("button");
-      nonExistentTrigger.dataset.controls = "non-existent-panel";
+      nonExistentTrigger.dataset.controls = "nonexistent-panel";
       accordionElement.appendChild(nonExistentTrigger);
 
       expect(() => controller.fixPanelRole()).not.toThrow();
