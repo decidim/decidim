@@ -79,18 +79,22 @@ describe "User creates meeting" do
           component.update!(settings: { creation_enabled_for_participants: true, taxonomy_filters: taxonomy_filter_ids })
         end
 
-        it "submits empty form" do
-          visit_component
-          click_on "New meeting"
+        context "with an empty form" do
+          it "allows submission and show errors" do
+            visit_component
+            click_on "New meeting"
 
-          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+            expect(page).to have_no_css("*[type=submit][data-disable='true']")
 
-          within ".new_meeting" do
-            find("*[type=submit]").click
+            within ".new_meeting" do
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_content("There is an error in this field.", count: 6)
+
+            expect(page).to have_no_css("*[type=submit][data-disable='true']")
+            expect(page).to have_no_css("*[type=submit][disabled]")
           end
-
-          expect(page).to have_no_css("*[type=submit][data-disable='true']")
-          expect(page).to have_no_css("*[type=submit][disabled]")
         end
 
         context "and rich_editor_public_view component setting is enabled" do
