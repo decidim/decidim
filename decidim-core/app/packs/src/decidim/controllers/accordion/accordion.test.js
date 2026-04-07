@@ -104,7 +104,7 @@ describe("AccordionController", () => {
       expect(panel1.getAttribute("role")).toBe("navigation");
     });
 
-    it("handles non-existent panels gracefully", () => {
+    it("handles nonexistent panels gracefully", () => {
       accordionElement.dataset.panelRole = "group";
 
       const nonExistentTrigger = document.createElement("button");
