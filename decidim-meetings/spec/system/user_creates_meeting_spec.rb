@@ -80,7 +80,7 @@ describe "User creates meeting" do
         end
 
         context "with an empty form" do
-          it "properly announce the main form error" do
+          it "properly announces the main form error" do
             visit_component
             click_on "New meeting"
 
