@@ -4,7 +4,7 @@
 <% if filter_sections.present? || local_assigns.has_key?(:search_variable) %>
   <%= filter_form_for filter, url_for, class: "new_filter self-stretch", data: { filters: "", controller: "accordion form-filter" } do |form| %>
 
-    <button id="dropdown-trigger-filters" data-controller="dropdown" data-target="dropdown-menu-filters" data-open-md="true">
+    <button id="dropdown-trigger-filters" data-controller="dropdown" data-target="dropdown-menu-filters" data-open-md="true" data-add-aria-roles="false">
       <%= icon "arrow-down-s-line" %>
       <%= icon "arrow-up-s-line" %>
       <span>
@@ -14,13 +14,13 @@
 
     <div id="dropdown-menu-filters">
       <% if local_assigns.has_key?(:skip_to_id) %>
-        <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip", role: "menuitem", "data-skip-to-content": true %>
+        <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip", "data-skip-to-content": true %>
       <% end %>
 
-      <p id="filter-help-text" class="filter-help" role="menuitem" aria-disabled="true"><%= t("help", scope: "decidim.shared.filter_form_help") %></p>
+      <p id="filter-help-text" class="filter-help" aria-disabled="true"><%= t("help", scope: "decidim.shared.filter_form_help") %></p>
 
       <% if local_assigns.has_key?(:search_variable) %>
-        <div class="filter-search filter-container" role="menuitem">
+        <div class="filter-search filter-container">
           <%= form.search_field search_variable,
                                 label: false,
                                 placeholder: search_label,
