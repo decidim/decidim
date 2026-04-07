@@ -79,7 +79,7 @@ describe("AccordionController", () => {
       panel1.setAttribute("role", "region");
       panel2.setAttribute("role", "region");
 
-      delete accordionElement.dataset.panelRole;
+      Reflect.deleteProperty(accordionElement.dataset, "panelRole");
       controller.fixPanelRole();
 
       expect(panel1.getAttribute("role")).toBe("region");
@@ -115,3 +115,4 @@ describe("AccordionController", () => {
     });
   });
 });
+
