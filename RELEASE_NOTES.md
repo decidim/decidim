@@ -46,6 +46,7 @@ bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 echo "/public/sw.js*" >> .gitignore
 bin/rails decidim:upgrade:remove_deleted_users_left_data
 bin/rails decidim:upgrade:fix_deleted_private_follows
+sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).present?/' config/environments/production.rb
 bin/rails data:migrate
 ```
 
@@ -221,7 +222,39 @@ This works for Ubuntu Linux, other operating systems would need to do other comm
 
 You can read more about this change on PR [#15670](https://github.com/decidim/decidim/pull/15670).
 
-### 3.6. [[TITLE OF THE ACTION]]
+### 3.6. Fix the "SMTP_STARTTLS_AUTO" env var in `production.rb`
+
+It was detected a bug with the enable_starttls_auto configuration for the Action Mailer (SMTP) configuration. For fixing it you need to replace in `config/environments/production.rb`
+
+If your `config/environments/production.rb` contains an SMTP configuration like this:
+
+```ruby
+config.action_mailer.smtp_settings = {
+  # ... other settings ...
+  :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO").to_boolean_string,
+  # ... other settings ...
+}
+```
+
+You should update it to:
+
+```ruby
+config.action_mailer.smtp_settings = {
+  # ... other settings ...
+  :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO", true).present?,
+  # ... other settings ...
+}
+```
+
+You can do this with the following command:
+
+```bash
+sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).present?/' config/environments/production.rb
+```
+
+You can read more about this change on PR [#16491](https://github.com/decidim/decidim/pull/16491).
+
+### 3.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

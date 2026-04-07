@@ -316,6 +316,222 @@ module Decidim::System
         end
       end
 
+      describe "host format" do
+        context "when host contains spaces" do
+          before { subject.host = "example .org" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host has leading space" do
+          before { subject.host = " example.org" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host has trailing space" do
+          before { subject.host = "example.org " }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host has special characters" do
+          before { subject.host = "example@org!" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host has leading hyphen" do
+          before { subject.host = "-example.org" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host has trailing hyphen" do
+          before { subject.host = "example-.org" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host is localhost" do
+          before { subject.host = "localhost" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid simple domain" do
+          before { subject.host = "example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid subdomain" do
+          before { subject.host = "sub.example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid multi-level subdomain" do
+          before { subject.host = "mysite.example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid with hyphen" do
+          before { subject.host = "my-site.example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv4" do
+          before { subject.host = "127.0.0.1" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv4 full" do
+          before { subject.host = "192.168.1.1" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv4 max value" do
+          before { subject.host = "255.255.255.255" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is invalid IPv4 octet > 255" do
+          before { subject.host = "256.0.0.1" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:host]).to include("is invalid")
+          end
+        end
+
+        context "when host is valid IPv6 loopback" do
+          before { subject.host = "::1" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv6 bracketed" do
+          before { subject.host = "[::1]" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv6 full" do
+          before { subject.host = "2001:db8::1" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when host is valid IPv6 standard" do
+          before { subject.host = "fe80:0:0:0:1:0:0:1" }
+
+          it { is_expected.to be_valid }
+        end
+      end
+
+      describe "secondary_hosts format" do
+        context "when secondary_hosts contains spaces" do
+          before { subject.secondary_hosts = "example .org" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:secondary_hosts]).to include("is invalid")
+          end
+        end
+
+        context "when secondary_hosts has special characters" do
+          before { subject.secondary_hosts = "example@org!" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:secondary_hosts]).to include("is invalid")
+          end
+        end
+
+        context "when one of multiple secondary_hosts is invalid" do
+          before { subject.secondary_hosts = "valid.example.org\ninvalid .host" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:secondary_hosts]).to include("is invalid")
+          end
+        end
+
+        context "when secondary_hosts is valid simple domain" do
+          before { subject.secondary_hosts = "example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when secondary_hosts is localhost" do
+          before { subject.secondary_hosts = "localhost" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when secondary_hosts is valid IPv4" do
+          before { subject.secondary_hosts = "127.0.0.1" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when secondary_hosts has multiple valid hosts" do
+          before { subject.secondary_hosts = "foo.example.org\nbar.example.org" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when secondary_hosts has empty lines" do
+          before { subject.secondary_hosts = "foo.example.org\r\n\r\nbar.example.org" }
+
+          it { is_expected.to be_valid }
+        end
+      end
+
       describe "organization uniqueness" do
         let!(:existing_organization) do
           create(
