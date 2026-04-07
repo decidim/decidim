@@ -79,6 +79,22 @@ describe "User creates meeting" do
           component.update!(settings: { creation_enabled_for_participants: true, taxonomy_filters: taxonomy_filter_ids })
         end
 
+        context "with an empty form" do
+          it "properly announce the main form error" do
+            visit_component
+            click_on "New meeting"
+
+            within ".new_meeting" do
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_css("div.sr-announce")
+            within "div.sr-announce" do
+              expect(page).to have_content("There are errors on the form, please correct them to continue.")
+            end
+          end
+        end
+
         context "and rich_editor_public_view component setting is enabled" do
           before do
             organization.update(rich_text_editor_in_public_views: true)
