@@ -588,9 +588,6 @@ en:
           highlighted_processes:
             active_spaces: Active processes
             see_all_spaces: See all processes
-        user_profile:
-          member_of:
-            member_of: Member of
       participatory_processes:
         description:
           area_name: Area
