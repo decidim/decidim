@@ -91,8 +91,8 @@ describe "User creates meeting" do
             expect(page).to have_css("div.sr-announce")
             within "div.sr-announce" do
               expect(page).to have_content("There are errors on the form, please correct them to continue.")
-            end 
-          end 
+            end
+          end
 
           it "allows submission and show errors" do
             visit_component
