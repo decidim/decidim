@@ -91,6 +91,21 @@ describe "User creates meeting" do
             expect(page).to have_css("div.sr-announce")
             within "div.sr-announce" do
               expect(page).to have_content("There are errors on the form, please correct them to continue.")
+            end 
+          end 
+
+          it "allows submission and show errors" do
+            visit_component
+            click_on "New meeting"
+
+            expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+            within ".new_meeting" do
+              find("*[type=submit]").click
+              expect(page).to have_content("There is an error in this field.", count: 6)
+
+              expect(page).to have_no_css("*[type=submit][data-disable='true']")
+              expect(find("button[type='submit']")).not_to be_disabled
             end
           end
         end

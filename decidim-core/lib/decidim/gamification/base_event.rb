@@ -8,12 +8,13 @@ module Decidim
       delegate :url_helpers, to: "Decidim::Core::Engine.routes"
 
       def resource_path
-        url_helpers.profile_badges_path(nickname: user.nickname)
+        url_helpers.profile_badges_path(nickname: user.nickname, locale: I18n.locale)
       end
 
       def resource_url
         url_helpers.profile_badges_url(
           nickname: user.nickname,
+          locale: I18n.locale,
           host: user.organization.host
         )
       end

@@ -7,15 +7,15 @@ module Decidim
         base.alias_method :original_initialize, :initialize
         base.send :private, :original_initialize
 
-        base.define_method :initialize do |argv|
-          decidim_initialize(argv)
-          original_initialize(argv)
+        base.define_method :initialize do |argv, build_config = nil, bundler_override = nil|
+          decidim_initialize(argv, build_config, bundler_override)
+          original_initialize(argv, build_config, bundler_override)
         end
       end
 
       private
 
-      def decidim_initialize(_argv)
+      def decidim_initialize(_argv, _build_config = nil, _bundler_override = nil)
         # Write runtime configuration for Tailwind
         # This method is called here because in Decidim CSS compilation is done via Webpack.
         # If CSS is decoupled from JS in the future, this call should be removed.

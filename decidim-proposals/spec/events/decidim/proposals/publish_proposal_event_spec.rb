@@ -55,7 +55,7 @@ module Decidim
             .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> proposal was published by ")
 
           expect(subject.notification_title)
-            .to include("<a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>.")
+            .to include("<a href=\"/en/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>.")
         end
       end
 
@@ -75,7 +75,7 @@ module Decidim
         include_context "when a simple event"
 
         let(:event_name) { "decidim.events.proposals.proposal_published_for_space" }
-        let(:notification_title) { "The proposal <a href=\"#{resource_path}\">#{resource_title}</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>." }
+        let(:notification_title) { "The proposal <a href=\"#{resource_path}\">#{resource_title}</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/en/profiles/#{author.nickname}\">@#{author.nickname}</a>." }
         let(:email_outro) { "You have received this notification because you are following \"#{participatory_space_title}\". You can stop receiving notifications following the previous link." }
         let(:email_intro) { "The proposal \"#{resource_title}\" has been added to \"#{participatory_space_title}\" that you are following." }
         let(:email_subject) { "New proposal \"#{resource_title}\" added to #{participatory_space_title}" }
@@ -99,6 +99,7 @@ module Decidim
         let(:en_version) { subject.resource_text["en"] }
         let(:machine_translated) { subject.resource_text["machine_translations"]["ca"] }
         let(:translatable) { true }
+        let(:untranslated_content) { subject.resource_text["en"] }
 
         it_behaves_like "a translated event"
       end

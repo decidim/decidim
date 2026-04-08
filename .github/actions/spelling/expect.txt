@@ -768,6 +768,7 @@ rqrcode
 rroe
 rsefa
 rsimplecov
+rspack
 Rubo
 rubycw
 rumany
