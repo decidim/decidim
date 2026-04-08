@@ -363,6 +363,7 @@ de:
           text: Suche nach bestehender E-Mail, Name oder Spitzname des Teilnehmenden.
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
+        title: Verifizierungskonflikte
         transfer:
           email: E-Mail
           error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
@@ -934,6 +935,7 @@ de:
           up: Nach oben
         form:
           add: Zur erlaubten Liste hinzufügen
+          title: Liste erlaubter externer Domains
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -1238,9 +1240,12 @@ de:
           none: Keine
           title: Neues Element in %{taxonomy}
       titles:
+        admin_log: Adminprotokoll
         area_types: Bereichstypen
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
+        dashboard: Dashboard
+        edit_external_domains: Liste erlaubter externer Domains
         edit_landing_page: Seiteninhalte
         edit_organization_appearance: Homepage-Erscheinungsbild bearbeiten
         impersonations: Benutzerverwaltung
@@ -1254,7 +1259,9 @@ de:
         scopes: Bereiche
         statistics: Aktivität
         taxonomies: Taxonomien
+        taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
         user_groups: Benutzergruppen
+        users: Admins
       tooltips:
         deleted_component_info: Diese Komponente kann nur gelöscht werden, wenn der Status 'Nicht veröffentlicht' ist.
       trash_management:
