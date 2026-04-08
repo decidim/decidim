@@ -74,6 +74,8 @@ de:
           attributes:
             document:
               allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}.'
+              empty: Das Dokument ist leer
+              invalid_json: Das Dokument ist kein gültiges JSON
   activerecord:
     models:
       decidim/assembly:
@@ -104,6 +106,8 @@ de:
           public: Öffentlich
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
+        manage_trash:
+          title: Gelöschte Gremien
         new:
           create: Erstellen
           title: Neues Gremium
@@ -118,6 +122,7 @@ de:
         new:
           duplicate: Duplizieren
           select: Wählen Sie, welche Daten Sie duplizieren möchten
+          title: Gremium duplizieren
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
@@ -203,6 +208,7 @@ de:
           assemblies: Alle Gremien
       titles:
         assemblies: Gremien
+        assemblies_deleted: Gelöschte Gremien
         assemblies_types: Versammlungstypen
       tooltips:
         deleted_assemblies_info: Ein Gremium kann nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
@@ -271,6 +277,8 @@ de:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+        imports:
+          banner_image_error: Das Bannerbild konnte nicht importiert werden (%{error}).
         new_import:
           accepted_types:
             json: JSON
