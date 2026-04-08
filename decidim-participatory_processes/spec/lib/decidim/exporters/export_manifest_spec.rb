@@ -10,20 +10,20 @@ module Decidim
       let(:participatory_process) { create(:participatory_process, organization:) }
       let(:export_manifest) { participatory_process.manifest.export_manifests.find { |m| m.name == :participatory_processes } }
 
-      describe "with private processes" do
-        let!(:private_process) { create(:participatory_process, :private, organization:) }
+      describe "with restricted processes" do
+        let!(:restricted_process) { create(:participatory_process, :restricted, organization:) }
 
         context "when user is an admin" do
-          it "includes private processes" do
-            collection = export_manifest.collection.call(private_process, admin)
-            expect(collection).to include(private_process)
+          it "includes restricted processes" do
+            collection = export_manifest.collection.call(restricted_process, admin)
+            expect(collection).to include(restricted_process)
           end
         end
 
         context "when user is nil (open data)" do
-          it "excludes private processes" do
-            collection = export_manifest.collection.call(private_process, nil)
-            expect(collection).not_to include(private_process)
+          it "excludes restricted processes" do
+            collection = export_manifest.collection.call(restricted_process, nil)
+            expect(collection).not_to include(restricted_process)
           end
         end
       end

@@ -30,7 +30,7 @@ describe "Admin manages members via csv import" do
 
   context "when there are existing users" do
     before do
-      create_list(:assembly_member, 3, participatory_space: assembly, user: create(:user, organization: assembly.organization))
+      create_list(:assembly_member, 3, participatory_space: assembly, organization: assembly.organization)
       visit current_path
     end
 

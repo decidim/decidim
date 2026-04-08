@@ -27,7 +27,6 @@ lv:
         participatory_processes_ids: Saistītie līdzdalības procesi
         participatory_scope: Kas tiek izlemts
         participatory_structure: Kā tas tiek izlemts
-        private_space: Privātā telpa
         promoted: Izcelts
         published_at: Publicēts plkst.
         purpose_of_action: Darbības mērķis
@@ -73,12 +72,9 @@ lv:
         edit:
           update: Atjaunināt
         index:
-          private: Privāts
-          public: Publisks
           published: Publicēts
         new:
           create: Izveidot
-          title: Jauna asambleja
         update:
           error: Šīs asamblejas atjaunināšanas laikā radās problēma.
           success: Asambleja ir veiksmīgi atjaunināta.
@@ -97,8 +93,6 @@ lv:
           success: Administrators ir veiksmīgi noņemts no šīs asamblejas.
         edit:
           update: Atjaunināt
-        index:
-          assembly_admins_title: Asamblejas administratori
         new:
           create: Izveidot
         update:
@@ -117,7 +111,6 @@ lv:
         assembly:
           fields:
             created_at: Izveidots plkst.
-            private: Privāts
             promoted: Izcelts
             published: Publicēts
             title: Nosaukums
@@ -140,7 +133,6 @@ lv:
             collaborator: Līdzizstrādātājs
             moderator: Moderators
       titles:
-        assemblies: Asambleja
         assemblies_types: Asambleju veidi
     admin_log:
       assembly:
@@ -183,9 +175,6 @@ lv:
         filters:
           names:
             all: Visi
-      assembly_members:
-        index:
-          members: Dalībnieki
       content_blocks:
         highlighted_assemblies:
           name: Izceltās asamblejas
@@ -211,10 +200,6 @@ lv:
             member_of: Dalībnieks
       show:
         duration: Ilgums
-        private_space: Šī ir privāta asambleja
-    assembly_members:
-      index:
-        title: Dalībnieki
     events:
       assemblies:
         create_assembly_member:

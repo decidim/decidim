@@ -68,7 +68,6 @@ hu:
             invalid: Probléma történt a projekt létrehozása során.
             success: Projekt létrehozása sikeres.
           edit:
-            title: Projekt szerkesztése
             update: Frissítés
           index:
             actions: Műveletek
@@ -87,7 +86,6 @@ hu:
             update_budget_button: A projekt költségvetésének frissítése
           new:
             create: Létrehozás
-            title: Új projekt
           update:
             invalid: Probléma történt a projekt frissítése során.
             success: Projekt frissítése sikeres.

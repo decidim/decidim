@@ -184,7 +184,6 @@ bg:
           alert: 'Задължително: Прегледайте нашите административни условия за ползване'
           callout: Моля, отделете малко време, за да прегледате административните условия за ползване. В противен случай, няма да можете да администрирате платформата.
           cta: Прегледайте ги сега.
-        title: Административни условия на услугата
       area_types:
         create:
           error: Възникна проблем при създаването на нов тип област.
@@ -226,8 +225,6 @@ bg:
         edit:
           title: Редактиране на папка
           update: Актуализация
-        index:
-          attachment_collections_title: Папки с прикачени файлове
         new:
           create: Създаване
           title: Нова папка
@@ -243,8 +240,6 @@ bg:
         edit:
           title: Редактиране на прикачения файл
           update: Актуализация
-        index:
-          attachments_title: Прикачени файлове
         new:
           create: Създаване на прикачен файл
           title: Нов прикачен файл
@@ -295,7 +290,6 @@ bg:
           title: 'Добавяне на компонент: %{name}'
         publish:
           success: Компонентът беше публикуван успешно.
-        title: Компоненти
         unpublish:
           success: Публикацията на компонента беше премахната успешно.
         update:
@@ -310,7 +304,6 @@ bg:
         'false': 'Не'
         managed_user_name: Управляван потребител
         solved: Разрешен случай
-        title: Проверка на конфликти
         transfer:
           email: Имейл
           error: Възникна проблем при прехвърлянето на текущия участник към управляван участник.
@@ -450,7 +443,6 @@ bg:
           impersonate: Имитирай
           impersonate_existing_managed_user: Управление на участник „%{name}“
           impersonate_existing_user: Управление на участник „%{name}“
-          impersonate_new_managed_user: Управление на нов участник
       imports:
         and: и
         data_errors:
@@ -503,7 +495,6 @@ bg:
         promotions:
           new:
             explanation: Управляваните участници могат да бъдат повишавани до стандартни участници. Това означава, че ще бъдат поканени в приложението и повече няма да можете да ги управлявате. Поканеният участник ще получи имейл, за да приеме поканата Ви.
-            new_managed_user_promotion: Ново повишение на управляван участник
             promote: Повишаване
       members_csv_imports:
         new:
@@ -650,7 +641,6 @@ bg:
           title: Шаблони за бюлетин
           use_template: Използване на този шаблон
         show:
-          preview: 'Визуализация на шаблона: %{template_name}'
           use_template: Използване на този шаблон
       newsletters:
         create:
@@ -697,7 +687,6 @@ bg:
         send_to_user:
           sent_successfully: Бюлетинът е изпратен успешно до %{email}
         show:
-          preview: Преглед
           select_recipients_to_deliver: Изберете получатели, на които да бъде доставено
           send_me_a_test_email: Изпратете ми тестов e-mail
           subject: Относно
@@ -764,7 +753,6 @@ bg:
           up: Горе
         form:
           add: Добави в листа с позволени
-          title: Лист с позволени външни домейни
       reminders:
         create:
           error: Възникна проблем при създаването на напомняния.
@@ -894,22 +882,11 @@ bg:
         actions:
           new_taxonomy_filter: Нов класификационен филтър
       titles:
-        admin_log: Администраторски регистри
-        area_types: Типове области
         areas: Области
         authorization_workflows: Методи за проверка
-        dashboard: Контролен панел
-        edit_external_domains: Лист с позволени външни домейни
-        impersonatable_users: Управляеми участници
-        impersonations: Управление на участниците
         menu: Меню
-        page_topics: Tеми
-        pages: Страници
         panel: Администратор
-        participants: Участници
-        scope_types: Типове на обхвата
         scopes: Обхвати
-        users: Администратори
       users:
         create:
           error: Възникна проблем с поканата на този администратор.

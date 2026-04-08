@@ -177,7 +177,6 @@ fi:
         card_g: Kortti G
         card_l: Kortti L
         card_s: Kortti S
-        collaborative_draft_l: Yhteistyöluonnos L
         colors: Värit
         compact: Tiivis näkymä
         compact_description: Tämä laatijaelementin versio on yleisin tapa tunnistaa tietueiden laatija.

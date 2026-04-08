@@ -159,7 +159,6 @@ cs:
           create: Vytvořit
           title: Vytvořit novou debatu
         orders:
-          commented: Nejvíce komentované
           label: Řazení debat podle
           random: Náhodné pořadí
           recent: Nejnovější

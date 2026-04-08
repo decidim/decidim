@@ -26,7 +26,6 @@ is-IS:
       meeting_copies:
         new:
           copy: Afrita
-          title: Afrita fundi
     components:
       meetings:
         actions:

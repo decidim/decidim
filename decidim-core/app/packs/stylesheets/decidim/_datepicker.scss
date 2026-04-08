@@ -102,14 +102,6 @@
     @apply absolute z-30 bottom-2 right-1;
   }
 
-  &__pick-calendar {
-    @apply absolute z-30 bottom-2 right-16 mr-1;
-
-    &:disabled {
-      @apply bg-gray;
-    }
-  }
-
   &__close-clock {
     @apply absolute z-30 bottom-2 right-1;
   }

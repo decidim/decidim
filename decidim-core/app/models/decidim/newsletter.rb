@@ -50,8 +50,8 @@ module Decidim
       extended_data["participatory_space_types"]
     end
 
-    def sent_to_private_members?
-      extended_data["send_to_private_members"]
+    def sent_to_members?
+      extended_data["send_to_members"]
     end
 
     def template

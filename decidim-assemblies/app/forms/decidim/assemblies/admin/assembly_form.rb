@@ -44,10 +44,9 @@ module Decidim
         attribute :participatory_processes_ids, Array[Integer]
         attribute :weight, Integer, default: 0
 
+        attribute :access_mode, String, default: :open
         attribute :has_members, Boolean
-        attribute :is_transparent, Boolean
         attribute :promoted, Boolean
-        attribute :private_space, Boolean
 
         attribute :closing_date, Decidim::Attributes::LocalizedDate
         attribute :creation_date, Decidim::Attributes::LocalizedDate
@@ -70,6 +69,9 @@ module Decidim
         validates :hero_image, passthru: { to: Decidim::Assembly }
 
         validates :weight, presence: true
+
+        validates :access_mode, presence: true, inclusion: { in: Decidim::Assembly.access_modes.keys }
+        validate :ensure_access_mode_for_has_members
 
         alias organization current_organization
 
@@ -121,6 +123,10 @@ module Decidim
                         .any?
 
           errors.add(:slug, :taken)
+        end
+
+        def ensure_access_mode_for_has_members
+          self.access_mode = :open if has_members == false
         end
       end
     end

@@ -32,6 +32,7 @@ sv:
         comments_enabled: Aktivera kommentarer
         custom_signature_end_date_enabled: Gör det möjligt för författarna att välja när perioden för insamling av underskrifter ska sluta
         description: Beskrivning
+        document_number_authorization_handler: Arbetsflöde för signatur
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta antal kampanjmedlemmar
         online_signature_enabled: Digitala signaturer är aktiverade
@@ -75,7 +76,7 @@ sv:
   decidim:
     admin:
       actions:
-        cannot_answer: Kan inte svara på detta initiativ
+        cannot_answer: Det går inte att svara på initiativet
         new_initiative_type: Ny initiativtyp
         new_initiative_type_scope: Skapa indelning för initiativ
       filters:
@@ -108,8 +109,6 @@ sv:
         initiatives_menu:
           see_initiative: Visa initiativ
         initiatives_settings: Inställningar
-        initiatives_submenu:
-          info: Om det här initiativet
         initiatives_types: Initiativtyper
         moderations: Moderering
       models:
@@ -122,10 +121,10 @@ sv:
             title: Initiativ
         initiatives_committee_member:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
         initiatives_type_scope:
           fields:
-            actions: Handlingar
+            actions: Åtgärder
             scope: Indelning
             supports_required: Antal underskrifter som krävs
           name: Indelning för initiativtypen
@@ -149,13 +148,11 @@ sv:
             name_and_surname: Namn och efternamn
             nickname: Användarnamn
             postal_code: Postnummer
+            signature_count: Antal underskrifter
             timestamp: Tidsstämpel
       taxonomy_filters:
         space_filter_for:
           initiatives: Alla initiativ
-      titles:
-        initiatives: Initiativ
-        initiatives_types: Typer av initiativ
     download_your_data:
       show:
         initiatives: Exportera initiativ
@@ -280,6 +277,8 @@ sv:
             success: Initiativet har publicerats.
           reject:
             success: Initiativet har avvisats.
+          unpublish:
+            success: Initiativet har avpublicerats.
           update:
             error: Det gick inte att uppdatera initiativet.
             success: Initiativet har uppdaterats.
@@ -292,7 +291,6 @@ sv:
             publication_date: Senast publicerade
             random: Slumpvis
             signatures: Flest underskrifter
-            title: Inställningar för initiativ
         initiatives_type_scopes:
           create:
             error: Det gick inte att skapa ett nytt utrymme för initiativet.
@@ -320,6 +318,7 @@ sv:
             child_scope_threshold_enabled_help_html: 'Den här konfigurationen har inte stöd för offline-röster. Den aktiverar indelningar och fungerar med en auktorisering som associerar ett utrymme till användaren. Kontrollera att du väljer den auktoriseringen, nedan i auktoriseringsinställningar. För att det ska fungera måste indelningen konfigureras på ett hierarkiskt sätt: 1 Förälder - N barn. För mer information om hur denna konfiguration fungerar, se <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">initiativs admindokumentationssida</a>.'
             only_global_scope_enabled_help_html: Välj den här om du aktiverade "Child scope signatur" och konfigurerade den globala indelningen som din överordnade indelning. Genom att aktivera detta kommer man att hoppa över valet av initiativtyp i guiden för att skapa initiativ. För mer information om hur denna konfiguration fungerar, se denna <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">länk</a>.
             options: Alternativ
+            signature_workflow_settings: Inställningar för underskrifter
           initiative_type_scopes:
             title: Indelning för initiativtypen
           new:
@@ -342,6 +341,7 @@ sv:
           update: "%{user_name} uppdaterade initiativtypen %{resource_name}"
       admin_states:
         accepted: Tillräckligt många underskrifter
+        created: Utkast
         discarded: Bortagna
         open: Öppna
         rejected: För få underskrifter
@@ -394,12 +394,20 @@ sv:
         promotal_committee:
           individual_help_text: Ditt initiativ har skapats och sparas som ett utkast. Nu måste du lägga till personer i kampanjgruppen.
           invite_link_title: Länk för att bjuda in personer
+          promoters_committee_help_2: Kom ihåg att för att ditt initiativ ska publiceras måste du fylla i obligatoriska uppgifter och skicka det till teknisk validering för att en administratör ska kunna granska det.
+          promoters_committee_help_html: Innan du skickar ditt initiativ till teknisk validering måste du lägga till %{committee_members_left} till medlemmar i kampanjgruppen, du har <strong>%{committee_members_count}/%{committee_size}</strong>.
+          promoters_committee_title: Kampanjgrupp
+        return_to_initiatives_button:
+          return_initiatives_html: Hoppa över och <a href="%{initiatives_path}">gå tillbaka till initiativ</a>
         select_initiative_type:
           back: Tillbaka
           choose_html: Jag vill skapa ett <strong>%{title}</strong>
+          consult_existing_initiatives: Konsultera befintliga initiativ
+          continue: Spara
           more_information: Mer information
           new: Skapa nytt initiativ
           select: Jag vill arbeta för detta initiativ
+          select_initiative_type_help_html: "<p>Initiativ är ett sätt för deltagare att påverka och ta initiativ till förbättringar. Vilket initiativ vill du starta?</p>"
           show_less: Visa mindre
           show_more: Visa mer
           subtitle: Vilket initiativ vill du stödja?
@@ -625,6 +633,12 @@ sv:
           dummy_signature_with_sms_handler:
             description: Signatur som bara validerar telefonnummer som letar efter en befintlig auktorisering associerad och kontrollerar SMS-kod
             name: Dummy signaturhanterare med endast SMS
+          ephemeral_dummy_signature_handler:
+            description: Underskrift för tillfälliga användare, som använder personlig information från användare, validerar auktorisering och kontrollerar SMS-kod
+            name: Exempel-underskrift från tillfällig användare
+          legacy_signature_handler:
+            description: Underskriftshantering baserad på den gamla signaturfunktionen inklusive insamling av personuppgifter, SMS-steget och validering av auktoriseringen med dummy_authorization_handler. Ändra vilken parameter som helst för att anpassa till den konfiguration som används
+            name: Äldre signaturhanterare
       states:
         accepted: Godkända
         expired: Utgångna
@@ -637,6 +651,27 @@ sv:
     open_data:
       help:
         initiatives:
+          answer: Svar på initiativet (om det fått något)
+          answer_url: Webbadressen till svaret (om det finns)
+          answered_at: Datum för svaret (om det finns)
+          area: Område för initiativ
+          authors: Författare till initiativet
+          comments_count: Antal kommentarer till initiativet
+          created_at: Datum när utrymmet skapades
+          description: Beskrivning av initiativet
+          first_progress_notification_at: Datum då det första resultatet skapades
+          follows_count: Antal följare
+          offline_votes: Antal underskrifter som initiativet fått utanför plattformen
+          online_votes: Antal digitala underskrifter som initiativet fått (från den här plattformen)
+          published_at: Publiceringsdatum för utrymmet
+          reference: Unikt id för initativ
+          scope: Omfattning för initiativ
+          second_progress_notification_at: Datum då det andra resultatet skapades
+          signature_end_date: Datum när insamling av underskrifter slutar
+          signature_start_date: Datum när insamling av underskrifter börjar
+          signature_type: Typ av underskrifter (digitala eller fysiska)
+          signatures: Antalet underskrifter av initiativet
+          state: Aktuell status för initiativet
           title: Titeln på initiativet
           type: Typ av initiativ
           updated_at: Senaste datum när utrymmet uppdaterades
@@ -652,7 +687,7 @@ sv:
           title: Åtgärder
     statistics:
       initiatives_count: Initiativ
-      initiatives_count_tooltip: Antalet offentliggjorda medborgarinitiativ.
+      initiatives_count_tooltip: Antalet publicerade medborgarinitiativ.
   layouts:
     decidim:
       initiative_creation_header:
@@ -660,6 +695,9 @@ sv:
         finish: Teknisk validering
         promotal_committee: Hitta kampanjgrupp
         select_initiative_type: Välj
+      initiative_signature_creation_header:
+        help_information_html: För att underteckna initiativet <strong>%{initiative_title}</strong> från %{initiative_author} behöver du tillhandahålla uppgifter för att underskriften ska vara juridiskt giltig. Ingen information om dig kommer att offentliggöras.
+        verify_your_identity: Verifiera din identitet
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Inga initiativ ännu!
