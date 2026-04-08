@@ -73,6 +73,8 @@ de:
           attributes:
             document:
               allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}.'
+              empty: Das Dokument ist leer
+              invalid_json: Das Dokument ist kein gültiges JSON
   activerecord:
     models:
       decidim/assembly:
@@ -99,6 +101,10 @@ de:
         edit:
           update: Aktualisieren
         index:
+          access_modes:
+            open: Offen
+            restricted: Eingeschränkt
+            transparent: Öffentlich sichtbar
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
         new:
@@ -165,6 +171,7 @@ de:
       models:
         assembly:
           fields:
+            access_mode: Zugriffsmodus
             actions: Aktionen
             created_at: Erstellt am
             promoted: Hervorgehoben
@@ -232,6 +239,13 @@ de:
           edit:
             title: Über dieses Gremium
           form:
+            access:
+              label: Zugriff
+              options:
+                open: Jeder kann die Versammlung sehen und teilnehmen.
+                restricted: Nur Mitglieder können sehen und teilnehmen.
+                transparent: Jeder kann die Versammlung sehen, aber nur die Mitglieder können teilnehmen.
+              set_this_space_as: Setze diesen Bereich als
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Aktiv bis
             duration_help: Wenn die Dauer dieses Gremiums begrenzt ist, dann wählen Sie hier das Enddatum aus. Andernfalls wird das Datum als unbestimmt angezeigt.
@@ -250,9 +264,15 @@ de:
             visibility: Sichtbarkeit
           index:
             title: Gremien
+          manage_trash:
+            title: Gelöschte Gremien
+          new:
+            title: Neues Gremium
         assembly_duplicates:
           form:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
+          new:
+            title: Gremium duplizieren
         assembly_imports:
           form:
             document_legend: Dokument hinzufügen
