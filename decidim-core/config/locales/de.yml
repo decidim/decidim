@@ -1040,6 +1040,8 @@ de:
           explanation: 'Anleitung für Bild:'
           message_1: Vorzugsweise ein Bild im Querformat, das keinen Text enthält.
           message_2: Der Dienst schneidet die Datei zu.
+        import_file:
+          message_1: Muss ein JSON-Dokument sein, das über die Exportfunktion heruntergeladen wurde.
       file_validation:
         allowed_file_extensions: 'Erlaubte Dateiformate: %{extensions}'
         max_file_dimension: 'Maximale Dateigröße: %{resolution} Pixel'
@@ -1144,6 +1146,12 @@ de:
         update_permissions_with_space: "%{user_name} hat die Berechtigungen für %{resource_name} in %{space_name} aktualisiert"
         update_with_space: "%{user_name} hat %{resource_name} in %{space_name} aktualisiert"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Offen
+            restricted: Eingeschränkt
+            transparent: Öffentlich sichtbar
+          not_found: Zugriffsmodus %{id} nicht gefunden
         area_presenter:
           not_found: 'Der Bereich wurde nicht in der Datenbank gefunden (ID: %{id})'
         area_type_presenter:
@@ -1274,9 +1282,13 @@ de:
         same_language: Der Inhalt wurde in Ihrer bevorzugten Sprache (%{language}) veröffentlicht, daher wird in dieser E-Mail keine automatisierte Übersetzung angezeigt.
         translated_text: 'Automatisch übersetzter Text:'
     notifications:
+      action_error: Beim Aktualisieren der Benachrichtigungseinstellungen ist ein Fehler aufgetreten.
       no_notifications: Noch keine Benachrichtigungen
       show:
+        deleted: Inhalt wurde vom Autor gelöscht.
         missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
+        moderated: Inhalt wurde durch Moderation versteckt.
+        not_available: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Es ist keine weitere Aktion erforderlich.
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung
@@ -1285,6 +1297,7 @@ de:
       hello: Hallo %{name}
       intro:
         daily: 'Dies sind die Benachrichtigungen vom letzten Tag basierend auf den Aktivitäten, denen Sie folgen:'
+        real_time: 'Es gibt eine Benachrichtigung über die Aktivität, die Sie folgen:'
         weekly: 'Dies sind die Benachrichtigungen der letzten Woche, basierend auf den Aktivitäten, die Sie folgen:'
       outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Inhalt oder seine Verfassenden folgen. Sie können dem Inhalt direkt auf seiner Seite entfolgen.
       see_more: Weitere Benachrichtigungen ansehen
@@ -1427,7 +1440,9 @@ de:
           title: Wie man diese Dateien öffnet und mit ihnen arbeitet
         license:
           body_1_html: Diese Datenbank von %{organization_name} wird unter %{link_database} zur Verfügung gestellt. Alle Rechte an einzelnen Inhalten der Datenbank sind unter %{link_contents} lizenziert.
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Lizenz für Datenbankinhalte
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Offene Datenbanklizenz
           title: Lizenz
         title: Offene Daten
@@ -1505,6 +1520,10 @@ de:
     participatory_space_members:
       index:
         members: Mitglieder
+    participatory_spaces:
+      show:
+        restricted_space: Dies ist ein eingeschränkter Bereich. Nur Mitglieder können ihn sehen und teilnehmen.
+        transparent_space: Dies ist ein öffentlich sichtbarer Bereich. Alle können die Inhalte einsehen, aber nur Mitglieder können teilnehmen.
     passwords:
       update:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
@@ -1713,8 +1732,22 @@ de:
       notify_deprecation_to_owner:
         body_1: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
         body_2: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
+        body_3: Um weiterhin auf Ihr Konto zuzugreifen und den Zugriff freizugeben, müssen Sie ein Passwort festlegen. Sobald gesetzt, können Sie die Anmeldedaten (E-Mail und Passwort) an jeden weitergeben.
         greeting: Hallo %{name},
+        instructions_1: 'Klicken Sie auf den Link unten, um Ihr Passwort zu setzen:'
+        instructions_2: 'Teilen Sie die Anmeldedaten (E-Mail: %{email} und das neue Passwort) mit Ihren Kollegen.'
+        instructions_title: "<strong>Was sie tun müssen</strong>"
         set_password: Passwort festlegen
+        subject: Wichtige Aktualisierung für Ihr Gruppenprofil
+      notify_user_group_patched:
+        body_1_html: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
+        body_2_html: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
+        body_3_html: Um weiterhin auf Ihr Konto zuzugreifen und den Zugriff freizugeben, müssen Sie eine neue E-Mail und ein neues Passwort setzen. Bitte beachten Sie, dass jedes Mitglied deiner Gruppe diese E-Mail erhält. Um den weiteren Zugriff sicherzustellen, müssen Sie sich intern auf die gemeinsamen Zugangsdaten (E-Mail und Passwort) einigen, die jeder verwenden wird.
+        greeting: Hallo %{name},
+        instructions_1_html: 'Verwenden Sie die folgenden temporären Anmeldeinformationen, um sich einzuloggen: <br><br> Benutzername: <strong>%{email}</strong> <br> Passwort: <strong>%{password}</strong><br><br>'
+        instructions_2_html: Geben Sie eine neue E-Mail-Adresse und ein Passwort ein.
+        instructions_3_html: Teilen Sie die ausgewählten Anmeldedaten mit Ihren Kollegen, damit die gesamte Gruppe weiterhin auf das Konto zugreifen kann.
+        instructions_title_html: "<strong>Was Sie tun müssen</strong>"
         subject: Wichtige Aktualisierung für Ihr Gruppenprofil
     user_report_mailer:
       notify:
@@ -1765,6 +1798,7 @@ de:
       send_paranoid_instructions: Wenn Ihre E-Mail-Adresse in unserer Datenbank vorhanden ist, erhalten Sie innerhalb weniger Minuten eine E-Mail mit Anweisungen zur Bestätigung Ihrer E-Mail-Adresse.
     failure:
       already_authenticated: Sie sind bereits angemeldet.
+      csrf_token: Ihre Anfrage konnte nicht verifiziert werden. Bitte versuchen Sie es erneut.
       inactive: Dein Benutzerkonto ist noch nicht aktiviert.
       invalid: Ungültige %{authentication_keys} oder Passwort
       invited: Sie haben eine ausstehende Einladung, akzeptieren Sie sie, um die Erstellung Ihres Kontos abzuschließen.
@@ -1779,6 +1813,7 @@ de:
         nickname_help: Ihr Pseudonym auf %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
         submit_button: Speichern
         subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Kontonamen und Ihr Passwort ein.
+        subtitle_no_password: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Kontonamen ein.
       invitation_removed: Ihre Einladung wurde entfernt.
       invitation_token_invalid: Das angegebene Einladungstoken ist nicht gültig!
       new:
@@ -1786,6 +1821,8 @@ de:
         submit_button: Eine Einladung schicken
       no_invitations_remaining: Keine Einladungen übrig
       send_instructions: Eine Einladungs-E-Mail wurde an %{email}gesendet.
+      updated: Einladung erfolgreich angenommen. Sie sind jetzt angemeldet.
+      updated_not_active: Einladung erfolgreich angenommen.
     mailer:
       confirmation_instructions:
         action: Konto bestätigen
