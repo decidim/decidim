@@ -70,5 +70,31 @@ module Decidim
         )
       end
     end
+
+    context "when user GID is inside an anchor tag" do
+      let(:content) { "<a href=\"#{user.to_global_id}\">Link to user</a>" }
+      let(:profile_path) { Decidim::UserPresenter.new(user).profile_path }
+
+      it "transforms user GID in href to profile path" do
+        fragment = Loofah.fragment(renderer.render)
+        link = fragment.at_css("a")
+
+        expect(link["href"]).to eq(profile_path)
+        expect(link.text).to eq("Link to user")
+      end
+    end
+
+    context "when user GID is inside an anchor tag in editor mode" do
+      let(:content) { "<a href=\"#{user.to_global_id}\">Link to user</a>" }
+      let(:profile_path) { Decidim::UserPresenter.new(user).profile_path }
+
+      it "transforms user GID in href to profile path in editor mode" do
+        fragment = Loofah.fragment(renderer.render(editor: true))
+        link = fragment.at_css("a")
+
+        expect(link["href"]).to eq(profile_path)
+        expect(link.text).to eq("Link to user")
+      end
+    end
   end
 end
