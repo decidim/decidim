@@ -222,7 +222,7 @@ describe "Respond a survey" do
     let(:router) { Decidim::EngineRouter.main_proxy(component) }
 
     it "shows action log entry" do
-      page.visit decidim.profile_activity_path(nickname: user.nickname)
+      page.visit decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale)
       expect(page).to have_content("New survey: #{translated(survey.questionnaire.title)}")
       expect(page).to have_content(translated(survey.component.participatory_space.title))
       expect(page).to have_link(translated(survey.questionnaire.title), href: router.survey_path(survey))

@@ -7,7 +7,7 @@ shared_examples "hideable resource during block" do
 
   let!(:admin) { create(:user, :confirmed, :admin, organization:) }
   let(:reportable) { create(:user, :confirmed, organization:) }
-  let(:reportable_path) { decidim.profile_path(reportable.nickname) }
+  let(:reportable_path) { decidim.profile_path(reportable.nickname, locale: I18n.locale) }
 
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:dummy_component, participatory_space: participatory_process) }

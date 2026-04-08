@@ -56,6 +56,23 @@ describe "Redirect routes" do
     end
   end
 
+  context "when visiting profile pages" do
+    let!(:user) { create(:user, :confirmed, nickname: "my_user", organization:) }
+
+    it_behaves_like "redirects to the new url", "profiles/my_user/activity" do
+      it "redirects old url with query string with missing locale" do
+        page_with_query_string = "/profiles/my_user/activity?filter[resource_type]=Decidim::Comments::Comment&page=2&per_page=50"
+        get(page_with_query_string, headers:)
+        expect(response).to have_http_status(:moved_permanently)
+        expect(response).to redirect_to("/en#{page_with_query_string}")
+      end
+    end
+
+    it_behaves_like "redirects to the new url", "profiles/my_user/badges"
+    it_behaves_like "redirects to the new url", "profiles/my_user/following"
+    it_behaves_like "redirects to the new url", "profiles/my_user/followers"
+  end
+
   context "when browsing search" do
     it_behaves_like "redirects to the new url", "search" do
       it "redirects old url with query string with missing locale" do

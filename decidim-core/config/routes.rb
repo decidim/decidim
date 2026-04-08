@@ -106,14 +106,6 @@ Decidim::Core::Engine.routes.draw do
     }
   end
 
-  resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^/]+} }, format: false
-  scope "/profiles/:nickname", format: false, constraints: { nickname: %r{[^/]+} } do
-    get "following", to: "profiles#following", as: "profile_following"
-    get "followers", to: "profiles#followers", as: "profile_followers"
-    get "badges", to: "profiles#badges", as: "profile_badges"
-    get "activity", to: "user_activities#index", as: "profile_activity"
-  end
-
   scope :timeouts do
     post "heartbeat", to: "timeouts#heartbeat"
     get "seconds_until_timeout", to: "timeouts#seconds_until_timeout"
@@ -121,11 +113,20 @@ Decidim::Core::Engine.routes.draw do
 
   scope "/:locale" do
     resources :pages, only: [:index, :show], format: false
-    resources :last_activities, only: [:index]
+
+    resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^/]+} }, format: false
+    scope "/profiles/:nickname", format: false, constraints: { nickname: %r{[^/]+} } do
+      get "following", to: "profiles#following", as: "profile_following"
+      get "followers", to: "profiles#followers", as: "profile_followers"
+      get "badges", to: "profiles#badges", as: "profile_badges"
+      get "activity", to: "user_activities#index", as: "profile_activity"
+    end
+
     get "/open-data", to: "open_data#index", as: :open_data
     get "/open-data/download", to: "open_data#download", as: :open_data_download
     get "/open-data/download/:resource", to: "open_data#download", as: :open_data_download_resource
     get "/search", to: "searches#index", as: :search
+    resources :last_activities, only: [:index]
     namespace :gamification do
       resources :badges, only: [:index]
     end
@@ -133,7 +134,9 @@ Decidim::Core::Engine.routes.draw do
 
   get "/last_activities", to: redirect { |params, request|
     locale = Decidim::LocaleRouterDetector.new(request, params).locale
-
+    # Handle explicitly the query strings, as we have some filters and pagination on the last activity page.
+    # We need to handle URLs like
+    # https://nightly.decidim.org/last_activities?filter[with_resource_type]=Decidim::Comments::Comment&page=2
     query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
     query_string.delete("locale")
     query_string = CGI.unescape(query_string.to_query)
@@ -146,6 +149,9 @@ Decidim::Core::Engine.routes.draw do
   get "/search", to: redirect { |params, request|
     locale = Decidim::LocaleRouterDetector.new(request, params).locale
 
+    # Handle explicitly the query strings, as we have some filters and pagination on the search page.
+    # We need to handle URLs like
+    # https://nightly.decidim.org/search?filter[term]=&filter[with_resource_type]=Decidim::Comments::Comment&filter[with_scope]&page=2&per_page=50
     query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
     query_string.delete("locale")
     query_string = CGI.unescape(query_string.to_query)
@@ -177,6 +183,21 @@ Decidim::Core::Engine.routes.draw do
   get "/open-data", to: redirect { |params, request|
     locale = Decidim::LocaleRouterDetector.new(request, params).locale
     "/#{locale}/open-data"
+  }
+
+  get "/profiles/*rest", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+
+    # Handle explicitly the query strings, as we have some filters and pagination on the activity tab.
+    # We need to handle URLs like
+    # https://nightly.decidim.org/profiles/visitant_bqqppvus/activity?filter[resource_type]=Decidim::Initiative
+    query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
+    query_string.delete("locale")
+    query_string = CGI.unescape(query_string.to_query)
+
+    path = "/#{locale}/profiles/#{params[:rest]}"
+    path += "?#{query_string}" unless query_string.empty?
+    path
   }
 
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
