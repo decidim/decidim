@@ -23,7 +23,7 @@ describe "Edit proposals" do
       login_as user, scope: :user
     end
 
-    context "and I empty the form" do
+    context "and empties the form" do
       it "allows submission and show errors" do
         visit_component
 

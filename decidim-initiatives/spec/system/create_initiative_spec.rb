@@ -605,7 +605,7 @@ describe "Initiative" do
           end
         end
 
-        context "and empties the form" do
+        context "with an empty form" do
           let!(:other_initiative_type) { nil }
           let!(:other_initiative_type_scope) { nil }
 
