@@ -14,6 +14,7 @@ module Decidim
 
     let(:user) { create(:user) }
     let(:renderer) { renderer_class.new(content) }
+    let(:profile_path) { Decidim::UserPresenter.new(user).profile_path }
 
     describe "#render" do
       context "when content has a valid resource GID" do
@@ -56,12 +57,11 @@ module Decidim
           "<a href=\"#{user.to_global_id}\">User link</a>"
         end
 
-        it "converts resource GID in href to display mention" do
+        it "converts resource GID in href to profile path" do
           rendered = Loofah.fragment(renderer.render)
           link = rendered.at_css("a")
 
-          # In attributes, ResourceRenderer produces display_mention which includes the nickname
-          expect(link["href"]).to include(user.nickname)
+          expect(link["href"]).to eq(profile_path)
         end
       end
 

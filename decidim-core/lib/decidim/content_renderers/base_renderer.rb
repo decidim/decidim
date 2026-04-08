@@ -12,7 +12,7 @@ module Decidim
     class BaseRenderer
       include Decidim::ContentProcessor::Common
 
-      ReplacementContext = Struct.new(:placement, :node_name, :attribute_name, :ancestor_names, keyword_init: true) do
+      ReplacementContext = Struct.new(:placement, :node_name, :attribute_name, :ancestor_names, keyword_init: true) do # rubocop:disable Style/RedundantStructKeywordInit
         def text?
           placement == :text
         end
@@ -49,6 +49,10 @@ module Decidim
 
       def replace_pattern_by_context(text, pattern, skip_ancestor_tags: %w(code pre script style), on_missing: "")
         return text unless text.respond_to?(:gsub)
+        skip_ancestor_tags = Array(skip_ancestor_tags).map(&:to_s)
+
+        has_match = pattern.is_a?(String) ? text.include?(pattern) : pattern.match?(text)
+        return text unless has_match
 
         fragment = html_fragment(text)
         replace_pattern_in_attributes(fragment, pattern, skip_ancestor_tags:, on_missing:) do |match, context|

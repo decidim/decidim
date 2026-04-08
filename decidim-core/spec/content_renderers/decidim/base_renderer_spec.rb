@@ -6,8 +6,10 @@ module Decidim
   describe ContentRenderers::BaseRenderer do
     let(:renderer_class) do
       Class.new(described_class) do
-        def render(skip_ancestor_tags: %w(code pre script style))
-          replace_pattern_by_context(content, /TOKEN/, skip_ancestor_tags:) do |_match, context|
+        def render(skip_ancestor_tags: %w(code pre script style), on_missing: "", raise_on_match: false)
+          replace_pattern_by_context(content, /TOKEN/, skip_ancestor_tags:, on_missing:) do |_match, context|
+            raise ActiveRecord::RecordNotFound if raise_on_match
+
             context.attribute? ? "ATTR" : "<strong>TEXT</strong>"
           end
         end
@@ -22,7 +24,7 @@ module Decidim
           <<~HTML.squish
             <p>TOKEN</p>
             <a href="TOKEN">link</a>
-            <code data-reference="TOKEN">TOKEN</code>
+            <code data-reference="TOKEN"><span data-reference="TOKEN">TOKEN</span></code>
             <pre>TOKEN</pre>
             <script>var token = "TOKEN";</script>
             <style>.sample{content:"TOKEN";}</style>
@@ -41,6 +43,8 @@ module Decidim
 
           expect(rendered.at_css("code").text).to eq("TOKEN")
           expect(rendered.at_css("code")["data-reference"]).to eq("TOKEN")
+          expect(rendered.at_css("code span").text).to eq("TOKEN")
+          expect(rendered.at_css("code span")["data-reference"]).to eq("TOKEN")
           expect(rendered.at_css("pre").text).to eq("TOKEN")
           expect(rendered.at_css("script").text).to include("TOKEN")
           expect(rendered.at_css("style").text).to include("TOKEN")
@@ -60,6 +64,20 @@ module Decidim
 
           expect(rendered.at_css("blockquote").text).to eq("TOKEN")
           expect(rendered.at_css("code > strong").text).to eq("TEXT")
+        end
+      end
+
+      context "when replacement raises RecordNotFound" do
+        let(:content) { "<p>TOKEN</p>" }
+
+        it "uses static on_missing fallback" do
+          expect(renderer.render(raise_on_match: true, on_missing: "MISSING")).to eq("<p>MISSING</p>")
+        end
+
+        it "uses callable on_missing fallback" do
+          on_missing = ->(match, _context) { "missing:#{match.downcase}" }
+
+          expect(renderer.render(raise_on_match: true, on_missing:)).to eq("<p>missing:token</p>")
         end
       end
     end

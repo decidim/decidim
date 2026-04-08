@@ -41,7 +41,7 @@ module Decidim
           HTML
         end
 
-        it "Does nothing" do
+        it "does nothing" do
           expect(subject).to match(%(<p>#{proposal_url}</p>))
         end
       end
@@ -79,7 +79,7 @@ module Decidim
           HTML
         end
 
-        it "Does not transform GIDs inside anchor tags with different href attributes" do
+        it "does not transform GIDs inside anchor tags with different href attributes" do
           expect(subject).to match(%(<p><a href="#{proposal_url}">Link to proposal</a></p>))
         end
       end

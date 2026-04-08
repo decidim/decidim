@@ -34,8 +34,9 @@ module Decidim
 
       def replace_pattern(text, pattern)
         replace_pattern_by_context(text, pattern) do |match, _context|
-          blob_gid = match.match(GLOBAL_ID_REGEX)[1]
-          variation_key = match.match(GLOBAL_ID_REGEX)[3]
+          match_data = match.match(GLOBAL_ID_REGEX)
+          blob_gid = match_data[1]
+          variation_key = match_data[3]
 
           blob = GlobalID::Locator.locate(blob_gid)
           if variation_key
