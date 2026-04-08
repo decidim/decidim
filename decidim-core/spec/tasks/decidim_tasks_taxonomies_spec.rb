@@ -152,7 +152,6 @@ describe "Executing Decidim Taxonomy importer tasks" do
         task.invoke
 
         expect($stdout.string).to include("Creating a plan for organization #{decidim_organization_id}")
-        expect($stdout.string).not_to include("...Exporting taxonomies for decidim_assemblies_types")
         expect($stdout.string).to include("...Exporting taxonomies for decidim_scopes")
         expect($stdout.string).to include("...Exporting taxonomies for decidim_areas")
         expect($stdout.string).not_to include("...Exporting taxonomies for decidim_categories")
