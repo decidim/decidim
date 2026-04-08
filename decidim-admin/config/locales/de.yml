@@ -356,6 +356,7 @@ de:
           text: Duchsuche nach aktueller E-Mail-Adresse, Name oder Spitzname
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
+        title: Verifizierungskonflikte
         transfer:
           email: E-Mail
           error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
@@ -912,6 +913,7 @@ de:
           up: Nach oben
         form:
           add: Zur erlaubten Liste hinzufügen
+          title: Liste erlaubter externer Domains
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -1216,9 +1218,12 @@ de:
           none: Keine
           title: Neues Element in %{taxonomy}
       titles:
+        admin_log: Adminprotokoll
         area_types: Bereichstypen
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
+        dashboard: Dashboard
+        edit_external_domains: Liste erlaubter externer Domains
         impersonations: Benutzerverwaltung
         menu: Menü
         page_topics: Themen
@@ -1229,6 +1234,8 @@ de:
         scopes: Bereiche
         statistics: Statistiken
         taxonomies: Taxonomien
+        taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
+        users: Admins
       tooltips:
         cannot_destroy_taxonomy_filter: Klassifizierungsfilter kann nicht gelöscht werden
         cannot_edit_taxonomy_filter: Klassifizierungsfilter kann nicht bearbeitet werden
