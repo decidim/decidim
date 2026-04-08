@@ -80,7 +80,11 @@ de:
         hide_replies:
           one: Antwort verbergen
           other: '%{count} Antworten verbergen'
+        load_replies: Antworten laden
         moderated_at: Kommentar moderiert am %{date}
+        replies_count:
+          one: "%{count} Antwort"
+          other: "%{count} Antworten"
         reply: Antworten
         report:
           action: Melden
@@ -112,7 +116,9 @@ de:
         blocked_comments_warning: Kommentare sind derzeit deaktiviert. Nur Admins können antworten oder neue Kommentare verfassen.
         comment_details_title: Kommentarinformationen
         in_favor: Zustimmend
+        load_more_comments: Weitere Kommentare laden
         loading: Kommentare werden geladen ...
+        no_comments_yet: Noch keine Kommentare
         single_comment_warning: <a href="%{url}">Alle Kommentare anzeigen</a>
         single_comment_warning_title: Ihnen wird ein einzelner Kommentar angezeigt
         title:
