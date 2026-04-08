@@ -129,6 +129,9 @@ gl:
             votes_enabled: Votos habilitados
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Aceptar
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} foi aceptado para acceder como colaborador do %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceptado <strong>para acceder como contribuínte</strong> do borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.
@@ -324,89 +327,6 @@ gl:
           all: Todo
           amendments: Enmendas
           proposals: Propostas
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Produciuse un erro ao publicar o borrador colaborativo.
-            irreversible_action_modal:
-              cancel: Cancelar
-              ok: Publicar como proposta
-              title: A seguinte acción é irreversible
-            success: Proxecto colaborativo publicado con éxito como proposta.
-          withdraw:
-            error: Houbo erros ao pechar o borrador colaborativo.
-            irreversible_action_modal:
-              cancel: Cancelar
-              ok: Retire o borrador colaborativo
-              title: A seguinte acción é irreversible
-            success: Proxecto colaborativo retirado con éxito.
-        create:
-          success: Creouse un borrador colaborativo.
-        edit:
-          back: De volta
-          send: Enviar
-          title: Editar borrador colaborativo
-        filters:
-          all: Todo
-          amendment: Enmendas
-          open: Aberto
-          published: Publicado
-          related_to: Relacionado con
-          search: Busca
-          state: Estado
-          withdrawn: Retirada
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
-        index:
-          count:
-            one: "%{count} borrador colaborativo"
-            other: "%{count} borrador colaborativo"
-        new:
-          add_file: Engadir ficheiro
-          edit_file: Editar ficheiro
-          send: Continuar
-        new_collaborative_draft_button:
-          new_collaborative_draft: Novo borrador colaborativo
-        orders:
-          label: 'Ordenar borradores por:'
-          most_contributed: A maioría contribuíu
-          random: Aleatorio
-          recent: Recentes
-        requests:
-          accepted_request:
-            error: Non se puido aceptar como colaborador, téntao de novo máis tarde.
-          access_requested:
-            error: Non se puido completar a túa solicitude, téntao de novo máis tarde.
-          collaboration_requests:
-            accept_request: Aceptar
-            reject_request: Rexeitar
-            title: Solicitudes de colaboración
-          rejected_request:
-            error: Non se puido rexeitar como colaborador, téntao de novo máis tarde.
-        show:
-          final_proposal: proposta final
-          final_proposal_help_text: Este borrador está rematado. Podes ver a proposta final rematada
-          hidden_authors_count:
-            one: e %{count} persoas máis
-            other: e %{count} persoas máis
-          publish: Publicar
-          publish_info: Publica esta versión do borrador ou
-          published_proposal: proposta publicada
-          request_access: Solicitar acceso
-          requested_access: Acceso solicitado
-          withdraw: retirar o borrador
-        states:
-          open: Aberto
-          published: Publicado
-          withdrawn: Retirada
-        update:
-          error: Produciuse un erro ao gardar o borrador colaborativo.
-          success: Proxecto colaborativo actualizado correctamente.
-        wizard_header:
-          title: Crea o teu borrador colaborativo
       create:
         error: Produciuse un erro ao gardar a proposta.
         success: Proposta creada con éxito. Gardado como borrador.
@@ -454,7 +374,6 @@ gl:
           type: Tipo
         index:
           click_here: Ver todas as propostas
-          collaborative_drafts_list: Acceda a borradores colaborativos
           count:
             one: "%{count} proposta"
             other: "%{count} propostas"
@@ -484,8 +403,9 @@ gl:
           title: Publica a túa proposta
         show:
           answer: Resposta
-          link_to_collaborative_draft_help_text: Esta proposta é o resultado dun borrador colaborativo. Repasa o historial
-          link_to_collaborative_draft_text: Vexa o borrador colaborativo
+          hidden_likes_count:
+            one: e %{count} persoas máis
+            other: e %{count} persoas máis
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'

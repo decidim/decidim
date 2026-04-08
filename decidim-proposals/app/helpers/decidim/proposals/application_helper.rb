@@ -12,7 +12,6 @@ module Decidim
       include ::Decidim::FollowableHelper
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
-      include CollaborativeDraftHelper
       include ControlVersionHelper
       include Decidim::RichTextEditorHelper
       include Decidim::CheckBoxesTreeHelper
@@ -54,37 +53,8 @@ module Decidim
         end
       end
 
-      # Public: The state of a proposal in a way a human can understand.
-      #
-      # state - The String state of the proposal.
-      #
-      # Returns a String.
-      def humanize_collaborative_draft_state(state)
-        I18n.t("decidim.proposals.collaborative_drafts.states.#{state}", default: :open)
-      end
-
-      # Public: The css class applied based on the collaborative draft state.
-      #
-      # state - The String state of the collaborative draft.
-      #
-      # Returns a String.
-      def collaborative_draft_state_badge_css_class(state)
-        case state
-        when "open"
-          "success"
-        when "withdrawn"
-          "alert"
-        when "published"
-          "secondary"
-        end
-      end
-
       def proposal_limit_enabled?
         proposal_limit.present?
-      end
-
-      def not_from_collaborative_draft(proposal)
-        proposal.linked_resources(:proposals, "created_from_collaborative_draft").empty?
       end
 
       def not_from_participatory_text(proposal)
@@ -93,10 +63,9 @@ module Decidim
 
       # If the proposal is official or the rich text editor is enabled on the
       # frontend, the proposal body is considered as safe content; that is unless
-      # the proposal comes from a collaborative_draft or a participatory_text.
+      # safe_content_admin? is used and the proposal comes from a participatory text.
       def safe_content?
-        (rich_text_editor_in_public_views? && not_from_collaborative_draft(@proposal)) ||
-          safe_content_admin?
+        rich_text_editor_in_public_views? || safe_content_admin?
       end
 
       # For admin entered content, the proposal body can contain certain extra
@@ -252,7 +221,7 @@ module Decidim
       end
 
       def component_name
-        i18n_key = controller_name == "collaborative_drafts" ? "decidim.proposals.collaborative_drafts.name" : "decidim.components.proposals.name"
+        i18n_key = "decidim.components.proposals.name"
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t(i18n_key)
       end
 

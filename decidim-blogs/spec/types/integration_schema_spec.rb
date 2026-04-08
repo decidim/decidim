@@ -87,7 +87,7 @@ describe "Decidim::Api::QueryType" do
           "name" => endo.author.name,
           "nickname" => "@#{endo.author.nickname}",
           "organizationName" => { "translation" => translated(endo.author.organization.name) },
-          "profilePath" => "/profiles/#{endo.author.nickname}"
+          "profilePath" => "/en/profiles/#{endo.author.nickname}"
         }
       end,
       "likesCount" => 5,

@@ -78,9 +78,6 @@ id:
             name_and_surname: Nama dan nama keluarga
             postal_code: Kode Pos
             timestamp: Stempel waktu
-      titles:
-        initiatives: Inisiatif
-        initiatives_types: Jenis inisiatif
     events:
       initiatives:
         initiative_extended:

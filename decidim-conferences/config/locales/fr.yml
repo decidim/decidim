@@ -101,7 +101,6 @@ fr:
         new:
           duplicate: Dupliquer
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer la conférence
       conference_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette conférence.
@@ -120,13 +119,9 @@ fr:
         destroy:
           success: Conférencier supprimé avec succès pour cette conférence.
         edit:
-          title: Mettre à jour le conférencier
           update: Mettre à jour
-        index:
-          conference_speakers_title: Conférenciers
         new:
           create: Créer
-          title: Nouveau conférencier
         publish:
           invalid: Il y a eu un problème lors de la publication de cet intervenant.
           success: L'intervenant de la conférence a été publié avec succès.
@@ -143,13 +138,9 @@ fr:
         destroy:
           success: Administrateur supprimé de cette conférence.
         edit:
-          title: Mettre à jour l'administrateur de la conférence
           update: Mettre à jour
-        index:
-          conference_admins_title: Administrateurs de conférence
         new:
           create: Créer
-          title: Nouvel administrateur de conférence
         update:
           error: Il y avait une erreur mise à jour d'un administrateur pour cette conférence.
           success: Administrateur mis à jour avec succès pour cette conférence.
@@ -172,11 +163,8 @@ fr:
         index:
           published: Publié
           unpublished: Non publié
-        manage_trash:
-          title: Conférences supprimées
         new:
           create: Créer
-          title: Nouvelle conférence
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette conférence.
           success: Conférence mise à jour avec succès.
@@ -191,13 +179,9 @@ fr:
         destroy:
           success: Lien média supprimé avec succès.
         edit:
-          title: Mettre à jour le lien média
           update: Mettre à jour
-        index:
-          media_links_title: Liens média
         new:
           create: Créer
-          title: Créer un lien média
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce lien multimédia.
           success: Lien média mis à jour avec succès.
@@ -212,7 +196,6 @@ fr:
           conference_invites: Invitations
           conference_speakers: Conférenciers
           diploma: Attestation de présence
-          info: À propos de cette conférence
           media_links: Liens média
           moderations: Modération
           partners: Partenaires
@@ -280,11 +263,9 @@ fr:
         destroy:
           success: Le partenaire a été supprimé avec succès de cette conférence.
         edit:
-          title: Mettre à jour le partenaire
           update: Mettre à jour
         new:
           create: Créer
-          title: Nouveau partenaire
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un partenaire pour cette conférence.
           success: Le partenaire a été mis à jour avec succès pour cette conférence.
@@ -302,25 +283,21 @@ fr:
         destroy:
           success: Le type d'inscription a bien été supprimé de cette conférence.
         edit:
-          title: Mettre à jour le type d'inscription
           update: Mettre à jour
         new:
           create: Créer
-          title: Nouveau type d'inscription
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un type d'inscription pour cette conférence.
           success: Le type d'inscription a été mis à jour avec succès pour cette conférence.
       taxonomy_filters:
         space_filter_for:
           conferences: Toutes les conférences
-      titles:
-        conferences: Conférences
-        conferences_deleted: Conférences supprimées
       tooltips:
         deleted_conferences_info: Les conférences ne peuvent être supprimées que si leur statut est "non publiée".
     admin_log:
       conference:
         create: "%{user_name} créé la %{resource_name} conférence"
+        duplicate: "%{user_name} a dupliqué la conférence %{resource_name}"
         publish: "%{user_name} publication la %{resource_name} conférence"
         restore: "%{user_name} a restauré la conférence %{resource_name}"
         send_conference_diplomas: "%{user_name} certificats de présence envoyés aux %{resource_name} participants à la conférence"
@@ -376,14 +353,9 @@ fr:
             select_user: Sélectionnez l'utilisateur
           index:
             invite_attendee: Inviter un participant
-            invites: Invite
           new:
             explanation: Le participant sera invité à se joindre à une conférence. Si son adresse électronique n'est pas enregistrée, il sera également invité à s'inscrire sur la plateforme.
             invite: Inviter
-            new_invite: Inviter un utilisateur
-        conference_registrations:
-          index:
-            registrations: Inscriptions
         conference_speakers:
           form:
             existing_user: Utilisateur existant
@@ -392,7 +364,16 @@ fr:
             user_type: Type d'utilisateur
           index:
             search: Chercher
+        conference_user_roles:
+          edit:
+            title: Mettre à jour l'administrateur de la conférence
+          index:
+            title: Administrateurs de la conférence
+          new:
+            title: Nouvel administrateur de la conférence
         conferences:
+          edit:
+            title: À propos de cette conférence
           form:
             available_slots_help: Laissez à 0 si vous avez un nombre illimité de places disponibles.
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
@@ -400,6 +381,12 @@ fr:
               one: Il y a eu une inscription.
               other: Il y a eu %{count} inscriptions.
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
+          index:
+            title: Conférences
+          manage_trash:
+            title: Conférences supprimées
+          new:
+            title: Nouvelle conférence
         content_blocks:
           highlighted_conferences:
             max_results: Nombre maximum d'éléments à afficher
@@ -414,8 +401,12 @@ fr:
             invited_user_to_join_a_conference: "%{invited_by} vous a invité à participer à une conférence à %{application}. Vous pouvez accepter en utilisant le lien ci-dessous."
             registration: Inscription pour '%{conference_title}'
         partners:
+          edit:
+            title: Mettre à jour le partenaire
           index:
             title: Partenaires
+          new:
+            title: Nouveau partenaire
         registration_types:
           form:
             select_conference_meetings: Sélectionner des rencontres

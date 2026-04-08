@@ -182,7 +182,6 @@ ro:
           alert: 'Necesar: Revizuirea actualizărilor termenilor de utilizare a serviciului'
           callout: Vă rugăm să dedicați un moment pentru a revizui Termenii de utilizare pentru admin. În caz contrar, nu veți putea administra platforma.
           cta: Revizuiți-le acum.
-        title: Condiții de administrare a serviciului
       area_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de zonă.
@@ -225,8 +224,6 @@ ro:
         edit:
           title: Editează dosarul
           update: Actualizează
-        index:
-          attachment_collections_title: Dosare atașate
         new:
           create: Creează
           title: Dosar nou
@@ -242,8 +239,6 @@ ro:
         edit:
           title: Editează atașamentul
           update: Actualizează
-        index:
-          attachments_title: Atașamente
         new:
           create: Creează un atașament
           title: Atașament nou
@@ -292,7 +287,6 @@ ro:
           title: 'Adaugă componenta: %{name}'
         publish:
           success: Componenta a fost publicată cu succes.
-        title: Componente
         unpublish:
           success: Componenta a fost de-publicată cu succes.
         update:
@@ -303,7 +297,6 @@ ro:
         'false': 'Nr'
         managed_user_name: Gestionare utilizatori
         solved: Rezolvat
-        title: Conflicte de verificare
         transfer:
           email: E-mail
           name: Nume
@@ -417,7 +410,6 @@ ro:
           impersonate: Impersonare
           impersonate_existing_managed_user: Gestionează participantul "%{name}"
           impersonate_existing_user: Gestionează participantul "%{name}"
-          impersonate_new_managed_user: Gestionează participantul nou
       imports:
         and: și
         data_errors:
@@ -474,7 +466,6 @@ ro:
         promotions:
           new:
             explanation: Participanții gestionați pot fi promovați drept participanți standard. Înseamnă că vor fi invitați în aplicație și nu vei mai putea să îi gestionezi din nou. Participantul invitat va primi un e-mail pentru a accepta invitația ta.
-            new_managed_user_promotion: Promovarea unui nou participant gestionat
             promote: Promovează
       members:
         edit:
@@ -623,7 +614,6 @@ ro:
           title: Modele de buletine informative
           use_template: Utilizează acest model
         show:
-          preview: 'Previzualizează modelul: %{template_name}'
           use_template: Utilizează acest model
       newsletters:
         create:
@@ -668,7 +658,6 @@ ro:
         send:
           no_recipients: Niciun destinatar pentru această selecție.
         show:
-          preview: Previzualizați
           select_recipients_to_deliver: Selectează destinatarii pentru trimitere
           subject: Subiect
         update:
@@ -845,20 +834,12 @@ ro:
           error: A apărut o problema la actualizarea acestui filtru de taxonomie.
           success: Filtrul de taxonomie actualizat cu succes.
       titles:
-        admin_log: Jurnal de administrare
-        area_types: Tipuri de zone
         areas: Zone
         authorization_workflows: Metode de verificare
-        dashboard: Panou de administrare
-        impersonatable_users: Participanți gestionabili
-        impersonations: Gestionarea participanților
         menu: Meniu
         panel: Administrator
-        participants: Participanți
-        scope_types: Tipuri de domeniu
         scopes: Domenii de interes
         statistics: Statistici
-        users: Administratori
       users:
         create:
           error: A apărut o eroare la invitarea acestui administrator.

@@ -144,8 +144,6 @@ sk:
         edit:
           title: Upraviť priečinok
           update: Aktualizovať
-        index:
-          attachment_collections_title: Priečinky s prílohami
         new:
           create: Vytvoriť
           title: Nový priečinok
@@ -161,8 +159,6 @@ sk:
         edit:
           title: Upraviť prílohu
           update: Aktualizovať
-        index:
-          attachments_title: Prílohy
         new:
           create: Vytvoriť prílohu
           title: Nová príloha
@@ -200,7 +196,6 @@ sk:
           title: 'Pridať súčasť: %{name}'
         publish:
           success: Súčasť bola úspešne publikovaná.
-        title: Súčasti
         unpublish:
           success: Publikácia súčasti bola úspešne zrušená.
         update:
@@ -263,7 +258,6 @@ sk:
           impersonate: Vydávať sa za používateľa
           impersonate_existing_managed_user: Spravovanie účastníka "%{name}"
           impersonate_existing_user: Spravovanie účastníka "%{name}"
-          impersonate_new_managed_user: Správa nového používateľa
       managed_users:
         promotion:
           error: Došlo k chybe pri povýšení spravovaného používateľa.
@@ -271,7 +265,6 @@ sk:
         promotions:
           new:
             explanation: Spravovaní účastníci môžu byť povýšení na štandardných účastníkov. To znamená, že budú pozvaní do aplikácie, a už ich nebudete môcť spravovať. Pozvaný účastník obdrží e-mail s Vašou pozvánkou.
-            new_managed_user_promotion: Povýšenie nového spravovaného účastníka
             promote: Povýšiť
       members_csv_imports:
         new:
@@ -364,7 +357,6 @@ sk:
           title: Šablóny spravodaja
           use_template: Použiť túto šablónu
         show:
-          preview: 'Ukážka šablóny: %{template_name}'
           use_template: Použiť túto šablónu
       newsletters:
         create:
@@ -406,7 +398,6 @@ sk:
           title: Vyberte príjemcov
           warning: "<strong>Pozor:</strong> Tento spravodaj bude odoslaný len účastníkom, ktorí aktivovali možnosť <em>Chcem dostávať spravodaje</em> vo svojich nastaveniach."
         show:
-          preview: Náhľad
           select_recipients_to_deliver: Vyberte príjemcov
           subject: Predmet
         update:
@@ -518,15 +509,8 @@ sk:
         update:
           error: Pri aktualizácii stránky nastala chyba.
       titles:
-        admin_log: Záznam činnosti admina
-        area_types: Typy oblastí
         areas: Oblasti
         authorization_workflows: Metódy overovania
-        dashboard: Hlavný panel
-        impersonatable_users: Spravovateľní účastníci
-        impersonations: Správa účastníkov
-        participants: Účastníci
-        scope_types: Typy rozsahov
         scopes: Rozsahy
       users:
         create:

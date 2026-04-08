@@ -112,6 +112,7 @@ camelization
 cami
 Capfile
 carolromero
+Cargar
 Carrer
 carryforward
 catala
@@ -144,6 +145,7 @@ coderabbit
 codespace
 codeql
 coditramuntana
+comentarios
 commentables
 commentaire
 commenters
@@ -515,6 +517,7 @@ markercluster
 marydoe
 Massot
 matrixmultiple
+mattr
 matutes
 maxtimeout
 mcdoggo
@@ -750,6 +753,7 @@ reportables
 reportat
 resourcable
 resourceable
+respuestas
 Returs
 Riera
 Rigoberto
@@ -764,6 +768,7 @@ rqrcode
 rroe
 rsefa
 rsimplecov
+rspack
 Rubo
 rubycw
 rumany

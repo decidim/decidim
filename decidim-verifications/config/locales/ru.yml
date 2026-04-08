@@ -59,7 +59,6 @@ ru:
         admin:
           confirmations:
             new:
-              introduce_user_data: Введите данные на картинке
               reject: Отклонить
               verify: Подтвердить личность
           pending_authorizations:

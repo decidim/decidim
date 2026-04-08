@@ -57,10 +57,10 @@ shared_examples "global search of participatory spaces" do
       end
     end
 
-    context "when participatory_spaces ARE private" do
+    context "when participatory_spaces ARE restricted" do
       it "does NOT indexes a SearchableResource after ParticipatorySpace update" do
-        if participatory_space.respond_to?(:private_space?)
-          participatory_space.update(published_at: Time.current, private_space: true)
+        if participatory_space.respond_to?(:access_mode?)
+          participatory_space.update(published_at: Time.current, access_mode: :restricted)
           organization.available_locales.each do |locale|
             searchables = Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale:)
             expect(searchables).to be_empty

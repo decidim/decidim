@@ -179,6 +179,8 @@ describe "Filter Proposals", :slow do
           check decidim_sanitize_translated(taxonomy.name)
         end
 
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+
         within "#dropdown-menu-order" do
           click_on "Most commented"
         end

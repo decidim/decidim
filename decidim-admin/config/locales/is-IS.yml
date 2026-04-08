@@ -153,8 +153,6 @@ is-IS:
         edit:
           title: Breyta viðhengi
           update: Uppfæra
-        index:
-          attachments_title: Viðhengi
         new:
           create: Búðu til viðhengi
           title: Ný viðhengi
@@ -189,7 +187,6 @@ is-IS:
           title: 'Bæta við hluti: %{name}'
         publish:
           success: Hlutinn hefur verið birtur með góðum árangri.
-        title: Hluti
         unpublish:
           success: Hlutinn hefur verið unpublished með góðum árangri.
         update:
@@ -327,7 +324,6 @@ is-IS:
           confirm_deliver: Ertu viss um að þú viljir afhenda þetta fréttabréf? Ekki er hægt að afturkalla þessa aðgerð.
           deliver: Bera fréttabréf
         show:
-          preview: Preview
           subject: Efni
         update:
           success: Fréttabréf uppfært með góðum árangri. Vinsamlegast skoðaðu það áður en þú sendir það.
@@ -398,12 +394,8 @@ is-IS:
         new:
           title: Ný síða
       titles:
-        admin_log: Admin log
-        area_types: Svæði tegundir
         areas: Svæði
         authorization_workflows: Staðfestingaraðferðir
-        dashboard: Mælaborð
-        scope_types: Gildissvið
         scopes: Scopes
       users:
         form:

@@ -55,9 +55,22 @@ module Decidim
           expect(form).to receive(:select).with(
             :test,
             full_choices,
-            options
+            options, { disabled: false }
           )
           render_input
+        end
+
+        context "when the field should be disabled" do
+          let(:options) { { include_blank: false, readonly: true, label: "A test" } }
+
+          it "is supported" do
+            expect(form).to receive(:select).with(
+              :test,
+              full_choices,
+              options.except(:readonly), { disabled: true }
+            )
+            render_input
+          end
         end
       end
 
@@ -187,6 +200,18 @@ module Decidim
           expect(view).to receive(:render).with(partial: "decidim/admin/taxonomy_filters_selector/component_table", locals: { field_name: "test[test][]", component: })
           expect(view).to receive(:render).with(partial: "decidim/admin/components/taxonomy_filters_drawer")
           render_input
+        end
+
+        context "when component is not persisted" do
+          let(:second_component) { build(:dummy_component, participatory_space: current_participatory_space) }
+
+          before do
+            view.instance_variable_set(:@component, second_component)
+          end
+
+          it "renders a message indicating that the component is missing" do
+            expect(render_input).to include("Selecting taxonomy filters will be possible after the component is created.")
+          end
         end
       end
 

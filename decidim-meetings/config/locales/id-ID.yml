@@ -46,7 +46,6 @@ id:
           success: Pertemuan duplikat berhasil.
         new:
           copy: Salinan
-          title: Pertemuan duplikat
     components:
       meetings:
         actions:
@@ -163,7 +162,6 @@ id:
             non_user: Pengguna tidak ada
             select_user: Pilih pengguna
           index:
-            invite_attendee: Undang hadirin
             invites: Undangan
         meeting_closes:
           edit:

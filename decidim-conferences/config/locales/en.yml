@@ -102,7 +102,6 @@ en:
         new:
           duplicate: Duplicate
           select: Select which data you would like to duplicate
-          title: Duplicate conference
       conference_publications:
         create:
           error: There was a problem publishing this conference.
@@ -121,13 +120,9 @@ en:
         destroy:
           success: Conference speaker successfully deleted.
         edit:
-          title: Update conference speaker
           update: Update
-        index:
-          conference_speakers_title: Conference speakers
         new:
           create: Create
-          title: New conference speaker
         publish:
           invalid: There was a problem publishing this speaker.
           success: Conference speaker successfully published.
@@ -144,13 +139,9 @@ en:
         destroy:
           success: Conference admin successfully removed.
         edit:
-          title: Update conference admin
           update: Update
-        index:
-          conference_admins_title: Conference admins
         new:
           create: Create
-          title: New conference admin
         update:
           error: There was a problem updating this conference admin.
           success: Conference admin successfully updated.
@@ -173,11 +164,8 @@ en:
         index:
           published: Published
           unpublished: Unpublished
-        manage_trash:
-          title: Deleted conferences
         new:
           create: Create
-          title: New conference
         update:
           error: There was a problem updating this conference.
           success: Conference successfully updated.
@@ -192,13 +180,9 @@ en:
         destroy:
           success: Media link successfully deleted.
         edit:
-          title: Update media link
           update: Update
-        index:
-          media_links_title: Media links
         new:
           create: Create
-          title: Create media link
         update:
           error: There was a problem updating this media link.
           success: Media link successfully updated.
@@ -213,7 +197,6 @@ en:
           conference_invites: Invites
           conference_speakers: Speakers
           diploma: Certificate of attendance
-          info: About this conference
           media_links: Media links
           moderations: Moderations
           partners: Partners
@@ -281,11 +264,9 @@ en:
         destroy:
           success: Conference partner successfully removed.
         edit:
-          title: Update partner
           update: Update
         new:
           create: Create
-          title: New partner
         update:
           error: There was a problem updating a partner for this conference.
           success: Conference partner successfully updated.
@@ -303,20 +284,15 @@ en:
         destroy:
           success: Conference registration type successfully removed.
         edit:
-          title: Update registration type
           update: Update
         new:
           create: Create
-          title: New registration type
         update:
           error: There was a problem updating a registration type for this conference.
           success: Conference registration type successfully updated.
       taxonomy_filters:
         space_filter_for:
           conferences: All conferences
-      titles:
-        conferences: Conferences
-        conferences_deleted: Deleted conferences
       tooltips:
         deleted_conferences_info: Conferences can only be deleted if status is "Unpublished".
     admin_log:
@@ -366,6 +342,8 @@ en:
         conference_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          new:
+            title: Duplicate conference
         conference_invites:
           create:
             error: There was a problem inviting the participant to join the conference.
@@ -378,15 +356,17 @@ en:
             select_user: Select participant
           index:
             invite_attendee: Invite participant
-            invites: Invites
+            title: Invites
           new:
             explanation: The participant will be invited to join a conference. If their email is not registered, they will be invited to the organization as well.
             invite: Invite
-            new_invite: Invite participant
+            title: Invite participant
         conference_registrations:
           index:
-            registrations: Registrations
+            title: Registrations
         conference_speakers:
+          edit:
+            title: Update conference speaker
           form:
             existing_user: Existing participant
             non_user: Non participant
@@ -394,7 +374,19 @@ en:
             user_type: Participant type
           index:
             search: Search
+            title: Conference speakers
+          new:
+            title: New conference speaker
+        conference_user_roles:
+          edit:
+            title: Update conference admin
+          index:
+            title: Conference admins
+          new:
+            title: New conference admin
         conferences:
+          edit:
+            title: About this conference
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
@@ -404,6 +396,12 @@ en:
               other: There have been %{count} registrations.
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             taxonomies: Taxonomies
+          index:
+            title: Conferences
+          manage_trash:
+            title: Deleted conferences
+          new:
+            title: New conference
         content_blocks:
           highlighted_conferences:
             max_results: Maximum amount of elements to show
@@ -417,14 +415,29 @@ en:
             invited_existing_user_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
             invited_user_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can accept it through the link below."
             registration: Registration for '%{conference_title}'
+        media_links:
+          edit:
+            title: Update media link
+          index:
+            title: Media links
+          new:
+            title: New media link
         partners:
+          edit:
+            title: Update partner
           index:
             title: Partners
+          new:
+            title: New partner
         registration_types:
+          edit:
+            title: Update registration type
           form:
             select_conference_meetings: Select conference meetings
           index:
             title: Registration types
+          new:
+            title: New registration type
         send_conference_diploma_mailer:
           diploma:
             diploma_html: You will be find the certificate of attendance for the conference <a href="%{url}">%{title}</a> in the attachments.

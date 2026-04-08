@@ -112,39 +112,39 @@ module Decidim
     end
 
     describe ".visible?" do
-      let!(:private_assembly) { create(:assembly, :private, :opaque) }
-      let!(:private_transparent_assembly) { create(:assembly, :private, :transparent) }
-      let!(:public_assembly) { create(:assembly, :public) }
+      let!(:restricted_assembly) { create(:assembly, :restricted) }
+      let!(:transparent_assembly) { create(:assembly, :transparent) }
+      let!(:open_assembly) { create(:assembly, :open) }
 
       it "returns the right visibility" do
-        expect(private_assembly).not_to be_visible
-        expect(private_transparent_assembly).to be_visible
-        expect(public_assembly).to be_visible
+        expect(restricted_assembly).not_to be_visible
+        expect(transparent_assembly).to be_visible
+        expect(open_assembly).to be_visible
       end
     end
 
     describe "scopes" do
       describe "public_spaces" do
-        let!(:private_assembly) { create(:assembly, :private, :opaque) }
-        let!(:private_transparent_assembly) { create(:assembly, :private, :transparent) }
-        let!(:public_assembly) { create(:assembly, :public) }
+        let!(:restricted_assembly) { create(:assembly, :restricted) }
+        let!(:transparent_assembly) { create(:assembly, :transparent) }
+        let!(:open_assembly) { create(:assembly, :open) }
 
         it "returns the public ones" do
-          expect(described_class.public_spaces).to include private_transparent_assembly
-          expect(described_class.public_spaces).to include public_assembly
-          expect(described_class.public_spaces).not_to include private_assembly
+          expect(described_class.public_spaces).to include transparent_assembly
+          expect(described_class.public_spaces).to include open_assembly
+          expect(described_class.public_spaces).not_to include restricted_assembly
         end
       end
 
       describe "active_spaces" do
-        let!(:private_assembly) { create(:assembly, :private, :opaque) }
-        let!(:private_transparent_assembly) { create(:assembly, :private, :transparent) }
-        let!(:public_assembly) { create(:assembly, :public) }
+        let!(:restricted_assembly) { create(:assembly, :restricted) }
+        let!(:transparent_assembly) { create(:assembly, :transparent) }
+        let!(:open_assembly) { create(:assembly, :open) }
 
-        it "returns the public ones" do
-          expect(described_class.active_spaces).to include private_transparent_assembly
-          expect(described_class.active_spaces).to include public_assembly
-          expect(described_class.active_spaces).not_to include private_assembly
+        it "returns the active ones" do
+          expect(described_class.active_spaces).to include transparent_assembly
+          expect(described_class.active_spaces).to include open_assembly
+          expect(described_class.active_spaces).not_to include restricted_assembly
         end
       end
 

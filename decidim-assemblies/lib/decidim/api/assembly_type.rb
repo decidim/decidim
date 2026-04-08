@@ -17,6 +17,7 @@ module Decidim
 
       description "An assembly"
 
+      field :access_mode, Decidim::Api::Types::AccessModeEnum, "The access mode of this assembly (open, transparent, or restricted)", null: false
       field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Children of this assembly", null: false
       field :children_count, Integer, "Number of children assemblies", null: true
       field :closing_date, Decidim::Core::DateType, "Closing date of the assembly", null: true
@@ -34,14 +35,12 @@ module Decidim
       field :included_at, Decidim::Core::DateType, "Included at", null: true
       field :instagram_handler, String, "Instagram handler", null: true
       field :internal_organisation, Decidim::Core::TranslatedFieldType, "Internal organisation of this assembly", null: true
-      field :is_transparent, Boolean, "If this assembly is transparent", null: true
       field :local_area, Decidim::Core::TranslatedFieldType, "The organization area of this assembly", null: true
       field :meta_scope, Decidim::Core::TranslatedFieldType, "The scope metadata of this assembly", null: true
       field :parent, Decidim::Assemblies::AssemblyType, "The parent assembly of this assembly", null: true
       field :parents_path, String, "Assembly hierarchy representation", null: true
       field :participatory_scope, Decidim::Core::TranslatedFieldType, "What is decided on this assembly", null: true
       field :participatory_structure, Decidim::Core::TranslatedFieldType, "How it is decided on this assembly", null: true
-      field :private_space, Boolean, "If this assembly is a private space", null: true
       field :promoted, Boolean, "If this assembly is promoted (therefore in the homepage)", null: true
       field :published_at, Decidim::Core::DateTimeType, "The time this assembly was published", null: false
       field :purpose_of_action, Decidim::Core::TranslatedFieldType, "Purpose of action", null: true

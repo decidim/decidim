@@ -39,6 +39,7 @@ sudo apt install libvips libvips-tools # or the alternative installation process
 bundle update decidim
 bin/rails decidim:upgrade
 sed -i "s/config\.load_defaults 7\.2/config\.load_defaults 8.1/g" config/application.rb # see "2.1. Ruby on Rails update to 8.1"
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/release/0.32-stable/decidim-core/lib/decidim/shakapacker/shakapacker.yml -O config/shakapacker.yml -O config/shakapacker.yml # see "2.9. Shakapacker upgrade"
 bin/rails db:migrate
 bin/rails decidim:upgrade:encryption
 # skip this command if you have run it before:
@@ -46,6 +47,7 @@ bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 echo "/public/sw.js*" >> .gitignore
 bin/rails decidim:upgrade:remove_deleted_users_left_data
 bin/rails decidim:upgrade:fix_deleted_private_follows
+sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).present?/' config/environments/production.rb
 bin/rails data:migrate
 ```
 
@@ -159,7 +161,19 @@ We are also removing the `decidim_user_group_memberships` tables.
 
 You can read more about this change on PR [#16022](https://github.com/decidim/decidim/pull/16022).
 
-### 2.9. [[TITLE OF THE ACTION]]
+### 2.9. Shakapacker upgrade
+
+In our efforts to improve the performance of the application, we are upgrading Shakapacker to version 9.7.0.
+
+You will need to patch your `shakapacker.yml` file to adjust to the latest changes
+
+```bash
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/release/0.32-stable/decidim-core/lib/decidim/shakapacker/shakapacker.yml -O config/shakapacker.yml
+```
+
+You can read more about this change on PR [#16516](https://github.com/decidim/decidim/pull/16516).
+
+### 2.10. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -221,7 +235,39 @@ This works for Ubuntu Linux, other operating systems would need to do other comm
 
 You can read more about this change on PR [#15670](https://github.com/decidim/decidim/pull/15670).
 
-### 3.6. [[TITLE OF THE ACTION]]
+### 3.6. Fix the "SMTP_STARTTLS_AUTO" env var in `production.rb`
+
+It was detected a bug with the enable_starttls_auto configuration for the Action Mailer (SMTP) configuration. For fixing it you need to replace in `config/environments/production.rb`
+
+If your `config/environments/production.rb` contains an SMTP configuration like this:
+
+```ruby
+config.action_mailer.smtp_settings = {
+  # ... other settings ...
+  :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO").to_boolean_string,
+  # ... other settings ...
+}
+```
+
+You should update it to:
+
+```ruby
+config.action_mailer.smtp_settings = {
+  # ... other settings ...
+  :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO", true).present?,
+  # ... other settings ...
+}
+```
+
+You can do this with the following command:
+
+```bash
+sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).present?/' config/environments/production.rb
+```
+
+You can read more about this change on PR [#16491](https://github.com/decidim/decidim/pull/16491).
+
+### 3.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -298,7 +344,88 @@ After the rack upgrade, the filters are defined as follows:
 
 You can read more about this change on PR [#16103](https://github.com/decidim/decidim/pull/16103).
 
-### 5.3. [[TITLE OF THE CHANGE]]
+### 5.3. Decidim Configuration changes
+
+Once you have upgraded to this version, you may need to check your configuration. Previously, we were using `ActiveSupport::Configurable` to handle Decidim configuration. Now, this has been deprecated with Rails, and it will be removed in the next Rails version.
+
+We went ahead and changed the way we handle Decidim configuration, trying to keep the same API as before.
+
+Previously, you may had an initializer with some content like:
+
+```ruby
+Decidim.configure do |config|
+  config.force_ssl = true
+  # some other configuration
+end
+```
+
+Now we try to keep the same, but if there is some kind of custom configuration that you may have, you will need to change it to:
+
+```ruby
+Decidim.force_ssl = true
+```
+
+#### Decidim module developer instructions
+
+If you are a module developer, you may want to change your plugin structure to remove `ActiveSupport::Configurable` calls.
+
+If you were using something like:
+
+```ruby
+module Decidim
+  module Ai
+    module SpamDetection
+      include ActiveSupport::Configurable
+
+      config_accessor :reporting_user_email do
+        "my default value"
+      end
+      # some other configuration
+    end
+  end
+end
+```
+
+You can refactor to the following:
+
+```ruby
+module Decidim
+  module Ai
+    module SpamDetection
+
+      mattr_accessor :reporting_user_email, default: "my default value"
+
+      # some other configuration
+    end
+  end
+end
+```
+
+To keep the same API, you may want to add the following to your module definition
+
+```ruby
+module Decidim
+  module Ai
+    module SpamDetection
+      class << self
+        def config = self
+
+        def configure
+          yield self
+        end
+      end
+
+      mattr_accessor :reporting_user_email, default: "my default value"
+
+      # some other configuration
+    end
+  end
+end
+```
+
+You can read more about this change on PR [#16366](https://github.com/decidim/decidim/pull/16366).
+
+### 5.4. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 

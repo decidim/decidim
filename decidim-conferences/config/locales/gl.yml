@@ -88,8 +88,6 @@ gl:
           success: Orador eliminouse con éxito para esta conferencia.
         edit:
           update: Actualización
-        index:
-          conference_speakers_title: Conferenciantes de conferencias
         new:
           create: Crear
         update:
@@ -203,7 +201,6 @@ gl:
           update: Actualización
         new:
           create: Crear
-          title: Novo compañeiro
         update:
           error: Houbo un erro actualizado por un compañeiro desta conferencia.
           success: O socio actualizouse con éxito para esta conferencia.
@@ -224,12 +221,9 @@ gl:
           update: Actualización
         new:
           create: Crear
-          title: Novo tipo de rexistro
         update:
           error: Houbo un erro actualizado un tipo de rexistro para esta conferencia.
           success: O tipo de rexistro actualizouse con éxito para esta conferencia.
-      titles:
-        conferences: Conferencias
     admin_log:
       conference:
         create: "%{user_name} creou a %{resource_name} conferencia"
@@ -278,13 +272,8 @@ gl:
             select_user: Seleccionar usuario
           index:
             invite_attendee: Invitar asistente
-            invites: Invitacións
           new:
             invite: Invitar
-            new_invite: Invitar ao usuario
-        conference_registrations:
-          index:
-            registrations: Rexistros
         conference_speakers:
           form:
             existing_user: Usuario existente

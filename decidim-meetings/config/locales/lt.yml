@@ -121,7 +121,6 @@ lt:
           success: Susitikimas dubliuotas.
         new:
           copy: Kopijuoti
-          title: Dubliuoti susirinkimą
     components:
       meetings:
         actions:
@@ -264,7 +263,6 @@ lt:
             non_user: Neegzistuojantis dalyvis
             select_user: Pasirinkti dalyvį
           index:
-            invite_attendee: Kviesti dalyvį
             invites: Pakvietimai
             registrations_disabled: Negalite kviesti dalyvio, nes registracija išjungta.
         meeting_closes:
@@ -338,7 +336,6 @@ lt:
               other: Yra %{count} registracijų.
             reserved_slots_help: Palikite 0, jei vietos nerezervuotos.
             reserved_slots_less_than: Turi būti ne didesnis kaip %{count} arba jam lygus
-            title: Registracijos
           update:
             invalid: Išsaugant registracijos nuostatas iškilo problema.
             success: Susirinkimo registracijų nuostatos išsaugotos.
