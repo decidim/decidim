@@ -29,6 +29,22 @@ describe "User creates debate" do
                  settings: { taxonomy_filters: [taxonomy_filter.id] })
         end
 
+        context "with an empty form" do
+          it "allows submission and show errors" do
+            visit_component
+            click_on "New debate"
+
+            expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+            within ".new_debate" do
+              find("*[type=submit]").click
+              expect(page).to have_content("There is an error in this field.")
+              expect(page).to have_no_css("*[type=submit][data-disable='true']")
+              expect(find("button[type='submit']")).not_to be_disabled
+            end
+          end
+        end
+
         context "and attachments are not allowed" do
           before do
             component_settings = component["settings"]["global"].merge!(attachments_allowed: false)
