@@ -59,13 +59,16 @@ Decidim::Core::Engine.routes.draw do
       put "apply_password" => "devise/passwords"
     end
 
-    resource :account, only: [:show, :update, :destroy], controller: "account" do
-      member do
-        get :delete
-        post :resend_confirmation_instructions
-        post :cancel_email_change
+    scope "/:locale" do
+      resource :account, only: [:show, :update, :destroy], controller: "account" do
+        member do
+          get :delete
+          post :resend_confirmation_instructions
+          post :cancel_email_change
+        end
       end
     end
+
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
     post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
     resources :notifications, only: [:index, :destroy] do
@@ -92,6 +95,15 @@ Decidim::Core::Engine.routes.draw do
       to: "free_resource_authorization_modals#show",
       as: :free_resource_authorization_modal
     )
+
+    get "/account/*rest", to: redirect { |params, request|
+      locale = Decidim::LocaleRouterDetector.new(request, params).locale
+      "/#{locale}/account/#{params[:rest]}"
+    }
+    get "/account", to: redirect { |params, request|
+      locale = Decidim::LocaleRouterDetector.new(request, params).locale
+      "/#{locale}/account"
+    }
   end
 
   scope :timeouts do
@@ -101,6 +113,7 @@ Decidim::Core::Engine.routes.draw do
 
   scope "/:locale" do
     resources :pages, only: [:index, :show], format: false
+
     resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^/]+} }, format: false
     scope "/profiles/:nickname", format: false, constraints: { nickname: %r{[^/]+} } do
       get "following", to: "profiles#following", as: "profile_following"
@@ -108,7 +121,45 @@ Decidim::Core::Engine.routes.draw do
       get "badges", to: "profiles#badges", as: "profile_badges"
       get "activity", to: "user_activities#index", as: "profile_activity"
     end
+
+    get "/open-data", to: "open_data#index", as: :open_data
+    get "/open-data/download", to: "open_data#download", as: :open_data_download
+    get "/open-data/download/:resource", to: "open_data#download", as: :open_data_download_resource
+    get "/search", to: "searches#index", as: :search
+    resources :last_activities, only: [:index]
+    namespace :gamification do
+      resources :badges, only: [:index]
+    end
   end
+
+  get "/last_activities", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+    # Handle explicitly the query strings, as we have some filters and pagination on the last activity page.
+    # We need to handle URLs like
+    # https://nightly.decidim.org/last_activities?filter[with_resource_type]=Decidim::Comments::Comment&page=2
+    query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
+    query_string.delete("locale")
+    query_string = CGI.unescape(query_string.to_query)
+
+    path = "/#{locale}/last_activities"
+    path += "?#{query_string}" unless query_string.empty?
+    path
+  }
+
+  get "/search", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+
+    # Handle explicitly the query strings, as we have some filters and pagination on the search page.
+    # We need to handle URLs like
+    # https://nightly.decidim.org/search?filter[term]=&filter[with_resource_type]=Decidim::Comments::Comment&filter[with_scope]&page=2&per_page=50
+    query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
+    query_string.delete("locale")
+    query_string = CGI.unescape(query_string.to_query)
+
+    path = "/#{locale}/search"
+    path += "?#{query_string}" unless query_string.empty?
+    path
+  }
 
   get "/pages", to: redirect { |params, request|
     locale = Decidim::LocaleRouterDetector.new(request, params).locale
@@ -118,6 +169,20 @@ Decidim::Core::Engine.routes.draw do
   get "/pages/*rest", to: redirect { |params, request|
     locale = Decidim::LocaleRouterDetector.new(request, params).locale
     "/#{locale}/pages/#{params[:rest]}"
+  }
+
+  get "/gamification/*rest", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+    "/#{locale}/gamification/#{params[:rest]}"
+  }
+
+  get "/open-data/*rest", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+    "/#{locale}/open-data/#{params[:rest]}"
+  }
+  get "/open-data", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+    "/#{locale}/open-data"
   }
 
   get "/profiles/*rest", to: redirect { |params, request|
@@ -135,7 +200,6 @@ Decidim::Core::Engine.routes.draw do
     path
   }
 
-  get "/search", to: "searches#index", as: :search
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 
   get "/link", to: "links#new", as: :link
@@ -146,10 +210,6 @@ Decidim::Core::Engine.routes.draw do
 
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
-
-  get "/open-data", to: "open_data#index", as: :open_data
-  get "/open-data/download", to: "open_data#download", as: :open_data_download
-  get "/open-data/download/:resource", to: "open_data#download", as: :open_data_download_resource
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
@@ -175,17 +235,11 @@ Decidim::Core::Engine.routes.draw do
 
   resources :editor_images, only: [:create]
 
-  namespace :gamification do
-    resources :badges, only: [:index]
-  end
-
   resources :newsletters, only: [:show] do
     get :unsubscribe, on: :collection
   end
 
   resources :upload_validations, only: [:create]
-
-  resources :last_activities, only: [:index]
 
   resources :short_links, only: [:index, :show], path: "s"
 
