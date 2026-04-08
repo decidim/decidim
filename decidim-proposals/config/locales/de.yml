@@ -492,6 +492,7 @@ de:
           deleted_proposals_info: Gelöschte Vorschläge können aus dem Papierkorb wiederhergestellt werden.
           preview: Vorschau
           view_deleted_proposals: Gelöschte Vorschläge anzeigen
+        deprecation_warning_collaborative_drafts_html: ": warnung: <b>Veraltete Funktion</b> Die Funktion \"Kollaborative Entwürfe\" wird in Decidim v0.32 entfernt. Organisationen, die es noch verwenden, können zur neuen Ko-Autorenfunktion der Vorschlagskomponente wechseln."
         evaluation_assignments:
           create:
             invalid: Beim Zuweisen der Vorschläge zur Bewertung ist ein Problem aufgetreten.
