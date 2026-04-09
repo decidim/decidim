@@ -25,14 +25,13 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.admin_proxy(target)
-      new(target.mounted_admin_engine, target.mounted_params, target, skip_locale: true)
+      new(target.mounted_admin_engine, target.mounted_params, target)
     end
 
-    def initialize(engine, default_url_options, target = nil, options = {})
+    def initialize(engine, default_url_options, target = nil, _options = {})
       @engine = engine
       @default_url_options = default_url_options
       @target = target
-      @skip_locale = options.fetch(:skip_locale, false)
     end
 
     def default_url_options
@@ -47,22 +46,13 @@ module Decidim
       return super unless route_helper?(method_name)
 
       filter_slug_params!(method_name)
-      filter_language_params!(method_name)
 
       send(engine).send(method_name, *)
     end
 
     private
 
-    attr_reader :engine, :target, :skip_locale
-
-    def filter_language_params!(_method_name)
-      return if target.nil?
-      return unless target.respond_to?(:mounted_params)
-      return unless skip_locale
-
-      @default_url_options.except!(:locale)
-    end
+    attr_reader :engine, :target
 
     def filter_slug_params!(method_name)
       return if target.nil?
@@ -77,9 +67,11 @@ module Decidim
     end
 
     def configured_default_url_options
-      @configured_default_url_options ||=
-        ActionMailer::Base.default_url_options.presence ||
-        UrlOptionResolver.new.options
+      @configured_default_url_options ||= begin
+        opts = ActionMailer::Base.default_url_options.presence ||
+               UrlOptionResolver.new.options
+        opts.merge(locale: I18n.locale.to_s)
+      end
     end
   end
 end
