@@ -1277,6 +1277,10 @@ fi-pl:
           last_week: Viimeinen viikko
           no_users_count_statistics_yet: Käyttäjämäärätilastoja ei vielä ole.
           participants: Osallistujat
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Luokittelusuodattimien valinta on mahdollista komponentin luonnin jälkeen.
     forms:
       errors:
         impersonate_user:
