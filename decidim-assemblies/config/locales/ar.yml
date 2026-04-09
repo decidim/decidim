@@ -164,8 +164,6 @@ ar:
             admin: مدير
             collaborator: متعاون
             moderator: مُشرف
-      titles:
-        assemblies_types: أنواع التجمّعات
     admin_log:
       assembly:
         create: "%{user_name} أنشأ الجمعية %{resource_name}"
@@ -277,8 +275,6 @@ ar:
       value_types:
         assembly_presenter:
           not_found: 'لم يتم العثور على التجميع في قاعدة البيانات (المعرف: %{id})'
-        assembly_type_presenter:
-          not_found: 'لم يتم العثور على نوع التجمع في قاعدة البيانات (الرقم-المُعرف: %{id})'
     menu:
       assemblies: الجمعيات
     participatory_processes:
