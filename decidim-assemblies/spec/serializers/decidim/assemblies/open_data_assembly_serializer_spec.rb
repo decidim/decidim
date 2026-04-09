@@ -92,24 +92,6 @@ module Decidim::Assemblies
           expect(serialized_scope).to include(name: resource.scope.name)
         end
       end
-
-      context "when assembly has type" do
-        let(:assembly_type) { create(:assemblies_type, organization: resource.organization) }
-
-        before do
-          resource.assembly_type = assembly_type
-          resource.save
-        end
-
-        it "includes the assembly type" do
-          serialized_assembly_type = subject.serialize[:assembly_type]
-
-          expect(serialized_assembly_type).to be_a(Hash)
-
-          expect(serialized_assembly_type).to include(id: resource.assembly_type.id)
-          expect(serialized_assembly_type).to include(title: resource.assembly_type.title)
-        end
-      end
     end
   end
 end

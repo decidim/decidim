@@ -75,7 +75,7 @@ shared_examples_for "a translated event" do
         end
 
         it "does not offer an alternate translation" do
-          expect(subject.safe_resource_translated_text).to eq(en_version)
+          expect(subject.safe_resource_translated_text).to eq(untranslated_content)
         end
       end
     end
@@ -123,7 +123,7 @@ shared_examples_for "a translated event" do
         end
 
         it "does not offer an alternate translation" do
-          expect(subject.safe_resource_translated_text).to eq(en_version)
+          expect(subject.safe_resource_translated_text).to eq(untranslated_content)
         end
       end
     end

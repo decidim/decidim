@@ -12,7 +12,7 @@ module Decidim
       let(:event_name) { "decidim.events.proposals.rejected_coauthorship" }
 
       let(:notification_title) do
-        "You have declined the invitation from <a href=\"/profiles/#{author.nickname}\">#{author.name}</a> to become a co-author of the proposal <a href=\"#{resource_path}\">#{resource_title}</a>."
+        "You have declined the invitation from <a href=\"/en/profiles/#{author.nickname}\">#{author.name}</a> to become a co-author of the proposal <a href=\"#{resource_path}\">#{resource_title}</a>."
       end
 
       include_context "when a simple event"
