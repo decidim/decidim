@@ -450,13 +450,13 @@ eu:
           program: Egitaraua
       conference_registration_mailer:
         confirmation:
-          confirmed_html: Zure jardunaldirako izena emateko <a href="%{url}">%{title}</a> baieztatu da.
+          confirmed_html: Zure jardunaldirako izena ematea <a href="%{url}">%{title}</a> baieztatu da.
           details_1: '%{registration_type} motako jardunaldian erregistratuta zaude. %{price} kostua dauka eta ondorengo ekitaldietara jo dezakezu:'
           details_2: Jardunaldiaren xehetasunak eranskinean aurkituko dituzu.
         pending_validation:
           confirmation_pending: Berrespena jasoko duzu laster
           details: '%{registration_type} motako %{price} tasan erregistratu zara, eta gertaera hauei erantzun diezaiekezu:'
-          pending_html: <a href="%{url}">%{title}</a> jardunaldirako zure izen-ematea zain dago berresteko.
+          pending_html: <a href="%{url}">%{title}</a> jardunaldirako zure izen-ematea berresteko zain dago.
       conference_registrations:
         create:
           invalid: Arazo bat egon da jardunaldi honetara lotzean.
@@ -509,7 +509,7 @@ eu:
           confirmation:
             subject: Zure erregistroa jardunaldian baieztatu da.
           pending_validation:
-            subject: Zure erregistroa jardunaldian baieztatzearen zain dago.
+            subject: Jardunaldirako izen-ematea ez dago baieztatuta.
         invite_join_conference_mailer:
           invite:
             subject: Jardunaldi baterako gonbidapena
