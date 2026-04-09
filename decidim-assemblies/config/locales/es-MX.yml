@@ -200,8 +200,6 @@ es-MX:
       taxonomy_filters:
         space_filter_for:
           assemblies: Todas las asambleas
-      titles:
-        assemblies_types: Tipo de asamblea
       tooltips:
         deleted_assemblies_info: Una asamblea solo se puede eliminar si su estado es 'Despublicada'.
     admin_log:
@@ -390,8 +388,6 @@ es-MX:
       value_types:
         assembly_presenter:
           not_found: 'No se encontró la asamblea en la base de datos (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'El tipo de asamblea no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
     open_data:
