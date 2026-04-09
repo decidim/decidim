@@ -23,7 +23,7 @@ Decidim::Core::Engine.routes.draw do
       put "apply_password" => "devise/passwords"
     end
 
-    scope "/:locale" do
+    scope "/:locale", defaults: { locale: Decidim.default_locale } do
       resource :account, only: [:show, :update, :destroy], controller: "account" do
         member do
           get :delete
@@ -86,7 +86,7 @@ Decidim::Core::Engine.routes.draw do
              },
              only: :omniauth_callbacks
 
-  scope "/:locale" do
+  scope "/:locale", defaults: { locale: Decidim.default_locale } do
     devise_for :users,
                class_name: "Decidim::User",
                module: :devise,

@@ -121,7 +121,7 @@ module Decidim
 
       initializer "decidim_participatory_processes_admin.mount_routes" do
         Decidim::Core::Engine.routes do
-          scope "/:locale" do
+          scope "/:locale", defaults: { locale: Decidim.default_locale } do
             mount Decidim::ParticipatoryProcesses::AdminEngine, at: "/admin", as: "decidim_admin_participatory_processes"
           end
         end

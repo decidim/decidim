@@ -20,7 +20,7 @@ module Decidim
 
       initializer "decidim_admin.mount_routes" do |_app|
         Decidim::Core::Engine.routes do
-          scope "/:locale" do
+          scope "/:locale", defaults: { locale: Decidim.default_locale } do
             mount Decidim::Admin::Engine => "/admin"
           end
         end
