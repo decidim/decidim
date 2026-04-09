@@ -176,8 +176,6 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
-      titles:
-        assemblies_types: Typy zespołów
     admin_log:
       assembly:
         create: "%{user_name} utworzył(a) zespół %{resource_name}"
@@ -320,8 +318,6 @@ pl:
       value_types:
         assembly_presenter:
           not_found: 'Zespół nie został znaleziony w bazie danych (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Nie znaleziono typu zespołu w bazie danych (ID: %{id})'
     menu:
       assemblies: Zespoły
     participatory_processes:
