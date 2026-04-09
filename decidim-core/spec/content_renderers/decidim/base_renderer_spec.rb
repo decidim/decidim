@@ -67,6 +67,19 @@ module Decidim
         end
       end
 
+      context "when text node contains escaped HTML alongside a token" do
+        let(:content) { "<p>&lt;script&gt;alert(1)&lt;/script&gt; TOKEN</p>" }
+
+        it "keeps escaped html as plain text and does not promote it to live markup" do
+          rendered = Loofah.fragment(renderer.render)
+          p_node = rendered.at_css("p")
+
+          expect(p_node.at_css("script")).to be_nil
+          expect(p_node.text).to include("<script>alert(1)</script>")
+          expect(p_node.at_css("strong").text).to eq("TEXT")
+        end
+      end
+
       context "when replacement raises RecordNotFound" do
         let(:content) { "<p>TOKEN</p>" }
 

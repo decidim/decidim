@@ -27,7 +27,7 @@ module Decidim
         replace_pattern_by_context(text, pattern) do |user_gid, context|
           user = GlobalID::Locator.locate(user_gid)
           if context.attribute?
-            render_profile_url(user)
+            render_profile_path(user)
           elsif editor
             render_editor(user)
           else
@@ -54,7 +54,7 @@ module Decidim
         end
       end
 
-      def render_profile_url(user)
+      def render_profile_path(user)
         presenter_for(user).profile_path
       end
     end

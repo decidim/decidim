@@ -49,18 +49,21 @@ module Decidim
 
       def replace_pattern_by_context(text, pattern, skip_ancestor_tags: %w(code pre script style), on_missing: "")
         return text unless text.respond_to?(:gsub)
+
         skip_ancestor_tags = Array(skip_ancestor_tags).map(&:to_s)
 
         has_match = pattern.is_a?(String) ? text.include?(pattern) : pattern.match?(text)
         return text unless has_match
 
         fragment = html_fragment(text)
-        replace_pattern_in_attributes(fragment, pattern, skip_ancestor_tags:, on_missing:) do |match, context|
+        attr_modified = replace_pattern_in_attributes(fragment, pattern, skip_ancestor_tags:, on_missing:) do |match, context|
           yield(match, context)
         end
-        replace_pattern_in_text_nodes(fragment, pattern, skip_ancestor_tags:, on_missing:) do |match, context|
+        text_modified = replace_pattern_in_text_nodes(fragment, pattern, skip_ancestor_tags:, on_missing:) do |match, context|
           yield(match, context)
         end
+
+        return text unless attr_modified || text_modified
 
         fragment.to_s
       end
@@ -68,6 +71,7 @@ module Decidim
       private
 
       def replace_pattern_in_attributes(fragment, pattern, skip_ancestor_tags:, on_missing:)
+        modified = false
         fragment.xpath(".//*").each do |node|
           next if skip_replacement_for_node?(node, skip_ancestor_tags)
 
@@ -77,25 +81,49 @@ module Decidim
                 yield(resolved_match, context)
               end
             end
-            attribute.value = replaced_value unless replaced_value == attribute.value
+            unless replaced_value == attribute.value
+              attribute.value = replaced_value
+              modified = true
+            end
           end
         end
+        modified
       end
 
       def replace_pattern_in_text_nodes(fragment, pattern, skip_ancestor_tags:, on_missing:)
+        modified = false
         fragment.xpath(".//text()").each do |node|
           parent = node.parent
           next if skip_replacement_for_node?(parent, skip_ancestor_tags)
 
-          replaced_text = node.text.gsub(pattern) do |match|
-            replace_match(match, replacement_context(parent, placement: :text), on_missing:) do |resolved_match, context|
-              yield(resolved_match, context)
-            end
-          end
-          next if replaced_text == node.text
+          original_text = node.text
+          has_node_match = pattern.is_a?(String) ? original_text.include?(pattern) : pattern.match?(original_text)
+          next unless has_node_match
 
-          node.replace(replaced_text)
+          doc = node.document
+          context = replacement_context(parent, placement: :text)
+          last_pos = 0
+
+          original_text.scan(pattern) do
+            m = Regexp.last_match
+            node.add_previous_sibling(Nokogiri::XML::Text.new(original_text[last_pos...m.begin(0)], doc)) if m.begin(0) > last_pos
+
+            replacement = replace_match(m[0], context, on_missing:) do |resolved_match, ctx|
+              yield(resolved_match, ctx)
+            end
+
+            Loofah.fragment(replacement.to_s).children.to_a.each do |child|
+              node.add_previous_sibling(child)
+            end
+
+            last_pos = m.end(0)
+          end
+
+          node.add_previous_sibling(Nokogiri::XML::Text.new(original_text[last_pos..], doc)) if last_pos < original_text.length
+          node.remove
+          modified = true
         end
+        modified
       end
 
       def replace_match(match, context, on_missing:)
