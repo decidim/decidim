@@ -206,8 +206,6 @@ cs:
       taxonomy_filters:
         space_filter_for:
           assemblies: Všechna shromáždění
-      titles:
-        assemblies_types: Typy shromáždění
       tooltips:
         deleted_assemblies_info: Shromáždění může být odstraněno pouze v případě, že je stav "Nezveřejněný".
     admin_log:
@@ -396,8 +394,6 @@ cs:
       value_types:
         assembly_presenter:
           not_found: 'Shromáždění nebylo nalezeno v databázi (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Typ shromáždění nebyl v databázi nalezen (ID: %{id})'
     menu:
       assemblies: Shromáždění
     open_data:
