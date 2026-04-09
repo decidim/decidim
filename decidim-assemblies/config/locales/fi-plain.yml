@@ -200,8 +200,6 @@ fi-pl:
       taxonomy_filters:
         space_filter_for:
           assemblies: Kaikki ryhmät
-      titles:
-        assemblies_types: Ryhmien tyypit
       tooltips:
         deleted_assemblies_info: Ryhmä voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
     admin_log:
@@ -390,8 +388,6 @@ fi-pl:
       value_types:
         assembly_presenter:
           not_found: 'Ryhmää ei löytynyt tietokannasta (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Ryhmätyyppiä ei löytynyt tietokannasta (ID-numero: %{id})'
     menu:
       assemblies: Ryhmät
     open_data:
