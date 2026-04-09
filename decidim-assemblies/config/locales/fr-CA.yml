@@ -199,8 +199,6 @@ fr-CA:
       taxonomy_filters:
         space_filter_for:
           assemblies: Toutes les assemblées
-      titles:
-        assemblies_types: Types d'assemblée
       tooltips:
         deleted_assemblies_info: Une assemblée ne peut être supprimée que si son statut est "non publiée".
     admin_log:
@@ -387,8 +385,6 @@ fr-CA:
       value_types:
         assembly_presenter:
           not_found: 'L''assemblée n''a pas été trouvée sur la base de données (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Le type d''assemblée n''a pas été trouvé sur la base de données (ID: %{id})'
     menu:
       assemblies: Assemblées
     open_data:
