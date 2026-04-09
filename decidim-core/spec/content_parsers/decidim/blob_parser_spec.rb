@@ -45,6 +45,7 @@ module Decidim
         <p>#{document_blob_url}</p>
         <p>#{document_blob_proxy_path}</p>
         <p>#{document_blob_proxy_url}</p>
+        <p>#{document_blob_disk_url}</p>
         <p>#{missing_blob_url}</p>
       HTML
     end
@@ -57,6 +58,7 @@ module Decidim
         <p><img src='#{image_blob.to_global_id}' alt="Blob image path"></p>
         <p><img src='#{image_blob.to_global_id}' alt="Blob image URL"></p>
         <p><a href='#{document_blob.to_global_id}'>Link to document</a></p>
+        <p>#{document_blob.to_global_id}</p>
         <p>#{document_blob.to_global_id}</p>
         <p>#{document_blob.to_global_id}</p>
         <p>#{document_blob.to_global_id}</p>
