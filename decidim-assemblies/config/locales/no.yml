@@ -144,8 +144,6 @@
             admin: Administrator
             collaborator: Samarbeidspartner
             moderator: Moderator
-      titles:
-        assemblies_types: Forsamlingstyper
     admin_log:
       assembly:
         create: "%{user_name} opprettet %{resource_name} forsamlingen"
@@ -245,8 +243,6 @@
       value_types:
         assembly_presenter:
           not_found: 'Forsamlingen ble ikke funnet i databasen (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Forsamlingstypen ble ikke funnet i databasen (ID: %{id})'
     menu:
       assemblies: Forsamlinger
     participatory_processes:
