@@ -1214,6 +1214,9 @@ cs:
       actions:
         confirm_modal:
           ok_add: Přidat administrátora
+          ok_remove: Odstranit správce
+          title_add: Potvrdit nového správce
+          title_remove: Odstranit správce
         demote_admin: Odstranit admin
       demote:
         error: Při odebrání tohoto účastníka ze seznamu administrátorů došlo k chybě.
