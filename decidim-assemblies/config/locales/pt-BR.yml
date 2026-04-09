@@ -195,8 +195,6 @@ pt-BR:
       taxonomy_filters:
         space_filter_for:
           assemblies: Todas as assembléias
-      titles:
-        assemblies_types: Tipos de assembleia
       tooltips:
         deleted_assemblies_info: Uma assembleia só pode ser excluída se o status for "Não publicada".
     admin_log:
@@ -355,8 +353,6 @@ pt-BR:
       value_types:
         assembly_presenter:
           not_found: 'A assembleia não foi encontrada no banco de dados (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'O tipo de assembleia não foi encontrado no banco de dados (ID: %{id})'
     menu:
       assemblies: Assembleias
     open_data:
