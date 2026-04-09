@@ -7,42 +7,6 @@ Decidim::Core::Engine.routes.draw do
 
   get "/favicon.ico", to: "favicon#show"
 
-  devise_for :users,
-             class_name: "Decidim::User",
-             module: :devise,
-             router_name: :decidim,
-             controllers: {
-               invitations: "decidim/devise/invitations",
-               sessions: "decidim/devise/sessions",
-               confirmations: "decidim/devise/confirmations",
-               passwords: "decidim/devise/passwords",
-               unlocks: "decidim/devise/unlocks",
-               omniauth_callbacks: "decidim/devise/omniauth_registrations"
-             },
-             skip: [:registrations]
-
-  # Manually define the registration routes because otherwise the default "edit"
-  # route would be exposed through Devise while we already have the edit and
-  # destroy routes available through the account pages.
-  resource(
-    :registration,
-    only: [:new, :create],
-    as: :user_registration,
-    path: "/users",
-    path_names: { new: "sign_up" },
-    controller: "devise/registrations"
-  ) do
-    # The "cancel" route forces the session data which is usually expired after
-    # sign in to be expired now. This is useful if the user wants to cancel
-    # OAuth signing in/up in the middle of the process, removing all OAuth
-    # session data. @see [Devise::RegistrationsController#cancel]
-    get :cancel
-  end
-
-  devise_scope :user do
-    post "omniauth_registrations" => "devise/omniauth_registrations#create"
-  end
-
   resource :manifest, only: [:show]
 
   resource :locale, only: [:create]
@@ -111,7 +75,53 @@ Decidim::Core::Engine.routes.draw do
     get "seconds_until_timeout", to: "timeouts#seconds_until_timeout"
   end
 
+  # OmniAuth callbacks must be defined outside any dynamic segment scope
+  # because Devise does not support scoping them under /:locale.
+  devise_for :users,
+             class_name: "Decidim::User",
+             module: :devise,
+             router_name: :decidim,
+             controllers: {
+               omniauth_callbacks: "decidim/devise/omniauth_registrations"
+             },
+             only: :omniauth_callbacks
+
   scope "/:locale" do
+    devise_for :users,
+               class_name: "Decidim::User",
+               module: :devise,
+               router_name: :decidim,
+               controllers: {
+                 invitations: "decidim/devise/invitations",
+                 sessions: "decidim/devise/sessions",
+                 confirmations: "decidim/devise/confirmations",
+                 passwords: "decidim/devise/passwords",
+                 unlocks: "decidim/devise/unlocks"
+               },
+               skip: [:registrations, :omniauth_callbacks]
+
+    # Manually define the registration routes because otherwise the default "edit"
+    # route would be exposed through Devise while we already have the edit and
+    # destroy routes available through the account pages.
+    resource(
+      :registration,
+      only: [:new, :create],
+      as: :user_registration,
+      path: "/users",
+      path_names: { new: "sign_up" },
+      controller: "devise/registrations"
+    ) do
+      # The "cancel" route forces the session data which is usually expired after
+      # sign in to be expired now. This is useful if the user wants to cancel
+      # OAuth signing in/up in the middle of the process, removing all OAuth
+      # session data. @see [Devise::RegistrationsController#cancel]
+      get :cancel
+    end
+
+    devise_scope :user do
+      post "omniauth_registrations" => "devise/omniauth_registrations#create"
+    end
+
     resources :pages, only: [:index, :show], format: false
 
     resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^/]+} }, format: false
