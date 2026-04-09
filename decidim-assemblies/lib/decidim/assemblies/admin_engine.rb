@@ -111,7 +111,9 @@ module Decidim
 
       initializer "decidim_assemblies_admin.mount_routes" do
         Decidim::Core::Engine.routes do
-          mount Decidim::Assemblies::AdminEngine, at: "/admin", as: "decidim_admin_assemblies"
+          scope "/:locale" do
+            mount Decidim::Assemblies::AdminEngine, at: "/admin", as: "decidim_admin_assemblies"
+          end
         end
       end
 

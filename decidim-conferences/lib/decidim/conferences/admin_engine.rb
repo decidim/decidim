@@ -118,7 +118,9 @@ module Decidim
 
       initializer "decidim_conferences_admin.mount_routes" do
         Decidim::Core::Engine.routes do
-          mount Decidim::Conferences::AdminEngine, at: "/admin", as: "decidim_admin_conferences"
+          scope "/:locale" do
+            mount Decidim::Conferences::AdminEngine, at: "/admin", as: "decidim_admin_conferences"
+          end
         end
       end
 

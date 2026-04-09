@@ -103,7 +103,9 @@ module Decidim
 
       initializer "decidim_initiatives_admin.mount_routes" do |_app|
         Decidim::Core::Engine.routes do
-          mount Decidim::Initiatives::AdminEngine, at: "/admin", as: "decidim_admin_initiatives"
+          scope "/:locale" do
+            mount Decidim::Initiatives::AdminEngine, at: "/admin", as: "decidim_admin_initiatives"
+          end
         end
       end
 
