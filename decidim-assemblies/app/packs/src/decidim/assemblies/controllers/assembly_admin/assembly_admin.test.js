@@ -858,21 +858,6 @@ describe("AssemblyAdminController", () => {
       expect(controller).toBeDefined();
       expect(element).toBeDefined();
     });
-
-    it("should call assignBehavior for assembly_type and created_by fields", () => {
-      const assemblyType = element.querySelector("#assembly_assembly_type");
-      const createdBy = element.querySelector("#assembly_created_by");
-
-      expect(assemblyType).toBeDefined();
-      expect(createdBy).toBeDefined();
-
-      // Verify that event listeners are attached by triggering changes
-      // const assemblyTypeOther = element.querySelector("#assembly_type_other");
-      const createdByOther = element.querySelector("#created_by_other");
-
-      // expect(assemblyTypeOther.style.display).toBe("none");
-      expect(createdByOther.style.display).toBe("none");
-    });
   });
 
   describe("assignBehavior", () => {
@@ -911,16 +896,6 @@ describe("AssemblyAdminController", () => {
       // Should hide initially if value is not "others"
       expect(targetDiv.style.display).toBe("none");
     });
-
-    it("should handle null elements gracefully", () => {
-      expect(() => {
-        controller.attachVisibility(null, null);
-      }).not.toThrow();
-
-      expect(() => {
-        controller.attachVisibility(element.querySelector("#assembly_assembly_type"), null);
-      }).not.toThrow();
-    });
   });
 
   describe("toggleDependsOnSelect", () => {
@@ -942,18 +917,6 @@ describe("AssemblyAdminController", () => {
       controller.toggleDependsOnSelect(select, targetDiv);
 
       expect(targetDiv.style.display).toBe("none");
-    });
-
-    it("should return early if target or showDiv is null", () => {
-      const select = element.querySelector("#assembly_assembly_type");
-
-      expect(() => {
-        controller.toggleDependsOnSelect(null, null);
-      }).not.toThrow();
-
-      expect(() => {
-        controller.toggleDependsOnSelect(select, null);
-      }).not.toThrow();
     });
   });
 

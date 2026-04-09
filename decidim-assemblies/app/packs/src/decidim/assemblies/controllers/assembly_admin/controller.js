@@ -2,7 +2,6 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    this.assignBehavior("assembly_type");
     this.assignBehavior("created_by");
   }
 
