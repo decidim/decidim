@@ -200,8 +200,6 @@ de:
       taxonomy_filters:
         space_filter_for:
           assemblies: Alle Gremien
-      titles:
-        assemblies_types: Versammlungstypen
       tooltips:
         deleted_assemblies_info: Ein Gremium kann nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
     admin_log:
@@ -377,8 +375,6 @@ de:
       value_types:
         assembly_presenter:
           not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Der Versammlungstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Gremien
     open_data:
