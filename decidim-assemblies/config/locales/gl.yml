@@ -144,8 +144,6 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-      titles:
-        assemblies_types: Tipo de xuntanzas
     admin_log:
       assembly:
         create: "%{user_name} creou o conxunto %{resource_name}"
