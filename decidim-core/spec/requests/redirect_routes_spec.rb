@@ -6,6 +6,12 @@ describe "Redirect routes" do
   let(:organization) { create(:organization, available_locales: %w(en es ca), default_locale: "en") }
   let(:headers) { { "HOST" => organization.host } }
 
+  it "redirects root to the locale home" do
+    get("/", headers:)
+    expect(response).to have_http_status(:moved_permanently)
+    expect(response).to redirect_to("/en/")
+  end
+
   shared_examples "redirects to the new url" do |url|
     it "redirects old url (/#{url}) with missing locale to new version (/en/#{url})" do
       get("/#{url}", headers:)

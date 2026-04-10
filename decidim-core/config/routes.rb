@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
 Decidim::Core::Engine.routes.draw do
+  extend Decidim::Routes::LocaleRedirects
+
   mount Decidim::Api::Engine => "/api"
+
+  get "/", to: redirect { |params, request|
+    locale_redirect(params, request, "/")
+  }, as: :root_redirect
 
   get "/offline", to: "offline#show"
 
@@ -60,14 +66,9 @@ Decidim::Core::Engine.routes.draw do
       as: :free_resource_authorization_modal
     )
 
-    get "/account/*rest", to: redirect { |params, request|
-      locale = Decidim::LocaleRouterDetector.new(request, params).locale
-      "/#{locale}/account/#{params[:rest]}"
-    }
-    get "/account", to: redirect { |params, request|
-      locale = Decidim::LocaleRouterDetector.new(request, params).locale
-      "/#{locale}/account"
-    }
+    get "/account/*rest", to: redirect(&locale_redirector("/account"))
+
+    get "/account", to: redirect(&locale_redirector("/account"))
   end
 
   scope :timeouts do
@@ -86,7 +87,7 @@ Decidim::Core::Engine.routes.draw do
              },
              only: :omniauth_callbacks
 
-  scope "/:locale", defaults: { locale: Decidim.default_locale } do
+  scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) }, defaults: { locale: Decidim.default_locale } do
     devise_for :users,
                class_name: "Decidim::User",
                module: :devise,
@@ -144,73 +145,14 @@ Decidim::Core::Engine.routes.draw do
     root to: "homepage#show"
   end
 
-  get "/last_activities", to: redirect { |params, request|
-    locale = Decidim::LocaleRouterDetector.new(request, params).locale
-    # Handle explicitly the query strings, as we have some filters and pagination on the last activity page.
-    # We need to handle URLs like
-    # https://nightly.decidim.org/last_activities?filter[with_resource_type]=Decidim::Comments::Comment&page=2
-    query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
-    query_string.delete("locale")
-    query_string = CGI.unescape(query_string.to_query)
-
-    path = "/#{locale}/last_activities"
-    path += "?#{query_string}" unless query_string.empty?
-    path
-  }
-
-  get "/search", to: redirect { |params, request|
-    locale = Decidim::LocaleRouterDetector.new(request, params).locale
-
-    # Handle explicitly the query strings, as we have some filters and pagination on the search page.
-    # We need to handle URLs like
-    # https://nightly.decidim.org/search?filter[term]=&filter[with_resource_type]=Decidim::Comments::Comment&filter[with_scope]&page=2&per_page=50
-    query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
-    query_string.delete("locale")
-    query_string = CGI.unescape(query_string.to_query)
-
-    path = "/#{locale}/search"
-    path += "?#{query_string}" unless query_string.empty?
-    path
-  }
-
-  get "/pages", to: redirect { |params, request|
-    locale = Decidim::LocaleRouterDetector.new(request, params).locale
-    "/#{locale}/pages"
-  }
-
-  get "/pages/*rest", to: redirect { |params, request|
-    locale = Decidim::LocaleRouterDetector.new(request, params).locale
-    "/#{locale}/pages/#{params[:rest]}"
-  }
-
-  get "/gamification/*rest", to: redirect { |params, request|
-    locale = Decidim::LocaleRouterDetector.new(request, params).locale
-    "/#{locale}/gamification/#{params[:rest]}"
-  }
-
-  get "/open-data/*rest", to: redirect { |params, request|
-    locale = Decidim::LocaleRouterDetector.new(request, params).locale
-    "/#{locale}/open-data/#{params[:rest]}"
-  }
-  get "/open-data", to: redirect { |params, request|
-    locale = Decidim::LocaleRouterDetector.new(request, params).locale
-    "/#{locale}/open-data"
-  }
-
-  get "/profiles/*rest", to: redirect { |params, request|
-    locale = Decidim::LocaleRouterDetector.new(request, params).locale
-
-    # Handle explicitly the query strings, as we have some filters and pagination on the activity tab.
-    # We need to handle URLs like
-    # https://nightly.decidim.org/profiles/visitant_bqqppvus/activity?filter[resource_type]=Decidim::Initiative
-    query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
-    query_string.delete("locale")
-    query_string = CGI.unescape(query_string.to_query)
-
-    path = "/#{locale}/profiles/#{params[:rest]}"
-    path += "?#{query_string}" unless query_string.empty?
-    path
-  }
+  get "/last_activities", to: redirect(&locale_redirector("/last_activities", preserve_query_string: true))
+  get "/search", to: redirect(&locale_redirector("/search", preserve_query_string: true))
+  get "/pages", to: redirect(&locale_redirector("/pages"))
+  get "/pages/*rest", to: redirect { |params, request| locale_redirector("/pages/#{params[:rest]}").call(params, request) }
+  get "/gamification/*rest", to: redirect { |params, request| locale_redirector("/gamification/#{params[:rest]}").call(params, request) }
+  get "/open-data/*rest", to: redirect { |params, request| locale_redirector("/open-data/#{params[:rest]}").call(params, request) }
+  get "/open-data", to: redirect(&locale_redirector("/open-data"))
+  get "/profiles/*rest", to: redirect { |params, request| locale_redirector("/profiles/#{params[:rest]}", preserve_query_string: true).call(params, request) }
 
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 

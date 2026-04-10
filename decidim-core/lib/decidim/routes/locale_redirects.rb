@@ -1,0 +1,40 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Routes
+    module LocaleRedirects
+      def locale_redirector(path, preserve_query_string: false)
+        lambda do |params, request|
+          locale_redirect(params, request, path, preserve_query_string:)
+        end
+      end
+
+      def locale_redirect(params, request, path, preserve_query_string: false)
+        locale = Decidim::LocaleRouterDetector.new(request, params).locale
+        destination = append_locale(path, locale)
+        destination = append_query_string(destination, request) if preserve_query_string
+
+        destination
+      end
+
+      private
+
+      def append_locale(path, locale)
+        return path if path == "/404"
+        return path if path.start_with?("/#{locale}/") || path == "/#{locale}"
+
+        path = "/#{path}" unless path.start_with?("/")
+
+        "/#{locale}#{path}"
+      end
+
+      def append_query_string(path, request)
+        query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
+        query_string.delete("locale")
+        query_string = CGI.unescape(query_string.to_query)
+
+        query_string.empty? ? path : "#{path}?#{query_string}"
+      end
+    end
+  end
+end
