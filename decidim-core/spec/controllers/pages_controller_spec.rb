@@ -7,6 +7,8 @@ module Decidim
     describe PagesController do
       routes { Decidim::Core::Engine.routes }
 
+      include Decidim::Core::Engine.routes.url_helpers
+
       let(:organization) { create(:organization) }
 
       before do
@@ -65,7 +67,7 @@ module Decidim
           it "redirects to sign in path" do
             get :show, params: { id: page.slug, locale: I18n.locale }
 
-            expect(response).to redirect_to("/users/sign_in")
+            expect(response).to redirect_to(new_user_session_path)
             expect(flash[:warning]).to include("Please, log in with your account before access")
           end
         end

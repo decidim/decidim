@@ -8,6 +8,8 @@ module Decidim
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:tos_path) { "/#{I18n.locale}/pages/terms-of-service" }
 
+    include Decidim::Core::Engine.routes.url_helpers
+
     controller Decidim::ApplicationController do
       def show
         render plain: "Hello World"
@@ -202,7 +204,7 @@ module Decidim
         context "when not authenticated" do
           it "redirects to sign in path" do
             get :show
-            expect(response).to redirect_to("/users/sign_in")
+            expect(response).to redirect_to(new_user_session_path)
             expect(flash[:warning]).to include("Please, log in with your account before access")
           end
         end
@@ -213,7 +215,7 @@ module Decidim
       it "redirects the user to the sign in page" do
         get :unauthorized
 
-        expect(response).to redirect_to("/users/sign_in")
+        expect(response).to redirect_to(new_user_session_path)
       end
 
       context "when authenticated" do
@@ -224,7 +226,7 @@ module Decidim
         it "redirects the user to root path" do
           get :unauthorized
 
-          expect(response).to redirect_to("/")
+          expect(response).to redirect_to(root_path)
         end
       end
     end

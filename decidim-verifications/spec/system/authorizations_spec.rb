@@ -40,7 +40,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
         click_on "Example authorization"
 
         click_on "start exploring"
-        expect(page).to have_current_path decidim.root_path
+        expect(page).to have_current_path decidim.root_path(locale: I18n.locale)
 
         expect(page).to have_content("How do I take part in a process?")
       end

@@ -10,17 +10,19 @@ module Decidim
 
       routes do
         authenticate(:user) do
-          resources :authorizations, only: [:new, :create, :index] do
-            collection do
-              get :onboarding_pending
-              get :renew_modal
-              get :renew
-              delete :clear_onboarding_data
+          scope "/:locale", defaults: { locale: Decidim.default_locale } do
+            resources :authorizations, only: [:new, :create, :index] do
+              collection do
+                get :onboarding_pending
+                get :renew_modal
+                get :renew
+                delete :clear_onboarding_data
+              end
             end
-          end
 
-          Decidim.authorization_engines.each do |manifest|
-            mount manifest.engine, at: "/#{manifest.name}", as: "decidim_#{manifest.name}"
+            Decidim.authorization_engines.each do |manifest|
+              mount manifest.engine, at: "/#{manifest.name}", as: "decidim_#{manifest.name}"
+            end
           end
         end
 

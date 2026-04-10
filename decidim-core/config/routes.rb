@@ -18,12 +18,12 @@ Decidim::Core::Engine.routes.draw do
   end
 
   authenticate(:user) do
-    devise_scope :user do
-      get "change_password" => "devise/passwords"
-      put "apply_password" => "devise/passwords"
-    end
-
     scope "/:locale", defaults: { locale: Decidim.default_locale } do
+      devise_scope :user do
+        get "change_password" => "devise/passwords"
+        put "apply_password" => "devise/passwords"
+      end
+
       resource :account, only: [:show, :update, :destroy], controller: "account" do
         member do
           get :delete
@@ -140,6 +140,8 @@ Decidim::Core::Engine.routes.draw do
     namespace :gamification do
       resources :badges, only: [:index]
     end
+
+    root to: "homepage#show"
   end
 
   get "/last_activities", to: redirect { |params, request|
@@ -260,6 +262,4 @@ Decidim::Core::Engine.routes.draw do
   scope :oauth do
     get "/me" => "doorkeeper/credentials#me"
   end
-
-  root to: "homepage#show"
 end
