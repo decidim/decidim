@@ -70,7 +70,7 @@ module Decidim
       @configured_default_url_options ||= begin
         opts = ActionMailer::Base.default_url_options.presence ||
                UrlOptionResolver.new.options
-        opts.merge(locale: I18n.locale.to_s)
+        opts
       end
     end
   end

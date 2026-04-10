@@ -44,13 +44,13 @@ module Decidim
       describe "#show" do
         subject { described_class.new(participatory_process).show }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process") }
+        it { is_expected.to start_with("/#{I18n.locale}/admin/participatory_processes/my-process") }
       end
 
       describe "#edit" do
         subject { described_class.new(participatory_process).edit }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process/edit") }
+        it { is_expected.to start_with("/#{I18n.locale}/admin/participatory_processes/my-process/edit") }
       end
     end
 
@@ -90,19 +90,39 @@ module Decidim
       describe "#admin_index" do
         subject { described_class.new([resource, nested_resource]).admin_index }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources") }
+        it { is_expected.to start_with("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources") }
+      end
+
+      context "when a locale option is passed" do
+        describe "#admin_index" do
+          subject { described_class.new([resource, nested_resource]).admin_index(locale: I18n.locale) }
+
+          it { is_expected.to eq("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources") }
+        end
+
+        describe "#show" do
+          subject { described_class.new([resource, nested_resource]).show(locale: I18n.locale) }
+
+          it { is_expected.to eq("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
+        end
+
+        describe "#edit" do
+          subject { described_class.new([resource, nested_resource]).edit(locale: I18n.locale) }
+
+          it { is_expected.to eq("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1/edit") }
+        end
       end
 
       describe "#show" do
         subject { described_class.new([resource, nested_resource]).show }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
+        it { is_expected.to start_with("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
       end
 
       describe "#edit" do
         subject { described_class.new([resource, nested_resource]).edit }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1/edit") }
+        it { is_expected.to start_with("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1/edit") }
       end
     end
 
