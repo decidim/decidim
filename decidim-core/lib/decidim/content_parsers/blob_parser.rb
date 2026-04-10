@@ -34,8 +34,8 @@ module Decidim
           # Group 6: Variation key for representations
           /(?<variation_part>[\w.=-]+)
         )?
-        # Group 7: Filename
-        /([\w.=-]+)
+        # Group 7: Filename (supports apostrophes inside names but not as HTML quote delimiters)
+        /((?:[^\s/"<>']|'(?=[^\s/"<>']))+)
       }x
 
       def rewrite
