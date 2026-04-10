@@ -39,7 +39,9 @@ module Decidim
 
       initializer "decidim_verifications.mount_routes" do
         Decidim::Core::Engine.routes do
-          mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
+          scope "/:locale", defaults: { locale: Decidim.default_locale } do
+            mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
+          end
         end
       end
 

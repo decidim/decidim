@@ -13,43 +13,45 @@ module Decidim
 
       routes do
         constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
-          resources :proposal_answer_templates do
-            member do
-              post :copy
+          scope "/:locale", defaults: { locale: Decidim.default_locale } do
+            resources :proposal_answer_templates do
+              member do
+                post :copy
+              end
+              collection do
+                get :fetch
+              end
             end
-            collection do
-              get :fetch
+
+            ## Routes for Questionnaire Templates
+            resources :questionnaire_templates do
+              member do
+                post :copy
+                get :edit_questions
+                patch :update_questions
+                resource :questionnaire, module: :questionnaire_templates # To manage the templatable resource
+              end
+
+              collection do
+                post :apply # To use when creating an object from a template
+                post :skip # To use when creating an object without a template
+                get :preview # To provide a preview for the template in the object creation view
+              end
             end
+
+            resources :block_user_templates do
+              member do
+                post :copy
+              end
+              collection do
+                get :fetch
+              end
+            end
+
+            get "/questionnaire_template/questionnaire/response_options", to: "questionnaire_templates/questionnaires#response_options", as: "response_options_template"
+
+            root to: "questionnaire_templates#index"
           end
-
-          ## Routes for Questionnaire Templates
-          resources :questionnaire_templates do
-            member do
-              post :copy
-              get :edit_questions
-              patch :update_questions
-              resource :questionnaire, module: :questionnaire_templates # To manage the templatable resource
-            end
-
-            collection do
-              post :apply # To use when creating an object from a template
-              post :skip # To use when creating an object without a template
-              get :preview # To provide a preview for the template in the object creation view
-            end
-          end
-
-          resources :block_user_templates do
-            member do
-              post :copy
-            end
-            collection do
-              get :fetch
-            end
-          end
-
-          get "/questionnaire_template/questionnaire/response_options", to: "questionnaire_templates/questionnaires#response_options", as: "response_options_template"
-
-          root to: "questionnaire_templates#index"
         end
       end
 

@@ -14,7 +14,7 @@ module Decidim
         end
 
         def admin_proposal_info_url
-          send(resource.component.mounted_admin_engine).proposal_url(resource, resource.component.mounted_params)
+          EngineRouter.admin_proxy(resource.component).proposal_url(resource)
         end
 
         private

@@ -11,8 +11,8 @@ describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
   let(:component) { resource.component }
   let(:author) { create(:user, :confirmed, :admin, organization:) }
   let(:extra) { { note_author_id: author.id } }
-  let(:admin_proposal_info_path) { "/admin/participatory_processes/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}" }
-  let(:admin_proposal_info_url) { "http://#{organization.host}/admin/participatory_processes/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}?locale=#{I18n.locale}" }
+  let(:admin_proposal_info_path) { Decidim::ResourceLocatorPresenter.new(resource).show }
+  let(:admin_proposal_info_url) { Decidim::EngineRouter.admin_proxy(component).proposal_url(resource) }
   let(:email_subject) { "#{author.name} has replied your private note in #{resource_title}." }
   let(:email_intro) { %(#{author.name} has replied your private note in #{resource_title}. Check it out at <a href="#{admin_proposal_info_url}">the admin panel</a>.) }
   let(:email_outro) { "You have received this notification because you are the author of the note." }
@@ -26,8 +26,8 @@ describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
     let(:assembly) { create(:assembly) }
     let(:proposal_component) { create(:proposal_component, participatory_space: assembly) }
     let(:resource) { create(:proposal, component: proposal_component, title: Faker::Lorem.characters(number: 25)) }
-    let(:admin_proposal_info_path) { "/admin/assemblies/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}" }
-    let(:admin_proposal_info_url) { "http://#{organization.host}/admin/assemblies/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}?locale=#{I18n.locale}" }
+    let(:admin_proposal_info_path) { Decidim::ResourceLocatorPresenter.new(resource).show }
+    let(:admin_proposal_info_url) { Decidim::EngineRouter.admin_proxy(component).proposal_url(resource) }
     let(:email_intro) { %(#{author.name} has replied your private note in #{resource_title}. Check it out at <a href="#{admin_proposal_info_url}">the admin panel</a>.) }
     let(:notification_title) { %(<a href="/en/profiles/#{author.nickname}">#{author.name} @#{author.nickname}</a> has replied your private note in <a href="#{resource_path}">#{resource_title}</a>. Check it out at <a href="#{admin_proposal_info_path}">the admin panel</a>.) }
 

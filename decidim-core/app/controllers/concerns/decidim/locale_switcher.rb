@@ -30,6 +30,8 @@ module Decidim
       #
       # Returns a Hash.
       def default_url_options
+        return {} if params[:locale].present?
+
         { locale: current_locale }
       end
 
