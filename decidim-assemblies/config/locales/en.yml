@@ -201,8 +201,6 @@ en:
       taxonomy_filters:
         space_filter_for:
           assemblies: All assemblies
-      titles:
-        assemblies_types: Assemblies types
       tooltips:
         deleted_assemblies_info: An assembly can only be deleted if status is "Unpublished".
     admin_log:
@@ -391,8 +389,6 @@ en:
       value_types:
         assembly_presenter:
           not_found: 'The assembly was not found on the database (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'The assembly type was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
     open_data:

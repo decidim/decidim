@@ -62,7 +62,7 @@ module Decidim
       def profile_url(user)
         return "" if user.respond_to?(:deleted?) && user.deleted?
 
-        EngineRouter.new("decidim", { host: }).profile_url(user.nickname)
+        EngineRouter.new("decidim", { host: }).profile_url(user.nickname, locale: I18n.locale)
       end
 
       def root_url
