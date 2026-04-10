@@ -61,7 +61,7 @@ module Decidim::Meetings
           it "serializes the organizer" do
             expect(serialized[:organizer][:@type]).to eq("Organization")
             expect(serialized[:organizer][:name]).to eq(translated_attribute(meeting.author.name))
-            expect(serialized[:organizer][:url]).to eq("http://#{organization.host}:#{Capybara.server_port}/")
+            expect(serialized[:organizer][:url]).to eq(root_url)
           end
         end
 
@@ -87,6 +87,10 @@ module Decidim::Meetings
             end
           end
         end
+      end
+
+      def root_url
+        Decidim::Core::Engine.routes.url_helpers.root_url(host: organization.host, port: Capybara.server_port)
       end
 
       describe "types of meetings" do

@@ -52,7 +52,7 @@ shared_examples "inviting participatory space admins" do |check_members_page: tr
         find("*[type=submit]").click
       end
 
-      expect(page).to have_current_path "/admin/admin_terms/show"
+      expect(page).to have_current_path decidim_admin.admin_terms_show_path
 
       visit decidim_admin.admin_terms_show_path
 
@@ -81,7 +81,7 @@ shared_examples "inviting participatory space admins" do |check_members_page: tr
           find("*[type=submit]").click
         end
 
-        expect(page).to have_current_path "/admin/admin_terms/show"
+        expect(page).to have_current_path decidim_admin.admin_terms_show_path
 
         visit decidim_admin.admin_terms_show_path
 
