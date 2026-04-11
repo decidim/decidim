@@ -8,8 +8,8 @@ describe Decidim::Initiatives::Admin::InitiativeSentToTechnicalValidationEvent d
   let(:resource) { create(:initiative) }
   let(:participatory_space) { resource }
   let(:event_name) { "decidim.events.initiatives.admin.initiative_sent_to_technical_validation" }
-  let(:admin_initiative_path) { ResourceLocatorPresenter.new(resource).edit }
-  let(:admin_initiative_url) { EngineRouter.admin_proxy(resource).edit_initiative_url(resource) }
+  let(:admin_initiative_path) { Decidim::ResourceLocatorPresenter.new(resource).edit }
+  let(:admin_initiative_url) { Decidim::EngineRouter.admin_proxy(resource).edit_initiative_url(resource) }
   let(:email_subject) { "Initiative \"#{resource_title}\" was sent to technical validation." }
   let(:email_intro) { %(The initiative "#{resource_title}" has been sent to technical validation. Check it out at <a href="#{admin_initiative_url}">the admin panel</a>) }
   let(:email_outro) { "You have received this notification because you are an admin of the platform." }

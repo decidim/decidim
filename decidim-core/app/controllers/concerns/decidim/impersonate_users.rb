@@ -71,6 +71,10 @@ module Decidim
         # Prevent redirect on non-HTML responses, because we want redirect AFTER impersonation.js inits a reload.
         return if request && request.negotiate_mime([Mime[:html]]).blank?
         return unless can_impersonate_users?
+
+        # Keep the expiration check in sync with the active impersonation log so
+        # the redirect happens in the same request when the session just expired.
+        impersonation_log&.ensure_not_expired!
         return unless expired_log
 
         expired_log.update!(ended_at: Time.current)
