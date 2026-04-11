@@ -39,6 +39,15 @@ Decidim::Core::Engine.routes.draw do
       end
     end
 
+    scope "/:locale", defaults: { locale: Decidim.default_locale } do
+      resource :download_your_data, only: [:show], controller: "download_your_data" do
+        member do
+          post :export
+          get "/:uuid", to: "download_your_data#download_file", as: :download
+        end
+      end
+    end
+
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
     post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
     resources :notifications, only: [:index, :destroy] do
@@ -50,12 +59,8 @@ Decidim::Core::Engine.routes.draw do
 
     get "/newsletters_opt_in/:token", to: "newsletters_opt_in#update", as: :newsletters_opt_in
 
-    resource :download_your_data, only: [:show], controller: "download_your_data" do
-      member do
-        post :export
-        get "/:uuid", to: "download_your_data#download_file", as: :download
-      end
-    end
+    get "/download_your_data", to: redirect(&locale_redirector("/download_your_data"))
+    get "/download_your_data/:uuid", to: redirect { |params, request| locale_redirector("/download_your_data/#{params[:uuid]}").call(params, request) }
 
     resources :notifications_subscriptions, param: :auth, only: [:create, :destroy]
 

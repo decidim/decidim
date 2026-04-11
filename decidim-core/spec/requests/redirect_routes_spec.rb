@@ -17,18 +17,21 @@ describe "Redirect routes" do
       get("/#{url}", headers:)
       expect(response).to have_http_status(:moved_permanently)
       expect(response).to redirect_to("/en/#{url}")
+      expect(response.location).not_to include("locale=")
     end
 
     it "redirects old url (/#{url}?locale=es) with locale to new version (/es/#{url})" do
       get("/#{url}?locale=es", headers:)
       expect(response).to have_http_status(:moved_permanently)
       expect(response).to redirect_to("/es/#{url}")
+      expect(response.location).not_to include("locale=")
     end
 
     it "redirects to default locale (/en/#{url}) when the locale is invalid (/#{url}?locale=esp)" do
       get("/#{url}?locale=esp", headers:)
       expect(response).to have_http_status(:moved_permanently)
       expect(response).to redirect_to("/en/#{url}")
+      expect(response.location).not_to include("locale=")
     end
 
     it "redirects user to the new url (/ca/#{url})" do
@@ -39,6 +42,7 @@ describe "Redirect routes" do
       get("/#{url}", headers:)
       expect(response).to have_http_status(:moved_permanently)
       expect(response).to redirect_to("/ca/#{url}")
+      expect(response.location).not_to include("locale=")
     end
 
     it "redirects user to the new url (/es/#{url}) when using custom locale (/#{url}?locale=es)" do
@@ -49,6 +53,7 @@ describe "Redirect routes" do
       get("/#{url}?locale=es", headers:)
       expect(response).to have_http_status(:moved_permanently)
       expect(response).to redirect_to("/es/#{url}")
+      expect(response.location).not_to include("locale=")
     end
   end
 
@@ -75,5 +80,62 @@ describe "Redirect routes" do
     it_behaves_like "redirects to the new url", "profiles/my_user/badges"
     it_behaves_like "redirects to the new url", "profiles/my_user/following"
     it_behaves_like "redirects to the new url", "profiles/my_user/followers"
+  end
+
+  context "when visiting download your data pages" do
+    let(:user) { create(:user, :confirmed, organization:, locale: "ca") }
+    let(:private_export) { create(:private_export, attached_to: user, organization:) }
+
+    before do
+      login_as user, scope: :user
+    end
+
+    it "redirects old url (/download_your_data) with missing locale to user locale (/ca/download_your_data)" do
+      get("/download_your_data", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/ca/download_your_data")
+      expect(response.location).not_to include("locale=")
+    end
+
+    it "redirects old url (/download_your_data?locale=es) with locale to new version (/es/download_your_data)" do
+      get("/download_your_data?locale=es", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/es/download_your_data")
+      expect(response.location).not_to include("locale=")
+    end
+
+    it "redirects to default locale (/en/download_your_data) when the locale is invalid" do
+      get("/download_your_data?locale=esp", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/download_your_data")
+      expect(response.location).not_to include("locale=")
+    end
+
+    it "redirects old url (/download_your_data/:uuid) with missing locale to new version (/ca/download_your_data/:uuid)" do
+      get("/download_your_data/#{private_export.uuid}", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/ca/download_your_data/#{private_export.uuid}")
+      expect(response.location).not_to include("locale=")
+    end
+
+    it "redirects old url (/download_your_data/:uuid?locale=es) with locale to new version (/es/download_your_data/:uuid)" do
+      get("/download_your_data/#{private_export.uuid}?locale=es", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/es/download_your_data/#{private_export.uuid}")
+      expect(response.location).not_to include("locale=")
+    end
+
+    it "redirects to default locale when uuid download url locale is invalid" do
+      get("/download_your_data/#{private_export.uuid}?locale=esp", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/download_your_data/#{private_export.uuid}")
+      expect(response.location).not_to include("locale=")
+    end
   end
 end
