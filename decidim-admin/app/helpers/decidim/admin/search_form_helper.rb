@@ -11,6 +11,15 @@ module Decidim
       # as datetime pickers.
       def search_form_for(record, options = {}, &)
         options[:builder] ||= SearchFormBuilder
+        options[:url] = url_for(params.to_unsafe_h.except("locale", :locale).merge(locale: nil)) if options[:url].blank?
+
+        super
+      end
+
+      def sort_link(search_object, attribute, *args, &)
+        options = args.extract_options!
+        options = options.merge(params: params.to_unsafe_h.except("locale", :locale).merge(locale: nil))
+        args << options
 
         super
       end
