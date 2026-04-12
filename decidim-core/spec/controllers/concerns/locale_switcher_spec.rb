@@ -158,8 +158,8 @@ module Decidim
         allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
       end
 
-      it "appends the locale to url" do
-        expect(controller.canonical_url("http://example.com/foo/bar")).to eq("http://example.com/foo/bar?locale=#{default_locale}")
+      it "prefixes internal URLs with the locale" do
+        expect(controller.canonical_url("/foo/bar")).to eq("/en/foo/bar")
       end
 
       it "changes the link to the correct locale" do
@@ -178,8 +178,8 @@ module Decidim
         expect(controller.canonical_url("https://example.com/en/foo/bar?locale=es", "ca")).to eq("https://example.com/ca/foo/bar")
       end
 
-      it "requests an url containing part of the language" do
-        expect(controller.canonical_url("https://example.com/english/foo/bar?locale=es", "ca")).to eq("https://example.com/english/foo/bar?locale=ca")
+      it "keeps non-locale path segments that start with locale letters" do
+        expect(controller.canonical_url("https://example.com/ca/english/foo/bar?locale=es", "ca")).to eq("https://example.com/ca/english/foo/bar")
       end
 
       it "returns the default locale when it is not a valid locale" do
