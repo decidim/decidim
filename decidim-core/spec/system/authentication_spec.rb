@@ -598,7 +598,7 @@ describe "Authentication" do
         end
 
         expect(page).to have_content("Your password has been successfully changed")
-        expect(page).to have_current_path "/"
+        expect(page).to have_current_path decidim.root_path
       end
 
       it "enforces rules when setting a new password for the user" do
@@ -613,7 +613,7 @@ describe "Authentication" do
         expect(page).to have_content("must contain at least 5 different characters")
         expect(page).to have_content("must not be too common")
         expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
-        expect(page).to have_current_path "/users/password"
+        expect(page).to have_current_path decidim.user_password_path
       end
 
       it "enforces the minimum length for the password in the front-end" do
