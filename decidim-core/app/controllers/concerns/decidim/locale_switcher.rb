@@ -30,6 +30,8 @@ module Decidim
       #
       # Returns a Hash.
       def default_url_options
+        return {} if locale_in_script_name?
+
         { locale: current_locale }
       end
 
@@ -138,6 +140,14 @@ module Decidim
         end
 
         uri.to_s
+      end
+
+      def locale_in_script_name?
+        script_name = request&.script_name.to_s
+        return false if script_name.blank?
+
+        locale_segment = script_name.split("/").compact_blank.first
+        available_locales.include?(locale_segment)
       end
       # rubocop: enable Metrics/CyclomaticComplexity
       # rubocop: enable Metrics/PerceivedComplexity
