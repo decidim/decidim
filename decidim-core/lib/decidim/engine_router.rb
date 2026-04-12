@@ -25,7 +25,7 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.admin_proxy(target)
-      new(target.mounted_admin_engine, target.mounted_params, target)
+      new(target.mounted_admin_engine, target.mounted_params.except(:locale), target)
     end
 
     def initialize(engine, default_url_options, target = nil, _options = {})
