@@ -18,10 +18,18 @@ module Decidim
 
       def sort_link(search_object, attribute, *args, &)
         options = args.extract_options!
-        options = options.merge(params: params.to_unsafe_h.except("locale", :locale).merge(locale: nil))
+        options = options.merge(params: sort_link_params)
         args << options
 
         super
+      end
+
+      private
+
+      def sort_link_params
+        request_params = params.to_unsafe_h.except("locale", :locale).merge(locale: nil)
+        request_params["q"] = request_params["q"].except("s", :s) if request_params["q"].is_a?(Hash)
+        request_params
       end
     end
   end

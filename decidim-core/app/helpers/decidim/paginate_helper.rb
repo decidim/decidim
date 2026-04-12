@@ -24,7 +24,7 @@ module Decidim
     private
 
     def pagination_params(paginate_params)
-      params.to_unsafe_h.except("locale", :locale).merge(locale: nil).merge(paginate_params)
+      params.to_unsafe_h.except("locale", :locale).merge(paginate_params)
     end
   end
 end
