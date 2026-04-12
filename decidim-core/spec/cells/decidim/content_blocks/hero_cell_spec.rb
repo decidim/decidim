@@ -21,7 +21,8 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
     end
 
     it "shows the default cta path" do
-      expect(subject).to have_link(href: "/users/sign_up")
+      sign_up_path = Decidim::Core::Engine.routes.url_helpers.new_user_registration_path
+      expect(subject).to have_link(href: sign_up_path)
     end
   end
 
