@@ -50,7 +50,7 @@ describe "ephemeral action authorization" do
       it "creates an ephemeral user session" do
         expect { click_on "New proposal" }.to change { Decidim::User.ephemeral.count }.by(1)
 
-        expect(page).to have_link("Close", href: "/users/sign_out")
+        expect(page).to have_link("Close", href: decidim.destroy_user_session_path)
       end
 
       context "when ephemeral session is initiated" do

@@ -41,7 +41,7 @@ module Decidim
       let(:organization) { newsletter.organization }
       let(:url_helpers) { Decidim::Core::Engine.routes.url_helpers }
 
-      it { is_expected.to eq(url_helpers.newsletter_url(newsletter.id, host: organization.host)) }
+      it { is_expected.to eq(url_helpers.newsletter_url(newsletter.id, host: organization.host, port: Capybara.server_port)) }
 
       context "when the newsletter is not sent" do
         let(:newsletter) { create(:newsletter) }
@@ -57,7 +57,7 @@ module Decidim
       let(:organization) { newsletter.organization }
       let(:url_helpers) { Decidim::Core::Engine.routes.url_helpers }
 
-      it { is_expected.to eq(url_helpers.notifications_settings_url(host: organization.host)) }
+      it { is_expected.to eq(url_helpers.notifications_settings_url(host: organization.host, port: Capybara.server_port)) }
 
       context "when the newsletter is not sent" do
         let(:newsletter) { create(:newsletter) }
@@ -73,7 +73,7 @@ module Decidim
       let(:organization) { newsletter.organization }
       let(:url_helpers) { Decidim::Core::Engine.routes.url_helpers }
 
-      it { is_expected.to eq(url_helpers.unsubscribe_newsletters_url(host: organization.host)) }
+      it { is_expected.to eq(url_helpers.unsubscribe_newsletters_url(host: organization.host, port: Capybara.server_port)) }
 
       context "when the newsletter is not sent" do
         let(:newsletter) { create(:newsletter) }
