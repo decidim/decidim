@@ -31,7 +31,7 @@ module Decidim
       def append_query_string(path, request)
         query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
         query_string.delete("locale")
-        query_string = CGI.unescape(query_string.to_query)
+        query_string = query_string.to_query
 
         query_string.empty? ? path : "#{path}?#{query_string}"
       end

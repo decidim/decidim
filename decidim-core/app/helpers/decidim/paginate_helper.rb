@@ -24,7 +24,14 @@ module Decidim
     private
 
     def pagination_params(paginate_params)
-      params.to_unsafe_h.except("locale", :locale).merge(paginate_params)
+      request_params = params.to_unsafe_h.except("locale", :locale)
+      request_params["q"] = request_params["q"].except("locale", :locale) if request_params["q"].is_a?(Hash)
+      request_params[:locale] = nil if admin_controller_with_locale_prefix?
+      request_params.merge(paginate_params)
+    end
+
+    def admin_controller_with_locale_prefix?
+      request.path_parameters[:locale].present? && controller_path.to_s.include?("/admin/")
     end
   end
 end
