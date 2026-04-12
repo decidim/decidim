@@ -50,9 +50,11 @@ Decidim::Core::Engine.routes.draw do
 
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
     post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
-    resources :notifications, only: [:index, :destroy] do
-      collection do
-        delete :read_all
+    scope "/:locale", defaults: { locale: Decidim.default_locale } do
+      resources :notifications, only: [:index, :destroy] do
+        collection do
+          delete :read_all
+        end
       end
     end
     resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
@@ -158,6 +160,7 @@ Decidim::Core::Engine.routes.draw do
   get "/open-data/*rest", to: redirect { |params, request| locale_redirector("/open-data/#{params[:rest]}").call(params, request) }
   get "/open-data", to: redirect(&locale_redirector("/open-data"))
   get "/profiles/*rest", to: redirect { |params, request| locale_redirector("/profiles/#{params[:rest]}", preserve_query_string: true).call(params, request) }
+  get "/notifications", to: redirect(&locale_redirector("/notifications"))
 
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 
