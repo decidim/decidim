@@ -378,7 +378,7 @@ eu:
             title: Beste hizlari bat
         conference_user_roles:
           edit:
-            title: Eguneratu jardunaldiaren hizlaria
+            title: Jardunaldiaren administratzailea eguneartu
           index:
             title: Jardunaldi-administratzaileak
           new:
