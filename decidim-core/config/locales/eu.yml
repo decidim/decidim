@@ -1532,6 +1532,11 @@ eu:
           %{organization_name}
         hello: "%{username}, agurgarria:\n"
         subject: Kontu inaktiboa ezabatua
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Honen kidea
     participatory_space_members:
       index:
         members: Kideak
