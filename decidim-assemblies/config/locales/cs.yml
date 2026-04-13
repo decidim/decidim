@@ -362,9 +362,6 @@ cs:
           highlighted_assemblies:
             active_spaces: Aktivní shromáždění
             see_all_spaces: Zobrazit všechna shromáždění
-        user_profile:
-          member_of:
-            member_of: Člen
       show:
         duration: Doba trvání
         social_networks_title: Navštivte shromáždění na
