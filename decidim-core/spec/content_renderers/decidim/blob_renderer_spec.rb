@@ -125,6 +125,8 @@ module Decidim
 
           expect(style.text).to include(image_blob.to_global_id.to_s)
         end
+      end
+
       context "when there is a query string after the gid" do
         let(:suffix) { "?some=strange&suffix=after" }
 
