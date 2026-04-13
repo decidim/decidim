@@ -61,6 +61,12 @@ window.Decidim = window.Decidim || {
   announceForScreenReader
 };
 
+// Hydrate config from inert JSON block rendered by the server
+const configData = window.Decidim.config.hydrate();
+if (configData && configData.externalLinkMessages) {
+  ExternalLink.configureMessages(configData.externalLinkMessages);
+}
+
 window.morphdom = morphdom
 
 // eslint-disable-next-line max-params

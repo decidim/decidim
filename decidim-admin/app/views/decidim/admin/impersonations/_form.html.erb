@@ -48,11 +48,8 @@
       </div>
 
       <% if other_available_authorizations.any? %>
-        <script>
-          window.Decidim.managedUsersForm()
-        </script>
+        <div data-controller="impersonation-form"></div>
       <% end %>
-
     </div>
   </div>
 </div>

@@ -38,7 +38,8 @@
                 permissions_holder: type,
                 class: "button button__sm button__transparent-secondary",
                 "data-dialog-open": "not-authorized-modal",
-                onclick: "event.preventDefault();"
+                "data-controller": "prevent-default",
+                "data-action": "click->prevent-default#prevent"
               ) do %>
               <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
             <% end %>

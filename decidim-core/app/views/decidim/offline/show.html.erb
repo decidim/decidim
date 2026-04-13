@@ -11,5 +11,5 @@
   <h1 class="h1"><%= t("decidim.offline.name") %></h1>
   <p class="text-lg mt-4"><%= t(".message_1") %></p>
   <p class="text-lg mt-4"><%= t(".message_2") %></p>
-  <button class="button button__secondary button__lg mt-8" onclick="location.reload()"><%= t(".retry") %></button>
+  <button class="button button__secondary button__lg mt-8" data-controller="click-delegate" data-action="click->click-delegate#reload"><%= t(".retry") %></button>
 </main>

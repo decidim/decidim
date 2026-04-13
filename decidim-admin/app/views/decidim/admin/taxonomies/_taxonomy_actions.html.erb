@@ -7,12 +7,12 @@
     <% if allowed_to? :update, :taxonomy, taxonomy: taxonomy %>
       <li class="dropdown__item">
         <% if taxonomy.root? %>
-          <%= link_to edit_taxonomy_path(taxonomy), class: "dropdown__button js-drawer-editor" do %>
+          <%= link_to edit_taxonomy_path(taxonomy), class: "dropdown__button js-drawer-editor", data: { action: "click->taxonomy-drawer#open" } do %>
             <%= icon "pencil-line" %>
             <%= t("actions.edit", scope: "decidim.admin.taxonomies") %>
           <% end %>
         <% else %>
-          <%= link_to edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), class: "dropdown__button js-drawer-editor" do %>
+          <%= link_to edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), class: "dropdown__button js-drawer-editor", data: { action: "click->taxonomy-drawer#open" } do %>
             <%= icon "pencil-line" %>
             <%= t("actions.edit", scope: "decidim.admin.taxonomies") %>
           <% end %>

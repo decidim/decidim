@@ -5,7 +5,7 @@
       <% if taxonomy.root? %>
         <li>
           <span class="md:hidden"><%= t("decidim.admin.taxonomies.name") %>: </span>
-          <%= link_to translated_attribute(taxonomy.name), edit_taxonomy_path(taxonomy), class: "js-drawer-editor" %>
+          <%= link_to translated_attribute(taxonomy.name), edit_taxonomy_path(taxonomy), class: "js-drawer-editor", data: { action: "click->taxonomy-drawer#open" } %>
         </li>
         <li>
           <span class="md:hidden"><%= t("decidim.admin.taxonomies.total_items") %>: </span>
@@ -18,7 +18,7 @@
       <% else %>
         <li>
           <span class="md:hidden"><%= t("decidim.admin.taxonomies.name") %>: </span>
-          <%= link_to translated_attribute(taxonomy.name), edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), class: "js-drawer-editor" %>
+          <%= link_to translated_attribute(taxonomy.name), edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), class: "js-drawer-editor", data: { action: "click->taxonomy-drawer#open" } %>
         </li>
         <li>
           <span class="md:hidden"><%= t("decidim.admin.taxonomies.count") %>: </span>

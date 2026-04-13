@@ -10,11 +10,11 @@
 
       <div class="external-domains">
         <%= fields_for "external_domains[#{blank_external_domain.to_param}]", blank_external_domain do |external_domain_form| %>
-          <script type="text/template" class="decidim-template">
+          <template class="decidim-template">
             <%= render "external_domain",
                        form: external_domain_form,
                        id: blank_external_domain.to_param %>
-          </script>
+          </template>
         <% end %>
 
         <div class="external-domains-list">

@@ -5,7 +5,7 @@
     </div>
 
     <div>
-      <div class="main-bar__links-mobile__trigger" onclick="document.querySelector('#dropdown-trigger-links-mobile-search').click();">
+      <div class="main-bar__links-mobile__trigger" data-controller="click-delegate" data-click-delegate-target-value="#dropdown-trigger-links-mobile-search" data-action="click->click-delegate#delegate">
         <%= icon "close-line" %>
       </div>
     </div>

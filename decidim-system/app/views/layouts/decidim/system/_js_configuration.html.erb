@@ -4,6 +4,6 @@ js_configs = {
 }
 %>
 
-<script>
-  Decidim.config.set(<%== js_configs.to_json %>);
+<script type="application/json" id="decidim-config">
+  <%== json_escape({ config: js_configs }.to_json) %>
 </script>

@@ -11,7 +11,10 @@ import "chartkick/chart.js";
 
 window.Decidim = window.Decidim || {};
 window.Decidim.managedUsersForm = managedUsersForm;
-window.Decidim.config = new Configuration();
+if (!window.Decidim.config) {
+  window.Decidim.config = new Configuration();
+}
+window.Decidim.config.hydrate();
 
 
 const context = require.context("./controllers", true, /controller\.js$/)

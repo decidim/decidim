@@ -9,8 +9,6 @@
       Loading...
     </div>
 
-    <%= javascript_pack_tag "decidim_api_graphiql", defer: false %>
-
     <%
       js_configs = {
         graphql_endpoint: graphql_endpoint_path,
@@ -19,8 +17,9 @@
       }
     %>
 
-    <script>
-      window.Decidim.config.set(<%== js_configs.to_json %>);
+    <script type="application/json" id="decidim-config">
+      <%== json_escape({ config: js_configs }.to_json) %>
     </script>
+    <%= javascript_pack_tag "decidim_api_graphiql", defer: false %>
   </body>
 </html>

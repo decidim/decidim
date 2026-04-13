@@ -1,4 +1,3 @@
-import "src/decidim/vendor/jquery-tmpl"
 import MapController from "src/decidim/map/controller"
 import "leaflet.markercluster";
 
@@ -19,11 +18,10 @@ export default class MapMarkersController extends MapController {
       this.map.addLayer(this.markerClusters);
     }
 
-    // Pre-compiles the template
-    $.template(
-      this.config.popupTemplateId,
-      $(`#${this.config.popupTemplateId}`).html()
-    );
+    const template = document.getElementById(this.config.popupTemplateId);
+    if (!template) {
+      return;
+    }
 
     const bounds = new L.LatLngBounds(
       markersData.map(
@@ -39,10 +37,42 @@ export default class MapMarkersController extends MapController {
       });
 
       let node = document.createElement("div");
+      const clone = template.content.cloneNode(true);
 
-      $.tmpl(this.config.popupTemplateId, markerData).appendTo(node);
+      const linkEl = clone.querySelector("[data-link]");
+      if (linkEl) {
+        linkEl.setAttribute("href", markerData.link);
+      }
+
+      const titleEl = clone.querySelector("[data-title]");
+      if (titleEl) {
+        titleEl.textContent = markerData.title;
+      }
+
+      const itemsEl = clone.querySelector("[data-items]");
+      if (itemsEl && markerData.items) {
+        let items = markerData.items;
+        if (typeof items === "string") {
+          try {
+            items = JSON.parse(items);
+          } catch (error) {
+            items = [];
+          }
+        }
+        items.forEach((item) => {
+          const span = document.createElement("span");
+          if (item.icon) {
+            span.innerHTML = item.icon;
+          }
+          const textWrapper = document.createElement("span");
+          textWrapper.innerHTML = item.text;
+          span.appendChild(textWrapper);
+          itemsEl.appendChild(span);
+        });
+      }
+
+      node.appendChild(clone);
       marker.bindPopup(node, {
-        // The popup width is equal to 80% of the map width
         maxWidth: this.map.getSize().x * 0.8,
         keepInView: true,
         closeButton: false
