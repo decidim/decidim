@@ -144,7 +144,7 @@ eu:
         destroy:
           success: Jardunaldiren administratzailea behar bezala ezabatua.
         edit:
-          title: Eguneratu jardunaldiaren hizlaria
+          title: Jardunaldiaren administratzailea eguneartu
           update: Eguneratu
         index:
           conference_admins_title: Jardunaldi-administratzaileak
