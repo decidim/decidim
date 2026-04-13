@@ -15,9 +15,6 @@ describe "Executing Decidim Taxonomy importer tasks" do
   let!(:external_participatory_process) { create(:participatory_process, title: { "en" => "External Process" }, organization: external_organization, decidim_scope_id: external_scope.id) }
   let(:decidim_organization_id) { organization.id }
 
-  let!(:assembly_type1) { Decidim::Maintenance::ImportModels::AssemblyType.create!(title: { "en" => "Assembly Type 1", "ca" => "Tipus d'assemblea 1" }, decidim_organization_id: organization.id) }
-  let!(:assembly_type2) { Decidim::Maintenance::ImportModels::AssemblyType.create!(title: { "en" => "Assembly Type 2", "ca" => "Tipus d'assemblea 2" }, decidim_organization_id: organization.id) }
-
   let!(:scope) { Decidim::Maintenance::ImportModels::Scope.create!(name: { "en" => "Scope 1", "ca" => "Àmbit 1" }, code: "1", decidim_organization_id: organization.id) }
   let!(:another_scope) { Decidim::Maintenance::ImportModels::Scope.create!(name: { "en" => "Scope 2", "ca" => "Àmbit 2" }, code: "2", decidim_organization_id: organization.id) }
   let!(:sub_scope) { Decidim::Maintenance::ImportModels::Scope.create!(name: { "en" => "Scope 1 second level" }, code: "11", decidim_organization_id: organization.id, parent: scope) }
@@ -29,7 +26,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
   let!(:another_category) { Decidim::Maintenance::ImportModels::Category.create!(name: { "en" => "Another Category 2", "ca" => "Una Altra Categoria 2" }, participatory_space: participatory_process) }
 
   let!(:participatory_process) { create(:participatory_process, title: { "en" => "Process" }, organization:, decidim_scope_id: another_scope.id) }
-  let!(:assembly) { create(:assembly, title: { "en" => "Assembly" }, organization:, decidim_assemblies_type_id: assembly_type1.id, decidim_scope_id: scope.id, decidim_area_id: area.id) }
+  let!(:assembly) { create(:assembly, title: { "en" => "Assembly" }, organization:, decidim_scope_id: scope.id, decidim_area_id: area.id) }
 
   let!(:dummy_component) { create(:dummy_component, name: { "en" => "Dummy component" }, participatory_space: assembly) }
   let!(:dummy_resource) { create(:dummy_resource, title: { "en" => "Dummy resource" }, component: dummy_component, scope: nil, decidim_scope_id: sub_scope.id) }
@@ -67,23 +64,6 @@ describe "Executing Decidim Taxonomy importer tasks" do
       expect(json_content["organization"]["locale"]).to eq(organization.default_locale)
       expect(json_content["organization"]["name"]).to eq(organization.name[organization.default_locale])
       expect(json_content["existing_taxonomies"].count).to eq(0)
-
-      assembly_types_roots = json_content["imported_taxonomies"]["decidim_assemblies_types"]
-      expect(assembly_types_roots.count).to eq(1)
-      expect(assembly_types_roots.keys.first).to eq("~ Assemblies types")
-      taxonomies = assembly_types_roots["~ Assemblies types"]["taxonomies"]
-      expect(taxonomies.count).to eq(2)
-      expect(taxonomies.keys).to contain_exactly("Assembly Type 1", "Assembly Type 2")
-      expect(taxonomies["Assembly Type 1"]["name"]).to eq({ "en" => "Assembly Type 1", "ca" => "Tipus d'assemblea 1" })
-      expect(taxonomies["Assembly Type 1"]["resources"]).to eq({ assembly.to_global_id.to_s => assembly.title[organization.default_locale] })
-      expect(taxonomies["Assembly Type 2"]["resources"]).to eq({})
-      expect(taxonomies["Assembly Type 2"]["name"]).to eq({ "en" => "Assembly Type 2", "ca" => "Tipus d'assemblea 2" })
-
-      expect(assembly_types_roots["~ Assemblies types"]["filters"].count).to eq(1)
-      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["name"]).to eq("~ Assemblies types")
-      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["participatory_space_manifests"]).to eq(["assemblies"])
-      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["items"]).to contain_exactly(["Assembly Type 1"], ["Assembly Type 2"])
-      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["components"]).to eq([])
 
       scope_roots = json_content["imported_taxonomies"]["decidim_scopes"]
       expect(scope_roots.count).to eq(1)
@@ -156,7 +136,6 @@ describe "Executing Decidim Taxonomy importer tasks" do
       )
 
       expect($stdout.string).to include("Creating a plan for organization #{decidim_organization_id}")
-      expect($stdout.string).to include("...Exporting taxonomies for decidim_assemblies_types")
       expect($stdout.string).to include("...Exporting taxonomies for decidim_scopes")
       expect($stdout.string).to include("...Exporting taxonomies for decidim_areas")
       expect($stdout.string).to include("...Exporting taxonomies for decidim_categories")
@@ -165,7 +144,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
 
     context "when the IMPORT env var is set" do
       before do
-        allow(ENV).to receive(:fetch).with("IMPORTS", "AssemblyType Scope Area Category").and_return("Scope Area")
+        allow(ENV).to receive(:fetch).with("IMPORTS", "Scope Area Category").and_return("Scope Area")
       end
 
       it "creates a plan and imports it" do
@@ -173,7 +152,6 @@ describe "Executing Decidim Taxonomy importer tasks" do
         task.invoke
 
         expect($stdout.string).to include("Creating a plan for organization #{decidim_organization_id}")
-        expect($stdout.string).not_to include("...Exporting taxonomies for decidim_assemblies_types")
         expect($stdout.string).to include("...Exporting taxonomies for decidim_scopes")
         expect($stdout.string).to include("...Exporting taxonomies for decidim_areas")
         expect($stdout.string).not_to include("...Exporting taxonomies for decidim_categories")
@@ -197,38 +175,12 @@ describe "Executing Decidim Taxonomy importer tasks" do
     end
 
     it "imports the plan for all organizations" do # rubocop:disable RSpec/ExampleLength
-      expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(18)
+      expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(15)
 
       expect($stdout.string).to include("Importing plan from #{plan_file}")
       expect($stdout.string).to include("Importing plan from #{another_plan_file}")
       expect($stdout.string).to include("Importing taxonomies and filters for organization #{decidim_organization_id}")
       expect($stdout.string).to include("Importing taxonomies and filters for organization #{external_organization.id}")
-
-      expect($stdout.string).to include(<<~MSG)
-        ...Importing 1 root taxonomies from decidim_assemblies_types
-          - Root taxonomy: ~ Assemblies types
-            1st level taxonomies: 2
-            Filters: 1
-              - Filter name: ~ Assemblies types
-                Internal name: -
-                Space manifests: assemblies
-                Items: 2
-                Components: 0
-            !Taxonomy imported: Assembly Type 1
-            !Taxonomy imported: Assembly Type 2
-            !Filter imported: ~ Assemblies types
-            Created taxonomies: 3
-              - ~ Assemblies types
-              - Assembly Type 1
-              - Assembly Type 2
-            Created filters: 1
-              - ~ Assemblies types: 2 items
-            Assigned resources: 1
-              - Assembly Type 1: 1 resources
-            Assigned components: 0
-            Failed resources: 0
-            Failed components: 0
-      MSG
 
       expect($stdout.string).to include(<<~MSG)
         ...Importing 1 root taxonomies from decidim_scopes

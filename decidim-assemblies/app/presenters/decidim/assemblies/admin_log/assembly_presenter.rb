@@ -35,7 +35,6 @@ module Decidim
             target: :i18n,
             title: :i18n,
             purpose_of_action: :i18n,
-            decidim_assemblies_type_id: :assembly_type,
             creation_date: :date,
             created_by: :string,
             created_by_other: :i18n,
