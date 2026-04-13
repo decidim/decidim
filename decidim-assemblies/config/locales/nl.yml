@@ -221,10 +221,6 @@ nl:
         working_group: Werkgroep
       index:
         title: Groepen
-      pages:
-        user_profile:
-          member_of:
-            member_of: Lid van
       show:
         duration: Duur
         social_networks_title: Bezoek groep op
