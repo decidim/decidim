@@ -300,9 +300,6 @@ it:
           highlighted_assemblies:
             active_spaces: Assemblee attive
             see_all_spaces: Vedi tutte le assemblee
-        user_profile:
-          member_of:
-            member_of: Membro di
       show:
         duration: Durata
         social_networks_title: Vai alla pagina
