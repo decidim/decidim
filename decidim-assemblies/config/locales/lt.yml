@@ -271,9 +271,6 @@ lt:
           highlighted_assemblies:
             active_spaces: Aktyvios asamblėjos
             see_all_spaces: Žiūrėti visas asamblėjas
-        user_profile:
-          member_of:
-            member_of: Narys
       show:
         duration: Trukmė
         social_networks_title: Aplankyti asamblėją
