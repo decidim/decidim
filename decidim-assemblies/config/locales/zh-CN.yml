@@ -201,10 +201,6 @@ zh-CN:
         working_group: 工作组
       index:
         title: 程序集
-      pages:
-        user_profile:
-          member_of:
-            member_of: 成员
       show:
         duration: 期限
     events:
