@@ -106,7 +106,7 @@ PATH
       ruby-vips (~> 2.2)
       rubyXL (~> 3.4)
       rubyzip (~> 2.0)
-      shakapacker (~> 8.3.0)
+      shakapacker (~> 9.7.0)
       valid_email2 (~> 7.0)
       web-push (~> 3.0)
       wisper (~> 3.0)
@@ -285,7 +285,7 @@ GEM
     acts_as_list (1.2.6)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
-    addressable (2.8.9)
+    addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
     ast (2.4.3)
     base64 (0.3.0)
@@ -453,7 +453,7 @@ GEM
     google-protobuf (4.33.5-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    graphql (2.5.22)
+    graphql (2.5.23)
       base64
       fiber-storage
       logger
@@ -627,7 +627,7 @@ GEM
     openssl (4.0.1)
     orm_adapter (0.5.0)
     ostruct (0.6.3)
-    package_json (0.1.0)
+    package_json (0.2.0)
     paper_trail (17.0.0)
       activerecord (>= 7.1)
       request_store (~> 1.4)
@@ -663,7 +663,7 @@ GEM
     puma (7.2.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.2.5)
+    rack (3.2.6)
     rack-attack (6.8.0)
       rack (>= 1.0, < 4)
     rack-cors (3.0.0)
@@ -675,7 +675,7 @@ GEM
       rack (>= 3.0.0, < 4)
     rack-proxy (0.7.7)
       rack
-    rack-session (2.1.1)
+    rack-session (2.1.2)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
     rack-test (2.2.0)
@@ -853,8 +853,8 @@ GEM
       websocket (~> 1.0)
     selma (0.4.15-arm64-darwin)
     selma (0.4.15-x86_64-linux)
-    semantic_range (3.1.0)
-    shakapacker (8.3.0)
+    semantic_range (3.1.1)
+    shakapacker (9.7.0)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)

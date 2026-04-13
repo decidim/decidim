@@ -94,14 +94,6 @@ Decidim::Core::Engine.routes.draw do
     )
   end
 
-  resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^/]+} }, format: false
-  scope "/profiles/:nickname", format: false, constraints: { nickname: %r{[^/]+} } do
-    get "following", to: "profiles#following", as: "profile_following"
-    get "followers", to: "profiles#followers", as: "profile_followers"
-    get "badges", to: "profiles#badges", as: "profile_badges"
-    get "activity", to: "user_activities#index", as: "profile_activity"
-  end
-
   scope :timeouts do
     post "heartbeat", to: "timeouts#heartbeat"
     get "seconds_until_timeout", to: "timeouts#seconds_until_timeout"
@@ -109,6 +101,13 @@ Decidim::Core::Engine.routes.draw do
 
   scope "/:locale" do
     resources :pages, only: [:index, :show], format: false
+    resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^/]+} }, format: false
+    scope "/profiles/:nickname", format: false, constraints: { nickname: %r{[^/]+} } do
+      get "following", to: "profiles#following", as: "profile_following"
+      get "followers", to: "profiles#followers", as: "profile_followers"
+      get "badges", to: "profiles#badges", as: "profile_badges"
+      get "activity", to: "user_activities#index", as: "profile_activity"
+    end
   end
 
   get "/pages", to: redirect { |params, request|
@@ -119,6 +118,21 @@ Decidim::Core::Engine.routes.draw do
   get "/pages/*rest", to: redirect { |params, request|
     locale = Decidim::LocaleRouterDetector.new(request, params).locale
     "/#{locale}/pages/#{params[:rest]}"
+  }
+
+  get "/profiles/*rest", to: redirect { |params, request|
+    locale = Decidim::LocaleRouterDetector.new(request, params).locale
+
+    # Handle explicitly the query strings, as we have some filters and pagination on the activity tab.
+    # We need to handle URLs like
+    # https://nightly.decidim.org/profiles/visitant_bqqppvus/activity?filter[resource_type]=Decidim::Initiative
+    query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
+    query_string.delete("locale")
+    query_string = CGI.unescape(query_string.to_query)
+
+    path = "/#{locale}/profiles/#{params[:rest]}"
+    path += "?#{query_string}" unless query_string.empty?
+    path
   }
 
   get "/search", to: "searches#index", as: :search

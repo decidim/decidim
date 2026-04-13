@@ -1,0 +1,13 @@
+<div class="profile__description">
+  <div class="font-semibold"><%= t("member_of", scope: "decidim.participatory_space.pages.user_profile.member_of") %></div>
+  <% shown = false %>
+  <% sorted_types.each do |type| %>
+    <% spaces = grouped_members[type].map(&:participatory_space).sort_by { |s| translated_attribute(s.title) } %>
+    <% spaces.each do |space| %>
+      <%= "&nbsp;&#183;&nbsp;".html_safe if shown %>
+      <% path = Decidim::EngineRouter.main_proxy(space).public_send("#{type.demodulize.underscore}_path", space) %>
+      <%= link_to decidim_escape_translated(space.title), path, class: "hover:underline" %>
+      <% shown = true %>
+    <% end %>
+  <% end %>
+</div>

@@ -263,7 +263,7 @@ describe "Conversations" do
       let(:recipient) { create(:user, :confirmed, organization:) }
 
       before do
-        visit decidim.profile_path(recipient.nickname)
+        visit decidim.profile_path(recipient.nickname, locale: I18n.locale)
       end
 
       it "has a contact link" do

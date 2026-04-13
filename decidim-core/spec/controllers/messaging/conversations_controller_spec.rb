@@ -61,7 +61,7 @@ module Decidim
         subject { get :new, params: { recipient_id: user.id } }
 
         it "redirects to the profile path" do
-          expect(subject).to redirect_to profile_path(user.nickname)
+          expect(subject).to redirect_to profile_path(user.nickname, locale: I18n.locale)
         end
       end
 

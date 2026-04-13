@@ -79,7 +79,7 @@ Gem::Specification.new do |s|
   s.add_dependency "ruby-vips", "~> 2.2"
   s.add_dependency "rubyXL", "~> 3.4"
   s.add_dependency "rubyzip", "~> 2.0"
-  s.add_dependency "shakapacker", "~> 8.3.0"
+  s.add_dependency "shakapacker", "~> 9.7.0"
   s.add_dependency "valid_email2", "~> 7.0"
   s.add_dependency "web-push", "~> 3.0"
   s.add_dependency "wisper", "~> 3.0"
