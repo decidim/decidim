@@ -253,7 +253,7 @@ describe "Explore results", :versioning do
           expect(page).to have_content(decidim_sanitize_translated(timeline_entry.description))
         end
 
-        context "and milestone's description contains an image" do
+        context "and timeline_entry's description contains an image" do
           let!(:image_blob) do
             ActiveStorage::Blob.create_and_upload!(
               io: File.open(Decidim::Dev.asset("city.jpeg")),
@@ -264,13 +264,13 @@ describe "Explore results", :versioning do
 
           before do
             image_url = Rails.application.routes.url_helpers.rails_blob_path(image_blob, only_path: true)
-            milestone.update!(description: { "en" => "<p>Milestone description</p><img src=\"#{image_url}\" alt=\"city_image\">" })
+            timeline_entry.update!(description: { "en" => "<p>Timeline enty description</p><img src=\"#{image_url}\" alt=\"city_image\">" })
           end
 
           it "displays the image" do
             visit current_path
-            expect(page).to have_content(decidim_sanitize_translated(milestone.title))
-            expect(page).to have_content(I18n.l(milestone.entry_date, format: :decidim_short))
+            expect(page).to have_content(decidim_sanitize_translated(timeline_entry.title))
+            expect(page).to have_content(I18n.l(timeline_entry.entry_date, format: :decidim_short))
             expect(page).to have_css(".editor-content img[alt=city_image]")
           end
         end
