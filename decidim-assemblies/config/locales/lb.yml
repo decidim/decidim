@@ -171,10 +171,6 @@ lb:
         working_group: Arbeitsgruppe
       index:
         title: Gremien
-      pages:
-        user_profile:
-          member_of:
-            member_of: Mitglied von
       show:
         duration: Dauer
     events:
