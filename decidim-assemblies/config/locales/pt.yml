@@ -297,9 +297,6 @@ pt:
           highlighted_assemblies:
             active_spaces: Reuniões ativas
             see_all_spaces: Ver todas as reuniões
-        user_profile:
-          member_of:
-            member_of: Membro de
       show:
         duration: Duração
         social_networks_title: Visite a reunião em
