@@ -109,7 +109,7 @@ module Decidim
     describe "#decidim_html_escape" do
       context "when text is not html_safe" do
         it "escapes the apostrophe" do
-          expect(helper.decidim_html_escape("It's a test")).to eq("It&#39;s a test")
+          expect(helper.decidim_html_escape("User's profile")).to eq("User&#39;s profile")
         end
 
         it "escapes HTML tags" do
@@ -119,11 +119,11 @@ module Decidim
 
       context "when text is already html_safe" do
         it "does not re-escape already escaped entities" do
-          expect(helper.decidim_html_escape("It&#39;s a test".html_safe)).to eq("It&#39;s a test")
+          expect(helper.decidim_html_escape("User&#39;s profile".html_safe)).to eq("User&#39;s profile")
         end
 
         it "returns an html_safe string" do
-          expect(helper.decidim_html_escape("It's a test".html_safe)).to be_html_safe
+          expect(helper.decidim_html_escape("User's profile".html_safe)).to be_html_safe
         end
       end
     end

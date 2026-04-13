@@ -286,13 +286,13 @@ describe "Participatory Processes" do
                 :published,
                 participatory_space: participatory_process,
                 manifest_name: :proposals,
-                name: { en: "It's a component" }
+                name: { en: "User's component" }
               )
             end
 
             it "renders the apostrophe correctly in the sidebar" do
               within ".participatory-space__nav-container" do
-                expect(page).to have_content("It's a component")
+                expect(page).to have_content("User's component")
                 expect(page).to have_no_content("&#39;")
               end
             end
