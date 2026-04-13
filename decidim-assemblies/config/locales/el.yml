@@ -235,10 +235,6 @@ el:
         title: Συνελεύσεις
       last_activity:
         new_assembly: 'Νέα συνέλευση:'
-      pages:
-        user_profile:
-          member_of:
-            member_of: Μέλος
       show:
         duration: Διάρκεια
         social_networks_title: Επίσκεψη στη συνέλευση στις
