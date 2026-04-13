@@ -353,9 +353,6 @@ fr:
           highlighted_assemblies:
             active_spaces: Assemblées actives
             see_all_spaces: Voir toutes les assemblées
-        user_profile:
-          member_of:
-            member_of: Membre de
       show:
         duration: Durée
         social_networks_title: Visiter l'assemblée sur
