@@ -336,9 +336,6 @@ sv:
           highlighted_assemblies:
             active_spaces: Pågående samråd
             see_all_spaces: Visa alla samråd
-        user_profile:
-          member_of:
-            member_of: Medlem av
       show:
         duration: Varaktighet
         social_networks_title: Besök samrådet på
