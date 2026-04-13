@@ -205,6 +205,6 @@ export default class extends Controller {
    * @returns {string} The default error message
    */
   getDefaultErrorMessage() {
-    i18n.getMessages("notifications.action_error")
+    return i18n.getMessages("notifications.action_error");
   }
 }
