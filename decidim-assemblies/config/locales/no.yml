@@ -215,10 +215,6 @@
         working_group: Arbeidsgruppe
       index:
         title: Forsamlinger
-      pages:
-        user_profile:
-          member_of:
-            member_of: Medlem av
       show:
         duration: Varighet
     events:
