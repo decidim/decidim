@@ -356,9 +356,6 @@ fi:
           highlighted_assemblies:
             active_spaces: Aktiiviset ryhmät
             see_all_spaces: Näytä kaikki ryhmät
-        user_profile:
-          member_of:
-            member_of: Jäsen ryhmässä
       show:
         duration: Kesto
         social_networks_title: Vieraile ryhmän sivulla palvelussa
