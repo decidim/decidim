@@ -283,9 +283,6 @@ bg:
           highlighted_assemblies:
             active_spaces: Активни събрания
             see_all_spaces: Вижте всички събрания
-        user_profile:
-          member_of:
-            member_of: Член на
       show:
         duration: Продължителност
         social_networks_title: Посетете събранието на
