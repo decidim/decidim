@@ -356,9 +356,6 @@ es:
           highlighted_assemblies:
             active_spaces: Asambleas activas
             see_all_spaces: Ver todas las asambleas
-        user_profile:
-          member_of:
-            member_of: Miembro de
       show:
         duration: Duración
         social_networks_title: Visita la asamblea en
