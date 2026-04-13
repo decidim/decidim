@@ -289,9 +289,6 @@ pl:
           highlighted_assemblies:
             active_spaces: Aktywne zespoły
             see_all_spaces: Zobacz wszystkie zespoły
-        user_profile:
-          member_of:
-            member_of: Członek
       show:
         duration: Czas trwania
         social_networks_title: Odwiedź zespół na
