@@ -1535,6 +1535,11 @@ es-PY:
           %{organization_name}
         hello: Estimado/a %{username},
         subject: Aviso de cuenta inactiva
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Miembro de
     participatory_space_members:
       index:
         members: Miembros
