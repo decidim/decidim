@@ -356,9 +356,6 @@ ca-IT:
           highlighted_assemblies:
             active_spaces: Assemblees actives
             see_all_spaces: Veure totes les assemblees
-        user_profile:
-          member_of:
-            member_of: Membre de
       show:
         duration: Durada
         social_networks_title: Visita l'assemblea a
