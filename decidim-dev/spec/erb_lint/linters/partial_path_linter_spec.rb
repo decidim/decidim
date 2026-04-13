@@ -117,4 +117,29 @@ RSpec.describe ERBLint::Linters::PartialPath do
     expect(offenses.first.message).to include("Use the full path for partials. Replace `render \"form\"` with `render \"users/form\"`")
     expect(offenses.last.message).to include("Use the full path for partials. Replace `render \"form2\"` with `render \"users/form2\"`")
   end
+
+  it "correctly identifies offense positions for repeated partial paths" do
+    offenses = run_for(
+      "app/views/users/show.html.erb",
+      '<%= render "form" %> <%= render "form" %>'
+    )
+
+    expect(offenses.length).to eq(2)
+    expect(offenses[0].source_range.source).to eq("form")
+    expect(offenses[1].source_range.source).to eq("form")
+  end
+
+  it "correctly identifies offense for the second occurrence of the same partial path" do
+    content = <<~ERB
+      <%= render "form" %>
+      <div>some content</div>
+      <%= render "form" %>
+    ERB
+    offenses = run_for("app/views/users/show.html.erb", content)
+
+    expect(offenses.length).to eq(2)
+    expect(offenses[0].source_range.source).to eq("form")
+    expect(offenses[1].source_range.source).to eq("form")
+    expect(offenses[0].source_range.begin_pos).to be < offenses[1].source_range.begin_pos
+  end
 end

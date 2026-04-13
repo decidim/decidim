@@ -25,8 +25,9 @@ module ERBLint
         current_directory = Regexp.last_match(1)
         source = processed_source.file_content
 
-        source.gsub(/<%=\s*render\s+"([^"]+)"[^%]*%>/).each do |match|
+        source.scan(/<%=\s*render\s+"([^"]+)"[^%]*%>/) do
           partial_path = Regexp.last_match(1)
+          start_pos = Regexp.last_match.begin(1)
 
           next if partial_path.start_with?("layouts/")
           next if partial_path.start_with?("/")
@@ -35,9 +36,8 @@ module ERBLint
           next if allowed_prefix?(partial_path)
 
           full_path = "#{current_directory}/#{partial_path}"
-          start_pos = match.index(partial_path)
           range = processed_source.to_source_range(
-            (source.index(match) + start_pos)...(source.index(match) + start_pos + partial_path.length)
+            start_pos...(start_pos + partial_path.length)
           )
 
           add_offense(
