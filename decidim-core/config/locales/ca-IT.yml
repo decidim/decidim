@@ -1532,6 +1532,11 @@ ca-IT:
           %{organization_name}
         hello: Benvolgut/da %{username},
         subject: Avís de compte inactiu
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Membre de
     participatory_space_members:
       index:
         members: Membres
