@@ -29,11 +29,11 @@ module Decidim
       end
 
       def append_query_string(path, request)
-        query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
-        query_string.delete("locale")
-        query_string = query_string.to_query
+        query_string = request.query_string.to_s
+        query_params = query_string.gsub(/(?:\A|&)locale=[^&]*(?=&|\z)/, "")
+        query_params = query_params.gsub(/\A&|&\z/, "").gsub(/&&+/, "&")
 
-        query_string.empty? ? path : "#{path}?#{query_string}"
+        query_params.empty? ? path : "#{path}?#{query_params}"
       end
     end
   end
