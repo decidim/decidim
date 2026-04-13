@@ -23,12 +23,12 @@ gem "decidim-dev", github: "decidim/decidim", branch: "release/0.31-stable"
 
 Note that there were several big updates in this version, most notably Rails and Shakapacker.
 
-```console 
+```console
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails data:migrate
-``` 
+```
 
 ### 1.4. Follow the steps and commands detailed in these notes
 
