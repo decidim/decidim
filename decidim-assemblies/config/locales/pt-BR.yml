@@ -321,9 +321,6 @@ pt-BR:
           highlighted_assemblies:
             active_spaces: Assembleias ativas
             see_all_spaces: Ver todas as assembleias 
-        user_profile:
-          member_of:
-            member_of: Membro de
       show:
         duration: Duração
         social_networks_title: Visite assembleia em
