@@ -277,9 +277,6 @@ hu:
           highlighted_assemblies:
             active_spaces: Aktív gyűlések
             see_all_spaces: Az összes közgyűlés megtekintése
-        user_profile:
-          member_of:
-            member_of: 'Tagja következőnek:'
       show:
         duration: Időtartam
         social_networks_title: Látogasd meg a gyűlést itt
