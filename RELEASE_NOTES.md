@@ -39,6 +39,7 @@ sudo apt install libvips libvips-tools # or the alternative installation process
 bundle update decidim
 bin/rails decidim:upgrade
 sed -i "s/config\.load_defaults 7\.2/config\.load_defaults 8.1/g" config/application.rb # see "2.1. Ruby on Rails update to 8.1"
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/release/0.32-stable/decidim-core/lib/decidim/shakapacker/shakapacker.yml -O config/shakapacker.yml -O config/shakapacker.yml # see "2.9. Shakapacker upgrade"
 bin/rails db:migrate
 bin/rails decidim:upgrade:encryption
 # skip this command if you have run it before:
@@ -46,6 +47,7 @@ bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 echo "/public/sw.js*" >> .gitignore
 bin/rails decidim:upgrade:remove_deleted_users_left_data
 bin/rails decidim:upgrade:fix_deleted_private_follows
+sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).present?/' config/environments/production.rb
 bin/rails data:migrate
 ```
 
@@ -159,7 +161,19 @@ We are also removing the `decidim_user_group_memberships` tables.
 
 You can read more about this change on PR [#16022](https://github.com/decidim/decidim/pull/16022).
 
-### 2.9. [[TITLE OF THE ACTION]]
+### 2.9. Shakapacker upgrade
+
+In our efforts to improve the performance of the application, we are upgrading Shakapacker to version 9.7.0.
+
+You will need to patch your `shakapacker.yml` file to adjust to the latest changes
+
+```bash
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/release/0.32-stable/decidim-core/lib/decidim/shakapacker/shakapacker.yml -O config/shakapacker.yml
+```
+
+You can read more about this change on PR [#16516](https://github.com/decidim/decidim/pull/16516).
+
+### 2.10. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -221,7 +235,39 @@ This works for Ubuntu Linux, other operating systems would need to do other comm
 
 You can read more about this change on PR [#15670](https://github.com/decidim/decidim/pull/15670).
 
-### 3.6. [[TITLE OF THE ACTION]]
+### 3.6. Fix the "SMTP_STARTTLS_AUTO" env var in `production.rb`
+
+It was detected a bug with the enable_starttls_auto configuration for the Action Mailer (SMTP) configuration. For fixing it you need to replace in `config/environments/production.rb`
+
+If your `config/environments/production.rb` contains an SMTP configuration like this:
+
+```ruby
+config.action_mailer.smtp_settings = {
+  # ... other settings ...
+  :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO").to_boolean_string,
+  # ... other settings ...
+}
+```
+
+You should update it to:
+
+```ruby
+config.action_mailer.smtp_settings = {
+  # ... other settings ...
+  :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO", true).present?,
+  # ... other settings ...
+}
+```
+
+You can do this with the following command:
+
+```bash
+sed -i 's/Env.new("SMTP_STARTTLS_AUTO").to_boolean_string/Env.new("SMTP_STARTTLS_AUTO", true).present?/' config/environments/production.rb
+```
+
+You can read more about this change on PR [#16491](https://github.com/decidim/decidim/pull/16491).
+
+### 3.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

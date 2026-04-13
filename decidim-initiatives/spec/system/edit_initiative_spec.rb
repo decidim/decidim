@@ -34,6 +34,28 @@ describe "Edit initiative" do
 
       expect(page).to have_content(new_title)
     end
+
+    context "and empties the form" do
+      it "allows submission and show errors" do
+        visit initiative_path
+
+        within ".initiative__aside" do
+          click_on("Edit")
+        end
+
+        expect(page).to have_content "Edit Initiative"
+        expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+        fill_in "initiative_title", with: ""
+
+        within ".edit_initiative" do
+          find("*[type=submit]").click
+          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+          expect(find("button[type='submit']")).not_to be_disabled
+        end
+      end
+    end
   end
 
   before do

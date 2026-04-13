@@ -201,8 +201,6 @@ en:
       taxonomy_filters:
         space_filter_for:
           assemblies: All assemblies
-      titles:
-        assemblies_types: Assemblies types
       tooltips:
         deleted_assemblies_info: An assembly can only be deleted if status is "Unpublished".
     admin_log:
@@ -246,6 +244,7 @@ en:
                 open: Everyone can see the assembly and participate.
                 restricted: Only members can see and participate.
                 transparent: Everyone can see the assembly, but only members can participate.
+              set_this_space_as: Set this space as
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
@@ -358,9 +357,6 @@ en:
           highlighted_assemblies:
             active_spaces: Active assemblies
             see_all_spaces: See all assemblies
-        user_profile:
-          member_of:
-            member_of: Member of
       show:
         duration: Duration
         social_networks_title: Visit assembly on
@@ -390,8 +386,6 @@ en:
       value_types:
         assembly_presenter:
           not_found: 'The assembly was not found on the database (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'The assembly type was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
     open_data:

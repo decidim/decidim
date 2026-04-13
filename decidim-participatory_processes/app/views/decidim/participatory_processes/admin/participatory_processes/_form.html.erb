@@ -146,6 +146,39 @@
     </div>
   </div>
 
+  <div class="card" data-controller="accordion access-mode" id="accordion-access">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-access" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="access">
+          <%= t("label", scope: "decidim.participatory_processes.admin.participatory_processes.form.access") %>
+        </h2>
+      </button>
+    </div>
+    <div id="panel-access" class="card-section">
+      <div class="row column" id="has_members">
+        <%= form.check_box :has_members, help_text: t(".has_members_help") %>
+      </div>
+
+      <fieldset class="row column" id="access_mode">
+        <legend>
+          <%= t("access.set_this_space_as", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+        </legend>
+        <div class="radio-group">
+          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.open") %>
+          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.restricted") %>
+          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.transparent") %>
+          <% Decidim::ParticipatoryProcess::ACCESS_MODES.keys.each do |mode| %>
+            <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+              <%= form.radio_button :access_mode, mode %>
+              <span><%= t(mode, scope: "decidim.participatory_processes.admin.participatory_processes.form.access.options") %></span>
+             <% end %>
+          <% end %>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
   <div class="card" data-controller="accordion" id="accordion-visibility">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-visibility" type="button">
@@ -164,26 +197,6 @@
         <% end %>
       </div>
 
-      <div class="row column" id="has_members">
-        <%= form.check_box :has_members, help_text: t(".has_members_help") %>
-      </div>
-
-      <fieldset class="row column" id="access_mode">
-        <legend>
-          <%= t("access.label", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-        </legend>
-        <div class="radio-group">
-          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.open") %>
-          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.restricted") %>
-          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.transparent") %>
-          <% Decidim::ParticipatoryProcess::ACCESS_MODES.keys.each do |mode| %>
-            <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
-              <%= form.radio_button :access_mode, mode %>
-              <span><%= t(mode, scope: "decidim.participatory_processes.admin.participatory_processes.form.access.options") %></span>
-             <% end %>
-          <% end %>
-        </div>
-      </fieldset>
       <div class="row column">
         <%= form.check_box :promoted %>
       </div>

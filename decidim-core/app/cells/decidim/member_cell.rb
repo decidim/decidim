@@ -10,10 +10,6 @@ module Decidim
 
     private
 
-    def has_profile?
-      model.profile_url.present?
-    end
-
     def role_translated
       decidim_html_escape(decidim_sanitize(translated_attribute(role)))
     end

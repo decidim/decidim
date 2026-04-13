@@ -80,7 +80,6 @@ describe "Admin manages assemblies" do
         fill_in_i18n(:assembly_target, "#assembly-target-tabs", **attributes[:target].except("machine_translations"))
 
         select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
-        choose(:assembly_access_mode_open)
 
         fill_in :assembly_slug, with: "slug"
         fill_in :assembly_weight, with: 1
