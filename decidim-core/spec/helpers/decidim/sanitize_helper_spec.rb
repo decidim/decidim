@@ -105,5 +105,53 @@ module Decidim
         end
       end
     end
+
+    describe "#decidim_html_escape" do
+      context "when text is not html_safe" do
+        it "escapes the apostrophe" do
+          expect(helper.decidim_html_escape("It's a test")).to eq("It&#39;s a test")
+        end
+
+        it "escapes HTML tags" do
+          expect(helper.decidim_html_escape("<script>alert('xss')</script>")).to eq("&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;")
+        end
+      end
+
+      context "when text is already html_safe" do
+        it "does not re-escape already escaped entities" do
+          expect(helper.decidim_html_escape("It&#39;s a test".html_safe)).to eq("It&#39;s a test")
+        end
+
+        it "returns an html_safe string" do
+          expect(helper.decidim_html_escape("It's a test".html_safe)).to be_html_safe
+        end
+      end
+    end
+
+    describe "#decidim_escape_translated" do
+      let(:translated_text) { { "en" => "Component's title" } }
+
+      it "returns an html_safe string so ERB does not escape it again" do
+        expect(helper.decidim_escape_translated(translated_text)).to be_html_safe
+      end
+
+      it "escapes the apostrophe once" do
+        expect(helper.decidim_escape_translated(translated_text)).to eq("Component&#39;s title")
+      end
+
+      context "when translated_attribute returns an html_safe string" do
+        before do
+          allow(helper).to receive(:translated_attribute).with(translated_text).and_return("Component's title".html_safe)
+        end
+
+        it "does not re-escape the apostrophe" do
+          expect(helper.decidim_escape_translated(translated_text)).to eq("Component's title")
+        end
+
+        it "does not turn the apostrophe into &#39;" do
+          expect(helper.decidim_escape_translated(translated_text)).not_to include("&#39;")
+        end
+      end
+    end
   end
 end
