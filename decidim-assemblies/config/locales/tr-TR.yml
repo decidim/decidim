@@ -231,10 +231,6 @@ tr:
         working_group: Çalışma Grubu
       index:
         title: Kurullar
-      pages:
-        user_profile:
-          member_of:
-            member_of: Üyesi
       show:
         duration: Süre
     events:
