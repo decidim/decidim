@@ -341,9 +341,6 @@ ja:
           highlighted_assemblies:
             active_spaces: アクティブな参加スペース
             see_all_spaces: すべての参加スペースを表示
-        user_profile:
-          member_of:
-            member_of: メンバー
       show:
         duration: 持続期間
         social_networks_title: 参加スペースを訪問
