@@ -218,10 +218,6 @@ gl:
         working_group: Grupo de traballo
       index:
         title: Asembleas
-      pages:
-        user_profile:
-          member_of:
-            member_of: Membro de
       show:
         duration: Duración
     events:
