@@ -245,10 +245,6 @@ ar:
         title: الجمعيات
       last_activity:
         new_assembly: 'جمعية جديدة:'
-      pages:
-        user_profile:
-          member_of:
-            member_of: عضو في
       show:
         duration: المدة الزمنية
         social_networks_title: زيارة التجمع على
