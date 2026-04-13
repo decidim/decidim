@@ -343,9 +343,6 @@ de:
           highlighted_assemblies:
             active_spaces: Aktive Gremien
             see_all_spaces: Alle Gremien anzeigen
-        user_profile:
-          member_of:
-            member_of: Mitglied von
       show:
         duration: Aktiv bis
         social_networks_title: Gremium besuchen unter
