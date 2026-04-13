@@ -261,9 +261,6 @@ ro:
           highlighted_assemblies:
             active_spaces: Grupuri de lucru active
             see_all_spaces: Vedeți toate grupurile de lucru
-        user_profile:
-          member_of:
-            member_of: Membru al
       show:
         duration: Durată
         social_networks_title: Vizitează adunarea pe
