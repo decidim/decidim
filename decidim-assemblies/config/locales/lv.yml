@@ -192,10 +192,6 @@ lv:
         working_group: Darba grupa
       index:
         title: Asambleja
-      pages:
-        user_profile:
-          member_of:
-            member_of: Dalībnieks
       show:
         duration: Ilgums
     events:
