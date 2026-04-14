@@ -40,7 +40,7 @@ module Decidim
         context "when there are no states" do
           let(:states) { [] }
 
-          it { is_expected.to invalid }
+          it { is_expected.to be_valid }
         end
 
         context "when there is no target component" do
