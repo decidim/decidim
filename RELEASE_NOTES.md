@@ -36,7 +36,7 @@ bin/rails data:migrate
 
 ### 2.1. [[TITLE OF THE ACTION]]
 
-You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 ## 3. One time actions
 
@@ -57,7 +57,7 @@ with `crontab`, although alternatively you could use `whenever` gem or the sched
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK
 ```
 
-You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 ## 5. Changes in APIs
 
