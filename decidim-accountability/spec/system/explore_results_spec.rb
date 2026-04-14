@@ -264,7 +264,7 @@ describe "Explore results", :versioning do
 
           before do
             image_url = Rails.application.routes.url_helpers.rails_blob_path(image_blob, only_path: true)
-            timeline_entry.update!(description: { "en" => "<p>Timeline enty description</p><img src=\"#{image_url}\" alt=\"city_image\">" })
+            timeline_entry.update!(description: { "en" => "<p>Timeline entry description</p><img src=\"#{image_url}\" alt=\"city_image\">" })
           end
 
           it "displays the image" do
