@@ -12,8 +12,8 @@
           <%= l timeline_entry.entry_date, format: :decidim_short %>
         </div>
         <% if translated_attribute(timeline_entry.description).present? %>
-          <div>
-            <%= decidim_sanitize_translated(timeline_entry.description) %>
+          <div class="editor-content">
+            <%= decidim_sanitize_admin(translated_attribute(timeline_entry.description)) %>
           </div>
         <% end %>
       </div>
