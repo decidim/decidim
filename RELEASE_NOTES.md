@@ -37,7 +37,7 @@ bin/rails db:migrate
 
 ### 2.1. [[TITLE OF THE ACTION]]
 
-You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 ## 3. One time actions
 
@@ -45,7 +45,7 @@ These are one time actions that need to be done after the code is updated in the
 
 ### 3.1. [[TITLE OF THE ACTION]]
 
-You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 ## 4. Scheduled tasks
 
