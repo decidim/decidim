@@ -14,6 +14,7 @@ module Decidim
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
         validates :default_budget, presence: true, numericality: { greater_than: 0 }
+        validate :valid_states
 
         def origin_component
           @origin_component ||= origin_components.find_by(id: origin_component_id)
@@ -42,6 +43,22 @@ module Decidim
           end
 
           states + [OpenStruct.new(token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered"))]
+        end
+
+        def states=(values)
+          super(Array(values).compact_blank)
+        end
+
+        private
+
+        def valid_states
+          return unless origin_component
+          return if internal_states.empty?
+
+          valid_tokens = Decidim::Proposals::ProposalState.where(component: origin_component).pluck(:token) + ["not_answered"]
+          return if internal_states.all? { |state| valid_tokens.include?(state) }
+
+          errors.add(:internal_states, :invalid)
         end
       end
     end
