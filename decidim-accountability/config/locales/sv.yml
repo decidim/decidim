@@ -32,7 +32,7 @@ sv:
             budget_text: Resultatet %{link} har tagits med
             meetings_ids: 'Diskuterades på det här mötet: %{link}'
             project_ids: 'Lades till i det här projektet: %{link}'
-            proposal_ids: 'Lades till i det här förslaget: %{link}'
+            proposal_ids: 'Förslaget som röstades fram: %{link}'
             text: 'Lades till i det här resultatet: %{link}'
       decidim/accountability/result:
         one: Resultat
