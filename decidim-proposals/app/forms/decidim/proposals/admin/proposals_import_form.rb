@@ -18,10 +18,6 @@ module Decidim
         validates :origin_component_id, :origin_component, :current_component, presence: true
         validate :valid_states
 
-        def states=(values)
-          super(Array(values).compact_blank)
-        end
-
         def origin_component
           @origin_component ||= origin_components.find_by(id: origin_component_id)
         end
@@ -34,6 +30,10 @@ module Decidim
           origin_components.map do |component|
             [component.name[I18n.locale.to_s], component.id]
           end
+        end
+
+        def states=(values)
+          super(Array(values).compact_blank)
         end
 
         private
