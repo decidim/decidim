@@ -45,7 +45,7 @@ module Decidim
           states + [OpenStruct.new(token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered"))]
         end
 
-        def states=(values)
+        def internal_states=(values)
           super(Array(values).compact_blank)
         end
 
