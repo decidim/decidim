@@ -39,6 +39,22 @@ describe "User manages posts" do
       login_as user, scope: :user
     end
 
+    context "with an empty form" do
+      it "allows submission and show errors" do
+        visit_component
+        click_on "New post"
+
+        expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+        within ".new_post" do
+          find("*[type=submit]").click
+          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+          expect(find("button[type='submit']")).not_to be_disabled
+        end
+      end
+    end
+
     context "when creating a post" do
       it "saves the data" do
         visit_component
@@ -58,6 +74,27 @@ describe "User manages posts" do
 
     context "when editing an authored a post" do
       let!(:post) { create(:post, component:, author: user) }
+
+      context "and empties the form" do
+        it "allows submission and show errors" do
+          visit_component
+
+          click_on translated(post.title)
+          find("#dropdown-trigger-resource-#{post.id}").click
+          click_on "Edit post"
+
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+          fill_in "post_title", with: ""
+
+          within ".edit_post" do
+            find("*[type=submit]").click
+            expect(page).to have_content("There is an error in this field.")
+            expect(page).to have_no_css("*[type=submit][data-disable='true']")
+            expect(find("button[type='submit']")).not_to be_disabled
+          end
+        end
+      end
 
       it "can edit the post" do
         visit_component
