@@ -65,6 +65,24 @@ describe "Redirect routes" do
     end
   end
 
+  context "when visiting admin pages" do
+    it "redirects /admin to the locale-aware admin root" do
+      get("/admin", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/admin")
+      expect(response.location).not_to include("locale=")
+    end
+
+    it "redirects /admin with a path to the locale-aware admin path" do
+      get("/admin/users", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/admin/users")
+      expect(response.location).not_to include("locale=")
+    end
+  end
+
   context "when visiting profile pages" do
     let!(:user) { create(:user, :confirmed, nickname: "my_user", organization:) }
 

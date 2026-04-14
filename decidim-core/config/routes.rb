@@ -13,6 +13,14 @@ Decidim::Core::Engine.routes.draw do
 
   get "/favicon.ico", to: "favicon#show"
 
+  get "/admin", to: redirect { |params, request|
+    locale_redirect(params, request, "/admin")
+  }
+
+  get "/admin/*rest", to: redirect { |params, request|
+    locale_redirect(params, request, "/admin/#{params[:rest]}")
+  }
+
   resource :manifest, only: [:show]
 
   resource :locale, only: [:create]
