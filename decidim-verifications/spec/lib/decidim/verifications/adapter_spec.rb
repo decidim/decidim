@@ -136,7 +136,7 @@ describe Decidim::Verifications::Adapter do
     let(:wrapper) { described_class.from_element(handler) }
 
     it "returns the renew authorization path for the workflow engine" do
-      expect(wrapper.admin_root_path).to eq("/admin/id_documents/")
+      expect(wrapper.admin_root_path).to eq("/en/admin/id_documents/")
     end
 
     context "when the admin engine is not defined" do

@@ -10,9 +10,7 @@ module Decidim
       isolate_namespace Decidim::Templates
 
       routes do
-        scope "/:locale", defaults: { locale: Decidim.default_locale } do
-          resources :templates
-        end
+        resources :templates
       end
 
       initializer "decidim_templates.data_migrate", after: "decidim_core.data_migrate" do
