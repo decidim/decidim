@@ -122,7 +122,7 @@ eu:
         destroy:
           success: Hizlaria behar bezala ezabatua.
         edit:
-          title: Eguneratu jardunaldiaren hizlaria
+          title: Jardunaldiaren hizlaria eguneratu
           update: Eguneratu
         index:
           conference_speakers_title: Jardunaldiaren hizlariak
