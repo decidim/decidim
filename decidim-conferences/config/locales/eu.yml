@@ -365,7 +365,7 @@ eu:
             title: Izen-emateak
         conference_speakers:
           edit:
-            title: Eguneratu jardunaldiaren hizlaria
+            title: Jardunaldiaren hizlaria eguneratu
           form:
             existing_user: Parte-hartzailea badago
             non_user: Parte-hartzailerik ez
