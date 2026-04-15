@@ -14,6 +14,13 @@ describe Decidim::Routes::LocaleRedirects do
   end
 
   describe "#locale_redirect" do
+    it "builds locale scope options" do
+      expect(routes.locale_scope_options).to eq(
+        defaults: { locale: Decidim.default_locale },
+        constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) }
+      )
+    end
+
     it "builds a locale-aware path" do
       request = instance_double("Request", query_string: "")
 

@@ -3,6 +3,13 @@
 module Decidim
   module Routes
     module LocaleRedirects
+      def locale_scope_options
+        {
+          defaults: { locale: Decidim.default_locale },
+          constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) }
+        }
+      end
+
       def locale_redirector(path, preserve_query_string: false)
         lambda do |params, request|
           locale_redirect(params, request, path, preserve_query_string:)

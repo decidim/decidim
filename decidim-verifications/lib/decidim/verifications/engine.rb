@@ -37,7 +37,9 @@ module Decidim
 
       initializer "decidim_verifications.mount_routes" do
         Decidim::Core::Engine.routes do
-          scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) }, defaults: { locale: Decidim.default_locale } do
+          extend Decidim::Routes::LocaleRedirects
+
+          scope "/:locale", **locale_scope_options do
             mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
           end
         end
@@ -46,7 +48,9 @@ module Decidim
       initializer "decidim_verifications.mount_admin_routes" do
         Decidim::Core::Engine.routes do
           constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
-            scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) }, defaults: { locale: Decidim.default_locale } do
+            extend Decidim::Routes::LocaleRedirects
+
+            scope "/:locale", **locale_scope_options do
               Decidim.authorization_admin_engines.each do |manifest|
                 mount manifest.admin_engine, at: "/admin/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
               end

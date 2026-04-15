@@ -32,7 +32,7 @@ Decidim::Core::Engine.routes.draw do
   end
 
   authenticate(:user) do
-    scope "/:locale", defaults: { locale: Decidim.default_locale } do
+    scope "/:locale", **locale_scope_options do
       devise_scope :user do
         get "change_password" => "devise/passwords"
         put "apply_password" => "devise/passwords"
@@ -47,7 +47,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
 
-    scope "/:locale", defaults: { locale: Decidim.default_locale } do
+    scope "/:locale", **locale_scope_options do
       resource :download_your_data, only: [:show], controller: "download_your_data" do
         member do
           post :export
@@ -58,7 +58,7 @@ Decidim::Core::Engine.routes.draw do
 
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
     post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
-    scope "/:locale", defaults: { locale: Decidim.default_locale } do
+    scope "/:locale", **locale_scope_options do
       resources :notifications, only: [:index, :destroy] do
         collection do
           delete :read_all
@@ -102,7 +102,7 @@ Decidim::Core::Engine.routes.draw do
              },
              only: :omniauth_callbacks
 
-  scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) }, defaults: { locale: Decidim.default_locale } do
+  scope "/:locale", **locale_scope_options do
     devise_for :users,
                class_name: "Decidim::User",
                module: :devise,

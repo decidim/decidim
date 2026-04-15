@@ -17,7 +17,7 @@ module Decidim
       routes do
         extend Decidim::Routes::LocaleRedirects
 
-        scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) } do
+        scope "/:locale", **locale_scope_options do
           get "assemblies/:assembly_id", to: redirect { |params, _request|
             assembly = Decidim::Assembly.find(params[:assembly_id])
             assembly ? "/#{params[:locale]}/assemblies/#{assembly.slug}" : "/404"

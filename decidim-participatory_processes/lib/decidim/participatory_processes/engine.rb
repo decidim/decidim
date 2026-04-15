@@ -17,7 +17,7 @@ module Decidim
       routes do
         extend Decidim::Routes::LocaleRedirects
 
-        scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) } do
+        scope "/:locale", **locale_scope_options do
           get "processes/:process_id", to: redirect { |params, _request|
             process = Decidim::ParticipatoryProcess.find(params[:process_id])
             process ? "/#{params[:locale]}/processes/#{process.slug}" : "/404"
