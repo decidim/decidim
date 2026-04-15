@@ -975,23 +975,23 @@ en:
             An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.</br>
             <i>%{resource_content}</i>
       resource_liked:
-        email_intro: '%{liker_name} %{liker_nickname}, who you are following, has just liked "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
-        email_outro: You have received this notification because you are following %{liker_nickname}. You can stop receiving notifications following the previous link.
-        email_subject: "%{liker_nickname} has performed a new like"
-        notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been liked by <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
+        email_intro: '%{liker_name}, who you are following, has just liked "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
+        email_outro: You have received this notification because you are following %{liker_name}. You can stop receiving notifications following the previous link.
+        email_subject: "%{liker_name} has performed a new like"
+        notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been liked by <a href="%{liker_path}">%{liker_name}</a>.
       resources:
         soft_deleted:
           notification_title: An admin has deleted your "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
-          email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
-          email_subject: "%{nickname} updated their profile"
+          email_outro: You have received this notification because you are following %{name} (%{nickname}). You can stop receiving notifications following the previous link.
+          email_subject: "%{name} (%{nickname}) updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
         user_officialized:
           email_intro: Participant %{name} (%{nickname}) has been officialized.
           email_outro: You have received this notification because you are an administrator of the organization.
-          email_subject: "%{name} has been officialized"
+          email_subject: "%{name} (%{nickname}) has been officialized"
           notification_title: Participant %{name} (%{nickname}) has been officialized.
     export_mailer:
       download_your_data_export:
