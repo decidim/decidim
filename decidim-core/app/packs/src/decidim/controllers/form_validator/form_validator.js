@@ -113,7 +113,7 @@ class FormValidator {
     this.element.prepend(announceElement);
 
     setTimeout(() => {
-      announceElement.textContent = getDictionary("forms").correctErrors;
+      announceElement.textContent = getDictionary("forms").correct_errors;
     }, 100);
   }
 
