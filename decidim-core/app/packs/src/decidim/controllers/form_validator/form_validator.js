@@ -259,6 +259,7 @@ class FormValidator {
         this.removeInputErrorClasses(inputElement);
       } else {
         this.addInputErrorClasses(inputElement, failedValidatorNames);
+        this.announceFormErrorForScreenReader();
       }
     }
 
