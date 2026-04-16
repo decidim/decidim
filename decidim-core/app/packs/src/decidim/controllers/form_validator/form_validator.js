@@ -104,7 +104,7 @@ class FormValidator {
     let announceElement = this.element.querySelector(".sr-announce");
 
     if (announceElement) {
-      announceElement.remove();
+      return;
     }
 
     announceElement = document.createElement("div");

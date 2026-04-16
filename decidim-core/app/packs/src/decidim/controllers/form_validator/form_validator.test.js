@@ -100,7 +100,7 @@ describe("FormValidator", () => {
       window.Decidim.config.set({
         messages: {
           forms: {
-            "correct_errors": "Custom error message"
+            "correctErrors": "Custom error message"
           }
         }
       })
