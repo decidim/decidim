@@ -13,9 +13,10 @@ window.Decidim = window.Decidim || {};
 window.Decidim.managedUsersForm = managedUsersForm;
 window.Decidim.config = new Configuration();
 
-
-const context = require.context("./controllers", true, /controller\.js$/)
-window.Stimulus.load(window.definitionsFromContext(context))
+document.addEventListener("DOMContentLoaded", () => {
+  const context = require.context("./controllers", true, /controller\.js$/)
+  window.Stimulus.load(window.definitionsFromContext(context))
+});
 
 
 // REDESIGN_PENDING: deprecated

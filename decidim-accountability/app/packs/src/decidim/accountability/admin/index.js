@@ -18,5 +18,7 @@ document.addEventListener("turbo:load", () => {
   selectAll.init();
 })
 
-const context = require.context("../controllers", true, /controller\.js$/)
-window.Stimulus.load(window.definitionsFromContext(context))
+document.addEventListener("DOMContentLoaded", () => {
+  const context = require.context("../controllers", true, /controller\.js$/)
+  window.Stimulus.load(window.definitionsFromContext(context))
+})

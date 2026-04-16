@@ -29,6 +29,7 @@
 <%= apple_favicon %>
 <link rel="manifest" href="/manifest.webmanifest">
 
+<%= append_javascript_pack_tag "decidim_controllers", defer: false %>
 <%= prepend_javascript_pack_tag "decidim_core", defer: false %>
 <%= append_stylesheet_pack_tag "decidim_overrides", media: "all" %>
 <%= stylesheet_pack_tag "decidim_core", media: "all" %>

@@ -8,5 +8,7 @@ import "src/decidim/comments/comments_mobile_modal"
 // Stimulus controllers
 import { definitionsFromContext } from "src/decidim/refactor/support/stimulus"
 
-const context = require.context("src/decidim/comments/controllers", true, /controller\.js$/)
-window.Stimulus.load(definitionsFromContext(context))
+document.addEventListener("DOMContentLoaded", () => {
+  const context = require.context("src/decidim/comments/controllers", true, /controller\.js$/)
+  window.Stimulus.load(definitionsFromContext(context))
+})
