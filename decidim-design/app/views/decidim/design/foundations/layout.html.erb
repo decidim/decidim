@@ -47,7 +47,7 @@
 </section>
 
 <section id="mobile" class="design__section">
-  <h2><%= t(".mobile") %> <span class="label">sm</span></h2>
+  <h2><%= t(".mobile") %> <span class="label">xs</span></h2>
 
   <p><%= t(".section_p_mobile") %></p>
 
@@ -111,6 +111,7 @@
     <tbody>
       <%
         rows = []
+        rows << { breakpoint: "xs (375px)", properties: "min-width: 375px;" }
         rows << { breakpoint: "sm (640px)", properties: "max-width: 640px;" }
         rows << { breakpoint: "md (768px)", properties: "max-width: 768px;" }
         rows << { breakpoint: "lg (1024px)", properties: "max-width: 1024px;" }

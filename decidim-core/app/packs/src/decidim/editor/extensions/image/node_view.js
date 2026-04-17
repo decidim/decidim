@@ -62,7 +62,9 @@ export default (self) => {
     const img = contentDOM.querySelector("img");
     let activeResizeControl = null,
         currentHeight = null,
+        currentHref = node.attrs.href,
         currentSrc = node.attrs.src,
+        currentTarget = node.attrs.target,
         currentWidth = null,
         naturalHeight = img.naturalHeight,
         naturalWidth = img.naturalWidth,
@@ -185,7 +187,13 @@ export default (self) => {
           return false;
         }
 
-        const { alt, src, title, width } = updatedNode.attrs;
+        const { alt, src, title, width, href, target } = updatedNode.attrs;
+
+        // If the href or target changed, we need to recreate the node because the
+        // structure changes (wrapped in <a> vs not wrapped)
+        if (href !== currentHref || target !== currentTarget) {
+          return false;
+        }
 
         // We set the value through an attribute change here because otherwise
         // we would trigger a mutation in the DOM which causes the update method
