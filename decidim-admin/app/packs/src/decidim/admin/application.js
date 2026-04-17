@@ -13,7 +13,7 @@ window.Decidim = window.Decidim || {};
 window.Decidim.managedUsersForm = managedUsersForm;
 window.Decidim.config = new Configuration();
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const context = require.context("./controllers", true, /controller\.js$/)
   window.Stimulus.load(window.definitionsFromContext(context))
 });

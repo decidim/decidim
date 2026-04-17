@@ -5,12 +5,8 @@
   In order to have our own structure, we need to replace the Regex from identifierForContextKey method
  */
 
-const identifierForContextKey = function(key, excludes = []) {
+const identifierForContextKey = function(key) {
   const logicalName = (key.match(/^(?:\.\/)?(.+)(?:\/controller\..+?)$/) || [])[1];
-
-  if (logicalName && excludes.includes(logicalName)) {
-    return null;
-  }
 
   if (logicalName) {
     return logicalName.replace(/_/g, "-").replace(/\//g, "--");
@@ -26,8 +22,8 @@ const definitionForModuleAndIdentifier = function(module, identifier) {
   return null;
 }
 
-const definitionForModuleWithContextAndKey = function(context, key, excludes = []) {
-  const identifier = identifierForContextKey(key, excludes);
+const definitionForModuleWithContextAndKey = function(context, key) {
+  const identifier = identifierForContextKey(key);
 
   if (identifier) {
     return definitionForModuleAndIdentifier(context(key), identifier);
@@ -35,9 +31,9 @@ const definitionForModuleWithContextAndKey = function(context, key, excludes = [
   return null;
 }
 
-const definitionsFromContext = function(context, excludes = []) {
+const definitionsFromContext = function(context) {
   return context.keys().
-    map((key) => definitionForModuleWithContextAndKey(context, key, excludes)).
+    map((key) => definitionForModuleWithContextAndKey(context, key)).
     filter((value) => value);
 }
 
