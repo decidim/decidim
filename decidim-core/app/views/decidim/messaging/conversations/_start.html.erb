@@ -1,3 +1,5 @@
+<%= append_javascript_pack_tag "decidim_emoji" %>
+
 <div data-add-message>
   <%= decidim_form_for form, url: decidim.conversations_path, remote: true do |f| %>
     <div class="conversation__reply">

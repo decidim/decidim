@@ -1,3 +1,4 @@
+<%= append_javascript_pack_tag "decidim_emoji" %>
 <%= decidim_form_for(form_object, url: decidim_comments.comments_path(order:), method: :post, remote: true, html: { id: form_id }) do |form| %>
   <% unless reply? %>
     <div class="comment__form-mobile-banner">
