@@ -90,6 +90,8 @@ window.deprecate = deprecate;
 window.deprecationMessage = deprecationMessage;
 
 document.addEventListener("turbo:load", () => {
+  document.querySelectorAll("[data-tabs]").forEach((elem) =>
+    deprecate(elem, "tabs", "[data-tabs]"))
   document.querySelectorAll("[data-sticky-buttons]").forEach((container) =>
     deprecate(container, "sticky-buttons", "[data-sticky-buttons]"));
   document.querySelectorAll("[data-clipboard-copy]").forEach((container) =>

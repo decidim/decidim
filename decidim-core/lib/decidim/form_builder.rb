@@ -112,7 +112,7 @@ module Decidim
 
         tabs_panels = "".html_safe
         if options[:label] != false
-          tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
+          tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { controller: "tabs" }) do
             handlers.each_with_index.inject("".html_safe) do |string, (handler, index)|
               string + content_tag(:li, class: tab_element_class_for("title", index)) do
                 title = I18n.t(".#{handler}", scope: "activemodel.attributes.#{object_name}")
@@ -831,7 +831,7 @@ module Decidim
     end
 
     def language_tabs(locales, tabs_id, name, error_on_locale = nil)
-      content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
+      content_tag(:ul, class: "tabs tabs--lang", role: "tablist", id: tabs_id, data: { controller: "tabs" }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
           display = if error_on_locale.nil?
                       index
@@ -840,12 +840,13 @@ module Decidim
                     end
 
           css_class = tab_element_class_for("title", display)
-          string + content_tag(:li, class: css_class) do
+          string + content_tag(:li, class: css_class, role: "presentation") do
             title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
             element_class = nil
             element_class = "is-tab-error" if locale.eql?(error_on_locale)
             tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
-            content_tag(:a, title, href: "##{tab_content_id}", class: element_class)
+            content_tag(:a, title, href: "##{tab_content_id}", class: element_class, role: "tab", aria: { selected: display.zero? ? "true" : "false", controls: tab_content_id },
+                                   tabindex: display.zero? ? 0 : -1)
           end
         end
       end
