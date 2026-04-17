@@ -986,7 +986,7 @@ en:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name}, who you are following, has been updated.
           email_outro: You have received this notification because you are following %{name}. You can stop receiving notifications following the previous link.
-          email_subject: "%{name} (%{nickname}) updated their profile"
+          email_subject: "%{name} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name}, who you are following, has been updated.
         user_officialized:
           email_intro: Participant %{name} has been officialized.
