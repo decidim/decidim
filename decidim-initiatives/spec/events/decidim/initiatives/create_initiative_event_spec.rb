@@ -15,9 +15,9 @@ describe Decidim::Initiatives::CreateInitiativeEvent do
   let(:event_name) { "decidim.events.initiatives.initiative_created" }
   let(:user) { create(:user, organization:) }
   let(:resource_path) { resource_locator(resource).path }
-  let(:email_subject) { "New initiative by @#{initiative_author.name}" }
+  let(:email_subject) { "New initiative by #{initiative_author.name}" }
   let(:email_intro) { "#{initiative_author.name}, who you are following, has created a new initiative, check it out and contribute:" }
-  let(:email_outro) { "You have received this notification because you are following @#{initiative_author.name}. You can stop receiving notifications following the previous link." }
+  let(:email_outro) { "You have received this notification because you are following #{initiative_author.name}. You can stop receiving notifications following the previous link." }
   let(:notification_title) { "The <a href=\"#{resource_path}\">#{resource_title}</a> initiative was created by <a href=\"/en/profiles/#{initiative_author.nickname}\">#{initiative_author.name}</a>." }
 
   it_behaves_like "a simple event email"
