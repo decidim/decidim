@@ -52,7 +52,7 @@ describe Decidim::Comments::UserMentionedEvent do
     let(:translatable) { true }
 
     let(:untranslated_content) { "<div><p>Comment mentioning some user, #{ca_author_link}</p></div>" }
-    let(:ca_author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/ca/profiles/#{author.nickname}\" data-external-link=\"false\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">@#{author.nickname}</a>" }
+    let(:ca_author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/ca/profiles/#{author.nickname}\" data-external-link=\"false\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{author.name}</a>" }
 
     it_behaves_like "a translated event"
   end
