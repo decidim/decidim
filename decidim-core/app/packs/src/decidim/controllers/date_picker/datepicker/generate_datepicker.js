@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 import icon from "src/decidim/refactor/moved/icon"
-import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos, adjustPickerPosition } from "src/decidim/datepicker/datepicker_functions"
-import { dateKeyDownListener, dateBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners"
+import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos, adjustPickerPosition } from "src/decidim/controllers/date_picker/datepicker/datepicker_functions"
+import { dateKeyDownListener, dateBeforeInputListener } from "src/decidim/controllers/date_picker/datepicker/datepicker_listeners"
 import { getDictionary } from "src/decidim/refactor/moved/i18n"
 
 export default function generateDatePicker(input, row, formats) {

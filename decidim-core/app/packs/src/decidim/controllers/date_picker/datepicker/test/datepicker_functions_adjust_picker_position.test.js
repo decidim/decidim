@@ -1,6 +1,6 @@
 /* global jest */
 
-import { adjustPickerPosition } from "src/decidim/datepicker/datepicker_functions";
+import { adjustPickerPosition } from "src/decidim/controllers/date_picker/datepicker/datepicker_functions";
 
 describe("adjustDatePickerPosition", () => {
   let input = null;

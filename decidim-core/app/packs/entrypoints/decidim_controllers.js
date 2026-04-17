@@ -5,7 +5,6 @@ import AccountFormController from "src/decidim/controllers/account_form/controll
 import AssignRoleController from "src/decidim/controllers/assign_role/controller";
 import CharacterCounterController from "src/decidim/controllers/character_counter/controller";
 import ClipboardCopyController from "src/decidim/controllers/clipboard_copy/controller";
-import DatePickerController from "src/decidim/controllers/date_picker/controller";
 import DeleteAccountFormController from "src/decidim/controllers/delete_account_form/controller";
 import DropdownController from "src/decidim/controllers/dropdown/controller";
 import FormFilterController from "src/decidim/controllers/form_filter/controller";
@@ -34,7 +33,6 @@ application.register("account-form", AccountFormController);
 application.register("assign-role", AssignRoleController);
 application.register("character-counter", CharacterCounterController);
 application.register("clipboard-copy", ClipboardCopyController);
-application.register("date-picker", DatePickerController);
 application.register("delete-account-form", DeleteAccountFormController);
 application.register("dropdown", DropdownController);
 application.register("form-filter", FormFilterController);
@@ -58,3 +56,7 @@ application.debug = true
 
 window.definitionsFromContext = definitionsFromContext
 window.Stimulus = application
+
+document.addEventListener("turbo:load", () => {
+  document.dispatchEvent(new CustomEvent("stimulus:load", { detail: { document } }));
+});

@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import formDatePicker from "src/decidim/datepicker/form_datepicker"
+import formDatePicker from "src/decidim/controllers/date_picker/datepicker/form_datepicker"
 
 export default class extends Controller {
   connect() {

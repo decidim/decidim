@@ -3,6 +3,7 @@ import "stylesheets/decidim/editor.scss"
 
 import EditorController from "src/decidim/controllers/editor/controller";
 
-window.addEventListener("turbo:load", () => {
+document.addEventListener("stimulus:load", () => {
+  console.log("Editor controller registered");
   window.Stimulus.register("editor", EditorController);
 })

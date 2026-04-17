@@ -1,4 +1,4 @@
-window.addEventListener("turbo:load", async () => {
+document.addEventListener("turbo:load", async () => {
   const GRANTED_PERMISSION = "granted"
 
   const hideReminder = function() {

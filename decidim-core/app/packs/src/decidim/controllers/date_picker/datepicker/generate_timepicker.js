@@ -2,8 +2,8 @@
 /* eslint max-lines: ["error", 310] */
 
 import icon from "src/decidim/refactor/moved/icon"
-import { changeHourDisplay, changeMinuteDisplay, formatDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute, updateTimeValue, updateInputValue, adjustPickerPosition } from "src/decidim/datepicker/datepicker_functions"
-import { timeKeyDownListener, timeBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners";
+import { changeHourDisplay, changeMinuteDisplay, formatDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute, updateTimeValue, updateInputValue, adjustPickerPosition } from "src/decidim/controllers/date_picker/datepicker/datepicker_functions"
+import { timeKeyDownListener, timeBeforeInputListener } from "src/decidim/controllers/date_picker/datepicker/datepicker_listeners";
 import { getDictionary } from "src/decidim/refactor/moved/i18n";
 
 export default function generateTimePicker(input, row, formats) {

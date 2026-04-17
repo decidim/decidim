@@ -6,7 +6,7 @@ import {
   formatDate,
   formatInputDate,
   calculateDatepickerPos
-} from "src/decidim/datepicker/datepicker_functions"
+} from "src/decidim/controllers/date_picker/datepicker/datepicker_functions"
 
 describe("dateToPicker", () => {
   it('should format date from "d-m-y" to "m-d-y" -format for datepicker', () => {

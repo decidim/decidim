@@ -1,5 +1,5 @@
 import EmojiController from "src/decidim/controllers/emoji/controller";
 
-window.addEventListener("turbo:load", () => {
+document.addEventListener("stimulus:load", () => {
   window.Stimulus.register("emoji", EmojiController);
 })
