@@ -593,6 +593,9 @@ cs:
       manage_trash:
         deleted_items_warning: Momentálně zobrazujete odstraněné položky. Chcete-li provést úpravy nebo změny, musíte je nejprve obnovit.
       managed_users:
+        impersonation_logs:
+          index:
+            title: V zastoupení
         promotion:
           error: Při propagaci spravovaného účastníka se vyskytl problém.
           success: Spravovaný uživatel byl úspěšně podporován.
