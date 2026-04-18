@@ -502,7 +502,16 @@ cs:
             document_legend: Přidat dokument
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_processes:
+          edit:
+            title: O tomto procesu
           form:
+            access:
+              label: Přístup
+              options:
+                open: Každý může vidět proces a zúčastnit se.
+                restricted: Pouze členové se mohou podívat a zúčastnit se.
+                transparent: Každý může proces vidět, ale mohou se účastnit pouze členové.
+              set_this_space_as: Nastavit tento prostor jako
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             has_members_help: Budete moci vytvářet a publikovat členy
@@ -515,6 +524,12 @@ cs:
             taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
+          index:
+            title: Participační procesy
+          manage_trash:
+            title: Odstraněné participační procesy
+          new:
+            title: Nový participační proces
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
