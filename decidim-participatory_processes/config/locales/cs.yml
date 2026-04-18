@@ -256,8 +256,11 @@ cs:
           public: Veřejné
           published: Publikováno
           unpublished: Nezveřejněno
+        manage_trash:
+          title: Odstraněné participační procesy
         new:
           create: Vytvořit
+          title: Nový participační proces
         update:
           error: Při aktualizaci tohoto participačního procesu došlo k chybě.
           success: Participační proces byl úspěšně aktualizován.
@@ -276,6 +279,7 @@ cs:
         participatory_process_groups: Skupiny účastnických procesů
         participatory_process_types: Typy participačních procesů
         participatory_processes: Participativní procesy
+        participatory_processes_deleted: Odstraněné participační procesy
       tooltips:
         deleted_processes_info: Proces může být odstraněn pouze v případě, že je stav "Nezveřejněný".
       users:
