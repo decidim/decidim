@@ -1,6 +1,8 @@
 cs:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Maximální počet možností
       token_csv:
         file: Soubor
   activerecord:
@@ -210,10 +212,12 @@ cs:
         show:
           check_census_button: Zkontrolujte, zda mohu hlasovat
           vote_button: Hlasovat
+          voted: Již jste hlasovali. Můžete hlasovat znovu, pouze vaše poslední hlasování bude započítáno.
         vote_results:
           subtitle:
             per_question: Výsledky jsou k dispozici na jednu otázku. Výsledky pro každou otázku můžete vidět po povolení hlasování a po zveřejnění výsledků.
           title: Výsledky
+          total: 'CELKEM:'
       models:
         election:
           fields:
