@@ -58,7 +58,7 @@ eu:
           question: Erantzun zen galdera
           registered: Parte-hartzaile erregistratua
           unregistered: Erregistratu gabeko parte-hartzailea
-          user_status: Erantzuna aurkeztu duen erabiltzailearen egoera
+          user_status: Erantzuna aurkeztu duen parte-hartzailearen egoera
     statistics:
       responses: 'Erantzunak:'
       responses_count: Erantzunak

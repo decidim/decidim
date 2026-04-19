@@ -53,7 +53,6 @@ is-IS:
         participatory_process:
           fields:
             created_at: Búið til á
-            private: Einkamál
             published: Published
             title: Titill
           name: Þátttökuferli
@@ -79,11 +78,9 @@ is-IS:
             invitation_sent_at: Boð sendur á
       participatory_process_groups:
         edit:
-          title: Breyta ferli hópsins
           update: Uppfæra
         new:
           create: Búa til
-          title: Nýr ferli hópur
       participatory_process_steps:
         default_title: Kynning
         edit:
@@ -99,15 +96,9 @@ is-IS:
         edit:
           update: Uppfæra
         index:
-          private: Einkamál
-          public: Opinber
           published: Published
         new:
           create: Búa til
-          title: Nýtt þátttökuferli
-      titles:
-        participatory_process_groups: Þátttaka ferli hópa
-        participatory_processes: Þátttökuferli
     admin_log:
       participatory_process:
         create: "%{user_name} búið til %{resource_name} þátttakandi ferli"
@@ -134,13 +125,11 @@ is-IS:
       admin:
         participatory_processes:
           form:
-            announcement_help: Textinn sem þú slærð inn hér verður sýndur fyrir notandann rétt fyrir neðan ferlið.
             related_processes: Tengd ferli
             title: Almennar upplýsingar
       index:
         title: Þátttökuferli
       show:
-        private_space: Þetta er einkarekið ferli
         related_processes: Tengd ferli
   layouts:
     decidim:

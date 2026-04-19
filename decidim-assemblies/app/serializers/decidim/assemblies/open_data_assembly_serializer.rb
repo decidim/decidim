@@ -12,8 +12,6 @@ module Decidim
             url: EngineRouter.main_proxy(resource).assembly_url(resource),
             subtitle: resource.subtitle,
             remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(resource).hero_image_url,
-            remote_banner_image_url: Decidim::Assemblies::AssemblyPresenter.new(resource).banner_image_url,
-            announcement: resource.announcement,
             developer_group: resource.developer_group,
             local_area: resource.local_area,
             meta_scope: resource.meta_scope,
@@ -39,18 +37,14 @@ module Decidim
             creation_date: resource.creation_date,
             closing_date_reason: resource.closing_date_reason,
             internal_organisation: resource.internal_organisation,
-            is_transparent: resource.is_transparent,
+            access_mode: resource.access_mode,
             special_features: resource.special_features,
             twitter_handler: resource.twitter_handler,
             instagram_handler: resource.instagram_handler,
             facebook_handler: resource.facebook_handler,
             youtube_handler: resource.youtube_handler,
             github_handler: resource.github_handler,
-            created_by_other: resource.created_by_other,
-            assembly_type: {
-              id: resource.assembly_type.try(:id),
-              title: resource.assembly_type.try(:title) || empty_translatable
-            }
+            created_by_other: resource.created_by_other
           }
         )
       end

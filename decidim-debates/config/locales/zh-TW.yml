@@ -107,7 +107,6 @@ zh-TW:
           back: 返回
           create: 建立
         orders:
-          commented: 最多評論
           label: 依序排列辯論
           random: 隨機順序
           recent: 最近

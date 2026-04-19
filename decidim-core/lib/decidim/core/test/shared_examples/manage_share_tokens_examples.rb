@@ -181,7 +181,7 @@ shared_examples "manage resource share tokens" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("Access link successfully destroyed")
+      expect(page).to have_callout("Access link successfully destroyed")
       expect(page).to have_css("tbody tr", count: 2)
     end
   end

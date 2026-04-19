@@ -46,7 +46,6 @@ lt:
         default_locale: Numatytoji lokalė
         description: Aprašymas
         enable_omnipresent_banner: Rodyti visur naudojamą reklamjuostę
-        enable_participatory_space_filters: Leisti dalyvaujamosios erdvės filtrus
         facebook_handler: '„Facebook“ tvarkyklė'
         favicon: Piktograma
         force_authentication: Priversti autentifikuotis
@@ -159,7 +158,7 @@ lt:
           new: Naujas priedų aplankas
         browse: Naršyti
         configure: Konfigūruoti
-        export-selection: Eksportuoti pasirinktą
+        export_all: Eksportuoti viską
         import: Importuoti
         newsletter:
           new: Naujas naujienlaiškis
@@ -180,7 +179,6 @@ lt:
           alert: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
           callout: Kviečiame peržiūrėti administratoriaus nustatytas naudojimosi sąlygas. Priešingu atveju šios platformos administruoti negalėsite.
           cta: Peržiūrėti jas dabar.
-        title: Administratorių naudojimo politika
       area_types:
         create:
           error: Kuriant naujos erdvės tipą iškilo problema.
@@ -222,8 +220,6 @@ lt:
         edit:
           title: Redaguoti aplanką
           update: Atnaujinti
-        index:
-          attachment_collections_title: Priedų aplankai
         new:
           create: Sukurti
           title: Naujas aplankas
@@ -239,8 +235,6 @@ lt:
         edit:
           title: Redaguoti priedą
           update: Atnaujinti
-        index:
-          attachments_title: Priedai
         new:
           create: Sukurti priedą
           title: Naujas priedas
@@ -288,7 +282,6 @@ lt:
           title: 'Pridėti komponentą: %{name}'
         publish:
           success: Komponentas sėkmingai publikuotas.
-        title: Komponentai
         unpublish:
           success: Komponentas nebe publikuojamas.
         update:
@@ -299,7 +292,6 @@ lt:
         'false': 'Ne'
         managed_user_name: Tvarkomas Dalyvis
         solved: Išspręsta
-        title: Patikros konfliktai
         transfer:
           email: El. paštas
           name: Vardas
@@ -411,7 +403,6 @@ lt:
           impersonate: Naudoti pakaitinę tapatybę
           impersonate_existing_managed_user: Tvarkyti dalyvį "%{name}"
           impersonate_existing_user: Tvarkyti dalyvį "%{name}"
-          impersonate_new_managed_user: Tvarkyti naują naudotoją
       imports:
         and: ir
         data_errors:
@@ -472,7 +463,6 @@ lt:
         promotions:
           new:
             explanation: Tvarkomi dalyviai gali būti paaukštinti į standartinius dalyvius. Tai reiškia, kad jie bus pakviesti į platformą ir nebegalėsite jų tvarkyti. Pakviesti naudotojai gaus kvietimą prisijungti el. paštu.
-            new_managed_user_promotion: Naujas tvarkomo naudotojo paaukštinimas
             promote: Paaukštinti
       members_csv_imports:
         new:
@@ -613,7 +603,6 @@ lt:
           title: Naujienlaiškio šablonai
           use_template: Naudoti šį šabloną
         show:
-          preview: 'Peržiūrėti šabloną: %{template_name}'
           use_template: Naudoti šį šabloną
       newsletters:
         create:
@@ -660,7 +649,6 @@ lt:
         send_to_user:
           sent_successfully: Naujienlaiškis sėkmingai išsiųtas %{email}
         show:
-          preview: Peržiūra
           select_recipients_to_deliver: Pasirinkti gavėjus, kuriems išsiųsti
           send_me_a_test_email: Siųsti man bandomąjį el. laišką
           subject: Tema
@@ -783,7 +771,6 @@ lt:
           title: Nauja tema
         update:
           error: Atnaujinant šią temą iškilo problema.
-          success: Tema atnaujinta
       static_pages:
         create:
           error: Kuriant naują puslapį iškilo problema.
@@ -807,19 +794,10 @@ lt:
           error: Atnaujinant šį puslapį iškilo problema.
           success: Puslapis atnaujintas.
       titles:
-        admin_log: Administratoriaus veiklos žurnalas
-        area_types: Aplinkos tipai
         areas: Aplinkos
         authorization_workflows: Verifikacijos metodai
-        dashboard: Švieslentė
-        impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
-        impersonations: Dalyvių tvarkymas
-        pages: Puslapiai
         panel: Administratorius
-        participants: Dalyviai
-        scope_types: Apimties tipai
         scopes: Apimtys
-        users: Administratoriai
       users:
         create:
           error: Kviečiant šį administratorių iškilo problema.

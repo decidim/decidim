@@ -48,7 +48,7 @@ describe "Admin filters participatory processes members" do
     end
 
     it "restricts access" do
-      expect(page).to have_admin_callout("You are not authorized to perform this action.")
+      expect(page).to have_callout("You are not authorized to perform this action.")
     end
   end
 end

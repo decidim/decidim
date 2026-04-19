@@ -2,12 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-# Maintain your gem's version:
-require "decidim/accountability/version"
-
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.version = Decidim::Accountability.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0-or-later"
@@ -32,14 +29,14 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-comments", Decidim::Accountability.version
-  s.add_dependency "decidim-core", Decidim::Accountability.version
+  s.add_dependency "decidim-comments", version
+  s.add_dependency "decidim-core", version
 
-  s.add_development_dependency "decidim-admin", Decidim::Accountability.version
-  s.add_development_dependency "decidim-assemblies", Decidim::Accountability.version
-  s.add_development_dependency "decidim-comments", Decidim::Accountability.version
-  s.add_development_dependency "decidim-dev", Decidim::Accountability.version
-  s.add_development_dependency "decidim-meetings", Decidim::Accountability.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim::Accountability.version
-  s.add_development_dependency "decidim-proposals", Decidim::Accountability.version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-assemblies", version
+  s.add_development_dependency "decidim-comments", version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-meetings", version
+  s.add_development_dependency "decidim-participatory_processes", version
+  s.add_development_dependency "decidim-proposals", version
 end

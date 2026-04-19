@@ -79,6 +79,23 @@ describe "User creates meeting" do
           component.update!(settings: { creation_enabled_for_participants: true, taxonomy_filters: taxonomy_filter_ids })
         end
 
+        context "with an empty form" do
+          it "allows submission and show errors" do
+            visit_component
+            click_on "New meeting"
+
+            expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+            within ".new_meeting" do
+              find("*[type=submit]").click
+              expect(page).to have_content("There is an error in this field.", count: 6)
+
+              expect(page).to have_no_css("*[type=submit][data-disable='true']")
+              expect(find("button[type='submit']")).not_to be_disabled
+            end
+          end
+        end
+
         context "and rich_editor_public_view component setting is enabled" do
           before do
             organization.update(rich_text_editor_in_public_views: true)
@@ -113,7 +130,7 @@ describe "User creates meeting" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_callout("You have created the meeting successfully.")
           expect(page).to have_content(meeting_title)
           expect(page).to have_content(meeting_description)
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
@@ -142,6 +159,8 @@ describe "User creates meeting" do
             within_selector: ".new_meeting",
             address_field: :meeting_address
           ) do
+            let(:geocoded_success_message) { "You have created the meeting successfully." }
+
             before do
               stub_geocoding_coordinates([3.345, 4.456])
               # Prepare the view for submission (other than the address field)

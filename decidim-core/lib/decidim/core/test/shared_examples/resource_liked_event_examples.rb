@@ -51,7 +51,7 @@ shared_examples_for "resource liked event" do
         .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> #{resource_type} has been liked by ")
 
       expect(subject.notification_title)
-        .to include("<a href=\"/profiles/#{author.nickname}\">#{author.name} #{author_presenter.nickname}</a>.")
+        .to include("<a href=\"/en/profiles/#{author.nickname}\">#{author.name} #{author_presenter.nickname}</a>.")
     end
   end
 

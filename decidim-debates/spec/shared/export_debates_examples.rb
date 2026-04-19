@@ -17,7 +17,7 @@ shared_examples "export debates" do
       sleep 1
     end
 
-    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
+    expect(page).to have_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "debate_comments" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("debate_comments")
@@ -32,7 +32,7 @@ shared_examples "export debates" do
       sleep 1
     end
 
-    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
+    expect(page).to have_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "debate_comments" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("debate_comments")
@@ -49,7 +49,7 @@ shared_examples "export as CSV" do
       sleep 1
     end
 
-    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
+    expect(page).to have_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "debates" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("debates")
@@ -66,7 +66,7 @@ shared_examples "export as JSON" do
       sleep 1
     end
 
-    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
+    expect(page).to have_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "debates" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("debates")

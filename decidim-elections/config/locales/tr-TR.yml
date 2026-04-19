@@ -1,4 +1,9 @@
 tr:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Seçim
+        other: Seçimler
   decidim:
     admin:
       menu:
@@ -42,9 +47,6 @@ tr:
           edit_questions:
             new_question: Yeni soru
             title: Sorular
-      censuses:
-        token_csv_form:
-          email: E-posta
       elections:
         count:
           elections_count:
@@ -74,7 +76,3 @@ tr:
           title: Oyunu onayla
         question:
           next: Sonraki
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Kapat

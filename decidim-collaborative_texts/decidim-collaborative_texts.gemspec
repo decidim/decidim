@@ -2,10 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/collaborative_texts/version"
-
 Gem::Specification.new do |s|
-  s.version = Decidim::CollaborativeTexts.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Ivan Vergés"]
   s.email = ["ivan@pokecode.net"]
   s.license = "AGPL-3.0-or-later"
@@ -30,7 +29,7 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::CollaborativeTexts.version
+  s.add_dependency "decidim-core", version
 
-  s.add_development_dependency "decidim-dev", Decidim::CollaborativeTexts.version
+  s.add_development_dependency "decidim-dev", version
 end

@@ -9,6 +9,18 @@ Decidim.register_component(:collaborative_texts) do |component|
 
   component.query_type = "Decidim::CollaborativeTexts::DocumentsType"
 
+  component.on(:publish) do |instance|
+    Decidim::CollaborativeTexts::Document.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::CollaborativeTexts::Document.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
+    end
+  end
+
   component.register_stat :collaborative_texts_count,
                           primary: true,
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,

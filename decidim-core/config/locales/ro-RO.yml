@@ -1035,6 +1035,9 @@ ro:
           explanation: 'Îndrumare pentru imagine:'
           message_1: De preferință o imagine orizontală care să nu conțină vreun text.
           message_2: Serviciul decupează imaginea.
+        import_file:
+          explanation: 'Instrucțiuni pentru fișierul de import:'
+          message_1: Trebuie să fie un document JSON descărcat prin funcționalitatea de export.
       file_validation:
         allowed_file_extensions: 'Extensii de fișiere permise: %{extensions}'
         max_file_dimension: 'Dimensiunea maximă a fișierului: %{resolution} pixeli'
@@ -1409,6 +1412,9 @@ ro:
           %{organization_name}
         hello: Dragă %{username},
         subject: Cont inactiv șters
+    participatory_space_members:
+      index:
+        members: Membri
     profile:
       deleted: Participant șters
     profiles:
@@ -1657,8 +1663,6 @@ ro:
         submit_button: Trimiteți o invitație
       no_invitations_remaining: Nicio invitație rămasă
       send_instructions: Un e-mail de invitație a fost trimis la %{email}.
-      updated: Parola dvs. a fost setată cu succes. Acum ești conectat.
-      updated_not_active: Parola dvs. a fost setată cu succes.
     mailer:
       confirmation_instructions:
         action: Confirmaţi contul
@@ -1705,8 +1709,6 @@ ro:
         confirm_new_password: Confirmați parola nouă
         new_password: Parola nouă
         old_password_help: Pentru a confirma modificările aduse contului dumneavoastră, vă rugăm să introduceți parola curentă.
-        password_help: "%{minimum_characters} nr. minim de caractere, nu trebuie să fie prea des întâlnite (de exemplu, 123456) și trebuie să fie diferite de numele dvs. și de adresa dvs. e-mail."
-        password_help_admin: "Minim %{minimum_characters} caractere, nu trebuie să fie prea comun (ex. 123456), trebuie să fie diferit de porecla și adresa de e-mail și trebuie să fie diferită de parola veche."
         title: Schimbare parolă
       new:
         forgot_your_password: Ați uitat parola?
@@ -1738,7 +1740,7 @@ ro:
         didn_t_receive_unlock_instructions: Nu ați primit instrucțiuni de deblocare?
         forgot_your_password: V-ați uitat parola?
         log_in: Autentificare
-        log_in_with_provider: Autentificați-vă cu {provider}
+        log_in_with_provider: Autentificați-vă cu %{provider}
         sign_up: Creați un cont
       minimum_password_length:
         one: "(minimum %{count} caractere)"

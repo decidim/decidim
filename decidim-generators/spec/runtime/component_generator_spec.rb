@@ -2,6 +2,7 @@
 
 require "spec_helper"
 require "decidim/generators/test/generator_examples"
+require "decidim/version"
 
 module Decidim
   describe Generators do

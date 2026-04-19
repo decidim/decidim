@@ -41,12 +41,11 @@ module Decidim::ParticipatoryProcesses
         current_organization: organization,
         organization:,
         has_members: false,
-        private_space: false,
+        access_mode: :open,
         taxonomizations:,
         errors:,
         related_process_ids:,
-        participatory_process_group:,
-        announcement: { en: "message" }
+        participatory_process_group:
       )
     end
     let(:invalid) { false }

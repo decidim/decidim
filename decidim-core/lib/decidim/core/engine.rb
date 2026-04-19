@@ -248,21 +248,6 @@ module Decidim
         app.config.i18n.raise_on_missing_translations = Rails.env.local?
       end
 
-      initializer "decidim_core.active_storage_method_patch" do |_app|
-        if Rails::VERSION::MAJOR < 8
-          # This is a manual bugfix of https://github.com/rails/rails/pull/51931
-          module Attachment
-            def named_variants
-              record.attachment_reflections[name]&.named_variants || {}
-            end
-          end
-
-          ActiveSupport.on_load(:active_storage_attachment) { prepend Attachment }
-        else
-          Decidim.deprecator.warn("Remove decidim_core.active_storage_method_patch initializer from #{__FILE__}")
-        end
-      end
-
       initializer "decidim_core.action_controller" do |_app|
         config.to_prepare do
           ActiveSupport.on_load :action_controller do

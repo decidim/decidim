@@ -36,6 +36,24 @@ module Decidim
         @current_space ||= current_component.participatory_space
       end
 
+      def same_month?
+        return true if meeting.end_time.blank?
+
+        meeting.start_time.year == meeting.end_time.year && meeting.start_time.month == meeting.end_time.month
+      end
+
+      def same_day?
+        return true if meeting.end_time.blank?
+
+        meeting.start_time.to_date == meeting.end_time.to_date
+      end
+
+      def same_year?
+        return true if meeting.end_time.blank?
+
+        meeting.start_time.year == meeting.end_time.year
+      end
+
       def metadata_cell
         "decidim/meetings/meeting_card_metadata"
       end

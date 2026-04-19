@@ -39,7 +39,26 @@ module Decidim::ParticipatoryProcesses
     let(:import_attachments) { false }
 
     def stub_calls_to_external_files
-      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/participatory_process_group/hero_image/1/city.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/attachment/file/1/Exampledocument.pdf",
+        "application/pdf"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/attachment/file/2/city.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/attachment/file/3/Exampledocument.pdf",
+        "application/pdf"
+      )
     end
 
     shared_examples "import participatory_process succeeds" do

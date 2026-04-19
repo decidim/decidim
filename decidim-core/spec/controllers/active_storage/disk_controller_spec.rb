@@ -6,6 +6,7 @@ module ActiveStorage
   describe DiskController do
     describe "GET #show" do
       include Rails.application.routes.url_helpers
+
       before do
         ActiveStorage::Current.url_options = { host: "example.com", protocol: "http" }
       end

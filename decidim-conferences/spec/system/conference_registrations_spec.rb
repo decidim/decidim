@@ -121,7 +121,7 @@ describe "Conference registrations" do
           click_on "Confirm"
         end
 
-        expect(page).to have_content("successfully")
+        expect(page).to have_callout("You have successfully joined the conference")
 
         expect(page).to have_css(".button", text: "Attending")
         expect(page).to have_css("button[disabled]", text: "Registration", count: 4)
@@ -202,7 +202,7 @@ describe "Conference registrations" do
         click_on "Attending"
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("You have successfully left the conference")
       expect(page).to have_css(".button", text: "Registration", count: registration_types_count)
     end
   end
@@ -220,7 +220,7 @@ describe "Conference registrations" do
 
       it "accepts the invitation successfully" do
         visit_conference_registration_type
-        expect(page).to have_content("successfully")
+        expect(page).to have_callout("You have successfully joined the conference")
       end
     end
   end

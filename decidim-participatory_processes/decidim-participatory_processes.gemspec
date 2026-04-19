@@ -2,10 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/participatory_processes/version"
-
 Gem::Specification.new do |s|
-  s.version = Decidim::ParticipatoryProcesses.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0-or-later"
@@ -30,12 +29,12 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::ParticipatoryProcesses.version
+  s.add_dependency "decidim-core", version
 
-  s.add_development_dependency "decidim-accountability", Decidim::ParticipatoryProcesses.version
-  s.add_development_dependency "decidim-admin", Decidim::ParticipatoryProcesses.version
-  s.add_development_dependency "decidim-budgets", Decidim::ParticipatoryProcesses.version
-  s.add_development_dependency "decidim-dev", Decidim::ParticipatoryProcesses.version
-  s.add_development_dependency "decidim-meetings", Decidim::ParticipatoryProcesses.version
-  s.add_development_dependency "decidim-proposals", Decidim::ParticipatoryProcesses.version
+  s.add_development_dependency "decidim-accountability", version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-budgets", version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-meetings", version
+  s.add_development_dependency "decidim-proposals", version
 end

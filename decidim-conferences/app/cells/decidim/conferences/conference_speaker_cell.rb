@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Meetings::MeetingCellsHelper
       include Cell::ViewModel::Partial
       include Decidim::Conferences::Engine.routes.url_helpers
+
       property :name
       property :nickname
       property :profile_path

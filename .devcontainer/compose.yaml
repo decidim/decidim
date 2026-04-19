@@ -7,10 +7,11 @@ services:
       dockerfile: .devcontainer/Dockerfile
     volumes:
     - ../:/workspaces/decidim:cached
-    - bundle-cache:/usr/local/bundle
-    - node-modules-cache:/workspaces/decidim/node_modules
     ports:
       - "${DEVCONTAINER_APP_PORT:-3000}:3000"
+    env_file:
+      - path: ../.env
+        required: false
     command: sleep infinity
     depends_on:
       - redis
@@ -36,6 +37,4 @@ services:
 volumes:
   redis-data:
   postgres-data:
-  bundle-cache:
-  node-modules-cache:
 

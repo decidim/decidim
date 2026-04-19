@@ -38,7 +38,7 @@ module Decidim
         transaction do
           order.each_with_index do |id, index|
             component = components.find_by(id:)
-            component.update!(weight: index + 1) if component.present?
+            (component.presence&.update!(weight: index + 1))
           end
         end
       end

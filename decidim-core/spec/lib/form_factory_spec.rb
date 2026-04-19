@@ -95,5 +95,66 @@ module Decidim
         end
       end
     end
+
+    describe "form_context" do
+      let(:params) { { bar: "baz" } }
+      let(:producer) do
+        Class.new do
+          include Decidim::FormFactory
+
+          def current_organization
+            "organization"
+          end
+
+          def current_user
+            "user"
+          end
+
+          def current_participatory_space
+            "participatory_space"
+          end
+
+          def form_context
+            { additional: :context_value }
+          end
+        end.new
+      end
+
+      it "adds the values to context" do
+        form = subject.from_params(params)
+
+        expect(form.bar).to eq("baz")
+        expect(form.context.additional).to eq(:context_value)
+      end
+
+      context "when overriding default values" do
+        let(:producer) do
+          Class.new do
+            include Decidim::FormFactory
+
+            def current_organization
+              "organization"
+            end
+
+            def current_user
+              "user"
+            end
+
+            def current_participatory_space
+              "participatory_space"
+            end
+
+            def form_context
+              { additional: :context_value, current_participatory_space: "overridden" }
+            end
+          end.new
+        end
+
+        it "allows overriding already set values" do
+          form = subject.from_params(params)
+          expect(form.current_participatory_space).to eq("overridden")
+        end
+      end
+    end
   end
 end

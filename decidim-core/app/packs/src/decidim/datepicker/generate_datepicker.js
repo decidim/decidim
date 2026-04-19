@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 import icon from "src/decidim/refactor/moved/icon"
-import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos } from "src/decidim/datepicker/datepicker_functions"
+import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos, adjustPickerPosition } from "src/decidim/datepicker/datepicker_functions"
 import { dateKeyDownListener, dateBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners"
 import { getDictionary } from "src/decidim/refactor/moved/i18n"
 
@@ -46,13 +46,6 @@ export default function generateDatePicker(input, row, formats) {
   closeCalendar.setAttribute("class", "datepicker__close-calendar button button__transparent-secondary button__xs");
   closeCalendar.setAttribute("type", "button");
 
-  const pickCalendar = document.createElement("button");
-  pickCalendar.innerText = i18n.select;
-  pickCalendar.setAttribute("class", "datepicker__pick-calendar button button__secondary button__xs");
-  pickCalendar.setAttribute("disabled", true);
-  pickCalendar.setAttribute("type", "button");
-
-  datePickerContainer.appendChild(pickCalendar);
   datePickerContainer.appendChild(closeCalendar);
 
   dateColumn.appendChild(datePickerContainer);
@@ -103,15 +96,10 @@ export default function generateDatePicker(input, row, formats) {
   let pickedDate = null;
 
   datePicker.addEventListener("selectDate", (event) => {
-    pickCalendar.removeAttribute("disabled");
     pickedDate = event.detail;
-  });
-
-  pickCalendar.addEventListener("click", (event) => {
-    event.preventDefault();
+    prevDate = pickedDate;
 
     date.value = displayDate(datePicker.value, formats);
-    prevDate = pickedDate;
     if (input.type === "date") {
       input.value = `${pickedDate}`;
     } else if (input.type === "datetime-local") {
@@ -136,6 +124,7 @@ export default function generateDatePicker(input, row, formats) {
     };
     pickedDate = null;
     datePickerContainer.style.display = "block";
+    adjustPickerPosition(date, datePickerContainer, ".datepicker__date-column");
 
     document.addEventListener("click", datePickerDisplay);
 

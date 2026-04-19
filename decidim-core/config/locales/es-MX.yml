@@ -302,7 +302,7 @@ es-MX:
         create: "%{user_name} ha creado un enlace de acceso en %{space_name}"
         create_with_space: "%{user_name} ha creado un enlace de acceso para %{resource_name} en %{space_name}"
         delete: "%{user_name} ha eliminado un enlace de acceso en %{space_name}"
-        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para%{resource_name} en %{space_name}"
+        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualizado un enlace de acceso en %{space_name}"
         update_with_space: "%{user_name} ha actualizado un enlace de acceso para %{resource_name} en %{space_name}"
       static_page:
@@ -578,6 +578,7 @@ es-MX:
     contact: Contacto
     content_blocks:
       announcement:
+        body: Texto del anuncio o aviso
         name: Aviso
       cta:
         name: Imagen, texto y botón de acción
@@ -1056,6 +1057,9 @@ es-MX:
           explanation: 'Instrucciones para la imagen:'
           message_1: Preferiblemente una imagen apaisada que no tenga ningún texto.
           message_2: El servicio recorta la imagen.
+        import_file:
+          explanation: 'Guía para el archivo de importación:'
+          message_1: Tiene que ser un documento JSON descargado a través de la función de exportación.
       file_validation:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
         max_file_dimension: 'Medidas máximas de archivo: %{resolution} píxeles'
@@ -1160,6 +1164,12 @@ es-MX:
         update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Abierta
+            restricted: Restringida
+            transparent: Transparente
+          not_found: No se ha encontrado el tipo de acceso %{id}
         area_presenter:
           not_found: 'No se encontró el área en la base de datos (ID: %{id})'
         area_type_presenter:
@@ -1417,7 +1427,7 @@ es-MX:
         download:
           components: Componentes
           core: Núcleo
-          spaces: Espacio participativo
+          spaces: Espacio de participación
           title: Descargar recursos
         download_open_data: Descargar todos los archivos de datos abiertos
         download_resource: Descargar "%{resource_name}" en formato CSV
@@ -1508,9 +1518,9 @@ es-MX:
     participants_account_mailer:
       inactivity_notification:
         body_html: |
-          <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection}</strong></p>.
+          <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection}</strong>.</p>
           <p>Para proteger tu privacidad, se ha programado la eliminación automática de esta cuenta en <strong>%{days} días</strong>.</p>
-          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente inicia sesión %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
+          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
         greetings_html: |
           Atentamente,<br>
           %{organization_name}
@@ -1525,6 +1535,13 @@ es-MX:
           %{organization_name}
         hello: Estimado/a %{username},
         subject: Aviso de cuenta inactiva
+    participatory_space_members:
+      index:
+        members: Miembros
+    participatory_spaces:
+      show:
+        restricted_space: Este es un espacio restringido. Solo las miembros pueden verlo y participar.
+        transparent_space: Este es un espacio restringido pero transparente. Cualquiera puede ver el contenido, pero solo las miembros pueden participar.
     passwords:
       update:
         error: Ha habido un problema al actualizar la contraseña.
@@ -1799,6 +1816,7 @@ es-MX:
       send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un correo electrónico con instrucciones sobre cómo confirmar tu dirección de correo electrónico en unos minutos.
     failure:
       already_authenticated: Ya has iniciado sesión.
+      csrf_token: No se puede verificar tu solicitud. Por favor, vuelve a intentarlo.
       inactive: Tu cuenta aún no está activada.
       invalid: '%{authentication_keys} o contraseña inválida.'
       invited: Tienes una invitación pendiente, acéptala para terminar de crear tu cuenta.
@@ -1813,6 +1831,7 @@ es-MX:
         nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu nombre de usuario/a y contraseña.
+        subtitle_no_password: Si aceptas la invitación, por favor establece tu apodo.
       invitation_removed: Tu invitación fue eliminada.
       invitation_token_invalid: '¡El token de invitación proporcionado no es válido!'
       new:
@@ -1820,8 +1839,8 @@ es-MX:
         submit_button: Enviar una invitación
       no_invitations_remaining: No quedan invitaciones
       send_instructions: Se envió un correo electrónico de invitación a %{email}.
-      updated: Tu contraseña fue establecida con éxito. Ya has iniciado sesión.
-      updated_not_active: Tu contraseña fue establecida con éxito.
+      updated: La invitación se ha aceptado correctamente. Se ha iniciado tu sesión.
+      updated_not_active: La invitación se ha aceptado correctamente.
     mailer:
       confirmation_instructions:
         action: Confirmar mi cuenta
@@ -1880,8 +1899,8 @@ es-MX:
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Contraseña
         old_password_help: Para confirmar los cambios en tu cuenta, por favor proporciónanos tu contraseña actual.
-        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias y tu correo electrónico."
-        password_help_admin: "%{minimum_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, tu correo electrónico y de tus antiguas contraseñas."
+        password_help: "La contraseña debe tener al menos %{minimum_characters} caracteres, de estos, al menos 5 caracteres deben ser diferentes, no deben ser demasiado comunes (e. 123456) y debe ser diferente del número, apodo, correo electrónico y del dominio de la plataforma."
+        password_help_admin: "La contraseña debe tener al menos %{minimum_characters} caracteres, de estos, al menos 5 caracteres deben ser diferentes, no deben ser demasiado comunes (e. 123456) y debe ser diferente del número, apodo, correo electrónico, dominio de la plataforma o contraseñas antiguas."
         title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
@@ -2123,6 +2142,7 @@ es-MX:
         confirm_title_close_ephemeral_session: Antes de salir de esta página…
         log_in: Entra
         main_menu: Menú principal
+        mobile_account_greeting: Hola %{user_name},
         user_menu: Menú de usuario
       impersonation_warning:
         close_session: Cerrar la sesión

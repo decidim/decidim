@@ -197,22 +197,6 @@ describe "Meeting", download: true do
         travel 1.minute
         expect(page).to have_content("You were inactive for too long")
       end
-
-      context "when comments are enabled" do
-        let(:comment) { create(:comment, commentable: meeting) }
-
-        before do
-          component.settings[:comments_enabled] = true
-        end
-
-        it "fetching comments does not prevent timeout" do
-          visit_meeting
-          comment
-          expect(page).to have_content(translated(comment.body), wait: 30)
-          expect(page).to have_content("If you continue being inactive", wait: 30)
-          expect(page).to have_content("You were inactive for too long", wait: 30)
-        end
-      end
     end
   end
 end

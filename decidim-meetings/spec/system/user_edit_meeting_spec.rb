@@ -85,6 +85,27 @@ describe "User edit meeting" do
       login_as user, scope: :user
     end
 
+    context "and empties the form" do
+      it "allows submission and show errors" do
+        visit_component
+
+        click_on translated(meeting.title)
+        find("#dropdown-trigger-resource-#{meeting.id}").click
+        click_on "Edit"
+
+        expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+        fill_in :meeting_title, with: ""
+
+        within ".meetings_form" do
+          find("*[type=submit]").click
+          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+          expect(find("button[type='submit']")).not_to be_disabled
+        end
+      end
+    end
+
     it "can be updated" do
       visit_component
 
@@ -114,6 +135,7 @@ describe "User edit meeting" do
         within_selector: "form.meetings_form",
         address_field: :meeting_address
       ) do
+        let(:geocoded_success_message) { "You have updated the meeting successfully." }
         let(:geocoded_address_value) { meeting.address }
         let(:geocoded_address_coordinates) { [latitude, longitude] }
 

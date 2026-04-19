@@ -10,7 +10,6 @@ is-IS:
       initiatives_committee_member:
         user: Nefndarmaður
       initiatives_type:
-        banner_image: Banner image
         description: Lýsing
         title: Titill
       organization_data:
@@ -36,9 +35,6 @@ is-IS:
             created_at: Búið til á
             title: Frumgerð tegundir
           name: Frumgerðartegund
-      titles:
-        initiatives: Frumkvæði
-        initiatives_types: Frumgerð tegundir
     initiatives:
       admin:
         answers:

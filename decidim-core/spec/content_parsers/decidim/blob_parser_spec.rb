@@ -30,6 +30,8 @@ module Decidim
     let(:document_blob_proxy_path) { routes.rails_service_blob_proxy_path(document_blob.signed_id, document_blob.filename, only_path: true) }
     let(:document_blob_proxy_url) { routes.rails_service_blob_proxy_url(document_blob.signed_id, document_blob.filename, host: asset_host) }
     let(:document_blob_disk_url) { document_blob.url }
+    let(:document_blob_redirect_url) { routes.rails_blob_redirect_url(document_blob, host: asset_host) }
+    let(:missing_blob_url) { document_blob_disk_url.gsub("/disk/", "/disk/i-do-not-exist") }
 
     let(:content) do
       <<~HTML.squish
@@ -44,6 +46,7 @@ module Decidim
         <p>#{document_blob_proxy_path}</p>
         <p>#{document_blob_proxy_url}</p>
         <p>#{document_blob_disk_url}</p>
+        <p>#{missing_blob_url}</p>
       HTML
     end
     let(:parsed_content) do
@@ -59,6 +62,7 @@ module Decidim
         <p>#{document_blob.to_global_id}</p>
         <p>#{document_blob.to_global_id}</p>
         <p>#{document_blob.to_global_id}</p>
+        <p>#{missing_blob_url}</p>
       HTML
     end
 
@@ -71,6 +75,15 @@ module Decidim
 
       it "creates rewrites the URLs correctly" do
         expect(subject).to eq(parsed_content)
+      end
+
+      context "when the image has strange characters in the filename" do
+        let(:image_blob) { create(:blob, :image, filename: "strange fílename @#$%<>\"'.jpg") }
+        let(:document_blob) { create(:blob, :document, filename: "strange fílename @#$%()\\|.pdf") }
+
+        it "rewrites the URLs correctly" do
+          expect(subject).to eq(parsed_content)
+        end
       end
 
       context "when content is preceded by a link with an URL" do

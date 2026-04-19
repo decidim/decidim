@@ -5,7 +5,7 @@
   <ul class="space-y-4 break-inside-avoid">
     <% if current_user %>
       <li class="font-semibold underline"><%= link_to t("layouts.decidim.user_menu.configuration"), decidim.account_path %></li>
-      <li class="font-semibold underline"><%= link_to t("layouts.decidim.user_menu.public_profile"), decidim.profile_path(current_user.nickname) %></li>
+      <li class="font-semibold underline"><%= link_to t("layouts.decidim.user_menu.public_profile"), decidim.profile_path(current_user.nickname, locale: current_locale) %></li>
       <li class="font-semibold underline"><%= link_to t("layouts.decidim.user_menu.notifications"), decidim.notifications_path %></li>
       <li class="font-semibold underline"><%= link_to t("layouts.decidim.user_menu.conversations"), decidim.conversations_path %></li>
     <% else %>

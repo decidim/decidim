@@ -35,10 +35,12 @@ describe "Admin manages elections" do
     expect(page).to have_content(translated(finished_election.title))
     expect(page).to have_content(translated(ongoing_election.title))
     expect(page).to have_content(translated(published_results_election.title))
-    expect(page).to have_content("Unpublished")
-    expect(page).to have_content("Scheduled")
-    expect(page).to have_content("Ongoing")
-    expect(page).to have_content("Finished")
+    within "table" do
+      expect(page).to have_content("Unpublished")
+      expect(page).to have_content("Scheduled")
+      expect(page).to have_content("Ongoing")
+      expect(page).to have_content("Finished")
+    end
     expect(page).to have_content("Registered participants (dynamic)")
     expect(page).to have_content("Unregistered participants with tokens (fixed)")
     expect(page).to have_content("View deleted elections")
@@ -66,7 +68,7 @@ describe "Admin manages elections" do
 
     click_on "Save and continue"
 
-    expect(page).to have_admin_callout "Election created successfully"
+    expect(page).to have_callout "Election created successfully"
     expect(page).to have_content("Question must have at least two answers in order go to the next step.")
 
     visit decidim_admin.root_path
@@ -77,6 +79,32 @@ describe "Admin manages elections" do
     before { click_on "New election" }
 
     it_behaves_like "having a rich text editor", "new_election", "full"
+  end
+
+  describe "manual start checkbox persistence" do
+    it "hides start date fields when returning to form with manual start checked" do
+      within "tr", text: translated(election.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit election"
+      end
+
+      within ".edit_election" do
+        check "Manual start"
+        expect(page).to have_no_field("election_start_at_date")
+        expect(page).to have_no_field("election_start_at_time")
+      end
+
+      click_on "Questions"
+      expect(page).to have_content("Questions")
+
+      click_on "Main"
+
+      within ".edit_election" do
+        expect(page).to have_checked_field("Manual start")
+        expect(page).to have_no_field("election_start_at_date")
+        expect(page).to have_no_field("election_start_at_time")
+      end
+    end
   end
 
   describe "updating an election" do
@@ -94,7 +122,7 @@ describe "Admin manages elections" do
 
       click_on "Save and continue"
 
-      expect(page).to have_admin_callout "Election updated successfully"
+      expect(page).to have_callout "Election updated successfully"
       expect(page).to have_content("Question must have at least two answers in order go to the next step.")
     end
   end
@@ -122,7 +150,7 @@ describe "Admin manages elections" do
       dynamically_attach_file(:election_photos, Decidim::Dev.asset("city2.jpeg"))
 
       click_on "Save and continue"
-      expect(page).to have_admin_callout "Election updated successfully"
+      expect(page).to have_callout "Election updated successfully"
     end
 
     it "questions and census cannot be edited" do

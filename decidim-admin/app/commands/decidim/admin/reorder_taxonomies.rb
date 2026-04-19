@@ -54,7 +54,7 @@ module Decidim
 
         data.each do |id, weight|
           item = collection.find_by(id:)
-          item.update!(weight:) if item.present?
+          (item.presence&.update!(weight:))
         end
       end
 

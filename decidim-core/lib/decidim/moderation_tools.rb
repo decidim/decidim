@@ -111,7 +111,7 @@ module Decidim
     private
 
     def affected_users
-      @affected_users ||= (@reportable.try(:authors) || [@reportable.try(:author)]).select { |author| author.is_a?(Decidim::User) }
+      @affected_users ||= (@reportable.try(:authors) || [@reportable.try(:author)]).grep(Decidim::User)
     end
 
     def report_reasons

@@ -118,7 +118,7 @@ module Decidim
         let(:query) { "{ profilePath }" }
 
         it "returns the user profile path" do
-          expect(response).to include("profilePath" => "/profiles/#{model.nickname}")
+          expect(response).to include("profilePath" => "/en/profiles/#{model.nickname}")
         end
 
         context "when user is deleted" do

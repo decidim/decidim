@@ -7,13 +7,15 @@
 <% end %>
 
 <%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
-<%= decidim_form_for(@form, url: fill_data_create_initiative_index_path(locale: current_locale), method: :put, html: { class: "form-defaults new_initiative_form", novalidate: false }) do |f| %>
+<%= decidim_form_for(@form, url: fill_data_create_initiative_index_path(locale: current_locale), method: :put, html: { class: "form-defaults new_initiative_form" }) do |f| %>
   <div class="form__wrapper">
     <%= form_required_explanation %>
 
     <%= f.hidden_field :type_id %>
 
-    <%= f.text_field :title, value: translated_attribute(f.object.title), data: { controller: "character-counter" } %>
+    <%= f.text_field :title,
+                     value: translated_attribute(f.object.title),
+                     data: { controller: "character-counter" } %>
 
     <%= text_editor_for(f, :description, lines: 20, toolbar: :content, value: translated_attribute(f.object.description)) %>
 
@@ -66,7 +68,11 @@
           <%= t(".discard") %>
         <% end %>
       <% end %>
-      <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary", data: { disable_with: t(".continue") } %>
+
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t(".continue") %></span>
+      </button>
+
     </div>
   </div>
 <% end %>

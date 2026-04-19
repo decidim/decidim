@@ -4,9 +4,12 @@ module Decidim
   module Assemblies
     # A factory class to ensure we always create Assemblies the same way since it involves some logic.
     class AssemblyImporter < Decidim::Importers::Importer
+      attr_reader :warnings
+
       def initialize(organization, user)
         @organization = organization
         @user = user
+        @warnings = []
       end
 
       # Public: Creates a new Assembly.
@@ -35,7 +38,6 @@ module Decidim
             target: attributes["target"],
             participatory_scope: attributes["participatory_scope"],
             participatory_structure: attributes["participatory_structure"],
-            private_space: attributes["private_space"],
             reference: attributes["reference"],
             purpose_of_action: attributes["purpose_of_action"],
             composition: attributes["composition"],
@@ -46,7 +48,6 @@ module Decidim
             closing_date: attributes["closing_date"],
             created_by_other: attributes["created_by_other"],
             internal_organisation: attributes["internal_organisation"],
-            is_transparent: attributes["is_transparent"],
             special_features: attributes["special_features"],
             twitter_handler: attributes["twitter_handler"],
             instagram_handler: attributes["instagram_handler"],
@@ -55,11 +56,9 @@ module Decidim
             github_handler: attributes["github_handler"],
             created_by: attributes["created_by"],
             meta_scope: attributes["meta_scope"],
-            announcement: attributes["announcement"]
+            access_mode: resolve_access_mode(attributes)
           )
-          @imported_assembly.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
-          @imported_assembly.attached_uploader(:banner_image).remote_url = attributes["remote_banner_image_url"] if attributes["remote_banner_image_url"].present?
-
+          import_hero_image(attributes["remote_hero_image_url"])
           @imported_assembly.save!
           @imported_assembly
         end
@@ -69,20 +68,37 @@ module Decidim
         return if attachments["files"].nil?
 
         attachments["files"].map do |file|
-          next unless remote_file_exists?(file["remote_file_url"])
+          url = file["remote_file_url"]
+          next if url.blank?
 
-          file_tmp = URI.parse(file["remote_file_url"]).open
+          error = remote_file_error(url)
+          if error.present?
+            @warnings << I18n.t(
+              "decidim.assemblies.admin.imports.attachment_error",
+              title: attachment_title(file),
+              error:
+            )
+            next
+          end
 
           Decidim.traceability.perform_action!("create", Attachment, @user) do
             attachment = Attachment.new(
               title: file["title"],
               description: file["description"],
-              content_type: file_tmp.content_type,
               attached_to: @imported_assembly,
-              weight: file["weight"],
-              file: file_tmp, # Define attached_to before this
-              file_size: file_tmp.size
+              weight: file["weight"]
             )
+            begin
+              attachment.attached_uploader(:file).remote_url = url
+              attachment.set_content_type_and_size
+            rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+              @warnings << I18n.t(
+                "decidim.assemblies.admin.imports.attachment_error",
+                title: attachment_title(file),
+                error: format_error(e)
+              )
+              next
+            end
             attachment.create_attachment_collection(file["attachment_collection"])
             attachment.save!
             attachment
@@ -121,7 +137,7 @@ module Decidim
         attachment_collection
       end
 
-      def remote_file_exists?(url)
+      def remote_file_error(url)
         return if url.nil?
 
         accepted = ["image", "application/pdf"]
@@ -129,10 +145,54 @@ module Decidim
         http_connection = Net::HTTP.new(url.host, url.port)
         http_connection.use_ssl = true if url.scheme == "https"
         http_connection.start do |http|
-          return http.head(url.request_uri)["Content-Type"].start_with?(*accepted)
+          response = http.head(url.request_uri)
+          content_type = response["Content-Type"]
+          next if response.is_a?(Net::HTTPSuccess) && content_type&.start_with?(*accepted)
+
+          message = response.message.presence || Rack::Utils::HTTP_STATUS_CODES[response.code.to_i]
+          message = message.presence || "Error"
+          next "#{response.code} #{message}"
         end
-      rescue StandardError
-        nil
+      rescue StandardError => e
+        format_error(e)
+      end
+
+      def attachment_title(file)
+        title = file["title"]
+        return "" if title.blank?
+
+        return title unless title.is_a?(Hash)
+
+        title.values.find(&:present?) || ""
+      end
+
+      def import_hero_image(url)
+        return if url.blank?
+
+        @imported_assembly.attached_uploader(:hero_image).remote_url = url
+      rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+        @warnings << I18n.t("decidim.assemblies.admin.imports.hero_image_error", error: format_error(e))
+      end
+
+      def format_error(error)
+        return error.message unless error.respond_to?(:io) && error.io.respond_to?(:status)
+
+        status = error.io.status
+        return error.message if status.blank? || status.first.blank?
+
+        code = status[0]
+        message = status[1].presence || Rack::Utils::HTTP_STATUS_CODES[code.to_i]
+        message = message.presence || error.message
+        "#{code} #{message}"
+      end
+
+      def resolve_access_mode(attributes)
+        return attributes["access_mode"] if attributes["access_mode"].present?
+
+        return "transparent" if attributes["is_transparent"] == true
+        return "restricted" if attributes["private_space"] == true
+
+        "open"
       end
     end
   end

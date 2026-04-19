@@ -87,6 +87,37 @@ This applies to almost all classes you want to change in Decidim but controllers
 . Restart the server to apply these changes, as we changed the configuration of the application.
 
 [#explanation]
+
+== Adding additional data to your form context.
+
+By default, Decidim creates a context that is being passed to the form, containing 4 variables: `current_user`, `current_organization`, `current_participatory_space` and `current_component`.
+When you need, you could add additional context to your form by using the following methods:
+
+=== As a form argument
+
+[source,ruby]
+----
+@form = form(Decidim::MyGem::MyForm).from_params(params, { my_extra: :context })
+# or
+@form = form(Decidim::MyGem::MyForm).from_model(model, { my_extra: :context })
+----
+
+=== As a concern
+
+Sometimes, you may need to add the same parameter to all the forms in your controller, or you may need to override decidim default. You can achieve this by using a concern as follows:
+[source,ruby]
+----
+# frozen_string_literal: true
+module MyOverride
+  def form_context
+    { my_extra: :context }
+  end
+end
+
+# and in an initializer
+Decidim::MyGem::MyController.include(MyOverride)
+----
+
 == Extra notes
 
 The following step would help you find original source code:

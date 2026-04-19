@@ -19,7 +19,6 @@ lv:
       initiatives_type:
         area_enabled: Iespējot autoriem izdevību izvēlēties jomu viņu iniciatīvai
         attachments_enabled: Iespējot pielikumus
-        banner_image: Reklāmkaroga attēls
         collect_user_extra_fields: Vākt dalībnieka personas datus ar parakstu
         custom_signature_end_date_enabled: Ļaut autoriem izvēlēties parakstu vākšanas perioda beigas
         description: Apraksts
@@ -94,9 +93,6 @@ lv:
             name_and_surname: Vārds un uzvārds
             postal_code: Pasta indekss
             timestamp: Laikspiedols
-      titles:
-        initiatives: Iniciatīvas
-        initiatives_types: Iniciatīvu veidi
     events:
       initiatives:
         admin:

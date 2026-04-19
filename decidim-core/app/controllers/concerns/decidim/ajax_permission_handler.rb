@@ -15,7 +15,7 @@ module Decidim
     def ajax_user_has_no_permission
       return user_has_no_permission unless request.xhr?
 
-      render json: { message: I18n.t("actions.unauthorized", scope: "decidim.core") }, status: :unprocessable_entity
+      render json: { message: I18n.t("actions.unauthorized", scope: "decidim.core") }, status: :unprocessable_content
     end
   end
 end

@@ -24,7 +24,7 @@ shared_examples "manage registrations" do
       click_on "Save"
     end
 
-    expect(page).to have_admin_callout("Meeting registrations settings successfully saved")
+    expect(page).to have_callout("Meeting registrations settings successfully saved")
   end
 
   context "when registrations are enabled" do

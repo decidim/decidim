@@ -11,7 +11,6 @@ module Decidim
             url: EngineRouter.main_proxy(resource).participatory_process_url(resource),
             subtitle: resource.subtitle,
             remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(resource).hero_image_url,
-            announcement: resource.announcement,
             start_date: resource.start_date,
             end_date: resource.end_date,
             developer_group: resource.developer_group,
@@ -19,6 +18,7 @@ module Decidim
             meta_scope: resource.meta_scope,
             participatory_scope: resource.participatory_scope,
             participatory_structure: resource.participatory_structure,
+            access_mode: resource.access_mode,
             target: resource.target,
             area: {
               id: resource.area.try(:id),
@@ -34,11 +34,7 @@ module Decidim
               id: resource.scope.try(:id),
               name: resource.scope.try(:name) || empty_translatable
             },
-            scopes_enabled: resource.scopes_enabled,
-            participatory_process_type: {
-              id: resource.participatory_process_type.try(:id),
-              title: resource.participatory_process_type.try(:title) || empty_translatable
-            }
+            scopes_enabled: resource.scopes_enabled
           }
         )
       end

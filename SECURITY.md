@@ -10,11 +10,11 @@ is the last version with the old design. This marks 18 months since the release
 of v0.28, giving ample time for organizations to upgrade to newer versions that
 include the latest design and features.
 
-| Version  | Supported          |
-|----------|--------------------|
-| 0.31.x   | :white_check_mark: |
-| 0.30.x   | :white_check_mark: |
-|  \<= 0.29.x   | :x:                |
+| Version       | Supported          |
+|---------------|--------------------|
+| 0.31.x        | :white_check_mark: |
+| 0.30.x        | :white_check_mark: |
+| \<= 0.29.x    | :x:                |
 
 ## Reporting a Vulnerability
 
