@@ -52,7 +52,7 @@ application.register("toggle", ToggleController);
 application.register("tooltip", TooltipController)
 application.register("user-registration-form", UserRegistrationFormController);
 
-application.debug = process.env.NODE_ENV !== "production"
+application.debug = true
 
 window.definitionsFromContext = definitionsFromContext
 window.Stimulus = application
