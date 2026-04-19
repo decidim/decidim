@@ -92,7 +92,11 @@
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  transition: opacity 1s, border-color 1s, background-color 1s, color 1s;
+  transition:
+    opacity 1s,
+    border-color 1s,
+    background-color 1s,
+    color 1s;
   user-select: none;
   cursor: pointer;
 

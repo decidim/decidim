@@ -11,6 +11,6 @@
   "license": "AGPL-3.0-or-later",
   "main": "index.js",
   "peerDependencies": {
-    "prettier": "^2.3.2"
+    "prettier": "^3.8.3"
   }
 }
