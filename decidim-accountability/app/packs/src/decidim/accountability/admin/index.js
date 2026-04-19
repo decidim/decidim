@@ -21,4 +21,4 @@ document.addEventListener("turbo:load", () => {
 document.addEventListener("stimulus:load", () => {
   const context = require.context("../controllers", true, /controller\.js$/)
   window.Stimulus.load(window.definitionsFromContext(context))
-})
+}, { once: true })
