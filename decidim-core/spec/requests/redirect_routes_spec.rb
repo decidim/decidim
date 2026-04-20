@@ -164,6 +164,45 @@ describe "Redirect routes" do
     end
   end
 
+  context "when visiting conversations pages" do
+    it "redirects the conversations index" do
+      get("/conversations", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/conversations")
+    end
+
+    it "redirects conversations with a path" do
+      get("/conversations/123", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/conversations/123")
+    end
+
+    it "redirects conversations with query string" do
+      get("/conversations?share_token=faketoken", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/conversations?share_token=faketoken")
+    end
+  end
+
+  context "when visiting notifications settings" do
+    it "redirects notifications settings" do
+      get("/notifications_settings", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/notifications_settings")
+    end
+
+    it "redirects notifications settings with query string" do
+      get("/notifications_settings?share_token=faketoken", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/notifications_settings?share_token=faketoken")
+    end
+  end
+
   context "when visiting legacy devise pages" do
     it "redirects password reset pages with missing locale" do
       get("/users/password/edit?reset_password_token=faketoken", headers:)

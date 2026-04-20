@@ -52,16 +52,18 @@ Decidim::Core::Engine.routes.draw do
       end
     end
 
-    resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
-    post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
     scope "/:locale", **locale_scope_options do
       resources :notifications, only: [:index, :destroy] do
         collection do
           delete :read_all
         end
       end
+
+      resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
+      post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
+
+      resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     end
-    resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
 
     get "/newsletters_opt_in/:token", to: "newsletters_opt_in#update", as: :newsletters_opt_in
 
@@ -165,6 +167,9 @@ Decidim::Core::Engine.routes.draw do
   get "/open-data", to: redirect(&locale_redirector("/open-data"))
   get "/profiles/*rest", to: redirect { |params, request| locale_redirector("/profiles/#{params[:rest]}").call(params, request) }
   get "/notifications", to: redirect(&locale_redirector("/notifications"))
+  get "/conversations", to: redirect(&locale_redirector("/conversations"))
+  get "/conversations/*rest", to: redirect { |params, request| locale_redirector("/conversations/#{params[:rest]}").call(params, request) }
+  get "/notifications_settings", to: redirect(&locale_redirector("/notifications_settings"))
 
   get "/users/sign_in", to: redirect(&locale_redirector("/users/sign_in"))
   get "/users/sign_up", to: redirect(&locale_redirector("/users/sign_up"))
