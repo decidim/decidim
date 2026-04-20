@@ -36,17 +36,6 @@ module Decidim
         def budget
           @budget ||= context[:budget]
         end
-
-        def available_states(component_id = nil)
-          scope = Decidim::Proposals::ProposalState
-          scope = scope.where(component: Decidim::Component.find(component_id)) if component_id.present?
-
-          states = scope.pluck(:token).uniq.map do |token|
-            OpenStruct.new(token:, title: token.humanize)
-          end
-
-          states + [OpenStruct.new(token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered"))]
-        end
       end
     end
   end
