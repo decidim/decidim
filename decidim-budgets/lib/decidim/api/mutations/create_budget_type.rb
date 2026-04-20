@@ -40,8 +40,8 @@ module Decidim
 
         attributes = attributes.to_h
 
-        attributes.to_h[:title] = attributes.to_h.fetch(:title, {})
-        attributes.to_h[:description] = attributes.to_h.fetch(:description, {})
+        attributes[:title] = attributes.to_h.fetch(:title, {})
+        attributes[:description] = attributes.to_h.fetch(:description, {})
 
         attributes
       end

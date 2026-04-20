@@ -93,6 +93,14 @@ module Decidim::Budgets
             expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /must be greater than 0/)
           end
         end
+
+        context "when submitting invalid title for budget" do
+          let(:title_en) { "" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
       end
     end
 

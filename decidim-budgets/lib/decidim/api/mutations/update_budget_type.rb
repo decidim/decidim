@@ -19,9 +19,7 @@ module Decidim
           end
 
           on(:invalid) do
-            return GraphQL::ExecutionError.new(
-              form.errors.full_messages.join(", ")
-            )
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
         end
       end

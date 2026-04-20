@@ -105,11 +105,35 @@ module Decidim::Budgets
           end
         end
 
-        context "when submitting invalid total budget" do
+        context "when submitting total budget as string" do
           let(:total_budget) { "foo" }
 
           it "raises an error" do
             expect { response }.to raise_error(GraphQL::ExecutionError, /Could not coerce value/)
+          end
+        end
+
+        context "when submitting invalid total budget" do
+          let(:total_budget) { 0 }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /must be greater than 0/)
+          end
+        end
+
+        context "when submitting invalid title for budget" do
+          let(:title_en) { "" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+
+        context "when submitting invalid description for budget" do
+          let(:description_en) { "" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
           end
         end
       end

@@ -11,7 +11,9 @@ module Decidim
       argument :attributes, ProjectAttributes, description: "input attributes to create a project", required: true
 
       def resolve(attributes:)
-        form = form(Admin::ProjectForm).from_params(attributes.to_h, budget: object)
+        params = extract_from(attributes)
+
+        form = form(Admin::ProjectForm).from_params(params, budget: object)
 
         Admin::CreateProject.call(form) do
           on(:ok, resource) do
@@ -19,15 +21,13 @@ module Decidim
           end
 
           on(:invalid) do
-            return GraphQL::ExecutionError.new(
-              form.errors.full_messages.join(", ")
-            )
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
         end
       end
 
       def authorized?(attributes:)
-        unless super && allowed_to?(:create, :project, object, { current_user: }, scope: :admin)
+        unless super && allowed_to?(:create, :project, object, { current_user:, current_component: }, scope: :admin)
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 
@@ -36,6 +36,23 @@ module Decidim
 
       def self.permission_chain(object)
         super.unshift(Decidim::Budgets::Admin::Permissions)
+      end
+
+      private
+
+      def extract_from(attributes)
+        validate_multiple_locales(attributes, :title)
+        validate_multiple_locales(attributes, :description)
+
+        attributes = attributes.to_h
+
+        attributes[:title] = attributes.to_h.fetch(:title, {})
+        attributes[:description] = attributes.to_h.fetch(:description, {})
+        attributes[:latitude] = attributes.to_h.fetch(:latitude, nil)
+        attributes[:longitude] = attributes.to_h.fetch(:longitude, nil)
+        attributes[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: attributes[:taxonomies]).pluck(:id) if attributes[:taxonomies]
+
+        attributes
       end
     end
   end
