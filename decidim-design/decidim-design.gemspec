@@ -33,6 +33,15 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "decidim-core", Decidim::Design.version
-
+  s.add_development_dependency "decidim-accountability", Decidim::Design.version
+  s.add_development_dependency "decidim-assemblies", Decidim::Design.version
+  s.add_development_dependency "decidim-blogs", Decidim::Design.version
+  s.add_development_dependency "decidim-budgets", Decidim::Design.version
+  s.add_development_dependency "decidim-conferences", Decidim::Design.version
+  s.add_development_dependency "decidim-debates", Decidim::Design.version
   s.add_development_dependency "decidim-dev", Decidim::Design.version
+  s.add_development_dependency "decidim-initiatives", Decidim::Design.version
+  s.add_development_dependency "decidim-meetings", Decidim::Design.version
+  s.add_development_dependency "decidim-participatory_processes", Decidim::Design.version
+  s.add_development_dependency "decidim-proposals", Decidim::Design.version
 end
