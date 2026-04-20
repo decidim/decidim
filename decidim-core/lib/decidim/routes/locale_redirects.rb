@@ -10,13 +10,13 @@ module Decidim
         }
       end
 
-      def locale_redirector(path, preserve_query_string: false)
+      def locale_redirector(path, preserve_query_string: true)
         lambda do |params, request|
           locale_redirect(params, request, path, preserve_query_string:)
         end
       end
 
-      def locale_redirect(params, request, path, preserve_query_string: false)
+      def locale_redirect(params, request, path, preserve_query_string: true)
         locale = Decidim::LocaleRouterDetector.new(request, params).locale
         destination = append_locale(path, locale)
         destination = append_query_string(destination, request) if preserve_query_string

@@ -58,6 +58,22 @@ describe "Redirect routes" do
     end
   end
 
+  context "when requesting processes with a query string" do
+    it "redirects old url with query string" do
+      get("/processes?share_token=FOOBAR", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/processes?share_token=FOOBAR")
+    end
+
+    it "redirects old url with query string for nested paths" do
+      get("/processes/foo-bar?share_token=FOOBAR", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/processes/foo-bar?share_token=FOOBAR")
+    end
+  end
+
   context "when there is a participatory process group" do
     it "redirects old url with locale and additional params" do
       get("/participatory_process_groups/foo-bar?locale=es", headers:)

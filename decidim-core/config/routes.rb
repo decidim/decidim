@@ -160,14 +160,14 @@ Decidim::Core::Engine.routes.draw do
     root to: "homepage#show"
   end
 
-  get "/last_activities", to: redirect(&locale_redirector("/last_activities", preserve_query_string: true))
-  get "/search", to: redirect(&locale_redirector("/search", preserve_query_string: true))
+  get "/last_activities", to: redirect(&locale_redirector("/last_activities"))
+  get "/search", to: redirect(&locale_redirector("/search"))
   get "/pages", to: redirect(&locale_redirector("/pages"))
   get "/pages/*rest", to: redirect { |params, request| locale_redirector("/pages/#{params[:rest]}").call(params, request) }
   get "/gamification/*rest", to: redirect { |params, request| locale_redirector("/gamification/#{params[:rest]}").call(params, request) }
   get "/open-data/*rest", to: redirect { |params, request| locale_redirector("/open-data/#{params[:rest]}").call(params, request) }
   get "/open-data", to: redirect(&locale_redirector("/open-data"))
-  get "/profiles/*rest", to: redirect { |params, request| locale_redirector("/profiles/#{params[:rest]}", preserve_query_string: true).call(params, request) }
+  get "/profiles/*rest", to: redirect { |params, request| locale_redirector("/profiles/#{params[:rest]}").call(params, request) }
   get "/notifications", to: redirect(&locale_redirector("/notifications"))
 
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete

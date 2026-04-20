@@ -29,6 +29,14 @@ describe Decidim::Routes::LocaleRedirects do
       expect(routes.locale_redirect({}, request, "/pages")).to eq("/es/pages")
     end
 
+    it "preserves query strings by default" do
+      request = instance_double("Request", query_string: "share_token=FOOBAR")
+
+      allow(Decidim::LocaleRouterDetector).to receive(:new).and_return(instance_double("Detector", locale: "en"))
+
+      expect(routes.locale_redirect({}, request, "/assemblies/laser-doctor")).to eq("/en/assemblies/laser-doctor?share_token=FOOBAR")
+    end
+
     it "returns a redirect callable" do
       expect(routes.locale_redirector("/pages")).to respond_to(:call)
     end

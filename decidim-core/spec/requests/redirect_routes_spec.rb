@@ -63,6 +63,13 @@ describe "Redirect routes" do
       expect(response).to have_http_status(:moved_permanently)
       expect(response).to redirect_to("/es/pages/foo-bar")
     end
+
+    it "redirects old url with query string" do
+      get("/pages/foo-bar?share_token=FOOBAR", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/pages/foo-bar?share_token=FOOBAR")
+    end
   end
 
   context "when visiting admin pages" do

@@ -46,7 +46,7 @@ module Decidim
 
         get "/participatory_process_groups/*rest", to: redirect { |params, request| locale_redirector("/processes_groups/#{params[:rest]}").call(params, request) }
 
-        get "/processes", to: redirect(&locale_redirector("/processes", preserve_query_string: true))
+        get "/processes", to: redirect(&locale_redirector("/processes"))
 
         get "/processes/*rest", to: redirect { |params, request| locale_redirector("/processes/#{params[:rest]}").call(params, request) }
       end
