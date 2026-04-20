@@ -65,15 +65,15 @@ module Decidim
           end
         end
 
-        context "and the promoted published process with minimum weight is private" do
+        context "and the promoted published process with minimum weight is restricted" do
           before do
-            process_two.update!(promoted: true, private_space: true)
+            process_two.update!(promoted: true, access_mode: :restricted)
           end
 
           context "and current_user is member of that process" do
             let!(:member) { create(:member, participatory_space: process_two, user:) }
 
-            it "returns the private process" do
+            it "returns the restricted process" do
               expect(helper.menu_highlighted_participatory_process).to eq(process_two)
             end
           end

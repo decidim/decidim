@@ -19,6 +19,7 @@ activelog
 activemodel
 activerecord
 activestorage
+actualitzar
 actualizado
 addlabel
 Adeu
@@ -111,6 +112,7 @@ camelization
 cami
 Capfile
 carolromero
+Cargar
 Carrer
 carryforward
 catala
@@ -143,6 +145,7 @@ coderabbit
 codespace
 codeql
 coditramuntana
+comentarios
 commentables
 commentaire
 commenters
@@ -280,6 +283,7 @@ erblint
 Errbit
 Esa
 espa
+estar
 estat
 etherpad
 evanfuture
@@ -407,6 +411,7 @@ Ijkl
 ilike
 illgotten
 impersonatable
+importmap
 inbox
 includeurl
 Indicacions
@@ -512,6 +517,7 @@ markercluster
 marydoe
 Massot
 matrixmultiple
+mattr
 matutes
 maxtimeout
 mcdoggo
@@ -747,6 +753,7 @@ reportables
 reportat
 resourcable
 resourceable
+respuestas
 Returs
 Riera
 Rigoberto
@@ -761,6 +768,7 @@ rqrcode
 rroe
 rsefa
 rsimplecov
+rspack
 Rubo
 rubycw
 rumany
@@ -878,6 +886,7 @@ timeouter
 timestamped
 tiptap
 Tmpname
+tms
 TLDR
 todos
 Tomorrowland

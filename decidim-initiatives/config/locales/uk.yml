@@ -16,7 +16,6 @@ uk:
       initiatives_committee_member:
         user: Член робочого гурту
       initiatives_type:
-        banner_image: Банерне зображення
         description: Опис
         title: Назва
       organization_data:
@@ -60,9 +59,6 @@ uk:
             created_at: 'Створено:'
             title: Різновиди починів
           name: Різновид почину
-      titles:
-        initiatives: Почини
-        initiatives_types: Різновиди починів
     events:
       initiatives:
         initiative_extended:

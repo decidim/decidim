@@ -17,6 +17,7 @@ module Decidim
 
         def diff_fields_mapping
           {
+            access_mode: :access_mode,
             description: :i18n,
             developer_group: :i18n,
             decidim_area_id: :area,
@@ -30,8 +31,7 @@ module Decidim
             slug: :string,
             subtitle: :i18n,
             target: :i18n,
-            title: :i18n,
-            decidim_participatory_process_type_id: :participatory_process_type
+            title: :i18n
           }
         end
 

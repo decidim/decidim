@@ -27,12 +27,8 @@ module Decidim
         decidim_escape_translated(resource.subtitle)
       end
 
-      # If it is called from the landing page content block, use the background image defined there
-      # Else, use the banner image defined in the space (for assemblies)
       def image_path
-        return model.images_container.attached_uploader(:background_image).url if model.respond_to?(:images_container)
-
-        attached_uploader(:banner_image).url
+        model.images_container.attached_uploader(:background_image).url
       end
 
       def has_cta?

@@ -100,7 +100,7 @@ describe "Admin manages surveys" do
           find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
         end
         click_on "Save"
-        expect(page).to have_admin_callout "Survey questions successfully saved"
+        expect(page).to have_callout "Survey questions successfully saved"
 
         all("a", text: translated_attribute(component.name))[0].click
 
@@ -109,7 +109,7 @@ describe "Admin manages surveys" do
           accept_confirm { click_on "Unpublish" }
         end
 
-        expect(page).to have_admin_callout "Survey successfully unpublished"
+        expect(page).to have_callout "Survey successfully unpublished"
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
           expect(page).to have_content "Unpublished"
@@ -120,7 +120,7 @@ describe "Admin manages surveys" do
           accept_confirm { click_on("Publish") }
         end
 
-        expect(page).to have_admin_callout "Survey successfully published"
+        expect(page).to have_callout "Survey successfully published"
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
           expect(page).to have_content "Published"

@@ -27,7 +27,6 @@ de:
       initiatives_type:
         area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
         attachments_enabled: Anhänge freigeben
-        banner_image: Banner-Bild
         child_scope_threshold_enabled: Unterschriften von Unterbereichen aktivieren
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         comments_enabled: Kommentare aktivieren
@@ -110,8 +109,6 @@ de:
         initiatives_menu:
           see_initiative: Initiative ansehen
         initiatives_settings: Einstellungen
-        initiatives_submenu:
-          info: Über diese Initiative
         initiatives_types: Arten von Initiativen
         moderations: Moderationen
       models:
@@ -156,9 +153,6 @@ de:
       taxonomy_filters:
         space_filter_for:
           initiatives: Alle Initiativen
-      titles:
-        initiatives: Initiativen
-        initiatives_types: Arten von Initiativen
     download_your_data:
       show:
         initiatives: Initiativen exportieren
@@ -297,7 +291,6 @@ de:
             publication_date: Zuletzt veröffentlicht
             random: Zufällig
             signatures: Am häufigsten unterzeichnet
-            title: Einstellungen für Initiativen
         initiatives_type_scopes:
           create:
             error: Beim Erstellen eines neuen Bereichs für diese Intiative ist ein Problem aufgetreten.

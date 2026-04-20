@@ -67,6 +67,32 @@ module Decidim
             expect(subject.class.not_conditioned).not_to include(question_conditioned)
           end
         end
+
+        describe "#not_separator" do
+          let(:question_separator) { create(:questionnaire_question, questionnaire:, question_type: "separator") }
+          let(:question_regular) { create(:questionnaire_question, questionnaire:, question_type: "short_response") }
+
+          it "excludes separator questions" do
+            expect(subject.class.not_separator).not_to include(question_separator)
+          end
+
+          it "includes regular questions" do
+            expect(subject.class.not_separator).to include(question_regular)
+          end
+        end
+
+        describe "#not_title_and_description" do
+          let(:question_title_desc) { create(:questionnaire_question, questionnaire:, question_type: "title_and_description") }
+          let(:question_regular) { create(:questionnaire_question, questionnaire:, question_type: "short_response") }
+
+          it "excludes title_and_description questions" do
+            expect(subject.class.not_title_and_description).not_to include(question_title_desc)
+          end
+
+          it "includes regular questions" do
+            expect(subject.class.not_title_and_description).to include(question_regular)
+          end
+        end
       end
 
       describe ".log_presenter_class_for" do

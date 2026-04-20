@@ -13,7 +13,11 @@
           <%= icon "arrow-left-line", class: "fill-current" %>
           <%= t("back", scope: "decidim.debates.debates.new") %>
         <% end %>
-        <%= form.submit t("create", scope: "decidim.debates.debates.new"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+
+        <button type="submit" class="button button__sm md:button__lg button__secondary">
+          <span><%= t("create", scope: "decidim.debates.debates.new") %></span>
+        </button>
+
         </div>
       </div>
     <% end %>

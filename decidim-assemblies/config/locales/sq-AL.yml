@@ -34,7 +34,6 @@ sq:
         participatory_processes_ids: Procese pjesëmarrëse të përafërta
         participatory_scope: Çfarë u vendos
         participatory_structure: Si u vendos
-        private_space: Hapësirë private
         promoted: Në pah
         published_at: Publikuar në
         purpose_of_action: Qëllimi i aksionit
@@ -80,13 +79,10 @@ sq:
         edit:
           update: Përditëso
         index:
-          private: Private
-          public: Publike
           published: E publikuar
           unpublished: E papublikuar
         new:
           create: Krijo
-          title: Asamble e re
         update:
           error: Ndodhi një gabim gjatë përditësimit të asamblesë.
           success: Asambleja u përditësua me sukses.
@@ -97,7 +93,6 @@ sq:
         new:
           import: Importo
           select: Zgjidh të dhënat që dëshiron të importosh
-          title: Importo asamblenë
       assembly_publications:
         create:
           error: Ndodhi një gabim gjatë publikimit të asamblesë.
@@ -112,13 +107,9 @@ sq:
         destroy:
           success: Administratori i asamblesë u hoq me sukses.
         edit:
-          title: Përditëso administratorin e asamblesë
           update: Përditëso
-        index:
-          assembly_admins_title: Administratorët e asamblesë
         new:
           create: Krijo
-          title: Administrator i ri i asamblesë
         update:
           error: Ndodhi një gabim gjatë përditësimit të administratorit të asamblesë.
           success: Administratori i asamblesë u përditësua me sukses.
@@ -146,7 +137,6 @@ sq:
           fields:
             actions: Veprimet
             created_at: Krijuar më
-            private: Private
             promoted: Në pah
             published: E publikuar
             title: Titulli
@@ -169,7 +159,6 @@ sq:
             collaborator: Bashkëpunëtor/e
             moderator: Moderator/e
       titles:
-        assemblies: Asambletë
         assemblies_types: Tipet e asambleve
     admin_log:
       assembly:
@@ -200,7 +189,6 @@ sq:
       admin:
         assemblies:
           form:
-            announcement_help: Teksti që vendosni këtu do i shfaqet përdoruesit nën informacionin e asamblesë.
             duration: Kohëzgjatja
             duration_help: Nëse kohëzgjatja e asamblesë është e kufizuar, zgjidh datën e përfundimit. Përndryshe, do shfaqet si e papërcaktuar.
             images: Imazhet
@@ -248,9 +236,6 @@ sq:
           type: Tipi
         show:
           title: Rreth asamblesë
-      assembly_members:
-        index:
-          members: Anëtarët
       content_blocks:
         children_assemblies:
           name: Asambletë
@@ -290,8 +275,4 @@ sq:
             member_of: Anëtar i
       show:
         duration: Kohëzgjatja
-        private_space: Kjo është asamble private
         social_networks_title: Vizito asamblenë në
-    assembly_members:
-      index:
-        title: Anëtarët

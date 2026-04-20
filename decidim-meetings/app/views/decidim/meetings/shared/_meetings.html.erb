@@ -17,7 +17,7 @@
 
   <div class="card__list-list">
     <% meetings.each do |meeting| %>
-      <%= card_for meeting %>
+      <%= card_for meeting, context: { show_space: component.blank? } %>
     <% end %>
   </div>
 

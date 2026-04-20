@@ -92,7 +92,6 @@ sk:
         participatory_process:
           fields:
             created_at: Vytvorené u
-            private: Súkromné
             published: Publikované
             title: Titul
           name: Participatívne proces
@@ -122,11 +121,9 @@ sk:
         destroy:
           success: Zúčastňujú skupina procesov bola úspešne zmazaná.
         edit:
-          title: Upraviť skupinu procesov
           update: Aktualizácia
         new:
           create: Vytvoriť
-          title: Nová skupina procesov
         update:
           error: Bola chyba pri aktualizácii tejto participatívnej skupiny procesov.
           success: Skupina účastníckych procesov bola úspešne aktualizovaná.
@@ -137,7 +134,6 @@ sk:
         new:
           import: Importovať
           select: Vyberte, ktoré údaje chcete importovať
-          title: Importovať proces participácie
       participatory_process_publications:
         create:
           error: Pri publikovaní tohto procesu participácie došlo k chybe.
@@ -157,18 +153,13 @@ sk:
         destroy:
           success: Úspešný krok procesu bol úspešne zmazaný.
         edit:
-          title: Úprava kroku procesu participácie
           update: Aktualizácia
-        index:
-          steps_title: Kroky
         new:
           create: Vytvoriť
-          title: Nový krok procesu participácie
         ordering:
           error: Došlo k chybe pri novom usporiadaní týchto krokov procesu participácie.
         update:
           error: Pri aktualizácii tohto kroku procesu participácie došlo k chybe.
-          success: Úspešný krok procesu bol úspešne aktualizovaný.
       participatory_process_user_roles:
         create:
           error: Pri pridávaní používateľa pre tento participačné proces došlo k chybe.
@@ -176,13 +167,9 @@ sk:
         destroy:
           success: Používateľ bol úspešne odstránený z tohto participačného procesu.
         edit:
-          title: Aktualizovať administrátora participatívneho procesu
           update: Aktualizácia
-        index:
-          process_admins_title: Používatelia účastníckych procesov
         new:
           create: Vytvoriť
-          title: Nový administrátor participatívneho procesu
         update:
           error: Došlo k chybe pri aktualizácii používateľa pre tento participatívnej proces.
           success: Užívateľ bol úspešne aktualizovaný pre tento participatívnej proces.
@@ -193,12 +180,9 @@ sk:
         edit:
           update: Aktualizácia
         index:
-          private: Súkromné
-          public: Verejnosť
           published: Publikované
         new:
           create: Vytvoriť
-          title: Nový participačné proces
         update:
           error: Pri aktualizácii tohto participatívneho procesu došlo k chybe.
           success: Participatívne proces bol úspešne aktualizovaný.
@@ -206,9 +190,6 @@ sk:
         create:
           error: Došlo k chybe pri vytváraní novej skupiny účastníckych procesov.
           success: Skupina úspešne vytvorená skupina účastníkov.
-      titles:
-        participatory_process_groups: Skupiny zúčastnených procesov
-        participatory_processes: Participatívna procesy
       users:
         resend_invitation:
           error: Pri odoslaní pozvánky sa vyskytla chyba.
@@ -270,7 +251,6 @@ sk:
             document_legend: Pridať dokument
         participatory_processes:
           form:
-            announcement_help: Text, ktorý tu zadáte, sa užívateľovi zobrazí priamo pod informáciami o procese.
             duration: Čas trvania
             images: snímky
             metadata: Metadata
@@ -314,7 +294,6 @@ sk:
             upcoming: Nadchádzajúce
           see: Vidieť
       show:
-        private_space: Jedná sa o súkromný proces
         related_processes: Súvisiace procesy
   layouts:
     decidim:

@@ -23,10 +23,13 @@ module Decidim
         return if spaces_user_can_admin[space_type.manifest_name.to_sym].blank?
 
         html = ""
-        form_object.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff|
-          html += participatory_space_title(space_type)
-          html += ff.hidden_field :manifest_name, value: space_type.manifest_name
-          html += select_tag_participatory_spaces(space_type.manifest_name, spaces_for_select(space_type.manifest_name.to_sym), ff)
+
+        form_object.fields_for :participatory_space_types do |f|
+          f.fields_for space_type.manifest_name, space_type do |ff|
+            html += participatory_space_title(space_type)
+            html += ff.hidden_field :manifest_name, value: space_type.manifest_name
+            html += select_tag_participatory_spaces(space_type.manifest_name, spaces_for_select(space_type.manifest_name.to_sym), ff)
+          end
         end
         html.html_safe
       end
@@ -80,7 +83,7 @@ module Decidim
           recipients << content_tag(:strong, t("index.verified_users", scope: "decidim.admin.newsletters")) if newsletter.sent_to_verified_users?
           recipients << content_tag(:strong, t("index.followers", scope: "decidim.admin.newsletters")) if newsletter.sent_to_followers?
           recipients << content_tag(:strong, t("index.participants", scope: "decidim.admin.newsletters")) if newsletter.sent_to_participants?
-          recipients << content_tag(:strong, t("index.private_members", scope: "decidim.admin.newsletters")) if newsletter.sent_to_private_members?
+          recipients << content_tag(:strong, t("index.members", scope: "decidim.admin.newsletters")) if newsletter.sent_to_members?
 
           concat recipients.join(t("index.and", scope: "decidim.admin.newsletters")).html_safe
         end

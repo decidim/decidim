@@ -53,7 +53,7 @@ describe "Admin creates proposals" do
     fill_in_i18n :proposal_title, "#proposal-title-tabs", en: new_title
     fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: new_body
     click_on("Create")
-    expect(page).to have_admin_callout("Proposal successfully created.")
+    expect(page).to have_callout("Proposal successfully created.")
 
     path = resource_locator(Decidim::Proposals::Proposal.last).path
 

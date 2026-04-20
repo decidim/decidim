@@ -27,7 +27,6 @@ sl:
         participatory_processes_ids: Povezani participativni procesi
         participatory_scope: Kar je bilo odločeno
         participatory_structure: Kot je bilo odločeno
-        private_space: Zasebni prostor
         promoted: Poudarjeno
         published_at: Objavljeno
         purpose_of_action: Namen ukrepanja
@@ -77,12 +76,9 @@ sl:
         edit:
           update: Posodobi
         index:
-          private: Zasebno
-          public: Javno
           published: Objavljeno
         new:
           create: Ustvari
-          title: Nova združba
         update:
           error: Pojavila se je težava pri urejanju združbe.
           success: Združba uspešno posodobljena.
@@ -93,7 +89,6 @@ sl:
         new:
           import: Uvozi
           select: Izberi, katere podatke želiš uvoziti
-          title: Uvozi združbo
       menu:
         assemblies: Združbe
         assemblies_submenu:
@@ -103,7 +98,6 @@ sl:
           attachments: Priponke
           components: Komponente
       titles:
-        assemblies: Združbe
         assemblies_types: Vrste združb
     admin_log:
       assembly_setting:
@@ -117,13 +111,13 @@ sl:
             metadata: Meta podatki
             other: Drugo
             select_parent_assembly: Izberi matično združbo
+        assembly_imports:
+          form:
+            document_legend: Dodaj dokument
       assemblies:
         filters:
           names:
             all: Vsi
-      assembly_members:
-        index:
-          members: Člani
       content_blocks:
         highlighted_assemblies:
           name: Poudarjene združbe

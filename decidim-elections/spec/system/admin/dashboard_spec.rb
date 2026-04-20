@@ -308,7 +308,9 @@ describe "Dashboard" do
     let!(:election) { create(:election, :with_token_csv_census, :published, :published_results, :finished, component:) }
 
     it "shows the published results status" do
-      expect(page).to have_content("Finished")
+      within ".status-label" do
+        expect(page).to have_content("Finished")
+      end
       expect(page).to have_no_button("Results published at")
     end
 

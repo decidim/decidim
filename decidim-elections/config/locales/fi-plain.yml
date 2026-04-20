@@ -6,6 +6,11 @@ fi-pl:
       token_csv:
         file: Tiedosto
         remove_all: Poista kaikki nykyiset tiedot henkilötietorekisteristä
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Vaali
+        other: Vaalit
   decidim:
     admin:
       menu:
@@ -225,7 +230,7 @@ fi-pl:
           upload_file: Lataa tiedosto
           upload_new_census: Lataa CSV-tiedosto
         token_csv_form:
-          email: Sähköposti
+          email: Sähköpostiosoite
           email_placeholder: Syötä äänestäjän sähköpostiosoite
           invalid: Sähköpostiosoite tai vahvistustunnus on virheellinen. Tarkasta tiedot ja yritä uudestaan.
           token: Vahvistustunnus

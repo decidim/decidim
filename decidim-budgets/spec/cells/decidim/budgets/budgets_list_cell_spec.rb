@@ -25,11 +25,11 @@ module Decidim::Budgets
 
       allow(my_cell).to receive(:url_for).and_return("/")
 
-      # rubocop:disable Rspec/AnyInstance
+      # rubocop:disable RSpec/AnyInstance
       allow_any_instance_of(BudgetListItemCell).to receive(:budget_projects_path) do |_subcell, budget, **|
         "/budgets/#{budget.id}/projects"
       end
-      # rubocop:enable Rspec/AnyInstance
+      # rubocop:enable RSpec/AnyInstance
     end
 
     describe "#main_list" do
@@ -66,6 +66,44 @@ module Decidim::Budgets
           it "orders the budgets randomly" do
             expect(titles.count).to eq(2)
           end
+        end
+      end
+    end
+
+    describe "#show" do
+      subject { my_cell.call(:show) }
+
+      context "when some budgets have not been voted" do
+        before do
+          allow(my_cell).to receive(:non_voted_budgets).and_return(budgets)
+        end
+
+        it "renders budgets list" do
+          expect(subject).to have_css("#budgets")
+          expect(subject).to have_content("2 budgets")
+        end
+      end
+
+      context "when all budgets have been voted" do
+        before do
+          allow(my_cell).to receive(:non_voted_budgets).and_return([])
+        end
+
+        it "does not render budgets list" do
+          expect(subject).to have_no_css("#budgets")
+          expect(subject).to have_no_content("0 budgets")
+        end
+      end
+
+      context "when all budgets are either voted or in progress" do
+        before do
+          allow(my_cell).to receive(:voted).and_return([budgets.first])
+          allow(my_cell).to receive(:progress_budgets).and_return([budgets.last])
+        end
+
+        it "does not render budgets list" do
+          expect(subject).to have_no_css("#budgets")
+          expect(subject).to have_no_content("0 budgets")
         end
       end
     end

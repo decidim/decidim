@@ -54,7 +54,7 @@ jobs:
       PARALLEL_TEST_PROCESSORS: 3
     services:
       validator:
-        image: ghcr.io/validator/validator@sha256:7667b0ffa6d395c27aa8f9e21db1cfe6b66549245a3972e9397d255de5ef0ec6
+        image: ghcr.io/validator/validator:latest
         ports: ["8888:8888"]
       postgres:
         image: postgres:14
@@ -136,12 +136,12 @@ jobs:
           files: coverage/coverage.xml
           verbose: true
           add-prefix: ${{ env.DECIDIM_MODULE }}
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v6
         name: Upload coverage
         with:
           name: ${{ inputs.working-directory }}
           flags: ${{ inputs.working-directory }}
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: Screenshots of run ${{ github.run_id }}

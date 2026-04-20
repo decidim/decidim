@@ -29,6 +29,28 @@ describe "User creates debate" do
                  settings: { taxonomy_filters: [taxonomy_filter.id] })
         end
 
+        context "with an empty form" do
+          it "allows submission and show errors" do
+            visit_component
+            click_on "New debate"
+
+            expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+            within ".new_debate" do
+              find("*[type=submit]").click
+
+              expect(page).to have_css("div.sr-announce")
+              within "div.sr-announce" do
+                expect(page).to have_content("There are errors on the form, please correct them to continue.")
+              end
+
+              expect(page).to have_content("There is an error in this field.")
+              expect(page).to have_no_css("*[type=submit][data-disable='true']")
+              expect(find("button[type='submit']")).not_to be_disabled
+            end
+          end
+        end
+
         context "and attachments are not allowed" do
           before do
             component_settings = component["settings"]["global"].merge!(attachments_allowed: false)
@@ -69,7 +91,7 @@ describe "User creates debate" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("successfully")
+            expect(page).to have_content("Debate successfully created.")
             expect(page).to have_content("Should every organization use Decidim?")
             expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
             expect(page).to have_css("[data-author]", text: user.name)
@@ -121,7 +143,7 @@ describe "User creates debate" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("successfully")
+          expect(page).to have_content("Debate successfully created.")
           expect(page).to have_content("Should every organization use Decidim?")
           expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))

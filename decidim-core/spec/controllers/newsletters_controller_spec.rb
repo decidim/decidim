@@ -70,7 +70,7 @@ module Decidim
               get :unsubscribe, params: { u: encryptor.sent_at_encrypted(user_id, time) }
 
               expect(response).to render_template(:unsubscribe)
-              expect(controller.flash.notice).to have_content("success")
+              expect(controller.flash.notice).to have_content("You are unsubscribed successfully.")
             end
           end
 
@@ -81,7 +81,7 @@ module Decidim
               get :unsubscribe, params: { u: encryptor.sent_at_encrypted(user_id, time) }
 
               expect(response).to render_template(:unsubscribe)
-              expect(controller.flash.alert).to have_content("problem")
+              expect(controller.flash.alert).to have_content("There was a problem unsubscribing.")
             end
           end
         end
@@ -95,7 +95,7 @@ module Decidim
             get :unsubscribe, params: { u: encryptor.sent_at_encrypted(user_id, time) }
 
             expect(response).to render_template(:unsubscribe)
-            expect(controller.flash.alert).to have_content("expired")
+            expect(controller.flash.alert).to have_content("The link has expired.")
           end
         end
       end

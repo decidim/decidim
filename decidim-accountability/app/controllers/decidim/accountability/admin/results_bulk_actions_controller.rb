@@ -88,12 +88,12 @@ module Decidim
         end
 
         def result_params
-          @result_params ||= params.require(:result_bulk_actions).permit(
-            :decidim_accountability_status_id,
-            :start_date,
-            :end_date,
-            result_ids: [],
-            taxonomies: []
+          @result_params ||= params.expect(
+            result_bulk_actions: [:decidim_accountability_status_id,
+                                  :start_date,
+                                  :end_date,
+                                  { result_ids: [],
+                                    taxonomies: [] }]
           )
         end
       end

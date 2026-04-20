@@ -14,7 +14,7 @@ eu:
     errors:
       models:
         questionnaire:
-          request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, saiatu berriro.
+          request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, berriro saiatu.
         response:
           attributes:
             add_documents:
@@ -50,7 +50,7 @@ eu:
             ends_at: Erantzunak noiz arte onartuta
             ends_at_help: Utzi zuriz data zehatzik ez badago
             starts_at: Erantzunak noiztik onartuta
-            starts_at_help: Utzi zuriz data zehatzik ez badago
+            starts_at_help: Zuriz utzi data zehatzik ez badago
             tos: Zerbitzu-baldintzak
         questionnaires:
           actions:
@@ -180,6 +180,7 @@ eu:
         response:
           invalid: Arazo bat egon da galdetegia erantzutean.
           max_choices_alert: Aukera gehiegi hautatuta da
+          spam_detected: Arazo bat egon da galdetegiari rantzuten. Agian azkarregi aritu zara, berriro saia zaitezke?
           success: Galdetegia zuzen erantzun da.
         show:
           current_step: '%{step} urratsa'

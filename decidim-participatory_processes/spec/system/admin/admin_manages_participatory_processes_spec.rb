@@ -98,7 +98,7 @@ describe "Admin manages participatory processes", versioning: true do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("Participatory process successfully created. Configure now its phases.")
+      expect(page).to have_callout("Participatory process successfully created. Configure now its phases.")
       expect(last_participatory_process.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
@@ -132,7 +132,7 @@ describe "Admin manages participatory processes", versioning: true do
 
       click_on "Update"
 
-      expect(page).to have_admin_callout("Participatory process successfully updated.")
+      expect(page).to have_callout("Participatory process successfully updated.")
       expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
       expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
       expect(participatory_process3.reload.taxonomies).to contain_exactly(taxonomy)

@@ -15,8 +15,6 @@ module Decidim
     autoload :Import, "decidim/admin/import"
     autoload :CustomImport, "decidim/admin/custom_import"
 
-    include ActiveSupport::Configurable
-
     # Public: Stores an instance of ViewHooks
     def self.view_hooks
       @view_hooks ||= ViewHooks.new

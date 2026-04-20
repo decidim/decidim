@@ -4,7 +4,14 @@ module Decidim
   module Ai
     module Language
       autoload :Formatter, "decidim/ai/language/formatter"
-      include ActiveSupport::Configurable
+
+      class << self
+        def config = self
+
+        def configure
+          yield self
+        end
+      end
 
       # Text cleanup service
       #
@@ -15,9 +22,7 @@ module Decidim
       #     # your code
       #   end
       # end
-      config_accessor :formatter do
-        Decidim::Env.new("DECIDIM_AI_LANGUAGE_FORMATTER", "Decidim::Ai::Language::Formatter").value
-      end
+      mattr_accessor :formatter, default: Decidim::Env.new("DECIDIM_AI_LANGUAGE_FORMATTER", "Decidim::Ai::Language::Formatter").value
     end
   end
 end

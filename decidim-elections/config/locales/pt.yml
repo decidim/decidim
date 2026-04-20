@@ -1,9 +1,13 @@
 pt:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Eleição
+        other: Eleições
   decidim:
     admin:
       menu:
         elections_menu:
-          election_census: Recenseamento
           election_questions: Perguntas
     components:
       elections:
@@ -26,8 +30,6 @@ pt:
           edit:
             created_at: Criado em
         dashboard:
-          census:
-            title: Recenseamento
           main:
             labels:
               description: Descrição
@@ -57,9 +59,6 @@ pt:
           edit_questions:
             new_question: Nova pergunta
             title: Perguntas
-      censuses:
-        token_csv_form:
-          email: E-Mail
       elections:
         count:
           elections_count:
@@ -82,7 +81,6 @@ pt:
       models:
         election:
           fields:
-            census: Recenseamento
             status: Estado
             title: Título
       status:
@@ -98,7 +96,3 @@ pt:
           next: Seguinte
     statistics:
       elections_count: Eleições
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Fechar

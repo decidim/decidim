@@ -2,7 +2,7 @@
   <%= decidim_form_for report_form, builder:, url: report_path, method: :post, html: { id: nil, data: { controller: "report-form" } } do |f| %>
     <div data-dialog-container>
       <%= icon "flag-line" %>
-      <h2 tabindex="-1" data-dialog-title><%= t("decidim.shared.flag_user_modal.title") %></h2>
+      <h2 id="dialog-title-<%= modal_id %>" tabindex="-1" data-dialog-title><%= t("decidim.shared.flag_user_modal.title") %></h2>
       <div>
         <div class="form__wrapper flag-modal__form">
           <p class="flag-modal__form-description"><%= t("decidim.shared.flag_user_modal.description") %></p>

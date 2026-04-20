@@ -15,7 +15,7 @@ module Decidim
       def i18n_options
         return super if author.blank?
 
-        author_path = link_to("@#{author.nickname}", profile_path(author.nickname))
+        author_path = link_to("@#{author.nickname}", profile_path(author.nickname, locale: I18n.locale))
         author_string = "#{author.name} #{author_path}"
         super.merge({ author: author_string })
       end

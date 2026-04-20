@@ -42,7 +42,7 @@ module Decidim
             meta_scope: attributes["meta_scope"],
             start_date: attributes["start_date"],
             end_date: attributes["end_date"],
-            private_space: attributes["private_space"],
+            access_mode: resolve_access_mode(attributes),
             participatory_process_group: process_group
           )
           import_hero_image(attributes["remote_hero_image_url"])
@@ -106,27 +106,24 @@ module Decidim
             next
           end
 
-          begin
-            file_tmp = URI.parse(url).open
-          rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
-            @warnings << I18n.t(
-              "decidim.participatory_processes.admin.imports.attachment_error",
-              title: attachment_title(file),
-              error: format_error(e)
-            )
-            next
-          end
-
           Decidim.traceability.perform_action!("create", Attachment, @user) do
             attachment = Attachment.new(
               title: file["title"],
               description: file["description"],
-              content_type: file_tmp.content_type,
               attached_to: @imported_process,
-              weight: file["weight"],
-              file: file_tmp, # Define attached_to before this
-              file_size: file_tmp.size
+              weight: file["weight"]
             )
+            begin
+              attachment.attached_uploader(:file).remote_url = url
+              attachment.set_content_type_and_size
+            rescue OpenURI::HTTPError, Errno::ENOENT, Errno::ECONNREFUSED, SocketError, Net::OpenTimeout, Net::ReadTimeout => e
+              @warnings << I18n.t(
+                "decidim.participatory_processes.admin.imports.attachment_error",
+                title: attachment_title(file),
+                error: format_error(e)
+              )
+              next
+            end
             attachment.create_attachment_collection(file["attachment_collection"])
             attachment.save!
             attachment
@@ -225,6 +222,15 @@ module Decidim
         message = status[1].presence || Rack::Utils::HTTP_STATUS_CODES[code.to_i]
         message = message.presence || error.message
         "#{code} #{message}"
+      end
+
+      def resolve_access_mode(attributes)
+        return attributes["access_mode"] if attributes["access_mode"].present?
+
+        return "transparent" if attributes["is_transparent"] == true
+        return "restricted" if attributes["private_space"] == true
+
+        "open"
       end
     end
   end
