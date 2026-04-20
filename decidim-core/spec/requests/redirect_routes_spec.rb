@@ -163,4 +163,76 @@ describe "Redirect routes" do
       expect(response.location).not_to include("locale=")
     end
   end
+
+  context "when visiting legacy devise pages" do
+    it "redirects password reset pages with missing locale" do
+      get("/users/password/edit?reset_password_token=wKzauxwAMR6fzkpesfEE", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/users/password/edit?reset_password_token=wKzauxwAMR6fzkpesfEE")
+    end
+
+    it "redirects invitation accept pages with query string" do
+      get("/users/invitation/accept?invitation_token=s8y7uLufD9xVvjAszo6N&invite_redirect=%2Fen%2Fadmin%2F", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/users/invitation/accept?invitation_token=s8y7uLufD9xVvjAszo6N&invite_redirect=%2Fen%2Fadmin%2F")
+    end
+
+    it "redirects the sign in page" do
+      get("/users/sign_in", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/users/sign_in")
+    end
+
+    it "redirects the sign up page" do
+      get("/users/sign_up", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/users/sign_up")
+    end
+
+    it "redirects the password reset request page" do
+      get("/users/password/new", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/users/password/new")
+    end
+
+    it "redirects the confirmation request page" do
+      get("/users/confirmation/new", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/users/confirmation/new")
+    end
+
+    it "redirects the confirmation page" do
+      get("/users/confirmation", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/users/confirmation")
+    end
+
+    it "redirects the unlock request page" do
+      get("/users/unlock/new", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/users/unlock/new")
+    end
+
+    it "redirects the unlock page" do
+      get("/users/unlock", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/users/unlock")
+    end
+
+    it "redirects the invitation request page" do
+      get("/users/invitation/new", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/users/invitation/new")
+    end
+  end
 end

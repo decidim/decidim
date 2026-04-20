@@ -166,6 +166,17 @@ Decidim::Core::Engine.routes.draw do
   get "/profiles/*rest", to: redirect { |params, request| locale_redirector("/profiles/#{params[:rest]}").call(params, request) }
   get "/notifications", to: redirect(&locale_redirector("/notifications"))
 
+  get "/users/sign_in", to: redirect(&locale_redirector("/users/sign_in"))
+  get "/users/sign_up", to: redirect(&locale_redirector("/users/sign_up"))
+  get "/users/password/new", to: redirect(&locale_redirector("/users/password/new"))
+  get "/users/password/edit", to: redirect(&locale_redirector("/users/password/edit"))
+  get "/users/confirmation/new", to: redirect(&locale_redirector("/users/confirmation/new"))
+  get "/users/confirmation", to: redirect(&locale_redirector("/users/confirmation"))
+  get "/users/unlock/new", to: redirect(&locale_redirector("/users/unlock/new"))
+  get "/users/unlock", to: redirect(&locale_redirector("/users/unlock"))
+  get "/users/invitation/new", to: redirect(&locale_redirector("/users/invitation/new"))
+  get "/users/invitation/accept", to: redirect(&locale_redirector("/users/invitation/accept"))
+
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 
   get "/link", to: "links#new", as: :link
