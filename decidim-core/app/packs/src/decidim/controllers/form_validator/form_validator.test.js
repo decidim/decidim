@@ -522,6 +522,11 @@ describe("FormValidator", () => {
       validatorInstance.validateSingleInput(textInput);
       expect(textInput.classList.contains("is-invalid-input")).toBe(true);
 
+      const announceElement = formElement.querySelector(".sr-announce");
+      expect(announceElement).toBeTruthy();
+      expect(announceElement.getAttribute("aria-live")).toBe("assertive");
+      expect(announceElement.classList.contains("sr-only")).toBe(true);
+
       // Reset validation
       validatorInstance.resetFormValidation();
 
