@@ -5,17 +5,13 @@ Decidim::Core::Engine.routes.draw do
 
   mount Decidim::Api::Engine => "/api"
 
-  get "/", to: redirect { |params, request|
-    locale_redirect(params, request, "/")
-  }, as: :root_redirect
+  get "/", to: redirect(&locale_redirector("/")), as: :root_redirect
 
   get "/offline", to: "offline#show"
 
   get "/favicon.ico", to: "favicon#show"
 
-  get "/admin", to: redirect { |params, request|
-    locale_redirect(params, request, "/admin")
-  }
+  get "/admin", to: redirect(&locale_redirector("/admin"))
 
   get "/admin/*rest", to: redirect { |params, request|
     locale_redirect(params, request, "/admin/#{params[:rest]}")
