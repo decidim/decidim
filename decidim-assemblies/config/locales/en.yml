@@ -357,9 +357,6 @@ en:
           highlighted_assemblies:
             active_spaces: Active assemblies
             see_all_spaces: See all assemblies
-        user_profile:
-          member_of:
-            member_of: Member of
       show:
         duration: Duration
         social_networks_title: Visit assembly on
