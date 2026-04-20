@@ -203,6 +203,18 @@ describe "Redirect routes" do
     end
   end
 
+  context "when visiting account pages" do
+    it "redirects account delete to the locale-aware path" do
+      user = create(:user, :confirmed, organization:)
+      login_as user, scope: :user
+
+      get("/", headers:)
+      get("/account/delete", headers:)
+
+      expect(response).to redirect_to("/en/account/delete")
+    end
+  end
+
   context "when visiting legacy devise pages" do
     it "redirects password reset pages with missing locale" do
       get("/users/password/edit?reset_password_token=faketoken", headers:)

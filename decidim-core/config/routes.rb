@@ -79,7 +79,9 @@ Decidim::Core::Engine.routes.draw do
       as: :free_resource_authorization_modal
     )
 
-    get "/account/*rest", to: redirect(&locale_redirector("/account"))
+    get "/account/*rest", to: redirect { |params, request|
+      locale_redirect(params, request, "/account/#{params[:rest]}")
+    }
 
     get "/account", to: redirect(&locale_redirector("/account"))
   end
