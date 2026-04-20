@@ -166,17 +166,17 @@ describe "Redirect routes" do
 
   context "when visiting legacy devise pages" do
     it "redirects password reset pages with missing locale" do
-      get("/users/password/edit?reset_password_token=wKzauxwAMR6fzkpesfEE", headers:)
+      get("/users/password/edit?reset_password_token=faketoken", headers:)
 
       expect(response).to have_http_status(:moved_permanently)
-      expect(response).to redirect_to("/en/users/password/edit?reset_password_token=wKzauxwAMR6fzkpesfEE")
+      expect(response).to redirect_to("/en/users/password/edit?reset_password_token=faketoken")
     end
 
     it "redirects invitation accept pages with query string" do
-      get("/users/invitation/accept?invitation_token=s8y7uLufD9xVvjAszo6N&invite_redirect=%2Fen%2Fadmin%2F", headers:)
+      get("/users/invitation/accept?invitation_token=faketoken&invite_redirect=%2Fen%2Fadmin%2F", headers:)
 
       expect(response).to have_http_status(:moved_permanently)
-      expect(response).to redirect_to("/en/users/invitation/accept?invitation_token=s8y7uLufD9xVvjAszo6N&invite_redirect=%2Fen%2Fadmin%2F")
+      expect(response).to redirect_to("/en/users/invitation/accept?invitation_token=faketoken&invite_redirect=%2Fen%2Fadmin%2F")
     end
 
     it "redirects the sign in page" do
