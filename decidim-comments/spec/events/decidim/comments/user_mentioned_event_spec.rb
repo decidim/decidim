@@ -10,9 +10,9 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:event_name) { "decidim.events.comments.user_mentioned" }
   let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>" }
   let(:en_comment_content) { "<div><p>Comment mentioning some user, #{author_link}</p></div>" }
-  let(:author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/#{I18n.locale}/profiles/#{author.nickname}\" data-external-link=\"false\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{author.name}</a>" }
-  let(:parsed_body) { Decidim::ContentProcessor.parse("Comment mentioning some user, #{author.name}", current_organization: organization) }
-  let(:parsed_ca_body) { Decidim::ContentProcessor.parse("Un commentaire pour #{author.name}", current_organization: organization) }
+  let(:author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/#{I18n.locale}/profiles/#{author.nickname}\" data-external-link=\"false\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">@#{author.nickname}</a>" }
+  let(:parsed_body) { Decidim::ContentProcessor.parse("Comment mentioning some user, @#{author.nickname}", current_organization: organization) }
+  let(:parsed_ca_body) { Decidim::ContentProcessor.parse("Un commentaire pour @#{author.nickname}", current_organization: organization) }
   let(:body) { { en: parsed_body.rewrite, machine_translations: { ca: parsed_ca_body.rewrite } } }
 
   let(:participatory_process) { create(:participatory_process, organization:) }
@@ -34,7 +34,7 @@ describe Decidim::Comments::UserMentionedEvent do
   describe "resource_text" do
     it "correctly renders comments with mentions" do
       expect(subject.resource_text).not_to include("gid://")
-      expect(subject.resource_text).to include(author.name.to_s)
+      expect(subject.resource_text).to include(author.nickname.to_s)
     end
   end
 
@@ -52,7 +52,7 @@ describe Decidim::Comments::UserMentionedEvent do
     let(:translatable) { true }
 
     let(:untranslated_content) { "<div><p>Comment mentioning some user, #{ca_author_link}</p></div>" }
-    let(:ca_author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/ca/profiles/#{author.nickname}\" data-external-link=\"false\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{author.name}</a>" }
+    let(:ca_author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/ca/profiles/#{author.nickname}\" data-external-link=\"false\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">@#{author.nickname}</a>" }
 
     it_behaves_like "a translated event"
   end
