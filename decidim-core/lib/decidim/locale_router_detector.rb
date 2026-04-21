@@ -19,7 +19,7 @@ module Decidim
     attr_reader :request, :input_params
 
     def extracted_locale
-      input_params[:locale] || request.parameters[:locale].presence || current_user_locale || request.session[:user_locale].presence || I18n.locale
+      input_params[:locale].presence || request.parameters[:locale].presence || current_user_locale || request.session[:user_locale].presence || I18n.locale
     end
 
     def current_user_locale
