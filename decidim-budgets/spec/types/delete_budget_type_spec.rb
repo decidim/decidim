@@ -6,7 +6,7 @@ module Decidim::Budgets
   describe DeleteBudgetType, type: :graphql do
     include_context "with a graphql class mutation"
 
-    let(:root_klass) { BudgetsMutationType }
+    let(:root_klass) { BudgetMutationType }
     let!(:model) { create(:budget, component: current_component, total_budget: 1_000) }
     let(:current_component) { create(:budgets_component) }
     let(:current_organization) { current_component.organization }
