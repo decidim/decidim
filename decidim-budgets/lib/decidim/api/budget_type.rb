@@ -22,6 +22,8 @@ module Decidim
       end
 
       def self.authorized?(object, context)
+        return super if context[:trashable_deleted_resource] == object
+
         super && object.visible?
       end
     end

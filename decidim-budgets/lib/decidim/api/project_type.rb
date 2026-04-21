@@ -48,6 +48,8 @@ module Decidim
       def self.authorized?(object, context)
         context[:project] = object
 
+        return super if context[:trashable_deleted_resource] == object
+
         chain = [
           object.visible?,
           allowed_to?(:read, :project, object, context)

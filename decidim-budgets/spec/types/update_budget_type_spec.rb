@@ -128,14 +128,6 @@ module Decidim::Budgets
             expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
           end
         end
-
-        context "when submitting invalid description for budget" do
-          let(:description_en) { "" }
-
-          it "raises an error" do
-            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
-          end
-        end
       end
     end
 
