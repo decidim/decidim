@@ -59,9 +59,9 @@
                     <li class="dropdown__item">
                       <div class="dropdown__button-disabled">
                         <%= with_tooltip t("tooltips.deleted_proposal_states_info", scope: "decidim.admin") do %>
-                          <%= icon "pencil-line", class: "text-gray" %>
+                          <%= icon "delete-bin-line", class: "text-gray" %>
                           <span>
-                            <%= t("actions.edit_proposal", scope: "decidim.proposals") %>
+                            <%= t("actions.destroy", scope: "decidim.proposals") %>
                           </span>
                         <% end %>
                       </div>
