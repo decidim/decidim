@@ -139,5 +139,29 @@ module Decidim
         it { is_expected.to start_with("/#{I18n.locale}/processes/my-process") }
       end
     end
+
+    describe "#normalize_locale_route" do
+      subject { described_class.new(participatory_process).send(:normalize_locale_route, path, locale) }
+
+      let(:locale) { "en" }
+
+      context "when the path already contains a different locale" do
+        let(:path) { "/ca/processes/my-process?locale=es&share_token=faketoken" }
+
+        it { is_expected.to eq("/en/processes/my-process?share_token=faketoken") }
+      end
+
+      context "when the path is locale-only" do
+        let(:path) { "/ca?locale=es" }
+
+        it { is_expected.to eq("/en/") }
+      end
+
+      context "when the path does not start with a slash" do
+        let(:path) { "ca/processes/my-process" }
+
+        it { is_expected.to eq("/en/processes/my-process") }
+      end
+    end
   end
 end

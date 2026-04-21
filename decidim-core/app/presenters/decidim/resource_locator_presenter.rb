@@ -177,14 +177,17 @@ module Decidim
     end
 
     def normalize_locale_route(path, locale)
-      path = path.sub(/([?&])locale=#{Regexp.escape(locale.to_s)}(&)?/, "\\1")
+      path = path.sub(/([?&])locale=[^&]*(?=&|\z)/, "\\1")
       path = path.delete_suffix("?")
       path = path.delete_suffix("&")
       path = path.sub("?&", "?")
 
-      return path if path.start_with?("/#{locale}/") || path == "/#{locale}"
-
       path = "/#{path}" unless path.start_with?("/")
+
+      locale_candidates = Regexp.union(I18n.available_locales.map(&:to_s).sort_by(&:length).reverse)
+      path = path.sub(%r{\A/#{locale_candidates}(?=/|\z)}, "")
+
+      path = "/" if path.empty?
 
       "/#{locale}#{path}"
     end
