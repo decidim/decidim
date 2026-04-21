@@ -46,12 +46,12 @@ module Decidim
 
         def valid_states
           return unless origin_component
-          return if internal_states.empty?
+          return if states.empty?
 
           valid_tokens = Decidim::Proposals::ProposalState.where(component: origin_component).pluck(:token) + ["not_answered"]
-          return if internal_states.all? { |state| valid_tokens.include?(state) }
+          return if states.all? { |state| valid_tokens.include?(state) }
 
-          errors.add(:internal_states, :invalid)
+          errors.add(:states, :invalid)
         end
       end
     end
