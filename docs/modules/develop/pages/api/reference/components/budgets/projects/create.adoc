@@ -52,11 +52,10 @@ Example of submitted variables
       "proposalIds": [1,2,3],
       "taxonomies": [1,2,3],
       "description": {
-        "en": "Budget description changed from component"
+        "en": "Project description created from component"
       },
       "title": {
-        "en": "Budget title changed from component",
-        "thx": "Budget title changed from component"
+        "en": "Project title created from component"
       }
     }
   }

@@ -40,7 +40,7 @@ Example of submitted variables
     "attributes": {
       "totalBudget": 1234,
       "title": {
-        "en": "Budget from component"
+        "en": "Budget created from API"
       }
     }
   }
