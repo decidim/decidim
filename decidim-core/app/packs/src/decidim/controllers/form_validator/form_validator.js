@@ -104,7 +104,7 @@ class FormValidator {
     let announceElement = this.element.querySelector(".sr-announce");
 
     if (announceElement) {
-      announceElement.remove();
+      return;
     }
 
     announceElement = document.createElement("div");
@@ -113,7 +113,7 @@ class FormValidator {
     this.element.prepend(announceElement);
 
     setTimeout(() => {
-      announceElement.textContent = getDictionary("forms.correct_errors");
+      announceElement.textContent = getDictionary("forms").correct_errors;
     }, 100);
   }
 
@@ -259,6 +259,7 @@ class FormValidator {
         this.removeInputErrorClasses(inputElement);
       } else {
         this.addInputErrorClasses(inputElement, failedValidatorNames);
+        this.announceFormErrorForScreenReader();
       }
     }
 
