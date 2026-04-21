@@ -11,17 +11,21 @@ module Decidim
         project = find_resource(id)
         context[:trashable_deleted_resource] = project
 
-        super && allowed_to?(:soft_delete, :project, project, context, scope: :admin)
+        unless super && allowed_to?(:soft_delete, :project, project, context, scope: :admin)
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
+
+        true
       end
 
       private
 
       def find_resource(id)
-        object.projects.find_by(id:)
+        object.projects.find(id)
       end
 
       def trashable_deleted_resource_type
-        :budget
+        :project
       end
     end
   end

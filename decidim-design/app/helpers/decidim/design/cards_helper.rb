@@ -335,18 +335,6 @@ module Decidim
                 'cell("decidim/meetings/meeting_l", _RESOURCE_)'
               ]
             }
-          ),
-          cell_table_item(
-            t("decidim.design.helpers.meeting_s"),
-            {
-              cell: "decidim/meetings/meeting_s",
-              args: [resource],
-              call_string: [
-                "card_for(_RESOURCE_, size: :s)",
-                'cell("decidim/meetings/meeting", _RESOURCE_, size: :s)',
-                'cell("decidim/meetings/meeting_s", _RESOURCE_)'
-              ]
-            }
           )
         ]
       end

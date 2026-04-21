@@ -9,48 +9,57 @@ module Decidim
       argument :attributes, ProjectAttributes, description: "input attributes to update a project", required: true
       argument :id, GraphQL::Types::ID, "The ID of the project", required: true
 
-      def resolve(attributes:, id:) # rubocop:disable Lint/UnusedMethodArgument
-        form_attrs = attributes.to_h.reverse_merge(
-          address: project.address,
-          budget_amount: project.budget_amount,
-          description: project.description,
-          longitude: project.longitude,
-          latitude: project.latitude,
-          title: project.title,
-          proposal_ids: project.linked_resources(:proposals, "included_proposals").map(&:id),
-          taxonomies: project.taxonomies.map(&:id)
-        )
+      def resolve(attributes:, id:)
+        params = extract_from(attributes)
 
-        form = Admin::ProjectForm.from_params(form_attrs).with_context(
-          current_component: object.component,
-          current_organization: object.organization,
-          current_user: context[:current_user]
-        )
+        form = form(Admin::ProjectForm).from_params(params)
 
-        Admin::UpdateProject.call(form, project) do
+        Admin::UpdateProject.call(form, project(id)) do
           on(:ok, resource) do
-            return resource
+            return resource.reload
           end
 
           on(:invalid) do
-            return GraphQL::ExecutionError.new(
-              form.errors.full_messages.join(", ")
-            )
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
         end
+      rescue ActiveRecord::RecordNotSaved => e
+        raise Decidim::Api::Errors::UnauthorizedObjectError, e.message
       end
 
       def authorized?(attributes:, id:)
-        super && allowed_to?(:update, :project, project(id), context, scope: :admin)
+        unless super && allowed_to?(:update, :project, project(id), { project: project(id), current_user: }, scope: :admin)
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
+
+        true
       end
 
       private
 
       def project(id = nil)
-        context[:project] ||= begin
-          id ||= arguments[:id]
-          object.projects.find_by(id:)
-        end
+        context[:project] ||= object.projects.find_by(id:)
+      end
+
+      def extract_from(attributes)
+        validate_multiple_locales(attributes, :title)
+        validate_multiple_locales(attributes, :description)
+
+        attributes = attributes.to_h.reverse_merge(
+          address: context[:project].address,
+          longitude: context[:project].longitude,
+          latitude: context[:project].latitude,
+          budget_amount: context[:project].budget_amount
+        )
+
+        attributes[:title] = attributes.to_h.fetch(:title, context[:project].title)
+        attributes[:description] = attributes.to_h.fetch(:description, context[:project].description)
+        attributes[:proposal_ids] = attributes.to_h.fetch(:proposal_ids, context[:project].linked_resources(:proposals, "included_proposals").map(&:id))
+
+        attributes[:taxonomies] = attributes.to_h.fetch(:taxonomies, context[:project].taxonomies.map(&:id))
+        attributes[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: attributes[:taxonomies]).pluck(:id) if attributes[:taxonomies]
+
+        attributes
       end
     end
   end
