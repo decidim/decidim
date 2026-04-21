@@ -14,7 +14,7 @@ module Decidim
 
         form = form(Admin::ProjectForm).from_params(params)
 
-        Admin::UpdateProject.call(form, project) do
+        Admin::UpdateProject.call(form, project(id)) do
           on(:ok, resource) do
             return resource.reload
           end
@@ -40,8 +40,6 @@ module Decidim
       def project(id = nil)
         context[:project] ||= object.projects.find_by(id:)
       end
-
-      private
 
       def extract_from(attributes)
         validate_multiple_locales(attributes, :title)

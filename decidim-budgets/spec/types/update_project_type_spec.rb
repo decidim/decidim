@@ -72,7 +72,6 @@ module Decidim::Budgets
     end
 
     shared_examples "API updatable project" do
-
       it "assigns fields" do
         project = response["updateProject"]
         expect(project["id"]).to be_present
@@ -81,8 +80,8 @@ module Decidim::Budgets
         expect(project["budget_amount"]).to eq(budget_amount)
         expect(project["relatedProposals"]).to eq([{ "id" => proposal.id.to_s }])
         expect(project["coordinates"]).to eq(
-                                            { "longitude" => longitude, "latitude" => latitude }
-                                          )
+          { "longitude" => longitude, "latitude" => latitude }
+        )
       end
 
       context "when having invalid arguments" do
@@ -155,7 +154,6 @@ module Decidim::Budgets
         end
       end
     end
-
 
     context "with an admin user" do
       it_behaves_like "API updatable project" do
