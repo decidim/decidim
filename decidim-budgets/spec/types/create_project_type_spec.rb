@@ -16,8 +16,8 @@ module Decidim::Budgets
     let!(:proposal) { create(:proposal, component: proposals_component) }
     let(:title_en) { Faker::Lorem.sentence(word_count: 3) }
     let(:description_en) { Faker::Lorem.paragraph(sentence_count: 2) }
-    let(:latitude) { 123.45 }
-    let(:longitude) { 234.56 }
+    let(:latitude) { Faker::Address.latitude }
+    let(:longitude) { Faker::Address.longitude }
     let!(:root_taxonomy) { create(:taxonomy, organization: current_organization) }
     let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization: current_organization) }
     let(:taxonomy_id) { taxonomy.id }
