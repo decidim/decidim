@@ -7,6 +7,7 @@ module Decidim
     include Decidim::AriaSelectedLinkToHelper
     include Decidim::ViewHooksHelper
     include ActiveLinkTo
+    include Decidim::ActiveLinkToHelper
 
     delegate :current_organization, :current_user, to: :controller
     delegate :avatar_url, :nickname, :personal_url, :followers_count, :users_followings, :officialized_as, to: :presented_profile

@@ -8,6 +8,7 @@ module Decidim
   #
   class OnboardingActionMessageCell < Decidim::ViewModel
     include ActiveLinkTo
+    include Decidim::ActiveLinkToHelper
 
     alias user model
 
