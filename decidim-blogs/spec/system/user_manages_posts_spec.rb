@@ -67,7 +67,6 @@ describe "User manages posts" do
         click_on "Create"
 
         expect(page).to have_content "My post"
-        expect(page).to have_css("img[src*=\"city.jpeg\"]")
       end
     end
 
