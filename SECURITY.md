@@ -25,8 +25,11 @@ responsibly by any of these ways:
 
 1. creating a new advisory through the [GitHub Security Advisory][GitHub Security Advisory]
 
-2. sending an email to security [at] decidim [dot] org and not by
-creating a github/metadecidim issue.
+1. creating a new advisory through the [GitHub Security Advisory][GitHub Security Advisory]
+
+2. sending an email to security [at] decidim [dot] org
+
+Please do not create a public github/metadecidim issue for security vulnerabilities.
 
 We appreciate your effort to make Decidim more secure.
 
