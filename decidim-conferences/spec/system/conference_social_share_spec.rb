@@ -94,7 +94,7 @@ describe "Social shares" do
   end
 
   context "when listing all conferences" do
-    let(:resource) { decidim_conferences.conferences_path() }
+    let(:resource) { decidim_conferences.conferences_path }
 
     it_behaves_like "a social share meta tag", "icon.png"
   end

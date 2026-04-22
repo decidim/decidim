@@ -24,7 +24,7 @@ describe "Conferences" do
 
   context "when there are no conferences and directly accessing from URL" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_conferences.conferences_path() }
+      let(:target_path) { decidim_conferences.conferences_path }
     end
   end
 
@@ -42,7 +42,7 @@ describe "Conferences" do
 
     context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_conferences.conferences_path() }
+        let(:target_path) { decidim_conferences.conferences_path }
       end
     end
   end
@@ -53,11 +53,11 @@ describe "Conferences" do
     let!(:unpublished_conference) { create(:conference, :unpublished, organization:) }
 
     before do
-      visit decidim_conferences.conferences_path()
+      visit decidim_conferences.conferences_path
     end
 
     it_behaves_like "shows contextual help" do
-      let(:index_path) { decidim_conferences.conferences_path() }
+      let(:index_path) { decidim_conferences.conferences_path }
       let(:manifest_name) { :conferences }
     end
 

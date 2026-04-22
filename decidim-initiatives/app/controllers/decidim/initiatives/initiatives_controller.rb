@@ -120,7 +120,7 @@ module Decidim
         end
 
         flash[:notice] = I18n.t("initiatives.discard.success", scope: "decidim.initiatives.admin")
-        redirect_to decidim_initiatives.initiatives_path()
+        redirect_to decidim_initiatives.initiatives_path
       end
 
       def print

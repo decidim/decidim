@@ -35,7 +35,7 @@ describe "Assemblies" do
 
   context "when there are no assemblies and directly accessing from URL" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_assemblies.assemblies_path() }
+      let(:target_path) { decidim_assemblies.assemblies_path }
     end
   end
 
@@ -53,7 +53,7 @@ describe "Assemblies" do
 
     context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_assemblies.assemblies_path() }
+        let(:target_path) { decidim_assemblies.assemblies_path }
       end
     end
   end
@@ -65,17 +65,17 @@ describe "Assemblies" do
     let!(:unpublished_assembly) { create(:assembly, :unpublished, organization:) }
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim_assemblies.assemblies_path() }
+      let(:target_path) { decidim_assemblies.assemblies_path }
     end
 
     it_behaves_like "shows contextual help" do
-      let(:index_path) { decidim_assemblies.assemblies_path() }
+      let(:index_path) { decidim_assemblies.assemblies_path }
       let(:manifest_name) { :assemblies }
     end
 
     context "and requesting the assemblies path" do
       before do
-        visit decidim_assemblies.assemblies_path()
+        visit decidim_assemblies.assemblies_path
       end
 
       it "lists all the highlighted assemblies" do

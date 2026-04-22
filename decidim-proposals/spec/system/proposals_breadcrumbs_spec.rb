@@ -17,7 +17,7 @@ describe "Proposals Breadcrumb" do
 
   describe "index" do
     it "shows the correct information in breadcrumb (space, component)" do
-      visit router.root_path()
+      visit router.root_path
 
       within ".menu-bar" do
         expect(page).to have_content(translated(component.participatory_space.title))

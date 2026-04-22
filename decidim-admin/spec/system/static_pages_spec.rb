@@ -17,12 +17,12 @@ describe "Content pages" do
     let(:decidim_page) { decidim_pages.first }
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim.pages_path() }
+      let(:target_path) { decidim.pages_path }
     end
 
     context "when requesting the pages path" do
       before do
-        visit decidim.pages_path()
+        visit decidim.pages_path
       end
 
       it "shows the list of topics" do
