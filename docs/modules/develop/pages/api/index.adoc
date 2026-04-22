@@ -62,6 +62,7 @@ From now on, we will skip the "query" keyword for the purpose of readability. Yo
 *** Components
 **** xref:develop:api/reference/components/budgets.adoc[Accountability]
 ***** xref:develop:api/reference/components/accountability/create.adoc[Create Result]
+***** xref:develop:api/reference/components/accountability/update.adoc[Update Result]
 **** xref:develop:api/reference/components/budgets.adoc[Budgets]
 ***** xref:develop:api/reference/components/budgets/create.adoc[Create Budget]
 ***** xref:develop:api/reference/components/budgets/delete.adoc[Delete Budget]

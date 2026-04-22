@@ -5,7 +5,6 @@ require "spec_helper"
 module Decidim::Accountability
   describe CreateResultType, type: :graphql do
     include_context "with a graphql class mutation"
-    # include_context "when managing result through API"
 
     let(:root_klass) { AccountabilityMutationType }
     let(:resource_class) { Decidim::Accountability::Result }
@@ -137,6 +136,22 @@ module Decidim::Accountability
           end
         end
 
+        context "when submitting invalid status_id numericality for result" do
+          let(:status_id) { "" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(GraphQL::ExecutionError, /Could not coerce value "" to Int/)
+          end
+        end
+
+        context "when submitting invalid progress numericality for result" do
+          let(:progress) { "" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(GraphQL::ExecutionError, /Could not coerce value "" to Float/)
+          end
+        end
+
         context "when submitting progress as string" do
           let(:progress) { "foo" }
 
@@ -165,6 +180,28 @@ module Decidim::Accountability
 
         context "when submitting invalid title for result" do
           let(:title_en) { "" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+
+        context "when submitting null title for result" do
+          let(:attributes) do
+            {
+              title: nil,
+              description: { en: description_en },
+              endDate: end_date,
+              externalId: external_id,
+              progress:,
+              proposalIds: proposal_ids,
+              projectIds: project_ids,
+              startDate: start_date,
+              taxonomies:,
+              weight:,
+              decidimAccountabilityStatusId: status_id
+            }
+          end
 
           it "raises an error" do
             expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
