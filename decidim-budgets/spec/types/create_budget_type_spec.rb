@@ -101,6 +101,27 @@ module Decidim::Budgets
             expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
           end
         end
+
+
+        context "when having null title" do
+          let(:variables) do
+            {
+              component_id: current_component.id,
+              input: {
+                attributes: {
+                  title: nil,
+                  description: { en: description_en },
+                  totalBudget: total_budget
+                }
+              }
+            }
+          end
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+
       end
     end
 

@@ -112,6 +112,31 @@ module Decidim::Budgets
           end
         end
 
+        context "when having null title" do
+          let(:variables) do
+            {
+              component_id: current_component.id,
+              budget_id: model.id,
+              input: {
+                attributes: {
+                  title: nil,
+                  description: { en: description_en },
+                  budgetAmount: budget_amount,
+                  address:,
+                  latitude:,
+                  longitude:,
+                  proposalIds: [proposal.id],
+                  taxonomies: [taxonomy_id]
+                }
+              }
+            }
+          end
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+
         context "when submitting budget_amount as string" do
           let(:budget_amount) { "foo" }
 

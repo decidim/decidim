@@ -111,6 +111,34 @@ module Decidim::Budgets
           end
         end
 
+        context "when having null title" do
+          let(:variables) do
+            {
+              component_id: current_component.id,
+              budget_id: model.id,
+              input: {
+                id: project.id,
+                attributes: {
+                  title: nil,
+                  description: { en: description_en },
+                  budgetAmount: budget_amount,
+                  address:,
+                  latitude:,
+                  longitude:,
+                  proposalIds: [proposal.id],
+                  taxonomies: [taxonomy_id]
+                }
+              }
+            }
+          end
+
+          it "raises an error" do
+            expect(response["updateProject"]).to be_present
+            expect(response["updateProject"]["title"]).to be_present
+            expect(response["updateProject"]["title"]["translation"]).to eq(translated(model.title))
+          end
+        end
+
         context "when submitting budget_amount as string" do
           let(:budget_amount) { "foo" }
 

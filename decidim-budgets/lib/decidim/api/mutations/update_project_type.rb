@@ -52,8 +52,8 @@ module Decidim
           budget_amount: context[:project].budget_amount
         )
 
-        attributes[:title] = attributes.to_h.fetch(:title, context[:project].title)
-        attributes[:description] = attributes.to_h.fetch(:description, context[:project].description)
+        attributes[:title] = attributes.to_h.fetch(:title, context[:project].title).presence || context[:project].title
+        attributes[:description] = attributes.to_h.fetch(:description, context[:project].description).presence || context[:project].description
         attributes[:proposal_ids] = attributes.to_h.fetch(:proposal_ids, context[:project].linked_resources(:proposals, "included_proposals").map(&:id))
 
         attributes[:taxonomies] = attributes.to_h.fetch(:taxonomies, context[:project].taxonomies.map(&:id))
