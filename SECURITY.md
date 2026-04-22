@@ -21,11 +21,11 @@ include the latest design and features.
 Security is very important to us.
 
 If you have any issue regarding security, please disclose the information
-responsibly by any of these ways:
+responsibly through any of the following ways:
 
-1. creating a new advisory through the [GitHub Security Advisory][GitHub Security Advisory]
+1. Creating a new advisory through the [GitHub Security Advisory][GitHub Security Advisory]
 
-2. sending an email to security [at] decidim [dot] org
+2. Sending an email to security [at] decidim [dot] org
 
 Please do not create a public github/metadecidim issue for security vulnerabilities.
 
