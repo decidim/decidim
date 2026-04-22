@@ -73,7 +73,7 @@ describe "User activity" do
         allow_any_instance_of(Decidim::ActivityCell).to receive(:resource_link_path).and_return("/example/path")
         # rubocop:enable RSpec/AnyInstance
 
-        page.visit decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale)
+        page.visit decidim.profile_activity_path(nickname: user.nickname)
         within "#activities-container" do
           expect(page).to have_css("[data-activity]", count: 3)
 
@@ -88,7 +88,7 @@ describe "User activity" do
 
   describe "accessing the user activity page" do
     before do
-      page.visit decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale)
+      page.visit decidim.profile_activity_path(nickname: user.nickname)
     end
 
     it "displays the activities at the home page" do
@@ -119,7 +119,7 @@ describe "User activity" do
     context "when accessing a nonexistent profile" do
       before do
         allow(page.config).to receive(:raise_server_errors).and_return(false)
-        visit decidim.profile_activity_path(nickname: "invalid_nickname", locale: I18n.locale)
+        visit decidim.profile_activity_path(nickname: "invalid_nickname")
       end
 
       it "displays an error message" do

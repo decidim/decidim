@@ -175,19 +175,19 @@ module Decidim
       attr_reader :wizard_steps
 
       def fill_personal_data_path
-        fill_personal_data_initiative_signatures_path(current_initiative, locale: current_locale)
+        fill_personal_data_initiative_signatures_path(current_initiative)
       end
 
       def sms_code_path
-        sms_code_initiative_signatures_path(current_initiative, locale: current_locale)
+        sms_code_initiative_signatures_path(current_initiative)
       end
 
       def finish_path
-        finish_initiative_signatures_path(current_initiative, locale: current_locale)
+        finish_initiative_signatures_path(current_initiative)
       end
 
       def sms_phone_number_path
-        sms_phone_number_initiative_signatures_path(current_initiative, locale: current_locale)
+        sms_phone_number_initiative_signatures_path(current_initiative)
       end
 
       def build_vote_form(parameters)
@@ -300,7 +300,6 @@ module Decidim
       def create_ephemeral_user
         form = Decidim::EphemeralUserForm.new(
           organization: current_organization,
-          locale: current_locale,
           onboarding_data: current_initiative_onboarding_data
         )
         CreateEphemeralUser.call(form) do
@@ -315,8 +314,8 @@ module Decidim
           "model" => current_initiative.to_gid,
           "permissions_holder" => initiative_type.to_gid,
           "action" => "vote",
-          "redirect_path" => initiative_path(current_initiative, locale: current_locale),
-          "authorization_path" => initiative_signatures_path(current_initiative, locale: current_locale)
+          "redirect_path" => initiative_path(current_initiative),
+          "authorization_path" => initiative_signatures_path(current_initiative)
         }
       end
     end

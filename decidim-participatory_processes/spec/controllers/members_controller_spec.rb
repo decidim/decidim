@@ -9,7 +9,7 @@ module Decidim
       routes { Decidim::ParticipatoryProcesses::Engine.routes }
 
       let(:organization) { create(:organization) }
-      let(:destination_path) { decidim_participatory_processes.participatory_process_path(participatory_space, locale: I18n.locale) }
+      let(:destination_path) { decidim_participatory_processes.participatory_process_path(participatory_space) }
       let(:slug_param) { "participatory_process_slug" }
       let(:slug) { participatory_space.slug }
 

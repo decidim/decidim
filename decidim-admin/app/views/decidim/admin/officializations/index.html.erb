@@ -25,10 +25,10 @@
         <tr data-user-id="<%= user.id %>">
           <% if user.nickname.present? %>
             <td data-label="<%= t(".name") %>">
-              <%= link_to user.name, decidim.profile_path(user.nickname, locale: current_locale) %>
+              <%= link_to user.name, decidim.profile_path(user.nickname) %>
             </td>
             <td data-label="<%= t(".nickname") %>">
-              <%= link_to user.nickname, decidim.profile_path(user.nickname, locale: current_locale) %>
+              <%= link_to user.nickname, decidim.profile_path(user.nickname) %>
             </td>
           <% else %>
             <td data-label="<%= t(".name") %>">

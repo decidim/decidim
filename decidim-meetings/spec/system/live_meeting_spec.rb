@@ -12,16 +12,14 @@ describe "Meeting live event" do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
       component_id: component.id,
-      id: meeting.id,
-      locale: I18n.locale
+      id: meeting.id
     )
   end
   let(:meeting_live_event_path) do
     decidim_participatory_process_meetings.meeting_live_event_path(
       participatory_process_slug: participatory_process.slug,
       component_id: component.id,
-      meeting_id: meeting.id,
-      locale: I18n.locale
+      meeting_id: meeting.id
     )
   end
 

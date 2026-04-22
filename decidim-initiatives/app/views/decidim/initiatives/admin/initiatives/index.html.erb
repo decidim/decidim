@@ -83,7 +83,7 @@
 
                   <% if allowed_to? :print, :initiative, initiative: initiative %>
                     <li class="dropdown__item">
-                      <%= link_to decidim_initiatives.print_initiative_path(initiative, locale: current_locale), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
+                      <%= link_to decidim_initiatives.print_initiative_path(initiative), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
                         <%= icon "printer-line" %>
                         <%= t(".print") %>
                       <% end %>
@@ -94,7 +94,7 @@
 
                   <% if allowed_to? :preview, :initiative, initiative: initiative %>
                     <li class="dropdown__item">
-                      <%= link_to decidim_initiatives.initiative_path(initiative.to_param, locale: current_locale), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
+                      <%= link_to decidim_initiatives.initiative_path(initiative.to_param), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
                         <%= icon "eye-line" %>
                         <%= t(".preview") %>
                       <% end %>

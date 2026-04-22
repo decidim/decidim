@@ -13,7 +13,7 @@ describe "Conference partners" do
 
   context "when there are no partners" do
     it "the menu link is not shown" do
-      visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+      visit decidim_conferences.conference_path(conference)
       expect(page).to have_no_content("Partners")
     end
   end
@@ -23,7 +23,7 @@ describe "Conference partners" do
     let!(:collaborators) { create_list(:partner, 2, :collaborator, conference:) }
 
     it "the menu link is shown" do
-      visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+      visit decidim_conferences.conference_path(conference)
 
       within "aside .conference__nav-container" do
         expect(page).to have_content("Partners")
@@ -32,7 +32,7 @@ describe "Conference partners" do
     end
 
     it "lists all conference partners" do
-      visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+      visit decidim_conferences.conference_path(conference)
 
       within "#conference-partners-main_promotor" do
         expect(page).to have_content("Organizers")

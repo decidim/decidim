@@ -24,7 +24,7 @@ module Decidim
       def price
         return if model.price.blank? || model.price.zero?
 
-        number_to_currency(model.price, locale: I18n.locale, unit: Decidim.currency_unit)
+        number_to_currency(model.price, unit: Decidim.currency_unit)
       end
 
       def allowed?

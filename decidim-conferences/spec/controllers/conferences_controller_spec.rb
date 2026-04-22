@@ -55,7 +55,7 @@ module Decidim
       describe "GET show" do
         context "when the conference is unpublished" do
           it "redirects to sign in path" do
-            get :show, params: { slug: unpublished_conference.slug, locale: I18n.locale }
+            get :show, params: { slug: unpublished_conference.slug }
 
             expect(response).to redirect_to(new_user_session_path)
           end
@@ -68,7 +68,7 @@ module Decidim
             end
 
             it "redirects to root path" do
-              get :show, params: { slug: unpublished_conference.slug, locale: I18n.locale }
+              get :show, params: { slug: unpublished_conference.slug }
 
               expect(response).to redirect_to(root_path)
             end

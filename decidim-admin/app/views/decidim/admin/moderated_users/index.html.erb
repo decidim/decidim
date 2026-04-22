@@ -40,10 +40,10 @@
 
         <% if moderation.user.nickname.present? %>
           <td data-label="<%= t(".name") %>">
-            <%= link_to moderation.user.name, decidim.profile_path(moderation.user.nickname, locale: current_locale) %>
+            <%= link_to moderation.user.name, decidim.profile_path(moderation.user.nickname) %>
           </td>
           <td data-label="<%= t(".nickname") %>">
-            <%= link_to moderation.user.nickname, decidim.profile_path(moderation.user.nickname, locale: current_locale) %>
+            <%= link_to moderation.user.nickname, decidim.profile_path(moderation.user.nickname) %>
           </td>
         <% else %>
           <td data-label="<%= t(".name") %>">

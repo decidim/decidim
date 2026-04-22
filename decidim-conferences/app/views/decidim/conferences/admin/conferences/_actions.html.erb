@@ -38,7 +38,7 @@
 
       <% if allowed_to? :preview, :conference, conference: conference %>
         <li class="dropdown__item">
-          <%= link_to decidim_conferences.conference_path(conference, locale: current_locale), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
+          <%= link_to decidim_conferences.conference_path(conference), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
             <%= icon "eye-line" %>
             <%= t("decidim.admin.actions.preview") %>
           <% end %>

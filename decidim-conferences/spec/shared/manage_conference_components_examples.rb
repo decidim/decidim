@@ -196,7 +196,7 @@ shared_examples "manage conference components" do
       let(:published_at) { Time.current }
 
       it "hides the component from the menu" do
-        visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+        visit decidim_conferences.conference_path(conference)
         expect(page).to have_content decidim_escape_translated(component.name)
 
         visit decidim_admin_conferences.components_path(conference)
@@ -211,7 +211,7 @@ shared_examples "manage conference components" do
           expect(page).to have_css("a", text: "Unpublish")
         end
 
-        visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+        visit decidim_conferences.conference_path(conference)
         expect(page).to have_no_content decidim_escape_translated(component.name)
       end
     end

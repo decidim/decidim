@@ -152,7 +152,7 @@ module Decidim
         authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
         return unless authorizations.ephemeral?
 
-        form = Decidim::EphemeralUserForm.new(organization: current_organization, locale: current_locale)
+        form = Decidim::EphemeralUserForm.new(organization: current_organization)
         CreateEphemeralUser.call(form) do
           on(:ok) do |ephemeral_user|
             sign_in(ephemeral_user)

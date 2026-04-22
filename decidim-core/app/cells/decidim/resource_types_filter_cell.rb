@@ -31,7 +31,7 @@ module Decidim
       if options[:source] == :last_activities
         last_activities_path(filter: { with_resource_type: resource_type })
       else
-        profile_activity_path(nickname: params[:nickname], locale: current_locale, filter: { resource_type: })
+        profile_activity_path(nickname: params[:nickname], filter: { resource_type: })
       end
     end
 

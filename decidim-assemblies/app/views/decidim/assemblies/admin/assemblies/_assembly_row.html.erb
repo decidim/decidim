@@ -96,7 +96,7 @@
 
           <% if allowed_to? :preview, :assembly, assembly: assembly %>
             <li class="dropdown__item">
-              <%= link_to decidim_assemblies.assembly_path(assembly, locale: current_locale), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
+              <%= link_to decidim_assemblies.assembly_path(assembly), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
                 <%= icon "eye-line" %>
                 <%= t("actions.preview", scope: "decidim.admin") %>
               <% end %>

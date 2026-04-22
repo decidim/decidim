@@ -29,8 +29,7 @@ describe "Meeting poll administration" do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
       component_id: component.id,
-      id: meeting.id,
-      locale: I18n.locale
+      id: meeting.id
     )
   end
   let(:body_multiple_option_question) do

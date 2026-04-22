@@ -8,7 +8,7 @@ module Decidim
       private
 
       def resource_path
-        Decidim::Assemblies::Engine.routes.url_helpers.assembly_path(model, locale: current_locale)
+        Decidim::Assemblies::Engine.routes.url_helpers.assembly_path(model)
       end
 
       def resource_image_url

@@ -77,7 +77,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def user_path
-        h.decidim.profile_path(present_user_nickname, locale: I18n.locale)
+        h.decidim.profile_path(present_user_nickname)
       end
     end
   end
