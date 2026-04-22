@@ -5,7 +5,7 @@ module Decidim
   #
   # Decidim adds the locale as a URL path segment (e.g. `/en/processes`), so
   # the URL passed to the helper and `request.original_fullpath` both carry a
-  # locale prefix. This module normalises the URL argument to always carry the
+  # locale prefix. This module normalizes the URL argument to always carry the
   # current locale prefix before delegating to the gem, so active-state
   # detection works correctly regardless of whether the caller already included
   # the locale in the URL or not.
@@ -95,7 +95,7 @@ module Decidim
     end
 
     # Rewrites the path component of +url+ so it begins with the +current+ locale
-    # prefix. Any pre-existing locale prefix is stripped first to prevent
+    # prefix. Any preexisting locale prefix is stripped first to prevent
     # double-prefixing (e.g. +/en/en/foo+ would never be produced).
     #
     # Returns +url+ unchanged when the URI cannot be parsed.
