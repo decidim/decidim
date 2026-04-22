@@ -68,7 +68,7 @@ module Decidim::Budgets
     end
 
     shared_examples "API creatable project" do
-      it "creates a new budget" do
+      it "creates a new project" do
         expect do
           execute_query(query, variables)
         end.to change(Decidim::Budgets::Project, :count).by(1)
@@ -145,7 +145,7 @@ module Decidim::Budgets
           end
         end
 
-        context "when submitting invalid budget_amount budget" do
+        context "when submitting invalid budget_amount in project" do
           let(:budget_amount) { 0 }
 
           it "raises an error" do
@@ -162,7 +162,7 @@ module Decidim::Budgets
           end
         end
 
-        context "when submitting taxonomy budget" do
+        context "when submitting taxonomy in project" do
           let(:taxonomy_id) { 0 }
 
           it "raises an error" do
@@ -171,7 +171,7 @@ module Decidim::Budgets
           end
         end
 
-        context "when submitting invalid title for budget" do
+        context "when submitting invalid title for project" do
           let(:title_en) { "" }
 
           it "raises an error" do
