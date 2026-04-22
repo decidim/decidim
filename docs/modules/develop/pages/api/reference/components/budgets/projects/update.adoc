@@ -16,10 +16,9 @@ When you want to update a project in your inside your budget component, you need
 • taxonomies            (optional) - Taxonomy ids to assign to this project
 ----
 
-
 == Sample request
 
-The `CreateProject` mutation allows authenticated administrators to create new projects within a budget in a Decidim budget component. This mutation uses the existing `CreateProject` command from the admin controller.
+The `UpdateProject` mutation allows authenticated administrators to update existing projects within a budget in a Decidim budget component. This mutation uses the existing `UpdateProject` command from the admin controller.
 
 [source,graphql]
 ----
@@ -93,7 +92,7 @@ Sometimes, you may get a server response like:
       "path": [
         "component",
         "budget",
-        "createProject"
+        "updateProject"
       ],
       "extensions": {
         "code": "ATTRIBUTE_VALIDATION_ERROR"
