@@ -45,7 +45,7 @@ module Decidim::Budgets
       context "when budget is already deleted" do
         let!(:model) { create(:budget, component: current_component, total_budget: 1_000) }
 
-        before { model.delete }
+        before { model.destroy }
 
         it "raises an error" do
           expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")

@@ -45,7 +45,7 @@ module Decidim::Budgets
             description {
               translation(locale: "#{locale}")
             }
-            total_budget
+            totalBudget
           }
         }
       GRAPHQL
@@ -58,7 +58,7 @@ module Decidim::Budgets
           expect(updated_budget["id"].to_i).to eq(model.id)
           expect(updated_budget["title"]["translation"]).to eq(title_en)
           expect(updated_budget["description"]["translation"]).to eq(description_en)
-          expect(updated_budget["total_budget"]).to eq(total_budget)
+          expect(updated_budget["totalBudget"]).to eq(total_budget)
         end
 
         context "when performing a partial update" do
@@ -120,7 +120,7 @@ module Decidim::Budgets
             }
           end
 
-          it "raises an error" do
+          it "preserves the title" do
             expect(response["updateBudget"]).to be_present
             expect(response["updateBudget"]["title"]).to be_present
             expect(response["updateBudget"]["title"]["translation"]).to eq(translated(model.title))

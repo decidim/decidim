@@ -61,7 +61,7 @@ module Decidim::Budgets
               id
               name { translation(locale: "#{locale}") }
             }
-            budget_amount
+            budgetAmount
           }
         }
       GRAPHQL
@@ -79,7 +79,7 @@ module Decidim::Budgets
         expect(project["id"]).to be_present
         expect(project["title"]["translation"]).to eq(title_en)
         expect(project["description"]["translation"]).to eq(description_en)
-        expect(project["budget_amount"]).to eq(budget_amount)
+        expect(project["budgetAmount"]).to eq(budget_amount)
         expect(project["relatedProposals"]).to eq([{ "id" => proposal.id.to_s }])
         expect(project["coordinates"]).to eq(
           { "longitude" => longitude, "latitude" => latitude }

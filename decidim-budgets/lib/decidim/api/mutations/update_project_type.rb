@@ -38,7 +38,7 @@ module Decidim
       private
 
       def project(id = nil)
-        context[:project] ||= object.projects.find_by(id:)
+        context[:project] ||= object.projects.find(id)
       end
 
       def extract_from(attributes)

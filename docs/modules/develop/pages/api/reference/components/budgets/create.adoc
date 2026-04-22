@@ -9,7 +9,7 @@ When you want to add or create data in your budget component, you need to rely o
 • title                 (optional) - JSON
 • description           (optional) - JSON
 • total_budget          (optional) - Integer
-• taxonomies            (optional) - Taxonomy ids to assign to this budget
+• weight                (optional) - Integer
 ----
 
 == Sample request

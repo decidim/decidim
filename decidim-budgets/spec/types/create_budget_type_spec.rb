@@ -37,7 +37,7 @@ module Decidim::Budgets
             description {
               translation(locale: "#{locale}")
             }
-            total_budget
+            totalBudget
           }
         }
       GRAPHQL
@@ -55,7 +55,7 @@ module Decidim::Budgets
         expect(budget["id"]).to be_present
         expect(budget["title"]["translation"]).to eq(title_en)
         expect(budget["description"]["translation"]).to eq(description_en)
-        expect(budget["total_budget"]).to eq(total_budget)
+        expect(budget["totalBudget"]).to eq(total_budget)
       end
 
       context "when having invalid arguments" do

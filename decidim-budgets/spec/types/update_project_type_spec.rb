@@ -14,7 +14,7 @@ module Decidim::Budgets
     let(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
     let!(:proposal) { create(:proposal, component: proposals_component) }
     let!(:project) { create(:project, budget:) }
-    let(:model) { project }
+    let(:model) { budget }
 
     let(:address) { Faker::Address.full_address }
     let(:title_en) { Faker::Lorem.sentence(word_count: 3) }
@@ -65,7 +65,7 @@ module Decidim::Budgets
               id
               name { translation(locale: "#{locale}") }
             }
-            budget_amount
+            budgetAmount
           }
         }
       GRAPHQL
@@ -77,7 +77,7 @@ module Decidim::Budgets
         expect(project["id"]).to be_present
         expect(project["title"]["translation"]).to eq(title_en)
         expect(project["description"]["translation"]).to eq(description_en)
-        expect(project["budget_amount"]).to eq(budget_amount)
+        expect(project["budgetAmount"]).to eq(budget_amount)
         expect(project["relatedProposals"]).to eq([{ "id" => proposal.id.to_s }])
         expect(project["coordinates"]).to eq(
           { "longitude" => longitude, "latitude" => latitude }
@@ -132,10 +132,10 @@ module Decidim::Budgets
             }
           end
 
-          it "raises an error" do
+          it "preserves the title" do
             expect(response["updateProject"]).to be_present
             expect(response["updateProject"]["title"]).to be_present
-            expect(response["updateProject"]["title"]["translation"]).to eq(translated(model.title))
+            expect(response["updateProject"]["title"]["translation"]).to eq(translated(project.title))
           end
         end
 
