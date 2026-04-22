@@ -195,7 +195,7 @@ module Decidim::Budgets
       end
     end
 
-    it "does not create project for unauthorized user" do
+    it "does not update project for unauthorized user" do
       expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
     end
   end
