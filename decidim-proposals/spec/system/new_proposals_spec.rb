@@ -53,6 +53,22 @@ describe "Proposals" do
       visit_component
     end
 
+    context "with an empty form" do
+      it "allows submission and show errors" do
+        visit_component
+        click_on "New proposal"
+
+        expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+        within ".new_proposal" do
+          find("*[type=submit]").click
+          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+          expect(find("button[type='submit']")).not_to be_disabled
+        end
+      end
+    end
+
     context "and draft proposal exists for current users" do
       let!(:draft) { create(:proposal, :draft, component:, users: [user]) }
 

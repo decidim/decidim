@@ -23,6 +23,27 @@ describe "Edit proposals" do
       login_as user, scope: :user
     end
 
+    context "and empties the form" do
+      it "allows submission and show errors" do
+        visit_component
+
+        click_on proposal_title
+        find("#dropdown-trigger-resource-#{proposal.id}").click
+        click_on "Edit"
+
+        expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+        fill_in "proposal_title", with: ""
+
+        within ".edit_proposal" do
+          find("*[type=submit]").click
+          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+          expect(find("button[type='submit']")).not_to be_disabled
+        end
+      end
+    end
+
     it "can be updated" do
       visit_component
 
