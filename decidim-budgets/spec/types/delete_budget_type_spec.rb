@@ -29,7 +29,7 @@ module Decidim::Budgets
       context "when budget is missing" do
         let(:query) { %( mutation { deleteBudget(id: 9999999) { id } } ) }
 
-        it "returns an error" do
+        it "raises an error" do
           expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
         end
       end
@@ -37,7 +37,7 @@ module Decidim::Budgets
       context "when budget id is not integer" do
         let(:query) { %( mutation { deleteBudget(id: "aaaa") { id } } ) }
 
-        it "returns an error" do
+        it "raises an error" do
           expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
         end
       end
@@ -47,7 +47,7 @@ module Decidim::Budgets
 
         before { model.delete }
 
-        it "returns an error" do
+        it "raises an error" do
           expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
         end
       end
@@ -57,7 +57,7 @@ module Decidim::Budgets
         let(:current_component2) { create(:budgets_component, organization: current_organization) }
         let(:query) { %( mutation { deleteBudget(id: #{model2.id}) { id } } ) }
 
-        it "returns an error" do
+        it "raises an error" do
           expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
         end
       end
@@ -72,7 +72,7 @@ module Decidim::Budgets
     end
 
     context "with normal user" do
-      it "returns an error" do
+      it "raises an error" do
         expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
       end
 
@@ -82,7 +82,7 @@ module Decidim::Budgets
     context "with visitor user" do
       let!(:current_user) { nil }
 
-      it "returns nil" do
+      it "raises an error" do
         expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
       end
 

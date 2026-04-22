@@ -102,7 +102,6 @@ module Decidim::Budgets
           end
         end
 
-
         context "when having null title" do
           let(:variables) do
             {
@@ -121,7 +120,6 @@ module Decidim::Budgets
             expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
           end
         end
-
       end
     end
 

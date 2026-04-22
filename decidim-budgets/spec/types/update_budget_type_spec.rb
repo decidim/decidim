@@ -127,7 +127,6 @@ module Decidim::Budgets
           end
         end
 
-
         context "when submitting total budget as string" do
           let(:total_budget) { "foo" }
 
@@ -161,7 +160,7 @@ module Decidim::Budgets
     end
 
     context "with normal user" do
-      it "returns nil" do
+      it "raises an error" do
         expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
       end
     end
@@ -169,7 +168,7 @@ module Decidim::Budgets
     context "with visitor user" do
       let(:current_user) { nil }
 
-      it "returns nil" do
+      it "raises an error" do
         expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
       end
     end
