@@ -64,7 +64,6 @@ describe "User manages posts" do
 
         fill_in "post_title", with: "My post"
         fill_in "post_body", with: "This is my post"
-        dynamically_attach_file(:post_documents, Decidim::Dev.asset("city.jpeg"))
         click_on "Create"
 
         expect(page).to have_content "My post"
