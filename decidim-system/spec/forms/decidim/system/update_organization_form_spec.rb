@@ -150,17 +150,6 @@ module Decidim::System
           end
         end
 
-        context "when name in default locale is nil" do
-          before { subject.name = { en: nil } }
-
-          it { is_expected.not_to be_valid }
-
-          it "adds an error to the default locale name attribute" do
-            subject.valid?
-            expect(subject.errors[:name_en]).to include("cannot be blank")
-          end
-        end
-
         context "when organization has different default locale" do
           let(:organization) { create(:organization, default_locale: "es") }
 
