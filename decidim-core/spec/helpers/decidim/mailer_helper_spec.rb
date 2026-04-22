@@ -72,7 +72,7 @@ module Decidim
           let(:cdn_host) { "https://cdn.example.org" }
 
           before do
-            allow(Decidim).to receive(:storage_cdn_host).and_return(cdn_host)
+            allow(Rails.application.secrets).to receive(:dig).with(:storage, :cdn_host).and_return(cdn_host)
           end
 
           it "transforms image URLs with the CDN host" do

@@ -14,8 +14,8 @@ module Decidim
     def decidim_transform_image_urls(content, host)
       return content if host.blank? || content.blank?
 
-      root_url = if Decidim.storage_cdn_host.present?
-                   Decidim.storage_cdn_host.chomp("/")
+      root_url = if Rails.application.secrets.dig(:storage, :cdn_host).present?
+                   Rails.application.secrets.dig(:storage, :cdn_host).chomp("/")
                  else
                    Decidim::EngineRouter.new("decidim", {}).root_url(host:).chomp("/")
                  end
