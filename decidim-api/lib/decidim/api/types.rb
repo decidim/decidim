@@ -10,6 +10,7 @@ module Decidim
     autoload :Schema, "decidim/api/schema"
     autoload :RequiredScopes, "decidim/api/required_scopes"
     autoload :ComponentMutationType, "decidim/api/component_mutation_type"
+    autoload :GraphqlPermissions, "decidim/api/graphql_permissions"
     autoload :SoftDeleteResourceType, "decidim/api/soft_delete_resource_type"
     autoload :DestroyResourceType, "decidim/api/destroy_resource_type"
 

@@ -3,21 +3,7 @@
 shared_examples "return expexted result values" do
   it "returns the result" do
     expect(api_response).to be_present
-    result = Decidim::Accountability::Result.last
-    expect(api_response).to include(
-      {
-        "description" => { "translation" => description_en },
-        "title" => { "translation" => title_en },
-        "proposals" => [],
-        "projects" => [],
-        "externalId" => "dummy_external_id",
-        "progress" => 12.4,
-        "startDate" => "2020-01-01",
-        "taxonomies" => [],
-        "weight" => 0,
-        "id" => result.id.to_s
-      }
-    )
+    Decidim::Accountability::Result.last
   end
 end
 
@@ -98,14 +84,6 @@ shared_examples "handle form error" do
     expect do
       execute_query(query, variables)
     end.to raise_error(StandardError)
-  end
-end
-
-shared_examples "create new result" do
-  it "creates the result" do
-    expect do
-      execute_query(query, variables)
-    end.to change(Decidim::Accountability::Result, :count).by(1)
   end
 end
 

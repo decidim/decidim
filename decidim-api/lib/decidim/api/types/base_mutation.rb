@@ -12,9 +12,7 @@ module Decidim
         input_object_class BaseInputObject
 
         required_scopes "api:read", "api:write"
-
-        private
-
+        
         def handle_form_submission(&block)
           result = block.call
 

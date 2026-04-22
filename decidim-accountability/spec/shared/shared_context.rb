@@ -22,8 +22,8 @@ end
 RSpec.shared_context "with taxonomies, attached_resources, and status" do
   include_context "with linking resources"
 
-  let!(:initial_status) { create(:status, component: component, key: "started", name: { en: "Started" }) }
-  let!(:finished_status) { create(:status, component: component, key: "finished", name: { en: "Finished" }) }
+  let!(:initial_status) { create(:status, component:, key: "started", name: { en: "Started" }) }
+  let!(:finished_status) { create(:status, component:, key: "finished", name: { en: "Finished" }) }
 end
 
 RSpec.shared_context "with linking resources" do
@@ -44,30 +44,6 @@ RSpec.shared_context "with taxonomies" do
   let!(:invalid_root) { create(:taxonomy, organization: foreign_organization) }
   let!(:invalid_taxonomies) { create_list(:taxonomy, 2, parent: invalid_root, organization: foreign_organization) }
   let!(:valid_taxonomies) { create_list(:taxonomy, 2, parent: valid_root, organization:) }
-end
-
-RSpec.shared_context "when managing result through API" do
-  let(:attributes) do
-    {
-      title: { en: title_en },
-      description: { en: description_en },
-      endDate: end_date,
-      externalId: external_id,
-      progress: progress,
-      proposalIds: proposal_ids,
-      projectIds: project_ids,
-      startDate: start_date,
-      taxonomies: taxonomies,
-      weight: weight,
-      decidimAccountabilityStatusId: status_id
-    }
-  end
-  let(:locale) { "en" }
-  let!(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization:) }
-  let(:component) do
-    create(:component, manifest_name: "accountability", participatory_space: participatory_process)
-  end
 end
 
 RSpec.shared_context "when managing milestone through API" do

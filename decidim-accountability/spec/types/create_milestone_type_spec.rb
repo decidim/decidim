@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/mutation_context"
 
 module Decidim::Accountability
   describe CreateMilestoneType, type: :graphql do
@@ -18,7 +17,7 @@ module Decidim::Accountability
     let(:variables) do
       {
         input: {
-          attributes: attributes
+          attributes:
         }
       }
     end

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/mutation_context"
 
 module Decidim::Accountability
   describe UpdateResultType, type: :graphql do
@@ -30,7 +29,7 @@ module Decidim::Accountability
       {
         input: {
           id: result.id,
-          attributes: attributes
+          attributes:
         }
       }
     end
