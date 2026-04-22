@@ -38,6 +38,10 @@ module Decidim
         true
       end
 
+      def self.permission_chain(object)
+        super.unshift(Decidim::Budgets::Admin::Permissions)
+      end
+
       private
 
       def project(id = nil)
