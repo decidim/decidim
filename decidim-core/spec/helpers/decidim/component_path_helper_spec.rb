@@ -55,9 +55,9 @@ module Decidim
           I18n.with_locale(:ca) { example.run }
         end
 
-        it "keeps admin path without locale query injection" do
+        it "adds the locale to the admin path" do
           expect(helper.manage_component_path(component))
-            .to eq("/en/admin/participatory_processes/my-process/components/21/manage/")
+            .to eq("/ca/admin/participatory_processes/my-process/components/21/manage/")
         end
       end
     end
