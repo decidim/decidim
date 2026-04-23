@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -103,7 +104,7 @@ id:
       badges:
         attended_meetings:
           conditions:
-            - Daftarkan dalam pertemuan yang ingin Anda hadiri
+          - Daftarkan dalam pertemuan yang ingin Anda hadiri
           description: Lencana ini diberikan ketika Anda menghadiri beberapa pertemuan tatap muka.
           description_another: Pengguna ini telah menghadiri %{score} rapat.
           description_own: Anda telah menghadiri %{score} pertemuan.
