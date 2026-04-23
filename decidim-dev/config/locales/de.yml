@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -51,7 +52,7 @@ de:
       badges:
         test:
           conditions:
-            - Verwenden Sie eine Testumgebung für Decidim.
+          - Verwenden Sie eine Testumgebung für Decidim.
           description: Benutzer erhalten dieses Badge, indem sie Tests erstellen.
           description_another: Dieser Benutzer hat %{score} Tests erstellt.
           description_own: Sie haben %{score} Tests erstellt.
