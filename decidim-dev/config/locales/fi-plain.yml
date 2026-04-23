@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -51,7 +52,7 @@ fi-pl:
       badges:
         test:
           conditions:
-            - Käytä testiympäristöä Decidimille.
+          - Käytä testiympäristöä Decidimille.
           description: Käyttäjät saavat tämän kunniamerkin luomalla testejä.
           description_another: Tämä käyttäjä on luonut %{score} testiä.
           description_own: Olet luonut %{score} testiä.
