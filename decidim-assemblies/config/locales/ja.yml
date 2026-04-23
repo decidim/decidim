@@ -192,8 +192,6 @@ ja:
       taxonomy_filters:
         space_filter_for:
           assemblies: すべての参加スペース
-      titles:
-        assemblies_types: 参加スペース種別
       tooltips:
         deleted_assemblies_info: アセンブリは、ステータスが "未公開" の場合にのみ削除できます。
     admin_log:
@@ -343,9 +341,6 @@ ja:
           highlighted_assemblies:
             active_spaces: アクティブな参加スペース
             see_all_spaces: すべての参加スペースを表示
-        user_profile:
-          member_of:
-            member_of: メンバー
       show:
         duration: 持続期間
         social_networks_title: 参加スペースを訪問
@@ -375,8 +370,6 @@ ja:
       value_types:
         assembly_presenter:
           not_found: '参加スペースがデータベース上に見つかりませんでした (ID: %{id})'
-        assembly_type_presenter:
-          not_found: '参加スペース種別がデータベース上に見つかりませんでした (ID: %{id})'
     menu:
       assemblies: 参加スペース
     open_data:
