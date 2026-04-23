@@ -138,8 +138,6 @@ zh-CN:
             admin: 管理员
             collaborator: 协作者
             moderator: 版主
-      titles:
-        assemblies_types: 程序集类型
     admin_log:
       assembly:
         create: "%{user_name} 创建了 %{resource_name} 程序集"
@@ -203,10 +201,6 @@ zh-CN:
         working_group: 工作组
       index:
         title: 程序集
-      pages:
-        user_profile:
-          member_of:
-            member_of: 成员
       show:
         duration: 期限
     events:
@@ -231,8 +225,6 @@ zh-CN:
       value_types:
         assembly_presenter:
           not_found: '在数据库中找不到程序集 (ID: %{id})'
-        assembly_type_presenter:
-          not_found: '在数据库中找不到程序集类型 (ID: %{id})'
     menu:
       assemblies: 程序集
     participatory_processes:
