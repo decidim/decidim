@@ -97,8 +97,6 @@ sl:
           attachment_files: Datoteke
           attachments: Priponke
           components: Komponente
-      titles:
-        assemblies_types: Vrste združb
     admin_log:
       assembly_setting:
         update: "%{user_name} je uredil nastavitve za združbe"
