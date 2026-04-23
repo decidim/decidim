@@ -200,8 +200,6 @@ eu:
       taxonomy_filters:
         space_filter_for:
           assemblies: Batzar guztiak
-      titles:
-        assemblies_types: Batzar motak
       tooltips:
         deleted_assemblies_info: Batzar bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
     admin_log:
@@ -245,6 +243,7 @@ eu:
                 open: Edonork ikus dezake batzarra eta parte hartu.
                 restricted: Soilik kideek ikus dezakete batzarra eta parte hartu.
                 transparent: Edonork ikus dezake batzarra, baina soilik kideek har dezakete parte.
+              set_this_space_as: Partaidetza-espazio hau ondorengo izenarekin ezarri
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
@@ -271,13 +270,13 @@ eu:
           form:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
           new:
-            title: Bikoiztu batzarra
+            title: Batzarra bikoiztu
         assembly_imports:
           form:
             document_legend: Gehitu dokumentu bat
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
           new:
-            title: Inportatu batzarra
+            title: Batzarra inportatu
         assembly_members:
           form:
             explanation: 'Jarraibideak irudirako:'
@@ -285,7 +284,7 @@ eu:
             non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratu baino lehen.
         assembly_user_roles:
           edit:
-            title: Eguneratu batzarraren administratzailea
+            title: Batzarraren administratzailea eguneratu
           index:
             title: Batzarraren administratzaileak
           new:
@@ -357,9 +356,6 @@ eu:
           highlighted_assemblies:
             active_spaces: Batzar aktiboak
             see_all_spaces: Ikusi batzar guztiak
-        user_profile:
-          member_of:
-            member_of: 'Honen kidea:'
       show:
         duration: Iraupena
         social_networks_title: 'Bisitatu batzarra:'
@@ -389,14 +385,12 @@ eu:
       value_types:
         assembly_presenter:
           not_found: 'Batzarra ez da aurkitu datu-basean (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Batzar mota ez da aurkitu (ID: %{id}) datu-basean'
     menu:
       assemblies: Batzarrak
     open_data:
       help:
         assemblies:
-          access_mode: Sarbide mota. Batzarra irekia, murriztua edo gardena bada.
+          access_mode: Sarbide-motak. Batzarra irekia, murriztua edo gardena den.
           area: Batzarraren arloa
           assembly_type: Batzar mota
           closing_date: Zein datatan ixten den batzarra
