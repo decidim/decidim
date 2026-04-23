@@ -183,6 +183,10 @@ fi:
               empty: Henkilötietorekisterissä ei ole tietoja. Käytä %{import_csv} -toimintoa tuodaksesi tiedot järjestelmään CSV-tiedostosta.
               no_sign_in: Ei ole koskaan kirjautunut sisään
               no_user: Käyttäjää ei löytynyt
+              title: Henkilötietorekisterin tiedot
+            instructions:
+              body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmänvalvojan hallinnointinäkymään ja lisättävä csv_census-vahvistustapa organisaatiolle
+              title: Sinun on otettava käyttöön CSV-henkilötietorekisteri tälle organisaatiolle
             last_login:
               no_sign_in: Ei ole koskaan kirjautunut sisään
               no_user: Ei käyttäjää
@@ -251,6 +255,7 @@ fi:
               success: Osallistujan vahvistaminen onnistui.
             new:
               reject: Hylkää
+              title: Syötä kuvassa näkyvät tiedot
               verify: Vahvista
           offline_confirmations:
             create:
@@ -258,6 +263,7 @@ fi:
               success: Osallistujan vahvistaminen onnistui.
             new:
               cancel: Peruuta
+              title: Syötä osallistujan sähköpostiosoite ja henkilöllisyystodistuksen tiedot
               verify: Vahvista
           pending_authorizations:
             index:
