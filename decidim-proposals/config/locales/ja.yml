@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -388,8 +389,8 @@ ja:
       badges:
         accepted_proposals:
           conditions:
-            - 提出物を有効にして、興味のある参加スペースを選択してください
-            - 実行することができます提案を行うようにしてください. この方法は、彼らが受け入れられる可能性が高い.
+          - 提出物を有効にして、興味のある参加スペースを選択してください
+          - 実行することができます提案を行うようにしてください. この方法は、彼らが受け入れられる可能性が高い.
           description: このバッジは、新しい提案に積極的に参加し、これらが承認された場合に付与されます。
           description_another: この参加者は %{score} が提案を受け入れました。
           description_own: '%{score} 件の提案が受け付けられました。'
@@ -399,8 +400,8 @@ ja:
           unearned_own: あなたはまだ提案を受け入れていません。
         proposal_votes:
           conditions:
-            - 閲覧し、他の人の提案を読んでいくつかの時間を過ごします
-            - 気に入った提案に投票するか、興味深いものを見つけてください
+          - 閲覧し、他の人の提案を読んでいくつかの時間を過ごします
+          - 気に入った提案に投票するか、興味深いものを見つけてください
           description: このバッジは、他の人の提案に投票するときに付与されます。
           description_another: この参加者は %{score} の提案に投票しました。
           description_own: '%{score} の提案に投票しました。'
@@ -410,8 +411,8 @@ ja:
           unearned_own: あなたはまだ提案に投票していません。
         proposals:
           conditions:
-            - 提出物を有効にして、興味のある参加スペースを選択してください
-            - 新しい提案を作成
+          - 提出物を有効にして、興味のある参加スペースを選択してください
+          - 新しい提案を作成
           description: このバッジは、新しい提案に積極的に参加するときに付与されます。
           description_another: この参加者は %{score} 件の提案を作成しました。
           description_own: '%{score} 件の提案を作成しました。'
@@ -877,7 +878,7 @@ ja:
           edit_proposal: 編集
           estimated_cost: 推定コスト
           hidden_likes_count:
-            other: 他 %{count} 人
+            other: '%{count} 人以上'
           link_to_promoted_emendation_help_text: この提案は奨励された提案です
           link_to_promoted_emendation_text: 拒否されたemendationを参照してください。
           link_to_proposal_from_emendation_help_text: これが拒否されました
