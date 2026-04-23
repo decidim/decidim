@@ -167,8 +167,6 @@ hu:
             admin: Adminisztrátor
             collaborator: Közreműködő
             moderator: Moderátor
-      titles:
-        assemblies_types: Gyűlés típusa
     admin_log:
       assembly:
         create: "%{user_name} létrehozta a(z) %{resource_name} gyűlést"
@@ -279,9 +277,6 @@ hu:
           highlighted_assemblies:
             active_spaces: Aktív gyűlések
             see_all_spaces: Az összes közgyűlés megtekintése
-        user_profile:
-          member_of:
-            member_of: 'Tagja következőnek:'
       show:
         duration: Időtartam
         social_networks_title: Látogasd meg a gyűlést itt
@@ -308,8 +303,6 @@ hu:
       value_types:
         assembly_presenter:
           not_found: 'A gyűlés nem található az adatbázisban (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'A gyűlés típus nem található az adatbázisban (ID: %{id})'
     menu:
       assemblies: Gyűlések
     participatory_processes:
