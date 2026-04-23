@@ -1532,12 +1532,17 @@ eu:
           %{organization_name}
         hello: "%{username}, agurgarria:\n"
         subject: Kontu inaktiboa ezabatua
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Honen kidea
     participatory_space_members:
       index:
         members: Kideak
     participatory_spaces:
       show:
-        restricted_space: Hau espazio murriztua da. Kideek soilik ikus dezakete eta parte hartu.
+        restricted_space: Partaidetza espazio hau murriztua da. Kideek ikusi eta parte hartu ahal izango dute soilik.
         transparent_space: Hau espazio murriztua, baina gardena da. Edonork ikus dezake edukia, baina soilik kideek har dezakete parte.
     passwords:
       update:
@@ -1828,6 +1833,7 @@ eu:
         nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
         submit_button: Gorde
         subtitle: Gonbidapena onartzen baduzu, mesedez, ezarri zure ezizena eta pasahitza.
+        subtitle_no_password: Gonbidapena onartzen baduzu, jarri zure ezizena.
       invitation_removed: Zure gonbidapena kendu egin da.
       invitation_token_invalid: Gonbidapen token hori ez da baliozkoa!
       new:
@@ -1835,6 +1841,8 @@ eu:
         submit_button: Bidali gonbidapena
       no_invitations_remaining: Ez da gonbidapenik geratzen
       send_instructions: Gonbidapen-mezu elektroniko bat %{email} helbidera bidali da.
+      updated: Gonbidapena behar bezala onartu da. Orain erregistratuta zaude.
+      updated_not_active: Gonbidapena behar bezala onartu da.
     mailer:
       confirmation_instructions:
         action: Berretsi nire kontua
