@@ -132,11 +132,9 @@ de:
           not_required: Nicht erforderlich
           properties: Eigenschaften
           right_aside: Seitlich rechts
-          section_p_breakpoints: 'Um die Responsive Max-Breite von Elementen zu verwalten, verlassen wir uns auf die Standard `container` Schliffwind-Klasse, die folgende Haltepunkte angibt:'
           section_p_code: Wenn Sie neue Module implementieren, haben Sie einige Helfer, die Ihnen automatisch den Code zur Verfügung stellen, um die HTML-Struktur einzurichten. Du solltest diese Helfer verwenden, anstatt direkt div Elemente mit Klassen zu verwenden, damit du die Konsistenz aufrechterhalten kannst.
           section_p_code_html: Sie finden die Grundlayouts in %{link_section_code}
           section_p_desktop: Desktop-Rastersystem besteht aus 12 flexiblen Spalten mit einem Raster zwischen 16px und linken und rechten Rändern von 48px
-          section_p_mobile: Mobiles Rastersystem besteht aus 4 flexiblen Spalten mit einem Raster zwischen 16px und 16px und rechts. Für Größen unter 320px sind diese Ränder auf 8px gesetzt.
           section_p_tablet: Desktop-Rastersystem besteht aus 8 flexiblen Spalten mit einem Raster zwischen 16px und linken und rechten Rändern von 48px.
           tablet: Tablet
           title: Layout
@@ -222,7 +220,6 @@ de:
         list: Liste
         main_colors: Hauptfarben
         meeting_l: Veranstaltung L
-        meeting_s: Veranstaltung S
         meetings: Veranstaltungen
         meetings_html: Wird von <i>Meetings</i>-Karten verwendet
         metadata_items: Metadaten-Elemente
