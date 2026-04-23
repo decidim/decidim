@@ -176,8 +176,6 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
-      titles:
-        assemblies_types: Typy zespołów
     admin_log:
       assembly:
         create: "%{user_name} utworzył(a) zespół %{resource_name}"
@@ -291,9 +289,6 @@ pl:
           highlighted_assemblies:
             active_spaces: Aktywne zespoły
             see_all_spaces: Zobacz wszystkie zespoły
-        user_profile:
-          member_of:
-            member_of: Członek
       show:
         duration: Czas trwania
         social_networks_title: Odwiedź zespół na
@@ -320,8 +315,6 @@ pl:
       value_types:
         assembly_presenter:
           not_found: 'Zespół nie został znaleziony w bazie danych (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Nie znaleziono typu zespołu w bazie danych (ID: %{id})'
     menu:
       assemblies: Zespoły
     participatory_processes:
