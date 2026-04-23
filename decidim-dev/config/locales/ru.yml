@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -28,7 +29,7 @@ ru:
       badges:
         test:
           conditions:
-            - Используйте тестовую среду для decidim.
+          - Используйте тестовую среду для decidim.
           description: Участники получают этот значок за написание тестов.
           description_another: Этот участник написал %{score} тестов.
           description_own: Вы написали %{score} тест.
