@@ -466,6 +466,7 @@ fr:
                 open: Tout le monde peut voir le processus et y participer.
                 restricted: Seuls les membres peuvent voir et participer.
                 transparent: Tout le monde peut voir le processus, mais seuls les membres peuvent participer.
+              set_this_space_as: Définir cet espace comme
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             has_members_help: Vous pourrez créer et publier des membres
