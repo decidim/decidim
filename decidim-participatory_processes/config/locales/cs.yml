@@ -110,6 +110,12 @@ cs:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Podle skupiny procesů
+        with_any_access_mode:
+          label: Přístupový režim
+          values:
+            open: Otevřený
+            restricted: Omezený
+            transparent: Transparentní
       menu:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:
@@ -128,6 +134,7 @@ cs:
       models:
         participatory_process:
           fields:
+            access_mode: Přístupový režim
             actions: Akce
             created_at: Vytvořeno v
             published: Publikováno
@@ -234,6 +241,10 @@ cs:
         edit:
           update: Aktualizace
         index:
+          access_modes:
+            open: Otevřený
+            restricted: Omezený
+            transparent: Transparentní
           published: Publikováno
           unpublished: Nezveřejněno
         new:
@@ -315,6 +326,7 @@ cs:
     open_data:
       help:
         participatory_processes:
+          access_mode: Režim přístupu. Zda je proces otevřený, omezený nebo transparentní.
           area: Oblast, ve které probíhá proces
           component_settings: Nastavení komponenty procesu
           created_at: Datum, kdy byl tento prostor vytvořen
@@ -474,6 +486,8 @@ cs:
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+          new:
+            title: Duplikovat participační proces
         participatory_process_groups:
           edit:
             title: Upravit skupinu procesu
@@ -488,7 +502,16 @@ cs:
             document_legend: Přidat dokument
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_processes:
+          edit:
+            title: O tomto procesu
           form:
+            access:
+              label: Přístup
+              options:
+                open: Každý může vidět proces a zúčastnit se.
+                restricted: Pouze členové se mohou podívat a zúčastnit se.
+                transparent: Každý může proces vidět, ale mohou se účastnit pouze členové.
+              set_this_space_as: Nastavit tento prostor jako
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             has_members_help: Budete moci vytvářet a publikovat členy
@@ -501,6 +524,12 @@ cs:
             taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
+          index:
+            title: Participační procesy
+          manage_trash:
+            title: Odstraněné participační procesy
+          new:
+            title: Nový participační proces
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
