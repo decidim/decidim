@@ -61,14 +61,14 @@ module Decidim::Budgets
               id
               name { translation(locale: "#{locale}") }
             }
-            budget_amount
+            budgetAmount
           }
         }
       GRAPHQL
     end
 
     shared_examples "API creatable project" do
-      it "creates a new budget" do
+      it "creates a new project" do
         expect do
           execute_query(query, variables)
         end.to change(Decidim::Budgets::Project, :count).by(1)
@@ -79,7 +79,7 @@ module Decidim::Budgets
         expect(project["id"]).to be_present
         expect(project["title"]["translation"]).to eq(title_en)
         expect(project["description"]["translation"]).to eq(description_en)
-        expect(project["budget_amount"]).to eq(budget_amount)
+        expect(project["budgetAmount"]).to eq(budget_amount)
         expect(project["relatedProposals"]).to eq([{ "id" => proposal.id.to_s }])
         expect(project["coordinates"]).to eq(
           { "longitude" => longitude, "latitude" => latitude }
@@ -112,6 +112,31 @@ module Decidim::Budgets
           end
         end
 
+        context "when having null title" do
+          let(:variables) do
+            {
+              component_id: current_component.id,
+              budget_id: model.id,
+              input: {
+                attributes: {
+                  title: nil,
+                  description: { en: description_en },
+                  budgetAmount: budget_amount,
+                  address:,
+                  latitude:,
+                  longitude:,
+                  proposalIds: [proposal.id],
+                  taxonomies: [taxonomy_id]
+                }
+              }
+            }
+          end
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+
         context "when submitting budget_amount as string" do
           let(:budget_amount) { "foo" }
 
@@ -120,7 +145,7 @@ module Decidim::Budgets
           end
         end
 
-        context "when submitting invalid budget_amount budget" do
+        context "when submitting invalid budget_amount in project" do
           let(:budget_amount) { 0 }
 
           it "raises an error" do
@@ -137,7 +162,7 @@ module Decidim::Budgets
           end
         end
 
-        context "when submitting taxonomy budget" do
+        context "when submitting taxonomy in project" do
           let(:taxonomy_id) { 0 }
 
           it "raises an error" do
@@ -146,7 +171,7 @@ module Decidim::Budgets
           end
         end
 
-        context "when submitting invalid title for budget" do
+        context "when submitting invalid title for project" do
           let(:title_en) { "" }
 
           it "raises an error" do

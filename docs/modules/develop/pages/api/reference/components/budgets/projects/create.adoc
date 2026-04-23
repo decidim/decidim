@@ -2,7 +2,7 @@
 
 ==  Input attributes
 
-When you want to create a project in your inside your budget component, you need to rely on the `ProjectAttributes` type, which has the following input fields:
+When you want to create a project inside your budget component, you need to rely on the `ProjectAttributes` type, which has the following input fields:
 
 [source]
 ----

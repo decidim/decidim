@@ -37,7 +37,7 @@ module Decidim::Budgets
             description {
               translation(locale: "#{locale}")
             }
-            total_budget
+            totalBudget
           }
         }
       GRAPHQL
@@ -55,7 +55,7 @@ module Decidim::Budgets
         expect(budget["id"]).to be_present
         expect(budget["title"]["translation"]).to eq(title_en)
         expect(budget["description"]["translation"]).to eq(description_en)
-        expect(budget["total_budget"]).to eq(total_budget)
+        expect(budget["totalBudget"]).to eq(total_budget)
       end
 
       context "when having invalid arguments" do
@@ -96,6 +96,25 @@ module Decidim::Budgets
 
         context "when submitting invalid title for budget" do
           let(:title_en) { "" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+
+        context "when having null title" do
+          let(:variables) do
+            {
+              component_id: current_component.id,
+              input: {
+                attributes: {
+                  title: nil,
+                  description: { en: description_en },
+                  totalBudget: total_budget
+                }
+              }
+            }
+          end
 
           it "raises an error" do
             expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)

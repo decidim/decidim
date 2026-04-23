@@ -32,6 +32,10 @@ module Decidim
         true
       end
 
+      def self.permission_chain(object)
+        super.unshift(Decidim::Budgets::Admin::Permissions)
+      end
+
       private
 
       def extract_from(attributes)
@@ -44,8 +48,8 @@ module Decidim
           decidim_scope_id: object.scope&.id
         )
 
-        attributes.to_h[:title] = attributes.to_h.fetch(:title, {}).reverse_merge(object.title)
-        attributes.to_h[:description] = attributes.to_h.fetch(:description, {}).reverse_merge(object.description)
+        attributes.to_h[:title] = (attributes.to_h.fetch(:title, {}).presence || {}).reverse_merge(object.title)
+        attributes.to_h[:description] = (attributes.to_h.fetch(:description, {}).presence || {}).reverse_merge(object.description)
 
         attributes
       end

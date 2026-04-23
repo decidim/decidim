@@ -64,7 +64,8 @@ module Decidim
 
         it "returns the proposal urls" do
           expect(response["relatedProposals"].length).to eq(2)
-          expect(response["relatedProposals"]).to eq(proposals.collect { |proposal| { "id" => proposal.id.to_s } })
+          expect(response["relatedProposals"]).to include({ "id" => proposals.first.id.to_s })
+          expect(response["relatedProposals"]).to include({ "id" => proposals.last.id.to_s })
         end
       end
 
