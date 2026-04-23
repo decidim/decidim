@@ -102,8 +102,8 @@ sv:
         order:
           best_rated: Högst betyg
           most_discussed: Mest diskuterade
-          older: Gamla
-          recent: Nya
+          older: Äldsta
+          recent: Senaste
         title: 'Sortera efter:'
       comments:
         against: Mot
