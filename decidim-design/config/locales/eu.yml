@@ -135,11 +135,11 @@ eu:
           not_required: Ez da beharrezkoa
           properties: Ezaugarriak
           right_aside: Eskuin aldean
-          section_p_breakpoints: 'Web diseinu egokitzailerako elementuen gehieneko zabalera kudeatzeko, aurrez zehaztutako Tailwind ''container'' klasearen mende gaude. Horrek honako eten-puntu hauek adierazten ditu:'
+          section_p_breakpoints: 'Elementuen responsive zabalera kudeatzeko `container` Tailwind klase lehenetsian oinarritzen gara. Hauek dira babestutako ebazpenak:'
           section_p_code: Modulu berriak inplementatzean, HTML egitura konfiguratzeko beharrezkoa den kodea automatikoki ematen dizuten laguntzaile batzuk dituzu. Laguntzaile horiek erabili beharko zenituzke, <div> <class> elementuak zuzenean erabili beharrean, horrela sendotasuna mantenduz.
           section_p_code_html: 'Oinarrizko diseinuak hemen aurki ditzakezu: %{link_section_code}'
           section_p_desktop: Mahaigaineko ordenagailuentzako lauki-sistema 12 zutabe malguk osatzen dute, eta 16px-ko zutabeen eta ezkerreko eta eskuineko marjinen arteko tartea (kanala) 48px-koa da
-          section_p_mobile: Mugikorrerako lauki-sistemak 4 zutabe malgu ditu, eta 16px-ko zutabeen arteko tartea (kanala) eta ezkerreko eta eskuineko ertzak 16px-koak dira. 320px baino gutxiagoko tamainetarako, marjina horiek 8px dira
+          section_p_mobile: Lauki-sare mugikorreko sistema 4 zutabe malguk osatzen dute, 16px-ko zutabeen eta 16px-ko ezkerreko eta eskuineko marjinen arteko erretena dutenak.
           section_p_tablet: Tabletetarako lauki-sistemak 8 zutabe malgu ditu, eta 16px-ko zutabeen eta ezkerreko eta eskuineko ertzen arteko tartea (kanala) 24px-koa da
           tablet: Tableta
           title: Diseinua
@@ -225,7 +225,6 @@ eu:
         list: Zerrenda
         main_colors: Kolore nagusiak
         meeting_l: L Topaketa
-        meeting_s: S Topaketa
         meetings: Topaketak
         meetings_html: <i>Topaketak</i> txartelek erabilia
         metadata_items: Metadatuen gaiak
