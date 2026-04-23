@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -194,8 +195,8 @@ ca:
       badges:
         initiatives:
           conditions:
-            - Anar a l'espai d'Iniciatives
-            - Segueix les passes per crear una nova iniciativa
+          - Anar a l'espai d'Iniciatives
+          - Segueix les passes per crear una nova iniciativa
           description: Aquesta ensenya es concedeix quan promous noves iniciatives, unint-te amb altres per dur-les a terme.
           description_another: Aquesta participant ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
