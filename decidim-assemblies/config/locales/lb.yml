@@ -171,10 +171,6 @@ lb:
         working_group: Arbeitsgruppe
       index:
         title: Gremien
-      pages:
-        user_profile:
-          member_of:
-            member_of: Mitglied von
       show:
         duration: Dauer
     events:
@@ -199,8 +195,6 @@ lb:
       value_types:
         assembly_presenter:
           not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Der Versammlungstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Gremien
     participatory_processes:
