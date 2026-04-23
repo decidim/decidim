@@ -160,6 +160,7 @@ cs:
           title: Vytvořit novou debatu
         orders:
           label: Řazení debat podle
+          most_commented: Nejvíce komentované
           random: Náhodné pořadí
           recent: Nejnovější
           updated: Naposledy aktualizované
