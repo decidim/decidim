@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -201,8 +200,6 @@ ca:
       taxonomy_filters:
         space_filter_for:
           assemblies: Totes les assemblees
-      titles:
-        assemblies_types: Tipus d'assemblees
       tooltips:
         deleted_assemblies_info: Aquesta assemblea es pot eliminar si el seu estat és 'Despublicada'.
     admin_log:
@@ -359,9 +356,6 @@ ca:
           highlighted_assemblies:
             active_spaces: Assemblees actives
             see_all_spaces: Veure totes les assemblees
-        user_profile:
-          member_of:
-            member_of: Membre de
       show:
         duration: Durada
         social_networks_title: Visita l'assemblea a
@@ -391,8 +385,6 @@ ca:
       value_types:
         assembly_presenter:
           not_found: 'L''assemblea no s''ha trobada a la base de dades (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'El tipus d''assemblea no s''ha trobada a la base de dades (ID: %{id})'
     menu:
       assemblies: Assemblees
     open_data:
