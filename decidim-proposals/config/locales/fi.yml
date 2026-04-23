@@ -680,6 +680,7 @@ fi:
             related_meetings: Liittyvät tapaamiset
             remove_assignment: Poista tehtävä arvioijalta
             remove_assignment_confirmation: Haluatko varmasti poistaa arvioijan tästä ehdotuksesta?
+            title: Vastaa ehdotukseen
             votes_count: Äänten määrä
           update_taxonomies:
             invalid: 'Seuraavat ehdotukset oli jo määritetty %{taxonomies} luokitteluihin: %{proposals}.'
