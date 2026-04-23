@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -104,7 +103,7 @@ ca:
         other: Participants
   booleans:
     'false': 'No'
-    'true': Sí
+    'true': 'Sí'
   date:
     buttons:
       close: Tancar
@@ -178,7 +177,7 @@ ca:
     accessibility:
       external_link: Enllaç extern
       front_page_link: Anar a la pàgina principal
-      logo: Logo oficial de %{organization}
+      logo: "Logo oficial de %{organization}"
       opens_in_new_tab: Obrir en una pestanya nova
       skip_button: Vés al contingut principal
     account:
@@ -220,7 +219,7 @@ ca:
         success: El teu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
     activity:
-      time_ago: Fa %{time}
+      time_ago: "Fa %{time}"
     admin:
       actions:
         cancel: Cancel·lar
@@ -311,12 +310,12 @@ ca:
         delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
         update: "%{user_name} ha actualitzat la pàgina estàtica %{resource_name}"
       taxonomy:
-        create: '%{user_name} ha creat la taxonomia "%{resource_name}"'
-        create_with_parent: '%{user_name} ha creat "%{resource_name}" dins de la taxonomia "%{parent_taxonomy}"'
-        delete: '%{user_name} ha esborrat la taxonomia "%{resource_name}"'
-        delete_with_parent: '%{user_name} ha esborrat "%{resource_name}" dins de la taxonomia "%{parent_taxonomy}"'
-        update: '%{user_name} ha actualitzat la taxonomia "%{resource_name}"'
-        update_with_parent: '%{user_name} ha actualitzat "%{resource_name}" dins de la taxonomia "%{parent_taxonomy}"'
+        create: "%{user_name} ha creat la taxonomia \"%{resource_name}\""
+        create_with_parent: "%{user_name} ha creat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
+        delete: "%{user_name} ha esborrat la taxonomia \"%{resource_name}\""
+        delete_with_parent: "%{user_name} ha esborrat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
+        update: "%{user_name} ha actualitzat la taxonomia \"%{resource_name}\""
+        update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
       taxonomy_filter:
         create: "%{user_name} va crear el filtre %{resource_name}"
         create_with_filter_info: '%{user_name} va crear el filtre %{resource_name} basat en la taxonomia "%{taxonomy_name}" amb %{filter_items_count} element(s)'
@@ -382,11 +381,14 @@ ca:
           button_reject: Rebutjar
           help_text: Revisa els canvis i accepta o rebutja aquesta esmena. S'enviarà una notificació a la seva autora(es).
         announcement:
-          accepted: Aquesta esmena per la %{amendable_type} %{proposal_link} ha estat acceptada el <strong>%{date}</strong>.
-          evaluating: L' esmena per a %{amendable_type} %{proposal_link} está essent avaluada.
+          accepted: |-
+            Aquesta esmena per la %{amendable_type} %{proposal_link} ha estat acceptada el <strong>%{date}</strong>.
+          evaluating: |-
+            L' esmena per a %{amendable_type} %{proposal_link} está essent avaluada.
           promoted: Promocionar a %{amendable_type}.
           rejected: L' esmena de la %{amendable_type} %{proposal_link} ha estat rebutjada el <strong>%{date}</strong>.
-          withdrawn: L' esmena de la %{amendable_type} %{proposal_link} ha estat retirada per l'autora.
+          withdrawn: |-
+            L' esmena de la %{amendable_type} %{proposal_link} ha estat retirada per l'autora.
       name: Esmena
       new:
         send: Crear
@@ -506,7 +508,7 @@ ca:
           title: L'autorització encara està en progrés
         unauthorized:
           explanation: Ho sentim, no pots dur a terme aquesta acció perquè algunes de les teves dades d'autorització no coincideixen.
-          invalid_field: El valor %{value} de %{field} no és vàlid.
+          invalid_field: "El valor %{value} de %{field} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
         unconfirmed:
@@ -589,7 +591,7 @@ ca:
       hero_settings_form:
         background_image: Imatge de fons
         cta_button_path: URL del botó d'acció
-        cta_button_path_help: Pots definir on enllaça el botó d'acció a la pàgina inicial. Fes servir rutes parcials, no URL completes. L'URL accepta lletres, números, guions i barres, i ha de començar per una lletra. El botó d'acció es mostra a la pàgina inicial entre el text de benvinguda i la descripció. Exemple:%{url}
+        cta_button_path_help: 'Pots definir on enllaça el botó d''acció a la pàgina inicial. Fes servir rutes parcials, no URL completes. L''URL accepta lletres, números, guions i barres, i ha de començar per una lletra. El botó d''acció es mostra a la pàgina inicial entre el text de benvinguda i la descripció. Exemple:%{url}'
         cta_button_text: Text del botó d'acció
         cta_button_text_help: Pots canviar el text del botó de trucada a l'acció a la pàgina inicial per a cada idioma disponible a l'organització. Si no s'estableix cap text, s'utilitzarà el valor predeterminat. El botó d'acció es mostra a la pàgina inicial entre el text de benvinguda i la descripció.
         welcome_text: Text de benvinguda
@@ -967,7 +969,7 @@ ca:
       resource_liked:
         email_intro: '%{liker_name} %{liker_nickname}, a qui segueixes, li acaba d''agradar: "%{resource_title}", que et pot resultar interessant, revisa-la i contribueix:'
         email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{liker_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-        email_subject: '%{liker_nickname} ha realitzat un nou "m''agrada"'
+        email_subject: "%{liker_nickname} ha realitzat un nou \"m'agrada\""
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} li ha agradat a <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
       resources:
         soft_deleted:
@@ -981,7 +983,7 @@ ca:
         user_officialized:
           email_intro: La participant %{name} (%{nickname}) ha estat oficialitzada.
           email_outro: Has rebut aquesta notificació perquè administres la plataforma.
-          email_subject: S'ha oficialitzat a %{name}
+          email_subject: "S'ha oficialitzat a %{name}"
           notification_title: La participant %{name} (%{nickname}) ha estat oficialitzada.
     export_mailer:
       download_your_data_export:
@@ -1032,8 +1034,8 @@ ca:
       attachment_link:
         explanation: Guia per enllaços adjunts
         help_messages:
-        - Només s'accepten format d'URL correctes.
-        - Tingues en compte que els enllaços han de ser públics perquè tots els participants hi puguin accedir.
+          - Només s'accepten format d'URL correctes.
+          - Tingues en compte que els enllaços han de ser públics perquè tots els participants hi puguin accedir.
       errors:
         decidim/user:
           password: La contrasenya és massa curta.
@@ -1058,7 +1060,7 @@ ca:
       file_validation:
         allowed_file_extensions: 'Tipus de fitxers admesos: %{extensions}'
         max_file_dimension: 'Mides máximes de l''arxiu: %{resolution} pixels'
-        max_file_size: Mida màxima del fitxer:%{megabytes}MB
+        max_file_size: 'Mida màxima del fitxer:%{megabytes}MB'
       files:
         extension_allowlist: 'Formats acceptats: %{extensions}'
       upload:
@@ -1087,7 +1089,7 @@ ca:
       badges:
         followers:
           conditions:
-          - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
+            - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
           description: Aquesta distinció es concedeix quan arribis a un cert nombre de seguidors. %{organization_name} és una xarxa social i política, teixeix la teva web per comunicar-te amb altres persones a la plataforma.
           description_another: Aquesta participant té %{score} seguidores.
           description_own: "%{score} participants et segueixen."
@@ -1096,7 +1098,7 @@ ca:
           unearned_another: Aquesta participant encara no té seguidores.
           unearned_own: Encara no et segueix ningú.
         index:
-          badge_title: Ensenya %{name}
+          badge_title: "Ensenya %{name}"
           how: Com pots aconseguir-la
           page_description: Les ensenyes són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus. Aquí tens la llista d'ensenyes i algunes formes d'aconseguir-les.
           title: Ensenyes
@@ -1176,7 +1178,7 @@ ca:
         taxonomy_presenter:
           not_found: 'No s''ha trobat la taxonomia a la base de dades (ID: %{id})'
     machine_translations:
-      automatic: traducció automàtica a %{locale_name}
+      automatic: traducció automàtica a %{locale_name} 
     managed_users:
       expired_session: La sessió actual d'administració d'una participant ha caducat.
     map:
@@ -1240,7 +1242,7 @@ ca:
         active: Actives
         finished: 'Finalitzat el: %{end_date}'
         not_started: No s'ha iniciat encara
-        remaining: Resta(en) %{time_distance}
+        remaining: "Resta(en) %{time_distance}"
     newsletter_mailer:
       newsletter:
         no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de correu de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
@@ -1736,7 +1738,7 @@ ca:
     user_contact_disabled: Aquesta participant no accepta missatges directes.
     user_conversations:
       index:
-        time_ago: Fa %{time}
+        time_ago: "Fa %{time}"
     user_group_mailer:
       notify_deprecation_to_member:
         body_1: 'Ens posem en contacte amb tu per informar-te sobre una important actualització del Grup d''Usuàries: <strong>%{group_name}</strong> del que ets membre.'
@@ -1856,7 +1858,8 @@ ca:
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
         decline: Declina la invitació
         hello: Hola %{email},
-        ignore: Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br /> El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu àlies i contrasenya.
+        ignore: |-
+          Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br /> El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu àlies i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administradora de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         invited_you_as_member: "%{invited_by} t'ha convidat com a membre de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
@@ -1898,8 +1901,8 @@ ca:
         confirm_new_password: Confirmar la nova contrasenya
         new_password: Nova contrasenya
         old_password_help: Per tal de confirmar els canvis al teu compte, si us plau, proporciona'ns la teva contrasenya actual.
-        password_help: La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (p. ex. 123456) i ha de ser diferent del número, sobrenom, correu electrònic i del domini de la plataforma.
-        password_help_admin: La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (p. ex. 123456) i ha de ser diferent del número, sobrenom, correu electrònic, domini de la plataforma o contrasenyes antigues.
+        password_help: "La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (p. ex. 123456) i ha de ser diferent del número, sobrenom, correu electrònic i del domini de la plataforma."
+        password_help_admin: "La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (p. ex. 123456) i ha de ser diferent del número, sobrenom, correu electrònic, domini de la plataforma o contrasenyes antigues."
         title: Canvi de contrasenya
       new:
         forgot_your_password: Has oblidat la teva contrasenya?

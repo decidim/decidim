@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     models:
@@ -15,7 +14,7 @@ es:
   decidim:
     admin:
       actions:
-        confirm_unpublish_survey: "¿Seguro que quieres despublicar esta encuesta?"
+        confirm_unpublish_survey: '¿Seguro que quieres despublicar esta encuesta?'
         see_survey: Ver encuesta
       admin_log:
         changeset:
@@ -66,7 +65,7 @@ es:
       surveys_count_tooltip: El número de encuestas realizadas y de respuestas recogidas.
     surveys:
       actions:
-        confirm_destroy: "¿Seguro que lo quieres eliminar?"
+        confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Eliminar
         edit: Editar
         manage_questions: Preguntas

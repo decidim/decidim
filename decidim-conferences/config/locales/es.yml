@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -89,7 +88,7 @@ es:
     admin:
       actions:
         confirm: Confirmar
-        confirm_delete_conference: "¿Seguro que quieres eliminar esta jornada? Si cambias de opinión, puedes restaurarla más tarde."
+        confirm_delete_conference: '¿Seguro que quieres eliminar esta jornada? Si cambias de opinión, puedes restaurarla más tarde.'
         new_conference: Nueva conferencia
         new_conference_user_role: Añadir administradora
         new_media_link: Añadir enlace multimedia
@@ -298,7 +297,7 @@ es:
     admin_log:
       conference:
         create: "%{user_name} creó la conferencia %{resource_name}"
-        duplicate: '%{user_name} ha duplicado la jornada "%{resource_name}"'
+        duplicate: "%{user_name} ha duplicado la jornada \"%{resource_name}\""
         publish: "%{user_name} ha publicado la conferencia %{resource_name}"
         restore: "%{user_name} restauró la jornada %{resource_name}"
         send_conference_diplomas: "%{user_name} ha enviado certificados de asistencia a las asistentes a la jornada %{resource_name}"
@@ -502,8 +501,8 @@ es:
           collaborators: Colaboradores
           main_promotors: Organizadores
         show:
-          already_have_an_account?: "¿Ya tienes una cuenta?"
-          are_you_new?: "¿Aún no eres participante?"
+          already_have_an_account?: '¿Ya tienes una cuenta?'
+          are_you_new?: '¿Aún no eres participante?'
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: Inscríbete en la conferencia
           manage_registration: Gestionar inscripciones
@@ -616,14 +615,14 @@ es:
         upcoming_conference:
           email_intro: 'La jornada "%{resource_title}" tendrá lugar dentro de 2 días. Puedes leer la descripción desde su página:'
           email_outro: Has recibido esta notificación porque estás siguiendo la jornada "%{resource_title}". Puedes dejar de seguirla desde el enlace anterior.
-          email_subject: ¡Se acerca la jornada "%{resource_title}"!
+          email_subject: '¡Se acerca la jornada "%{resource_title}"!'
           notification_title: La jornada <a href="%{resource_path}">%{resource_title}</a> se realizará dentro de 2 días.
     help:
       participatory_spaces:
         conferences:
           contextual: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>\n"
           page: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>"
-          title: "¿Qué son las conferencias?"
+          title: '¿Qué son las conferencias?'
     log:
       value_types:
         conference_presenter:

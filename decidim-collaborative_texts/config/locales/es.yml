@@ -27,7 +27,7 @@ es:
         deleted_collaborative_texts_info: No se puede eliminar este documento
     collaborative_texts:
       actions:
-        confirm_delete_document: "¿Seguro que quieres eliminar este documento?"
+        confirm_delete_document: '¿Seguro que quieres eliminar este documento?'
         deleted_document_info: Los documentos eliminados se pueden restaurar desde papelera.
         edit: Editar
         manage: Configurar
@@ -84,18 +84,18 @@ es:
           unpublished: Despublicado
       admin_log:
         document:
-          create: '%{user_name} creó el texto colaborativo "%{resource_name}" en %{space_name}'
-          delete: '%{user_name} eliminó el texto colaborativo "%{resource_name}" en %{space_name}'
-          publish: '%{user_name} publicó el texto colaborativo "%{resource_name}" en %{space_name}'
-          restore: '%{user_name} restauró el texto colaborativo "%{resource_name}" en %{space_name}'
-          soft_delete: '%{user_name} movió a la papelera el texto colaborativo "%{resource_name}" en %{space_name}'
-          unpublish: '%{user_name} despublicó el texto colaborativo "%{resource_name}" en %{space_name}'
-          update: '%{user_name} actualizó el texto colaborativo "%{resource_name}" en %{space_name}'
+          create: "%{user_name} creó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          delete: "%{user_name} eliminó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          publish: "%{user_name} publicó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          restore: "%{user_name} restauró el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          soft_delete: "%{user_name} movió a la papelera el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          unpublish: "%{user_name} despublicó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          update: "%{user_name} actualizó el texto colaborativo \"%{resource_name}\" en %{space_name}"
         suggestion:
-          create: '%{user_name} sugirió cambios en el texto colaborativo: "%{resource_name}" en %{space_name}'
+          create: "%{user_name} sugirió cambios en el texto colaborativo: \"%{resource_name}\" en %{space_name}"
         version:
-          delete: '%{user_name} eliminó el texto colaborativo "%{resource_name}" en %{space_name}'
-          update: '%{user_name} actualizó el texto colaborativo "%{resource_name}" en %{space_name}'
+          delete: "%{user_name} eliminó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          update: "%{user_name} actualizó el texto colaborativo \"%{resource_name}\" en %{space_name}"
       document:
         apply: Aplicar
         cancel: Cancelar

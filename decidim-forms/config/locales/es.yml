@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -205,8 +204,8 @@ es:
             body: 'Ya has respondido a este formulario: %{link}'
             edit: Edita tus respuestas
           response_questionnaire:
-            already_have_an_account?: "¿Ya tienes una cuenta?"
-            are_you_new?: "¿Eres una nueva usuaria?"
+            already_have_an_account?: '¿Ya tienes una cuenta?'
+            are_you_new?: '¿Eres una nueva usuaria?'
             sign_in_description: Inicia tu sesión para responder la encuesta
             sign_up_description: Crea una cuenta de participante para responder la encuesta
             title: Responder al formulario

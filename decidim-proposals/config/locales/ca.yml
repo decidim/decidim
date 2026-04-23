@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -179,7 +178,7 @@ ca:
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             default_sort_order: Ordre de propostes per defecte
-            default_sort_order_help: "'Per defecte' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports."
+            default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
               automatic: Per defecte
               most_commented: Més comentades
@@ -240,7 +239,7 @@ ca:
             creation_enabled: Les participants poden crear propostes
             creation_enabled_readonly: Aquesta opció es desactiva quan actives la funcionalitat de Textos Participatius. Per a pujar propostes com a text participatiu fes clic al botó de Textos Participatius i segueix les instruccions.
             default_sort_order: Ordre per defecte de propostes
-            default_sort_order_help: "'Per defecte' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports."
+            default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
               automatic: Per defecte
               most_commented: Més comentades
@@ -254,7 +253,7 @@ ca:
             likes_enabled: '"M''agrada" activats'
             proposal_answering_enabled: Resposta a propostes activada
             publish_answers_immediately: Publica les respostes a les propostes immediatament
-            publish_answers_immediately_help_html: Tingues present que si respons alguna proposta sense que això estigui habilitat, l'hauràs de publicar-les manualment seleccionant-les i fent servir l'acció de publicar. Per a més informació sobre el funcionament, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">pàgina de documentació de les respostes a les propostes</a>.
+            publish_answers_immediately_help_html: 'Tingues present que si respons alguna proposta sense que això estigui habilitat, l''hauràs de publicar-les manualment seleccionant-les i fent servir l''acció de publicar. Per a més informació sobre el funcionament, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">pàgina de documentació de les respostes a les propostes</a>.'
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
@@ -300,14 +299,14 @@ ca:
         coauthor_rejected_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha rebutjat la teva invitació per a ser coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a>".
         collaborative_draft_access_accepted:
-          email_intro: S'ha acceptat %{requester_name} per accedir com a contribuidora de l'esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
-          email_subject: S'ha acceptat %{requester_name} per accedir com a contribuidora del %{resource_title}.
+          email_subject: "S'ha acceptat %{requester_name} per accedir com a contribuidora del %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha estat <strong>acceptat per accedir com a contribuidora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: S'ha rebutjat que %{requester_name} accedeixi com a contribuidora de l'esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: 'S''ha rebutjat que %{requester_name} accedeixi com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
-          email_subject: S'ha rebutjat %{requester_name} per accedir com a contribuïdora de l'esborrany col·laboratiu %{resource_title}.
+          email_subject: "S'ha rebutjat %{requester_name} per accedir com a contribuïdora de l'esborrany col·laboratiu %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a><strong> ha estat rebutjat per accedir com a contribuïdora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} ha sol·licitat accés com a contribuïdora. Pots <strong>acceptar o rebutjar la sol·licitud</strong> de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
@@ -393,19 +392,19 @@ ca:
       badges:
         accepted_proposals:
           conditions:
-          - Tria l'espai de participació del teu interès amb la creació de propostes activada
-          - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
+            - Tria l'espai de participació del teu interès amb la creació de propostes activada
+            - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
           description: Aquesta ensenya es concedeix quan participes activament amb noves propostes i aquestes són acceptades.
           description_another: Aquesta participant ha aconseguit %{score} propostes acceptades.
-          description_own: "%{score} de les teves propostes han estat acceptades."
+          description_own: '%{score} de les teves propostes han estat acceptades.'
           name: Propostes acceptades
           next_level_in: Aconsegueix que s'acceptin %{score} propostes més per arribar al següent nivell!
           unearned_another: Aquesta participant encara no ha aconseguit que s'accepti cap de les seves propostes.
           unearned_own: Cap de les teves propostes encara no ha estat acceptada.
         proposal_votes:
           conditions:
-          - Navega i passa un temps llegint les propostes d'altres persones
-          - Dona suport a les propostes amb què estiguis d'acord o trobis interessants
+            - Navega i passa un temps llegint les propostes d'altres persones
+            - Dona suport a les propostes amb què estiguis d'acord o trobis interessants
           description: Aquesta ensenya es concedeix quan dones suport a propostes d'altres persones.
           description_another: Aquesta participant ha donat suport a %{score} propostes.
           description_own: Has donat suport a %{score} propostes.
@@ -415,8 +414,8 @@ ca:
           unearned_own: Encara no has donat suport a cap proposta.
         proposals:
           conditions:
-          - Tria un espai de participació amb la creació de propostes habilitada que sigui del teu interès
-          - Crea una proposta nova
+            - Tria un espai de participació amb la creació de propostes habilitada que sigui del teu interès
+            - Crea una proposta nova
           description: Aquesta ensenya es concedeix quan participes activament amb noves propostes.
           description_another: Aquesta participant ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
@@ -516,7 +515,7 @@ ca:
           notify_success:
             added_proposals:
               one: S'ha importat una proposta.
-              other: S'han importat %{count} propostes.
+              other: "S'han importat %{count} propostes."
             body: S'han importat amb èxit les propostes des del component %{origin_component_name} al component %{target_component_name}. Pots revisar els resultats al tauler d'administració.
             subject: Les propostes s'han importat correctament
         imports:
@@ -621,7 +620,7 @@ ca:
         proposals:
           answer:
             bulk_answer_error: No s'ha pogut respondre a les propostes amb IDs [%{proposals}] per errors aplicant la plantilla "%{template}". Pots comprovar que la plantilla de resposta coincideix amb el format esperat per a aquest component aplicant-lo individualment.
-            bulk_answer_success: Les propostes %{count} seran respostes fent servir la plantilla "%{template}". Si us plau, espera uns minuts i actualitza la pàgina per veure les actualitzacions.
+            bulk_answer_success: 'Les propostes %{count} seran respostes fent servir la plantilla "%{template}". Si us plau, espera uns minuts i actualitza la pàgina per veure les actualitzacions.'
             invalid: S'ha produït un error en respondre a aquesta proposta.
             success: Proposta resposta amb èxit.
           create:
@@ -720,7 +719,7 @@ ca:
           create: "%{user_name} va crear la proposta %{resource_name} a partir de la fusió de %{merged_count} proposades a %{space_name}"
           publish_answer: "%{user_name} ha publicat una resposta a la proposta %{resource_name} a l'espai %{space_name}"
           restore: "%{user_name} ha restaurat la proposta %{resource_name} a l'espai %{space_name}"
-          soft_delete: '%{user_name} ha mogut a la paperera la proposta %{resource_name} a l''espai "%{space_name}"'
+          soft_delete: "%{user_name} ha mogut a la paperera la proposta %{resource_name} a l'espai \"%{space_name}\""
           update: "%{user_name} ha actualitzat la proposta oficial %{resource_name} sobre l'espai %{space_name}"
         proposal_note:
           create: "%{user_name} ha deixat una nota privada a la proposta %{resource_name} dins l'espai %{space_name}"
@@ -773,7 +772,7 @@ ca:
           success: Invitació de coautoria cancel·lada amb èxit.
         create:
           error: S'ha produït un error en convidar a la coautora.
-          success: S'ha convidat amb èxit %{author_name} per ser coautor/a de la proposta.
+          success: "S'ha convidat amb èxit %{author_name} per ser coautor/a de la proposta."
         destroy:
           error: S'ha produït un error en rebutjar la invitació.
           success: S'ha rebutjat la invitació.

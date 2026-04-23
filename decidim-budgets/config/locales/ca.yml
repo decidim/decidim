@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -106,7 +105,7 @@ ca:
             selected: Seleccionat
             selected_options:
               'no': 'No'
-              'yes': Sí
+              'yes': 'Sí'
             title: Projectes
             update: Actualitzar
             update_budget_button: Actualitzar el pressupost del projecte
@@ -139,7 +138,7 @@ ca:
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes a projectes.
-            success: S'ha importat amb èxit %{number} propostes a projectes.
+            success: "S'ha importat amb èxit %{number} propostes a projectes."
           new:
             create: Importa propostes a projectes
             default_budget: Pressupost per defecte
@@ -296,7 +295,7 @@ ca:
           projects_rule_maximum_only:
             description: "<b>Selecciona fins a %{maximum_number} projectes</b> que vulguis i vota segons les teves preferències."
           vote_threshold_percent_rule:
-            description: Selecciona els projectes que vulguis <b>fins com a mínim el %{minimum_budget} del total del pressupost</b> i vota segons les teves preferències.
+            description: "Selecciona els projectes que vulguis <b>fins com a mínim el %{minimum_budget} del total del pressupost</b> i vota segons les teves preferències."
         orders:
           highest_cost: Major cost
           label: Ordenar projectes per

@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -66,10 +65,10 @@ ca:
           filters:
             new_items_projects:
               one: S'importarà 1 projecte seleccionat
-              other: S'importaran %{count} projectes seleccionats
+              other: "S'importaran %{count} projectes seleccionats"
             new_items_proposals:
               one: S'importarà 1 proposta
-              other: S'importaran %{count} propostes
+              other: "S'importaran %{count} propostes"
             proposal_state: Estat de la proposta
             select_state: Seleccionar estat
           form:
@@ -80,7 +79,7 @@ ca:
           new:
             success:
               one: Hi ha 1 resultat a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació.
-              other: Hi ha %{count} resultats a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació.
+              other: "Hi ha %{count} resultats a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
             title: Importar resultats des d'un altre component
         import_results:
           new:
@@ -202,9 +201,9 @@ ca:
             success: Estat actualitzat correctament.
       admin_log:
         milestones:
-          create: '%{user_name} va crear la fita "%{resource_name}"'
-          delete: '%{user_name} va esborrar la fita "%{resource_name}"'
-          update: '%{user_name} va actualizar la fita "%{resource_name}"'
+          create: "%{user_name} va crear la fita \"%{resource_name}\""
+          delete: "%{user_name} va esborrar la fita \"%{resource_name}\""
+          update: "%{user_name} va actualizar la fita \"%{resource_name}\""
         result:
           create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
           delete: "%{user_name} ha eliminat el resultat %{resource_name} de l'espai %{space_name}"
@@ -234,14 +233,14 @@ ca:
         import:
           added_projects:
             one: S'ha importat un resultat des de projectes.
-            other: S'han importat %{count} resultats des de projectes.
+            other: "S'han importat %{count} resultats des de projectes."
           subject: Els projectes s'han importat correctament
           success: Projectes importats com a resultats amb èxit al component %{component_name}. Pots revisar els resultats al taulell d'administració.
       import_proposals_mailer:
         import:
           added_proposals:
             one: S'ha importat 1 resultat des de propostes.
-            other: S'han importat %{count} resultats des de propostes.
+            other: "S'han importat %{count} resultats des de propostes."
           subject: Les propostes s'han importat correctament
           success: S'han importat amb èxit les propostes com a resultats al component %{component_name}. Podeu revisar els resultats al tauler d'administració.
       last_activity:
