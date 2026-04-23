@@ -167,8 +167,6 @@ he:
             admin: מנהל
             collaborator: שותף
             moderator: פקח
-      titles:
-        assemblies_types: סוגי אסיפות
     assemblies:
       admin:
         assemblies:
