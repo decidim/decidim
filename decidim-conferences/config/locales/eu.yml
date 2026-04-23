@@ -342,7 +342,7 @@ eu:
           form:
             slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: %{url}'
           new:
-            title: Bikoiztu jardunaldia
+            title: Jardunaldia bikoiztu
         conference_invites:
           create:
             error: Arazo bat izan da parte-hartzaileak konferentziara sartzeko gonbidatuta.
@@ -359,13 +359,13 @@ eu:
           new:
             explanation: Parte-hartzailea gonbidatuko da jardunaldi batera lotzera. Bere posta elektronikoa erregistratuta ez badago, erakundera ere gonbidatuko dute.
             invite: gonbidatu
-            title: Gonbidatu parte-hartzailea
+            title: Parte-hartzailea gonbidatu
         conference_registrations:
           index:
             title: Izen-emateak
         conference_speakers:
           edit:
-            title: Eguneratu jardunaldiaren hizlaria
+            title: Jardunaldiaren hizlaria eguneratu
           form:
             existing_user: Parte-hartzailea badago
             non_user: Parte-hartzailerik ez
@@ -378,7 +378,7 @@ eu:
             title: Beste hizlari bat
         conference_user_roles:
           edit:
-            title: Eguneratu jardunaldiaren hizlaria
+            title: Jardunaldiaren administratzailea eguneartu
           index:
             title: Jardunaldi-administratzaileak
           new:
@@ -416,21 +416,21 @@ eu:
             registration: '''%{conference_title}'' jardinalirako izen-ematea'
         media_links:
           edit:
-            title: Eguneratu hedabideen lotura
+            title: Eguneratu hedabideen esteka
           index:
-            title: Hedabideen loturak
+            title: Multimedia-fitxategien estekak
           new:
-            title: Hedabideen beste esteka bat
+            title: Multimedia-fitxategien beste esteka bat
         partners:
           edit:
-            title: Eguneratu kidea
+            title: Kidea eguneratu
           index:
             title: Kideak
           new:
             title: Beste kide bat
         registration_types:
           edit:
-            title: Eguneratu erregistro mota
+            title: Erregistro mota eguneratu
           form:
             select_conference_meetings: Hautatu jardunaldiaren topaketak
           index:
@@ -462,13 +462,13 @@ eu:
           program: Egitaraua
       conference_registration_mailer:
         confirmation:
-          confirmed_html: Zure jardunaldirako izena emateko <a href="%{url}">%{title}</a> baieztatu da.
+          confirmed_html: Zure jardunaldirako izena ematea <a href="%{url}">%{title}</a> baieztatu da.
           details_1: '%{registration_type} motako jardunaldian erregistratuta zaude. %{price} kostua dauka eta ondorengo ekitaldietara jo dezakezu:'
           details_2: Jardunaldiaren xehetasunak eranskinean aurkituko dituzu.
         pending_validation:
           confirmation_pending: Berrespena jasoko duzu laster
           details: '%{registration_type} motako %{price} tasan erregistratu zara, eta gertaera hauei erantzun diezaiekezu:'
-          pending_html: <a href="%{url}">%{title}</a> jardunaldirako zure izen-ematea zain dago berresteko.
+          pending_html: <a href="%{url}">%{title}</a> jardunaldirako zure izen-ematea berresteko zain dago.
       conference_registrations:
         create:
           invalid: Arazo bat egon da jardunaldi honetara lotzean.
@@ -521,7 +521,7 @@ eu:
           confirmation:
             subject: Zure erregistroa jardunaldian baieztatu da.
           pending_validation:
-            subject: Zure erregistroa jardunaldian baieztatzearen zain dago.
+            subject: Jardunaldirako izen-ematea ez dago baieztatuta.
         invite_join_conference_mailer:
           invite:
             subject: Jardunaldi baterako gonbidapena
