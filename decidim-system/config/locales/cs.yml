@@ -34,8 +34,12 @@ cs:
               must_be_ssl: URI přesměrování musí být SSL URI
         organization:
           attributes:
+            host:
+              invalid: je neplatný
             password:
               secret_key: Abyste mohli toto pole uložit, musíte definovat proměnnou prostředí SECRET_KEY_BASE.
+            secondary_hosts:
+              invalid: je neplatný
   decidim:
     system:
       actions:
