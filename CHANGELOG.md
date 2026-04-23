@@ -1,5 +1,44 @@
 # Changelog
 
+## [0.30.8](https://github.com/decidim/decidim/tree/0.30.8)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-admin**: Backport 'Do not send notifications in unpublished posts' attachments' to v0.30 [\#16498](https://github.com/decidim/decidim/pull/16498)
+- **decidim-assemblies**, **decidim-initiatives**, **decidim-participatory processes**, **decidim-surveys**: Backport 'Add screen reader indicators (live and atomic) to spaces counters' to v0.30 [\#16511](https://github.com/decidim/decidim/pull/16511)
+- Backport 'Take into account the modules that actually have code during release' to v0.30 [\#16550](https://github.com/decidim/decidim/pull/16550)
+- **decidim-accountability**: Backport 'Fix images in milestones' to v0.30 [\#16561](https://github.com/decidim/decidim/pull/16561)
+- **decidim-core**, **decidim-proposals**: Backport 'Improve accessibility on new registration form: email and ToS fields' to v0.30 [\#16557](https://github.com/decidim/decidim/pull/16557)
+- **decidim-core**: Backport 'Fix datepicker position when is placed at the bottom of the page' to v0.30 [\#16558](https://github.com/decidim/decidim/pull/16558)
+- **decidim-core**: Backport 'Fix images in editors with strange characters' to v0.30 [\#16571](https://github.com/decidim/decidim/pull/16571)
+- **decidim-meetings**: Backport 'Fix the "Attending organizations" container in meetings' to v0.30 [\#16605](https://github.com/decidim/decidim/pull/16605)
+- Backport 'Lock webpack to v5.105' to v0.30 [\#16620](https://github.com/decidim/decidim/pull/16620)
+- **decidim-core**: Backport 'Remove the roles menu on footer' to v0.30 [\#16623](https://github.com/decidim/decidim/pull/16623)
+- **decidim-design**: Backport 'Fix decidim-design section by removing MeetingsSCell call' to v0.30 [\#16630](https://github.com/decidim/decidim/pull/16630)
+- **decidim-system**: Backport 'Add validations to the host format at system panel' to v0.30 [\#16616](https://github.com/decidim/decidim/pull/16616)
+- **decidim-blogs**, **decidim-debates**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Backport 'Fix disabled data attribute in submit buttons' to v0.30 [\#16617](https://github.com/decidim/decidim/pull/16617)
+- **decidim-blogs**, **decidim-core**: Backport 'Fix display of embeded images in notification emails' to v0.30 [\#16560](https://github.com/decidim/decidim/pull/16560)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- Clean-up the releases notes for v0.30 branch [\#16563](https://github.com/decidim/decidim/pull/16563)
+
 ## [0.30.7](https://github.com/decidim/decidim/tree/0.30.7)
 
 ### Added
