@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -208,7 +209,7 @@ pl:
       badges:
         attended_meetings:
           conditions:
-            - Zarejestruj się na spotkania, w których chcesz wziąć udział
+          - Zarejestruj się na spotkania, w których chcesz wziąć udział
           description: Ta odznaka jest przyznawana, gdy weźmiesz udział w kilku spotkaniach twarzą w twarz.
           description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
           description_own: Uczestniczyłeś w %{score} spotkaniach.
@@ -344,10 +345,10 @@ pl:
         poll:
           form:
             announcement_html:
-              - 
-              - Możesz dodać pytanie w dowolnym momencie.
-              - Ankieta zostanie zamknięta po opublikowaniu wyników wszystkich utworzonych pytań.
-              - Odwiedź <a href='%{admin_link}'>stronę administracyjną głosowania</a>, aby wysłać pytania i opublikować wyniki.
+            - 
+            - Możesz dodać pytanie w dowolnym momencie.
+            - Ankieta zostanie zamknięta po opublikowaniu wyników wszystkich utworzonych pytań.
+            - Odwiedź <a href='%{admin_link}'>stronę administracyjną głosowania</a>, aby wysłać pytania i opublikować wyniki.
         registrations:
           edit:
             save: Zapisz
