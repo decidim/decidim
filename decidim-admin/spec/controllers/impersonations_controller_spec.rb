@@ -7,6 +7,8 @@ module Decidim
     describe ImpersonationsController do
       routes { Decidim::Admin::Engine.routes }
 
+      include Decidim::Core::Engine.routes.url_helpers
+
       let(:organization) do
         create(
           :organization,
@@ -31,7 +33,7 @@ module Decidim
               user: authorization.user
             ).count).to be(1)
             expect(flash[:notice]).to be_present
-            expect(subject).to redirect_to("/")
+            expect(subject).to redirect_to(root_path)
           end
         end
 

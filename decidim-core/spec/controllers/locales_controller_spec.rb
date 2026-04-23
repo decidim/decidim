@@ -43,9 +43,9 @@ module Decidim
         end
       end
 
-      it "redirects the user adding the new locale to the query params" do
+      it "redirects the user using the locale URL prefix" do
         post :create, params: { locale: }
-        expect(response).to redirect_to("/?locale=ca")
+        expect(response).to redirect_to("/ca")
       end
 
       context "when the referrer has some query params" do
@@ -55,7 +55,7 @@ module Decidim
 
         it "keeps the original query params too" do
           post :create, params: { locale: }
-          expect(response).to redirect_to("/search?param1=foo&param2=bar&locale=ca")
+          expect(response).to redirect_to("/ca/search?param1=foo&param2=bar")
         end
 
         context "when the referer already include the locale" do
@@ -65,8 +65,19 @@ module Decidim
 
           it "replaces it" do
             post :create, params: { locale: }
-            expect(response).to redirect_to("/search?param1=foo&param2=bar&locale=ca")
+            expect(response).to redirect_to("/ca/search?param1=foo&param2=bar")
           end
+        end
+      end
+
+      context "when the referrer uses locale prefixes" do
+        before do
+          request.env["HTTP_REFERER"] = "/en/users/sign_in"
+        end
+
+        it "replaces the locale segment in the path" do
+          post :create, params: { locale: }
+          expect(response).to redirect_to("/ca/users/sign_in")
         end
       end
     end

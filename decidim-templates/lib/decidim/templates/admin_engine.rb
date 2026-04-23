@@ -12,6 +12,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        extend Decidim::Routes::LocaleRedirects
+
         constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
           resources :proposal_answer_templates do
             member do
@@ -55,7 +57,11 @@ module Decidim
 
       initializer "decidim_templates_admin.mount_routes" do
         Decidim::Core::Engine.routes do
-          mount Decidim::Templates::AdminEngine, at: "/admin/templates", as: "decidim_admin_templates"
+          extend Decidim::Routes::LocaleRedirects
+
+          scope "/:locale", **locale_scope_options do
+            mount Decidim::Templates::AdminEngine, at: "/admin/templates", as: "decidim_admin_templates"
+          end
         end
       end
 

@@ -23,7 +23,7 @@ describe "Explore API credentials" do
         expect(page).to have_link("API credentials", href: "/system/api_users")
       end
     end
-    expect(page).to have_current_path("/system/api_users")
+    expect(page).to have_current_path(decidim_system.api_users_path)
     within "table.stack" do
       header_cells = find_all("th")
       expect(header_cells[0]).to have_content("Organization")
@@ -72,7 +72,7 @@ describe "Explore API credentials" do
       expect(page).to have_content("Are you sure you want to remove this API user?")
       click_link_or_button "OK"
       expect(page).to have_content("API user successfully deleted.")
-      expect(page).to have_current_path("/system/api_users")
+      expect(page).to have_current_path(decidim_system.api_users_path)
       expect(Decidim::Api::ApiUser.count).to eq(6)
       expect(page).to have_no_content(deleting_user.api_key)
     end
@@ -87,7 +87,7 @@ describe "Explore API credentials" do
       expect(page).to have_content("Are you sure you want to refresh the secret for this API user?")
       click_link_or_button "OK"
       expect(page).to have_content("Secret refreshed successfully.")
-      expect(page).to have_current_path("/system/api_users")
+      expect(page).to have_current_path(decidim_system.api_users_path)
       expect(Decidim::Api::ApiUser.count).to eq(7)
       within refreshing_tr do
         expect(page).to have_button("Copy secret")
@@ -98,21 +98,21 @@ describe "Explore API credentials" do
 
     it "creates a new API user" do
       click_link_or_button "New API user"
-      expect(page).to have_current_path("/system/api_users/new")
+      expect(page).to have_current_path(decidim_system.new_api_user_path)
       expect(page).to have_content("Create new API user")
       expect(page).to have_content("Select your organization")
       click_link_or_button "Create"
-      expect(page).to have_current_path("/system/api_users/new")
+      expect(page).to have_current_path(decidim_system.new_api_user_path)
       select "#{translated(organization.name)} (#{organization.host})", from: "admin_organization"
       click_link_or_button "Create"
-      expect(page).to have_current_path("/system/api_users/new")
+      expect(page).to have_current_path(decidim_system.new_api_user_path)
       fill_in "Name", with: "Dummy name"
       within "select#admin_organization" do
         expect(page).to have_css("option", text: "#{translated(organization.name)} (#{organization.host})")
       end
       click_link_or_button "Create"
       expect(page).to have_content("API user created successfully.")
-      expect(page).to have_current_path("/system/api_users")
+      expect(page).to have_current_path(decidim_system.api_users_path)
       within "table.stack" do
         expect(page).to have_content("Dummy name")
         new_tr = find("td", text: "Dummy name").find(:xpath, "..")

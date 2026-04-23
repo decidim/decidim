@@ -179,7 +179,7 @@ module Decidim
     end
 
     def profile_url(nickname)
-      Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:, port: Capybara.server_port)
+      Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, locale: I18n.locale, host:, port: Capybara.server_port)
     end
 
     def host

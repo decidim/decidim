@@ -100,6 +100,7 @@ Brakus
 breadcrumb
 browserstack
 bugfixing
+Butlletins
 byebug
 bytesize
 cacatua
@@ -768,6 +769,7 @@ rqrcode
 rroe
 rsefa
 rsimplecov
+rspack
 Rubo
 rubycw
 rumany

@@ -47,7 +47,7 @@ module Decidim
     describe "manage_component_path" do
       it "resolves the admin root path for the component" do
         expect(helper.manage_component_path(component))
-          .to eq("/admin/participatory_processes/my-process/components/21/manage/")
+          .to eq("/en/admin/participatory_processes/my-process/components/21/manage/")
       end
 
       context "when a secondary locale is set" do
@@ -55,9 +55,9 @@ module Decidim
           I18n.with_locale(:ca) { example.run }
         end
 
-        it "adds the locale to the path" do
+        it "adds the locale to the admin path" do
           expect(helper.manage_component_path(component))
-            .to eq("/admin/participatory_processes/my-process/components/21/manage/")
+            .to eq("/ca/admin/participatory_processes/my-process/components/21/manage/")
         end
       end
     end

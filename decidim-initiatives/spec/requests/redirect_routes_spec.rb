@@ -33,6 +33,13 @@ describe "Redirect routes" do
       expect(response).to redirect_to("/es/initiatives/foo-bar")
     end
 
+    it "redirects old url with query string" do
+      get("/initiatives/foo-bar?share_token=FOOBAR", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/initiatives/foo-bar?share_token=FOOBAR")
+    end
+
     it "redirects user to the new url" do
       user = create(:user, :confirmed, organization:, locale: "ca")
       login_as user, scope: :user
@@ -61,6 +68,13 @@ describe "Redirect routes" do
       expect(response).to redirect_to("/es/initiative_types/foo-bar")
     end
 
+    it "redirects old url with query string" do
+      get("/initiative_types/foo-bar?share_token=FOOBAR", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/initiative_types/foo-bar?share_token=FOOBAR")
+    end
+
     it "redirects user to the new url" do
       user = create(:user, :confirmed, organization:, locale: "ca")
       login_as user, scope: :user
@@ -87,6 +101,13 @@ describe "Redirect routes" do
       get("/initiative_type_signature_types/foo-bar?locale=es", headers:)
       expect(response).to have_http_status(:moved_permanently)
       expect(response).to redirect_to("/es/initiative_type_signature_types/foo-bar")
+    end
+
+    it "redirects old url with query string" do
+      get("/initiative_type_signature_types/foo-bar?share_token=FOOBAR", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/initiative_type_signature_types/foo-bar?share_token=FOOBAR")
     end
 
     it "redirects user to the new url" do

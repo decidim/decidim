@@ -31,7 +31,7 @@ module Decidim
       end
 
       it "transforms image URLs with the host" do
-        root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
+        root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host).chomp("/")
         expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG"))
         expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/56789.JPG"))
       end

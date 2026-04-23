@@ -23,7 +23,7 @@ describe "GraphiQL" do
     end
 
     it "forces the user to log in" do
-      expect(page).to have_current_path("/users/sign_in")
+      expect(page).to have_current_path decidim.new_user_session_path
       expect(page).to have_content("Please, log in with your account before access")
     end
   end
@@ -45,7 +45,7 @@ describe "GraphiQL" do
     end
 
     it "forces the user to log in" do
-      expect(page).to have_current_path("/users/sign_in")
+      expect(page).to have_current_path decidim.new_user_session_path
       expect(page).to have_content("Please, log in with your account before access")
     end
   end

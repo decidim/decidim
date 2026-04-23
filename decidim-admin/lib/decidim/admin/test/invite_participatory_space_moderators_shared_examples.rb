@@ -20,7 +20,7 @@ shared_examples "inviting participatory space moderators" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_current_path "/admin/admin_terms/show"
+      expect(page).to have_current_path decidim_admin.admin_terms_show_path
 
       visit decidim_admin.admin_terms_show_path
       find_button("I agree with the terms").click

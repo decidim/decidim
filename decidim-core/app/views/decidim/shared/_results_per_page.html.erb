@@ -13,7 +13,7 @@
         <% Decidim::Paginable::OPTIONS.each do |per_page_option| %>
           <li role="presentation">
             <%= link_to per_page_option,
-                        url_for(params.to_unsafe_h.merge(page: nil, per_page: per_page_option)),
+                        url_for(params.to_unsafe_h.except("locale", :locale).merge(page: nil, per_page: per_page_option)),
                         data: { per_page_option: },
                         class: "dropdown__item",
                         title: t("decidim.shared.results_per_page.title"),
