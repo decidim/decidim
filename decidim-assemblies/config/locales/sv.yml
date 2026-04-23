@@ -200,8 +200,6 @@ sv:
       taxonomy_filters:
         space_filter_for:
           assemblies: Alla samråd
-      titles:
-        assemblies_types: Typer av samråd
       tooltips:
         deleted_assemblies_info: Ett samråd kan endast tas bort om status är "Avpublicerad".
     admin_log:
@@ -338,9 +336,6 @@ sv:
           highlighted_assemblies:
             active_spaces: Pågående samråd
             see_all_spaces: Visa alla samråd
-        user_profile:
-          member_of:
-            member_of: Medlem av
       show:
         duration: Varaktighet
         social_networks_title: Besök samrådet på
@@ -370,8 +365,6 @@ sv:
       value_types:
         assembly_presenter:
           not_found: 'Samrådet hittades inte i databasen (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Typen av samråd hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Samråd
     open_data:
