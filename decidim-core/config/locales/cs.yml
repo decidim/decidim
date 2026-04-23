@@ -1191,6 +1191,10 @@ cs:
         update_permissions_with_space: "%{user_name} aktualizoval oprávnění k %{resource_name} v %{space_name}"
         update_with_space: "%{user_name} aktualizováno %{resource_name} v %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            restricted: Omezený
+            transparent: Transparentní
         area_presenter:
           not_found: 'Oblast nebyla nalezena v databázi (ID: %{id})'
         area_type_presenter:
