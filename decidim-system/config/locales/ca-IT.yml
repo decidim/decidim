@@ -3,7 +3,7 @@ ca-IT:
   activemodel:
     attributes:
       oauth_application:
-        name: Nom de l'aplicació OAuth
+        name: Nom de l'aplicació
         organization_logo: Logo de l'organització (quadrat)
         organization_name: Organització
         organization_url: URL de l'organització
@@ -34,8 +34,12 @@ ca-IT:
               must_be_ssl: L'URI de redirecció ha de ser una URI SSL
         organization:
           attributes:
+            host:
+              invalid: no és vàlid
             password:
               secret_key: Cal que defineixis la variable d'entorn SECRET_KEY_BASE per a poder guardar aquest camp
+            secondary_hosts:
+              invalid: no és vàlid
   decidim:
     system:
       actions:
