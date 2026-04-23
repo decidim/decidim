@@ -144,8 +144,6 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-      titles:
-        assemblies_types: Tipo de xuntanzas
     admin_log:
       assembly:
         create: "%{user_name} creou o conxunto %{resource_name}"
@@ -220,10 +218,6 @@ gl:
         working_group: Grupo de traballo
       index:
         title: Asembleas
-      pages:
-        user_profile:
-          member_of:
-            member_of: Membro de
       show:
         duration: Duración
     events:
