@@ -343,6 +343,7 @@ cs:
             name: Název komponenty
             type: Typ komponenty
             visibility: Viditelnost
+          title: Komponenty
         manage_trash:
           title: Smazané komponenty
         new:
@@ -361,9 +362,12 @@ cs:
           unpublished: Nezveřejněno
       conflicts:
         attempts: Pokusy
+        edit:
+          title: Převést uživatele
         'false': 'Ne'
         index:
           text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky
+          title: Konflikty ověření
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
         transfer:
@@ -514,6 +518,7 @@ cs:
           promote: Podporovat
           search: Vyhledávání
           status: Stav
+          title: Spravovatelní účastníci
           view_logs: Zobrazení protokolů
       impersonations:
         close_session:
@@ -530,6 +535,7 @@ cs:
           impersonate: V zastoupení
           impersonate_existing_managed_user: Spravovat účastníka "%{name}"
           impersonate_existing_user: Spravovat účastníka "%{name}"
+          title: Účastníci v zastoupení
       imports:
         and: a
         data_errors:
@@ -587,6 +593,9 @@ cs:
       manage_trash:
         deleted_items_warning: Momentálně zobrazujete odstraněné položky. Chcete-li provést úpravy nebo změny, musíte je nejprve obnovit.
       managed_users:
+        impersonation_logs:
+          index:
+            title: V zastoupení
         promotion:
           error: Při propagaci spravovaného účastníka se vyskytl problém.
           success: Spravovaný uživatel byl úspěšně podporován.
@@ -847,6 +856,7 @@ cs:
           confirm_delete: Opravdu chcete tento zpravodaj smazat?
           followers: 'sledující '
           has_been_sent_to: 'Byl poslán: '
+          members: 'členové '
           not_sent: Neodesláno
           participants: 'účastníci '
           segmented_to: 'Rozděleno na %{subject}: '
@@ -864,6 +874,7 @@ cs:
           confirm_recipients: Potvrdit příjemce
           deliver: Doručit zpravodaj
           followers_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
+          members_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří byli přidáni do vybraných participačních prostorů jako členové.
           participants_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
           recipients_count: Tento zpravodaj bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
           select_assemblies: Vybrat shromáždění
