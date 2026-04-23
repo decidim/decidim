@@ -288,6 +288,9 @@ de:
           success: Anhang wurde erfolgreich aktualisiert.
       attachments_privacy_warning:
         message: Seien Sie vorsichtig, wenn Sie mit Anhängen in einem privaten Raum arbeiten. Jeder Teilnehmer kann dieses Dokument mit anderen teilen.
+      authorization_workflows:
+        index:
+          title: Verifizierungsmethoden
       autocomplete:
         no_results: keine Ergebnisse gefunden
         search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen.
@@ -332,6 +335,7 @@ de:
             name: Komponentenname
             type: Komponententyp
             visibility: Sichtbarkeit
+          title: Komponenten
         manage_trash:
           title: Gelöschte Komponenten
         new:
@@ -353,6 +357,7 @@ de:
         'false': 'Nein'
         index:
           text: Duchsuche nach aktueller E-Mail-Adresse, Name oder Spitzname
+          title: Verifizierungskonflikte
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
         transfer:
@@ -387,6 +392,7 @@ de:
           title: Offene Moderationen
         show:
           dropdown: Dropdown
+          title: Dashboard
           view_more_logs: Weitere Protokolle anzeigen
       domain_allowlist:
         form:
@@ -483,6 +489,8 @@ de:
         form:
           save: Speichern
         success: Hilfeabschnitte wurden erfolgreich aktualisiert.
+        update:
+          title: Hilfeabschnitte
       impersonatable_users:
         index:
           filter:
@@ -557,12 +565,17 @@ de:
           participatory_space: Partizipativen Raum finden
           text: Duchsuche nach E-Mail-Adresse, Name oder Spitzname
           user: Benutzer*in
+        index:
+          title: Adminprotokoll
         logs_list:
           no_logs_yet: Es gibt noch keine Protokolle.
           no_matching_logs: Es gibt keine Protokolle mit den angegebenen Suchfiltern. Ändern Sie sie und versuchen Sie es erneut.
       manage_trash:
         deleted_items_warning: Sie sehen derzeit gelöschte Elemente. Um Änderungen vornehmen zu können, müssen Sie diese zuerst wiederherstellen.
       managed_users:
+        impersonation_logs:
+          index:
+            title: Identitätswechsel
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
           success: Der verwaltete Benutzer wurde erfolgreich hochgestuft.
@@ -823,6 +836,7 @@ de:
           confirm_delete: Möchten Sie diesen Newsletter wirklich löschen?
           followers: 'Follower '
           has_been_sent_to: 'Wurde gesendet an: '
+          members: 'Mitglieder '
           not_sent: Nicht gesendet
           participants: 'Teilnehmer: '
           segmented_to: 'Unterteilt in %{subject}: '
@@ -840,6 +854,7 @@ de:
           confirm_recipients: Empfangende bestätigten
           deliver: Newsletter versenden
           followers_help: Sendet den Newsletter an alle bestätigten Benutzer, die den ausgewählten Teilnehmerräumen in der Liste folgen.
+          members_help: Sendet einen Newsletter an alle bestätigten Teilnehmende, die dem ausgewählten Mitwirkungsbereichen als Mitglieder hinzugefügt wurden.
           participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
           recipients_count: Dieser Newsletter wird an <strong id='recipients_count'>%{count}</strong> Teilnehmer gesendet.
           select_assemblies: Gremien auswählen
@@ -863,6 +878,7 @@ de:
           select_recipients_to_deliver: Empfänger auswählen
           send_me_a_test_email: Mir eine Test-E-Mail senden
           subject: Gegenstand
+          title: Vorschau
         update:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
@@ -896,12 +912,15 @@ de:
           send_message: Nachricht senden
           show_email: E-Mail-Adresse anzeigen
           status: Status
+          title: Teilnehmende
           unblock: Blockierung aufheben
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen
           officialize: Offizialisieren
           title: Benutzer "%{name}" offiziellisieren
+        show_email:
+          title: E-Mail-Adresse anzeigen
         show_email_modal:
           description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um seine E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
           email_address: E-Mail-Adresse
@@ -946,6 +965,7 @@ de:
           success: Die Organisation wurde erfolgreich aktualisiert.
       organization_external_domain_allowlist:
         edit:
+          title: Liste erlaubter externer Domains
           update: Aktualisieren
         external_domain:
           down: Runter
@@ -962,6 +982,7 @@ de:
             other: "%{count} Benutzer werden erinnert."
         new:
           submit: Senden
+          title: Erinnerungen senden
       resource_permissions:
         edit:
           submit: Absenden
@@ -1067,11 +1088,14 @@ de:
         edit:
           title: Thema bearbeiten
           update: Thema aktualisieren
+        index:
+          title: Themen
         new:
           create: Neues Thema
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
+          success: Thema erfolgreich aktualisiert.
       static_pages:
         actions:
           view: Anzeigen
@@ -1090,6 +1114,7 @@ de:
           slug_help_html: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Beispiel: %{url}'
         index:
           last_notable_change: Letzte signifikante Änderung
+          title: Seiten
         new:
           create: Neue Seite
           title: Neue Seite
@@ -1099,6 +1124,9 @@ de:
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert.
+      statistics:
+        index:
+          title: Statistik
       taxonomies:
         actions:
           actions: Aktionen
@@ -1129,6 +1157,7 @@ de:
           description: Klassifizierungen und Filter ermöglichen es Administratoren, Inhalte zu sortieren und zu organisieren. Fügen Sie zum Beispiel eine Klassifizierung mit den Stadtbezirken und Stadtquartieren hinzu und erstellen Sie dann Filter nur mit den Bezirken oder für ein bestimmtes Viertel.
           new_taxonomy: Neue Klassifizierung
           no_items_found: Es wurden keine Klassifizierungen gefunden, die Ihren Suchkriterien entsprechen.
+          title: Klassifizierungen
         name: Name
         new:
           create: Klassifizierung erstellen
@@ -1173,6 +1202,7 @@ de:
           description: Ein Klassifizierungsfilter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
           empty: Derzeit gibt es keine Klassifizierungsfilter. Erstellen Sie hier eine Liste von Klassifizierungsfilter, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
           new_filter: Neuer Filter
+          title: Klassifizierungsfilter für "%{taxonomy}"
         new:
           back: Zurück
           create: Klassifizierungsfilter erstellen
@@ -1189,10 +1219,13 @@ de:
           error: Beim Aktualisieren dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
           success: Klassifizierungsfilter wurde erfolgreich aktualisiert.
       taxonomy_filters_selector:
+        index:
+          title: Klassifizierungsfilter
         new:
           add_new_items_html: Wenn Sie einen neuen Filter oder ein neues Element einstellen müssen, tun Sie dies durch die Konfigurationseinstellungen oder indem Sie <a href="%{url}">hier</a> klicken.
           items_count: "%{count} Elemente"
           save: Speichern
+          title: Neuer Auswähler für Klassifizierungsfilter
         show:
           items_count: "%{count} Elemente"
           remove: Entfernen
@@ -1239,6 +1272,8 @@ de:
           email: Email
           name: Name
           role: Rolle
+        index:
+          title: Admins
         new:
           create: Einladen
           title: Neuen Administrator einladen
