@@ -199,8 +199,6 @@ fr-CA:
       taxonomy_filters:
         space_filter_for:
           assemblies: Toutes les assemblées
-      titles:
-        assemblies_types: Types d'assemblée
       tooltips:
         deleted_assemblies_info: Une assemblée ne peut être supprimée que si son statut est "non publiée".
     admin_log:
@@ -242,6 +240,7 @@ fr-CA:
                 open: Tout le monde peut voir l'assemblée et participer.
                 restricted: Seuls les membres peuvent voir et participer.
                 transparent: Tout le monde peut voir l'assemblée, mais seuls les membres peuvent y participer.
+              set_this_space_as: Définir cet espace comme
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
@@ -354,9 +353,6 @@ fr-CA:
           highlighted_assemblies:
             active_spaces: Assemblées actives
             see_all_spaces: Voir toutes les assemblées
-        user_profile:
-          member_of:
-            member_of: Membre de
       show:
         duration: Durée
         social_networks_title: Visiter l'assemblée sur
@@ -386,8 +382,6 @@ fr-CA:
       value_types:
         assembly_presenter:
           not_found: 'L''assemblée n''a pas été trouvée sur la base de données (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Le type d''assemblée n''a pas été trouvé sur la base de données (ID: %{id})'
     menu:
       assemblies: Assemblées
     open_data:
