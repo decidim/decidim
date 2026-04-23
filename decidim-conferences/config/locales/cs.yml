@@ -358,10 +358,17 @@ cs:
             select_user: Vyberte uživatele
           index:
             invite_attendee: Pozvat účastníka
+            title: Pozvánky
           new:
             explanation: Uživatel bude pozván, aby se připojil k konferenci. Pokud není jeho e-mail registrován, bude také pozván do organizace.
             invite: Pozvat
+            title: Pozvat účastníka
+        conference_registrations:
+          index:
+            title: Registrace
         conference_speakers:
+          edit:
+            title: Aktualizovat řečníka konference
           form:
             existing_user: Existující účastník
             non_user: Není účastníkem
@@ -369,7 +376,19 @@ cs:
             user_type: Typ uživatele
           index:
             search: Vyhledávání
+            title: Řečníci konference
+          new:
+            title: Nový řečník konference
+        conference_user_roles:
+          edit:
+            title: Aktualizovat správce konference
+          index:
+            title: Správci konference
+          new:
+            title: Nový správce konference
         conferences:
+          edit:
+            title: O této konferenci
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
@@ -381,6 +400,12 @@ cs:
               other: Bylo zde %{count} registrací.
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             taxonomies: Taxonomie
+          index:
+            title: Konference
+          manage_trash:
+            title: Smazané konference
+          new:
+            title: Nová konference
         content_blocks:
           highlighted_conferences:
             max_results: Maximální počet zobrazených prvků
@@ -394,14 +419,29 @@ cs:
             invited_existing_user_to_join_a_conference: "%{invited_by} vás zve na konferenci na %{application}. Můžete jej odmítnout nebo přijmout prostřednictvím níže uvedených odkazů."
             invited_user_to_join_a_conference: "%{invited_by} vás pozval, abyste se připojili ke konferenci v %{application}. Můžete ji přijmout prostřednictvím níže uvedeného odkazu."
             registration: Registrace pro "%{conference_title}"
+        media_links:
+          edit:
+            title: Aktualizovat odkaz na média
+          index:
+            title: Odkazy na média
+          new:
+            title: Nový odkaz na média
         partners:
+          edit:
+            title: Aktualizovat partnera
           index:
             title: Partneři
+          new:
+            title: Nový partner
         registration_types:
+          edit:
+            title: Aktualizovat typ registrace
           form:
             select_conference_meetings: Vyberte schůzky konference
           index:
             title: Typy registrace
+          new:
+            title: Nový typ registrace
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Naleznete certifikát o účasti na konferenci <a href="%{url}">%{title}</a> v přílohách.
