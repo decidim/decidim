@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe RegistrationsController do
+    include Decidim::Core::Engine.routes.url_helpers
+
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization:) }
     let(:participatory_process) { create(:participatory_process, organization:) }
@@ -50,7 +52,7 @@ module Decidim::Meetings
       context "when user not authenticated" do
         it "redirects to login" do
           post(:create, params:)
-          expect(response).to redirect_to("/users/sign_in")
+          expect(response).to redirect_to(new_user_session_path)
         end
       end
     end

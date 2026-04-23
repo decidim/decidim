@@ -202,6 +202,16 @@ module Decidim
           end
         end
 
+        describe "access_mode reset when has_members is false" do
+          let(:access_mode) { "transparent" }
+          let(:has_members) { false }
+
+          it "resets access_mode to open" do
+            subject.valid?
+            expect(subject.access_mode).to eq("open")
+          end
+        end
+
         context "when everything is OK" do
           it { is_expected.to be_valid }
         end

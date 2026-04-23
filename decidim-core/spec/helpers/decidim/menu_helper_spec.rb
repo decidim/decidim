@@ -13,6 +13,7 @@ module Decidim
     before do
       allow(helper).to receive(:current_organization).and_return(organization)
       allow(helper).to receive(:current_user).and_return(user)
+      allow(helper).to receive(:current_locale).and_return("en")
     end
 
     describe "#menu_highlighted_participatory_process" do
@@ -84,6 +85,13 @@ module Decidim
             end
           end
         end
+      end
+    end
+
+    describe "#footer_menu" do
+      it "renders footer menu items without the menuitem role" do
+        expect(helper.footer_menu.render).to have_css("li")
+        expect(helper.footer_menu.render).to have_no_css("li[role='menuitem']")
       end
     end
   end

@@ -61,7 +61,7 @@ RSpec.describe "Omniauth callback" do
         get(request_path, env: { "omniauth.auth" => oauth_hash })
 
         expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to("/")
+        expect(response).to redirect_to(decidim.root_path)
       end
     end
 
@@ -72,7 +72,7 @@ RSpec.describe "Omniauth callback" do
         get(request_path, env: { "omniauth.auth" => oauth_hash })
 
         expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to("/change_password")
+        expect(response).to redirect_to(decidim.change_password_path)
       end
     end
   end

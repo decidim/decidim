@@ -6,6 +6,8 @@ module Decidim
   describe ShortLinksController do
     routes { Decidim::Core::Engine.routes }
 
+    include Decidim::Core::Engine.routes.url_helpers
+
     let(:organization) { create(:organization, host: "test.host") }
     let(:component) { create(:component, organization:) }
 
@@ -17,7 +19,7 @@ module Decidim
       it "returns to the organization root path" do
         get :index
 
-        expect(response).to redirect_to("/")
+        expect(response).to redirect_to(root_path)
       end
     end
 

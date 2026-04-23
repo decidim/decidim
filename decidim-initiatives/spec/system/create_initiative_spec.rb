@@ -31,7 +31,7 @@ describe "Initiative" do
         click_on("Send to technical validation")
       end
 
-      expect(page).to have_current_path("/#{I18n.locale}/initiatives")
+      expect(page).to have_current_path(decidim_initiatives.initiatives_path(locale: I18n.locale))
     end
   end
 
@@ -60,7 +60,7 @@ describe "Initiative" do
         it "redirects to the login page when landing on #{step}" do
           expect(Decidim::InitiativesType.count).to eq(1)
           visit decidim_initiatives.create_initiative_path(step, locale: I18n.locale)
-          expect(page).to have_current_path("/users/sign_in")
+          expect(page).to have_current_path(decidim.new_user_session_path)
         end
       end
     end
@@ -75,7 +75,7 @@ describe "Initiative" do
         it "redirects to the login page when landing on #{step}" do
           expect(Decidim::InitiativesType.count).to eq(2)
           visit decidim_initiatives.create_initiative_path(step, locale: I18n.locale)
-          expect(page).to have_current_path("/users/sign_in")
+          expect(page).to have_current_path(decidim.new_user_session_path)
         end
       end
     end
@@ -602,6 +602,31 @@ describe "Initiative" do
             expect(page).to have_no_content("Scope")
             expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
             expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("offline")
+          end
+        end
+
+        context "with an empty form" do
+          let!(:other_initiative_type) { nil }
+          let!(:other_initiative_type_scope) { nil }
+
+          it "allows submission and show errors" do
+            expect(page).to have_content "Create a new initiative"
+            expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+            fill_in "initiative_title", with: ""
+
+            within ".new_initiative_form" do
+              find("*[type=submit]").click
+
+              expect(page).to have_css("div.sr-announce")
+              within "div.sr-announce" do
+                expect(page).to have_content("There are errors on the form, please correct them to continue.")
+              end
+
+              expect(page).to have_content("There is an error in this field.")
+              expect(page).to have_no_css("*[type=submit][data-disable='true']")
+              expect(find("button[type='submit']")).not_to be_disabled
+            end
           end
         end
 

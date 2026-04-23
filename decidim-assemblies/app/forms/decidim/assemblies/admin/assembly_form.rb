@@ -69,7 +69,9 @@ module Decidim
         validates :hero_image, passthru: { to: Decidim::Assembly }
 
         validates :weight, presence: true
+
         validates :access_mode, presence: true, inclusion: { in: Decidim::Assembly.access_modes.keys }
+        validate :ensure_access_mode_for_has_members
 
         alias organization current_organization
 
@@ -121,6 +123,10 @@ module Decidim
                         .any?
 
           errors.add(:slug, :taken)
+        end
+
+        def ensure_access_mode_for_has_members
+          self.access_mode = :open if has_members == false
         end
       end
     end

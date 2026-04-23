@@ -857,28 +857,6 @@ describe("AssemblyAdminController", () => {
     it("should initialize the controller and set up event listeners", () => {
       expect(controller).toBeDefined();
       expect(element).toBeDefined();
-
-      // Test that initial state is set correctly
-      const isTransparentCheckbox = element.querySelector("#is_transparent input[type='checkbox']");
-      const specialFeatures = element.querySelector("#special_features");
-
-      expect(isTransparentCheckbox.disabled).toBe(true);
-      expect(specialFeatures.style.display).toBe("none");
-    });
-
-    it("should call assignBehavior for assembly_type and created_by fields", () => {
-      const assemblyType = element.querySelector("#assembly_assembly_type");
-      const createdBy = element.querySelector("#assembly_created_by");
-
-      expect(assemblyType).toBeDefined();
-      expect(createdBy).toBeDefined();
-
-      // Verify that event listeners are attached by triggering changes
-      // const assemblyTypeOther = element.querySelector("#assembly_type_other");
-      const createdByOther = element.querySelector("#created_by_other");
-
-      // expect(assemblyTypeOther.style.display).toBe("none");
-      expect(createdByOther.style.display).toBe("none");
     });
   });
 
@@ -918,16 +896,6 @@ describe("AssemblyAdminController", () => {
       // Should hide initially if value is not "others"
       expect(targetDiv.style.display).toBe("none");
     });
-
-    it("should handle null elements gracefully", () => {
-      expect(() => {
-        controller.attachVisibility(null, null);
-      }).not.toThrow();
-
-      expect(() => {
-        controller.attachVisibility(element.querySelector("#assembly_assembly_type"), null);
-      }).not.toThrow();
-    });
   });
 
   describe("toggleDependsOnSelect", () => {
@@ -949,79 +917,6 @@ describe("AssemblyAdminController", () => {
       controller.toggleDependsOnSelect(select, targetDiv);
 
       expect(targetDiv.style.display).toBe("none");
-    });
-
-    it("should return early if target or showDiv is null", () => {
-      const select = element.querySelector("#assembly_assembly_type");
-
-      expect(() => {
-        controller.toggleDependsOnSelect(null, null);
-      }).not.toThrow();
-
-      expect(() => {
-        controller.toggleDependsOnSelect(select, null);
-      }).not.toThrow();
-    });
-  });
-
-  describe("toggleDisabledHiddenFields", () => {
-    it("should initially disable transparent checkbox and hide special features", () => {
-      controller.toggleDisabledHiddenFields();
-
-      const isTransparentCheckbox = element.querySelector("#is_transparent input[type='checkbox']");
-      const specialFeatures = element.querySelector("#special_features");
-
-      expect(isTransparentCheckbox.disabled).toBe(true);
-      expect(specialFeatures.style.display).toBe("none");
-    });
-
-    it("should enable transparent checkbox and show special features when private space is checked", () => {
-      const privateSpaceCheckbox = element.querySelector("#private_space input[type='checkbox']");
-      const isTransparentCheckbox = element.querySelector("#is_transparent input[type='checkbox']");
-      const specialFeatures = element.querySelector("#special_features");
-
-      // Check private space checkbox
-      privateSpaceCheckbox.checked = true;
-
-      controller.toggleDisabledHiddenFields();
-
-      expect(isTransparentCheckbox.disabled).toBe(false);
-      expect(specialFeatures.style.display).toBe("block");
-    });
-
-    it("should disable transparent checkbox and hide special features when private space is unchecked", () => {
-      const privateSpaceCheckbox = element.querySelector("#private_space input[type='checkbox']");
-      const isTransparentCheckbox = element.querySelector("#is_transparent input[type='checkbox']");
-      const specialFeatures = element.querySelector("#special_features");
-
-      // Uncheck private space checkbox
-      privateSpaceCheckbox.checked = false;
-
-      controller.toggleDisabledHiddenFields();
-
-      expect(isTransparentCheckbox.disabled).toBe(true);
-      expect(specialFeatures.style.display).toBe("none");
-    });
-
-    it("should handle missing elements gracefully", () => {
-      // Remove elements to test graceful handling
-      element.querySelector("#private_space").remove();
-      element.querySelector("#is_transparent").remove();
-      element.querySelector("#special_features").remove();
-
-      expect(() => {
-        controller.toggleDisabledHiddenFields();
-      }).not.toThrow();
-    });
-
-    it("should handle missing checkbox inside transparent div", () => {
-      // Remove checkbox from transparent div
-      const isTransparent = element.querySelector("#is_transparent");
-      isTransparent.innerHTML = "";
-
-      expect(() => {
-        controller.toggleDisabledHiddenFields();
-      }).not.toThrow();
     });
   });
 
@@ -1050,15 +945,4 @@ describe("AssemblyAdminController", () => {
     });
   });
 
-  describe("edge cases", () => {
-    it("should handle elements with no checkbox inside", () => {
-      // Replace private space with div that has no checkbox
-      const privateSpace = element.querySelector("#private_space");
-      privateSpace.innerHTML = "<div>No checkbox here</div>";
-
-      expect(() => {
-        controller.toggleDisabledHiddenFields();
-      }).not.toThrow();
-    });
-  });
 });

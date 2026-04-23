@@ -16,7 +16,11 @@
         <%= icon "arrow-left-line" %>
         <%= t("back", scope: "decidim.blogs.posts.new") %>
       <% end %>
-      <%= f.submit t("button", scope: "decidim.blogs.posts.new"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("button", scope: "decidim.blogs.posts.new") %></span>
+      </button>
+
     </div>
   <% end %>
 <% end %>

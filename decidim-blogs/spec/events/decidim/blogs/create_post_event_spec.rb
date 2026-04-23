@@ -43,7 +43,7 @@ describe Decidim::Blogs::CreatePostEvent do
         {}
       )
 
-      root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
+      root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host).chomp("/")
       expected_img = %(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG" alt="image" />)
 
       expect(mail.body.encoded).to include(expected_img)

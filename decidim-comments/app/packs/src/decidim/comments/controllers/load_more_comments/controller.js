@@ -79,10 +79,12 @@ export default class extends Controller {
    * @returns {string} The URL with query parameters
    */
   buildUrl() {
+    const locale = document.documentElement.getAttribute("lang") || "en";
     const params = new URLSearchParams({
       "commentable_gid": this.commentableGidValue,
       "order": this.orderValue,
       "offset": this.offsetValue,
+      "locale": locale,
       "load_more": 1
     });
 
@@ -90,7 +92,10 @@ export default class extends Controller {
       params.append("alignment", this.alignmentValue);
     }
 
-    return `${this.urlValue}?${params.toString()}`;
+    const separator = this.urlValue.includes("?")
+      ? "&"
+      : "?";
+    return `${this.urlValue}${separator}${params.toString()}`;
   }
 
   /**

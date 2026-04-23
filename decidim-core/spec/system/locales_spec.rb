@@ -73,7 +73,7 @@ describe "Locales" do
 
         # Prevent flaky spec, where sometimes the language is not changed before the visit
         sleep 2
-        visit decidim.root_path
+        visit decidim.root_redirect_path
       end
 
       it "uses the user's locale" do

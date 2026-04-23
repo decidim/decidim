@@ -29,7 +29,7 @@ module Decidim
     delegate :content_tag, :safe_join, :link_to, :active_link_to_class, :is_active_link?, :icon, to: :@view
 
     def render
-      content_tag :li, role: :menuitem, class: link_wrapper_classes do
+      content_tag :li, role: menuitem_role, class: link_wrapper_classes do
         output = if url == "#"
                    [content_tag(:span, composed_label, class: "sidebar-menu__item-disabled")]
                  else
@@ -67,6 +67,12 @@ module Decidim
       return @options.element_wrapper_class unless is_active_link?(url, active)
 
       [@options.element_wrapper_class, active_class].compact.join(" ")
+    end
+
+    def menuitem_role
+      return if @options.role == false
+
+      @options.role || :menuitem
     end
 
     def active_class

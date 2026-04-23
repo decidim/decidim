@@ -15,10 +15,10 @@
     </div>
   </div>
   <% if collection.any? %>
-    <%= render "filters" %>
+    <%= render "decidim/admin/taxonomies/filters" %>
 
     <% if @taxonomies.any? %>
-      <%= render "table", collection: @taxonomies if @taxonomies %>
+      <%= render "decidim/admin/taxonomies/table", collection: @taxonomies if @taxonomies %>
     <% else %>
       <p><%= t(".no_items_found") %></p>
     <% end %>

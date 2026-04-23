@@ -18,7 +18,7 @@ describe "Gamification" do
       end
 
       it "shows a list of badges" do
-        visit decidim.profile_path(user.nickname)
+        visit decidim.profile_path(user.nickname, locale: I18n.locale)
         click_on "Badges"
         within "div[data-badge='test']" do
           expect(page).to have_content "Level 2"
@@ -31,7 +31,7 @@ describe "Gamification" do
     let!(:user) { create(:user, organization:) }
 
     it "can be reached from the profile's badges page" do
-      visit decidim.profile_path(user.nickname)
+      visit decidim.profile_path(user.nickname, locale: I18n.locale)
       click_on "Badges"
       within ".profile__badge-banner" do
         click_on "See all available badges"
