@@ -5,17 +5,28 @@ require "spec_helper"
 module Decidim::Accountability
   describe CreateMilestoneType, type: :graphql do
     include_context "with a graphql class mutation"
-    include_context "when managing milestone through API"
+
+    let(:current_component) { component }
+    let(:component) { create(:accountability_component, organization: current_organization) }
 
     let(:root_klass) { ResultMutationType }
     let!(:result) { create(:result, component:) }
     let(:model) { result }
-    let(:entry_date) { "01.01.2025" }
+    let(:entry_date) { "2025-01-01" }
     let(:title_en) { Faker::Lorem.sentence(word_count: 3) }
     let(:description_en) { Faker::Lorem.paragraph(sentence_count: 2) }
+    let(:attributes) do
+      {
+        title: { en: title_en },
+        description: { en: description_en },
+        entryDate: entry_date
+      }
+    end
+    let(:locale) { "en" }
 
     let(:variables) do
       {
+        result_id: model.id,
         input: {
           attributes:
         }
@@ -40,30 +51,82 @@ module Decidim::Accountability
       GRAPHQL
     end
 
-    let(:api_response) do
-      response["createMilestone"]
-    end
-    let!(:expected_trace_method) { :create! }
-    let(:target) { Decidim::Accountability::Milestone }
-
-    context "with admin user" do
-      let!(:user_type) { :admin }
-
-      it_behaves_like "create new milestone"
-      include_examples "create/update milestone shared examples"
-    end
-
-    context "with api user" do
-      let!(:user_type) { :api_user }
-
-      it_behaves_like "create new milestone"
-      include_examples "create/update milestone shared examples"
-    end
-
-    context "with normal user" do
-      it "returns nil" do
-        expect(api_response).to be_nil
+    shared_examples "API creatable milestone" do
+      it "creates a new budget" do
+        expect do
+          execute_query(query, variables)
+        end.to change(Decidim::Accountability::Milestone, :count).by(1)
       end
+
+      it "assigns fields" do
+        milestone = response["createMilestone"]
+        expect(milestone["id"]).to be_present
+        expect(milestone["title"]["translation"]).to eq(title_en)
+        expect(milestone["description"]["translation"]).to eq(description_en)
+        expect(milestone["entryDate"]).to eq(entry_date)
+      end
+
+      context "when having invalid arguments" do
+        context "when having invalid locale" do
+          let(:variables) do
+            {
+              component_id: current_component.id,
+              budget_id: model.id,
+              input: {
+                attributes: {
+                  title: { :en => title_en, "tlh" => "Foo bar" },
+                  description: { en: description_en },
+                  entryDate: entry_date
+                }
+              }
+            }
+          end
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::InvalidLocaleError, /Invalid locale provided/)
+          end
+        end
+
+        context "when submitting entry_date as string" do
+          let(:entry_date) { "foo" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+
+        context "when submitting invalid entry_date" do
+          let(:entry_date) { "" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+
+        context "when submitting invalid title" do
+          let(:title_en) { "" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+      end
+    end
+
+    context "with an admin user" do
+      it_behaves_like "API creatable milestone" do
+        let!(:user_type) { :admin }
+      end
+    end
+
+    context "with an api user" do
+      it_behaves_like "API creatable milestone" do
+        let!(:user_type) { :api_user }
+      end
+    end
+
+    it "does not create milestone for unauthorized user" do
+      expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
     end
   end
 end

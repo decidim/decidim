@@ -16,7 +16,7 @@ When you want to add or create data in your budget component, you need to rely o
 • proposal_ids                      (Optional)   - Array
 • start_date                        (Optional)   - String
 • taxonomies                        (Optional)   - Array
-• title                             (Optional)   - JSON
+• title                             (Required)   - JSON
 • weight                            (Optional)   - Int
 ----
 

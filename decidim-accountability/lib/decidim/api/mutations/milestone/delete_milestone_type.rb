@@ -14,6 +14,10 @@ module Decidim
           user_can_perform_admin_actions?(context[:current_user])
       end
 
+      def self.permission_chain(object)
+        super.unshift(Decidim::Accountability::Admin::Permissions)
+      end
+
       private
 
       def find_resource(id = nil)

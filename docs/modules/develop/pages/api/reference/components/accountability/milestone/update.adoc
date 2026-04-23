@@ -1,32 +1,27 @@
-= Create Project
+= Update Milestone
 
-==  Input attributes
+== Input attributes
 
-When you want to create a project in your inside your budget component, you need to rely on the `ProjectAttributes` type, which has the following input fields:
+When you want to update a milestone inside your accountability component, you need to rely on the `MilestoneAttributes` type, which has the following input fields:
 
 [source]
 ----
-• address               (optional) - String
-• budget_amount         (optional) - Integer
-• description           (optional) - JSON
-• latitude              (optional) - Float
-• longitude             (optional) - Float
-• proposal_ids          (optional) - Proposal ids to assign to this project
-• title                 (Required) - JSON
-• taxonomies            (optional) - Taxonomy ids to assign to this project
+• description                       (Required)   - JSON
+• title                             (Optional)   - JSON
+• entry_date                        (Optional)   - String
 ----
 
 == Sample request
 
-The `CreateProject` mutation allows authenticated administrators to create new projects within a budget in a Decidim budget component. This mutation uses the existing `CreateProject` command from the admin controller.
+The `UpdateMilestone` mutation allows authenticated administrators to update a milestone within a result in a Decidim accountability component. This mutation uses the existing `UpdateMilestone` command from the admin controller.
 
 [source,graphql]
 ----
-mutation createProject($componentId: ID!, $budgetId: ID!, $input: CreateProjectInput!){
+mutation updateMilestone($componentId: ID!, $resultId: ID!,   $input: UpdateMilestoneInput!){
    component(id: $componentId){
-    ...on BudgetsMutation{
-      budget(id: $budgetId){
-      	createProject(input: $input){
+    ...on AccountabilityMutation{
+      result(id: $resultId){
+      	updateMilestone(input: $input){
         	id
           url
         }
@@ -42,20 +37,16 @@ Example of submitted variables
 ----
 {
   "componentId": "3",
-  "budgetId": "5",
+  "resultId": "5",
   "input": {
+    "id": "7",
     "attributes": {
-      "budgetAmount": 12300,
-      "address": "FOOBAR",
-      "latitude": 123.00,
-      "longitude": 12.33,
-      "proposalIds": [1,2,3],
-      "taxonomies": [1,2,3],
+      "entryDate": "2025-12-31",
       "description": {
-        "en": "Project description created from component"
+        "en": "Milestone description changed from API"
       },
       "title": {
-        "en": "Project title created from component"
+        "en": "Milestone title changed from API"
       }
     }
   }

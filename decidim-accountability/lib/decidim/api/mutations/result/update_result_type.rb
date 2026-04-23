@@ -32,6 +32,10 @@ module Decidim
         true
       end
 
+      def self.permission_chain(object)
+        super.unshift(Decidim::Accountability::Admin::Permissions)
+      end
+
       private
 
       def linked_resources(result, type)
