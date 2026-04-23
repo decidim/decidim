@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -56,9 +55,9 @@ es:
           create: Crear
           new: Nueva usuaria de la API
           remove: Eliminar usuaria
-        confirm_destroy: "¿Seguro que lo quieres eliminar?"
-        confirm_refresh_api_secret: "¿Seguro de que quieres renovar el secreto para esta usuaria de la API? Una vez renovado, el secreto antiguo no será válido y ya no se podrá utilizar."
-        confirm_remove_api_user: "¿Estás seguro de que quieres eliminar a esta usuaria de la API?"
+        confirm_destroy: '¿Seguro que lo quieres eliminar?'
+        confirm_refresh_api_secret: '¿Seguro de que quieres renovar el secreto para esta usuaria de la API? Una vez renovado, el secreto antiguo no será válido y ya no se podrá utilizar.'
+        confirm_remove_api_user: '¿Estás seguro de que quieres eliminar a esta usuaria de la API?'
         copied: Se ha copiado
         copy_secret: Copiar el secreto
         copy_secret_clarification: Copiar el secreto al portapapeles
@@ -123,13 +122,13 @@ es:
             change_your_password: Cambia tu contraseña
             minimum_characters: "(%{minimum} caracteres como mínimo)"
           new:
-            forgot_your_password: "¿Has olvidado tu contraseña?"
+            forgot_your_password: '¿Has olvidado tu contraseña?'
             send_me_reset_password_instructions: Envíame las instrucciones para restablecer la contraseña
         shared:
           links:
-            did_not_receive_confirmation_instructions?: "¿No has recibido las instrucciones de confirmación?"
-            did_not_receive_unlock_instructions?: "¿No has recibido las instrucciones de desbloqueo?"
-            forgot_your_password?: "¿Olvidaste tu contraseña?"
+            did_not_receive_confirmation_instructions?: '¿No has recibido las instrucciones de confirmación?'
+            did_not_receive_unlock_instructions?: '¿No has recibido las instrucciones de desbloqueo?'
+            forgot_your_password?: '¿Olvidaste tu contraseña?'
             log_in: Iniciar sesión
             sign_up: Crea una cuenta
       menu:
@@ -188,10 +187,10 @@ es:
               explanation: Aplicaciones que no pueden utilizar secretos de clientes registrados, como aplicaciones que se ejecutan en un navegador o en un dispositivo móvil.
               name: Público
           application_type_help_html: 'El tipo de cliente OAuth definido por <a href="%{client_type_link}" target="_blank">RFC 6749 Sección 2.1</a>. Los clientes públicos deben implementar el flujo PKCE según lo definido por <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
-          refresh_tokens_help_html: Los autentificadores (tokens) de actualización son útiles en caso de que el autentificador necesite una vida útil más larga que la asignada al autentificador de acceso.
+          refresh_tokens_help_html: 'Los autentificadores (tokens) de actualización son útiles en caso de que el autentificador necesite una vida útil más larga que la asignada al autentificador de acceso.'
           scopes_explanation:
-            api:read: Permite a la usuaria realizar operaciones de consulta a través de la API GraphQL.
-            api:write: Permite a la usuaria realizar operaciones de mutación a través de la API GraphQL.
+            "api:read": Permite a la usuaria realizar operaciones de consulta a través de la API GraphQL.
+            "api:write": Permite a la usuaria realizar operaciones de mutación a través de la API GraphQL.
             profile: Proporciona acceso a los detalles del perfil de la usuaria. Este ámbito solo es necesario en caso de que la aplicación OAuth solo se utilice como proveedor de identidad o servicio de autenticación.
             user: Capacidad para actuar como la usuaria registrada con el autentificador (token) dado durante las llamadas a la API GraphQL. Esto es necesario para todas las operaciones api:write o api:read que necesiten información sobre el usuario actual.
           scopes_help_html: |
@@ -202,7 +201,7 @@ es:
             <strong>Nota:</strong> Si sólo necesitas autenticar a las usuarias de tus aplicaciones externas, sólo necesitas el ámbito <strong>perfil</strong>. Las aplicaciones que interactúan con la API de Decidim también necesitan otros ámbitos.
           select_organization: Seleccionar una organización
         index:
-          confirm_delete: "¿Seguro que quieres eliminar esta aplicación?"
+          confirm_delete: '¿Seguro que quieres eliminar esta aplicación?'
           title: Aplicaciones OAuth
         new:
           save: Guardar
@@ -267,7 +266,7 @@ es:
             Las direcciones de estilo (style-src) limitan las URL que se pueden cargar en los elementos <style>.
             Decidim añade automáticamente el valor "'self' 'unsafe-inline'", pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabes lo que significa.
         edit:
-          confirm_resend_invitation: "¿Seguro que quieres reenviar la invitación?"
+          confirm_resend_invitation: '¿Seguro que quieres reenviar la invitación?'
           resend_invitation: Reenviar invitación
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
           short_name_hint: Nombre corto utilizado para la Aplicación Web Progresiva (PWA). Debe tener un máximo de 12 caracteres.
@@ -294,7 +293,7 @@ es:
         index:
           title: Organizaciones
         new:
-          default: "¿Por defecto?"
+          default: '¿Por defecto?'
           enabled: Habilitado
           locale: Configuración regional
           organization_admin_email_hint: Te enviaremos un correo electrónico a esta dirección para que la puedas confirmar y configurar tu contraseña.
@@ -343,7 +342,7 @@ es:
           no_organization_warning_html: Debes crear una organización para comenzar. Asegúrate de leer %{guide} antes de continuar.
           our_getting_started_guide: nuestra guía de inicio
         organizations_list:
-          confirm_resend_invitation: "¿Seguro que quieres reenviar la invitación?"
+          confirm_resend_invitation: '¿Seguro que quieres reenviar la invitación?'
           resend_invitation: Reenviar la invitación
       system_checks:
         active_job_queue:
