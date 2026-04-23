@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -52,7 +53,7 @@ es:
           form:
             save: Guardar
           index:
-            confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
+            confirm_delete: "¿Seguro que quieres eliminar esta plantilla?"
             title: Bloquear los mensajes de la usuaria
           new:
             title: Nueva plantilla para el mensaje de bloqueo de la cuenta de usuaria
@@ -70,7 +71,7 @@ es:
             save: Guardar
           index:
             component_constraint: Añadir restricción
-            confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
+            confirm_delete: "¿Seguro que quieres eliminar esta plantilla?"
             missing_state: Falta el estado
             proposal_state_id: Estado interno
             title: Respuestas a propuestas
@@ -100,7 +101,7 @@ es:
           form:
             title: Plantilla de cuestionario %{questionnaire_for}
           index:
-            confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
+            confirm_delete: "¿Seguro que quieres eliminar esta plantilla?"
             title: Plantillas de cuestionario
           new:
             title: Nueva plantilla de cuestionario

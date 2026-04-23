@@ -61,7 +61,7 @@ es:
           - entre 30 y 44 años
           - entre 45 y 64 años
           - 65 años o más
-          question: '¿Qué edad tienes?'
+          question: "¿Qué edad tienes?"
         gender:
           options:
           - Hombre
@@ -69,9 +69,9 @@ es:
           - No binario
           - Mi género no está listado
           - Prefiero no responder
-          question: '¿Cuál de las siguientes opciones describe mejor tu género?'
+          question: "¿Cuál de las siguientes opciones describe mejor tu género?"
         postal:
-          question: '¿Cuál es el código postal de tu domicilio?'
+          question: "¿Cuál es el código postal de tu domicilio?"
   layouts:
     decidim:
       shared:

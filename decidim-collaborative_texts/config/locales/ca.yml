@@ -84,18 +84,18 @@ ca:
           unpublished: Despublicat
       admin_log:
         document:
-          create: "%{user_name} ha creat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
-          delete: "%{user_name} ha eliminat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
-          publish: "%{user_name} ha publicat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
-          restore: "%{user_name} ha restaurat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
-          soft_delete: "%{user_name} ha mogut a la paperera el text col·laboratiu \"%{resource_name}\" a %{space_name}"
-          unpublish: "%{user_name} ha despublicat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
-          update: "%{user_name} ha actualitzat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
+          create: '%{user_name} ha creat el text col·laboratiu "%{resource_name}" a %{space_name}'
+          delete: '%{user_name} ha eliminat el text col·laboratiu "%{resource_name}" a %{space_name}'
+          publish: '%{user_name} ha publicat el text col·laboratiu "%{resource_name}" a %{space_name}'
+          restore: '%{user_name} ha restaurat el text col·laboratiu "%{resource_name}" a %{space_name}'
+          soft_delete: '%{user_name} ha mogut a la paperera el text col·laboratiu "%{resource_name}" a %{space_name}'
+          unpublish: '%{user_name} ha despublicat el text col·laboratiu "%{resource_name}" a %{space_name}'
+          update: '%{user_name} ha actualitzat el text col·laboratiu "%{resource_name}" a %{space_name}'
         suggestion:
-          create: "%{user_name} va suggerir canvis al text col·laboratiu: \"%{resource_name}\" a %{space_name}"
+          create: '%{user_name} va suggerir canvis al text col·laboratiu: "%{resource_name}" a %{space_name}'
         version:
-          delete: "%{user_name} ha eliminat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
-          update: "%{user_name} ha actualitzat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
+          delete: '%{user_name} ha eliminat el text col·laboratiu "%{resource_name}" a %{space_name}'
+          update: '%{user_name} ha actualitzat el text col·laboratiu "%{resource_name}" a %{space_name}'
       document:
         apply: Aplicar
         cancel: Cancel·lar

@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -272,20 +273,20 @@ es:
       badges:
         attended_meetings:
           conditions:
-            - Inscríbete en los encuentros a los que quieres asistir
+          - Inscríbete en los encuentros a los que quieres asistir
           description: Este distintivo se consigue asistiendo a varios encuentros presenciales.
           description_another: Esta participante asistió a %{score} encuentros.
           description_own: Has asistido a %{score} encuentros.
           name: Encuentros a los que has asistido
-          next_level_in: '¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!"
           unearned_another: Esta participante aún no ha asistido a ningún encuentro.
           unearned_own: No has asistido a ningún encuentro todavía.
     meetings:
       actions:
         agenda: Orden del día
         close: Cerrar
-        confirm_delete_meeting: '¿Seguro que quiere eliminar este encuentro?'
-        confirm_unpublish_meeting: '¿Seguro que quieres despublicar este encuentro?'
+        confirm_delete_meeting: "¿Seguro que quiere eliminar este encuentro?"
+        confirm_unpublish_meeting: "¿Seguro que quieres despublicar este encuentro?"
         deleted_meetings_info: Los encuentros eliminados se pueden restaurar desde papelera.
         edit: Editar
         invalid_destroy:
@@ -443,10 +444,10 @@ es:
             title: Editar la encuesta
           form:
             announcement_html:
-              - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
-              - Puedes añadir una pregunta en cualquier momento.
-              - La consulta se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
-              - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
+            - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
+            - Puedes añadir una pregunta en cualquier momento.
+            - La consulta se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
+            - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
         registration_form:
           edit_questions:
             title: Editar las preguntas
@@ -509,7 +510,7 @@ es:
         calendar_url: URL del calendario
         copy_calendar_url: Copiar
         copy_calendar_url_clarification: Copiar la URL del calendario al portapapeles
-        copy_calendar_url_copied: '¡Copiado!'
+        copy_calendar_url_copied: "¡Copiado!"
         copy_calendar_url_description: Puedes ver todas las reuniones publicadas en tu aplicación o proveedor de calendario. Copia y pega esta URL en tu calendario usando la opción "Añadir nuevo calendario desde una URL".
         copy_calendar_url_explanation: Ten en cuenta que estás exportando una selección de encuentros, ya que hay filtros activos. Si deseas exportarlos todos, primero desactiva todos los filtros.
         copy_calendar_url_message: Se ha copiado el enlace al portapapeles correctamente.
@@ -639,9 +640,9 @@ es:
           join: Unirse al encuentro
           join_waitlist: Apuntarse a la lista de espera
           leave: Cancela tu inscripción
-          leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
+          leave_confirmation: "¿Seguro que quieres cancelar tu inscripción para este encuentro?"
           leave_waitlist: Abandonar lista de espera
-          leave_waitlist_confirmation: '¿Seguro que quieres abandonar la lista de espera para este encuentro?'
+          leave_waitlist_confirmation: "¿Seguro que quieres abandonar la lista de espera para este encuentro?"
           link_available_soon: Enlace disponible próximamente
           link_closed: El enlace a la sala de videoconferencia estará disponible unos minutos antes de que comience
           live_event: Este encuentro está sucediendo ahora mismo
@@ -658,14 +659,14 @@ es:
             validated: VALIDADO
             validation_pending: VALIDACIÓN PENDIENTE
           remaining_slots:
-            one: "Queda %{count} plaza"
+            one: Queda %{count} plaza
             other: "%{count} plazas restantes"
           visit_finished: Ver encuentro pasado
           waitlist:
             description: Si queda alguna plaza libre, se tramitará tu inscripción automáticamente y te lo notificaremos por correo electrónico.
             status: Estás en la lista de espera
           withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
-          withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'
+          withdraw_confirmation_html: "¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>"
           withdraw_meeting: Retirar
         update:
           invalid: Se ha producido un error al actualizar este encuentro.

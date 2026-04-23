@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -62,45 +63,45 @@ es:
       admin:
         another_dummy_authorization_handler:
           help:
-            - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona.
-            - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
-            - Verifícate introduciendo un número de pasaporte que empiece por "A".
+          - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona.
+          - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
+          - Verifícate introduciendo un número de pasaporte que empiece por "A".
         csv_census:
           help:
-            - Las administradoras cargan un CSV con los correos electrónicos de las participantes aceptadas.
-            - Solamente se puedan verificar las participantes con un correo electrónico que figure en este archivo CSV.
+          - Las administradoras cargan un CSV con los correos electrónicos de las participantes aceptadas.
+          - Solamente se puedan verificar las participantes con un correo electrónico que figure en este archivo CSV.
         default:
           help:
-            - La ayuda sobre el gestor de autorización no está definida.
-            - Un desarrollador necesita definir la ayuda en la clave de traducción (i18n) "%{authorization_handler}"
+          - La ayuda sobre el gestor de autorización no está definida.
+          - Un desarrollador necesita definir la ayuda en la clave de traducción (i18n) "%{authorization_handler}"
         dummy_authorization_handler:
           help:
-            - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
-            - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
-            - Verifícate introduciendo un número de documento que termine con "X".
+          - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
+          - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
+          - Verifícate introduciendo un número de documento que termine con "X".
         ephemeral_dummy_authorization_handler:
           help:
-            - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
-            - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
-            - Es una copia de la Autorización de ejemplo.
-            - Verifícate introduciendo un número de documento que termine con "X".
+          - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
+          - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
+          - Es una copia de la Autorización de ejemplo.
+          - Verifícate introduciendo un número de documento que termine con "X".
         id_documents:
           help:
-            - Las participantes rellenan la información de su identidad y suben una copia de su documento.
-            - Rellenas la información presente en la imagen subida.
-            - La información tiene que coincidir con lo que haya rellenado la persona participante.
-            - Si no puedes ver la información con claridad o no la puedes verificar, puedes rechazar la solicitud para que la participante la pueda corregir.
+          - Las participantes rellenan la información de su identidad y suben una copia de su documento.
+          - Rellenas la información presente en la imagen subida.
+          - La información tiene que coincidir con lo que haya rellenado la persona participante.
+          - Si no puedes ver la información con claridad o no la puedes verificar, puedes rechazar la solicitud para que la participante la pueda corregir.
         postal_letter:
           help:
-            - Las participantes solicitan un código de verificación que se enviará a su dirección.
-            - Enviar la carta a su dirección con el código de verificación.
-            - Marcar la carta como enviada.
-            - Una vez hayas marcado la carta como enviada, la participante podrá introducir el código y ser verificada.
+          - Las participantes solicitan un código de verificación que se enviará a su dirección.
+          - Enviar la carta a su dirección con el código de verificación.
+          - Marcar la carta como enviada.
+          - Una vez hayas marcado la carta como enviada, la participante podrá introducir el código y ser verificada.
         sms:
           help:
-            - Las participantes solicitan un código de verificación que se enviará a su teléfono.
-            - Necesitan introducir el código para ser verificadas.
-            - Si no reciben el código, pueden pedirlo de nuevo.
+          - Las participantes solicitan un código de verificación que se enviará a su teléfono.
+          - Necesitan introducir el código para ser verificadas.
+          - Si no reciben el código, pueden pedirlo de nuevo.
       csv_census:
         explanation: Verifícate utilizando el censo de la organización.
         name: Censo de la organización
@@ -169,7 +170,7 @@ es:
       csv_census:
         admin:
           actions:
-            confirm_destroy: '¿Seguro que quieres borrar este registro de datos censales?'
+            confirm_destroy: "¿Seguro que quieres borrar este registro de datos censales?"
             destroy: Destruir
             edit: Editar
           census:
@@ -221,7 +222,7 @@ es:
               actions: Acciones
               created_at: Creado el
               email: Correo electrónico
-              user_authorized: '¿Usuaria autorizada?'
+              user_authorized: "¿Usuaria autorizada?"
             import_csv: Importar CSV
             no_authorized: Usuaria no autorizada
         authorizations:
@@ -239,7 +240,7 @@ es:
       errors:
         invalid_emails: 'Las siguientes direcciones de correo electrónico no son válidas: %{invalid_emails}.'
         no_emails: El archivo debe contener direcciones de correo electrónico
-        wrong_number_columns: "Se esperaba una columna %{expected}, pero se encontraron %{actual}."
+        wrong_number_columns: Se esperaba una columna %{expected}, pero se encontraron %{actual}.
       id_documents:
         admin:
           config:
@@ -318,7 +319,7 @@ es:
         authorizations:
           create:
             error: Se ha producido un problema con tu solicitud.
-            success: '¡Gracias! Te enviaremos un código de verificación a tu dirección.'
+            success: "¡Gracias! Te enviaremos un código de verificación a tu dirección."
           edit:
             send: Confirmar
             title: Introduce el código de verificación que has recibido.
@@ -333,13 +334,13 @@ es:
         authorizations:
           create:
             error: Se ha producido un problema con tu solicitud.
-            success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
+            success: "¡Gracias! Hemos enviado un SMS a tu teléfono."
           destroy:
             success: Código de verificación correctamente restablecido. Vuelve a escribir tu número de teléfono.
           edit:
-            confirm_destroy: '¿Seguro que quieres restablecer el código de verificación?'
+            confirm_destroy: "¿Seguro que quieres restablecer el código de verificación?"
             destroy: Restablecer código de verificación
-            resend: '¿No has recibido el código de verificación?'
+            resend: "¿No has recibido el código de verificación?"
             send: Confirmar
             title: Introduce el código de verificación que has recibido
           new:

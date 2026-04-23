@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -42,8 +43,8 @@ es:
       actions:
         add_milestone: Agregar un hito
         add_result: Añadir un resultado
-        confirm_delete_result: '¿Seguro que quieres eliminar este resultado?'
-        confirm_destroy: '¿Seguro que quieres eliminar este %{name}?'
+        confirm_delete_result: "¿Seguro que quieres eliminar este resultado?"
+        confirm_destroy: "¿Seguro que quieres eliminar este %{name}?"
         deleted_results_info: Los resultados eliminados se pueden restaurar desde papelera.
         destroy: Borrar
         edit: Editar
@@ -65,10 +66,10 @@ es:
           filters:
             new_items_projects:
               one: Se importará 1 proyecto seleccionado
-              other: "Se importarán %{count} proyectos seleccionados"
+              other: Se importarán %{count} proyectos seleccionados
             new_items_proposals:
               one: Se importará 1 propuesta
-              other: "Se importarán %{count} propuestas"
+              other: Se importarán %{count} propuestas
             proposal_state: Estado de la propuesta
             select_state: Seleccionar estado
           form:
@@ -79,33 +80,13 @@ es:
           new:
             success:
               one: Hay 1 resultado en la cola para ser importado. Se notificará por correo electrónico, cuando se complete la importación.
-              other: "Hay %{count} resultados en la cola para ser importados. Se notificará por correo electrónico, cuando se complete la importación."
+              other: Hay %{count} resultados en la cola para ser importados. Se notificará por correo electrónico, cuando se complete la importación.
             title: Importar resultados desde otro componente
         import_results:
           new:
             download_export: Descargar la exportación con formato CSV
             import: Importar
-            info: |
-              <p>Te recomendamos que sigas los siguientes pasos:</p>
-              <ol>
-              <li> <a href='%{link_new_status}' target='_blank'>Crea los estados para los resultados</a> que quieras agregar</li>
-              <li><a href='%{link_new_result}' target='_blank'> Crea por lo menos un resultado manualmente</a> a través del panel de administración antes de importar, para entender mejor el formato y cómo rellenarlo.</li>
-              <li>%{link_export_csv}</li>
-              <li>Haz los cambios en local. Sólo puedes modificar las siguientes columnas del CSV  (el resto será ignorado):
-                <ul>
-                <li><b>taxonomies/ids:</b> IDs para la taxonomia (si hay más de una, sepárelas con una coma)</li>
-                <li><b>parent/id:</b> ID para el padre (para resultados relacionados). 
-              <br>Opcional</li>
-                <li><b>title/I18N:</b> título en el idioma X</li>
-                <li><b>description/I18N:</b> descripción en el idioma X</li>
-                <li><b>start_date:</b> fecha en la que se inicia la ejecución del resultado (formato AAAA-MM-DD)</li>
-                <li><b>end_date:</b> fecha en la que finaliza la ejecución del resultado (formato AAAA-MM-DD) </li>
-                <li><b>status/id:</b> ID del estado para este resultado</li>
-                <li><b>progress:</b> Tanto por ciento (de 0 a 100) de ejecución</li>
-                <li><b>proposals_ids:</b> ID interno de las propuestas relacionadas (separadas por comas). Se convertirá automáticamente en <span class = 'attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
+            info: "<p>Te recomendamos que sigas los siguientes pasos:</p>\n<ol>\n<li> <a href='%{link_new_status}' target='_blank'>Crea los estados para los resultados</a> que quieras agregar</li>\n<li><a href='%{link_new_result}' target='_blank'> Crea por lo menos un resultado manualmente</a> a través del panel de administración antes de importar, para entender mejor el formato y cómo rellenarlo.</li>\n<li>%{link_export_csv}</li>\n<li>Haz los cambios en local. Sólo puedes modificar las siguientes columnas del CSV  (el resto será ignorado):\n  <ul>\n  <li><b>taxonomies/ids:</b> IDs para la taxonomia (si hay más de una, sepárelas con una coma)</li>\n  <li><b>parent/id:</b> ID para el padre (para resultados relacionados). \n<br>Opcional</li>\n  <li><b>title/I18N:</b> título en el idioma X</li>\n  <li><b>description/I18N:</b> descripción en el idioma X</li>\n  <li><b>start_date:</b> fecha en la que se inicia la ejecución del resultado (formato AAAA-MM-DD)</li>\n  <li><b>end_date:</b> fecha en la que finaliza la ejecución del resultado (formato AAAA-MM-DD) </li>\n  <li><b>status/id:</b> ID del estado para este resultado</li>\n  <li><b>progress:</b> Tanto por ciento (de 0 a 100) de ejecución</li>\n  <li><b>proposals_ids:</b> ID interno de las propuestas relacionadas (separadas por comas). Se convertirá automáticamente en <span class = 'attribute-name'>proposal_url</span></li>\n  </ul>\n</li>\n</ol>\n"
             title: Importar resultados desde un archivo CSV
         imports:
           create:
@@ -201,9 +182,9 @@ es:
             success: Estado actualizado correctamente.
       admin_log:
         milestones:
-          create: "%{user_name} creó el hito \"%{resource_name}\""
-          delete: "%{user_name} borró el hito \"%{resource_name}\""
-          update: "%{user_name} actualizó el hito \"%{resource_name}\""
+          create: '%{user_name} creó el hito "%{resource_name}"'
+          delete: '%{user_name} borró el hito "%{resource_name}"'
+          update: '%{user_name} actualizó el hito "%{resource_name}"'
         result:
           create: "%{user_name} creó el resultado %{resource_name} en %{space_name}"
           delete: "%{user_name} borró el resultado %{resource_name} en %{space_name}"
@@ -233,14 +214,14 @@ es:
         import:
           added_projects:
             one: Se ha importado un resultado desde proyectos.
-            other: "Se han importado %{count} resultados desde proyectos."
+            other: Se han importado %{count} resultados desde proyectos.
           subject: Los proyectos se han importado correctamente
           success: Los proyectos importados como resultados con éxito al componente %{component_name}. Puedes revisar los resultados en el tablero de administración.
       import_proposals_mailer:
         import:
           added_proposals:
             one: Se ha importado 1 resultado desde propuestas.
-            other: "Se ha importado %{count} resultados desde propuestas."
+            other: Se ha importado %{count} resultados desde propuestas.
           subject: Las propuestas se han importado correctamente
           success: Se han importado con éxito las propuestas como resultados al componente %{component_name}. Puedes revisar los resultados en el tablero de administración.
       last_activity:

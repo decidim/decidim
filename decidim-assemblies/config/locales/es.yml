@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -89,7 +90,7 @@ es:
   decidim:
     admin:
       actions:
-        confirm_delete_assembly: '¿Seguro que quieres eliminar esta asamblea? Si cambias de opinión, puedes restaurarla más tarde.'
+        confirm_delete_assembly: "¿Seguro que quieres eliminar esta asamblea? Si cambias de opinión, puedes restaurarla más tarde."
         import_assembly: Importar
         new_assembly: Nueva asamblea
         new_assembly_user_role: Añadir administradora
@@ -200,6 +201,8 @@ es:
       taxonomy_filters:
         space_filter_for:
           assemblies: Todas las asambleas
+      titles:
+        assemblies_types: Tipos de asambleas
       tooltips:
         deleted_assemblies_info: Una asamblea solo se puede eliminar si su estado es 'Despublicada'.
     admin_log:
@@ -356,6 +359,9 @@ es:
           highlighted_assemblies:
             active_spaces: Asambleas activas
             see_all_spaces: Ver todas las asambleas
+        user_profile:
+          member_of:
+            member_of: Miembro de
       show:
         duration: Duración
         social_networks_title: Visita la asamblea en
@@ -367,7 +373,7 @@ es:
         create_assembly_member:
           email_intro: Una administradora de la asamblea <a href="%{resource_url}">%{resource_name}</a> te ha añadido como uno de sus miembros.
           email_outro: Recibes esta notificación porque te han invitado a una asamblea. ¡Entra en <a href="%{resource_url}">assembly page</a> para contribuir!
-          email_subject: '¡Te han invitado a ser miembro de la asamblea %{resource_name}!'
+          email_subject: "¡Te han invitado a ser miembro de la asamblea %{resource_name}!"
           notification_title: Te han registrado como miembro de la asamblea<a href="%{resource_path}">%{resource_name}</a>. ¡Entra en <a href="%{resource_path}">la página de la asamblea</a> para contribuir!
       assembly:
         role_assigned:
@@ -380,11 +386,13 @@ es:
         assemblies:
           contextual: "<p>Una <strong>asamblea</strong> es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p><p>Las asambleas realizan encuentros, algunos son privados y otros son abiertos. Si son abiertos se puede participar en ellos (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Una asamblea general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como para escojer a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o un órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de asambleas.</p>\n"
           page: "<p>Una <strong>asamblea</strong> es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p><p>Las asambleas realizan encuentros, algunos son privados y otros son abiertos. Si son abiertos se puede participar en ellos (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Una asamblea general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como para escojer a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o un órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de asambleas.</p>\n"
-          title: '¿Qué son las asambleas?'
+          title: "¿Qué son las asambleas?"
     log:
       value_types:
         assembly_presenter:
           not_found: 'No se encontró la asamblea en la base de datos (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'No se encontró el tipo de asamblea en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
     open_data:

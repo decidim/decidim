@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -85,7 +86,7 @@ es:
     admin:
       actions:
         activate: Activar
-        confirm_delete_process: '¿Seguro que quieres eliminar este proceso? Si cambias de opinión, puedes restaurarlo más tarde.'
+        confirm_delete_process: "¿Seguro que quieres eliminar este proceso? Si cambias de opinión, puedes restaurarlo más tarde."
         confirm_destroy: Confirmar eliminación
         destroy: Borrar
         duplicate: Duplicar
@@ -237,7 +238,7 @@ es:
         index:
           access_modes:
             open: Abierto
-            restricted:
+            restricted: Restringida
             transparent: Transparente
           published: Publicada
           unpublished: Despublicado
@@ -271,8 +272,8 @@ es:
         import: "%{user_name} ha importado el proceso participativo %{resource_name}"
         publish: "%{user_name} publicó el proceso participativo %{resource_name}"
         publish_all_members: "%{user_name} publicó todas las miembros del proceso participativo %{resource_name}"
-        restore: "%{user_name} restauró el proceso participativo \"%{resource_name}\""
-        soft_delete: "%{user_name} ha enviado a la papelera el proceso participativo \"%{resource_name}\""
+        restore: '%{user_name} restauró el proceso participativo "%{resource_name}"'
+        soft_delete: '%{user_name} ha enviado a la papelera el proceso participativo "%{resource_name}"'
         unpublish: "%{user_name} despublicó el proceso participativo %{resource_name}"
         unpublish_all_members: "%{user_name} despublicó a todas las miembros del proceso participativo %{resource_name}"
         update: "%{user_name} actualizó el proceso participativo %{resource_name}"
@@ -314,7 +315,7 @@ es:
         participatory_processes:
           contextual: "<p>Un <strong>proceso participativo</strong> es una secuencia de actividades participativas (p.e. primero rellenar una encuesta, luego realizar propuestas, debatirlas en encuentros presenciales o virtuales, y finalmente priorizarlas) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros de un comité (donde primero se presentan unas candidaturas, luego se debate y finalmente se elige una candidatura), presupuestos participativos (donde se realizan propuestas, se valoran económicamente y se vota con el dinero disponible), un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de políticas públicas.</p>\n"
           page: "<p>Un <strong>proceso participativo</strong> es una secuencia de actividades participativas (p.e. primero rellenar una encuesta, luego realizar propuestas, debatirlas en encuentros presenciales o virtuales, y finalmente priorizarlas) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros de un comité (donde primero se presentan unas candidaturas, luego se debate y finalmente se elige una candidatura), presupuestos participativos (donde se realizan propuestas, se valoran económicamente y se vota con el dinero disponible), un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de políticas públicas.</p>\n"
-          title: '¿Qué es un proceso participativo?'
+          title: "¿Qué es un proceso participativo?"
     menu:
       processes: Procesos
     open_data:
@@ -405,7 +406,7 @@ es:
                   three: 40 - 60%
                   two: 20 - 40%
               citizen_influence_level:
-                legend: '¿Hasta qué punto la ciudadanía tiene autoridad decisoria en este proceso, desde la simple recepción de información hasta la influencia decisiva en las decisiones y en la gestión de recursos?'
+                legend: "¿Hasta qué punto la ciudadanía tiene autoridad decisoria en este proceso, desde la simple recepción de información hasta la influencia decisiva en las decisiones y en la gestión de recursos?"
                 options:
                   five: Las participantes estuvieron involucradas en la toma de decisiones y en la gestión de los recursos o en la implementación
                   four: La ciudadanía participó decisivamente en la toma de decisiones
@@ -416,40 +417,40 @@ es:
             inclusiveness:
               description: Inclusividad según el origen cultural y la diversidad funcional.
               digital_support_offered:
-                legend: '¿Se ha ofrecido apoyo digital a las participantes?'
+                legend: "¿Se ha ofrecido apoyo digital a las participantes?"
                 options:
-                  five: 'Sí'
+                  five: Sí
                   two_five: Parcialmente
                   zero: 'No'
               functional_diversity_invited:
-                legend: '¿Cómo se evalúa el grado de diversidad de agentes y participantes con respecto a la población de referencia en el proceso?'
+                legend: "¿Cómo se evalúa el grado de diversidad de agentes y participantes con respecto a la población de referencia en el proceso?"
                 options:
                   five: Bien
                   one: Bajo
                   two_five: Suficiente
                   zero: Ninguno
               languages_communicated:
-                legend: '¿Cuántos idiomas se han utilizado en el proceso?'
+                legend: "¿Cuántos idiomas se han utilizado en el proceso?"
                 options:
                   five: Más de la mitad de los idiomas hablados en la comunidad
                   one: Un idioma
                   two_five: Menos de la mitad de los idiomas hablados en la comunidad
               mobility_meeting_access:
-                legend: '¿Las salas de los encuentros presenciales eran accesibles para las personas con movilidad reducida?'
+                legend: "¿Las salas de los encuentros presenciales eran accesibles para las personas con movilidad reducida?"
                 options:
-                  five: 'Sí'
+                  five: Sí
                   two_five: Parcialmente
                   zero: 'No'
               name: Inclusividad
               participation_scheduling_times:
                 legend: Las sesiones de participación se han programado en diferentes horarios (mañana, mediodía, tarde, noche y fines de semana).
                 options:
-                  five: 'Sí'
+                  five: Sí
                   two_five: Parcialmente
                   zero: 'No'
             informativeness:
               information_provided:
-                legend: '¿Se ha facilitado información a las participantes sobre cuál era su capacidad de influencia en el tema que se debatía? (tanto en la comunicación del proceso y las invitaciones, como al inicio de cada sesión de debate)'
+                legend: "¿Se ha facilitado información a las participantes sobre cuál era su capacidad de influencia en el tema que se debatía? (tanto en la comunicación del proceso y las invitaciones, como al inicio de cada sesión de debate)"
                 options:
                   five: Siempre
                   one: Casi nunca
@@ -457,7 +458,7 @@ es:
                   zero: Nunca
               name: Informativo
               published_information_clarity:
-                legend: '¿Se ha facilitado y/o publicado información clara sobre los mecanismos de toma de decisiones? (por ejemplo, votación, consenso, negociaciones directas)'
+                legend: "¿Se ha facilitado y/o publicado información clara sobre los mecanismos de toma de decisiones? (por ejemplo, votación, consenso, negociaciones directas)"
                 options:
                   five: Con total claridad
                   one: Con poca claridad
@@ -640,7 +641,7 @@ es:
             <p>La calidad democrática es un principio básico de Decidim. Para mantenerlo, se ha desarrollado un sistema de indicadores que ayudan a evaluar la calidad de los procesos participativos en la plataforma. En este artículo explicamos cómo se calculan estos indicadores.</p>
 
             <h3>¿Cómo se calculan los indicadores?</h3>
-            <p>Se han definido dos métodos para la recogida de indicadores de calidad:</p> 
+            <p>Se han definido dos métodos para la recogida de indicadores de calidad:</p>
 
             <ol>
             <li><strong>Métricas automáticas:</strong> Se calculan directamente a partir de los datos de la plataforma Decidim.</li>
@@ -684,7 +685,7 @@ es:
 
             <h3>Hibridación</h3>
 
-            <p>Este indicador mide el nivel de combinación entre espacios presenciales y digitales durante el proceso.</p> 
+            <p>Este indicador mide el nivel de combinación entre espacios presenciales y digitales durante el proceso.</p>
             <ul>
             <li>¿Hay algún componente de encuentros? (Sí=5, No=0)</li>
             <li>¿Hay encuentros presenciales? (Sí=5, No=0)</li>
@@ -703,7 +704,7 @@ es:
 
             <h3>Trazabilidad</h3>
 
-            <p>Este indicador mide la transparencia y trazabilidad del proceso participativo. Refleja con qué facilidad la ciudadanía pueden seguir la evolución de las propuestas y verificar las acciones institucionales a través de los registros publicados.</p> 
+            <p>Este indicador mide la transparencia y trazabilidad del proceso participativo. Refleja con qué facilidad la ciudadanía pueden seguir la evolución de las propuestas y verificar las acciones institucionales a través de los registros publicados.</p>
             <ul>
             <li>Número de propuestas con historial (n/total)</li>
             <li>Porcentaje de resultados vinculados a propuestas (n/total)</li>
@@ -715,14 +716,14 @@ es:
             <br><br>
             <h3>Métricas de autoevaluación</h3>
 
-            <p>Además de las métricas automáticas, proponemos el uso de un <strong>formulario de autoevaluación</strong> para valorar las dimensiones cualitativas de cada proceso participativo. Este formulario será rellenado, al finalizar cada proceso participativo, por las responsables de estos, y las respuestas se mostrarán públicamente en el bloque de contenido de indicadores.</p> 
+            <p>Además de las métricas automáticas, proponemos el uso de un <strong>formulario de autoevaluación</strong> para valorar las dimensiones cualitativas de cada proceso participativo. Este formulario será rellenado, al finalizar cada proceso participativo, por las responsables de estos, y las respuestas se mostrarán públicamente en el bloque de contenido de indicadores.</p>
 
-            <p>Estas preguntas pretenden captar aspectos de la calidad democrática que no pueden evaluarse únicamente a través de datos cuantitativos. Es importante tener en cuenta que las respuestas a esta encuesta están sesgadas por la opinión de las responsables del proceso participativo en cuestión.</p> 
+            <p>Estas preguntas pretenden captar aspectos de la calidad democrática que no pueden evaluarse únicamente a través de datos cuantitativos. Es importante tener en cuenta que las respuestas a esta encuesta están sesgadas por la opinión de las responsables del proceso participativo en cuestión.</p>
 
             <br><br>
             <h3>Preguntas de autoevaluación</h3>
 
-            <p>A continuación se exponen las preguntas que componen el formulario de autoevaluación respondidas por las responsables del proceso, así como los valores asociados a cada respuesta.</p> 
+            <p>A continuación se exponen las preguntas que componen el formulario de autoevaluación respondidas por las responsables del proceso, así como los valores asociados a cada respuesta.</p>
 
             <h4>Inclusividad</h4>
 
