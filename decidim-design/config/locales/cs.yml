@@ -221,7 +221,6 @@ cs:
         list: Seznam
         main_colors: Hlavní barvy
         meeting_l: Schůzka L
-        meeting_s: Schůzka S
         meetings: Schůzky
         meetings_html: Používá karty <i>Schůzky</i>
         metadata_items: Položky metadat

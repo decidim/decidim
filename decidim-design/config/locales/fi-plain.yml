@@ -226,7 +226,6 @@ fi-pl:
         list: Luettelo
         main_colors: Pääasialliset värit
         meeting_l: Tapaaminen L
-        meeting_s: Tapaaminen S
         meetings: Tapaamiset
         meetings_html: Käytetään <i>Tapaamisten</i> korteissa
         metadata_items: Metatieto-elementit

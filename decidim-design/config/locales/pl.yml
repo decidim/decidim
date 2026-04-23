@@ -220,7 +220,6 @@ pl:
         list: Lista
         main_colors: Kolory główne
         meeting_l: Spotkanie L
-        meeting_s: Spotkanie S
         meetings: Spotkania
         meetings_html: Używane przez karty <i>Spotkań</i>
         metadata_items: Elementy metadanych
