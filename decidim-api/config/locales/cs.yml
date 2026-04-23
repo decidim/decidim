@@ -3,4 +3,12 @@ cs:
   decidim:
     api:
       errors:
+        invalid_locale: Poskytnuta neplatná lokalizace
+        locale_argument_error: Při interním zpracování i18n dat došlo k chybě
+        not_found: "%{type} nenalezen"
+        permission_not_set: Pro tento %{type} nebylo nastaveno oprávnění
+        recursion_limit_exceeded_error: V dotazu bylo zjištěno příliš mnoho rekurzí
+        too_many_aliases_error: Příliš mnoho aliasů. Použili jste aliasy %{size}, ale %{limit} jsou povoleny.
+        unauthorized_field: Nemůžete zobrazit nebo upravit %{field} pole v %{type}, protože nemáte oprávnění
         unauthorized_mutation: Nemáte oprávnění k provedení této mutace
+        unauthorized_object: Nemůžete zobrazit nebo upravit tento %{type}, protože nemáte oprávnění
