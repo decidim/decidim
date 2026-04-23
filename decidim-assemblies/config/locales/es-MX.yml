@@ -200,8 +200,6 @@ es-MX:
       taxonomy_filters:
         space_filter_for:
           assemblies: Todas las asambleas
-      titles:
-        assemblies_types: Tipo de asamblea
       tooltips:
         deleted_assemblies_info: Una asamblea solo se puede eliminar si su estado es 'Despublicada'.
     admin_log:
@@ -245,6 +243,7 @@ es-MX:
                 open: Cualquiera puede ver y participar a la asamblea.
                 restricted: Solo las miembros pueden ver y participar en la asamblea.
                 transparent: Cualquiera puede ver la asamblea, pero solo las miembros pueden participar.
+              set_this_space_as: Define el tipo de acceso a este espacio
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
@@ -357,9 +356,6 @@ es-MX:
           highlighted_assemblies:
             active_spaces: Asambleas activas
             see_all_spaces: Ver todas las asambleas
-        user_profile:
-          member_of:
-            member_of: Miembro de
       show:
         duration: Duración
         social_networks_title: Visita la asamblea en
@@ -389,8 +385,6 @@ es-MX:
       value_types:
         assembly_presenter:
           not_found: 'No se encontró la asamblea en la base de datos (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'El tipo de asamblea no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
     open_data:
