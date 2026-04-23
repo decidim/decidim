@@ -237,7 +237,7 @@ es:
         index:
           access_modes:
             open: Abierto
-            restricted:
+            restricted: Restringido
             transparent: Transparente
           published: Publicada
           unpublished: Despublicado
@@ -521,6 +521,7 @@ es:
                 open: Cualquiera puede ver y participar en el proceso participativo.
                 restricted: Solo las miembros pueden ver y participar en el proceso participativo.
                 transparent: Cualquiera puede ver el proceso participativo, pero solo las miembros pueden participar.
+              set_this_space_as: Define el tipo de acceso a este espacio
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             has_members_help: Podrás crear y publicar miembros
