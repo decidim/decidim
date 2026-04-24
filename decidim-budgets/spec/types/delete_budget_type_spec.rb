@@ -23,78 +23,46 @@ module Decidim::Budgets
         end.to change(Decidim::Budgets::Budget, :count).by(-1)
         expect(model.reload.deleted_at).to be_present
       end
-    end
 
-    shared_context "when missing budget" do
-      context "when budget is missing" do
-        let(:query) { %( mutation { deleteBudget(id: 9999999) { id } } ) }
+      context "when missing budget" do
+        context "when budget is missing" do
+          let(:query) { %( mutation { deleteBudget(id: 9999999) { id } } ) }
 
-        it "raises an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Budget not found")
+          end
+        end
+
+        context "when budget id is not integer" do
+          let(:query) { %( mutation { deleteBudget(id: "aaaa") { id } } ) }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Budget not found")
+          end
+        end
+
+        context "when budget is already deleted" do
+          let!(:model) { create(:budget, component: current_component, total_budget: 1_000) }
+
+          before { model.destroy }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Budget not found")
+          end
+        end
+
+        context "when budget belongs to another component" do
+          let(:model2) { create(:budget, component: current_component2, total_budget: 1_000) }
+          let(:current_component2) { create(:budgets_component, organization: current_organization) }
+          let(:query) { %( mutation { deleteBudget(id: #{model2.id}) { id } } ) }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Budget not found")
+          end
         end
       end
-
-      context "when budget id is not integer" do
-        let(:query) { %( mutation { deleteBudget(id: "aaaa") { id } } ) }
-
-        it "raises an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-        end
-      end
-
-      context "when budget is already deleted" do
-        let!(:model) { create(:budget, component: current_component, total_budget: 1_000) }
-
-        before { model.destroy }
-
-        it "raises an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-        end
-      end
-
-      context "when budget belongs to another component" do
-        let(:model2) { create(:budget, component: current_component2, total_budget: 1_000) }
-        let(:current_component2) { create(:budgets_component, organization: current_organization) }
-        let(:query) { %( mutation { deleteBudget(id: #{model2.id}) { id } } ) }
-
-        it "raises an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-        end
-      end
     end
 
-    context "with admin user" do
-      it_behaves_like "API deletable budget" do
-        let!(:user_type) { :admin }
-      end
-
-      include_context "when missing budget"
-    end
-
-    context "with normal user" do
-      it "raises an error" do
-        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-      end
-
-      include_context "when missing budget"
-    end
-
-    context "with visitor user" do
-      let!(:current_user) { nil }
-
-      it "raises an error" do
-        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-      end
-
-      include_context "when missing budget"
-    end
-
-    context "with api_user" do
-      it_behaves_like "API deletable budget" do
-        let!(:user_type) { :api_user }
-      end
-
-      include_context "when missing budget"
-    end
+    it_behaves_like "admin API access checks", "API deletable budget"
   end
 end

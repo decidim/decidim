@@ -32,6 +32,10 @@ module Decidim
         context[:current_user]
       end
 
+      def current_component
+        context[:current_component]
+      end
+
       def find_resource(id)
         raise NotImplementedError, "You must implement find_resource(id) in your mutation"
       end

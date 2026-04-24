@@ -8,6 +8,8 @@ module Decidim
       description "Creates a Project"
       type Decidim::Budgets::ProjectType
 
+      required_scopes "api:read", "admin:read", "admin:write"
+
       argument :attributes, ProjectAttributes, description: "input attributes to create a project", required: true
 
       def resolve(attributes:)
@@ -27,7 +29,7 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        unless super && allowed_to?(:create, :project, object, { current_user:, current_component: }, scope: :admin)
+        unless super && allowed_to?(:create, :project, object, { current_user:, current_component: })
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 

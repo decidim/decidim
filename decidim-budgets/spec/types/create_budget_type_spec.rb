@@ -123,22 +123,6 @@ module Decidim::Budgets
       end
     end
 
-    context "with admin user" do
-      it_behaves_like "API creatable budget" do
-        let!(:user_type) { :admin }
-      end
-    end
-
-    context "with normal user" do
-      it "returns nil" do
-        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-      end
-    end
-
-    context "with api_user" do
-      it_behaves_like "API creatable budget" do
-        let!(:user_type) { :api_user }
-      end
-    end
+    include_examples "admin API access checks", "API creatable budget"
   end
 end
