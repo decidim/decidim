@@ -126,6 +126,26 @@ module Decidim::System
     end
 
     describe "validations" do
+      describe "secret key base validation" do
+        context "when in development" do
+          before do
+            allow(Rails.application).to receive(:secret_key_base).and_return(nil)
+            allow(Rails.env).to receive(:development?).and_return(true)
+          end
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when not in development" do
+          before do
+            allow(Rails.application).to receive(:secret_key_base).and_return(nil)
+            allow(Rails.env).to receive(:development?).and_return(false)
+          end
+
+          it { is_expected.not_to be_valid }
+        end
+      end
+
       describe "organization_admin_email" do
         context "when organization_admin_email is blank" do
           before { subject.organization_admin_email = "" }

@@ -52,6 +52,18 @@ describe Decidim::System::SystemChecksCell, type: :cell do
         expect(subject).to have_content "Please save to the SECRET_KEY_BASE environment variable and restart the server"
       end
     end
+
+    context "when in development and the secret key is nil" do
+      let(:secret_key) { nil }
+
+      before do
+        allow(Rails.env).to receive(:development?).and_return(true)
+      end
+
+      it "shows the success message" do
+        expect(subject).to have_content "The secret key is configured correctly"
+      end
+    end
   end
 
   describe "active_job_queue_check" do

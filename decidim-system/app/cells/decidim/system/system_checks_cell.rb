@@ -23,6 +23,8 @@ module Decidim
       end
 
       def correct_secret_key_base?
+        return true if Rails.env.development?
+
         Rails.application.secret_key_base&.length == 128
       end
 
