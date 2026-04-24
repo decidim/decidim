@@ -1,5 +1,54 @@
 # Changelog
 
+## [0.31.4](https://github.com/decidim/decidim/tree/0.31.4)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-admin**: Backport 'Do not send notifications in unpublished posts' attachments' to v0.31 [\#16497](https://github.com/decidim/decidim/pull/16497)
+- **decidim-accountability**: Backport 'Fix images in milestones' to v0.31 [\#16502](https://github.com/decidim/decidim/pull/16502)
+- **decidim-assemblies**, **decidim-initiatives**, **decidim-participatory processes**, **decidim-surveys**: Backport 'Add screen reader indicators (live and atomic) to spaces counters' to v0.31 [\#16510](https://github.com/decidim/decidim/pull/16510)
+- **decidim-system**: Backport 'Add validations to the host format at system panel' to v0.31 [\#16506](https://github.com/decidim/decidim/pull/16506)
+- Backport 'Take into account the modules that actually have code during release' to v0.31 [\#16549](https://github.com/decidim/decidim/pull/16549)
+- **decidim-core**: Backport 'Remove the roles menu on tabbed partial' to v0.31 [\#16562](https://github.com/decidim/decidim/pull/16562)
+- **decidim-core**, **decidim-proposals**: Backport 'Improve accessibility on new registration form: email and ToS fields' to v0.31 [\#16556](https://github.com/decidim/decidim/pull/16556)
+- **decidim-blogs**, **decidim-core**: Backport 'Fix display of embeded images in notification emails' to v0.31 [\#16559](https://github.com/decidim/decidim/pull/16559)
+- **decidim-assemblies**, **decidim-core**: Backport 'Fix links to members profiles page' to v0.31 [\#16572](https://github.com/decidim/decidim/pull/16572)
+- **decidim-core**: Backport 'Fix images in editors with strange characters' to v0.31 [\#16570](https://github.com/decidim/decidim/pull/16570)
+- **decidim-blogs**, **decidim-debates**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Backport 'Fix disabled data attribute in submit buttons' to v0.31 [\#16573](https://github.com/decidim/decidim/pull/16573)
+- **decidim-meetings**: Backport 'Fix the "Attending organizations" container in meetings' to v0.31 [\#16604](https://github.com/decidim/decidim/pull/16604)
+- **decidim-proposals**: Backport 'Fix icon for disabled delete in proposals states' to v0.31 [\#16611](https://github.com/decidim/decidim/pull/16611)
+- **decidim-blogs**, **decidim-core**, **decidim-debates**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Backport 'Fix anouncement form error for screen readers' to v0.31 [\#16606](https://github.com/decidim/decidim/pull/16606)
+- **decidim-core**: Backport 'Remove the roles menu on filters' to v0.31 [\#16621](https://github.com/decidim/decidim/pull/16621)
+- **decidim-budgets**, **decidim-proposals**: Backport 'Show only component specific states in proposals to projects import' to v0.31 [\#16618](https://github.com/decidim/decidim/pull/16618)
+- **decidim-generators**: Backport 'Fix the "SMTP_STARTTLS_AUTO" env var in `production.rb`' to v0.31 [\#16615](https://github.com/decidim/decidim/pull/16615)
+- **decidim-core**: Backport 'Remove the roles menu on footer' to v0.31 [\#16622](https://github.com/decidim/decidim/pull/16622)
+- **decidim-core**, **decidim-participatory processes**: Backport 'Remove the roles menu on spaces nav links' to v0.31 [\#16624](https://github.com/decidim/decidim/pull/16624)
+- **decidim-design**: Backport 'Fix decidim-design section by removing MeetingsSCell call' to v0.31 [\#16629](https://github.com/decidim/decidim/pull/16629)
+- Backport 'Lock webpack to v5.105' to v0.31 [\#16632](https://github.com/decidim/decidim/pull/16632)
+- **decidim-core**: Backport 'Allow adding links in images using the WYSIWYG editor' to v0.31 [\#16633](https://github.com/decidim/decidim/pull/16633)
+- **decidim-core**: Backport 'Allow overriding the role attribute on accordions' to v0.31 [\#16631](https://github.com/decidim/decidim/pull/16631)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- Clean-up the releases notes for v0.31 branch [\#16564](https://github.com/decidim/decidim/pull/16564)
+- **decidim-conferences**: New Crowdin updates [\#16579](https://github.com/decidim/decidim/pull/16579)
+
 ## [0.31.3](https://github.com/decidim/decidim/tree/0.31.3)
 
 ### Added
