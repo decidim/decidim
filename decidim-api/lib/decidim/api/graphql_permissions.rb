@@ -17,8 +17,8 @@ module Decidim
           subject = determine_subject_name(object)
           context[subject] = object
 
-          chain.unshift(allowed_to?(:read, :participatory_space, object.participatory_space, context)) if object.respond_to?(:participatory_space)
-          chain.unshift(allowed_to?(:read, :component, object.component, context)) if object.respond_to?(:component) && object.component.present?
+          chain.unshift(allowed_to?(:read, :participatory_space, object.participatory_space, context, scope: )) if object.respond_to?(:participatory_space)
+          chain.unshift(allowed_to?(:read, :component, object.component, context, scope: scope)) if object.respond_to?(:component) && object.component.present?
 
           super && chain.all?
         end
@@ -125,6 +125,8 @@ module Decidim
             Decidim::PermissionAction.new(scope: :admin, action: :read, subject: :admin_dashboard)
           ).permissions.allowed?
         end
+
+        def scope = :public
       end
 
       private

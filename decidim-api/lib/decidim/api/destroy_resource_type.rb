@@ -5,13 +5,14 @@ module Decidim
     class DestroyResourceType < GraphQL::Schema::Mutation
       include Decidim::Api::GraphqlPermissions
 
+      required_scopes "api:read", "api:write"
+
       description "deletes a resource"
 
       argument :id, GraphQL::Types::ID, "The ID of the resource", required: true
 
       def resolve(id:)
         resource = find_resource(id)
-        current_user = context[:current_user]
 
         Decidim::Commands::DestroyResource.call(resource, current_user) do
           on(:ok) do
@@ -21,6 +22,10 @@ module Decidim
       end
 
       private
+
+      def current_user
+        context[:current_user]
+      end
 
       def find_resource(id)
         raise NotImplementedError, "You must implement find_resource(id) in your mutation"
