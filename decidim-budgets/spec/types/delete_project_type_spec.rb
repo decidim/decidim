@@ -24,87 +24,55 @@ module Decidim::Budgets
         end.to change(Decidim::Budgets::Project, :count).by(-1)
         expect(project.reload.deleted_at).not_to be_nil
       end
-    end
 
-    shared_context "when missing project" do
-      context "when project is missing" do
-        let(:query) { %( mutation { deleteProject(id: 123456789) { id } }) }
+      context "when missing project" do
+        context "when project is missing" do
+          let(:query) { %( mutation { deleteProject(id: 123456789) { id } }) }
 
-        it "raises an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
-        end
-      end
-
-      context "when project id is not integer" do
-        let(:query) { %( mutation { deleteProject(id: "aaaa") { id } } ) }
-
-        it "raises an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
-        end
-      end
-
-      context "when project belongs to another budget" do
-        let!(:budget2) { create(:budget, component:, total_budget: 1_000) }
-        let!(:project) { create(:project, budget: budget2) }
-
-        it "raises an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
-        end
-      end
-
-      context "when project belongs to another budget and the budget belongs to another component" do
-        let(:component2) { create(:budgets_component, organization: current_organization) }
-        let!(:budget2) { create(:budget, component: component2, total_budget: 1_000) }
-        let!(:project) { create(:project, budget: budget2) }
-
-        it "raises an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
-        end
-      end
-
-      context "when project is already deleted" do
-        before do
-          project.destroy
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
+          end
         end
 
-        it "raises an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
+        context "when project id is not integer" do
+          let(:query) { %( mutation { deleteProject(id: "aaaa") { id } } ) }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
+          end
+        end
+
+        context "when project belongs to another budget" do
+          let!(:budget2) { create(:budget, component:, total_budget: 1_000) }
+          let!(:project) { create(:project, budget: budget2) }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
+          end
+        end
+
+        context "when project belongs to another budget and the budget belongs to another component" do
+          let(:component2) { create(:budgets_component, organization: current_organization) }
+          let!(:budget2) { create(:budget, component: component2, total_budget: 1_000) }
+          let!(:project) { create(:project, budget: budget2) }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
+          end
+        end
+
+        context "when project is already deleted" do
+          before do
+            project.destroy
+          end
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Project not found")
+          end
         end
       end
     end
 
-    context "with admin user" do
-      it_behaves_like "API deletable project" do
-        let!(:user_type) { :admin }
-      end
-
-      include_context "when missing project"
-    end
-
-    context "with normal user" do
-      it "raises an error" do
-        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-      end
-
-      include_context "when missing project"
-    end
-
-    context "with visitor user" do
-      let!(:current_user) { nil }
-
-      it "raises an error" do
-        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-      end
-
-      include_context "when missing project"
-    end
-
-    context "with api_user" do
-      it_behaves_like "API deletable project" do
-        let!(:user_type) { :api_user }
-      end
-
-      include_context "when missing project"
-    end
+    it_behaves_like "admin API access checks", "API deletable project"
   end
 end

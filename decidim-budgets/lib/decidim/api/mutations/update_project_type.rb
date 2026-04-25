@@ -6,6 +6,8 @@ module Decidim
       description "Update a project"
       type Decidim::Budgets::ProjectType
 
+      required_scopes "api:read", "admin:read", "admin:write"
+
       argument :attributes, ProjectAttributes, description: "input attributes to update a project", required: true
       argument :id, GraphQL::Types::ID, "The ID of the project", required: true
 
@@ -31,7 +33,7 @@ module Decidim
       def authorized?(attributes:, id:)
         project = project(id)
 
-        unless super && allowed_to?(:update, :project, project, { project:, current_user: }, scope: :admin)
+        unless super && allowed_to?(:update, :project, project, { project:, current_user: })
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 

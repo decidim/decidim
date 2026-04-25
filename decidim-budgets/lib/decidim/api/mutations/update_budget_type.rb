@@ -6,6 +6,8 @@ module Decidim
       description "Updates a budget"
       type Decidim::Budgets::BudgetType
 
+      required_scopes "api:read", "admin:read", "admin:write"
+
       argument :attributes, BudgetAttributes, description: "input attributes to update a budget", required: true
 
       def resolve(attributes:)
@@ -25,7 +27,7 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        unless super && allowed_to?(:update, :budget, object, { current_user:, budget: object }, scope: :admin)
+        unless super && allowed_to?(:update, :budget, object, { current_user:, budget: object })
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 

@@ -17,8 +17,8 @@ module Decidim
           subject = determine_subject_name(object)
           context[subject] = object
 
-          chain.unshift(allowed_to?(:read, :participatory_space, object.participatory_space, context, scope: )) if object.respond_to?(:participatory_space)
-          chain.unshift(allowed_to?(:read, :component, object.component, context, scope: scope)) if object.respond_to?(:component) && object.component.present?
+          chain.unshift(allowed_to?(:read, :participatory_space, object.participatory_space, context)) if object.respond_to?(:participatory_space)
+          chain.unshift(allowed_to?(:read, :component, object.component, context)) if object.respond_to?(:component) && object.component.present?
 
           super && chain.all?
         end
@@ -35,13 +35,13 @@ module Decidim
         #
         # @return Boolean
         # @param [Symbol] scope
-        def allowed_to?(action, subject, object, context, scope: :public)
+        def allowed_to?(action, subject, object, context)
           unless subject.is_a?(::Symbol)
             subject = determine_subject_name(object)
             context[subject] = object
           end
 
-          permission_action = Decidim::PermissionAction.new(scope:, action:, subject:)
+          permission_action = Decidim::PermissionAction.new(scope: api_scope, action:, subject:)
 
           permission_chain(object).inject(permission_action) do |current_permission_action, permission_class|
             permission_context = local_user_context(object, context)
@@ -126,12 +126,16 @@ module Decidim
           ).permissions.allowed?
         end
 
-        def scope = :public
+        def api_scope
+          return :admin if determine_required_scopes.present? && determine_required_scopes.map { |scope| scope.split(":").first }.include?("admin")
+
+          :public
+        end
       end
 
       private
 
-      delegate :allowed_to?, :user_can_perform_admin_actions?, to: :class
+      delegate :allowed_to?, :user_can_perform_admin_actions?, :api_scope, to: :class
 
       attr_reader :action
     end

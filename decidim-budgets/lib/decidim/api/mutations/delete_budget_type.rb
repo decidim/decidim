@@ -7,10 +7,15 @@ module Decidim
 
       type Decidim::Budgets::BudgetType
 
-      def authorized?(id:)
-        context[:trashable_deleted_resource] = object
+      required_scopes "api:read", "admin:read", "admin:write"
 
-        unless super && allowed_to?(:soft_delete, :budget, object, context, scope: :admin)
+      def authorized?(id:)
+        budget = find_resource(id)
+
+        context[:budget] = budget
+        context[:trashable_deleted_resource] = budget
+
+        unless super && allowed_to?(:soft_delete, :budget, budget, context)
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 
@@ -23,8 +28,8 @@ module Decidim
 
       private
 
-      def find_resource(_id)
-        object
+      def find_resource(id)
+        Budget.where(component: current_component).find(id)
       end
 
       def trashable_deleted_resource_type
