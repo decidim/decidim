@@ -2,15 +2,15 @@
 
 == Sample request
 
-The `deleteResult` mutation allows authenticated administrators to soft-delete result in a Decidim accountability component. This mutation marks the result as deleted without permanently removing it from the database.
+The `deleteResult` mutation allows authenticated administrators to delete result in a Decidim accountability component. This mutation marks the result as deleted without permanently removing it from the database.
 
 [source,graphql]
 ----
-mutation deleteResult($componentId: ID!, $$resultId: ID!){
+mutation deleteResult($componentId: ID!, $resultId: ID!){
   component(id: $componentId){
     ...on AccountabilityMutation{
-      result(id: $$resultId){
-        delete(id: $$resultId) {
+      result(id: $resultId){
+        delete(id: $resultId) {
           id
         }
       }

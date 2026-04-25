@@ -6,6 +6,8 @@ module Decidim
       description "updates a milestone"
       type Decidim::Accountability::MilestoneType
 
+      required_scopes "admin:read", "admin:write"
+
       argument :attributes, MilestoneAttributes, description: "input attributes of a milestone", required: true
       argument :id, GraphQL::Types::ID, "The ID of the milestone", required: true
 
@@ -26,7 +28,7 @@ module Decidim
       end
 
       def authorized?(attributes:, id:)
-        unless super && allowed_to?(:update, :milestone, milestone(id), context, scope: :admin) &&
+        unless super && allowed_to?(:update, :milestone, milestone(id), context) &&
                user_can_perform_admin_actions?(context[:current_user])
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end

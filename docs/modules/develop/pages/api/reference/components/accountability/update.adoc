@@ -22,7 +22,7 @@ When you want to update a result in your accountability component, you need to r
 
 == Sample request
 
-The `UpdateResult` mutation allows authenticated users to update budgets in a Decidim budget component. This mutation uses the existing `UpdateResult` command from the admin controller.
+The `UpdateResult` mutation allows authenticated users to update results in a Decidim accountability component. This mutation uses the existing `UpdateResult` command from the admin controller.
 
 [source,graphql]
 ----

@@ -8,6 +8,8 @@ module Decidim
 
       argument :attributes, ResultAttributes, description: "input attributes of a result", required: true
 
+      required_scopes "admin:read", "admin:write"
+
       def resolve(attributes:)
         params = extract_from(attributes)
 
@@ -25,7 +27,7 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        unless super && allowed_to?(:update, :result, object, { current_user:, result: object }, scope: :admin)
+        unless super && allowed_to?(:update, :result, object, { current_user:, result: object })
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 

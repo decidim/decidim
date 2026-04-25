@@ -52,7 +52,7 @@ module Decidim::Accountability
       GRAPHQL
     end
 
-    shared_examples "API updatable project" do
+    shared_examples "API updatable milestone" do
       it "assigns fields" do
         milestone = response["updateMilestone"]
         expect(milestone["id"]).to be_present
@@ -109,20 +109,6 @@ module Decidim::Accountability
       end
     end
 
-    context "with an admin user" do
-      it_behaves_like "API updatable project" do
-        let!(:user_type) { :admin }
-      end
-    end
-
-    context "with an api user" do
-      it_behaves_like "API updatable project" do
-        let!(:user_type) { :api_user }
-      end
-    end
-
-    it "does not create project for unauthorized user" do
-      expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-    end
+    it_behaves_like "admin API access checks", "API updatable milestone"
   end
 end

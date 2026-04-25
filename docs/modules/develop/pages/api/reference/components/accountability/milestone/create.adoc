@@ -13,7 +13,7 @@ When you want to add or create a milestones in your accountability component, yo
 
 == Sample request
 
-The `CreateMilestone` mutation allows authenticated administrators to create new milestones in a Decidim budget component. This mutation uses the existing `CreateMilestone` command from the admin controller.
+The `CreateMilestone` mutation allows authenticated administrators to create new milestones in a Decidim accountability component. This mutation uses the existing `CreateMilestone` command from the admin controller.
 
 [source,graphql]
 ----

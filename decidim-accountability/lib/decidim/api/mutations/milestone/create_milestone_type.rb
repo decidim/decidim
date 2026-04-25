@@ -8,6 +8,8 @@ module Decidim
       description "Creates a milestone"
       type Decidim::Accountability::MilestoneType
 
+      required_scopes "admin:read", "admin:write"
+
       argument :attributes, MilestoneAttributes, description: "input attributes of a milestone", required: true
 
       def resolve(attributes:)
@@ -27,7 +29,7 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        unless super && allowed_to?(:create, :milestone, object, { current_user:, current_component: }, scope: :admin)
+        unless super && allowed_to?(:create, :milestone, object, { current_user:, current_component: })
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 

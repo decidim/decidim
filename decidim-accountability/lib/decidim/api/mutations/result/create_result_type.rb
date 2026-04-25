@@ -6,6 +6,8 @@ module Decidim
       description "Creates a result"
       type Decidim::Accountability::ResultType
 
+      required_scopes "admin:read", "admin:write"
+
       argument :attributes, ResultAttributes, description: "input attributes of a result", required: true
 
       def resolve(attributes:)
@@ -25,9 +27,7 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        unless super && allowed_to?(:create, :result, object, context, scope: :admin)
-          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
-        end
+        raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:create, :result, object, context)
 
         true
       end

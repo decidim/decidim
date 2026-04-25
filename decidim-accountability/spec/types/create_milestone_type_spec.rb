@@ -87,10 +87,26 @@ module Decidim::Accountability
           end
         end
 
+        context "with missing required attributes" do
+          let(:attributes) { {} } # Missing all required fields
+
+          it "raises an error when required attribute is missing" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+
         context "when submitting entry_date as string" do
           let(:entry_date) { "foo" }
 
           it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+
+        context "with invalid date format" do
+          let(:entry_date) { "2025-13-01" } # Invalid month value
+
+          it "raises an error for invalid date format" do
             expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
           end
         end
@@ -110,23 +126,26 @@ module Decidim::Accountability
             expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
           end
         end
+
+        context "with null values in required fields" do
+          let(:title_en) { nil }
+          let(:description_en) { nil }
+
+          it "raises an error when title and description are null" do
+            expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+          end
+        end
+
+        context "with optional attributes missing or empty" do
+          let(:description_en) { "" } # Empty string for description
+
+          it "succeeds without errors when optional attributes are empty" do
+            expect { response }.not_to raise_error
+          end
+        end
       end
     end
 
-    context "with an admin user" do
-      it_behaves_like "API creatable milestone" do
-        let!(:user_type) { :admin }
-      end
-    end
-
-    context "with an api user" do
-      it_behaves_like "API creatable milestone" do
-        let!(:user_type) { :api_user }
-      end
-    end
-
-    it "does not create milestone for unauthorized user" do
-      expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-    end
+    it_behaves_like "admin API access checks", "API creatable milestone"
   end
 end

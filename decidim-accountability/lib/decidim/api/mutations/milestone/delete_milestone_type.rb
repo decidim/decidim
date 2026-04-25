@@ -7,14 +7,14 @@ module Decidim
 
       type Decidim::Accountability::MilestoneType
 
+      required_scopes "admin:read", "admin:write"
+
       def self.scope = :admin
 
       def authorized?(id:)
         milestone = find_resource(id)
 
-        pp super
-        pp allowed_to?(:destroy, :milestone, milestone, context, scope: :admin)
-        unless super && allowed_to?(:destroy, :milestone, milestone, context, scope: :admin) # && user_can_perform_admin_actions?(current_user)
+        unless super && allowed_to?(:destroy, :milestone, milestone, context) # && user_can_perform_admin_actions?(current_user)
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 

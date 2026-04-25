@@ -1,8 +1,8 @@
-= Create Budget
+= Create Result
 
 == Input attributes
 
-When you want to add or create data in your budget component, you need to rely on the `ResultAttributes` type, which has the following input fields:
+When you want to add or create data in your accountability component, you need to rely on the `ResultAttributes` type, which has the following input fields:
 
 [source]
 ----
@@ -22,11 +22,11 @@ When you want to add or create data in your budget component, you need to rely o
 
 == Sample request
 
-The `CreateBudget` mutation allows authenticated administrators to create new budgets in a Decidim budget component. This mutation uses the existing `CreateBudget` command from the admin controller.
+The `CreateResult` mutation allows authenticated administrators to create new results in a Decidim accountability component. This mutation uses the existing `CreateResult` command from the admin controller.
 
 [source,graphql]
 ----
-mutation createBudget($componentId: ID!, $input: CreateBudgetInput!){
+mutation createResult($componentId: ID!, $input: CreateBudgetInput!){
   component(id: $componentId) {
     ... on AccountabilityMutation {
       createResult(input: $input) {
