@@ -131,11 +131,9 @@ cs:
           not_required: Nevyžadováno
           properties: Vlastnosti
           right_aside: Vpravo
-          section_p_breakpoints: 'Pro správu maximální citlivosti elementů spoléháme na výchozí třídu `container` Tailwind, která udává následující zarážky:'
           section_p_code: Při implementaci nových modulů máte některé pomocníky, které vám automaticky poskytují kód potřebný k nastavení HTML struktury. Měli byste použít tyto pomocníky namísto přímého použití prvků div s třídami, abyste zachovali konzistenci.
           section_p_code_html: Základní rozložení můžete najít v %{link_section_code}
           section_p_desktop: Souřadnicová síť pro desktop se skládá z 12 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 48px
-          section_p_mobile: Souřadnicová síť pro mobilní zařízení se skládá ze 4 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 16px. Pro velikosti menší než 320px jsou tyto okraje nastaveny na 8px
           section_p_tablet: Souřadnicová síť pro tablet je složena z 8 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 24px
           tablet: Tablet
           title: Rozložení
@@ -220,7 +218,6 @@ cs:
         list: Seznam
         main_colors: Hlavní barvy
         meeting_l: Schůzka L
-        meeting_s: Schůzka S
         meetings: Schůzky
         meetings_html: Používá karty <i>Schůzky</i>
         metadata_items: Položky metadat

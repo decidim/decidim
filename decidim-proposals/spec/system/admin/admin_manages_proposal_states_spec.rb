@@ -227,7 +227,10 @@ describe "Admin manages proposals states" do
       expect(state.reload.proposals).to include(proposal)
       expect(state.proposals_count).to eq(1)
       within "tr", text: translated(state.title) do
+        find("button[data-controller='dropdown']").click
         expect(page).to have_no_link("Delete")
+        expect(page).to have_css(".dropdown__button-disabled span", text: "Delete state")
+        expect(page).to have_css(".dropdown__button-disabled svg")
       end
     end
   end

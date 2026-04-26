@@ -8,16 +8,13 @@ module Decidim
       DummyAuthorizationHandler.new({})
     end
 
-    before do
-      allow(helper).to receive(:authorizations_path).and_return("/authorizations")
-    end
-
     describe "authorization_form_for" do
       it "creates form" do
+        authorizations_path = helper.decidim_verifications.authorizations_path
         options = {
           builder: AuthorizationFormBuilder,
           as: "authorization_handler",
-          url: "/authorizations"
+          url: authorizations_path
         }
 
         expect(helper).to receive(:decidim_form_for).with(record, options)
@@ -28,10 +25,11 @@ module Decidim
       end
 
       it "allows custom options" do
+        authorizations_path = helper.decidim_verifications.authorizations_path
         options = {
           builder: AuthorizationFormBuilder,
           as: "authorization_handler",
-          url: "/authorizations",
+          url: authorizations_path,
           html: {
             class: "custom_form"
           }

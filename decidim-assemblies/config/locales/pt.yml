@@ -177,8 +177,6 @@ pt:
       taxonomy_filters:
         space_filter_for:
           assemblies: Todas as reuniões
-      titles:
-        assemblies_types: Tipos de reuniões
       tooltips:
         deleted_assemblies_info: Só é possível excluir uma reunião se o status for «Não publicado».
     admin_log:
@@ -299,9 +297,6 @@ pt:
           highlighted_assemblies:
             active_spaces: Reuniões ativas
             see_all_spaces: Ver todas as reuniões
-        user_profile:
-          member_of:
-            member_of: Membro de
       show:
         duration: Duração
         social_networks_title: Visite a reunião em
@@ -331,8 +326,6 @@ pt:
       value_types:
         assembly_presenter:
           not_found: 'A reunião não foi encontrada na base de dados (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'O tipo de reunião não foi encontrado na base de dados (ID: %{id})'
     menu:
       assemblies: Reuniões
     open_data:

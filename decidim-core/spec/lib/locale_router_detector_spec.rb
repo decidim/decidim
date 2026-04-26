@@ -12,9 +12,10 @@ module Decidim
     let(:user_locale) { "" }
     let(:session) { { user_locale: } }
     let(:parameters) { { locale: } }
+    let(:warden_user) { nil }
     let(:request) do
       double(
-        env: { "decidim.current_organization" => organization },
+        env: { "decidim.current_organization" => organization, "warden" => double(user: warden_user) },
         session:,
         parameters: { locale: }
       )
@@ -103,6 +104,22 @@ module Decidim
 
         context "when the locale is not available" do
           let(:user_locale) { "fr" }
+
+          it "returns the default locale" do
+            expect(subject.locale).to eq(default_locale)
+          end
+        end
+      end
+
+      context "when locale is provided via the authenticated user" do
+        let(:warden_user) { double(locale: "ca") }
+
+        it "returns the locale if it is available" do
+          expect(subject.locale).to eq("ca")
+        end
+
+        context "when the locale is not available" do
+          let(:warden_user) { double(locale: "fr") }
 
           it "returns the default locale" do
             expect(subject.locale).to eq(default_locale)

@@ -156,8 +156,6 @@ el:
             admin: Διαχειριστής
             collaborator: Συνεργάτης
             moderator: Επόπτης
-      titles:
-        assemblies_types: Τύποι συνέλευσης
     admin_log:
       assembly:
         create: "Ο χρήστης %{user_name} δημιούργησε τη συνέλευση %{resource_name}"
@@ -237,10 +235,6 @@ el:
         title: Συνελεύσεις
       last_activity:
         new_assembly: 'Νέα συνέλευση:'
-      pages:
-        user_profile:
-          member_of:
-            member_of: Μέλος
       show:
         duration: Διάρκεια
         social_networks_title: Επίσκεψη στη συνέλευση στις
@@ -267,8 +261,6 @@ el:
       value_types:
         assembly_presenter:
           not_found: 'Η συνέλευση δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
-        assembly_type_presenter:
-          not_found: 'Ο τύπος συνέλευσης δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
     menu:
       assemblies: Συνελεύσεις
     participatory_processes:

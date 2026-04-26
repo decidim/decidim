@@ -90,7 +90,7 @@ eu:
             invalid: Arazo bat egon da proiektu hau sortzean.
             success: Proiektua zuzen sortua.
           edit:
-            title: 'Editatu proeiktua hemen: %{budget}'
+            title: 'Proeiktua editatu hemen: %{budget}'
             update: Eguneratu
           index:
             actions: Ekintzak
