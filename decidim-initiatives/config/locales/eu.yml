@@ -316,7 +316,7 @@ eu:
           destroy:
             success: Ekimen mota zuzen kendu da.
           edit:
-            title: Editatu ekimen mota
+            title: Ekimen mota aldatu
             update: Eguneratu
           form:
             child_scope_threshold_enabled_help_html: 'Konfigurazio-ezarpen honek ez ditu onartzen konexiorik gabeko bozketak. Azpiesparruak gaitzen ditu eta eremu bat parte-hartzailearekin lotzen duen baimen-kudeatzaile batekin lan egiten du. Ziurtatu baimen hori hautatu duzula, beherago, baimenen konfigurazioan. Funtziona dezan, esparruak hierarkikoki eratu behar dira: 1 Nagusia - N Txikiak. Konfigurazio honen funtzionamenduari buruzko informazio gehiago, ikusi <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ekimenen administrazioari buruzko dokumentazioa</a>.'

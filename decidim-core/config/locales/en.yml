@@ -1540,6 +1540,11 @@ en:
           %{organization_name}
         hello: Dear %{username},
         subject: Inactive account deleted
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Member of
     participatory_space_members:
       index:
         members: Members

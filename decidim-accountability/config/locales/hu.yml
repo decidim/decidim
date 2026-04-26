@@ -1,6 +1,10 @@
 hu:
   activemodel:
     attributes:
+      milestone:
+        description: Leírás
+        entry_date: Dátum
+        title: Cím
       result:
         decidim_accountability_status_id: Állapot
         decidim_category_id: Kategória
@@ -9,6 +13,7 @@ hu:
         end_date: Befejezés dátuma
         progress: Folyamat
         start_date: Kezdő dátum
+        subresults: Részeredmények
         title: Cím
         updated_at: Frissítve
       status:

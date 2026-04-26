@@ -99,7 +99,7 @@ describe "Dashboard" do
         expect(page).to have_no_content("You have already voted.")
         visit new_election_vote_path
         expect(page).to have_content("You are not authorized to perform this action.")
-        expect(page).to have_current_path("/")
+        expect(page).to have_current_path(decidim.root_path)
       end
     end
   end

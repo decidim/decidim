@@ -209,7 +209,7 @@ ca:
         view_deleted_components: Veure els components eliminats
       admin_terms:
         show:
-          title: Termes i condicions d'ús para administradores
+          title: Termes i condicions d'ús per a administradores
       admin_terms_of_service:
         accept:
           error: Hi ha hagut un problema en acceptar els Termes i Condicions d'administració.
@@ -950,7 +950,7 @@ ca:
           title: Edita organització
           update: Actualitzar
         form:
-          admin_terms_of_service: Termes i condicions d'ús para administradores
+          admin_terms_of_service: Termes i condicions d'ús per a administradores
           basic_configuration: Configuració bàsica
           colors:
             choose_color: Triar un color primari

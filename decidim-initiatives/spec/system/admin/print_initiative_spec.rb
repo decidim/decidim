@@ -17,7 +17,7 @@ describe "User prints the initiative" do
         let(:print_enabled) { true }
 
         it "redirects to the login page" do
-          expect(page).to have_current_path("/users/sign_in")
+          expect(page).to have_current_path(decidim.new_user_session_path)
           expect(page).to have_content("You are not authorized to perform this action.")
         end
       end
@@ -26,7 +26,7 @@ describe "User prints the initiative" do
         let(:print_enabled) { false }
 
         it "does not show the print link" do
-          expect(page).to have_current_path("/users/sign_in")
+          expect(page).to have_current_path(decidim.new_user_session_path)
         end
       end
     end

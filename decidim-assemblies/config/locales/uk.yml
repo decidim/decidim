@@ -173,10 +173,6 @@ uk:
         public: Громадяни
       index:
         title: Збори
-      pages:
-        user_profile:
-          member_of:
-            member_of: 'Входить у склад:'
       show:
         duration: Тривалість
     log:

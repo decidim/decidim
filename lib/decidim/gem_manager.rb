@@ -198,7 +198,9 @@ module Decidim
       end
 
       def plugins
-        Dir.glob("#{root}/decidim-*/")
+        Dir.glob("#{root}/decidim-*/").select do |dir|
+          File.exist?(File.join(dir, "lib", "decidim"))
+        end
       end
 
       def semver_friendly_version(a_version)

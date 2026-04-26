@@ -38,7 +38,6 @@ describe "Meetings Breadcrumb" do
       decidim_participatory_process_meetings.meeting_path(
         participatory_process_slug: participatory_process.slug,
         component_id: component.id,
-        locale: I18n.locale,
         id: meeting.id
       )
     end
