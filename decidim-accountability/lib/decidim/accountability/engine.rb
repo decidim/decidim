@@ -31,7 +31,7 @@ module Decidim
         Decidim.icons.register(name: "briefcase-2-line", icon: "briefcase-2-line", category: "system", description: "", engine: :accountability)
       end
 
-      initializer "decidim_budgets.register_mutations", before: "decidim_api.graphiql" do
+      initializer "decidim_accountability.register_mutations", before: "decidim_api.graphiql" do
         Decidim::MutationRegistry.instance.register(
           Decidim::Accountability::AccountabilityMutationType
         )
