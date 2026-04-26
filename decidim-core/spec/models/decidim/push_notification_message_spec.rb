@@ -44,7 +44,7 @@ module Decidim
 
     describe "#url" do
       it "returns the conversation url" do
-        expect(subject.url).to eq("/conversations/#{conversation.id}")
+        expect(subject.url).to eq(Decidim::Core::Engine.routes.url_helpers.conversation_path(host: organization.host, id: conversation))
       end
     end
   end

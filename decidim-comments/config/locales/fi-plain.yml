@@ -80,7 +80,11 @@ fi-pl:
         hide_replies:
           one: Piilota vastaus
           other: Piilota %{count} vastausta
+        load_replies: Lataa vastauksia
         moderated_at: Kommentti moderoitu %{date}
+        replies_count:
+          one: "%{count} vastaus"
+          other: "%{count} vastausta"
         reply: Vastaa
         report:
           action: Tee ilmoitus
@@ -112,7 +116,9 @@ fi-pl:
         blocked_comments_warning: Kommentit on tällä hetkellä pois käytöstä, vain hallintakäyttäjät voivat vastata tai lähettää uusia kommentteja.
         comment_details_title: Kommentin yksityiskohdat
         in_favor: Puolesta
+        load_more_comments: Lataa lisää kommentteja
         loading: Ladataan kommentteja ...
+        no_comments_yet: Ei vielä kommentteja
         single_comment_warning: <a href="%{url}">Näytä kaikki kommentit</a>
         single_comment_warning_title: Näet yhden kommentin
         title:
