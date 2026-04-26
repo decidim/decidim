@@ -1,5 +1,11 @@
 sk:
   activemodel:
+    attributes:
+      post:
+        body: Obsah
+        decidim_author_id: Autor
+        published_at: Čas publikovania
+        title: Názov
     models:
       decidim/blogs/create_post_event: Nový príspevok na blogu
   activerecord:
@@ -10,37 +16,119 @@ sk:
         many: Príspevky
         other: Príspevky
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Príspevky
+      tooltips:
+        deleted_posts_info: Tento príspevok nie je možné odstrániť
     blogs:
       actions:
+        author_id: Vytvoriť príspevok ako
+        confirm_delete_post: Naozaj chcete odstrániť tento príspevok?
+        deleted_posts_info: Odstránené príspevky je možné obnoviť z koša.
         edit: Upraviť
         new: Nový príspevok
         title: Akcie
+        view_deleted_posts: Zobraziť odstránené príspevky
       admin:
         posts:
+          create:
+            invalid: Pri vytváraní tohto príspevku sa vyskytol problém.
+            success: Príspevok bol úspešne vytvorený.
+          destroy:
+            success: Príspevok bol úspešne odstránený.
           edit:
             save: Aktualizovať
+            title: Upraviť príspevok
           index:
+            not_published_yet: Zatiaľ nepublikované.
             title: Príspevky
+          manage_trash:
+            title: Odstránené príspevky
           new:
             create: Vytvoriť
             title: Vytvort príspevok
           update:
             invalid: Vyskytol sa problém s ukladaním príspevku.
+            success: Príspevok bol úspešne uložený.
+      admin_log:
+        post:
+          create: "%{user_name} vytvoril/a blogový príspevok %{resource_name} v priestore %{space_name}"
+          delete: "%{user_name} odstránil/a blogový príspevok %{resource_name} z priestoru %{space_name}"
+          restore: "%{user_name} obnovil/a blogový príspevok %{resource_name} v priestore %{space_name}"
+          soft_delete: "%{user_name} presunul/a blogový príspevok %{resource_name} v priestore %{space_name} do koša"
+          update: "%{user_name} aktualizoval/a blogový príspevok %{resource_name} v priestore %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Naposledy publikované
+          name: Príspevky
+          see_all: Zobraziť všetky príspevky
+      last_activity:
+        new_post: 'Nový príspevok:'
       models:
         post:
           fields:
             author: Autor
             body: Telo textu
+            official_blog_post: Oficiálny príspevok
+            published_at: Čas publikovania
+            taxonomies: Taxonómie
+            title: Názov
+      posts:
+        edit:
+          add_attachments: Pridať prílohy
+          attachment_legend: Pridať dokument alebo obrázok
+          back: Späť na príspevok
+          button: Aktualizovať
+          edit_attachments: Upraviť prílohy
+          title: Upraviť príspevok
+        form:
+          author_id: Autor
+          body: Obsah
+          title: Názov
+        index:
+          count:
+            one: "%{count} príspevok"
+            few: "%{count} príspevky"
+            many: "%{count} príspevkov"
+            other: "%{count} príspevkov"
+          empty: Zatiaľ tu nie sú žiadne príspevky.
+          new_post: Nový príspevok
+        menu_actions:
+          button_destroy: Odstrániť príspevok
+          button_destroy_confirm: Naozaj chcete odstrániť tento príspevok?
+          button_edit: Upraviť príspevok
+        new:
+          back: Späť na príspevky
+          button: Vytvoriť
+          title: Vytvoriť nový príspevok
     components:
       blogs:
+        actions:
+          comment: Komentovať
+          create: Vytvoriť
+          destroy: Odstrániť
+          like: Páči sa mi to
+          update: Aktualizovať
+          vote_comment: Hlasovať za komentár
         name: Blog
         settings:
           global:
             announcement: Oznámenie
+            attachments_allowed: Povoliť prílohy
             comments_enabled: Komentáre povolené
+            comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
+            creation_enabled_for_participants: Účastníci môžu vytvárať príspevky
+            define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
+            no_taxonomy_filters_found: Nenašli sa žiadne filtre taxonómie.
+            taxonomy_filters: Vyberte filtre pre komponent
+            taxonomy_filters_add: Pridať filter
           step:
             announcement: Oznámenie
             comments_blocked: Zablokované komentáre
+            likes_blocked: Páči sa mi to zablokované
+            likes_enabled: Páči sa mi to povolené
     events:
       blogs:
         post_created:
@@ -48,3 +136,33 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože sledujete priestor "%{participatory_space_title}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Nový príspevok publikovaný v %{participatory_space_title}
           notification_title: Príspevok <a href="%{resource_path}">%{resource_title}</a> bol publikovaný v %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Či bol tento komentár za, proti alebo neutrálny
+          author: Meno účastníka, ktorý pridal tento komentár
+          body: Samotný komentár
+          commentable_id: Jedinečné ID komentovaného objektu
+          commentable_type: Typ komentovaného objektu (či to bol výsledok, návrh atď.)
+          created_at: Dátum vytvorenia tohto komentára
+          depth: Miesto, kde sa tento komentár nachádza v strome komentárov (či ide o odpoveď alebo odpoveď na odpoveď)
+          id: ID tohto komentára
+          locale: Jazyk, ktorý mal účastník nastavený pri zanechaní tohto komentára
+          root_commentable_url: URL adresa zdroja, ktorý sa viaže k tomuto komentáru
+        posts:
+          author: Informácie o autorovi
+          body: Obsah príspevku
+          comments_count: Počet komentárov k tomuto príspevku
+          component: Komponent, do ktorého príspevok patrí
+          created_at: Dátum vytvorenia tohto príspevku
+          follows_count: Počet sledovaní tohto príspevku
+          id: Jedinečný identifikátor tohto príspevku
+          likes_count: Počet označení páči sa mi tohto príspevku
+          participatory_space: Do ktorého priestoru (napr. participatívny proces alebo zhromaždenie) tento príspevok patrí
+          published_at: Dátum zverejnenia tohto príspevku
+          title: Názov príspevku
+          updated_at: Dátum poslednej aktualizácie tohto príspevku
+          url: URL adresa tohto príspevku
+    statistics:
+      posts_count: Príspevky
+      posts_count_tooltip: Počet zverejnených aktualizácií alebo príspevkov na blogu.
