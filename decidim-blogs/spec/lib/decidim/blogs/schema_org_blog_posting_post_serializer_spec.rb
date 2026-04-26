@@ -60,7 +60,7 @@ module Decidim::Blogs
           it "serializes the author" do
             expect(serialized[:author][:@type]).to eq("Organization")
             expect(serialized[:author][:name]).to eq(translated_attribute(post.author.name))
-            expect(serialized[:author][:url]).to eq("http://#{organization.host}:#{Capybara.server_port}/")
+            expect(serialized[:author][:url]).to eq(root_url)
           end
         end
 
@@ -112,6 +112,10 @@ module Decidim::Blogs
             expect(serialized[:image]).to include(attachment2.thumbnail_url)
           end
         end
+      end
+
+      def root_url
+        Decidim::Core::Engine.routes.url_helpers.root_url(host: post.organization.host, port: Capybara.server_port)
       end
     end
   end

@@ -12,12 +12,12 @@ module Decidim
         let(:component) { project.component }
         let(:origin_component) { create(:proposal_component, participatory_space: component.participatory_space) }
         let(:default_budget) { 1000 }
-        let(:internal_states) { %w(accepted rejected) }
+        let(:states) { %w(accepted rejected) }
         let(:params) do
           {
             origin_component_id: origin_component.try(:id),
             default_budget:,
-            internal_states:
+            states:
           }
         end
 
@@ -45,7 +45,7 @@ module Decidim
         end
 
         context "when no states are selected" do
-          let(:internal_states) { [] }
+          let(:states) { [] }
 
           it { is_expected.to be_valid }
         end
