@@ -38,6 +38,18 @@ describe "Components" do
   end
 
   context "when on cards page" do
+    let!(:result) { create(:result) }
+    let!(:meeting) { create(:meeting, :published) }
+    let!(:post) { create(:post, :published) }
+    let!(:project) { create(:project) }
+    let!(:debate) { create(:debate) }
+    let!(:proposal) { create(:proposal, :published) }
+    let!(:assembly) { create(:assembly, :published) }
+    let!(:conference) { create(:conference, :published) }
+    let!(:initiative) { create(:initiative) }
+    let!(:process) { create(:participatory_process, :published) }
+    let!(:process_group) { create(:participatory_process_group) }
+
     it_behaves_like "showing the design page", "Cards", "Variations"
   end
 

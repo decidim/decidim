@@ -8,6 +8,7 @@ module Decidim
         include ParticipatoryProcessHelper
         include Decidim::ComponentPathHelper
         include ActiveLinkTo
+        include Decidim::ActiveLinkToHelper
 
         delegate :short_description, :description, to: :resource
 

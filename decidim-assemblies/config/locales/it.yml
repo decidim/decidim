@@ -180,8 +180,6 @@ it:
       taxonomy_filters:
         space_filter_for:
           assemblies: Assemblee
-      titles:
-        assemblies_types: Tipi di assemblea
       tooltips:
         deleted_assemblies_info: Un'assemblea può essere eliminata solo se lo stato è "Non pubblicato".
     admin_log:
@@ -302,9 +300,6 @@ it:
           highlighted_assemblies:
             active_spaces: Assemblee attive
             see_all_spaces: Vedi tutte le assemblee
-        user_profile:
-          member_of:
-            member_of: Membro di
       show:
         duration: Durata
         social_networks_title: Vai alla pagina
@@ -334,8 +329,6 @@ it:
       value_types:
         assembly_presenter:
           not_found: 'L''assemblea non è stata trovata nel database (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Il tipo di assemblea non è stato trovato nel database (ID: %{id})'
     menu:
       assemblies: Assemblee
     open_data:
