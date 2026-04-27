@@ -206,6 +206,7 @@ sk:
       front_page_link: Prejsť na úvodnú stránku
       logo: "Oficiálne logo organizácie %{organization}"
       opens_in_new_tab: Otvorí sa v novej karte
+      secondary_menu: Sekundárne menu
       skip_button: Prejsť na hlavný obsah
     account:
       blocked: Tento účet bol zablokovaný z dôvodu porušenia podmienok používania
@@ -312,6 +313,7 @@ sk:
         update_external_domain: "%{user_name} aktualizoval/a externé domény organizácie"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby sa stal súkromným používateľom"
+        create_via_csv: "%{user_name} pozval/a %{resource_name} cez CSV ako súkromného účastníka"
         delete: "%{user_name} odstránil užívateľa %{resource_name} ako súkromného účastníka"
       scope:
         create: "%{user_name} vytvoril %{resource_name} rozsah"
@@ -619,6 +621,8 @@ sk:
         description: Popis
       footer_sub_hero:
         name: Päta pod hlavným pruhom
+      global_menu:
+        name: Globálne menu
       hero:
         name: Hlavný obrázok a výzva na akciu
       hero_settings_form:
@@ -805,6 +809,13 @@ sk:
           id: Jedinečný identifikátor tohto upozornenia
           resource_type: Typ zdroja, s ktorým upozornenie súvisí
           updated_at: Dátum a čas poslednej aktualizácie upozornenia
+        participatory_space_private_users:
+          created_at: Dátum a čas, kedy bol tento súkromný používateľ vytvorený
+          id: Jedinečný identifikátor tohto súkromného používateľa
+          privatable_to: Do ktorého priestoru tento súkromný používateľ patrí
+          published: Či je tento súkromný používateľ zverejnený alebo nie
+          role: Rola, ktorú má tento súkromný používateľ
+          updated_at: Dátum a čas, kedy bol tento súkromný používateľ naposledy aktualizovaný
         reports:
           created_at: Dátum a čas vytvorenia tohto nahlásenia
           details: Podrobnosti tohto nahlásenia
