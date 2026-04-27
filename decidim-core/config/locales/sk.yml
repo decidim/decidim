@@ -1580,6 +1580,11 @@ sk:
           %{organization_name}
         hello: Vážený/á %{username},
         subject: Neaktívny účet bol vymazaný
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Členom
     participatory_space_members:
       index:
         members: Členovia
