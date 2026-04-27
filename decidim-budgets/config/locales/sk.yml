@@ -54,6 +54,7 @@ sk:
         confirm_delete_project: Naozaj chcete vymazať tento projekt?
         deleted_budgets_info: Vymazané rozpočty je možné obnoviť z koša.
         edit: Upraviť
+        edit_projects: Spravovať projekty
         import: Importovať návrhy do projektov
         new_budget: Nový rozpočet
         new_project: Nový projekt
@@ -220,6 +221,7 @@ sk:
             total_budget: Celkový rozpočet
         project:
           fields:
+            id: ID
             map: Mapa
             taxonomies: Taxónomie
             title: Názov
@@ -295,8 +297,18 @@ sk:
           assigned: Priradené
           budget: Rozpočet
           dynamic_help:
+            keep_adding_projects: Pokračovať v pridávaní projektov
             minimum_reached: Dosiahli ste minimum potrebné na hlasovanie
+            start_adding_projects: Začať pridávať projekty
           minimum: Minimum
+          minimum_projects_rule:
+            description: Vyberte aspoň %{minimum_number} projektov, ktoré chcete, a hlasujte podľa svojich preferencií, aby ste definovali rozpočet.
+          projects_rule:
+            description: Vyberte aspoň %{minimum_number} a maximálne %{maximum_number} projektov, ktoré chcete, a hlasujte podľa svojich preferencií, aby ste definovali rozpočet.
+          projects_rule_maximum_only:
+            description: Vyberte maximálne %{maximum_number} projektov, ktoré chcete, a hlasujte podľa svojich preferencií, aby ste definovali rozpočet.
+          vote_threshold_percent_rule:
+            description: Priraďte aspoň %{minimum_budget} projektom, ktoré chcete, a hlasujte podľa svojich preferencií, aby ste definovali rozpočet.
         orders:
           highest_cost: Najvyššie náklady
           label: Zoradiť projekty podľa
@@ -323,6 +335,7 @@ sk:
           added: Pridané
           all: Všetky
         projects_for: Projekty pre %{name}
+        select_projects: Vybrať projekty
         show:
           budget: Rozpočet
       prompt: Vybrať rozpočet
@@ -401,6 +414,13 @@ sk:
           updated_at: Dátum a čas aktualizácie objednávky
       show:
         projects: Export projektov
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Rozpočet %{resource_title} je teraz aktívny pre %{participatory_space_title}. Môžete si ho pozrieť na tejto stránke:'
+          email_outro: Toto upozornenie ste dostali, pretože sledujete %{participatory_space_title}. Prijímanie upozornení môžete zrušiť pomocou predchádzajúceho odkazu.
+          email_subject: Rozpočet %{resource_title} je teraz aktívny pre %{participatory_space_title}.
+          notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je teraz aktívny pre %{participatory_space_title}.
     open_data:
       help:
         projects:
