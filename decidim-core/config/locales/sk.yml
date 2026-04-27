@@ -75,7 +75,9 @@ sk:
       decidim/promote_to_admin: Povýšený na správcu skupiny
       decidim/promoted_to_admin_event: Povýšený/á na správcu skupiny
       decidim/removed_from_group: Odstránený zo skupiny
+      decidim/resource_endorsed_event: Zdroj bol podporený
       decidim/resource_hidden_event: Zdroj bol skrytý
+      decidim/user_group_created_event: Používateľská skupina bola vytvorená
       decidim/welcome_notification_event: Uvítacia správa
   activerecord:
     attributes:
@@ -212,6 +214,7 @@ sk:
       front_page_link: Prejsť na úvodnú stránku
       logo: "Oficiálne logo organizácie %{organization}"
       opens_in_new_tab: Otvorí sa v novej karte
+      secondary_menu: Sekundárne menu
       skip_button: Prejsť na hlavný obsah
     account:
       blocked: Tento účet bol zablokovaný z dôvodu porušenia podmienok používania
@@ -317,6 +320,7 @@ sk:
         update_external_domain: "%{user_name} aktualizoval/a externé domény organizácie"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby sa stal súkromným používateľom"
+        create_via_csv: "%{user_name} pozval/a %{resource_name} cez CSV ako súkromného účastníka"
         delete: "%{user_name} odstránil užívateľa %{resource_name} ako súkromného účastníka"
       scope:
         create: "%{user_name} vytvoril %{resource_name} rozsah"
@@ -625,6 +629,8 @@ sk:
         description: Popis
       footer_sub_hero:
         name: Päta pod hlavným pruhom
+      global_menu:
+        name: Globálne menu
       hero:
         name: Hlavný obrázok a výzva na akciu
       hero_settings_form:
@@ -802,6 +808,13 @@ sk:
           id: Jedinečný identifikátor tohto upozornenia
           resource_type: Typ zdroja, s ktorým upozornenie súvisí
           updated_at: Dátum a čas poslednej aktualizácie upozornenia
+        participatory_space_private_users:
+          created_at: Dátum a čas, kedy bol tento súkromný používateľ vytvorený
+          id: Jedinečný identifikátor tohto súkromného používateľa
+          privatable_to: Do ktorého priestoru tento súkromný používateľ patrí
+          published: Či je tento súkromný používateľ zverejnený alebo nie
+          role: Rola, ktorú má tento súkromný používateľ
+          updated_at: Dátum a čas, kedy bol tento súkromný používateľ naposledy aktualizovaný
         reports:
           created_at: Dátum a čas vytvorenia tohto nahlásenia
           details: Podrobnosti tohto nahlásenia
@@ -810,6 +823,12 @@ sk:
           moderation: Moderovanie, ktoré má toto nahlásenie
           reason: Dôvod tohto nahlásenia
           updated_at: Dátum a čas poslednej aktualizácie tohto nahlásenia
+        user_groups:
+          document_number: Číslo dokumentu tejto používateľskej skupiny
+          id: Jedinečný identifikátor tejto používateľskej skupiny
+          name: Názov tejto používateľskej skupiny
+          phone: Telefónne číslo tejto používateľskej skupiny
+          verified_at: Dátum a čas, kedy bola táto používateľská skupina overená
         users:
           about: Popis profilu tohto účastníka
           accepted_tos_version: Dátum, kedy používateľ prijal podmienky používania tejto platformy
@@ -1026,7 +1045,15 @@ sk:
           email_subject: Boli ste odstránení zo skupiny%{user_group_name}!
           notification_title: Boli ste odstránení zo skupiny <a href="%{resource_path}">%{user_group_name} </a>.
         user_group_created:
+          email_intro: Bola vytvorená nová používateľská skupina s názvom %{user_group_name}. Teraz ju môžete overiť v <a href="%{groups_admin_url}">paneli administrátora</a>.
           email_outro: Toto oznámenie ste dostali, pretože ste administrátorom platformy.
+          email_subject: Bola vytvorená nová používateľská skupina
+          notification_title: Používateľská skupina %{user_group_name} bola vytvorená. Teraz ju môžete overiť v <a href="%{groups_admin_path}">paneli administrátora</a>.
+        user_group_updated:
+          email_intro: Používateľská skupina s názvom %{user_group_name} aktualizovala svoj profil, čím sa stala neoverenou. Teraz ju môžete overiť v <a href="%{groups_admin_url}">paneli administrátora</a>.
+          email_outro: Toto upozornenie ste dostali, pretože ste administrátorom platformy.
+          email_subject: Používateľská skupina aktualizovala svoj profil
+          notification_title: Používateľská skupina %{user_group_name} aktualizovala svoj profil, čím sa stala neoverenou. Teraz ju môžete overiť v <a href="%{groups_admin_path}">paneli administrátora</a>.
       nickname_event:
         notification_body: Opravili sme spôsob používania prezývok, aby nevznikali duplicity, a preto sme odstránili pravidlo rozlišovania veľkých a malých písmen. <br/> Vaša prezývka bola vytvorená po inej s rovnakým menom, preto sme ju automaticky premenovali. Môžete si ju zmeniť v <a href="%{link_to_account_settings}">nastaveniach vášho účtu</a>.
       notification_event:
@@ -1195,38 +1222,82 @@ sk:
       title: Čo sú to odznaky?
     group_admins:
       actions:
+        confirm_modal:
+          ok_add: Pridať administrátora
+          ok_remove: Odstrániť administrátora
+          title_add: Potvrdiť nového administrátora
+          title_remove: Odstrániť administrátora
+        confirm_remove_from_admin: Naozaj chcete odstrániť administrátora z tejto skupiny?
         demote_admin: Odstrániť admin
+      demote:
+        error: Vyskytol sa problém pri odstraňovaní tohto účastníka zo zoznamu administrátorov.
+        success: Účastník bol úspešne odstránený z administrátorov.
       index:
         current_admins: 'Aktuálni administrátori:'
         manage_admins: Správa administrátorov
     group_invites:
+      accept:
+        error: Vyskytol sa problém pri prijímaní tejto pozvánky.
+        success: Pozvánka bola úspešne prijatá.
       accept_invitation: Prijať
       accept_or_reject_group_invitations: 'Nasledujúce skupiny vás pozvali, aby ste sa k nim pripojili. Prijať alebo odmietnuť ich požiadavky: '
       index:
         invite: Pozvať
         invite_user: Pozvať užívateľa
+      invite:
+        error: Vyskytol sa problém pri pozývaní tohto účastníka.
+        success: Účastník bol úspešne pozvaný.
+      pending_invitations: Čakajúce žiadosti
+      reject:
+        error: Vyskytol sa problém pri odmietaní tejto pozvánky.
+        success: Pozvánka bola úspešne odmietnutá.
       reject_invitation: Odmietnuť
     group_members:
+      accept:
+        error: Vyskytol sa problém pri prijímaní tejto žiadosti o pripojenie.
+        success: Žiadosť o pripojenie bola úspešne prijatá.
       actions:
+        confirm_modal:
+          ok_remove: Odstrániť člena
+          title_remove: Odstrániť člena
+        confirm_promote_to_admin: Naozaj chcete pridať tohto používateľa ako administrátora?
+        confirm_remove_from_group: Naozaj chcete odstrániť používateľa z tejto skupiny?
         promote_to_admin: Urobiť adminom
         remove_from_group: Odstrániť užívateľa
       index:
         current_members_without_admins: 'Aktuálne členovia (bez administrátorov):'
         manage_members: Správa členov
+      promote:
+        error: Vyskytol sa problém pri povyšovaní tohto účastníka.
+        success: Účastník bol úspešne povýšený.
+      reject:
+        error: Vyskytol sa problém pri odmietaní tejto žiadosti o pripojenie.
+        success: Žiadosť o pripojenie bola úspešne odmietnutá.
+      remove:
+        error: Vyskytol sa problém pri odstraňovaní tohto účastníka zo skupiny.
+        success: Účastník bol úspešne odstránený zo skupiny.
     groups:
       actions:
         are_you_sure: Ste si istí?
+      create:
+        error: Vyskytol sa problém pri vytváraní skupiny.
+        success: Skupina bola úspešne vytvorená.
       edit:
         edit_user_group: Upraviť skupinu
         update_user_group: Aktualizovať skupinu
       form:
+        document_number_help: Nepoužívajte pomlčky ani medzery.
         email_help: E-mail vaší organizace, asociace, kolektivu, skupiny atd.
         fill_in_for_verification: 'Pokud chcete ověřit vaši skupinu, vyplňte tato pole:'
         name_help: Název vaší organizace, sdružení, kolektivu, skupiny atd.
         nickname_help: Uživatelské jméno vaší organizace, asociace, kolektivní skupiny, atd. Nepoužívejte mezery ani diakritické znaménka.
+        phone_help: Nepoužívajte pomlčky ani medzery.
       join:
+        error: Vyskytol sa problém pri pripájaní do skupiny.
         success: Požadavek na spojení byl úspěšně vytvořen. Před tím, než vás přijme do skupiny, admin přezkoumá vaši žádost.
       leave:
+        error: Vyskytol sa problém pri opúšťaní skupiny.
+        last_admin: Nemôžete sa odstrániť z tejto skupiny, pretože ste posledný administrátor. Ak chcete skupinu opustiť, urobte administrátorom iného člena.
         success: Skupina úspěšně opustila.
       members:
         accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
@@ -1236,10 +1307,14 @@ sk:
         create_user_group: Vytvořit skupinu
         new_user_group: Nová skupina
         subtitle: Vytvořte skupinu a pozvěte ostatní uživatele, aby se připojili, abyste se mohli podílet na kolektivní úrovni.
+      no_user_groups: Zatiaľ nepatrí do žiadnej skupiny.
       roles:
         admin: Správca
         creator: Administrátor
         member: Člen
+      update:
+        error: Vyskytol sa problém pri aktualizácii skupiny.
+        success: Skupina bola úspešne aktualizovaná.
     help:
       main_topic:
         default_page:
@@ -1301,28 +1376,42 @@ sk:
       static:
         latlng_text: 'zemepisná šírka: %{latitude}, zemepisná dĺžka: %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: Táto skupina zatiaľ nemá žiadnych členov.
     menu:
       help: Pomoc
       home: Domov
     messaging:
       conversation_mailer:
         comanagers_new_conversation:
+          admin_in_group: Túto správu ste dostali, pretože ste administrátorom v skupine %{group}.
           greeting: Dobrý deň, %{recipient}!
+          intro: "%{manager} začal/a novú konverzáciu v mene skupiny %{group}. Kliknite sem pre jej zobrazenie:"
           outro: Užite si platformu!
+          subject: "%{manager} začal/a novú konverzáciu ako %{group}"
         comanagers_new_message:
+          admin_in_group: Túto správu ste dostali, pretože ste administrátorom v skupine %{group}.
           greeting: Dobrý deň, %{recipient}!
+          intro: "%{manager} poslal/a nové správy v konverzácii v mene skupiny %{group}. Kliknite sem pre ich zobrazenie:"
           outro: Užite si platformu!
+          subject: "%{manager} poslal/a nové správy ako %{group}"
         new_conversation:
           greeting: Dobrý deň, %{recipient}!
           intro: "%{sender} zahájil novú diskusiu s vami. Kliknite sem pre zobrazenie:"
           outro: Užite si platformu!
           subject: "%{sender} začal s vami konverzovať"
         new_group_conversation:
+          admin_in_group: Túto správu ste dostali, pretože ste administrátorom v skupine %{group}.
           greeting: Dobrý deň, %{recipient}!
+          intro: "%{sender} začal/a novú konverzáciu so skupinou %{group}. Kliknite sem pre jej zobrazenie:"
           outro: Užite si platformu!
+          subject: "%{sender} začal/a konverzáciu so skupinou %{group}"
         new_group_message:
+          admin_in_group: Túto správu ste dostali, pretože ste administrátorom v skupine %{group}.
           greeting: Dobrý deň, %{recipient}!
+          intro: "%{sender} poslal/a nové správy v konverzácii so skupinou %{group}. Kliknite sem pre jej zobrazenie:"
           outro: Užite si platformu!
+          subject: "Skupina %{group} má nové správy od %{sender}"
         new_message:
           greeting: Dobrý deň, %{recipient}!
           intro: "%{sender} poslala nové správy vo vašej konverzácii. Kliknite sem pre ich zobrazenie:"
@@ -1368,6 +1457,10 @@ sk:
         not_started: Zatiaľ nezačaté
         remaining: "Zostáva %{time_distance}"
     metrics:
+      blocked_users:
+        description: Počet zablokovaných účastníkov
+      download:
+        csv: Stiahnuť údaje (CSV)
       followers:
         description: Počet účastníkov, ktorí sledujú tento participatívny priestor
         object: sledujúci
@@ -1376,6 +1469,10 @@ sk:
         description: Počet aktívnych účastníkov v organizácii
         object: účastníci
         title: Účastníci
+      reported_users:
+        description: Počet nahlásených účastníkov
+      user_reports:
+        description: Počet nahlásení od účastníkov
       users:
         description: Počet účastníkov v organizácii
         object: účastníci
@@ -1506,6 +1603,11 @@ sk:
           main: Jadro
           spaces: Priestory
           title: Súbory otvorených dát pre %{organization}
+        metrics:
+          cumulative: Celkový počet metriky v tento deň
+          day: Deň, kedy bola táto metrika vytvorená
+          metric_type: Typ metriky
+          quantity: Počet metrík pre tento deň
         moderated_users:
           about: Pole o používateľovi
           block_reasons: Dôvod, prečo administrátor zablokoval používateľa
@@ -1537,7 +1639,14 @@ sk:
           updated_at: Dátum poslednej aktualizácie tejto taxonómie
           weight: Poradie, v ktorom sa táto taxonómia zobrazuje
         user_groups:
+          avatar_url: Avatar používateľskej skupiny
+          badge: Odznak používateľskej skupiny
           deleted: Či je používateľ odstránený alebo nie
+          id: Jedinečný identifikátor používateľskej skupiny
+          members: ID a meno používateľov patriacich do skupiny
+          members_count: Počet používateľov patriacich do používateľskej skupiny
+          name: Zobrazované meno používateľskej skupiny
+          nickname: Používateľské meno používateľskej skupiny
           profile_url: URL adresa profilu
         users:
           about: Text o používateľovi
@@ -1660,6 +1769,7 @@ sk:
       deleted: Vymazaný účastník
       inaccessible_message: Tento profil je neprístupný z dôvodu porušenia podmienok používania!
     profiles:
+      default_officialization_text_for_user_groups: Táto skupina je verejne overená, jej názov bol overený a zodpovedá jej skutočnému názvu.
       default_officialization_text_for_users: Tento účastník je verejne overený, jeho/jej meno alebo rola boli overené a zodpovedajú jeho/jej skutočnému menu a role.
       show:
         activity: Aktivita
@@ -1682,10 +1792,13 @@ sk:
           invite_user: Pozvať užívateľa
           join_user_group: Žiadosť o pripojenie k skupine
           leave_user_group: Opustiť skupinu
+          manage_user_group: Spravovať skupinu
           manage_user_group_admins: Správa administrátorov
           manage_user_group_users: Správa členov
           message: Správa
           resend_email_confirmation_instructions: Opakujte e-mailové pokyny na potvrdenie
+        confirmation_instructions_sent: Pokyny na potvrdenie e-mailu boli odoslané.
+        fill_in_email_to_confirm_it: Prosím, vyplňte e-mail vašej skupiny na jeho potvrdenie.
     reported_mailer:
       hidden_automatically:
         content: Nahlásený obsah
@@ -1826,6 +1939,7 @@ sk:
         share_to: Zdieľať na %{service}
     statistics:
       comments_count: Komentáre
+      endorsements_count: Podpory
       followers_count: Sledujúci
       headline: Štatistiky
       no_stats: Zatiaľ tu nie sú žiadne štatistiky.
@@ -1846,7 +1960,13 @@ sk:
         no_activities_warning: Tento účastník zatiaľ nemá žiadnu aktivitu.
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
     user_conversations:
+      create:
+        error: Správu sa nepodarilo vytvoriť. Skúste to znova neskôr.
+        existing_error: Správu sa nepodarilo vytvoriť. Konverzácia už existuje, skúste to znova teraz.
+        success: Konverzácia bola úspešne začatá!
       index:
+        conversations_info: Konverzácie sú súkromné. Nikto iný ich nevidí. Konverzáciu je možné začať s akýmkoľvek účastníkom alebo skupinou zaregistrovanou na platforme.
+        no_conversations_warning: Zatiaľ tu nie sú žiadne konverzácie.
         time_ago: "pred %{time}"
       reply:
         placeholder: Vaša odpoveď...
@@ -2233,6 +2353,7 @@ sk:
         terms_of_service: Podmienky používania
       header:
         close: Zavrieť
+        confirm_close_ephemeral_session: Ak odídete z tejto stránky, vaša relácia sa ukončí. Ste si istý/á?
         log_in: Prihlásiť sa
         main_menu: Hlavné menu
         mobile_account_greeting: Ahoj, %{user_name}
