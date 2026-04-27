@@ -104,6 +104,7 @@ sk:
           comment: Komentovať
           create: Vytvoriť
           destroy: Odstrániť
+          endorse: Podporiť
           update: Aktualizovať
         name: Blog
         settings:
@@ -137,12 +138,14 @@ sk:
           id: ID tohto komentára
           locale: Jazyk, ktorý mal účastník nastavený pri zanechaní tohto komentára
           root_commentable_url: URL adresa zdroja, ktorý sa viaže k tomuto komentáru
+          user_group: Názov skupiny používateľov, ktorá pridala tento komentár (ak existuje)
         posts:
           author: Informácie o autorovi
           body: Obsah príspevku
           comments_count: Počet komentárov k tomuto príspevku
           component: Komponent, do ktorého príspevok patrí
           created_at: Dátum vytvorenia tohto príspevku
+          endorsements_count: Počet podpôr, ktoré má tento príspevok
           follows_count: Počet sledovaní tohto príspevku
           id: Jedinečný identifikátor tohto príspevku
           participatory_space: Do ktorého priestoru (napr. participatívny proces alebo zhromaždenie) tento príspevok patrí
