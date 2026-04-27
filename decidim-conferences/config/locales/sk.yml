@@ -199,6 +199,7 @@ sk:
           media_links_title: Mediálne odkazy
         new:
           create: Vytvoriť
+          title: Vytvoriť mediálny odkaz
         update:
           error: Pri aktualizácii mediálneho odkazu nastala chyba.
           success: Mediálny odkaz bol úspešne aktualizovaný.
@@ -626,6 +627,7 @@ sk:
           description: Dlhý popis konferencie
           end_date: Dátum ukončenia tejto konferencie.
           follows_count: Počet používateľov sledujúcich tento priestor
+          hashtag: Hashtag konferencie, používaný pre Twitter/X
           id: Jedinečný identifikátor tejto konferencie
           location: Miesto konania konferencie. Kde sa táto konferencia uskutoční.
           objectives: Ciele tejto konferencie. Čo je jej účelom.
