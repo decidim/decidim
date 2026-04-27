@@ -60,6 +60,7 @@ sk:
           submit_root_comment: Zverejniť komentár
           user_group_id:
             label: Komentovať ako
+            your_profile: Váš profil
         opinion:
           label: Váš názor na túto tému
           negative: Negatívny
@@ -75,6 +76,11 @@ sk:
         alignment:
           against: Proti
           in_favor: Za
+        answers:
+          one: "%{count} odpoveď"
+          few: "%{count} odpovede"
+          many: "%{count} odpovedí"
+          other: "%{count} odpovedí"
         cancel_reply: Zrušiť odpoveď
         comment_label: Komentár %{comment_id}
         comment_label_reply: Komentár %{comment_id} (odpoveď na komentár %{parent_comment_id})
@@ -174,6 +180,7 @@ sk:
           id: ID tohto komentára
           locale: Lokalizácia (jazyk), ktorú mal účastník pri zanechaní tohto komentára
           root_commentable_url: URL adresa zdroja, ktorý sa viaže k tomuto komentáru
+          user_group: Názov skupiny používateľov, ktorá pridala tento komentár (ak existuje)
     events:
       comments:
         comment_by_followed_user:
