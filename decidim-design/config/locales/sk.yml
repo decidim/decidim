@@ -1,1 +1,8 @@
+---
 sk:
+  decidim:
+    design:
+      foundations:
+        layout:
+          section_p_breakpoints: 'To manage the responsive max-width of elements we rely on the default `container` Tailwind class, which states the following breakpoints:'
+          section_p_mobile: Mobile grid system is composed of 4 flexible columns with a gutter between columns of 16px and left and right margins of 16px. For sizes below 320px this margins are set to 8px
