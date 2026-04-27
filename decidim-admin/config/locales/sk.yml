@@ -188,6 +188,7 @@ sk:
           </ul>
           Ak zmeníte názor, môžete ho neskôr obnoviť.
         export: Exportovať
+        export_all: Exportovať všetko
         export_selection: Exportovať výber
         import: Importovať
         member:
