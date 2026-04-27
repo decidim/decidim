@@ -26,18 +26,38 @@ sk:
         questionnaire:
           request_invalid: Pri spracovaní požiadavky sa vyskytol problém. Skúste to znova.
   decidim:
+    download_your_data:
+      help:
+        answers:
+          answer: Odpoveď na otázku
+          id: Jedinečný identifikátor odpovede
+          question: Otázka, na ktorú sa odpovedalo
+          questionnaire: Dotazník, na ktorý sa odpovedalo
+          user: Používateľ, ktorý odpovedal na dotazník
+      show:
+        answers: Export odpovedí
+        survey_user_answers: Odpovede používateľov v prieskume
     forms:
       admin:
         models:
           components:
+            allow_answers: Povoliť odpovede
+            allow_editing_answers: Povoliť registrovaným používateľom upravovať vlastné odpovede v prieskume
+            allow_unregistered: Povoliť neregistrovaným používateľom odpovedať na prieskum
+            allow_unregistered_help: Ak je aktívne, na odpovedanie na prieskum nebude potrebné prihlásenie. To môže viesť k nekvalitným alebo nespoľahlivým údajom a bude to zraniteľnejšie voči automatizovaným útokom. Používajte opatrne! Majte na pamäti, že účastník by mohol na ten istý prieskum odpovedať viackrát pomocou rôznych prehliadačov alebo funkcie „súkromné prehliadanie“ vo svojom webovom prehliadači.
             announcement: Oznámenie
+            clean_after_publish: Vymazať odpovede pri zverejnení prieskumu
             description: Popis
+            ends_at: Odpovede prijímané do
             ends_at_help: Ponechajte prázdne, ak nie je určený konkrétny dátum
+            starts_at: Odpovede prijímané od
             starts_at_help: Ponechajte prázdne, ak nie je určený konkrétny dátum
             tos: Podmienky použitia
         questionnaires:
           actions:
             back: Späť na odpovede
+            publish_answers: Zverejniť odpovede
+            show: Zobraziť odpovede
           answer_option:
             answer_option: Možnosť odpovede
             free_text: Voľný text
@@ -49,23 +69,33 @@ sk:
               export: Exportovať
               next: Ďalej &rsaquo;
               previous: "&lsaquo; Predchádzajúce"
+              show: Zobraziť odpovede
+            empty: Zatiaľ žiadne odpovede
             export:
               answer:
                 title: 'Odpoveď č. %{number}'
+            export_response:
+              title: odpovede_pouzivatelov_prieskumu_%{token}
             index:
               title: "Celkovo %{total} odpovedí"
+            show:
+              title: 'Odpoveď č. %{number}'
           display_condition:
+            answer_option: Možnosť odpovede
             condition_question: Otázka
             condition_type: Podmienka
             condition_types:
+              answered: Zodpovedané
               equal: Rovná sa
               match: Obsahuje text
+              not_answered: Nezodpovedané
               not_equal: Nerovná sa
             condition_value: Zahrnutý text
             display_condition: Podmienka zobrazenia
             mandatory: Táto podmienka musí byť splnená vždy bez ohľadu na stav iných podmienok
             remove: Odstrániť
             save_warning: Nezabudnite uložiť formulár pred konfiguráciou podmienok zobrazenia
+            select_answer_option: Vyberte možnosť odpovede
             select_condition_question: Vyberte otázku
             select_condition_type: Vyberte typ podmienky
           edit:
@@ -100,8 +130,10 @@ sk:
             remove: Odstrániť
             statement: Prehlásenie
           questions_form:
+            already_answered_warning: Na formulár už odpovedali niektorí používatelia, takže nemôžete upravovať jeho otázky.
             collapse: Zbaliť všetky otázky
             expand: Rozbaliť všetky otázky
+            unpublished_warning: Formulár nie je zverejnený. Môžete upraviť jeho otázky, ale tým sa vymažú aktuálne odpovede.
             update:
               success: Otázky prieskumu boli úspešne uložené.
           separator:
@@ -118,6 +150,9 @@ sk:
             invalid: Vyskytol sa problém s ukladaním formulára.
             success: Formulár bol úspešne uložený.
       admin_log:
+        question:
+          publish_answers: "%{user_name} zverejnil/a odpovede na otázku %{resource_name} v priestore %{space_name}"
+          unpublish_answers: "%{user_name} zrušil/a zverejnenie odpovedí na otázku %{resource_name} v priestore %{space_name}"
         questionnaire:
           update: "%{user_name} aktualizoval/a dotazník %{resource_name}"
       errors:
@@ -160,6 +195,9 @@ sk:
           questionnaire_answered:
             body: Na tento formulár už ste dopovedali.
             title: Už ste odpovedali
+          questionnaire_answered_edit:
+            body: Na tento formulár ste už odpovedali. %{link}
+            edit: Upraviť vaše odpovede
           questionnaire_closed:
             body: Tento formulár je už uzavretý a nedá sa naň odpovedať.
             title: Formulár je uzavretý.
@@ -174,10 +212,14 @@ sk:
           tos_agreement: Účasťou súhlasíte s našimi Podmienkami použitia
       step_navigation:
         show:
+          are_you_sure_edit_guest: Ak chcete mať možnosť neskôr upraviť svoje odpovede, musíte sa prihlásiť alebo si vytvoriť účet.
+          are_you_sure_no_edit: Túto akciu nie je možné vrátiť späť a nebudete môcť upravovať svoje odpovede. Ste si istí?
           back: Späť
           continue: Pokračovať
+          disallowed: Nemáte povolenie upravovať svoje odpovede.
           submit: Poslať
       user_answers_serializer:
+        body: Odpoveď
         completion: Dokončenie
         created_at: Odpovedané na 
         id: ID odpovede
