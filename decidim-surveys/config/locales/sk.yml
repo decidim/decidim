@@ -17,11 +17,17 @@ sk:
         many: Odpovede
         other: Odpovede
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: prieskumy
     components:
       surveys:
         actions:
           answer: Odpovedať
+        name: Prieskumy
         settings:
+          announcement: Oznámenie
           global:
             announcement: Oznámenie
           step:
@@ -43,15 +49,107 @@ sk:
         description: Počet prieskumov, na ktoré odpovedali účastníci
         object: odpovede na prieskumy
         title: Odpovede na prieskumy
+    statistics:
+      answers_count: Odpovede
     surveys:
+      actions:
+        answers: Odpovede
+        answers_alert: Pre tento prieskum je aktívne vymazanie odpovedí pri zverejnení. Momentálne existuje %{answers_count} odpovedí, ktoré budú zničené, ak budete pokračovať.
+        confirm_destroy: Naozaj to chcete vymazať?
+        destroy: Vymazať
+        edit: Upraviť
+        manage_questions: Spravovať otázky
+        new_survey: Nový prieskum
+        preview: Náhľad
+        title: Akcie
       admin:
+        answers:
+          index:
+            title: "Celkovo %{total} odpovedí"
+          show:
+            title: 'Odpoveď č. %{number}'
         exports:
           survey_user_answers: Odpovede účastníkov prieskumu
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} odpoveď"
+              few: "%{count} odpovede"
+              many: "%{count} odpovedí"
+              other: "%{count} odpovedí"
+            description: |-
+              Zverejnením odpovedí na otázky ich sprístupníte verejnosti.
+              Odpovede, ktoré chcete zverejniť, môžete vybrať kliknutím na začiarkavacie políčko vedľa každej otázky.
+              Zverejniť môžete iba nasledujúce typy otázok: „Jedna možnosť“, „Viacero možností“, „Matica (jedna možnosť)“, „Matica (viacero možností)“ a „Zoraďovanie“.
+            status:
+              not_published: Nezverejnené
+              published: Zverejnené
+            title: Zverejniť odpovede
         surveys:
+          create:
+            invalid: Pri vytváraní prieskumu sa vyskytol problém.
+            success: Prieskum bol úspešne vytvorený.
+          destroy:
+            success: Prieskum bol úspešne vymazaný.
+          edit:
+            title: Upraviť prieskum
+          index:
+            title: Prieskumy
+          publish:
+            invalid: Pri zverejňovaní tohto prieskumu sa vyskytol problém.
+            success: Prieskum bol úspešne zverejnený.
+          unpublish:
+            invalid: Pri rušení zverejnenia tohto prieskumu sa vyskytol problém.
+            success: Zverejnenie prieskumu bolo úspešne zrušené.
           update:
             invalid: Vyskytol sa problém s ukladaním prieskumu.
             success: Prieskum úspešne uložený.
+      admin_log:
+        survey:
+          create: "Používateľ %{user_name} vytvoril prieskum %{resource_name} v priestore %{space_name}"
+          delete: "Používateľ %{user_name} vymazal prieskum %{resource_name} v priestore %{space_name}"
+          publish: "Používateľ %{user_name} zverejnil prieskum %{resource_name} v priestore %{space_name}"
+          unpublish: "Používateľ %{user_name} zrušil zverejnenie prieskumu %{resource_name} v priestore %{space_name}"
+          update: "Používateľ %{user_name} aktualizoval prieskum %{resource_name} v priestore %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Prieskumy
+      last_activity:
+        new_survey: 'Nový prieskum:'
+      models:
+        survey:
+          fields:
+            answers: Odpovede
+            questions: Otázky
+            status: Stav
+            title: Názov
+          status:
+            closed: Zatvorené
+            open: Otvorené
+      survey_confirmation_mailer:
+        confirmation:
+          body: Úspešne ste odpovedali na prieskum %{questionnaire_title} v rámci %{participatory_space}
+          subject: Potvrdenie o vyplnení dotazníka %{questionnaire_title}
+        export_name: Odpovede na prieskum
       surveys:
         answer:
           invalid: Vyskytol sa problém s odpovedaním na prieskum.
+          spam_detected: Vyskytol sa problém pri odpovedaní na formulár. Možno ste boli príliš rýchli, môžete to skúsiť znova?
           success: Odpoveď úspešne zaznamenaná.
+        count:
+          surveys_count:
+            one: "%{count} prieskum"
+            few: "%{count} prieskumy"
+            many: "%{count} prieskumov"
+            other: "%{count} prieskumov"
+        filters:
+          all: Všetky
+          state_values:
+            closed: Zatvorené
+            open: Otvorené
+        no_surveys_warning: Žiadne prieskumy nezodpovedajú vašim kritériám vyhľadávania alebo nie je otvorený žiadny prieskum.
+        show:
+          closed: Zatvorené
+          open: Otvorené
+          questions: otázky
