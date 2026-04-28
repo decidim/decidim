@@ -369,7 +369,7 @@ eu:
           url: Emaitza hau aurkitu daitekeen URLa
     participatory_spaces:
       highlighted_results:
-        see_all: Ikusi emaitza guztiak
+        see_all: Ikusi emaitza guztiak (%{count})
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
