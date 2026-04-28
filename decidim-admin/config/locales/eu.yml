@@ -327,10 +327,10 @@ eu:
         create:
           error: Arazo bat egon da osagai hau sortzean.
           success: Osagaia zuzen sortua.
-          success_landing_page: Osagaia zuzen sortu da. Espazio honen hasiera orrian eduki atal bat gehitu ahal duzu. Joan <a href="%{landing_page_path}">orrira</a> konfiguratzeko.
+          success_landing_page: Osagaia zuzuen osatua. Eduki bloke bat gehitu ahal duzu osagai honetarako parte hartzeko espazioaren hasiera-orrian. Zoaz hasiera-orrira konfiguratzeko. <a href="%{landing_page_path}">.
         edit:
           title: Editatu osagaia
-          update: Onartu
+          update: Eguneratu
         form:
           default_step_settings: Faseen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
@@ -364,7 +364,7 @@ eu:
       conflicts:
         attempts: Saiakerak
         edit:
-          title: Parte-hartzailea tansferitu
+          title: Transferitu parte-hartzailea
         'false': 'Ez'
         index:
           text: Bilatu gaur egungo parte-hartzailearen posta elektronikoaren, izenren edo ezizenaren bidez
@@ -490,7 +490,7 @@ eu:
           import:
             explanation: 'Fitxategirako jaribideak:'
             message_1: CSV, JSON eta Excel (.xlsx) fitxategiak eutsita daude
-            message_2: CSV artxiboetarako, zutabeen arteko banatzailea puntu eta koma (";") izan behar da
+            message_2: CSV fitxategietarako, zutabeen arteko bereizgailuak erdikolona izan behar du (";")
           import_csv:
             explanation: 'Fitxategirako jarraibideak:'
             message_1: CSV fitxategiak onartzen dira
@@ -545,14 +545,14 @@ eu:
               other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
-              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
               message:
                 one: Errore bat aurkitu da inportazio-fitxategiko %{indexes} lerroan.
                 other: Erroreak aurkitu dira inportazio-fitxategiko %{indexes} lerroetan.
             records:
-              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
               message:
-                one: Errore bat aurkitu da %{indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                one: Errore bat aurkitu da % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
                 other: Erroreak aurkitu dira %{indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
           missing_headers:
             detail: Mesedez, egiaztatu fitxategiak eskatutako zutabeak dituela.
@@ -605,11 +605,11 @@ eu:
           error: Arazo bat dago partaidetza-espazio horretarako kide bat ezabatzeko.
           success: Kidearen sarbidea behar bezala suntsitu da.
         edit:
-          title: Kidea aldatu
-          update: Egunaratu
+          title: Editatu kidea
+          update: Eguneratu
         index:
-          import_via_csv: CSV fitxategi baten bidez inportatu
-          publish_all: Denak argitaratu
+          import_via_csv: Inportatu CSV bidetik
+          publish_all: Argitaratu guztiak
           title: Kidea
           unpublish_all: Desargitaratu guztiak
         new:
@@ -626,23 +626,23 @@ eu:
           success: Kidea behar bezala eguneratu da
       members_csv_imports:
         create:
-          invalid: Arazo bat izan da CSV fitxategia irakurtzean. Egiaztatu jarraibideak bete dituzula.
-          success: CSV fitxategia ondo igo da, gonbidapen-mezu elektroniko bat bidaltzen ari gara parte-hartzaileei. Horrek denbora pixka bat iraun dezake.
+          invalid: Arazo bat egon da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
+          success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Prozesu horrek denbora behar du.
         new:
           csv_upload:
             title: Igo zure CSV fitxategia
           destroy:
-            button: Kide guztiak ezabatu
+            button: Ezabatu kide guztiak
             confirm: Ziur zaude kide guztiak ezabatu nahi dituzula? Ekintza hori ezin da desegin, ezingo dituzu berreskuratu.
             empty: Ez duzu kiderik.
             explanation: '%{count} kide dituzu.'
-            title: Kideak ezabatu
+            title: Ezabatu kide guztiak
           example_file: 'Adibide-fitxategia:'
           explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu, fitxategiko lehen zutabean posta elektronikoa eta parte-hartze gunera gehitu nahi dituzun parte-hartzaileen fitxategiaren azken zutabean izena jarrita, goibururik gabe. Ez erabili baliozko ez diren karaktereak erabiltzaile-izenean, hala nola, "sim"<>?%&^*#@()[]=+:;"{}\|`.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Kidek CSV fitxategi baten bidez
+          title: Inportatu kideak CSV fitxategi baten bidez
           upload: Igo
       menu:
         admin_log: Administratzaile jarduera-erregistroa
@@ -688,7 +688,7 @@ eu:
             collection: Karpeta
             content_type: Mota
             file_size: Tamaina
-            title: Izenburua
+            title: Titulua
           name: Eranskina
         attachment_collection:
           name: Karpeta
@@ -730,7 +730,7 @@ eu:
         static_page:
           fields:
             created_at: Noiz sortua
-            title: Izenburua
+            title: Titulua
         user:
           fields:
             created_at: Sortze-data
@@ -888,7 +888,7 @@ eu:
         send:
           no_recipients: Ez dago hartzailerik hautaketa honetarako.
         send_to_user:
-          sent_successfully: Buletina behar bezala bidali zaio %{email} helbideari
+          sent_successfully: Buletina behar bezala bidali da %{email} helbidera
         show:
           select_recipients_to_deliver: Hautatu entregaren hartzaileak
           send_me_a_test_email: Bidali probako posta elektronikoa
@@ -970,7 +970,7 @@ eu:
             organization_logos: Erakundearen logoak
             preview: Aurreikusi
           rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
-          social_handlers: Gizarte
+          social_handlers: Soziala
           twitter: X
           url: URL
           welcome_notification: Ongietorri-jakinarazpenaren testua
@@ -1009,14 +1009,14 @@ eu:
       scope_types:
         create:
           error: Arazo bat egon da beste eremu mota bat sortzean.
-          success: Eremu mota arrakastaz sortu da.
+          success: Esparru mota arrakastaz sortu da.
         destroy:
           success: Eremu mota behar bezala suntsitua
         edit:
           title: Editatu eremu mota
           update: Eguneratu
         index:
-          title: Eremu motak
+          title: Esparru motak
         new:
           create: Sortu eremu mota
           title: Beste eremu mota bat
@@ -1114,7 +1114,7 @@ eu:
           title: Beste gai bat
         update:
           error: Arazo bat egon da gai hau eguneratzean.
-          success: Gaia ongi eguneratu da.
+          success: Gaia zuzen eguneratua.
       static_pages:
         actions:
           view: Bistaratu
@@ -1165,7 +1165,7 @@ eu:
         edit:
           back: Atzera
           description: Taxonomia honetako elementuak baliabideak sailkatzeko edo iragazteko erabiliko dira, hala nola espazio edo osagai parte-hartzaileak. Arrastatu eta utzi zerrenda berrantolatzeko.
-          new_item: Elementu berria
+          new_item: Beste elementu bat
           no_items: Gaur egun ez dago taxonomia honetako elementurik. Sortu hemen elementuen zerrenda bat baliabideak sailkatzeko edo iragazteko, hala nola espazio edo osagai parte-hartzaileak. Elementuak hiru mailatan sailka daitezke.
           subtitle: 'Elementuak hemen: "%{taxonomy_name}"'
           title: Editatu "%{taxonomy_name}" taxonomia
@@ -1174,7 +1174,7 @@ eu:
           search_placeholder: Bilatu
         index:
           description: Taxonomiek eta iragazkiek aukera ematen diete administratzaileei edukiak ordenatzeko eta antolatzeko. Adibidez, gehitu taxonomia bat hiriko auzo eta barrutiekin, eta gero sortu iragazkiak barrutiekin edo auzo jakin baterako.
-          new_taxonomy: Taxonomia berria
+          new_taxonomy: Beste taxonomia bat
           no_items_found: Ez dago bilaketa-irizpidearekin bat datorren taxonomiarik.
           title: Taxonomiak
         name: Izena
@@ -1244,7 +1244,7 @@ eu:
           add_new_items_html: 'Beste iragazki edo elementu bat jarri behar baduzu, egin konfigurazio-ezarpenaren bidez edo klikatuz: <a href="%{url}">here</a>.'
           items_count: "Elementu %{count}"
           save: Gorde
-          title: Taxonomia-iragazkien hautatzaile berria
+          title: Beste taxonomia-iragazk bat hautatzeko
         show:
           items_count: "Elementu %{count}"
           remove: Kendu
