@@ -172,7 +172,7 @@ module Decidim
         \z
       }x
 
-      SINGLE_LABEL_HOST_FORMAT_REGEX = %r{\A[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\z}
+      SINGLE_LABEL_HOST_FORMAT_REGEX = /\A[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\z/
 
       def validate_host_format
         return if host.blank?
