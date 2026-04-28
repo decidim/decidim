@@ -40,4 +40,22 @@ describe Decidim::Demographics::Admin::Permissions do
       it { is_expected.to be true }
     end
   end
+
+  describe "demographics subject permissions" do
+    let(:action_subject) { :demographics }
+
+    context "when action is update" do
+      let(:action_name) { :update }
+
+      context "when user is not admin" do
+        it { is_expected.to be false }
+      end
+
+      context "when user is admin" do
+        let(:user) { create(:user, :admin) }
+
+        it { is_expected.to be true }
+      end
+    end
+  end
 end
