@@ -39,7 +39,7 @@ eu:
       member_csv_import:
         file: Fitxategia
       newsletter:
-        body: Testua
+        body: Gorputza
         send_to_all_users: Bidali parte-hartzaile guztiei
         send_to_followers: Bidali jarraitzaileei
         send_to_participants: Bidali parte-hartzaileei
@@ -71,11 +71,11 @@ eu:
         machine_translation_display_priority_original: Jatorrizko testua lehenik
         machine_translation_display_priority_translation: Itzulitako testua lehenik
         name: Izena
-        official_img_footer: Logotipoaren logotipo ofiziala
+        official_img_footer: Orri-oinaren logotipo ofiziala
         official_url: Erakundearen URL ofiziala
         omnipresent_banner_short_description: Deskribapen laburra
         omnipresent_banner_title: Izenburua
-        omnipresent_banner_url: URL-a
+        omnipresent_banner_url: URLa
         organization_admin_email: Erakundearen administratzailearen mezu elektronikoa
         organization_admin_name: Erakundearen administratzailearen izena
         organization_locales: Tokiko erakundeak
@@ -100,7 +100,7 @@ eu:
         name: Izena
         organization: Erakundea
         parent_id: Nagusia
-        scope_type: Eremua mota
+        scope_type: Esparru mota
         scope_type_id: Eremua mota
       scope_type:
         name: Izena
@@ -114,8 +114,8 @@ eu:
         content: Edukia
         organization: Erakundea
         show_in_footer: Erakutsi orri-oinean
-        slug: URL laburra
-        title: Izenburua
+        slug: URL sluga
+        title: Titulua
         topic_id: Gaia
         weight: Kokapenaren hurrenkera
       static_page_topic:
@@ -146,7 +146,7 @@ eu:
         user_group_csv_verification:
           attributes:
             file:
-              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
+              malformed: Inportazio-fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
       new_import:
         attributes:
           file:
@@ -155,9 +155,9 @@ eu:
   activerecord:
     attributes:
       decidim/static_page:
-        content: Edukia
+        content: Contenido
         slug: URL laburra
-        title: Izenburua
+        title: Titulua
       doorkeeper/application:
         authorize_url: Baimendu URLa
         client_id: Bezeroaren IDa
@@ -189,7 +189,7 @@ eu:
           Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.na
         export: Esportatu
         export_all: Esportatu dena
-        export_selection: Hautapena esportatu
+        export_selection: Esportatu hautaketa
         import: Inportatu
         member:
           new: Beste kide bat
@@ -231,7 +231,7 @@ eu:
           success: Arlo mota behar bezala suntsitua.
         edit:
           title: Editatu arlo mota
-          update: Onartu
+          update: Eguneratu
         index:
           title: Arlo motak
         new:
@@ -268,7 +268,7 @@ eu:
           success: Karpeta behar bezala suntsitua.
         edit:
           title: Editatu karpeta
-          update: Onartu
+          update: Eguneratu
         index:
           title: Erantsitako karpetak
         new:
@@ -326,10 +326,10 @@ eu:
         create:
           error: Arazo bat egon da osagai hau sortzean.
           success: Osagaia zuzen sortua.
-          success_landing_page: Osagaia zuzen sortu da. Espazio honen hasiera orrian eduki atal bat gehitu ahal duzu. Joan <a href="%{landing_page_path}">orrira</a> konfiguratzeko.
+          success_landing_page: Osagaia zuzuen osatua. Eduki bloke bat gehitu ahal duzu osagai honetarako parte hartzeko espazioaren hasiera-orrian. Zoaz hasiera-orrira konfiguratzeko. <a href="%{landing_page_path}">.
         edit:
           title: Editatu osagaia
-          update: Onartu
+          update: Eguneratu
         form:
           default_step_settings: Faseen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
@@ -363,7 +363,7 @@ eu:
       conflicts:
         attempts: Saiakerak
         edit:
-          title: Parte-hartzailea tansferitu
+          title: Transferitu parte-hartzailea
         'false': 'Ez'
         index:
           text: Bilatu gaur egungo parte-hartzailearen posta elektronikoaren, izenren edo ezizenaren bidez
@@ -489,7 +489,7 @@ eu:
           import:
             explanation: 'Fitxategirako jaribideak:'
             message_1: CSV, JSON eta Excel (.xlsx) fitxategiak eutsita daude
-            message_2: CSV artxiboetarako, zutabeen arteko banatzailea puntu eta koma (";") izan behar da
+            message_2: CSV fitxategietarako, zutabeen arteko bereizgailuak erdikolona izan behar du (";")
           import_csv:
             explanation: 'Fitxategirako jarraibideak:'
             message_1: CSV fitxategiak onartzen dira
@@ -544,14 +544,14 @@ eu:
               other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
-              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
               message:
                 one: Errore bat aurkitu da inportazio-fitxategiko %{indexes} lerroan.
                 other: Erroreak aurkitu dira inportazio-fitxategiko %{indexes} lerroetan.
             records:
-              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
               message:
-                one: Errore bat aurkitu da %{indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                one: Errore bat aurkitu da % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
                 other: Erroreak aurkitu dira %{indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
           missing_headers:
             detail: Mesedez, egiaztatu fitxategiak eskatutako zutabeak dituela.
@@ -604,11 +604,11 @@ eu:
           error: Arazo bat dago partaidetza-espazio horretarako kide bat ezabatzeko.
           success: Kidearen sarbidea behar bezala suntsitu da.
         edit:
-          title: Kidea aldatu
-          update: Egunaratu
+          title: Editatu kidea
+          update: Eguneratu
         index:
-          import_via_csv: CSV fitxategi baten bidez inportatu
-          publish_all: Denak argitaratu
+          import_via_csv: Inportatu CSV bidetik
+          publish_all: Argitaratu guztiak
           title: Kidea
           unpublish_all: Desargitaratu guztiak
         new:
@@ -625,23 +625,23 @@ eu:
           success: Kidea behar bezala eguneratu da
       members_csv_imports:
         create:
-          invalid: Arazo bat izan da CSV fitxategia irakurtzean. Egiaztatu jarraibideak bete dituzula.
-          success: CSV fitxategia ondo igo da, gonbidapen-mezu elektroniko bat bidaltzen ari gara parte-hartzaileei. Horrek denbora pixka bat iraun dezake.
+          invalid: Arazo bat egon da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
+          success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Prozesu horrek denbora behar du.
         new:
           csv_upload:
             title: Igo zure CSV fitxategia
           destroy:
-            button: Kide guztiak ezabatu
+            button: Ezabatu kide guztiak
             confirm: Ziur zaude kide guztiak ezabatu nahi dituzula? Ekintza hori ezin da desegin, ezingo dituzu berreskuratu.
             empty: Ez duzu kiderik.
             explanation: '%{count} kide dituzu.'
-            title: Kideak ezabatu
+            title: Ezabatu kide guztiak
           example_file: 'Adibide-fitxategia:'
           explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu, fitxategiko lehen zutabean posta elektronikoa eta parte-hartze gunera gehitu nahi dituzun parte-hartzaileen fitxategiaren azken zutabean izena jarrita, goibururik gabe. Ez erabili baliozko ez diren karaktereak erabiltzaile-izenean, hala nola, "sim"<>?%&^*#@()[]=+:;"{}\|`.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Kidek CSV fitxategi baten bidez
+          title: Inportatu kideak CSV fitxategi baten bidez
           upload: Igo
       menu:
         admin_log: Administratzaile jarduera-erregistroa
@@ -687,7 +687,7 @@ eu:
             collection: Karpeta
             content_type: Mota
             file_size: Tamaina
-            title: Izenburua
+            title: Titulua
           name: Eranskina
         attachment_collection:
           name: Karpeta
@@ -729,7 +729,7 @@ eu:
         static_page:
           fields:
             created_at: Noiz sortua
-            title: Izenburua
+            title: Titulua
         user:
           fields:
             created_at: Sortze-data
@@ -887,7 +887,7 @@ eu:
         send:
           no_recipients: Ez dago hartzailerik hautaketa honetarako.
         send_to_user:
-          sent_successfully: Buletina behar bezala bidali zaio %{email} helbideari
+          sent_successfully: Buletina behar bezala bidali da %{email} helbidera
         show:
           select_recipients_to_deliver: Hautatu entregaren hartzaileak
           send_me_a_test_email: Bidali probako posta elektronikoa
@@ -969,7 +969,7 @@ eu:
             organization_logos: Erakundearen logoak
             preview: Aurreikusi
           rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
-          social_handlers: Gizarte
+          social_handlers: Soziala
           twitter: X
           url: URL
           welcome_notification: Ongietorri-jakinarazpenaren testua
@@ -1008,14 +1008,14 @@ eu:
       scope_types:
         create:
           error: Arazo bat egon da beste eremu mota bat sortzean.
-          success: Eremu mota arrakastaz sortu da.
+          success: Esparru mota arrakastaz sortu da.
         destroy:
           success: Eremu mota behar bezala suntsitua
         edit:
           title: Editatu eremu mota
           update: Eguneratu
         index:
-          title: Eremu motak
+          title: Esparru motak
         new:
           create: Sortu eremu mota
           title: Beste eremu mota bat
