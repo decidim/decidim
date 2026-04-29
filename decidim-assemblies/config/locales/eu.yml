@@ -81,7 +81,7 @@ eu:
     models:
       decidim/assembly:
         one: Batzarra
-        other: Batzar
+        other: Batzarrak
       decidim/assembly_member:
         one: Batzarkidea
         other: Batzar kideak
@@ -460,7 +460,7 @@ eu:
             other: "%{count} batzar"
         order_by_assemblies:
           assemblies:
-            one: "batzar %{count}"
+            one: "%{count} batzar"
             other: "%{count} batzar"
       assembly_navigation:
         assembly_member_menu_item: Kideak
