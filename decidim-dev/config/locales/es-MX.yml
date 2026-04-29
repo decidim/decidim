@@ -1,3 +1,4 @@
+---
 es-MX:
   activemodel:
     attributes:
@@ -51,7 +52,7 @@ es-MX:
       badges:
         test:
           conditions:
-            - Utilice un entorno de prueba para decidim.
+          - Utilice un entorno de prueba para decidim.
           description: Los usuarios obtienen esta insignia al crear pruebas.
           description_another: Este usuario ha creado %{score} pruebas.
           description_own: Has creado %{score} pruebas.

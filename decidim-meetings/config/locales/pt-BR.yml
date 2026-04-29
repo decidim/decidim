@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -272,7 +273,7 @@ pt-BR:
       badges:
         attended_meetings:
           conditions:
-            - Registre-se nas reuniões que você deseja participar
+          - Registre-se nas reuniões que você deseja participar
           description: Este selo é concedido quando você participa de várias reuniões presenciais.
           description_another: Este usuário assistiu a %{score} reuniões.
           description_own: Você participou de %{score} reuniões.
@@ -442,10 +443,10 @@ pt-BR:
             title: Editar enquete
           form:
             announcement_html:
-              - Quando uma pergunta recebe respostas ou é publicada/fechada, ela não poderá mais ser editada.
-              - Você pode adicionar uma pergunta a qualquer momento.
-              - A enquete será fechada quando os resultados de todas as questões criadas forem publicados.
-              - Acesse a <a href='%{admin_link}'>página de administração da enquete</a> para enviar perguntas e publicar resultados.
+            - Quando uma pergunta recebe respostas ou é publicada/fechada, ela não poderá mais ser editada.
+            - Você pode adicionar uma pergunta a qualquer momento.
+            - A enquete será fechada quando os resultados de todas as questões criadas forem publicados.
+            - Acesse a <a href='%{admin_link}'>página de administração da enquete</a> para enviar perguntas e publicar resultados.
         registration_form:
           edit_questions:
             title: Editar perguntas

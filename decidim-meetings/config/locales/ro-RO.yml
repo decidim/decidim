@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -210,7 +211,7 @@ ro:
       badges:
         attended_meetings:
           conditions:
-            - Înregistrează-te la întâlnirile la care vrei să participi
+          - Înregistrează-te la întâlnirile la care vrei să participi
           description: Această insignă este acordată atunci când participi la mai multe întâlniri față în față.
           description_another: Acest participant a participat la %{score} întâlniri.
           description_own: Ai participat la %{score} întâlniri.

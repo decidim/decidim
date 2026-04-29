@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -272,7 +273,7 @@ sv:
       badges:
         attended_meetings:
           conditions:
-            - Anmäl dig till de möten du vill delta i
+          - Anmäl dig till de möten du vill delta i
           description: Du får detta märke när du har deltagit i flera fysiska möten.
           description_another: Deltagaren har deltagit i %{score} möten.
           description_own: Du har deltagit i %{score} möten.
@@ -437,10 +438,10 @@ sv:
         poll:
           form:
             announcement_html:
-              - När en fråga besvarats eller publiceras/stängs kan den inte längre redigeras.
-              - Du kan lägga till en fråga när som helst.
-              - Enkäten kommer att stängas när resultaten från alla frågor har publicerats.
-              - Besök <a href='%{admin_link}'>administrationssidan för enkäten</a> för att skicka frågor och publicera resultat.
+            - När en fråga besvarats eller publiceras/stängs kan den inte längre redigeras.
+            - Du kan lägga till en fråga när som helst.
+            - Enkäten kommer att stängas när resultaten från alla frågor har publicerats.
+            - Besök <a href='%{admin_link}'>administrationssidan för enkäten</a> för att skicka frågor och publicera resultat.
         registrations:
           edit:
             save: Spara

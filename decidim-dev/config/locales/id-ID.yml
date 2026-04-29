@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -27,7 +28,7 @@ id:
       badges:
         test:
           conditions:
-            - Gunakan lingkungan uji untuk decidim.
+          - Gunakan lingkungan uji untuk decidim.
           description: Peserta mendapatkan lencana ini dengan membuat tes.
           description_another: Peserta ini telah membuat %{score} tes.
           description_own: Anda telah membuat %{score} tes.

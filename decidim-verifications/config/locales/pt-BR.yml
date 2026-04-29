@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -62,45 +63,45 @@ pt-BR:
       admin:
         another_dummy_authorization_handler:
           help:
-            - Um manipulador de autorização de exemplo para que os desenvolvedores possam entender como funciona uma simples verificação.
-            - Destina-se aos desenvolvedores para que eles possam entender como implementar seu próprio sistema de verificação.
-            - Seja verificado introduzindo um número de passaporte começando com "A".
+          - Um manipulador de autorização de exemplo para que os desenvolvedores possam entender como funciona uma simples verificação.
+          - Destina-se aos desenvolvedores para que eles possam entender como implementar seu próprio sistema de verificação.
+          - Seja verificado introduzindo um número de passaporte começando com "A".
         csv_census:
           help:
-            - Administra o upload de um CSV com os emails dos participantes aceitos.
-            - Apenas participantes com um email nesse arquivo CSV podem ser verificados.
+          - Administra o upload de um CSV com os emails dos participantes aceitos.
+          - Apenas participantes com um email nesse arquivo CSV podem ser verificados.
         default:
           help:
-            - A ajuda do manipulador de autorização não está definida.
-            - Um desenvolvedor precisa definir a ajuda na chave de tradução (i18n) "%{authorization_handler}"
+          - A ajuda do manipulador de autorização não está definida.
+          - Um desenvolvedor precisa definir a ajuda na chave de tradução (i18n) "%{authorization_handler}"
         dummy_authorization_handler:
           help:
-            - Um manipulador de autorização de exemplo para que os desenvolvedores possam entender como funciona uma simples verificação.
-            - Destina-se aos desenvolvedores para que eles possam entender como implementar seu próprio sistema de verificação.
-            - Seja verificado introduzindo um número de documento que termine com "X".
+          - Um manipulador de autorização de exemplo para que os desenvolvedores possam entender como funciona uma simples verificação.
+          - Destina-se aos desenvolvedores para que eles possam entender como implementar seu próprio sistema de verificação.
+          - Seja verificado introduzindo um número de documento que termine com "X".
         ephemeral_dummy_authorization_handler:
           help:
-            - Um exemplo de manipulador de autorização efêmera para que os desenvolvedores possam entender como funciona uma simples verificação.
-            - Destina-se aos desenvolvedores para que eles possam entender como implementar seu próprio sistema de verificação.
-            - É uma cópia do Exemplo de autorização.
-            - Seja verificado introduzindo um número de documento que termine com "X".
+          - Um exemplo de manipulador de autorização efêmera para que os desenvolvedores possam entender como funciona uma simples verificação.
+          - Destina-se aos desenvolvedores para que eles possam entender como implementar seu próprio sistema de verificação.
+          - É uma cópia do Exemplo de autorização.
+          - Seja verificado introduzindo um número de documento que termine com "X".
         id_documents:
           help:
-            - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
-            - Você preencher as informações presentes na imagem carregada.
-            - A informação deve corresponder ao que o usuário preenchido.
-            - Se você não consegue ver claramente a informação ou não consegue verificá-la, você pode rejeitar a solicitação e o usuário poderá corrigi-la.
+          - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
+          - Você preencher as informações presentes na imagem carregada.
+          - A informação deve corresponder ao que o usuário preenchido.
+          - Se você não consegue ver claramente a informação ou não consegue verificá-la, você pode rejeitar a solicitação e o usuário poderá corrigi-la.
         postal_letter:
           help:
-            - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
-            - Você envia a carta para seu endereço com o código de verificação.
-            - Você marca a carta como enviada.
-            - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
+          - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
+          - Você envia a carta para seu endereço com o código de verificação.
+          - Você marca a carta como enviada.
+          - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
         sms:
           help:
-            - Os usuários solicitam que um código de verificação seja enviado para o telefone.
-            - Necessitam de introduzir o código para serem verificados.
-            - Caso não recebam o código, podem solicitá-lo novamente.
+          - Os usuários solicitam que um código de verificação seja enviado para o telefone.
+          - Necessitam de introduzir o código para serem verificados.
+          - Caso não recebam o código, podem solicitá-lo novamente.
       csv_census:
         explanation: Obtenha a verificação usando o cadastro da organização.
         name: Recenseamento da organização

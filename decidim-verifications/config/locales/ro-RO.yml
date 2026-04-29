@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -49,16 +50,16 @@ ro:
       admin:
         id_documents:
           help:
-            - Utilizatorii completează informațiile lor de identitate și încarcă o copie a documentului lor.
-            - Completați informațiile prezente în imaginea încărcată.
-            - Informațiile trebuie să corespundă cu ce a completat utilizatorul.
-            - 
+          - Utilizatorii completează informațiile lor de identitate și încarcă o copie a documentului lor.
+          - Completați informațiile prezente în imaginea încărcată.
+          - Informațiile trebuie să corespundă cu ce a completat utilizatorul.
+          - 
         postal_letter:
           help:
-            - Participanții solicită un cod de verificare pentru a fi trimis la adresa lor.
-            - Trimiteți scrisoarea la adresa lor cu codul de verificare.
-            - Marcați scrisoarea ca fiind trimisă.
-            - Odată ce marcați scrisoarea ca fiind trimisă, participantul va putea introduce codul și va putea fi verificat.
+          - Participanții solicită un cod de verificare pentru a fi trimis la adresa lor.
+          - Trimiteți scrisoarea la adresa lor cu codul de verificare.
+          - Marcați scrisoarea ca fiind trimisă.
+          - Odată ce marcați scrisoarea ca fiind trimisă, participantul va putea introduce codul și va putea fi verificat.
       csv_census:
         explanation: Obțineți verificarea folosind recensământul organizației.
         name: Recensământul organizației

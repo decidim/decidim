@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -272,7 +273,7 @@ fi-pl:
       badges:
         attended_meetings:
           conditions:
-            - Ilmoittaudu tapahtumiin, joihin haluat osallistua
+          - Ilmoittaudu tapahtumiin, joihin haluat osallistua
           description: Tämä kunniamerkki myönnetään, kun osallistut useisiin tapahtumiin.
           description_another: Tämä käyttäjä on osallistunut %{score} tapahtumaan.
           description_own: Olet osallistunut %{score} tapahtumaan.
@@ -443,10 +444,10 @@ fi-pl:
             title: Muokkaa mielipidetiedustelua
           form:
             announcement_html:
-              - Kun kysymykseen vastataan tai se julkaistaan tai suljetaan, sitä ei voi enää muokata sen jälkeen.
-              - Voit lisätä kysymyksiä milloin tahansa.
-              - Tämä mielipidetiedustelu suljetaan, kun kaikkien kysymysten tulokset on julkaistu.
-              - Vieraile <a href='%{admin_link}'>mielipidetiedustelun hallinnointisivulla</a> lähettääksesi kysymyksiä ja julkaistaksesi tuloksia.
+            - Kun kysymykseen vastataan tai se julkaistaan tai suljetaan, sitä ei voi enää muokata sen jälkeen.
+            - Voit lisätä kysymyksiä milloin tahansa.
+            - Tämä mielipidetiedustelu suljetaan, kun kaikkien kysymysten tulokset on julkaistu.
+            - Vieraile <a href='%{admin_link}'>mielipidetiedustelun hallinnointisivulla</a> lähettääksesi kysymyksiä ja julkaistaksesi tuloksia.
         registration_form:
           edit_questions:
             title: Muokkaa kysymyksiä
