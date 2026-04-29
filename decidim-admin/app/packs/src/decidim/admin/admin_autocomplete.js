@@ -58,7 +58,7 @@ const autoConfigure = (el) => {
       const users = data?.data?.users || [];
       callback(users.map((user) => ({
         value: user.id,
-        label: `${user.name} (@${user.nickname})`,
+        label: `${user.name} (${user.nickname})`,
         name: user.name,
         nickname: user.nickname
       })))
@@ -75,7 +75,7 @@ const autoConfigure = (el) => {
     searchPrompt: true,
     searchPromptText: config.searchPromptText,
     threshold: 3,
-    dataMatchKeys: ["name", "nickname"],
+    dataMatchKeys: ["label"],
     dataSource
   });
 
