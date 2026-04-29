@@ -126,7 +126,7 @@ describe "Respond a survey" do
   context "when the survey requires permissions to be responded" do
     before do
       permissions = {
-        response: {
+        respond: {
           authorization_handlers: {
             "dummy_authorization_handler" => { "options" => {} }
           }
