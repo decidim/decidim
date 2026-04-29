@@ -9,6 +9,7 @@ sk:
         decidim_scope_id: Rozsah
         decidim_user_group_id: Autor
         description: Popis
+        hashtag: Hashtag
         offline_votes: Podpora tvárou v tvár
         offline_votes_for_scope: Osobné podpisy pre %{scope_name}
         scope_id: Rozsah
@@ -95,12 +96,15 @@ sk:
             label: Stav
             values:
               accepted: Dostatok podpisov
+              created: Vytvorené
               discarded: Vyradené
               open: Otvorené
               rejected: Nedostatok podpisov
               validating: Technické overenie
           type_id_eq:
             label: Typ
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hľadať %{collection} podľa názvu, popisu, ID alebo mena autora.
       initiatives_settings:
         update:
           error: Pri aktualizácii nastavení iniciatív sa vyskytol problém.
@@ -297,6 +301,7 @@ sk:
             publication_date: Nedávno publikované
             random: Náhodné
             signatures: Najviac podpísané
+            title: Nastavenia pre iniciatívy
         initiatives_type_scopes:
           create:
             error: Pri vytváraní nového rozsahu pre danú iniciatívu sa vyskytol problém.
@@ -321,28 +326,55 @@ sk:
           edit:
             update: Aktualizovať
           form:
+            authorizations: Nastavenia autorizácie
             child_scope_threshold_enabled_help_html: 'Tento konfiguračný príznak nepodporuje offline hlasy. Povoľuje podrozsahy a funguje s obsluhou autorizácie, ktorá priraďuje rozsah používateľovi. Uistite sa, že ste vybrali túto autorizáciu nižšie v nastaveniach autorizácie. Aby to fungovalo, rozsahy musia byť nakonfigurované hierarchicky: 1 rodič - N detí. Viac informácií o tom, ako táto konfigurácia funguje, nájdete na <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">stránke dokumentácie pre administrátorov iniciatív</a>.'
             only_global_scope_enabled_help_html: Začiarknite tento príznak, ak ste povolili „Podpis podrozsahu“ a nakonfigurovali globálny rozsah ako váš nadradený rozsah. Povolením tohto sa výber typu iniciatívy v sprievodcovi vytváraním iniciatívy preskočí. Viac informácií o tom, ako táto konfigurácia funguje, nájdete na tomto <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">odkaze</a>.
+            options: Možnosti
           initiative_type_scopes:
             title: Zameriava sa na typ iniciatívy
           new:
             create: Vytvoriť
             title: Nový typ iniciatívy
+          update:
+            error: Pri aktualizácii typu iniciatívy sa vyskytol problém.
+            success: Typ iniciatívy bol úspešne aktualizovaný.
       admin_log:
         initiative:
           publish: "% {USER_NAME} zverejnil iniciatívu% {resource_name}"
           send_to_technical_validation: "% {USER_NAME} zaslala% {resource_name} iniciatívu k technickému overenie"
+          unpublish: "%{user_name} zrušil/a iniciatívu %{resource_name}"
           update: "% {USER_NAME} aktualizoval iniciatívu% {resource_name}"
+        initiatives_settings:
+          update: "%{user_name} aktualizoval/a nastavenia iniciatív"
+        initiatives_type:
+          create: "%{user_name} vytvoril/a typ iniciatív %{resource_name}"
+          delete: "%{user_name} odstránil/a typ iniciatív %{resource_name}"
+          update: "%{user_name} aktualizoval/a typ iniciatív %{resource_name}"
       admin_states:
+        accepted: Dostatok podpisov
         created: Vytvorené
         discarded: Odstránená
+        open: Otvorené
+        rejected: Nedostatok podpisov
+        validating: Technické overenie
       application_helper:
         filter_state_values:
+          accepted: Dostatok podpisov
+          all: Všetky
+          answered: Zodpovedané
           closed: Uzavreté
           open: otvorené
+          rejected: Nedostatok podpisov
+        filter_type_values:
+          all: Všetky
       committee_requests:
+        approve:
+          success: Žiadosť bola schválená.
         new:
           continue: Pokračovať
+          help_text: Chystáte sa požiadať o členstvo vo výbore navrhovateľov tejto iniciatívy.
+        revoke:
+          success: Žiadosť bola zrušená.
         spawn:
           success: Vaša žiadosť bola zaslaná autorovi iniciatívy.
       content_blocks:
@@ -352,26 +384,53 @@ sk:
         fill_data:
           back: Späť
           continue: Pokračovať
+          fill_data_help: "<ul> <li>Skontrolujte obsah svojej iniciatívy. Je váš názov ľahko zrozumiteľný? Je cieľ vašej iniciatívy jasný?</li> <li>Musíte si vybrať typ podpisu. Osobne, online alebo kombinácia oboch</li> <li>Aký je geografický rozsah iniciatívy?</li> </ul>"
           more_information: "(Viac informácií)"
+          select_area: Vyberte oblasť
           select_scope: Zvoľte rozsah
         finish:
           back: Späť
           back_to_initiatives: Späť na iniciatívy
+          callout_text: Gratulujeme! Vaša iniciatíva bola úspešne vytvorená.
+          confirm: Chystáte sa odoslať iniciatívu administrátorovi na kontrolu a zverejnenie. Po zverejnení ju už nebudete môcť upravovať. Ste si istý?
+          edit_my_initiative: Upraviť moju iniciatívu
           go_to_my_initiatives: Ísť na mojej iniciatívy
           more_information: "(Viac informácií)"
+          send_my_initiative: Odoslať moju iniciatívu na technické overenie
+        finish_help:
+          publish_helper_text: Nezabudnite, že na zverejnenie vašej iniciatívy musíte vyplniť požadované informácie a <strong>odoslať ju na technické overenie</strong>, aby ju mohol skontrolovať administrátor.
         previous_form:
           back: Späť
           continue: Pokračovať
         promotal_committee:
+          individual_help_text: Tento druh iniciatívy si vyžaduje propagačnú komisiu pozostávajúcu z minimálne %{committee_size} osôb (ručiteľov). Nasledujúci odkaz musíte zdieľať s ostatnými ľuďmi, ktorí sú súčasťou tejto iniciatívy. Keď vaše kontakty dostanú tento odkaz, budú musieť postupovať podľa uvedených krokov.
           more_information: "(Viac informácií)"
         select_initiative_type:
           back: Späť
           choose_html: Chcem vytvoriť <strong>%{title} </strong>
           more_information: (Viac informácií)
+          new: Vytvoriť novú iniciatívu
           select: Chcem túto iniciatívu podporiť
+          select_initiative_type_help: Iniciatívy sú prostriedkom, prostredníctvom ktorého môžu účastníci zasiahnuť, aby organizácia mohla podniknúť kroky na obranu všeobecného záujmu. Akú iniciatívu chcete spustiť?
+          verification_required: Overte svoj účet, aby ste mohli presadzovať túto iniciatívu
         share_committee_link:
           invite_to_committee_help: Odkaz na pozvanie ľudí, ktorí budú súčasťou podporovaného výboru
+      edit:
+        accept: Prijať iniciatívu
+        back: Späť
+        confirm: Ste si istí?
+        discard: Zrušiť iniciatívu
+        export_pdf_signatures: Exportovať PDF s podpismi
+        export_votes: Exportovať podpisy
+        reject: Zamietnuť iniciatívu
+        title: Upraviť iniciatívu
+        update: Aktualizovať
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} prijal/a vašu žiadosť o členstvo vo výbore navrhovateľov pre iniciatívu %{resource_title}."
+          email_outro: 'Toto upozornenie ste dostali, pretože ste sa prihlásili do tejto iniciatívy: %{resource_title}'
+          email_subject: "%{author_nickname} prijal/a vašu žiadosť do výboru navrhovateľov"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> prijal/a vašu žiadosť o členstvo vo výbore navrhovateľov pre nasledujúcu iniciatívu <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "% {AUTHOR_NAME}% {author_nickname}, ktorého sledujete, vytvoril novú iniciatívu, skontroloval ju a prispel:"
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
@@ -382,9 +441,29 @@ sk:
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Iniciatíva bola schválená od%{author_nickname}
           notification_title: Iniciatíva <a href="%{resource_path}">% {resource_title} </a> bola schválená <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} zamietol/a vašu žiadosť o členstvo vo výbore navrhovateľov pre nasledujúcu iniciatívu %{resource_title}."
+          email_outro: 'Toto upozornenie ste dostali, pretože ste sa prihlásili do tejto iniciatívy: %{resource_title}.'
+          email_subject: "%{author_nickname} zamietol/a vašu žiadosť do výboru navrhovateľov"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> zamietol/a vašu žiadosť o členstvo vo výbore navrhovateľov pre nasledujúcu iniciatívu <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} požiadal/a o členstvo vo výbore navrhovateľov vašej iniciatívy %{resource_title}. Ak chcete žiadosť prijať alebo zamietnuť, prejdite do formulára na úpravu vašej iniciatívy."
+          email_outro: 'Toto upozornenie ste dostali, pretože ste autorom tejto iniciatívy: %{resource_title}'
+          email_subject: "%{applicant_nickname} sa chce pripojiť k vašej iniciatíve"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> požiadal/a o členstvo vo výbore navrhovateľov vašej iniciatívy <a href="%{resource_url}">%{resource_title}</a>. Ak chcete prijať alebo zamietnuť, kliknite <a href="%{resource_url}/edit">sem</a>.
+      form:
+        add_attachments: Pridať prílohy
+        add_image: Pridať obrázok
+        attachment_legend: Pridať dokument alebo obrázok
+        edit_attachments: Upraviť prílohy
+        edit_image: Upraviť obrázok
+        image_legend: "(Voliteľné) Pridať obrázok"
+      index:
+        uninitialized: Iniciatívy zatiaľ nie sú nakonfigurované administrátorom.
       initiative_signatures:
         fill_personal_data:
           continue: Pokračovať
+          help: Ak chcete podpísať iniciatívu, vyplňte nasledujúce polia svojimi osobnými údajmi.
         finish:
           back_to_initiative: Späť na iniciatívu
         sms_code:
@@ -392,11 +471,16 @@ sk:
           help: Skontrolujte SMS prijaté v telefóne
         sms_phone_number:
           continue: Pošlite mi SMS
+          help: Vyplňte formulár svojím overeným telefónnym číslom a požiadajte o overovací kód.
       initiative_votes:
         create:
           error: Pri podpise iniciatívy došlo k chybám.
+          invalid: Údaje poskytnuté na podpísanie iniciatívy nie sú platné.
+          success_html: Gratulujeme! Iniciatíva <strong> %{title}</strong> bola úspešne podpísaná.
         personal_data:
           invalid: Osobné údaje nie sú v súlade s údajmi poskytnutými na autorizáciu.
+        sms_code:
+          invalid: Váš overovací kód sa nezhoduje s naším. Prosím, skontrolujte SMS, ktorú sme vám poslali.
         sms_phone:
           invalid: Telefónne číslo je neplatné alebo čaká na autorizáciu. Skontrolujte prosím vaše oprávnenie.
       initiatives:
@@ -406,6 +490,15 @@ sk:
             few: a%{count} ďalších ľudí
             many: a%{count} ďalších ľudí
             other: a%{count} ďalších ľudí
+        committee_members:
+          approve: Schváliť
+          confirm_approve: Naozaj chcete schváliť tohto člena?
+          confirm_revoke: Naozaj chcete odvolať tohto člena?
+          invite_to_committee_help: Zdieľajte tento odkaz a pozvite ďalších účastníkov do prípravného výboru.
+          link: Odkaz
+          no_members_yet: V prípravnom výbore nie sú žiadni členovia.
+          revoke: Odvolať
+          title: Členovia výboru
         count:
           title:
             one: "%{count} iniciatíva"
@@ -414,12 +507,17 @@ sk:
             other: "%{count} iniciatív"
         filters:
           any: Akýkoľvek
+          area: Oblasť
           author: Autor
           myself: Moje iniciatívy
+          scope: Pôsobnosť
           state: Štát
           type: Typ
         index_header:
           new_initiative: Nová iniciatíva
+        initiatives:
+          closed_initiatives_warning: V súčasnosti nie sú žiadne otvorené iniciatívy, ale tu nájdete zoznam všetkých uzavretých iniciatív.
+          no_initiatives_warning: Vašim kritériám vyhľadávania nezodpovedajú žiadne iniciatívy.
         interactions:
           comments_count:
             count:
@@ -433,10 +531,42 @@ sk:
           most_voted: Najviac podpísané
           random: Náhodné
           recent: Najnovšie
+          recently_published: Najnovšie zverejnené
         print:
+          address: Adresa
+          author_title: Autor iniciatívy
           city: Mesto
+          email: E-mail
+          full_name: Celé meno
+          general_title: Žiadosť o prijatie iniciatívy
+          id_number: Identifikačné číslo
+          initiative:
+            attachments: Priložená dokumentácia (nižšie uveďte názov každého dokumentu)
+            description: 'Popis:'
+            title: 'Názov:'
+            type: Typ iniciatívy
+          legal_text: Zozbierané osobné údaje budú spracované a uchovávané organizáciou dôverne v súlade s platnou legislatívou.
+          members_header: Členovia prípravného výboru iniciatívy
+          phone_number: Telefónne číslo
+          place_date: Miesto, dátum
+          postal_code: PSČ
+          province: Kraj/Štát
+          signature: Podpis
         result:
+          answer_title: Táto iniciatíva bola zodpovedaná.
           initiative_rejected_reason: Táto iniciatíva bola zamietnutá z dôvodu nedostatočnej podpory.
+        show:
+          area: Oblasť
+          before_send_to_technical_validation_announcement: 'Pred odoslaním vašej iniciatívy na technickú validáciu musíte do prípravného výboru pridať ešte %{count} členov.<br/><br/>Zdieľajte tento odkaz s ľuďmi, ktorých chcete mať vo svojom výbore: %{href}'
+          confirm: Chystáte sa odoslať iniciatívu administrátorovi na kontrolu a zverejnenie. Po zverejnení ju už nebudete môcť upravovať. Ste si istý?
+          edit: Upraviť
+          initiative_data: Údaje o iniciatíve
+          scope: Pôsobnosť
+          send_to_technical_validation: Odoslať na technickú validáciu
+          send_to_technical_validation_announcement: Ak je všetko v poriadku, kliknite na „Odoslať na technickú validáciu“, aby administrátor skontroloval a zverejnil vašu iniciatívu
+          signature_collection: Zber podpisov
+          state: Stav
+          type: Typ
         signatures_count:
           one: "podpis"
           few: "podpisy"
@@ -463,15 +593,71 @@ sk:
         promotal_committee_help: Nezabudnite, že musíte vyzvať najmenej%{member_count} ľudí na organizačný výbor. Odovzdanie nasledujúceho odkazu na pozvanie osôb do výboru predkladateľov
         status_change_body_for: 'Iniciatíva%{title} zmenila svoj stav na:%{state}'
         status_change_for: Iniciatíva%{title} zmenila svoj stav
+      last_activity:
+        new_initiative: 'Nová iniciatíva:'
+      modal:
+        not_authorized:
+          authorizations_page: Zobraziť autorizácie
+          explanation: Na vytvorenie novej iniciatívy musíte byť overený.
+          title: Vyžaduje sa autorizácia
+      pages:
+        home:
+          highlighted_initiatives:
+            active_spaces: Aktívne iniciatívy
+            see_all_spaces: Zobraziť všetky iniciatívy
+      show:
+        badge_name:
+          accepted: Dostatok podpisov
+          created: Vytvorené
+          discarded: Zahodené
+          open: Otvorené
+          rejected: Nedostatok podpisov
+          validating: Technická validácia
       states:
         accepted: Prijal
         expired: Platnosť vypršala
       unavailable_scope: Nedostupný rozsah
+      update:
+        error: Pri aktualizácii iniciatívy sa vyskytol problém.
+        success: Iniciatíva bola úspešne aktualizovaná.
     menu:
       initiatives: Iniciatívy
+    open_data:
+      help:
+        initiatives:
+          answer: Odpoveď, ktorú táto iniciatíva dostala (ak existuje)
+          answer_url: URL adresa odpovede (ak existuje)
+          answered_at: Dátum odpovede (ak existuje)
+          area: Oblasť tejto iniciatívy
+          authors: Autori tejto iniciatívy
+          comments_count: Počet komentárov, ktoré má táto iniciatíva
+          created_at: Dátum vytvorenia tohto priestoru
+          description: Popis iniciatívy
+          first_progress_notification_at: Dátum odoslania prvého oznámenia o pokroku
+          follows_count: Počet používateľov sledujúcich tento priestor
+          hashtag: Hashtag iniciatívy, používaný pre Twitter/X
+          offline_votes: Počet podpisov, ktoré táto iniciatíva získala mimo tejto platformy
+          online_votes: Počet podpisov, ktoré táto iniciatíva získala online (priamo cez platformu)
+          published_at: Dátum zverejnenia tohto priestoru
+          reference: Jedinečná referencia priestoru
+          scope: Pôsobnosť iniciatívy
+          second_progress_notification_at: Dátum odoslania druhého oznámenia o pokroku
+          signature_end_date: Dátum ukončenia obdobia zberu podpisov
+          signature_start_date: Dátum začatia obdobia zberu podpisov
+          signature_type: Typ zberu podpisov (online alebo osobne)
+          signatures: Počet podpisov, ktoré má táto iniciatíva
+          state: Stav, v ktorom sa táto iniciatíva momentálne nachádza
+          title: Názov iniciatívy
+          type: Typ iniciatívy
+          updated_at: Dátum poslednej aktualizácie tohto priestoru
+          url: URL adresa priestoru
     resources:
+      initiative:
+        actions:
+          comment: Komentovať
       initiatives_type:
         actions:
+          create: Vytvoriť iniciatívu
           title: Akcia
           vote: Podpísať
   layouts:

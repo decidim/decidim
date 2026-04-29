@@ -1,1 +1,8 @@
+---
 sk:
+  decidim:
+    api:
+      errors:
+        introspection_disabled: Introspekcia je pre túto požiadavku zakázaná
+        recursion_limit_exceeded_error: V dopyte bolo zistených príliš veľa rekurzií
+        too_many_aliases_error: Použilo sa príliš veľa aliasov. Použili ste %{size} aliasov, ale povolených je %{limit}.

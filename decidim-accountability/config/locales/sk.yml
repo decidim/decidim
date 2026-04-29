@@ -43,6 +43,8 @@ sk:
   decidim:
     accountability:
       actions:
+        attachment_collections: Priečinky
+        attachments: Prílohy
         confirm_delete_result: Naozaj chcete odstrániť tento výsledok?
         confirm_destroy: Naozaj chcete odstrániť toto %{name}?
         deleted_results_info: Odstránené výsledky je možné obnoviť z koša.
@@ -52,6 +54,7 @@ sk:
         import_csv: Importovať výsledky zo súboru CSV
         new_result: Nový výsledok
         new_status: Nový stav
+        new_timeline_entry: Nový záznam na časovej osi
         preview: Ukážka
         timeline_entries: Vývoj projektu
         title: Akcie
@@ -189,6 +192,11 @@ sk:
             invalid: Pri aktualizácii tohto stavu sa vyskytol problém.
             success: Stav bol úspešne aktualizovaný.
         timeline_entries:
+          create:
+            invalid: Pri vytváraní tohto záznamu sa vyskytol problém.
+            success: Záznam bol úspešne vytvorený.
+          destroy:
+            success: Záznam bol úspešne odstránený.
           edit:
             title: Upraviť vstup
             update: Aktualizovať vstup
@@ -197,6 +205,9 @@ sk:
           new:
             create: Vytvoriť nový záznam
             title: Nový záznam
+          update:
+            invalid: Pri aktualizácii tohto záznamu sa vyskytol problém.
+            success: Záznam bol úspešne aktualizovaný.
       admin_log:
         result:
           create: "%{user_name} vytvoril výsledok %{resource_name} v %{space_name}"
@@ -208,6 +219,10 @@ sk:
           create: "%{user_name} vytvoril/a stav %{resource_name}"
           delete: "%{user_name} odstránil/a stav %{resource_name}"
           update: "%{user_name} aktualizoval/a stav %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} vytvoril/a záznam na časovej osi %{resource_name}"
+          delete: "%{user_name} odstránil/a záznam na časovej osi %{resource_name}"
+          update: "%{user_name} aktualizoval/a záznam na časovej osi %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Nadradený záznam nebol nájdený v databáze(ID: %{id})'
@@ -248,6 +263,7 @@ sk:
           fields:
             created_at: Vytvorené
             end_date: Koniec
+            id: ID
             progress: Postup
             start_date: Začiatok 
             status: Stav
@@ -270,6 +286,9 @@ sk:
             few: "%{count} výsledkov"
             many: "%{count} výsledkov"
             other: "%{count} výsledkov"
+        home:
+          empty: Zatiaľ tu nie sú žiadne výsledky.
+          empty_filters: S týmito kritériami nie sú žiadne výsledky.
         home_header:
           global_status: Globálny stav vykonávania
         no_results: Nie sú tu žiadne projekty
@@ -340,6 +359,7 @@ sk:
           id: ID tohto komentára
           locale: Jazyk, ktorý mal účastník nastavený pri zanechaní tohto komentára
           root_commentable_url: URL adresa zdroja, ktorý sa viaže k tomuto komentáru
+          user_group: Názov skupiny používateľov, ktorá pridala tento komentár (ak existuje)
         results:
           address: Adresa výsledku (ak existuje)
           children_count: Počet podradených výsledkov

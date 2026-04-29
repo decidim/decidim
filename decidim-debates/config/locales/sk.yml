@@ -34,6 +34,7 @@ sk:
         actions:
           comment: Komentovať
           create: Vytvoriť debatu
+          endorse: Podporiť
         name: Debaty
         settings:
           global:
@@ -50,6 +51,8 @@ sk:
             announcement: Oznámenie
             comments_blocked: Komentáre blokované
             creation_enabled: Účastníci môžu vytvárať debaty
+            endorsements_blocked: Podpory sú zablokované
+            endorsements_enabled: Podpory povolené
     debates:
       actions:
         close: Zavrieť
@@ -148,6 +151,8 @@ sk:
           state: Stav
           state_values:
             closed: Zatvorené
+            open: Otvorené
+          user_group: Skupiny
         index:
           new_debate: Nová debata
         new:
@@ -166,6 +171,8 @@ sk:
           debate_conclusions_are: 'Debata bola zatvorená dňa %{date} s týmito závermi:'
           edit_conclusions: Upraviť závery
           edit_debate: Upraviť
+          groups_count: Skupiny
+          open: Otvorená debata
           participants_count: Účastníci
         update:
           invalid: Pri aktualizácii debaty sa vyskytol problém.
@@ -255,6 +262,7 @@ sk:
           id: ID tohto komentára
           locale: Jazyk (lokalizácia), ktorý mal účastník pri zanechaní tohto komentára
           root_commentable_url: URL adresa zdroja, ktorý sa viaže k tomuto komentáru
+          user_group: Názov používateľskej skupiny, ktorá pridala tento komentár (ak existuje)
         debates:
           author: Údaje o autorovi tejto debaty
           closed_at: Dátum zatvorenia tejto debaty
@@ -265,6 +273,7 @@ sk:
           created_at: Dátum a čas vytvorenia debaty
           description: Popis debaty
           end_time: Kedy táto debata končí, ak ide o otvorenú debatu a má obmedzený čas
+          endorsements_count: Počet podpôr, ktoré má debata
           follows_count: Počet sledujúcich tejto debaty
           id: Jedinečný identifikátor debaty
           information_updates: Aktualizácie, ktoré autor vykonal v debate
