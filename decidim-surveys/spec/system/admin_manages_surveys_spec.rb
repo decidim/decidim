@@ -19,7 +19,7 @@ describe "Admin manages surveys" do
 
   include_context "when managing a component as an admin"
   it_behaves_like "access component permissions form"
-  it_behaves_like "questionnaire admin access"
+  it_behaves_like "questionnaire admin access", denied_error: 404
   it_behaves_like "manage questionnaires"
   it_behaves_like "manage questionnaire responses"
   it_behaves_like "export survey user responses"

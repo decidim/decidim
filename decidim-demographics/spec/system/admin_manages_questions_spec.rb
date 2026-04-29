@@ -40,7 +40,7 @@ describe "Admin manages demographic questions" do
     let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
   end
 
-  it_behaves_like "questionnaire admin access"
+  it_behaves_like "questionnaire admin access", allow_process_admin: false, denied_error: 403
 
   shared_examples_for "add questions" do
     shared_examples_for "updating the max choices selector according to the configured options" do

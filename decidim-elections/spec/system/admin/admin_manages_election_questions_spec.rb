@@ -13,7 +13,7 @@ describe "Admin manages elections questions" do
 
   include_context "when managing a component as an admin"
 
-  it_behaves_like "questionnaire admin access"
+  it_behaves_like "questionnaire admin access", denied_error: 404
 
   it "opens a questions tab" do
     visit questions_edit_path
