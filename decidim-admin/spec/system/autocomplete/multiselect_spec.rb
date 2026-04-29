@@ -5,15 +5,32 @@ require "spec_helper"
 describe "Autocomplete multiselect" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:path) { URI.parse(decidim_admin.users_organization_url).path }
-  let(:url) { "http://#{organization.host}:#{Capybara.current_session.server.port}#{path}" }
+  let(:api_path) { "/test_users_api" }
   let(:selected) { '""' }
 
   before do
     final_html = html_document
+    users_api_response = lambda do |env|
+      request = Rack::Request.new(env)
+      payload = JSON.parse(request.body.read)
+      wildcard = payload.fetch("query", "")[/wildcard:"((?:\\.|[^"])*)"/, 1].to_s.gsub('\\"', '"').delete_prefix("@")
+      users = Decidim::User.where(organization:)
+                           .where(blocked_at: nil, managed: false, deleted_at: nil)
+                           .where("name ILIKE :term OR nickname ILIKE :term", term: "%#{wildcard}%")
+
+      body = {
+        data: {
+          users: users.map { |u| { id: u.id.to_s, nickname: u.nickname, name: u.name, __typename: "User" } }
+        }
+      }
+
+      [200, { "Content-Type" => "application/json" }, [body.to_json]]
+    end
+
     Rails.application.routes.draw do
       mount Decidim::Core::Engine => "/"
       get "test_multiselect", to: ->(_) { [200, {}, [final_html]] }
+      post "test_users_api", to: users_api_response
     end
     switch_to_host(organization.host)
     login_as user, scope: :user
@@ -34,7 +51,6 @@ describe "Autocomplete multiselect" do
             "mode": "multi",
             "options":[],
             "placeholder":"Select user",
-            "searchURL":"#{url}",
             "selected":#{selected}
           }'
           data-autocomplete-for="user_id" data-plugin="autocomplete">
@@ -42,7 +58,9 @@ describe "Autocomplete multiselect" do
       )
     end
 
-    let(:html_head) { "" }
+    let(:html_head) do
+      %(<script>window.Decidim = { config: { get: (key) => key === "api_path" ? "#{api_path}" : null } };</script>)
+    end
     let(:html_document) do
       head_extra = html_head
       body_extra = autocomplete_multifield_select
@@ -105,15 +123,6 @@ describe "Autocomplete multiselect" do
           expect(text_input.value).to eq("")
         end
 
-        context "when the URL has extra parameters in it" do
-          let(:url) { "http://#{organization.host}:#{Capybara.current_session.server.port}#{path}?locale=ca" }
-
-          it "shows selected participant" do
-            find("input[type='text']").fill_in with: participant.name.slice(0..2)
-            find(".autoComplete_wrapper ul#autoComplete_list_1 li", match: :first, wait: 2).click
-            expect(page).to have_content(participant.name)
-          end
-        end
       end
 
       describe "remove selected item" do

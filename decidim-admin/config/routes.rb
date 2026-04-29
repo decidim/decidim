@@ -9,9 +9,6 @@ Decidim::Admin::Engine.routes.draw do
       end
       resource :external_domain_allowlist, only: [:edit, :update], controller: "organization_external_domain_allowlist"
 
-      member do
-        get :users
-      end
     end
 
     resources :static_pages do

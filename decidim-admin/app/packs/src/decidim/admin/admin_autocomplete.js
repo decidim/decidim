@@ -10,7 +10,6 @@ import AutoComplete from "src/decidim/refactor/moved/autocomplete";
  * - name: assembly_member[user_id],
  * - options: [],
  * - placeholder: "Select a participant",
- * - searchURL: "http://..."
  * - selected: "",
  *
  * @param {HTMLElement} el The element to generate the autocomplete for.
@@ -18,7 +17,6 @@ import AutoComplete from "src/decidim/refactor/moved/autocomplete";
  */
 const autoConfigure = (el) => {
   const config = JSON.parse(el.dataset.autocomplete);
-  const searchUrl = new URL(config.searchURL);
   const textInput = document.createElement("input");
   textInput.type = "text";
   textInput.className = "autocomplete-input";
@@ -46,16 +44,26 @@ const autoConfigure = (el) => {
     }
   }
 
+  const graphqlEscapedQuery = (query) => query.replace(/\\/g, "\\\\").replace(/"/g, "\\\"");
+
   const dataSource = (query, callback) => {
-    const params = new URLSearchParams({
-      ...Object.fromEntries(searchUrl.searchParams),
-      term: query
-    });
-    fetch(`${searchUrl.origin}${searchUrl.pathname}?${params.toString()}`, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" }
+    const apiPath = window.Decidim.config.get("api_path");
+    fetch(apiPath, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: `{users(filter:{wildcard:"${graphqlEscapedQuery(query)}"}){id,nickname,name,__typename}}`
+      })
     }).then((response) => response.json()).then((data) => {
-      callback(data)
+      const users = data?.data?.users || [];
+      callback(users.map((user) => ({
+        value: user.id,
+        label: `${user.name} (@${user.nickname})`,
+        name: user.name,
+        nickname: user.nickname
+      })))
+    }).catch(() => {
+      callback([])
     });
   };
 
@@ -67,7 +75,7 @@ const autoConfigure = (el) => {
     searchPrompt: true,
     searchPromptText: config.searchPromptText,
     threshold: 3,
-    dataMatchKeys: ["label"],
+    dataMatchKeys: ["name", "nickname"],
     dataSource
   });
 
