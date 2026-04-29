@@ -51,6 +51,7 @@ sk:
         description: Popis
         enable_machine_translations: Povoliť strojové preklady
         enable_omnipresent_banner: Zobraziť všadeprítomný banner
+        enable_participatory_space_filters: Povoliť filtre participatívneho priestoru
         facebook_handler: Facebook handler
         favicon: Ikona
         force_authentication: Vynútiť overenie
@@ -189,12 +190,15 @@ sk:
           </ul>
           Ak zmeníte názor, môžete ho neskôr obnoviť.
         export: Exportovať
+        export_all: Exportovať všetko
         export_selection: Exportovať výber
         import: Importovať
         menu_hidden: Skryť z ponuky
         moderate: Spravovať moderovanie
         newsletter:
           new: Nový newsletter
+        participatory_space_private_user:
+          new: Nový súkromný používateľ participatívneho priestoru
         per_page: Na stranu
         permissions: Spravovať oprávnenia
         restore: Obnoviť
@@ -793,6 +797,7 @@ sk:
           has_been_sent_to: 'Bol poslaný týmto: '
           not_sent: Neodoslané
           participants: 'účastníci '
+          private_members: 'súkromní členovia '
           segmented_to: 'Rozdelené na %{subject}: '
           subscribed_count: 'Prihlásené na odber:'
           title: Spravodaje
@@ -809,6 +814,7 @@ sk:
           deliver: Odoslať spravodaj
           followers_help: Poslať spravodaj všetkým potvrdeným účastníkom, ktorí sledujú niektorý z participatívnych priestorov na zozname.
           participants_help: Poslať spravodaj všetkým potvrdeným účastníkom, ktorí participovali na niektorom z participatívnych priestorov na zozname.
+          private_members_help: Odošle newsletter všetkým potvrdeným používateľom, ktorí boli pridaní do vybraných súkromných participatívnych priestorov.
           recipients_count: Tento spravodaj bude zasielaný <strong id='recipients_count'>%{count}</strong> používateľom.
           select_assemblies: Vybrať zhromaždenia
           select_conferences: Vybrať konferencie
@@ -932,6 +938,7 @@ sk:
           error: Pri vymazaní súkromného používateľa pre tento participačný priestor došlo k chybe.
           success: Participatívny priestor bol zneprístupnený súkromnému užívateľovi.
         edit:
+          title: Upraviť súkromného účastníka participatívneho priestoru.
           update: Aktualizovať
         index:
           import_via_csv: Importovať cez CSV
@@ -941,6 +948,15 @@ sk:
         new:
           create: Vytvoriť
           title: Nový súkromný účastník participatívneho priestoru.
+        publish_all:
+          error: Pri publikovaní všetkých súkromných účastníkov pre tento participatívny priestor sa vyskytol problém.
+          success: Všetci súkromní účastníci pre tento participatívny priestor boli úspešne publikovaní
+        unpublish_all:
+          error: Pri zrušení publikovania všetkých súkromných účastníkov pre tento participatívny priestor sa vyskytol problém.
+          success: Publikovanie všetkých súkromných účastníkov pre tento participatívny priestor bolo úspešne zrušené
+        update:
+          error: Pri aktualizácii súkromného účastníka pre tento participatívny priestor sa vyskytol problém.
+          success: Súkromný účastník participatívneho priestoru bol úspešne aktualizovaný
       participatory_space_private_users_csv_imports:
         create:
           invalid: Pri čítaní súboru CSV sa vyskytol problém. Uistite sa, že ste postupovali podľa pokynov.
@@ -948,11 +964,18 @@ sk:
         new:
           csv_upload:
             title: Nahrať súbor CSV
+          destroy:
+            button: Odstrániť všetkých súkromných účastníkov
+            confirm: Naozaj chcete odstrániť všetkých súkromných účastníkov? Túto akciu nie je možné vrátiť späť, nebudete ich môcť obnoviť.
+            empty: Nemáte žiadnych súkromných účastníkov.
+            explanation: Máte %{count} súkromných účastníkov.
+            title: Odstrániť súkromných účastníkov
           example_file: 'Vzorový súbor:'
           explanation: 'Nahrajte svoj súbor CSV. Musí mať dva stĺpce bez hlavičiek, pričom v prvom stĺpci je e-mail a v poslednom stĺpci meno používateľov, ktorých chcete pridať do participatívneho priestoru. Vyhnite sa používaniu neplatných znakov ako `<>?%&^*#@()[]=+:;"{}\|` v mene používateľa.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importovať súkromných účastníkov cez CSV
           upload: Nahrať
       reminders:
         create:

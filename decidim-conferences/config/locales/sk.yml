@@ -204,6 +204,7 @@ sk:
           media_links_title: Mediálne odkazy
         new:
           create: Vytvoriť
+          title: Vytvoriť mediálny odkaz
         update:
           error: Pri aktualizácii mediálneho odkazu nastala chyba.
           success: Mediálny odkaz bol úspešne aktualizovaný.

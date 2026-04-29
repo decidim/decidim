@@ -72,6 +72,11 @@ sk:
         alignment:
           against: Proti
           in_favor: Za
+        answers:
+          one: "%{count} odpoveď"
+          few: "%{count} odpovede"
+          many: "%{count} odpovedí"
+          other: "%{count} odpovedí"
         cancel_reply: Zrušiť odpoveď
         comment_label: Komentár %{comment_id}
         comment_label_reply: Komentár %{comment_id} (odpoveď na komentár %{parent_comment_id})

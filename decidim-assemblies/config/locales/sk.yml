@@ -187,6 +187,7 @@ sk:
           fields:
             actions: Akcie
             created_at: Vytvorené
+            private: Súkromné
             promoted: Zvýraznené
             published: Publikované
             title: Názov
@@ -252,6 +253,7 @@ sk:
       admin:
         assemblies:
           form:
+            announcement_help: Text, ktorý sem zadáte, sa používateľovi zobrazí hneď pod informáciami o zhromaždení.
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             duration: Trvanie
             duration_help: Ak je trvanie tohto zhromaždenia obmedzené, vyberte dátum ukončenia. V opačnom prípade sa bude zobrazovať ako neurčité.
@@ -260,6 +262,7 @@ sk:
             metadata: Metadáta
             no_taxonomy_filters_found: Nenašli sa žiadne taxonomické filtre.
             other: Iné
+            private_notice: Súkromných účastníkov budete môcť spravovať po nastavení ako súkromné
             select_a_created_by: Vyberte tvorcu
             select_parent_assembly: Vyberte nadradené zhromaždenie
             slug_help_html: 'URL slugy sa používajú na generovanie URL adries, ktoré odkazujú na toto zhromaždenie. Akceptujú sa iba písmená, čísla a pomlčky a musia začínať písmenom. Príklad: %{url}'
@@ -284,6 +287,7 @@ sk:
             max_results: Maximálny počet prvkov na zobrazenie
         imports:
           attachment_error: Prílohu „%{title}“ sa nepodarilo importovať (%{error}).
+          banner_image_error: Obrázok bannera sa nepodarilo importovať (%{error}).
           hero_image_error: Hlavný obrázok sa nepodarilo importovať (%{error}).
         new_import:
           accepted_types:
@@ -354,6 +358,7 @@ sk:
             member_of: Member of
       show:
         duration: Trvanie
+        private_space: Toto je súkromné zhromaždenie
         social_networks_title: Navštívte zhromaždenie na
     assembly_members:
       index:
@@ -391,6 +396,7 @@ sk:
     open_data:
       help:
         assemblies:
+          announcement: Informácie o oznámení (upozornení)
           area: Oblasť zhromaždenia
           assembly_type: Typ zhromaždenia
           closing_date: Dátum ukončenia zhromaždenia

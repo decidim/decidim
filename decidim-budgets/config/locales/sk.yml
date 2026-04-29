@@ -223,6 +223,7 @@ sk:
             total_budget: Celkový rozpočet
         project:
           fields:
+            id: ID
             map: Mapa
             taxonomies: Taxónomie
             title: Názov
@@ -424,6 +425,13 @@ sk:
           updated_at: Dátum a čas aktualizácie objednávky
       show:
         projects: Export projektov
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Rozpočet %{resource_title} je teraz aktívny pre %{participatory_space_title}. Môžete si ho pozrieť na tejto stránke:'
+          email_outro: Toto upozornenie ste dostali, pretože sledujete %{participatory_space_title}. Prijímanie upozornení môžete zrušiť pomocou predchádzajúceho odkazu.
+          email_subject: Rozpočet %{resource_title} je teraz aktívny pre %{participatory_space_title}.
+          notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je teraz aktívny pre %{participatory_space_title}.
     open_data:
       help:
         projects:

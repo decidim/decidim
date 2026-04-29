@@ -125,6 +125,7 @@ sk:
               export: Exportovať
               next: Ďalej &rsaquo;
               previous: "&lsaquo; Predchádzajúce"
+              show: Zobraziť odpovede
             empty: Zatiaľ žiadne odpovede
             export:
               response:

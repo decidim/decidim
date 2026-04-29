@@ -21,10 +21,18 @@ sk:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Komentovať
         name: Voľby losovaním
         settings:
           global:
+            clear_all: Vymazať všetko
             comments_enabled: Komentáre povolené
+            comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
+            define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
+            no_taxonomy_filters_found: Nenašli sa žiadne filtre taxonómie.
+            taxonomy_filters: Vyberte filtre pre komponent
+            taxonomy_filters_add: Pridať filter
     events:
       sortitions:
         sortition_created:
@@ -39,6 +47,8 @@ sk:
           edit: Upraviť
           new_sortition: Nové rozvrhnutie
           show: Podrobnosti o voľbe losovaním
+          title: Akcie
+        deprecation_warning_html: "⚠️ <b>Upozornenie na ukončenie podpory.</b> Modul žrebovania bude odstránený vo verzii Decidim v0.32. Prosím, naplánujte si to a zvážte alternatívne riešenia pre výber účastníkov alebo návrhov."
         models:
           sortition:
             fields:
@@ -49,6 +59,7 @@ sk:
               request_timestamp: Doba kreslenie
               seed: Semienko
               target_items: Položky, ktoré chcete vybrať
+              taxonomies: Taxonómie
               title: Titul
         sortitions:
           confirm_destroy:
@@ -57,20 +68,28 @@ sk:
             title: Zrušenie voľby losovaním
           create:
             error: Pri vytváraní novej voľby došlo k chybe.
+            success: Žrebovanie bolo úspešne vytvorené.
+          destroy:
+            error: Žrebovanie nie je možné zrušiť.
+            success: Žrebovanie bolo úspešne zrušené.
           edit:
             title: Aktualizujte informácie o voľbe losovaním
             update: Aktualizácia
           form:
+            all_taxonomies: Všetky taxonómie
             select_proposal_component: Vyberte sadu návrhov
+            select_taxonomies: Taxonómie skupiny návrhov, v ktorých chcete uplatniť žrebovanie. Ponechajte prázdne, ak chcete žrebovanie uplatniť na všetky návrhy v danej taxonómii.
           index:
             title: Voľby losovaním
           new:
+            confirm: Stlačením tlačidla Ďalej platforma zaznamená dátum a čas (s presnosťou na sekundy) a spolu s hodom kockou sa tieto informácie použijú na vygenerovanie náhodného výberu. Akcia bude nevratná, po kliknutí na tlačidlo sa výsledok tohto žrebovania zverejní spolu s údajmi zadanými v tomto formulári a nebude ho možné upraviť. Pozorne si skontrolujte obsah.
             create: Vytvoriť
             title: Nové rozvrhnutie
           show:
             selected_proposals: Návrhy vybrané pre kreslenie
           update:
             error: Pri aktualizácii výberu došlo k chybe.
+            success: Žrebovanie bolo úspešne aktualizované.
       admin_log:
         sortition:
           create: "%{user_name} vytvoril %{resource_name} voľbu v priestore %{space_name}"
@@ -89,6 +108,8 @@ sk:
           cancelled: Zrušil
           category: Kategória
           state: Štát
+        index:
+          empty: Zatiaľ neexistujú žiadne žrebovania.
         linked_sortitions:
           selected_proposals: Vybrané návrhy
         orders:
@@ -103,13 +124,16 @@ sk:
             other: vybrané návrhy
         show:
           algorithm: Kód algoritmu Sortition
+          any_taxonomy: zo všetkých taxonómií
           cancelled: Zrušené výber
           candidate_proposal_ids: žrebovacie volbaní objednávky a ID
+          candidate_proposals_info: 'Žrebovanie sa uskutočnilo medzi nasledujúcimi návrhmi (%{taxonomy_labels}) s nasledujúcimi ID (vybrané návrhy sú tučným písmom)  '
           dice_result: (1) Výsledok hodu kockou
           introduction: 'Táto stránka obsahuje výsledky voľby losovaním %{referencie}. Prostredníctvom tohto výberu bolo vybratých %{target_items} výsledkov náhodne a s rovnakým rozložením pravdepodobnosti zo súboru návrhov zobrazených nižšie. Spolu s výsledkami informácie zobrazenými na tejto stránke poskytujú všetky informácie potrebné pre maximalizáciu záruk a reprodukciu výsledkov. Kľúčom ku kvalite tejto voľby je dvojitá náhodnosť, ktorú poskytuje hod kockou (overený svedkami) a presný čas výberu, ktorý poskytuje vstup pre algoritmus, ktorý generuje náhodný výber. Časový údaj pre voľbu je tak presný (sekundy), že nie je možné ovládať ho ľudsky, a tak poskytuje dvojitý, "nekontrolovateľný" vstup, ktorý zaručí spravodlivý výsledok. '
           mathematical_result: Výsledok (1) x (2)
           proposals_selected_by_sortition: Návrhy vybrané výberom
           sortition_reproducibility_details: Detaily reprodukcie voľby losovaním
+          taxonomies: z taxonómií %{taxonomies}
           time_seed: (2) Časový údaj
           witnesses: Svedkovia
         sortition:
@@ -129,3 +153,6 @@ sk:
             few: "%{count} sortitions"
             many: "%{count} sortitions"
             other: "%{count} sortitions"
+    statistics:
+      sortitions_count: Žrebovania
+      sortitions_count_tooltip: Počet náhodných výberov uskutočnených na účely rozhodovania.
