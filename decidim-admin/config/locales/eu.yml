@@ -1350,7 +1350,7 @@ eu:
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
-            success: Salaketa zuzen ezeztatu da.
+            success: Salaketa behar bezala ezeztatua.
       models:
         moderation:
           fields:
