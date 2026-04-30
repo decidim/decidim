@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-shared_examples_for "questionnaire admin access" do |allow_process_admin: true, denied_error:|
+shared_examples_for "questionnaire admin access" do |denied_error:, allow_process_admin: true|
   context "when the user is not an admin", driver: :rack_test do
     let(:regular_user) { create(:user, :confirmed, organization:) }
     let(:target_path) { manage_questions_path }
