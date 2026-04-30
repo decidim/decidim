@@ -14,7 +14,7 @@
     </div>
   </div>
   <% if document.file? %>
-    <%= link_to decidim.private_download_path(Decidim::PrivateDownload.for(document, attachment_name: :file).token),
+    <%= link_to document.url,
                 target: "_blank",
                 rel: "noopener noreferrer",
                 class: "button button__sm button__transparent-secondary flex-none",
