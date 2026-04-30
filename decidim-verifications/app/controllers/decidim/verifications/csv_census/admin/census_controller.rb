@@ -23,7 +23,7 @@ module Decidim
           end
 
           def destroy
-            enforce_permission_to :create, :authorization
+            enforce_permission_to :destroy, :authorization
 
             Decidim::Commands::DestroyResource.call(census_data, current_user) do
               on(:ok) do
