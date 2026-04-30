@@ -144,5 +144,11 @@ module Decidim
 
       attached_to.can_participate?(user)
     end
+
+    def private_download_authorized?(user, requested_attachment_name)
+      return false unless requested_attachment_name.to_s == "file"
+
+      can_participate?(user)
+    end
   end
 end

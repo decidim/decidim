@@ -24,5 +24,11 @@ module Decidim
       self.content_type = file.content_type
       self.file_size = file.byte_size
     end
+
+    def private_download_authorized?(user, requested_attachment_name)
+      return false unless requested_attachment_name.to_s == "file"
+
+      attached_to == user
+    end
   end
 end

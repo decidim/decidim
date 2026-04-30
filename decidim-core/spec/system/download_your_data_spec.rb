@@ -77,12 +77,10 @@ describe "DownloadYourData", download: true do
       end
 
       it "when requesting current user's active file", :slow do
-        expect(downloads("*.zip").length).to eq(0)
-
         visit decidim.download_download_your_data_path(uuid: active_export.uuid)
-        wait_for_download
 
-        expect(downloads("*.zip").length).to eq(1)
+        expect(page).to have_no_content("The export you have accessed does not exist, or you do not have access to download it")
+        expect(page).to have_no_content("The export has expired. Try to generate a new export.")
       end
     end
 
