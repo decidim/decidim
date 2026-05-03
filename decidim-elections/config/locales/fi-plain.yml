@@ -1,9 +1,16 @@
 fi-pl:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Valintojen enimmäismäärä
       token_csv:
         file: Tiedosto
         remove_all: Poista kaikki nykyiset tiedot henkilötietorekisteristä
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Vaali
+        other: Vaalit
   decidim:
     admin:
       menu:
@@ -44,7 +51,6 @@ fi-pl:
             choose_census: Valitse henkilötietorekisterin tyyppi, jota haluat käyttää tälle vaalille
             created_at: Luonnin ajankohta
             identifier: Käyttäjän tunniste
-            title: Henkilötietorekisterin tyyppi
           preview:
             title:
               one: Esikatselulista on rajattu %{count} tietueeseen.
@@ -80,6 +86,7 @@ fi-pl:
           questions_table:
             answer: Vastaukset
             percentage: Prosentti
+            total: Yhteensä
             votes: Äänet
             votes_count:
               one: 1 ääni
@@ -95,6 +102,7 @@ fi-pl:
             start_question_button: Ota äänestys käyttöön
             title: Tulokset
           status:
+            allow_census_check_before_start: Salli käyttäjien tarkistaa, voivatko he äänestää ennen vaalin alkamista
             census: 'Henkilötietorekisteri:'
             results_availability:
               after_end: Tulokset ovat saatavilla vaalin päätyttyä
@@ -139,6 +147,8 @@ fi-pl:
           publish:
             invalid: Vaalin julkaisu epäonnistui.
             success: Vaalin julkaisu onnistui.
+          toggle_census_check:
+            error: Henkilötietorekisterin tarkastuksen käyttöönotto epäonnistui.
           unpublish:
             invalid: Vaalin julkaisun peruminen epäonnistui.
             success: Vaalin julkaisun peruminen onnistui.
@@ -181,6 +191,11 @@ fi-pl:
           update: "%{user_name} päivitti vaalia %{resource_name} tilassa %{space_name}"
         question:
           update: "%{user_name} päivitti kysymyksiä vaalille %{resource_name}"
+      census_checks:
+        show:
+          description: Tämä tarkoittaa sitä, että kun vaalit alkavat, voit äänestää niissä.
+          exit_button: Poistu väestölaskennan tarkastuksesta
+          title: Tilisi vahvistaminen onnistui
       censuses:
         census_ready_html: Henkilötietorekisterin tietoja ladataan ja valmistellaan käytettäväksi vaalissa <b>%{election_title}</b>.
         census_size_html:
@@ -200,9 +215,6 @@ fi-pl:
           authorization_options_invalid: Valitettavasti osa käyttäjätilisi vahvistuksista eivät täsmää näiden vaalien vaatimusten kanssa.
           exit_button: Poistu äänestyskopista
           invalid: Tiliäsi ei ole vahvistettu äänestääksesi näissä vaaleissa.
-          missing: Käyttäjätililtäsi puuttuu osa vaadituista vahvistuksista. Ole hyvä ja tarkasta tiedot, minkä jälkeen voit yrittää uudestaan.
-          not_authorized: '"%{adapter}" -vahvistus ei täsmää vaatimusten kanssa.'
-          not_granted: '"%{adapter}" -vahvistusta ei ole myönnetty.'
           resume_with_method: Jatka vahvistusta %{name}
           verify_with_method: Vahvista palvelun %{name} avulla
         token_csv:
@@ -218,7 +230,7 @@ fi-pl:
           upload_file: Lataa tiedosto
           upload_new_census: Lataa CSV-tiedosto
         token_csv_form:
-          email: Sähköposti
+          email: Sähköpostiosoite
           email_placeholder: Syötä äänestäjän sähköpostiosoite
           invalid: Sähköpostiosoite tai vahvistustunnus on virheellinen. Tarkasta tiedot ja yritä uudestaan.
           token: Vahvistustunnus
@@ -248,6 +260,9 @@ fi-pl:
           title: Vaaliin liittyvät kysymykset
         show:
           active_voting_until: 'Äänestysaika päättyy: %{end_date}'
+          check_census_button: Tarkasta, voitko äänestää
+          check_census_explanation: Nämä vaalit eivät ole vielä alkaneet, mutta voit tarkistaa, onko sinut merkitty näiden vaalien henkilötietorekisteriin.
+          edit_vote_button: Muokkaa ääntä
           vote_button: Äänestä
           voted: Olet jo äänestänyt. Voit äänestää uudestaan, ainoastaan viimeinen äänesi otetaan huomioon ääntenlaskennassa.
           votes_count:
@@ -260,6 +275,10 @@ fi-pl:
             per_question: Tulokset ovat saatavilla kutakin kysymystä kohden. Näet kunkin kysymyksen tulokset, kun äänestys päättyy ja tulokset julkaistaan.
             real_time: Tulokset näkyvät reaaliaikaisesti. Näet tulokset äänestyksen aikana.
           title: Tulokset
+          total: 'YHTEENSÄ:'
+          total_votes:
+            one: 1 ääni
+            other: "%{count} ääntä"
       models:
         election:
           fields:
@@ -302,9 +321,13 @@ fi-pl:
         question:
           back: Takaisin
           cast_vote: Lähetä ääni
+          max_choices: 'Valintojen enimmäismäärä: %{count}'
+          max_choices_alert: Olet valinnut liian monta vaihtoehtoa. Poista joitain valintoja jatkaaksesi.
+          max_choices_exceeded: Et voi valita enempää kuin %{max} vaihtoehtoa. Mene takaisin ja muuta valintojasi.
           next: Seuraava
         receipt:
           description: Voit äänestää uudestaan äänestyksen ollessa auki. Aikaisempi äänesi mitätöidään ja korvataan antamallasi uudella äänellä.
+          edit_vote: Muokkaa ääntäsi
           exit_button: Poistu äänestyskopista
           title: Äänesi kirjaaminen onnistui
     metadata:

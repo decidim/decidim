@@ -7,10 +7,10 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.add_item :participatory_processes,
                         I18n.t("menu.processes", scope: "decidim"),
-                        decidim_participatory_processes.participatory_processes_path,
+                        decidim_participatory_processes.participatory_processes_path(locale: current_locale),
                         position: 2,
                         if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                        active: %r{^/process(es|_groups)}
+                        active: %r{^/#{current_locale}/process(es|_groups)}
         end
       end
 
@@ -18,10 +18,10 @@ module Decidim
         Decidim.menu :mobile_menu do |menu|
           menu.add_item :participatory_processes,
                         I18n.t("menu.processes", scope: "decidim"),
-                        decidim_participatory_processes.participatory_processes_path,
+                        decidim_participatory_processes.participatory_processes_path(locale: current_locale),
                         position: 2,
                         if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                        active: %r{^/process(es|_groups)}
+                        active: %r{^/#{current_locale}/process(es|_groups)}
         end
       end
 
@@ -29,10 +29,10 @@ module Decidim
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :participatory_processes,
                         I18n.t("menu.processes", scope: "decidim"),
-                        decidim_participatory_processes.participatory_processes_path,
+                        decidim_participatory_processes.participatory_processes_path(locale: current_locale),
                         position: 10,
                         if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                        active: %r{^/process(es|_groups)}
+                        active: %r{^/#{current_locale}/process(es|_groups)}
         end
       end
 
@@ -109,7 +109,7 @@ module Decidim
       def self.register_admin_participatory_process_menu!
         Decidim.menu :admin_participatory_process_menu do |menu|
           menu.add_item :edit_participatory_process,
-                        I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        I18n.t("title", scope: "decidim.participatory_processes.admin.participatory_processes.edit"),
                         decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space)),
                         icon_name: "information-line",
@@ -153,12 +153,12 @@ module Decidim
                         icon_name: "user-settings-line",
                         if: allowed_to?(:read, :process_user_role)
 
-          menu.add_item :participatory_space_private_users,
-                        I18n.t("private_users", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space)),
-                        icon_name: "spy-line",
-                        if: allowed_to?(:read, :space_private_user, current_participatory_space:)
+          menu.add_item :members,
+                        I18n.t("members", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.members_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.members_path(current_participatory_space)),
+                        icon_name: "user-settings-line",
+                        if: allowed_to?(:read, :space_member, current_participatory_space:)
 
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"),
@@ -179,7 +179,7 @@ module Decidim
       def self.register_admin_participatory_process_group_menu!
         Decidim.menu :admin_participatory_process_group_menu do |menu|
           menu.add_item :edit_participatory_process_group,
-                        I18n.t("info", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
+                        I18n.t("title", scope: "decidim.participatory_processes.admin.participatory_process_groups.edit"),
                         decidim_admin_participatory_processes.edit_participatory_process_group_path(participatory_process_group),
                         position: 1,
                         icon_name: "information-line",

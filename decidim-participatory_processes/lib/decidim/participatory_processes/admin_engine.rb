@@ -31,7 +31,7 @@ module Decidim
               patch :restore
             end
 
-            resources :steps, controller: "participatory_process_steps" do
+            resources :steps, controller: "participatory_process_steps", except: [:show] do
               resource :activate, controller: "participatory_process_step_activations", only: [:create, :destroy]
               collection do
                 post :ordering, to: "participatory_process_step_ordering#create"
@@ -91,12 +91,12 @@ module Decidim
               resources :reports, controller: "moderations/reports", only: [:index, :show]
             end
 
-            resources :participatory_space_private_users, controller: "participatory_space_private_users" do
+            resources :members, controller: "members" do
               member do
-                post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
+                post :resend_invitation, to: "members#resend_invitation"
               end
               collection do
-                resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
+                resource :members_csv_imports, only: [:new, :create], path: "csv_import" do
                   delete :destroy_all
                 end
                 post :publish_all

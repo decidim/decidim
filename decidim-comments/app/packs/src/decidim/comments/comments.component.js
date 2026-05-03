@@ -22,7 +22,6 @@ export default class CommentsComponent {
     this.rootDepth = config.rootDepth;
     this.order = config.order;
     this.lastCommentId = config.lastCommentId;
-    this.pollingInterval = config.pollingInterval || 15000;
     this.singleComment = config.singleComment;
     this.toggleTranslations = config.toggleTranslations;
     this.id = this.$element.attr("id") || this._getUID();
@@ -59,7 +58,6 @@ export default class CommentsComponent {
   unmountComponent() {
     if (this.mounted) {
       this.mounted = false;
-      this._stopPolling();
       this.lastCommentId = null;
 
       $(".add-comment [data-opinion-toggle] button", this.$element).off("click.decidim-comments");
@@ -161,7 +159,6 @@ export default class CommentsComponent {
         const $submit = $("button[type='submit']", $form);
 
         $submit.attr("disabled", "disabled");
-        this._stopPolling();
       });
 
       const $dropdown = $add.find("[data-comments-dropdown]");
@@ -225,22 +222,6 @@ export default class CommentsComponent {
         }
       });
     }
-
-    // Restart the polling
-    this._pollComments();
-  }
-
-  /**
-   * Sets a timeout to poll new comments.
-   * @private
-   * @returns {Void} - Returns nothing
-   */
-  _pollComments() {
-    this._stopPolling();
-
-    this.pollTimeout = setTimeout(() => {
-      this._fetchComments();
-    }, this.pollingInterval);
   }
 
   reloadAllComments() {
@@ -265,27 +246,14 @@ export default class CommentsComponent {
         "root_depth": this.rootDepth,
         "order": this.order,
         // From here, the rest of properties are optional
-        ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations }),
-        ...(this.lastCommentId && { "after": this.lastCommentId })
+        ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations })
       }),
       success: () => {
         if (successCallback) {
           successCallback();
         }
-        this._pollComments();
       }
     });
-  }
-
-  /**
-   * Stops polling for new comments.
-   * @private
-   * @returns {Void} - Returns nothing
-   */
-  _stopPolling() {
-    if (this.pollTimeout) {
-      clearTimeout(this.pollTimeout);
-    }
   }
 
   /**
@@ -297,16 +265,6 @@ export default class CommentsComponent {
     const $container = $("> #comments", this.$element);
     $("> .comments", $container).addClass("hidden");
     $("> .loading-comments", $container).removeClass("hidden");
-  }
-
-  /**
-   * Event listener for the ordering links.
-   * @private
-   * @returns {Void} - Returns nothing
-   */
-  _onInitOrder() {
-    this._stopPolling();
-    this._setLoading();
   }
 
   /**

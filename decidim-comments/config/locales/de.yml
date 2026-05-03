@@ -67,9 +67,6 @@ de:
         alignment:
           against: Gegen
           in_favor: Dafür
-        answers:
-          one: "%{count} Antwort"
-          other: "%{count} Antworten"
         cancel_reply: Antwort abbrechen
         comment_label: Kommentar %{comment_id}
         comment_label_reply: Kommentar %{comment_id} (Antwort auf Kommentar %{parent_comment_id})

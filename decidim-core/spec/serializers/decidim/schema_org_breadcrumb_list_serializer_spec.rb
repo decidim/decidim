@@ -14,12 +14,6 @@ module Decidim
           label: "Processes",
           url: "/processes",
           active: true
-        },
-        {
-          label: { ca: "Hola mon", es: "Hola mundo", en: "Hello world" },
-          url: "/processes/hello-world",
-          dropdown_cell: "decidim/participatory_processes/process_dropdown_metadata",
-          resource: participatory_process
         }
       ]
     end
@@ -45,8 +39,7 @@ module Decidim
 
       it "serializes the breadcrumb items" do
         expected_items_elements = [
-          { "@type": "ListItem", position: 1, name: "Processes", item: "https://example.org/processes" },
-          { "@type": "ListItem", position: 2, name: "Hello world", item: "https://example.org/processes/hello-world" }
+          { "@type": "ListItem", position: 1, name: "Processes", item: "https://example.org/processes" }
         ]
         expect(serialized[:itemListElement]).to eq(expected_items_elements)
       end
@@ -59,20 +52,13 @@ module Decidim
               url: "/processes",
               active: true
             },
-            {
-              label: { ca: "Hola mon", es: "Hola mundo", en: "Hello world" },
-              url: "/processes/hello-world",
-              dropdown_cell: "decidim/participatory_processes/process_dropdown_metadata",
-              resource: participatory_process
-            },
             {}
           ]
         end
 
         it "ignores them" do
           expected_items_elements = [
-            { "@type": "ListItem", position: 1, name: "Processes", item: "https://example.org/processes" },
-            { "@type": "ListItem", position: 2, name: "Hello world", item: "https://example.org/processes/hello-world" }
+            { "@type": "ListItem", position: 1, name: "Processes", item: "https://example.org/processes" }
           ]
           expect(serialized[:itemListElement]).to eq(expected_items_elements)
         end

@@ -20,7 +20,7 @@ RSpec.describe "Assembly search" do
   end
 
   let(:filter_params) { {} }
-  let(:request_path) { decidim_assemblies.assemblies_path }
+  let(:request_path) { decidim_assemblies.assemblies_path(locale: I18n.locale) }
 
   before do
     get(

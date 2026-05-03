@@ -72,6 +72,7 @@ en:
         manage_questions: Questions
         new_survey: New survey
         preview: Preview
+        responses: Responses
         responses_alert: Delete responses at publish is active for this survey. There are currently %{responses_count} responses that will be destroyed if you continue.
         title: Actions
       admin:

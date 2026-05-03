@@ -154,8 +154,8 @@ describe "Amend Proposal", versioning: true do
         component.update!(step_settings: { active_step_id => { amendment_creation_enabled: true } })
       end
 
-      context "and visits an amendable proposal from a private yet transparent space" do
-        let!(:participatory_space) { create(:assembly, :private, :transparent) }
+      context "and visits an amendable proposal from a transparent space" do
+        let!(:participatory_space) { create(:assembly, :transparent) }
         let(:active_step_id) { "default_step" }
 
         before do
@@ -167,7 +167,7 @@ describe "Amend Proposal", versioning: true do
           expect(page).to have_no_css("#amend-button")
         end
 
-        context "when a private user is logged in" do
+        context "when a member is logged in" do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           before do
@@ -210,6 +210,7 @@ describe "Amend Proposal", versioning: true do
             expect(page).to have_content("Log in")
             switch_to_host(component.organization.host)
             login_as user, scope: :user
+            sleep 1
             visit proposal_path
             expect(page).to have_content(proposal_title)
             find("#dropdown-trigger-resource-#{proposal.id}").click

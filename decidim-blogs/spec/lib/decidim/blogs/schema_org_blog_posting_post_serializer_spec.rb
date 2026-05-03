@@ -70,7 +70,7 @@ module Decidim::Blogs
           it "serializes the author" do
             expect(serialized[:author][:@type]).to eq("Person")
             expect(serialized[:author][:name]).to eq(post.author.name)
-            expect(serialized[:author][:url]).to eq("http://#{organization.host}:#{Capybara.server_port}/profiles/#{post.author.nickname}")
+            expect(serialized[:author][:url]).to eq("http://#{organization.host}:#{Capybara.server_port}/en/profiles/#{post.author.nickname}")
           end
 
           context "when author is deleted" do

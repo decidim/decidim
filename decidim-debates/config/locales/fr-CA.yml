@@ -32,6 +32,7 @@ fr-CA:
         actions:
           comment: Commenter
           create: Créer un débat
+          vote_comment: Vote sur le commentaire
         name: Débats
         settings:
           global:
@@ -143,8 +144,8 @@ fr-CA:
           create: Créer
           title: Créer un nouveau débat
         orders:
-          commented: Les plus commentés
           label: Trier les débats par
+          most_commented: Les plus commentés
           random: Ordre aléatoire
           recent: Les plus récents
           updated: Mis à jour récemment

@@ -56,7 +56,6 @@ module Decidim::Assemblies
         expect(new_assembly.target).to eq(old_assembly.target)
         expect(new_assembly.participatory_scope).to eq(old_assembly.participatory_scope)
         expect(new_assembly.meta_scope).to eq(old_assembly.meta_scope)
-        expect(new_assembly.announcement).to eq(old_assembly.announcement)
         expect(new_assembly.taxonomies).to eq(old_assembly.taxonomies)
       end
 

@@ -26,7 +26,7 @@ module Decidim
         args.keys.each do |key|
           @query[key] = args[key]
         end
-        query_scope.find_by(@query)
+        query_scope.find_by!(@query)
       end
 
       # By default, any model in its default scope

@@ -35,7 +35,6 @@ hu:
         participatory_processes_ids: Kapcsolódó részvételi folyamatok
         participatory_scope: Miről születik döntés
         participatory_structure: Hogyan döntenek
-        private_space: Privát tér
         promoted: Kiemelt
         published_at: Közzétéve
         purpose_of_action: A fellépés célja
@@ -92,13 +91,10 @@ hu:
         edit:
           update: Frissítés
         index:
-          private: Privát
-          public: Nyilvános
           published: Közzétéve
           unpublished: Nem publikált
         new:
           create: Létrehozás
-          title: Új gyűlés
         update:
           error: Hiba történt a gyűlés frissítése során.
           success: Gyűlés frissítése sikeres.
@@ -109,7 +105,6 @@ hu:
         new:
           import: Importál
           select: Válaszd ki, mely adatokat szeretnéd importálni
-          title: Gyűlés importálása
       assembly_publications:
         create:
           error: Hiba történt a gyűlés közzététele során.
@@ -124,13 +119,9 @@ hu:
         destroy:
           success: Admin eltávolítása a gyűlésből sikeres.
         edit:
-          title: Gyűlés adminjának frissítése
           update: Frissítés
-        index:
-          assembly_admins_title: Gyűlés adminjai
         new:
           create: Létrehozás
-          title: Új gyűlés admin
         update:
           error: Hiba történt a gyűlés adminjának frissítése során.
           success: Gyűlés adminjának frissítése sikeres.
@@ -155,7 +146,6 @@ hu:
           fields:
             actions: Műveletek
             created_at: 'Létrehozva:'
-            private: Privát
             promoted: Kiemelt
             published: Közzétéve
             title: Cím
@@ -178,7 +168,6 @@ hu:
             collaborator: Közreműködő
             moderator: Moderátor
       titles:
-        assemblies: Gyűlések
         assemblies_types: Gyűlés típusa
     admin_log:
       assembly:
@@ -209,7 +198,6 @@ hu:
       admin:
         assemblies:
           form:
-            announcement_help: Az itt megadott szöveg a gyűlés információs oldalán fog megjelenni a felhasználók számára. 
             duration: Időtartam
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
             images: képek
@@ -221,6 +209,9 @@ hu:
             social_handlers: Social
             title: Általános információ
             visibility: Láthatóság
+        assembly_imports:
+          form:
+            document_legend: Dokumentum hozzáadása
         assembly_members:
           form:
             explanation: 'Útmutató a képhez:'
@@ -254,9 +245,6 @@ hu:
           type: Típus
         show:
           title: Erről a gyűlésről
-      assembly_members:
-        index:
-          members: Tagok
       content_blocks:
         children_assemblies:
           name: Gyűlések
@@ -296,11 +284,7 @@ hu:
             member_of: 'Tagja következőnek:'
       show:
         duration: Időtartam
-        private_space: Ez egy privát gyűlés
         social_networks_title: Látogasd meg a gyűlést itt
-    assembly_members:
-      index:
-        title: Tagok
     events:
       assemblies:
         create_assembly_member:

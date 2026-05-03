@@ -117,12 +117,6 @@ hu:
         skip_verification: Most hagyd ki ezt a lépést és %{link}
         start_exploring: felfedezés indul
       csv_census:
-        admin:
-          index:
-            title: Jelenlegi névjegyzéki adatok
-          instructions:
-            body: Ehhez be kell lépnie a rendszeradminisztrációba, és hozzá kell adnia a csv_census jogosultságokat a szervezethez
-            title: Aktiválnia kell a szervezet névjegyzéki CSV-állományadatait
         authorizations:
           new:
             error: Nem tudtuk ellenőrizni fiókját, vagy nem szerepel a szervezet névjegyzékében.
@@ -149,7 +143,6 @@ hu:
               error: Az ellenőrzés nem egyezik. Kérjük, próbálja meg újra, vagy utasítsa el az ellenőrzést, hogy a résztvevő módosíthassa azt.
               success: A résztvevőt sikeresen igazolásra került.
             new:
-              introduce_user_data: Add meg a képen látható adatokat
               reject: Elutasít
               verify: Ellenőrzés
           offline_confirmations:
@@ -158,7 +151,6 @@ hu:
               success: A résztvevőt sikeresen igazolásra került.
             new:
               cancel: Mégse
-              introduce_user_data: Ismertesse a felhasználói e-mailt és a dokumentumadatokat
               verify: Ellenőrzés
           pending_authorizations:
             index:

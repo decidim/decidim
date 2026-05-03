@@ -9,7 +9,7 @@ module Decidim
         def attributes
           {
             census_manifest: resource.census.name,
-            census_settings: census_settings
+            census_settings:
           }
         end
 

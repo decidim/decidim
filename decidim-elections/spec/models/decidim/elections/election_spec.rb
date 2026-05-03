@@ -100,6 +100,40 @@ module Decidim
         end
       end
 
+      describe "#editable?" do
+        context "when published" do
+          context "and not started" do
+            let(:election) { build(:election, :published, :scheduled) }
+
+            it { is_expected.to be_editable }
+          end
+
+          context "and started" do
+            let(:election) { build(:election, :published, :ongoing) }
+
+            it { is_expected.not_to be_editable }
+          end
+        end
+
+        context "when unpublished" do
+          context "and has no votes" do
+            let(:election) { build(:election) }
+
+            it { is_expected.to be_editable }
+          end
+
+          context "and has votes" do
+            let(:election) { create(:election, :with_questions) }
+
+            before do
+              create(:election_vote, question: election.questions.first, response_option: election.questions.first.response_options.first)
+            end
+
+            it { is_expected.not_to be_editable }
+          end
+        end
+      end
+
       describe "#finished?" do
         it { is_expected.not_to be_finished }
 

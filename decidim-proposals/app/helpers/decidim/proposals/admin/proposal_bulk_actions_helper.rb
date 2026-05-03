@@ -35,7 +35,8 @@ module Decidim
 
         # find the evaluators for the current space.
         def find_evaluators_for_select(participatory_space, current_user)
-          evaluator_roles = participatory_space.user_roles(:evaluator).order_by_name
+          evaluator_roles = participatory_space.user_roles(:evaluator)
+          evaluator_roles = evaluator_roles.order_by_name if evaluator_roles.respond_to?(:order_by_name)
           evaluators = Decidim::User.where(id: evaluator_roles.pluck(:decidim_user_id)).to_a
 
           filtered_evaluator_roles = evaluator_roles.filter do |role|

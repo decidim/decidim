@@ -21,7 +21,7 @@ describe "Admin manages initiatives types scopes" do
       fill_in :initiatives_type_scope_supports_required, with: 1000
       click_on "Create"
 
-      expect(page).to have_admin_callout("A new scope for the given initiative type has been created")
+      expect(page).to have_callout("A new scope for the given initiative type has been created")
     end
 
     it "allows creating initiative type scopes with a Global scope" do
@@ -29,7 +29,7 @@ describe "Admin manages initiatives types scopes" do
       fill_in :initiatives_type_scope_supports_required, with: 10
       click_on "Create"
 
-      expect(page).to have_admin_callout("A new scope for the given initiative type has been created")
+      expect(page).to have_callout("A new scope for the given initiative type has been created")
 
       within ".edit_initiative_type" do
         expect(page).to have_content("Global scope")
@@ -51,7 +51,7 @@ describe "Admin manages initiatives types scopes" do
       end
       click_on "Update"
 
-      expect(page).to have_admin_callout("The scope has been successfully updated")
+      expect(page).to have_callout("The scope has been successfully updated")
     end
   end
 end

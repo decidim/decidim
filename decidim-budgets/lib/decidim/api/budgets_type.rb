@@ -15,8 +15,8 @@ module Decidim
         Budget.where(component: object).includes(:component)
       end
 
-      def budget(**args)
-        Budget.where(component: object).find_by(id: args[:id])
+      def budget(id:)
+        Decidim::Core::ComponentFinderBase.new(model_class: Budget).call(object, { id: }, context)
       end
     end
   end

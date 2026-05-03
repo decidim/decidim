@@ -7,8 +7,10 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
+        include UsesCensusAccess
+
         layout "decidim/election_booth"
-        helper_method :exit_path, :election, :questions, :question, :response_chosen?, :votes_buffer
+        helper_method :questions, :question, :response_chosen?, :votes_buffer
 
         before_action except: [:new, :create, :receipt] do
           next if session_authenticated?
@@ -47,20 +49,22 @@ module Decidim
 
       # Shows the receipt page
       def receipt
+        if params[:exit].present?
+          votes_buffer.clear
+          session_attributes.clear
+          return redirect_to(exit_path)
+        end
+
         enforce_permission_to(:create, :vote, election:)
 
-        votes_buffer.clear
-        session_attributes.clear
+        votes_buffer.clear unless election.per_question?
+
         return redirect_to(exit_path) unless election.votes.exists?(voter_uid: session[:voter_uid])
 
         render "decidim/elections/votes/receipt"
       end
 
       private
-
-      def election
-        @election ||= Election.where(component: current_component).published.find(params[:election_id])
-      end
 
       def questions
         @questions ||= election.questions
@@ -70,20 +74,8 @@ module Decidim
         @question ||= questions.find_by(id: params[:id]) || questions.first
       end
 
-      def session_authenticated?
-        @session_authenticated ||= election.census.valid_user?(election, session_attributes, current_user:)
-      end
-
-      def voter_uid
-        @voter_uid ||= election.census.voter_uid(election, session_attributes, current_user:)
-      end
-
       def votes_buffer
         session[:votes_buffer] ||= {}
-      end
-
-      def session_attributes
-        session[:session_attributes] ||= {}
       end
 
       def response_chosen?(response_option)
@@ -99,16 +91,8 @@ module Decidim
 
       def previous_responses
         @previous_responses ||= election.questions.to_h do |question|
-          [question.id.to_s, question.votes.where(voter_uid: voter_uid).pluck(:response_option_id).map(&:to_s)]
+          [question.id.to_s, question.votes.where(voter_uid:).pluck(:response_option_id).map(&:to_s)]
         end
-      end
-
-      def exit_path
-        @exit_path ||= if allowed_to?(:read, :election, election:)
-                         election_path(election)
-                       else
-                         elections_path
-                       end
       end
     end
   end

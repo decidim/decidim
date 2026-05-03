@@ -34,7 +34,7 @@ module Decidim
 
     def within_language_menu(options = {})
       within(options[:admin] ? ".language-choose" : "header") do
-        find(options[:admin] ? "#admin-menu-trigger" : "#trigger-dropdown-language-chooser").click
+        find(options[:admin] ? "#admin-menu-trigger" : "#trigger-dropdown-menu-language-chooser-desktop").click
         yield
       end
     end
@@ -53,10 +53,16 @@ module Decidim
       expect(page).to have_css(".main-bar #trigger-dropdown-account")
     end
 
-    def have_admin_callout(text)
+    def have_callout(text)
       within_flash_messages do
         have_content text
       end
+    end
+
+    # Fallback for legacy usage of this helper
+    # It actually works the same, as the markup is the same too
+    def have_admin_callout(text)
+      have_callout(text)
     end
 
     def stub_get_request_with_format(rq_url, rs_format)

@@ -17,7 +17,7 @@ module Decidim
             flash.now[:alert] = I18n.t("create.error", scope: i18n_scope)
           end
 
-          redirect_back(fallback_location:)
+          redirect_back_or_to(fallback_location)
         end
       end
 
@@ -33,7 +33,7 @@ module Decidim
             flash.now[:alert] = I18n.t("destroy.error", scope: i18n_scope)
           end
 
-          redirect_back(fallback_location:)
+          redirect_back_or_to(fallback_location)
         end
       end
 

@@ -8,7 +8,6 @@ module Decidim
     class DebatePresenter < Decidim::ResourcePresenter
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
-      include Decidim::SanitizeHelper
       include ActionView::Helpers::DateHelper
 
       def debate

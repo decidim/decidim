@@ -204,8 +204,8 @@ module Decidim
         context "when registrations are disabled" do
           let(:registrations_enabled) { false }
 
-          it "does not return any registration type" do
-            expect(response["registrationTypes"]).to eq([nil])
+          it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this ConferenceRegistrationType because you do not have permissions")
           end
         end
 

@@ -5,7 +5,6 @@ module Decidim
     class ElectionPresenter < Decidim::ResourcePresenter
       include Decidim::ResourceHelper
       include ActionView::Helpers::UrlHelper
-      include Decidim::SanitizeHelper
 
       def election
         __getobj__
@@ -24,24 +23,32 @@ module Decidim
       end
 
       # A JSON representation of the election, including its questions and response options.
-      # Suitable for rendering results in real time.
       # Unless `admin: true` is passed, only results for questions with published results are included.
       def to_json(admin: false)
         {
           id: election.id,
           ongoing: election.ongoing?,
+          scheduled: election.scheduled?,
           status: election.status,
           start_date: election.start_at&.iso8601,
           end_date: election.end_at.iso8601,
           title: election.translated_attribute(title),
           description: election.translated_attribute(description),
+          allow_census_check_before_start: election.allow_census_check_before_start,
+          census_ready: election.census_ready?,
           questions: questions.map do |question|
             {
               id: question.id,
               body: translated_attribute(question.body),
               position: question.position,
               voting_enabled: question.voting_enabled?,
-              published_results: question.published_results?,
+              published_results: question.published_results?
+            }.tap do |hash|
+              next unless admin || result_published_questions.include?(question)
+
+              hash[:total_votes] = question.total_votes
+              hash[:total_votes_text] = I18n.t("total_votes", scope: "decidim.elections.elections.vote_results", count: question.total_votes)
+            end.merge(
               response_options: question.response_options.map do |option|
                 {
                   id: option.id,
@@ -55,7 +62,7 @@ module Decidim
                   hash[:votes_percent] = option.votes_percent
                 end
               end
-            }
+            )
           end
         }
       end

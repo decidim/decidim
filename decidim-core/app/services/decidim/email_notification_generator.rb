@@ -44,6 +44,7 @@ module Decidim
 
     def send_to_affected_users
       affected_users.each do |recipient|
+        next unless recipient.is_a?(Decidim::User)
         next unless ["all", "own-only"].include?(recipient.notification_types)
         next if recipient.deleted? || recipient.blocked?
 
@@ -53,6 +54,7 @@ module Decidim
 
     def send_to_followers
       followers.each do |recipient|
+        next unless recipient.is_a?(Decidim::User)
         next unless ["all", "followed-only"].include?(recipient.notification_types)
         next if recipient.deleted? || recipient.blocked?
 

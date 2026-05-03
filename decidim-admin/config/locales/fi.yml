@@ -33,9 +33,14 @@ fi:
       help_section:
         content: Sisältö
       id: ID
+      member:
+        email: Sähköpostiosoite
+        name: Nimi
+      member_csv_import:
+        file: Tiedosto
       newsletter:
         body: Runko
-        send_to_all_users: Lähetä kaikille käyttäjille
+        send_to_all_users: Lähetä kaikille osallistujille
         send_to_followers: Lähetä seuraajille
         send_to_participants: Lähetä osallistujille
         subject: Otsikko
@@ -50,7 +55,6 @@ fi:
         description: Kuvaus
         enable_machine_translations: Ota konekäännökset käyttöön
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
-        enable_participatory_space_filters: Ota käyttöön osallistumistilan suodattimet
         facebook_handler: Facebook-käsittelijä
         favicon: Kuvake
         force_authentication: Kirjautuminen vaaditaan
@@ -91,11 +95,6 @@ fi:
         welcome_notification_body: Tervetuloilmoituksen runko
         welcome_notification_subject: Tervetuloilmoituksen otsikko
         youtube_handler: YouTube-käsittelijä
-      participatory_space_private_user:
-        email: Sähköpostiosoite
-        name: Nimi
-      participatory_space_private_user_csv_import:
-        file: Tiedosto
       scope:
         code: Koodi
         name: Nimi
@@ -125,10 +124,17 @@ fi:
         show_in_footer: Näytä alatunnisteessa
         title: Otsikko
         weight: Järjestysnumero
+      taxonomy:
+        item_name: Asian nimi
+        parent_id: Vanhempi
       user_group_csv_verification:
         file: Tiedosto
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
         newsletter:
           attributes:
             base:
@@ -137,10 +143,6 @@ fi:
           attributes:
             official_img_footer:
               allowed_file_content_types: Virheellinen kuvatiedosto
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
         user_group_csv_verification:
           attributes:
             file:
@@ -186,14 +188,15 @@ fi:
           </ul>
           Mikäli muutat mieltäsi, voit palauttaa tuloksen myöhemmin.
         export: Vie
-        export-selection: Vie valitut
+        export_all: Vie kaikki
+        export_selection: Vie valitut
         import: Tuo
+        member:
+          new: Uusi jäsen
         menu_hidden: Piilota valikosta
         moderate: Moderointien hallinta
         newsletter:
           new: Uusi uutiskirje
-        participatory_space_private_user:
-          new: Uusi osallistumistilan yksityinen käyttäjä
         per_page: Per sivu
         permissions: Käyttöoikeuksien hallinta
         restore: Palauta
@@ -217,7 +220,6 @@ fi:
           alert: 'Vaadittu: tutustu hallintakäyttäjän ehtoihimme'
           callout: Ole hyvä ja tutustu hallintakäyttäjän käyttöehtoihin. Ehtojen hyväksyminen vaaditaan, jotta saat oikeudet järjestelmän hallintatoimintoihin.
           cta: Tutustu nyt.
-        title: Hallintakäyttäjän käyttöehdot
       area_types:
         create:
           error: Uuden aluetyypin luonti epäonnistui.
@@ -260,8 +262,6 @@ fi:
         edit:
           title: Muokkaa kansiota
           update: Päivitä
-        index:
-          attachment_collections_title: Liitetiedostojen kansiot
         new:
           create: Luo
           title: Uusi kansio
@@ -277,8 +277,6 @@ fi:
         edit:
           title: Muokkaa liitettä
           update: Päivitä
-        index:
-          attachments_title: Liitteet
         new:
           create: Luo liite
           title: Uusi liite
@@ -293,7 +291,7 @@ fi:
       block_user:
         bulk_new:
           action: Estä tilit ja lähetä perustelut
-          already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jota nämä osallistujat ovat luoneet.
+          already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jonka kyseinen osallistuja on luonut.
           description: Käyttäjätilien estäminen estää kyseisten käyttäjien pääsyn omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä käyttäjät voivat tehdä palauttaakseen pääsyn tileilleen.
           justification: Perustelut
           title: Estä käyttäjät
@@ -338,7 +336,6 @@ fi:
           title: 'Lisää komponentti: %{name}'
         publish:
           success: Komponentin julkaisu onnistui.
-        title: Komponentit
         unpublish:
           success: Komponentin julkaisun peruminen onnistui.
         update:
@@ -355,7 +352,6 @@ fi:
           text: Etsi nykyisen käyttäjän sähköpostiosoitteella, nimellä tai nimimerkillä
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
-        title: Vahvistusten ristiriidat
         transfer:
           email: Sähköposti
           error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
@@ -393,7 +389,7 @@ fi:
         form:
           domain_too_short: Verkkotunnus on liian lyhyt
         update:
-          error: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen epäonnistui
+          error: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen epäonnistui.
           success: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen onnistui.
       exports:
         export_as: "%{name} muodossa %{export_format}"
@@ -415,6 +411,17 @@ fi:
           values:
             'false': 'Ei'
             'true': 'Kyllä'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Kutsu hyväksytty
+            values:
+              'false': Ei hyäksytty
+              'true': Hyväksytty
+          user_invitation_sent_at_not_null:
+            label: Kutsu lähetetty
+            values:
+              'false': Ei lähetetty
+              'true': Lähetetty
         moderated_users:
           reports_reason_eq:
             label: Ilmoituksen syy
@@ -430,17 +437,6 @@ fi:
           values:
             'false': Virallistettu
             'true': Ei virallistettu
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Kutsu hyväksytty
-            values:
-              'false': Ei hyäksytty
-              'true': Hyväksytty
-          user_invitation_sent_at_not_null:
-            label: Kutsu lähetetty
-            values:
-              'false': Ei lähetetty
-              'true': Lähetetty
         private_space_eq:
           label: Yksityinen
           values:
@@ -515,7 +511,6 @@ fi:
           impersonate: Esiinny käyttäjänä
           impersonate_existing_managed_user: Esiinny hallittuna käyttäjänä "%{name}"
           impersonate_existing_user: Esiinny käyttäjänä "%{name}"
-          impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjänä
       imports:
         and: ja
         data_errors:
@@ -571,8 +566,54 @@ fi:
         promotions:
           new:
             explanation: Hallituille käyttäjille voidaan myöntää normaalien käyttäjien oikeudet. Tämä tarkoittaa, että heille lähetetään rekisteröitymiskutsu alustalle ja rekisteröitymisen jälkeen kyseisinä käyttäjinä ei voi enää esiintyä. Kutsutulle käyttäjälle lähetetään sähköposti, jonka avulla he voivat hyväksyä kutsusi.
-            new_managed_user_promotion: Uusi käyttäjätason korotus hallinnoidulle käyttäjälle
             promote: Korota oikeudet
+      members:
+        create:
+          error: Jäsenen lisääminen tähän osallistumistilaan epäonnistui.
+          success: Jäsenen pääsyoikeuden lisäys onnistui.
+        destroy:
+          error: Osallistumistilan jäsenen poistaminen epäonnistui.
+          success: Jäsenen pääsyoikeuden poistaminen onnistui.
+        edit:
+          title: Muokkaa jäsentä
+          update: Päivitä
+        index:
+          import_via_csv: Tuo CSV-tiedostosta
+          publish_all: Julkaise kaikki
+          title: Jäsen
+          unpublish_all: Lopeta kaikkien julkaisu
+        new:
+          create: Luo
+          title: Uusi jäsen
+        publish_all:
+          error: Osallistumistilan jäsenten julkaiseminen epäonnistui.
+          success: Osallistumistilan jäsenten julkaiseminen onnistui
+        unpublish_all:
+          error: Osallistumistilan jäsenten julkaisun peruminen epäonnistui.
+          success: Osallistumistilan jäsenten julkaisun peruminen onnistui.
+        update:
+          error: Osallistumistilan jäsenen päivittäminen epäonnistui.
+          success: Osallistumistilan jäsenen päivittäminen onnistui.
+      members_csv_imports:
+        create:
+          invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
+          success: CSV-tiedoston lataus onnistui. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
+        new:
+          csv_upload:
+            title: Lataa CSV-tiedosto
+          destroy:
+            button: Poista kaikki jäsenet
+            confirm: Haluatko varmasti poistaa kaikki jäsenet? Tätä toimintoa ei voi perua ja poistettuja jäseniä ei voi palauttaa.
+            empty: Jäseniä ei ole määritetty.
+            explanation: '%{count} jäsentä.'
+            title: Poista jäsenet
+          example_file: 'Esimerkkitiedosto:'
+          explanation: 'Lataa CSV-tiedosto. Tiedostossa on oltava kaksi saraketta ilman otsikkoriviä. Ensimmäiseen sarakkeeseen määritetään käyttäjän sähköpostiosoite ja toiseen sarakkeeseen käyttäjän nimi, alkaen ensimmäiseltä riviltä. Jokaisesta rivistä luodaan uusi osallistumistilan käyttäjä. Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation_example: |
+            matti.meikalainen@esimerkki.fi%{csv_col_sep}Matti Meikäläinen
+            minna.meikalainen@esimerkki.fi%{csv_col_sep}Minna Meikäläinen
+          title: Tuo jäseniä CSV-tiedostosta
+          upload: Lataa
       menu:
         admin_log: Hallintatoimintojen tapahtumaloki
         admins: Ylläpitäjät
@@ -631,6 +672,8 @@ fi:
             reason: Syy
             started_at: Aloitettu
             user: Käyttäjä
+        member:
+          name: Jäsen
         newsletter:
           fields:
             created_at: Luonnin ajankohta
@@ -639,8 +682,6 @@ fi:
             sent_to: Vastaanottajat
             subject: Otsikko
           name: Uutiskirje
-        participatory_space_private_user:
-          name: Osallistumistilan yksityinen käyttäjä
         scope:
           fields:
             name: Nimi
@@ -754,7 +795,6 @@ fi:
           title: Uutiskirjeiden pohjat
           use_template: Käytä tätä pohjaa
         show:
-          preview: 'Esikatsele pohjaa: %{template_name}'
           use_template: Käytä tätä pohjaa
       newsletters:
         confirm_recipients:
@@ -782,7 +822,6 @@ fi:
           has_been_sent_to: 'Lähetettiin vastaanottajille: '
           not_sent: Ei lähetetty
           participants: 'osallistujat '
-          private_members: 'yksityiset käyttäjät '
           segmented_to: 'Kohdennettu vastaanottajille %{subject}: '
           subscribed_count: 'Tilaukset:'
           title: Uutiskirjeet
@@ -799,7 +838,6 @@ fi:
           deliver: Toimita uutiskirje
           followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallistumistiloista.
           participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallistumistiloista.
-          private_members_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka on lisätty yksityisiin osallistumistiloihin.
           recipients_count: Tämä uutiskirje lähetetään <strong id='recipients_count'>%{count}</strong>:lle käyttäjälle.
           select_assemblies: Valitse ryhmät
           select_conferences: Valitse konferenssit
@@ -819,7 +857,6 @@ fi:
         send_to_user:
           sent_successfully: Uutiskirjeen lähetys osoitteeseen %{email} onnistui
         show:
-          preview: Esikatsele
           select_recipients_to_deliver: Valitse vastaanottajat
           send_me_a_test_email: Lähetä minulle testisähköposti
           subject: Otsikko
@@ -914,54 +951,6 @@ fi:
           up: Ylös
         form:
           add: Lisää sallittujen listalle
-          title: Sallitut ulkoiset verkko-osoitteet
-      participatory_space_private_users:
-        create:
-          error: Yksityisen käyttäjän lisääminen tähän osallistumistilaan epäonnistui.
-          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden lisäys onnistui.
-        destroy:
-          error: Osallistumistilan yksityisen käyttäjän poistaminen epäonnistui.
-          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden poistaminen onnistui.
-        edit:
-          title: Muokkaa osallistumistilan yksityistä käyttäjää.
-          update: Päivitä
-        index:
-          import_via_csv: Tuo CSV-tiedostosta
-          publish_all: Julkaise kaikki
-          title: Osallistumistilan yksityinen käyttäjä
-          unpublish_all: Lopeta kaikkien julkaisu
-        new:
-          create: Luo
-          title: Uusi osallistumistilan yksityinen käyttäjä.
-        publish_all:
-          error: Osallistumistilan yksityisten käyttäjien julkaiseminen epäonnistui.
-          success: Osallistumistilan yksityisten käyttäjien julkaiseminen onnistui
-        unpublish_all:
-          error: Osallistumistilan yksityisten käyttäjien julkaisun peruminen epäonnistui.
-          success: Osallistumistilan yksityisten käyttäjien julkaisun peruminen onnistui.
-        update:
-          error: Osallistumistilan yksityisen käyttäjän päivittäminen epäonnistui.
-          success: Osallistumistilan yksityisen käyttäjän päivittäminen onnistui.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
-          success: CSV-tiedoston lataus onnistui. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
-        new:
-          csv_upload:
-            title: Lataa CSV-tiedosto
-          destroy:
-            button: Poista kaikki yksityiset osallistujat
-            confirm: Oletko varma, että haluat poistaa kaikki yksityiset osallistujat? Tätä toimintoa ei voi perua ja poistettuja osallistujia ei voi palauttaa.
-            empty: Tässä osallistumistilassa ei ole yksityisiä osallistujia.
-            explanation: Tässä osallistumistilassa on %{count} yksityistä osallistujaa.
-            title: Poista kaikki yksityiset osallistujat
-          example_file: 'Esimerkkitiedosto:'
-          explanation: 'Lataa CSV-tiedosto. Tiedostossa on oltava kaksi saraketta ilman otsikkoriviä. Ensimmäiseen sarakkeeseen asetetaan käyttäjän sähköpostiosoite ja toiseen sarakkeeseen käyttäjän nimi, alkaen ensimmäiseltä riviltä. Jokaisesta rivistä luodaan uusi osallistumistilan käyttäjä. Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
-          explanation_example: |
-            matti.meikalainen@esimerkki.fi%{csv_col_sep}Matti Meikäläinen
-            minna.meikalainen@esimerkki.fi%{csv_col_sep}Minna Meikäläinen
-          title: Tuo yksityisiä osallistujia CSV-tiedostosta
-          upload: Lataa
       reminders:
         create:
           error: Muistutusten luonti epäonnistui.
@@ -1080,7 +1069,7 @@ fi:
           title: Uusi aihe
         update:
           error: Aiheen päivitys epäonnistui.
-          success: Aiheen päivitys onnistui
+          success: Aiheen päivitys onnistui.
       static_pages:
         actions:
           view: Näytä
@@ -1219,25 +1208,12 @@ fi:
           none: Ei mitään
           title: Uusi kohde luokittelussa %{taxonomy}
       titles:
-        admin_log: Hallintatoimintojen lokitiedot
-        area_types: Aluetyypit
         areas: Alueet
         authorization_workflows: Vahvistustavat
-        dashboard: Hallintapaneeli
-        edit_external_domains: Sallitut ulkoiset verkko-osoitteet
-        impersonatable_users: Hallittavat käyttäjät
-        impersonations: Käyttäjien hallinta
         menu: Valikko
-        page_topics: Aiheet
-        pages: Sivut
         panel: Hallintakäyttäjä
-        participants: Käyttäjät
-        scope_types: Teematyypit
         scopes: Teemat
         statistics: Tilastot
-        taxonomies: Luokittelut
-        taxonomy_filters: Luokittelun suodattimet kohteelle "%{taxonomy}"
-        users: Hallintakäyttäjät
       tooltips:
         cannot_destroy_taxonomy_filter: Tätä luokittelusuodantinta ei voi poistaa
         cannot_edit_taxonomy_filter: Tätä luokittelusuodantinta ei voi muokata

@@ -18,7 +18,7 @@ class ConvertPrivateExportsIdToUuid < ActiveRecord::Migration[7.0]
       t.index [:uuid], name: "index_decidim_private_exports_on_uuid", unique: true
     end
     # Copy data from old table to new table
-    execute <<-SQL.squish
+    execute <<~SQL.squish
       INSERT INTO decidim_private_exports_new (uuid, export_type, attached_to_type, attached_to_id, file, content_type, file_size, expires_at, metadata, created_at, updated_at)
       SELECT id, export_type, attached_to_type, attached_to_id, file, content_type, file_size, NOW(), metadata, created_at, updated_at
       FROM decidim_private_exports
@@ -43,7 +43,7 @@ class ConvertPrivateExportsIdToUuid < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    execute <<-SQL.squish
+    execute <<~SQL.squish
       INSERT INTO decidim_private_exports_new (id, export_type, attached_to_type, attached_to_id, file, content_type, file_size, expires_at, metadata, created_at, updated_at)
       SELECT uuid, export_type, attached_to_type, attached_to_id, file, content_type, file_size, expires_at, metadata, created_at, updated_at
       FROM decidim_private_exports

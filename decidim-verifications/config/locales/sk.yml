@@ -78,11 +78,6 @@ sk:
         skip_verification: Môžete to teraz preskočiť a %{link}
         start_exploring: začať skúmať
       csv_census:
-        admin:
-          index:
-            title: Aktuálne údaje o sčítaní
-          instructions:
-            body: Ak chcete urobiť, musíte vstúpiť do správy systému a pridať oprávnenia csv_census organizáciu
         authorizations:
           new:
             error: Váš účet nebol overený, alebo nie ste v sčítanie organizácie.
@@ -104,13 +99,11 @@ sk:
               error: Pri aktualizácii konfigurácie došlo k chybe.
           confirmations:
             new:
-              introduce_user_data: Vložte dáta do obrázku
               reject: Odmietnuť
               verify: Overte
           offline_confirmations:
             new:
               cancel: zrušenie
-              introduce_user_data: Zadajte e-mail používateľa a dáta dokumentu
               verify: Overte
           pending_authorizations:
             index:

@@ -4,6 +4,8 @@ require "spec_helper"
 
 describe "Admin manages surveys" do
   let(:manifest_name) { "surveys" }
+  let(:callout_success) { "Survey questions successfully saved." }
+  let(:callout_failure) { "There was a problem saving" }
   let!(:component) do
     create(:component,
            manifest:,
@@ -98,7 +100,7 @@ describe "Admin manages surveys" do
           find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
         end
         click_on "Save"
-        expect(page).to have_admin_callout "Survey questions successfully saved"
+        expect(page).to have_callout "Survey questions successfully saved"
 
         all("a", text: translated_attribute(component.name))[0].click
 
@@ -107,7 +109,7 @@ describe "Admin manages surveys" do
           accept_confirm { click_on "Unpublish" }
         end
 
-        expect(page).to have_admin_callout "Survey successfully unpublished"
+        expect(page).to have_callout "Survey successfully unpublished"
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
           expect(page).to have_content "Unpublished"
@@ -118,7 +120,7 @@ describe "Admin manages surveys" do
           accept_confirm { click_on("Publish") }
         end
 
-        expect(page).to have_admin_callout "Survey successfully published"
+        expect(page).to have_callout "Survey successfully published"
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
           expect(page).to have_content "Published"
@@ -342,6 +344,35 @@ describe "Admin manages surveys" do
     end
   end
 
+  context "when the survey has responses or more" do
+    let!(:question) do
+      create(:questionnaire_question, questionnaire:)
+    end
+    let!(:response) { create(:response, questionnaire:, question:) }
+
+    before do
+      visit manage_questionnaire_path
+    end
+
+    it "allows access to responses" do
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_link("Responses")
+      end
+    end
+  end
+
+  context "when the survey has no responses" do
+    let!(:question) { create(:questionnaire_question, questionnaire:) }
+
+    it "does not show the Responses button" do
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_no_link("Responses")
+      end
+    end
+  end
+
   context "when updates the questionnaire" do
     let(:description) do
       {
@@ -376,6 +407,10 @@ describe "Admin manages surveys" do
 
   def questionnaire_public_path
     main_component_path(component)
+  end
+
+  def manage_questionnaire_path
+    Decidim::EngineRouter.admin_proxy(component).surveys_path
   end
 
   private

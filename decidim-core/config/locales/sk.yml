@@ -113,9 +113,6 @@ sk:
         update: "%{user_name} aktualizoval %{resource_name} aplikáciu OAuth"
       organization:
         update: "%{user_name} aktualizoval nastavenia organizácie"
-      participatory_space_private_user:
-        create: "%{user_name} pozval %{resource_name} aby sa stal súkromným používateľom"
-        delete: "%{user_name} odstránil užívateľa %{resource_name} ako súkromného účastníka"
       scope:
         create: "%{user_name} vytvoril %{resource_name} rozsah"
         create_with_parent: "%{user_name} vytvoril%{resource_name} rozsah vnútri rozsahu%{parent_scope}"
@@ -522,7 +519,6 @@ sk:
     managed_users:
       expired_session: Aktuálna platnosť zosúhlasenia už vypršala.
     menu:
-      help: Pomoc
       home: Domov
     messaging:
       conversation_mailer:
@@ -615,17 +611,17 @@ sk:
           proposals_explanation: Urobiť návrhy, podporiť existujúce a podporovať zmeny, ktoré chcete vidieť.
         footer_sub_hero:
           footer_sub_hero_headline: Vitajte na%{organization} participatívnej platforme.
-          register: Registrovať
         hero:
           participate: zúčastniť sa
           welcome: Vitajte na%{organization}!
-        sub_hero:
-          register: Registrovať
       index:
         standalone_pages: Stránky
         subheading: Prechádzajte stránky pomocníka%{name}
         title: Pomoc
         topics: Témy
+    participatory_space_members:
+      index:
+        members: Členovia
     profile:
       deleted: Vymazaný účastník
     profiles:
@@ -721,8 +717,6 @@ sk:
         submit_button: Odoslať pozvánku
       no_invitations_remaining: Žiadne zostávajúce pozvánky
       send_instructions: Pozvánka bola odoslaná na%{email}.
-      updated: Vaše heslo bolo úspešne nastavené. Teraz ste prihlásení.
-      updated_not_active: Vaše heslo bolo úspešne nastavené.
     mailer:
       confirmation_instructions:
         action: Potvrďte svoj účet
@@ -738,10 +732,8 @@ sk:
         decline: Odmietnuť pozvaním
         hello: Dobrý deň%{email},
         invited_you_as_admin: "%{invited_by} vás pozval ako administrátora na %{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu."
-        invited_you_as_private_user: "%{invited_by} vás pozval ako súkromného užívateľa na %{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu."
         someone_invited_you: Niekto vás pozval na%{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu.
         someone_invited_you_as_admin: Niekto Vás pozval ako administrátora%{application}, môžete ho prijať pomocou nižšie uvedeného odkazu.
-        someone_invited_you_as_private_user: Niekto vás pozval ako private_user%{application}, môžete ho prijať pomocou nižšie uvedeného odkazu.
         subject: Pokyny k pozvánkam
       password_change:
         greeting: Dobrý deň, %{recipient}!
@@ -764,8 +756,6 @@ sk:
         change_my_password: Zmeňte heslo
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
-        password_help: "%{minimum_characters} je minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
-        password_help_admin: "%{minimum_characters} je minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
       new:
         forgot_your_password: Zabudli ste heslo?
         send_me_reset_password_instructions: Pošlite mi pokyny na resetovanie hesla

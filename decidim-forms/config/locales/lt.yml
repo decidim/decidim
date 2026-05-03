@@ -93,9 +93,6 @@ lt:
           of_total_steps: iš%{total_steps}
           questionnaire_closed:
             title: Forma uždaryta
-          questionnaire_for_private_users:
-            body: Forma pateikiama tik privatiems naudotojams
-            title: Forma uždaryta
           questionnaire_js_disabled:
             body: Kai kurie šios formos funkcionalumai bus neaktyvūs. Kad pagerintumėte naudojimo patirtį, naršyklėje įjunkite „JavaScript“.
             title: '„JavaScript“ išjungta'

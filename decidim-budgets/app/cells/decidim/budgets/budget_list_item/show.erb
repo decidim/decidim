@@ -41,13 +41,10 @@
           <%= budget_to_currency(total_budget) %>
         </span>
       </div>
-
-      <div class="w-2/3 px-4">
-        <%= button_tag class: button_class do %>
-          <span><%= button_text %></span>
-          <%= icon "arrow-right-line" %>
-        <% end %>
-      </div>
+      <%= button_tag class: button_class do %>
+        <span><%= button_text %></span>
+        <%= icon "arrow-right-line" %>
+      <% end %>
     <% end %>
   <% end %>
 </div>

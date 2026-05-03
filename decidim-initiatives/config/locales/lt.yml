@@ -27,7 +27,6 @@ lt:
       initiatives_type:
         area_enabled: Leisti autoriams pasirinkti savo iniciatyvos erdvę
         attachments_enabled: Leisti priedus
-        banner_image: Reklamjuostės paveikslėlis
         child_scope_threshold_enabled: Leisti parašus posritėse
         collect_user_extra_fields: Surinkti dalyvio asmens duomenis gavus parašą
         comments_enabled: Įjungti komentarus
@@ -111,7 +110,6 @@ lt:
         initiatives:
           fields:
             created_at: Sukurta
-            id: ID
             published_at: Publikuota
             state: Būsena
             supports_count: Parašai
@@ -139,9 +137,6 @@ lt:
             name_and_surname: Vardas ir pavardė
             postal_code: Pašto kodas
             timestamp: Laiko žymė
-      titles:
-        initiatives: Iniciatyvos
-        initiatives_types: Iniciatyvų tipai
     events:
       initiatives:
         admin:
@@ -261,7 +256,6 @@ lt:
             publication_date: Naujausiai publikuota
             random: Atsitiktinai
             signatures: Surinko daugiausia parašų
-            title: Nustatymai iniciatyvoms
         initiatives_type_scopes:
           create:
             success: Sukurta nauja sritis šiam iniciatyvų tipui.

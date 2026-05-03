@@ -22,6 +22,7 @@ pt:
       actions:
         edit: Editar
         import: Importar propostas para projetos
+        new_project: Novo projeto
         preview: Pré-visualização
         title: Ações
       admin:
@@ -45,7 +46,6 @@ pt:
             name: Projeto
         projects:
           edit:
-            title: Editar projeto
             update: Atualizar
           index:
             finished_orders: Votações concluídas
@@ -54,7 +54,6 @@ pt:
             title: Projetos
           new:
             create: Criar
-            title: Novo projeto
         proposals_imports:
           new:
             create: Importar propostas em projetos

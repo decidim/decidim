@@ -14,6 +14,7 @@ fi-pl:
         duplicate_landing_page_blocks: Kopioi laskeutumissivun sisältölohkot
         duplicate_steps: Kopioi vaiheet
         end_date: Päättymispäivä
+        has_members: Tässä tilassa on jäseniä
         hero_image: Etusivun kuva
         import_attachments: Tuo liitteitä
         import_categories: Kopioi aihepiirejä
@@ -24,7 +25,6 @@ fi-pl:
         participatory_process_group_id: Prosessiryhmä
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
-        private_space: Yksityinen prosessi
         promoted: Korostettu
         published_at: Julkaisuaika
         related_process_ids: Liittyvät prosessit
@@ -65,6 +65,8 @@ fi-pl:
           attributes:
             document:
               allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
+              empty: Asiakirja on tyhjä
+              invalid_json: Asiakirja ei ole kelvollinen JSON
     models:
       decidim/participatory_process_step_activated_event: Vaihe aktivoidaan
       decidim/participatory_process_step_changed_event: Vaihe muutettu
@@ -105,7 +107,6 @@ fi-pl:
       menu:
         participatory_process_groups: Prosessiryhmät
         participatory_process_groups_submenu:
-          info: Tiedot
           landing_page: Laskeutumissivun asettelu
         participatory_processes: Prosessit
         participatory_processes_submenu:
@@ -113,10 +114,9 @@ fi-pl:
           attachment_files: Tiedostot
           attachments: Liitteet
           components: Komponentit
-          info: Tietoa tästä prosessista
           landing_page: Laskeutumissivun asettelu
+          members: Jäsenet
           moderations: Moderoinnit
-          private_users: Jäsenet
           process_admins: Prosessin käyttäjät
           steps: Vaiheet
       models:
@@ -124,7 +124,6 @@ fi-pl:
           fields:
             actions: Toiminnot
             created_at: Luonnin ajankohta
-            private: Yksityinen
             published: Julkaistu
             title: Otsikko
           name: Osallisuusprosessi
@@ -161,17 +160,14 @@ fi-pl:
         new:
           duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
           error: Osallistumistilojen ryhmän poisto epäonnistui.
           success: Osallisuusprosessiryhmä poistettiin onnistuneesti.
         edit:
-          title: Muokkaa prosessiryhmää
           update: Päivitä
         new:
           create: Luo
-          title: Uusi prosessiryhmä
         update:
           error: Tämän osallisuusprosessien ryhmän päivityksessä tapahtui virhe.
           success: Osallisuusprosessien ryhmä päivitetty onnistuneesti.
@@ -182,7 +178,6 @@ fi-pl:
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
-          title: Tuo osallisuusprosessi
       participatory_process_publications:
         create:
           error: Tämän osallisuusprosessin julkaisussa tapahtui virhe.
@@ -205,18 +200,14 @@ fi-pl:
             last_step: Prosessin viimeistä vaihetta ei voi poistaa.
           success: Osallisuusprosessin vaihe poistettiin onnistuneesti.
         edit:
-          title: Muokkaa osallisuusprosessin vaihetta
           update: Päivitä
-        index:
-          steps_title: Vaiheet
         new:
           create: Luo
-          title: Uusi osallisuusprosessin vaihe
         ordering:
           error: Tämän osallisuusprosessin vaiheiden järjestämisessä tapahtui virhe.
         update:
           error: Tämän osallisuusprosessin vaiheen päivityksessä tapahtui virhe.
-          success: Osallisuusprosessin vaihe päivitetty onnistuneesti.
+          success: Osallistumisprosessin vaiheen päivitys onnistui.
       participatory_process_user_roles:
         create:
           error: Tapahtui virhe lisätessä käyttäjää osallisuusprosessiin.
@@ -224,13 +215,9 @@ fi-pl:
         destroy:
           success: Käyttäjä poistettiin onnistuneesti tästä osallisuusprosessista.
         edit:
-          title: Päivitä osallistumisprosessin hallintakäyttäjä
           update: Päivitä
-        index:
-          process_admins_title: Osallisuusprosessin käyttäjät
         new:
           create: Luo
-          title: Uusi osallistumisprosessin hallintakäyttäjä
         update:
           error: Tapahtui virhe päivitettäessä käyttäjää tälle osallisuusprosessille.
           success: Tämän osallisuusprosessin käyttäjä päivitetty onnistuneesti.
@@ -241,15 +228,10 @@ fi-pl:
         edit:
           update: Päivitä
         index:
-          private: Yksityinen
-          public: Julkinen
           published: Julkaistu
           unpublished: Julkaisematon
-        manage_trash:
-          title: Poistetut osallistumisprosessit
         new:
           create: Luo
-          title: Uusi osallisuusprosessi
         update:
           error: Tämän osallisuusprosessin päivityksessä tapahtui virhe.
           success: Osallisuusprosessi päivitetty onnistuneesti.
@@ -264,11 +246,6 @@ fi-pl:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Kaikki osallistumisprosessit
-      titles:
-        participatory_process_groups: Osallisuusprosessiryhmät
-        participatory_process_types: Osallistumisprosessien tyypit
-        participatory_processes: Osallisuusprosessit
-        participatory_processes_deleted: Poistetut osallistumisprosessit
       tooltips:
         deleted_processes_info: Prosessi voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
       users:
@@ -282,9 +259,11 @@ fi-pl:
         export: "%{user_name} vei osallistumisprosessin %{resource_name}"
         import: "%{user_name} toi osallistumisprosessin %{resource_name}"
         publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
+        publish_all_members: "%{user_name} julkaisi osallistumisprosessin %{resource_name} jäsenet"
         restore: "%{user_name} palautti osallistumisprosessin %{resource_name}"
         soft_delete: "%{user_name} siirsi osallistumisprosessin %{resource_name} roskakoriin"
         unpublish: "%{user_name} muutti osallisuusprosessin %{resource_name} julkaisemattomaksi"
+        unpublish_all_members: "%{user_name} perui osallistumisprosessin %{resource_name} jäsenten julkaisun"
         update: "%{user_name} päivitti osallisuusprosessin %{resource_name}"
       participatory_process_group:
         create: "%{user_name} loi osallisuusprosessien ryhmän %{resource_name}"
@@ -295,10 +274,6 @@ fi-pl:
         create: "%{user_name} loi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
         delete: "%{user_name} poisti vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
         update: "%{user_name} päivitti vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
-      participatory_process_type:
-        create: "%{user_name} loi prosessityypin %{resource_name}"
-        delete: "%{user_name} poisti prosessityypin %{resource_name}"
-        update: "%{user_name} päivitti prosessityyppiä %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} kutsui käyttäjän %{resource_name} osallisuusprosessiin %{space_name}"
         delete: "%{user_name} poisti käyttäjän %{resource_name} osallisuusprosessista %{space_name}"
@@ -329,17 +304,13 @@ fi-pl:
           contextual: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
           page: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>"
           title: Mikä on osallisuusprosessi?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Prosessityyppiä ei löytynyt tietokannasta (ID: %{id}).'
     menu:
       processes: Prosessit
     open_data:
       help:
         participatory_processes:
-          announcement: Ilmoituksen sisältö
           area: Alue, jota prosessi koskee
+          component_settings: Prosessin komponenttiasetukset
           created_at: Tilan luontiaika
           description: Prosessin pitkä kuvaus
           developer_group: Prosessin kehittäjäryhmä, joka edistää tämän prosessin toteutumista.
@@ -485,9 +456,13 @@ fi-pl:
             all: Kaikki
             max_results: Näytettävien elementtien enimmäismäärä
             selection_criteria: Valintakriteerit
+        imports:
+          attachment_error: Liitteen "%{title}" tuonti epäonnistui (%{error}).
+          hero_image_error: Pääkuvan tuonti epäonnistui (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Tämän tuontiominaisuuden avulla voit luoda uuden osallistumisprosessin JSON-tiedostosta. Voit viedä prosessin toisesta organisaatiosta tai samasta organisaatiosta. Tuotu prosessi sisältää sen asetukset, komponentit ja liitetiedostot (jos valittu).
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
@@ -502,13 +477,12 @@ fi-pl:
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_processes:
           form:
-            announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
+            has_members_help: Voit luoda ja julkaista jäseniä
             images: kuvat
             metadata: metadata
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
             related_processes: Liittyvät prosessit
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
@@ -603,12 +577,8 @@ fi-pl:
           type: Tyyppi
         show:
           title: Tietoa tästä prosessista
-      participatory_space_private_users:
-        index:
-          title: Jäsenet
       show:
         belongs_to_group: Tämä prosessi kuuluu ryhmään
-        private_space: Tämä on yksityinen prosessi
         related_processes: Liittyvät prosessit
       static_pages:
         democratic_quality_indicators:

@@ -127,10 +127,6 @@
         update: "%{user_name} oppdaterte %{resource_name} OAuth applikasjonen"
       organization:
         update: "%{user_name} oppdaterte organisasjonens innstillinger"
-      participatory_space_private_user:
-        create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
-        create_via_csv: "%{user_name} inviterte %{resource_name} via CSV til å være privat deltaker"
-        delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
       scope:
         create: "%{user_name} laget temaet %{resource_name}"
         create_with_parent: "%{user_name} lagde %{resource_name} temaet inni %{parent_scope} temaet"
@@ -608,7 +604,6 @@
         latlng_text: 'breddegrad: %{latitude}, lengdegrad: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Hjelp
       home: Hjem
     messaging:
       conversation_mailer:
@@ -720,17 +715,17 @@
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
-          register: Registrer deg
         hero:
           participate: Delta
           welcome: Velkommen til %{organization}!
-        sub_hero:
-          register: Registrer deg
       index:
         standalone_pages: Sider
         subheading: Naviger gjennom hjelpesidene til %{name}
         title: Hjelp
         topics: Emner
+    participatory_space_members:
+      index:
+        members: Medlemmer
     profile:
       deleted: Slettet deltaker
     profiles:
@@ -897,8 +892,6 @@
         submit_button: Send en invitasjon
       no_invitations_remaining: Ingen invitasjoner igjen
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
-      updated: Passordet ditt ble angitt. Du er nå pålogget.
-      updated_not_active: Passordet ditt ble angitt.
     mailer:
       confirmation_instructions:
         action: Bekreft kontoen min
@@ -914,10 +907,8 @@
         decline: Avvis invitasjon
         hello: Hei %{email},
         invited_you_as_admin: "%{invited_by} har invitert deg som en admin av %{application}. Du kan godta via lenken nedenfor."
-        invited_you_as_private_user: "%{invited_by} har invitert deg som en privat deltaker av %{application}. Du kan godta via lenken nedenfor."
         someone_invited_you: Noen har invitert deg til %{application}. Du kan godta det via lenken nedenfor.
         someone_invited_you_as_admin: Noen har invitert deg som en administrator av %{application}, du kan godta det via lenken nedenfor.
-        someone_invited_you_as_private_user: Noen har invitert deg som privat deltaker av %{application}, du kan godta det via lenken nedenfor.
         subject: Invitasjonsinstruksjoner
       password_change:
         greeting: Hei %{recipient}!

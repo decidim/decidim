@@ -20,7 +20,6 @@ it:
       initiatives_type:
         area_enabled: Abilita gli autori a scegliere l'area per la loro iniziativa
         attachments_enabled: Abilita allegati
-        banner_image: Immagine banner
         child_scope_threshold_enabled: Abilita firme ambito figlio
         collect_user_extra_fields: Raccogliere dati personali dell'utente alla firma
         custom_signature_end_date_enabled: Consenti agli autori di scegliere la fine del periodo di raccolta delle firme
@@ -88,7 +87,6 @@ it:
         initiatives:
           fields:
             created_at: Creato il
-            id: ID
             published_at: Pubblicato il
             state: Stato
             supports_count: Firme
@@ -116,9 +114,6 @@ it:
             name_and_surname: Nome e cognome
             postal_code: Codice postale
             timestamp: timestamp
-      titles:
-        initiatives: Iniziative
-        initiatives_types: Tipi di iniziativa
     events:
       initiatives:
         admin:

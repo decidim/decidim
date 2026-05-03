@@ -9,7 +9,7 @@ module Decidim
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let(:component) { create(:elections_component) }
       let(:election) { create(:election, :published, :with_internal_users_census, :ongoing, component:) }
-      let!(:existing_vote) { create(:election_vote, question: question, response_option: question.response_options.first, voter_uid: "some-id") }
+      let!(:existing_vote) { create(:election_vote, question:, response_option: question.response_options.first, voter_uid: "some-id") }
       let!(:question) { create(:election_question, :with_response_options, :voting_enabled, election:) }
       let!(:second_question) { create(:election_question, :with_response_options, :voting_enabled, election:) }
 
@@ -52,7 +52,7 @@ module Decidim
         end
 
         it "renders the voting form" do
-          get :show, params: params
+          get(:show, params:)
           expect(response).to have_http_status(:ok)
           expect(controller.helpers.question).to eq(question)
           expect(subject).to render_template(:show)
@@ -96,6 +96,56 @@ module Decidim
             expect(session[:votes_buffer]).to eq({ question.id.to_s => nil, second_question.id.to_s => nil })
             expect(response).to redirect_to(confirm_election_votes_path)
           end
+
+          context "when question has max_choices limit" do
+            let!(:question_with_limit) do
+              create(:election_question, :voting_enabled, election:, question_type: "multiple_option", max_choices: 2)
+            end
+            let!(:option1) { create(:election_response_option, question: question_with_limit) }
+            let!(:option2) { create(:election_response_option, question: question_with_limit) }
+            let!(:option3) { create(:election_response_option, question: question_with_limit) }
+
+            it "rejects vote when exceeding max_choices" do
+              patch :update, params: params.merge(
+                id: question_with_limit.id,
+                response: {
+                  question_with_limit.id.to_s => [option1.id, option2.id, option3.id]
+                }
+              )
+
+              expect(response).to have_http_status(:ok)
+              expect(flash[:alert]).to match(/cannot select more than 2/)
+              expect(subject).to render_template(:show)
+            end
+
+            it "accepts vote when within max_choices limit" do
+              session[:votes_buffer] = { question.id.to_s => nil, second_question.id.to_s => nil }
+
+              patch :update, params: params.merge(
+                id: question_with_limit.id,
+                response: {
+                  question_with_limit.id.to_s => [option1.id, option2.id]
+                }
+              )
+
+              expect(session[:votes_buffer][question_with_limit.id.to_s]).to eq([option1.id.to_s, option2.id.to_s])
+              expect(response).to redirect_to(confirm_election_votes_path)
+            end
+
+            it "accepts vote with less than max_choices" do
+              session[:votes_buffer] = { question.id.to_s => nil, second_question.id.to_s => nil }
+
+              patch :update, params: params.merge(
+                id: question_with_limit.id,
+                response: {
+                  question_with_limit.id.to_s => [option1.id]
+                }
+              )
+
+              expect(session[:votes_buffer][question_with_limit.id.to_s]).to eq([option1.id.to_s])
+              expect(response).to redirect_to(confirm_election_votes_path)
+            end
+          end
         end
       end
 
@@ -108,7 +158,7 @@ module Decidim
           end
 
           it "renders the confirmation page" do
-            get :confirm, params: params
+            get(:confirm, params:)
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:confirm)
           end
@@ -134,7 +184,7 @@ module Decidim
           it "casts the votes and redirects to the receipt page" do
             expect(controller.send(:votes_buffer)).to receive(:clear)
             expect(controller.send(:session_attributes)).to receive(:clear)
-            post :cast, params: params
+            post(:cast, params:)
             expect(session[:voter_uid]).to eq(user.to_global_id.to_s)
             expect(response).to redirect_to(receipt_election_votes_path)
             expect(flash[:notice]).to eq(I18n.t("votes.cast.success", scope: "decidim.elections"))
@@ -148,7 +198,7 @@ module Decidim
             end
 
             it "redirects to the confirm page if votes are incomplete" do
-              post :cast, params: params
+              post(:cast, params:)
               expect(response).to redirect_to(confirm_election_votes_path)
               expect(flash[:alert]).to eq(I18n.t("votes.cast.invalid", scope: "decidim.elections"))
             end
@@ -158,7 +208,7 @@ module Decidim
 
       describe "GET receipt" do
         it "redirects to the election path" do
-          get :receipt, params: params
+          get(:receipt, params:)
           expect(response).to redirect_to(election_path)
         end
 
@@ -168,7 +218,7 @@ module Decidim
           end
 
           it "redirects to the election path" do
-            get :receipt, params: params
+            get(:receipt, params:)
             expect(response).to redirect_to(election_path)
           end
         end
@@ -182,15 +232,22 @@ module Decidim
 
           context "when the election has votes for the voter UID" do
             before do
-              create(:election_vote, voter_uid: session[:voter_uid], question: question, response_option: question.response_options.first)
+              create(:election_vote, voter_uid: session[:voter_uid], question:, response_option: question.response_options.first)
             end
 
-            it "renders the receipt page" do
+            it "renders the receipt page and clears votes buffer" do
               expect(controller.send(:votes_buffer)).to receive(:clear)
-              expect(controller.send(:session_attributes)).to receive(:clear)
-              get :receipt, params: params
+              expect(controller.send(:session_attributes)).not_to receive(:clear)
+              get(:receipt, params:)
               expect(response).to have_http_status(:ok)
               expect(subject).to render_template(:receipt)
+            end
+
+            it "clears session when exit param is present" do
+              expect(controller.send(:votes_buffer)).to receive(:clear)
+              expect(controller.send(:session_attributes)).to receive(:clear)
+              get :receipt, params: params.merge(exit: true)
+              expect(response).to redirect_to(election_path)
             end
           end
         end

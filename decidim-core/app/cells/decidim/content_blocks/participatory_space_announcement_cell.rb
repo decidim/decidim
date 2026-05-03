@@ -3,8 +3,6 @@
 module Decidim
   module ContentBlocks
     class ParticipatorySpaceAnnouncementCell < BaseCell
-      delegate :announcement, to: :resource
-
       def show
         return if announcement_cell.blank_content?
 
@@ -12,7 +10,7 @@ module Decidim
       end
 
       def announcement_cell
-        @announcement_cell ||= cell("decidim/announcement", announcement)
+        @announcement_cell ||= cell("decidim/announcement", model.settings.announcement)
       end
     end
   end

@@ -17,7 +17,6 @@ gl:
       initiatives_committee_member:
         user: Membro do comité
       initiatives_type:
-        banner_image: Imaxe do banner
         collect_user_extra_fields: Recolle datos persoais do usuario na sinatura
         description: Descrición
         extra_fields_legal_information: Información legal sobre a recollida de datos persoais
@@ -58,7 +57,6 @@ gl:
         initiatives:
           fields:
             created_at: Creado en
-            id: ID
             state: Estado
             supports_count: Sinaturas
             title: Iniciativas
@@ -85,9 +83,6 @@ gl:
             name_and_surname: Nome e apelidos
             postal_code: Código postal
             timestamp: Timestamp
-      titles:
-        initiatives: Iniciativas
-        initiatives_types: Tipos de iniciativa
     events:
       initiatives:
         initiative_extended:

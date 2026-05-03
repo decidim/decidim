@@ -35,7 +35,6 @@ lt:
         participatory_processes_ids: Susiję dalyvaujamieji procesai
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
-        private_space: Privati erdvė
         promoted: Paryškinta
         published_at: Publikuota
         purpose_of_action: Veiksmo tikslas
@@ -96,12 +95,9 @@ lt:
         edit:
           update: Atnaujinti
         index:
-          private: Privati
-          public: Vieša
           published: Publikuota
         new:
           create: Sukurti
-          title: Nauja asamblėja
         update:
           error: Atnaujinant šią asamblėją iškilo problema.
           success: Asamblėja atnaujinta.
@@ -112,7 +108,6 @@ lt:
         new:
           import: Importuoti
           select: Pasirinkite, kuriuos duomenis norėtumėte importuoti
-          title: Importuoti asamblėją
       assembly_publications:
         create:
           error: Skelbiant šią asamblėją iškilo problema.
@@ -128,8 +123,6 @@ lt:
           success: Administratorius sėkmingai panaikintas iš šios asamblėjos.
         edit:
           update: Atnaujinti
-        index:
-          assembly_admins_title: Asamblėjos administratoriai
         new:
           create: Sukurti
         update:
@@ -148,7 +141,6 @@ lt:
         assembly:
           fields:
             created_at: Sukurta
-            private: Privatu
             promoted: Paryškinta
             published: Publikuota
             title: Pavadinimas
@@ -171,7 +163,6 @@ lt:
             collaborator: Bendraautorius
             moderator: Moderatorius
       titles:
-        assemblies: Asamblėjos
         assemblies_types: Asamblėjų tipai
     admin_log:
       assembly:
@@ -202,7 +193,6 @@ lt:
       admin:
         assemblies:
           form:
-            announcement_help: Čia įrašytas tekstas naudotojui bus rodomas informacijos apie asamblėją apačioje.
             duration: Trukmė
             duration_help: Jei šios asamblėjos veiklos trukmė ribota, pasirinkite pabaigos datą. Priešingu atveju bus rodoma, kad ji neterminuota.
             images: Vaizdai
@@ -213,6 +203,9 @@ lt:
             select_parent_assembly: Pasirinkti pagrindinę asamblėją
             social_handlers: Socialiniai
             title: Bendroji informacija
+        assembly_imports:
+          form:
+            document_legend: Pridėti dokumentą
         assembly_members:
           form:
             explanation: 'Paveikslėliui skirtos gairės:'
@@ -246,9 +239,6 @@ lt:
           type: Tipas
         show:
           title: Apie šią asamblėją
-      assembly_members:
-        index:
-          members: Nariai
       content_blocks:
         children_assemblies:
           name: Asamblėjos
@@ -288,11 +278,7 @@ lt:
             member_of: Narys
       show:
         duration: Trukmė
-        private_space: Tai yra uždara asamblėja
         social_networks_title: Aplankyti asamblėją
-    assembly_members:
-      index:
-        title: Nariai
     events:
       assemblies:
         create_assembly_member:

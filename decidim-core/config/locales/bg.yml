@@ -232,10 +232,6 @@ bg:
       organization:
         update: "%{user_name} обнови настройките на организацията"
         update_external_domain: "%{user_name} актуализира външните домейни на организацията"
-      participatory_space_private_user:
-        create: "%{user_name} покани %{resource_name} да бъде частен участник"
-        create_via_csv: "%{user_name} покани %{resource_name} чрез CSV да бъде частен участник"
-        delete: "%{user_name} премахна участника %{resource_name} като частен"
       scope:
         create: "%{user_name} създаде сферата %{resource_name}"
         create_with_parent: "%{user_name} създаде сферата %{resource_name} в родителската сфера %{parent_scope}"
@@ -489,8 +485,6 @@ bg:
         description: Описание
       footer_sub_hero:
         name: Долен колонтитул на под-геройския банер
-      global_menu:
-        name: Основно меню
       hero:
         name: Профилно изображение и бутон "Призив към действие"
       hero_settings_form:
@@ -625,7 +619,6 @@ bg:
       files:
         file_cannot_be_processed: Файлът не може да бъде обработен
         file_resolution_too_large: Разделителната способност на файла е твърде голяма
-        not_inside_organization: Файлът не е прикачен към никоя организация.
       internal_server_error:
         copied: Текстът е копиран!
         copy_error_message_clarification: Копирайте съобщението за грешка в клипборда
@@ -910,7 +903,6 @@ bg:
         latlng_text: 'географска ширина: %{latitude}, географска дължина: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Помощ
       home: Начало
     messaging:
       conversation_mailer:
@@ -1013,11 +1005,9 @@ bg:
         same_language: Съдържанието е публикувано на предпочитания от вас език (%{language}), поради което в този имейл не се показва автоматичен превод.
         translated_text: 'Автоматично преведен текст:'
     notifications:
-      action_error: Възникна проблем при актуализирането на известията.
       no_notifications: Още няма известия.
       show:
         missing_event: Упс, това известие принадлежи на съдържание, което вече не е налично. Можете да го подминете.
-        moderated: Съдържанието е модерирано
     notifications_digest_mailer:
       header:
         daily: Ежедневно обобщение на известията
@@ -1081,13 +1071,10 @@ bg:
         footer_sub_hero:
           footer_sub_hero_body_html: Нека изградим по-отворено, прозрачно и задружно общество.<br /> Присъединете се, участвайте и решавайте.
           footer_sub_hero_headline: Добре дошли в платформата за сътрудничество %{organization}!
-          register: Регистрация
         hero:
           participate: Участвайте
           participate_title: Участвайте в процесите на платформата
           welcome: Добре дошли в %{organization}!
-        sub_hero:
-          register: Регистрация
       index:
         standalone_pages: Страници
         subheading: Придвижвайте се в помощта на %{name}
@@ -1110,6 +1097,9 @@ bg:
           alert: Актуализирахме нашите Условия за ползване, моля, прегледайте ги.
           body: Моля, отделете малко време, за да прегледате актуализациите на нашите Условия за ползване. В противен случай няма да можете да използвате платформата.
           title: 'Задължително: Прегледайте обновените Условия за ползване'
+    participatory_space_members:
+      index:
+        members: Членове
     passwords:
       update:
         error: Възникна проблем при актуализирането на паролата.
@@ -1319,8 +1309,6 @@ bg:
         submit_button: Изпрати покана
       no_invitations_remaining: Няма останали покани
       send_instructions: Писмо с покана беше изпратено до %{email}.
-      updated: Вашата парола беше зададена успешно. Вече сте влезли.
-      updated_not_active: Вашата парола беше зададена успешно.
     mailer:
       confirmation_instructions:
         action: Потвърди профила ми
@@ -1340,17 +1328,13 @@ bg:
           Ако не искате да приемете поканата, моля, игнорирайте този имейл.<br />
           Профилът Ви няма да бъде създаден, докато не отворите връзката по-горе и не зададете своите псевдоним и парола.
         invited_you_as_admin: "%{invited_by} Ви покани за администратор на %{application}. Можете да приемете чрез връзката по-долу."
-        invited_you_as_private_user: "%{invited_by} Ви покани като частен участник на %{application}. Можете да приемете чрез връзката по-долу."
         someone_invited_you: Някой Ви покани в %{application}. Можете да приемете чрез връзката по-долу.
         someone_invited_you_as_admin: Някой ви покани за администратор на %{application}, можете да приемете чрез връзката по-долу.
-        someone_invited_you_as_private_user: Някой ви покани частен участник в %{application}, можете да приемете чрез връзката по-долу.
         subject: Инструкции за покана
       invite_admin:
         subject: Получихте покана да управлявате %{organization}
       invite_collaborator:
         subject: Получихте покана да сътрудничите на %{organization}
-      invite_private_user:
-        subject: Поканени сте в частен процес на сътрудничество в %{organization}
       organization_admin_invitation_instructions:
         subject: Получихте покана да управлявате %{organization}
       password_change:
@@ -1379,8 +1363,6 @@ bg:
         confirm_new_password: Потвърди нова парола
         new_password: Нова парола
         old_password_help: За да потвърдите промените във вашия акаунт, моля, въведете текущата си парола.
-        password_help: "Минимум %{minimum_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
-        password_help_admin: "Минимум %{minimum_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
         title: Промяна на паролата
       new:
         forgot_your_password: Забравили сте паролата си?

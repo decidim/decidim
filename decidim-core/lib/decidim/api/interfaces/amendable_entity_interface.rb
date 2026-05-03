@@ -6,6 +6,7 @@ module Decidim
     # The only requirement is to have an ID and the Type name be the class.name + Type
     module AmendableEntityInterface
       include Decidim::Api::Types::BaseInterface
+
       description "An interface that can be used in objects with amendments"
 
       field :id, ID, "ID of this entity", null: false

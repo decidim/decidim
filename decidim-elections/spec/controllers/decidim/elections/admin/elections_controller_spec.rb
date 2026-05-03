@@ -117,6 +117,8 @@ module Decidim
                   "position" => election_question.position,
                   "voting_enabled" => false,
                   "published_results" => false,
+                  "total_votes" => 0,
+                  "total_votes_text" => "0 votes",
                   "response_options" => election_question.response_options.map do |ro|
                     {
                       "id" => ro.id,
@@ -171,6 +173,34 @@ module Decidim
             expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).elections_path)
             expect(flash[:notice]).to be_present
             expect(election.reload.published_at).to be_nil
+          end
+        end
+
+        describe "PATCH #toggle_census_check" do
+          it "updates the setting and returns JSON" do
+            expect(election.allow_census_check_before_start).to be(false)
+
+            patch :toggle_census_check, params: { id: election.id, allow_census_check_before_start: true }, format: :json
+
+            expect(response).to have_http_status(:ok)
+            expect(JSON.parse(response.body)).to include(
+              "success" => true,
+              "allow_census_check_before_start" => true
+            )
+            expect(election.reload.allow_census_check_before_start).to be(true)
+          end
+
+          it "returns error on invalid update" do
+            allow(controller).to receive(:election).and_return(election)
+            allow(election).to receive(:update!).and_raise(StandardError)
+
+            patch :toggle_census_check, params: { id: election.id, allow_census_check_before_start: true }, format: :json
+
+            expect(response).to have_http_status(:unprocessable_content)
+            expect(JSON.parse(response.body)).to include(
+              "success" => false,
+              "error" => I18n.t("elections.toggle_census_check.error", scope: "decidim.elections.admin")
+            )
           end
         end
 

@@ -16,6 +16,11 @@ es-MX:
           body: Cuerpo del texto
           draft: Borrador
           version_number: Número de versión
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Texto colaborativo
+        other: Textos colaborativos
   decidim:
     admin:
       tooltips:

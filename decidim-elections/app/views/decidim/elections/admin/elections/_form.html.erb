@@ -1,4 +1,4 @@
-<% disable_fields = @election&.published? %>
+<% disable_fields = @election.present? && !@election.editable? %>
 <div class="form__wrapper">
   <div class="card-section election-fields">
     <div class="card form-basic" data-controller="accordion" id="accordion-basic">

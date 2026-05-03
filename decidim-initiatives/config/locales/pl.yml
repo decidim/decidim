@@ -27,7 +27,6 @@ pl:
       initiatives_type:
         area_enabled: Pozwól autorom na wybór kategorii dla ich inicjatyw
         attachments_enabled: Pozwól na załączniki
-        banner_image: Baner
         child_scope_threshold_enabled: Włącz podpisy dla elementów podrzędnych
         collect_user_extra_fields: Zbierz dane osobowe użytkowników przy zbiórce podpisów
         comments_enabled: Włącz komentarze
@@ -109,15 +108,12 @@ pl:
         initiatives_menu:
           see_initiative: Zobacz inicjatywę
         initiatives_settings: Ustawienia
-        initiatives_submenu:
-          info: O tej inicjatywie
         initiatives_types: Typy inicjatyw
         moderations: Moderacja
       models:
         initiatives:
           fields:
             created_at: Utworzono
-            id: ID
             published_at: Opublikowano
             state: Stan
             supports_count: Podpisy
@@ -145,9 +141,6 @@ pl:
             name_and_surname: Imię i nazwisko
             postal_code: Kod pocztowy
             timestamp: Znacznik czasu
-      titles:
-        initiatives: Inicjatywy
-        initiatives_types: Typy inicjatyw
     events:
       initiatives:
         admin:
@@ -271,7 +264,6 @@ pl:
             publication_date: Ostatnio opublikowane
             random: Losowo
             signatures: Najczęściej podpisane
-            title: Ustawienia dla inicjatyw
         initiatives_type_scopes:
           create:
             success: Utworzono nowy zakres dla danego typu inicjatywy.

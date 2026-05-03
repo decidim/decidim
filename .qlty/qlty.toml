@@ -102,9 +102,12 @@ name = "markdownlint"
 
 [[plugin]]
 name = "rubocop"
+version = "1.78.0"
+mode = "disabled"
 
 [[plugin]]
 name = "osv-scanner"
 
 [[plugin]]
 name = "stylelint"
+mode = "disabled"

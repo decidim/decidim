@@ -41,13 +41,13 @@ describe UploaderImageDimensionsValidator do
         expect(subject.attached_uploader(:upload).validable_dimensions).to be(true)
       end
 
-      # Ensure MiniMagic is called so that the validations are actually run for
+      # Ensure Vips is called so that the validations are actually run for
       # the same reason as above.
-      it "calls MiniMagick" do
+      it "calls Vips" do
         if type == :blob
-          expect(MiniMagick::Image).to receive(:read).and_call_original
+          expect(Vips::Image).to receive(:read).and_call_original
         else
-          expect(MiniMagick::Image).to receive(:new).and_call_original
+          expect(Vips::Image).to receive(:new).and_call_original
         end
 
         subject.valid?
@@ -66,19 +66,6 @@ describe UploaderImageDimensionsValidator do
       let(:content_type) { "image/png" }
 
       it_behaves_like "valid image type"
-    end
-
-    context "with an ICO" do
-      let(:filename) { "icon.ico" }
-      let(:content_type) { "image/vnd.microsoft.icon" }
-
-      it_behaves_like "valid image type"
-
-      context "without an extension" do
-        let(:blob_filename) { "icon_ico" }
-
-        it_behaves_like "valid image type"
-      end
     end
   end
 
@@ -149,15 +136,29 @@ describe UploaderImageDimensionsValidator do
     let(:upload) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     let(:uploader) { record.attached_uploader(:upload) }
 
-    context "when MiniMagick fails to process the image" do
+    context "when image dimensions exceed maximum allowed" do
+      let(:image) { instance_double(Vips::Image, width: 10_000, height: 8_000) }
+
+      before do
+        allow(Vips::Image).to receive(:new_from_file).and_return(image)
+        allow(uploader).to receive(:max_image_height_or_width).and_return(5_000)
+      end
+
+      it "adds the correct error" do
+        expect { subject }.not_to raise_error
+        expect(record.errors[:upload]).to contain_exactly("File resolution is too large")
+      end
+    end
+
+    context "when Vips fails to process the image" do
       let(:image) do
-        MiniMagick::Image.new(upload.path, File.extname(upload.original_filename))
+        Vips::Image.new_from_file(upload.path)
       end
 
       before do
-        allow(MiniMagick::Image).to receive(:new).and_return(image)
-        allow(image).to receive(:dimensions).and_raise(
-          MiniMagick::Error.new(
+        allow(Vips::Image).to receive(:new_from_file).and_return(image)
+        allow(image).to receive(:width).and_raise(
+          Vips::Error.new(
             <<~ERR.strip
               identify-im6.q16: unable to open image `%w': No such file or directory @ error/blob.c/OpenBlob/2924.
               identify-im6.q16: no decode delegate for this image format `' @ error/constitute.c/ReadImage/575.

@@ -26,7 +26,7 @@ describe "Admin manages meetings polls" do
         click_on "Manage poll"
       end
 
-      expect(page).to have_content("Edit poll questionnaire for #{Decidim::Meetings::MeetingPresenter.new(meeting).title}")
+      expect(page).to have_content("Edit poll")
     end
   end
 
@@ -81,7 +81,7 @@ describe "Admin manages meetings polls" do
         click_on "Save"
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Meeting poll successfully updated.")
 
       visit_questionnaire_edit_path_and_expand_all
 
@@ -272,7 +272,7 @@ describe "Admin manages meetings polls" do
       end
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Meeting poll successfully updated.")
 
       visit_questionnaire_edit_path_and_expand_all
 
@@ -299,7 +299,7 @@ describe "Admin manages meetings polls" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Meeting poll successfully updated.")
 
       visit_questionnaire_edit_path_and_expand_all
 

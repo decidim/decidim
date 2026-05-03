@@ -23,6 +23,33 @@ describe "Edit proposals" do
       login_as user, scope: :user
     end
 
+    context "and empties the form" do
+      it "allows submission and show errors" do
+        visit_component
+
+        click_on proposal_title
+        find("#dropdown-trigger-resource-#{proposal.id}").click
+        click_on "Edit"
+
+        expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+        fill_in "proposal_title", with: ""
+
+        within ".edit_proposal" do
+          find("*[type=submit]").click
+
+          expect(page).to have_css("div.sr-announce")
+          within "div.sr-announce" do
+            expect(page).to have_content("There are errors on the form, please correct them to continue.")
+          end
+
+          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+          expect(find("button[type='submit']")).not_to be_disabled
+        end
+      end
+    end
+
     it "can be updated" do
       visit_component
 
@@ -98,7 +125,7 @@ describe "Edit proposals" do
             click_on("Edit attachments")
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
-              expect(page).to have_content("If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.")
+              expect(page).to have_content("If it is an image, it preferably be a landscape image that does not have any text. The platform crops the image.")
               within "[data-filename='city.jpeg']" do
                 find("input[type='text']").set(attachment_image_title)
               end

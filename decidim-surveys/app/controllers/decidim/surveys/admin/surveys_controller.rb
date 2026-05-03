@@ -29,7 +29,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("create.invalid", scope: "decidim.surveys.admin.surveys")
-              render action: "new", status: :unprocessable_entity
+              render action: "new", status: :unprocessable_content
             end
           end
         end
@@ -51,7 +51,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("update.invalid", scope: "decidim.surveys.admin.surveys")
-              render action: "edit", status: :unprocessable_entity
+              render action: "edit", status: :unprocessable_content
             end
           end
         end
@@ -66,7 +66,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("publish.invalid", scope: "decidim.surveys.admin.surveys")
-              render action: "index", status: :unprocessable_entity
+              render action: "index", status: :unprocessable_content
             end
           end
         end
@@ -81,7 +81,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("unpublish.invalid", scope: "decidim.surveys.admin.surveys")
-              render action: "index", status: :unprocessable_entity
+              render action: "index", status: :unprocessable_content
             end
           end
         end

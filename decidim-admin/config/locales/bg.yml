@@ -35,7 +35,6 @@ bg:
       id: ID
       newsletter:
         body: Тяло
-        send_to_all_users: Изпращане до всички потребители
         send_to_followers: Изпращане до последователите
         send_to_participants: Изпращане до участниците
         subject: Тема
@@ -49,7 +48,6 @@ bg:
         default_locale: Език по подразбиране
         description: Описание
         enable_omnipresent_banner: Показвай всепоказван банер
-        enable_participatory_space_filters: Активиране на филтри за пространство за участие
         facebook_handler: Манипулатор на Facebook
         favicon: Икона
         force_authentication: Принудително оторизиране
@@ -90,9 +88,6 @@ bg:
         welcome_notification_body: Тяло на приветствието
         welcome_notification_subject: Тема на приветствието
         youtube_handler: Манипулатор на YouTube
-      participatory_space_private_user:
-        email: Имейл
-        name: Име
       scope:
         code: Код
         name: Име
@@ -134,10 +129,6 @@ bg:
           attributes:
             official_img_footer:
               allowed_file_content_types: Невалиден файл на изображението
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Неправилен файл за импортиране, моля, прочетете внимателно инструкциите и се уверете, че файлът е UTF-8 кодиран.
         user_group_csv_verification:
           attributes:
             file:
@@ -171,12 +162,10 @@ bg:
           new: Нова прикачена папка
         browse: Разглеждане
         configure: Конфигуриране
-        export-selection: Експорт на селекцията
+        export_all: Експорт на всички
         import: Импортиране
         newsletter:
           new: Нов бюлетин
-        participatory_space_private_user:
-          new: Нов частен потребител на пространство за участие
         per_page: За страница
         send_me_a_test_email: Изпратете ми тестов e-mail
         share: Сподели
@@ -195,7 +184,6 @@ bg:
           alert: 'Задължително: Прегледайте нашите административни условия за ползване'
           callout: Моля, отделете малко време, за да прегледате административните условия за ползване. В противен случай, няма да можете да администрирате платформата.
           cta: Прегледайте ги сега.
-        title: Административни условия на услугата
       area_types:
         create:
           error: Възникна проблем при създаването на нов тип област.
@@ -237,8 +225,6 @@ bg:
         edit:
           title: Редактиране на папка
           update: Актуализация
-        index:
-          attachment_collections_title: Папки с прикачени файлове
         new:
           create: Създаване
           title: Нова папка
@@ -254,8 +240,6 @@ bg:
         edit:
           title: Редактиране на прикачения файл
           update: Актуализация
-        index:
-          attachments_title: Прикачени файлове
         new:
           create: Създаване на прикачен файл
           title: Нов прикачен файл
@@ -270,7 +254,6 @@ bg:
       block_user:
         new:
           action: Блокирайте акаунта и изпратете обосновка
-          already_reported_html: Продължавайки с това действие, вие също ще скриете съдържанието за всички участници.
           description: Блокирането на потребител ще направи акаунта му неизползваем. Можете да предоставите във вашата обосновка всякакви насоки относно начините, по които бихте обмислили деблокирането на потребителя.
           justification: Обосновка
           title: Блокиране на потребител %{name}
@@ -307,7 +290,6 @@ bg:
           title: 'Добавяне на компонент: %{name}'
         publish:
           success: Компонентът беше публикуван успешно.
-        title: Компоненти
         unpublish:
           success: Публикацията на компонента беше премахната успешно.
         update:
@@ -322,7 +304,6 @@ bg:
         'false': 'Не'
         managed_user_name: Управляван потребител
         solved: Разрешен случай
-        title: Проверка на конфликти
         transfer:
           email: Имейл
           error: Възникна проблем при прехвърлянето на текущия участник към управляван участник.
@@ -360,7 +341,6 @@ bg:
         form:
           domain_too_short: Домейнът е твърде кратък
         update:
-          error: Неуспешно актуализиране на списъка с разрешени външни домейни
           success: Списъкът с разрешени външни домейни е актуализиран успешно.
       exports:
         export_as: "%{name} като %{export_format}"
@@ -397,17 +377,6 @@ bg:
           values:
             'false': Официализирано
             'true': Неофициализирано
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Поканата е приета
-            values:
-              'false': Не се приема
-              'true': Прието
-          user_invitation_sent_at_not_null:
-            label: Поканата е изпратена
-            values:
-              'false': Не е изпратено
-              'true': Изпратено
         private_space_eq:
           label: Частни
           values:
@@ -474,7 +443,6 @@ bg:
           impersonate: Имитирай
           impersonate_existing_managed_user: Управление на участник „%{name}“
           impersonate_existing_user: Управление на участник „%{name}“
-          impersonate_new_managed_user: Управление на нов участник
       imports:
         and: и
         data_errors:
@@ -527,8 +495,11 @@ bg:
         promotions:
           new:
             explanation: Управляваните участници могат да бъдат повишавани до стандартни участници. Това означава, че ще бъдат поканени в приложението и повече няма да можете да ги управлявате. Поканеният участник ще получи имейл, за да приеме поканата Ви.
-            new_managed_user_promotion: Ново повишение на управляван участник
             promote: Повишаване
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Качете своя CSV файл
       menu:
         admin_log: Регистър на дейността на администраторите
         admins: Администратори
@@ -591,8 +562,6 @@ bg:
             sent_to: Изпратено до
             subject: Относно
           name: Бюлетин
-        participatory_space_private_user:
-          name: Пространство за участие на частен участник
         scope:
           fields:
             name: Име
@@ -672,7 +641,6 @@ bg:
           title: Шаблони за бюлетин
           use_template: Използване на този шаблон
         show:
-          preview: 'Визуализация на шаблона: %{template_name}'
           use_template: Използване на този шаблон
       newsletters:
         create:
@@ -711,6 +679,7 @@ bg:
           participants_help: Изпраща бюлетина до всички потвърдени потребители, които са участвали в някое от избраните пространства за участие в списъка.
           recipients_count: Този бюлетин ще бъде изпратен на <strong id='recipients_count'>%{count}</strong> потребители.
           select_spaces: Изберете пространства, за да сегментирате бюлетина
+          send_to_all_users: Изпращане до всички потребители
           title: Изберете получатели, на които да бъде изпратено
           warning: "<strong>Внимание:</strong> Този бюлетин ще бъде изпратен само на потребители, които са включили <em>Искам да получавам бюлетини</em> в настройките си за известия."
         send:
@@ -718,7 +687,6 @@ bg:
         send_to_user:
           sent_successfully: Бюлетинът е изпратен успешно до %{email}
         show:
-          preview: Преглед
           select_recipients_to_deliver: Изберете получатели, на които да бъде доставено
           send_me_a_test_email: Изпратете ми тестов e-mail
           subject: Относно
@@ -785,40 +753,6 @@ bg:
           up: Горе
         form:
           add: Добави в листа с позволени
-          title: Лист с позволени външни домейни
-      participatory_space_private_users:
-        create:
-          error: Възникна проблем при добавянето на частен участник за това пространство за участие.
-          success: Достъпът на частния участник до пространството за участие беше създаден успешно.
-        destroy:
-          error: Възникна проблем при изтриването на частен участник за това пространство за участие.
-          success: Достъпът на частния участник до пространството за участие беше премахнат успешно.
-        index:
-          import_via_csv: Импортиране чрез CSV
-          title: Пространство за участие на частен участник
-        new:
-          create: Създаване
-          title: Ново пространство за участие на частен участник.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Възникна проблем при четенето на CSV файла. Моля, уверете се, че сте следвали инструкциите.
-          success: Файлът във формат CSV беше качен успешно; изпращаме имейл с покана на участниците. Това може да отнеме известно време.
-        new:
-          csv_upload:
-            title: Качете своя файл във формат CSV
-          destroy:
-            button: Изтрийте всички частни участници
-            confirm: Сигурни ли сте, че искате да изтриете всички частни участници? Това действие е необратимо, няма да можете да ги възстановите.
-            empty: Нямате частни участници.
-            explanation: Имате %{count} частни участници.
-            title: Изтрийте частни участници
-          example_file: 'Примерен файл:'
-          explanation: Качете своя файл във формат CSV. Трябва да съдържа две колони — електронната поща в първата колона и името в последната колона от файла (електронна поща, име) — за потребителите, които искате да добавите в пространството за участие, без заглавки.
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Импортирайте частни участници чрез CSV
-          upload: Качване
       reminders:
         create:
           error: Възникна проблем при създаването на напомняния.
@@ -890,7 +824,6 @@ bg:
           title: Нова тема
         update:
           error: Възникна проблем при актуализирането на тази тема.
-          success: Темата беше актуализирана успешно
       static_pages:
         create:
           error: Възникна проблем при създаването на нова страница.
@@ -949,22 +882,11 @@ bg:
         actions:
           new_taxonomy_filter: Нов класификационен филтър
       titles:
-        admin_log: Администраторски регистри
-        area_types: Типове области
         areas: Области
         authorization_workflows: Методи за проверка
-        dashboard: Контролен панел
-        edit_external_domains: Лист с позволени външни домейни
-        impersonatable_users: Управляеми участници
-        impersonations: Управление на участниците
         menu: Меню
-        page_topics: Tеми
-        pages: Страници
         panel: Администратор
-        participants: Участници
-        scope_types: Типове на обхвата
         scopes: Обхвати
-        users: Администратори
       users:
         create:
           error: Възникна проблем с поканата на този администратор.
@@ -985,7 +907,6 @@ bg:
           last_day: Предният ден
           last_month: Миналия месец
           last_week: Последната седмица
-          no_users_count_statistics_yet: Все още няма статистика за броя на потребителите.
           participants: Участници
     forms:
       errors:

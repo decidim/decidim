@@ -9,7 +9,7 @@ class AddCachedCommentMetadataToDebates < ActiveRecord::Migration[5.2]
     # rubocop:disable Rails/SkipsModelValidations
     Decidim::Debates::Debate.reset_column_information
     Decidim::Debates::Debate.unscoped.includes(comments: [:author, :user_group]).find_each do |debate|
-      last_comment = debate.comments.order("created_at DESC").first
+      last_comment = debate.comments.order(created_at: :desc).first
       next unless last_comment
 
       debate.update_columns(

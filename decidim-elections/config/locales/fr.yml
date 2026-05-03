@@ -1,9 +1,16 @@
 fr:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Nombre maximum de choix
       token_csv:
         file: Fichier
         remove_all: Supprimer toutes les données de recensement actuelles
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Élection
+        other: Élections
   decidim:
     admin:
       menu:
@@ -40,8 +47,10 @@ fr:
       admin:
         census:
           edit:
+            choose_census: Choisissez le type de recensement que vous souhaitez utiliser pour cette élection
             created_at: Créée le
             identifier: Identifiant de l'utilisateur
+            title: Modifier l'élection
           preview:
             title:
               one: La liste de prévisualisation est limitée à %{count} enregistrement.
@@ -51,26 +60,39 @@ fr:
             success: Recensement mis à jour avec succès.
         dashboard:
           calendar:
+            end_at: 'Heure de fin:'
             published_results_at: Résultats publiés à
+            start_at: 'Heure de début:'
+            title: Calendrier
           census:
             title: Recensement
           main:
             labels:
+              calendar: Calendrier
               description: Description
+              image: Galerie d'images
+              results: Disponibilité des résultats
+              title: Titre
+          publish_confirm: Êtes-vous sûr(e) de vouloir publier cette élection ?
           questions:
             labels:
               answers: Réponses
             title: Questions
           questions_table:
             answer: Réponses
+            percentage: Pourcentage
+            total: Total
             votes: Votes
             votes_count:
               one: 1 vote
               other: "%{count} votes"
           results:
+            not_started: L'élection n'a pas encore commencé.
             publish_button: Publier les résultats
             title: Résultats
           status:
+            allow_census_check_before_start: Autoriser les utilisateurs à vérifier s'ils peuvent voter avant le début de l'élection
+            census: 'Recensement:'
             results_availability:
               after_end: Résultats disponibles après la fin de l'élection
               per_question: Résultats disponibles par question
@@ -80,6 +102,9 @@ fr:
           create:
             invalid: Il y a eu un problème lors de la création de l'élection.
             success: Élection créée avec succès.
+          dashboard:
+            subtitle: 'Étape finale: éxaminez vos détails. Des modifications peuvent toujours être apportées avant de publier. Une fois publiée, vous serez toujours en mesure de mettre à jour la description de l''élection.'
+            title: Tableau de bord
           edit:
             title: Modifier l'élection
           form:
@@ -107,6 +132,8 @@ fr:
           publish:
             invalid: Il y a eu un problème lors de la publication de l'élection.
             success: Élection publiée avec succès.
+          toggle_census_check:
+            error: Une erreur s'est produite lors de l'activation de la vérification du recensement.
           unpublish:
             invalid: Il y a eu un problème lors de la dépublication de l'élection.
             success: Élection dépubliée avec succès.
@@ -128,6 +155,7 @@ fr:
         statuses:
           publish_results:
             invalid: Un problème est survenu lors de la publication des résultats.
+          unknown: État Inconnu
       admin_log:
         election:
           create: "%{user_name} a créé l'élection %{resource_name} dans %{space_name}"
@@ -138,10 +166,18 @@ fr:
           update: "%{user_name} a mis à jour l'élection %{resource_name} dans %{space_name}"
         question:
           update: "%{user_name} a mis à jour les questions de l'élection %{resource_name}"
+      census_checks:
+        show:
+          description: Ça signifie qu'une fois que l'élection démarre, vous pouvez voter.
+          exit_button: Quitter la vérification du recensement
+          title: Votre inscription a été vérifiée avec succès
       censuses:
         internal_users:
           already_have_an_account?: Vous avez déjà un compte?
           are_you_new?: Nouveau participant ?
+          info_html: |
+            Vous pouvez restreindre la participation à l'élection aux participants qui ont une autorisation.<br>
+            Notez que les participants devront satisfaire aux autorisations sélectionnées pour voter. Laisser toutes les cases à cocher vides permettra à toute personne enregistrée de voter.
           internal_type_title: Autorisations supplémentaires requises pour voter (facultatif)
           sign_in_description: Connectez-vous pour voter durant cette élection
           sign_up_description: Créer un compte pour voter durant cette élection
@@ -149,9 +185,6 @@ fr:
           authorization_options_invalid: Malheureusement, bien que vous ayez toutes les autorisations requises, certaines d'entre elles ne sont pas valides pour cette élection.
           exit_button: Quitter l'isoloir
           invalid: Vous n'êtes pas autorisé(e) à voter pour cette élection.
-          missing: Votre compte utilisateur ne présente pas certaines autorisations requises. Veuillez vérifier les informations et réessayer.
-          not_authorized: 'L''autorisation "%{adapter}" ne correspond pas aux conditions requises.'
-          not_granted: 'L''autorisation "%{adapter}" n''est pas accordée.'
           resume_with_method: Reprendre la vérification avec %{name}
           verify_with_method: Vérifier avec %{name}
         token_csv:
@@ -184,6 +217,7 @@ fr:
           state_values:
             finished: Terminées
             ongoing: En cours
+            scheduled: Programmé
         orders:
           end_at: Date de fin
           label: Trier par
@@ -194,6 +228,9 @@ fr:
           title: Questions de l'élection
         show:
           active_voting_until: 'Vote actif jusqu''au : %{end_date}'
+          check_census_button: Vérifier si je peux voter
+          check_census_explanation: L'élection n'a pas encore commencé, mais vous pouvez vérifier si vous êtes inscrit dans le recensement.
+          edit_vote_button: Modifier le vote
           vote_button: Voter
           voted: Vous avez déjà voté. Vous pouvez voter à nouveau, seul votre dernier vote sera prise en compte.
           votes_count:
@@ -206,6 +243,10 @@ fr:
             per_question: Les résultats sont disponibles par question. Vous pouvez voir les résultats pour chaque question après que le vote soit activé et que les résultats soient publiés.
             real_time: Les résultats sont disponibles en temps réel. Vous pouvez voir les résultats en cours de vote.
           title: Résultats
+          total: 'TOTAL :'
+          total_votes:
+            one: 1 vote
+            other: "%{count} votes"
       models:
         election:
           fields:
@@ -246,9 +287,13 @@ fr:
         question:
           back: Retour
           cast_vote: Exprimer votre vote
+          max_choices: 'Nombre de choix maximum : %{count}'
+          max_choices_alert: Vous avez sélectionné trop d'options. Veuillez en désélectionner pour continuer.
+          max_choices_exceeded: Vous ne pouvez pas sélectionner plus que %{max} options. Veuillez revenir en arrière et ajuster votre sélection.
           next: Suivant
         receipt:
-          description: Vous pouvez voter à nouveau à tout moment tant que la période de vote est ouverte. Votre vote précédent sera écrasé par le nouveau.
+          description: Vous pouvez voter à nouveau à tout moment pendant que la période de vote est ouverte. Votre vote précédent sera écrasé par le nouveau.
+          edit_vote: Modifier votre vote
           exit_button: Quitter l'isoloir
           title: Vos votes ont été exprimés avec succès
     metadata:

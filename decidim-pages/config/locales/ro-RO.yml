@@ -14,9 +14,20 @@ ro:
         name: Pagina
         settings:
           global:
-            announcement: Anunţ
+            announcement: Anunț
           step:
-            announcement: Anunţ
+            announcement: Anunț
+    open_data:
+      help:
+        pages:
+          body: Conținutul postării
+          component: Componenta căreia îi aparține pagina
+          created_at: Data la care a fost creată această pagină
+          id: Identificatorul unic al acestei pagini
+          participatory_space: Cărui spațiu (de exemplu, proces participativ sau adunare) aparține această pagină
+          title: Titlul paginii
+          updated_at: Ultima dată la care această pagină a fost actualizată
+          url: URL-ul pentru această pagină
     pages:
       admin:
         models:
@@ -24,8 +35,10 @@ ro:
             body: Conținut
         pages:
           edit:
-            save: Actualizează
-            title: Editează pagina
+            save: Actualizați
+            title: Modificați pagina
           update:
-            invalid: A apărut o eroare la salvarea paginii.
-            success: Pagina a fost salvată cu succes.
+            invalid: A apărut o eroare la actualizarea paginii.
+            success: Pagina a fost actualizată cu succes.
+      show:
+        empty: Nu există conținut în această pagină încă.

@@ -17,7 +17,6 @@ sk:
       initiatives_committee_member:
         user: člen komisie
       initiatives_type:
-        banner_image: Obrázok banneru
         collect_user_extra_fields: Zbierajte osobné údaje užívateľov podpisom
         description: Popis
         extra_fields_legal_information: Právne informácie o zbere osobných údajov
@@ -60,7 +59,6 @@ sk:
         initiatives:
           fields:
             created_at: Vytvorené u
-            id: ID
             state: Štát
             supports_count: Podpisy
             title: Iniciatívy
@@ -87,9 +85,6 @@ sk:
             name_and_surname: Meno a priezvisko
             postal_code: Poštové smerovacie číslo
             timestamp: Časová pečiatka
-      titles:
-        initiatives: Iniciatívy
-        initiatives_types: Typy iniciatív
     events:
       initiatives:
         initiative_extended:

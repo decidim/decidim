@@ -101,8 +101,10 @@
 ^\Qdecidim-core/app/views/layouts/decidim/_edit_link.html.erb\E$
 ^\Qdecidim-core/lib/decidim/db/common-passwords.txt\E$
 ^\Qdecidim-core/spec/mailers/decidim_devise_mailer_spec.rb\E$
+^\Qdecidim-core/spec/db/data/add_short_name_to_organizations_spec.rb\E$
 ^\Qdecidim-dev/lib/decidim/dev/assets/assemblies.json\E$
 ^\Qdecidim-dev/lib/decidim/dev/assets/base64_content.html\E$
+^\Qdecidim-dev/lib/decidim/dev/assets/empty_file.csv\E$
 ^\Qdecidim-dev/lib/decidim/dev/assets/import_proposals.csv\E$
 ^\Qdecidim-dev/lib/decidim/dev/assets/import_proposals.json\E$
 ^\Qdecidim-dev/lib/decidim/dev/assets/import_proposals_broken.csv\E$

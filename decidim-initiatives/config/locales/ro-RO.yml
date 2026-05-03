@@ -26,7 +26,6 @@ ro:
       initiatives_type:
         area_enabled: Permite autorilor să aleagă zona pentru inițiativa lor
         attachments_enabled: Activare atașamente
-        banner_image: Imagine banner
         child_scope_threshold_enabled: Activează semnăturile pentru domeniul de interes copil
         collect_user_extra_fields: Colectarea datelor cu caracter personal ale participantului la semnătură
         comments_enabled: Comentarii activate
@@ -100,7 +99,6 @@ ro:
         initiatives:
           fields:
             created_at: Creat la
-            id: ID
             published_at: Publicat la
             state: Status
             supports_count: Semnături
@@ -128,9 +126,6 @@ ro:
             name_and_surname: Nume și prenume
             postal_code: Cod poștal
             timestamp: Ora
-      titles:
-        initiatives: Inițiative
-        initiatives_types: Tipuri de inițiative
     events:
       initiatives:
         admin:
@@ -173,6 +168,7 @@ ro:
             - Urmează pașii necesari pentru a crea o nouă inițiativă
           description: Această insignă este acordată atunci când lansezi noi inițiative, colaborând cu alții pentru a o realiza.
           description_another: Acest participant a publicat %{score} inițiative.
+          description_own: Aveți %{score} inițiative publicate.
           name: Inițiative publicate
           next_level_in: Obține încă %{score} inițiative publicate pentru a atinge următorul nivel!
           unearned_another: Acest participant nu a publicat încă nicio inițiativă.
@@ -255,7 +251,6 @@ ro:
             date: Cele mai recente
             publication_date: Cel mai recent publicate
             random: Aleatoriu
-            title: Setări pentru inițiative
         initiatives_type_scopes:
           create:
             success: A fost creat un nou domeniu de interes pentru un anumit tip de inițiativă.
@@ -469,6 +464,7 @@ ro:
           recent: Cele mai recente
           recently_published: Cel mai recent publicat
         pending_initiatives:
+          description: Aceste inițiative nu sunt încă publice. Examinați-le și prezentați-le pentru validare tehnică, astfel încât să poată fi făcute publice.
           title: Inițiative create și în așteptare
         print:
           address: Adresă
@@ -519,6 +515,8 @@ ro:
         promotal_committee_help: Nu uita că trebuie să inviți cel puțin %{member_count} persoane în comisia de promovare. Poți trimite link-ul următor pentru a invita persoane în comitetul de promovare
         status_change_body_for: 'Inițiativa %{title} și-a schimbat statutul după cum urmează: %{state}'
         status_change_for: Inițiativa %{title} și-a schimbat statutul
+      last_activity:
+        new_initiative: 'Inițiativă nouă:'
       modal:
         not_authorized:
           authorizations_page: Vezi autorizațiile
@@ -529,6 +527,7 @@ ro:
           accepted: Semnături suficiente
           created: Create
           discarded: Respins
+          open: Deschisă
           rejected: Semnături insuficiente
           validating: Validarea tehnică
       signatures:

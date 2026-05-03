@@ -103,18 +103,6 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     include_examples "some resources are being spam"
   end
 
-  context "when trained model is Decidim::Proposals::CollaborativeDraft" do
-    let(:manifest_name) { "proposals" }
-    let(:training) { 8 }
-
-    let!(:reportable) { create(:collaborative_draft, component:, users: [author], title: "Hidden resource") }
-    let!(:resources) { create_list(:collaborative_draft, 3, component:, users: [author]) }
-    let(:resource_models) { { "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" } }
-
-    include_examples "resource is being indexed"
-    include_examples "some resources are being spam"
-  end
-
   context "when trained model is Decidim::Debates::Debate" do
     let(:manifest_name) { "debates" }
     let(:training) { 8 }

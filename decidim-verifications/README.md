@@ -1,4 +1,4 @@
-# Decidim::Verifications
+# decidim-verifications
 
 Decidim offers several methods for allowing participants to get authorization to
 perform certain privileged actions. This module implements several of those methods
@@ -22,6 +22,10 @@ There are several use cases for this, such as
 
 Right now Decidim supports only a few of these cases, but we have an internal
 API where you can program your own kind of authorizations.
+
+## Usage
+
+This is a module oriented for developers, as a building block to be used by other modules.
 
 ## Introduction
 
@@ -151,7 +155,7 @@ In order to setup Decidim with SMS verification you need to:
 Keep in mind that Decidim will not store a free text version of the mobile phone, only a hashed
 version so we can avoid duplicates and guarantee the users' privacy.
 
-You can find an example [here][example SMS gateway].
+You can find an example in the [example SMS gateway implementation][example SMS gateway].
 
 ## Authorization options
 
@@ -243,17 +247,7 @@ authorization.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-verifications'
-```
-
-And then execute:
-
-```bash
-bundle
-```
+This is on the default Decidim installation so you should not change anything to use this feature.
 
 ## Contributing
 

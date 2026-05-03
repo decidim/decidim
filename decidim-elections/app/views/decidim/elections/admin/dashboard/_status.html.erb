@@ -16,6 +16,18 @@
         <%= election_status_with_label(election) %>
         <span class="label"><%= t("decidim.elections.admin.dashboard.status.results_availability.#{election.results_availability}") %></span>
       </div>
+      <% if election.scheduled? %>
+        <div class="mt-4">
+          <label class="flex items-center cursor-pointer">
+            <%= check_box_tag "allow_census_check_before_start",
+                              "1",
+                              election.allow_census_check_before_start,
+                              class: "census-check-toggle",
+                              data: { url: Decidim::EngineRouter.admin_proxy(election.component).toggle_census_check_election_path(election) } %>
+            <span class="ml-2"><%= t("decidim.elections.admin.dashboard.status.allow_census_check_before_start") %></span>
+          </label>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

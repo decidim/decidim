@@ -14,12 +14,12 @@ describe "Admin manages conference soft delete" do
   it_behaves_like "manage trashed resource", "conference"
 
   context "when a user is collaborator" do
-    let!(:conference) { create(:conference, organization: organization) }
-    let!(:collaborator_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:conference) { create(:conference, organization:) }
+    let!(:collaborator_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:collaborator_role) do
       create(:conference_user_role,
              user: collaborator_user,
-             conference: conference,
+             conference:,
              role: :collaborator)
     end
 
@@ -36,12 +36,12 @@ describe "Admin manages conference soft delete" do
   end
 
   context "when a user is evaluator" do
-    let!(:conference) { create(:conference, organization: organization) }
-    let!(:evaluator_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:conference) { create(:conference, organization:) }
+    let!(:evaluator_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:evaluator_role) do
       create(:conference_user_role,
              user: evaluator_user,
-             conference: conference,
+             conference:,
              role: :evaluator)
     end
 
@@ -58,12 +58,12 @@ describe "Admin manages conference soft delete" do
   end
 
   context "when a user is moderator" do
-    let!(:conference) { create(:conference, organization: organization) }
-    let!(:moderator_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:conference) { create(:conference, organization:) }
+    let!(:moderator_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:moderator_role) do
       create(:conference_user_role,
              user: moderator_user,
-             conference: conference,
+             conference:,
              role: :moderator)
     end
 
@@ -80,12 +80,12 @@ describe "Admin manages conference soft delete" do
   end
 
   context "when a user is a space admin" do
-    let!(:conference) { create(:conference, organization: organization) }
-    let!(:admin_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:conference) { create(:conference, organization:) }
+    let!(:admin_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:admin_role) do
       create(:conference_user_role,
              user: admin_user,
-             conference: conference,
+             conference:,
              role: :admin)
     end
 

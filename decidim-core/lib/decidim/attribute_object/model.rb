@@ -107,11 +107,6 @@ module Decidim
       # through symbols by calling `obj.attributes[:key]` or
       # `obj.attributes.slice(:key1, :key2)`. In the legacy Virtus models, this
       # returned a hash with symbol keys.
-      #
-      # Deprecated:
-      # Attributes access through symbols is deprecated and may be removed in
-      # future versions. Please refactor all your attributes calls to access the
-      # attributes through string keys.
       def attributes
         super.with_indifferent_access
       end

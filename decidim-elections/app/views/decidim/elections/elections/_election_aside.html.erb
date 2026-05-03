@@ -1,13 +1,22 @@
 <section class="layout-aside__section">
   <div class="election__aside-vote layout-aside__ctas-buttons" data-controller="sticky-buttons">
     <% if election.ongoing? %>
-      <%= link_to t("vote_button", scope: "decidim.elections.elections.show"), new_election_vote_path(election), class: "button button__secondary button__lg" %>
+      <% button_key = voted_by_current_user?(election) ? "edit_vote_button" : "vote_button" %>
+      <%= link_to t(button_key, scope: "decidim.elections.elections.show"), new_election_vote_path(election), class: "button button__secondary button__lg" %>
       <% if voted_by_current_user?(election) %>
         <div class="election__aside-voted mt-6 hidden lg:block">
           <span><%= icon "check-line", class: "fill-success inline mr-2" %></span>
           <span><%= t("decidim.elections.elections.show.voted") %></span>
         </div>
       <% end %>
+    <% elsif allowed_to? :create, :census_check, election: election %>
+      <%= link_to t("decidim.elections.elections.show.check_census_button"),
+                  new_election_census_check_path(election),
+                  class: "button button__lg button__secondary #{"hidden" if election.published? && !election.allow_census_check_before_start}",
+                  data: election.published? ? { census_check_button: true, census_check_url: election_path(election, format: :json) } : {} %>
+      <div class="mt-6 <%= "hidden" if election.published? && !election.allow_census_check_before_start %>" data-census-check-explanation="<%= election.published? %>">
+        <span><%= t("decidim.elections.elections.show.check_census_explanation") %></span>
+      </div>
     <% end %>
   </div>
 </section>

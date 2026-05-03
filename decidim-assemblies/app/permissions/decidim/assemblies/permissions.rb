@@ -41,7 +41,7 @@ module Decidim
 
         return permission_action unless assembly
 
-        user_can_read_private_users?
+        user_can_read_members?
 
         moderator_action?
         collaborator_action?
@@ -53,9 +53,9 @@ module Decidim
 
       private
 
-      def user_can_read_private_users?
-        return unless permission_action.subject == :space_private_user
-        return unless assembly.private_space?
+      def user_can_read_members?
+        return unless permission_action.subject == :space_member
+        return unless assembly.has_members?
 
         toggle_allow(user.admin? || can_manage_assembly?(role: :admin) || can_manage_assembly?(role: :collaborator))
       end
@@ -108,7 +108,7 @@ module Decidim
                       [:assembly, :participatory_space].include?(permission_action.subject) &&
                       assembly
 
-        return disallow! unless can_view_private_space?
+        return disallow! unless can_view_restricted_space?
         return allow! if user&.admin?
         return allow! if assembly.published?
         return allow! if user_can_preview_space?
@@ -116,11 +116,11 @@ module Decidim
         toggle_allow(can_manage_assembly?)
       end
 
-      def can_view_private_space?
-        return true unless assembly.private_space && !assembly.is_transparent?
+      def can_view_restricted_space?
+        return true unless assembly.restricted?
         return false unless user
 
-        user.admin || assembly.users.include?(user)
+        user.admin? || assembly.users.include?(user)
       end
 
       def public_list_members_action?
@@ -222,7 +222,7 @@ module Decidim
       # Collaborators can read/preview everything inside their assembly.
       def collaborator_action?
         return unless can_manage_assembly?(role: :collaborator)
-        return if permission_action.subject == :space_private_user
+        return if permission_action.subject == :space_member
 
         allow! if permission_action.action == :read || permission_action.action == :preview
       end

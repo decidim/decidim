@@ -39,8 +39,10 @@ module Decidim::Budgets
         expect(order.checked_out_at).not_to be_nil
       end
 
-      it "schedules a job to send an email with the summary" do
-        expect(SendOrderSummaryJob).to receive(:perform_later).with(order)
+      it "sends an email with the summary" do
+        mailer_double = double("mailer")
+        allow(OrderSummaryMailer).to receive(:order_summary).with(order).and_return(mailer_double)
+        expect(mailer_double).to receive(:deliver_later)
 
         subject.call
       end
@@ -60,6 +62,35 @@ module Decidim::Budgets
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
+    context "when the user does not have an email" do
+      let(:user) { create(:user, :managed) }
+
+      it "broadcasts ok" do
+        expect { subject.call }.to broadcast(:ok)
+      end
+
+      it "sets the checked out at" do
+        subject.call
+        order.reload
+        expect(order.checked_out_at).not_to be_nil
+      end
+
+      it "does not send an email with the summary" do
+        expect(OrderSummaryMailer).not_to receive(:order_summary)
+
+        subject.call
+      end
+
+      it "creates activelog entry" do
+        expect(Decidim.traceability)
+          .to receive(:update!)
+          .with(order, order.user, { checked_out_at: be_within(10.seconds).of(Time.current) }, visibility: "private-only")
+          .and_call_original
+
+        subject.call
       end
     end
 

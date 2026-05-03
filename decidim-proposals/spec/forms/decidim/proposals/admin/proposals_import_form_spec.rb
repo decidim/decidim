@@ -12,13 +12,11 @@ module Decidim
         let(:component) { proposal.component }
         let(:origin_component) { create(:proposal_component, participatory_space: component.participatory_space) }
         let(:states) { %w(accepted) }
-        let(:import_proposals) { true }
         let(:params) do
           {
             states:,
             keep_authors: false,
-            origin_component_id: origin_component.try(:id),
-            import_proposals:
+            origin_component_id: origin_component.try(:id)
           }
         end
 
@@ -51,10 +49,10 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when the import proposals is not accepted" do
-          let(:import_proposals) { false }
+        context "when importing from multiple states" do
+          let(:states) { %w(accepted rejected) }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.to be_valid }
         end
 
         describe "states" do

@@ -27,7 +27,6 @@ fi-pl:
       initiatives_type:
         area_enabled: Salli alueen valinta aloitteille
         attachments_enabled: Salli liitteet
-        banner_image: Bannerikuva
         child_scope_threshold_enabled: Ota käyttöön alateemojen allekirjoitukset
         collect_user_extra_fields: Kerää käyttäjän henkilötietoja allekirjoituksessa
         comments_enabled: Ota kommentit käyttöön
@@ -96,7 +95,7 @@ fi-pl:
           type_id_eq:
             label: Tyyppi
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hae kohteesta %{collection} otsikon, kuvauksen, ID-numeron tai tekijän nimen perusteella
+          title_or_description_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen tai laatijan nimen perusteella
       initiatives_settings:
         update:
           error: Aloitteiden asetusten päivittäminen epäonnistui.
@@ -110,15 +109,12 @@ fi-pl:
         initiatives_menu:
           see_initiative: Näytä aloite
         initiatives_settings: Asetukset
-        initiatives_submenu:
-          info: Tietoa tästä aloitteesta
         initiatives_types: Aloitetyypit
         moderations: Moderoinnit
       models:
         initiatives:
           fields:
             created_at: Luontiaika
-            id: ID
             published_at: Julkaisuaika
             state: Maakunta/osavaltio
             supports_count: Allekirjoituksia
@@ -157,9 +153,6 @@ fi-pl:
       taxonomy_filters:
         space_filter_for:
           initiatives: Kaikki aloitteet
-      titles:
-        initiatives: Aloitteet
-        initiatives_types: Aloitetyypit
     download_your_data:
       show:
         initiatives: Aloitteiden vienti
@@ -298,7 +291,6 @@ fi-pl:
             publication_date: Viimeisimmäksi julkaistut
             random: Satunnainen
             signatures: Allekirjoitetuimmat
-            title: Aloitteiden asetukset
         initiatives_type_scopes:
           create:
             error: Teeman luominen aloitteelle epäonnistui.
@@ -551,6 +543,7 @@ fi-pl:
           recent: Viimeisimmät
           recently_published: Viimeisimmäksi julkaistut
         pending_initiatives:
+          description: Nämä aloitteet eivät ole vielä julkisia. Tarkista ne ja lähetä ne tekniseen validointiin, jotta ne voidaan julkaista.
           title: Luonnokset ja odottavat aloitteet
         print:
           address: Osoite
@@ -687,6 +680,7 @@ fi-pl:
       initiative:
         actions:
           comment: Kommentoi
+          vote_comment: Äänestä kommenttia
       initiatives_type:
         actions:
           create: Luo aloite

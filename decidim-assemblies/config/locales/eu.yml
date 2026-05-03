@@ -25,6 +25,7 @@ eu:
         duration: Iraupena
         facebook: Facebook
         github: GitHub
+        has_members: Partaidetza-espazio honek kideak ditu
         hero_image: Hasierako orriko irudia
         import_attachments: Inportatu erantsitako fitxategiak
         import_categories: Inportatu kategoriak
@@ -39,7 +40,6 @@ eu:
         participatory_processes_ids: Erlazionatutako partaidetza-prozesuak
         participatory_scope: Zer erabakitzen den
         participatory_structure: Nola erabakitzen den
-        private_space: Espazio pribatua
         promoted: Nabarmendua
         published_at: Noiz argitaratua
         purpose_of_action: Ekintzaren xedea
@@ -73,6 +73,8 @@ eu:
           attributes:
             document:
               allowed_file_content_types: 'Dokumentu mota ez da baliozkoa. Honako luzapen hauek dituzten fitxategiak baino ez dira onartzen: %{types}.'
+              empty: Dokumentua hutsik dago
+              invalid_json: JSON dokumentua ez da zuzena
   activerecord:
     models:
       decidim/assembly:
@@ -99,15 +101,14 @@ eu:
         edit:
           update: Eguneratu
         index:
-          private: Pribatua
-          public: Publikoa
+          access_modes:
+            open: Zabaldu
+            restricted: Murriztua
+            transparent: Gardena
           published: Argitaratua
           unpublished: Ez argitaratua
-        manage_trash:
-          title: Ezabatutako batzarrak
         new:
           create: Sortu
-          title: Beste batzar bat
         update:
           error: Arazo bat egon da batzar hau eguneratzean.
           success: Batzarra zuzen eguneratua.
@@ -119,7 +120,6 @@ eu:
         new:
           duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Batzarra bikoiuztu
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.
@@ -127,7 +127,6 @@ eu:
         new:
           import: Inportatu
           select: Hautatu zein datu inportatu nahi dituzun
-          title: Inportatu batzarra
       assembly_publications:
         create:
           error: Arazo bat egon da batzar hau argitaratzean.
@@ -142,13 +141,9 @@ eu:
         destroy:
           success: Batzar honetatik administratzailea zuzen kendua.
         edit:
-          title: Eguneratu batzarraren administratzailea
           update: Onartu
-        index:
-          assembly_admins_title: Batzarraren administratzaileak
         new:
           create: Sortu
-          title: Batzarraren beste administratzaile bat
         update:
           error: Arazo bat egon da administratzailea gehitzean batzar honetarako.
           success: Batzar honetarako administratzailea zuzen eguneratua.
@@ -170,15 +165,15 @@ eu:
           components: Osagaiak
           info: Batzar honi buruz
           landing_page: Lurreratze-orrien antolaketa
+          members: Kideak
           moderations: Moderazioak
-          private_users: Kideak
           see_assembly: Ikusi batzarra
       models:
         assembly:
           fields:
+            access_mode: Sarbide modua
             actions: Ekintzak
             created_at: Noiz sortua
-            private: Pribatua
             promoted: Nabarmendua
             published: Argitaratua
             title: Izenburua
@@ -206,8 +201,6 @@ eu:
         space_filter_for:
           assemblies: Batzar guztiak
       titles:
-        assemblies: Batzarrak
-        assemblies_deleted: Ezabatutako batzarrak
         assemblies_types: Batzar motak
       tooltips:
         deleted_assemblies_info: Batzar bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
@@ -218,9 +211,11 @@ eu:
         export: "%{user_name} parte-hartzaileak %{resource_name} batzarra esportatu du"
         import: "%{user_name} parte-hartzaileak %{resource_name} batzarra inportatu du"
         publish: "%{user_name} parte-hartzaileak %{resource_name} batzarra argitaratu du"
+        publish_all_members: "%{user_name} parte-hartzaileak %{resource_name} batzarreko kide guztiak argitaratu ditu"
         restore: "%{user_name} parte-hartzaileak %{resource_name} batzarra berreskuratu du"
         soft_delete: "%{user_name} parte-hartzaileak %{resource_name} batzarra zaborrontzira eraman du"
         unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzarra desargitaratu du"
+        unpublish_all_members: "%{user_name} parte-hartzaileak %{resource_name} batzarreko kide guztiak desargitaratu ditu"
         update: "%{user_name} parte-hartzaileak %{resource_name} batzarra eguneratu du"
       assembly_member:
         create: "%{user_name} parte-hartzaileak %{resource_name} kidea sortu du %{space_name} batzarrean"
@@ -241,17 +236,24 @@ eu:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: Batzar honi buruz
           form:
-            announcement_help: Hemen sartzen duzun testua batzarreko informazioaren azpian agertuko zaio parte-hartzaileari.
+            access:
+              label: Sarbidea
+              options:
+                open: Edonork ikus dezake batzarra eta parte hartu.
+                restricted: Soilik kideek ikus dezakete batzarra eta parte hartu.
+                transparent: Edonork ikus dezake batzarra, baina soilik kideek har dezakete parte.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
+            has_members_help: Kideak sortu eta argitaratu ahal izango dituzu
             images: Irudiak
             included_at_help: Hautatu zein egunetan gehitu zen batzar hori plataformara. Ez du zertan sortze-data bera izan.
             metadata: Metadata
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             other: Beste bat
-            private_notice: Parte hartzaile pribatuak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             select_a_created_by: Hautatu egilea
             select_parent_assembly: Hautatu batzar nagusia
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
@@ -259,23 +261,45 @@ eu:
             taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
+          index:
+            title: Batzarrak
+          manage_trash:
+            title: Ezabatutako batzarrak
+          new:
+            title: Beste batzar bat
         assembly_duplicates:
           form:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+          new:
+            title: Bikoiztu batzarra
         assembly_imports:
           form:
+            document_legend: Gehitu dokumentu bat
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+          new:
+            title: Inportatu batzarra
         assembly_members:
           form:
             explanation: 'Jarraibideak irudirako:'
             image_guide: Ahal dela, testurik gabeko irudi bertikal bat.
             non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratu baino lehen.
+        assembly_user_roles:
+          edit:
+            title: Eguneratu batzarraren administratzailea
+          index:
+            title: Batzarraren administratzaileak
+          new:
+            title: Batzarraren beste administratzaile bat
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua
+        imports:
+          attachment_error: Ezin izan da "%{title}" eranskina inportatu (%{error}).
+          hero_image_error: Ezin izan da heroiaren irudia inportatu (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Inportazio ezaugarri honek aukera ematen du JSON fitxategi esportatu batetik beste batzar bat sortzeko. Beste erakunde bateko edo erakunde bereko batzar bat esporta dezakezu. Inportatutako batzarrak barne hartuko ditu bere ezarpenak, osagaiak eta eranskinak (aukeratuz gero).
       assemblies:
         description:
           area_name: Arloa
@@ -299,9 +323,6 @@ eu:
           type: Mota
         show:
           title: Batzar honi buruz
-      assembly_members:
-        index:
-          members: Kideak
       content_blocks:
         children_assemblies:
           name: Batzarrak
@@ -341,11 +362,7 @@ eu:
             member_of: 'Honen kidea:'
       show:
         duration: Iraupena
-        private_space: Hau batzar pribatua da
         social_networks_title: 'Bisitatu batzarra:'
-    assembly_members:
-      index:
-        title: Kideak
     download_your_data:
       show:
         assemblies: Esportatu batzarrak
@@ -379,11 +396,12 @@ eu:
     open_data:
       help:
         assemblies:
-          announcement: Informazioa iragarpenaz (deia)
+          access_mode: Sarbide mota. Batzarra irekia, murriztua edo gardena bada.
           area: Batzarraren arloa
           assembly_type: Batzar mota
           closing_date: Zein datatan ixten den batzarra
           closing_date_reason: Zergatik itxi zen batzarra
+          component_settings: Multzoaren osagaien konfigurazioa
           composition: Batzarraren osaera
           created_at: Zein datatan sortu zen espazio hau
           created_by: Nork sortu du batzar hau

@@ -3,12 +3,19 @@ cs:
     attributes:
       token_csv:
         file: Soubor
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Volby
+        few: Voleb
+        many: Voleb
+        other: Volby
   decidim:
     admin:
       menu:
         elections_menu:
           basic_elections: Hlavní
-          election_census: Seznam obyvatel
+          election_census: Rejstřík obyvatel
           election_dashboard: Ovládací panel
           election_questions: Otázky
     components:
@@ -36,6 +43,7 @@ cs:
         census:
           edit:
             created_at: Vytvořeno v
+            identifier: Identifikátor uživatele
         dashboard:
           calendar:
             end_at: 'Čas ukončení:'
@@ -46,7 +54,7 @@ cs:
             start_election: Zahájit volbu
             title: Kalendář
           census:
-            title: Seznam obyvatel
+            title: Rejstřík obyvatel
           main:
             labels:
               calendar: Kalendář
@@ -64,13 +72,27 @@ cs:
           questions_table:
             answer: Odpovědi
             percentage: Procenta
+            total: Celkem
             votes: Hlasy
+            votes_count:
+              one: 1 hlas
+              few: "%{count} hlasy"
+              many: "%{count} hlasů"
+              other: "%{count} hlasů"
           results:
             not_started: Volba ještě nezačala.
+            per_question_waiting: Hlasování ještě není povoleno pro žádné otázky. Účastníci uvidí zprávu "Čekání na další otázku", dokud se neaktivujete alespoň jednou.
             publish_button: Publikovat výsledky
+            results_availability:
+              after_end: Všechny výsledky můžete publikovat po ukončení voleb. Výsledky zůstanou skryté, dokud je nezveřejníte ručně.
+              per_question: Musíte povolit hlasování a ručně publikovat výsledky pro každou otázku jednotlivě.
             start_question_button: Povolit hlasování
             title: Výsledky
           status:
+            allow_census_check_before_start: Povolit uživatelům zkontrolovat, zda mohou hlasovat před zahájením voleb
+            census: 'Registr obyvatel:'
+            results_availability:
+              real_time: Výsledky jsou dostupné v reálném čase
             title: Stav voleb
         elections:
           create:
@@ -113,6 +135,10 @@ cs:
           edit_questions:
             new_question: Nová otázka
             title: Otázky
+          form:
+            errors:
+              at_least_one_question: Je vyžadována alespoň jedna otázka.
+            form_description: Otázka musí mít alespoň dvě odpovědi, aby mohla jít k dalšímu kroku.
         statuses:
           publish_results:
             invalid: Při publikování výsledků došlo k chybě.
@@ -123,12 +149,29 @@ cs:
           publish: "%{user_name} zveřejnil volby %{resource_name} v %{space_name}"
           restore: "%{user_name} obnovil volby %{resource_name} v %{space_name}"
           update: "%{user_name} aktualizoval volby %{resource_name} v %{space_name}"
+      census_checks:
+        show:
+          title: Byl jste úspěšně ověřen
       censuses:
         internal_users:
           already_have_an_account?: Již máte účet?
           are_you_new?: Nový účastník?
           sign_in_description: Přihlaste se k hlasování v těchto volbách
+          sign_up_description: Vytvořte účet pro hlasování v této volbě
+        internal_users_form:
+          authorization_options_invalid: Bohužel, i když máte všechna požadovaná oprávnění, některé z nich pro tyto volby neplatí.
+          invalid: V těchto volbách nemáte oprávnění volit.
+          resume_with_method: Pokračovat v ověřování pomocí %{name}
+          verify_with_method: Ověřit pomocí %{name}
         token_csv:
+          example: |
+            e-mail;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Musí být soubor ve formátu CSV se dvěma sloupci, jedna s e-mailovou adresou a druhá s hodnotou tokenu, který uživatel bude muset představit, aby mohl hlasovat.
+            Musí být oddělena středníkem (;)
+          label: Neregistrovaní účastníci s tokeny (fixní)
           upload_file: Nahrát soubor
           upload_new_census: Nahrát CSV soubor
         token_csv_form:
@@ -146,6 +189,7 @@ cs:
             other: "%{count} voleb"
         elections:
           empty: Nejsou k dispozici žádné volby.
+          empty_filters: Neexistují žádné volby, které by odpovídaly vašim filtrům.
         filters:
           all: Vše
           state: Stav
@@ -161,13 +205,16 @@ cs:
         questions:
           title: Volební otázky
         show:
+          check_census_button: Zkontrolujte, zda mohu hlasovat
           vote_button: Hlasovat
         vote_results:
+          subtitle:
+            per_question: Výsledky jsou k dispozici na jednu otázku. Výsledky pro každou otázku můžete vidět po povolení hlasování a po zveřejnění výsledků.
           title: Výsledky
       models:
         election:
           fields:
-            census: Seznam obyvatel
+            census: Rejstřík obyvatel
             end_at: Čas ukončení
             start_at: Čas zahájení
             status: Stav
@@ -175,11 +222,14 @@ cs:
       per_question_votes:
         waiting:
           edit_vote: Upravte svůj hlas
+          exit_button: Odejít z čekací místnosti
+          title: Čekání na další otázku
       status:
         active: Aktivní
         finished: Dokončeno
         not_started: Nezahájeno
         ongoing: Probíhající
+        published_results: Zveřejněné výsledky
         scheduled: Naplánováno
         unpublished: Nezveřejněno
         voting_enabled: Probíhá hlasování
@@ -189,9 +239,11 @@ cs:
           success: Váš hlas byl úspěšně odeslán.
         check_census:
           access: Přístup
+          election_not_open: Volby ještě nejsou otevřeny. Zkontrolujte prosím datum a zkuste to znovu.
           failed: Vaši identitu nelze ověřit. Zkontrolujte zadané informace a zkuste to znovu.
           form_title: Ověřte svou identitu
         confirm:
+          edit_vote: Upravte svůj hlas
           not_answered: Na tuto otázku jste neodpověděl.
           title: Potvrďte svůj hlas
         not_authorized: V těchto volbách nemáte oprávnění volit.
@@ -203,4 +255,4 @@ cs:
   layouts:
     decidim:
       election_votes_header:
-        exit: Zavřít
+        exit: Zavřít‏

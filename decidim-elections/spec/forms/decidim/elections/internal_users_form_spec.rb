@@ -18,6 +18,10 @@ module Decidim
           {}
         end
 
+        before do
+          organization.update!(available_authorizations: %w(dummy_authorization_handler))
+        end
+
         subject { described_class.new.with_context(election:, current_user: user) }
 
         it { is_expected.to be_valid }
@@ -77,6 +81,9 @@ module Decidim
               it "adds an error for the base" do
                 subject.validate
                 expect(subject.errors[:base]).to include(I18n.t("decidim.elections.censuses.internal_users_form.invalid"))
+                expect(subject.authorization_status).to be_a(Decidim::ActionAuthorizer::AuthorizationStatusCollection)
+                expect(subject.authorization_status).not_to be_ok
+                expect(subject.authorization_status.statuses.first.data).to eq({ :extra_explanation => [{ :key => "extra_explanation.postal_codes", :params => { :scope => "decidim.verifications.dummy_authorization", :count => 1, :postal_codes => "08002" } }] })
               end
 
               context "when the user does not match the options" do

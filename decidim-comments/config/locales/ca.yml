@@ -67,9 +67,6 @@ ca:
         alignment:
           against: En contra
           in_favor: A favor
-        answers:
-          one: "%{count} resposta"
-          other: "%{count} respuestas"
         cancel_reply: Cancel·lar resposta
         comment_label: Comentari %{comment_id}
         comment_label_reply: Comentari %{comment_id} (respon al comentari %{parent_comment_id})
@@ -83,7 +80,11 @@ ca:
         hide_replies:
           one: Amagar resposta
           other: Amagar %{count} respostes
+        load_replies: Carregar les respostes
         moderated_at: Comentari moderat el %{date}
+        replies_count:
+          one: "%{count} respuesta"
+          other: "%{count} respostes"
         reply: Respondre
         report:
           action: Denúncia
@@ -115,7 +116,9 @@ ca:
         blocked_comments_warning: Els comentaris estan deshabilitats en aquests moments, només les administradores poden respondre o publicar-ne de nous.
         comment_details_title: Detalls del comentari
         in_favor: A favor
+        load_more_comments: Carregar més comentaris
         loading: Carregant els comentaris ...
+        no_comments_yet: Encara no hi ha comentaris
         single_comment_warning: <a href="%{url}">Mostra tots els comentaris</a>
         single_comment_warning_title: Estàs veient un sol comentari
         title:

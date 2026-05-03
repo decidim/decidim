@@ -22,7 +22,7 @@ module Decidim
             title:,
             body:,
             draft?: draft,
-            draft: draft,
+            draft:,
             accepting_suggestions:,
             coauthorships: [Decidim::Coauthorship.new(author: organization)]
           )
@@ -68,11 +68,11 @@ module Decidim
               .with(last_version, user, updated_keys, {
                       extra: {
                         document_id: document.id,
-                        title: title,
+                        title:,
                         version_number: 1
                       },
                       resource: {
-                        title: title
+                        title:
                       },
                       participatory_space: {
                         title: document.participatory_space.title
@@ -116,11 +116,11 @@ module Decidim
               .with(Decidim::CollaborativeTexts::Version, user, { document:, body: document.body, draft: true }, {
                       extra: {
                         document_id: document.id,
-                        title: title,
+                        title:,
                         version_number: 2
                       },
                       resource: {
-                        title: title
+                        title:
                       },
                       participatory_space: {
                         title: document.participatory_space.title

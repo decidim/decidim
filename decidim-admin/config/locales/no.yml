@@ -38,7 +38,6 @@
         default_locale: Standardspråk
         description: Beskrivelse
         enable_omnipresent_banner: Vis overstyrende banner
-        enable_participatory_space_filters: Aktive filtere for bruk av medvirkningsrommene
         facebook_handler: Facebook brukernavn
         favicon: Ikon
         force_authentication: Tving godkjenning
@@ -135,12 +134,10 @@
         browse: Bla gjennom
         configure: Konfigurer
         export: Eksport
-        export-selection: Eksporter valg
+        export_all: Eksporter alt
         import: Importer
         newsletter:
           new: Nytt nyhetsbrev
-        participatory_space_private_user:
-          new: Nytt deltakerområde for privat bruker
         per_page: Per side
         share: Del
         user:
@@ -181,8 +178,6 @@
         edit:
           title: Rediger mappe
           update: Oppdater
-        index:
-          attachment_collections_title: Vedleggsmapper
         new:
           create: Opprett
           title: Ny mappe
@@ -198,8 +193,6 @@
         edit:
           title: Rediger vedlegg
           update: Oppdater
-        index:
-          attachments_title: Vedlegg
         new:
           create: Opprett vedlegg
           title: Nytt vedlegg
@@ -245,7 +238,6 @@
           title: 'Legg til komponent: %{name}'
         publish:
           success: Komponenten har blitt publisert.
-        title: Komponenter
         unpublish:
           success: Komponenten har blitt avpublisert.
         update:
@@ -256,7 +248,6 @@
         'false': 'Nei'
         managed_user_name: Håndtert bruker
         solved: Løst
-        title: Verifiseringskonflikter
         transfer:
           email: E-post
           name: Navn
@@ -314,17 +305,6 @@
           values:
             'false': Offisialisert
             'true': Ikke offisialisert
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitasjon godtatt
-            values:
-              'false': Ikke akseptert
-              'true': Godkjent
-          user_invitation_sent_at_not_null:
-            label: Invitasjon sendt
-            values:
-              'false': Ikke sendt
-              'true': Sendt
         private_space_eq:
           label: Privat
           values:
@@ -385,7 +365,6 @@
           impersonate: Etterligne
           impersonate_existing_managed_user: Administrer deltaker "%{name}"
           impersonate_existing_user: Administrer deltaker "%{name}"
-          impersonate_new_managed_user: Administrer ny deltaker
       imports:
         and: og
         data_errors:
@@ -428,8 +407,11 @@
         promotions:
           new:
             explanation: Styrte deltakere kan bli promotert til standard deltakere. Dette betyr at de vil bli invitert til applikasjonen og du vil ikke kunne administrere dem lenger. De inviterte deltakerene vil motta en email så de kan akseptere invitasjonen.
-            new_managed_user_promotion: Ny administrert deltaker forfremmelse
             promote: Promoter
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Last opp din CSV fil
       menu:
         admin_log: Admin aktivitet logg
         admins: Adminer
@@ -484,8 +466,6 @@
             sent_to: Send til
             subject: Emne
           name: Nyhetsbrev
-        participatory_space_private_user:
-          name: Deltakerområdets private deltaker
         scope:
           fields:
             name: Navn
@@ -560,7 +540,6 @@
           title: Mal for nyhetsbrev
           use_template: Bruk denne malen
         show:
-          preview: 'Forhåndsvis mal: %{template_name}'
           use_template: Bruk denne malen
       newsletters:
         create:
@@ -603,7 +582,6 @@
           title: Velg mottakere som skal leveres
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
         show:
-          preview: Forhåndsvis
           select_recipients_to_deliver: Velg mottakere som skal leveres
           subject: Emne
         update:
@@ -649,29 +627,6 @@
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
           success: Organisasjonen ble oppdatert.
-      participatory_space_private_users:
-        create:
-          error: Det oppstod et problem med å legge til en privat deltaker for dette deltakerområdet.
-          success: Deltakerområde privat deltaker tilgang opprettet.
-        destroy:
-          error: Det oppstod et problem med å slette en privat deltaker for dette deltakerområdet.
-          success: Deltakerområde privat deltaker tilgang ødelagt.
-        index:
-          import_via_csv: Importer fra CSV
-          title: Deltakerområdets private deltaker
-        new:
-          create: Opprett
-          title: Ny deltaker område privat deltaker.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Last opp din CSV fil
-          destroy:
-            button: Slett alle private deltakere
-            empty: Du har ingen private deltakere.
-            explanation: Du har %{count} private deltakere.
-            title: Slett private deltakere
-          upload: Last opp
       reminders:
         create:
           error: Det oppsto et problem med å opprette påminnelser.
@@ -734,7 +689,6 @@
           title: Nytt emne
         update:
           error: Det oppstod et problem med å oppdatere dette emnet.
-          success: Emnet ble oppdatert
       static_pages:
         create:
           error: Det oppstod et problem med å opprette en ny side.
@@ -755,19 +709,11 @@
         update:
           error: Det oppstod et problem med å oppdatere denne siden.
       titles:
-        admin_log: Admin logg
-        area_types: Områdetyper
         areas: Områder
         authorization_workflows: Verifiseringsmetoder
-        dashboard: Skrivebord
-        impersonatable_users: Håndterbare deltakere
-        impersonations: Deltakernes administrasjon
         menu: Meny
         panel: Administrator
-        participants: Deltakere
-        scope_types: Tematyper
         scopes: Tema
-        users: Administratorer
       users:
         create:
           error: Det oppstod et problem med å invitere denne administratoren.

@@ -2,19 +2,17 @@
 
 module Decidim
   module Budgets
-    class BudgetsMutationType < Decidim::Api::Types::BaseObject
+    class BudgetsMutationType < Decidim::Core::ComponentType
       graphql_name "BudgetsMutation"
       description "Budgets of a component."
 
-      field :budget, type: Decidim::Budgets::BudgetMutationType, description: "A budget mutation" do
-        argument :id, GraphQL::Types::ID, description: "id of the budget", required: true
+      field :budget, type: Decidim::Budgets::BudgetMutationType, description: "Mutates a budget", null: true do
+        argument :id, GraphQL::Types::ID, "The ID of the budget", required: true
       end
       field :create_budget, mutation: Decidim::Budgets::CreateBudgetType, description: "creates a budget"
-      field :delete_budget, mutation: Decidim::Budgets::DeleteBudgetType, description: "delete a budget"
-      field :update_budget, mutation: Decidim::Budgets::UpdateBudgetType, description: "update a budget"
 
-      def budget(**args)
-        Budget.where(component: object).find_by(id: args[:id])
+      def budget(id:)
+        Budget.where(component: object).find(id)
       end
     end
   end

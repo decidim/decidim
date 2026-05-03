@@ -70,7 +70,6 @@ pl:
             invalid: Podczas tworzenia tego projektu wystąpił błąd.
             success: Projekt został utworzony.
           edit:
-            title: Edytuj projekt
             update: Aktualizuj
           index:
             actions: Działania
@@ -90,7 +89,6 @@ pl:
             update_budget_button: Aktualizuj budżet projektu
           new:
             create: Utwórz
-            title: Nowy projekt
           update:
             invalid: Podczas aktualizacji tego projektu wystąpił błąd.
             success: Zaktualizowano projekt.
@@ -106,7 +104,6 @@ pl:
           new:
             create: Importuj propozycje do projektów
             default_budget: Domyślny budżet
-            import_all_accepted_proposals: Importuj wszystkie zaakceptowane propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów do zaimportowania propozycji jako projektów.
             origin_component_id: Źródłowy komponent
             select_component: Wybierz komponent
@@ -161,7 +158,6 @@ pl:
             total_budget: Całkowity budżet
         project:
           fields:
-            id: Identyfikator
             map: Mapa
             title: Tytuł
       order:

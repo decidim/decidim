@@ -47,7 +47,7 @@ Decidim.register_component(:my_component) do |component|
   # along with its hooks, so you can decide to halt the transaction by raising
   # an exception.
   #
-  # Valid hook names are :create and :destroy.
+  # Please refer to the section below to understand the component hooks
   component.on(:create) do |component|
     MyComponent::DoSomething.with(component)
   end
@@ -153,6 +153,72 @@ Each setting should have one or more translation texts related for the admin zon
 * `decidim.components.[component_name].settings.[global|step].[attribute_name]`: Admin label for the setting.
 * `decidim.components.[component_name].settings.[global|step].[attribute_name]_help`: Additional text with help for the setting use.
 * `decidim.components.[component_name].settings.[global|step].[attribute_name]_readonly`: Additional text for the setting when it is readonly.
+
+
+== Life Cycle
+
+The following hooks are being fired when an action is being done in the admin web interface:
+
+- `:create` - A new component is being created
+- `:publish` - A component is being published
+- `:unpublish` - A component is being unpublished
+- `:update` - A component is being updated
+- `:permission_update` - The component permissions are being changed
+- `:duplicate` - A component is being copied
+
+[source,ruby]
+----
+# :my_component is the unique name of the component that will be globally registered.
+Decidim.register_component(:my_component) do |my_component|
+  my_component.on(:create) do |component|
+    # In the officially provided libraries we are using this hook to create additional required resources, like the default proposal states.
+    MyComponent::DoSomething.with(component)
+  end
+
+  my_component.on(:publish) do |component|
+    # In the officially provided libraries we are using this hook to add items to the search index
+    MyComponent::DoSomething.with(component)
+  end
+
+  my_component.on(:unpublish) do |component|
+    # In the officially provided libraries we are using this hook to remove items from the search index
+    MyComponent::DoSomething.with(component)
+  end
+  my_component.on(:update) do |component|
+    MyComponent::DoSomething.with(component)
+  end
+
+  my_component.on(:permission_update) do |component|
+    MyComponent::DoSomething.with(component)
+  end
+
+  my_component.on(:duplicate) do |new_component, old_component|
+    MyComponent::DoSomething.with(new_component)
+    MyComponent::DoSomethingElse.with(old_component)
+  end
+end
+----
+
+In some cases, you could define your own component hooks like the following:
+
+[source,ruby]
+----
+# :my_component is the unique name of the component that will be globally registered.
+Decidim.register_component(:my_component) do |my_component|
+  my_component.on(:my_action) do |params|
+    MyComponent::DoSomething.with_the(params)
+  end
+end
+----
+
+Then you could call it in your codebase as the following:
+
+[source,ruby]
+----
+# ... Some code that you may have
+@my_resource.component.run_hooks(:my_action, params)
+# ... Some other code you may need
+----
 
 == Fixtures
 

@@ -1,0 +1,22 @@
+<div data-load-more-comments-wrapper
+     data-controller="load-more-comments"
+     data-load-more-comments-url-value="<%= decidim_comments.comments_path %>"
+     data-load-more-comments-commentable-gid-value="<%= commentable.to_signed_global_id.to_s %>"
+     data-load-more-comments-order-value="<%= order %>"
+     data-load-more-comments-offset-value="<%= offset %>"
+     data-load-more-comments-per-page-value="<%= Decidim::Comments::SortedComments::DEFAULT_COMMENTS_LIMIT %>"
+     <% if local_assigns[:alignment].present? %>
+     data-load-more-comments-alignment-value="<%= alignment %>"
+     <% end %>
+     class="load-more-comments">
+  <button type="button"
+          data-load-more-comments-target="button"
+          data-action="click->load-more-comments#loadMore"
+          class="button button__xs button__text-secondary">
+    <span class="font-normal"><%= t("decidim.components.comments.load_more_comments") %></span>
+    <%= icon "arrow-down-s-line" %>
+  </button>
+  <span data-load-more-comments-target="spinner" class="hidden">
+    <%= icon "loader-3-line", class: "animate-spin fill-secondary" %>
+  </span>
+</div>

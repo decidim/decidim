@@ -3,7 +3,7 @@ on:
     inputs:
       ruby_version:
         description: 'Ruby Version'
-        default: "3.3.4"
+        default: "3.4.7"
         required: false
         type: string
       working-directory:
@@ -44,13 +44,14 @@ jobs:
     name: Test
     runs-on: ubuntu-22.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
       DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
       DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
+      PARALLEL_TEST_PROCESSORS: 3
     services:
       validator:
         image: ghcr.io/validator/validator:latest
@@ -66,14 +67,18 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 1
+      - run: |
+          sudo apt-get update && sudo apt-get install libvips libvips-tools
+        name: Install libvips
+        shell: "bash"
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
           bundler-cache: true
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ inputs.node_version }}
           cache: 'npm'
@@ -125,18 +130,18 @@ jobs:
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
-      - uses: qltysh/qlty-action/coverage@v1
+      - uses: qltysh/qlty-action/coverage@v2
         with:
           token: ${{secrets.QLTY_COVERAGE_TOKEN}}
           files: coverage/coverage.xml
           verbose: true
           add-prefix: ${{ env.DECIDIM_MODULE }}
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v6
         name: Upload coverage
         with:
           name: ${{ inputs.working-directory }}
           flags: ${{ inputs.working-directory }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: Screenshots of run ${{ github.run_id }}

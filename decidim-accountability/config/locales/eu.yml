@@ -253,7 +253,6 @@ eu:
           fields:
             created_at: Noiz sortua
             end_date: Amaiera-data
-            id: ID
             progress: Aurrerapena
             start_date: Hasiera-data
             status: Egoera
@@ -271,7 +270,7 @@ eu:
             one: Emaitza 1
             other: "%{count} emaitza"
         home_header:
-          global_status: Exekuzio-egoera orokorra
+          global_status: Helburuen betetze-maila
         milestones:
           title: Mugarriak
         no_results: Ez dago proiekturik
@@ -295,6 +294,7 @@ eu:
       accountability:
         actions:
           comment: Iruzkina
+          vote_comment: Bozkatu iruzkina
         name: Jarraipena
         settings:
           global:

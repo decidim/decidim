@@ -16,7 +16,7 @@ module Decidim
       include Paginable
       include Decidim::AttachmentsHelper
 
-      helper_method :proposal_presenter, :form_presenter, :tab_panel_items
+      helper_method :proposal_presenter, :form_presenter, :tab_panel_items, :withdrawn_proposals?
 
       before_action :authenticate_user!, only: [:new, :create]
       before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
@@ -79,7 +79,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -101,7 +101,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
-            render :edit_draft, status: :unprocessable_entity
+            render :edit_draft, status: :unprocessable_content
           end
         end
       end
@@ -124,7 +124,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.update_draft.error", scope: "decidim")
-            render :edit_draft, status: :unprocessable_entity
+            render :edit_draft, status: :unprocessable_content
           end
         end
       end
@@ -140,7 +140,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.destroy_draft.error", scope: "decidim")
-            render :edit_draft, status: :unprocessable_entity
+            render :edit_draft, status: :unprocessable_content
           end
         end
       end
@@ -161,7 +161,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            render :edit, status: :unprocessable_entity
+            render :edit, status: :unprocessable_content
           end
         end
       end
@@ -233,6 +233,12 @@ module Decidim
         @proposal_presenter ||= present(@proposal)
       end
 
+      def withdrawn_proposals?
+        return @withdrawn_proposals if defined?(@withdrawn_proposals)
+
+        @withdrawn_proposals = Proposal.where(component: current_component).published.not_hidden.withdrawn.exists?
+      end
+
       def form_proposal_params
         form(ProposalForm).from_params(params)
       end
@@ -290,22 +296,26 @@ module Decidim
         @default_view_mode ||= current_component.settings.attachments_allowed? ? "grid" : "list"
       end
 
-      def add_breadcrumb_item
+      def add_parent_breadcrumb_item
         return {} if proposal.blank?
 
-        if proposal.emendation?
-          {
-            label: translated_attribute(proposal.amendable.title),
-            url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal.amendable),
-            active: false
-          }
-        else
-          {
-            label: translated_attribute(proposal.title),
-            url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal),
-            active: false
-          }
-        end
+        object = proposal.emendation? ? proposal.amendable : proposal
+        {
+          label: translated_attribute(object.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(object),
+          active: false
+        }
+      end
+
+      def add_breadcrumb_item
+        return {} if proposal.blank?
+        return {} if proposal.amendable?
+
+        {
+          label: I18n.t("decidim.amendments.name"),
+          url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal),
+          active: false
+        }
       end
     end
   end

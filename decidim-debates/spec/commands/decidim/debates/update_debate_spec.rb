@@ -125,7 +125,6 @@ describe Decidim::Debates::UpdateDebate do
       expect do
         subject.call
         debate.reload
-        pp form.errors
       end.to change(debate.attachments, :count).by(2)
 
       debate_attachments = debate.attachments

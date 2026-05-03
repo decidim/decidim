@@ -35,4 +35,5 @@ document.addEventListener("turbo:load", () => {
   });
 
   setManualStart();
+  toggleManualStart();
 });

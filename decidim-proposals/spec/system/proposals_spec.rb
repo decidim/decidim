@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Proposals" do
   include ActionView::Helpers::TextHelper
+
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -89,11 +90,6 @@ describe "Proposals" do
       end
 
       it "shows the author as official" do
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-          expect(page).to have_content(translated(official_proposal.title))
-        end
-
         expect(page).to have_content("Official proposal")
       end
 
@@ -650,6 +646,54 @@ describe "Proposals" do
       it_behaves_like "ordering proposals by selected option", "With more authors" do
         let(:first_proposal) { most_authored_proposal }
         let(:last_proposal) { less_authored_proposal }
+      end
+    end
+
+    context "when there are no proposals with coauthors" do
+      let!(:proposals) { create_list(:proposal, 3, component:) }
+
+      before do
+        visit_component
+      end
+
+      it "does not show 'with_more_authors' ordering option" do
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          expect(page).to have_no_content("With more authors")
+        end
+      end
+    end
+
+    context "when there are no proposals with comments" do
+      let!(:proposals) { create_list(:proposal, 3, component:) }
+
+      before do
+        visit_component
+      end
+
+      it "does not show 'most_commented' ordering option" do
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          expect(page).to have_no_content("Most commented")
+        end
+      end
+    end
+
+    context "when there are no proposals with likes" do
+      let!(:proposals) { create_list(:proposal, 3, component:) }
+
+      before do
+        visit_component
+      end
+
+      it "does not show 'most_liked' ordering option" do
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          expect(page).to have_no_content("Most liked")
+        end
       end
     end
 

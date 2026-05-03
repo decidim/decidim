@@ -117,6 +117,11 @@ FactoryBot.define do
       Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name }
     end
 
+    # we do not want machine translation here
+    short_name do
+      Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name.gsub(/\s+/, "")[0, 12] }
+    end
+
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
     twitter_handler { Faker::Hipster.word }
@@ -150,7 +155,6 @@ FactoryBot.define do
       }
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
-    enable_participatory_space_filters { true }
     content_security_policy do
       {
         "default-src" => "localhost:* #{host}:*",
@@ -204,6 +208,14 @@ FactoryBot.define do
     password_updated_at { Time.current }
     previous_passwords { [] }
     extended_data { {} }
+
+    trait :malicious do
+      after :create do |user|
+        # rubocop:disable Rails/SkipsModelValidations
+        user.update_column(:name, "user_#{user.id}\n<script>alert('name')</script>")
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+    end
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -277,12 +289,12 @@ FactoryBot.define do
     value { 1 }
   end
 
-  factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+  factory :member, class: "Decidim::ParticipatorySpace::Member" do
     transient do
       skip_injection { false }
     end
     user
-    privatable_to { create(:participatory_process, organization: user.organization, skip_injection:) }
+    participatory_space { create(:participatory_process, organization: user.organization, skip_injection:) }
 
     role { generate_localized_title(:role, skip_injection:) }
 
@@ -295,12 +307,13 @@ FactoryBot.define do
     end
   end
 
-  factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+  factory :assembly_member, class: "Decidim::ParticipatorySpace::Member" do
     transient do
       skip_injection { false }
+      organization { create(:organization, skip_injection:) }
     end
-    user
-    privatable_to { create(:assembly, organization: user.organization, skip_injection:) }
+    user { create(:user, :confirmed, organization:, skip_injection:) }
+    participatory_space { create(:assembly, organization:, skip_injection:) }
   end
 
   factory :identity, class: "Decidim::Identity" do
@@ -624,8 +637,11 @@ FactoryBot.define do
   end
 
   factory :taxonomization, class: "Decidim::Taxonomization" do
+    transient do
+      skip_injection { false }
+    end
     taxonomy { association(:taxonomy, :with_parent) }
-    taxonomizable { association(:dummy_resource) }
+    taxonomizable { association(:dummy_resource, organization: taxonomy.organization, skip_injection:) }
   end
 
   factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
@@ -645,7 +661,7 @@ FactoryBot.define do
 
   factory :taxonomy_filter_item, class: "Decidim::TaxonomyFilterItem" do
     taxonomy_filter
-    taxonomy_item { association(:taxonomy, parent: taxonomy_filter.root_taxonomy) }
+    taxonomy_item { association(:taxonomy, organization: taxonomy_filter.root_taxonomy.organization, parent: taxonomy_filter.root_taxonomy) }
   end
 
   factory :coauthorship, class: "Decidim::Coauthorship" do
@@ -770,8 +786,8 @@ FactoryBot.define do
       skip_injection { false }
     end
 
-    originator { build(:user, skip_injection:) }
-    interlocutors { [build(:user, skip_injection:)] }
+    originator { build(:user, organization: user.organization, skip_injection:) }
+    interlocutors { [build(:user, organization: originator.organization, skip_injection:)] }
     body { Faker::Lorem.sentence }
     user
 
@@ -816,8 +832,8 @@ FactoryBot.define do
 
     user { create(:user) }
     organization { user.organization }
-    user_id { user.id }
-    user_type { user.class.name }
+    user_id { user.try(:id) }
+    user_type { user.try(:class).try(:name) }
     participatory_space { build(:participatory_process, organization:, skip_injection:) }
     component { build(:component, participatory_space:, skip_injection:) }
     resource { build(:dummy_resource, component:, skip_injection:) }
@@ -872,6 +888,18 @@ FactoryBot.define do
     scopes { "profile" }
   end
 
+  factory :oauth_access_grant, class: "Doorkeeper::AccessGrant" do
+    transient do
+      skip_injection { false }
+      organization { create(:organization) }
+    end
+    resource_owner_id { create(:user, organization: application.organization, skip_injection:).id }
+    application { create(:oauth_application, organization:, skip_injection:) }
+    redirect_uri { "https://app.com/callback" }
+    expires_in { 100 }
+    scopes { "public write" }
+  end
+
   factory :private_export, class: "Decidim::PrivateExport" do
     transient do
       skip_injection { false }
@@ -922,9 +950,10 @@ FactoryBot.define do
   factory :amendment, class: "Decidim::Amendment" do
     transient do
       skip_injection { false }
+      organization { create(:organization, skip_injection:) }
     end
-    amendable { build(:dummy_resource, skip_injection:) }
-    emendation { build(:dummy_resource, skip_injection:) }
+    amendable { build(:dummy_resource, organization:, skip_injection:) }
+    emendation { build(:dummy_resource, organization:, skip_injection:) }
     amender { emendation.try(:creator_author) || emendation.try(:author) }
     state { "evaluating" }
 
@@ -1022,7 +1051,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     reminder { create(:reminder, skip_injection:) }
-    remindable { build(:dummy_resource, skip_injection:) }
+    remindable { build(:dummy_resource, organization: reminder.user.organization, skip_injection:) }
 
     Decidim::ReminderRecord::STATES.keys.each do |defined_state|
       trait defined_state do

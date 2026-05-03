@@ -13,21 +13,29 @@ module Decidim
       before_action :set_commentable, except: [:destroy, :update]
       before_action :ensure_commentable!, except: [:destroy, :update]
 
-      helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment
+      helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment, :load_more?, :comments_offset, :alignment
 
       def index
         enforce_permission_to(:read, :comment, commentable:)
 
-        @comments = SortedComments.for(
-          commentable,
-          order_by: order,
-          after: params.fetch(:after, 0).to_i
-        )
+        if commentable.is_a?(Decidim::Comments::Comment)
+          @comments = commentable.descendants.includes(:author, :up_votes, :down_votes).to_a
+          @has_more_comments = false
+        else
+          @sorted_comments_query = SortedComments.new(
+            commentable,
+            order_by: order,
+            offset: comments_offset,
+            alignment:
+          )
+          @comments = @sorted_comments_query.query
+          @has_more_comments = @sorted_comments_query.has_more?
+        end
         @comments = @comments.reject do |comment|
           next if comment.depth < 1
           next if !comment.deleted? && !comment.hidden?
 
-          comment.commentable.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.blank?
+          comment.commentable.replies.blank?
         end
         @comments_count = commentable.comments_count
 
@@ -35,6 +43,8 @@ module Decidim
           format.js do
             if reload?
               render :reload
+            elsif load_more?
+              render :load_more_comments
             else
               render :index
             end
@@ -187,8 +197,23 @@ module Decidim
         params.fetch(:reload, 0).to_i == 1
       end
 
+      def load_more?
+        params.fetch(:load_more, 0).to_i == 1
+      end
+
+      def comments_offset
+        params.fetch(:offset, 0).to_i
+      end
+
       def root_depth
         params.fetch(:root_depth, 0).to_i
+      end
+
+      def alignment
+        value = params.fetch(:alignment, nil)
+        return nil if value.blank?
+
+        value.to_i
       end
 
       def commentable_path

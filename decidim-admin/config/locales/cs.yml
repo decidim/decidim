@@ -33,9 +33,14 @@ cs:
       help_section:
         content: Obsah
       id: ID
+      member:
+        email: E-mail
+        name: Název
+      member_csv_import:
+        file: Soubor
       newsletter:
         body: Tělo
-        send_to_all_users: Odeslat všem uživatelům
+        send_to_all_users: Poslat všem účastníkům
         send_to_followers: Odeslat sledujícím
         send_to_participants: Odeslat účastníkům
         subject: Předmět
@@ -50,7 +55,6 @@ cs:
         description: Popis
         enable_machine_translations: Povolit strojové překlady
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
-        enable_participatory_space_filters: Povolit filtry participačního prostoru
         facebook_handler: Facebook handler
         favicon: Ikona
         force_authentication: Vynutit ověření
@@ -91,11 +95,6 @@ cs:
         welcome_notification_body: Tělo uvítacího oznámení
         welcome_notification_subject: Předmět uvítacího oznámení
         youtube_handler: YouTube handler
-      participatory_space_private_user:
-        email: E-mail
-        name: Název
-      participatory_space_private_user_csv_import:
-        file: Soubor
       scope:
         code: Kód
         name: Název
@@ -125,10 +124,17 @@ cs:
         show_in_footer: Zobrazit v zápatí
         title: Titul
         weight: Pozice v řazení
+      taxonomy:
+        item_name: Název položky
+        parent_id: Nadřazený
       user_group_csv_verification:
         file: Soubor
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
         newsletter:
           attributes:
             base:
@@ -137,10 +143,6 @@ cs:
           attributes:
             official_img_footer:
               allowed_file_content_types: Neplatný soubor s obrázkem
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -186,14 +188,15 @@ cs:
           </ul>
           Pokud změníte názor, můžete ji obnovit později.
         export: Exportovat
-        export-selection: Exportovat výběr
+        export_all: Exportovat vše
+        export_selection: Exportovat výběr
         import: Importovat
+        member:
+          new: Nový člen
         menu_hidden: Skrýt v menu
         moderate: Spravovat moderace
         newsletter:
           new: Nový zpravodaj
-        participatory_space_private_user:
-          new: Nový soukromý uživatel participačního prostoru
         per_page: Na stránku
         permissions: Správa oprávnění
         restore: Obnovit
@@ -204,6 +207,9 @@ cs:
         user:
           new: Nový administrátor
         view_deleted_components: Zobrazit odstraněné komponenty
+      admin_terms:
+        show:
+          title: Administrátorské podmínky použití
       admin_terms_of_service:
         accept:
           error: Při přijímání podmínek služby administrátora došlo k chybě.
@@ -217,7 +223,6 @@ cs:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
           callout: Věnujte prosím chvíli a zkontrolujte podmínky používání administrátora. V opačném případě nebudete moci platformu spravovat.
           cta: Zkontrolovat je nyní.
-        title: Administrátorské podmínky použití
       area_types:
         create:
           error: Při vytváření nového typu oblasti došlo k chybě.
@@ -227,6 +232,8 @@ cs:
         edit:
           title: Upravit typ oblasti
           update: Aktualizace
+        index:
+          title: Typy oblasti
         new:
           create: Vytvořit typ oblasti
           title: Nový typ oblasti
@@ -244,6 +251,8 @@ cs:
         edit:
           title: Upravit oblast
           update: Aktualizace
+        index:
+          title: Oblasti
         new:
           create: Vytvořit oblast
           title: Nová oblast
@@ -261,7 +270,7 @@ cs:
           title: Upravit složku
           update: Aktualizace
         index:
-          attachment_collections_title: Složky přílohy
+          title: Složky příloh
         new:
           create: Vytvořit
           title: Nová složka
@@ -278,7 +287,7 @@ cs:
           title: Upravit přílohu
           update: Aktualizace
         index:
-          attachments_title: Přílohy
+          title: Přílohy
         new:
           create: Vytvořit přílohu
           title: Nová příloha
@@ -287,6 +296,9 @@ cs:
           success: Příloha byla úspěšně aktualizována.
       attachments_privacy_warning:
         message: Buďte opatrní při práci s přílohami v soukromém prostoru. Každý účastník by mohl sdílet tento dokument s ostatními.
+      authorization_workflows:
+        index:
+          title: Metody ověřování
       autocomplete:
         no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte alespoň tři znaky pro vyhledávání.
@@ -338,7 +350,6 @@ cs:
           title: 'Přidat komponentu: %{name}'
         publish:
           success: Komponenta byla úspěšně publikována.
-        title: Komponenty
         unpublish:
           success: Komponenta byla úspěšně zrušena.
         update:
@@ -355,7 +366,6 @@ cs:
           text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
-        title: Konflikty ověření
         transfer:
           email: E-mail
           error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
@@ -390,12 +400,13 @@ cs:
           title: Čekající moderování
         show:
           dropdown: Rozbalovací nabídka
+          title: Ovládací panel
           view_more_logs: Zobrazit další protokoly
       domain_allowlist:
         form:
           domain_too_short: Doména je příliš krátká
         update:
-          error: Aktualizace seznamu povolených externích domén se nezdařila
+          error: Nepodařilo se aktualizovat seznam povolených externích domén.
           success: Seznam povolených externích domén byl úspěšně aktualizován.
       exports:
         export_as: "%{name} jako %{export_format}"
@@ -417,6 +428,17 @@ cs:
           values:
             'false': 'Ne'
             'true': 'Ano'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Pozvánka přijata
+            values:
+              'false': Nepřijato
+              'true': Přijato
+          user_invitation_sent_at_not_null:
+            label: Pozvánka odeslána
+            values:
+              'false': Neodesláno
+              'true': Odesláno
         moderated_users:
           reports_reason_eq:
             label: Důvod hlášení
@@ -432,17 +454,6 @@ cs:
           values:
             'false': Ověřeno
             'true': Neověřeno
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Pozvánka přijata
-            values:
-              'false': Nepřijato
-              'true': Přijato
-          user_invitation_sent_at_not_null:
-            label: Pozvánka odeslána
-            values:
-              'false': Neodesláno
-              'true': Odesláno
         private_space_eq:
           label: Soukromé
           values:
@@ -458,6 +469,9 @@ cs:
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky
           report_count_eq: Počet nahlášení
+          reported_id_string_or_reported_content_cont: Hledat %{collection} podle nahlášeného Id nebo obsahu
+          title_cont: Hledat %{collection} podle názvu
+          user_name_or_user_nickname_or_user_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky
         state_eq:
           label: Stav
           values:
@@ -477,12 +491,14 @@ cs:
           import_csv:
             explanation: 'Pokyny pro soubor:'
             message_1: CSV soubory jsou podporovány
-            message_2: ".csv soubor s e-maily"
+            message_2: ".csv soubor s daty e-mailu"
       help_sections:
         error: Při aktualizaci sekcí nápovědy došlo k chybě.
         form:
           save: Uložit
         success: Sekce nápovědy byly úspěšně aktualizovány.
+        update:
+          title: Sekce nápovědy
       impersonatable_users:
         index:
           filter:
@@ -514,7 +530,6 @@ cs:
           impersonate: V zastoupení
           impersonate_existing_managed_user: Spravovat účastníka "%{name}"
           impersonate_existing_user: Spravovat účastníka "%{name}"
-          impersonate_new_managed_user: Spravovat nového účastníka
       imports:
         and: a
         data_errors:
@@ -564,6 +579,7 @@ cs:
       logs:
         filters:
           participatory_space: Najít participační prostor
+          text: Hledat podle e-mailu, jména nebo přezdívky
           user: Uživatel
         logs_list:
           no_logs_yet: Zatím nejsou žádné logy.
@@ -577,8 +593,54 @@ cs:
         promotions:
           new:
             explanation: Spravovaní uživatelé mohou být povýšeni na standardní uživatele. Znamená to, že budou pozváni do aplikace a nebudete je moci znovu předstírat. Pozvaný uživatel obdrží e-mail, ve kterém přijme vaši pozvánku.
-            new_managed_user_promotion: Nová spravovaná podpora pro uživatele
             promote: Podporovat
+      members:
+        create:
+          error: Při přidávání člena do tohoto participačního prostoru došlo k chybě.
+          success: Přístup člena byl úspěšně vytvořen.
+        destroy:
+          error: Při mazání člena pro tento participační prostor došlo k chybě.
+          success: Přístup k členům byl úspěšně zničen.
+        edit:
+          title: Upravit člena
+          update: Aktualizovat
+        index:
+          import_via_csv: Importovat přes CSV
+          publish_all: Publikovat vše
+          title: Člen
+          unpublish_all: Zrušit publikování všech
+        new:
+          create: Vytvořit
+          title: Nový člen
+        publish_all:
+          error: Při publikování všech členů tohoto participačního prostoru došlo k chybě.
+          success: Úspěšně publikováni všichni členové tohoto participačního prostoru
+        unpublish_all:
+          error: Při rušení publikování všech členů tohoto participačního prostoru došlo k chybě.
+          success: Úspěšně zneveřejněni všichni členové tohoto participačního prostoru
+        update:
+          error: Při aktualizaci člena pro tento participační prostor došlo k chybě.
+          success: Člen byl úspěšně aktualizován
+      members_csv_imports:
+        create:
+          invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
+          success: CSV soubor byl úspěšně nahrán, posíláme účastníkům e-mail s pozvánkou. To může chvíli trvat.
+        new:
+          csv_upload:
+            title: Nahrát soubor CSV
+          destroy:
+            button: Odstranit všechny členy
+            confirm: Opravdu chcete odstranit všechny členy? Tuto akci nelze vrátit zpět, nebudete ji moci obnovit.
+            empty: Nemáte žádné členy.
+            explanation: Máte %{count} členů.
+            title: Smazat členy
+          example_file: 'Příklad souboru:'
+          explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru uživatelů, které chcete přidat do participačního prostoru, bez hlaviček. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importovat členy přes CSV
+          upload: Nahrát
       menu:
         admin_log: Protokol aktivity správce
         admins: Administrátoři
@@ -637,6 +699,8 @@ cs:
             reason: Důvod
             started_at: Začalo v
             user: Účastník
+        member:
+          name: Člen
         newsletter:
           fields:
             created_at: Vytvořeno v
@@ -645,8 +709,6 @@ cs:
             sent_to: Odeslána
             subject: Předmět
           name: Zpravodaj
-        participatory_space_private_user:
-          name: Participační prostor soukromého účastníka
         scope:
           fields:
             name: Název
@@ -695,6 +757,7 @@ cs:
               update_moderated_user_button: Zrušit nahlášení uživatelů
             title: Akce
             unblock: Odblokovat uživatele
+            unreport: Zpět hlášení
           cancel: Zrušit
           name: Jméno
           nickname: Přezdívka
@@ -721,6 +784,7 @@ cs:
               title: Vrátit skrytí
               update_moderation_button: Odkrýt vybrané zdroje
             unreport:
+              title: Zpět hlášení
               update_moderation_button: Zrušit nahlášení vybraných zdrojů
           cancel: Zrušit
           selected: vybráno
@@ -758,7 +822,6 @@ cs:
           title: Šablony zpravodaje
           use_template: Použít tuto šablonu
         show:
-          preview: 'Náhled šablony: %{template_name}'
           use_template: Použít tuto šablonu
       newsletters:
         confirm_recipients:
@@ -786,7 +849,6 @@ cs:
           has_been_sent_to: 'Byl poslán: '
           not_sent: Neodesláno
           participants: 'účastníci '
-          private_members: 'soukromí členové '
           segmented_to: 'Rozděleno na %{subject}: '
           subscribed_count: 'Přihlášeno:'
           title: Zpravodaje
@@ -803,7 +865,6 @@ cs:
           deliver: Doručit zpravodaj
           followers_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
           participants_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
-          private_members_help: Odešle newsletter všem potvrzeným uživatelům, kteří byli přidáni do vybraných soukromých participačních prostor.
           recipients_count: Tento zpravodaj bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
           select_assemblies: Vybrat shromáždění
           select_conferences: Vybrat konference
@@ -823,10 +884,10 @@ cs:
         send_to_user:
           sent_successfully: Zpravodaj byl úspěšně odeslán na %{email}
         show:
-          preview: Náhled
           select_recipients_to_deliver: Vybrat příjemce k doručení
           send_me_a_test_email: Pošlete mi testovací e-mail
           subject: Předmět
+          title: Náhled
         update:
           error: Při aktualizaci tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
@@ -860,12 +921,15 @@ cs:
           send_message: Odeslat zprávu
           show_email: Zobrazit e-mail
           status: Stav
+          title: Účastníci
           unblock: Odblokovat
           unofficialize: Zrušit ověření
         new:
           badge: Odznak ověření
           officialize: Ověřit
           title: Oficializovat účastníka "%{name}"
+        show_email:
+          title: Zobrazit e-mail
         show_email_modal:
           description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.
           email_address: E-mailová adresa
@@ -910,6 +974,7 @@ cs:
           success: Organizace byla úspěšně aktualizována.
       organization_external_domain_allowlist:
         edit:
+          title: Seznam povolených externích domén
           update: Aktualizovat
         external_domain:
           down: Dolů
@@ -918,54 +983,6 @@ cs:
           up: Nahoru
         form:
           add: Přidat na Seznam povolených
-          title: Seznam povolených externích domén
-      participatory_space_private_users:
-        create:
-          error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
-          success: Přístup soukromého účastníka do participativního prostoru byl úspěšně vytvořen.
-        destroy:
-          error: Při odstraňování soukromého uživatele tohoto participačního prostoru došlo k chybě.
-          success: Přístup soukromého účastníka do participativního prostoru byl úspěšně zrušen.
-        edit:
-          title: Upravit participační prostor soukromého účastníka.
-          update: Aktualizovat
-        index:
-          import_via_csv: Importovat přes CSV
-          publish_all: Publikovat vše
-          title: Participační prostor soukromého účastníka
-          unpublish_all: Zrušit publikování všech
-        new:
-          create: Vytvořit
-          title: Nový participační prostor soukromého účastníka.
-        publish_all:
-          error: U tohoto participativního prostoru byl problém se zveřejněním všech soukromých účastníků.
-          success: Úspěšné zveřejnění všech soukromých účastníků tohoto participativního prostoru
-        unpublish_all:
-          error: U tohoto participativního prostoru byl problém se zrušením zveřejnění všech soukromých účastníků.
-          success: Úspěšně zneveřejněni všichni soukromí účastníci tohoto participativního prostoru
-        update:
-          error: U tohoto participativního prostoru se vyskytl problém s aktualizací soukromého účastníka.
-          success: Soukromý účastník participativního prostoru úspěšně aktualizován
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
-          success: CSV soubor byl úspěšně nahrán, posíláme účastníkům e-mail s pozvánkou. To může chvíli trvat.
-        new:
-          csv_upload:
-            title: Nahrát soubor CSV
-          destroy:
-            button: Odstranit všechny soukromé účastníky
-            confirm: Jste si jisti, že chcete odstranit všechny soukromé účastníky? Tuto akci nelze vrátit zpět, nebudete je moci obnovit.
-            empty: Nemáte žádné soukromé účastníky.
-            explanation: Máte %{count} soukromých účastníků.
-            title: Odstranit soukromé účastníky
-          example_file: 'Příklad souboru:'
-          explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru uživatelů, které chcete přidat do participačního prostoru, bez hlaviček. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Importovat soukromé účastníky přes CSV
-          upload: Nahrát
       reminders:
         create:
           error: Při vytváření připomenutí došlo k chybě.
@@ -976,6 +993,7 @@ cs:
             other: "%{count} uživatelů bude upozorněno."
         new:
           submit: Odeslat
+          title: Odeslat připomenutí
       resource_permissions:
         edit:
           submit: Předložit
@@ -993,6 +1011,8 @@ cs:
         edit:
           title: Upravit typ oblasti působnosti
           update: Aktualizace
+        index:
+          title: Typy oblastí působnosti
         new:
           create: Vytvořit typ oblasti působnosti
           title: Nová oblast působnosti
@@ -1009,6 +1029,8 @@ cs:
         edit:
           title: Upravit oblast působnosti
           update: Aktualizace
+        index:
+          title: Oblasti působnosti
         new:
           create: Vytvořit oblast působnosti
           title: Nová oblast působnosti
@@ -1081,12 +1103,14 @@ cs:
         edit:
           title: Upravit téma
           update: Aktualizovat téma
+        index:
+          title: Témata
         new:
           create: Nové téma
           title: Nové téma
         update:
           error: Při aktualizaci tohoto tématu došlo k chybě.
-          success: Téma bylo úspěšně aktualizováno
+          success: Téma bylo úspěšně aktualizováno.
       static_pages:
         actions:
           view: Zobrazit
@@ -1105,6 +1129,7 @@ cs:
           slug_help_html: 'Použijte v tomto případě částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Příklad: %{url}'
         index:
           last_notable_change: Poslední významná změna
+          title: Stránky
         new:
           create: Nová stránka
           title: Nová stránka
@@ -1114,6 +1139,9 @@ cs:
         update:
           error: Při aktualizaci této stránky došlo k chybě.
           success: Stránka byla úspěšně aktualizována.
+      statistics:
+        index:
+          title: Statistiky
       taxonomies:
         actions:
           actions: Akce
@@ -1144,6 +1172,7 @@ cs:
           description: Taxonomie a filtry umožňují správcům třídit a organizovat obsah. Přidejte například taxonomii s městskými okresy a čtvrti a pak vytvořte filtry pouze s okresy nebo pro konkrétní čtvrť.
           new_taxonomy: Nová taxonomie
           no_items_found: Nebyly nalezeny žádné taxonomie odpovídající kritériím vyhledávání.
+          title: Taxonomie
         name: Název
         new:
           create: Vytvořit taxonomii
@@ -1190,6 +1219,7 @@ cs:
           description: Filtr taxonomie umožňuje správcům seřadit a filtrovat participační prostory na základě taxonomie. Přidejte například taxonomický filtr pro řazení procesů podle geografického rozsahu.
           empty: V současné době nejsou žádné filtry taxonomie. Vytvořte seznam taxonomických filtrů pro řazení a filtrování participačních prostor na základě taxonomie.
           new_filter: Nový filtr
+          title: Filtry taxonomie pro "%{taxonomy}"
         new:
           back: Zpět
           create: Vytvořit filtr taxonomie
@@ -1206,13 +1236,17 @@ cs:
           error: Při aktualizaci tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně aktualizován.
       taxonomy_filters_selector:
+        index:
+          title: Filtry taxonomie
         new:
           add_new_items_html: Pokud potřebujete nastavit nový filtr nebo položku, proveďte to prostřednictvím nastavení konfigurace nebo kliknutím <a href="%{url}">zde</a>.
           items_count: "%{count} položek"
           save: Uložit
+          title: Výběr nového taxonomického filtru
         show:
           items_count: "%{count} položek"
           remove: Odebrat
+          title: Výběr taxonomického filtru
         taxonomies_select:
           filters: Filtry
           select_filter: Vyberte filtr
@@ -1227,26 +1261,16 @@ cs:
           none: Žádné
           title: Nová položka v %{taxonomy}
       titles:
-        admin_log: Správce protokolu
-        area_types: Typy oblastí
         areas: Oblasti
         authorization_workflows: Metody ověření
-        dashboard: Ovládací panel
-        edit_external_domains: Seznam povolených externích domén
-        impersonatable_users: Spravovatelní účastníci
-        impersonations: Správa účastníků
         menu: Nabídka
-        page_topics: Témata
-        pages: Stránky
         panel: Admin
-        participants: Uživatelé
-        scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti
         statistics: Statistiky
-        taxonomies: Taxonomie
-        taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
-        users: Administrátoři
       tooltips:
+        cannot_destroy_taxonomy_filter: Nelze zničit tento filtr taxonomie
+        cannot_edit_taxonomy_filter: Nelze upravit tento filtr taxonomie
+        deleted_attachment_collections_info: Tuto složku nelze odstranit, protože obsahuje přílohy.
         deleted_component_info: Tato komponenta může být odstraněna pouze v případě, že je stav 'Nezveřejněno'.
       trash_management:
         restore:
@@ -1266,6 +1290,8 @@ cs:
           email: E-mail
           name: Jméno
           role: Role
+        index:
+          title: Administrátoři
         new:
           create: Pozvat
           title: Pozvat nového administrátora
@@ -1275,8 +1301,12 @@ cs:
           last_day: Poslední den
           last_month: Minulý měsíc
           last_week: Minulý týden
-          no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu uživatelů.
+          no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu účastníků.
           participants: Účastníci
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Výběr taxonomických filtrů bude možný po vytvoření komponenty.
     forms:
       errors:
         impersonate_user:
@@ -1290,6 +1320,7 @@ cs:
         parent_hidden: Nelze odkrýt tento zdroj, protože jeho nadřazená položka je stále skrytá.
         title: Akce
         unhide: Vrátit skrytí
+        unreport: Zpět hlášení
       admin:
         reportable:
           bulk_action:

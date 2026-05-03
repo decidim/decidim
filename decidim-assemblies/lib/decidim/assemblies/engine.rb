@@ -15,29 +15,41 @@ module Decidim
       isolate_namespace Decidim::Assemblies
 
       routes do
-        get "assemblies/:assembly_id", to: redirect { |params, _request|
-          assembly = Decidim::Assembly.find(params[:assembly_id])
-          assembly ? "/assemblies/#{assembly.slug}" : "/404"
-        }, constraints: { assembly_id: /[0-9]+/ }
+        scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) } do
+          get "assemblies/:assembly_id", to: redirect { |params, _request|
+            assembly = Decidim::Assembly.find(params[:assembly_id])
+            assembly ? "/#{params[:locale]}/assemblies/#{assembly.slug}" : "/404"
+          }, constraints: { assembly_id: /[0-9]+/ }
 
-        get "/assemblies/:assembly_id/f/:component_id", to: redirect { |params, _request|
-          assembly = Decidim::Assembly.find(params[:assembly_id])
-          assembly ? "/assemblies/#{assembly.slug}/f/#{params[:component_id]}" : "/404"
-        }, constraints: { assembly_id: /[0-9]+/ }
+          get "/assemblies/:assembly_id/f/:component_id", to: redirect { |params, _request|
+            assembly = Decidim::Assembly.find(params[:assembly_id])
+            assembly ? "/#{params[:locale]}/assemblies/#{assembly.slug}/f/#{params[:component_id]}" : "/404"
+          }, constraints: { assembly_id: /[0-9]+/ }
 
-        resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
-          resources :participatory_space_private_users, only: :index, path: "members"
-        end
+          resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
+            resources :members, only: :index, path: "members"
+          end
 
-        scope "/assemblies/:assembly_slug/f/:component_id" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.engine
+          scope "/assemblies/:assembly_slug/f/:component_id" do
+            Decidim.component_manifests.each do |manifest|
+              next unless manifest.engine
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.engine, at: "/", as: "decidim_assembly_#{manifest.name}"
+              constraints CurrentComponent.new(manifest) do
+                mount manifest.engine, at: "/", as: "decidim_assembly_#{manifest.name}"
+              end
             end
           end
         end
+
+        get "/assemblies", to: redirect { |params, request|
+          locale = Decidim::LocaleRouterDetector.new(request, params).locale
+          "/#{locale}/assemblies"
+        }
+
+        get "/assemblies/*rest", to: redirect { |params, request|
+          locale = Decidim::LocaleRouterDetector.new(request, params).locale
+          "/#{locale}/assemblies/#{params[:rest]}"
+        }
       end
 
       initializer "decidim_assemblies.mount_routes" do
@@ -54,8 +66,6 @@ module Decidim
 
       initializer "decidim_assemblies.register_icons" do
         Decidim.icons.register(name: "Decidim::Assembly", icon: "government-line", description: "Assembly", category: "activity", engine: :assemblies)
-        Decidim.icons.register(name: "assembly_type", icon: "group-2-line", description: "Type", category: "assemblies", engine: :assemblies)
-
         Decidim.icons.register(name: "group-2-line", icon: "group-2-line", category: "system", description: "", engine: :assemblies)
       end
 
@@ -79,28 +89,6 @@ module Decidim
         Decidim::Assemblies::Menu.register_home_content_block_menu!
       end
 
-      initializer "decidim_assemblies.view_hooks" do
-        Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
-                                                      .query.distinct
-                                                      .joins(:participatory_space_private_users)
-                                                      .merge(Decidim::ParticipatorySpacePrivateUser.where(user: view_context.profile_holder))
-                                                      .reorder(title: :asc)
-
-          next unless assemblies.any?
-
-          # Since this is rendered inside a cell we need to access the parent context in order to render it.
-          view_context = view_context.controller.view_context
-
-          view_context.render(
-            partial: "decidim/assemblies/pages/user_profile/member_of",
-            locals: {
-              assemblies:
-            }
-          )
-        end
-      end
-
       initializer "decidim_assemblies.content_blocks" do
         Decidim::Assemblies::ContentBlocks::RegistryManager.register!
       end
@@ -111,6 +99,13 @@ module Decidim
 
       initializer "decidim_assemblies.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_assemblies.extend_component_controllers" do
+        config.to_prepare do
+          # Extend component controllers with assembly breadcrumb when mounted under assemblies
+          Decidim::Components::BaseController.include(Decidim::Assemblies::AssemblyBreadcrumb)
+        end
       end
     end
   end

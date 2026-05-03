@@ -100,7 +100,6 @@ describe "Datepicker" do
         formatted_month = format("%02d", month)
 
         find("td > span", text: "20", match: :first).click
-        find(".datepicker__pick-calendar").click
 
         find(".datepicker__clock-button").click
         find(".datepicker__hour-up").click
@@ -145,17 +144,13 @@ describe "Datepicker" do
             expect(page).to have_css("#example_input_date_datepicker")
           end
 
-          it "has disabled select button" do
-            find(".datepicker__calendar-button").click
-            expect(page).to have_button("Select", disabled: true)
-          end
-
           context "when choosing a date" do
-            it "enables the select button" do
+            it "hides the datepicker calendar" do
               find(".datepicker__calendar-button").click
               yesterday = Date.yesterday.strftime("%-d")
               find("td > span", text: yesterday, match: :first).click
-              expect(page).to have_button("Select", disabled: false)
+              expect(find_by_id("example_input_date").value).not_to eq("")
+              expect(page).to have_css("#example_input_date_datepicker", visible: :hidden)
             end
           end
         end
@@ -175,11 +170,9 @@ describe "Datepicker" do
             find('span > input[name="year"]').set("1994")
             find(".wc-datepicker__next-month-button").click
             find("td > span", text: "20", match: :first).click
-            find(".datepicker__pick-calendar").click
             find(".datepicker__calendar-button").click
             element = find("td.wc-datepicker__date--selected")
             expect(element).to have_content("20")
-            expect(page).to have_button("Select", disabled: false)
           end
         end
       end
@@ -508,7 +501,6 @@ describe "Datepicker" do
         formatted_month = format("%02d", month)
 
         find("td > span", text: "20", match: :first).click
-        find(".datepicker__pick-calendar").click
 
         find(".datepicker__clock-button").click
         find(".datepicker__hour-up").click
@@ -764,7 +756,6 @@ describe "Datepicker" do
         formatted_month = format("%02d", month)
 
         find("td > span", text: "20", match: :first).click
-        find(".datepicker__pick-calendar").click
 
         find(".datepicker__clock-button").click
         find(".datepicker__hour-up").click

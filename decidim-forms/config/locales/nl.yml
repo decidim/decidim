@@ -84,9 +84,6 @@ nl:
           of_total_steps: van %{total_steps}
           questionnaire_closed:
             title: Vragenlijst gesloten
-          questionnaire_for_private_users:
-            body: De vragenlijst is alleen beschikbaar voor privé-gebruikers
-            title: Vragenlijst gesloten
           questionnaire_js_disabled:
             body: Sommige functies van dit formulier worden uitgeschakeld. Schakel JavaScript in in uw browser om uw ervaring te verbeteren.
             title: JavaScript is uitgeschakeld

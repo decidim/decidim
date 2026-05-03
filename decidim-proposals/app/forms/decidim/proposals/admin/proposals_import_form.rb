@@ -7,24 +7,17 @@ module Decidim
       # from another component.
       class ProposalsImportForm < Decidim::Form
         include TranslatableAttributes
+
         mimic :proposals_import
 
         attribute :origin_component_id, Integer
-        attribute :import_proposals, Boolean
         attribute :keep_answers, Boolean
         attribute :keep_authors, Boolean
-        attribute :states, Array
+        attribute :states, Array[String]
 
-        validates :origin_component_id, :origin_component, :states, :current_component, presence: true
-        validates :import_proposals, allow_nil: false, acceptance: true
+        validates :origin_component_id, :origin_component, :current_component, presence: true
+        validates :states, presence: true
         validate :valid_states
-
-        def states_collection
-          @states_collection ||= ProposalState.where(component: current_component) + [ProposalState.new(token: "not_answered",
-                                                                                                        title: I18n.t(
-                                                                                                          :not_answered, scope: "decidim.proposals.answers"
-                                                                                                        ))]
-        end
 
         def states
           super.compact_blank
@@ -47,9 +40,11 @@ module Decidim
         private
 
         def valid_states
-          return if states.all? do |state|
-            states_collection.pluck(:token).include?(state)
-          end
+          return unless origin_component
+          return if states.empty?
+
+          valid_tokens = Decidim::Proposals::ProposalState.where(component: origin_component).pluck(:token) + ["not_answered"]
+          return if states.all? { |state| valid_tokens.include?(state) }
 
           errors.add(:states, :invalid)
         end

@@ -142,12 +142,6 @@ pl:
         skip_verification: Możesz to teraz pominąć i %{link}
         start_exploring: zacznij odkrywać
       csv_census:
-        admin:
-          index:
-            title: Aktualne dane spisu
-          instructions:
-            body: Aby to zrobić, musisz wejść do administracji systemem i dodać uprawnienia csv_census do organizacji
-            title: Musisz aktywować spis CSV dla tej organizacji
         authorizations:
           new:
             error: Nie mogliśmy zweryfikować Twojego konta lub nie znajdujesz się w spisie organizacji.
@@ -178,7 +172,6 @@ pl:
               error: Dane weryfikacyjne się nie pokrywają. Spróbuj ponownie lub odrzuć weryfikację, aby użytkownik mógł ją poprawić.
               success: Użytkownik pomyślnie zweryfikowany.
             new:
-              introduce_user_data: Wprowadź dane z obrazu
               reject: Odrzuć
               verify: Zweryfikuj
           offline_confirmations:
@@ -187,7 +180,6 @@ pl:
               success: Uczestnik pomyślnie zweryfikowany.
             new:
               cancel: Anuluj
-              introduce_user_data: Przedstaw adres e-mail użytkownika i dane dokumentu
               verify: Zweryfikuj
           pending_authorizations:
             index:

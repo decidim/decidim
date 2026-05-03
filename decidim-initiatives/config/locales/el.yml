@@ -19,7 +19,6 @@ el:
       initiatives_type:
         area_enabled: Να επιτρέπεται στους συντάκτες να επιλέξουν τον τομέα για την πρωτοβουλία τους
         attachments_enabled: Να επιτρέπονται τα συνημμένα
-        banner_image: Εικόνα διαφημιστικού πλαισίου
         collect_user_extra_fields: Συλλογή προσωπικών δεδομένων των συμμετεχόντων κατά την υπογραφή
         custom_signature_end_date_enabled: Να επιτρέπεται στους συντάκτες να επιλέξουν τη λήξη της περιόδου συλλογής υπογραφών
         description: Περιγραφή
@@ -66,7 +65,6 @@ el:
         initiatives:
           fields:
             created_at: Δημιουργήθηκε στις
-            id: Αναγνωριστικό
             published_at: Δημοσιεύτηκε στις
             state: Κατάσταση
             supports_count: Υπογραφές
@@ -94,9 +92,6 @@ el:
             name_and_surname: Όνομα και επώνυμο
             postal_code: Ταχυδρομικός κώδικας
             timestamp: Χρονική σήμανση
-      titles:
-        initiatives: Πρωτοβουλίες
-        initiatives_types: Τύποι πρωτοβουλίας
     events:
       initiatives:
         admin:

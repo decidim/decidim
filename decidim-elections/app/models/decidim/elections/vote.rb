@@ -4,6 +4,7 @@ module Decidim
   module Elections
     class Vote < Elections::ApplicationRecord
       include Decidim::Traceable
+
       belongs_to :question, class_name: "Decidim::Elections::Question", counter_cache: true, inverse_of: :votes
       belongs_to :response_option, class_name: "Decidim::Elections::ResponseOption", counter_cache: true, inverse_of: :votes
 
@@ -31,7 +32,7 @@ module Decidim
 
       def max_votable_options
         return unless question && response_option
-        return if question.votes.where.not(id: id).where(voter_uid: voter_uid).count < question.max_votable_options
+        return if question.votes.where.not(id:).where(voter_uid:).count < question.max_votable_options
 
         errors.add(:response_option, :invalid)
       end

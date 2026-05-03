@@ -15,6 +15,7 @@ en:
         duplicate_landing_page_blocks: Duplicate landing page blocks
         duplicate_steps: Duplicate steps
         end_date: End date
+        has_members: This space has members
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -25,7 +26,6 @@ en:
         participatory_process_group_id: Processes group
         participatory_scope: What is decided
         participatory_structure: How is it decided
-        private_space: Private process
         promoted: Promoted
         published_at: Published at
         related_process_ids: Related processes
@@ -66,6 +66,8 @@ en:
           attributes:
             document:
               allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}'
+              empty: The document is empty
+              invalid_json: The document is not valid JSON
     models:
       decidim/participatory_process_step_activated_event: Phase activated
       decidim/participatory_process_step_changed_event: Phase changed
@@ -103,10 +105,15 @@ en:
       filters:
         decidim_participatory_process_group_id_eq:
           label: By process group
+        with_any_access_mode:
+          label: Access mode
+          values:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
-          info: Info
           landing_page: Landing page layout
         participatory_processes: Processes
         participatory_processes_submenu:
@@ -114,18 +121,17 @@ en:
           attachment_files: Files
           attachments: Attachments
           components: Components
-          info: About this process
           landing_page: Landing page layout
+          members: Members
           moderations: Moderations
-          private_users: Members
           process_admins: Process admins
           steps: Phases
       models:
         participatory_process:
           fields:
+            access_mode: Access mode
             actions: Actions
             created_at: Created at
-            private: Private
             published: Published
             title: Title
           name: Participatory process
@@ -162,17 +168,14 @@ en:
         new:
           duplicate: Duplicate
           select: Select which data you would like to duplicate
-          title: Duplicate participatory process
       participatory_process_groups:
         destroy:
           error: There was a problem while destroying the participatory process group.
           success: Participatory process group successfully deleted.
         edit:
-          title: Edit process group
           update: Update
         new:
           create: Create
-          title: New process group
         update:
           error: There was a problem updating this participatory process group.
           success: Participatory process group successfully updated.
@@ -183,7 +186,6 @@ en:
         new:
           import: Import
           select: Select which data you would like to import
-          title: Import participatory process
       participatory_process_publications:
         create:
           error: There was a problem publishing this participatory process.
@@ -206,18 +208,14 @@ en:
             last_step: Cannot delete the last phase of a process.
           success: Participatory process phase successfully deleted.
         edit:
-          title: Edit participatory process phase
           update: Update
-        index:
-          steps_title: Phases
         new:
           create: Create
-          title: New participatory process phase
         ordering:
           error: There was a problem in reordering these phases of the participatory process.
         update:
           error: There was a problem updating this phase of the participatory process.
-          success: Participatory phase successfully updated.
+          success: Participatory process phase successfully updated.
       participatory_process_user_roles:
         create:
           error: There was a problem adding a participant for this participatory process.
@@ -225,13 +223,9 @@ en:
         destroy:
           success: Admin successfully removed from this participatory process.
         edit:
-          title: Update participatory process admin
           update: Update
-        index:
-          process_admins_title: Participatory process admins
         new:
           create: Create
-          title: New participatory process admin
         update:
           error: There was a problem updating an admin for this participatory process.
           success: Admin successfully updated for this participatory process.
@@ -242,15 +236,14 @@ en:
         edit:
           update: Update
         index:
-          private: Private
-          public: Public
+          access_modes:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
           published: Published
           unpublished: Unpublished
-        manage_trash:
-          title: Deleted participatory processes
         new:
           create: Create
-          title: New participatory process
         update:
           error: There was a problem updating this participatory process.
           success: Participatory process successfully updated.
@@ -265,11 +258,6 @@ en:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: All participatory processes
-      titles:
-        participatory_process_groups: Participatory process groups
-        participatory_process_types: Participatory process types
-        participatory_processes: Participatory processes
-        participatory_processes_deleted: Deleted participatory processes
       tooltips:
         deleted_processes_info: A process can only be deleted if status is "Unpublished".
       users:
@@ -283,9 +271,11 @@ en:
         export: "%{user_name} exported the %{resource_name} participatory process"
         import: "%{user_name} imported the %{resource_name} participatory process"
         publish: "%{user_name} published the %{resource_name} participatory process"
+        publish_all_members: "%{user_name} published all members of the %{resource_name} participatory process"
         restore: "%{user_name} restored the %{resource_name} participatory process"
         soft_delete: "%{user_name} trashed the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        unpublish_all_members: "%{user_name} unpublished all members of the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_group:
         create: "%{user_name} created the %{resource_name} participatory process group"
@@ -296,10 +286,6 @@ en:
         create: "%{user_name} created the %{resource_name} phase in the %{space_name} participatory process"
         delete: "%{user_name} deleted the %{resource_name} phase in the %{space_name} participatory process"
         update: "%{user_name} updated the %{resource_name} phase in the %{space_name} participatory process"
-      participatory_process_type:
-        create: "%{user_name} created the %{resource_name} participatory process type"
-        delete: "%{user_name} deleted the %{resource_name} participatory process type"
-        update: "%{user_name} updated the %{resource_name} participatory process type"
       participatory_process_user_role:
         create: "%{user_name} invited the participant %{resource_name} to the %{space_name} participatory process"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} participatory process"
@@ -330,17 +316,14 @@ en:
           contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
           page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
           title: What is a participatory process?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'The process type was not found on the database (ID: %{id}).'
     menu:
       processes: Processes
     open_data:
       help:
         participatory_processes:
-          announcement: The announcement (callout) information
+          access_mode: Access mode. Wheter the process is open, restricted or transparent.
           area: The area where the process is taking place
+          component_settings: The component settings of the process
           created_at: The date this space was created
           description: A long description of the process
           developer_group: The developer group of the process. This is the organization that is promoting the process.
@@ -486,36 +469,78 @@ en:
             all: All
             max_results: Maximum amount of elements to show
             selection_criteria: Selection criteria
+        imports:
+          attachment_error: The attachment "%{title}" could not be imported (%{error}).
+          hero_image_error: The hero image could not be imported (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: This import feature allows you to create a new participatory process from an exported JSON file. You can export a process from another organization or from this same organization. The imported process will include its settings, components, and attachments (if selected).
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          new:
+            title: Duplicate participatory process
         participatory_process_groups:
+          edit:
+            title: Edit process group
           form:
             metadata: Metadata
             title: About this process
             visibility: Visibility
+          index:
+            title: Participatory process groups
+          new:
+            title: New process group
         participatory_process_imports:
           form:
             document_legend: Add a document
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          new:
+            title: Import participatory process
+        participatory_process_steps:
+          edit:
+            title: Edit participatory process phase
+          index:
+            title: Phases
+          new:
+            title: New participatory process phase
+        participatory_process_user_roles:
+          edit:
+            title: Update participatory process admin
+          index:
+            title: Participatory process admins
+          new:
+            title: New participatory process admin
         participatory_processes:
+          edit:
+            title: About this process
           form:
-            announcement_help: The text you enter here will be shown to the user right below the process information.
+            access:
+              label: Access
+              options:
+                open: Everyone can see the process and participate.
+                restricted: Only members can see and participate.
+                transparent: Everyone can see the process, but only members can participate.
+              set_this_space_as: Set this space as
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
+            has_members_help: You will be able to create and publish members
             images: Images
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
-            private_notice: You will be able to manage members after setting it as private
             related_processes: Related processes
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
+          index:
+            title: Participatory processes
+          manage_trash:
+            title: Deleted participatory processes
+          new:
+            title: New participatory process
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -604,12 +629,8 @@ en:
           type: Type
         show:
           title: About this process
-      participatory_space_private_users:
-        index:
-          title: Members
       show:
         belongs_to_group: This process belongs to
-        private_space: This is a private process
         related_processes: Related processes
       static_pages:
         democratic_quality_indicators:

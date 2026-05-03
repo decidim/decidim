@@ -64,7 +64,7 @@ module Decidim
 
             context "when the update is successful." do
               it "renders ProposalsAdmin#index view" do
-                post :update, params: params
+                post(:update, params:)
                 expect(response).to have_http_status(:found)
                 expect(subject).to redirect_to(proposals_path)
               end

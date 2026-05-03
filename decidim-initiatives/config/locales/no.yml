@@ -20,7 +20,6 @@
       initiatives_type:
         area_enabled: Muliggjør at forfattere velger område for sitt initiativ
         attachments_enabled: Aktiver vedlegg
-        banner_image: Bannerafbeelding
         child_scope_threshold_enabled: Aktiver signaturer for barnetema
         collect_user_extra_fields: Samle deltakerens personlige data ved signatur
         custom_signature_end_date_enabled: Muliggjør at forfattere kan velge slutten av signaturinnsamlingsperioden
@@ -86,7 +85,6 @@
         initiatives:
           fields:
             created_at: Opprettet på
-            id: ID
             published_at: Publisert i
             state: Status
             supports_count: Underskrifter
@@ -114,9 +112,6 @@
             name_and_surname: Navn og etternavn
             postal_code: Postnummer
             timestamp: Tidsstempel
-      titles:
-        initiatives: Initiativer
-        initiatives_types: Initiativtyper
     events:
       initiatives:
         admin:
@@ -229,7 +224,6 @@
             publication_date: Sist publisert
             random: Tilfeldig
             signatures: Flest signeringer
-            title: Innstillinger for initiativer
         initiatives_type_scopes:
           edit:
             title: Rediger initiativtypens omgang

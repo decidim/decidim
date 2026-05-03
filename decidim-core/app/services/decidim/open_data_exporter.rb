@@ -118,7 +118,7 @@ module Decidim
 
     def data_for_participatory_space(export_manifest)
       collection = participatory_spaces.filter { |space| space.manifest.name == export_manifest.manifest.name }.flat_map do |participatory_space|
-        export_manifest.collection.call(participatory_space)
+        export_manifest.collection.call(participatory_space, nil)
       end
 
       serializer = export_manifest.open_data_serializer.nil? ? export_manifest.serializer : export_manifest.open_data_serializer

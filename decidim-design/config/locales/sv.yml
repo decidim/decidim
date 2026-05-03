@@ -4,7 +4,42 @@ sv:
     design:
       components:
         accordions:
+          content_panel: Innehållet i sektionen
+          demo: Demo
+          demo_description: I plattformen används dragspelsvisning för att visa/dölja innehåll i flikar eller dra ihop/expandera texter.
+          description_accordions_html: Dragspel är en javascript-funktion tillgänglig genom ett externt bibliotek som heter %{link_code} a11y-dragspelskomponent.
+          github_source_html: Källkod på GitHub %{github_link}
+          panel: Sektion
+          title: Dragspel
+          trigger: Utlösare
+          usage: Användning
+          usage_p: Ett dragspel kräver minst tre element
           usage_p_1_html: 1. En wrapper <code>div</code>, med data-attributet <code>data-controller="dragspelsmeny"</code>, över alla tillgängliga rubriker och paneler.
+          usage_p_2_html: 2. Ett utlösande element (som en knapp), som pekar på det hopdragbara elementet genom <code>data-controls="panel"</code>, där <i>sektion</i> är <code>id</code> i sektionen.
+          usage_p_3_html: 3. Ett gömbart element, vars <code>id</code> matchar data-kontroll-värdet som utlösaren hänvisar till.
+        activities:
+          activities: Åtgärder
+        address:
+          title: Adress
+        announcement:
+          iam_an_announcement: Jag är ett meddelande
+          this_is_the_body: Detta är innehållet
+          this_is_the_title: Det här är titeln
+          title: Meddelande
+        author:
+          title: Författare
+        buttons:
+          description_html: 'Knapparna är byggda med olika kombinationer av CSS-klasser: <code>knappen</code> klass, en storlek och en färg.'
+          title: Knappar
+        cards:
+          title: Kort
+        dialogs:
+          dialog_demo_description_html: Dialogerna, eller modala komponenter, genomförs genom skenhjälparen <code>decidim_modal</code>.
+          dialogs_description_html: Dialoger är en javascript funktion tillgänglig tack vare ett externt bibliotek som heter <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'För att visa en komplex modal, matcha upp stilarna, gör följande märkning:'
+          tips_description_html: Var uppmärksam på <i>data-attribut</i> och <i>ids</i>. Till exempel, <code>[data-dialog-title]</code>s id börjar med <i>dialog-titel</i> plus <i>modal id</i>.
+          title: Dialogrutor
+          usage_description: En dialogruta kräver två element
       foundations:
         accessibility:
           decidim_follows_html: Decidim följer %{link}

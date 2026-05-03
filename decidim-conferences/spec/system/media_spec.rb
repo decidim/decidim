@@ -7,7 +7,7 @@ describe "Conferences" do
   let!(:conference) { create(:conference, organization:) }
 
   def visit_conference
-    visit decidim_conferences.conference_path(conference)
+    visit decidim_conferences.conference_path(conference, locale: I18n.locale)
   end
 
   before do
@@ -16,7 +16,7 @@ describe "Conferences" do
 
   context "when there are no attachments and media links" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_conferences.conference_media_path(conference) }
+      let(:target_path) { decidim_conferences.conference_media_path(conference, locale: I18n.locale) }
     end
   end
 
@@ -34,11 +34,11 @@ describe "Conferences" do
     let!(:media_link) { create(:media_link, conference:) }
 
     before do
-      visit decidim_conferences.conference_media_path(conference)
+      visit decidim_conferences.conference_media_path(conference, locale: I18n.locale)
     end
 
     it "the menu link is shown" do
-      visit decidim_conferences.conference_path(conference)
+      visit decidim_conferences.conference_path(conference, locale: I18n.locale)
 
       within "aside .conference__nav-container" do
         expect(page).to have_content("Media")
@@ -60,7 +60,7 @@ describe "Conferences" do
     let!(:image) { create(:attachment, attached_to: conference) }
 
     before do
-      visit decidim_conferences.conference_media_path(conference)
+      visit decidim_conferences.conference_media_path(conference, locale: I18n.locale)
     end
 
     it "shows them" do
@@ -81,7 +81,7 @@ describe "Conferences" do
     let!(:fist_image) { create(:attachment, attached_to: conference, weight: 1) }
 
     before do
-      visit decidim_conferences.conference_media_path(conference)
+      visit decidim_conferences.conference_media_path(conference, locale: I18n.locale)
     end
 
     it "shows them ordered" do

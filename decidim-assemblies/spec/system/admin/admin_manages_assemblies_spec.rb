@@ -11,8 +11,8 @@ describe "Admin manages assemblies" do
   let(:resource_controller) { Decidim::Assemblies::Admin::AssembliesController }
   let(:model_name) { assembly.class.model_name }
 
-  context "when conditionally displaying private user menu entry" do
-    let!(:my_space) { create(:assembly, organization:, private_space:) }
+  context "when conditionally displaying member menu entry" do
+    let!(:my_space) { create(:assembly, organization:, has_members:) }
 
     before do
       switch_to_host(organization.host)
@@ -21,20 +21,20 @@ describe "Admin manages assemblies" do
       click_on translated(my_space.title)
     end
 
-    context "when the participatory space is private" do
-      let(:private_space) { true }
+    context "when the participatory space has members" do
+      let(:has_members) { true }
 
-      it "hides the private user menu entry" do
+      it "shows the member menu entry" do
         within_admin_sidebar_menu do
           expect(page).to have_content("Members")
         end
       end
     end
 
-    context "when the participatory space is public" do
-      let(:private_space) { false }
+    context "when the participatory space has not members" do
+      let(:has_members) { false }
 
-      it "shows the private user menu entry" do
+      it "hides the member menu entry" do
         within_admin_sidebar_menu do
           expect(page).to have_no_content("Members")
         end
@@ -48,14 +48,14 @@ describe "Admin manages assemblies" do
 
     let(:image2_filename) { "city2.jpeg" }
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
-    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
+    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:) }
     let(:last_assembly) { Decidim::Assembly.last }
 
     before do
       click_on "New assembly"
     end
 
-    %w(purpose_of_action composition description short_description announcement internal_organisation).each do |field|
+    %w(purpose_of_action composition description short_description internal_organisation).each do |field|
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='assembly-#{field}-tabs']", "full"
     end
 
@@ -71,7 +71,6 @@ describe "Admin manages assemblies" do
         fill_in_i18n_editor(:assembly_purpose_of_action, "#assembly-purpose_of_action-tabs", **attributes[:purpose_of_action].except("machine_translations"))
         fill_in_i18n_editor(:assembly_composition, "#assembly-composition-tabs", **attributes[:composition].except("machine_translations"))
         fill_in_i18n_editor(:assembly_internal_organisation, "#assembly-internal_organisation-tabs", **attributes[:internal_organisation].except("machine_translations"))
-        fill_in_i18n_editor(:assembly_announcement, "#assembly-announcement-tabs", **attributes[:announcement].except("machine_translations"))
         fill_in_i18n_editor(:assembly_closing_date_reason, "#assembly-closing_date_reason-tabs", **attributes[:closing_date_reason].except("machine_translations"))
 
         fill_in_i18n(:assembly_participatory_scope, "#assembly-participatory_scope-tabs", **attributes[:participatory_scope].except("machine_translations"))
@@ -87,13 +86,12 @@ describe "Admin manages assemblies" do
       end
 
       dynamically_attach_file(:assembly_hero_image, image1_path)
-      dynamically_attach_file(:assembly_banner_image, image2_path)
 
       within ".new_assembly" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Assembly created successfully. You can now add components and configure it.")
       expect(last_assembly.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
@@ -112,20 +110,16 @@ describe "Admin manages assemblies" do
       visit decidim_admin_assemblies.assemblies_path
     end
 
-    it "update a participatory process without images does not delete them" do
+    it "update an assembly without images does not delete them" do
       within "tr", text: translated(assembly3.title) do
         click_on translated(assembly3.title)
-      end
-
-      within_admin_sidebar_menu do
-        click_on "About this assembly"
       end
 
       select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
 
       click_on "Update"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Assembly successfully updated.")
       expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
       expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
       expect(assembly3.reload.taxonomies).to contain_exactly(taxonomy)
@@ -136,11 +130,23 @@ describe "Admin manages assemblies" do
         expect(src).to be_blob_url(hero_blob)
       end
     end
+
+    describe "when the assembly is transparent" do
+      let!(:assembly3) { create(:assembly, :transparent, organization:) }
+
+      it "shows the transparent radio button correctly" do
+        within "tr", text: translated(assembly3.title) do
+          click_on translated(assembly3.title)
+        end
+
+        expect(page).to have_checked_field("assembly_access_mode_transparent")
+      end
+    end
   end
 
   context "when managing parent assemblies" do
     let(:parent_assembly) { nil }
-    let!(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
+    let!(:assembly) { create(:assembly, :with_content_blocks, organization:) }
 
     before do
       switch_to_host(organization.host)
@@ -155,13 +161,13 @@ describe "Admin manages assemblies" do
 
     describe "listing parent assemblies" do
       it_behaves_like "filtering collection by published/unpublished"
-      it_behaves_like "filtering collection by private/public"
+      it_behaves_like "filtering collection by open/restricted/transparent"
     end
   end
 
   context "when navigating child assemblies" do
     let!(:parent_assembly) { create(:assembly, organization:) }
-    let!(:child_assembly) { create(:assembly, :with_content_blocks, organization:, parent: parent_assembly, blocks_manifests: [:announcement]) }
+    let!(:child_assembly) { create(:assembly, :with_content_blocks, organization:, parent: parent_assembly) }
     let(:assembly) { child_assembly }
 
     before do
@@ -192,6 +198,63 @@ describe "Admin manages assemblies" do
           find("a[data-arrow-up]").click
         end
 
+        expect(page).to have_no_content(translated(child_assembly.title))
+      end
+    end
+  end
+
+  context "when navigating grandchild assemblies (3rd level)" do
+    let!(:grandmother_assembly) { create(:assembly, organization:) }
+    let!(:mother_assembly) { create(:assembly, organization:, parent: grandmother_assembly) }
+    let!(:child_assembly) { create(:assembly, :with_content_blocks, organization:, parent: mother_assembly) }
+    let(:assembly) { child_assembly }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim_admin_assemblies.assemblies_path
+    end
+
+    describe "listing grandchild assemblies" do
+      it "expands both parent and grandparent assemblies to show child" do
+        expect(page).to have_no_content(translated(mother_assembly.title))
+        expect(page).to have_no_content(translated(child_assembly.title))
+
+        # Opens grandmother (1st level)
+        within "tr", text: translated(grandmother_assembly.title) do
+          find("a[data-arrow-down]").click
+        end
+
+        expect(page).to have_content(translated(mother_assembly.title))
+        expect(page).to have_no_content(translated(child_assembly.title))
+
+        # Opens mother (2nd level)
+        within "tr", text: translated(mother_assembly.title) do
+          find("a[data-arrow-down]").click
+        end
+
+        expect(page).to have_content(translated(child_assembly.title))
+
+        # Opens actions dropdown in child
+        find("button[data-target='actions-assembly-#{child_assembly.id}']").click
+        expect(page).to have_content("Edit")
+        expect(page).to have_content("Share link")
+        expect(page).to have_content("Export")
+
+        # Collapse mother (2nd level)
+        within "tr", text: translated(mother_assembly.title) do
+          find("a[data-arrow-up]").click
+        end
+
+        expect(page).to have_no_content(translated(child_assembly.title))
+        expect(page).to have_content(translated(mother_assembly.title))
+
+        # Collapse grandmother (1st level)
+        within "tr", text: translated(grandmother_assembly.title) do
+          find("a[data-arrow-up]").click
+        end
+
+        expect(page).to have_no_content(translated(mother_assembly.title))
         expect(page).to have_no_content(translated(child_assembly.title))
       end
     end

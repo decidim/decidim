@@ -9,6 +9,7 @@ describe "Invite assembly moderator" do
   let(:space_sidebar_label) { "Assemblies" }
   let(:participatory_space_user_roles_path) { decidim_admin_assemblies.assembly_user_roles_path(participatory_space) }
   let(:new_button_label) { "New assembly admin" }
+  let(:added_callout_message) { "Admin successfully added to this assembly." }
 
   include_context "when inviting participatory space users"
 

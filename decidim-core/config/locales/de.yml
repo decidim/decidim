@@ -179,7 +179,6 @@ de:
       front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
       opens_in_new_tab: In neuem Tab öffnen
-      secondary_menu: Sekundäres Menü
       skip_button: Zu Hauptinhalten überspringen
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Nutzungsbedingungen gesperrt
@@ -198,6 +197,7 @@ de:
         success: Ihr Konto wurde erfolgreich gelöscht.
       download_your_data_export:
         export_expired: Der Export ist abgelaufen. Versuchen Sie, einen neuen Export zu generieren.
+        export_not_found: Der von Ihnen abgerufene Export existiert nicht, oder Sie haben keinen Zugriff auf den Download
         file_no_exists: Diese Datei existiert nicht
         notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       email_change:
@@ -283,10 +283,6 @@ de:
       organization:
         update: "%{user_name} hat die Organisationseinstellungen aktualisiert"
         update_external_domain: "%{user_name} hat die externe Domains der Organisation aktualisiert"
-      participatory_space_private_user:
-        create: "%{user_name} hat %{resource_name} als privaten Benutzer eingeladen"
-        create_via_csv: "%{user_name} hat %{resource_name} per CSV als privaten Teilnehmer eingeladen"
-        delete: "%{user_name} hat den Benutzer %{resource_name} als privaten Benutzer entfernt"
       scope:
         create: "%{user_name} hat den Bereich %{resource_name} erstellt"
         create_with_parent: "%{user_name} hat den Bereich %{resource_name} im übergeordneten Bereich %{parent_scope} erstellt"
@@ -588,8 +584,6 @@ de:
         description: Beschreibung
       footer_sub_hero:
         name: Abschnitt mit Plattformslogan
-      global_menu:
-        name: Globales Menü
       hero:
         name: Banner-Bild und Handlungsaufforderung
       hero_settings_form:
@@ -685,7 +679,7 @@ de:
           newsletter_title: Kontakterlaubnis
           sign_up: Konto erstellen
           subtitle: Erstellen Sie ein Konto, um auf der Plattform teilzunehmen.
-          terms: die Nutzungsbedingungen
+          terms: den Nutzungsbedingungen
           tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
           tos_title: Nutzungsbedingungen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
@@ -765,7 +759,6 @@ de:
           created_at: Das Erstellungsdatum dieser Unterhaltung
           id: Die eindeutige Bezeichnung dieser Unterhaltung
           messages: Die Nachrichten dieser Unterhaltung
-          updated_at: Das Datum, an dem diese Unterhaltung zuletzt aktualisiert wurde
         notifications:
           created_at: Datum und Uhrzeit, an dem die Benachrichtigung erstellt wurde
           event_class: Die Klasse des Ereignisses, das die Benachrichtigung ausgelöst hat
@@ -774,13 +767,6 @@ de:
           id: Die eindeutige Bezeichnung dieser Benachrichtigung
           resource_type: Der Typ der Ressource, mit der die Benachrichtigung verknüpft ist
           updated_at: Datum und Uhrzeit, an dem die Benachrichtigung zuletzt aktualisiert wurde
-        participatory_space_private_users:
-          created_at: Das Datum und die Uhrzeit, als diese private Teilnahme erstellt wurde
-          id: Die eindeutige Bezeichnung der privaten Teilnahme
-          privatable_to: Zu welchem Raum diese private Teilnahme gehört
-          published: Ob diese private Teilnahme veröffentlicht ist oder nicht
-          role: Die Rolle, die diese private Teilnahme hat
-          updated_at: Das Datum und die Uhrzeit, als diese private Teilnahme zuletzt aktualisiert wurde
         reports:
           created_at: Das Datum und die Uhrzeit, an der dieser Bericht erstellt wurde
           details: Die Details dieses Berichts
@@ -790,7 +776,6 @@ de:
           reason: Die Begründung dieser Meldung
           updated_at: Datum und Uhrzeit, an dem diese Meldung zuletzt aktualisiert wurde
         users:
-          about: Die Profilbeschreibung dieses Benutzers
           accepted_tos_version: Das Datum, an dem die Nutzungsbedingungen dieser Plattform vom Nutzenden akzeptiert wurden
           admin: Ob dieser Benutzer ein Administrator ist
           confirmation_sent_at: Datum und Uhrzeit, an dem die Bestätigung gesendet wurde
@@ -801,7 +786,6 @@ de:
           delete_reason: Der Grund für das Löschen dieses Benutzers
           deleted_at: Datum und Uhrzeit, an dem dieser Benutzer gelöscht wurde
           email: Die E-Mail-Adresse dieses Benutzers
-          followers_count: Die Anzahl Teilnehmende, die diesem Nutzenden folgen
           following_count: Die Anzahl der Teilnehmende, denen dieser Nutzende folgt
           id: Der eindeutige Identifikator dieses Benutzers
           invitation_accepted_at: Datum und Uhrzeit, an dem die Einladung angenommen wurde
@@ -809,16 +793,12 @@ de:
           invitation_sent_at: Datum und Uhrzeit, an dem die Einladung versendet wurde
           invitations_count: Die Anzahl der an diesen Benutzer gesendeten Einladungen
           invited_by: Der Benutzer, der diesen Benutzer eingeladen hat
-          last_sign_in_at: Datum und Uhrzeit des letzten Logins
-          last_sign_in_ip: Die IP-Adresse des letzten Logins
           locale: Die Plattformsprache, die dieser Benutzer ausgewählt hat
           managed: Ob dieser Benutzer von einem anderen Benutzer verwaltet wird
           name: Der Name des Benutzers
-          newsletter_notifications_at: Datum und Uhrzeit, wann dieser Benutzer zuletzt einen Newsletter erhalten hat
           nickname: Der Kontoname des Benutzers
           notification_settings: Die Benachrichtigungseinstellungen, die dieser Benutzer ausgewählt hat
           notifications_sending_frequency: Die Häufigkeit der Benachrichtigungen, die dieser Benutzer erhält
-          officialized_as: Der Name der offiziellen Rollen (Amtsleiterin, Bürgermeister, usw.)
           officialized_at: Das Datum und die Uhrzeit, an der dieser Benutzer offizialisiert wurde
           organization: Die Organisation, zu der dieser Benutzer gehört
           password_updated_at: Das Datum, an dem ihr Passwort zum letzten Mal geändert wurde
@@ -856,7 +836,6 @@ de:
       files:
         file_cannot_be_processed: Datei konnte nicht verarbeitet werden
         file_resolution_too_large: Die Datei-Auflösung ist zu gross
-        not_inside_organization: Die Datei ist keiner Organisation angefügt.
       internal_server_error:
         copied: Text Kopiert!
         copy_error_message_clarification: Fehlermeldung in die Zwischenablage kopieren
@@ -1053,7 +1032,6 @@ de:
         file:
           explanation: 'Anleitung für Datei:'
           message_1: Muss ein Bild oder ein Dokument sein.
-          message_2: Wenn es sich um ein Bild handelt, ist es vorzugsweise ein Querformat ohne Text. Es wird von der Plattform zugeschnitten.
         icon:
           explanation: 'Hinweise für das Bild:'
           message_1: Muss ein quadratisches Bild sein.
@@ -1155,6 +1133,7 @@ de:
         create_with_space: "%{user_name} hat %{resource_name} in %{space_name} erstellt"
         delete: "%{user_name} hat %{resource_name} gelöscht"
         delete_with_space: "%{user_name} hat %{resource_name} in %{space_name} gelöscht"
+        publish: "%{user_name} hat %{resource_name} veröffentlicht"
         publish_with_space: "%{user_name} veröffentlichte %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
         unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
@@ -1187,7 +1166,6 @@ de:
         latlng_text: 'Breitengrad: %{latitude}, Längengrad: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Hilfe
       home: Start
     messaging:
       conversation_mailer:
@@ -1296,11 +1274,9 @@ de:
         same_language: Der Inhalt wurde in Ihrer bevorzugten Sprache (%{language}) veröffentlicht, daher wird in dieser E-Mail keine automatisierte Übersetzung angezeigt.
         translated_text: 'Automatisch übersetzter Text:'
     notifications:
-      action_error: Beim Aktualisieren der Benachrichtigungen ist ein Fehler aufgetreten.
       no_notifications: Noch keine Benachrichtigungen
       show:
         missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
-        moderated: Inhalt moderiert
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung
@@ -1309,7 +1285,6 @@ de:
       hello: Hallo %{name}
       intro:
         daily: 'Dies sind die Benachrichtigungen vom letzten Tag basierend auf den Aktivitäten, denen Sie folgen:'
-        real_time: 'Es gibt eine Benachrichtigung über die Aktivität, die du folgst:'
         weekly: 'Dies sind die Benachrichtigungen der letzten Woche, basierend auf den Aktivitäten, die Sie folgen:'
       outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Inhalt oder seine Verfassenden folgen. Sie können dem Inhalt direkt auf seiner Seite entfolgen.
       see_more: Weitere Benachrichtigungen ansehen
@@ -1452,9 +1427,7 @@ de:
           title: Wie man diese Dateien öffnet und mit ihnen arbeitet
         license:
           body_1_html: Diese Datenbank von %{organization_name} wird unter %{link_database} zur Verfügung gestellt. Alle Rechte an einzelnen Inhalten der Datenbank sind unter %{link_contents} lizenziert.
-          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
           license_contents_name: Lizenz für Datenbankinhalte
-          license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
           license_database_name: Offene Datenbanklizenz
           title: Lizenz
         title: Offene Daten
@@ -1477,7 +1450,7 @@ de:
         footer_sub_hero:
           footer_sub_hero_body_html: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
           footer_sub_hero_headline: Willkommen auf der Beteiligungsplattform %{organization}.
-          register: Registrieren
+          register: Konto erstellen
         hero:
           participate: Teilnehmen
           participate_title: Beteiligen Sie sich an den Prozessen auf dieser Plattform
@@ -1485,7 +1458,7 @@ de:
         statistics:
           headline: Statistiken
         sub_hero:
-          register: Registrieren
+          register: Konto erstellen
           register_title: Konto erstellen
       index:
         standalone_pages: Seiten
@@ -1529,6 +1502,9 @@ de:
           %{organization_name}
         hello: Hallo %{username},
         subject: Inaktives Konto gelöscht
+    participatory_space_members:
+      index:
+        members: Mitglieder
     passwords:
       update:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
@@ -1731,10 +1707,15 @@ de:
         greeting: Hallo %{name},
         instructions_1: Wenn Sie Zugriff auf dieses E-Mail-Konto haben, überprüfen Sie bitte Ihren Posteingang für die Anweisungen.
         instructions_2: Wenn nicht, muss einer Ihrer Kollegen, der Zugriff hat, das Passwort festlegen und die Anmeldedaten mit Ihnen teilen.
+        instructions_intro: Gruppenmitglieder teilen nun den Zugriff auf dieses Profil mithilfe gemeinsamer Anmeldedaten (E-Mail und Passwort). Wir haben Anweisungen an %{email} gesendet, um ein neues Passwort für das Profil festzulegen.
+        instructions_title: "<strong>Was das für Sie bedeutet</strong>"
+        subject: Wichtige Aktualisierung für Ihr Gruppenprofil
       notify_deprecation_to_owner:
         body_1: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
         body_2: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
         greeting: Hallo %{name},
+        set_password: Passwort festlegen
+        subject: Wichtige Aktualisierung für Ihr Gruppenprofil
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
@@ -1805,8 +1786,6 @@ de:
         submit_button: Eine Einladung schicken
       no_invitations_remaining: Keine Einladungen übrig
       send_instructions: Eine Einladungs-E-Mail wurde an %{email}gesendet.
-      updated: Ihr Passwort wurde erfolgreich vergeben. Sie sind jetzt angemeldet.
-      updated_not_active: Ihr Passwort wurde erfolgreich vergeben.
     mailer:
       confirmation_instructions:
         action: Konto bestätigen
@@ -1826,17 +1805,13 @@ de:
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
           Ihr Konto wird erst erstellt, wenn Sie auf den angegebenen Link zugreifen und Ihren Kontonamen und Ihr Passwort festlegen.
         invited_you_as_admin: "%{invited_by} hat Sie als Admin von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
-        invited_you_as_private_user: "%{invited_by} hat Sie als privaten Teilnehmenden zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
         someone_invited_you: Jemand hat Sie zu %{application} eingeladen. Sie können die EInladung über den folgenden Link akzeptieren.
         someone_invited_you_as_admin: Jemand hat Sie als Admin zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
-        someone_invited_you_as_private_user: Jemand hat Sie als privaten Teilnehmenden zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
       invite_admin:
         subject: Sie wurden eingeladen %{organization} zu verwalten
       invite_collaborator:
         subject: Sie wurden zur Zusammenarbeit auf %{organization} eingeladen
-      invite_private_user:
-        subject: Sie wurden zu einem privaten Beteiligungsprozess auf %{organization} eingeladen
       organization_admin_invitation_instructions:
         subject: Sie wurden eingeladen %{organization} zu verwalten
       password_change:
@@ -1866,8 +1841,6 @@ de:
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
         old_password_help: Um die Änderungen an Ihrem Konto zu bestätigen, geben Sie bitte Ihr aktuelles Passwort ein.
-        password_help: "Das Passwort muss aus mindestens %{minimum_characters} Zeichen bestehen, darf nicht zu gewöhnlich sein (z. B. 123456) oder Ihren Kontonamen bzw. Ihre E-Mail-Adresse enthalten."
-        password_help_admin: "Das Passwort muss aus mindestens %{minimum_characters} Zeichen bestehen, darf nicht zu gewöhnlich sein (z. B. 123456) oder Ihren Kontonamen oder Ihre E-Mail-Adresse enthalten und muss sich von Ihren alten Passwörtern unterscheiden."
         title: Passwort ändern
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
@@ -2119,8 +2092,6 @@ de:
         expire_time_html: Ihre Sitzung läuft in <b><span data-impersonation-warning-target="minutes">%{minutes}</span> Minuten</b> ab.
       language_chooser:
         choose_language: Sprache wählen
-      navigation:
-        aria_label: 'Navigationsmenü: %{title}'
       notifications_dashboard:
         mark_all_as_read: Alles als gelesen markieren
         mark_as_read: Als gelesen markieren

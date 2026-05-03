@@ -61,11 +61,6 @@ id:
         skip_verification: Anda dapat melewati ini untuk sekarang dan %{link}
         start_exploring: mulai menjelajah
       csv_census:
-        admin:
-          index:
-            title: Data sensus saat ini
-          instructions:
-            body: Untuk melakukan ini, Anda harus memasukkan administrasi sistem dan menambahkan otorisasi csv_census ke organisasi
         authorizations:
           new:
             error: Kami tidak dapat memverifikasi akun Anda atau Anda tidak ada dalam sensus organisasi.
@@ -84,13 +79,11 @@ id:
               error: Terjadi kesalahan saat memperbarui konfigurasi.
           confirmations:
             new:
-              introduce_user_data: Perkenalkan data dalam gambar
               reject: Menolak
               verify: Memeriksa
           offline_confirmations:
             new:
               cancel: Membatalkan
-              introduce_user_data: Perkenalkan email pengguna dan data dokumen
               verify: Memeriksa
           pending_authorizations:
             index:

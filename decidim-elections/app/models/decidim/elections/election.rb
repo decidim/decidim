@@ -42,11 +42,13 @@ module Decidim
       scope :ongoing, -> { published.where(start_at: ..Time.current, end_at: Time.current..) }
       scope :finished, -> { published.where(end_at: ..Time.current) }
 
-      searchable_fields(
-        A: :title,
-        D: :description,
-        participatory_space: { component: :participatory_space }
-      )
+      searchable_fields({
+                          A: :title,
+                          D: :description,
+                          participatory_space: { component: :participatory_space }
+                        },
+                        index_on_create: ->(election) { election.visible? },
+                        index_on_update: ->(election) { election.visible? })
 
       def presenter
         Decidim::Elections::ElectionPresenter.new(self)
@@ -70,6 +72,10 @@ module Decidim
 
       def scheduled?
         published? && !ongoing? && !finished? && !published_results?
+      end
+
+      def editable?
+        published? ? !started? : !votes.exists?
       end
 
       def started?
@@ -129,14 +135,6 @@ module Decidim
         return questions.enabled.unpublished_results if per_question?
 
         questions
-      end
-
-      # Create i18n ransackers for :title and :description.
-      # Create the :search_text ransacker alias for searching from both of these.
-      ransacker_i18n_multi :search_text, [:title, :description]
-
-      def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state]
       end
 
       def status

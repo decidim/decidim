@@ -1,6 +1,8 @@
-# Decidim::Forms
+# decidim-forms
 
 This gem encapsulates the logic to create and manage forms, so it can be reused in other modules, like surveys and meetings.
+
+This is a module oriented for developers, as a building block to be used by other modules.
 
 A `Decidim::Forms::Question` must be of one of the types:
 

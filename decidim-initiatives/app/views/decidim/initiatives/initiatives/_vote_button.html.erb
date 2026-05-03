@@ -37,10 +37,10 @@
     <%= action_authorized_link_to(
       :vote,
       t("vote", scope: "decidim.initiatives.initiatives.vote_cabin"),
-      steps ? initiative_signatures_path(initiative_slug: current_initiative.slug) : initiative_path(current_initiative),
+      steps ? initiative_signatures_path(initiative_slug: current_initiative.slug, locale: current_locale) : initiative_path(current_initiative, locale: current_locale),
       resource: current_initiative,
       permissions_holder: current_initiative.type,
-      authorizations_modal_path: authorization_sign_modal_initiative_path(current_initiative),
+      authorizations_modal_path: authorization_sign_modal_initiative_path(current_initiative, locale: current_locale),
       class: "button button__xl w-full button__secondary"
     ) %>
   <% end %>

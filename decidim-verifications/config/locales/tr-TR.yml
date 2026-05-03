@@ -72,6 +72,13 @@ tr:
         new:
           authorize: göndermek
           authorize_with: '%{authorizer} ile doğrulayın'
+        onboarding_pending:
+          completed_verifications: Yetkilendirme işleminiz başarıyla tamamlandı, şimdi %{resource_name} içinde %{action} işlemini gerçekleştirebilirsiniz
+          granted_verifications: Onaylanan doğrulamalar
+          onboarding_message_html: <strong>%{resource_title}</strong> %{resource_name} üzerinde %{action} işlemini gerçekleştirmeye neredeyse hazırsınız. Lütfen aşağıdaki yetkilendirmeleri tamamlayarak hesabınızı doğrulayın.
+          pending_admin_approval_verifications: Yönetim onayının doğrulanması bekleniyor
+          pending_verifications: Doğrulama işlemleri devam ediyor
+          unauthorized: Bu kaynakta %{action} işlemine yetkiniz bulunmamaktadır
         renew_modal:
           cancel: İptal Et
           continue: Devam et
@@ -79,12 +86,6 @@ tr:
         skip_verification: Bunu şimdilik %{link} atlayabilirsiniz
         start_exploring: keşfetmeye başla
       csv_census:
-        admin:
-          index:
-            title: Geçerli kayıt verisi
-          instructions:
-            body: Bunu yapmak için sistem yönetimine girmeli ve csv_census yetkilerini kuruluşa eklemelisiniz.
-            title: Bu kuruluş için CSV sayımını etkinleştirmeniz gerekiyor
         authorizations:
           new:
             error: Hesabınızı doğrulayamadık veya kuruluşun sayımına girmediniz.
@@ -104,13 +105,11 @@ tr:
               error: Yapılandırma güncellenirken bir hata oluştu.
           confirmations:
             new:
-              introduce_user_data: Resimdeki verileri tanıtın
               reject: Reddet
               verify: Doğrulama
           offline_confirmations:
             new:
               cancel: İptal Et
-              introduce_user_data: Katılımcı e-postasını ve doküman verilerini tanıtın
               verify: Doğrula
           pending_authorizations:
             index:

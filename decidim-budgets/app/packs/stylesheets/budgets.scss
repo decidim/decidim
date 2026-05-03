@@ -97,20 +97,20 @@
     @apply justify-center flex w-full xl:w-2/5 items-center bg-background p-4 bg-background font-bold text-gray-2 ml-auto;
   }
 
-  &__card__highlight-vote__header {
-    @apply place-items-start w-1/3;
+  &__card_highlight-vote__header {
+    @apply place-items-start flex;
   }
 
   &__card__highlight-vote__number {
-    @apply text-xl font-semibold;
+    @apply flex justify-start w-full text-xl mx-4 px-2 font-semibold;
 
     span {
-      @apply text-sm;
+      @apply text-sm mx-8;
     }
   }
 
   &__card__highlight-vote__button {
-    @apply mt-auto text-left;
+    @apply mx-8 px-4 text-left;
 
     &.button__secondary:hover {
       @apply text-white #{!important};

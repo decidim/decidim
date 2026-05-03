@@ -53,6 +53,12 @@ describe("full toolbar", () => {
     });
 
     describe("videoEmbed", () => {
+
+      const normalizeHTML = (html) => {
+        return html.replace(/\s*data-mention-suggestion-char="[^"]*"/g, "").
+          replace(/<p><br class="ProseMirror-trailingBreak"><\/p>/g, "");
+      };
+
       it("creates a new video embed with the provided details at the end of the selection", async () => {
         await setContent("Hello, world!");
         prosemirror.focus();
@@ -69,7 +75,7 @@ describe("full toolbar", () => {
         // handled
         await sleep(0);
 
-        expect(prosemirror.innerHTML).toMatchHtml(
+        expect(normalizeHTML(prosemirror.innerHTML)).toMatchHtml(
           `
             <p>Hello, world!</p>
             <div class="editor-content-videoEmbed ProseMirror-selectednode" data-video-embed="https://www.youtube.com/watch?v=f6JMgJAQ2tc" draggable="true">
@@ -112,7 +118,7 @@ describe("full toolbar", () => {
         // handled
         await sleep(0);
 
-        expect(prosemirror.innerHTML).toMatchHtml(
+        expect(normalizeHTML(prosemirror.innerHTML)).toMatchHtml(
           `
             <p>Hello, world!</p>
             <div class="editor-content-videoEmbed ProseMirror-selectednode" data-video-embed="https://www.youtube.com/watch?v=zhMMW0TENNA" draggable="true">
@@ -148,6 +154,11 @@ describe("full toolbar", () => {
         window.Decidim.currentDialogs[dialog] = dialogEl.dialog;
       }
 
+      const normalizeHTML = (html) => {
+        return html.replace(/\s*data-mention-suggestion-char="[^"]*"/g, "").
+          replace(/<p><br class="ProseMirror-trailingBreak"><\/p>/g, "");
+      };
+
       beforeEach(() => {
         const csrf = document.createElement("meta");
         csrf.setAttribute("name", "csrf-token")
@@ -174,7 +185,7 @@ describe("full toolbar", () => {
 
         await sleep(0);
 
-        expect(prosemirror.innerHTML).toMatchHtml(
+        expect(normalizeHTML(prosemirror.innerHTML)).toMatchHtml(
           `
             <p>Hello, world!</p>
             <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
@@ -218,7 +229,7 @@ describe("full toolbar", () => {
 
         await sleep(0);
 
-        expect(prosemirror.innerHTML).toMatchHtml(
+        expect(normalizeHTML(prosemirror.innerHTML)).toMatchHtml(
           `
             <p>Hello, world!</p>
             <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">

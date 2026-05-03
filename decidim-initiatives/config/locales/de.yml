@@ -27,7 +27,6 @@ de:
       initiatives_type:
         area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
         attachments_enabled: Anhänge freigeben
-        banner_image: Banner-Bild
         child_scope_threshold_enabled: Unterschriften von Unterbereichen aktivieren
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         comments_enabled: Kommentare aktivieren
@@ -96,7 +95,7 @@ de:
           type_id_eq:
             label: Typ
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren
+          title_or_description_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren
       initiatives_settings:
         update:
           error: Beim Aktualisieren der Initiativeneinstellungen ist ein Fehler aufgetreten.
@@ -110,15 +109,12 @@ de:
         initiatives_menu:
           see_initiative: Initiative ansehen
         initiatives_settings: Einstellungen
-        initiatives_submenu:
-          info: Über diese Initiative
         initiatives_types: Arten von Initiativen
         moderations: Moderationen
       models:
         initiatives:
           fields:
             created_at: Erstellt am
-            id: ID
             published_at: Veröffentlicht am
             state: Status
             supports_count: Unterschriften
@@ -157,9 +153,6 @@ de:
       taxonomy_filters:
         space_filter_for:
           initiatives: Alle Initiativen
-      titles:
-        initiatives: Initiativen
-        initiatives_types: Arten von Initiativen
     download_your_data:
       show:
         initiatives: Initiativen exportieren
@@ -298,7 +291,6 @@ de:
             publication_date: Zuletzt veröffentlicht
             random: Zufällig
             signatures: Am häufigsten unterzeichnet
-            title: Einstellungen für Initiativen
         initiatives_type_scopes:
           create:
             error: Beim Erstellen eines neuen Bereichs für diese Intiative ist ein Problem aufgetreten.
@@ -687,6 +679,7 @@ de:
       initiative:
         actions:
           comment: Kommentieren
+          vote_comment: Kommentar bewerten
       initiatives_type:
         actions:
           create: Initiative erstellen

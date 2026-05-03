@@ -1,7 +1,4 @@
 <div class="flex items-center gap-x-8">
-  <div class="menu-bar__language-chooser-desktop">
-    <%= render partial: "layouts/decidim/header/main_language_chooser" %>
-  </div>
   <% if !current_user %>
     <div>
       <%= link_to decidim.new_user_session_path, class: "main-bar__links-desktop__item", "aria-label": t("layouts.decidim.header.log_in") do %>
@@ -36,7 +33,7 @@
           </span>
         <% end %>
       </button>
-      <div id="dropdown-menu-account" aria-hidden="true">
+      <div id="dropdown-menu-account" aria-hidden="true" data-controller="assign-role" data-role="dialog">
         <ul class="dropdown dropdown__bottom main-bar__dropdown">
           <%= render partial: "layouts/decidim/header/main_links_dropdown", locals: { unread_data: } %>
         </ul>
@@ -44,12 +41,21 @@
     </div>
   <% end %>
   <button id="main-dropdown-summary-desktop" class="main-bar__links-desktop__trigger"
-          data-controller="dropdown"
+          data-controller="main-menu"
+          data-close-button="main-dropdown-summary-desktop-close"
           data-target="dropdown-menu-main-desktop" aria-expanded="false">
     <%= icon "menu-line" %><span><%= t("menu", scope: "decidim.admin.titles") %></span>
   </button>
 
   <div id="dropdown-menu-main-desktop" class="main-bar__links-desktop__dropdown main-bar__links-desktop__dropdown-before" aria-hidden="true">
-    <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown_desktop", locals: { id: "breadcrumb-main-dropdown-desktop" } %>
+    <div id="breadcrumb-main-dropdown-desktop" class="menu-bar__main-dropdown menu-bar__dropdown-desktop">
+      <button id="main-dropdown-summary-desktop-close" class="main-bar__links-desktop__trigger">
+        <%= icon "close-line" %><span><%= t("close", scope: "layouts.decidim.header") %></span>
+      </button>
+      <%= breadcrumb_root_menu.render %>
+      <div class="menu-bar__main-dropdown__left">
+        <%= cell("decidim/highlighted_participatory_process", menu_highlighted_participatory_process) %>
+      </div>
+    </div>
   </div>
 </div>

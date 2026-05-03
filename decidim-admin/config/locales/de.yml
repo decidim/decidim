@@ -33,9 +33,14 @@ de:
       help_section:
         content: Inhalt
       id: ID
+      member:
+        email: E-Mail
+        name: Name
+      member_csv_import:
+        file: Datei
       newsletter:
         body: Haupttext
-        send_to_all_users: An alle Benutzenden senden
+        send_to_all_users: An alle Teilnehmende senden
         send_to_followers: An Follower senden
         send_to_participants: An Teilnehmende senden
         subject: Betreff
@@ -50,7 +55,6 @@ de:
         description: Beschreibung
         enable_machine_translations: Maschinelle Übersetzungen aktivieren
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
-        enable_participatory_space_filters: Bereichs- und Gebietsfilter aktivieren
         facebook_handler: Facebook-Handler
         favicon: Icon
         force_authentication: Authentifizierung erzwingen
@@ -91,11 +95,6 @@ de:
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
         youtube_handler: YouTube-Handler
-      participatory_space_private_user:
-        email: E-Mail
-        name: Name
-      participatory_space_private_user_csv_import:
-        file: Datei
       scope:
         code: Code
         name: Name
@@ -125,10 +124,17 @@ de:
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
         weight: Reihenfolge
+      taxonomy:
+        item_name: Elementbezeichnung
+        parent_id: Übergeordnetes Element
       user_group_csv_verification:
         file: Datei
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
         newsletter:
           attributes:
             base:
@@ -137,10 +143,6 @@ de:
           attributes:
             official_img_footer:
               allowed_file_content_types: Ungültige Bilddatei
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
         user_group_csv_verification:
           attributes:
             file:
@@ -186,14 +188,15 @@ de:
           </ul>
           Wenn Sie Ihre Meinung ändern, können Sie es später wiederherstellen.
         export: Exportieren
-        export-selection: Auswahl exportieren
+        export_all: Alles exportieren
+        export_selection: Auswahl exportieren
         import: Importieren
+        member:
+          new: Neues Mitglied
         menu_hidden: Im Menü ausblenden
         moderate: Moderationen verwalten
         newsletter:
           new: Neuer Newsletter
-        participatory_space_private_user:
-          new: Neuer privater Benutzer
         per_page: Pro Seite
         permissions: Berechtigungen verwalten
         restore: Wiederherstellen
@@ -204,6 +207,9 @@ de:
         user:
           new: Neuer Administrator
         view_deleted_components: Gelöschte Komponenten ansehen
+      admin_terms:
+        show:
+          title: Admin-Nutzungsbedingungen
       admin_terms_of_service:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
@@ -217,7 +223,6 @@ de:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
           callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
           cta: Jetzt überprüfen.
-        title: Admin-Nutzungsbedingungen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
@@ -260,8 +265,6 @@ de:
         edit:
           title: Ordner bearbeiten
           update: Aktualisieren
-        index:
-          attachment_collections_title: Anhang Ordner
         new:
           create: Erstellen
           title: Neuer Ordner
@@ -277,8 +280,6 @@ de:
         edit:
           title: Anhang bearbeiten
           update: Aktualisieren
-        index:
-          attachments_title: Anhänge
         new:
           create: Anhang erstellen
           title: Neuer Anhang
@@ -338,7 +339,6 @@ de:
           title: 'Komponente hinzufügen: %{name}'
         publish:
           success: Die Komponente wurde erfolgreich veröffentlicht.
-        title: Komponenten
         unpublish:
           success: Die Veröffentlichung der Komponente wurde erfolgreich zurückgezogen.
         update:
@@ -355,7 +355,6 @@ de:
           text: Duchsuche nach aktueller E-Mail-Adresse, Name oder Spitzname
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
-        title: Überprüfungskonflikte
         transfer:
           email: E-Mail
           error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
@@ -393,7 +392,7 @@ de:
         form:
           domain_too_short: Domain zu kurz
         update:
-          error: Liste der zulässigen externen Domains konnte nicht aktualisiert werden
+          error: Das Aktualisieren der Liste der zulässigen externen Domains ist fehlgeschlagen.
           success: Die Liste der zulässigen externen Domains wurde erfolgreich aktualisiert.
       exports:
         export_as: "%{name} als %{export_format}"
@@ -415,6 +414,17 @@ de:
           values:
             'false': 'Nein'
             'true': 'Ja'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Einladung akzeptiert
+            values:
+              'false': Nicht akzeptiert
+              'true': Akzeptiert
+          user_invitation_sent_at_not_null:
+            label: Einladung versendet
+            values:
+              'false': Nicht versendet
+              'true': Versendet
         moderated_users:
           reports_reason_eq:
             label: Grund der Meldung
@@ -430,17 +440,6 @@ de:
           values:
             'false': Offizialisiert
             'true': Nicht offiziell
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Einladung akzeptiert
-            values:
-              'false': Nicht akzeptiert
-              'true': Akzeptiert
-          user_invitation_sent_at_not_null:
-            label: Einladung versendet
-            values:
-              'false': Nicht versendet
-              'true': Versendet
         private_space_eq:
           label: Privat
           values:
@@ -515,7 +514,6 @@ de:
           impersonate: Imitieren
           impersonate_existing_managed_user: Angenommen, dass der Benutzer "%{name}" verwaltet wird
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
-          impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
       imports:
         and: und
         data_errors:
@@ -571,8 +569,54 @@ de:
         promotions:
           new:
             explanation: Verwaltete Benutzer können zu Standardbenutzern heraufgestuft werden. Das bedeutet, dass sie zu der Anwendung eingeladen werden und nicht in der Lage sind, sie erneut zu repräsentieren. Der eingeladene Benutzer erhält eine E-Mail, um Ihre Einladung anzunehmen.
-            new_managed_user_promotion: Neue verwaltete Benutzerwerbung
             promote: Fördern
+      members:
+        create:
+          error: Beim Hinzufügen eines Mitglieds zu diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Zugriff für das Mitglied erfolgreich erstellt.
+        destroy:
+          error: Beim Entfernen eines Mitglieds zu diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Zugriff für das Mitglied erfolgreich gelöscht.
+        edit:
+          title: Mitglied bearbeiten
+          update: Aktualisieren
+        index:
+          import_via_csv: Aus CSV importieren
+          publish_all: Alle veröffentlichen
+          title: Mitglied
+          unpublish_all: Alle Veröffentlichungen aufheben
+        new:
+          create: Erstellen
+          title: Neues Mitglied
+        publish_all:
+          error: Beim Veröffentlichen der Mitglieder in diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Alle Mitglieder für diesen partizipativen Bereich erfolgreich veröffentlicht
+        unpublish_all:
+          error: Beim Aufheben der Veröffentlichen der Mitglieder in diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Die Veröffentlichung der Mitglieder für diesen partizipativen Bereich wurde erfolgreich aufgehoben
+        update:
+          error: Beim Aktualisieren eines Mitglieds in diesem partizipativen Bereich ist ein Fehler aufgetreten.
+          success: Mitglied wurde erfolgreich aktualisiert
+      members_csv_imports:
+        create:
+          invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
+          success: CSV-Datei wurde erfolgreich hochgeladen. Wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
+        new:
+          csv_upload:
+            title: Laden Sie Ihre CSV-Datei hoch
+          destroy:
+            button: Alle Mitglieder löschen
+            confirm: Sind Sie sicher, dass Sie alle Mitglieder entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
+            empty: Sie haben noch keine Mitglieder.
+            explanation: Sie haben %{count} Mitglieder.
+            title: Mitglieder löschen
+          example_file: 'Beispieldatei:'
+          explanation: 'Laden Sie Ihre CSV-Datei mit den Teilnehmenden, die Sie zum Prozess hinzufügen möchten, hoch. Sie muss zwei Spalten (ohne Kopfzeile) haben, mit der E-Mail-Adresse in der ersten Spalte und dem Namen in der zweiten Spalte der Datei. Verwenden Sie keine ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen der Teilnehmenden.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Mitglieder via CSV importieren
+          upload: Hochladen
       menu:
         admin_log: Admin-Aktivitätsprotokoll
         admins: Admins
@@ -631,6 +675,8 @@ de:
             reason: Grund
             started_at: Fing an bei
             user: Benutzer
+        member:
+          name: Mitglied
         newsletter:
           fields:
             created_at: Erstellt am
@@ -639,8 +685,6 @@ de:
             sent_to: Gesendet an
             subject: Gegenstand
           name: Newsletter
-        participatory_space_private_user:
-          name: Participatory Space privater Benutzer
         scope:
           fields:
             name: Name
@@ -754,7 +798,6 @@ de:
           title: Newsletter Vorlagen
           use_template: Diese Vorlage verwenden
         show:
-          preview: 'Vorschau der Vorlage: %{template_name}'
           use_template: Diese Vorlage verwenden
       newsletters:
         confirm_recipients:
@@ -782,7 +825,6 @@ de:
           has_been_sent_to: 'Wurde gesendet an: '
           not_sent: Nicht gesendet
           participants: 'Teilnehmer: '
-          private_members: 'private Mitglieder '
           segmented_to: 'Unterteilt in %{subject}: '
           subscribed_count: 'Abonniert:'
           title: Newsletter
@@ -799,7 +841,6 @@ de:
           deliver: Newsletter versenden
           followers_help: Sendet den Newsletter an alle bestätigten Benutzer, die den ausgewählten Teilnehmerräumen in der Liste folgen.
           participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
-          private_members_help: Sendet einen Newsletter an alle bestätigten Teilnehmende, die den ausgewählten privaten Teilnahmebereichen hinzugefügt wurden.
           recipients_count: Dieser Newsletter wird an <strong id='recipients_count'>%{count}</strong> Teilnehmer gesendet.
           select_assemblies: Gremien auswählen
           select_conferences: Konferenzen auswählen
@@ -819,7 +860,6 @@ de:
         send_to_user:
           sent_successfully: Newsletter wurde erfolgreich an %{email} gesendet
         show:
-          preview: Vorschau
           select_recipients_to_deliver: Empfänger auswählen
           send_me_a_test_email: Mir eine Test-E-Mail senden
           subject: Gegenstand
@@ -914,54 +954,6 @@ de:
           up: Nach oben
         form:
           add: Zur erlaubten Liste hinzufügen
-          title: Liste erlaubter externer Domains
-      participatory_space_private_users:
-        create:
-          error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Ein privater Zugriff für diesen Beteiligungsbereich wurde erfolgreich für das Konto erstellt.
-        destroy:
-          error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Privater Zugriff zum partizipativen Raum erfolgreich gelöscht.
-        edit:
-          title: Privates Mitglied des partiziaptiven Bereichs bearbeiten.
-          update: Aktualisieren
-        index:
-          import_via_csv: Aus CSV-Datein importieren
-          publish_all: Alle veröffentlichen
-          title: Participatory Space privater Benutzer
-          unpublish_all: Alle Veröffentlichungen aufheben
-        new:
-          create: Erstellen
-          title: Neuer privater Benutzer des Participatory Space.
-        publish_all:
-          error: Es gab ein Problem bei der Veröffentlichung aller privaten Teilnehmenden für diesen partizipativen Bereich.
-          success: Alle privaten Teilnehmenden erfolgreich für diesen partizipativen Bereich veröffentlicht
-        unpublish_all:
-          error: Es gab ein Problem beim Entfernen aller privaten Teilnehmenden für diesen partizipativen Bereich.
-          success: Alle privaten Teilnehmenden für diesen teilnehmenden Raum erfolgreich zurückgezogen
-        update:
-          error: Beim Aktualisieren des privaten Teilnehmenden für diesen Beteiligungsbereich ist ein Problem aufgetreten.
-          success: Privater Teilnehmende für diesen partizipativen Raum erfolgreich erstellt
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
-          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
-        new:
-          csv_upload:
-            title: CSV-Datei hochladen
-          destroy:
-            button: Alle private Teilnehmende auswählen
-            confirm: Sind Sie sicher, dass Sie alle private Teilnehmende entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
-            empty: Sie haben keine private Teilnehmende.
-            explanation: Sie haben %{count} private Teilnehmende.
-            title: Alle private Teilnehmende entfernen
-          example_file: 'Beispieldatei:'
-          explanation: 'Laden Sie Ihre CSV-Datei mit den Teilnehmenden, die Sie zum Prozess hinzufügen möchten, hoch. Sie muss zwei Spalten (ohne Kopfzeile) haben, mit der E-Mail-Adresse in der ersten Spalte und dem Namen in der zweiten Spalte der Datei. Verwenden Sie keine ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen der Teilnehmenden.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Private Teilnehmende via CSV importieren
-          upload: Hochladen
       reminders:
         create:
           error: Beim Erstellen dieser Erinnerungen ist ein Problem aufgetreten.
@@ -972,7 +964,7 @@ de:
           submit: Senden
       resource_permissions:
         edit:
-          submit: einreichen
+          submit: Absenden
           title: Berechtigungen bearbeiten
         options_form:
           ephemeral_warning: Um diese Autorisierungsmethode zu aktivieren, müssen Sie alle bestehenden Autorisierungen <a href="%{path}“>zurücknehmen</a>. Dadurch wird das Risiko von Überprüfungskonflikten minimiert. Alle Berechtigungen dieses Typs werden in der Organisation automatisch entzogen, wenn Sie Änderungen einreichen, die diese Methode hinzufügen oder ihre Konfiguration verändern, nachdem sie hinzugefügt wurde.
@@ -1080,7 +1072,6 @@ de:
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
-          success: Thema erfolgreich aktualisiert
       static_pages:
         actions:
           view: Anzeigen
@@ -1219,25 +1210,12 @@ de:
           none: Keine
           title: Neues Element in %{taxonomy}
       titles:
-        admin_log: Adminprotokoll
-        area_types: Bereichstypen
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
-        dashboard: Instrumententafel
-        edit_external_domains: Liste erlaubter externer Domains
-        impersonatable_users: Überschaubare Benutzer
-        impersonations: Benutzerverwaltung
         menu: Menü
-        page_topics: Themen
-        pages: Seiten
         panel: Admin
-        participants: Benutzer
-        scope_types: Bereichstypen
         scopes: Bereiche
         statistics: Statistiken
-        taxonomies: Klassifizierungen
-        taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
-        users: Administratoren
       tooltips:
         cannot_destroy_taxonomy_filter: Klassifizierungsfilter kann nicht gelöscht werden
         cannot_edit_taxonomy_filter: Klassifizierungsfilter kann nicht bearbeitet werden
@@ -1270,7 +1248,7 @@ de:
           last_day: Letzter Tag
           last_month: Letzter Monat
           last_week: Letzte Woche
-          no_users_count_statistics_yet: Es gibt noch keine Nutzendestatistiken.
+          no_users_count_statistics_yet: Es gibt noch keine Statistiken über die Teilnehmenden.
           participants: Teilnehmer
     forms:
       errors:

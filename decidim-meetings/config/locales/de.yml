@@ -145,7 +145,6 @@ de:
           success: Veranstaltung erfolgreich dupliziert.
         new:
           copy: Kopieren
-          title: Veranstaltung duplizieren
       tooltips:
         cannot_close_meetings: Diese Veranstaltung kann nicht abgeschlossen werden, da sie von einem Teilnehmenden erstellt wurde
         cannot_duplicate_meetings: Dieses Meeting kann nicht dupliziert werden, da es von einem Teilnehmenden erstellt wurde
@@ -162,6 +161,7 @@ de:
           comment: Kommentieren
           join: Beitreten
           reply_poll: Umfrage beantworten
+          vote_comment: Kommentar bewerten
         name: Veranstaltungen
         settings:
           global:
@@ -285,6 +285,7 @@ de:
         agenda: Agenda
         close: Schließen
         confirm_delete_meeting: Möchten Sie diese Veranstaltung wirklich löschen?
+        confirm_unpublish_meeting: Sind Sie sicher, dass Sie die Veröffentlichung dieser Veranstaltung aufheben möchten?
         deleted_meetings_info: Gelöschte Veranstaltungen können aus dem Papierkorb wiederhergestellt werden.
         edit: Bearbeiten
         invalid_destroy:
@@ -329,6 +330,7 @@ de:
           update:
             invalid: Beim Aktualisieren des Traktandums ist ein Problem aufgetreten.
             success: Traktandum erfolgreich aktualisiert.
+        deprecation_warning_polls_html: "⚠️ <b>Warnung zur Entfernung.</b> Die Umfragefunktion bei Veranstaltungen wird in einer zukünftigen, noch zu bestimmenden Version entfernt werden. Organisationen, die Veranstaltungsumfragen nutzen, sollten die Verwendung externer Wahlwerkzeuge planen (zum Beispiel durch Jitsi) oder zu anderen Wahlmechanismen migireren, die in Decidim verfügbar sind, wie zum Beispiel das neue Wahlmodul (`decidim-elections`)."
         exports:
           meeting_comments: Kommentare
           meetings: Veranstaltungen
@@ -351,7 +353,6 @@ de:
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
-            invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
         meeting_closes:
@@ -383,12 +384,13 @@ de:
             select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
           index:
             linked_meeting_warning_html: Diese Veranstaltung muss von <br><a href="%{href}">%{name}</a> bearbeitet werden
+            published: Veröffentlicht
             title: Veranstaltungen
+            unpublished: Unveröffentlicht
           linked_spaces:
             assign: Zuweisen
             link_a_space: Bereich verknüpfen
             private_meeting_warning: Verknüpfte Bereiche werden nicht angewendet, wenn die Veranstaltung privat und nicht transparent ist.
-            private_space_warning: Verknüpfte Bereiche werden nicht angewendet, wenn die Veranstaltung privat und nicht transparent ist.
             select: Einen Bereich auswählen
             table:
               actions: Aktionen
@@ -454,7 +456,6 @@ de:
               other: Es wurden %{count} Anmeldungen vorgenommen.
             reserved_slots_help: Belassen Sie den Wert auf 0, wenn Sie keine reservierten Slots haben.
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
-            title: Anmeldungen
           update:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
@@ -498,8 +499,8 @@ de:
         copy_calendar_url: Kopieren
         copy_calendar_url_clarification: Kalender-URL in Zwischenablage kopieren
         copy_calendar_url_copied: Kopiert!
-        copy_calendar_url_description: Sie können alle veröffentlichten Veranstaltungen in Ihrer Kalenderanwendung oder bei Ihrem Kalender-Anbieter sehen. Kopieren und fügen Sie diese URL mit der Option "Neuen Kalender von einer URL hinzufügen" in Ihren Kalender ein.
-        copy_calendar_url_explanation: Bitte beachten Sie, dass Sie eine Auswahl von Veranstaltungen exportieren, da es aktive Filter gibt. Wenn Sie alle Veranstaltungen exportieren möchten, setzen Sie zuerst alle Filter zurück.
+        copy_calendar_url_description: Sie können alle veröffentlichten Veranstaltungen auf Ihrer Kalenderanwendung anzeigen. Kopieren Sie diese URL und fügen Sie den Kalender mit der Option "Neuen Kalender von einer URL abonnieren" hinzu.
+        copy_calendar_url_explanation: Bitte beachten Sie, dass nur eine Auswahl von Veranstaltungen exportiert wird, weil Filter aktiv sind. Wenn Sie alle Veranstaltungen exportieren möchten, setzen Sie zuerst alle Filter zurück.
         copy_calendar_url_message: Die URL wurde erfolgreich in die Zwischenablage kopiert.
         export_calendar: Kalender exportieren
       close_meeting_reminder_mailer:
@@ -673,9 +674,9 @@ de:
           fields:
             closed: Geschlossen
             end_time: Endtermin
-            id: ID
             map: Karte
             official_meeting: Offizielle Besprechung
+            published: Veröffentlicht
             start_time: Anfangsdatum
             taxonomies: Klassifizierungen
             title: Titel
@@ -796,7 +797,7 @@ de:
           follows_count: Die Anzahl der Folgen, die das Meeting hat
           id: Die eindeutige Bezeichnung der Veranstaltung
           iframe_access_level: Die iFrame-Zugriffsebene der Veranstaltung
-          iframe_embed_type: Die Art des iFrames, der in diese Veranstaltung eingebettet ist
+          iframe_embed_type: Die Art des iFrames, das in diese Veranstaltung eingebettet ist
           latitude: Der Breitengrad des Veranstaltungsorts
           location: Der Ort der Veranstaltung
           location_hints: Ein Hinweis auf den Ort, an dem die Veranstaltung stattfindet

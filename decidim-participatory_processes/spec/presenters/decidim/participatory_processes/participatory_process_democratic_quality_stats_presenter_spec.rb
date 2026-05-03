@@ -9,7 +9,7 @@ module Decidim
 
       let(:organization) { create(:organization) }
       let(:process) { create(:participatory_process, organization:) }
-      let(:content_block) { double("content_block", settings: settings) }
+      let(:content_block) { double("content_block", settings:) }
       let(:settings) do
         double(
           functional_diversity_invited: 2.5,

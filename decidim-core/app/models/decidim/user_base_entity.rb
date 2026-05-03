@@ -20,7 +20,7 @@ module Decidim
     has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
 
     # Regex for name & nickname format validations
-    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/
+    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|\n\r])/m
     REGEXP_NICKNAME = /\A[a-z0-9_-]+\z/
 
     has_one_attached :avatar

@@ -2,10 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/ai/version"
-
 Gem::Specification.new do |s|
-  s.version = Decidim::Ai.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Alexandru-Emil Lupu"]
   s.email = ["contact@alecslupu.ro"]
   s.license = "AGPL-3.0-or-later"
@@ -17,7 +16,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.name = "decidim-ai"
   s.summary = "A Decidim module with AI tools"
@@ -26,9 +25,9 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "classifier-reborn", "~> 2.3.0"
-  s.add_dependency "decidim-core", Decidim::Ai.version
-  s.add_development_dependency "decidim-debates", Decidim::Ai.version
-  s.add_development_dependency "decidim-initiatives", Decidim::Ai.version
-  s.add_development_dependency "decidim-meetings", Decidim::Ai.version
-  s.add_development_dependency "decidim-proposals", Decidim::Ai.version
+  s.add_dependency "decidim-core", version
+  s.add_development_dependency "decidim-debates", version
+  s.add_development_dependency "decidim-initiatives", version
+  s.add_development_dependency "decidim-meetings", version
+  s.add_development_dependency "decidim-proposals", version
 end

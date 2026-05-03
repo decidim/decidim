@@ -18,7 +18,7 @@ module Decidim
         double(
           valid?: valid,
           organization: organization.id,
-          name: name
+          name:
         )
       end
 

@@ -26,7 +26,7 @@ module Decidim
 
       def create
         enforce_permission_to :create, :blogpost
-        @form = form(Decidim::Blogs::PostForm).from_params(params, current_component: current_component)
+        @form = form(Decidim::Blogs::PostForm).from_params(params, current_component:)
 
         CreatePost.call(@form) do
           on(:ok) do |new_post|
@@ -36,7 +36,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("posts.create.invalid", scope: "decidim.blogs.admin")
-            render action: "new", status: :unprocessable_entity
+            render action: "new", status: :unprocessable_content
           end
         end
       end
@@ -48,7 +48,7 @@ module Decidim
 
       def update
         enforce_permission_to :update, :blogpost, blogpost: post
-        @form = form(PostForm).from_params(params, current_component: current_component)
+        @form = form(PostForm).from_params(params, current_component:)
 
         UpdatePost.call(@form, post) do
           on(:ok) do |post|
@@ -58,7 +58,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("posts.update.invalid", scope: "decidim.blogs.admin")
-            render action: "edit", status: :unprocessable_entity
+            render action: "edit", status: :unprocessable_content
           end
         end
       end
@@ -97,11 +97,8 @@ module Decidim
                    end
       end
 
-      # PROVISIONAL if we implement counter cache
       def posts_most_commented
-        @posts_most_commented ||= posts.joins(:comments).group(:id)
-                                       .select("count(decidim_comments_comments.id) as counter")
-                                       .select("decidim_blogs_posts.*").order("counter DESC").published_at_desc.limit(7)
+        @posts_most_commented ||= posts.order(comments_count: :desc).published_at_desc.limit(7)
       end
 
       def add_breadcrumb_item

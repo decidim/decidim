@@ -34,6 +34,7 @@ ro:
       actions:
         edit: Editare
         import: Importă propuneri în proiecte
+        new_project: Proiect nou
         preview: Previzualizare
         send_voting_reminders: Trimite memento-uri de votare
         title: Acțiuni
@@ -58,7 +59,6 @@ ro:
             name: Proiect
         projects:
           edit:
-            title: Editare proiect
             update: Actualizare
           index:
             actions: Acțiuni
@@ -72,11 +72,12 @@ ro:
             update: Actualizare
           new:
             create: Creează
-            title: Proiect nou
         proposals_imports:
           new:
             create: Importă propuneri în proiecte
             no_components: Nu există alte componente de propuneri în acest spațiu participativ pentru a importa propunerile în proiecte.
+            proposal_states: Stări ale propunerii
+            proposal_states_help: Selectați una sau mai multe stări de propunere pentru a importa în proiecte. Prin neselectarea vreuneia, veți importa toate propunerile publicate care nu au fost deja importate în alte bugete din această componentă.
             select_component: Te rugăm selectează o componentă
       admin_log:
         budget:
@@ -109,7 +110,6 @@ ro:
             total_budget: Buget total
         project:
           fields:
-            id: ID
             title: Titlu
       order:
         status:

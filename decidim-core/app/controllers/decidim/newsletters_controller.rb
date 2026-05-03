@@ -34,7 +34,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = t("newsletters.unsubscribe.error", scope: "decidim")
-            render action: :unsubscribe, status: :unprocessable_entity
+            render action: :unsubscribe, status: :unprocessable_content
           end
         end
       else

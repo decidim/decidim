@@ -177,6 +177,7 @@ fr:
           max_choices: 'Choix maximum: %{n}'
         response:
           max_choices_alert: Il y a trop de choix sélectionnés
+          spam_detected: Il y a eu un problème lors de votre réponse au questionnaire. Peut-être avez-vous été trop rapide, pouvez-vous réessayer ?
         show:
           current_step: Étape %{step}
           empty: Aucune question configurée pour ce formulaire pour le moment.
@@ -184,9 +185,9 @@ fr:
           questionnaire_closed:
             body: Le questionnaire est fermé et vous ne pouvez pas y répondre.
             title: Questionnaire fermé
-          questionnaire_for_private_users:
-            body: Le questionnaire est disponible uniquement pour les utilisateurs privés
-            title: Questionnaire fermé
+          questionnaire_for_members:
+            body: Le formulaire est disponible uniquement pour les membres
+            title: Formulaire fermé
           questionnaire_js_disabled:
             body: Certaines des fonctionnalités de ce formulaire seront désactivées. Pour améliorer votre expérience, veuillez activer JavaScript dans votre navigateur.
             title: JavaScript est désactivé

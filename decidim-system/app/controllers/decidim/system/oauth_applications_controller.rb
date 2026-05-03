@@ -30,7 +30,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("oauth_applications.create.error", scope: "decidim.system")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -55,7 +55,7 @@ module Decidim
           on(:invalid) do |application|
             @oauth_application = application
             flash.now[:error] = I18n.t("oauth_applications.update.error", scope: "decidim.system")
-            render action: :edit, status: :unprocessable_entity
+            render action: :edit, status: :unprocessable_content
           end
         end
       end

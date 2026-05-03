@@ -36,7 +36,7 @@ describe "Decidim::Api::QueryType" do
   let!(:current_component) { create(:collaborative_text_component, participatory_space: participatory_process) }
   let!(:document) { create(:collaborative_text_document, component: current_component, published_at: 2.days.ago) }
   let!(:document_version) { create(:collaborative_text_version, document:) }
-  let!(:suggestions) { create_list(:collaborative_text_suggestion, 2, document_version: document_version) }
+  let!(:suggestions) { create_list(:collaborative_text_suggestion, 2, document_version:) }
   let(:author) { nil }
   let(:document_single_result) do
     {

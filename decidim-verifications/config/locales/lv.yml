@@ -78,11 +78,6 @@ lv:
         skip_verification: Tagad varat to izlaist un %{link}
         start_exploring: sāciet izpētīt
       csv_census:
-        admin:
-          index:
-            title: Pašreizējie skaitīšanas dati
-          instructions:
-            body: Lai to izdarītu, jums jāizmanto administratora pilnvaras un organizācijai jāpievieno csv_census pilnvaras
         authorizations:
           new:
             error: Mēs nevarējām verificēt jūsu kontu, vai arī jūs nepiedalāties organizācijas skaitīšanā.
@@ -97,13 +92,11 @@ lv:
               error: Konfigurācijas atjaunināšanas laikā radās problēma.
           confirmations:
             new:
-              introduce_user_data: Ievadiet attēlā redzamos datus
               reject: Noraidīt
               verify: Verificēt
           offline_confirmations:
             new:
               cancel: Atcelt
-              introduce_user_data: Ievadiet dalībnieka e-pasta adresi un dokumentu datus
               verify: Verificēt
           pending_authorizations:
             index:

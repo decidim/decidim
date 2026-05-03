@@ -16,7 +16,7 @@ module Decidim
         decidim-identities-
         decidim-messaging-conversations-
         decidim-notifications-
-        decidim-participatoryspaceprivateusers-
+        decidim-participatoryspace-members-
         decidim-reports-
         decidim-users-
         decidim-meetings-registrations-
@@ -98,9 +98,9 @@ module Decidim
         it_behaves_like "a download your data entity"
       end
 
-      context "when the user has participatory_space_private_user" do
-        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user:) }
-        let(:help_definition_string) { "The role that this private user has" }
+      context "when the user has member" do
+        let!(:member) { create(:member, user:) }
+        let(:help_definition_string) { "The role that this member has" }
 
         it_behaves_like "a download your data entity"
       end

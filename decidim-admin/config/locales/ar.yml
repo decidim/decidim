@@ -35,7 +35,6 @@ ar:
       id: المعرف ID
       newsletter:
         body: النص
-        send_to_all_users: إرسال إلى كافة المستخدمين
         send_to_followers: إرسال إلى المتابِعين
         send_to_participants: إرسال إلى المشتركين
         subject: الموضوع
@@ -49,7 +48,6 @@ ar:
         default_locale: اللغة الافتراضية
         description: الوصف
         enable_omnipresent_banner: عرض لافتة في كل مكان
-        enable_participatory_space_filters: تفعيل أختيارات فرز الفضاء التشاركي
         facebook_handler: مُعرّف حساب فيسبوك
         favicon: أيقونة
         force_authentication: فرض المصادقة
@@ -90,11 +88,6 @@ ar:
         welcome_notification_body: محتوى إشعار الترحيب
         welcome_notification_subject: موضوع إشعار الترحيب
         youtube_handler: مُعرّف حساب يوتيوب
-      participatory_space_private_user:
-        email: البريد الإلكتروني
-        name: الإسم
-      participatory_space_private_user_csv_import:
-        file: ملف
       scope:
         code: الشفرة
         name: الاسم
@@ -136,10 +129,6 @@ ar:
           attributes:
             official_img_footer:
               allowed_file_content_types: ملف صورة غير صالح
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: خطأ في ملفّ الاستيراد، يرجى قراءة التعليمات بعناية والتأكد من أن ترميز الملف هو UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -179,7 +168,7 @@ ar:
             <li class="font-bold">%{resources_count} مصادر</li>
           </ul>
           يمكنك استعادة العنصر إذا غيرت رأيك لاحقاً.
-        export-selection: تصدير الإختيار
+        export_all: تصدير الكل
         import: استيراد
         newsletter:
           new: رسالة إخبارية جديدة
@@ -224,8 +213,6 @@ ar:
         edit:
           title: تحرير المجلد
           update: تحديث
-        index:
-          attachment_collections_title: مجلدات المرفقات
         new:
           create: إنشاء
           title: مجلد جديد
@@ -241,8 +228,6 @@ ar:
         edit:
           title: تحرير المرفق
           update: تحديث
-        index:
-          attachments_title: المرفقات
         new:
           create: إنشاء مرفق
           title: مرفق جديد
@@ -283,7 +268,6 @@ ar:
           title: 'إضافة مكون: %{name}'
         publish:
           success: تم نشر المكون بنجاح.
-        title: المكونات
         unpublish:
           success: تم إلغاء نشر المكون بنجاح.
         update:
@@ -294,7 +278,6 @@ ar:
         'false': 'لا'
         managed_user_name: المستخدم المُدار
         solved: تم حلها
-        title: تضارب التحقق
         transfer:
           email: البريد الإلكتروني
           name: الإسم
@@ -343,17 +326,6 @@ ar:
           values:
             'false': Officialized
             'true': غير رسمي
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: تم قبول الدعوة
-            values:
-              'false': لم يتم القبول
-              'true': تم قبوله
-          user_invitation_sent_at_not_null:
-            label: تم إرسال الدعوة
-            values:
-              'false': لم يتم الارسال
-              'true': تم الإرسال
         private_space_eq:
           label: خاص
           values:
@@ -414,7 +386,6 @@ ar:
           impersonate: انتحال
           impersonate_existing_managed_user: إدارة المشارك "%{name}"
           impersonate_existing_user: إدارة المشارك "%{name}"
-          impersonate_new_managed_user: إدارة مشارك جديد
       imports:
         and: و
         data_errors:
@@ -443,8 +414,11 @@ ar:
         promotions:
           new:
             explanation: يمكن ترقية المشاركين المدارين إلى مشاركين عاديين. يعني ذلك أنه سيتم دعوتهم إلى التطبيق ولن تتمكن من إدارته مرة أخرى. سيتلقى المشارك المدعو رسالة بريد إلكتروني لقبول دعوتك.
-            new_managed_user_promotion: ترويج مشارك جديد مُدار
             promote: تروج \ يشجع \ يعزز \ ينمى \ يطور
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: قم بتحميل ملف CSV الخاص بك
       menu:
         admin_log: سجل نشاط المسؤول
         admins: المدراء
@@ -499,8 +473,6 @@ ar:
             sent_to: أُرسِلت إلى
             subject: موضوع
           name: النشرة الإخبارية
-        participatory_space_private_user:
-          name: المشاركة الفضاء المشارك الخاص
         scope:
           fields:
             name: اسم
@@ -612,7 +584,6 @@ ar:
           title: حدد المستلمين للإرسال اليهم
           warning: "<strong>تنبيه:</strong> سيتم إرسال هذه النشرة الإخبارية فقط للمستخدمين الذين فعلوا <em>أريد تلقي النشرات الإخبارية</em> في إعدادات الإشعارات الخاصة بهم."
         show:
-          preview: معاينة
           select_recipients_to_deliver: حدد المستلمين للإرسال اليهم
           subject: الموضوع
         update:
@@ -658,28 +629,6 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
           success: تم تحديث المنظمة بنجاح.
-      participatory_space_private_users:
-        create:
-          error: حدثت مشكلة أثناء إضافة مشارك خاص لهذه المساحة التشاركية.
-          success: المشاركة الفضاء الفضاء المشترك وصول خلق بنجاح.
-        destroy:
-          error: حدثت مشكلة في حذف مشارك خاص لهذه المساحة التشاركية.
-          success: المشاركة الفضاء الفضاء وصول المشاركين دمرت بنجاح.
-        index:
-          title: المشاركة الفضاء المشارك الخاص
-        new:
-          create: إنشاء
-          title: مشارك جديد الفضاء الخاص المشارك.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: قم بتحميل ملف CSV الخاص بك
-          destroy:
-            button: حذف جميع المشاركين الخاصين
-            empty: ليس لديك أي مشاركين خاصين.
-            explanation: لديك %{count} مشاركين خاصين.
-            title: حذف جميع المشاركين الخاصين
-          upload: حمّل
       reminders:
         new:
           submit: إرسال
@@ -743,7 +692,6 @@ ar:
           title: موضوع جديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا الموضوع.
-          success: تم تحديث الموضوع بنجاح
       static_pages:
         create:
           error: كانت هناك مشكلة في إنشاء صفحة جديدة.
@@ -776,21 +724,11 @@ ar:
         new:
           save: حفظ
       titles:
-        admin_log: سجل المسؤول
-        area_types: أنواع المناطق
         areas: المناطق
         authorization_workflows: طرق التحقق
-        dashboard: لوحة القيادة
-        impersonatable_users: المشاركون في الإدارة
-        impersonations: إدارة المشاركين
         menu: القائمة الرئيسية
-        page_topics: المواضيع
-        pages: الصفحات
         panel: مدير
-        participants: المشاركين
-        scope_types: أنواع النطاق
         scopes: مجالات
-        users: المدراء
       users:
         create:
           error: كانت هناك مشكلة في دعوة هذا المشرف.

@@ -35,6 +35,7 @@ lt:
       actions:
         edit: Redaguoti
         import: Importuoti pasiūlymus į projektus
+        new_project: Naujas projektas
         preview: Peržiūra
         send_voting_reminders: Siųsti balsavimo priminimus
         title: Veiksmai
@@ -68,7 +69,6 @@ lt:
             invalid: Kuriant šį projektą iškilo problema.
             success: Projektas sukurtas sėkmingai.
           edit:
-            title: Redaguoti projektą
             update: Atnaujinti
           index:
             actions: Veiksmai
@@ -83,7 +83,6 @@ lt:
             update: Atnaujinimas
           new:
             create: Sukurti
-            title: Naujas projektas
           update:
             invalid: Atnaujinant šį projektą iškilo problema.
             success: Projektas atnaujintas.
@@ -97,7 +96,6 @@ lt:
           new:
             create: Importuoti pasiūlymus į projektus
             default_budget: Numatytasis biudžetas
-            import_all_accepted_proposals: Importuoti visus priimtus projektus
             no_components: Nėra kitų pasiūlymų komponentų šioje dalyvaujamojoje erdvėje, kuriuos būtų galima importuoti į projektus.
             origin_component_id: Originalusis komponentas
             select_component: Pasirinkite komponentą
@@ -149,7 +147,6 @@ lt:
             total_budget: Visas biudžetas
         project:
           fields:
-            id: ID
             title: Pavadinimas
       order:
         status:

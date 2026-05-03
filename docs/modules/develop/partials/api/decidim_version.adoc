@@ -1,0 +1,102 @@
+
+++++
+<div class="tabs" data-tab-group="language">
+  <div class="tabs-nav">
+    <button class="tabs-nav__button is-active" data-tab="curl">cURL</button>
+    <button class="tabs-nav__button" data-tab="javascript">JavaScript</button>
+    <button class="tabs-nav__button" data-tab="python">Python</button>
+    <button class="tabs-nav__button" data-tab="ruby">Ruby</button>
+  </div>
+  <div class="tabs-content">
+    <div class="tabs-content__panel is-active" data-tab="curl">
+++++
+
+[source,bash]
+----
+curl -sSH "Content-Type: application/json" \
+  -d '{"query": "{ decidim { version } }"}' \
+  https://www.decidim.barcelona/api/
+----
+
+++++
+    </div>
+    <div class="tabs-content__panel" data-tab="javascript">
+++++
+
+[source,javascript]
+----
+const url = "https://www.decidim.barcelona/api/";
+const query = "{ decidim { version } }";
+
+fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ query }),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+----
+
+++++
+    </div>
+    <div class="tabs-content__panel" data-tab="python">
+++++
+
+[source,python]
+----
+import requests
+
+url = "https://www.decidim.barcelona/api/"
+query = "{ decidim { version } }"
+
+headers = {
+    "Content-Type": "application/json"
+}
+
+response = requests.post(
+    url,
+    json={"query": query},
+    headers=headers
+)
+
+print(response.json())
+----
+
+++++
+    </div>
+    <div class="tabs-content__panel" data-tab="ruby">
+++++
+
+[source,ruby]
+----
+require "net/http"
+require "uri"
+require "json"
+
+uri = URI.parse("https://www.decidim.barcelona/api/")
+
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Post.new(uri.request_uri)
+request["Content-Type"] = "application/json"
+request.body = {
+  query: "{ decidim { version } }"
+}.to_json
+
+response = http.request(request)
+puts JSON.parse(response.body)
+----
+
+++++
+    </div>
+  </div>
+</div>
+++++

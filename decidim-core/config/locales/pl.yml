@@ -219,10 +219,6 @@ pl:
       organization:
         update: "%{user_name} zaktualizował(a) ustawienia organizacji"
         update_external_domain: "%{user_name} zaktualizował zewnętrzne domeny organizacji"
-      participatory_space_private_user:
-        create: "%{user_name} zaprosił(a) %{resource_name} jako użytkownika prywatnego"
-        create_via_csv: "%{user_name} zaprosił(a) %{resource_name} jako prywatnego użytkownika poprzez CSV"
-        delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} jako użytkownika prywatnego"
       scope:
         create: "%{user_name} utworzył(a) zakres %{resource_name}"
         create_with_parent: "%{user_name} utworzył(a) zakres podrzędny %{resource_name} w zakresie %{parent_scope}"
@@ -476,8 +472,6 @@ pl:
         description: Opis
       footer_sub_hero:
         name: Baner podrzędny stopki
-      global_menu:
-        name: Globalne menu
       hero:
         name: Banner i CTA
       hero_settings_form:
@@ -603,6 +597,16 @@ pl:
     download_your_data:
       export:
         ready: Gotowy
+      help:
+        messaging_conversations:
+          updated_at: Data ostatniej aktualizacji tej rozmowy
+        users:
+          about: Opis profilu tego uczestnika
+          followers_count: Liczba uczestników, którzy obserwują tego użytkownika
+          last_sign_in_at: Data i godzina poprzedniego logowania
+          last_sign_in_ip: Adres IP poprzedniego logowania
+          newsletter_notifications_at: Data i godzina subskrypcji tego uczestnika do newslettera
+          officialized_as: Nazwisko urzędnika (radca, burmistrz itd.)
     editor_images:
       create:
         error: Wystąpił błąd podczas przesyłania obrazu.
@@ -612,7 +616,7 @@ pl:
       files:
         file_cannot_be_processed: Plik nie może zostać przetworzony
         file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
-        not_inside_organization: Plik nie jest dołączony do żadnej organizacji
+        not_inside_organization: Plik nie jest dołączony do żadnej organizacji.
       internal_server_error:
         copied: Tekst skopiowany!
         copy_error_message_clarification: Skopiuj komunikat o błędzie do schowka
@@ -897,7 +901,6 @@ pl:
         latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Pomoc
       home: Strona główna
     messaging:
       conversation_mailer:
@@ -1000,11 +1003,9 @@ pl:
         same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
         translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
-      action_error: Wystąpił problem z aktualizacją powiadomień.
       no_notifications: Brak powiadomień.
       show:
         missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
-        moderated: Zawartość moderowana
     notifications_digest_mailer:
       header:
         daily: Podsumowanie codziennych powiadomień
@@ -1068,13 +1069,11 @@ pl:
         footer_sub_hero:
           footer_sub_hero_body_html: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz i decyduj.
           footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
-          register: Zarejestruj się
         hero:
           participate: Weź udział
           participate_title: Weź udział w procesach platformy
           welcome: Witamy w %{organization}!
         sub_hero:
-          register: Zarejestruj się
           register_title: Utwórz konto
       index:
         standalone_pages: Strony
@@ -1098,6 +1097,9 @@ pl:
           alert: Zaktualizowaliśmy nasze warunki świadczenia usługi, prosimy o zapoznanie się z nimi.
           body: Poświęć chwilę na zapoznanie się z naszymi zaktualizowanymi warunkami świadczenia usługi. Inaczej korzystanie z platformy nie będzie możliwe.
           title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
+    participatory_space_members:
+      index:
+        members: Członkowie
     passwords:
       update:
         error: Wystąpił problem podczas aktualizacji hasła.
@@ -1309,8 +1311,6 @@ pl:
         submit_button: Wyślij zaproszenie
       no_invitations_remaining: Brak innych zaproszeń
       send_instructions: Wiadomość e-mail z zaproszeniem została wysłana na adres %{email}.
-      updated: Twoje hasło zostało pomyślnie ustawione. Jesteś teraz zalogowany.
-      updated_not_active: Twoje hasło zostało pomyślnie ustawione.
     mailer:
       confirmation_instructions:
         action: Potwierdź moje konto
@@ -1330,17 +1330,13 @@ pl:
           Jeżeli nie chcesz zaakceptować zaproszenia, zignoruj ten e-mail.<br />
            Twoje konto nie zostanie utworzone, dopóki nie skorzystasz z linku powyżej i nie ustawisz pseudonimu i hasła.
         invited_you_as_admin: "%{invited_by} zaprasza Cię jako administratora %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku."
-        invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to zaproszenie za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administratora %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
-        someone_invited_you_as_private_user: Ktoś zaprosił Cię jako prywatnego użytkownika %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
         subject: Instrukcje dotyczące zaproszenia
       invite_admin:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
         subject: Zaproszono Cię do współpracy przy %{organization}
-      invite_private_user:
-        subject: Zostałeś zaproszony do uczestnictwa w prywatnym procesie w %{organization}
       organization_admin_invitation_instructions:
         subject: Zaproszono Cię do zarządzania %{organization}
       password_change:
@@ -1369,8 +1365,6 @@ pl:
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
         old_password_help: Aby potwierdzić zmiany na koncie, podaj swoje aktualne hasło.
-        password_help: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
-        password_help_admin: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail, a także Twoich poprzednich haseł."
         title: Zmiana hasła
       new:
         forgot_your_password: Zapomniałeś hasła?

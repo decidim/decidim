@@ -25,6 +25,7 @@ ja:
         duration: 持続期間
         facebook: Facebook
         github: GitHub
+        has_members: このスペースにはメンバーがいます
         hero_image: ホーム画像
         import_attachments: 添付ファイルをインポート
         import_categories: カテゴリをインポート
@@ -39,7 +40,6 @@ ja:
         participatory_processes_ids: 関連する参加型プロセス
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
-        private_space: プライベートスペース
         promoted: 強調表示
         published_at: 公開日時
         purpose_of_action: アクションの目的
@@ -73,6 +73,8 @@ ja:
           attributes:
             document:
               allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されます: %{types}。'
+              empty: ドキュメントが空です
+              invalid_json: ドキュメントは有効な JSON ではありません
   activerecord:
     models:
       decidim/assembly:
@@ -96,15 +98,10 @@ ja:
         edit:
           update: 更新
         index:
-          private: プライベート
-          public: 公開
           published: 公開済み
           unpublished: 未公開
-        manage_trash:
-          title: 削除されたアセンブリ
         new:
           create: 作成
-          title: 新しい参加スペース
         update:
           error: 参加スペースの更新に問題がありました。
           success: 参加スペースを更新しました。
@@ -116,7 +113,6 @@ ja:
         new:
           duplicate: 複製
           select: 複製したいデータを選択してください
-          title: 参加スペースを複製
       assembly_imports:
         create:
           error: この参加スペースのインポート中に問題が発生しました。
@@ -124,7 +120,6 @@ ja:
         new:
           import: インポート
           select: インポートしたいデータを選択
-          title: 参加スペースをインポート
       assembly_publications:
         create:
           error: この参加スペースの公開中に問題がありました。
@@ -139,13 +134,9 @@ ja:
         destroy:
           success: 管理者がこの参加スペースから削除されました。
         edit:
-          title: 参加スペース管理者を更新
           update: 更新
-        index:
-          assembly_admins_title: 参加スペース管理者
         new:
           create: 作成
-          title: 新しい参加スペース管理者
         update:
           error: この参加スペースの管理者を更新中に問題が発生しました。
           success: 管理者はこの参加スペースの更新に成功しました。
@@ -167,15 +158,14 @@ ja:
           components: コンポーネント
           info: この参加スペースについて
           landing_page: ランディングページのレイアウト
+          members: メンバー
           moderations: モデレーション
-          private_users: メンバー
           see_assembly: 参加スペースを見る
       models:
         assembly:
           fields:
             actions: アクション
             created_at: 作成日時
-            private: プライベート
             promoted: 強調表示
             published: 公開済み
             title: タイトル
@@ -203,8 +193,6 @@ ja:
         space_filter_for:
           assemblies: すべての参加スペース
       titles:
-        assemblies: 参加スペース
-        assemblies_deleted: 削除されたアセンブリ
         assemblies_types: 参加スペース種別
       tooltips:
         deleted_assemblies_info: アセンブリは、ステータスが "未公開" の場合にのみ削除できます。
@@ -215,9 +203,11 @@ ja:
         export: "%{user_name} は %{resource_name} 参加スペースをエクスポートしました"
         import: "%{user_name} が %{resource_name} 参加スペースをインポートしました"
         publish: "%{user_name} が %{resource_name} 参加スペースを公開しました"
+        publish_all_members: "%{user_name} が参加スペース %{resource_name} のすべてのメンバーを公開しました"
         restore: "%{user_name} が %{resource_name} 参加スペースを復元しました"
         soft_delete: "%{user_name} が %{resource_name} 参加スペースをゴミ箱に移動しました"
         unpublish: "%{user_name} が %{resource_name} 参加スペースを非公開にしました"
+        unpublish_all_members: "%{user_name} が参加スペース %{resource_name} のすべてのメンバーを非公開にしました"
         update: "%{user_name} が %{resource_name} 参加スペースを更新しました"
       assembly_member:
         create: "%{user_name} が %{resource_name} 参加スペースで %{space_name} メンバーを作成しました"
@@ -238,17 +228,18 @@ ja:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: この参加スペースについて
           form:
-            announcement_help: ここに入力したテキストは、アセンブリ情報のすぐ下に表示されます。
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 持続期間
             duration_help: この参加スペースの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
+            has_members_help: メンバーを作成し、公開することができます
             images: 画像
             included_at_help: この参加スペースがプラットフォームに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             other: その他
-            private_notice: プライベートとして設定した後、プライベート参加者を管理することができます
             select_a_created_by: 作成者を選択してください
             select_parent_assembly: 親参加スペースを選択
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
@@ -256,23 +247,45 @@ ja:
             taxonomies: タクソノミー
             title: 一般情報
             visibility: 公開範囲
+          index:
+            title: 参加スペース
+          manage_trash:
+            title: 削除された参加スペース
+          new:
+            title: 新しい参加スペース
         assembly_duplicates:
           form:
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。使用できる文字は英字・数字・ハイフンのみで、必ず英字で始める必要があります。例: %{url}'
+          new:
+            title: 参加スペースを複製
         assembly_imports:
           form:
+            document_legend: ドキュメントを追加
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+          new:
+            title: 参加スペースをインポート
         assembly_members:
           form:
             explanation: '画像のガイダンス:'
             image_guide: テキストを含まない縦長の画像をお勧めします。
             non_user_avatar_help: メンバーとして公開する前に同意を得る必要があります。
+        assembly_user_roles:
+          edit:
+            title: 参加スペース管理者を更新
+          index:
+            title: 参加スペース管理者
+          new:
+            title: 新しい参加スペース管理者
         content_blocks:
           highlighted_assemblies:
             max_results: 表示する要素の最大量
+        imports:
+          attachment_error: 添付ファイル "%{title}" をインポートできませんでした（%{error}）。
+          hero_image_error: ヒーロー画像をインポートできませんでした（%{error}）。
         new_import:
           accepted_types:
             json: JSON
+          help_html: このインポート機能を使用すると、エクスポートされた JSON ファイルから新しいアセンブリを作成できます。アセンブリは他の組織から、または同じ組織内からエクスポート可能です。インポートされるアセンブリには、その設定、コンポーネント、および添付ファイル（選択されている場合）がすべて含まれます。
       assemblies:
         description:
           area_name: エリア
@@ -296,9 +309,6 @@ ja:
           type: 種別
         show:
           title: この参加スペースについて
-      assembly_members:
-        index:
-          members: メンバー
       content_blocks:
         children_assemblies:
           name: 参加スペース
@@ -307,7 +317,7 @@ ja:
         extra_data:
           name: 種別と期間
         highlighted_assemblies:
-          name: ハイライトされた参加スペース
+          name: 注目の参加スペース
         related_assemblies:
           name: 関連する参加スペース
       created_by:
@@ -338,11 +348,7 @@ ja:
             member_of: メンバー
       show:
         duration: 持続期間
-        private_space: これは私的参加スペースです
         social_networks_title: 参加スペースを訪問
-    assembly_members:
-      index:
-        title: メンバー
     download_your_data:
       show:
         assemblies: 参加スペースのエクスポート
@@ -376,11 +382,11 @@ ja:
     open_data:
       help:
         assemblies:
-          announcement: アナウンス（コールアウト）情報
           area: 参加スペースのエリア
           assembly_type: 参加スペースの種別
           closing_date: 参加スペースの終了日
           closing_date_reason: 参加スペースが終了した理由
+          component_settings: 参加スペースのコンポーネント設定
           composition: 参加スペースの構成
           created_at: このスペースの作成日時
           created_by: この参加スペースの作成者
@@ -434,7 +440,7 @@ ja:
           more_info: 詳細情報
           take_part: 参加する
         index:
-          promoted_assemblies: ハイライトされた参加スペース
+          promoted_assemblies: 注目の参加スペース
         metadata:
           children_item:
             other: "%{count} 個の参加スペース"

@@ -36,7 +36,6 @@ import "src/decidim/results_listing"
 import "src/decidim/data_consent"
 import "src/decidim/sw"
 import "src/decidim/attachments"
-import "src/decidim/dropdown_menu"
 import "src/decidim/callout"
 
 // local deps that require initialization

@@ -1,9 +1,9 @@
-<% add_decidim_page_title(t("attachment_collections.index.attachment_collections_title", scope: "decidim.admin")) %>
+<% add_decidim_page_title(t(".title")) %>
 
 <div class="card" id="attachment_collections">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
-      <%= t("attachment_collections.index.attachment_collections_title", scope: "decidim.admin") %>
+      <%= t(".title") %>
       <% if allowed_to? :create, :attachment_collection %>
         <%= link_to t("actions.attachment_collection.new", scope: "decidim.admin"), url_for(action: :new), class: "button button__sm button__secondary new" %>
       <% end %>

@@ -19,8 +19,8 @@ module Decidim
         Result.where(component: object).includes(:component)
       end
 
-      def result(**args)
-        Result.where(component: object).find_by(id: args[:id])
+      def result(id:)
+        Result.where(component: object).find(id)
       end
 
       def statuses
@@ -28,7 +28,7 @@ module Decidim
       end
 
       def status(id:)
-        Status.where(component: object).find_by(id:)
+        Status.where(component: object).find(id)
       end
     end
   end

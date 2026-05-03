@@ -17,7 +17,6 @@ ar:
       initiatives_committee_member:
         user: عضو لجنة
       initiatives_type:
-        banner_image: صورة بانر
         collect_user_extra_fields: جمع البيانات الشخصية للمشاركين عند التوقيع
         description: وصف
         extra_fields_legal_information: معلومات قانونية حول جمع البيانات الشخصية
@@ -60,15 +59,12 @@ ar:
         information: معلومات
         initiatives: المبادرات
         initiatives_settings: الإعدادات
-        initiatives_submenu:
-          info: عن هذه المبادرة
         initiatives_types: أنواع المبادرة
         moderations: الإشراف
       models:
         initiatives:
           fields:
             created_at: أنشئت في
-            id: هوية شخصية
             state: الحالة
             supports_count: توقيعات
             title: المبادرات
@@ -96,9 +92,6 @@ ar:
             nickname: الاسم المستعار
             postal_code: الكود البريدى
             timestamp: الطابع الزمني
-      titles:
-        initiatives: المبادرات
-        initiatives_types: أنواع المبادرة
     events:
       initiatives:
         initiative_extended:

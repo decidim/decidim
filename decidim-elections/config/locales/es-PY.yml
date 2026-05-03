@@ -1,9 +1,16 @@
 es-PY:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Número máximo de opciones
       token_csv:
         file: Archivo
         remove_all: Eliminar todos los datos del censo actual
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Votación
+        other: Votaciones
   decidim:
     admin:
       menu:
@@ -44,7 +51,7 @@ es-PY:
             choose_census: Elige el tipo de censo que quieres vincular esta elección
             created_at: Creado el
             identifier: Identificador de usuaria
-            title: Tipo de censo
+            title: Editar la elección
           preview:
             title:
               one: La vista previa de la lista está limitada a %{count} registro.
@@ -80,6 +87,7 @@ es-PY:
           questions_table:
             answer: Respuestas
             percentage: Porcentaje
+            total: Total
             votes: Votos
             votes_count:
               one: 1 voto
@@ -95,6 +103,7 @@ es-PY:
             start_question_button: Activar la votación
             title: Resultados
           status:
+            allow_census_check_before_start: Permitir a las usuarias comprobar si pueden votar antes de que comience la elección
             census: 'Censo:'
             results_availability:
               after_end: Resultados disponibles tras la finalización de las elecciones
@@ -139,6 +148,8 @@ es-PY:
           publish:
             invalid: Se ha producido un error al publicar la elección.
             success: Elección publicada con éxito.
+          toggle_census_check:
+            error: Se ha producido un error al activar la comprobación del censo.
           unpublish:
             invalid: Se ha producido un error al despublicar la elección.
             success: Elección despublicada correctamente.
@@ -181,6 +192,11 @@ es-PY:
           update: "%{user_name} ha actualizado la elección \"%{resource_name}\" de %{space_name}"
         question:
           update: "%{user_name} actualizó las preguntas de la elección \"%{resource_name}\""
+      census_checks:
+        show:
+          description: Esto significa que, una vez que comiencen las elecciones, se puede votar en ellas.
+          exit_button: Salir de la comprobación del censo
+          title: Se te ha verificado correctamente
       censuses:
         census_ready_html: Se han cargado los datos censales y están listos para su uso en la elección "<b>%{election_title}</b>".
         census_size_html:
@@ -199,9 +215,6 @@ es-PY:
           authorization_options_invalid: Lamentablemente, aunque tienes todas las autorizaciones necesarias, algunas de ellas no son válidas para estas elecciones.
           exit_button: Salir de la cabina de votación
           invalid: No tienes autorización para votar en estas elecciones.
-          missing: Tu cuenta de usuaria no dispone de algunas de las autorizaciones necesarias. Por favor, revisa la información e inténtalo de nuevo.
-          not_authorized: 'La autorización de "%{adapter}" no coincide con las condiciones requeridas.'
-          not_granted: 'La autorización de "%{adapter}" no está concedida.'
           resume_with_method: Reanudar la verificación con %{name}
           verify_with_method: Verificar con %{name}
         token_csv:
@@ -246,6 +259,9 @@ es-PY:
           title: Preguntas de la elección
         show:
           active_voting_until: 'Votación activa hasta: %{end_date}'
+          check_census_button: Comprobar si puedo votar
+          check_census_explanation: Esta elección aún no ha comenzado, pero puede comprobar si constas en el censo.
+          edit_vote_button: Editar el voto
           vote_button: Votar
           voted: Ya has votado. Puedes votar de nuevo, esto borrará tu voto anterior y, solo se contará tu última votación.
           votes_count:
@@ -258,6 +274,10 @@ es-PY:
             per_question: Los resultados están disponibles por pregunta. Puedes ver los resultados de cada pregunta una vez que se habilite la votación y se publiquen los resultados.
             real_time: Los resultados están disponibles en tiempo real. Puedes ver los resultados mientras la votación está en curso.
           title: Resultados
+          total: 'TOTAL:'
+          total_votes:
+            one: 1 voto
+            other: "%{count} votos"
       models:
         election:
           fields:
@@ -300,9 +320,13 @@ es-PY:
         question:
           back: Volver
           cast_vote: Enviar el voto
+          max_choices: 'Opciones máximas: %{count}'
+          max_choices_alert: Has seleccionado demasiadas opciones. Por favor, desmarca algunas para continuar.
+          max_choices_exceeded: No puedes seleccionar más de %{max} opciones. Por favor, vuelve atrás y ajusta tu selección.
           next: Siguiente
         receipt:
           description: Puedes votar de nuevo en cualquier momento mientras el período de votación esté abierto. Tu voto anterior será sustituido por el nuevo.
+          edit_vote: Edita tu voto
           exit_button: Salir de la cabina de votación
           title: Tu voto se ha emitido correctamente
     metadata:

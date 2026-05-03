@@ -17,6 +17,7 @@ sk:
       actions:
         edit: Upraviť
         import: Importovať návrhy do projektov
+        new_project: Nový projekt
         preview: Ukážka
         title: Akcie
       admin:
@@ -25,7 +26,6 @@ sk:
             name: Projekt
         projects:
           edit:
-            title: Upraviť projekt
             update: Aktualizovať
           index:
             finished_orders: Dokončené hlasy
@@ -33,7 +33,6 @@ sk:
             title: Projekty
           new:
             create: Vytvoriť
-            title: Nový projekt
         proposals_imports:
           new:
             create: Importovať návrhy do projektov

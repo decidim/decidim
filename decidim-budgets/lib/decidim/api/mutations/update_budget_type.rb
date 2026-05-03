@@ -6,44 +6,54 @@ module Decidim
       description "Updates a budget"
       type Decidim::Budgets::BudgetType
 
+      required_scopes "api:read", "admin:read", "admin:write"
+
       argument :attributes, BudgetAttributes, description: "input attributes to update a budget", required: true
-      argument :id, GraphQL::Types::ID, "The ID of the budget", required: true
 
-      def resolve(attributes:, id:) # rubocop:disable Lint/UnusedMethodArgument
-        form_attrs = attributes.to_h.reverse_merge(
-          weight: budget.weight,
-          title: budget.title,
-          description: budget.description,
-          total_budget: budget.total_budget,
-          decidim_scope_id: budget.scope&.id
-        )
+      def resolve(attributes:)
+        params = extract_from(attributes)
 
-        form = Admin::BudgetForm.from_params(form_attrs).with_context(
-          current_component: object,
-          current_organization: object.organization,
-          current_user: context[:current_user]
-        )
+        form = form(Admin::BudgetForm).from_params(params)
 
-        Admin::UpdateBudget.call(form, budget) do
-          on(:ok, resource) { return resource }
+        Admin::UpdateBudget.call(form, object) do
+          on(:ok, resource) do
+            return resource.reload
+          end
 
           on(:invalid) do
-            return GraphQL::ExecutionError.new(form.errors.full_messages.join(", "))
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
         end
       end
 
-      def authorized?(attributes:, id:)
-        super && allowed_to?(:update, :budget, budget(id), context, scope: :admin)
+      def authorized?(attributes:)
+        unless super && allowed_to?(:update, :budget, object, { current_user:, budget: object })
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
+
+        true
+      end
+
+      def self.permission_chain(object)
+        super.unshift(Decidim::Budgets::Admin::Permissions)
       end
 
       private
 
-      def budget(id = nil)
-        context[:budget] ||= begin
-          id ||= arguments[:id]
-          Decidim::Budgets::Budget.find_by(id:, component: object)
-        end
+      def extract_from(attributes)
+        validate_multiple_locales(attributes, :title)
+        validate_multiple_locales(attributes, :description)
+
+        attributes = attributes.to_h.reverse_merge(
+          weight: object.weight,
+          total_budget: object.total_budget,
+          decidim_scope_id: object.scope&.id
+        )
+
+        attributes.to_h[:title] = (attributes.to_h.fetch(:title, {}).presence || {}).reverse_merge(object.title)
+        attributes.to_h[:description] = (attributes.to_h.fetch(:description, {}).presence || {}).reverse_merge(object.description)
+
+        attributes
       end
     end
   end

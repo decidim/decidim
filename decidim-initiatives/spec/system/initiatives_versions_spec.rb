@@ -21,7 +21,7 @@ describe "Explore versions", versioning: true do
     )
   end
   let(:command) { Decidim::Initiatives::Admin::UpdateInitiative.new(form, initiative) }
-  let(:initiative_path) { decidim_initiatives.initiative_path(initiative) }
+  let(:initiative_path) { decidim_initiatives.initiative_path(initiative, locale: I18n.locale) }
 
   before do
     switch_to_host(organization.host)

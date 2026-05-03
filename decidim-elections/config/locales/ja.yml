@@ -1,9 +1,15 @@
 ja:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: 選択肢の最大数
       token_csv:
         file: ファイル
         remove_all: 現在のセンサスデータをすべて削除する
+  activerecord:
+    models:
+      decidim/elections/election:
+        other: 選挙
   decidim:
     admin:
       menu:
@@ -44,7 +50,7 @@ ja:
             choose_census: この選挙に使用したいセンサスの種類を選択してください
             created_at: 作成日時
             identifier: ユーザーID
-            title: センサスの種類
+            title: 選挙を編集
           preview:
             title:
               other: プレビューリストは %{count} レコードに制限されています。
@@ -79,6 +85,7 @@ ja:
           questions_table:
             answer: 回答
             percentage: パーセンテージ
+            total: 合計
             votes: 投票
             votes_count:
               other: "%{count} 票"
@@ -93,6 +100,7 @@ ja:
             start_question_button: 投票を有効化
             title: 結果
           status:
+            allow_census_check_before_start: 選挙開始前にユーザーが投票可能かどうかを確認できるようにする
             census: 'センサス：'
             results_availability:
               after_end: 選挙終了後に利用可能な結果
@@ -137,6 +145,8 @@ ja:
           publish:
             invalid: 選挙の公表中に問題が発生しました。
             success: 選挙を公開しました。
+          toggle_census_check:
+            error: センサスチェックを有効にする際にエラーが発生しました。
           unpublish:
             invalid: 選挙の非公表中に問題が発生しました。
             success: 選挙を非公開にしました。
@@ -179,6 +189,11 @@ ja:
           update: "%{user_name} が %{space_name} の %{resource_name} 選挙を更新しました"
         question:
           update: "%{user_name} が %{resource_name} 選挙の質問を更新しました"
+      census_checks:
+        show:
+          description: これは、選挙が始まったらあなたはその選挙に投票できるということを意味します。
+          exit_button: センサスチェックを終了
+          title: 正常に検証されました
       censuses:
         census_ready_html: センサスデータはアップロードされ、 <b>%{election_title}</b> 選挙での使用に備えられています。
         census_size_html:
@@ -197,9 +212,6 @@ ja:
           authorization_options_invalid: 残念ながら、必要なすべての権限を持っていても、今回の選挙では一部の権限が有効ではありません。
           exit_button: 投票ブースを出る
           invalid: この選挙で投票する権限がありません。
-          missing: ユーザーには必要な権限が逃しています。情報を確認してから、もう一度やり直してください。
-          not_authorized: '"%{adapter}" 認証が必要な条件に一致しません。'
-          not_granted: '"%{adapter}" 認証は許可されていません。'
           resume_with_method: '%{name} で本人確認を再開'
           verify_with_method: '%{name} で本人確認する'
         token_csv:
@@ -244,6 +256,9 @@ ja:
           title: 選挙の質問
         show:
           active_voting_until: '有効な投票まで: %{end_date}'
+          check_census_button: 投票できるかどうかチェック
+          check_census_explanation: この選挙はまだ始まっていませんが、センサスの対象に含まれているかどうか確認できます。
+          edit_vote_button: 投票を編集
           vote_button: 投票
           voted: すでに投票済みです。再度投票することは可能ですが、最後に投票した内容のみが集計対象となります。
           votes_count:
@@ -255,6 +270,9 @@ ja:
             per_question: 結果は質問ごとに確認できます。投票が有効化され、結果が公開されると、各質問の結果を確認できるようになります。
             real_time: 結果はリアルタイムで確認できます。投票が行われている間も結果を閲覧可能です。
           title: 結果
+          total: '合計：'
+          total_votes:
+            other: "%{count}票"
       models:
         election:
           fields:
@@ -297,9 +315,13 @@ ja:
         question:
           back: 戻る
           cast_vote: 投票
+          max_choices: '最大選択数: %{count}'
+          max_choices_alert: 選択したオプションが多すぎます。続行するには選択をいくつか解除してください。
+          max_choices_exceeded: 選択できるオプションは最大 %{max} 個までです。一度戻って選択を調整してください。
           next: 次へ
         receipt:
           description: 投票期間中はいつでも再投票が可能です。以前の投票結果は新しい投票結果で上書きされます。
+          edit_vote: 投票を編集
           exit_button: 投票ブースを出る
           title: 投票は正常に行われました
     metadata:

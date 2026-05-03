@@ -28,14 +28,14 @@ describe "Admin publish and unpublish documents" do
       find("button[data-controller='dropdown']").click
       click_on "Publish"
     end
-    expect(page).to have_admin_callout "Document successfully published"
+    expect(page).to have_callout "Document successfully published"
 
     within "tr", text: title do
       expect(page).to have_content("Published")
       find("button[data-controller='dropdown']").click
       click_on "Unpublish"
     end
-    expect(page).to have_admin_callout "Document successfully unpublished"
+    expect(page).to have_callout "Document successfully unpublished"
   end
 
   context "when unpublished document" do

@@ -31,8 +31,9 @@ module Decidim
       end
 
       it "transforms image URLs with the host" do
-        expect(subject).to include('<img src="http://localhost/rails/active_storage/blobs/redirect/12345.JPG"')
-        expect(subject).to include('<img src="http://localhost/rails/active_storage/blobs/redirect/56789.JPG"')
+        root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
+        expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG"))
+        expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/56789.JPG"))
       end
 
       context "when track_newsletter_links is false" do
@@ -97,23 +98,6 @@ module Decidim
         subject { helper.send(:interpret_name, text, nil) }
 
         it { is_expected.to include("<p>Hello, </p>") }
-      end
-    end
-
-    describe "#transform_image_urls" do
-      subject { helper.send(:transform_image_urls, text, organization.host) }
-
-      it "transforms image URLs with the host" do
-        expect(subject).to include('<img src="http://localhost/rails/active_storage/blobs/redirect/12345.JPG"')
-        expect(subject).to include('<img src="http://localhost/rails/active_storage/blobs/redirect/56789.JPG"')
-      end
-
-      context "when host is not present" do
-        subject { helper.send(:transform_image_urls, text, nil) }
-
-        it "returns the full content" do
-          expect(subject).to eq text
-        end
       end
     end
   end

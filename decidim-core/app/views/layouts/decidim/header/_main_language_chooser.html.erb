@@ -1,18 +1,20 @@
 <% if available_locales.length > 1 %>
-  <div class="main-footer__language-container">
-    <button id="trigger-dropdown-language-chooser" data-controller="dropdown" data-target="dropdown-menu-language-chooser" class="main-footer__language-trigger">
-      <%= icon "global-line" %>
-      <span><%= t("name", scope: "locale" ) %></span>
+  <div class="main-bar__language-chooser">
+    <button id="trigger-<%= id %>" data-controller="dropdown" data-target="<%= id %>" class="main-bar__language-chooser-trigger">
+      <span class="main-bar__language-chooser-holder">
+        <%= icon "global-line" %>
+        <span><%= t("name", scope: "locale" ) %></span>
+      </span>
       <%= icon "arrow-down-s-line" %>
       <span class="sr-only" lang="<%= locale %>">
         <%= t("layouts.decidim.language_chooser.choose_language") %>
       </span>
     </button>
 
-    <div id="dropdown-menu-language-chooser" aria-hidden="true">
-      <ul class="main-footer__language" role="menu">
+    <div id="<%= id %>" aria-hidden="true">
+      <ul class="main-bar__language-chooser-list" role="menu">
         <% available_locales.each do |locale| %>
-          <li class="text-black text-md hover:bg-secondary hover:text-white <%= "is-active" if I18n.locale.to_s == locale %>" role="presentation">
+          <li class="<%= I18n.locale.to_s == locale ? "main-bar__language-chooser-item-active" : "main-bar__language-chooser-item" %>" role="presentation">
             <%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "p-2 w-full block" %>
           </li>
         <% end %>

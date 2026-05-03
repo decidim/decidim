@@ -54,9 +54,6 @@ hu:
         show:
           questionnaire_closed:
             title: A kérdőív lezárult
-          questionnaire_for_private_users:
-            body: A kérdőív csak magán felhasználók számára áll rendelkezésre
-            title: A kérdőív lezárult
           tos_agreement: A részvétellel elfogadja az Általános Szerződési Feltételeket
       step_navigation:
         show:

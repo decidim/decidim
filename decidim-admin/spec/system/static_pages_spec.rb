@@ -17,12 +17,12 @@ describe "Content pages" do
     let(:decidim_page) { decidim_pages.first }
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim.pages_path }
+      let(:target_path) { decidim.pages_path(locale: I18n.locale) }
     end
 
     context "when requesting the pages path" do
       before do
-        visit decidim.pages_path
+        visit decidim.pages_path(locale: I18n.locale)
       end
 
       it "shows the list of topics" do
@@ -41,7 +41,7 @@ describe "Content pages" do
           find("button[role=button]").click
 
           expect(page).to have_css(
-            "a[href=\"#{decidim.page_path(decidim_page)}\"]",
+            "a[href=\"#{decidim.page_path(decidim_page, locale: I18n.locale)}\"]",
             text: page_title
           )
         end
@@ -81,7 +81,7 @@ describe "Content pages" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Topic created successfully.")
         expect(page).to have_css(".table-stacked", text: "General")
       end
     end
@@ -119,7 +119,7 @@ describe "Content pages" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Topic updated successfully.")
         expect(page).to have_css(".table-stacked", text: "New title")
       end
     end
@@ -140,7 +140,7 @@ describe "Content pages" do
           accept_confirm { click_on "Delete" }
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Topic successfully destroyed.")
 
         expect(page).to have_no_css(".table-stacked")
       end
@@ -187,7 +187,7 @@ describe "Content pages" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Page created successfully.")
 
       within ".card", text: topic.title[I18n.locale.to_s] do
         expect(page).to have_css("tr", text: translated(attributes[:title]))
@@ -237,7 +237,7 @@ describe "Content pages" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Page updated successfully.")
 
         within ".card", text: topic.title[I18n.locale.to_s] do
           expect(page).to have_css("tr", text: translated(attributes[:title]))
@@ -253,7 +253,7 @@ describe "Content pages" do
           accept_confirm { click_on "Delete" }
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Page successfully destroyed")
 
         within "table" do
           expect(page).to have_no_content(translated(decidim_page.title))

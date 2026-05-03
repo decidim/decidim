@@ -66,4 +66,36 @@ shared_examples_for "a comment event" do
       end
     end
   end
+
+  describe "deleted_resource?" do
+    context "when comment is not moderated" do
+      it "returns false" do
+        expect(subject.deleted_resource?).to be false
+      end
+    end
+
+    context "when comment is moderated" do
+      let(:comment) { create(:comment, deleted_at: Time.zone.now) }
+
+      it "returns true" do
+        expect(subject.deleted_resource?).to be true
+      end
+    end
+
+    context "when resource is not moderated" do
+      it "returns false" do
+        expect(subject.deleted_resource?).to be false
+      end
+    end
+
+    context "when resource is moderated" do
+      before do
+        resource.update(deleted_at: Time.zone.now)
+      end
+
+      it "returns true" do
+        expect(subject.deleted_resource?).to be true
+      end
+    end
+  end
 end

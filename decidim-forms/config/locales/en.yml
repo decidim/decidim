@@ -181,6 +181,7 @@ en:
         response:
           invalid: There was a problem responding the form.
           max_choices_alert: There are too many choices selected
+          spam_detected: There was a problem responding the form. Maybe you have been too quick, can you try again?
           success: Form successfully responded.
         show:
           current_step: Step %{step}
@@ -189,8 +190,8 @@ en:
           questionnaire_closed:
             body: The form is closed and cannot be responded.
             title: Form closed
-          questionnaire_for_private_users:
-            body: The form is available only for private users
+          questionnaire_for_members:
+            body: The form is available only for members
             title: Form closed
           questionnaire_js_disabled:
             body: Some of this form's features will be disabled. To improve your experience, please enable JavaScript in your browser.

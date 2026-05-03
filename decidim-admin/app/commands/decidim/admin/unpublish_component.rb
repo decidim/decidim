@@ -18,6 +18,7 @@ module Decidim
       # Broadcasts :ok if unpublished, :invalid otherwise.
       def call
         unpublish_component
+        component.manifest.run_hooks(:unpublish, component)
 
         broadcast(:ok)
       end

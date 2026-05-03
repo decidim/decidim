@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe "Last activity" do
   let(:organization) { create(:organization) }
-  let!(:proposal_component) { create(:proposal_component) }
-  let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component: proposal_component) }
+  let!(:proposal_component) { create(:proposal_component, :published) }
+  let!(:withdrawn_proposal) { create(:proposal, :published, :withdrawn, component: proposal_component) }
   let!(:proposal) { create(:proposal, :published, component: proposal_component) }
-  let(:commentable) { create(:dummy_resource, component:) }
+  let(:commentable) { create(:dummy_resource, :published, component:) }
   let(:comment) { create(:comment, commentable:) }
   let!(:action_log) do
     create(:action_log,
@@ -45,9 +45,9 @@ describe "Last activity" do
     create(:component, :published, organization:)
   end
   let(:resource) do
-    create(:dummy_resource, component:, published_at: Time.current)
+    create(:dummy_resource, :published, component:)
   end
-  let(:second_commentable) { create(:dummy_resource, component:) }
+  let(:second_commentable) { create(:dummy_resource, :published, component:) }
 
   before do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
@@ -148,14 +148,14 @@ describe "Last activity" do
         end
       end
 
-      context "when there are activities from private spaces" do
+      context "when there are activities from restricted spaces" do
         before do
-          comment.update(body: { es: "this is a private comment" })
-          another_comment.update(body: { es: "this is another private comment" })
+          comment.update(body: { es: "this is a restricted comment" })
+          another_comment.update(body: { es: "this is another restricted comment" })
 
-          component.participatory_space.update(private_space: true)
-          comment.participatory_space.update(private_space: true)
-          another_comment.participatory_space.update(private_space: true)
+          component.participatory_space.update(access_mode: :restricted)
+          comment.participatory_space.update(access_mode: :restricted)
+          another_comment.participatory_space.update(access_mode: :restricted)
 
           visit current_path
         end

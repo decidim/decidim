@@ -27,6 +27,7 @@ describe "Show a Proposal" do
       describe "extra admin link" do
         before do
           login_as user, scope: :user
+          sleep 1
           visit current_path
         end
 
@@ -65,9 +66,6 @@ describe "Show a Proposal" do
         end
 
         it "successfully shows the page" do
-          within(".menu-bar") do
-            expect(page).to have_content(translated(component.name))
-          end
           expect(page).to have_content("Deleted participant")
         end
       end

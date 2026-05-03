@@ -1,0 +1,9 @@
+= Debates
+
+In the debates module we are providing a few mutations that we find useful for day-to-day management of Decidim instance outside the admin.
+
+== For user/participants roles
+
+* xref:develop:api/reference/components/debates/create.adoc[Create Debate]
+* xref:develop:api/reference/components/debates/update.adoc[Update Debate]
+* xref:develop:api/reference/components/debates/close.adoc[Close Debate]

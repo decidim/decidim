@@ -21,4 +21,32 @@ describe Decidim::Blogs::CreatePostEvent do
       expect(subject.resource_text).to eq translated(resource.body)
     end
   end
+
+  describe "email rendering with images" do
+    let(:body_with_image) do
+      {
+        en: '<p>Check: <img src="/rails/active_storage/blobs/redirect/12345.JPG" alt="image" /></p>',
+        ca: '<p>Mira: <img src="/rails/active_storage/blobs/redirect/12345.JPG" alt="image" /></p>',
+        es: '<p>Mira: <img src="/rails/active_storage/blobs/redirect/12345.JPG" alt="image" /></p>'
+      }
+    end
+    let(:resource) { create(:post, title: generate_localized_title(:blog_title), body: body_with_image) }
+    let(:organization) { resource.component.organization }
+
+    it "includes transformed image URLs in notification email body" do
+      mail = Decidim::NotificationMailer.event_received(
+        event_name,
+        "Decidim::Blogs::CreatePostEvent",
+        resource,
+        user,
+        :follower,
+        {}
+      )
+
+      root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host)[0..-2]
+      expected_img = %(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG" alt="image" />)
+
+      expect(mail.body.encoded).to include(expected_img)
+    end
+  end
 end

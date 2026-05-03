@@ -39,7 +39,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("templates.create.error", scope: "decidim.admin")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end
@@ -58,7 +58,7 @@ module Decidim
         def fetch
           enforce_permission_to(:read, :template, template:, proposal:)
 
-          return render json: { msg: I18n.t("templates.fetch.error", scope: "decidim.admin") }, status: :unprocessable_entity if template.blank?
+          return render json: { msg: I18n.t("templates.fetch.error", scope: "decidim.admin") }, status: :unprocessable_content if template.blank?
 
           state = fetch_proposal_state(template)
 
@@ -86,7 +86,7 @@ module Decidim
             on(:invalid) do |template|
               @template = template
               flash.now[:error] = I18n.t("templates.update.error", scope: "decidim.admin")
-              render action: :edit, status: :unprocessable_entity
+              render action: :edit, status: :unprocessable_content
             end
           end
         end

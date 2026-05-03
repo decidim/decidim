@@ -33,9 +33,14 @@ fr:
       help_section:
         content: Contenu
       id: ID
+      member:
+        email: Email
+        name: Nom
+      member_csv_import:
+        file: Fichier
       newsletter:
         body: Corps de texte
-        send_to_all_users: Envoyer à tous les utilisateurs
+        send_to_all_users: Envoyer à tous les participants
         send_to_followers: Envoyer aux abonnés
         send_to_participants: Envoyer aux participants
         subject: Objet
@@ -48,8 +53,8 @@ fr:
         customize_welcome_notification: Personnaliser le mail de bienvenue
         default_locale: Langue par défaut
         description: Description
+        enable_machine_translations: Activer la traduction automatique
         enable_omnipresent_banner: Activer la bannière permanente
-        enable_participatory_space_filters: Activer les filtres d'espace participatif
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
         force_authentication: Forcer l'authentification
@@ -90,11 +95,6 @@ fr:
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
         youtube_handler: Gestionnaire YouTube
-      participatory_space_private_user:
-        email: Email
-        name: Nom
-      participatory_space_private_user_csv_import:
-        file: Fichier
       scope:
         code: Code
         name: Titre
@@ -124,10 +124,17 @@ fr:
         show_in_footer: Montrer dans le pied de page
         title: Titre
         weight: Rang d'affichage
+      taxonomy:
+        item_name: Nom de l’élément
+        parent_id: Parent
       user_group_csv_verification:
         file: Fichier
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
         newsletter:
           attributes:
             base:
@@ -136,10 +143,6 @@ fr:
           attributes:
             official_img_footer:
               allowed_file_content_types: Fichier image invalide
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -185,14 +188,15 @@ fr:
           </ul>
           Si vous changez d'avis, vous pourrez annuler cette action plus tard.
         export: Exporter
-        export-selection: Exporter la sélection
+        export_all: Tout exporter
+        export_selection: Exporter la sélection
         import: Importer
+        member:
+          new: Nouveau membre
         menu_hidden: Masquer dans le menu
         moderate: Gérer les modérations
         newsletter:
           new: Nouvelle newsletter
-        participatory_space_private_user:
-          new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
         permissions: Gérer les permissions
         restore: Restaurer
@@ -216,7 +220,6 @@ fr:
           alert: 'Requis: Consultez nos conditions d’utilisation administrateur'
           callout: Veuillez prendre le temps de lire les conditions d'utilisation administrateur. Dans le cas contraire, vous ne serrez pas en mesure d'administrer la plateforme.
           cta: Consultez les maintenant.
-        title: Conditions d'utilisation administrateur
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
@@ -236,6 +239,7 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
           success: Périmètre d'assemblée créé avec succès.
+        deprecated: Notez que les zones sont dépréciées et seront retirées dans les versions futures. Merci de leur préférer les taxonomies. Le seul module qui utilise les zones actuellement est le module initiatives.
         destroy:
           has_spaces: Des espaces dépendent de ce périmètre d'assemblée. Veuillez vous assurer qu'aucun espace participatif n'est lié à périmètre avant de la supprimer.
           success: Le périmètre d'assemblée a été supprimé avec succès.
@@ -259,7 +263,7 @@ fr:
           title: Modifier le dossier
           update: Mettre à jour
         index:
-          attachment_collections_title: Dossiers de pièces jointes
+          title: Dossiers de pièces jointes
         new:
           create: Créer
           title: Nouveau dossier
@@ -276,7 +280,7 @@ fr:
           title: Modifier le document lié
           update: Mettre à jour
         index:
-          attachments_title: Documents liés
+          title: Pièces jointes
         new:
           create: Lier un document
           title: Nouveau document lié
@@ -291,13 +295,13 @@ fr:
       block_user:
         bulk_new:
           action: Bloquer le compte et envoyer la justification
-          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus des participants bloqués.
+          already_reported_html: En poursuivant cette action, vous cacherez également tout le contenu du participant.
           description: Bloquer des participants rendra son compte inutilisable, vous pouvez fournir dans votre justification les conditions de déblocage de ces participants.
           justification: Justification
           title: Bloquer des participants
         new:
           action: Bloquer le compte et envoyer la justification
-          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus du participant.
+          already_reported_html: En poursuivant cette action, vous cacherez également tout le contenu du participant.
           description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification les conditions de déblocage de l'utilisateur.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
@@ -336,7 +340,6 @@ fr:
           title: 'Ajouter une fonctionnalité : %{name}'
         publish:
           success: La fonctionnalité a été publiée avec succès.
-        title: Fonctionnalités
         unpublish:
           success: La fonctionnalité a été dépubliée avec succès.
         update:
@@ -353,7 +356,6 @@ fr:
           text: Recherche par email, nom ou pseudo de l'utilisateur actuel
         managed_user_name: Utilisateur représenté
         solved: Résolu
-        title: Conflits de vérification
         transfer:
           email: Email
           error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
@@ -391,7 +393,7 @@ fr:
         form:
           domain_too_short: Le nom de domaine est trop court
         update:
-          error: Impossible de mettre à jour la liste des domaines externes autorisés
+          error: Impossible de mettre à jour la liste des domaines externes autorisés.
           success: La liste des domaines externes autorisés a été mise à jour avec succès.
       exports:
         export_as: "%{name} en format %{export_format}"
@@ -413,6 +415,17 @@ fr:
           values:
             'false': 'Non'
             'true': 'Oui'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Invitation acceptée
+            values:
+              'false': Non acceptée
+              'true': Acceptée
+          user_invitation_sent_at_not_null:
+            label: Invitation envoyée
+            values:
+              'false': Non envoyée
+              'true': Envoyée
         moderated_users:
           reports_reason_eq:
             label: Raison du signalement
@@ -428,17 +441,6 @@ fr:
           values:
             'false': Validé
             'true': Non validé
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitation acceptée
-            values:
-              'false': Non acceptée
-              'true': Acceptée
-          user_invitation_sent_at_not_null:
-            label: Invitation envoyée
-            values:
-              'false': Non envoyée
-              'true': Envoyée
         private_space_eq:
           label: Privé
           values:
@@ -476,7 +478,7 @@ fr:
           import_csv:
             explanation: 'Prérequis pour le fichier :'
             message_1: Les fichiers CSV sont pris en charge
-            message_2: "Fichier .csv avec les données des emails"
+            message_2: ".csv avec les données des emails"
       help_sections:
         error: Un problème est survenu lors de la mise à jour des sections d’aide.
         form:
@@ -513,7 +515,6 @@ fr:
           impersonate: Représenter
           impersonate_existing_managed_user: Représenter l'utilisateur "%{name}"
           impersonate_existing_user: Représenter l'utilisateur standard "%{name}"
-          impersonate_new_managed_user: Représenter un nouvel utilisateur
       imports:
         and: et
         data_errors:
@@ -569,8 +570,54 @@ fr:
         promotions:
           new:
             explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
-            new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
             promote: Promouvoir
+      members:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un membre pour cet espace participatif.
+          success: Accès membre créé avec succès.
+        destroy:
+          error: Un problème est survenu lors de la suppression d'un membre pour cet espace participatif.
+          success: Accès membre supprimé avec succès.
+        edit:
+          title: Modifier le membre
+          update: Mettre à jour
+        index:
+          import_via_csv: Importer via CSV
+          publish_all: Tout publier
+          title: Membre
+          unpublish_all: Tout dépublier
+        new:
+          create: Créer
+          title: Nouveau membre
+        publish_all:
+          error: Un problème est survenu lors de la publication de tous les membres de cet espace participatif.
+          success: Tous les membres ont été publiés avec succès pour cet espace participatif
+        unpublish_all:
+          error: Une erreur s'est produite lors de la dépublication de tous les membres de cet espace participatif.
+          success: Tous les membres de cet espace participatif ont été dépubliés avec succès
+        update:
+          error: Un problème est survenu lors de la mise à jour du membre pour cet espace participatif.
+          success: Membre mis à jour avec succès
+      members_csv_imports:
+        create:
+          invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
+          success: Fichier CSV transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
+        new:
+          csv_upload:
+            title: Téléchargez votre fichier CSV
+          destroy:
+            button: Supprimer tous les membres
+            confirm: Êtes-vous sûr(e) de vouloir supprimer tous les membres ? Cette action ne peut pas être annulée, vous ne pourrez pas les récupérer.
+            empty: Vous n'avez aucun membre.
+            explanation: Vus avez %{count} membres.
+            title: Supprimer les membres
+          example_file: 'Fichier d''exemple :'
+          explanation: 'Téléchargez votre fichier CSV. Il doit comporter deux colonnes, sans en-têtes, avec l''email dans la première colonne et le nom dans la dernière colonne du fichier des utilisateurs que vous voulez ajouter à l''espace participatif. Évitez d''utiliser des caractères invalides comme `<>?%&^*#@()[]=+:;"{}\|` dans le nom d''utilisateur.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importer des membres via CSV
+          upload: Charger
       menu:
         admin_log: Journal d'activité personnel
         admins: Administrateurs
@@ -629,6 +676,8 @@ fr:
             reason: Raison
             started_at: Commencé le
             user: Utilisateur
+        member:
+          name: Membre
         newsletter:
           fields:
             created_at: Créée le
@@ -637,8 +686,6 @@ fr:
             sent_to: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
-        participatory_space_private_user:
-          name: Utilisateur de l'espace participatif
         scope:
           fields:
             name: Titre
@@ -752,7 +799,6 @@ fr:
           title: Modèles de newsletter
           use_template: Utiliser ce modèle
         show:
-          preview: 'Prévisualiser le modèle: %{template_name}'
           use_template: Utiliser ce modèle
       newsletters:
         confirm_recipients:
@@ -778,9 +824,9 @@ fr:
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette newsletter ?
           followers: 'abonnés '
           has_been_sent_to: 'A été envoyé à : '
+          members: 'membres '
           not_sent: Envoi non effectué
           participants: 'participants '
-          private_members: 'membres privés '
           segmented_to: 'Segmenté à %{subject}: '
           subscribed_count: 'Abonné:'
           title: Newsletters
@@ -796,8 +842,8 @@ fr:
           confirm_recipients: Confirmer les destinataires
           deliver: Envoyer la newsletter
           followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
+          members_help: Envoie une newsletter à tous les utilisateurs confirmés qui ont été ajoutés aux espaces participatifs sélectionnés en tant que membres.
           participants_help: Envoie la newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
-          private_members_help: Envoie une newsletter à tous les utilisateurs confirmés qui ont été ajoutés aux espaces privés participatifs sélectionnés.
           recipients_count: Cette newsletter sera envoyé à <strong id='recipients_count'>%{count}</strong> users.
           select_assemblies: Choisissez les assemblées
           select_conferences: Choisissez les conférences
@@ -817,10 +863,10 @@ fr:
         send_to_user:
           sent_successfully: La newsletter a été envoyée avec succès à %{email}
         show:
-          preview: Aperçu
           select_recipients_to_deliver: Sélectionner les destinataires
           send_me_a_test_email: Envoyez-moi un e-mail de test
           subject: Objet
+          title: Aperçu
         update:
           error: Erreur lors de la mise à jour de la newsletter.
           success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
@@ -860,6 +906,8 @@ fr:
           badge: Badge de validation
           officialize: Valider
           title: Valider l'utilisateur "%{name}"
+        show_email:
+          title: Afficher l'e-mail
         show_email_modal:
           description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir son adresse mail. Cette action sera enregistrée.
           email_address: Adresse e-mail
@@ -904,6 +952,7 @@ fr:
           success: Organisation mise à jour avec succès.
       organization_external_domain_allowlist:
         edit:
+          title: Liste des domaines externes autorisés
           update: Mettre à jour
         external_domain:
           down: Descendre
@@ -912,54 +961,6 @@ fr:
           up: Monter
         form:
           add: Ajouter à la liste autorisée
-          title: Liste des domaines externes autorisés
-      participatory_space_private_users:
-        create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
-          success: L'accès utilisateur à l'espace participatif privé a été créé avec succès.
-        destroy:
-          error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
-          success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
-        edit:
-          title: Modifier le participant privé de l'espace participatif.
-          update: Mettre à jour
-        index:
-          import_via_csv: Importer via csv
-          publish_all: Tout publier
-          title: Utilisateur privé de l'espace participatif
-          unpublish_all: Tout dépublier
-        new:
-          create: Créer
-          title: Nouvel utilisateur privé de l'espace participatif.
-        publish_all:
-          error: Une erreur s'est produite lors de la publication de tous les participants privés pour cet espace participatif.
-          success: Tous les participants privés ont été publiés avec succès pour cet espace participatif
-        unpublish_all:
-          error: Une erreur s'est produite lors de la dépublication de tous les participants privés pour cet espace participatif.
-          success: Tous les participants privés ont été dépubliés avec succès pour cet espace participatif
-        update:
-          error: Une erreur s'est produite lors de la mise à jour du participant privé pour cet espace participatif.
-          success: Participant privé de l'espace participatif mis à jour avec succès
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
-          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants. 
-        new:
-          csv_upload:
-            title: Téléchargez votre fichier CSV
-          destroy:
-            button: Supprimer tous les utilisateurs privés
-            confirm: Êtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action est irréversible, vous ne pourrez pas les récupérer.
-            empty: Vous n'avez aucun utilisateur privé.
-            explanation: Vous avez %{count} utilisateurs privés.
-            title: Supprimer les utilisateurs privés
-          example_file: 'Fichier d''exemple :'
-          explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec les emails dans la première colonne, et dans la seconde colonne les noms des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}Jean Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Importer des participants privés via CSV
-          upload: Télécharger
       reminders:
         create:
           error: Il y a eu un problème lors de la création des rappels.
@@ -968,6 +969,7 @@ fr:
             other: "%{count} utilisateurs recevront un rappel."
         new:
           submit: Envoyer
+          title: Envoyer des rappels
       resource_permissions:
         edit:
           submit: Soumettre
@@ -1073,12 +1075,14 @@ fr:
         edit:
           title: Modifier le sujet
           update: Mettre à jour le sujet
+        index:
+          title: Sujets
         new:
           create: Nouveau sujet
           title: Nouveau sujet
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce sujet.
-          success: Sujet mis à jour avec succès
+          success: Sujet mis à jour avec succès.
       static_pages:
         actions:
           view: Afficher
@@ -1097,6 +1101,7 @@ fr:
           slug_help_html: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Exemple : %{url}'
         index:
           last_notable_change: Dernier changement notable
+          title: Pages
         new:
           create: Nouvelle page
           title: Nouvelle page
@@ -1106,6 +1111,9 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès.
+      statistics:
+        index:
+          title: Statistiques
       taxonomies:
         actions:
           actions: Actions
@@ -1116,18 +1124,47 @@ fr:
           edit: Modifier la taxonomie
           new: Nouvelle taxonomie
         count: Ressources associées
+        create:
+          invalid: Un problème a été rencontré lors de la création de cette taxonomie.
+          success: La taxonomie a été créée avec succès.
+        destroy:
+          invalid: Un problème a été rencontré lors de la suppression de cette taxonomie.
+          success: La taxonomie a été supprimée avec succès.
         edit:
+          back: Retour
+          description: Les éléments dans cette taxonomie seront utilisés pour classer ou filtrer des ressources telles que des espaces participatifs ou des composants. Utilisez le glisser-déposes pour réorganiser la liste.
+          new_item: Nouvel élément
+          no_items: Il n'y a pas d'élément dans cette taxonomie actuellement. Créez une liste d'éléments ici pour classer ou filtrer des ressources telles que des espaces participatifs ou des composants. Les éléments peuvent être hiérarchisés jusqu'à trois niveaux.
+          subtitle: Éléments dans "%{taxonomy_name}"
+          title: Éditer la taxonomie "%{taxonomy_name}"
           update: Mettre à jour
         filters:
           search_placeholder: Rechercher
         index:
           new_taxonomy: Nouvelle taxonomie
+        name: Nom
+        new:
+          create: Créer la taxonomie
+          title: Nouvelle taxonomie
+        no_taxonomies: Il n'y a pas de taxonomies actuellement. Créez une liste de taxonomies ici et définissez des éléments pour chacune d'entre elles afin de classer ou filtrer des ressources.
+        table:
+          to_next_page: Faites glisser pour passer à la page suivante
+          to_prev_page: Faites glisser pour passer à la page précédente
         total_filters: Filtres
+        total_items: Éléments de la taxonomie
+        update:
+          invalid: Un problème a été rencontré lors de la mise à jour de cette taxonomie.
+          success: La taxonomie a été mise à jour avec succès.
       taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Nouveau filtre de taxonomie
         breadcrumb:
           edit: Modifier le filtre
           filters: Filtres
           new: Nouveau filtre
+        create:
+          error: Un problème a été rencontré lors de la création de ce filtre de taxonomie.
+          success: Filtre de taxonomie créé avec succès.
         edit:
           back: Revenir en arrière
           title: Modifier le filtre de taxonomie
@@ -1159,24 +1196,15 @@ fr:
           remove: Supprimer
         taxonomies_select:
           filters: Filtres
+          select_filter: Sélectionnez un filtre
+          taxonomies: Taxonomies
       titles:
-        admin_log: Journal d'administration
-        area_types: Types de périmètre d'assemblée
         areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
-        dashboard: Tableau de bord
-        edit_external_domains: Liste des domaines externes autorisés
-        impersonatable_users: Utilisateurs pouvant être représentés
-        impersonations: Gestion des utilisateurs
         menu: Menu
-        page_topics: Sujets
-        pages: Page(s)
         panel: Administrateur
-        participants: Utilisateurs
-        scope_types: Types de secteur
         scopes: Secteurs
         statistics: Statistiques
-        users: Administrateurs
       tooltips:
         cannot_destroy_taxonomy_filter: Impossible de détruire ce filtre de taxonomie
         cannot_edit_taxonomy_filter: Impossible de modifier ce filtre de taxonomie
@@ -1209,8 +1237,12 @@ fr:
           last_day: Hier
           last_month: Le mois dernier
           last_week: La semaine dernière
-          no_users_count_statistics_yet: Il n'y a pas encore de statistiques du nombre d'utilisateurs.
+          no_users_count_statistics_yet: Il n'y a pas encore de statistiques sur le nombre de participants.
           participants: Participants
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: La sélection des filtres de taxonomie sera possible après la création du composant.
     forms:
       errors:
         impersonate_user:
@@ -1227,6 +1259,16 @@ fr:
         unreport: Annuler le rapport
       admin:
         reportable:
+          bulk_action:
+            hide:
+              invalid: Aucune modération sélectionnée.
+              success: Ressources cachées avec succès.
+            ignore:
+              invalid: Aucune modération d'utilisateur sélectionnée.
+            unhide:
+              invalid: Aucune modération sélectionnée.
+            unreport:
+              invalid: Aucune modération sélectionnée.
           hide:
             invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.

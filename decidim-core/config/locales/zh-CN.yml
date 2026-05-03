@@ -108,9 +108,6 @@ zh-CN:
         update: "%{user_name} 更新了 %{resource_name} OAuth 应用程序"
       organization:
         update: "%{user_name} 更新了组织设置"
-      participatory_space_private_user:
-        create: "%{user_name} 邀請了 %{resource_name} 作为私人参与者"
-        delete: "%{user_name} 移除了参与者 %{resource_name} 作为私人参与者"
       scope:
         create: "%{user_name} 创建了 %{resource_name} 范围"
         create_with_parent: "%{user_name} 在 %{parent_scope} 范围内创建了 %{resource_name} 范围"
@@ -526,7 +523,6 @@ zh-CN:
         latlng_text: '纬度: %{latitude}, 经度: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: 帮助
       home: 首页
     messaging:
       conversation_mailer:
@@ -627,17 +623,17 @@ zh-CN:
           proposals_explanation: 提出建议、支持现有建议并促进你想要看到的更改。
         footer_sub_hero:
           footer_sub_hero_headline: 欢迎使用 %{organization} 参与式平台。
-          register: 注册
         hero:
           participate: 参与
           welcome: 欢迎使用 %{organization}！
-        sub_hero:
-          register: 注册
       index:
         standalone_pages: 页 次
         subheading: 浏览 %{name} 的帮助页面
         title: 帮助
         topics: 主题
+    participatory_space_members:
+      index:
+        members: 成员
     profile:
       deleted: 删除参与者
     profiles:
@@ -775,8 +771,6 @@ zh-CN:
         submit_button: 发送邀请
       no_invitations_remaining: 没有剩余邀请
       send_instructions: 邀请邮件已发送至 %{email}。
-      updated: 您的密码设置成功。您现在已登录。
-      updated_not_active: 您的密码设置成功。
     mailer:
       confirmation_instructions:
         action: 确认我的帐户
@@ -792,10 +786,8 @@ zh-CN:
         decline: 拒绝邀请
         hello: 您好 %{email}，
         invited_you_as_admin: "%{invited_by} 邀请您担任了 %{application}的管理员。您可以通过下面的链接接受它。"
-        invited_you_as_private_user: "%{invited_by} 邀请您作为私有参与者 %{application}。您可以通过下面的链接接受它。"
         someone_invited_you: 有人邀请您访问 %{application}。您可以通过下面的链接接受它。
         someone_invited_you_as_admin: 有人邀请您作为 %{application}的管理员，您可以通过下面的链接接受它。
-        someone_invited_you_as_private_user: 有人邀请您作为私有参与者 %{application}，您可以通过下面的链接接受它。
         subject: 邀请说明
       password_change:
         greeting: 你好 %{recipient}！

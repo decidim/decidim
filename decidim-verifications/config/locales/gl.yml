@@ -87,12 +87,6 @@ gl:
         skip_verification: Podes ignorar isto por agora e %{link}
         start_exploring: comezar a explorar
       csv_census:
-        admin:
-          index:
-            title: Datos censuais actuais
-          instructions:
-            body: Para iso debes ingresar na administración do sistema e engadir as autorizacións csv_census á organización
-            title: Precisas de activar o censo CSV desta organización
         authorizations:
           new:
             error: Non puidemos verificar a túa conta ou non estás no censo da organización.
@@ -115,13 +109,11 @@ gl:
               error: Produciuse un erro ao actualizar a configuración.
           confirmations:
             new:
-              introduce_user_data: Introduce os datos na imaxe
               reject: Rexeitar
               verify: Verifique
           offline_confirmations:
             new:
               cancel: Cancelar
-              introduce_user_data: Introduce o correo electrónico do usuario e os datos do documento
               verify: Verifique
           pending_authorizations:
             index:

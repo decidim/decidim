@@ -45,8 +45,8 @@ module Decidim
     def step_settings
       return {} unless participatory_space.allows_steps?
 
-      participatory_space.steps.each_with_object({}) do |step, result|
-        result[step.id.to_s] = new_settings_schema(:step, self[:settings].dig("steps", step.id.to_s))
+      participatory_space.steps.to_h do |step|
+        [step.id.to_s, new_settings_schema(:step, self[:settings].dig("steps", step.id.to_s))]
       end
     end
 

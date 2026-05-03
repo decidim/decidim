@@ -50,7 +50,6 @@ lb:
           back: Zurück
           create: Erstellen
         orders:
-          commented: Am meisten kommentiert
           label: Debatten sortieren nach
           random: Zufällige Reihenfolge
           recent: Neueste zuerst

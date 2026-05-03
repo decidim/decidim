@@ -177,7 +177,6 @@ ja:
         card_g: カード G
         card_l: カード L
         card_s: カード S
-        collaborative_draft_l: 共同草案L
         colors: 色
         compact: コンパクト
         compact_description: この著者の形式はリソース作成者を指定する一般的な方法です。
@@ -256,8 +255,6 @@ ja:
         share_button: シェアボタン
         share_usage_description_html: <code>decidim/shared/share_modal</code> partialがDOMに存在することを確認してください。このpartialはアプリケーションレイアウトに配置されます。
         sizes: サイズ
-        sortition_l: 並べ替えL
-        sortitions: 並べ替え
         source_code: ソースコード
         state: 状態
         tab_panels_context_description: このタブパネルコンポーネントは、縦方向のスペースを節約するために、表示されているメイン要素の関連コンテンツやその他のリソースをすべて集約します。タブをクリックすると、作成されたパネルがアクティブになり、コンテンツが表示されます。

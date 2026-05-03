@@ -26,7 +26,6 @@ describe Decidim::UserActivityCell, type: :cell do
   let(:model) { create(:user, :confirmed, organization: component.organization) }
   let(:resource_types) do
     %w(
-      Decidim::Proposals::CollaborativeDraft
       Decidim::Comments::Comment
       Decidim::Debates::Debate
       Decidim::Initiative

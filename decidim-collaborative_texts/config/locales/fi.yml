@@ -16,6 +16,11 @@ fi:
           body: Sisältö
           draft: Luonnos
           version_number: Versionumero
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Yhteistyöteksti
+        other: Yhteistyötekstit
   decidim:
     admin:
       tooltips:

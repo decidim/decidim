@@ -2,7 +2,7 @@
 /* eslint max-lines: ["error", 310] */
 
 import icon from "src/decidim/refactor/moved/icon"
-import { changeHourDisplay, changeMinuteDisplay, formatDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute, updateTimeValue, updateInputValue } from "src/decidim/datepicker/datepicker_functions"
+import { changeHourDisplay, changeMinuteDisplay, formatDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute, updateTimeValue, updateInputValue, adjustPickerPosition } from "src/decidim/datepicker/datepicker_functions"
 import { timeKeyDownListener, timeBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners";
 import { getDictionary } from "src/decidim/refactor/moved/i18n";
 
@@ -28,7 +28,6 @@ export default function generateTimePicker(input, row, formats) {
   if (input.attributes.disabled) {
     clock.setAttribute("disabled", input.attributes.disabled);
   };
-
 
   timeColumn.appendChild(time);
   timeColumn.appendChild(clock);
@@ -279,6 +278,8 @@ export default function generateTimePicker(input, row, formats) {
     event.preventDefault();
     timePicker.style.display = "block";
     document.addEventListener("click", timePickerDisplay);
+    adjustPickerPosition(time, timePicker, ".datepicker__time-column")
+
     hours.value = hourDisplay(hour);
     minutes.value = minuteDisplay(minute);
   });

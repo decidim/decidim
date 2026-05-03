@@ -87,7 +87,6 @@ ru:
         participatory_process:
           fields:
             created_at: 'Создано:'
-            private: Частное
             published: Обнародовано
             title: Название
           name: Движение соучастия
@@ -117,11 +116,9 @@ ru:
         destroy:
           success: Группа движений соучастия успешно удалена.
         edit:
-          title: Редактировать группу движений
           update: Обновить
         new:
           create: Создать
-          title: Создать группу движений
         update:
           error: При попытке обновить эту группу движений соучастия произошла ошибка.
           success: Группа движения соучастия успешно обновлена.
@@ -144,18 +141,13 @@ ru:
         destroy:
           success: Шаг движения соучастия успешно удален.
         edit:
-          title: Редактировать шаг движения соучастия
           update: Обновить
-        index:
-          steps_title: Шаги
         new:
           create: Создать
-          title: Добавить шаг движения соучастия
         ordering:
           error: При перестановке шагов этого движения соучастия произошла ошибка.
         update:
           error: При попытке обновить этот шаг движения соучастия произошла ошибка.
-          success: Шаг движения соучастия успешно обновлен.
       participatory_process_user_roles:
         create:
           error: При попытке добавить участника в это движение соучастия произошла ошибка.
@@ -164,8 +156,6 @@ ru:
           success: Успешно удален участник этого движения соучастия.
         edit:
           update: Обновить
-        index:
-          process_admins_title: Участники движения соучастия
         new:
           create: Создать
         update:
@@ -178,12 +168,9 @@ ru:
         edit:
           update: Обновить
         index:
-          private: Частное
-          public: Обнародованные
           published: Обнародовано
         new:
           create: Создать
-          title: Добавить движение соучастия
         update:
           error: При попытке обновить это движение соучастия произошла ошибка.
           success: Движение соучастия успешно обновлено.
@@ -191,9 +178,6 @@ ru:
         create:
           error: При попытке создать новую группу движений соучастия произошла ошибка.
           success: Группа движения соучастия успешно создана.
-      titles:
-        participatory_process_groups: Группы движений соучастия
-        participatory_processes: Движения соучастия
       users:
         resend_invitation:
           error: При повторной отправке приглашения произошла ошибка.
@@ -240,7 +224,6 @@ ru:
       admin:
         participatory_processes:
           form:
-            announcement_help: Текст, который вы введете здесь, будет показан участнику прямо под описанием движения.
             related_processes: Подобные движения
             title: Общие сведения
       content_blocks:
@@ -280,7 +263,6 @@ ru:
             upcoming: Грядущие
           see: Посмотреть
       show:
-        private_space: Это частное движение
         related_processes: Подобные движения
   layouts:
     decidim:

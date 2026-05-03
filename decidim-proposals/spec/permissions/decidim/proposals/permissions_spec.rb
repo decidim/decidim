@@ -110,6 +110,12 @@ describe Decidim::Proposals::Permissions do
 
       it { is_expected.to be false }
     end
+
+    context "when proposal is already withdrawn" do
+      let(:proposal) { create(:proposal, :withdrawn, component: proposal_component) }
+
+      it { is_expected.to be false }
+    end
   end
 
   describe "voting" do

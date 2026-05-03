@@ -8,14 +8,14 @@ describe Decidim::StatsPresenter, type: :presenter do
 
   describe "#collection" do
     let(:priority) { Decidim::StatsRegistry::MEDIUM_PRIORITY }
-    let(:conditions) { { priority: priority } }
+    let(:conditions) { { priority: } }
 
     before do
-      allow(presenter).to receive(:all_stats).with(priority: priority).and_return([
-                                                                                    { name: "stat_1", data: [1, 23] },
-                                                                                    { name: "stat_2", data: [0] },
-                                                                                    { name: "stat_3", data: [45] }
-                                                                                  ])
+      allow(presenter).to receive(:all_stats).with(priority:).and_return([
+                                                                           { name: "stat_1", data: [1, 23] },
+                                                                           { name: "stat_2", data: [0] },
+                                                                           { name: "stat_3", data: [45] }
+                                                                         ])
     end
 
     it "returns stats with non-empty data" do
@@ -31,10 +31,10 @@ describe Decidim::StatsPresenter, type: :presenter do
     end
 
     it "sums the data of stats with the same name" do
-      allow(presenter).to receive(:all_stats).with(priority: priority).and_return([
-                                                                                    { name: "stat_1", data: [12, 3] },
-                                                                                    { name: "stat_1", data: [4] }
-                                                                                  ])
+      allow(presenter).to receive(:all_stats).with(priority:).and_return([
+                                                                           { name: "stat_1", data: [12, 3] },
+                                                                           { name: "stat_1", data: [4] }
+                                                                         ])
 
       result = presenter.collection(priority:)
 

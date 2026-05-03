@@ -39,10 +39,6 @@ describe "Respond a survey" do
     it "does not allow responding the survey" do
       visit_component
 
-      within(".menu-bar") do
-        expect(page).to have_content(translated(component.name))
-      end
-
       choose "All"
 
       expect(page).to have_i18n_content(questionnaire.title)
@@ -103,11 +99,6 @@ describe "Respond a survey" do
         visit_component
         choose "All"
         click_on translated_attribute(questionnaire.title)
-
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-          expect(page).to have_content(translated(questionnaire.title))
-        end
 
         # does not show the charts if not published
         expect(page.html).not_to include('new Chartkick["ColumnChart"]("chart-1"')
@@ -231,7 +222,7 @@ describe "Respond a survey" do
     let(:router) { Decidim::EngineRouter.main_proxy(component) }
 
     it "shows action log entry" do
-      page.visit decidim.profile_activity_path(nickname: user.nickname)
+      page.visit decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale)
       expect(page).to have_content("New survey: #{translated(survey.questionnaire.title)}")
       expect(page).to have_content(translated(survey.component.participatory_space.title))
       expect(page).to have_link(translated(survey.questionnaire.title), href: router.survey_path(survey))

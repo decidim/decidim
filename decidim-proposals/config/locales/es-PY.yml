@@ -52,7 +52,7 @@ es-PY:
         file: Archivo
       proposals_import:
         import_proposals: Propuestas de importación
-        keep_answers: Mantener estado y respuestas
+        keep_answers: Mantener estados y respuestas
         keep_authors: Mantener autores originales
     errors:
       models:
@@ -145,8 +145,6 @@ es-PY:
             values:
               state_not_published: Sin respuesta
               state_published: Respondidas
-        search_placeholder:
-          id_string_or_title_cont: Buscar %{collection} por ID o título
       tooltips:
         cannot_edit_proposal_info: No se puede editar esta propuesta ya que ha sido creada por un participante o ha recibido algún voto
         deleted_proposal_states_info: No se puede eliminar este estado de respuesta porque hay propuestas asignadas a este estado
@@ -190,7 +188,7 @@ es-PY:
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
-            define_taxonomy_filters: Por favor, define algunos filtros para este espacio participativo antes de utilizar esta configuración.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             edit_time: Las autoras pueden editar las propuestas antes de que pase este tiempo
             edit_time_units:
               days: Días
@@ -372,6 +370,12 @@ es-PY:
             email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que sigues ha cambiado su estado (%{state})
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque tienes la autoría de "%{resource_title}".
+            email_subject: Tu propuesta ha cambiado su estado (%{state})
+            notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Una administradora ha actualizado las taxonomías de tu propuesta "%{resource_title}", puedes comprobarlo en esta página:'
           email_outro: Recibiste esta notificación porque eres la autora de la propuesta.
@@ -494,7 +498,6 @@ es-PY:
           deleted_proposals_info: Las propuestas eliminadas se pueden restaurar desde papelera.
           preview: Previsualizar
           view_deleted_proposals: Ver las propuestas eliminadas
-        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Aviso de Desuso/Obsolescencia.</b> La función \"Borradores colaborativos\" se eliminará próximamente. Si la utilizabas, a partir de la versión 0.32 de Decidim podrás utilizar la funcionalidad de coautoría de propuestas."
         evaluation_assignments:
           create:
             invalid: Se ha producido un error al asignar propuestas a una evaluadora.
@@ -677,6 +680,7 @@ es-PY:
             related_meetings: Encuentros relacionados
             remove_assignment: Deshacer asignación
             remove_assignment_confirmation: '¿Seguro que quieres deshacer la asignación a la evaluadora de esta propuesta?'
+            title: Responder a la propuesta
             votes_count: Número de apoyos
           update_taxonomies:
             invalid: 'Estas propuestas ya tenían las taxonomias %{taxonomies}: %{proposals}.'
@@ -691,7 +695,7 @@ es-PY:
             create: Importar propuestas
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
-            select_states: Verifique los estados de las propuestas para importar
+            select_states: Importar solo propuestas con estos estados. Si no se selecciona ningún estado, todas las propuestas serán importadas.
             title: Importar propuestas desde otro componente
         proposals_merges:
           create:
@@ -738,103 +742,6 @@ es-PY:
           all: Todos
           amendments: Enmiendas
           proposals: Propuestas
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Ha habido errores al publicar el borrador colaborativo.
-            irreversible_action_modal:
-              body: Después de publicar el borrador como una propuesta, dejará de ser editable. La propuesta no aceptará nuevas autoras o contribuciones.
-              cancel: Cancelar
-              ok: Publicar como una propuesta
-              title: La siguiente acción es irreversible
-            success: Borrador de colaborativo publicado con éxito como una propuesta.
-          withdraw:
-            error: Ha habido errores al cerrar el borrador colaborativo.
-            irreversible_action_modal:
-              body: Después de cerrar el borrador, ya no será editable. El borrador no aceptará nuevas autoras ni contribuciones.
-              cancel: Cancelar
-              ok: Retirar el borrador colaborativo
-              title: La siguiente acción es irreversible
-            success: Borrador colaborativo retirado con éxito.
-        create:
-          error: Hubo un problema al crear este borrador colaborativo.
-          success: Borrador colaborativo creado con éxito.
-        edit:
-          attachment_legend: Añadir un documento o una imagen
-          back: Volver
-          send: Enviar
-          title: Editar borrador colaborativo
-        empty: Todavía no hay borradores colaborativos
-        empty_filters: No hay ningún borrador colaborativo con este criterio
-        filters:
-          all: Todas
-          amendment: Enmiendas
-          open: Abierto
-          published: Publicado
-          related_to: Relacionado con
-          search: Buscar
-          state: Estado
-          withdrawn: Retirado
-        filters_small_view:
-          close_modal: Cerrar modal
-          filter: Filtrar
-          filter_by: Filtrado por
-          unfold: Desplegar
-        index:
-          count:
-            one: "%{count} borrador colaborativo"
-            other: "%{count} borrador colaborativo"
-        name: Borradores colaborativos
-        new:
-          add_file: Añadir archivo
-          edit_file: Editar fichero
-          send: Continuar
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nuevo borrador colaborativo
-        orders:
-          label: 'Ordenar borradores por:'
-          most_contributed: Con más contribuciones
-          random: Aleatorio
-          recent: Reciente
-        requests:
-          accepted_request:
-            error: No se pudo aceptar como contribuidor. Inténtalo de nuevo más tarde.
-            success: "Se ha acceptado con éxito a @%{user} como colaboradora."
-          access_requested:
-            error: Tu solicitud no pudo ser completada, intenta de nuevo más tarde.
-            success: Tu solicitud para colaborar ha sido enviada correctamente.
-          collaboration_requests:
-            accept_request: Aceptar
-            reject_request: Rechazar
-            title: Solicitudes de contribuciones
-          rejected_request:
-            error: No se pudo rechazar como colaborador, inténtalo de nuevo más tarde.
-            success: "Se ha rechazado con éxito @%{user} como colaboradora."
-        show:
-          edit: Editar
-          final_proposal: propuesta final
-          final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
-          hidden_authors_count:
-            one: y %{count} persona más
-            other: y %{count} personas más
-          info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puedes ayudar a sus autoras a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que las autoras te den acceso, podrás realizar cambios en este borrador.
-          publish: Publicar
-          publish_info: Publicar esta versión del borrador o
-          published_proposal: propuesta publicada
-          request_access: Solicitar acceso
-          requested_access: Acceso solicitado
-          withdraw: retirar el borrador
-        states:
-          open: Abierto
-          published: Publicado
-          withdrawn: Retirado
-        update:
-          error: Ha habido errores al guardar el borrador colaborativo.
-          success: Borrador colaborativo actualizado con éxito.
-        wizard_aside:
-          back_from_collaborative_draft: Volver al borrador colaborativo
-        wizard_header:
-          title: Crea tu borrador colaborativo
       content_blocks:
         highlighted_proposals:
           name: Propuestas
@@ -936,7 +843,6 @@ es-PY:
           voted: Votado
         index:
           click_here: Ver todas las propuestas
-          collaborative_drafts_list: Acceder a borradores colaborativos
           count:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
@@ -983,8 +889,6 @@ es-PY:
           hidden_likes_count:
             one: y %{count} persona más
             other: y %{count} personas más
-          link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador colaborativo. Revisa el historial
-          link_to_collaborative_draft_text: Ver el borrador colaborativo
           link_to_promoted_emendation_help_text: Esta propuesta es una proviene de una enmienda
           link_to_promoted_emendation_text: Ver la enmienda rechazada.
           link_to_proposal_from_emendation_help_text: Esta es una enmienda rechazada

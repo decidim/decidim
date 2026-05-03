@@ -8,7 +8,7 @@ module Decidim
       module Censuses
         describe TokenCsvForm do
           let(:organization) { create(:organization) }
-          let(:attributes) { { file: file, remove_all: remove_all } }
+          let(:attributes) { { file:, remove_all: } }
           let(:remove_all) { false }
 
           subject { described_class.new(attributes).with_context(current_organization: organization) }

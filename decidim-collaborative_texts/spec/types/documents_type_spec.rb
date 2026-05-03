@@ -39,8 +39,8 @@ module Decidim
         context "when the document does not belong to the component" do
           let!(:document) { create(:collaborative_text_document, :published, component: create(:collaborative_text_component)) }
 
-          it "returns null" do
-            expect(response["collaborativeText"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "CollaborativeText not found")
           end
         end
       end

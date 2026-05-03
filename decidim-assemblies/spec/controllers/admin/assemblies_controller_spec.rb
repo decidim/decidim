@@ -33,6 +33,7 @@ module Decidim
               description: assembly.description,
               short_description: assembly.short_description,
               slug: assembly.slug,
+              access_mode: assembly.access_mode,
               weight: assembly.weight
             }
           end

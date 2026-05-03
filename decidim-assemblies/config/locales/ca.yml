@@ -25,6 +25,7 @@ ca:
         duration: Durada
         facebook: Facebook
         github: GitHub
+        has_members: Aquest espai de participació té membres
         hero_image: Imatge de portada
         import_attachments: Importar arxius adjunts
         import_categories: Importar categories
@@ -39,7 +40,6 @@ ca:
         participatory_processes_ids: Processos participatius relacionats
         participatory_scope: Què es decideix?
         participatory_structure: Com es decideix
-        private_space: Espai privat
         promoted: Destacat
         published_at: Publicat el
         purpose_of_action: Propòsit de l'acció
@@ -73,6 +73,8 @@ ca:
           attributes:
             document:
               allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}.'
+              empty: El document està buit
+              invalid_json: El document no és un JSON vàlid
   activerecord:
     models:
       decidim/assembly:
@@ -99,15 +101,14 @@ ca:
         edit:
           update: Actualitzar
         index:
-          private: Privat
-          public: Públic
+          access_modes:
+            open: Oberta
+            restricted: Restringida
+            transparent: Transparent
           published: Publicat
           unpublished: Despublicada
-        manage_trash:
-          title: Assemblees eliminades
         new:
           create: Crea
-          title: Nova assemblea
         update:
           error: S'ha produït un error en actualitzar aquesta assemblea.
           success: L'assemblea s'ha actualitzat correctament.
@@ -119,7 +120,6 @@ ca:
         new:
           duplicate: Duplicar
           select: Selecciona quines dades vols duplicar
-          title: Assemblea duplicada
       assembly_imports:
         create:
           error: Hi ha hagut un problema important aquesta assemblea.
@@ -127,7 +127,6 @@ ca:
         new:
           import: Importar
           select: Selecciona quines dades vols importar
-          title: Importar assemblea
       assembly_publications:
         create:
           error: S'ha produït un error en publicar aquesta assemblea.
@@ -142,13 +141,9 @@ ca:
         destroy:
           success: L'administradora s'ha eliminat correctament d'aquesta assemblea.
         edit:
-          title: Actualitzar administradora de l'assemblea
           update: Actualitza
-        index:
-          assembly_admins_title: Administradores de l'assemblea
         new:
           create: Crea
-          title: Afegir administradora
         update:
           error: S'ha produït un error en actualitzar una administradora per a aquesta assemblea.
           success: L'administradora s'ha actualitzat correctament per a aquesta assemblea.
@@ -170,15 +165,15 @@ ca:
           components: Components
           info: Quant a aquesta assemblea
           landing_page: Disposició de la pàgina de destinació
+          members: Membres
           moderations: Moderacions
-          private_users: Membres
           see_assembly: Veure l'assemblea
       models:
         assembly:
           fields:
+            access_mode: Tipus d'accés
             actions: Accions
             created_at: Data de creació
-            private: Privada
             promoted: Destacada
             published: Publicada
             title: Títol
@@ -206,8 +201,6 @@ ca:
         space_filter_for:
           assemblies: Totes les assemblees
       titles:
-        assemblies: Assemblees
-        assemblies_deleted: Assemblees eliminades
         assemblies_types: Tipus d'assemblees
       tooltips:
         deleted_assemblies_info: Aquesta assemblea es pot eliminar si el seu estat és 'Despublicada'.
@@ -218,9 +211,11 @@ ca:
         export: "%{user_name} ha exportat l'assemblea %{resource_name}"
         import: "%{user_name} ha importat l'assemblea %{resource_name}"
         publish: "%{user_name} ha publicat l'assemblea %{resource_name}"
+        publish_all_members: "%{user_name} va publicar a totes les membres de l'assemblea %{resource_name}"
         restore: "%{user_name} ha restaurat l'assemblea %{resource_name}"
         soft_delete: "%{user_name} ha mogut a la paperera l'assemblea %{resource_name}"
         unpublish: "%{user_name} ha despublicat l'assemblea %{resource_name}"
+        unpublish_all_members: "%{user_name} va despublicar a totes les membres de l'assemblea %{resource_name}"
         update: "%{user_name} ha actualitzat l'assemblea %{resource_name}"
       assembly_member:
         create: "%{user_name} ha afegit el membre %{resource_name} a l'assemblea %{space_name}"
@@ -241,17 +236,24 @@ ca:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: Quant a aquesta assemblea
           form:
-            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació de l'assemblea.
+            access:
+              label: Accés
+              options:
+                open: Qualsevol pot veure i participar a l'assemblea.
+                restricted: Només les membres poden veure i participar a l'assemblea.
+                transparent: Qualsevol pot veure l'assemblea, però només les membres hi poden participar.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
+            has_members_help: Podràs crear i publicar membres
             images: Imatges
             included_at_help: Selecciona la data en què es va afegir aquesta assemblea a la plataforma. No necessàriament ha de ser la mateixa que la data de creació.
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             other: Altre
-            private_notice: Podràs administrar les participants privades un cop haguis configurar l'espai com a privat
             select_a_created_by: Selecciona una creadora
             select_parent_assembly: Selecciona una assemblea mare
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -259,23 +261,45 @@ ca:
             taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
+          index:
+            title: Assemblees
+          manage_trash:
+            title: Assemblees eliminades
+          new:
+            title: Nova assemblea
         assembly_duplicates:
           form:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          new:
+            title: Duplicar assemblea
         assembly_imports:
           form:
+            document_legend: Afegir un document
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          new:
+            title: Importar assemblea
         assembly_members:
           form:
             explanation: 'Instruccions per a la imatge:'
             image_guide: Preferiblement una imatge apaïsada que no tingui cap text.
             non_user_avatar_help: Cal tenir el consentiment de la persona abans publicar-la com a membre.
+        assembly_user_roles:
+          edit:
+            title: Actualitzar administradora de l'assemblea
+          index:
+            title: Administradores de l'assemblea
+          new:
+            title: Nova administradora de l'assemblea
         content_blocks:
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
+        imports:
+          attachment_error: No s'ha pogut importar l'arxiu adjunt "%{title}" (%{error}).
+          hero_image_error: No s'ha pogut importar la imatge principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Aquesta funció d'importació et permet crear una nova assemblea a partir d'un fitxer JSON exportat. Pots exportar una assemblea d'una altra organització o de la mateixa organització. L'assemblea importada inclourà la seva configuració, els components i els fitxers adjunts (si s'han seleccionat).
       assemblies:
         description:
           area_name: Àrea
@@ -299,9 +323,6 @@ ca:
           type: Tipus
         show:
           title: Quant a aquesta assemblea
-      assembly_members:
-        index:
-          members: Membres
       content_blocks:
         children_assemblies:
           name: Assemblees
@@ -341,11 +362,7 @@ ca:
             member_of: Membre de
       show:
         duration: Durada
-        private_space: Aquesta és una assemblea privada
         social_networks_title: Visita l'assemblea a
-    assembly_members:
-      index:
-        title: Membres
     download_your_data:
       show:
         assemblies: Exportar les assemblees
@@ -379,11 +396,12 @@ ca:
     open_data:
       help:
         assemblies:
-          announcement: La informació de l'anunci/avís (crida)
+          access_mode: 'Tipus d''accés: Si l''assemblea és oberta, restringida o transparent.'
           area: L'àrea a la qual correspon l'assemblea
           assembly_type: El tipus d'assemblea
           closing_date: La data de tancament de l'assemblea
           closing_date_reason: Perquè es va tancar l'assemblea
+          component_settings: Configuració dels components de l'assemblea
           composition: La composició de l'assemblea
           created_at: La data en què es va crear aquesta assemblea
           created_by: Qui va crear l'assemblea

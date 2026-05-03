@@ -51,9 +51,6 @@ gl:
         show:
           questionnaire_closed:
             title: Cuestionario pechado
-          questionnaire_for_private_users:
-            body: O cuestionario só está dispoñible para usuarios privados
-            title: Cuestionario pechado
           tos_agreement: Ao participar aceptas as Condicións de servizo
       step_navigation:
         show:

@@ -83,14 +83,6 @@ module Decidim
         end
       end
 
-      describe "bannerImage" do
-        let(:query) { "{ bannerImage }" }
-
-        it "returns the banner image field" do
-          expect(response["bannerImage"]).to be_blob_url(model.banner_image.blob)
-        end
-      end
-
       describe "promoted" do
         let(:query) { "{ promoted }" }
 
@@ -147,11 +139,11 @@ module Decidim
         end
       end
 
-      describe "privateSpace" do
-        let(:query) { "{ privateSpace }" }
+      describe "accessMode" do
+        let(:query) { "{ accessMode }" }
 
-        it "returns the privateSpace field" do
-          expect(response["privateSpace"]).to eq(model.private_space)
+        it "returns the accessMode field" do
+          expect(response["accessMode"]).to eq(model.access_mode.upcase)
         end
       end
 
@@ -280,14 +272,6 @@ module Decidim
         end
       end
 
-      describe "isTransparent" do
-        let(:query) { "{ isTransparent }" }
-
-        it "returns the assembly isTransparent field" do
-          expect(response["isTransparent"]).to eq(model.is_transparent)
-        end
-      end
-
       describe "specialFeatures" do
         let(:query) { '{ specialFeatures { translation(locale: "en" ) }}' }
 
@@ -333,14 +317,6 @@ module Decidim
 
         it "returns the assembly githubHandler field" do
           expect(response["githubHandler"]).to eq(model.github_handler)
-        end
-      end
-
-      describe "announcement" do
-        let(:query) { '{ announcement { translation(locale: "en")}}' }
-
-        it "returns all the required fields" do
-          expect(response["announcement"]["translation"]).to eq(model.announcement["en"])
         end
       end
     end

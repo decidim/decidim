@@ -26,9 +26,6 @@ ru:
         show:
           questionnaire_closed:
             title: Форма закрыта
-          questionnaire_for_private_users:
-            body: Форма доступна только для частных пользователей
-            title: Форма закрыта
       step_navigation:
         show:
           submit: Отправить

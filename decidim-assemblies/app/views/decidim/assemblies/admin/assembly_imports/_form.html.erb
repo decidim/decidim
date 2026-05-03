@@ -1,34 +1,38 @@
-<%= append_javascript_pack_tag "decidim_assemblies_admin" %>
-
 <div class="form__wrapper">
   <div class="card pt-4" id="assemblies">
     <div class="card-section">
+      <div class="row column mb-4">
+        <%= cell("decidim/announcement", { body: t("decidim.assemblies.admin.new_import.help_html") }, callout_class: "info") %>
+      </div>
+
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
+
       <div class="row column">
         <%= form.text_field :slug, help_text: t(".slug_help_html", url: decidim_form_slug_url(:assemblies, form.object.slug)) %>
       </div>
+
       <div class="row column">
-        <%= form.upload :document, button_class: "button button__sm button__transparent-secondary" %>
+        <%= form.upload :document, label: t(".document_legend"), button_class: "button button__sm button__transparent-secondary", help_i18n_scope: "decidim.forms.file_help.import_file", help_i18n_messages: ["message_1"] %>
       </div>
-      <div class="row column">
-        <div class="card">
-          <div class="card-divider">
-            <legend><%= t("assembly_imports.new.select", scope: "decidim.admin") %></legend>
+
+      <div class="card-divider">
+        <div class="card-title">
+          <%= t("assembly_imports.new.select", scope: "decidim.admin") %>
+        </div>
+      </div>
+      <div class="card-section">
+        <div class="row">
+          <div class="columns">
+            <%= form.check_box :import_attachments %>
           </div>
-          <div class="card-section">
-            <div class="row">
-              <div class="columns">
-                <%= form.check_box :import_attachments %>
-              </div>
-              <div class="columns">
-                <%= form.check_box :import_components %>
-              </div>
-            </div>
+          <div class="columns">
+            <%= form.check_box :import_components %>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>

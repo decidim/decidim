@@ -17,7 +17,7 @@ describe Decidim::Log::UserPresenter, type: :helper do
   describe "#present" do
     context "when the user exists" do
       it "links to their profile" do
-        expect(subject).to include("href=\"/profiles/#{user_nickname}\">")
+        expect(subject).to include("href=\"/en/profiles/#{user_nickname}\">")
       end
     end
 
@@ -31,7 +31,7 @@ describe Decidim::Log::UserPresenter, type: :helper do
       end
 
       it "does not link to their profile" do
-        expect(subject).not_to include("href=\"/profiles/")
+        expect(subject).not_to include("href=\"/en/profiles/")
         expect(subject).to include("John O'Hara")
       end
     end

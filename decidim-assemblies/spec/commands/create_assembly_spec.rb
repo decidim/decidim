@@ -18,7 +18,6 @@ module Decidim::Assemblies
     end
     let(:related_process_ids) { [participatory_processes.map(&:id)] }
     let(:hero_image) { nil }
-    let(:banner_image) { nil }
     let(:taxonomizations) do
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
@@ -34,7 +33,6 @@ module Decidim::Assemblies
         slug: "slug",
         meta_scope: { en: "meta scope" },
         hero_image:,
-        banner_image:,
         promoted: nil,
         developer_group: { en: "developer group" },
         local_area: { en: "local" },
@@ -46,7 +44,8 @@ module Decidim::Assemblies
         organization:,
         taxonomizations:,
         parent: nil,
-        private_space: false,
+        has_members: false,
+        access_mode: :open,
         errors:,
         participatory_processes_ids: related_process_ids,
         purpose_of_action: { en: "purpose of action" },
@@ -59,14 +58,12 @@ module Decidim::Assemblies
         closing_date: 5.days.from_now,
         closing_date_reason: { en: "closing date reason" },
         internal_organisation: { en: "internal organisation" },
-        is_transparent: true,
         special_features: { en: "special features" },
         twitter_handler: "lorem",
         facebook_handler: "lorem",
         instagram_handler: "lorem",
         youtube_handler: "lorem",
-        github_handler: "lorem",
-        announcement: { en: "announcement_lorem" }
+        github_handler: "lorem"
       )
     end
     let(:invalid) { false }
@@ -87,7 +84,6 @@ module Decidim::Assemblies
           content_type: "image/jpeg"
         )
       end
-      let(:banner_image) { hero_image }
 
       before do
         allow(Decidim::ActionLogger).to receive(:log).and_return(true)
@@ -99,7 +95,6 @@ module Decidim::Assemblies
 
       it "adds errors to the form" do
         expect(errors).to receive(:add).with(:hero_image, "File resolution is too large")
-        expect(errors).to receive(:add).with(:banner_image, "File resolution is too large")
         subject.call
       end
     end
@@ -112,14 +107,12 @@ module Decidim::Assemblies
           content_type: "image/png"
         )
       end
-      let(:banner_image) { nil }
       let(:form) do
         Admin::AssemblyForm.from_params(
           title: { en: "title" },
           subtitle: { en: "subtitle" },
           slug: "slug",
           hero_image:,
-          banner_image:,
           description: { en: "description" },
           short_description: { en: "short_description" },
           organization:

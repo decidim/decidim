@@ -11,8 +11,7 @@ module Decidim
         mod = obj.manifest_name.camelize
         "Decidim::#{mod}::#{mod}MutationType".constantize
       rescue NameError
-        Rails.logger.warn("Mutation type not found for #{mod}: #{e.message}")
-        nil
+        raise GraphQL::ExecutionError, "Mutation type not found for #{mod}"
       end
     end
   end

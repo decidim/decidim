@@ -33,6 +33,7 @@ fi:
           comment: Kommentoi
           create: Luo keskustelu
           like: Tykkää
+          vote_comment: Äänestä kommenttia
         name: Keskustelut
         settings:
           global:
@@ -155,8 +156,8 @@ fi:
           create: Luo
           title: Luo uusi keskustelu
         orders:
-          commented: Eniten kommentoidut
           label: Järjestä keskustelut
+          most_commented: Eniten kommentoidut
           random: Satunnainen järjestys
           recent: Viimeisimmät
           updated: Viimeksi päivitetyt

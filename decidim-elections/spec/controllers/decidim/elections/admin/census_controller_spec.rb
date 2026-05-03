@@ -38,7 +38,7 @@ module Decidim
             let(:params) { { id: election.id, manifest: :token_csv, file: valid_file } }
 
             it "processes the census and redirects with a success message" do
-              patch :update, params: params
+              patch(:update, params:)
 
               expect(flash[:notice]).to eq(I18n.t("decidim.elections.admin.census.update.success"))
               expect(response).to redirect_to(dashboard_election_path)
@@ -49,7 +49,7 @@ module Decidim
             let(:params) { { id: election.id, manifest: :token_csv, file: invalid_file } }
 
             it "renders the edit view with an error message" do
-              patch :update, params: params
+              patch(:update, params:)
 
               expect(flash[:alert]).to eq(I18n.t("decidim.elections.admin.census.update.error"))
               expect(response).to render_template(:edit)

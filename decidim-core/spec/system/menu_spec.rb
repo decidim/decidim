@@ -12,7 +12,7 @@ describe "Menu" do
 
   context "when clicking on a menu entry" do
     before do
-      visit decidim.pages_path
+      visit decidim.pages_path(locale: I18n.locale)
     end
 
     it "switches the active option" do
@@ -47,7 +47,7 @@ describe "Menu" do
       click_on(id: "main-dropdown-summary-mobile")
 
       within "#breadcrumb-main-dropdown-mobile" do
-        expect(page).to have_link("Processes", href: "/processes")
+        expect(page).to have_link("Processes", href: "/#{I18n.locale}/processes")
       end
     end
   end

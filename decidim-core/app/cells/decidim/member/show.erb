@@ -1,0 +1,23 @@
+<%= link_to profile_url, class: "profile__user" do %>
+  <div class="profile__user-avatar-container">
+    <div class="profile__user-avatar">
+      <%= image_tag(model.avatar_url(:big), alt: "member-avatar") %>
+    </div>
+  </div>
+  <div>
+    <span class="profile__user-name">
+      <%= name %>
+    </span>
+    <% if nickname.present? %>
+      <span class="profile__user-nick block">
+        <%= nickname %>
+      </span>
+    <% end %>
+
+    <div class="mt-3">
+      <span class="text-gray-2 capitalize font-semibold">
+        <%= role_translated %>
+      </span>
+    </div>
+  </div>
+<% end %>

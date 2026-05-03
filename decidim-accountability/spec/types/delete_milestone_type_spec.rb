@@ -1,40 +1,87 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/mutation_context"
 
 module Decidim::Accountability
   describe DeleteMilestoneType, type: :graphql do
     include_context "with a graphql class mutation"
 
     let(:root_klass) { ResultMutationType }
-    let(:component) { create(:component, manifest_name: :accountability) }
+    let(:current_component) { component }
+
+    let(:component) { create(:accountability_component, organization: current_organization) }
     let!(:result) { create(:result, component:) }
-    let(:model) { result }
     let!(:milestone) { create(:milestone, result:) }
-    let(:api_response) { response["deleteMilestone"] }
+    let!(:model) { result }
 
     let(:query) do
       %( mutation { deleteMilestone(id: #{milestone.id}) { id } })
     end
 
-    context "with admin user" do
-      it_behaves_like "API deletable milestone" do
-        let!(:user_type) { :admin }
+    shared_examples "API deletable milestone" do
+      it "deletes the milestone" do
+        expect do
+          execute_query(query, variables)
+        end.to change(Decidim::Accountability::Milestone, :count).by(-1)
+      end
+
+      context "when missing milestone" do
+        context "when milestone is missing" do
+          let(:query) { %( mutation { deleteMilestone(id: 123456789) { id } }) }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Milestone not found")
+          end
+        end
+
+        context "when milestone id is not integer" do
+          let(:query) { %( mutation { deleteMilestone(id: "aaaa") { id } } ) }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Milestone not found")
+          end
+        end
+
+        context "when milestone belongs to another result" do
+          let!(:result2) { create(:result, component:) }
+          let!(:milestone) { create(:milestone, result: result2) }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Milestone not found")
+          end
+        end
+
+        context "when milestone belongs to another result and the result belongs to another component" do
+          let(:component2) { create(:accountability_component, organization: current_organization) }
+          let!(:result2) { create(:result, component: component2) }
+          let!(:milestone) { create(:milestone, result: result2) }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Milestone not found")
+          end
+        end
+
+        context "when milestone belongs to another result in the same component" do
+          let!(:result2) { create(:result, component:) }
+          let!(:milestone) { create(:milestone, result: result2) }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, /Milestone not found/)
+          end
+        end
+
+        context "when milestone is already deleted" do
+          before do
+            milestone.destroy
+          end
+
+          it "raises an error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Milestone not found")
+          end
+        end
       end
     end
 
-    context "with normal user" do
-      it "returns nil" do
-        expect(api_response).to be_nil
-        expect(milestone.reload).not_to be_nil
-      end
-    end
-
-    context "with api_user" do
-      it_behaves_like "API deletable milestone" do
-        let!(:user_type) { :api_user }
-      end
-    end
+    it_behaves_like "admin API access checks", "API deletable milestone"
   end
 end

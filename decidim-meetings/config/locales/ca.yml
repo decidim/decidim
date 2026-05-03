@@ -145,7 +145,6 @@ ca:
           success: Trobada duplicada correctament.
         new:
           copy: Copia
-          title: Duplicar trobada
       tooltips:
         cannot_close_meetings: No es pot tancar aquesta trobada en haver estat creada per una participant
         cannot_duplicate_meetings: No es pot duplicar aquesta trobada en haver estat creada per una participant
@@ -162,6 +161,7 @@ ca:
           comment: Comentar
           join: Inscriu-t'hi
           reply_poll: Respondre el sondeig/consulta en directe
+          vote_comment: Votar el comentari
         name: Trobades
         settings:
           global:
@@ -229,7 +229,7 @@ ca:
           notification_title: S'ha confirmat el teu registre per a la trobada <a href="%{resource_url}">%{resource_title}</a>. El teu codi de registre és %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè administres l'espai participatiu de la trobada.
+          email_outro: Has rebut aquesta notificació perquè administres l'espai de participació en el que s'inclou aquesta trobada.
           email_subject: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%
           notification_title: Les inscripcions per la trobada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         meeting_updated:
@@ -353,13 +353,16 @@ ca:
             non_user: Participant no existent
             select_user: Selecciona la participant
           index:
-            invite_attendee: Convidar assistent
             invites: Invitacions
             registrations_disabled: No pots convidar a cap persona perquè les inscripcions estan inhabilitades.
+            title: Convidar a una assistent
         meeting_closes:
           edit:
             close: Tancar
             title: Tancar trobada
+        meeting_copies:
+          new:
+            title: Duplicar trobada
         meetings:
           close:
             invalid: Hi ha hagut un problema en tancar aquesta trobada.
@@ -392,7 +395,7 @@ ca:
             assign: Assignar
             link_a_space: Vincular un espai
             private_meeting_warning: Els espais enllaçats no s'aplicaran si la reunió és privada i no transparent.
-            private_space_warning: Els espais enllaçats no s'aplicaran quan la reunió pertanyi a un espai privat no transparent.
+            restricted_space_warning: Els espais enllaçats no s'aplicaran quan la reunió pertanyi a un espai restringit no transparent.
             select: Selecciona un espai
             table:
               actions: Accions
@@ -436,15 +439,21 @@ ca:
             invalid: Hi ha hagut un problema en actualitzar aquesta enquesta.
             success: Enquesta actualitzada correctament.
         poll:
+          edit:
+            title: Edita l'enquesta
           form:
             announcement_html:
               - Quan una pregunta rep respostes o està publicada/tancada, ja no es pot seguir editant.
               - Pots afegir una pregunta en qualsevol moment.
               - El sondeig/la consulta en directe es tancarà quan es publiquin els resultats de totes les preguntes creades.
               - Visita la <a href='%{admin_link}'>pàgina d'administració d'enquestes</a> per enviar preguntes i publicar resultats.
+        registration_form:
+          edit_questions:
+            title: Edita les preguntes
         registrations:
           edit:
             save: Desa
+            title: Inscripcions
           form:
             available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
@@ -458,7 +467,6 @@ ca:
               other: Hi ha hagut %{count} inscripcions.
             reserved_slots_help: Deixar a 0 si no hi ha espais reservats.
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
-            title: Inscripcions
           update:
             invalid: S'ha produït un error en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
@@ -520,7 +528,7 @@ ca:
         meetings:
           index:
             meetings: Trobades
-            space_type: Espai participatiu
+            space_type: Espai de participació
       iframe_access_level:
         all: Totes les visites
         registered: Participants inscrites a aquesta trobada
@@ -677,7 +685,6 @@ ca:
           fields:
             closed: Tancada
             end_time: Data de finalització
-            id: ID
             map: Mapa
             official_meeting: Trobada oficial
             published: Publicada
@@ -731,6 +738,8 @@ ca:
         hidden_participants_count:
           one: i %{count} persona més
           other: i %{count} persones més
+        show_less: Mostrar menys
+        show_more: Mostrar més
       read_more: "(llegeix més)"
       registration_mailer:
         confirmation:
@@ -801,7 +810,7 @@ ca:
           follows_count: El número de seguidores que té la trobada
           id: L'identificador únic de la trobada
           iframe_access_level: El nivell d'accés de la sala de videoconferències de la trobada
-          iframe_embed_type: El tipus de visualització de la sala de videoconferències de la trobada
+          iframe_embed_type: El tipus de visualització de la sala de videoconferències dins de l'espai web amb la informació de la trobada
           latitude: La latitud del lloc de trobada
           location: La localització de la trobada
           location_hints: Detall d'ubicació dins del lloc on es va celebrar la trobada

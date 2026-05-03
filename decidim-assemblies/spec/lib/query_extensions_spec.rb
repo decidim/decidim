@@ -38,8 +38,8 @@ module Decidim
           let!(:assembly) { create(:assembly) }
           let(:id) { assembly.id }
 
-          it "returns nil" do
-            expect(response["assembly"]).to be_nil
+          it_behaves_like "graphQL not found space" do
+            let(:space_type) { "assembly" }
           end
         end
       end

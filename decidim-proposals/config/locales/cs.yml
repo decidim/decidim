@@ -52,7 +52,7 @@ cs:
         file: Soubor
       proposals_import:
         import_proposals: Návrhy na dovoz
-        keep_answers: Zachovat stav a odpovědi
+        keep_answers: Zachovat stavy a odpovědi
         keep_authors: Uchovávejte původní autory
     errors:
       models:
@@ -84,6 +84,7 @@ cs:
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Návrhy taxonomií se změnily
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
+      decidim/proposals/liking_enabled_event: Označení líbí se mi k Návrhu povoleno
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
       decidim/proposals/publish_proposal_event: Návrh byl zveřejněn
       decidim/proposals/voting_enabled_event: Hlasování návrhu je povoleno
@@ -92,6 +93,7 @@ cs:
       decidim:
         proposals:
           proposal:
+            budget_text: Návrh <span class="resource-link">%{link} byl vytvořen</span>
             import_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             merge_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             merge_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
@@ -150,6 +152,10 @@ cs:
             values:
               state_not_published: Nezodpovězeno
               state_published: Odpovězeno
+      tooltips:
+        cannot_edit_proposal_info: Tento návrh nelze upravit, protože je vytvořen účastníkem nebo obdržel nějaký hlas
+        deleted_proposal_states_info: Tento stav návrhu nelze odstranit, protože k němu jsou přiřazeny návrhy
+        deleted_proposals_info: Tento návrh nelze odstranit
     application:
       geocoding:
         not_configured: Geocoding není nakonfigurován!
@@ -175,6 +181,7 @@ cs:
             can_accumulate_votes_beyond_threshold: Lze hromadit hlasy za hranicí
             clear_all: Vymazat vše
             collaborative_drafts_enabled: Společné koncepty povoleny
+            collaborative_drafts_enabled_help: Funkce „Spolunávrhy“ bude odstraněna v Decidim v0.32. Organizace, které ji používají, mohou přejít na novou funkci spoluautorství.
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             default_sort_order: Výchozí řazení návrhu
@@ -333,6 +340,11 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Návrhy jsou nyní k dispozici v %{participatory_space_title}
           notification_title: Nyní můžete předložit <a href="%{resource_path}">nové návrhy</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        liking_enabled:
+          email_intro: 'Můžete označovat líbí se mi návrhy v %{participatory_space_title}! Začněte se účastnit na této straně:'
+          email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení na předchozím odkazu.
+          email_subject: Návrhy, které se líbí pro %{participatory_space_title}
+          notification_title: Nyní můžete začít s <a href="%{resource_path}">označováním návrhů líbí se mi</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
@@ -665,6 +677,7 @@ cs:
             ranking: "%{ranking} z %{total}"
             related_meetings: Související schůzky
             remove_assignment: Odstranit přiřazení
+            remove_assignment_confirmation: Opravdu chcete odstranit hodnotitele z tohoto návrhu?
             votes_count: Počet hlasů
           update_taxonomies:
             invalid: 'Tyto návrhy již mají taxonomie %{taxonomies}: %{proposals}.'
@@ -679,7 +692,7 @@ cs:
             create: Návrhy na dovoz
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
             select_component: Vyberte součást
-            select_states: Zkontrolujte stav návrhů, které chcete importovat
+            select_states: Importovat pouze návrhy s těmito stavy. Pokud není vybrán žádný, budou importovány všechny návrhy.
             title: Importovat návrhy z jiné komponenty
         proposals_merges:
           create:
@@ -723,107 +736,6 @@ cs:
           all: Vše
           amendments: Změny
           proposals: Návrhy
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Při publikování konceptu spolupráce došlo k chybám.
-            irreversible_action_modal:
-              body: Po zveřejnění konceptu jako návrhu již nebude možné koncept upravovat. Návrh nebude přijímat nové autory nebo příspěvky.
-              cancel: Zrušit
-              ok: Publikovat jako návrh
-              title: Následující akce je nevratná
-            success: Projekt spolupráce byl úspěšně zveřejněn jako návrh.
-          withdraw:
-            error: Došlo k chybě při uzavření návrhu spolupráce.
-            irreversible_action_modal:
-              body: Po zavření konceptu již nebude možné koncept upravovat. Koncept nebude přijímat nové autory nebo příspěvky.
-              cancel: Zrušit
-              ok: Vyjměte návrh spolupráce
-              title: Následující akce je nevratná
-            success: Kolaborativní návrh byl úspěšně zrušen.
-        create:
-          error: Při vytváření tohoto konceptu spolupráce došlo k chybě.
-          success: Projekt spolupráce byl úspěšně vytvořen.
-        edit:
-          attachment_legend: Přidat dokument nebo obrázek
-          back: Zadní
-          send: Poslat
-          title: Úprava konceptu spolupráce
-        empty: Zatím neexistují žádné koncepty spolupráce
-        empty_filters: Neexistuje žádný koncept spolupráce s těmito kritérii
-        filters:
-          all: Vše
-          amendment: Změny
-          open: Otevřeno
-          published: Publikováno
-          related_to: Související s
-          search: Vyhledávání
-          state: Stav
-          withdrawn: Staženo
-        filters_small_view:
-          close_modal: Zavřít modální
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozvinout
-        index:
-          count:
-            one: "%{count} návrh spolupráce"
-            few: "%{count} návrh spolupráce"
-            many: "%{count} návrh spolupráce"
-            other: "%{count} návrh spolupráce"
-        name: Koncepty spolupráce
-        new:
-          add_file: Přidat soubor
-          edit_file: Upravit soubor
-          send: Pokračovat
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nový návrh spolupráce
-        orders:
-          label: 'Řazení konceptů podle:'
-          most_contributed: Nejvíce příspěvků
-          random: Náhodně
-          recent: Nedávné
-        requests:
-          accepted_request:
-            error: Nelze přijmout jako spolupracovník, zkuste to znovu později.
-            success: "@%{user} byl úspěšně přijat jako spolupracovník."
-          access_requested:
-            error: Vaše žádost nebyla dokončena, zkuste to znovu později.
-            success: Vaše žádost o spolupráci byla úspěšně odeslána.
-          collaboration_requests:
-            accept_request: Akceptovat
-            reject_request: Odmítnout
-            title: Žádosti o spolupráci
-          rejected_request:
-            error: Nemohl být odmítnut jako spolupracovník, zkuste to znovu později.
-            success: "@%{user} byl úspěšně odmítnut jako spolupracovník."
-        show:
-          edit: Upravit
-          final_proposal: konečný návrh
-          final_proposal_help_text: Tento návrh je dokončen. Můžete vidět konečný konečný návrh
-          hidden_authors_count:
-            one: a %{count} další osoba
-            few: a %{count} dalších lidí
-            many: a %{count} dalších lidí
-            other: a %{count} dalších lidí
-          info-message: Toto je <strong>návrh spolupráce</strong> pro návrh. To znamená, že můžete jeho autorům pomoci utvářet návrh pomocí sekce komentáře níže nebo jej přímo vylepšit požádáním o přístup k jeho úpravě. Jakmile vám autoři udělí přístup, budete moci provést změny tohoto konceptu.
-          publish: Publikovat
-          publish_info: Publikujte tuto verzi konceptu nebo
-          published_proposal: zveřejněný návrh
-          request_access: Požádat o přístup
-          requested_access: Požadovaný přístup
-          withdraw: stáhnout návrh
-        states:
-          open: Otevřeno
-          published: Publikováno
-          withdrawn: Staženo
-        update:
-          error: Při ukládání schématu spolupráce došlo k chybám.
-          success: Protokol o spolupráci byl úspěšně aktualizován.
-        wizard_aside:
-          back_from_collaborative_draft: Zpět na koncepty spolupráce
-        wizard_header:
-          title: Vytvořte návrh spolupráce
       content_blocks:
         highlighted_proposals:
           name: Návrhy
@@ -924,7 +836,6 @@ cs:
           voted: Hlasováno
         index:
           click_here: Zobrazit všechny návrhy
-          collaborative_drafts_list: Přístup ke konceptům spolupráce
           count:
             one: "%{count} návrh"
             few: "%{count} návrhů"
@@ -972,8 +883,11 @@ cs:
           changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit
           estimated_cost: Odhadované náklady
-          link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného návrhu. Zkontrolujte historii
-          link_to_collaborative_draft_text: Viz schéma spolupráce
+          hidden_likes_count:
+            one: a %{count} další osoba
+            few: a %{count} dalších lidí
+            many: a %{count} dalších lidí
+            other: a %{count} dalších lidí
           link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšení
           link_to_promoted_emendation_text: Podívejte se na zamítnuté vylepšení.
           link_to_proposal_from_emendation_help_text: Toto je zamítnuté vylepšení

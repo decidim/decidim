@@ -36,7 +36,7 @@ describe "Explore API credentials" do
   end
 
   context "with API users" do
-    let!(:set) { create_list(:api_user, 3, organization: organization) }
+    let!(:set) { create_list(:api_user, 3, organization:) }
     let!(:set1) { create_list(:api_user, 4, organization: organization1) }
 
     before do

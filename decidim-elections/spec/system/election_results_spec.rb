@@ -4,7 +4,7 @@ require "spec_helper"
 require "decidim/elections/test/vote_examples"
 
 describe "Dashboard" do
-  let(:election) { create(:election, :published, :ongoing, :real_time, :with_internal_users_census, :with_questions) }
+  let(:election) { create(:election, :published, :ongoing, :real_time, :with_internal_users_census, :with_questions, skip_injection: true) }
   let(:question1) { election.questions.first }
   let(:question2) { election.questions.second }
   let(:option11) { question1.response_options.first }
@@ -32,6 +32,11 @@ describe "Dashboard" do
     expect(div).to have_content("#{count} vote")
   end
 
+  def expect_total_votes(question, count)
+    div = find("[data-question-total-votes-text='#{question.id}']")
+    expect(div).to have_content("#{count} vote")
+  end
+
   it "shows the results" do
     expect(page).to have_content("Results")
     within "#question-#{question1.id}" do
@@ -53,6 +58,8 @@ describe "Dashboard" do
     expect_vote_count(question2, option21, "0")
     expect_vote_percent(question2, option22, "0.0%")
     expect_vote_count(question2, option22, "0")
+    expect_total_votes(question1, "0")
+    expect_total_votes(question2, "0")
 
     create(:election_vote, question: question1, voter_uid: "voter1", response_option: option11)
     create(:election_vote, question: question2, voter_uid: "voter1", response_option: option22)
@@ -66,12 +73,14 @@ describe "Dashboard" do
     expect_vote_count(question2, option21, "0")
     expect_vote_percent(question2, option22, "100.0%")
     expect_vote_count(question2, option22, "1")
+    expect_total_votes(question1, "1")
+    expect_total_votes(question2, "1")
   end
 
   context "when the election is per question" do
     let(:election) { create(:election, :published, :ongoing, :per_question, :with_internal_users_census) }
-    let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, election:) }
-    let!(:question2) { create(:election_question, :with_response_options, election:) }
+    let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, election:, skip_injection: true) }
+    let!(:question2) { create(:election_question, :with_response_options, election:, skip_injection: true) }
     let(:option11) { question1.response_options.first }
     let(:option12) { question1.response_options.second }
     let(:option21) { question2.response_options.first }
@@ -84,7 +93,7 @@ describe "Dashboard" do
     end
 
     context "when all questions are enabled" do
-      let!(:question2) { create(:election_question, :with_response_options, :voting_enabled, election:) }
+      let!(:question2) { create(:election_question, :with_response_options, :voting_enabled, election:, skip_injection: true) }
 
       it_behaves_like "shows questions in an election"
     end
@@ -100,6 +109,7 @@ describe "Dashboard" do
       expect_vote_count(question1, option11, "0")
       expect_vote_percent(question1, option12, "0.0%")
       expect_vote_count(question1, option12, "0")
+      expect_total_votes(question1, "0")
 
       question1.update(published_results_at: Time.current)
       question2.update(voting_enabled_at: Time.current)
@@ -112,6 +122,7 @@ describe "Dashboard" do
       expect_vote_count(question1, option11, "1")
       expect_vote_percent(question1, option12, "0.0%")
       expect_vote_count(question1, option12, "0")
+      expect_total_votes(question1, "1")
       expect(page).to have_no_selector("#question-#{question2.id}")
 
       question2.update(published_results_at: Time.current)
@@ -125,6 +136,7 @@ describe "Dashboard" do
       expect_vote_count(question2, option21, "1")
       expect_vote_percent(question2, option22, "0.0%")
       expect_vote_count(question2, option22, "0")
+      expect_total_votes(question2, "1")
     end
   end
 end

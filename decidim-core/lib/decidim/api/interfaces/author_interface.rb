@@ -5,6 +5,7 @@ module Decidim
     # This interface represents an author who owns a resource.
     module AuthorInterface
       include Decidim::Api::Types::BaseInterface
+
       graphql_name "Author"
       description "An author"
 
@@ -25,7 +26,7 @@ module Decidim
       end
 
       def self.resolve_type(obj, _ctx)
-        return Decidim::Core::UserType if obj.is_a? Decidim::User
+        return Decidim::Core::UserType if obj.is_a? Decidim::UserBaseEntity
       end
     end
   end

@@ -7,7 +7,7 @@ shared_examples "hideable resource during block" do
 
   let!(:admin) { create(:user, :confirmed, :admin, organization:) }
   let(:reportable) { create(:user, :confirmed, organization:) }
-  let(:reportable_path) { decidim.profile_path(reportable.nickname) }
+  let(:reportable_path) { decidim.profile_path(reportable.nickname, locale: I18n.locale) }
 
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:dummy_component, participatory_space: participatory_process) }
@@ -53,6 +53,7 @@ shared_examples "hideable resource during block" do
       fill_in :block_user_justification, with: "This user is a spammer" * 2 # to have at least 15 chars
 
       click_on I18n.t("decidim.admin.block_user.new.action")
+      expect(page).to have_content(I18n.t("decidim.admin.officializations.block.success"))
 
       expect(content.reload).to be_hidden
 

@@ -96,9 +96,6 @@ id:
         update: "%{user_name} memperbarui aplikasi %{resource_name} OAuth"
       organization:
         update: "%{user_name} memperbarui pengaturan organisasi"
-      participatory_space_private_user:
-        create: "%{user_name} diundang %{resource_name} untuk menjadi pengguna pribadi"
-        delete: "%{user_name} menghapus pengguna %{resource_name} sebagai pengguna pribadi"
       scope:
         create: "%{user_name} menciptakan %{resource_name} ruang lingkup"
         create_with_parent: "%{user_name} menciptakan %{resource_name} ruang lingkup di dalam %{parent_scope} ruang lingkup"
@@ -450,7 +447,6 @@ id:
     managed_users:
       expired_session: Sesi peniruan saat ini telah kedaluwarsa.
     menu:
-      help: Membantu
       home: Rumah
     messaging:
       conversation_mailer:
@@ -515,17 +511,17 @@ id:
           proposals_explanation: Buat proposal, dukung yang sudah ada dan promosikan perubahan yang ingin Anda lihat.
         footer_sub_hero:
           footer_sub_hero_headline: Selamat datang di %{organization} platform partisipatif.
-          register: Daftar
         hero:
           participate: Ikut
           welcome: Selamat datang di %{organization}!
-        sub_hero:
-          register: Daftar
       index:
         standalone_pages: Halaman
         subheading: Menavigasi melalui halaman bantuan %{name}
         title: Membantu
         topics: Topik
+    participatory_space_members:
+      index:
+        members: Anggota
     profile:
       deleted: Pengguna yang dihapus
     profiles:
@@ -613,8 +609,6 @@ id:
         submit_button: Kirim undangan
       no_invitations_remaining: Tidak ada undangan yang tersisa
       send_instructions: Email undangan telah dikirim ke %{email}.
-      updated: Kata sandi Anda berhasil ditetapkan. Anda sekarang masuk.
-      updated_not_active: Kata sandi Anda berhasil ditetapkan.
     mailer:
       confirmation_instructions:
         action: Konfirmasikan akun saya
@@ -630,10 +624,8 @@ id:
         decline: Tolak undangan
         hello: Halo %{email},
         invited_you_as_admin: "%{invited_by} telah mengundang Anda sebagai admin %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
-        invited_you_as_private_user: "%{invited_by} telah mengundang Anda sebagai pengguna pribadi dari %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
         someone_invited_you: Seseorang telah mengundang Anda ke %{application}. Anda dapat menerimanya melalui tautan di bawah ini.
         someone_invited_you_as_admin: Seseorang telah mengundang Anda sebagai admin %{application}, Anda dapat menerimanya melalui tautan di bawah.
-        someone_invited_you_as_private_user: Seseorang telah mengundang Anda sebagai pengguna pribadi %{application}, Anda dapat menerimanya melalui tautan di bawah ini.
         subject: Instruksi undangan
       password_change:
         greeting: Halo %{recipient}!

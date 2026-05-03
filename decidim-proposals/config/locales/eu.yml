@@ -52,7 +52,7 @@ eu:
         file: Fitxategia
       proposals_import:
         import_proposals: Proposamenak inportatu
-        keep_answers: Mantendu egoera eta erantzunak
+        keep_answers: Egoera-orriak eta erantzunak mantendu
         keep_authors: Mantendu jatorrizko egileak
     errors:
       models:
@@ -145,8 +145,6 @@ eu:
             values:
               state_not_published: Erantzun gabe
               state_published: Erantzun da
-        search_placeholder:
-          id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera
       tooltips:
         cannot_edit_proposal_info: Ezin da editatu proposamen hau parte-hartzaile batek sortua bezala edo botorik jaso badu
         deleted_proposal_states_info: Ezin da ezabatu proposamen-egoera hau, proposamen batzuk esleitu baitzaizkio
@@ -358,7 +356,7 @@ eu:
         proposal_published_for_space:
           email_intro: '"%{resource_title}" proposamena jarraizten ari zaren ondorengo "%{participatory_space_title}" espazioan erantsi zaizu.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Jarraitzeari uzti ahal diozu aurreko estekan.
-          email_subject: '"%{resource_title}" proposamen berria hona %{participatory_space_title} gehitu da'
+          email_subject: '%{participatory_space_title} espazioan "%{resource_title}" proposamen berria egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-era gehitu du %{author} egileak.
           notification_title_official: 'Proposamen ofiziala hona gehitu da: <a href="%{resource_path}">%{resource_title}</a>.'
         proposal_state_changed:
@@ -372,6 +370,12 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
             email_subject: Jarraitzen ari zaren proposamen batek (%{state}) egoera aldatu du
             notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: '"%{resource_title}" proposamenaren egoera aldatu da eta orain "%{state}" egoeran dago. Orri honetan duzu erantzuna:'
+            email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: "%{resources ce_title}".'
+            email_subject: Zure proposamena (%{state}) egoerara aldatu da
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> zure proposamenaren egoera aldatu da eta orain "%{state}" egoeran dago.
         proposal_update_taxonomies:
           email_intro: 'Admintratzaile batek eguneratu ditu zure %{resource_title}" proposamenaren taxonomiak, ikus ezazu orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
@@ -388,7 +392,7 @@ eu:
       badges:
         accepted_proposals:
           conditions:
-            - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
+            - Aukeratu zure intereseko partaidetza-espazioa proposamenak bidaltzeko
             - Egin daitezkeen proposamenak egiten saiatu. Horrela onartuak izateko aukera gehiago dute.
           description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da 
           description_another: Parte-hartzaile honek %{score} proposamen onartu ditu.
@@ -410,7 +414,7 @@ eu:
           unearned_own: Oraindik ez duzu proposamenik bozkatu.
         proposals:
           conditions:
-            - Aukeratu zure interesekoa den parte hartzeko espazioa, gaitutako proposamenak aurkeztuta
+            - Aukeratu zure interesekoa den partaidetza-espazioa, gaitutako proposamenak aurkeztuta
             - Sortu beste proposamen bat
           description: Garaikur hau proposamen berriekin modu aktiboan parte hartzen duzunean ematen da.
           description_another: Parte-hartzaile honek %{score} proposamen sortu ditu.
@@ -494,7 +498,6 @@ eu:
           deleted_proposals_info: Ezabatutako proposamenak berreskura daitezke zaborrontzitik.
           preview: Aurreikusi
           view_deleted_proposals: Ikusi ezabatutako proposamenak
-        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Deprezazioaren Oharra. </b> Elkarlaneko Zirriborroak ezabatuko dira Decidim v0.32an. Erabiltzen duten erakundeek proposamen berriaren egilekidetzara pasa daitezke."
         evaluation_assignments:
           create:
             invalid: Arazo bat izan da proposamenak ebaluatzaile bati esleitzean.
@@ -602,7 +605,7 @@ eu:
           destroy:
             success: Egoera behar bezala ezabatua
           edit:
-            title: Editatu egoera
+            title: Egoera editatu
             update: Eguneratu
           form:
             preview: Aurrebistaratu
@@ -677,6 +680,7 @@ eu:
             related_meetings: Erlazionatutako topaketak
             remove_assignment: Desegin esleipena
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
+            title: Erantzun proposamenari
             votes_count: Babes kopurua
           update_taxonomies:
             invalid: 'Proposamen hauek bazuten %{taxonomia} taxonomia: %{proposals}.'
@@ -691,7 +695,7 @@ eu:
             create: Inportatu proposamenak
             no_components: Espazio honetan ez dago beste proposamenik proposamenak inportatzeko.
             select_component: Mesedez, hautatu osagaia
-            select_states: Egiaztatu inportatzeko proposamenen egoera
+            select_states: Inportatu proposamenak egoera horiekin soilik. Egoerarik hautatzen ez bada, proposamen guztiak inportatuko dira.
             title: Inportatu proposamenak beste osagai batetik
         proposals_merges:
           create:
@@ -712,7 +716,7 @@ eu:
           delete: "%{user_name} k desesleitu du ebaluatzaile bat %{proposal_title} proposamenetik"
         proposal:
           answer: "%{user_name} parte-hartzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
-          create: "%{user_name} -k sortu zuen %{resource_name} proposamena %{space_name} esparruko %{merged_count} proposamenen bat egitetik"
+          create: "%{user_name} parte-hartzaileak sortu zuen %{resource_name} proposamena %{space_name} esparruko %{merged_count} proposamenen bat egitetik"
           publish_answer: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} proposamenaren erantzuna %{space_name} espazioan"
           restore: "%{user_name} parte-hartzailea berreskuratu du %{resource_name} proposamena %{space_name} espazioan"
           soft_delete: "%{user_name} parte-hartzailea eraman du %{resource_name} proposamena %{space_name} espaziora"
@@ -723,7 +727,7 @@ eu:
         accepted: Onartuta
         evaluating: Ebaluatzen
         not_answered: Erantzun gabe
-        rejected: Ukatua
+        rejected: Bazteruta
         withdrawn: Kendu
       application_helper:
         filter_origin_values:
@@ -738,103 +742,6 @@ eu:
           all: Guztiak
           amendments: Zuzenketak
           proposals: Proposamenak
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Arazoak izan dira zirriborro kolaboratiboa argitaratzean.
-            irreversible_action_modal:
-              body: Zirriborroa proposamen gisa argitaratu ondoren, jada ez da editagarria izango. Proposamenak ez du beste egile edo ekarpenik onartuko.
-              cancel: Utzi
-              ok: Argitaratu proposamen gisa
-              title: Hurrengo ekintza atzeraezina da
-            success: Proposamen gisa argitaratutako ziriborro kolaboratiboa.
-          withdraw:
-            error: Arazoak izan dira zirriborro kolaboratiboa ixtean.
-            irreversible_action_modal:
-              body: Zirriborroa itxi ondoren, ezin izango da berriro editatu. Zirriborroak ez du onartuko beste egile edo ekarpenik.
-              cancel: Utzi
-              ok: Kendu zirriborro kolaboratiboa
-              title: Hurrengo ekintza atzeraezina da
-            success: Kolaborazio zirriborroa zuzen kendu da.
-        create:
-          error: Arazo bat izan da zirriborro kolaboratiboak sortzean.
-          success: Zirriborro kolaboratiboa sortu da.
-        edit:
-          attachment_legend: Gehitu dokumentu bat edo irudi bat
-          back: Atzera
-          send: Bidali
-          title: Editatu zirriborro kolaboratiboa
-        empty: Oraindik ez dago zirriborro kolaboratiborik
-        empty_filters: Ez dago irizpide hau duen zirriborro kolaboratiborik
-        filters:
-          all: Guztiak
-          amendment: Zuzenketak
-          open: Zabaldu
-          published: Argitaratua
-          related_to: Lotutako gaiak
-          search: Bilatu
-          state: Egoera
-          withdrawn: Baztertu
-        filters_small_view:
-          close_modal: Itxi leihoa
-          filter: Iragazi
-          filter_by: 'Honen arabera iragazi:'
-          unfold: Zabaldu
-        index:
-          count:
-            one: "%{count} zirriborro kolaboratibo"
-            other: "%{count} zirriborro kolaboratibo"
-        name: Zirriborro kolaboratzaileak
-        new:
-          add_file: Gehitu fitxategiak
-          edit_file: Editatu fitxategia
-          send: Jarraitu
-        new_collaborative_draft_button:
-          new_collaborative_draft: Testu kolaboratibo zirriborro berria
-        orders:
-          label: 'Zirriborroak honela ordenatu:'
-          most_contributed: Bozka gehien jaso duena
-          random: Ausazko ordena
-          recent: Berrienetatik zaharrenetara
-        requests:
-          accepted_request:
-            error: Ezin izan da kolaboratzaile gisa onartu, saiatu berriro geroago.
-            success: "@%{user} behar bezala onartua kolaboratzaile gisa."
-          access_requested:
-            error: Zure eskaera ezin da amaitu, saiatu berriro geroago.
-            success: Zure lankidetzarako eskaera ondo bidali da.
-          collaboration_requests:
-            accept_request: Onartu
-            reject_request: Ukatu
-            title: Lankidetza eskaerak
-          rejected_request:
-            error: Ezin izan da laguntzailea baztertu, saiatu berriro geroago.
-            success: "@%{user} behar bezala ukatu da kolaboratzaile gisa."
-        show:
-          edit: Editatu
-          final_proposal: azken proposamena
-          final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
-          hidden_authors_count:
-            one: eta pertsona %{count} gehiago
-            other: eta %{count} pertsona gehiago
-          info-message: Hau <strong>zirriborro kolaboratiboa </strong> da proposamen baterako. Horrek esan nahi du egileei proposamena taxutzen lagundu ahal diezula, jarraian agertzen den iruzkinen atala erabiliz, edo zuzenean hobetu daitekeela editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honetan aldaketak egin ahal izango dituzu.
-          publish: Argitaratu
-          publish_info: Argitaratu zirriborroaren bertsio hau edo
-          published_proposal: Argitaratutako proposamena
-          request_access: Sarrera beharrezkoa
-          requested_access: Sarbidea beharrezkoa
-          withdraw: kendu zirriborroa
-        states:
-          open: Zabaldu
-          published: Argitaratua
-          withdrawn: Kendu
-        update:
-          error: Arazo bat egon da zirriborro kolaboratiboa gordetzen.
-          success: Ziriboro kolaboratiboa ondo eguneratu da.
-        wizard_aside:
-          back_from_collaborative_draft: Itzuli zirriborro kolaboratzaileetara
-        wizard_header:
-          title: Sortu zure zirriborro kolaboratiboa
       content_blocks:
         highlighted_proposals:
           name: Proposamenak
@@ -936,7 +843,6 @@ eu:
           voted: Bozkatuta
         index:
           click_here: Ikusi proposamen guztiak
-          collaborative_drafts_list: Sartu elkarlanerako zirriborroetan
           count:
             one: "Proposamen %{count}"
             other: "%{count} proposamen"
@@ -983,8 +889,6 @@ eu:
           hidden_likes_count:
             one: eta %{count} pertsona gehiago
             other: eta %{count} pertsona gehiago
-          link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
-          link_to_collaborative_draft_text: Ikusi zirriborro kolaboratiboaren testua
           link_to_promoted_emendation_help_text: Proposamen hau zuzenketa batetik dator
           link_to_promoted_emendation_text: Ikusi baztertutako zuzeketa.
           link_to_proposal_from_emendation_help_text: Hau baztertutako zuzenketa bat da
@@ -1002,7 +906,7 @@ eu:
           already_voted_hover: Kendu babesa
           maximum_votes_reached: Babesen muga lortua
           no_votes_remaining: Ez da gelditzen babesik
-          vote: Alde egin
+          vote: Babesa eman
           votes_blocked: Eman botoa
         votes_count:
           count:
@@ -1025,7 +929,7 @@ eu:
           title: Parte hartzeko arauak
           vote_limit:
             description: '%{limit} proposameni eman ahal diozu babesa.'
-            votes: Gainerako %{number} babes
+            votes: '%{number} babes emateke'
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara

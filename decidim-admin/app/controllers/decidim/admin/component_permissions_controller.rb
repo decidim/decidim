@@ -26,7 +26,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = t("component_permissions.update.error", scope: "decidim.admin")
-            render action: :edit, status: :unprocessable_entity
+            render action: :edit, status: :unprocessable_content
           end
         end
       end

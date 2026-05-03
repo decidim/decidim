@@ -27,7 +27,6 @@ zh-TW:
       initiatives_type:
         area_enabled: 允許作者選擇其倡議所屬的範圍
         attachments_enabled: 啟用附件
-        banner_image: 橫幅圖片
         child_scope_threshold_enabled: 啟用子範圍簽名
         collect_user_extra_fields: 在簽名時收集參與者的個人資料
         comments_enabled: 啟用評論
@@ -102,7 +101,6 @@ zh-TW:
         initiatives:
           fields:
             created_at: 建立於
-            id: ID
             published_at: 發佈於
             state: 狀態
             supports_count: 簽名
@@ -130,9 +128,6 @@ zh-TW:
             name_and_surname: 名字與姓氏
             postal_code: 郵政編碼
             timestamp: 時間戳記
-      titles:
-        initiatives: 倡議
-        initiatives_types: 倡議類型
     events:
       initiatives:
         admin:
@@ -252,7 +247,6 @@ zh-TW:
             publication_date: 最近發布的
             random: 隨機
             signatures: 最多簽署的
-            title: 倡議設定
         initiatives_type_scopes:
           create:
             success: 已為給定的倡議類型建立新範圍.

@@ -29,7 +29,6 @@ ru:
         participatory_processes_ids: Сопутствующие движения соучастия
         participatory_scope: Что решается
         participatory_structure: Как это решается
-        private_space: Частное пространство
         promoted: Рекомендуется
         published_at: 'Обнародовано:'
         purpose_of_action: Цель действия
@@ -79,12 +78,9 @@ ru:
         edit:
           update: Обновить
         index:
-          private: Частное
-          public: Обнародованные
           published: Обнародовано
         new:
           create: Добавить
-          title: Добавить собрание
         update:
           error: При попытке обновить это собрание произошла ошибка.
           success: Собрание успешно обновлено.
@@ -103,8 +99,6 @@ ru:
           success: Успешно удален участник этого собрания.
         edit:
           update: Обновить
-        index:
-          assembly_admins_title: Участники собрания
         new:
           create: Добавить
         update:
@@ -123,7 +117,6 @@ ru:
         assembly:
           fields:
             created_at: 'Добавлено:'
-            private: Частное
             promoted: Рекомендуемые
             published: Обнародовано
             title: Название
@@ -145,8 +138,6 @@ ru:
             admin: Администратор
             collaborator: Сотрудник
             moderator: Модератор
-      titles:
-        assemblies: Собрания
     admin_log:
       assembly:
         create: "%{user_name} добавил собрание %{resource_name}"
@@ -173,9 +164,6 @@ ru:
         filters:
           names:
             all: Все
-      assembly_members:
-        index:
-          members: Члены президиума
       content_blocks:
         highlighted_assemblies:
           name: Рекомендуемые собрания
@@ -191,10 +179,6 @@ ru:
             member_of: 'Входит в состав:'
       show:
         duration: Длительность
-        private_space: Это частное собрание
-    assembly_members:
-      index:
-        title: Члены президиума
     log:
       value_types:
         assembly_presenter:

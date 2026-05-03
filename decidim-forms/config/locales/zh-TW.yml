@@ -93,9 +93,6 @@ zh-TW:
           of_total_steps: 的%{total_steps}
           questionnaire_closed:
             title: 表單已關閉
-          questionnaire_for_private_users:
-            body: 此表單僅適用於私人使用者
-            title: 表單已關閉
           questionnaire_js_disabled:
             body: 此表單的某些功能將被禁用。為了改善您的體驗，請在您的瀏覽器中啟用JavaScript。
             title: JavaScript已停用

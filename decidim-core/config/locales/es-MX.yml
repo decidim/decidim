@@ -179,7 +179,6 @@ es-MX:
       front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
       opens_in_new_tab: Abrir en una pestaña nueva
-      secondary_menu: Menú secundario
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
@@ -198,6 +197,7 @@ es-MX:
         success: Tu cuenta se ha eliminado correctamente.
       download_your_data_export:
         export_expired: La exportación ha caducado. Intenta generar una nueva exportación.
+        export_not_found: La exportación a la que has accedido no existe o no tienes acceso o permisos para descargarla
         file_no_exists: El archivo no existe
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       email_change:
@@ -265,6 +265,10 @@ es-MX:
         results: resultados
       impersonation_log:
         manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
+      member:
+        create: "%{user_name} ha invitado a %{resource_name} como miembro"
+        create_via_csv: "%{user_name} ha invitado a %{resource_name} como miembro vía CSV"
+        delete: "%{user_name} ha eliminado a la participante %{resource_name} de miembro"
       moderation:
         bulk_hide: "%{user_name} ha ocultado %{reported_count} contenidos"
         bulk_unhide: "%{user_name} ha vuelto a mostrar %{reported_count} contenidos"
@@ -283,10 +287,6 @@ es-MX:
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
         update_external_domain: "%{user_name} ha actualizado los dominios externos de la organización"
-      participatory_space_private_user:
-        create: "%{user_name} ha invitado a %{resource_name} a ser un usuario privado"
-        create_via_csv: "%{user_name} invitó a %{resource_name} vía CSV a ser un participante privada"
-        delete: "%{user_name} ha eliminado el usuario %{resource_name} como usuario privado"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
         create_with_parent: "%{user_name} creó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
@@ -302,7 +302,7 @@ es-MX:
         create: "%{user_name} ha creado un enlace de acceso en %{space_name}"
         create_with_space: "%{user_name} ha creado un enlace de acceso para %{resource_name} en %{space_name}"
         delete: "%{user_name} ha eliminado un enlace de acceso en %{space_name}"
-        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para%{resource_name} en %{space_name}"
+        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualizado un enlace de acceso en %{space_name}"
         update_with_space: "%{user_name} ha actualizado un enlace de acceso para %{resource_name} en %{space_name}"
       static_page:
@@ -578,6 +578,7 @@ es-MX:
     contact: Contacto
     content_blocks:
       announcement:
+        body: Texto del anuncio o aviso
         name: Aviso
       cta:
         name: Imagen, texto y botón de acción
@@ -588,8 +589,6 @@ es-MX:
         description: Descripción
       footer_sub_hero:
         name: Banner de sub-hero de pie de página
-      global_menu:
-        name: Menú global
       hero:
         name: Imagen principal y botón de acción
       hero_settings_form:
@@ -770,13 +769,13 @@ es-MX:
           id: El identificador único de esta notificación
           resource_type: El tipo de recurso con el que está relacionada la notificación
           updated_at: La fecha y hora en que esta notificación fue actualizada por última vez
-        participatory_space_private_users:
-          created_at: La fecha y hora en que se creó esta participante privada
-          id: El identificador único de esta participante privada
-          privatable_to: A qué espacio de participación pertenece esta participante privada
-          published: Si esta participante privada está publicado o no
-          role: El rol tiene que esta participante privada
-          updated_at: La fecha y hora en que esta participante privada fue actualizada por última vez
+        participatory_space_members:
+          created_at: La fecha y hora en que se creó esta miembro
+          id: El identificador único de esta miembro
+          participatory_space: A qué espacio de participación pertenece esta miembro
+          published: Si esta miembro está publicada o no
+          role: El rol tiene que esta miembro
+          updated_at: La fecha de la última actualización de esta miembro
         reports:
           created_at: La fecha y hora en que se creó este informe
           details: Los detalles de los informes de moderación
@@ -786,7 +785,7 @@ es-MX:
           reason: Los motivos de este informe de moderación
           updated_at: La fecha y hora de la última actualización de este informe de moderación
         users:
-          about: La biografía de esta usuaria
+          about: La descripción del perfil de esta participante
           accepted_tos_version: La fecha en que la usuaria aceptó los Términos y Condiciones de uso de esta plataforma
           admin: Si esta usuaria es una administradora
           confirmation_sent_at: La fecha y hora en que se envió la confirmación
@@ -810,7 +809,7 @@ es-MX:
           locale: La configuración regional (idioma) que ha seleccionado esta usuaria
           managed: Si se trata de una cuenta de usuaria gestionada (impersonada) o no
           name: El nombre de usuaria de la usuaria
-          newsletter_notifications_at: La fecha y hora cuando esta usuaria recibió un boletín informativo por última vez
+          newsletter_notifications_at: La fecha y hora cuando esta usuaria se suscribió para recibir el boletín informativo
           nickname: El alias de la usuaria
           notification_settings: Los ajustes de notificación que ha seleccionado esta usuaria
           notifications_sending_frequency: La frecuencia con la que esta usuaria recibe las notificaciones
@@ -852,7 +851,7 @@ es-MX:
       files:
         file_cannot_be_processed: No se ha podido procesar el archivo
         file_resolution_too_large: La resolución del archivo es demasiado grande
-        not_inside_organization: El archivo no está relacionado con ninguna organización
+        not_inside_organization: El archivo no está vinculado a ninguna organización.
       internal_server_error:
         copied: '¡Texto copiado!'
         copy_error_message_clarification: Mensaje de error copiado al portapapeles
@@ -1058,6 +1057,9 @@ es-MX:
           explanation: 'Instrucciones para la imagen:'
           message_1: Preferiblemente una imagen apaisada que no tenga ningún texto.
           message_2: El servicio recorta la imagen.
+        import_file:
+          explanation: 'Guía para el archivo de importación:'
+          message_1: Tiene que ser un documento JSON descargado a través de la función de exportación.
       file_validation:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
         max_file_dimension: 'Medidas máximas de archivo: %{resolution} píxeles'
@@ -1151,6 +1153,7 @@ es-MX:
         create_with_space: "%{user_name} creó %{resource_name} en %{space_name}"
         delete: "%{user_name} eliminó %{resource_name}"
         delete_with_space: "%{user_name} eliminó %{resource_name} en %{space_name}"
+        publish: "%{user_name} publicó %{resource_name}"
         publish_with_space: "%{user_name} ha publicado %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} realizó una acción en %{resource_name}"
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
@@ -1161,6 +1164,12 @@ es-MX:
         update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Abierta
+            restricted: Restringida
+            transparent: Transparente
+          not_found: No se ha encontrado el tipo de acceso %{id}
         area_presenter:
           not_found: 'No se encontró el área en la base de datos (ID: %{id})'
         area_type_presenter:
@@ -1183,7 +1192,6 @@ es-MX:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ayuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -1292,11 +1300,13 @@ es-MX:
         same_language: El contenido ha sido publicado en tu idioma preferido (%{language}), por eso no se muestra ninguna traducción automática en este correo electrónico.
         translated_text: 'Texto traducido automáticamente:'
     notifications:
-      action_error: Se ha producido un error al actualizar las notificaciones.
+      action_error: Se ha producido un error al actualizar la configuración de las notificaciones.
       no_notifications: No hay notificaciones aún.
       show:
+        deleted: El contenido ha sido eliminado por la autora.
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
-        moderated: Contenido moderado
+        moderated: El contenido se ha ocultado mediante la moderación.
+        not_available: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
@@ -1417,7 +1427,7 @@ es-MX:
         download:
           components: Componentes
           core: Núcleo
-          spaces: Espacio participativo
+          spaces: Espacio de participación
           title: Descargar recursos
         download_open_data: Descargar todos los archivos de datos abiertos
         download_resource: Descargar "%{resource_name}" en formato CSV
@@ -1448,9 +1458,9 @@ es-MX:
           title: Cómo abrir y trabajar con estos archivos
         license:
           body_1_html: Esta base de datos de "%{organization_name}" está disponible bajo %{link_database}. Cualquier derecho sobre los contenidos individuales de la base de datos está bajo la licencia %{link_contents}.
-          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Licencia de los contenidos en la base de datos
-          license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Licencia Abierta para bases de datos
           title: Licencia
         title: Datos abiertos
@@ -1473,7 +1483,7 @@ es-MX:
         footer_sub_hero:
           footer_sub_hero_body_html: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
           footer_sub_hero_headline: Bienvenido/a a la plataforma participativa %{organization}.
-          register: Regístrate
+          register: Crear una cuenta
         hero:
           participate: Participar
           participate_title: Participa en los procesos de la plataforma
@@ -1481,7 +1491,7 @@ es-MX:
         statistics:
           headline: Estadísticas
         sub_hero:
-          register: Regístrate
+          register: Crear una cuenta
           register_title: Crea una cuenta
       index:
         standalone_pages: Páginas
@@ -1508,9 +1518,9 @@ es-MX:
     participants_account_mailer:
       inactivity_notification:
         body_html: |
-          <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection}</strong></p>.
+          <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection}</strong>.</p>
           <p>Para proteger tu privacidad, se ha programado la eliminación automática de esta cuenta en <strong>%{days} días</strong>.</p>
-          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente inicia sesión %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
+          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
         greetings_html: |
           Atentamente,<br>
           %{organization_name}
@@ -1525,6 +1535,13 @@ es-MX:
           %{organization_name}
         hello: Estimado/a %{username},
         subject: Aviso de cuenta inactiva
+    participatory_space_members:
+      index:
+        members: Miembros
+    participatory_spaces:
+      show:
+        restricted_space: Este es un espacio restringido. Solo las miembros pueden verlo y participar.
+        transparent_space: Este es un espacio restringido pero transparente. Cualquiera puede ver el contenido, pero solo las miembros pueden participar.
     passwords:
       update:
         error: Ha habido un problema al actualizar la contraseña.
@@ -1799,6 +1816,7 @@ es-MX:
       send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un correo electrónico con instrucciones sobre cómo confirmar tu dirección de correo electrónico en unos minutos.
     failure:
       already_authenticated: Ya has iniciado sesión.
+      csrf_token: No se puede verificar tu solicitud. Por favor, vuelve a intentarlo.
       inactive: Tu cuenta aún no está activada.
       invalid: '%{authentication_keys} o contraseña inválida.'
       invited: Tienes una invitación pendiente, acéptala para terminar de crear tu cuenta.
@@ -1813,6 +1831,7 @@ es-MX:
         nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu nombre de usuario/a y contraseña.
+        subtitle_no_password: Si aceptas la invitación, por favor establece tu apodo.
       invitation_removed: Tu invitación fue eliminada.
       invitation_token_invalid: '¡El token de invitación proporcionado no es válido!'
       new:
@@ -1820,8 +1839,8 @@ es-MX:
         submit_button: Enviar una invitación
       no_invitations_remaining: No quedan invitaciones
       send_instructions: Se envió un correo electrónico de invitación a %{email}.
-      updated: Tu contraseña fue establecida con éxito. Ya has iniciado sesión.
-      updated_not_active: Tu contraseña fue establecida con éxito.
+      updated: La invitación se ha aceptado correctamente. Se ha iniciado tu sesión.
+      updated_not_active: La invitación se ha aceptado correctamente.
     mailer:
       confirmation_instructions:
         action: Confirmar mi cuenta
@@ -1840,17 +1859,17 @@ es-MX:
         ignore: |-
           Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br /> Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuaria y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
-        invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
+        invited_you_as_member: "%{invited_by} te ha invitado como miembro de %{application}. Puedes aceptarlo a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
-        someone_invited_you_as_private_user: Alguien te ha invitado como usuario_privado de %{application}, puedes aceptarlo a través del siguiente enlace.
+        someone_invited_you_as_member: Alguien te ha invitado como miembro de %{application}, puedes aceptarlo a través del siguiente enlace.
         subject: Instrucciones de invitación
       invite_admin:
         subject: Te han invitado a administrar %{organization}
       invite_collaborator:
         subject: Te han invitado a colaborar en %{organization}
-      invite_private_user:
-        subject: Te han invitado a participar en un proceso participativo privado en %{organization}
+      invite_member:
+        subject: Te han invitado a participar en un espacio de participación privado en %{organization}
       organization_admin_invitation_instructions:
         subject: Te han invitado a administrar %{organization}
       password_change:
@@ -1880,8 +1899,8 @@ es-MX:
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Contraseña
         old_password_help: Para confirmar los cambios en tu cuenta, por favor proporciónanos tu contraseña actual.
-        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias y tu correo electrónico."
-        password_help_admin: "%{minimum_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, tu correo electrónico y de tus antiguas contraseñas."
+        password_help: "La contraseña debe tener al menos %{minimum_characters} caracteres, de estos, al menos 5 caracteres deben ser diferentes, no deben ser demasiado comunes (e. 123456) y debe ser diferente del número, apodo, correo electrónico y del dominio de la plataforma."
+        password_help_admin: "La contraseña debe tener al menos %{minimum_characters} caracteres, de estos, al menos 5 caracteres deben ser diferentes, no deben ser demasiado comunes (e. 123456) y debe ser diferente del número, apodo, correo electrónico, dominio de la plataforma o contraseñas antiguas."
         title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
@@ -2123,6 +2142,7 @@ es-MX:
         confirm_title_close_ephemeral_session: Antes de salir de esta página…
         log_in: Entra
         main_menu: Menú principal
+        mobile_account_greeting: Hola %{user_name},
         user_menu: Menú de usuario
       impersonation_warning:
         close_session: Cerrar la sesión

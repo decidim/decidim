@@ -16,6 +16,11 @@ en:
           body: Body
           draft: Draft
           version_number: Version number
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Collaborative text
+        other: Collaborative texts
   decidim:
     admin:
       tooltips:

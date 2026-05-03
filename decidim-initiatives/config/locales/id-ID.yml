@@ -17,7 +17,6 @@ id:
       initiatives_committee_member:
         user: anggota Komite
       initiatives_type:
-        banner_image: Gambar spanduk
         collect_user_extra_fields: Kumpulkan data pribadi pengguna pada tanda tangan
         description: Deskripsi
         extra_fields_legal_information: Informasi hukum tentang pengumpulan data pribadi
@@ -53,7 +52,6 @@ id:
         initiatives:
           fields:
             created_at: Dibuat di
-            id: ID
             state: Negara
             supports_count: Tanda tangan
             title: Inisiatif
@@ -80,9 +78,6 @@ id:
             name_and_surname: Nama dan nama keluarga
             postal_code: Kode Pos
             timestamp: Stempel waktu
-      titles:
-        initiatives: Inisiatif
-        initiatives_types: Jenis inisiatif
     events:
       initiatives:
         initiative_extended:

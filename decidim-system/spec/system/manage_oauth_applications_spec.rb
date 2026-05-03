@@ -33,7 +33,7 @@ describe "Manage OAuth applications" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_content("successfully")
+    expect(page).to have_callout("Application created successfully.")
 
     within "table" do
       expect(page).to have_content("Meta Decidim")
@@ -80,7 +80,7 @@ describe "Manage OAuth applications" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Application updated successfully.")
 
       within "table" do
         expect(page).to have_content("Test application")
@@ -92,7 +92,7 @@ describe "Manage OAuth applications" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Application destroyed successfully.")
 
       within "table" do
         expect(page).to have_no_content(application.name)

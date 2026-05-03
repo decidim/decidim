@@ -180,7 +180,6 @@ en:
       front_page_link: Go to front page
       logo: "%{organization}'s official logo"
       opens_in_new_tab: Opens in new tab
-      secondary_menu: Secondary menu
       skip_button: Skip to main content
     account:
       blocked: This account has been blocked due to terms of service violation
@@ -267,6 +266,10 @@ en:
         results: results
       impersonation_log:
         manage: "%{user_name} has managed %{resource_name} because %{reason}"
+      member:
+        create: "%{user_name} invited %{resource_name} to be a member"
+        create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a member"
+        delete: "%{user_name} removed the participant %{resource_name} as a member"
       moderation:
         bulk_hide: "%{user_name} hid %{reported_count} resources"
         bulk_unhide: "%{user_name} unhid %{reported_count} resources"
@@ -285,10 +288,6 @@ en:
       organization:
         update: "%{user_name} updated the organization settings"
         update_external_domain: "%{user_name} updated the organization external domains"
-      participatory_space_private_user:
-        create: "%{user_name} invited %{resource_name} to be a private participant"
-        create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a private participant"
-        delete: "%{user_name} removed the participant %{resource_name} as a private participant"
       scope:
         create: "%{user_name} created the %{resource_name} scope"
         create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
@@ -588,6 +587,7 @@ en:
     contact: Contact
     content_blocks:
       announcement:
+        body: Announcement text
         name: Announcement
       cta:
         name: Image, text and Call To Action button
@@ -773,7 +773,7 @@ en:
           created_at: The date when this conversation was created
           id: The unique identifier for this conversation
           messages: The messages of this conversation
-          updated_at: The date when this converstaion was last updated
+          updated_at: The date when this conversation was last updated
         notifications:
           created_at: The date and time when the notification was created
           event_class: The class of the event that triggered the notification
@@ -782,13 +782,13 @@ en:
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to
           updated_at: The date and time when the notification was last updated
-        participatory_space_private_users:
-          created_at: The date and time when this private user was created
-          id: The unique identifier of this private user
-          privatable_to: To which space this private user belongs
-          published: Wether this private user is published or not
-          role: The role that this private user has
-          updated_at: The date and time when this private user was last updated
+        participatory_space_members:
+          created_at: The date and time when this member was created
+          id: The unique identifier of this member
+          participatory_space: To which space this member belongs
+          published: Wether this member is published or not
+          role: The role that this member has
+          updated_at: The date and time when this member was last updated
         reports:
           created_at: The date and time when this report was created
           details: The details of this report
@@ -798,7 +798,7 @@ en:
           reason: The reason of this report
           updated_at: The date and time when this report was last updated
         users:
-          about: The biography of this user
+          about: The profile description of this participant
           accepted_tos_version: The date when the Terms of Service of this platform was accepted by the user
           admin: Whether this user is an administrator
           confirmation_sent_at: The date and time when the confirmation was sent
@@ -809,7 +809,7 @@ en:
           delete_reason: The reason given for deleting this user
           deleted_at: The date and time when this user was deleted
           email: The email address of this user
-          followers_count: The number of participants that are following to this user
+          followers_count: The number of participants that are following this user
           following_count: The number of participants this user is following
           id: The unique identifier of this user
           invitation_accepted_at: The date and time when the invitation was accepted
@@ -817,16 +817,16 @@ en:
           invitation_sent_at: The date and time when the invitation was sent
           invitations_count: The number of invitations sent to this user
           invited_by: The user who invited this user
-          last_sign_in_at: The date and time of the last login
-          last_sign_in_ip: The IP address of the last login
+          last_sign_in_at: The date and time of the previous login
+          last_sign_in_ip: The IP address of the previous login
           locale: The locale (language) that this user has selected
           managed: Whether this user is managed by another user
           name: The name of this user
-          newsletter_notifications_at: The date and time when this user last received a newsletter
+          newsletter_notifications_at: The date and time when this participant subscribed to receive a newsletter
           nickname: The nickname of this user
           notification_settings: The notification settings that this user has selected
           notifications_sending_frequency: The frequency of the notifications that this user receives
-          officialized_as: The name of the officialization (Counsellor, Mayor, etc)
+          officialized_as: The name of the officialization (Councillor, Mayor, etc)
           officialized_at: The date and time when this user was officialized
           organization: The organization that this user belongs to
           password_updated_at: The date when their password was changed for the last time
@@ -864,7 +864,7 @@ en:
       files:
         file_cannot_be_processed: File cannot be processed
         file_resolution_too_large: File resolution is too large
-        not_inside_organization: The file is not attached to any organization
+        not_inside_organization: The file is not attached to any organization.
       internal_server_error:
         copied: Text copied!
         copy_error_message_clarification: Copy error message to clipboard
@@ -1061,7 +1061,7 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.
+          message_2: If it is an image, it preferably be a landscape image that does not have any text. The platform crops the image.
         icon:
           explanation: 'Guidance for icon:'
           message_1: Has to be a square image.
@@ -1070,6 +1070,9 @@ en:
           explanation: 'Guidance for image:'
           message_1: Preferably a landscape image that does not have any text.
           message_2: The service crops the image.
+        import_file:
+          explanation: 'Guidance for import file:'
+          message_1: Has to be a JSON document downloaded through the export feature.
       file_validation:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
         max_file_dimension: 'Maximum file dimensions: %{resolution} pixels'
@@ -1174,6 +1177,12 @@ en:
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
+          not_found: Access mode %{id} not found
         area_presenter:
           not_found: 'The area was not found on the database (ID: %{id})'
         area_type_presenter:
@@ -1304,11 +1313,13 @@ en:
         same_language: The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
         translated_text: 'Automatically translated text:'
     notifications:
-      action_error: There was a problem updating the notifications.
+      action_error: There was a problem updating the notification settings.
       no_notifications: No notifications yet.
       show:
+        deleted: Content has been deleted by the author.
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
-        moderated: Content moderated
+        moderated: Content has been hidden through moderation.
+        not_available: Oops, this notification belongs to an item that is no longer available. You can discard it.
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
@@ -1317,7 +1328,7 @@ en:
       hello: Hello %{name},
       intro:
         daily: 'These are the notifications from the last day based on the activity you are following:'
-        real_time: 'These is a notification on the activity you are following:'
+        real_time: 'This is a notification on the activity you are following:'
         weekly: 'These are the notifications from the last week based on the activity you are following:'
       outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
       see_more: See more notifications
@@ -1460,9 +1471,9 @@ en:
           title: How to open and work with these files
         license:
           body_1_html: This %{organization_name} database is made available under the %{link_database}. Any rights in individual contents of the database are licensed under the %{link_contents}.
-          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Database Contents License
-          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Open Database License
           title: License
         title: Open Data
@@ -1485,7 +1496,7 @@ en:
         footer_sub_hero:
           footer_sub_hero_body_html: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
           footer_sub_hero_headline: Welcome to %{organization} participatory platform.
-          register: Register
+          register: Create an account
         hero:
           participate: Participate
           participate_title: Participate in the platform's processes
@@ -1493,7 +1504,7 @@ en:
         statistics:
           headline: Statistics
         sub_hero:
-          register: Register
+          register: Create an account
           register_title: Create an account
       index:
         standalone_pages: Pages
@@ -1537,6 +1548,18 @@ en:
           %{organization_name}
         hello: Dear %{username},
         subject: Inactive account deleted
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Member of
+    participatory_space_members:
+      index:
+        members: Members
+    participatory_spaces:
+      show:
+        restricted_space: This is a restricted space. Only members can view it and participate.
+        transparent_space: This is a transparent space. Anyone can view the content, but only members can participate.
     passwords:
       update:
         error: There was a problem updating the password.
@@ -1811,6 +1834,7 @@ en:
       send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
     failure:
       already_authenticated: You are already signed in.
+      csrf_token: Unable to verify your request. Please retry.
       inactive: Your account is not activated yet.
       invalid: Invalid %{authentication_keys} or password.
       invited: You have a pending invitation, accept it to finish creating your account.
@@ -1825,6 +1849,7 @@ en:
         nickname_help: Your nickname in %{organization}. Can only contain letters, numbers, '-' and '_'.
         submit_button: Save
         subtitle: If you accept the invitation please set your nickname and password.
+        subtitle_no_password: If you accept the invitation please set your nickname.
       invitation_removed: Your invitation was removed.
       invitation_token_invalid: The invitation token provided is not valid!
       new:
@@ -1832,8 +1857,8 @@ en:
         submit_button: Send an invitation
       no_invitations_remaining: No invitations remaining
       send_instructions: An invitation email has been sent to %{email}.
-      updated: Your password was set successfully. You are now signed in.
-      updated_not_active: Your password was set successfully.
+      updated: Invitation accepted successfully. You are now signed in.
+      updated_not_active: Invitation accepted successfully.
     mailer:
       confirmation_instructions:
         action: Confirm my account
@@ -1853,16 +1878,16 @@ en:
           If you do not want to accept the invitation, please ignore this email.<br />
           Your account will not be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
-        invited_you_as_private_user: "%{invited_by} has invited you as a private participant of %{application}. You can accept it through the link below."
+        invited_you_as_member: "%{invited_by} has invited you as a member of %{application}. You can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
-        someone_invited_you_as_private_user: Someone has invited you as private participant of %{application}, you can accept it through the link below.
+        someone_invited_you_as_member: Someone has invited you as member of %{application}, you can accept it through the link below.
         subject: Invitation instructions
       invite_admin:
         subject: You have been invited to manage %{organization}
       invite_collaborator:
         subject: You have been invited to collaborate on %{organization}
-      invite_private_user:
+      invite_member:
         subject: You have been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
         subject: You have been invited to manage %{organization}
@@ -1893,8 +1918,8 @@ en:
         confirm_new_password: Confirm new password
         new_password: New password
         old_password_help: In order to confirm the changes to your account, please provide your current password.
-        password_help: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
-        password_help_admin: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
+        password_help: "%{minimum_characters} characters minimum, must contain at least 5 different characters, must not be too common (e.g. 123456) and must be different from your name, nickname, email and the organization's host."
+        password_help_admin: "%{minimum_characters} characters minimum, must contain at least 5 different characters, must not be too common (e.g. 123456), must be different from your name, nickname, email, the organization's host and must be different from your old passwords."
         title: Password change
       new:
         forgot_your_password: Forgot your password?
@@ -2139,6 +2164,7 @@ en:
         confirm_title_close_ephemeral_session: Before leaving this page…
         log_in: Log in
         main_menu: Main menu
+        mobile_account_greeting: Hello, %{user_name}
         user_menu: User menu
       impersonation_warning:
         close_session: Close session
@@ -2147,7 +2173,7 @@ en:
       language_chooser:
         choose_language: Choose language
       navigation:
-        aria_label: Navigation menu- %{title}
+        aria_label: 'Navigation menu: %{title}'
       notifications_dashboard:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read

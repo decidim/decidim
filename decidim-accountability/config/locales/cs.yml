@@ -265,7 +265,6 @@ cs:
           fields:
             created_at: Vytvořeno
             end_date: Datum ukončení
-            id: ID
             progress: Průběh
             start_date: Počáteční datum
             status: Stav

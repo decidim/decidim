@@ -4,6 +4,7 @@ module Decidim
   module Demographics
     class ApplicationController < Decidim::ApplicationController
       include FormFactory
+
       register_permissions(::Decidim::Demographics::ApplicationController,
                            ::Decidim::Demographics::Permissions,
                            ::Decidim::Admin::Permissions,

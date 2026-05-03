@@ -38,7 +38,7 @@ describe "Evaluator uses proposal answer templates" do
       click_on "Answer"
     end
 
-    expect(page).to have_admin_callout("Proposal successfully answered")
+    expect(page).to have_callout("Proposal successfully answered")
 
     within "tr", text: proposal.title["en"] do
       expect(page).to have_content("Rejected")

@@ -66,10 +66,6 @@ describe "show" do
 
   context "when shows the debate component" do
     it "shows the debate title" do
-      within(".menu-bar") do
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(debate.title))
-      end
       expect(page).to have_content(translated(debate.title))
     end
   end

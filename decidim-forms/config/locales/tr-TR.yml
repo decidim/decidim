@@ -78,9 +78,6 @@ tr:
           of_total_steps: '%{total_steps}'
           questionnaire_closed:
             title: Form kapatıldı
-          questionnaire_for_private_users:
-            body: Form yalnızca özel kullanıcılar tarafından kullanılabilir
-            title: Form kapatıldı
           questionnaire_js_disabled:
             body: Bu formun bazı özellikleri devre dışı bırakılacak. Deneyiminizi iyileştirmek için lütfen tarayıcınızda JavaScript'i etkinleştirin.
             title: JavaScript devre dışı

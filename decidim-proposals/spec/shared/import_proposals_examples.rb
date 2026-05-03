@@ -75,7 +75,6 @@ shared_examples "import proposals" do
       select origin_component.name["en"], from: "Origin component"
       check "Accepted"
       check "Keep original authors" if keep_authors
-      check "Import proposals"
     end
 
     click_on "Import proposals"

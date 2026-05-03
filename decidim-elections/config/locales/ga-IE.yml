@@ -3,7 +3,6 @@ ga:
     admin:
       menu:
         elections_menu:
-          election_census: Móráireamh
           election_questions: Ceisteanna
     components:
       elections:
@@ -17,8 +16,6 @@ ga:
         title: Gníomhartha
       admin:
         dashboard:
-          census:
-            title: Móráireamh
           questions:
             labels:
               answers: Freagraí
@@ -34,9 +31,6 @@ ga:
         questions:
           edit_questions:
             title: Ceisteanna
-      censuses:
-        token_csv_form:
-          email: Seoladh ríomhphoist
       elections:
         filters:
           all: Uile
@@ -53,7 +47,6 @@ ga:
       models:
         election:
           fields:
-            census: Móráireamh
             status: Stádas
             title: Teideal
       status:
@@ -64,7 +57,3 @@ ga:
         question:
           back: Ar Ais
           next: I ndiaidh
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Dún

@@ -27,7 +27,6 @@ bg:
       initiatives_type:
         area_enabled: Разрешаване на авторите да избират областта за инициативата си
         attachments_enabled: Разрешете прикачените файлове
-        banner_image: Изображение на банера
         child_scope_threshold_enabled: Активиране на подписи за подобхват
         collect_user_extra_fields: Събиране на личните данни на участниците при подписване
         comments_enabled: Включване на коментиране
@@ -103,15 +102,12 @@ bg:
         initiatives_menu:
           see_initiative: Вижте инициативата
         initiatives_settings: Настройки
-        initiatives_submenu:
-          info: Относно тази инициатива
         initiatives_types: Типове инициативи
         moderations: Модерации
       models:
         initiatives:
           fields:
             created_at: Създадено на
-            id: ID
             published_at: Публикувано на
             state: Статус
             supports_count: Подписи
@@ -139,9 +135,6 @@ bg:
             name_and_surname: Име и фамилия
             postal_code: Пощенски код
             timestamp: Времево клеймо
-      titles:
-        initiatives: Инициативи
-        initiatives_types: Типове инициативи
     events:
       initiatives:
         admin:
@@ -261,7 +254,6 @@ bg:
             publication_date: Най-скоро публикувани
             random: Произволно
             signatures: С най-много подписи
-            title: Настройки за инициативи
         initiatives_type_scopes:
           create:
             success: Създаден е нов обхват за дадения тип инициатива.

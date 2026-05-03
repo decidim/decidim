@@ -53,7 +53,7 @@ require "decidim/core/test/shared_examples/amendable/amendment_promoted_event_ex
 require "decidim/core/test/shared_examples/uncommentable_component_examples"
 require "decidim/core/test/shared_examples/searchable_resources_shared_context"
 require "decidim/core/test/shared_examples/searchable_participatory_space_examples"
-require "decidim/core/test/shared_examples/has_private_users"
+require "decidim/core/test/shared_examples/has_members"
 require "decidim/core/test/shared_examples/with_likeable_permissions_examples"
 require "decidim/core/test/shared_examples/system_like_resource_examples"
 require "decidim/core/test/shared_examples/rich_text_editor_examples"

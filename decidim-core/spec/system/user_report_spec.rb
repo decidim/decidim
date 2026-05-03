@@ -6,7 +6,7 @@ describe "Report User" do
   let(:user) { create(:user, :confirmed) }
   let!(:users) { create_list(:user, 3, :confirmed, organization: user.organization) }
   let(:reportable) { users.first }
-  let(:reportable_path) { decidim.profile_path(reportable.nickname) }
+  let(:reportable_path) { decidim.profile_path(reportable.nickname, locale: I18n.locale) }
 
   before do
     switch_to_host(user.organization.host)
@@ -15,7 +15,7 @@ describe "Report User" do
   context "when the user is blocked" do
     let(:user) { create(:user, :confirmed, :blocked) }
     let(:admin) { create(:user, :admin, :confirmed, organization: user.organization) }
-    let(:reportable_path) { decidim.profile_path(user.nickname) }
+    let(:reportable_path) { decidim.profile_path(user.nickname, locale: I18n.locale) }
 
     before do
       switch_to_host(user.organization.host)

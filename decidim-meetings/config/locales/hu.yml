@@ -81,7 +81,6 @@ hu:
           success: Találkozó duplikálása sikeres.
         new:
           copy: Másolás
-          title: Találkozó duplikálása
     components:
       meetings:
         actions:
@@ -213,7 +212,6 @@ hu:
             non_user: Nemlétező felhasználó
             select_user: Felhasználó kiválasztása
           index:
-            invite_attendee: Résztvevő meghívása
             invites: Meghívottak
         meeting_closes:
           edit:
@@ -267,7 +265,6 @@ hu:
               one: '%{count} regisztráció volt.'
               other: '%{count} regisztráció volt.'
             reserved_slots_less_than: 'Legalább ennyinek kell lennie: %{count}'
-            title: Regisztrációk
           update:
             invalid: Probléma történt a regisztrációs beállítások mentésekor.
             success: Találkozó nyilvántartási beállításainak mentése sikeres.

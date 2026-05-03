@@ -15,6 +15,8 @@ tr:
         phone: Telefon
       report:
         details: Ek Yorumlar
+      taxonomy:
+        name: Sınıf Adı
       user:
         about: Hakkında
         email: E-posta adresiniz
@@ -115,10 +117,6 @@ tr:
         update: "%{user_name} , %{resource_name} OAuth uygulamasını güncelledi"
       organization:
         update: "%{user_name} kuruluş ayarlarını güncelledi"
-      participatory_space_private_user:
-        create: "%{user_name}, %{resource_name} adlı kullanıcıyı özel katılımcı olması için davet etti"
-        create_via_csv: "%{user_name}, %{resource_name} kaynağını CSV aracılığıyla özel bir katılımcı olması için davet etti"
-        delete: "%{user_name}, katılımcıyı %{resource_name} özel katılımcı özelliğini kaldırdı"
       scope:
         create: "%{user_name}, %{resource_name} kapsamı oluşturdu"
         create_with_parent: "%{user_name}, %{parent_scope} içindeki %{resource_name} kapsamı oluşturdu"
@@ -130,6 +128,8 @@ tr:
         create: "%{user_name} , %{resource_name} statik sayfayı oluşturdu"
         delete: "%{user_name}, %{resource_name} statik sayfayı sildi"
         update: "%{user_name}, %{resource_name} statik sayfayı güncelledi"
+      taxonomy:
+        delete_with_parent: "%{user_name}, %{parent_taxonomy} sınıflaması içindeki %{resource_name} sınıfını sildi"
       user:
         block: "%{user_name}, %{resource_name} kullanıcısını engelledi"
         invite: "%{user_name} katılımcıyı %{resource_name} rolüyle davet etti: %{role}"
@@ -226,6 +226,7 @@ tr:
           postal_code: Posta kodu
         name: Örnek yetkilendirme
       dummy_authorization_workflow:
+        explanation: Sahte yetkilendirme iş akışı
         name: Sahte yetkilendirme iş akışı
       errors:
         duplicate_authorization: Bir katılımcı zaten aynı verilerle yetkilendirildi. Bir yönetici, bilgilerinizi doğrulamak için sizinle iletişime geçecektir.
@@ -594,6 +595,8 @@ tr:
           not_found: 'Veritabanında kapsam bulunamadı (ID: %{id})'
         scope_type_presenter:
           not_found: 'Veritabanında kapsam tipi bulunamadı (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Sınıflandırma veritabanında bulunamadı (ID: %{id})'
     managed_users:
       expired_session: Mevcut kimliğe bürünme oturumunun süresi doldu.
     map:
@@ -604,7 +607,6 @@ tr:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Yardım
       home: Ana Sayfa
     messaging:
       conversation_mailer:
@@ -677,8 +679,6 @@ tr:
         subject: '%{organization_name} ile ilgili bilgileri almaya devam etmek istiyor musunuz?'
     notifications:
       no_notifications: Henüz bildirim yok.
-      show:
-        moderated: İçerik Denetlendi
     notifications_settings:
       show:
         direct_messages: Herkesten doğrudan mesaj alın
@@ -691,6 +691,13 @@ tr:
       update:
         error: Bildirim ayarlarınız güncellenirken bir hata oluştu.
         success: Bildirim ayarlarınız başarıyla güncellendi.
+    onboarding_action_message:
+      click_link: Tıklayınız
+      cta_html: <a href="%{path}">%{link_text}</a> %{resource_name} içindeki %{action} işlemini gerçekleştirmek için <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Yetkinizin süresi doldu.
+      incomplete_authorization_active_title: Gerekli tüm bilgiler girilmediğinden doğrulama işleminiz tamamlanmadı.
+      pending_authorization_active_message: Bu işlemi gerçekleştirmek için lütfen formu doldurun.
+      pending_authorization_active_title: Kimliğinizi doğrulamamız gerekiyor.
     open_data:
       not_available_yet: Açık Veri dosyaları henüz mevcut değil, lütfen birkaç dakika içinde tekrar deneyin.
     pad_iframe:
@@ -709,17 +716,17 @@ tr:
           proposals_explanation: Öneriler yapın, mevcut olanları destekleyin ve görmek istediğiniz değişiklikleri tanıtın.
         footer_sub_hero:
           footer_sub_hero_headline: '%{organization} katılımcı platformuna hoş geldiniz.'
-          register: Kayıt Ol
         hero:
           participate: Katıl
           welcome: '%{organization} hoşgeldin!'
-        sub_hero:
-          register: Kayıt Ol
       index:
         standalone_pages: Sayfalar
         subheading: '%{name} yardım sayfalarını ziyaret edin'
         title: Yardım
         topics: Başlıklar
+    participatory_space_members:
+      index:
+        members: Üyeler
     profile:
       deleted: Silinmiş kullanıcı
     profiles:
@@ -880,8 +887,6 @@ tr:
         submit_button: Davet gönder
       no_invitations_remaining: Kalan davet yok
       send_instructions: Davet e-postası %{email}gönderildi.
-      updated: Şifreniz başarıyla ayarlandı. Şimdi oturum açtınız.
-      updated_not_active: Şifreniz başarıyla ayarlandı.
     mailer:
       confirmation_instructions:
         action: Hesabımı onayla
@@ -897,10 +902,8 @@ tr:
         decline: Davet reddet
         hello: Merhaba %{email}
         invited_you_as_admin: "%{invited_by} sizi %{application}yönetici olarak davet etti. Aşağıdaki bağlantıdan kabul edebilirsiniz."
-        invited_you_as_private_user: "%{invited_by} özel bir kullanıcı olarak davet etti %{application}. Aşağıdaki bağlantıdan kabul edebilirsiniz."
         someone_invited_you: Birisi sizi %{application}davet etti. Aşağıdaki bağlantıdan kabul edebilirsiniz.
         someone_invited_you_as_admin: Birisi sizi %{application}yönetici olarak davet etti, aşağıdaki bağlantıdan kabul edebilirsiniz.
-        someone_invited_you_as_private_user: Birisi sizi %{application}private_user olarak davet etti, aşağıdaki bağlantıdan kabul edebilirsiniz.
         subject: Davet talimatları
       password_change:
         greeting: Merhaba %{recipient}!

@@ -54,7 +54,7 @@ module Decidim
       expect(subject.int).to eq(1)
       expect(subject.flt).to eq(1.1)
       expect(subject.eng).to be(Decidim::Core::Engine.instance)
-      expect(subject.arr.all? { |i| i.is_a?(OpenStruct) }).to be(true)
+      expect(subject.arr.all?(OpenStruct)).to be(true)
       expect(subject.arr[0].foo).to eq("bar")
       expect(subject.arr[1].foo).to eq("baz")
 
@@ -64,7 +64,7 @@ module Decidim
       expect(subject.sub.role).to eq("Dough")
 
       expect(subject.sar).to be_a(Array)
-      expect(subject.sar.all? { |i| i.is_a?(submodel) }).to be(true)
+      expect(subject.sar.all?(submodel)).to be(true)
       expect(subject.sar[0].id).to eq(1)
       expect(subject.sar[0].name).to eq("John")
       expect(subject.sar[0].role).to eq("Dough")

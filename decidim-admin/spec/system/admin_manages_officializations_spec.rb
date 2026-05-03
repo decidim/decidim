@@ -101,7 +101,7 @@ describe "Admin manages officializations" do
       it "officializes it with the standard badge" do
         click_on "Officialize"
 
-        expect(page).to have_content("successfully officialized")
+        expect(page).to have_callout("Participant successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           expect(page).to have_content("Officialized")
@@ -118,7 +118,7 @@ describe "Admin manages officializations" do
 
         click_on "Officialize"
 
-        expect(page).to have_content("successfully officialized")
+        expect(page).to have_callout("Participant successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           expect(page).to have_content("Officialized").and have_content("Major of Barcelona")
@@ -157,7 +157,7 @@ describe "Admin manages officializations" do
         )
         click_on "Officialize"
 
-        expect(page).to have_content("successfully officialized")
+        expect(page).to have_callout("Participant successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           expect(page).to have_content("Officialized").and have_content("Major of Barcelona")
@@ -181,7 +181,7 @@ describe "Admin manages officializations" do
     end
 
     it "unofficializes user and goes back to list" do
-      expect(page).to have_content("successfully unofficialized")
+      expect(page).to have_callout("Participant successfully unofficialized")
 
       within "tr[data-user-id=\"#{user.id}\"]" do
         expect(page).to have_content("Not officialized")

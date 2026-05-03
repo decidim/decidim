@@ -10,6 +10,8 @@ module Decidim
 
       helper_method :collection, :conference, :meeting_days, :meeting_component
 
+      before_action :set_program_breadcrumb_item
+
       def show
         raise ActionController::RoutingError, "No meetings for this conference " if meetings.blank?
 
@@ -46,6 +48,17 @@ module Decidim
 
       def conference
         current_participatory_space
+      end
+
+      def set_program_breadcrumb_item
+        return unless meeting_component
+
+        context_breadcrumb_items << {
+          label: t("conference_program.index.title", scope: "decidim"),
+          url: decidim_conferences.conference_conference_program_path(current_participatory_space, meeting_component, locale: I18n.locale),
+          active: true,
+          resource: meeting_component
+        }
       end
     end
   end

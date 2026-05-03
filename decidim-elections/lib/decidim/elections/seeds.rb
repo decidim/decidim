@@ -89,7 +89,7 @@ module Decidim
       def create_voters_for!(election)
         number_of_records.times do |i|
           Decidim::Elections::Voter.create!(
-            election: election,
+            election:,
             data: {
               "email" => "user#{i + 1}@example.org",
               "token" => SecureRandom.hex(6).upcase

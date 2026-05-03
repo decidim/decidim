@@ -5,6 +5,10 @@ import contextHelpers from "src/decidim/editor/test/toolbar/shared/context";
 export default (ctx) => {
   const { getControl, setContent } = contextHelpers(ctx);
 
+  const normalizeHTML = (html) => {
+    return html.replace(/<p><br class="ProseMirror-trailingBreak"><\/p>$/g, "").trim();
+  };
+
   describe("indent:indent", () => {
     it("indents the existing content", async () => {
       await setContent("Hello, world!");
@@ -13,7 +17,7 @@ export default (ctx) => {
       ctrl.click();
       ctrl.click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual('<p class="editor-indent-2">Hello, world!</p>');
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual('<p class="editor-indent-2">Hello, world!</p>');
     });
 
     it("indents a list item correctly", async () => {
@@ -21,7 +25,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror, "ul li:nth-child(2) p");
       getControl("indent:indent").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual(
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual(
         "<ul><li><p>First item</p><ul><li><p>Second item</p></li></ul></li></ul>"
       );
     });
@@ -35,7 +39,7 @@ export default (ctx) => {
       ctrl.click();
       ctrl.click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>");
     });
 
     it("outdents a list item correctly", async () => {
@@ -43,7 +47,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror, "ul li ul li p");
       getControl("indent:outdent").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual(
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual(
         "<ul><li><p>First item</p></li><li><p>Second item</p></li></ul>"
       );
     });
@@ -53,7 +57,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror, "ul li:nth-child(2) p");
       getControl("indent:outdent").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual(
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual(
         "<ul><li><p>First item</p></li><li><p>Second item</p></li></ul>"
       );
     });

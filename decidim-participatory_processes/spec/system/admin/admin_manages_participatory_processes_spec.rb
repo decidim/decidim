@@ -18,8 +18,8 @@ describe "Admin manages participatory processes", versioning: true do
     visit decidim_admin_participatory_processes.participatory_processes_path
   end
 
-  context "when conditionally displaying private user menu entry" do
-    let!(:my_space) { create(:participatory_process, organization:, private_space:) }
+  context "when conditionally displaying members menu entry" do
+    let!(:my_space) { create(:participatory_process, organization:, has_members:) }
 
     before do
       switch_to_host(organization.host)
@@ -28,20 +28,20 @@ describe "Admin manages participatory processes", versioning: true do
       click_on translated(my_space.title)
     end
 
-    context "when the participatory process is private" do
-      let(:private_space) { true }
+    context "when the participatory process has members" do
+      let(:has_members) { true }
 
-      it "hides the private user menu entry" do
+      it "shows the member menu entry" do
         within_admin_sidebar_menu do
           expect(page).to have_content("Members")
         end
       end
     end
 
-    context "when the participatory process is public" do
-      let(:private_space) { false }
+    context "when the participatory process has no members" do
+      let(:has_members) { false }
 
-      it "shows the private user menu entry" do
+      it "hides the member menu entry" do
         within_admin_sidebar_menu do
           expect(page).to have_no_content("Members")
         end
@@ -65,7 +65,7 @@ describe "Admin manages participatory processes", versioning: true do
       click_on "New process"
     end
 
-    %w(short_description description announcement).each do |field|
+    %w(short_description description).each do |field|
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process-#{field}-tabs']", "full"
     end
     it_behaves_like "having no taxonomy filters defined"
@@ -76,8 +76,6 @@ describe "Admin manages participatory processes", versioning: true do
         fill_in_i18n(:participatory_process_subtitle, "#participatory_process-subtitle-tabs", **attributes[:subtitle].except("machine_translations"))
         fill_in_i18n_editor(:participatory_process_short_description, "#participatory_process-short_description-tabs", **attributes[:short_description].except("machine_translations"))
         fill_in_i18n_editor(:participatory_process_description, "#participatory_process-description-tabs", **attributes[:description].except("machine_translations"))
-        fill_in_i18n_editor(:participatory_process_announcement, "#participatory_process-announcement-tabs", **attributes[:announcement].except("machine_translations"))
-
         fill_in_i18n(:participatory_process_developer_group, "#participatory_process-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
         fill_in_i18n(:participatory_process_local_area, "#participatory_process-local_area-tabs", **attributes[:local_area].except("machine_translations"))
         fill_in_i18n(:participatory_process_meta_scope, "#participatory_process-meta_scope-tabs", **attributes[:meta_scope].except("machine_translations"))
@@ -100,7 +98,7 @@ describe "Admin manages participatory processes", versioning: true do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Participatory process successfully created. Configure now its phases.")
       expect(last_participatory_process.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
@@ -134,7 +132,7 @@ describe "Admin manages participatory processes", versioning: true do
 
       click_on "Update"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Participatory process successfully updated.")
       expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
       expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
       expect(participatory_process3.reload.taxonomies).to contain_exactly(taxonomy)

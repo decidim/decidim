@@ -263,7 +263,7 @@ describe "Conversations" do
       let(:recipient) { create(:user, :confirmed, organization:) }
 
       before do
-        visit decidim.profile_path(recipient.nickname)
+        visit decidim.profile_path(recipient.nickname, locale: I18n.locale)
       end
 
       it "has a contact link" do
@@ -292,6 +292,29 @@ describe "Conversations" do
           field.set ""
           field.native.send_keys "@#{interlocutor2.nickname.slice(0, 3)}"
           expect(page).to have_css("#autoComplete_list_1 li.disabled", wait: 5)
+        end
+      end
+
+      context "when selecting participants from autocomplete" do
+        let!(:user1) { create(:user, :confirmed, name: "Ana", organization:) }
+        let!(:user2) { create(:user, :confirmed, name: "Maria", organization:) }
+
+        it "does not insert element twice and closes dropdown", :slow do
+          visit_inbox
+          click_on "New conversation"
+          expect(page).to have_css("#add_conversation_users")
+
+          field = find_by_id("add_conversation_users")
+          field.native.send_keys "Mar"
+
+          expect(page).to have_css("#autoComplete_list_1 li", wait: 5)
+
+          find("#autoComplete_list_1 li").click
+
+          expect(page).to have_css(".conversation__modal-results li", count: 1)
+          expect(page).to have_content("Maria")
+          expect(page).to have_no_css("#autoComplete_list_1 li", wait: 2)
+          expect(field.value).to eq("")
         end
       end
     end

@@ -25,7 +25,7 @@ describe "Initiative signing" do
         let(:initiative) { create(:initiative, organization:, signature_type: "offline") }
 
         it "voting disabled message is shown" do
-          visit decidim_initiatives.initiative_path(initiative)
+          visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
           expect(page).to have_content("Signing disabled")
         end
@@ -33,7 +33,7 @@ describe "Initiative signing" do
         it "shows the offline supports received" do
           initiative.update(offline_votes: { initiative.scoped_type.scope.id.to_s => 1357, "total" => 1357 })
 
-          visit decidim_initiatives.initiative_path(initiative)
+          visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
           expect(page).to have_content("1357 1000\nSignatures")
         end
@@ -71,7 +71,7 @@ describe "Initiative signing" do
   end
 
   def vote_initiative
-    visit decidim_initiatives.initiative_path(initiative)
+    visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
     within ".initiative__aside" do
       expect(page).to have_content(signature_text(0))

@@ -15,8 +15,8 @@ module Decidim
         Survey.where(component: object).includes(:component)
       end
 
-      def survey(**args)
-        Survey.where(component: object).find_by(id: args[:id])
+      def survey(id:)
+        Survey.published.where(component: object).find(id)
       end
     end
   end

@@ -6,8 +6,6 @@ module Decidim
       # A command with all the business logic that updates an
       # existing initiative type.
       class UpdateInitiativeType < Decidim::Commands::UpdateResource
-        fetch_file_attributes :banner_image
-
         fetch_form_attributes :title, :description, :signature_type, :attachments_enabled, :comments_enabled,
                               :undo_online_signatures_enabled, :custom_signature_end_date_enabled, :area_enabled,
                               :promoting_committee_enabled, :minimum_committee_members, :collect_user_extra_fields,

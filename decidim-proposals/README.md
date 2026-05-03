@@ -1,24 +1,14 @@
-# Decidim::Proposals
+# decidim-proposals
 
-The Proposals module adds one of the main components of Decidim: allows users to contribute to a participatory process by creating proposals.
+The Proposals module adds one of the main components of Decidim: allows users to contribute to a participatory space by creating proposals.
 
 ## Usage
 
-Proposals will be available as a Component for a Participatory Process.
+Proposals will be available as a Component for a Participatory Space.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-proposals'
-```
-
-And then execute:
-
-```bash
-bundle
-```
+This is on the default Decidim installation so you should not change anything to use this component.
 
 ## Global Search
 

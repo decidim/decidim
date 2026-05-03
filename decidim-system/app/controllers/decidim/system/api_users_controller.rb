@@ -29,7 +29,7 @@ module Decidim
         RefreshApiUserSecret.call(api_user, current_admin) do
           on(:ok) do |secret|
             flash[:notice] = I18n.t("api_user.refresh.success", scope: "decidim.system", user: api_user.api_key)
-            session[:api_user] = { id: api_user.id, secret: secret }
+            session[:api_user] = { id: api_user.id, secret: }
             redirect_to action: :index
           end
 
@@ -41,17 +41,17 @@ module Decidim
       end
 
       def create
-        @form = ::Decidim::System::ApiUserForm.from_params(params.merge!(name: params[:admin][:name], organization: organization))
+        @form = ::Decidim::System::ApiUserForm.from_params(params.merge!(name: params[:admin][:name], organization:))
         CreateApiUser.call(@form, current_admin) do
           on(:ok) do |api_user, secret|
             flash[:notice] = I18n.t("api_user.create.success", scope: "decidim.system", user: api_user.api_key)
-            session[:api_user] = { id: api_user.id, secret: secret }
+            session[:api_user] = { id: api_user.id, secret: }
             redirect_to action: :index
           end
 
           on(:invalid) do
             flash[:error] = I18n.t("api_user.create.error", scope: "decidim.system")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end

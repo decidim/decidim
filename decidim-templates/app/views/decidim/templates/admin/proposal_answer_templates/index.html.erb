@@ -25,7 +25,7 @@
           <% @templates.each do |template| %>
             <tr data-proposal_answer-id="<%= template.id %>">
               <td data-label="<%= t("template.name", scope: "decidim.models") %>">
-                <%= link_to_if allowed_to?(:update, :template, template: template), translated_attribute(template.name), edit_proposal_answer_template_path(template) %>
+                <%= link_to_if allowed_to?(:update, :template, template:), translated_attribute(template.name), edit_proposal_answer_template_path(template) %>
               </td>
               <td data-label="<%= t(".proposal_state_id") %>">
                 <%= proposal_state(template) %>

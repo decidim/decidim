@@ -33,7 +33,7 @@ module Decidim
 
       it "current version points to last created" do
         document.save!
-        version = create(:collaborative_text_version, created_at: 1.second.from_now, document: document)
+        version = create(:collaborative_text_version, created_at: 1.second.from_now, document:)
         expect(document.reload.document_versions.count).to eq(4)
         expect(document.document_versions_count).to eq(4)
         expect(document.current_version).to eq(version)

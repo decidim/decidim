@@ -35,7 +35,6 @@ module Decidim
             target: :i18n,
             title: :i18n,
             purpose_of_action: :i18n,
-            decidim_assemblies_type_id: :assembly_type,
             creation_date: :date,
             created_by: :string,
             created_by_other: :i18n,
@@ -44,7 +43,7 @@ module Decidim
             closing_date: :date,
             closing_date_reason: :i18n,
             internal_organisation: :i18n,
-            is_transparent: :boolean,
+            access_mode: :access_mode,
             special_features: :i18n,
             twitter_handler: :string,
             facebook_handler: :string,
@@ -59,9 +58,20 @@ module Decidim
           "activemodel.attributes.assembly"
         end
 
+        # i18n-tasks-use t("decidim.admin_log.assembly.create")
+        # i18n-tasks-use t("decidim.admin_log.assembly.publish")
+        # i18n-tasks-use t("decidim.admin_log.assembly.unpublish")
+        # i18n-tasks-use t("decidim.admin_log.assembly.update")
+        # i18n-tasks-use t("decidim.admin_log.assembly.import")
+        # i18n-tasks-use t("decidim.admin_log.assembly.export")
+        # i18n-tasks-use t("decidim.admin_log.assembly.duplicate")
+        # i18n-tasks-use t("decidim.admin_log.assembly.soft_delete")
+        # i18n-tasks-use t("decidim.admin_log.assembly.restore")
+        # i18n-tasks-use t("decidim.admin_log.assembly.publish_all_members")
+        # i18n-tasks-use t("decidim.admin_log.assembly.unpublish_all_members")
         def action_string
           case action
-          when "create", "publish", "unpublish", "update", "duplicate", "export", "import", "soft_delete", "restore"
+          when "create", "publish", "unpublish", "update", "duplicate", "export", "import", "soft_delete", "restore", "publish_all_members", "unpublish_all_members"
             "decidim.admin_log.assembly.#{action}"
           else
             super

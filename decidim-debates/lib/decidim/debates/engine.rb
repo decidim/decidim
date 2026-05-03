@@ -98,6 +98,12 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_debates.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Debates::DebatesMutationType
+        )
+      end
     end
   end
 end

@@ -200,10 +200,6 @@ cs:
               user_authorized: Uživatel autorizován?
             import_csv: Importovat CSV
             no_authorized: Uživatel neautorizován
-            title: Aktuální údaje o členech organizace
-          instructions:
-            body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
-            title: Musíte aktivovat CSV s kontakty členů organizace
         authorizations:
           new:
             error: Váš účet nebyl ověřen, nebo nejste členem organizace.
@@ -238,7 +234,6 @@ cs:
               error: Ověření neodpovídá. Ověřte znovu nebo odmítněte ověření, aby jej uživatel mohl změnit.
               success: Uživatel byl úspěšně ověřen.
             new:
-              introduce_user_data: Vložte data do obrázku
               reject: Odmítnout
               verify: Ověřte
           offline_confirmations:
@@ -247,7 +242,6 @@ cs:
               success: Uživatel byl úspěšně ověřen.
             new:
               cancel: Zrušit
-              introduce_user_data: Zadejte e-mail uživatele a data dokumentu
               verify: Ověřte
           pending_authorizations:
             index:

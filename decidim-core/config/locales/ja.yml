@@ -35,7 +35,7 @@ ja:
       taxonomy:
         name: タクソノミー名
       taxonomy_filter:
-        internal_name: 内部ラベル
+        internal_name: 管理用ラベル
         name: ラベル
         root_taxonomy_id: タクソノミーから
         space_filter: フィルタとして利用可能
@@ -107,10 +107,10 @@ ja:
     formats:
       decidim_short: "%Y/%m/%d"
       decidim_short_dashed: "%Y-%m-%d"
-      decidim_short_with_month_name_short: "%Y %b %d"
+      decidim_short_with_month_name_short: "%Y年%-m月%-d日"
       decidim_with_day_and_month_name: "%Y %b %d %A"
-      decidim_with_month_name: "%Y %B %d"
-      decidim_with_month_name_short: "%b %d"
+      decidim_with_month_name: "%Y年%-m月%-d日"
+      decidim_with_month_name_short: "%-m月%-d日"
       help:
         date_format: 'フォーマット: dd/mm/yyyy'
       order: d-m-y
@@ -166,7 +166,6 @@ ja:
       front_page_link: フロントページに移動
       logo: "%{organization}の公式ロゴ"
       opens_in_new_tab: 新しいタブで開く
-      secondary_menu: セカンダリメニュー
       skip_button: メインコンテンツにスキップ
     account:
       blocked: このアカウントは利用規約に違反しているためブロックされています
@@ -185,6 +184,7 @@ ja:
         success: アカウントが正常に削除されました。
       download_your_data_export:
         export_expired: エクスポートの有効期限が切れています。新しいエクスポートを生成してください。
+        export_not_found: アクセスしたエクスポートが存在しないか、ダウンロードする権限がありません
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了した際にはメールでお知らせします。
       email_change:
@@ -252,6 +252,10 @@ ja:
         results: 結果
       impersonation_log:
         manage: "%{user_name} は %{reason} により %{resource_name} を管理しています。"
+      member:
+        create: "%{user_name} が %{resource_name} をメンバーに招待しました"
+        create_via_csv: "%{user_name} が %{resource_name} をCSV経由でメンバーに招待しました"
+        delete: "%{user_name} が参加者 %{resource_name} をメンバーから削除しました"
       moderation:
         bulk_hide: "%{user_name} が %{reported_count} リソースを非表示にしました"
         bulk_unhide: "%{user_name} が %{reported_count} 件のリソースの非表示を解除しました"
@@ -270,10 +274,6 @@ ja:
       organization:
         update: "%{user_name} が組織設定を更新しました"
         update_external_domain: "%{user_name} が組織の外部ドメインを更新しました"
-      participatory_space_private_user:
-        create: "%{user_name} が %{resource_name} をプライベート参加者に招待しました"
-        create_via_csv: "%{user_name} が %{resource_name} をCSV経由でプライベート参加者に招待しました"
-        delete: "%{user_name} がプライベート参加者の %{resource_name} を削除しました"
       scope:
         create: "%{user_name} が %{resource_name} スコープを作成しました"
         create_with_parent: "%{user_name} は %{resource_name} スコープ内で %{parent_scope} スコープを作成しました"
@@ -561,6 +561,7 @@ ja:
     contact: お問い合わせ
     content_blocks:
       announcement:
+        body: お知らせテキスト
         name: お知らせ
       cta:
         name: 画像、テキスト、行動喚起 (CTA) ボタン
@@ -571,8 +572,6 @@ ja:
         description: 説明
       footer_sub_hero:
         name: フッターサブヒーローバナー
-      global_menu:
-        name: グローバルメニュー
       hero:
         name: ヒーローイメージと CTA
       hero_settings_form:
@@ -752,13 +751,13 @@ ja:
           id: この通知の固有ID
           resource_type: 通知に関連するリソースの種類
           updated_at: 通知の最終更新日時
-        participatory_space_private_users:
-          created_at: プライベートユーザーの作成日時
-          id: このプライベートユーザーの固有ID
-          privatable_to: このプライベートユーザーが所属する領域：
-          published: このプライベートユーザーが公開されているか否か
-          role: このプライベートユーザーが持つ役割
-          updated_at: プライベートユーザーの最終更新日時
+        participatory_space_members:
+          created_at: メンバーの作成日時
+          id: メンバーの固有ID
+          participatory_space: このメンバーが所属しているスペース
+          published: このメンバーが公開されているか否か
+          role: このメンバーが持っている役割
+          updated_at: このメンバーの最終更新日時
         reports:
           created_at: レポートの作成日時
           details: レポートの詳細
@@ -768,7 +767,7 @@ ja:
           reason: レポートの理由
           updated_at: レポートの最終更新日時
         users:
-          about: ユーザーの説明
+          about: この参加者のプロフィール説明
           accepted_tos_version: プラットフォームの利用規約がユーザーに承諾された日時
           admin: このユーザーが管理者であるかどうか
           confirmation_sent_at: 確認の送信日時
@@ -779,7 +778,7 @@ ja:
           delete_reason: このユーザーの削除理由
           deleted_at: このユーザーの削除日時
           email: このユーザーのメールアドレス
-          followers_count: このユーザーをフォローしている参加者の数
+          followers_count: このユーザーをフォローしている参加者数
           following_count: このユーザーがフォローしている参加者数
           id: ユーザーの固有ID
           invitation_accepted_at: 招待の承認日時
@@ -787,16 +786,16 @@ ja:
           invitation_sent_at: 招待の送信日時
           invitations_count: このユーザーに送信された招待の数
           invited_by: このユーザーを招待したユーザー
-          last_sign_in_at: 最終ログイン日時
-          last_sign_in_ip: 最後のログインのIPアドレス
+          last_sign_in_at: 前回のログイン日時
+          last_sign_in_ip: 前回ログイン時のIPアドレス
           locale: このユーザーが選択したロケール（言語）
           managed: このユーザーが別のユーザーによって管理されているかどうか
           name: ユーザー名
-          newsletter_notifications_at: このユーザーが最後にニュースレターを受信した日時
+          newsletter_notifications_at: この参加者のニュースレター購読登録日時
           nickname: ユーザーのニックネーム
           notification_settings: このユーザーが選択した通知設定
           notifications_sending_frequency: このユーザーが受け取る通知の頻度
-          officialized_as: 正式名称（参事官、市長等）
+          officialized_as: 役職の説明（市長、局長など）
           officialized_at: このユーザーの公式化日時
           organization: このユーザーが所属する組織
           password_updated_at: パスワードの最終更新日時
@@ -834,7 +833,7 @@ ja:
       files:
         file_cannot_be_processed: ファイルを処理できません
         file_resolution_too_large: ファイルの解像度が大きすぎます
-        not_inside_organization: ファイルがどの組織にも属していません
+        not_inside_organization: ファイルはどの組織にも紐ついていません。
       internal_server_error:
         copied: テキストをコピーしました
         copy_error_message_clarification: エラーメッセージをクリップボードにコピー
@@ -1031,7 +1030,7 @@ ja:
         file:
           explanation: 'ファイルのガイダンス:'
           message_1: 画像またはドキュメントである必要があります。
-          message_2: 画像の場合、文字の入っていない横長の画像が望ましいです。サービス側で画像をトリミングします。
+          message_2: 画像を使用する場合は、テキストが含まれない横長の画像が最適です。プラットフォーム側で画像をトリミングします。
         icon:
           explanation: 'アイコンのガイド:'
           message_1: 正方形の画像でなければなりません。
@@ -1040,6 +1039,9 @@ ja:
           explanation: '画像のガイダンス:'
           message_1: テキストを含まない横長の画像をお勧めします。
           message_2: システムが画像を切り抜きます。
+        import_file:
+          explanation: 'インポートファイルのガイダンス：'
+          message_1: エクスポート機能を使用してダウンロードした JSON ドキュメントである必要があります。
       file_validation:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
         max_file_dimension: '最大ファイルサイズ: %{resolution} ピクセル'
@@ -1132,6 +1134,7 @@ ja:
         create_with_space: "%{user_name} が %{resource_name} に %{space_name} を作成しました"
         delete: "%{user_name} が %{resource_name} を削除しました"
         delete_with_space: "%{user_name} が %{resource_name} で %{space_name} を削除しました"
+        publish: "%{user_name} が %{resource_name}を公開しました"
         publish_with_space: "%{user_name} が %{space_name} の %{resource_name} を公開しました"
         unknown_action: "%{user_name} が %{resource_name} にいくつかのアクションを実行しました"
         unknown_action_with_space: "%{user_name} が %{resource_name} で %{space_name} にアクションを実行しました"
@@ -1164,7 +1167,6 @@ ja:
         latlng_text: '緯度: %{latitude}, 経度: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: ヘルプ
       home: ホーム
     messaging:
       conversation_mailer:
@@ -1273,11 +1275,13 @@ ja:
         same_language: コンテンツはあなたの設定された言語(%{language}) で投稿されました。このため、このメールには自動翻訳は表示されません。
         translated_text: '自動翻訳されたテキスト:'
     notifications:
-      action_error: 通知の更新中に問題が発生しました。
+      action_error: 通知設定の更新に問題が発生しました。
       no_notifications: まだ通知はありません。
       show:
+        deleted: コンテンツは著者によって削除されました。
         missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
-        moderated: モデレートされたコンテンツ
+        moderated: コンテンツはモデレーションにより非表示になっています。
+        not_available: この通知は現在利用できないアイテムに関するものです。破棄できます。
     notifications_digest_mailer:
       header:
         daily: 日次の通知のダイジェスト
@@ -1286,7 +1290,7 @@ ja:
       hello: こんにちは %{name} さん、
       intro:
         daily: 'あなたがフォローしているアクティビティに基づいた最終日以降の通知です:'
-        real_time: 'あなたがフォローしているアクティビティに基づいた通知です:'
+        real_time: 'これはあなたがフォローしている活動に関する通知です：'
         weekly: 'あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
       outro: このコンテンツまたは著者をフォローしているため、これらの通知を受け取りました。それぞれのページからフォローを解除できます。
       see_more: 他の通知を見る
@@ -1428,9 +1432,9 @@ ja:
           title: これらのファイルを開いて操作する方法
         license:
           body_1_html: この %{organization_name} データベースは、 %{link_database} の下で利用可能になります。データベースの個々のコンテンツの権利は、 %{link_contents} の下でライセンスされます。
-          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Database Contents License
-          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Open Database License
           title: ライセンス
         title: オープンデータ
@@ -1453,7 +1457,7 @@ ja:
         footer_sub_hero:
           footer_sub_hero_body_html: より開かれた透明性のあるコラボレーティブな社会を構築しましょう。<br /> 一緒に参加し、決定しましょう。
           footer_sub_hero_headline: '%{organization} 参加型プラットフォームへようこそ。'
-          register: 登録
+          register: アカウントを作成
         hero:
           participate: 参加
           participate_title: プラットフォームのプロセスに参加する
@@ -1461,7 +1465,7 @@ ja:
         statistics:
           headline: 統計情報
         sub_hero:
-          register: 登録
+          register: アカウントを作成
           register_title: アカウントを作成
       index:
         standalone_pages: ページ
@@ -1504,6 +1508,9 @@ ja:
           %{organization_name}
         hello: こんにちは %{username} さん、
         subject: 非アクティブなアカウントが削除されました
+    participatory_space_members:
+      index:
+        members: メンバー
     passwords:
       update:
         error: パスワードの更新中に問題が発生しました。
@@ -1705,10 +1712,30 @@ ja:
         body_2: 組織向けの利用体験を簡素化する取り組みの一環として、「ユーザーグループ」機能は廃止される予定です。あなたのユーザーグループのプロフィールは通常の参加者プロフィールに変更されました。
         greeting: こんにちは %{name} さん、
         instructions_1: そのメールアカウントにアクセスできる場合は、受信トレイに届いている案内をご確認ください。
+        instructions_2: そうでない場合は、アクセス権を持つ同僚の一人がパスワードを設定し、ログイン情報をあなたと共有する必要があります。
+        instructions_intro: グループメンバーは、共有ログインクレデンシャル(メールアドレスとパスワード)を使用して、このプロファイルへのアクセスを共有するようになりました。 プロファイルの新しいパスワードを設定するための指示を %{email} に送信しました。
+        instructions_title: "<strong>あなたへの影響</strong>"
+        subject: グループプロフィールに関する重要な更新情報
       notify_deprecation_to_owner:
         body_1: '%{organization_name}でのグループプロフィールに関する重要なアップデートについてお知らせするためにご連絡しています。'
         body_2: あなたのような組織向けの利用体験を簡素化・改善する取り組みの一環として、「ユーザーグループ」機能は廃止されます。あなたのグループ<strong>%{name}</strong>は通常のアカウントに変更されました。
+        body_3: 引き続きアカウントへアクセスしてアクセス権限を共有するためには、パスワードを設定する必要があります。設定後、ログイン認証情報（メールアドレスとパスワード）を任意の相手と共有することが可能になります。
         greeting: こんにちは %{name} さん、
+        instructions_1: '以下のリンクをクリックしてパスワードを設定してください：'
+        instructions_2: 'ログイン認証情報（メールアドレス：%{email}、新規パスワード）を同僚と共有してください。'
+        instructions_title: "<strong>実施すべきこと</strong>"
+        set_password: パスワードの設定
+        subject: グループプロフィールに関する重要な更新事項
+      notify_user_group_patched:
+        body_1_html: '%{organization_name}におけるグループプロフィールに関する重要な更新についてお知らせします。'
+        body_2_html: 組織の利便性向上とシステムの簡素化を図るため、「ユーザーグループ」機能の廃止を決定いたしました。あなたのグループ <strong>%{name}</strong> は、通常のアカウント形式に変更されています。
+        body_3_html: 引き続きアカウントにアクセスしてアクセス権限を共有するためには、新しいメールアドレスとパスワードの設定が必要です。なお、グループの各メンバーにはこのメールが送信されます。継続的なアクセスを保証するため、共有する認証情報（メールアドレスとパスワード）について、グループ内で事前に合意していただく必要があります。
+        greeting: こんにちは %{name} さん、
+        instructions_1_html: '以下の仮認証情報を使用してログインしてください：<br><br> ユーザー名： <strong>%{email}</strong> <br> パスワード： <strong>%{password}</strong><br><br>'
+        instructions_2_html: 新しいメールアドレスとパスワードを設定します。
+        instructions_3_html: 選択したログイン認証情報を同僚の方々と共有し、グループ全体で引き続きアカウントにアクセスできるようにしてください。
+        instructions_title_html: "<strong>実施が必要な事項</strong>"
+        subject: グループプロフィールに関する重要なお知らせ
     user_report_mailer:
       notify:
         body_1: ユーザー %{user} が %{token} によって報告されました
@@ -1758,6 +1785,7 @@ ja:
       send_paranoid_instructions: メールアドレスがデータベースに存在する場合 数分後にメールアドレスの確認方法が記載されたメールが届きます。
     failure:
       already_authenticated: 既にログイン済です。
+      csrf_token: リクエストの検証に失敗しました。もう一度やり直してください。
       inactive: あなたのアカウントはまだアクティベートされていません。
       invalid: '%{authentication_keys} またはパスワードが無効です。'
       invited: 保留中の招待状があります。アカウントの作成を完了するには承認してください。
@@ -1779,8 +1807,6 @@ ja:
         submit_button: 招待状を送信
       no_invitations_remaining: 招待状は残っていません
       send_instructions: '%{email} に招待メールが送信されました。'
-      updated: パスワードは正常に設定され、ログイン完了しました。
-      updated_not_active: パスワードが正常に設定されました。
     mailer:
       confirmation_instructions:
         action: アカウントを確認する
@@ -1799,17 +1825,17 @@ ja:
         ignore: |-
           招待を受け入れたくない場合は、このメールを無視してください。<br />上記のリンクにアクセスし、アカウントIDとパスワードを設定するまで、あなたのアカウントは作成されません。
         invited_you_as_admin: "%{invited_by} さんが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。"
-        invited_you_as_private_user: "%{invited_by} が %{application} のプライベート参加者としてあなたを招待しました。以下のリンクから承認できます。"
+        invited_you_as_member: "%{invited_by} さんより %{application}のメンバーとして招待されています。下記のリンクより承諾してください。"
         someone_invited_you: '%{application} にあなたを招待しました。以下のリンクから受け入れることができます。'
         someone_invited_you_as_admin: '%{application} の管理者としてあなたを招待しました。以下のリンクから承認できます。'
-        someone_invited_you_as_private_user: '%{application} のプライベート参加者としてあなたは招待されています。以下のリンクから承認できます。'
+        someone_invited_you_as_member: 誰かがあなたを %{application} のメンバーとして招待しています。下記リンクより承諾してください。
         subject: 招待の説明
       invite_admin:
         subject: '%{organization} を管理するために招待されています'
       invite_collaborator:
         subject: あなたは %{organization} で共同作業に招待されています
-      invite_private_user:
-        subject: あなたは %{organization} のプライベート参加プロセスに招待されています
+      invite_member:
+        subject: 非公開の参加型プロセス %{organization} に招待されています
       organization_admin_invitation_instructions:
         subject: '%{organization} を管理するために招待されています'
       password_change:
@@ -1839,8 +1865,8 @@ ja:
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
         old_password_help: アカウントの変更を確認するには、現在のパスワードを入力してください。
-        password_help: "半角英数字%{minimum_characters}文字以上で入力してください。単純すぎる文字列ではいけません（例：123456）。ニックネームやメールアドレスと異なる必要があります。"
-        password_help_admin: "半角英数字%{minimum_characters}文字以上で入力してください。単純すぎる文字列ではいけません（例：123456）。ニックネームやメールアドレス、以前のパスワードと異なる必要があります。"
+        password_help: "%{minimum_characters} 文字以上必要で、少なくとも 5 種類の異なる文字を含める必要があります。一般的な文字列（例：123456）は使用できず、氏名、ニックネーム、メールアドレス、および組織のホスト名とは異なるものでなければなりません。"
+        password_help_admin: "%{minimum_characters}文字以上必要で、少なくとも5種類以上の異なる文字を含む必要があり、一般的なパターン（例：123456）は使用できません。氏名、ニックネーム、メールアドレス、組織のホスト名と重複せず、かつ以前使用していたパスワードとは異なるものでなければなりません。"
         title: パスワードの変更
       new:
         forgot_your_password: パスワードをお忘れですか？
@@ -2082,6 +2108,7 @@ ja:
         confirm_title_close_ephemeral_session: このページから離れる前に…
         log_in: ログイン
         main_menu: メインメニュー
+        mobile_account_greeting: こんにちは、 %{user_name} さん
         user_menu: ユーザーメニュー
       impersonation_warning:
         close_session: セッションを閉じる
@@ -2189,16 +2216,16 @@ ja:
       day_of_year: "%y.%m.%d"
       ddmm: "%m/%d"
       ddmmyyyy: "%Y/%m/%d"
-      decidim_day_of_year: "%Y %B %d"
+      decidim_day_of_year: "%Y年%-m月%-d日"
       decidim_short: "%Y/%m/%d %H:%M"
       default: "%Y %d %b (%a) %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%Y %B %d, %I:%M %p"
+            accept_until_format: "%Y/%m/%d %I:%M %p"
       help:
         time_format: 'フォーマット: hh:mm'
-      long: "%B %d, %Y %H:%M"
+      long: "%Y/%m/%d %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%Y年%m月%d日 %H:%M"
       short: "%Y/%m/%d %H:%M"

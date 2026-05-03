@@ -65,8 +65,6 @@ ja:
         alignment:
           against: 反対
           in_favor: 賛成
-        answers:
-          other: "%{count} 件の回答"
         cancel_reply: 返信をキャンセル
         comment_label: コメント %{comment_id}
         comment_label_reply: コメント %{comment_id} (コメント %{parent_comment_id} への返信)
@@ -79,7 +77,10 @@ ja:
         edited: 編集済み
         hide_replies:
           other: '%{count} 件の返信を非表示'
+        load_replies: 返信を読み込む
         moderated_at: '%{date} にモデレートされたコメント'
+        replies_count:
+          other: "%{count} 件の返信"
         reply: 返信
         report:
           action: レポート
@@ -110,7 +111,9 @@ ja:
         blocked_comments_warning: コメントは現在無効になっています。管理者のみが新しいコメントを返信または投稿できます。
         comment_details_title: コメントの詳細
         in_favor: 賛成
+        load_more_comments: 残りのコメントを読み込む
         loading: コメントを読み込んでいます...
+        no_comments_yet: コメントがありません
         single_comment_warning: <a href="%{url}">すべてのコメントを表示</a>
         single_comment_warning_title: コメントを1件のみ表示しています
         title:

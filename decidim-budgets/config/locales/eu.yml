@@ -90,7 +90,7 @@ eu:
             invalid: Arazo bat egon da proiektu hau sortzean.
             success: Proiektua zuzen sortua.
           edit:
-            title: Editatu proiektua
+            title: 'Editatu proeiktua hemen: %{budget}'
             update: Eguneratu
           index:
             actions: Ekintzak
@@ -113,7 +113,7 @@ eu:
             title: Ezabatutako proiektuak
           new:
             create: Sortu
-            title: Beste proiektu bat
+            title: 'Beste proiektu bat hemen: %{budget}'
           update:
             invalid: Arazo bat egon da proiektu hau eguneratzean.
             success: Proiektua zuzen eguneratua.
@@ -142,9 +142,10 @@ eu:
           new:
             create: Inportatu proiektuetarako proposamenak
             default_budget: Aurrekontu lehenetsia
-            import_all_accepted_proposals: Inportatu onartutako proposamen guztiak 
             no_components: Ez dago proposamen osagairik parte hartzeko espazio honetan proposamenak proiektuetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
+            proposal_states: Proposamenen egoera
+            proposal_states_help: Hautatu proposamen-egoera bat edo gehiago, proiektuetara inportatzeko. Bat ere hautatzen ez baduzu, osagai honetako beste aurrekontu batzuetan inportatu ez diren argitaratutako proposamen guztiak inportatuko dituzu.
             select_component: Meesedez, hautatu osagaia
             title: Inportatu proiektuetarako proposamenak
         reminders:
@@ -213,23 +214,22 @@ eu:
             total_budget: Aurrekontua guztira
         project:
           fields:
-            id: ID
             map: Mapa
             taxonomies: Taxonomiak
             title: Izenburua
       order:
         status:
           continue_voting: Jarraitu bozkatzen
-          download_vote: Deskargatu zure babesa
+          download_vote: Deskargatu zure hautaketa
           pending_to_vote_budgets:
             one: Beste aurrekontu batean bozkatu dezakezu
             other: Beste aurrekontu batzuetan bozkatu dezakezu
           share_text: "Botoa eman diet nire proiekturik gogokoenei hemen %{space_name}! 🎉 Eman botoa orain: %{component_url}"
-          share_vote: Aldatu zure babesa
+          share_vote: Partekatu zure hautaketa
           title: Zure babesa ongi bideratu da
           view_votes:
             one: Ikusi babesa
-            other: Ikusi babesak
+            other: Botoak ikusi
           votes_count:
             one: 'Zure babesa honentzat: %{budget_name} erregistratu da.'
             other: 'Zure %{count} babes honentzat: %{budget_name} erregistratu dira.'
@@ -339,6 +339,7 @@ eu:
         actions:
           comment: Egin iruzkina
           vote: Babesa eman
+          vote_comment: Bozkatu iruzkina
         name: Aurrekontuak
         settings:
           global:

@@ -130,6 +130,16 @@
         [data-image-resizer-wrapper] {
           @apply relative inline-block;
 
+          [data-image-resizer-control],
+          [data-image-resizer-dimensions] {
+            z-index: 1;
+          }
+
+          > a {
+            position: relative;
+            z-index: 0;
+          }
+
           [data-image-resizer-control] {
             @apply absolute hidden w-2.5 h-2.5 rounded-none border border-solid border-[#000] bg-[#fff] opacity-80;
           }

@@ -118,7 +118,6 @@ pl:
           back: Wróć
           create: Utwórz
         orders:
-          commented: Najczęściej komentowane
           label: Sortuj debaty według
           random: Kolejność losowa
           recent: Najnowsze

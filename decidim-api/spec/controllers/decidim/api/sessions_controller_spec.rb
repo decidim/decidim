@@ -9,7 +9,7 @@ describe Decidim::Api::SessionsController do
   let(:organization) { create(:organization) }
   let(:api_key) { "user_key" }
   let(:api_secret) { "decidim123456789" }
-  let!(:user) { create(:api_user, organization: organization, api_key: api_key, api_secret: api_secret) }
+  let!(:user) { create(:api_user, organization:, api_key:, api_secret:) }
   let(:params) do
     {
       api_user: {
@@ -36,7 +36,7 @@ describe Decidim::Api::SessionsController do
   describe "sign in" do
     it "returns JWT token when credentials are valid" do
       expect(request.env[Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]).not_to be_present
-      post :create, params: params
+      post(:create, params:)
       expect(response).to have_http_status(:ok)
       token = request.env[Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]
       expect(token).to be_present
@@ -53,7 +53,7 @@ describe Decidim::Api::SessionsController do
 
     it "renders resource without JWT token in body when `Tokendispatcher::ENV_KEY` is nil" do
       request.env[Warden::JWTAuth::Middleware::TokenDispatcher::ENV_KEY] = nil
-      post :create, params: params
+      post(:create, params:)
       expect(request.env[Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]).to be_present
       parsed_response_body = JSON.parse(response.body)
       expect(parsed_response_body.has_key?("jwt_token")).to be(false)

@@ -44,7 +44,6 @@ module Decidim
         Decidim.icons.register(name: "earth-line", icon: "earth-line", category: "system", description: "Earth line", engine: :admin)
 
         Decidim.icons.register(name: "attachment-2", icon: "attachment-2", category: "system", description: "", engine: :admin)
-        Decidim.icons.register(name: "spy-line", icon: "spy-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "refresh-line", icon: "refresh-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "zoom-in-line", icon: "zoom-in-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "add-line", icon: "add-line", category: "system", description: "", engine: :admin)

@@ -19,7 +19,7 @@ describe "Admin checks dashboard panel statistics" do
   end
 
   it "show Admin log panel" do
-    expect(page).to have_content(t("decidim.admin.titles.admin_log"))
+    expect(page).to have_content(t("decidim.admin.logs.index.title"))
   end
 
   context "when does not have Pending moderations" do

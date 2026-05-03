@@ -20,6 +20,8 @@ module Decidim
 
           # give proposal author initial points to avoid unwanted events during tests
           Decidim::Gamification.increment_score(proposal.creator_author, :accepted_proposals)
+
+          allow(Decidim::EventsManager).to receive(:publish)
         end
 
         it "broadcasts ok" do
@@ -33,8 +35,23 @@ module Decidim
               event: "decidim.events.proposals.proposal_state_changed",
               event_class: Decidim::Proposals::ProposalStateChangedEvent,
               resource: proposal,
-              affected_users: contain_exactly(proposal.creator_author),
               followers: contain_exactly(follower)
+            )
+
+          subject
+        end
+
+        it "sends a notification to the proposal authors" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              hash_including(
+                event: "decidim.events.proposals.proposal_state_changed_for_authors",
+                event_class: Decidim::Proposals::ProposalStateChangedEvent,
+                resource: proposal,
+                affected_users: proposal.authors,
+                extra: { force_email: true }
+              )
             )
 
           subject
@@ -59,11 +76,28 @@ module Decidim
                 event: "decidim.events.proposals.proposal_state_changed",
                 event_class: Decidim::Proposals::ProposalStateChangedEvent,
                 resource: proposal,
-                affected_users: contain_exactly(proposal.creator_author),
                 followers: contain_exactly(follower)
               )
 
             subject
+          end
+
+          context "when the creator_author needs to be notified" do
+            it "notifies the proposal creator_author" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  hash_including(
+                    event: "decidim.events.proposals.proposal_state_changed_for_authors",
+                    event_class: Decidim::Proposals::ProposalStateChangedEvent,
+                    resource: proposal,
+                    affected_users: match_array(proposal.authors),
+                    extra: { force_email: true }
+                  )
+                )
+
+              subject
+            end
           end
 
           it "decrements the accepted proposals counter" do

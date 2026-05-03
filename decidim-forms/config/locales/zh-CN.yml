@@ -76,9 +76,6 @@ zh-CN:
           of_total_steps: '%{total_steps}'
           questionnaire_closed:
             title: 表单已关闭
-          questionnaire_for_private_users:
-            body: 表单仅供私人用户使用
-            title: 表单已关闭
           questionnaire_js_disabled:
             body: 此表单的一些功能将被禁用。为了改善您的体验，请在您的浏览器中启用 JavaScript。
             title: JavaScript 已禁用

@@ -187,9 +187,6 @@ el:
         update: "Ο χρήστης %{user_name} ενημέρωσε την εφαρμογή OAuth %{resource_name}"
       organization:
         update: "Ο χρήστης %{user_name} ενημέρωσε τις ρυθμίσεις του οργανισμού"
-      participatory_space_private_user:
-        create: "Ο χρήστης %{user_name} προσκάλεσε τον χρήστη %{resource_name} να γίνει ιδιωτικός συμμετέχων"
-        delete: "Ο χρήστης %{user_name} κατάργησε τον συμμετέχοντα %{resource_name} ως ιδιωτικό συμμετέχων"
       scope:
         create: "Ο χρήστης %{user_name} δημιούργησε το πεδίο εφαρμογής %{resource_name}"
         create_with_parent: "Ο χρήστης %{user_name} δημιούργησε το πεδίο εφαρμογής %{resource_name} μέσα στο πεδίο εφαρμογής %{parent_scope}"
@@ -698,7 +695,6 @@ el:
         latlng_text: 'γεωγραφικό πλάτος: %{latitude}, γεωγραφικό μήκος: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Βοήθεια
       home: Αρχική σελίδα
     messaging:
       conversation_mailer:
@@ -803,13 +799,10 @@ el:
           proposals_explanation: Διατυπώστε προτάσεις, υποστηρίξτε υπάρχουσες και αναβαθμίστε τις αλλαγές που θέλετε να δείτε.
         footer_sub_hero:
           footer_sub_hero_headline: Καλώς ορίσατε στην πλατφόρμα συμμετοχής του οργανισμού %{organization}.
-          register: Εγγραφή
         hero:
           participate: Συμμετοχή
           participate_title: Συμμετάσχετε στις διαδικασίες της πλατφόρμας
           welcome: Καλώς ορίσατε στον οργανισμό %{organization}!
-        sub_hero:
-          register: Εγγραφή
       index:
         standalone_pages: Σελίδες
         subheading: Περιηγηθείτε στις σελίδες βοήθειας του %{name}
@@ -832,6 +825,9 @@ el:
           alert: Έχουμε ενημερώσει τους Όρους της Υπηρεσίας μας, παρακαλούμε να τους εξετάσετε.
           body: Αφιερώστε λίγο χρόνο για να διαβάσετε τους επικαιροποιημένους όρους παροχής υπηρεσιών μας. Διαφορετικά, δεν θα μπορείτε να χρησιμοποιήσετε την πλατφόρμα.
           title: 'Απαιτείται: Διαβάστε τις ενημερώσεις στους όρους παροχής υπηρεσιών μας'
+    participatory_space_members:
+      index:
+        members: Μέλη
     passwords:
       update:
         error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του κωδικού πρόσβασης.
@@ -977,8 +973,6 @@ el:
         submit_button: Στείλτε μια πρόσκληση
       no_invitations_remaining: Δεν απομένουν προσκλήσεις
       send_instructions: Στάλθηκε ένα email πρόσκλησης στη διεύθυνση %{email}.
-      updated: Ο κωδικός πρόσβασης ορίστηκε με επιτυχία. Έχετε συνδεθεί.
-      updated_not_active: Ο κωδικός πρόσβασης ορίστηκε με επιτυχία.
     mailer:
       confirmation_instructions:
         action: Επιβεβαίωση του λογαριασμού μου
@@ -994,10 +988,8 @@ el:
         decline: Απόρριψη πρόσκλησης
         hello: Γεια σας %{email},
         invited_you_as_admin: "Ο χρήστης %{invited_by} σάς προσκάλεσε ως διαχειριστή της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου."
-        invited_you_as_private_user: "Ο χρήστης %{invited_by} σάς προσκάλεσε ως ιδιωτικό συμμετέχοντα της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου."
         someone_invited_you: Κάποιος σάς προσκάλεσε στην εφαρμογή %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
         someone_invited_you_as_admin: Κάποιος σάς προσκάλεσε ως διαχειριστή της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
-        someone_invited_you_as_private_user: Κάποιος σάς προσκάλεσε ως ιδιωτικό συμμετέχοντα της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
         subject: Οδηγίες πρόσκλησης
       password_change:
         greeting: Γεια σας %{recipient}!
@@ -1088,6 +1080,7 @@ el:
         made_with_open_source: Ο ιστότοπος δημιουργήθηκε με <a target="_blank" href="https://github.com/decidim/decidim">δωρεάν λογισμικό</a>.
       header:
         log_in: Σύνδεση
+        mobile_account_greeting: Γεια σου, %{user_name}
       impersonation_warning:
         close_session: Κλείσιμο συνεδρίας
         description_html: Διαχειρίζεστε τον συμμετέχοντα <b>%{user_name}</b>.

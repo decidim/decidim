@@ -10,7 +10,7 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:event_name) { "decidim.events.comments.user_mentioned" }
   let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>" }
   let(:en_comment_content) { "<div><p>Comment mentioning some user, #{author_link}</p></div>" }
-  let(:author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/profiles/#{author.nickname}\" data-external-link=\"false\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">@#{author.nickname}</a>" }
+  let(:author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/#{I18n.locale}/profiles/#{author.nickname}\" data-external-link=\"false\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">@#{author.nickname}</a>" }
   let(:parsed_body) { Decidim::ContentProcessor.parse("Comment mentioning some user, @#{author.nickname}", current_organization: organization) }
   let(:parsed_ca_body) { Decidim::ContentProcessor.parse("Un commentaire pour @#{author.nickname}", current_organization: organization) }
   let(:body) { { en: parsed_body.rewrite, machine_translations: { ca: parsed_ca_body.rewrite } } }
@@ -22,7 +22,7 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:author) { create(:user, organization:) }
   let!(:comment) { create(:comment, body:, author:, commentable:) }
   let(:user) { create(:user, organization:, locale: "ca") }
-  let(:notification_title) { "You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a> by <a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>" }
+  let(:notification_title) { "You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a> by <a href=\"/#{I18n.locale}/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>" }
   let(:email_subject) { "You have been mentioned in #{resource_title}" }
   let(:email_intro) { "You have been mentioned" }
   let(:email_outro) { "You have received this notification because you have been mentioned in #{resource_title}." }
@@ -47,9 +47,12 @@ describe Decidim::Comments::UserMentionedEvent do
     let(:component) { create(:component, participatory_space: participatory_process) }
     let(:commentable) { create(:dummy_resource, component:) }
     let!(:comment) { create(:comment, body:, author:, commentable:) }
-    let(:en_version) { en_comment_content }
+    let(:en_version) { I18n.with_locale("en") { en_comment_content } }
     let(:machine_translated) { ca_comment_content }
     let(:translatable) { true }
+
+    let(:untranslated_content) { "<div><p>Comment mentioning some user, #{ca_author_link}</p></div>" }
+    let(:ca_author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/ca/profiles/#{author.nickname}\" data-external-link=\"false\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">@#{author.nickname}</a>" }
 
     it_behaves_like "a translated event"
   end

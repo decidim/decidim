@@ -32,7 +32,7 @@ RSpec.describe "Participatory process search" do
   end
 
   let(:filter_params) { {} }
-  let(:request_path) { decidim_participatory_processes.participatory_processes_path }
+  let(:request_path) { decidim_participatory_processes.participatory_processes_path(locale: I18n.locale) }
 
   before do
     get(

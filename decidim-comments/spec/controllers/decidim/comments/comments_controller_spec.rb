@@ -106,8 +106,8 @@ module Decidim
             end
           end
 
-          context "when trying to comment on a private space where the user is not assigned to" do
-            let(:participatory_process) { create(:participatory_process, :private, organization:) }
+          context "when trying to comment on a restricted space where the user is not assigned to" do
+            let(:participatory_process) { create(:participatory_process, :restricted, organization:) }
 
             it "redirects with a flash alert" do
               post :create, xhr: true, params: { comment: comment_params }
@@ -260,7 +260,7 @@ module Decidim
 
           context "when component is present and has comments length setting" do
             before do
-              component.update!(settings: { comments_max_length: random_string.length + 10 }) if component.present?
+              (component.presence&.update!(settings: { comments_max_length: random_string.length + 10 }))
             end
 
             it "renders template update" do

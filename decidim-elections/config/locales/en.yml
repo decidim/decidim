@@ -2,9 +2,16 @@
 en:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Maximum number of choices
       token_csv:
         file: File
         remove_all: Remove all current census data
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Election
+        other: Elections
   decidim:
     admin:
       menu:
@@ -45,6 +52,7 @@ en:
             choose_census: Choose the census type you want to use for this election
             created_at: Created at
             identifier: User identifier
+            title: Edit election
           preview:
             title:
               one: The preview list is limited to %{count} record.
@@ -80,6 +88,7 @@ en:
           questions_table:
             answer: Answers
             percentage: Percentage
+            total: Total
             votes: Votes
             votes_count:
               one: 1 vote
@@ -95,6 +104,7 @@ en:
             start_question_button: Enable voting
             title: Results
           status:
+            allow_census_check_before_start: Allow users to check if they can vote before the election starts
             census: 'Census:'
             results_availability:
               after_end: Results available after the election ends
@@ -139,6 +149,8 @@ en:
           publish:
             invalid: There was a problem publishing the election.
             success: Election published successfully.
+          toggle_census_check:
+            error: There was an error enabling the census check.
           unpublish:
             invalid: There was a problem unpublishing the election.
             success: Election unpublished successfully.
@@ -181,6 +193,11 @@ en:
           update: "%{user_name} updated the %{resource_name} election in %{space_name}"
         question:
           update: "%{user_name} updated the questions of the %{resource_name} election"
+      census_checks:
+        show:
+          description: This means that, once the election starts, you can vote in it.
+          exit_button: Exit the census check
+          title: You have been successfully verified
       censuses:
         census_ready_html: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
         census_size_html:
@@ -200,9 +217,6 @@ en:
           authorization_options_invalid: Unfortunately, although you have all the required authorizations, some of them are not valid for this election.
           exit_button: Exit the voting booth
           invalid: You are not authorized to vote in this election.
-          missing: Your user misses some required authorizations. Please check the information and try again.
-          not_authorized: '"%{adapter}" authorization does not match the required conditions.'
-          not_granted: '"%{adapter}" authorization is not granted.'
           resume_with_method: Resume verification with %{name}
           verify_with_method: Verify with %{name}
         token_csv:
@@ -248,6 +262,9 @@ en:
           title: Election questions
         show:
           active_voting_until: 'Active voting until: %{end_date}'
+          check_census_button: Check if I can vote
+          check_census_explanation: This election has not started yet, but you can check if you are included in the census.
+          edit_vote_button: Edit vote
           vote_button: Vote
           voted: You have already voted. You can vote again, only your last vote will be counted.
           votes_count:
@@ -260,6 +277,10 @@ en:
             per_question: Results are available per question. You can see the results for each question after voting is enabled and results are published.
             real_time: Results are available in real time. You can see the results while voting is in progress.
           title: Results
+          total: 'TOTAL:'
+          total_votes:
+            one: 1 vote
+            other: "%{count} votes"
       models:
         election:
           fields:
@@ -302,9 +323,13 @@ en:
         question:
           back: Back
           cast_vote: Cast vote
+          max_choices: 'Max choices: %{count}'
+          max_choices_alert: You have selected too many options. Please deselect some to continue.
+          max_choices_exceeded: You cannot select more than %{max} options. Please go back and adjust your selection.
           next: Next
         receipt:
-          description: Yo can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.
+          description: You can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.
+          edit_vote: Edit your vote
           exit_button: Exit the voting booth
           title: Your votes have been cast successfully
     metadata:

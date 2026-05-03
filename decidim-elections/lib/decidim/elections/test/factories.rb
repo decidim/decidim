@@ -69,8 +69,8 @@ FactoryBot.define do
     end
 
     trait :with_questions do
-      after :create do |election, _evaluator|
-        create_list(:election_question, 2, :with_response_options, :voting_enabled, election:)
+      after :create do |election, evaluator|
+        create_list(:election_question, 2, :with_response_options, :voting_enabled, election:, skip_injection: evaluator.skip_injection)
       end
     end
 
@@ -95,8 +95,12 @@ FactoryBot.define do
   end
 
   factory :election_question, class: "Decidim::Elections::Question" do
+    transient do
+      skip_injection { false }
+    end
+
     association :election
-    body { generate_localized_title(:question_body) }
+    body { generate_localized_title(:question_body, skip_injection:) }
     description { generate_localized_description(:question_description) }
     question_type { "multiple_option" }
     sequence(:position) { |n| n }

@@ -29,8 +29,8 @@ describe "Mobile header" do
       click_on(id: "dc-dialog-accept")
     end
 
-    it "has a sticky header" do
-      expect(page).to have_css("#sticky-header-container")
+    it "has a header" do
+      expect(page).to have_css("#header-container")
     end
 
     context "when user view the header" do
@@ -51,7 +51,7 @@ describe "Mobile header" do
       it "includes access to the language selector and search bar" do
         within ".menu-bar__main-dropdown__top" do
           expect(page).to have_css(".filter-search")
-          expect(page).to have_css("#dropdown-trigger-language-chooser-mobile")
+          expect(page).to have_css("#trigger-dropdown-menu-language-chooser-mobile")
         end
       end
     end

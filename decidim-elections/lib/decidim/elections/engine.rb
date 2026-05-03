@@ -7,6 +7,7 @@ module Decidim
 
       routes do
         resources :elections, except: [:destroy] do
+          resource :census_check, only: [:new, :create, :show], controller: :census_checks
           resources :votes, except: [:edit, :destroy] do
             collection do
               get :confirm
@@ -25,6 +26,10 @@ module Decidim
           root to: "elections#index"
         end
         get "/", to: redirect("elections", status: 301)
+      end
+
+      initializer "decidim_elections.register_icons" do
+        Decidim.icons.register(name: "Decidim::Elections::Election", icon: "file-paper-2-line", description: "Elections", category: "activity", engine: :elections)
       end
 
       initializer "decidim_elections.add_cells_view_paths" do
@@ -46,7 +51,7 @@ module Decidim
           manifest.voter_form_partial = "decidim/elections/censuses/token_csv_form"
           manifest.after_update_command = "Decidim::Elections::Admin::Censuses::TokenCsv"
           manifest.user_query do |election|
-            Decidim::Elections::Voter.where(election: election)
+            Decidim::Elections::Voter.where(election:)
           end
         end
 

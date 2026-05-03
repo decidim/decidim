@@ -217,7 +217,7 @@
     @apply md:gap-4;
 
     .card__proposals-item {
-      @apply flex flex-col justify-between border-solid border-[#D3D5D9] border rounded;
+      @apply flex flex-col mt-6 justify-between border-solid border-[#D3D5D9] border rounded;
 
       .card__grid {
         @apply mb-2.5 md:mb-0 flex-1 justify-between;

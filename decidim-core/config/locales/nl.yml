@@ -125,10 +125,6 @@ nl:
         update: "%{user_name} heeft de %{resource_name} OAuth-toepassing bijgewerkt"
       organization:
         update: "%{user_name} heeft de organisatie-instellingen bijgewerkt"
-      participatory_space_private_user:
-        create: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
-        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd als privé deelnemer"
-        delete: "%{user_name} heeft de deelnemer %{resource_name} verwijderd als privé-deelnemer"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
         create_with_parent: "%{user_name} heeft het bereik %{resource_name} gemaakt binnen het bereik %{parent_scope}"
@@ -594,7 +590,6 @@ nl:
         latlng_text: 'breedte: %{latitude}, lengtegraad: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Help
       home: Home
     messaging:
       conversation_mailer:
@@ -707,17 +702,17 @@ nl:
           proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
         footer_sub_hero:
           footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
-          register: Registreren
         hero:
           participate: Deelnemen
           welcome: Welkom op het portaal van de burgerinspraak %{organization}!
-        sub_hero:
-          register: Registreren
       index:
         standalone_pages: Pages
         subheading: Navigeer door de helppagina's van %{name}
         title: Help
         topics: Onderwerpen
+    participatory_space_members:
+      index:
+        members: Leden
     profile:
       deleted: Verwijderde deelnemer
     profiles:
@@ -866,8 +861,6 @@ nl:
         submit_button: Een uitnodiging sturen
       no_invitations_remaining: Er zijn nog geen uitnodigingen
       send_instructions: Er is een uitnodigingsmail verzonden naar %{email}.
-      updated: Uw wachtwoord is succesvol ingesteld. U bent nu ingelogd.
-      updated_not_active: Uw wachtwoord is succesvol ingesteld.
     mailer:
       confirmation_instructions:
         action: Bevestig mijn account
@@ -883,10 +876,8 @@ nl:
         decline: Uitnodiging afwijzen
         hello: Hallo %{email},
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
-        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privé deelnemer van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
-        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privé-deelnemer van %{application}, je kunt het accepteren via de onderstaande link.
         subject: Instructies voor de uitnodiging
       password_change:
         greeting: Hallo %{recipient}!

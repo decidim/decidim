@@ -35,7 +35,6 @@ it:
       id: ID
       newsletter:
         body: Testo
-        send_to_all_users: Invia a tutti gli utenti
         send_to_followers: Invia ai follower
         send_to_participants: Invia ai partecipanti
         subject: Oggetto
@@ -49,7 +48,6 @@ it:
         default_locale: Lingua predefinita
         description: Descrizione
         enable_omnipresent_banner: Mostra banner onnipresente
-        enable_participatory_space_filters: Abilita filtri di spazio partecipativo
         facebook_handler: Gestore di Facebook
         favicon: Icona
         force_authentication: Autenticazione obbligata
@@ -90,11 +88,6 @@ it:
         welcome_notification_body: Testo del messaggio di Benvenuto
         welcome_notification_subject: Oggetto della mail con messaggio di Benvenuto
         youtube_handler: Gestore di YouTube
-      participatory_space_private_user:
-        email: Email
-        name: Nome
-      participatory_space_private_user_csv_import:
-        file: File
       scope:
         code: Codice
         name: Nome
@@ -136,10 +129,6 @@ it:
           attributes:
             official_img_footer:
               allowed_file_content_types: File immagine non valido
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: File di importazione malformato, leggere attentamente le istruzioni e assicurarsi che il file sia codificato UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -183,12 +172,10 @@ it:
           </ul>
           Se cambi idea, puoi ripristinarlo più tardi.
         export: Esporta
-        export-selection: Esporta selezione
+        export_all: Esporta tutto
         import: Importazione
         newsletter:
           new: Nuova newsletter
-        participatory_space_private_user:
-          new: Nuovo utente dello spazio partecipativo privato
         per_page: Per pagina
         restore: Ripristina
         send_me_a_test_email: Inviami una email di prova
@@ -209,7 +196,6 @@ it:
           alert: 'Richiesto: rivedi i nostri termini di utilizzo per l''amministratrice/tore'
           callout: Prenditi un momento per leggere i Termini di utilizzo per l'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
           cta: Rivedili ora.
-        title: Termini di servizio amministrativi
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
@@ -252,8 +238,6 @@ it:
         edit:
           title: Modifica cartella
           update: Aggiorna
-        index:
-          attachment_collections_title: Cartelle dell'allegato
         new:
           create: Creare
           title: Nuova cartella
@@ -269,8 +253,6 @@ it:
         edit:
           title: Modifica allegato
           update: Aggiorna
-        index:
-          attachments_title: Allegati
         new:
           create: Crea allegato
           title: Nuovo allegato
@@ -285,13 +267,11 @@ it:
       block_user:
         bulk_new:
           action: Blocca account e invia la motivazione
-          already_reported_html: Continuando con questa azione nasconderai anche tutti i contenuti dei partecipanti.
           description: Bloccare un utente renderà il suo account inutilizzabile, puoi fornire nelle tue motivazioni e linee guida i modi in cui ritieni di prendere in considerazione lo sblocco dell'utente.
           justification: Motivazione
           title: Blocca utenti
         new:
           action: Blocca account e invia la motivazione
-          already_reported_html: Continuando con questa azione nasconderai anche tutti i contenuti dei partecipanti.
           description: Il blocco di un utente renderà quell'account inutilizzabile. È possibile fornire nella propria giustificazione tutte le linee guida su come prendere in considerazione lo sblocco dell'utente.
           justification: Motivazione
           title: Blocca utente %{name}
@@ -330,7 +310,6 @@ it:
           title: 'Aggiungi componente: %{name}'
         publish:
           success: Il componente è stato pubblicato con successo.
-        title: Componenti
         unpublish:
           success: Il componente è stato pubblicato con successo.
         update:
@@ -347,7 +326,6 @@ it:
           text: Cerca per email utente, nome o nickname
         managed_user_name: Gestione utente
         solved: Risolto
-        title: Verifica dei conflitti
         transfer:
           email: Email
           error: Si è verificato un problema durante il trasferimento dell'utente corrente al partecipante gestito.
@@ -385,7 +363,6 @@ it:
         form:
           domain_too_short: Dominio troppo corto
         update:
-          error: Impossibile aggiornare l'elenco dei domini esterni consentiti
           success: L'elenco di domini esterni consentiti è stata aggiornata correttamente.
       exports:
         export_as: "%{name} esporta come %{export_format}"
@@ -422,17 +399,6 @@ it:
           values:
             'false': Ufficializzato
             'true': Non ufficializzato
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invito accettato
-            values:
-              'false': Non accettato
-              'true': Accettato
-          user_invitation_sent_at_not_null:
-            label: Invito inviato
-            values:
-              'false': Non inviato
-              'true': Inviato
         private_space_eq:
           label: Privato
           values:
@@ -470,7 +436,6 @@ it:
           import_csv:
             explanation: 'Orientamenti per il file:'
             message_1: I file CSV sono supportati
-            message_2: ".csv file contenente i dati relativi agi indirizzi e-mail"
       help_sections:
         error: Si è verificato un errore durante l'aggiornamento delle sezioni dell'Aiuto.
         form:
@@ -507,7 +472,6 @@ it:
           impersonate: Impersonare
           impersonate_existing_managed_user: Gestisci partecipante %{name}"
           impersonate_existing_user: Gestisci partecipante %{name}"
-          impersonate_new_managed_user: Gestisci nuovo partecipante
       imports:
         and: e
         data_errors:
@@ -563,8 +527,11 @@ it:
         promotions:
           new:
             explanation: I partecipanti gestiti possono essere promossi a partecipanti standard. Significa che saranno invitati ad effettuare la richiesta e non sarai in grado di gestirli di nuovo. Il partecipante invitato riceverà un'email per accettare il tuo invito.
-            new_managed_user_promotion: Nuova promozione di partecipanti gestiti
             promote: Promuovere
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Carica il tuo file CSV
       menu:
         admin_log: Registro delle attività di amministrazione
         admins: Amministratori
@@ -631,8 +598,6 @@ it:
             sent_to: Inviato a
             subject: Oggetto
           name: Newsletter
-        participatory_space_private_user:
-          name: Partecipante privato allo spazio partecipativo
         scope:
           fields:
             name: Nome
@@ -743,7 +708,6 @@ it:
           title: Modelli Newsletter
           use_template: Utilizza questo Modello
         show:
-          preview: 'Anteprima Modello: %{template_name}'
           use_template: Utilizza questo Modello
       newsletters:
         confirm_recipients:
@@ -771,7 +735,6 @@ it:
           has_been_sent_to: 'E'' stata inviata a: '
           not_sent: Non inviato
           participants: 'partecipanti '
-          private_members: 'membri privati '
           segmented_to: 'Segmentato a %{subject}: '
           subscribed_count: 'Sottoscrittori:'
           title: Newsletters
@@ -788,7 +751,6 @@ it:
           deliver: Invia la newsletter
           followers_help: Invia newsletter a tutti gli utenti confermati che seguono tutti gli spazi partecipativi selezionati nella lista.
           participants_help: Invia newsletter a tutti gli utenti confermati che hanno partecipato a uno degli spazi partecipativi selezionati nella lista.
-          private_members_help: Invia una newsletter a tutti gli utenti confermati aggiunti agli spazi partecipativi privati selezionati.
           recipients_count: Questa newsletter verrà inviata agli utenti <strong id='recipients_count'>%{count}</strong>.
           select_assemblies: Scegli assemblee
           select_conferences: Scegli conferenze
@@ -808,7 +770,6 @@ it:
         send_to_user:
           sent_successfully: Newsletter inviata con successo a %{email}
         show:
-          preview: Anteprima
           select_recipients_to_deliver: Seleziona destinatari a cui inviare
           send_me_a_test_email: Inviami una email di prova
           subject: Oggetto
@@ -899,54 +860,6 @@ it:
           up: Su
         form:
           add: Aggiungi alla lista consentita
-          title: Elenco di domini esterni consentiti
-      participatory_space_private_users:
-        create:
-          error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
-          success: Accesso utente privato spazio partecipativo creato con successo.
-        destroy:
-          error: Si è verificato un errore durante l'eliminazione di un utente privato per questo spazio partecipativo.
-          success: Accesso utente privato spazio distruttivo distrutto con successo.
-        edit:
-          title: Modifica partecipante privato allo spazio partecipativo.
-          update: Aggiorna
-        index:
-          import_via_csv: Importa da CSV
-          publish_all: Pubblica tutto
-          title: Utente privato dello spazio partecipativo
-          unpublish_all: Annulla la pubblicazione di tutto
-        new:
-          create: Creare
-          title: Nuovo utente privato dello spazio partecipativo.
-        publish_all:
-          error: Si è verificato un errore durante l'aggiunta degli utenti privati per questo spazio partecipativo.
-          success: Ha pubblicato con successo tutti i partecipanti privati per questo spazio partecipativo
-        unpublish_all:
-          error: Si è verificato un problema di annullamento della pubblicazione di tutti i partecipanti privati per questo spazio partecipativo.
-          success: Tutti i partecipanti privati per questo spazio partecipativo sono stati rimossi dalla pubblicazione con successo
-        update:
-          error: Si è verificato un errore durante l'aggiornamento dell'utente privato per questo spazio partecipativo.
-          success: Utente privato dello spazio partecipativo aggiornato con successo
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Si è verificato un problema durante la lettura del file CSV. Assicurati di aver seguito le istruzioni.
-          success: File CSV caricato con successo, stiamo inviando un'email di invito ai partecipanti. Potrebbe richiedere un po' di tempo.
-        new:
-          csv_upload:
-            title: Carica il tuo file CSV
-          destroy:
-            button: Elimina tutti i partecipanti privati
-            confirm: Sei sicuro di voler eliminare tutti i partecipanti privati? Questa azione non può essere annullata, non sarai in grado di recuperarli.
-            empty: Non hai partecipanti privati.
-            explanation: Hai %{count} partecipanti privati.
-            title: Elimina tutti i partecipanti privati
-          example_file: 'File di esempio:'
-          explanation: 'Carica il file CSV. Il file deve contenere due colonne (e-mail e nome) senza intestazioni: nella prima sono elencati gli indirizzi e-mail degli utenti che si desidera aggiungere allo spazio partecipativo, nella seconda i loro nomi. Evita di usare caratteri non validi come `<>?%&^*#@()[]=+:;"{}\|` nella colonna dei nomi.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Importa partecipanti privati tramite CSV
-          upload: Carica File
       reminders:
         create:
           error: Si è verificato un errore durante la creazione dei promemoria.
@@ -1023,7 +936,6 @@ it:
           title: Nuovo argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo argomento.
-          success: Argomento aggiornato correttamente
       static_pages:
         create:
           error: Si è verificato un errore creando una nuova pagina.
@@ -1111,16 +1023,9 @@ it:
           internal_name: Etichetta interna
           name: Etichetta
       titles:
-        admin_log: Registro di amministrazione
-        area_types: Tipi di ambito territoriale
         areas: Ambiti territoriali
         authorization_workflows: Metodi di verifica
-        dashboard: Cruscotto (Dashboard)
-        impersonatable_users: Partecipanti gestibili
-        impersonations: Gestione dei partecipanti
         panel: Amministratrice/tore
-        participants: Partecipanti
-        scope_types: Tipi di ambito
         scopes: Ambiti
       users:
         create:

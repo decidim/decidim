@@ -28,14 +28,10 @@ header {
     #flash-messages-container {
       @apply mt-40 md:mt-0;
     }
-
-    #menu-bar-container {
-      @apply mt-[140px] md:mt-0;
-    }
   }
 
-  #sticky-header-container {
-    @apply fixed w-full top-0 z-40 bg-white md:relative transition-top duration-300;
+  #header-container {
+    @apply w-full z-40 bg-white;
   }
 
   .main-bar {
@@ -69,11 +65,11 @@ header {
       @apply hidden md:block col-span-2 col-start-5 xl:col-start-4;
 
       form {
-        @apply block relative rounded text-md border border-neutral-200 outline outline-1 outline-transparent rounded bg-background-2 leading-relaxed;
+        @apply block relative rounded text-md border border-neutral-200 outline outline-1 outline-transparent rounded bg-background-2 leading-none;
       }
 
       input[type="text"] {
-        @apply block bg-transparent w-full px-4 py-2 h-full;
+        @apply block bg-transparent w-full pl-4 pr-10 py-2 h-full;
 
         &::placeholder {
           @apply text-neutral-500 text-sm ltr:pl-0 rtl:pr-0;
@@ -103,7 +99,7 @@ header {
 
     &__links-desktop,
     > *:last-child:not(.main-bar__back-button) {
-      @apply col-span-1 md:col-start-8 lg:col-start-8 lg:col-span-5 justify-self-end;
+      @apply col-span-1 lg:col-start-8 lg:col-start-8 lg:col-span-5 justify-self-end;
     }
 
     &__links-desktop {
@@ -125,12 +121,18 @@ header {
         }
       }
 
+      .card__highlight-img {
+        svg {
+          @apply w-full h-full;
+        }
+      }
+
       &__dropdown {
-        @apply flex items-end absolute top-0 right-0 z-30 h-screen;
+        @apply flex items-end absolute top-0 right-0 bg-[rgba(0,0,0,0.25)] transition duration-300 z-30 h-screen cursor-auto;
 
         .menu-bar {
           &__main-dropdown {
-            @apply hidden lg:flex flex-col h-full md:p-8;
+            @apply hidden sm:flex flex-col h-full sm:p-8;
 
             &__left {
               @apply w-full;
@@ -141,7 +143,7 @@ header {
             @apply w-full;
 
             li {
-              @apply py-3 md:py-3.5 border-b border-t-0 last:border-0 border-gray-3 #{!important};
+              @apply py-3 sm:py-3.5 border-b border-t-0 last:border-0 border-gray-3 #{!important};
 
               a {
                 @apply no-underline;
@@ -188,7 +190,7 @@ header {
       }
 
       svg + span {
-        @apply text-md leading-[22px] first-letter:uppercase font-semibold;
+        @apply text-md leading-[22px] first-letter:uppercase font-semibold whitespace-nowrap;
       }
     }
 
@@ -233,10 +235,6 @@ header {
 
         .dropdown__item {
           @apply text-md;
-        }
-
-        .main-bar {
-          @apply border-b border-gray;
         }
 
         .main-bar__avatar {
@@ -313,23 +311,23 @@ header {
 
     /* overwrite default dropdown styles */
     [id*="dropdown-menu"] {
-      @apply py-0 mx-0 w-full lg:w-fit;
+      @apply py-0 mx-0 w-full;
 
       &[aria-hidden="true"] {
-        @apply md:hidden;
+        @apply sm:hidden;
       }
     }
   }
 
   .menu-bar {
-    @apply container h-full flex justify-between items-center lg:relative last-of-type:[&>svg]:hidden;
+    @apply container h-full flex justify-between items-center sm:relative last-of-type:[&>svg]:hidden;
 
     &__container {
-      @apply bg-white relative h-14 flex justify-between;
+      @apply bg-primary relative h-14 flex justify-between;
     }
 
     &__breadcrumb-desktop {
-      @apply hidden lg:flex justify-between items-center [&>*]:text-md [&>*]:text-black gap-x-2;
+      @apply hidden lg:flex justify-between items-center [&>*]:text-md [&>*]:text-white gap-x-2;
 
       .no-interactive {
         @apply font-normal px-0;
@@ -348,7 +346,7 @@ header {
       }
 
       &__dropdown-wrapper {
-        @apply flex items-center cursor-pointer underline focus:backdrop-brightness-75 focus:outline-none;
+        @apply flex items-center cursor-pointer underline;
       }
 
       &__dropdown-content {
@@ -422,7 +420,7 @@ header {
       @apply block lg:hidden w-full z-20;
 
       &__dropdown-trigger {
-        @apply flex items-center justify-between text-black;
+        @apply flex items-center justify-between text-white;
 
         svg {
           @apply w-6 h-6 fill-current;
@@ -459,87 +457,11 @@ header {
       }
     }
 
-    &__language-chooser {
-      @apply absolute top-full left-0 rounded w-full bg-gray-5;
-
-      &-desktop {
-        @apply border-r border-gray-6 pr-10;
-
-        &.focus-mode {
-          @apply border-none pr-0;
-        }
-      }
-
-      &-desktop,
-      &-mobile {
-        & button {
-          @apply border border-neutral-300 rounded px-4 py-2 gap-x-2;
-
-          & > span,
-          & > svg:first-of-type {
-            @apply text-neutral-500;
-
-            display: block !important;
-          }
-
-          & > span.mobile-holder {
-            @apply items-center gap-x-1;
-
-            display: flex !important;
-          }
-
-          & > span {
-            @apply text-sm font-normal;
-          }
-
-          & > svg:last-of-type {
-            @apply text-gray-2  ml-1;
-
-            display: block !important;
-          }
-        }
-
-        #dropdown-menu-language-chooser {
-          @apply absolute top-full bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] p-2;
-
-          ul {
-            @apply flex flex-col space-y-2;
-
-            li:hover {
-              @apply rounded;
-            }
-
-            .is-active {
-              @apply bg-neutral-200 rounded;
-
-              &:hover {
-                @apply bg-[var(--secondary)];
-              }
-            }
-          }
-        }
-
-        #dropdown-menu-language-chooser-mobile {
-          @apply overflow-scroll h-[50vh];
-
-          ul {
-            .is-active {
-              @apply bg-neutral-200 rounded;
-
-              &:hover {
-                @apply bg-[var(--secondary)];
-              }
-            }
-          }
-        }
-      }
-    }
-
     &__dropdown-menu {
-      @apply w-full md:w-1/4 px-4 md:px-0 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-[var(--secondary)];
+      @apply w-full sm:w-1/4 px-4 sm:px-0 pt-0 pb-3 sm:py-3 divide-y divide-gray-3 text-[var(--secondary)];
 
       > * {
-        @apply py-3 md:py-3.5 md:px-2;
+        @apply py-3 sm:py-3.5 sm:px-2;
       }
 
       a {
@@ -564,10 +486,10 @@ header {
     }
 
     &__main-dropdown {
-      @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full lg:w-[530px] h-screen md:h-auto;
+      @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full lg:w-[530px] h-screen lg:h-auto;
 
       &__left {
-        @apply p-4 md:py-8 md:px-0 space-y-5 hidden md:block md:w-3/4;
+        @apply p-4 sm:py-8 sm:px-0 space-y-5 hidden sm:block sm:w-3/4;
 
         &-top {
           @apply border-b-4 border-gray-3 pb-3;
@@ -578,14 +500,14 @@ header {
         @apply w-full px-4;
 
         &-menu {
-          @apply w-full md:w-[100%] mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
+          @apply w-full lg:w-[100%] mt-0 grid lg:grid-cols-2 gap-x-6 text-secondary;
 
           > * {
-            @apply py-3 md:py-3.5 border-b last:border-0 border-gray-3;
+            @apply py-3 lg:py-3.5 border-b last:border-0 border-gray-3;
 
             /* since the grid has 2 columns, remove the border for these last 2 columns */
             &:nth-last-child(-n + 2) {
-              @apply md:border-0;
+              @apply lg:border-0;
             }
           }
 
@@ -604,7 +526,7 @@ header {
       }
 
       &__bottom {
-        @apply hidden md:flex;
+        @apply hidden lg:flex;
 
         &-right {
           @apply mr-2 mb-2;
@@ -629,7 +551,11 @@ header {
         @apply flex-col ring-transparent rounded-lg shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)];
 
         &-img {
-          @apply w-full aspect-[3/1] rounded-tl-lg rounded-tr-lg;
+          @apply w-full aspect-[21/9] rounded-none rounded-tl-lg rounded-tr-lg;
+
+          svg {
+            @apply fill-primary;
+          }
         }
 
         &-text {

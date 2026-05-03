@@ -52,8 +52,8 @@ describe Decidim::OpenDataExporter do
 
         it "includes the LICENSE content" do
           expect(csv_data).to include("License")
-          expect(csv_data).to include("is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/")
-          expect(csv_data).to include("Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/")
+          expect(csv_data).to include("is made available under the Open Database License: https://opendatacommons.org/licenses/odbl/1.0/")
+          expect(csv_data).to include("Database Contents License: https://opendatacommons.org/licenses/dbcl/1.0/")
         end
       end
     end
@@ -198,7 +198,7 @@ describe Decidim::OpenDataExporter do
         let(:file_data) { zip_contents.glob("README.md").first.get_input_stream.read }
 
         it "includes the help description for all the entities" do
-          expect(file_data).to include("## users (15 resources)")
+          expect(file_data).to include("## users (17 resources)")
           expect(file_data).to include("## proposals (15 resources)")
           expect(file_data).to include("## proposal_comments (1 resource)")
           expect(file_data).to include("## results (1 resource)")

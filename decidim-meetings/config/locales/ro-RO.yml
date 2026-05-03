@@ -111,7 +111,6 @@ ro:
           success: Întâlnire duplicată cu succes.
         new:
           copy: Copiază
-          title: Duplicarea reuniunii
       tooltips:
         cannot_close_meetings: Nu se poate închide această întâlnire deoarece este creată de un participant
         cannot_duplicate_meetings: Nu se poate duplica această întâlnire deoarece este creată de un participant
@@ -217,6 +216,8 @@ ro:
           description_own: Ai participat la %{score} întâlniri.
           name: Întâlniri la care ai participat
           next_level_in: Participă la încă %{score} întâlniri pentru a atinge următorul nivel!
+          unearned_another: Acest participant nu a participat încă la nicio ședință.
+          unearned_own: Încă nu ați participat la nicio ședință.
     meetings:
       actions:
         agenda: Agendă
@@ -278,7 +279,6 @@ ro:
             non_user: Participant neexistent
             select_user: Selecteză un participant
           index:
-            invite_attendee: Invită participantul
             invites: Invitații
         meeting_closes:
           edit:
@@ -339,7 +339,6 @@ ro:
               few: Au fost %{count} înregistrări.
               other: Au fost %{count} înregistrări.
             reserved_slots_less_than: Trebuie să fie mai mic sau egal cu %{count}
-            title: Înregistrări
           update:
             invalid: A apărut o eroare la salvarea setărilor de înregistrare.
             success: Setarile inregistrarilor au fost salvate.
@@ -600,6 +599,7 @@ ro:
         meetings:
           attending_organizations: Organizațiile participante la întâlnire
           audio_url: Înregistrarea audio a întâlnirii
+          iframe_embed_type: Tipul de iframe încorporat în ședință
           location_hints: O indicație a locului în care se desfășoară întâlnirea
           registration_type: Tipul de înregistrare pentru participare la întâlnire
           registration_url: URL-ul pentru înregistrare ca participant la întâlnire

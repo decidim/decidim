@@ -15,7 +15,7 @@ describe "Initiatives" do
 
   context "when initiative types and scopes have not been created" do
     it "does not let access to the initiatives" do
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
 
       expect(page).to have_current_path(decidim.root_path)
       expect(page).to have_content("Initiatives are not yet configured by an administrator")
@@ -38,17 +38,17 @@ describe "Initiatives" do
       end
 
       it_behaves_like "shows contextual help" do
-        let(:index_path) { decidim_initiatives.initiatives_path }
+        let(:index_path) { decidim_initiatives.initiatives_path(locale: I18n.locale) }
         let(:manifest_name) { :initiatives }
       end
 
       it_behaves_like "editable content for admins" do
-        let(:target_path) { decidim_initiatives.initiatives_path }
+        let(:target_path) { decidim_initiatives.initiatives_path(locale: I18n.locale) }
       end
 
       context "when requesting the initiatives path" do
         before do
-          visit decidim_initiatives.initiatives_path
+          visit decidim_initiatives.initiatives_path(locale: I18n.locale)
         end
 
         it "lists all the initiatives" do
@@ -61,7 +61,7 @@ describe "Initiatives" do
 
         it "links to the individual initiative page" do
           click_on(translated(initiative.title, locale: :en))
-          expect(page).to have_current_path(decidim_initiatives.initiative_path(initiative))
+          expect(page).to have_current_path(decidim_initiatives.initiative_path(initiative, locale: I18n.locale))
         end
 
         it "displays the filter initiative type filter" do
@@ -87,7 +87,7 @@ describe "Initiatives" do
           let(:base_initiative) { nil }
 
           before do
-            visit decidim_initiatives.initiatives_path
+            visit decidim_initiatives.initiatives_path(locale: I18n.locale)
           end
 
           it "displays a warning" do
@@ -109,7 +109,7 @@ describe "Initiatives" do
           initiative.attachments.each do |attachment|
             attachment.file.purge
           end
-          visit decidim_initiatives.initiatives_path
+          visit decidim_initiatives.initiatives_path(locale: I18n.locale)
         end
 
         it "lists all the initiatives without errors" do
@@ -128,7 +128,7 @@ describe "Initiatives" do
 
           create(:attachment, attached_to: initiative)
 
-          visit decidim_initiatives.initiatives_path
+          visit decidim_initiatives.initiatives_path(locale: I18n.locale)
         end
 
         it "shows the card image" do
@@ -142,11 +142,73 @@ describe "Initiatives" do
     context "when there are more than 20 initiatives" do
       before do
         create_list(:initiative, 21, organization:)
-        visit decidim_initiatives.initiatives_path
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
       end
 
       it "shows the correct initiatives count" do
         expect(page).to have_content("21")
+      end
+    end
+
+    context "when user has pending initiatives" do
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:pending_initiative) { create(:initiative, :created, author: user, organization:) }
+      let!(:validating_initiative) { create(:initiative, :validating, author: user, organization:) }
+
+      before do
+        switch_to_host(organization.host)
+        login_as user, scope: :user
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
+      end
+
+      it "displays the pending initiatives section" do
+        expect(page).to have_css("#pending_initiatives")
+      end
+
+      it "displays the title for pending initiatives" do
+        within "#pending_initiatives" do
+          expect(page).to have_content("Draft & Pending initiatives")
+        end
+      end
+
+      it "displays the description for pending initiatives" do
+        within "#pending_initiatives" do
+          expect(page).to have_content("These initiatives are not public yet. Please review them and submit them for technical validation so they can be made public.")
+        end
+      end
+
+      it "lists the pending initiatives" do
+        within "#pending_initiatives" do
+          expect(page).to have_content(translated(pending_initiative.title, locale: :en))
+          expect(page).to have_content(translated(validating_initiative.title, locale: :en))
+        end
+      end
+
+      it "does not display pending initiatives in the main list" do
+        within "#initiatives" do
+          expect(page).to have_no_content(translated(pending_initiative.title, locale: :en))
+          expect(page).to have_no_content(translated(validating_initiative.title, locale: :en))
+        end
+      end
+    end
+
+    context "when user does not have pending initiatives" do
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:other_user) { create(:user, :confirmed, organization:) }
+      let!(:other_user_pending_initiative) { create(:initiative, :created, author: other_user, organization:) }
+
+      before do
+        switch_to_host(organization.host)
+        login_as user, scope: :user
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
+      end
+
+      it "does not display the pending initiatives section" do
+        expect(page).to have_no_css("#pending_initiatives")
+      end
+
+      it "does not display other users' pending initiatives" do
+        expect(page).to have_no_content(translated(other_user_pending_initiative.title, locale: :en))
       end
     end
   end

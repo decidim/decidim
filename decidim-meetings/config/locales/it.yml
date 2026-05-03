@@ -74,7 +74,6 @@ it:
           success: Riunione duplicata con successo.
         new:
           copy: copia
-          title: Riunione duplicata
     components:
       meetings:
         actions:
@@ -204,7 +203,6 @@ it:
             non_user: Utente non esistente
             select_user: Seleziona utente
           index:
-            invite_attendee: Invita il partecipante
             invites: Inviti
         meeting_closes:
           edit:
@@ -256,7 +254,6 @@ it:
               one: C'è stata %{count} registrazione.
               other: Ci sono state %{count} registrazioni.
             reserved_slots_less_than: Deve essere minore o uguale a %{count}
-            title: Registrazioni
           update:
             invalid: Si è verificato un problema salvando le impostazioni di registrazione.
             success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.

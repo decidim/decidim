@@ -7,7 +7,7 @@
     <%= sort_link(query, :created_at, t("models.participatory_process.fields.created_at", scope: "decidim.admin"), default_order: :desc) %>
   </th>
   <th>
-    <%= sort_link(query, :private_space, t("models.participatory_process.fields.private", scope: "decidim.admin")) %>
+    <%= sort_link(query, :access_mode, t("models.participatory_process.fields.access_mode", scope: "decidim.admin")) %>
   </th>
   <th class="table-list__actions">
     <%= sort_link(query, :published_at, t("models.participatory_process.fields.published", scope: "decidim.admin")) %>

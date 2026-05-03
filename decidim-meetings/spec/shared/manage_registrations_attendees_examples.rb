@@ -35,7 +35,7 @@ shared_examples "manage registrations attendees" do
           click_on "Validate"
         end
 
-        expect(page).to have_admin_callout("Registration code successfully validated")
+        expect(page).to have_callout("Registration code successfully validated")
         within "tr", text: registration.user.email do
           expect(page).to have_content "Attended"
         end
@@ -48,7 +48,7 @@ shared_examples "manage registrations attendees" do
           click_on "Validate"
         end
 
-        expect(page).to have_admin_callout("This registration code is invalid")
+        expect(page).to have_callout("This registration code is invalid")
       end
     end
 
@@ -66,7 +66,7 @@ shared_examples "manage registrations attendees" do
           click_on "Mark as attendee"
         end
 
-        expect(page).to have_admin_callout("Registration marked as attended successfully")
+        expect(page).to have_callout("Registration marked as attended successfully")
 
         within "tr", text: registration.user.email do
           expect(page).to have_content "Attended"
@@ -81,7 +81,7 @@ shared_examples "manage registrations attendees" do
       it "can mark the user as attendee following the QR code short link url" do
         visit registration.validation_code_short_link.short_url
 
-        expect(page).to have_admin_callout("Registration marked as attended successfully")
+        expect(page).to have_callout("Registration marked as attended successfully")
         within "tr", text: registration.user.email do
           expect(page).to have_content "Attended"
         end

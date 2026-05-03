@@ -24,6 +24,12 @@ module Decidim
       include_examples "referable interface"
       include_examples "localizable interface"
 
+      shared_examples "unauthorized Meeting" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Meeting because you do not have permissions")
+        end
+      end
+
       describe "id" do
         let(:query) { "{ id }" }
 
@@ -72,9 +78,7 @@ module Decidim
         context "when is not set" do
           let(:model) { create(:meeting, component:) }
 
-          it "returns the publishedAt field" do
-            expect(response).to be_nil
-          end
+          it_behaves_like "unauthorized Meeting"
         end
       end
 
@@ -107,7 +111,7 @@ module Decidim
             let(:model) { create(:meeting, :published, component:, iframe_access_level:) }
 
             it "displays the field value" do
-              expect(response["iframeAccessLevel"]).to eq(model.iframe_access_level)
+              expect(response["iframeAccessLevel"]).to eq(model.iframe_access_level.upcase)
             end
           end
         end
@@ -126,7 +130,7 @@ module Decidim
             let(:model) { create(:meeting, :published, component:, iframe_embed_type:) }
 
             it "displays the field value" do
-              expect(response["iframeEmbedType"]).to eq(model.iframe_embed_type)
+              expect(response["iframeEmbedType"]).to eq(model.iframe_embed_type.upcase)
             end
           end
         end
@@ -140,7 +144,7 @@ module Decidim
             let(:model) { create(:meeting, :published, component:, registration_type:) }
 
             it "displays the field value" do
-              expect(response["registrationType"]).to eq(model.registration_type)
+              expect(response["registrationType"]).to eq(model.registration_type.upcase)
             end
           end
         end
@@ -433,9 +437,7 @@ module Decidim
         let(:root_value) { model.reload }
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       describe "transparent" do
@@ -446,19 +448,17 @@ module Decidim
         end
       end
 
-      context "when participatory space is private" do
-        let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
+      context "when participatory space is restricted" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :restricted, organization: current_organization) }
         let(:current_component) { create(:meeting_component, participatory_space:) }
         let(:model) { create(:meeting, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
-      context "when participatory space is private but transparent" do
-        let(:participatory_space) { create(:assembly, :private, :transparent, organization: current_organization) }
+      context "when participatory space is transparent" do
+        let(:participatory_space) { create(:assembly, :transparent, organization: current_organization) }
         let(:current_component) { create(:meeting_component, participatory_space:) }
         let(:model) { create(:meeting, :published, component: current_component) }
         let(:query) { "{ id }" }
@@ -474,9 +474,7 @@ module Decidim
         let(:model) { create(:meeting, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       context "when component is not published" do
@@ -484,9 +482,7 @@ module Decidim
         let(:model) { create(:meeting, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       context "when meeting is moderated" do
@@ -494,9 +490,7 @@ module Decidim
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns all the required fields" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       context "when meeting is not published" do
@@ -504,9 +498,7 @@ module Decidim
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
     end
   end

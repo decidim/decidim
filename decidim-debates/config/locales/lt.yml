@@ -114,7 +114,6 @@ lt:
           back: Atgal
           create: Sukurti
         orders:
-          commented: Labiausiai komentuota
           label: Rikiuoti debatus pagal
           random: Atsitiktinė tvarka
           recent: Naujausia

@@ -6,6 +6,7 @@ require "decidim/forms/test/shared_examples/manage_questionnaires/add_questions"
 require "decidim/forms/test/shared_examples/manage_questionnaires/update_questions"
 require "decidim/forms/test/shared_examples/manage_questionnaires/add_display_conditions"
 require "decidim/forms/test/shared_examples/manage_questionnaires/update_display_conditions"
+require "decidim/forms/test/shared_examples/manage_questionnaires/draggable_behavior"
 
 shared_examples_for "manage questionnaires" do
   let(:body) do
@@ -33,6 +34,7 @@ shared_examples_for "manage questionnaires" do
     it_behaves_like "update questions"
     it_behaves_like "add display conditions"
     it_behaves_like "update display conditions"
+    it_behaves_like "manage questionnaire draggable behavior"
   end
 
   context "when the questionnaire is already responded" do

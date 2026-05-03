@@ -13,7 +13,7 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
-        resources :meetings, only: [:index, :show, :new, :create, :edit, :update, :withdraw] do
+        resources :meetings, only: [:index, :show, :new, :create, :edit, :update] do
           member do
             put :withdraw
           end
@@ -79,6 +79,12 @@ module Decidim
         DataMigrate.configure do |config|
           config.data_migrations_path << root.join("db/data").to_s
         end
+      end
+
+      initializer "decidim_meetings.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Meetings::MeetingsMutationType
+        )
       end
 
       initializer "decidim_meetings.content_processors" do |_app|

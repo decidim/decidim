@@ -196,6 +196,7 @@ cs:
         date: Vyberte datum pro %{label}
         time: Vyberte čas pro %{label}
       picker:
+        date_button: Otevřít výběr kalendáře pro %{label}
         time_button: Otevřít výběr času pro %{label}
   decidim:
     accessibility:
@@ -203,7 +204,6 @@ cs:
       front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
       opens_in_new_tab: Otevře se v nové kartě
-      secondary_menu: Sekundární menu
       skip_button: Přeskočit na hlavní obsah
     account:
       blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
@@ -221,6 +221,7 @@ cs:
         success: Účet byl úspěšně smazán.
       download_your_data_export:
         export_expired: Export vypršel. Zkuste vytvořit nový export.
+        export_not_found: Export, ke kterému jste přistupovali, neexistuje, nebo nemáte přístup ke stažení
         file_no_exists: Soubor neexistuje
         notice: Probíhá stahování vašich dat. Po dokončení obdržíte e-mail.
       email_change:
@@ -288,6 +289,10 @@ cs:
         results: výsledky
       impersonation_log:
         manage: "%{user_name} spravoval %{resource_name}, protože %{reason}"
+      member:
+        create: "%{user_name} pozval %{resource_name} k členství"
+        create_via_csv: "%{user_name} pozval %{resource_name} přes CSV, aby byl členem"
+        delete: "%{user_name} odstranil uživatele %{resource_name} jako člena"
       moderation:
         bulk_hide: "%{user_name} skryl %{reported_count} zdroje"
         bulk_unhide: "%{user_name} zrušil skrytí %{reported_count} zdrojů"
@@ -304,12 +309,8 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} aplikaci OAuth"
         update: "%{user_name} aktualizovala %{resource_name} aplikaci OAuth"
       organization:
-        update: "%{user_name} aktualizovala nastavení organizace"
+        update: "%{user_name} aktualizoval nastavení organizace"
         update_external_domain: "%{user_name} aktualizoval externí domény organizace"
-      participatory_space_private_user:
-        create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
-        create_via_csv: "%{user_name} pozval %{resource_name} prostřednictvím CSV k tomu, aby byl soukromým účastníkem"
-        delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
         create: "%{user_name} vytvořil oblast působnosti %{resource_name}"
         create_with_parent: "%{user_name} vytvořil oblast působnosti %{resource_name} uvnitř oblasti působnosti %{parent_scope}"
@@ -609,6 +610,7 @@ cs:
     contact: Kontakt
     content_blocks:
       announcement:
+        body: Text oznámení
         name: Oznámení
       cta:
         name: Tlačítko obrázek, text a Výzva k akci
@@ -619,10 +621,8 @@ cs:
         description: Popis
       footer_sub_hero:
         name: Zápatí pod hlavním pruhem
-      global_menu:
-        name: Globální menu
       hero:
-        name: Obrázek hrdiny a CTA
+        name: Obrázek hrdiny a výzva k akci
       hero_settings_form:
         background_image: Obrázek pozadí
         cta_button_path: URL tlačítka Výzvy k akci
@@ -762,6 +762,7 @@ cs:
     doorkeeper:
       authorizations:
         new:
+          api_read: Číst obsah prostřednictvím API
           authorize: Autorizovat aplikaci
           by_organization_link_html: <small class="heading-small">podle %{link}</small>
           cancel: Zrušit
@@ -806,13 +807,13 @@ cs:
           id: Jedinečný identifikátor tohoto oznámení
           resource_type: Typ zdroje, ke kterému se oznámení vztahuje
           updated_at: Datum a čas, kdy bylo oznámení naposledy aktualizováno
-        participatory_space_private_users:
-          created_at: Datum a čas, kdy byl tento soukromý uživatel vytvořen
-          id: Jedinečný identifikátor tohoto soukromého uživatele
-          privatable_to: Do kterého prostoru patří tento soukromý uživatel
-          published: Zda je tento soukromý uživatel zveřejněn, nebo ne
-          role: Role, kterou má tento soukromý uživatel
-          updated_at: Datum a čas poslední aktualizace tohoto soukromého uživatele
+        participatory_space_members:
+          created_at: Datum a čas, kdy byl tento člen vytvořen
+          id: Jedinečný identifikátor tohoto člena
+          participatory_space: Do kterého prostoru patří tento člen
+          published: Zda je tento člen je zveřejněn nebo ne
+          role: Role kterou tento člen má
+          updated_at: Datum a čas, kdy byl tento člen naposledy aktualizován
         reports:
           created_at: Datum a čas vytvoření této zprávy
           details: Podrobnosti této zprávy
@@ -822,7 +823,7 @@ cs:
           reason: Důvod této zprávy
           updated_at: Datum a čas poslední aktualizace této zprávy
         users:
-          about: Životopis tohoto uživatele
+          about: Popis profilu tohoto účastníka
           accepted_tos_version: Datum, kdy uživatel přijal podmínky poskytování služeb této platformy
           admin: Zda je tento uživatel administrátorem
           confirmation_sent_at: Datum a čas, kdy bylo potvrzení odesláno
@@ -833,7 +834,6 @@ cs:
           delete_reason: Důvod pro odstranění tohoto uživatele
           deleted_at: Datum a čas, kdy byl tento uživatel odstraněn
           email: E-mailová adresa tohoto uživatele
-          followers_count: Počet účastníků, kteří sledují tohoto uživatele
           following_count: Počet účastníků, které tento uživatel sleduje
           id: Jedinečný identifikátor tohoto uživatele
           invitation_accepted_at: Datum a čas, kdy byla pozvánka přijata
@@ -841,16 +841,16 @@ cs:
           invitation_sent_at: Datum a čas, kdy byla pozvánka odeslána
           invitations_count: Počet pozvánek zaslaných tomuto uživateli
           invited_by: Uživatel, který pozval tohoto uživatele
-          last_sign_in_at: Datum a čas posledního přihlášení
-          last_sign_in_ip: IP adresa posledního přihlášení
+          last_sign_in_at: Datum a čas předchozího přihlášení
+          last_sign_in_ip: IP adresa předchozího přihlášení
           locale: Lokalizace (jazyk), kterou tento uživatel vybral
           managed: Zda je tento uživatel spravován jiným uživatelem
           name: Jméno tohoto uživatele
-          newsletter_notifications_at: Datum a čas, kdy tento uživatel obdržel zpravodaj
+          newsletter_notifications_at: Datum a čas, kdy se tento účastník přihlásil k odběru zpravodaje
           nickname: Přezdívka tohoto uživatele
           notification_settings: Nastavení oznámení, které tento uživatel vybral
           notifications_sending_frequency: Četnost oznámení, která tento uživatel obdrží
-          officialized_as: Název oficializace (poradce, starosta atd.)
+          officialized_as: Název funkce (radní, starosta atd.)
           officialized_at: Datum a čas, kdy byl tento uživatel oficializován
           organization: Organizace, do které tento uživatel patří,
           password_updated_at: Datum poslední změny hesla
@@ -888,7 +888,7 @@ cs:
       files:
         file_cannot_be_processed: Soubor nelze zpracovat
         file_resolution_too_large: Rozlišení souboru je příliš velké
-        not_inside_organization: Soubor není připojen k žádné organizaci
+        not_inside_organization: Soubor není připojen k žádné organizaci.
       internal_server_error:
         copied: Text zkopírován!
         copy_error_message_clarification: Kopírovat chybovou zprávu do schránky
@@ -999,6 +999,8 @@ cs:
           notification_title: |-
             Administrátor odstranil váš %{resource_type}, protože byl nahlášen jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
+      resource_liked:
+        email_outro: Toto oznámení jste obdrželi, protože sledujete %{liker_nickname}. Můžete přestat přijímat oznámení na předchozím odkazu.
       resources:
         soft_deleted:
           notification_title: Administrátor odstranil váš "%{resource_type}" "%{resource_title}".
@@ -1077,7 +1079,7 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
-          message_2: Pokud se jedná o obrázek, měl by to být obrázek na šířku, který neobsahuje žádný text. Služba obrázek ořízne.
+          message_2: Pokud je to obrázek, ideální je obrázek na šířku, který nemá žádný text. Platforma ořízne obrázek.
         icon:
           explanation: 'Pokyny pro ikonu:'
           message_1: Musí to být čtvercový obrázek.
@@ -1086,6 +1088,9 @@ cs:
           explanation: 'Pokyny pro obrázek:'
           message_1: Nejlépe obrázek na šířku bez textu.
           message_2: Software tento obrázek ořízne.
+        import_file:
+          explanation: 'Pokyny pro import souboru:'
+          message_1: Má to být JSON dokument stažený prostřednictvím exportní funce.
       file_validation:
         allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
         max_file_dimension: 'Maximální rozměry souboru: %{resolution} pixelů'
@@ -1134,7 +1139,7 @@ cs:
       description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky.
       level: Úroveň %{level}
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
-      title: Jaké jsou odznaky?
+      title: Co jsou odznaky?
     groups:
       roles:
         admin: Správce
@@ -1208,7 +1213,6 @@ cs:
         latlng_text: 'zeměpisná šířka: %{latitude}, zeměpisná délka: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Pomoc
       home: Úvod
     messaging:
       conversation_mailer:
@@ -1301,6 +1305,7 @@ cs:
         success: Nastavení Zpravodaje bylo úspěšně aktualizováno.
     newsletters_opt_in_mailer:
       notify:
+        body_1: Zpracování osobních údajů a jejich ochrana jsou pro nás všechny stále důležitější. Díky obecnému nařízení o ochraně osobních údajů (GDPR) z 25. května 2018 mají jednotlivci lepší kontrolu nad svými osobními údaji. Z tohoto důvodu potřebujeme váš „souhlas“ s tím, abychom vám i nadále zasílali relevantní informace o aktivitách %{organization_name}.
         body_2: 'Jak nám můžete dát svůj souhlas? Stačí kliknout na následující tlačítko:'
         body_3: S tímto souhlasem budete moci pokračovat v přijímání informací o službách platformy. Pokud naopak nedostaneme pozitivní potvrzení z vašeho hlediska, přestaneme vám posílat naše zprávy. Pokud potvrdíte, že chcete být stále informováni, máte vždy možnost kdykoli zrušit.
         button: Ano, chci i nadále přijímat relevantní informace
@@ -1314,11 +1319,13 @@ cs:
         same_language: Obsah byl zveřejněn ve vašem preferovaném jazyce (%{language}), proto se v tomto e-mailu nezobrazuje automatický překlad.
         translated_text: 'Automaticky přeložený text:'
     notifications:
-      action_error: Při aktualizaci oznámení došlo k chybě.
+      action_error: Při aktualizaci nastavení oznámení došlo k chybě.
       no_notifications: Zatím žádné oznámení.
       show:
+        deleted: Obsah byl autorem odstraněn.
         missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
-        moderated: Obsah upraven
+        moderated: Obsah byl skrytý moderováním.
+        not_available: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
     notifications_digest_mailer:
       header:
         daily: Denní výběr oznámení
@@ -1467,9 +1474,9 @@ cs:
           title: Jak tyto soubory otevřít a pracovat s nimi
         license:
           body_1_html: Tato databáze %{organization_name} je k dispozici pod %{link_database}. Jakákoli práva v jednotlivém obsahu databáze jsou licencována pod %{link_contents}.
-          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Licence obsahu databáze
-          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Open Database License
           title: Licence
         title: Otevřená data
@@ -1492,7 +1499,7 @@ cs:
         footer_sub_hero:
           footer_sub_hero_body_html: Vytvořme otevřenější, transparentnější a více spolupracující společnost.<br /> Připojte se, účastněte se a rozhodujte.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
-          register: Registrovat
+          register: Vytvořit účet
         hero:
           participate: Účastnit se
           participate_title: Účast na procesech platformy
@@ -1500,7 +1507,7 @@ cs:
         statistics:
           headline: Statistiky
         sub_hero:
-          register: Registrovat
+          register: Vytvořit účet
           register_title: Vytvořit účet
       index:
         standalone_pages: Stránky
@@ -1544,6 +1551,9 @@ cs:
           %{organization_name}
         hello: Dobrý den %{username},
         subject: Neaktivní účet byl smazán
+    participatory_space_members:
+      index:
+        members: Členové
     passwords:
       update:
         error: Došlo k problému s aktualizací hesla.
@@ -1710,6 +1720,7 @@ cs:
       comments_count: Komentáře
       comments_count_tooltip: Celkový počet komentářů zveřejněných v tomto prostoru.
       followers_count: Sledující
+      followers_count_tooltip: Počet uživatelů sledující jakékoli části tohoto prostoru, aby zůstali v obraze.
       headline: Statistiky
       likes_count: Líbí se mi
       no_stats: Zatím nejsou žádné statistiky.
@@ -1718,6 +1729,7 @@ cs:
       participants_count_tooltip: Počet jedinečných uživatelů, kteří v této oblasti spolupracovali předložením návrhů, účastí na zasedáních, hlasováním nebo připojením k diskusím.
       surveys_count: Průzkumy
       users_count: Účastníci
+      users_count_tooltip: Celkový počet uživatelů, kteří se přihlásili a potvrdili svůj účet e-mailem.
     tags:
       filter_results_for_taxonomy: 'Filtrovat výsledky pro: %{resource}'
     taxonomies:
@@ -1736,10 +1748,33 @@ cs:
     user_group_mailer:
       notify_deprecation_to_member:
         body_1: 'Kontaktujeme vás, abychom vás informovali o důležité aktualizaci uživatelské skupiny, kterou jste členem: <strong>%{group_name}</strong>.'
+        body_2: V rámci našich snah o zjednodušení zkušeností pro organizace je funkce "Uživatelské skupiny" zastaralá. Váš profil uživatelské skupiny byl nyní převeden na běžný uživatelský profil.
         greeting: Dobrý den %{name},
         instructions_1: Pokud máte přístup k tomuto e-mailovému účtu, zkontrolujte prosím svou doručenou poštu pro pokyny.
+        instructions_2: Pokud ne, jeden z vašich kolegů, který má přístup, bude muset nastavit heslo a sdílet přihlašovací údaje s vámi.
+        instructions_intro: Členové skupiny budou nyní sdílet přístup k tomuto profilu pomocí sdílených přihlašovacích údajů (e-mail a heslo). Poslali jsme pokyny na %{email} pro nastavení nového hesla k profilu.
+        instructions_title: "<strong>Co to pro vás znamená</strong>"
+        subject: Důležitá aktualizace vašeho profilu skupiny
       notify_deprecation_to_owner:
+        body_1: 'Kontaktujeme vás, abychom vás informovali o důležité aktualizaci uživatelské skupiny, kterou jste členem: %{organization_name}.'
+        body_2: Jako součást našeho úsilí o zjednodušení a zlepšení zkušeností pro organizace, jako je ten váš, opouštíme funkci "Skupiny uživatelů". Vaše skupina, <strong>%{name}</strong>byla převedena na běžný účet.
+        body_3: Abychom mohli pokračovat v přístupu k vašemu účtu a sdílet přístup, potřebujeme nastavit heslo. Po nastavení můžete sdílet přihlašovací údaje (e-mail a heslo) s kýmkoliv.
         greeting: Dobrý den %{name},
+        instructions_1: 'Klikněte na odkaz níže pro nastavení hesla:'
+        instructions_2: 'Sdílejte přihlašovací údaje (e-mail: %{email} a nové heslo) s vašimi kolegy.'
+        instructions_title: "<strong>Co potřebujete udělat</strong>"
+        set_password: Nastavte své heslo
+        subject: Důležitá aktualizace vašeho profilu skupiny
+      notify_user_group_patched:
+        body_1_html: Kontaktujeme vás, abychom vás informovali o důležité aktualizaci Skupinového profilu na %{organization_name}.
+        body_2_html: Jako součást našeho úsilí o zjednodušení a zlepšení zkušeností pro organizace, jako je ten váš, opouštíme funkci "Skupiny uživatelů". Vaše skupina, <strong>%{name}</strong>byla převedena na běžný účet.
+        body_3_html: Abychom mohli pokračovat v přístupu k vašemu účtu a sdílet přístup, potřebujeme, abyste si nastavili nový e-mail a heslo. Vezměte prosím na vědomí, že každý člen vaší skupiny obdrží tento e-mail. Chcete-li zajistit trvalý přístup, musíte se interně dohodnout na sdílených přihlašovacích údajích (e-mail a heslo), které budou všichni používat.
+        greeting: Dobrý den %{name},
+        instructions_1_html: 'K přihlášení použijte následující dočasné přihlašovací údaje: <br><br> Uživatelské jméno: <strong>%{email}</strong> <br> heslo: <strong>%{password}</strong><br><br>'
+        instructions_2_html: Nastavte novou e-mailovou adresu a heslo.
+        instructions_3_html: Sdílejte vybrané přihlašovací údaje s vašimi kolegy, aby celá skupina mohla pokračovat v přístupu k účtu.
+        instructions_title_html: "<strong>Co potřebujete udělat</strong>"
+        subject: Důležitá aktualizace vašeho profilu skupiny
     user_report_mailer:
       notify:
         body_1: Uživatel %{user} byl nahlášen od %{token}
@@ -1789,6 +1824,7 @@ cs:
       send_paranoid_instructions: Pokud vaše e-mailová adresa existuje v naší databázi, během několika obdržíte e-mail s instrukcemi, jak potvrdit vaši e-mailovou adresu.
     failure:
       already_authenticated: Jste již přihlášen.
+      csrf_token: Váš požadavek se nepodařilo ověřit. Opakujte akci.
       inactive: Váš účet zatím nebyl aktivován.
       invalid: Neplatný %{authentication_keys} nebo heslo.
       invited: Máte pozvání, přijměte jej k dokončení tvorby účtu.
@@ -1810,8 +1846,6 @@ cs:
         submit_button: Odeslat pozvánku
       no_invitations_remaining: Žádné zbývající pozvánky
       send_instructions: Pozvánka byla odeslána na %{email}.
-      updated: Vaše heslo bylo úspěšně nastaveno. Nyní jste přihlášeni.
-      updated_not_active: Vaše heslo bylo úspěšně nastaveno.
     mailer:
       confirmation_instructions:
         action: Potvrďte svůj účet
@@ -1831,17 +1865,17 @@ cs:
           Pokud pozvánku nechcete přijmout, ignorujte tento e-mail.<br />
           Váš účet nebude vytvořen, dokud nekliknete na odkaz výše a nenastavíte si uživatelské jméno a heslo.
         invited_you_as_admin: "%{invited_by} vás pozval jako administrátora z %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
-        invited_you_as_private_user: "%{invited_by} vás pozval jako soukromého uživatele %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
+        invited_you_as_member: "%{invited_by} vás pozval jako člena %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
         someone_invited_you: Někdo vás pozval na %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu.
         someone_invited_you_as_admin: Někdo Vás pozval jako administrátora %{application}, můžete jej přijmout pomocí níže uvedeného odkazu.
-        someone_invited_you_as_private_user: Někdo vás pozval jako private_user %{application}, můžete jej přijmout pomocí níže uvedeného odkazu.
+        someone_invited_you_as_member: Někdo vás pozval jako člena %{application}, můžete ho přijmout prostřednictvím níže uvedeného odkazu.
         subject: Pokyny k pozvánkám
       invite_admin:
         subject: Byli jste pozváni ke spravování organizace %{organization}
       invite_collaborator:
         subject: Byli jste pozváni ke spolupráci na organizaci %{organization}
-      invite_private_user:
-        subject: Byli jste pozváni k soukromé účasti na organizaci %{organization}
+      invite_member:
+        subject: Byli jste pozváni do soukromého participačního procesu na %{organization}
       organization_admin_invitation_instructions:
         subject: Byli jste pozváni ke spravování organizace %{organization}
       password_change:
@@ -1871,8 +1905,6 @@ cs:
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
         old_password_help: Chcete-li potvrdit změny vašeho účtu, zadejte prosím své aktuální heslo.
-        password_help: "minimální počet znaků je %{minimum_characters}, nesmí být příliš obvyklý (např. 123456) a musí se lišit od vašeho uživatelského jména a e-mailu."
-        password_help_admin: "minimální počet znaků je %{minimum_characters}, nesmí být příliš časté (např. 123456), musí se lišit od vaší přezdívky a e-mailu a musí se lišit od vašich starých hesel."
         title: Změna hesla
       new:
         forgot_your_password: Zapomněli jste heslo?
@@ -2122,14 +2154,16 @@ cs:
         confirm_title_close_ephemeral_session: Před opuštěním této stránky…
         log_in: Přihlásit
         main_menu: Hlavní menu
+        mobile_account_greeting: Dobrý den %{user_name}
         user_menu: Uživatelské Menu
       impersonation_warning:
         close_session: Zavřít sezení
         description_html: Spravujete účastníka <b>%{user_name}</b>.
+        expire_time_html: Vaše relace vyprší v <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minutách</b>.
       language_chooser:
         choose_language: Vyberte jazyk
       navigation:
-        aria_label: Navigační menu - %{title}
+        aria_label: 'Navigation menu: %{title}'
       notifications_dashboard:
         mark_all_as_read: Označit vše jako přečtené
         mark_as_read: Označit jako přečtené

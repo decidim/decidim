@@ -8,7 +8,6 @@ module Decidim
     class PostPresenter < Decidim::ResourcePresenter
       include Decidim::ResourceHelper
       include ActionView::Helpers::UrlHelper
-      include Decidim::SanitizeHelper
 
       def author
         @author ||= if official?

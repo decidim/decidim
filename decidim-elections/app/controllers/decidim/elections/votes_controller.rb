@@ -20,6 +20,14 @@ module Decidim
       def update
         enforce_permission_to(:create, :vote, election:)
 
+        response_ids = Array(params.dig(:response, question.id.to_s)).compact
+
+        if question.max_choices.present? && response_ids.size > question.max_choices
+          flash.now[:alert] = t("votes.question.max_choices_exceeded", scope: "decidim.elections", max: question.max_choices)
+          render :show
+          return
+        end
+
         votes_buffer[question.id.to_s] = params.dig(:response, question.id.to_s)
         redirect_to next_vote_step_path
       end

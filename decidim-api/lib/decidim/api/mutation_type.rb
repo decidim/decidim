@@ -16,7 +16,7 @@ module Decidim
       field :upload_file, mutation: Decidim::Core::UploadFileType, description: "Upload a file"
 
       def component(id:)
-        context[:current_organization]&.published_components&.find(id)
+        current_organization&.published_components&.find(id)
       end
     end
   end

@@ -6,6 +6,9 @@ module Decidim
       description "Budget mutation"
       graphql_name "BudgetMutation"
 
+      field :delete, mutation: Decidim::Budgets::DeleteBudgetType, description: "delete a budget"
+      field :update, mutation: Decidim::Budgets::UpdateBudgetType, description: "update a budget"
+
       field :create_project, mutation: Decidim::Budgets::CreateProjectType, description: "create a project"
       field :delete_project, mutation: Decidim::Budgets::DeleteProjectType, description: "delete a project"
       field :project, type: Decidim::Budgets::ProjectMutationType, description: "A project mutation" do

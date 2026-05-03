@@ -21,6 +21,12 @@ module Decidim
       include_examples "referable interface"
       include_examples "followable interface"
 
+      shared_examples "unauthorized Project" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Project because you do not have permissions")
+        end
+      end
+
       describe "id" do
         let(:query) { "{ id }" }
 
@@ -58,7 +64,8 @@ module Decidim
 
         it "returns the proposal urls" do
           expect(response["relatedProposals"].length).to eq(2)
-          expect(response["relatedProposals"]).to eq(proposals.collect { |proposal| { "id" => proposal.id.to_s } })
+          expect(response["relatedProposals"]).to include({ "id" => proposals.first.id.to_s })
+          expect(response["relatedProposals"]).to include({ "id" => proposals.last.id.to_s })
         end
       end
 
@@ -135,8 +142,8 @@ module Decidim
         end
       end
 
-      context "when participatory space is private and transparent" do
-        let(:participatory_space) { create(:assembly, :published, :transparent, :private) }
+      context "when participatory space is transparent" do
+        let(:participatory_space) { create(:assembly, :published, :transparent) }
         let(:component) { create(:budgets_component, :published, participatory_space:) }
         let(:budget) { create(:budget, component:) }
         let(:model) { create(:project, budget:) }
@@ -148,16 +155,14 @@ module Decidim
         end
       end
 
-      context "when participatory space is private" do
-        let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
+      context "when participatory space is restricted" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :restricted, organization: current_organization) }
         let(:component) { create(:budgets_component, participatory_space:) }
         let(:budget) { create(:budget, component:) }
         let(:model) { create(:project, budget:) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Project"
       end
 
       context "when participatory space is not published" do
@@ -167,9 +172,7 @@ module Decidim
         let(:model) { create(:project, budget:) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Project"
       end
 
       context "when component is not published" do
@@ -177,9 +180,7 @@ module Decidim
         let(:model) { create(:project, component:) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Project"
       end
 
       context "when budget is not visible" do
@@ -189,10 +190,11 @@ module Decidim
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns all the required fields" do
+        before do
           allow(model).to receive(:visible?).and_return(false)
-          expect(response).to be_nil
         end
+
+        it_behaves_like "unauthorized Project"
       end
     end
   end

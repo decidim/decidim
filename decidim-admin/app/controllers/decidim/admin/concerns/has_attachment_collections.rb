@@ -39,7 +39,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("attachment_collections.create.error", scope: "decidim.admin")
-                render template: "decidim/admin/attachment_collections/new", status: :unprocessable_entity
+                render template: "decidim/admin/attachment_collections/new", status: :unprocessable_content
               end
             end
           end
@@ -64,7 +64,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("attachment_collections.update.error", scope: "decidim.admin")
-                render template: "decidim/admin/attachment_collections/edit", status: :unprocessable_entity
+                render template: "decidim/admin/attachment_collections/edit", status: :unprocessable_content
               end
             end
           end

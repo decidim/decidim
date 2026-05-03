@@ -17,26 +17,27 @@ module Decidim
     autoload :ProposalSerializer, "decidim/proposals/proposal_serializer"
     autoload :DownloadYourDataProposalSerializer, "decidim/proposals/download_your_data_proposal_serializer"
     autoload :CommentableProposal, "decidim/proposals/commentable_proposal"
-    autoload :CommentableCollaborativeDraft, "decidim/proposals/commentable_collaborative_draft"
     autoload :MarkdownToProposals, "decidim/proposals/markdown_to_proposals"
     autoload :ParticipatoryTextSection, "decidim/proposals/participatory_text_section"
     autoload :DocToMarkdown, "decidim/proposals/doc_to_markdown"
     autoload :OdtToMarkdown, "decidim/proposals/odt_to_markdown"
     autoload :Evaluable, "decidim/proposals/evaluable"
 
-    include ActiveSupport::Configurable
+    class << self
+      def config = self
+
+      def configure
+        yield self
+      end
+    end
 
     # Public Setting that defines how many proposals will be shown in the
     # participatory_space_highlighted_elements view hook
-    config_accessor :participatory_space_highlighted_proposals_limit do
-      Decidim::Env.new("PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT", 4).to_i
-    end
+    mattr_accessor :participatory_space_highlighted_proposals_limit, default: Decidim::Env.new("PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT", 4).to_i
 
     # Public Setting that defines how many proposals will be shown in the
     # process_group_highlighted_elements view hook
-    config_accessor :process_group_highlighted_proposals_limit do
-      Decidim::Env.new("PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT", 3).to_i
-    end
+    mattr_accessor :process_group_highlighted_proposals_limit, default: Decidim::Env.new("PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT", 3).to_i
 
     def self.proposal_states_colors
       {

@@ -29,7 +29,7 @@ describe "Filter Initiatives", :slow do
       create(:initiative, organization:, scoped_type: scoped_type2)
       create(:initiative, organization:, scoped_type: scoped_type3)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by scope" do
@@ -75,11 +75,15 @@ describe "Filter Initiatives", :slow do
           click_filter_item scoped_type1.scope_name[I18n.locale.to_s]
         end
 
+        # Wait for the scope filter to be applied and the page to update
+        expect(page).to have_css(".card__grid", count: 2)
+
         within "#dropdown-menu-order" do
           click_on "Most commented"
         end
 
-        expect(page).to have_css(".card__grid[id^='initiative']", count: 2)
+        # Wait for both filter and ordering to be applied
+        expect(page).to have_css(".card__grid[id^='initiative']", count: 2, wait: 10)
         expect(page).to have_css(".card__grid[id^='initiative']:first-child", text: translated(first_initiative.title))
       end
     end
@@ -93,7 +97,7 @@ describe "Filter Initiatives", :slow do
       create(:initiative, :acceptable, organization:)
       create(:initiative, organization:, answered_at: Time.current)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by state" do
@@ -188,7 +192,7 @@ describe "Filter Initiatives", :slow do
       before do
         create_list(:initiative, 3, organization:, scoped_type: scoped_type1)
 
-        visit decidim_initiatives.initiatives_path
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
       end
 
       it "does not display TYPE filter" do
@@ -206,7 +210,7 @@ describe "Filter Initiatives", :slow do
         create_list(:initiative, 2, organization:, scoped_type: scoped_type1)
         create(:initiative, organization:, scoped_type: scoped_type2)
 
-        visit decidim_initiatives.initiatives_path
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
       end
 
       it "can be filtered by type" do
@@ -245,7 +249,7 @@ describe "Filter Initiatives", :slow do
       create(:initiative, organization:, area: area2)
       create(:initiative, organization:, area: area3)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by area" do
