@@ -182,10 +182,6 @@ id:
         working_group: Kelompok kerja
       index:
         title: Assemblies
-      pages:
-        user_profile:
-          member_of:
-            member_of: Anggota dari
       show:
         duration: Lamanya
     help:

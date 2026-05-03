@@ -1,47 +1,21 @@
 # frozen_string_literal: true
 
 Decidim::Core::Engine.routes.draw do
+  extend Decidim::Routes::LocaleRedirects
+
   mount Decidim::Api::Engine => "/api"
+
+  get "/", to: redirect(&locale_redirector("/")), as: :root_redirect
 
   get "/offline", to: "offline#show"
 
   get "/favicon.ico", to: "favicon#show"
 
-  devise_for :users,
-             class_name: "Decidim::User",
-             module: :devise,
-             router_name: :decidim,
-             controllers: {
-               invitations: "decidim/devise/invitations",
-               sessions: "decidim/devise/sessions",
-               confirmations: "decidim/devise/confirmations",
-               passwords: "decidim/devise/passwords",
-               unlocks: "decidim/devise/unlocks",
-               omniauth_callbacks: "decidim/devise/omniauth_registrations"
-             },
-             skip: [:registrations]
+  get "/admin", to: redirect(&locale_redirector("/admin"))
 
-  # Manually define the registration routes because otherwise the default "edit"
-  # route would be exposed through Devise while we already have the edit and
-  # destroy routes available through the account pages.
-  resource(
-    :registration,
-    only: [:new, :create],
-    as: :user_registration,
-    path: "/users",
-    path_names: { new: "sign_up" },
-    controller: "devise/registrations"
-  ) do
-    # The "cancel" route forces the session data which is usually expired after
-    # sign in to be expired now. This is useful if the user wants to cancel
-    # OAuth signing in/up in the middle of the process, removing all OAuth
-    # session data. @see [Devise::RegistrationsController#cancel]
-    get :cancel
-  end
-
-  devise_scope :user do
-    post "omniauth_registrations" => "devise/omniauth_registrations#create"
-  end
+  get "/admin/*rest", to: redirect { |params, request|
+    locale_redirect(params, request, "/admin/#{params[:rest]}")
+  }
 
   resource :manifest, only: [:show]
 
@@ -54,35 +28,47 @@ Decidim::Core::Engine.routes.draw do
   end
 
   authenticate(:user) do
-    devise_scope :user do
-      get "change_password" => "devise/passwords"
-      put "apply_password" => "devise/passwords"
+    scope "/:locale", **locale_scope_options do
+      devise_scope :user do
+        get "change_password" => "devise/passwords"
+        put "apply_password" => "devise/passwords"
+      end
+
+      resource :account, only: [:show, :update, :destroy], controller: "account" do
+        member do
+          get :delete
+          post :resend_confirmation_instructions
+          post :cancel_email_change
+        end
+      end
     end
 
-    resource :account, only: [:show, :update, :destroy], controller: "account" do
-      member do
-        get :delete
-        post :resend_confirmation_instructions
-        post :cancel_email_change
+    scope "/:locale", **locale_scope_options do
+      resource :download_your_data, only: [:show], controller: "download_your_data" do
+        member do
+          post :export
+          get "/:uuid", to: "download_your_data#download_file", as: :download
+        end
       end
     end
-    resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
-    post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
-    resources :notifications, only: [:index, :destroy] do
-      collection do
-        delete :read_all
+
+    scope "/:locale", **locale_scope_options do
+      resources :notifications, only: [:index, :destroy] do
+        collection do
+          delete :read_all
+        end
       end
+
+      resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
+      post "/conversations/check_multiple", to: "messaging/conversations#check_multiple"
+
+      resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     end
-    resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
 
     get "/newsletters_opt_in/:token", to: "newsletters_opt_in#update", as: :newsletters_opt_in
 
-    resource :download_your_data, only: [:show], controller: "download_your_data" do
-      member do
-        post :export
-        get "/:uuid", to: "download_your_data#download_file", as: :download
-      end
-    end
+    get "/download_your_data", to: redirect(&locale_redirector("/download_your_data"))
+    get "/download_your_data/:uuid", to: redirect { |params, request| locale_redirector("/download_your_data/#{params[:uuid]}").call(params, request) }
 
     resources :notifications_subscriptions, param: :auth, only: [:create, :destroy]
 
@@ -92,6 +78,12 @@ Decidim::Core::Engine.routes.draw do
       to: "free_resource_authorization_modals#show",
       as: :free_resource_authorization_modal
     )
+
+    get "/account/*rest", to: redirect { |params, request|
+      locale_redirect(params, request, "/account/#{params[:rest]}")
+    }
+
+    get "/account", to: redirect(&locale_redirector("/account"))
   end
 
   scope :timeouts do
@@ -99,8 +91,55 @@ Decidim::Core::Engine.routes.draw do
     get "seconds_until_timeout", to: "timeouts#seconds_until_timeout"
   end
 
-  scope "/:locale" do
+  # OmniAuth callbacks must be defined outside any dynamic segment scope
+  # because Devise does not support scoping them under /:locale.
+  devise_for :users,
+             class_name: "Decidim::User",
+             module: :devise,
+             router_name: :decidim,
+             controllers: {
+               omniauth_callbacks: "decidim/devise/omniauth_registrations"
+             },
+             only: :omniauth_callbacks
+
+  scope "/:locale", **locale_scope_options do
+    devise_for :users,
+               class_name: "Decidim::User",
+               module: :devise,
+               router_name: :decidim,
+               controllers: {
+                 invitations: "decidim/devise/invitations",
+                 sessions: "decidim/devise/sessions",
+                 confirmations: "decidim/devise/confirmations",
+                 passwords: "decidim/devise/passwords",
+                 unlocks: "decidim/devise/unlocks"
+               },
+               skip: [:registrations, :omniauth_callbacks]
+
+    # Manually define the registration routes because otherwise the default "edit"
+    # route would be exposed through Devise while we already have the edit and
+    # destroy routes available through the account pages.
+    resource(
+      :registration,
+      only: [:new, :create],
+      as: :user_registration,
+      path: "/users",
+      path_names: { new: "sign_up" },
+      controller: "devise/registrations"
+    ) do
+      # The "cancel" route forces the session data which is usually expired after
+      # sign in to be expired now. This is useful if the user wants to cancel
+      # OAuth signing in/up in the middle of the process, removing all OAuth
+      # session data. @see [Devise::RegistrationsController#cancel]
+      get :cancel
+    end
+
+    devise_scope :user do
+      post "omniauth_registrations" => "devise/omniauth_registrations#create"
+    end
+
     resources :pages, only: [:index, :show], format: false
+
     resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^/]+} }, format: false
     scope "/profiles/:nickname", format: false, constraints: { nickname: %r{[^/]+} } do
       get "following", to: "profiles#following", as: "profile_following"
@@ -108,34 +147,43 @@ Decidim::Core::Engine.routes.draw do
       get "badges", to: "profiles#badges", as: "profile_badges"
       get "activity", to: "user_activities#index", as: "profile_activity"
     end
+
+    get "/open-data", to: "open_data#index", as: :open_data
+    get "/open-data/download", to: "open_data#download", as: :open_data_download
+    get "/open-data/download/:resource", to: "open_data#download", as: :open_data_download_resource
+    get "/search", to: "searches#index", as: :search
+    resources :last_activities, only: [:index]
+    namespace :gamification do
+      resources :badges, only: [:index]
+    end
+
+    root to: "homepage#show"
   end
 
-  get "/pages", to: redirect { |params, request|
-    locale = Decidim::LocaleRouterDetector.new(request, params).locale
-    "/#{locale}/pages"
-  }
+  get "/last_activities", to: redirect(&locale_redirector("/last_activities"))
+  get "/search", to: redirect(&locale_redirector("/search"))
+  get "/pages", to: redirect(&locale_redirector("/pages"))
+  get "/pages/*rest", to: redirect { |params, request| locale_redirector("/pages/#{params[:rest]}").call(params, request) }
+  get "/gamification/*rest", to: redirect { |params, request| locale_redirector("/gamification/#{params[:rest]}").call(params, request) }
+  get "/open-data/*rest", to: redirect { |params, request| locale_redirector("/open-data/#{params[:rest]}").call(params, request) }
+  get "/open-data", to: redirect(&locale_redirector("/open-data"))
+  get "/profiles/*rest", to: redirect { |params, request| locale_redirector("/profiles/#{params[:rest]}").call(params, request) }
+  get "/notifications", to: redirect(&locale_redirector("/notifications"))
+  get "/conversations", to: redirect(&locale_redirector("/conversations"))
+  get "/conversations/*rest", to: redirect { |params, request| locale_redirector("/conversations/#{params[:rest]}").call(params, request) }
+  get "/notifications_settings", to: redirect(&locale_redirector("/notifications_settings"))
 
-  get "/pages/*rest", to: redirect { |params, request|
-    locale = Decidim::LocaleRouterDetector.new(request, params).locale
-    "/#{locale}/pages/#{params[:rest]}"
-  }
+  get "/users/sign_in", to: redirect(&locale_redirector("/users/sign_in"))
+  get "/users/sign_up", to: redirect(&locale_redirector("/users/sign_up"))
+  get "/users/password/new", to: redirect(&locale_redirector("/users/password/new"))
+  get "/users/password/edit", to: redirect(&locale_redirector("/users/password/edit"))
+  get "/users/confirmation/new", to: redirect(&locale_redirector("/users/confirmation/new"))
+  get "/users/confirmation", to: redirect(&locale_redirector("/users/confirmation"))
+  get "/users/unlock/new", to: redirect(&locale_redirector("/users/unlock/new"))
+  get "/users/unlock", to: redirect(&locale_redirector("/users/unlock"))
+  get "/users/invitation/new", to: redirect(&locale_redirector("/users/invitation/new"))
+  get "/users/invitation/accept", to: redirect(&locale_redirector("/users/invitation/accept"))
 
-  get "/profiles/*rest", to: redirect { |params, request|
-    locale = Decidim::LocaleRouterDetector.new(request, params).locale
-
-    # Handle explicitly the query strings, as we have some filters and pagination on the activity tab.
-    # We need to handle URLs like
-    # https://nightly.decidim.org/profiles/visitant_bqqppvus/activity?filter[resource_type]=Decidim::Initiative
-    query_string = Rack::Utils.parse_nested_query(request.query_string.to_s)
-    query_string.delete("locale")
-    query_string = CGI.unescape(query_string.to_query)
-
-    path = "/#{locale}/profiles/#{params[:rest]}"
-    path += "?#{query_string}" unless query_string.empty?
-    path
-  }
-
-  get "/search", to: "searches#index", as: :search
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 
   get "/link", to: "links#new", as: :link
@@ -146,10 +194,6 @@ Decidim::Core::Engine.routes.draw do
 
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
-
-  get "/open-data", to: "open_data#index", as: :open_data
-  get "/open-data/download", to: "open_data#download", as: :open_data_download
-  get "/open-data/download/:resource", to: "open_data#download", as: :open_data_download_resource
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
@@ -175,17 +219,11 @@ Decidim::Core::Engine.routes.draw do
 
   resources :editor_images, only: [:create]
 
-  namespace :gamification do
-    resources :badges, only: [:index]
-  end
-
   resources :newsletters, only: [:show] do
     get :unsubscribe, on: :collection
   end
 
   resources :upload_validations, only: [:create]
-
-  resources :last_activities, only: [:index]
 
   resources :short_links, only: [:index, :show], path: "s"
 
@@ -196,6 +234,4 @@ Decidim::Core::Engine.routes.draw do
   scope :oauth do
     get "/me" => "doorkeeper/credentials#me"
   end
-
-  root to: "homepage#show"
 end

@@ -6,6 +6,8 @@ module Decidim
   describe NewslettersOptInController do
     routes { Decidim::Core::Engine.routes }
 
+    include Decidim::Core::Engine.routes.url_helpers
+
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization:, newsletter_notifications_at: nil, newsletter_token: token) }
     let(:token) { SecureRandom.base58(24) }
@@ -24,7 +26,7 @@ module Decidim
           get :update, params: { token: }
           expect(user.reload.newsletter_notifications_at).not_to be_nil
           expect(user.reload.newsletter_token).to eq("")
-          expect(response).to redirect_to("/")
+          expect(response).to redirect_to(root_path)
           expect(flash[:notice]).to include("Newsletter settings successfully updated")
         end
       end
@@ -32,14 +34,14 @@ module Decidim
       context "when user uses an invalid URL" do
         it "redirects to home page with an error message" do
           get :update, params: { token: "123456" }
-          expect(response).to redirect_to("/")
+          expect(response).to redirect_to(root_path)
           expect(flash[:alert]).to include("Sorry, this link is no longer available")
         end
 
         it "redirect to home page because link was already used" do
           user.newsletter_opt_in_validate
           get :update, params: { token: }
-          expect(response).to redirect_to("/")
+          expect(response).to redirect_to(root_path)
           expect(flash[:alert]).to include("Sorry, this link is no longer available")
         end
       end

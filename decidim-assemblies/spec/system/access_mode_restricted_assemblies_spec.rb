@@ -11,8 +11,8 @@ describe "Access Mode Restricted Assemblies" do
   let!(:other_user) { create(:user, :confirmed, organization:) }
   let!(:other_user2) { create(:user, :confirmed, organization:) }
 
-  let(:participatory_space_index_path) { decidim_assemblies.assemblies_path(locale: I18n.locale) }
-  let(:restricted_participatory_space_path) { decidim_assemblies.assembly_path(restricted_participatory_space, locale: I18n.locale) }
+  let(:participatory_space_index_path) { decidim_assemblies.assemblies_path }
+  let(:restricted_participatory_space_path) { decidim_assemblies.assembly_path(restricted_participatory_space) }
   let(:restricted_participatory_space_attachment_path) { decidim_admin_assemblies.assembly_attachments_path(restricted_participatory_space) }
   let(:css_class_selector) { "#assemblies-grid" }
 

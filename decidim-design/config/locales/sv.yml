@@ -45,6 +45,9 @@ sv:
           decidim_follows_html: Decidim följer %{link}
           learn_more_about_html: Läs mer om %{link}
           wcag_guidelines: Riktlinjer för tillgänglighet för webbinnehåll (WCAG)
+        layout:
+          section_p_breakpoints: 'För att ge elementen responsiv bredd använder vi standardklassen `container` i Tailwind. Upplösningar som stöds är:'
+          section_p_mobile: Mobilt rutnätet består av 4 flexibla kolumner med ett avstånd mellan kolumner på 16px och vänster och höger marginaler på 16px.
       helpers:
         assembly_g: Samråd G
         assembly_s: Samråd S

@@ -39,8 +39,9 @@ module Decidim
 
       let(:newsletter) { create(:newsletter, :sent) }
       let(:organization) { newsletter.organization }
+      let(:url_helpers) { Decidim::Core::Engine.routes.url_helpers }
 
-      it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/newsletters/#{newsletter.id}") }
+      it { is_expected.to eq(url_helpers.newsletter_url(newsletter.id, host: organization.host, port: Capybara.server_port)) }
 
       context "when the newsletter is not sent" do
         let(:newsletter) { create(:newsletter) }
@@ -54,8 +55,9 @@ module Decidim
 
       let(:newsletter) { create(:newsletter, :sent) }
       let(:organization) { newsletter.organization }
+      let(:url_helpers) { Decidim::Core::Engine.routes.url_helpers }
 
-      it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/notifications_settings") }
+      it { is_expected.to eq(url_helpers.notifications_settings_url(host: organization.host, port: Capybara.server_port)) }
 
       context "when the newsletter is not sent" do
         let(:newsletter) { create(:newsletter) }
@@ -69,8 +71,9 @@ module Decidim
 
       let(:newsletter) { create(:newsletter, :sent) }
       let(:organization) { newsletter.organization }
+      let(:url_helpers) { Decidim::Core::Engine.routes.url_helpers }
 
-      it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/newsletters/unsubscribe") }
+      it { is_expected.to eq(url_helpers.unsubscribe_newsletters_url(host: organization.host, port: Capybara.server_port)) }
 
       context "when the newsletter is not sent" do
         let(:newsletter) { create(:newsletter) }
@@ -95,8 +98,9 @@ module Decidim
 
       context "when the official URL is not set for the organization" do
         let(:organization) { create(:organization, official_url: nil) }
+        let(:url_helpers) { Decidim::Core::Engine.routes.url_helpers }
 
-        it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/") }
+        it { is_expected.to eq(url_helpers.root_url(host: organization.host, port: Capybara.server_port)) }
       end
     end
   end
