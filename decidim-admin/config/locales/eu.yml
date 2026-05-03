@@ -868,7 +868,7 @@ eu:
           confirm_recipients: Baieztatu hartzaileak
           deliver: Bidali buletina
           followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein partaidetza-espazio jarraitzen duten parte-hartzaile guztiei bidaltzen die.
-          members_help: Buletin bat bidaltzen die baieztatutako erabiltzaile guztiei, kide gisa hautatutako partaidetza-espazioei gehitu zaizkienei.
+          members_help: Buletin bat bidaltzen die baieztatutako parte-hartzaile guztiei, kide gisa hautatutako partaidetza-espazioei gehitu zaizkienei.
           participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein espazio parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
           select_assemblies: Hautatu batzarrak
@@ -996,7 +996,7 @@ eu:
             other: "%{count} parte-hartzailea gogoratuko dira."
         new:
           submit: Bidali
-          title: Bidali gogorarazpenak
+          title: Gogorarazpenak bidali
       resource_permissions:
         edit:
           submit: Bidali
@@ -1220,7 +1220,7 @@ eu:
           description: Taxonomia-iragazki batek aukera ematen die administratzaileei partaidetza-espazioak taxonomiaren arabera ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera ordenatzeko.
           empty: Gaur egun ez dago taxonomia-iragazkirik. Sortu taxonomia-iragazkien zerrenda bat, partaidetza-espazioak taxonomia baten arabera ordenatu eta iragazteko.
           new_filter: Beste iragazki bat
-          title: 'Taxonomia-iragazkiak honetarako: "%{taxonomy}"'
+          title: Taxonomia-iragazkiak "%{taxonomy}"-erako
         new:
           back: Atzera
           create: Sortu taxonomia-iragazkia
@@ -1243,11 +1243,11 @@ eu:
           add_new_items_html: 'Beste iragazki edo elementu bat jarri behar baduzu, egin konfigurazio-ezarpenaren bidez edo klikatuz: <a href="%{url}">here</a>.'
           items_count: "Elementu %{count}"
           save: Gorde
-          title: Beste hautagailu bat taxonomia-iragazkirako
+          title: Taxonomia-iragazkien hautatzaile berria
         show:
           items_count: "Elementu %{count}"
           remove: Kendu
-          title: Taxonomia-iragazkirako hautagailua
+          title: Taxonomiako iragazki-hautatzailea
         taxonomies_select:
           filters: Iragazkiak
           select_filter: Hautatu iragazki bat

@@ -173,10 +173,6 @@ ru:
         public: Граждане
       index:
         title: Собрания
-      pages:
-        user_profile:
-          member_of:
-            member_of: 'Входит в состав:'
       show:
         duration: Длительность
     log:

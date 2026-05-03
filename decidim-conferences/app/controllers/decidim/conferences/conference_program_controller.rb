@@ -55,7 +55,7 @@ module Decidim
 
         context_breadcrumb_items << {
           label: t("conference_program.index.title", scope: "decidim"),
-          url: decidim_conferences.conference_conference_program_path(current_participatory_space, meeting_component, locale: I18n.locale),
+          url: decidim_conferences.conference_conference_program_path(current_participatory_space, meeting_component),
           active: true,
           resource: meeting_component
         }

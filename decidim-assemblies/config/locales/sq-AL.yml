@@ -158,8 +158,6 @@ sq:
             admin: Administrator
             collaborator: Bashkëpunëtor/e
             moderator: Moderator/e
-      titles:
-        assemblies_types: Tipet e asambleve
     admin_log:
       assembly:
         create: "%{user_name} krijoi asamblenë %{resource_name}"
@@ -270,9 +268,6 @@ sq:
           highlighted_assemblies:
             active_spaces: Asambletë aktive
             see_all_spaces: Shiko gjithë asambletë
-        user_profile:
-          member_of:
-            member_of: Anëtar i
       show:
         duration: Kohëzgjatja
         social_networks_title: Vizito asamblenë në

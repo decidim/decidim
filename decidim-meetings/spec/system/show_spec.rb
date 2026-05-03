@@ -24,8 +24,7 @@ describe "show" do
         decidim_participatory_process_meetings.meeting_path(
           participatory_process_slug: component.participatory_space.slug,
           component_id: component.id,
-          id: 999_999,
-          locale: I18n.locale
+          id: 999_999
         )
       end
     end

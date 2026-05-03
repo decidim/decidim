@@ -15,7 +15,9 @@ module Decidim
       isolate_namespace Decidim::Conferences
 
       routes do
-        scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) } do
+        extend Decidim::Routes::LocaleRedirects
+
+        scope "/:locale", **locale_scope_options do
           get "conferences/:conference_id", to: redirect { |params, _request|
             conference = Decidim::Conference.find(params[:conference_id])
             conference ? "/#{params[:locale]}/conferences/#{conference.slug}" : "/404"
@@ -51,15 +53,9 @@ module Decidim
           end
         end
 
-        get "/conferences", to: redirect { |params, request|
-          locale = Decidim::LocaleRouterDetector.new(request, params).locale
-          "/#{locale}/conferences"
-        }
+        get "/conferences", to: redirect(&locale_redirector("/conferences"))
 
-        get "/conferences/*rest", to: redirect { |params, request|
-          locale = Decidim::LocaleRouterDetector.new(request, params).locale
-          "/#{locale}/conferences/#{params[:rest]}"
-        }
+        get "/conferences/*rest", to: redirect { |params, request| locale_redirector("/conferences/#{params[:rest]}").call(params, request) }
       end
 
       initializer "decidim_conferences.mount_routes" do

@@ -16,6 +16,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        extend Decidim::Routes::LocaleRedirects
+
         constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
           resources :participatory_process_groups do
             resource :landing_page, only: [:edit, :update], controller: "participatory_process_group_landing_page" do
@@ -121,7 +123,11 @@ module Decidim
 
       initializer "decidim_participatory_processes_admin.mount_routes" do
         Decidim::Core::Engine.routes do
-          mount Decidim::ParticipatoryProcesses::AdminEngine, at: "/admin", as: "decidim_admin_participatory_processes"
+          extend Decidim::Routes::LocaleRedirects
+
+          scope "/:locale", **locale_scope_options do
+            mount Decidim::ParticipatoryProcesses::AdminEngine, at: "/admin", as: "decidim_admin_participatory_processes"
+          end
         end
       end
 

@@ -58,7 +58,7 @@ describe "Admin invite" do
 
         expect(page).to have_admin_callout "Invitation accepted successfully. You are now signed in."
 
-        expect(page).to have_current_path "/admin/admin_terms/show"
+        expect(page).to have_current_path decidim_admin.admin_terms_show_path
       end
 
       it "shows error when password not valid" do
@@ -94,7 +94,7 @@ describe "Admin invite" do
 
         expect(page).to have_admin_callout "Invitation accepted successfully. You are now signed in."
 
-        expect(page).to have_current_path "/admin/admin_terms/show"
+        expect(page).to have_current_path decidim_admin.admin_terms_show_path
       end
 
       it "shows error when password not valid" do
@@ -129,7 +129,7 @@ describe "Admin invite" do
 
         expect(page).to have_admin_callout "Invitation accepted successfully. You are now signed in."
 
-        expect(page).to have_current_path "/admin/admin_terms/show"
+        expect(page).to have_current_path decidim_admin.admin_terms_show_path
       end
     end
 
@@ -253,7 +253,7 @@ describe "Admin invite" do
 
   context "with invalid invitation token" do
     it "shows error for invalid token" do
-      visit "/users/invitation/accept?invitation_token=invalid_token"
+      visit decidim.accept_user_invitation_path(invitation_token: "invalid_token")
 
       expect(page).to have_content("The invitation token provided is not valid")
     end

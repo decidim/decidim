@@ -12,8 +12,8 @@ describe Decidim::Verifications::Adapter do
       it "returns a wrapper with the right interface" do
         expect(wrapper.name).to eq("dummy_authorization_handler")
         expect(wrapper.key).to eq("dummy_authorization_handler")
-        expect(wrapper.root_path).to eq("/authorizations/new?handler=dummy_authorization_handler")
-        expect(wrapper.renew_path).to eq("/authorizations/renew?handler=dummy_authorization_handler")
+        expect(wrapper.root_path).to eq("/en/authorizations/new?handler=dummy_authorization_handler")
+        expect(wrapper.renew_path).to eq("/en/authorizations/renew?handler=dummy_authorization_handler")
       end
     end
 
@@ -25,8 +25,8 @@ describe Decidim::Verifications::Adapter do
       it "returns a wrapper with the right interface" do
         expect(wrapper.name).to eq("dummy_authorization_workflow")
         expect(wrapper.key).to eq("dummy_authorization_workflow")
-        expect(wrapper.root_path).to eq("/dummy_authorization_workflow/")
-        expect(wrapper.renew_path).to eq("/dummy_authorization_workflow/renew_authorization")
+        expect(wrapper.root_path).to eq("/en/dummy_authorization_workflow/")
+        expect(wrapper.renew_path).to eq("/en/dummy_authorization_workflow/renew_authorization")
       end
     end
 
@@ -60,7 +60,7 @@ describe Decidim::Verifications::Adapter do
     let(:wrapper) { described_class.from_element(handler) }
 
     it "returns the edit authorization path for the workflow engine" do
-      expect(wrapper.resume_authorization_path).to eq("/dummy_authorization_workflow/edit_authorization")
+      expect(wrapper.resume_authorization_path).to eq("/en/dummy_authorization_workflow/edit_authorization")
     end
 
     context "when the main engine is not defined" do
@@ -99,7 +99,7 @@ describe Decidim::Verifications::Adapter do
     let(:wrapper) { described_class.from_element(handler) }
 
     it "returns the renew authorization path for the workflow engine" do
-      expect(wrapper.renew_path).to eq("/dummy_authorization_workflow/renew_authorization")
+      expect(wrapper.renew_path).to eq("/en/dummy_authorization_workflow/renew_authorization")
     end
 
     context "when the main engine is not defined" do
@@ -126,7 +126,7 @@ describe Decidim::Verifications::Adapter do
       let(:handler) { "dummy_authorization_handler" }
 
       it "returns the general renew authorization path" do
-        expect(wrapper.renew_path).to eq("/authorizations/renew?handler=dummy_authorization_handler")
+        expect(wrapper.renew_path).to eq("/en/authorizations/renew?handler=dummy_authorization_handler")
       end
     end
   end
@@ -136,7 +136,7 @@ describe Decidim::Verifications::Adapter do
     let(:wrapper) { described_class.from_element(handler) }
 
     it "returns the renew authorization path for the workflow engine" do
-      expect(wrapper.admin_root_path).to eq("/admin/id_documents/")
+      expect(wrapper.admin_root_path).to eq("/en/admin/id_documents/")
     end
 
     context "when the admin engine is not defined" do
