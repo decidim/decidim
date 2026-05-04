@@ -8,7 +8,6 @@ Decidim::Admin::Engine.routes.draw do
         resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "organization_homepage_content_blocks"
       end
       resource :external_domain_allowlist, only: [:edit, :update], controller: "organization_external_domain_allowlist"
-
     end
 
     resources :static_pages do

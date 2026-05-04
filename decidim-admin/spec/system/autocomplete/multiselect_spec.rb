@@ -122,7 +122,6 @@ describe "Autocomplete multiselect" do
           text_input = find("input[type='text']")
           expect(text_input.value).to eq("")
         end
-
       end
 
       describe "remove selected item" do
