@@ -268,12 +268,12 @@ eu:
           vote: Aurrekontuari babesa eman
         count:
           projects_count:
-            one: Proiektu bat
+            one: 1 proiektu
             other: "%{count} proiektu"
         empty: Oraindik ez dago proiekturik
         exit_modal:
-          cancel: Berriro bozkatu
-          exit: Bozketatik irten
+          cancel: Itzuli bozketara
+          exit: Irten bozketatik
           message: Zure babesa ez da erregistratu, oraindik ez duzulako osatu bozketa-prozesua. Ziur zaude bozketatik irten nahi duzula?
           title: Oraindik ez duzu bozkatu
         filters:
@@ -321,10 +321,10 @@ eu:
           added: Gehituta
           all: Guztiak
         projects_for: '%{name} parte-hartzailearen proiektuak'
-        select_projects: Proiektuak gehitu
+        select_projects: Gehitu proiektuak
         show:
           budget: Aurrekontua
-          votes: Babesak
+          votes: Botoak
       prompt: Aukeratu aurrekontua
       vote_reminder_mailer:
         vote_reminder:
@@ -435,7 +435,7 @@ eu:
         error: Arazo bat egon da zure babesa prozesatzean.
       destroy:
         error: Arazo bat egon da zure babesa ezeztatzean.
-        success: Zure babesa behar bezala ezeztatu da.
+        success: Zure botoa behar bezala ezeztatu da.
     resource_links:
       included_proposals:
         project_proposal: Proiektu honetan sartuta dauden proposamenak
