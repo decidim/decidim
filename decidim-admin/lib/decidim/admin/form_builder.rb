@@ -29,7 +29,7 @@ module Decidim
       #   - label: This will be the label of the option select.
       #
       # @example How to use it
-      #   <% prompt_options = { text: t(".select_user") }
+      #   <% prompt_options = { placeholder: t(".select_user") }
       #      options = { label: t(".user") } %>
       #   <%= form.autocomplete_select(:user_id, form.object.user.presence, options, prompt_options) do |user|
       #      { value: user.id, label: "#{user.name} (#{user.nickname})" }
