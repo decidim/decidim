@@ -77,10 +77,20 @@ describe "DownloadYourData", download: true do
       end
 
       it "when requesting current user's active file", :slow do
+        expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(uuid: active_export.uuid)}\"]")
+
         visit decidim.download_download_your_data_path(uuid: active_export.uuid)
 
         expect(page).to have_no_content("The export you have accessed does not exist, or you do not have access to download it")
         expect(page).to have_no_content("The export has expired. Try to generate a new export.")
+
+        if user.tos_accepted?
+          expect(page).to have_current_path(decidim.download_your_data_path, ignore_query: true)
+          expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(uuid: active_export.uuid)}\"]")
+        else
+          tos_page = Decidim::StaticPage.find_by(slug: "terms-of-service", organization:)
+          expect(page).to have_current_path(decidim.page_path(tos_page, locale: I18n.locale))
+        end
       end
     end
 
