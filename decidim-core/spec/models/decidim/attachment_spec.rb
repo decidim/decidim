@@ -115,7 +115,7 @@ module Decidim
     context "when it has a document" do
       subject { create(:attachment, :with_pdf) }
 
-       describe "url" do
+      describe "url" do
         context "when attached to an open space" do
           it "returns the ActiveStorage URL" do
             expect(subject.url).to include("/rails/active_storage/")
