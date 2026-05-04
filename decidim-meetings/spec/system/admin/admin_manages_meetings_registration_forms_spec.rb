@@ -2,6 +2,8 @@
 
 require "spec_helper"
 
+require "decidim/forms/test/shared_examples/questionnaire_admin_access"
+
 describe "Admin manages meetings registration forms" do
   let(:manifest_name) { "meetings" }
 
@@ -9,6 +11,8 @@ describe "Admin manages meetings registration forms" do
   let!(:meeting) { create(:meeting, scope:, component: current_component, questionnaire:, registrations_enabled: true, registration_form_enabled: true) }
 
   include_context "when managing a component as an admin"
+
+  it_behaves_like "questionnaire admin access", denied_error: 404
 
   it_behaves_like "manage questionnaires"
 

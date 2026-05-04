@@ -4,6 +4,7 @@ require "spec_helper"
 
 require "decidim/forms/test/shared_examples/manage_questionnaires/add_questions"
 require "decidim/forms/test/shared_examples/manage_questionnaires/update_questions"
+require "decidim/forms/test/shared_examples/questionnaire_admin_access"
 
 describe "Admin manages demographic questions" do
   let(:organization) { create(:organization) }
@@ -38,6 +39,8 @@ describe "Admin manages demographic questions" do
   it_behaves_like "needs admin TOS accepted" do
     let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
   end
+
+  it_behaves_like "questionnaire admin access", allow_process_admin: false, denied_error: 403
 
   shared_examples_for "add questions" do
     shared_examples_for "updating the max choices selector according to the configured options" do
@@ -1098,5 +1101,9 @@ describe "Admin manages demographic questions" do
 
   def nested_form_field_selector(attribute)
     "[id$=#{attribute}]"
+  end
+
+  def manage_questions_path
+    decidim_admin_demographics.edit_questions_questions_path
   end
 end
