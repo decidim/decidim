@@ -8,15 +8,15 @@ describe "Autocomplete multiselect" do
   let(:api_path) { "/api" }
   let(:selected) { '""' }
 
-   before do
-     final_html = html_document
-     Rails.application.routes.draw do
-       mount Decidim::Core::Engine => "/"
-       get "test_multiselect", to: ->(_) { [200, {}, [final_html]] }
-     end
-     switch_to_host(organization.host)
-     login_as user, scope: :user
-   end
+  before do
+    final_html = html_document
+    Rails.application.routes.draw do
+      mount Decidim::Core::Engine => "/"
+      get "test_multiselect", to: ->(_) { [200, {}, [final_html]] }
+    end
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+  end
 
   after do
     expect_no_js_errors
