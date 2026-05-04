@@ -5,36 +5,18 @@ require "spec_helper"
 describe "Autocomplete multiselect" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:api_path) { "/test_users_api" }
+  let(:api_path) { "/api" }
   let(:selected) { '""' }
 
-  before do
-    final_html = html_document
-    users_api_response = lambda do |env|
-      request = Rack::Request.new(env)
-      payload = JSON.parse(request.body.read)
-      wildcard = payload.fetch("query", "")[/wildcard:"((?:\\.|[^"])*)"/, 1].to_s.gsub('\\"', '"').delete_prefix("@")
-      users = Decidim::User.where(organization:)
-                           .where(blocked_at: nil, managed: false, deleted_at: nil)
-                           .where("name ILIKE :term OR nickname ILIKE :term", term: "%#{wildcard}%")
-
-      body = {
-        data: {
-          users: users.map { |u| { id: u.id.to_s, nickname: u.nickname, name: u.name, __typename: "User" } }
-        }
-      }
-
-      [200, { "Content-Type" => "application/json" }, [body.to_json]]
-    end
-
-    Rails.application.routes.draw do
-      mount Decidim::Core::Engine => "/"
-      get "test_multiselect", to: ->(_) { [200, {}, [final_html]] }
-      post "test_users_api", to: users_api_response
-    end
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-  end
+   before do
+     final_html = html_document
+     Rails.application.routes.draw do
+       mount Decidim::Core::Engine => "/"
+       get "test_multiselect", to: ->(_) { [200, {}, [final_html]] }
+     end
+     switch_to_host(organization.host)
+     login_as user, scope: :user
+   end
 
   after do
     expect_no_js_errors
