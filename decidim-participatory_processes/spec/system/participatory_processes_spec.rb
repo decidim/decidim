@@ -235,24 +235,6 @@ describe "Participatory Processes" do
             let(:attached_to) { participatory_process }
           end
 
-          context "when the participatory process is restricted" do
-            let!(:participatory_process) { create(:participatory_process, :published, :restricted, organization:) }
-            let!(:user) { create(:user, :confirmed, organization:) }
-            let!(:member) { create(:member, user:, participatory_space: participatory_process) }
-            let!(:document) { create(:attachment, :with_pdf, attached_to: participatory_process) }
-
-            before do
-              login_as user, scope: :user
-              visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
-            end
-
-            it "shows the document extension in the metadata" do
-              within "[data-content] .documents__container" do
-                expect(page).to have_css(".card__list-metadata", text: "pdf")
-              end
-            end
-          end
-
           it_behaves_like "has attachment collections" do
             let(:attached_to) { participatory_process }
             let(:collection_for) { participatory_process }
@@ -343,6 +325,24 @@ describe "Participatory Processes" do
             expect(page).to have_no_content(translated(restricted_assembly.title))
           end
         end
+
+      end
+    end
+
+    context "when the participatory process is restricted" do
+      let(:blocks_manifests) { [:related_documents, :related_images] }
+      let!(:participatory_process) { create(:participatory_process, :published, :restricted, :with_content_blocks, blocks_manifests:, organization:) }
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:member) { create(:member, :published, user:, participatory_space: participatory_process) }
+      let!(:document) { create(:attachment, :with_pdf, attached_to: participatory_process) }
+
+      before do
+        login_as user, scope: :user
+        visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
+      end
+
+      it "shows the document extension in the metadata" do
+        expect(all("[data-content] .documents__container").first).to have_css(".card__list-metadata", text: "pdf")
       end
     end
   end
