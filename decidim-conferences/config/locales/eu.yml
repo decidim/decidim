@@ -77,9 +77,9 @@ eu:
     models:
       decidim/conference:
         one: Jardunaldia
-        other: Jardunaldiak
+        other: Hitzaldiak
       decidim/conference_speaker:
-        one: Jardunaldiaren hizlaria
+        one: Hizlaria
         other: Jardunaldiaren hizlariak
       decidim/conference_user_role:
         one: Jardunaldiko parte-hartzailearen rola
@@ -154,7 +154,7 @@ eu:
           registrations: Izen-emateak
         form:
           duration: Iraupena
-          images: Irudiak
+          images: Argazkiak
           metadata: Metadatuak
           registrations: Izen-emateak
           related_spaces: Honekin lotutako espazioak
@@ -186,7 +186,7 @@ eu:
           error: Arazo bat egon da multimedia esteka hau eguneratzean.
           success: Multimediaren esteka zuzen eguneratua.
       menu:
-        conferences: Jardunaldiak
+        conferences: Hitzaldiak
         conferences_submenu:
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
@@ -223,7 +223,7 @@ eu:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: Jardunaldiaren administratzailea
+          name: Hitzaldiaren administratzailea
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
