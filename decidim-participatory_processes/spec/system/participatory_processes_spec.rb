@@ -325,7 +325,6 @@ describe "Participatory Processes" do
             expect(page).to have_no_content(translated(restricted_assembly.title))
           end
         end
-
       end
     end
 
