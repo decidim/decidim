@@ -16,17 +16,17 @@ describe Decidim::ExportParticipatorySpaceJob do
     allow(Decidim::ExportMailer).to receive(:export).and_return(mailer_double)
   end
 
-  describe "exporting private processes" do
-    let(:private_process) { create(:participatory_process, :private, organization:) }
+  describe "exporting restricted processes" do
+    let(:restricted_process) { create(:participatory_process, :restricted, organization:) }
 
-    it "includes private processes when user is an admin" do
-      collection = export_manifest.collection.call(private_process, admin)
-      expect(collection).to include(private_process)
+    it "includes restricted processes when user is an admin" do
+      collection = export_manifest.collection.call(restricted_process, admin)
+      expect(collection).to include(restricted_process)
     end
 
-    it "excludes private processes when user is nil (open data)" do
-      collection = export_manifest.collection.call(private_process, nil)
-      expect(collection).not_to include(private_process)
+    it "excludes restricted processes when user is nil (open data)" do
+      collection = export_manifest.collection.call(restricted_process, nil)
+      expect(collection).not_to include(restricted_process)
     end
   end
 

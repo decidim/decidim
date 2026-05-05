@@ -38,7 +38,6 @@ module Decidim
             target: attributes["target"],
             participatory_scope: attributes["participatory_scope"],
             participatory_structure: attributes["participatory_structure"],
-            private_space: attributes["private_space"],
             reference: attributes["reference"],
             purpose_of_action: attributes["purpose_of_action"],
             composition: attributes["composition"],
@@ -49,7 +48,6 @@ module Decidim
             closing_date: attributes["closing_date"],
             created_by_other: attributes["created_by_other"],
             internal_organisation: attributes["internal_organisation"],
-            is_transparent: attributes["is_transparent"],
             special_features: attributes["special_features"],
             twitter_handler: attributes["twitter_handler"],
             instagram_handler: attributes["instagram_handler"],
@@ -57,7 +55,8 @@ module Decidim
             youtube_handler: attributes["youtube_handler"],
             github_handler: attributes["github_handler"],
             created_by: attributes["created_by"],
-            meta_scope: attributes["meta_scope"]
+            meta_scope: attributes["meta_scope"],
+            access_mode: resolve_access_mode(attributes)
           )
           import_hero_image(attributes["remote_hero_image_url"])
           @imported_assembly.save!
@@ -185,6 +184,15 @@ module Decidim
         message = status[1].presence || Rack::Utils::HTTP_STATUS_CODES[code.to_i]
         message = message.presence || error.message
         "#{code} #{message}"
+      end
+
+      def resolve_access_mode(attributes)
+        return attributes["access_mode"] if attributes["access_mode"].present?
+
+        return "transparent" if attributes["is_transparent"] == true
+        return "restricted" if attributes["private_space"] == true
+
+        "open"
       end
     end
   end

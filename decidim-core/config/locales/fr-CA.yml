@@ -1041,6 +1041,12 @@ fr-CA:
         update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Ouvert
+            restricted: Restreint
+            transparent: Transparent
+          not_found: Le mode d'accès %{id} est introuvable
         area_presenter:
           not_found: 'Le périmètre d''assemblée n''a pas été trouvée dans la base de données (ID: %{id})'
         area_type_presenter:
@@ -1379,6 +1385,18 @@ fr-CA:
           %{organization_name}
         hello: Cher(ère) %{username},
         subject: Compte inactif supprimé
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Membre de
+    participatory_space_members:
+      index:
+        members: Membres
+    participatory_spaces:
+      show:
+        restricted_space: Ceci est un espace restreint. Seuls les membres peuvent le voir et y participer.
+        transparent_space: Ceci est un espace transparent. N'importe qui peut voir le contenu, mais seuls les membres peuvent participer.
     passwords:
       update:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
@@ -1660,6 +1678,7 @@ fr-CA:
         nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne peut contenir que des lettres, des chiffres ainsi que les caractères "-" et "_".
         submit_button: Sauvegarder
         subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudonyme et votre mot de passe.
+        subtitle_no_password: Si vous acceptez l'invitation, veuillez définir votre pseudonyme.
       invitation_removed: Votre invitation a été supprimée.
       invitation_token_invalid: Le jeton d'invitation fourni n'est pas valide!
       new:
@@ -1667,8 +1686,8 @@ fr-CA:
         submit_button: Envoyer une invitation
       no_invitations_remaining: Aucune invitation restante
       send_instructions: Un email d'invitation a été envoyé à %{email}.
-      updated: Votre mot de passe a été défini avec succès. Vous êtes maintenant inscrit.
-      updated_not_active: Votre mot de passe a été défini avec succès.
+      updated: Invitation acceptée avec succès. Vous êtes maintenant connecté(e).
+      updated_not_active: Invitation acceptée avec succès.
     mailer:
       confirmation_instructions:
         action: Confirmer mon compte
@@ -1727,8 +1746,8 @@ fr-CA:
         confirm_new_password: Confirmer le nouveau mot de passe
         new_password: Nouveau mot de passe
         old_password_help: Afin de confirmer les modifications apportées à votre compte, veuillez saisir votre mot de passe actuel.
-        password_help: "%{minimum_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
-        password_help_admin: "%{minimum_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email, ainsi que de vos précédents mots de passe."
+        password_help: "%{minimum_characters} caractères minimum, doit contenir au moins 5 caractères différents, ne doit pas être trop commun (ex. 123456) et doit être différent de votre nom, de votre pseudo, de votre courriel et du nom de l'organisation."
+        password_help_admin: "%{minimum_characters} caractères minimum, doit contenir au moins 5 caractères différents, ne doit pas être trop commun (ex. 123456) et doit être différent de votre nom, de votre pseudo, de votre courriel, du nom de l'organisation et de vos anciens mots de passe."
         title: Changement de mot de passe
       new:
         forgot_your_password: Mot de passe oublié?
@@ -1969,6 +1988,7 @@ fr-CA:
         confirm_title_close_ephemeral_session: Avant de quitter cette page…
         log_in: Se connecter
         main_menu: Menu principal
+        mobile_account_greeting: Bonjour %{user_name},
         user_menu: Menu utilisateur
       impersonation_warning:
         close_session: Fermer la session

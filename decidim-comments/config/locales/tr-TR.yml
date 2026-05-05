@@ -27,6 +27,7 @@ tr:
           error: Yorum oylanırken bir sorun oluştu.
     components:
       add_comment_form:
+        account_message: "Log in or create an account to add your comment.\nYorum Eklemek İçin Giriş Yapınız veya Bir hesap açınız."
         form:
           body:
             label: Yorum

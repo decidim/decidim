@@ -88,8 +88,6 @@
           success: Konferansetaler ble slettet.
         edit:
           update: Oppdater
-        index:
-          conference_speakers_title: Konferansetalere
         new:
           create: Opprett
         update:
@@ -203,7 +201,6 @@
           update: Oppdater
         new:
           create: Opprett
-          title: Ny partner
         update:
           error: Det oppstod et problem med å oppdatere en partner for denne konferansen.
           success: Konferansepartner ble oppdatert.
@@ -224,12 +221,9 @@
           update: Oppdater
         new:
           create: Opprett
-          title: Ny registreringstype
         update:
           error: Det oppstod et problem med å oppdatere en registreringstype for denne konferansen.
           success: Konferanse registrerings-type ble oppdatert.
-      titles:
-        conferences: Konferanser
     admin_log:
       conference:
         create: "%{user_name} opprettet %{resource_name} konferansen"
@@ -282,13 +276,8 @@
             select_user: Velg deltaker
           index:
             invite_attendee: Inviter deltaker
-            invites: Invitasjoner
           new:
             invite: Inviter
-            new_invite: Inviter deltaker
-        conference_registrations:
-          index:
-            registrations: Registreringer
         conference_speakers:
           form:
             existing_user: Eksisterende deltaker

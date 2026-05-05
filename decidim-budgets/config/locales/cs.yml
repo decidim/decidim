@@ -94,7 +94,7 @@ cs:
             invalid: Při vytváření tohoto projektu došlo k chybě.
             success: Projekt byl úspěšně vytvořen.
           edit:
-            title: Upravit projekt
+            title: Upravit projekt v %{budget}
             update: Aktualizace
           index:
             actions: Akce
@@ -117,7 +117,7 @@ cs:
             title: Smazané projekty
           new:
             create: Vytvořit
-            title: Nový projekt
+            title: Nový projekt v %{budget}
           update:
             invalid: Při aktualizaci tohoto projektu došlo k chybě.
             success: Projekt byl úspěšně aktualizován.

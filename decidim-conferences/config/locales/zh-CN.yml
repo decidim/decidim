@@ -52,8 +52,6 @@ zh-CN:
           success: 会议发言者已成功删除。
         edit:
           update: 更新
-        index:
-          conference_speakers_title: 会议发言者：
         new:
           create: 创建
         update:
@@ -166,7 +164,6 @@ zh-CN:
           update: 更新
         new:
           create: 创建
-          title: 新建合作伙伴
         update:
           error: 更新此会议的合作伙伴时出现问题。
           success: 会议合作伙伴已成功更新。
@@ -187,12 +184,9 @@ zh-CN:
           update: 更新
         new:
           create: 创建
-          title: 新注册类型
         update:
           error: 更新此会议的注册类型时出现问题。
           success: 会议注册类型已成功更新。
-      titles:
-        conferences: 会议
     admin_log:
       conference:
         create: "%{user_name} 创建了 %{resource_name} 次会议"
@@ -241,13 +235,8 @@ zh-CN:
             select_user: 选择参与者
           index:
             invite_attendee: Invite participant
-            invites: 邀请
           new:
             invite: 邀请
-            new_invite: Invite participant
-        conference_registrations:
-          index:
-            registrations: 注册
         conference_speakers:
           form:
             existing_user: 现有参与者

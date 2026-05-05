@@ -114,9 +114,6 @@ it:
             name_and_surname: Nome e cognome
             postal_code: Codice postale
             timestamp: timestamp
-      titles:
-        initiatives: Iniziative
-        initiatives_types: Tipi di iniziativa
     events:
       initiatives:
         admin:

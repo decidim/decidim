@@ -22,10 +22,13 @@ tr:
   decidim:
     components:
       debates:
+        actions:
+          create: Bir tartışma başlatın
         name: Tartışmalar
         settings:
           global:
             announcement: duyuru
+            attachments_allowed: Eklere İzin Ver
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
           step:
@@ -66,6 +69,9 @@ tr:
           close: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını kapattı"
           create: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını yarattı"
           update: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını güncelledi"
+      content_blocks:
+        highlighted_debates:
+          see_all: Tüm Tartışmaları Gör
       debate_m:
         commented_time_ago: '%{time} önce yorumlandı'
       debates:
@@ -108,7 +114,6 @@ tr:
           back: Geri
           create: Oluştur
         orders:
-          commented: En çok yorum yapılan
           label: Tartışmaların sıralama ölçütü
           random: Rasgele sırala
           recent: En yeni

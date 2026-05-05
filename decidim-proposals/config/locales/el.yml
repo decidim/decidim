@@ -168,6 +168,9 @@ el:
         admin:
           proposal_note_created:
             email_subject: Κάποιος άφησε μια σημείωση στην πρόταση %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Αποδοχή
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} έχει γίνει δεκτή η πρόσβαση ως συνεισφέρων του <a href="%{resource_url}">%{resource_title}</a> συνεργατικού σχεδίου.'
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
@@ -401,98 +404,6 @@ el:
           all: Όλα
           amendments: Τροποποιήσεις
           proposals: Προτάσεις
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση του προσχεδίου συνεργασίας.
-            irreversible_action_modal:
-              body: Μετά τη δημοσίευση του προσχεδίου ως πρόταση, το προσχέδιο δεν θα είναι πλέον επεξεργάσιμο. Η πρόταση δεν θα δεχτεί νέους συντάκτες ή συνεισφορές.
-              cancel: Ακύρωση
-              ok: Δημοσίευση ως πρόταση
-              title: Η ακόλουθη ενέργεια είναι μη αναστρέψιμη
-            success: Το προσχέδιο συνεργασίας δημοσιεύτηκε με επιτυχία ως πρόταση.
-          withdraw:
-            error: Υπήρξε ένα πρόβλημα κατά το κλείσιμο του προσχεδίου συνεργασίας.
-            irreversible_action_modal:
-              body: Μετά το κλείσιμο του προσχεδίου, το προσχέδιο δεν θα είναι πλέον επεξεργάσιμο. Το προσχέδιο δεν θα δεχτεί νέους συντάκτες ή συνεισφορές.
-              cancel: Ακύρωση
-              ok: Απόσυρση του προσχεδίου συνεργασίας
-              title: Η ακόλουθη ενέργεια είναι μη αναστρέψιμη
-            success: Το προσχέδιο συνεργασίας αποσύρθηκε με επιτυχία.
-        create:
-          error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία του συνεργατικού προσχεδίου.
-          success: Το προσχέδιο συνεργασίας δημιουργήθηκε με επιτυχία.
-        edit:
-          back: Πίσω
-          send: Αποστολή
-          title: Επεξεργασία προσχεδίου συνεργασίας
-        filters:
-          all: Όλα
-          amendment: Τροποποιήσεις
-          open: Ανοιχτή
-          published: Δημοσιεύτηκε
-          related_to: Σχετίζεται με
-          search: Αναζήτηση
-          state: Κατάσταση
-          withdrawn: Αποσύρθηκε
-        filters_small_view:
-          close_modal: Κλείσιμο βοηθητικού στοιχείου
-          filter: Φίλτρο
-          filter_by: Φιλτράρισμα κατά
-          unfold: Αποκάλυψη
-        index:
-          count:
-            one: "%{count} προσχέδιο συνεργασίας"
-            other: "%{count} προσχέδια συνεργασίας"
-        new:
-          add_file: Προσθήκη αρχείου
-          edit_file: Επεξερφασία αρχείου
-          send: Συνέχεια
-        new_collaborative_draft_button:
-          new_collaborative_draft: Νέο προσχέδιο συνεργασίας
-        orders:
-          label: 'Ταξινόμηση προσχεδίων κατά:'
-          most_contributed: Με τις περισσότερες συνεισφορές
-          random: Τυχαία
-          recent: Πρόσφατα
-        requests:
-          accepted_request:
-            error: Δεν ήταν δυνατή η αποδοχή ως συνεργάτη. Δοκιμάστε ξανά αργότερα.
-            success: "Ο χρήστης @%{user} έγινε δεκτός ως συνεργάτης με επιτυχία."
-          access_requested:
-            error: Δεν ήταν δυνατή η ολοκλήρωση του αιτήματός σας. Δοκιμάστε ξανά αργότερα.
-            success: Το αίτημά σας για συνεργασία έχει σταλεί με επιτυχία.
-          collaboration_requests:
-            accept_request: Αποδοχή
-            reject_request: Απόρριψη
-            title: Αιτήματα συνεργασίας
-          rejected_request:
-            error: Δεν ήταν δυνατή η απόρριψη ως συνεργάτη. Δοκιμάστε ξανά αργότερα.
-            success: "@%{user} έχει απορριφθεί με επιτυχία ως συνεργάτης."
-        show:
-          final_proposal: τελική πρόταση
-          final_proposal_help_text: Αυτό το προσχέδιο ολοκληρώθηκε. Δείτε την τελική πρόταση
-          hidden_authors_count:
-            one: και %{count} ακόμη άτομο
-            other: και %{count} ακόμη άτομα
-          info-message: Αυτό είναι ένα <strong>προσχέδιο συνεργασίας</strong> για μια πρόταση. Αυτό σημαίνει ότι μπορείτε να βοηθήσετε τους συντάκτες τους να διαμορφώσουν την πρόταση χρησιμοποιώντας την παρακάτω ενότητα σχολίων ή να την βελτιώσετε απευθείας ζητώντας πρόσβαση για να την επεξεργαστείτε. Μόλις οι συντάκτες σάς παραχωρήσουν πρόσβαση, θα μπορείτε να κάνετε αλλαγές σε αυτό το προσχέδιο.
-          publish: Δημοσίευση
-          publish_info: Δημοσίευση αυτής της έκδοσης του προσχεδίου ή
-          published_proposal: δημοσιευμένη πρόταση
-          request_access: Αίτημα πρόσβασης
-          requested_access: Ζητήθηκε πρόσβαση
-          withdraw: απόσυρση του προσχεδίου
-        states:
-          open: Ανοιχτή
-          published: Δημοσιεύτηκε
-          withdrawn: Αποσύρθηκε
-        update:
-          error: Υπήρξε ένα πρόβλημα κατά την αποθήκευση του προσχεδίου συνεργασίας.
-          success: Το προσχέδιο συνεργασίας ενημερώθηκε με επιτυχία.
-        wizard_aside:
-          back_from_collaborative_draft: Πίσω στα συνεργατικά προσχέδια
-        wizard_header:
-          title: Δημιουργήστε το προσχέδιο συνεργασίας σας
       create:
         error: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της πρότασης.
         success: Η πρόταση δημιουργήθηκε με επιτυχία. Αποθηκεύτηκε ως Προσχέδιο.
@@ -546,7 +457,6 @@ el:
           type: Τύπος
         index:
           click_here: Δείτε όλες τις προτάσεις
-          collaborative_drafts_list: Πρόσβαση σε προσχέδια συνεργασίας
           count:
             one: "%{count} πρόταση"
             other: "%{count} προτάσεις"
@@ -581,8 +491,9 @@ el:
           answer: Απάντηση
           changes_at_title: Τροποποίηση σε «%{title}»
           estimated_cost: Εκτιμώμενο κόστος
-          link_to_collaborative_draft_help_text: Αυτή η πρόταση είναι το αποτέλεσμα ενός προσχεδίου συνεργασίας. Δείτε το ιστορικό
-          link_to_collaborative_draft_text: Δείτε το προσχέδιο συνεργασίας
+          hidden_likes_count:
+            one: και %{count} ακόμη άτομο
+            other: και %{count} ακόμη άτομα
           link_to_promoted_emendation_help_text: Αυτή η πρόταση είναι μια αναβαθμισμένη διόρθωση
           link_to_promoted_emendation_text: Δείτε τη διόρθωση που απορρίφθηκε.
           link_to_proposal_from_emendation_help_text: Αυτή είναι μια διόρθωση που απορρίφθηκε

@@ -59,9 +59,6 @@ ru:
             created_at: 'Создано:'
             title: Виды починов
           name: Вид почина
-      titles:
-        initiatives: Почины
-        initiatives_types: Виды починов
     events:
       initiatives:
         initiative_extended:

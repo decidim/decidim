@@ -145,7 +145,6 @@ fi-pl:
           success: Tapahtuman monistaminen onnistui.
         new:
           copy: Kopioi
-          title: Monista tapahtuma
       tooltips:
         cannot_close_meetings: Tätä tapaamista ei voi sulkea, koska se on osallistujan luoma
         cannot_duplicate_meetings: Tätä tapaamista ei voi kopioida, koska se on osallistujan luoma
@@ -354,13 +353,16 @@ fi-pl:
             non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
-            invite_attendee: Kutsu osallistuja
             invites: Kutsut
             registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
+            title: Kutsu osallistuja
         meeting_closes:
           edit:
             close: Sulje
             title: Sulje tapahtuma
+        meeting_copies:
+          new:
+            title: Kopioi tapaaminen
         meetings:
           close:
             invalid: Tapaamisen sulkeminen epäonnistui.
@@ -393,7 +395,7 @@ fi-pl:
             assign: Määritä
             link_a_space: Liitä osallistumistila
             private_meeting_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on yksityinen ja läpinäkymätön.
-            private_space_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on yksityisessä ja läpinäkymättömässä osallistumistilassa.
+            restricted_space_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on rajatussa osallistumistilassa.
             select: Valitse osallistumistila
             table:
               actions: Toiminnot
@@ -437,15 +439,21 @@ fi-pl:
             invalid: Tapaamisen mielipidetiedustelun päivittäminen epäonnistui.
             success: Tapaamisen mielipidetiedustelun päivittäminen onnistui.
         poll:
+          edit:
+            title: Muokkaa mielipidetiedustelua
           form:
             announcement_html:
               - Kun kysymykseen vastataan tai se julkaistaan tai suljetaan, sitä ei voi enää muokata sen jälkeen.
               - Voit lisätä kysymyksiä milloin tahansa.
               - Tämä mielipidetiedustelu suljetaan, kun kaikkien kysymysten tulokset on julkaistu.
               - Vieraile <a href='%{admin_link}'>mielipidetiedustelun hallinnointisivulla</a> lähettääksesi kysymyksiä ja julkaistaksesi tuloksia.
+        registration_form:
+          edit_questions:
+            title: Muokkaa kysymyksiä
         registrations:
           edit:
             save: Tallenna
+            title: Ilmoittautumiset
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
@@ -459,7 +467,6 @@ fi-pl:
               other: Tapahtumaan on %{count} ilmoittautumista.
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja.
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
-            title: Rekisteröitymiset
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa esiintyi ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
@@ -731,6 +738,8 @@ fi-pl:
         hidden_participants_count:
           one: ja %{count} muu henkilö
           other: ja %{count} muuta henkilöä
+        show_less: Näytä vähemmän
+        show_more: Näytä enemmän
       read_more: "(lue lisää)"
       registration_mailer:
         confirmation:

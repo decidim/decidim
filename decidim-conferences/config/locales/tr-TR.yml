@@ -61,8 +61,6 @@ tr:
           success: Bu konferans için konuşmacı başarıyla silindi.
         edit:
           update: Güncelleştirme
-        index:
-          conference_speakers_title: Konferans konuşmacıları
         new:
           create: yaratmak
         update:
@@ -175,7 +173,6 @@ tr:
           update: Güncelle
         new:
           create: Oluştur
-          title: Yeni iş ortağı
         update:
           error: Bu konferans için bir iş ortağı güncellenirken hata oluştu.
           success: Bu konferans için iş ortağı başarıyla güncellendi.
@@ -196,12 +193,9 @@ tr:
           update: Güncelle
         new:
           create: Oluştur
-          title: Yeni kayıt türü
         update:
           error: Bu konferans için bir kayıt türü güncellendiğinde bir hata oluştu.
           success: Bu konferans için kayıt türü başarıyla güncellendi.
-      titles:
-        conferences: Konferanslar
     admin_log:
       conference:
         create: "%{user_name} %{resource_name} konferansı oluşturdu"
@@ -250,13 +244,8 @@ tr:
             select_user: Kullanıcı seç
           index:
             invite_attendee: Katılımcı Davet Et
-            invites: Davetler
           new:
             invite: Davet et
-            new_invite: Kullanıcı davet et
-        conference_registrations:
-          index:
-            registrations: Kayıtlar
         conference_speakers:
           form:
             existing_user: Mevcut kullanıcı

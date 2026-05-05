@@ -270,7 +270,7 @@ describe "Participatory Processes" do
         end
 
         context "and the process has some components" do
-          let(:blocks_manifests) { [:main_data] }
+          let(:blocks_manifests) { [:hero, :main_data] }
 
           it "shows the components" do
             within ".participatory-space__nav-container" do
@@ -278,6 +278,8 @@ describe "Participatory Processes" do
               expect(page).to have_no_content(decidim_escape_translated(meetings_component.name))
             end
           end
+
+          it_behaves_like "accessible page"
 
           context "and the process statistics are enabled" do
             let(:blocks_manifests) { [:hero, :stats] }
@@ -303,14 +305,14 @@ describe "Participatory Processes" do
         context "when assemblies are linked to participatory process" do
           let!(:published_assembly) { create(:assembly, :published, organization:) }
           let!(:unpublished_assembly) { create(:assembly, :unpublished, organization:) }
-          let!(:private_assembly) { create(:assembly, :published, :private, :opaque, organization:) }
-          let!(:transparent_assembly) { create(:assembly, :published, :private, :transparent, organization:) }
+          let!(:restricted_assembly) { create(:assembly, :published, :restricted, organization:) }
+          let!(:transparent_assembly) { create(:assembly, :published, :transparent, organization:) }
           let(:blocks_manifests) { [:related_assemblies] }
 
           before do
             published_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
             unpublished_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
-            private_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
+            restricted_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
             transparent_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
             visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
           end
@@ -320,7 +322,7 @@ describe "Participatory Processes" do
             expect(page).to have_content(translated(published_assembly.title))
             expect(page).to have_content(translated(transparent_assembly.title))
             expect(page).to have_no_content(translated(unpublished_assembly.title))
-            expect(page).to have_no_content(translated(private_assembly.title))
+            expect(page).to have_no_content(translated(restricted_assembly.title))
           end
         end
       end

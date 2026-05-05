@@ -14,8 +14,8 @@ module Decidim
         let(:resource) { create(:dummy_resource, component:, author: user) }
         let!(:followed_resource) { create(:follow, followable: resource, user: normal_user) }
 
-        context "when assembly is private and non transparent" do
-          let(:participatory_space) { create(:assembly, :private, :published, :opaque, organization: user.organization) }
+        context "when assembly is restricted" do
+          let(:participatory_space) { create(:assembly, :restricted, :published, organization: user.organization) }
 
           it "deletes follows of non members" do
             # we have 2 follows, one for assembly, and one for a "child" resource
@@ -23,8 +23,8 @@ module Decidim
           end
         end
 
-        context "when assembly is private but transparent" do
-          let(:participatory_space) { create(:assembly, :private, :published, organization: user.organization) }
+        context "when assembly is transparent" do
+          let(:participatory_space) { create(:assembly, :transparent, :published, organization: user.organization) }
 
           it "preserves follows of non members" do
             # we have 2 follows, one for assembly, and one for a "child" resource
@@ -32,8 +32,8 @@ module Decidim
           end
         end
 
-        context "when assembly is public" do
-          let(:participatory_space) { create(:assembly, :published, organization: user.organization) }
+        context "when assembly is open" do
+          let(:participatory_space) { create(:assembly, :open, :published, organization: user.organization) }
 
           it "preserves follows of non members" do
             # we have 2 follows, one for assembly, and one for a "child" resource
@@ -41,8 +41,8 @@ module Decidim
           end
         end
 
-        context "when process is private" do
-          let(:participatory_space) { create(:participatory_process, :private, :published, organization: user.organization) }
+        context "when process is restricted" do
+          let(:participatory_space) { create(:participatory_process, :restricted, :published, organization: user.organization) }
 
           it "deletes follows of non members" do
             # we have 2 follows, one for process, and one for a "child" resource
@@ -50,8 +50,8 @@ module Decidim
           end
         end
 
-        context "when process is public" do
-          let(:participatory_space) { create(:participatory_process, :published, organization: user.organization) }
+        context "when process is open" do
+          let(:participatory_space) { create(:participatory_process, :open, :published, organization: user.organization) }
 
           it "preserves follows of non members" do
             expect { described_class.perform_now(normal_user.id, participatory_space) }.not_to change(Decidim::Follow, :count)

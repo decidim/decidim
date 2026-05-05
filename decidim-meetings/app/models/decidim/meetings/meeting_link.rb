@@ -9,13 +9,13 @@ module Decidim
       belongs_to :component, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
 
       # Finds all the meetings linked to the given component
-      # filtering out meetings that belong to private not transparent spaces.
+      # filtering out meetings that belong to restricted spaces.
       def self.find_meetings(component:)
         meetings = Meeting
                    .joins(:meeting_links)
                    .where("decidim_meetings_meeting_links.component": component)
                    .filter do |meeting|
-          !meeting.component.private_non_transparent_space?
+          !meeting.component.restricted_space?
         end
 
         Meeting.where(id: meetings.map(&:id))

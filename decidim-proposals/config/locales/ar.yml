@@ -179,6 +179,9 @@ ar:
         admin:
           proposal_note_created:
             email_subject: ترك شخص ملاحظة على الاقتراح %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: قبول
         collaborative_draft_access_accepted:
           email_intro: 'تم قبول %{requester_name} لأن يكون مسجلاً كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: لقد تلقيت هذا الإشعار لأنك مساهم مع <a href="%{resource_url}">%{resource_title}</a>.
@@ -402,101 +405,6 @@ ar:
           all: الكل
           amendments: تعديلات
           proposals: اقتراحات
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: حدثت مشكلة أثناء نشر المسودة التعاونية.
-            irreversible_action_modal:
-              cancel: إلغاء
-              ok: نشر كاقتراح
-              title: الإجراء التالي لا رجعة فيه
-            success: مسودة تعاونية تم نشرها بنجاح كمقترح
-          withdraw:
-            error: حدثت مشكلة أثناء إغلاق المسودة التعاونية.
-            irreversible_action_modal:
-              cancel: إلغاء
-              ok: سحب المسودة التعاونية
-              title: الإجراء التالي لا رجعة فيه
-            success: تم سحب مشروع تعاوني بنجاح.
-        create:
-          error: طرأت مشكلة خلال إنشاء هذه المسودة التعاونية.
-          success: تم إنشاء مشروع تعاوني بنجاح.
-        edit:
-          attachment_legend: إضافة مستند أو صورة
-          back: الى الخلف
-          send: إرسال
-          title: تحرير المسودة التعاونية
-        filters:
-          all: الكل
-          amendment: تعديلات
-          open: افتح
-          published: نشرت
-          related_to: متعلق ب
-          search: بحث
-          state: الحالة
-          withdrawn: سحب
-        filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
-        index:
-          count:
-            zero: "%{count} مسودات تعاونية"
-            one: "%{count} مشروع تعاوني"
-            two: "%{count} مسودات تعاونية"
-            few: "%{count} مسودات تعاونية"
-            many: "%{count} مسودات تعاونية"
-            other: "%{count} مسودات تعاونية"
-        new:
-          add_file: إضافة ملف
-          edit_file: تحرير الملف
-          send: استمر
-        new_collaborative_draft_button:
-          new_collaborative_draft: مشروع تعاوني جديد
-        orders:
-          label: 'ترتيب المسودات حسب:'
-          most_contributed: التي تحصلت على معظم المساهمات
-          random: عشوائية
-          recent: الأخيرة
-        requests:
-          accepted_request:
-            error: لا يمكن قبول كمتعاون ، يرجى المحاولة مرة أخرى في وقت لاحق.
-          access_requested:
-            error: تعذر إكمال طلبك ، يرجى إعادة المحاولة لاحقًا.
-          collaboration_requests:
-            accept_request: قبول
-            reject_request: رفض
-            title: طلبات التعاون
-          rejected_request:
-            error: لا يمكن الرفض كمتعاون ، يرجى المحاولة مرة أخرى لاحقًا.
-        show:
-          final_proposal: الاقتراح النهائي
-          final_proposal_help_text: انتهى هذا المشروع. تحقق من الاقتراح النهائي
-          hidden_authors_count:
-            zero: و %{count} المزيد من الناس
-            one: و %{count} شخص آخر
-            two: و %{count} المزيد من الناس
-            few: و %{count} المزيد من الناس
-            many: و %{count} المزيد من الناس
-            other: و %{count} المزيد من الناس
-          publish: نشر
-          publish_info: نشر هذا الإصدار من المسودة أو
-          published_proposal: الاقتراح المنشور
-          request_access: طلب الدخول
-          requested_access: طلب الوصول
-          withdraw: سحب المشروع
-        states:
-          open: افتح
-          published: نشرت
-          withdrawn: سحب
-        update:
-          error: حدثت مشكلة في حفظ المسودة التعاونية.
-          success: تم تحديث المسودة التعاونية بنجاح.
-        wizard_aside:
-          back_from_collaborative_draft: العودة إلى المسودات التعاونية
-        wizard_header:
-          title: إنشاء مسودتك التعاونية
       create:
         error: كانت هناك مشكلة في حفظ الاقتراح.
         success: تم إنشاء الاقتراح بنجاح. تم الحفظ كمسودة.
@@ -551,7 +459,6 @@ ar:
           type: نوع
         index:
           click_here: عرض جميع الاقتراحات
-          collaborative_drafts_list: الوصول إلى المسودات التعاونية
           count:
             zero: "%{count} مقترحات"
             one: "%{count} اقتراح"
@@ -591,8 +498,13 @@ ar:
           answer: إجابة
           changes_at_title: تعديل على "%{title}"
           estimated_cost: التكلفة التقديرية
-          link_to_collaborative_draft_help_text: هذا الاقتراح هو نتيجة لمشروع تعاوني. مراجعة التاريخ
-          link_to_collaborative_draft_text: انظر المسودة التعاونية
+          hidden_likes_count:
+            zero: و %{count} المزيد من الناس
+            one: و %{count} شخص آخر
+            two: و %{count} المزيد من الناس
+            few: و %{count} المزيد من الناس
+            many: و %{count} المزيد من الناس
+            other: و %{count} المزيد من الناس
           link_to_promoted_emendation_help_text: هذا الاقتراح عبارة عن تعديل مروج له
           link_to_promoted_emendation_text: عرض التعديل المرفوض.
           link_to_proposal_from_emendation_help_text: هذا تعديل مرفوض

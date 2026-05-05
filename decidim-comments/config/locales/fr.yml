@@ -67,9 +67,6 @@ fr:
         alignment:
           against: Contre
           in_favor: Pour
-        answers:
-          one: "%{count} réponse"
-          other: "%{count} réponses"
         cancel_reply: Annuler la réponse
         comment_label: Commentaire %{comment_id}
         comment_label_reply: Commentaire %{comment_id} (réponse au commentaire %{parent_comment_id})
@@ -83,6 +80,7 @@ fr:
         hide_replies:
           one: Masquer la réponse
           other: Masquer {count} réponses
+        load_replies: Charger les réponses
         moderated_at: Commentaire modéré le %{date}
         reply: Répondre
         report:
@@ -115,7 +113,9 @@ fr:
         blocked_comments_warning: Les commentaires sont actuellement désactivés, seuls les administrateurs peuvent répondre ou en poster de nouveaux.
         comment_details_title: Détails du commentaire
         in_favor: Pour
+        load_more_comments: Charger plus de commentaires
         loading: Chargement des commentaires ...
+        no_comments_yet: Pas encore de commentaire
         single_comment_warning: <a href="%{url}">Voir tous les commentaires</a>
         single_comment_warning_title: Vous ne voyez qu'un seul commentaire
         title:

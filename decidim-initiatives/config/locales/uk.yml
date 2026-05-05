@@ -59,9 +59,6 @@ uk:
             created_at: 'Створено:'
             title: Різновиди починів
           name: Різновид почину
-      titles:
-        initiatives: Почини
-        initiatives_types: Різновиди починів
     events:
       initiatives:
         initiative_extended:

@@ -117,12 +117,6 @@ zh-TW:
         skip_verification: 您現在可以跳過這個步驟，並%{link}
         start_exploring: 開始探索
       csv_census:
-        admin:
-          index:
-            title: 目前戶籍資料
-          instructions:
-            body: 您需要進入系統管理，並向組織添加 csv_census 授權以進行操作。
-            title: 您需要為此組織啟用 CSV 戶籍調查。
         authorizations:
           new:
             error: 我們無法驗證您的帳戶或您不在該組織的人口普查中。
@@ -147,7 +141,6 @@ zh-TW:
               error: 驗證不符合。請再試一次或拒絕驗證，以便參與者進行修正。
               success: 參與者驗證成功.
             new:
-              introduce_user_data: 輸入圖片中的數據
               reject: 拒絕
               verify: 驗證
           offline_confirmations:
@@ -156,7 +149,6 @@ zh-TW:
               success: 參與者驗證成功.
             new:
               cancel: 取消
-              introduce_user_data: 輸入參與者電子郵件和文件資料
               verify: 驗證
           pending_authorizations:
             index:

@@ -76,6 +76,9 @@ id:
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Menerima
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} telah diterima untuk diakses sebagai kontributor dari %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> telah <strong>diterima untuk mengakses sebagai kontributor</strong> dari <a href="%{resource_path}">%{resource_title}</a> draf kolaboratif.
@@ -252,85 +255,6 @@ id:
           all: Semua
           amendments: Amandemen
           proposals: Proposal
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Ada kesalahan saat memublikasikan draf kolaboratif.
-            irreversible_action_modal:
-              cancel: Membatalkan
-              ok: Publikasikan sebagai Proposal
-              title: Tindakan berikut tidak dapat diubah
-            success: Draf kolaboratif berhasil diterbitkan sebagai proposal.
-          withdraw:
-            error: Terjadi kesalahan saat menutup draf kolaboratif.
-            irreversible_action_modal:
-              cancel: Membatalkan
-              ok: Tarik draf kolaboratif
-              title: Tindakan berikut tidak dapat diubah
-            success: Draf kolaboratif berhasil ditarik.
-        create:
-          success: Draf kolaboratif berhasil dibuat.
-        edit:
-          back: Kembali
-          send: Kirim
-          title: Edit draf kolaboratif
-        filters:
-          all: Semua
-          amendment: Amandemen
-          open: Buka
-          published: Diterbitkan
-          related_to: Berhubungan dengan
-          search: Pencarian
-          state: Negara
-          withdrawn: Ditarik
-        filters_small_view:
-          close_modal: Tutup modal
-          filter: Filter
-          filter_by: Filter berdasarkan
-          unfold: Membuka
-        index:
-          count:
-            other: "%{count} draf kolaboratif"
-        new:
-          send: Terus
-        new_collaborative_draft_button:
-          new_collaborative_draft: Draf kolaboratif baru
-        orders:
-          label: 'Urutan draf oleh:'
-          most_contributed: Sebagian besar berkontribusi
-          random: Acak
-          recent: Baru
-        requests:
-          accepted_request:
-            error: Tidak dapat diterima sebagai kolaborator, coba lagi nanti.
-          access_requested:
-            error: Permintaan Anda tidak dapat diselesaikan, coba lagi nanti.
-          collaboration_requests:
-            accept_request: Menerima
-            reject_request: Menolak
-            title: Permintaan kolaborasi
-          rejected_request:
-            error: Tidak dapat ditolak sebagai kolaborator, coba lagi nanti.
-        show:
-          final_proposal: proposal terakhir
-          final_proposal_help_text: Rancangan ini selesai. Anda dapat melihat proposal selesai akhir
-          hidden_authors_count:
-            other: dan %{count} lebih banyak orang
-          publish: Menerbitkan
-          publish_info: Publikasikan versi draf ini atau
-          published_proposal: proposal yang dipublikasikan
-          request_access: Minta akses
-          requested_access: Akses diminta
-          withdraw: tarik draft
-        states:
-          open: Buka
-          published: Diterbitkan
-          withdrawn: Ditarik
-        update:
-          error: Sudah ada kesalahan saat menyimpan draf kolaboratif.
-          success: Draf kolaboratif berhasil diperbarui.
-        wizard_header:
-          title: Buat draf kolaboratif Anda
       create:
         error: Sudah ada kesalahan saat menyimpan proposal.
         success: Proposal berhasil dibuat. Disimpan sebagai Draf.
@@ -371,7 +295,6 @@ id:
           state: Negara
           type: Mengetik
         index:
-          collaborative_drafts_list: Akses draf kolaboratif
           count:
             other: "%{count} proposal"
           new_proposal: Proposal baru
@@ -390,8 +313,8 @@ id:
           title: Publikasikan proposal Anda
         show:
           answer: Menjawab
-          link_to_collaborative_draft_help_text: Proposal ini adalah hasil dari draf kolaboratif. Tinjau sejarahnya
-          link_to_collaborative_draft_text: Lihat draf kolaboratif
+          hidden_likes_count:
+            other: dan %{count} lebih banyak orang
           proposal_accepted_reason: 'Proposal ini telah diterima karena:'
           proposal_in_evaluation_reason: Proposal ini sedang dievaluasi
           proposal_rejected_reason: 'Proposal ini telah ditolak karena:'

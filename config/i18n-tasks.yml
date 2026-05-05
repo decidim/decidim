@@ -195,6 +195,8 @@ ignore_unused:
   - decidim.accountability.admin_log.*
   - decidim.proposals.admin_log.*
   - decidim.log.base_presenter.*
+  - decidim.log.value_types.access_mode_presenter.not_found
+  - decidim.log.value_types.access_mode_presenter.access_modes.{open,transparent,restricted}*
   - decidim.admin_log.*
   - decidim.debates.debates.filters.*
   - decidim.debates.admin_log.*

@@ -106,6 +106,9 @@ lv:
         admin:
           proposal_note_created:
             email_subject: Kāds atstāja piezīmi par priekšlikumu %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Pieņemt
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} ir pieņemts, lai piekļūtu kā līdzautors %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ir <strong> pieņemts, lai piekļūtu kā līdzautors</strong> <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
@@ -290,89 +293,6 @@ lv:
           all: Visi
           amendments: Grozījumi
           proposals: Priekšlikumi
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Sadarbības projekta publicēšanas laikā radās problēma.
-            irreversible_action_modal:
-              cancel: Atcelt
-              ok: Publicēt kā priekšlikumu
-              title: Šī darbība ir neatgriezeniska
-            success: Sadarbības projekts ir veiksmīgi publicēts kā priekšlikums.
-          withdraw:
-            error: Sadarbības projekta aizvēršanas laikā radās problēma.
-            irreversible_action_modal:
-              cancel: Atcelt
-              ok: Atsaukt sadarbības projektu
-              title: Šī darbība ir neatgriezeniska
-            success: Sadarbības projekts ir veiksmīgi atsaukts.
-        create:
-          success: Sadarbības projekts ir veiksmīgi izveidots.
-        edit:
-          back: Atpakaļ
-          send: Sūtīt
-          title: Rediģēt sadarbības projektu
-        filters:
-          all: Visi
-          amendment: Grozījumi
-          open: Atvērti
-          published: Publicēts
-          related_to: Saistīts ar
-          search: Meklēt
-          state: Statuss
-          withdrawn: Atsaukts
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
-        index:
-          count:
-            zero: "%{count} sadarbības projekti"
-            one: "%{count} sadarbības projekts"
-            other: "%{count} sadarbības projekti"
-        new:
-          send: Turpināt
-        new_collaborative_draft_button:
-          new_collaborative_draft: Jauns sadarbības projekts
-        orders:
-          label: 'Kārtot projektus pēc:'
-          most_contributed: Visvairāk ieguldīts
-          random: Nejauši
-          recent: Nesenie
-        requests:
-          accepted_request:
-            error: Nevarēja pieņemt par līdzautoru, lūdzu, vēlāk mēģiniet vēlreiz.
-          access_requested:
-            error: Jūsu pieprasījumu nevarēja izpildīt, lūdzu, vēlāk mēģiniet vēlreiz.
-          collaboration_requests:
-            accept_request: Pieņemt
-            reject_request: Noraidīt
-            title: Sadarbības pieprasījumi
-          rejected_request:
-            error: Nevarēja noraidīt sadarbības pieprasījumu, lūdzu, vēlāk mēģiniet vēlreiz.
-        show:
-          final_proposal: galīgais priekšlikums
-          final_proposal_help_text: Šis projekts ir pabeigts. Iepazīstieties ar galīgo priekšlikumu
-          hidden_authors_count:
-            zero: un vēl %{count} personas
-            one: un vēl %{count} persona
-            other: un vēl %{count} personas
-          publish: Publicēt
-          publish_info: Publicējiet šo projekta versiju vai
-          published_proposal: publicētais priekšlikums
-          request_access: Pieprasīt piekļuvi
-          requested_access: Piekļuve pieprasīta
-          withdraw: atsaukt projektu
-        states:
-          open: Atvērts
-          published: Publicēts
-          withdrawn: Atsaukts
-        update:
-          error: Sadarbības projekta saglabāšanas laikā radās problēma.
-          success: Sadarbības projekts ir veiksmīgi saglabāts
-        wizard_header:
-          title: Izveidot jūsu sadarbības projektu
       create:
         error: Saglabājot priekšlikumu, radās problēma.
         success: Priekšlikums ir veiksmīgi izveidots. Saglabāts kā projekts.
@@ -416,7 +336,6 @@ lv:
           state: Statuss
           type: Veids
         index:
-          collaborative_drafts_list: Piekļūt sadarbības projektam
           count:
             zero: "%{count} priekšlikumi"
             one: "%{count} priekšlikums"
@@ -444,8 +363,10 @@ lv:
           answer: Atbilde
           changes_at_title: Grozīts "%{title}"
           estimated_cost: Paredzamās izmaksas
-          link_to_collaborative_draft_help_text: Šis priekšlikums ir sadarbības projekta rezultāts. Pārskatiet tā vēsturi
-          link_to_collaborative_draft_text: Skatīt sadarbības projektu
+          hidden_likes_count:
+            zero: un vēl %{count} personas
+            one: un vēl %{count} persona
+            other: un vēl %{count} personas
           link_to_promoted_emendation_help_text: Šis priekšlikums ir veicinātais uzlabojums
           link_to_promoted_emendation_text: Skatiet noraidīto uzlabojumu.
           link_to_proposal_from_emendation_help_text: Šis ir noraidītais uzlabojums

@@ -185,7 +185,6 @@ pl:
           alert: 'Wymagane: Przejrzyj nasze warunki użytkowania dla administratora'
           callout: Poświęć chwilę, aby zapoznać się z warunkami użytkowania dla administratorów. W przeciwnym razie nie uzyskasz dostępu do administrowania platformą.
           cta: Zapoznaj się z nimi teraz.
-        title: Regulamin administratora
       area_types:
         create:
           error: Wystąpił błąd podczas tworzenia nowego typu kategorii.
@@ -227,8 +226,6 @@ pl:
         edit:
           title: Edytuj folder
           update: Aktualizuj
-        index:
-          attachment_collections_title: Foldery załączników
         new:
           create: Utwórz
           title: Nowy folder
@@ -244,8 +241,6 @@ pl:
         edit:
           title: Edytuj załącznik
           update: Aktualizuj
-        index:
-          attachments_title: Załączniki
         new:
           create: Utwórz załącznik
           title: Nowy załącznik
@@ -296,7 +291,6 @@ pl:
           title: 'Dodaj komponent: %{name}'
         publish:
           success: Komponent został pomyślnie opublikowany.
-        title: Komponenty
         unpublish:
           success: Publikacja komponentu została pomyślnie cofnięta.
         update:
@@ -307,7 +301,6 @@ pl:
         'false': 'Nie'
         managed_user_name: Zarządzany użytkownik
         solved: Rozwiązane
-        title: Konflikty weryfikacji
         transfer:
           email: Adres e-mail
           error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
@@ -443,7 +436,6 @@ pl:
           impersonate: Podszywać się
           impersonate_existing_managed_user: Zarządzaj użytkownikiem "%{name}"
           impersonate_existing_user: Zarządzaj użytkownikiem "%{name}"
-          impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
       imports:
         and: i
         data_errors:
@@ -504,7 +496,6 @@ pl:
         promotions:
           new:
             explanation: Zarządzani użytkownicy mogą być promowani do standardowych użytkowników. Oznacza to, że zostaną zaproszeni do udziału w aplikacji i nie będą mogli podszywać się pod inne osoby. Zaproszony użytkownik otrzyma wiadomość e-mail, aby zaakceptować zaproszenie.
-            new_managed_user_promotion: Nowa zarządzana promocja użytkowników
             promote: Awansuj
       members_csv_imports:
         new:
@@ -649,7 +640,6 @@ pl:
           title: Szablony newslettera
           use_template: Użyj tego szablonu
         show:
-          preview: 'Podgląd szablonu: %{template_name}'
           use_template: Użyj tego szablonu
       newsletters:
         create:
@@ -696,7 +686,6 @@ pl:
         send_to_user:
           sent_successfully: Newsletter został pomyślnie wysłany do %{email}
         show:
-          preview: Podgląd
           select_recipients_to_deliver: Wybierz odbiorców
           send_me_a_test_email: Wyślij mi testowego e-maila
           subject: Temat
@@ -762,7 +751,6 @@ pl:
           up: Do góry
         form:
           add: Dodaj do listy dozwolonych
-          title: Dozwolone domeny zewnętrzne
       reminders:
         create:
           error: Wystąpił błąd podczas tworzenia przypomnień.
@@ -863,22 +851,11 @@ pl:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana.
       titles:
-        admin_log: Logi administratora
-        area_types: Typy kategorii
         areas: Kategorie
         authorization_workflows: Metody weryfikacji
-        dashboard: Panel
-        edit_external_domains: Dozwolone domeny zewnętrzne
-        impersonatable_users: Zarządzaj użytkownikami
-        impersonations: Zarządzanie użytkownikami
         menu: Menu
-        page_topics: Wątki
-        pages: Strony
         panel: Administrator
-        participants: Użytkownicy
-        scope_types: Typy zakresów
         scopes: Zakresy
-        users: Administratorzy
       users:
         create:
           error: Podczas zapraszania administratora wystąpił błąd.

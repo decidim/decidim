@@ -111,9 +111,6 @@ lb:
             name_and_surname: Name und Nachname
             postal_code: Postleitzuel
             timestamp: Zeitstempel
-      titles:
-        initiatives: Initiativen
-        initiatives_types: Arten von Initiativen
     events:
       initiatives:
         admin:

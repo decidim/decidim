@@ -3,6 +3,9 @@
 module Decidim
   # Helper that provides methods to render links with utm codes, and replaced name
   module NewslettersHelper
+    include Decidim::SanitizeHelper
+    include Decidim::MailerHelper
+
     # If the newsletter body there are some links and the Decidim.track_newsletter_links = true
     # it will be replaced with the utm_codes method described below.
     # for example transform "https://es.lipsum.com/" to "https://es.lipsum.com/?utm_source=localhost&utm_campaign=newsletter_11"
@@ -19,7 +22,7 @@ module Decidim
 
       content = interpret_name(content, user)
       content = track_newsletter_links(content, id, host)
-      transform_image_urls(content, host)
+      decidim_transform_image_urls(content, host)
     end
 
     # this method is used to generate the root link on mail with the utm_codes
@@ -65,27 +68,6 @@ module Decidim
       return content.gsub("%{name}", "") if user.blank?
 
       content.gsub("%{name}", user.name)
-    end
-
-    # Find each img HTML tag with relative path in src attribute
-    # For each URL, prepends the decidim.root_url
-    #   If host is not defined it returns full content
-    #
-    # @param content [String] - the string to convert
-    # @param host [String] - the Decidim::Organization host to replace
-    #
-    # @return [String] - the content converted
-    #
-    def transform_image_urls(content, host)
-      return content if host.blank?
-
-      content.scan(/src\s*=\s*"([^"]*)"/).each do |src|
-        root_url = decidim.root_url(host:)[0..-2]
-        src_replaced = "#{root_url}#{src.first}"
-        content = content.gsub(/src\s*=\s*"([^"]*#{src.first})"/, %(src="#{src_replaced}"))
-      end
-
-      content
     end
 
     # Add tracking query params to each links

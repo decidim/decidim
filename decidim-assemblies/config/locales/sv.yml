@@ -40,7 +40,6 @@ sv:
         participatory_processes_ids: Relaterade deltagandeprocesser
         participatory_scope: Vad beslutas
         participatory_structure: Hur fattas beslut
-        private_space: Privat utrymme
         promoted: Utvald
         published_at: Publicerad
         purpose_of_action: Syfte
@@ -102,15 +101,14 @@ sv:
         edit:
           update: Uppdatera
         index:
-          private: Privat
-          public: Öppen
+          access_modes:
+            open: Öppen
+            restricted: Begränsad
+            transparent: Transparent
           published: Publicerad
           unpublished: Ej publicerade
-        manage_trash:
-          title: Borttagna samråd
         new:
           create: Skapa
-          title: Nytt samråd
         update:
           error: Det gick inte att uppdatera samrådet.
           success: Samrådet har uppdaterats.
@@ -122,7 +120,6 @@ sv:
         new:
           duplicate: Duplicera
           select: Välj vilken data du vill duplicera
-          title: Duplicera samråd
       assembly_imports:
         create:
           error: Det gick inte att importera samrådet.
@@ -130,7 +127,6 @@ sv:
         new:
           import: Importera
           select: Välj vilka uppgifter du vill importera
-          title: Importera samråd
       assembly_publications:
         create:
           error: Det gick inte att publicera samrådet.
@@ -145,13 +141,9 @@ sv:
         destroy:
           success: Administratören har tagits bort från samrådet.
         edit:
-          title: Uppdatera administratör av samråd
           update: Uppdatera
-        index:
-          assembly_admins_title: Administratörer för samråd
         new:
           create: Skapa
-          title: Ny administratör för samråd
         update:
           error: Det gick inte att uppdatera administratör för samrådet.
           success: Administratören för samrådet har uppdaterats.
@@ -179,9 +171,9 @@ sv:
       models:
         assembly:
           fields:
+            access_mode: Åtkomstläge
             actions: Åtgärder
             created_at: Skapad
-            private: Privat
             promoted: Utvald
             published: Publicerad
             title: Titel
@@ -208,10 +200,6 @@ sv:
       taxonomy_filters:
         space_filter_for:
           assemblies: Alla samråd
-      titles:
-        assemblies: Samråd
-        assemblies_deleted: Borttagna samråd
-        assemblies_types: Typer av samråd
       tooltips:
         deleted_assemblies_info: Ett samråd kan endast tas bort om status är "Avpublicerad".
     admin_log:
@@ -247,6 +235,12 @@ sv:
       admin:
         assemblies:
           form:
+            access:
+              label: Åtkomst
+              options:
+                open: Alla kan se och delta i sammankomsten.
+                restricted: Endast medlemmar kan se och delta.
+                transparent: Alla kan se sammankomsten, men bara medlemmar kan delta.
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             duration: Varaktighet
             duration_help: Välj ett slutdatum om samrådet är tidsbegränsat.
@@ -256,7 +250,6 @@ sv:
             metadata: Metadata
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             other: Övrigt
-            private_notice: Visa endast samrådet för inloggade medlemmar (om det inte är inställt som transparent)
             select_a_created_by: Välj en skapad av
             select_parent_assembly: Välj överordnat samråd
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -281,7 +274,6 @@ sv:
             max_results: Maximalt antal element att visa
         imports:
           attachment_error: Bilagan "%{title}" kunde inte importeras (%{error}).
-          banner_image_error: Bannerbilden kunde inte importeras (%{error}).
           hero_image_error: Startbilden kunde inte importeras (%{error}).
         new_import:
           accepted_types:
@@ -310,9 +302,6 @@ sv:
           type: Typ
         show:
           title: Om det här samrådet
-      assembly_members:
-        index:
-          members: Medlemmar
       content_blocks:
         children_assemblies:
           name: Samråd
@@ -347,16 +336,9 @@ sv:
           highlighted_assemblies:
             active_spaces: Pågående samråd
             see_all_spaces: Visa alla samråd
-        user_profile:
-          member_of:
-            member_of: Medlem av
       show:
         duration: Varaktighet
-        private_space: Det här är ett privat samråd
         social_networks_title: Besök samrådet på
-    assembly_members:
-      index:
-        title: Medlemmar
     download_your_data:
       show:
         assemblies: Exportera samråd
@@ -383,13 +365,12 @@ sv:
       value_types:
         assembly_presenter:
           not_found: 'Samrådet hittades inte i databasen (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Typen av samråd hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Samråd
     open_data:
       help:
         assemblies:
+          access_mode: Åtkomstläge. Huruvida sammankomsten är öppen, begränsad eller transparent.
           area: Samrådets område
           assembly_type: Typ av samråd
           closing_date: Slutdatum för samrådet

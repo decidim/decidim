@@ -152,6 +152,9 @@
             publish_answers_immediately: Publiser svar på forslag umiddelbart
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Aksepter
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har blitt akseptert tilgang som bidragsyter til %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>akseptert tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
@@ -351,87 +354,6 @@
           all: Alle
           amendments: Endringer
           proposals: Forslag
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Det oppsto et problem med å publisere samarbeids utkastet.
-            irreversible_action_modal:
-              cancel: Avbryt
-              ok: Publiser som et Forslag
-              title: Følgende handling kan ikke gjøres om
-            success: Samarbeids utkastet publisert som et forslag.
-          withdraw:
-            error: Det oppsto et problem med å lukke samarbeids utkastet.
-            irreversible_action_modal:
-              cancel: Avbryt
-              ok: Trakk tilbake samarbeids utkastet
-              title: Følgende handling kan ikke gjøres om
-            success: Samarbeids utkast trukket.
-        create:
-          success: Samarbeids utkast opprettet.
-        edit:
-          back: Tilbake
-          send: Send
-          title: Rediger samarbeids utkastet
-        filters:
-          all: Alle
-          amendment: Endringer
-          open: Åpen
-          published: Publisert
-          related_to: Relatert til
-          search: Søk
-          state: Status
-          withdrawn: Trukket tilbake
-        filters_small_view:
-          close_modal: Lukk modal
-          filter: Filter
-          filter_by: Filtrer etter
-          unfold: Åpne
-        index:
-          count:
-            one: "%{count} samarbeids utkast"
-            other: "%{count} samarbeids utkaster"
-        new:
-          send: Fortsett
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nytt samarbeids utkast
-        orders:
-          label: 'Bestill utkast av:'
-          most_contributed: Mest bidratt
-          random: Tilfeldig
-          recent: Nylig
-        requests:
-          accepted_request:
-            error: Kunne ikke aksepteres som en samarbeidspartner, Prøv igjen senere.
-          access_requested:
-            error: Forespørselen din kunne ikke fullføres. Prøv igjen senere.
-          collaboration_requests:
-            accept_request: Aksepter
-            reject_request: Avvis
-            title: Forespørsler om samarbeid
-          rejected_request:
-            error: Kunne ikke bli avvist som en samarbeidspartner, Prøv igjen senere.
-        show:
-          final_proposal: endelig forslag
-          final_proposal_help_text: Dette utkastet er ferdig. Sjekk ut det endelige forslaget
-          hidden_authors_count:
-            one: og %{count} til person
-            other: og %{count} flere personer
-          publish: Publiser
-          publish_info: Publiser denne versjonen av utkastet eller
-          published_proposal: publisert forslag
-          request_access: Be om tilgang
-          requested_access: Tilgang forespurt
-          withdraw: trekk tilbake utkastet
-        states:
-          open: Åpen
-          published: Publisert
-          withdrawn: Trukket tilbake
-        update:
-          error: Det oppstod et problem med å lagre samarbeids utkastet.
-          success: Samarbeids utkast oppdatert.
-        wizard_header:
-          title: Opprett ditt samarbeids utkast
       create:
         error: Det oppstod et problem med å lagre forslaget.
         success: Forslag opprettet. Lagret som et utkast.
@@ -475,7 +397,6 @@
           state: Status
           type: Type
         index:
-          collaborative_drafts_list: Lag utkast sammen med andre
           count:
             one: "%{count} forslag"
             other: "%{count} forslag"
@@ -507,8 +428,9 @@
           answer: Svar
           changes_at_title: Endring til "%{title}"
           estimated_cost: Estimert kostnad
-          link_to_collaborative_draft_help_text: Dette forslaget er resultatet av et samarbeids utkast. Gå gjennom historien
-          link_to_collaborative_draft_text: Se samarbeids utkastet
+          hidden_likes_count:
+            one: og %{count} til person
+            other: og %{count} flere personer
           link_to_promoted_emendation_help_text: Dette forslaget er en forfremmet emendasjon
           link_to_promoted_emendation_text: Se den avviste emendasjonen.
           link_to_proposal_from_emendation_help_text: Dette er en avvist emendasjon

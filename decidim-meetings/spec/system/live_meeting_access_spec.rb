@@ -11,8 +11,7 @@ describe "Meeting live event access" do
     decidim_participatory_process_meetings.meeting_live_event_path(
       participatory_process_slug: participatory_process.slug,
       component_id: component.id,
-      meeting_id: meeting.id,
-      locale: I18n.locale
+      meeting_id: meeting.id
     )
   end
 
@@ -161,8 +160,8 @@ describe "Meeting live event access" do
       end
     end
 
-    shared_examples "belonging to an assembly which is a transparent private space" do
-      let(:assembly) { create(:assembly, :private, :transparent, organization:) }
+    shared_examples "belonging to an assembly which is a transparent space" do
+      let(:assembly) { create(:assembly, :transparent, organization:) }
       let(:participatory_space) { assembly }
       let(:admin) { create(:user, :confirmed, :admin, organization:) }
       let(:member) { create(:user, :confirmed, organization:) }
@@ -246,7 +245,7 @@ describe "Meeting live event access" do
         end
 
         it_behaves_like "iframe access levels", :embedded
-        it_behaves_like "belonging to an assembly which is a transparent private space"
+        it_behaves_like "belonging to an assembly which is a transparent space"
       end
     end
 
@@ -279,7 +278,7 @@ describe "Meeting live event access" do
         end
 
         it_behaves_like "iframe access levels", :live_event_page
-        it_behaves_like "belonging to an assembly which is a transparent private space"
+        it_behaves_like "belonging to an assembly which is a transparent space"
       end
     end
 
@@ -292,7 +291,7 @@ describe "Meeting live event access" do
         expect(page).to have_link("Join meeting", href: meeting.online_meeting_url)
       end
 
-      it_behaves_like "belonging to an assembly which is a transparent private space"
+      it_behaves_like "belonging to an assembly which is a transparent space"
     end
   end
 

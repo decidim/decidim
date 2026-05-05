@@ -14,7 +14,7 @@ module Decidim
         }
       end
       let(:notification_title) do
-        "<a href=\"/profiles/#{coauthor.nickname}\">#{coauthor.name}</a> has accepted your invitation to become a co-author of the proposal <a href=\"#{resource_path}\">#{resource_title}</a>."
+        "<a href=\"/en/profiles/#{coauthor.nickname}\">#{coauthor.name}</a> has accepted your invitation to become a co-author of the proposal <a href=\"#{resource_path}\">#{resource_title}</a>."
       end
       let(:participatory_process) { create(:participatory_process, organization:) }
       let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }

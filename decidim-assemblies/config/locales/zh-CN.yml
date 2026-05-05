@@ -30,7 +30,6 @@ zh-CN:
         participatory_processes_ids: 相关的参与进程
         participatory_scope: 决定的内容
         participatory_structure: 如何决定
-        private_space: 私有空间
         promoted: 高亮
         published_at: 发布于
         purpose_of_action: 行动的目的
@@ -72,12 +71,9 @@ zh-CN:
         edit:
           update: 更新
         index:
-          private: 非公开的
-          public: 公开的
           published: 已发布
         new:
           create: 创建
-          title: 新建程序集
         update:
           error: 更新这个组件时出现问题。
           success: 程序更新成功。
@@ -88,7 +84,6 @@ zh-CN:
         new:
           import: 导入
           select: 选择您想要导入的数据
-          title: 导入程序集
       assembly_publications:
         create:
           error: 发布这个组件时出现问题。
@@ -104,8 +99,6 @@ zh-CN:
           success: 管理员已成功从此组件中移除。
         edit:
           update: 更新
-        index:
-          assembly_admins_title: 集合管理员
         new:
           create: 创建
         update:
@@ -124,7 +117,6 @@ zh-CN:
         assembly:
           fields:
             created_at: 创建于
-            private: 非公开的
             promoted: 高亮
             published: 已发布
             title: 标题
@@ -146,9 +138,6 @@ zh-CN:
             admin: 管理员
             collaborator: 协作者
             moderator: 版主
-      titles:
-        assemblies: 程序集
-        assemblies_types: 程序集类型
     admin_log:
       assembly:
         create: "%{user_name} 创建了 %{resource_name} 程序集"
@@ -193,9 +182,6 @@ zh-CN:
         filters:
           names:
             all: 所有的
-      assembly_members:
-        index:
-          members: 成员
       content_blocks:
         highlighted_assemblies:
           name: 突出显示的会议
@@ -215,16 +201,8 @@ zh-CN:
         working_group: 工作组
       index:
         title: 程序集
-      pages:
-        user_profile:
-          member_of:
-            member_of: 成员
       show:
         duration: 期限
-        private_space: 这是一个私人装饰
-    assembly_members:
-      index:
-        title: 成员
     events:
       assemblies:
         create_assembly_member:
@@ -247,8 +225,6 @@ zh-CN:
       value_types:
         assembly_presenter:
           not_found: '在数据库中找不到程序集 (ID: %{id})'
-        assembly_type_presenter:
-          not_found: '在数据库中找不到程序集类型 (ID: %{id})'
     menu:
       assemblies: 程序集
     participatory_processes:

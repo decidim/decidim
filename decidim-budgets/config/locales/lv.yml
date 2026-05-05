@@ -16,6 +16,7 @@ lv:
       actions:
         edit: Labot
         import: Importēt priekšlikumus projektos
+        new_project: Jauns projekts
         preview: Priekšskatīt
         title: Darbības
       admin:
@@ -24,7 +25,6 @@ lv:
             name: Projekts
         projects:
           edit:
-            title: Rediģēt projektu
             update: Atjaunināt
           index:
             finished_orders: Pabeigtie balsojumi
@@ -32,7 +32,6 @@ lv:
             title: Projekti
           new:
             create: Izveidot
-            title: Jauns projekts
         proposals_imports:
           new:
             create: Importēt priekšlikumus projektos

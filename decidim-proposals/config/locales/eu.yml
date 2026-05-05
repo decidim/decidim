@@ -498,7 +498,6 @@ eu:
           deleted_proposals_info: Ezabatutako proposamenak berreskura daitezke zaborrontzitik.
           preview: Aurreikusi
           view_deleted_proposals: Ikusi ezabatutako proposamenak
-        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Deprezazioaren Oharra. </b> Elkarlaneko Zirriborroak ezabatuko dira Decidim v0.32an. Erabiltzen duten erakundeek proposamen berriaren egilekidetzara pasa daitezke."
         evaluation_assignments:
           create:
             invalid: Arazo bat izan da proposamenak ebaluatzaile bati esleitzean.
@@ -681,6 +680,7 @@ eu:
             related_meetings: Erlazionatutako topaketak
             remove_assignment: Desegin esleipena
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
+            title: Erantzun proposamenari
             votes_count: Babes kopurua
           update_taxonomies:
             invalid: 'Proposamen hauek bazuten %{taxonomia} taxonomia: %{proposals}.'
@@ -742,103 +742,6 @@ eu:
           all: Guztiak
           amendments: Zuzenketak
           proposals: Proposamenak
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Arazoak izan dira zirriborro kolaboratiboa argitaratzean.
-            irreversible_action_modal:
-              body: Zirriborroa proposamen gisa argitaratu ondoren, jada ez da editagarria izango. Proposamenak ez du beste egile edo ekarpenik onartuko.
-              cancel: Utzi
-              ok: Argitaratu proposamen gisa
-              title: Hurrengo ekintza atzeraezina da
-            success: Proposamen gisa argitaratutako ziriborro kolaboratiboa.
-          withdraw:
-            error: Arazoak izan dira zirriborro kolaboratiboa ixtean.
-            irreversible_action_modal:
-              body: Zirriborroa itxi ondoren, ezin izango da berriro editatu. Zirriborroak ez du onartuko beste egile edo ekarpenik.
-              cancel: Utzi
-              ok: Kendu zirriborro kolaboratiboa
-              title: Hurrengo ekintza atzeraezina da
-            success: Kolaborazio zirriborroa zuzen kendu da.
-        create:
-          error: Arazo bat izan da zirriborro kolaboratiboak sortzean.
-          success: Zirriborro kolaboratiboa sortu da.
-        edit:
-          attachment_legend: Gehitu dokumentu bat edo irudi bat
-          back: Atzera
-          send: Bidali
-          title: Editatu zirriborro kolaboratiboa
-        empty: Oraindik ez dago zirriborro kolaboratiborik
-        empty_filters: Ez dago irizpide hau duen zirriborro kolaboratiborik
-        filters:
-          all: Guztiak
-          amendment: Zuzenketak
-          open: Zabaldu
-          published: Argitaratua
-          related_to: Lotutako gaiak
-          search: Bilatu
-          state: Egoera
-          withdrawn: Baztertu
-        filters_small_view:
-          close_modal: Itxi leihoa
-          filter: Iragazi
-          filter_by: 'Honen arabera iragazi:'
-          unfold: Zabaldu
-        index:
-          count:
-            one: "%{count} zirriborro kolaboratibo"
-            other: "%{count} zirriborro kolaboratibo"
-        name: Zirriborro kolaboratzaileak
-        new:
-          add_file: Gehitu fitxategiak
-          edit_file: Editatu fitxategia
-          send: Jarraitu
-        new_collaborative_draft_button:
-          new_collaborative_draft: Testu kolaboratibo zirriborro berria
-        orders:
-          label: 'Zirriborroak honela ordenatu:'
-          most_contributed: Bozka gehien jaso duena
-          random: Ausazko ordena
-          recent: Berrienetatik zaharrenetara
-        requests:
-          accepted_request:
-            error: Ezin izan da kolaboratzaile gisa onartu, saiatu berriro geroago.
-            success: "@%{user} behar bezala onartua kolaboratzaile gisa."
-          access_requested:
-            error: Zure eskaera ezin da amaitu, saiatu berriro geroago.
-            success: Zure lankidetzarako eskaera ondo bidali da.
-          collaboration_requests:
-            accept_request: Onartu
-            reject_request: Ukatu
-            title: Lankidetza eskaerak
-          rejected_request:
-            error: Ezin izan da laguntzailea baztertu, saiatu berriro geroago.
-            success: "@%{user} behar bezala ukatu da kolaboratzaile gisa."
-        show:
-          edit: Editatu
-          final_proposal: azken proposamena
-          final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
-          hidden_authors_count:
-            one: eta pertsona %{count} gehiago
-            other: eta %{count} pertsona gehiago
-          info-message: Hau <strong>zirriborro kolaboratiboa </strong> da proposamen baterako. Horrek esan nahi du egileei proposamena taxutzen lagundu ahal diezula, jarraian agertzen den iruzkinen atala erabiliz, edo zuzenean hobetu daitekeela editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honetan aldaketak egin ahal izango dituzu.
-          publish: Argitaratu
-          publish_info: Argitaratu zirriborroaren bertsio hau edo
-          published_proposal: Argitaratutako proposamena
-          request_access: Sarrera beharrezkoa
-          requested_access: Sarbidea beharrezkoa
-          withdraw: kendu zirriborroa
-        states:
-          open: Zabaldu
-          published: Argitaratua
-          withdrawn: Kendu
-        update:
-          error: Arazo bat egon da zirriborro kolaboratiboa gordetzen.
-          success: Ziriboro kolaboratiboa ondo eguneratu da.
-        wizard_aside:
-          back_from_collaborative_draft: Itzuli zirriborro kolaboratzaileetara
-        wizard_header:
-          title: Sortu zure zirriborro kolaboratiboa
       content_blocks:
         highlighted_proposals:
           name: Proposamenak
@@ -940,7 +843,6 @@ eu:
           voted: Bozkatuta
         index:
           click_here: Ikusi proposamen guztiak
-          collaborative_drafts_list: Sartu elkarlanerako zirriborroetan
           count:
             one: "Proposamen %{count}"
             other: "%{count} proposamen"
@@ -987,8 +889,6 @@ eu:
           hidden_likes_count:
             one: eta %{count} pertsona gehiago
             other: eta %{count} pertsona gehiago
-          link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
-          link_to_collaborative_draft_text: Ikusi zirriborro kolaboratiboaren testua
           link_to_promoted_emendation_help_text: Proposamen hau zuzenketa batetik dator
           link_to_promoted_emendation_text: Ikusi baztertutako zuzeketa.
           link_to_proposal_from_emendation_help_text: Hau baztertutako zuzenketa bat da

@@ -67,9 +67,6 @@ eu:
         alignment:
           against: Aurka
           in_favor: Alde
-        answers:
-          one: "Erantzun %{count}"
-          other: "%{count} erantzun"
         cancel_reply: Erantzuna ezabatu
         comment_label: Iruzkindu %{comment_id}
         comment_label_reply: Iruzkindu %{comment_id} (erantzun %{parent_comment_id} iruzkinei)
@@ -83,7 +80,11 @@ eu:
         hide_replies:
           one: Ezkutatu erantzuna
           other: Ezkutatu %{count} erantzun
+        load_replies: Erantzunak igo
         moderated_at: Iruzkina %{date}-an moderatu egin da
+        replies_count:
+          one: "Erantzun bat"
+          other: "%{count} erantzun"
         reply: Erantzuna
         report:
           action: Salatu
@@ -115,7 +116,9 @@ eu:
         blocked_comments_warning: Iruzkinak desaktibatuta daude, administratzaileek soilik erantzun dezakete edo berriak argitaratu.
         comment_details_title: Iruzkinaren xehetasunak
         in_favor: Alde
+        load_more_comments: Iruzkin gehiago igo
         loading: Iruzkinak kargatzen...
+        no_comments_yet: Oraindik ez dago iruzkinik
         single_comment_warning: <a href="%{url}"> iruzkin guztiak ikusgai </a>
         single_comment_warning_title: Iruzkin bakar bat ikusten ari zara
         title:

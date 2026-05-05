@@ -52,17 +52,17 @@ sv:
           new: Ny API-användare
           remove: Ta bort användaren
         confirm_destroy: Vill du radera detta?
-        confirm_refresh_api_secret: Är du säker på att du vill uppdatera hemlighet för denna API-användare? Efter uppdateringen kommer den gamla hemligheten att vara ogiltig och kan inte längre användas.
-        confirm_remove_api_user: Är du säker på att du vill ta bort denna API-användare?
+        confirm_refresh_api_secret: Är du säker på att du vill uppdatera den hemliga nyckeln för API-användaren? Efter uppdateringen kommer den gamla nyckeln att vara ogiltig och kan inte längre användas.
+        confirm_remove_api_user: Är du säker på att du vill ta bort API-användaren?
         copied: Kopierad
-        copy_secret: Kopiera hemlighet
-        copy_secret_clarification: Kopiera hemlighet till urklipp
+        copy_secret: Kopiera hemlig nyckel
+        copy_secret_clarification: Kopiera hemlig nyckel till urklipp
         destroy: Radera
         edit: Redigera
         new_admin: Ny administratör
         new_oauth_application: Ny OAUTH-applikation
         new_organization: Ny organisation
-        refresh_secret: Uppdatera hemlighet
+        refresh_secret: Uppdatera hemlig nyckel
         save: Spara
         title: Åtgärder
       admins:
@@ -84,18 +84,18 @@ sv:
           success: Administratören har uppdaterats.
       api_user:
         create:
-          error: Skapandet av API-användare misslyckades.
-          success: API-användaren skapades framgångsrikt. Hemligheten för användaren är bara synlig efter skapandet. Kopiera den och lagra den säkert innan du lämnar denna sida!
+          error: Det gick inte att skapa API-användaren.
+          success: API-användaren har skapats. Den hemliga nyckeln är bara synlig för användaren efter skapandet. Kopiera den och spara den på ett säkert ställe innan du lämnar sidan!
         destroy:
           success: API-användaren har tagits bort.
         refresh:
           error: Något gick fel. Vänligen försök igen senare.
-          success: Hemligheten uppdaterades. Hemligheten för användaren är bara synlig efter skapandet. Kopiera den och lagra den säkert innan du lämnar denna sida!
+          success: Den hemliga nyckeln uppdaterades. Användarens nyckel är bara synlig efter skapandet. Kopiera den och spara den på ett säkert ställe innan du lämnar sidan!
       api_users:
         index:
           explanation_html: |
-            <p>API-användare tillåter integrationsutvecklare att lägga till administrativa konton för maskinanvändare till systemet. Dessa maskinanvändare kan administrera på plattformen för att utföra uppdateringar som vanliga administratörer skulle utföra via administrationspanelen. Ett typiskt användningsfall är en extern dashboard där ett automatiserat skript skulle utföra administrativa uppgifter utan att en verklig användare behöver autentisera mot systemet. Till exempel, ett automationssystem kanske vill skicka svar på förslag ifall vi behöver en integrationsanvändare för att utföra uppgiften på plattformen.</p>
-            <p>Största skillnaden mellan dessa konton och normala administratörskonton är att de är avsedda för maskiner och därför deras lösenordskrav är olika. Dessa användare behöver inte regelbundet uppdatera sitt lösenord och ändra kontolösenordet kan hända på ett hanterat sätt när det behövs.</p>
+            <p>API-användare tillåter integrationsutvecklare att lägga till administrativa användarkonton för maskin till systemet. Dessa maskinanvändare kan fungera som administratörer på plattformen för att utföra uppdateringar som vanliga administratörer skulle utföra via administrationspanelen. Ett typiskt användningsfall är en extern hanteringsplattform där ett automatiserat skript skulle utföra administrativa uppgifter med plattformen utan att en verklig användare behöver autentisera mot systemet. Till exempel, ett automationssystem kanske vill skicka svar på förslag i vilket fall vi behöver en integrationsanvändare för att utföra denna uppgift inom denna plattform.</p>
+            <p>Den största skillnaden mellan dessa konton och normala administratörskonton är att dessa användare är avsedda att användas av maskiner och därför deras lösenordskrav är olika. Dessa användare behöver inte regelbundet uppdatera sitt lösenord och ändra kontolösenordet kan hända på ett hanterat sätt när det behövs.</p>
             <p>Dessa referenser är avsedda att användas av maskiner. Medverkande applikationer bör integreras med <a href="%{oauth_link}">OAuth applikationer</a>.</p>
           manage: Hantera API-användare
         new:
@@ -142,13 +142,13 @@ sv:
             email_uniqueness: det finns redan en administratör med samma e-postadress
         api_user:
           fields:
-            created_at: Skapad den
+            created_at: Skapad
             key: Nyckel
             name: Namn
             organization: Organisation
-            secret: Hemlighet
+            secret: Hemlig nyckel
           validations:
-            name_uniqueness: En API-användare med detta namn finns redan.
+            name_uniqueness: En API-användare med det namnet finns redan.
         oauth_application:
           fields:
             created_at: Skapad
@@ -178,7 +178,7 @@ sv:
           application_type:
             confidential:
               explanation: Applikationer som kan autentisera auktoriseringsservern riskfritt, till exempel att kunna hålla sin registrerade klient hemlig och säker. Vanligtvis ett program som körs på en server där klienthemligheten lagras.
-              name: Konfidentiellt
+              name: Konfidentiell
             public:
               explanation: Applikationer som inte kan använda registrerade klienthemligheter, till exempel för att de körs i en webbläsare eller på en mobil enhet.
               name: Offentlig
@@ -186,7 +186,7 @@ sv:
           refresh_tokens_help_html: 'Uppdatera tokens är användbart om de behöver en längre livstid än vad som tilldelas för åtkomsttoken. Observera att <strong>uppdatera token bör användas varsamt</strong> eftersom de kan försvaga säkerheten för dina användare. '
           scopes_explanation:
             "api:read": Tillåter användaren att ställa frågor genom GraphQL API.
-            "api:write": Tillåter användaren att göra mutationer genom GraphQL API.
+            "api:write": Tillåter användaren att utföra mutationsåtgärder genom GraphQL API.
             profile: Ger åtkomst till användarens egna profildetaljer. Endast denna omfattning behövs ifall OAuth-applikationen bara används som identitetsleverantör eller autentiseringstjänst.
             user: Möjlighet att agera som den inloggade användaren med angivet token under samtal till GraphQL API. Detta krävs för alla api:write eller api:read-operationer som behöver information om den aktuella användaren.
           scopes_help_html: |

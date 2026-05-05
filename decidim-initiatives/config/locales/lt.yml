@@ -137,9 +137,6 @@ lt:
             name_and_surname: Vardas ir pavardė
             postal_code: Pašto kodas
             timestamp: Laiko žymė
-      titles:
-        initiatives: Iniciatyvos
-        initiatives_types: Iniciatyvų tipai
     events:
       initiatives:
         admin:
@@ -259,7 +256,6 @@ lt:
             publication_date: Naujausiai publikuota
             random: Atsitiktinai
             signatures: Surinko daugiausia parašų
-            title: Nustatymai iniciatyvoms
         initiatives_type_scopes:
           create:
             success: Sukurta nauja sritis šiam iniciatyvų tipui.

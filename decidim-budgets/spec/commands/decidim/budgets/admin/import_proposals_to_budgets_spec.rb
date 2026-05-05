@@ -29,14 +29,14 @@ module Decidim
               current_component:,
               current_user:,
               default_budget:,
-              internal_states:,
+              states:,
               budget:,
               valid?: valid
             )
           end
 
           let(:default_budget) { 1000 }
-          let(:internal_states) { ["accepted"] }
+          let(:states) { ["accepted"] }
 
           let(:command) { described_class.new(form) }
 
@@ -67,7 +67,7 @@ module Decidim
 
             context "when importing multiple states" do
               let!(:rejected_proposals) { create_list(:proposal, 2, :rejected, component: proposals_component) }
-              let(:internal_states) { %w(accepted rejected) }
+              let(:states) { %w(accepted rejected) }
 
               it "imports proposals from all selected states" do
                 expect { command.call }.to change { Project.where(budget:).count }.by(5)
@@ -81,7 +81,7 @@ module Decidim
                   proposal.update!(proposal_state: custom_state)
                 end
               end
-              let(:internal_states) { ["custom_state"] }
+              let(:states) { ["custom_state"] }
 
               it "imports proposals with custom states" do
                 expect { command.call }.to change { Project.where(budget:).count }.by(2)
@@ -167,6 +167,27 @@ module Decidim
 
                 new_project = Project.where(budget:).order(:id).first
                 expect(new_project.budget_amount).to eq(default_budget)
+              end
+            end
+
+            describe "proposal states" do
+              let(:states) { %w(not_answered rejected) }
+              let!(:rejected_proposal) { create(:proposal, :rejected, component: proposals_component) }
+              let!(:random_proposal) { create(:proposal, component: proposals_component) }
+              let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component: proposals_component) }
+              let!(:hidden_proposal) { create(:proposal, component: proposals_component) }
+              let!(:moderation) { create(:moderation, reportable: hidden_proposal, hidden_at: 1.day.ago) }
+
+              it "only imports proposals from the selected states" do
+                expect do
+                  command.call
+                end.to change { Project.where(budget:).count }.by(2)
+
+                expect(Project.where(budget:).map(&:title)).to include(random_proposal.title)
+                expect(Project.where(budget:).map(&:title)).to include(rejected_proposal.title)
+                expect(Project.where(budget:).map(&:title)).not_to include(proposal.title)
+                expect(Project.where(budget:).map(&:title)).not_to include(withdrawn_proposal.title)
+                expect(Project.where(budget:).map(&:title)).not_to include(hidden_proposal.title)
               end
             end
           end

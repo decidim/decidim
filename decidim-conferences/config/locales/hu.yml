@@ -107,8 +107,6 @@ hu:
           success: A hangszóró sikeresen törölve lett a konferencia számára.
         edit:
           update: frissítés
-        index:
-          conference_speakers_title: Konferencia hangszórók
         new:
           create: Teremt
         update:
@@ -122,8 +120,6 @@ hu:
           success: A felhasználó sikeresen eltávolította ezt a konferenciát.
         edit:
           update: frissítés
-        index:
-          conference_admins_title: Konferencia adminisztrátorok
         new:
           create: Teremt
         update:
@@ -167,7 +163,6 @@ hu:
           conference_admins: Konferencia adminisztrátorok
           conference_invites: Meghívottak
           conference_speakers: Előadók
-          info: Erről a konferenciáról
           moderations: moderálások
           partners: Partnerek
           registrations: Regisztrációk
@@ -227,7 +222,6 @@ hu:
           update: Frissítés
         new:
           create: Létrehozás
-          title: Új partner
         update:
           error: Hiba történt a konferencia partnerének frissítése során.
           success: Partner sikeresen frissítve.
@@ -248,12 +242,9 @@ hu:
           update: Frissítés
         new:
           create: Létrehozás
-          title: Új regisztrációs típus
         update:
           error: Hiba történt a konferencia regisztrációs típusának frissítése során.
           success: A regisztrációs típus sikeresen frissült a konferencia számára.
-      titles:
-        conferences: Konferenciák
     admin_log:
       conference:
         create: "%{user_name} létrehozta az %{resource_name} konferenciát"
@@ -307,14 +298,9 @@ hu:
             select_user: Felhasználó kiválasztása
           index:
             invite_attendee: Hívja meg a résztvevőt
-            invites: Meghívottak
           new:
             explanation: A résztvevő meghívást kap egy konferenciára. Ha az e-mail cím nincs regisztrálva, akkor a szervezethez is meghívást kap.
             invite: Meghívás
-            new_invite: Felhasználó meghívása
-        conference_registrations:
-          index:
-            registrations: regisztrációk
         conference_speakers:
           form:
             existing_user: Létező felhasználó

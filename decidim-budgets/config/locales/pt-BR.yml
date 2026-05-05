@@ -90,7 +90,7 @@ pt-BR:
             invalid: Ocorreu um erro ao criar este projeto.
             success: Projeto criado com sucesso.
           edit:
-            title: Editar projeto
+            title: Editar projeto em %{budget}
             update: Atualizar
           index:
             actions: Ações
@@ -113,7 +113,7 @@ pt-BR:
             title: Projetos excluídos
           new:
             create: Criar
-            title: Novo projeto
+            title: Novo projeto em %{budget}
           update:
             invalid: Houve um problema ao atualizar este projeto.
             success: Projeto atualizado com sucesso.

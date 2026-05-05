@@ -63,7 +63,6 @@ gl:
           success: Reunión duplicada con éxito.
         new:
           copy: Copiar
-          title: Reunión duplicada
     components:
       meetings:
         actions:
@@ -182,7 +181,6 @@ gl:
             non_user: Usuario non existente
             select_user: Seleccionar usuario
           index:
-            invite_attendee: Invitar asistente
             invites: Invitacións
         meeting_closes:
           edit:

@@ -49,7 +49,7 @@ ca-IT:
             description: Descripció
             ends_at: Respostes acceptades fins a
             ends_at_help: Deixar en blanc si no hi ha cap data específica
-            starts_at: Respostes acceptades fins a
+            starts_at: Respostes acceptades des de
             starts_at_help: Deixar en blanc si no hi ha cap data específica
             tos: Termes del servei
         questionnaires:
@@ -180,6 +180,7 @@ ca-IT:
         response:
           invalid: S'han produït un error en respondre el formulari.
           max_choices_alert: Has seleccionat massa opcions
+          spam_detected: Hi ha hagut un problema responent el formulari. Potser has anat massa ràpid, ho pots tornar a intentar?
           success: El formulari s'ha respost correctament.
         show:
           current_step: Pas %{step}

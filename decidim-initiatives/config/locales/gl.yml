@@ -83,9 +83,6 @@ gl:
             name_and_surname: Nome e apelidos
             postal_code: Código postal
             timestamp: Timestamp
-      titles:
-        initiatives: Iniciativas
-        initiatives_types: Tipos de iniciativa
     events:
       initiatives:
         initiative_extended:

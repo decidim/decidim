@@ -141,6 +141,9 @@ nl:
         admin:
           proposal_note_created:
             email_subject: Iemand heeft een notitie achtergelaten bij het voorstel %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Aanvaarden
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} is geaccepteerd om toegang te krijgen als een bijdrager van de %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> is <strong> aanvaard om als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp toegang te krijgen.
@@ -346,89 +349,6 @@ nl:
           all: Alle
           amendments: wijzigingen
           proposals: voorstellen
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Er zijn fouten opgetreden bij het publiceren van de gezamenlijk ontwerp.
-            irreversible_action_modal:
-              cancel: Annuleer
-              ok: Publiceer als een voorstel
-              title: De volgende actie is onomkeerbaar
-            success: Samenwerkingsconcept met succes gepubliceerd als een voorstel.
-          withdraw:
-            error: Er zijn fouten opgetreden bij het sluiten van het gezamenlijk ontwerp.
-            irreversible_action_modal:
-              cancel: Annuleer
-              ok: Trek het gezamenlijk ontwerp in
-              title: De volgende actie is onomkeerbaar
-            success: Gezamenlijk ontwerp is succesvol ingetrokken.
-        create:
-          success: Gezamenlijk ontwerp met succes gemaakt.
-        edit:
-          back: Terug
-          send: Verzenden
-          title: Bewerk gezamenlijk ontwerp
-        filters:
-          all: Alle
-          amendment: wijzigingen
-          open: Open
-          published: Gepubliceerd
-          related_to: Gerelateerd aan
-          search: Zoeken
-          state: Status
-          withdrawn: teruggetrokken
-        filters_small_view:
-          close_modal: Sluit venster
-          filter: Filter
-          filter_by: Filteren op
-          unfold: Ontvouwen
-        index:
-          count:
-            one: "%{count} gezamenlijk ontwerp"
-            other: "%{count} gezamenlijke ontwerpen"
-        new:
-          send: Doorgaan met
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nieuw gezamenlijk ontwerp
-        orders:
-          label: 'Concepten sorteren op:'
-          most_contributed: Meest bijgedragen
-          random: Willekeurig
-          recent: recent
-        requests:
-          accepted_request:
-            error: Kan niet worden aanvaard als bijdrager, probeer het later opnieuw.
-          access_requested:
-            error: Uw verzoek kan niet worden voltooid, probeer het later opnieuw.
-          collaboration_requests:
-            accept_request: Aanvaarden
-            reject_request: afwijzen
-            title: Samenwerkingsverzoeken
-          rejected_request:
-            error: Kan niet worden afgewezen als bijdrager, probeer het later opnieuw.
-        show:
-          final_proposal: definitief voorstel
-          final_proposal_help_text: Dit concept is voltooid. U kunt het definitieve voltooide voorstel zien
-          hidden_authors_count:
-            one: en nog %{count} persoon
-            other: en nog %{count} personen
-          publish: Publiceren
-          publish_info: Publiceer deze versie van het concept of
-          published_proposal: gepubliceerd voorstel
-          request_access: Toegang vragen
-          requested_access: Toegang aangevraagd
-          withdraw: het ontwerp terugtrekken
-        states:
-          open: Open
-          published: Gepubliceerd
-          withdrawn: Ingetrokken
-        update:
-          error: Er is een fout opgetreden bij het opslaan van de gezamenlijke conceptversie.
-          success: Samenwerkingsconcept met succes bijgewerkt.
-        wizard_aside:
-          back_from_collaborative_draft: Terug naar gezamenlijke concepten
-        wizard_header:
-          title: Maak uw gezamenlijk ontwerp
       create:
         error: Er is een fout opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol aangemaakt. Opgeslagen als concept.
@@ -478,7 +398,6 @@ nl:
           voted: Gestemd
         index:
           click_here: Bekijk alle voorstellen
-          collaborative_drafts_list: Toegang tot samenwerkende concepten
           count:
             one: "%{count} voorstel"
             other: "%{count} voorstellen"
@@ -509,8 +428,9 @@ nl:
           answer: Antwoord
           changes_at_title: Amendement op "%{title}"
           estimated_cost: Geschatte kosten
-          link_to_collaborative_draft_help_text: Dit voorstel is het resultaat van een gezamenlijk concept. Bekijk de geschiedenis
-          link_to_collaborative_draft_text: Bekijk het gezamenlijke ontwerp
+          hidden_likes_count:
+            one: en nog %{count} persoon
+            other: en nog %{count} personen
           link_to_promoted_emendation_help_text: Dit voorstel is een gepromoot amendement
           link_to_promoted_emendation_text: Bekijk het verworpen amendement.
           link_to_proposal_from_emendation_help_text: Dit is een verworpen amendement

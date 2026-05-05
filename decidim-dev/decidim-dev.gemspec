@@ -3,7 +3,7 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 Gem::Specification.new do |s|
-  version = "0.32.0.dev"
+  version = "0.33.0.dev"
   s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
@@ -53,7 +53,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec_junit_formatter", "~> 0.6.0"
   s.add_dependency "rspec-rails", ">= 6", "< 9"
   s.add_dependency "rspec-retry", "~> 0.6.2"
-  s.add_dependency "rubocop", ">= 1.78", "< 1.86"
+  s.add_dependency "rubocop", ">= 1.78", "< 1.87"
   s.add_dependency "rubocop-capybara", "~> 2.22.0", ">= 2.22.1"
   s.add_dependency "rubocop-factory_bot", ">= 2.27", "< 2.29"
   s.add_dependency "rubocop-faker", "~> 1.3", ">= 1.3.0"

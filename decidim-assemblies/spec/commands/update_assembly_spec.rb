@@ -55,7 +55,7 @@ module Decidim::Assemblies
             closing_date: my_assembly.closing_date,
             closing_date_reason: my_assembly.closing_date_reason,
             internal_organisation: my_assembly.internal_organisation,
-            is_transparent: my_assembly.is_transparent,
+            access_mode: my_assembly.access_mode,
             special_features: my_assembly.special_features,
             twitter_handler: my_assembly.twitter_handler,
             facebook_handler: my_assembly.facebook_handler,

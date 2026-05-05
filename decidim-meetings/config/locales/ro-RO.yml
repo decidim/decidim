@@ -111,7 +111,6 @@ ro:
           success: Întâlnire duplicată cu succes.
         new:
           copy: Copiază
-          title: Duplicarea reuniunii
       tooltips:
         cannot_close_meetings: Nu se poate închide această întâlnire deoarece este creată de un participant
         cannot_duplicate_meetings: Nu se poate duplica această întâlnire deoarece este creată de un participant
@@ -280,7 +279,6 @@ ro:
             non_user: Participant neexistent
             select_user: Selecteză un participant
           index:
-            invite_attendee: Invită participantul
             invites: Invitații
         meeting_closes:
           edit:
@@ -341,7 +339,6 @@ ro:
               few: Au fost %{count} înregistrări.
               other: Au fost %{count} înregistrări.
             reserved_slots_less_than: Trebuie să fie mai mic sau egal cu %{count}
-            title: Înregistrări
           update:
             invalid: A apărut o eroare la salvarea setărilor de înregistrare.
             success: Setarile inregistrarilor au fost salvate.

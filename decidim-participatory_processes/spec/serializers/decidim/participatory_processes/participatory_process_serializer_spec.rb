@@ -29,7 +29,7 @@ module Decidim::ParticipatoryProcesses
         expect(serialized).to include(participatory_scope: resource.participatory_scope)
         expect(serialized).to include(participatory_structure: resource.participatory_structure)
         expect(serialized).to include(target: resource.target)
-        expect(serialized).to include(private_space: resource.private_space)
+        expect(serialized).to include(access_mode: resource.access_mode)
         expect(serialized).to include(promoted: resource.promoted)
         expect(serialized).to include(scopes_enabled: resource.scopes_enabled)
       end
@@ -64,24 +64,6 @@ module Decidim::ParticipatoryProcesses
 
         it "serializes the taxonomies" do
           expect(subject.serialize[:taxonomies]).to eq(serialized_taxonomies)
-        end
-      end
-
-      context "when process has type" do
-        let(:participatory_process_type) { create(:participatory_process_type, organization: resource.organization) }
-
-        before do
-          resource.participatory_process_type = participatory_process_type
-          resource.save
-        end
-
-        it "includes the participatory process type" do
-          serialized_participatory_process_type = subject.serialize[:participatory_process_type]
-
-          expect(serialized_participatory_process_type).to be_a(Hash)
-
-          expect(serialized_participatory_process_type).to include(id: resource.participatory_process_type.id)
-          expect(serialized_participatory_process_type).to include(title: resource.participatory_process_type.title)
         end
       end
 

@@ -126,9 +126,6 @@ ro:
             name_and_surname: Nume și prenume
             postal_code: Cod poștal
             timestamp: Ora
-      titles:
-        initiatives: Inițiative
-        initiatives_types: Tipuri de inițiative
     events:
       initiatives:
         admin:
@@ -254,7 +251,6 @@ ro:
             date: Cele mai recente
             publication_date: Cel mai recent publicate
             random: Aleatoriu
-            title: Setări pentru inițiative
         initiatives_type_scopes:
           create:
             success: A fost creat un nou domeniu de interes pentru un anumit tip de inițiativă.

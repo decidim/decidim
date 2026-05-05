@@ -98,7 +98,6 @@ nl:
           back: Terug
           create: Aanmaken
         orders:
-          commented: Meeste reacties
           label: Sorteer debatten op
           random: Willekeurige volgorde
           recent: Meest recent

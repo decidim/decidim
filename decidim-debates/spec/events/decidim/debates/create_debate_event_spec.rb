@@ -24,7 +24,7 @@ describe Decidim::Debates::CreateDebateEvent do
     let(:email_subject) { "New debate \"#{resource_title}\" by @#{author.nickname}" }
     let(:email_intro) { "Hi,\n#{author.name} @#{author.nickname}, who you are following, has created a new debate \"#{resource_title}\". Check it out and contribute:" }
     let(:email_outro) { "You have received this notification because you are following @#{author.nickname}. You can stop receiving notifications following the previous link." }
-    let(:notification_title) { "<a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a> created the <a href=\"#{resource_path}\">#{resource_title}</a> debate." }
+    let(:notification_title) { "<a href=\"/en/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a> created the <a href=\"#{resource_path}\">#{resource_title}</a> debate." }
 
     it_behaves_like "a simple event"
     it_behaves_like "a simple event email"

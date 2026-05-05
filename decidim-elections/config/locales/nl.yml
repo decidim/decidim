@@ -8,7 +8,6 @@ nl:
     admin:
       menu:
         elections_menu:
-          election_census: Kiezerslijst
           election_questions: vragen
     components:
       elections:
@@ -31,8 +30,6 @@ nl:
           edit:
             created_at: Aangemaakt op
         dashboard:
-          census:
-            title: Kiezerslijst
           main:
             labels:
               description: Beschrijving
@@ -61,9 +58,6 @@ nl:
           edit_questions:
             new_question: Nieuwe vraag
             title: vragen
-      censuses:
-        token_csv_form:
-          email: E-mail
       elections:
         count:
           elections_count:
@@ -78,7 +72,6 @@ nl:
       models:
         election:
           fields:
-            census: Kiezerslijst
             status: Status
             title: Aanspreektitel
       status:
@@ -91,7 +84,3 @@ nl:
           next: Volgende
     statistics:
       elections_count: Verkiezingen
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Afsluiten

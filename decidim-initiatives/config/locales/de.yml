@@ -109,8 +109,6 @@ de:
         initiatives_menu:
           see_initiative: Initiative ansehen
         initiatives_settings: Einstellungen
-        initiatives_submenu:
-          info: Über diese Initiative
         initiatives_types: Arten von Initiativen
         moderations: Moderationen
       models:
@@ -155,9 +153,6 @@ de:
       taxonomy_filters:
         space_filter_for:
           initiatives: Alle Initiativen
-      titles:
-        initiatives: Initiativen
-        initiatives_types: Arten von Initiativen
     download_your_data:
       show:
         initiatives: Initiativen exportieren
@@ -296,7 +291,6 @@ de:
             publication_date: Zuletzt veröffentlicht
             random: Zufällig
             signatures: Am häufigsten unterzeichnet
-            title: Einstellungen für Initiativen
         initiatives_type_scopes:
           create:
             error: Beim Erstellen eines neuen Bereichs für diese Intiative ist ein Problem aufgetreten.

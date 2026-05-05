@@ -513,7 +513,7 @@ describe "Orders" do
               relogin_as another_user, scope: :user
               page.visit decidim.profile_activity_path(nickname: user.nickname)
               expect(page).to have_content(user.name)
-              expect(page).to have_current_path "/profiles/#{user.nickname}/activity"
+              expect(page).to have_current_path "/#{I18n.locale}/profiles/#{user.nickname}/activity"
               expect(page).to have_no_content("New budgeting vote at")
               expect(page).to have_no_link(translated(budget.title))
             end

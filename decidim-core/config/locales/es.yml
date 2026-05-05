@@ -302,7 +302,7 @@ es:
         create: "%{user_name} ha creado un enlace de acceso en %{space_name}"
         create_with_space: "%{user_name} ha creado un enlace de acceso para %{resource_name} en %{space_name}"
         delete: "%{user_name} ha eliminado un enlace de acceso en %{space_name}"
-        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para%{resource_name} en %{space_name}"
+        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualizado un enlace de acceso en %{space_name}"
         update_with_space: "%{user_name} ha actualizado un enlace de acceso para %{resource_name} en %{space_name}"
       static_page:
@@ -1161,6 +1161,12 @@ es:
         update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Abierta
+            restricted: Restringida
+            transparent: Transparente
+          not_found: No se ha encontrado el tipo de acceso %{id}
         area_presenter:
           not_found: 'El área no se encontró en la base de datos (ID: %{id})'
         area_type_presenter:
@@ -1193,7 +1199,7 @@ es:
           subject: "%{sender} ha iniciado una conversación contigo"
         new_message:
           greeting: '¡Hola, %{recipient}!'
-          intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
+          intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Para verlos y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
@@ -1418,7 +1424,7 @@ es:
         download:
           components: Componentes
           core: Núcleo
-          spaces: Espacio participativo
+          spaces: Espacio de participación
           title: Descargar recursos
         download_open_data: Descargar todos los archivos de datos abiertos
         download_resource: Descargar "%{resource_name}" en formato CSV
@@ -1509,9 +1515,9 @@ es:
     participants_account_mailer:
       inactivity_notification:
         body_html: |
-          <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection}</strong></p>.
+          <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection}</strong>.</p>
           <p>Para proteger tu privacidad, se ha programado la eliminación automática de esta cuenta en <strong>%{days} días</strong>.</p>
-          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente inicia sesión %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
+          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
         greetings_html: |
           Atentamente,<br>
           %{organization_name}
@@ -1526,6 +1532,18 @@ es:
           %{organization_name}
         hello: Estimado/a %{username},
         subject: Aviso de cuenta inactiva
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Miembro de
+    participatory_space_members:
+      index:
+        members: Miembros
+    participatory_spaces:
+      show:
+        restricted_space: Este es un espacio restringido. Solo las miembros pueden verlo y participar.
+        transparent_space: Este es un espacio restringido pero transparente. Cualquiera puede ver el contenido, pero solo las miembros pueden participar.
     passwords:
       update:
         error: Se ha producido un error al actualizar la contraseña.
@@ -1815,6 +1833,7 @@ es:
         nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu alias y contraseña.
+        subtitle_no_password: Si aceptas la invitación, por favor establece tu apodo.
       invitation_removed: Se ha eliminado tu invitación.
       invitation_token_invalid: '¡El token de invitación proporcionado no es válido!'
       new:
@@ -1822,8 +1841,8 @@ es:
         submit_button: Enviar una invitación
       no_invitations_remaining: No quedan invitaciones
       send_instructions: Se envió una invitación via correo electrónico a %{email}.
-      updated: Tu contraseña fue establecida con éxito. Ya has iniciado sesión.
-      updated_not_active: Tu contraseña se ha establecido correctamente.
+      updated: La invitación se ha aceptado correctamente. Se ha iniciado tu sesión.
+      updated_not_active: La invitación se ha aceptado correctamente.
     mailer:
       confirmation_instructions:
         action: Confirmar mi cuenta
@@ -1882,8 +1901,8 @@ es:
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Nueva contraseña
         old_password_help: Para confirmar los cambios en tu cuenta, por favor proporciónanos tu contraseña actual.
-        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias y tu correo electrónico."
-        password_help_admin: "%{minimum_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, tu correo electrónico y de tus antiguas contraseñas."
+        password_help: "La contraseña debe tener al menos %{minimum_characters} caracteres, de estos, al menos 5 caracteres deben ser diferentes, no deben ser demasiado comunes (e. 123456) y debe ser diferente del número, apodo, correo electrónico y del dominio de la plataforma."
+        password_help_admin: "La contraseña debe tener al menos %{minimum_characters} caracteres, de estos, al menos 5 caracteres deben ser diferentes, no deben ser demasiado comunes (e. 123456) y debe ser diferente del número, apodo, correo electrónico, dominio de la plataforma o contraseñas antiguas."
         title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'

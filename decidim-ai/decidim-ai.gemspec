@@ -3,7 +3,7 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 Gem::Specification.new do |s|
-  version = "0.32.0.dev"
+  version = "0.33.0.dev"
   s.version = version
   s.authors = ["Alexandru-Emil Lupu"]
   s.email = ["contact@alecslupu.ro"]

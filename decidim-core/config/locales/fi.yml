@@ -578,6 +578,7 @@ fi:
     contact: Ota yhteyttä
     content_blocks:
       announcement:
+        body: Ilmoituksen teksti
         name: Ilmoitus
       cta:
         name: Kuva, teksti ja toimintopainike (Call to Action)
@@ -1055,6 +1056,9 @@ fi:
           explanation: 'Kuvan ohjeistus:'
           message_1: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
           message_2: Palvelu rajaa kuvaa.
+        import_file:
+          explanation: 'Tuontitiedoston ohjeistus:'
+          message_1: Tiedoston on oltava JSON-muotoinen, joka on ladattu vientitoiminnon kautta.
       file_validation:
         allowed_file_extensions: 'Sallitut tiedostopäätteet: %{extensions}'
         max_file_dimension: 'Tiedoston enimmäismitat: %{resolution} pikseliä'
@@ -1159,6 +1163,12 @@ fi:
         update_permissions_with_space: "%{user_name} päivitti kohteen %{resource_name} oikeuksia tilassa %{space_name}"
         update_with_space: "%{user_name} päivitti %{resource_name} osallistumistilassa %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Avoimet
+            restricted: Rajoitetut
+            transparent: Läpinäkyvät
+          not_found: Pääsyoikeuksien tilaa %{id} ei löytynyt
         area_presenter:
           not_found: 'Aluetta ei löytynyt tietokannasta (ID: %{id})'
         area_type_presenter:
@@ -1524,6 +1534,13 @@ fi:
           %{organization_name}
         hello: Hei %{username},
         subject: Käyttämättä ollut tili on poistettu
+    participatory_space_members:
+      index:
+        members: Jäsenet
+    participatory_spaces:
+      show:
+        restricted_space: Tämä on rajattu osallistumistila. Ainoastaan jäsenet näkevät tämän osallistumistilan ja voivat osallistua sen sisällä.
+        transparent_space: Tämä on läpinäkyvä osallistumistila. Kuka tahansa voi tarkastella osallistumistilan sisältöä, mutta ainoastaan osallistumistilan jäsenet voivat osallistua sen sisällä.
     passwords:
       update:
         error: Salasanan päivitys epäonnistui.
@@ -1798,6 +1815,7 @@ fi:
       send_paranoid_instructions: Jos sähköpostiosoitteesi on tietokannassamme, saat hetken kuluttua sähköpostiisi ohjeet tunnuksen vahvistamiseen.
     failure:
       already_authenticated: Olet jo kirjautunut sisään.
+      csrf_token: Pyyntöäsi ei voitu vahvistaa. Yritä uudelleen.
       inactive: Tilisi ei ole vielä aktivoitu.
       invalid: Virheellinen %{authentication_keys} tai salasana.
       invited: Sinulla on odottava kutsu, hyväksy se ja viimeistele tilin luominen.
@@ -1812,6 +1830,7 @@ fi:
         nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
         submit_button: Tallenna
         subtitle: Jos hyväksyt kutsun, aseta käyttäjänimesi ja salasana.
+        subtitle_no_password: Jos hyväksyt kutsun, aseta tilillesi nimi.
       invitation_removed: Kutsusi on peruttu.
       invitation_token_invalid: Käyttämäsi kutsuavain ei ole voimassa!
       new:
@@ -1819,8 +1838,8 @@ fi:
         submit_button: Lähetä kutsu
       no_invitations_remaining: Ei kutsuja jäljellä
       send_instructions: Kutsuviesti on lähetetty %{email}.
-      updated: Salasanasi asettaminen onnistui. Olet nyt kirjautunut sisään.
-      updated_not_active: Salasanasi asettaminen onnistui.
+      updated: Kutsun hyväksyminen onnistui. Olet nyt kirjautunut sisään.
+      updated_not_active: Kutsun hyväksyminen onnistui.
     mailer:
       confirmation_instructions:
         action: Vahvista käyttäjätilini
@@ -1880,8 +1899,8 @@ fi:
         confirm_new_password: Vahvista uusi salasana
         new_password: Uusi salasana
         old_password_help: Vahvistaaksesi muutokset käyttäjätiliisi, anna nykyinen salasanasi.
-        password_help: "Tulee sisältää vähintään %{minimum_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
-        password_help_admin: "Tulee sisältää vähintään %{minimum_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi. On myös oltava eri salasana kuin edelliset salasanasi."
+        password_help: "Vähintään %{minimum_characters} merkkiä, vähintään 5 eri merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimeäsi, nimimerkkiäsi, sähköpostiosoitettasi tai tämän palvelun verkko-osoitetta."
+        password_help_admin: "Vähintään %{minimum_characters} merkkiä, vähintään 5 eri merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimeäsi, nimimerkkiäsi, sähköpostiosoitettasi tai tämän palvelun verkko-osoitetta. Et myöskään voi käyttää aikaisempia salasanojasi."
         title: Salasanan vaihto
       new:
         forgot_your_password: Unohditko salasanasi?
@@ -2126,6 +2145,7 @@ fi:
         confirm_title_close_ephemeral_session: Ennen kuin poistut tältä sivulta…
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
+        mobile_account_greeting: Hei %{user_name}
         user_menu: Käyttäjän valikko
       impersonation_warning:
         close_session: Sulje istunto

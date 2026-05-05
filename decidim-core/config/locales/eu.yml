@@ -1161,6 +1161,12 @@ eu:
         update_permissions_with_space: "%{user_name} k %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
         update_with_space: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} hemen %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Zabaldu
+            restricted: Murriztua
+            transparent: Gardena
+          not_found: Ez da aurkitu %{id} sarbide mota
         area_presenter:
           not_found: 'Arloa ez da (ID: %{id}) datu-basean aurkitu'
         area_type_presenter:
@@ -1526,6 +1532,18 @@ eu:
           %{organization_name}
         hello: "%{username}, agurgarria:\n"
         subject: Kontu inaktiboa ezabatua
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Honen kidea
+    participatory_space_members:
+      index:
+        members: Kideak
+    participatory_spaces:
+      show:
+        restricted_space: Partaidetza espazio hau murriztua da. Kideek ikusi eta parte hartu ahal izango dute soilik.
+        transparent_space: Hau espazio murriztua, baina gardena da. Edonork ikus dezake edukia, baina soilik kideek har dezakete parte.
     passwords:
       update:
         error: Arazo bat egon da pasahitza eguneratzean.
@@ -1815,6 +1833,7 @@ eu:
         nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
         submit_button: Gorde
         subtitle: Gonbidapena onartzen baduzu, mesedez, ezarri zure ezizena eta pasahitza.
+        subtitle_no_password: Gonbidapena onartzen baduzu, jarri zure ezizena.
       invitation_removed: Zure gonbidapena kendu egin da.
       invitation_token_invalid: Gonbidapen token hori ez da baliozkoa!
       new:
@@ -1822,8 +1841,8 @@ eu:
         submit_button: Bidali gonbidapena
       no_invitations_remaining: Ez da gonbidapenik geratzen
       send_instructions: Gonbidapen-mezu elektroniko bat %{email} helbidera bidali da.
-      updated: Pasahitza ondo ezarri da. Saioa hasi duzu.
-      updated_not_active: Pasahitza ondo ezarri da.
+      updated: Gonbidapena behar bezala onartu da. Orain erregistratuta zaude.
+      updated_not_active: Gonbidapena behar bezala onartu da.
     mailer:
       confirmation_instructions:
         action: Berretsi nire kontua
@@ -1882,8 +1901,8 @@ eu:
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitza
         old_password_help: Zure kontuaren aldaketak baieztatzeko, mesedez eman zure egungo pasahitza.
-        password_help: "%{minimum_characters} karaktere izan behar ditu gutxienez, arruntegiak izan gabe (adib., 123456). Ezin da izan ezizenaren eta helbide elektronikoaren berdina."
-        password_help_admin: "%{minimum_characters} karaktere izan behar ditu gutxienez, arruntegiak izan gabe (adib., 123456). Ezin da izan ezizenaren eta helbide elektronikoaren berdina eta zure pasahitza ez bezalakoa izan behar du."
+        password_help: "Pasahitzak gutxienez %{minimum_characters} karaktere izan behar ditu, 5 karaktere desberdin izan behar ditu, ez du oso ohikoa izan behar (adibidez, 123456), zure izena, ezizena, posta elektronikoa, erakundearen anfitrioia eta zure pasahitz zaharren desberdina izan behar du."
+        password_help_admin: "Pasahitzak gutxienez %{minimum_characters} karaktere izan behar ditu, 5 karaktere desberdin izan behar ditu, ez du oso ohikoa izan behar (adibidez, 123456), zure izena, ezizena, posta elektronikoa, erakundearen anfitrioia eta zure pasahitz zaharren desberdina izan behar du."
         title: Pasahitza aldatu egin da
       new:
         forgot_your_password: Pasahitza ahaztu duzu?
@@ -2128,6 +2147,7 @@ eu:
         confirm_title_close_ephemeral_session: Orri honetatik irten baino lehen…
         log_in: Hasi saioa
         main_menu: Menu nagusia
+        mobile_account_greeting: Kaixo, %{user_name}
         user_menu: Parte-hartzailearen menua
       impersonation_warning:
         close_session: Itxi saioa

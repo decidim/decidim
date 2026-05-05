@@ -173,8 +173,6 @@ gl:
         edit:
           title: Editar carpeta
           update: Actualización
-        index:
-          attachment_collections_title: Cartafoles adxuntos
         new:
           create: Crear
           title: Nova carpeta
@@ -190,8 +188,6 @@ gl:
         edit:
           title: Editar anexo
           update: Actualización
-        index:
-          attachments_title: Anexos
         new:
           create: Crear anexo
           title: Novo anexo
@@ -236,7 +232,6 @@ gl:
           title: 'Engadir compoñente: %{name}'
         publish:
           success: O compoñente foi publicado con éxito.
-        title: Compoñentes
         unpublish:
           success: O compoñente foi publicado sen éxito.
         update:
@@ -352,7 +347,6 @@ gl:
           impersonate: Suplantar
           impersonate_existing_managed_user: Substituír o usuario xestionado "%{name}"
           impersonate_existing_user: Substitúe o usuario "%{name}"
-          impersonate_new_managed_user: Substituír o novo usuario xestor
       imports:
         and: e
         data_errors:
@@ -395,7 +389,6 @@ gl:
         promotions:
           new:
             explanation: Os usuarios xestionados poden ser promocionados a usuarios estándar. Isto significa que serán invitados á aplicación e non poderás suplantarlles de novo. O usuario invitado recibirá un correo electrónico para aceptar a túa invitación.
-            new_managed_user_promotion: Nova promoción de usuarios xestionados
             promote: Promover
       members_csv_imports:
         new:
@@ -529,7 +522,6 @@ gl:
           title: Padróns para boletíns
           use_template: Empregar este padrón
         show:
-          preview: 'Vista previa do padrón: %{template_name}'
           use_template: Empregar este padrón
       newsletters:
         create:
@@ -571,7 +563,6 @@ gl:
           title: Seleccionar os destinatarios
           warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
         show:
-          preview: Vista previa
           select_recipients_to_deliver: Seleccionar os destinatarios
           subject: Asunto
         update:
@@ -697,18 +688,10 @@ gl:
         update:
           error: Produciuse un erro ao actualizar esta páxina.
       titles:
-        admin_log: Rexistro de administrador
-        area_types: Tipos de área
         areas: Campos
         authorization_workflows: Métodos de verificación
-        dashboard: Taboleiro de instrumentos
-        impersonatable_users: Usuarios xestionables
-        impersonations: Xestión dos usuarios
         panel: Administrador
-        participants: Usuarios
-        scope_types: Tipos de alcance
         scopes: Ámbitos
-        users: Administradores
       users:
         create:
           error: Produciuse un erro ao invitar a este usuario.

@@ -42,7 +42,7 @@ module Decidim
             meta_scope: attributes["meta_scope"],
             start_date: attributes["start_date"],
             end_date: attributes["end_date"],
-            private_space: attributes["private_space"],
+            access_mode: resolve_access_mode(attributes),
             participatory_process_group: process_group
           )
           import_hero_image(attributes["remote_hero_image_url"])
@@ -222,6 +222,15 @@ module Decidim
         message = status[1].presence || Rack::Utils::HTTP_STATUS_CODES[code.to_i]
         message = message.presence || error.message
         "#{code} #{message}"
+      end
+
+      def resolve_access_mode(attributes)
+        return attributes["access_mode"] if attributes["access_mode"].present?
+
+        return "transparent" if attributes["is_transparent"] == true
+        return "restricted" if attributes["private_space"] == true
+
+        "open"
       end
     end
   end

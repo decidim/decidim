@@ -471,7 +471,7 @@ sv:
           allowed_postal_codes: Tillåtna postnummer (separerade med kommatecken)
           document_number: Dokumentnummer
           postal_code: Postnummer
-        name: Tillfällig exempel-verifiering
+        name: Exempel-verifiering för tillfälliga användare
       errors:
         duplicate_authorization: En deltagare är redan auktoriserad med samma data. En administratör kommer att kontakta dig för att verifiera dina uppgifter.
       expired_at: Förföll vid %{timestamp}
@@ -1164,6 +1164,12 @@ sv:
         update_permissions_with_space: "%{user_name} uppdaterade behörigheterna för %{resource_name} i %{space_name}"
         update_with_space: "%{user_name} uppdaterade %{resource_name} i %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Öppen
+            restricted: Begränsad
+            transparent: Transparent
+          not_found: Åtkomstläge %{id} hittades inte
         area_presenter:
           not_found: 'Området hittades inte i databasen (ID: %{id})'
         area_type_presenter:
@@ -1529,6 +1535,18 @@ sv:
           %{organization_name}
         hello: Hej %{username},
         subject: Inaktivt konto raderat
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Medlem av
+    participatory_space_members:
+      index:
+        members: Medlemmar
+    participatory_spaces:
+      show:
+        restricted_space: Detta är ett begränsat rum. Bara medlemmar kan se och delta i det.
+        transparent_space: Detta är ett transparent rum. Alla kan se innehållet, men bara medlemmar kan delta.
     passwords:
       update:
         error: Det gick inte att uppdatera lösenordet.
@@ -1815,6 +1833,7 @@ sv:
         nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla små bokstäver a-z, siffror, '-' och '_'.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
+        subtitle_no_password: Om du accepterar inbjudan var vänlig ange ditt alias.
       invitation_removed: Din inbjudan har tagits bort.
       invitation_token_invalid: Ogiltig token för inbjudan!
       new:
@@ -1822,8 +1841,8 @@ sv:
         submit_button: Skicka en inbjudan
       no_invitations_remaining: Inga inbjudningar kvar
       send_instructions: Ett e-brev med inbjudan har skickats till %{email}.
-      updated: Lösenordet har nu ställts in. Du är nu inloggad.
-      updated_not_active: Ditt lösenord har ställts in.
+      updated: Inbjudan godtogs. Du är nu inloggad.
+      updated_not_active: Inbjudan godtogs.
     mailer:
       confirmation_instructions:
         action: Bekräfta mitt konto
@@ -1883,8 +1902,8 @@ sv:
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
         old_password_help: För att bekräfta ändringarna av ditt konto, vänligen ange ditt nuvarande lösenord.
-        password_help: "Minst %{minimum_characters} tecken, får inte vara för vanligt (som 123456) och måste skilja sig från ditt användarnamn och din e-postadress."
-        password_help_admin: "Minst %{minimum_characters} tecken, får inte vara för vanligt (som 123456) och måste skilja sig från ditt användarnamn och din e-postadress."
+        password_help: "Minst %{minimum_characters} tecken. Måste innehålla minst 5 olika tecken, får inte vara för vanligt (t.ex. 123456) och måste skilja sig från ditt namn, användarnamn, e-post och webbplatsens namn."
+        password_help_admin: "Minst %{minimum_characters} tecken. Måste innehålla minst 5 olika tecken, får inte vara för vanligt (t.ex. 123456) och måste skilja sig från ditt namn, användarnamn, e-post, webbplatsens namn och dina tidigare lösenord."
         title: Ändra lösenord
       new:
         forgot_your_password: Glömt ditt lösenord?
@@ -2129,7 +2148,7 @@ sv:
         confirm_title_close_ephemeral_session: Innan du lämnar sidan…
         log_in: Logga in
         main_menu: Huvudmeny
-        mobile_account_greeting: Hej, %{user_name}
+        mobile_account_greeting: Hej %{user_name}
         user_menu: Användarmeny
       impersonation_warning:
         close_session: Stäng session

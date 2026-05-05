@@ -41,6 +41,7 @@ tr:
     accountability:
       actions:
         add_milestone: Aşama ekle
+        add_result: Sonuç ekle
         confirm_delete_result: Bu sonucu silmek istediğinizden emin misiniz?
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         deleted_results_info: Silinen sonuçlar çöp kutusundan geri yüklenebilir.
@@ -84,6 +85,31 @@ tr:
           new:
             download_export: '  İhracat i CSV formatında indirin '
             import: İçe aktar
+            info: |
+              <p>Aşağıdaki adımları izlemenizi öneririz:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Eklemek istediğiniz Sonuçlar için Durumları oluşturun</a></li>
+              <li><a href='%{link_new_result}' target='_blank'>İçe Aktarma işleminden önce, formatı ve doldurmanız gerekenleri daha iyi anlamak için bu Yönetici paneli üzerinden en az bir Sonucu manuel olarak oluşturun</a>.</li>
+              <li>%{link_export_csv}</li>
+              <li>Değişiklikleri yerel olarak yapın. CSV dosyasının yalnızca aşağıdaki sütunlarını değiştirebilirsiniz (geri kalanlar göz ardı edilecektir):</li>
+              <ul>
+
+              <li><b>taxonomies/ids:</b> Taksonomilerin Kimlikleri (birden fazla ise virgülle ayırın)</li>
+
+              <li><b>parent/id:</b> Üst öğenin Kimliği (ilgili Sonuçlar için). İsteğe bağlı</li>
+
+              <li><b>başlık/en:</b> İngilizce başlık. Bu, platformunuzun dil yapılandırmasına bağlı olacaktır.</li>
+              <li><b>açıklama/en:</b> İngilizce açıklama. Bu, platformunuzun dil yapılandırmasına bağlı olacaktır.</li>
+
+              <li><b>başlangıç_tarihi:</b> Sonucun yürütülmeye başladığı tarih (YYYY-MM-DD formatında)</li>
+              <li><b>bitiş_tarihi:</b> Sonucun yürütülmenin bittiği tarih (YYYY-MM-DD formatında)</li>
+              <li><b>durum/id:</b> Bu sonuç için Durumun Kimliği</li>
+              <li><b>ilerleme:</b> Yürütmenin yüzdesi (0 ile 100 arası)</li>
+              <li><b>öneri_kimlikleri:</b> İlgili önerilerin dahili kimlikleri (virgülle ayrılmış). Otomatik olarak <span class='attribute-name'>proposal_url</span></li> adresine dönüştürülür.
+
+              </ul>
+              </li>
+              </ol>
             title: Sonuçları CSV dosyasından içe aktarın
         imports:
           create:
@@ -98,8 +124,11 @@ tr:
           edit:
             title: Aşamayı düzenle
             update: Aşamayı güncelle
+          index:
+            title: Kilometre taşları
           new:
             create: Aşama oluştur
+            title: Yeni dönüm noktası
           update:
             invalid: Bu aşama güncellenirken bir hata oluştu.
             success: Aşama başarıyla güncellendi.
@@ -216,6 +245,10 @@ tr:
       last_activity:
         new_result: 'Yeni sonuç:'
       models:
+        milestone:
+          fields:
+            entry_date: Tarih
+            title: Başlık
         result:
           fields:
             created_at: Oluşturuldu
@@ -223,6 +256,7 @@ tr:
             progress: İlerleme
             start_date: Başlangıç tarihi
             status: durum
+            taxonomies: Sınıflandırmalar
             title: Başlık
         status:
           fields:
@@ -240,6 +274,8 @@ tr:
         milestones:
           title: Aşamalar
         no_results: Proje Bulunamadı
+        root_taxonomies:
+          title: 'Tarafından görüntüle:'
         search:
           search: İşlemleri ara
         show:
@@ -250,6 +286,8 @@ tr:
         results:
           status_id_eq:
             label: Durum
+          taxonomies_part_of_contains:
+            label: Sınıflandırma
       tooltips:
         deleted_results_info: Bu sonuç silinemiyor
     components:
@@ -267,11 +305,13 @@ tr:
             default_taxonomy_help: Varsayılan olarak hangi sınıflandırmayı göstermek istediğinizi seçin. Eğer herhangi bir sınıflandırma seçilmezse, sonuçlar liste biçiminde gösterilecektir.
             define_taxonomy_filters: Bu ayarı kullanmadan önce lütfen bu katılımcı alan için bazı filtreler tanımlayın.
             display_progress_enabled: İlerlemeyi göster
+            geocoding_enabled: Haritalar etkinleştirildi
             intro: Tanıtım
             no_taxonomy_filters_found: Sınıflandırma filtresi bulunamadı.
             taxonomy_filters_add: Filtre ekle
           step:
             comments_blocked: Yorumlar engellendi
+          visualization: Görselleştirme
     download_your_data:
       show:
         result_comments: Sonuç yorumlarını dışa aktar
@@ -291,14 +331,26 @@ tr:
     open_data:
       help:
         result_comments:
+          alignment: Bu yorumun olumlu, olumsuz veya tarafsız olup olmadığı
           author: Bu yorumu yapan katılımcının adı
           body: Yorumun kendisi
+          commentable_id: Yorumlanabilir öğenin benzersiz kimliği
+          commentable_type: Yorumlanabilir içeriğin türü (sonuç mu, öneri mi, vb.)
           created_at: Bu yorumun oluşturulduğu tarih
+          id: Bu yorumun kimliği
           root_commentable_url: Bu yoruma bağlı kaynağın URL bağlantısı
         results:
           address: Sonucun adresi (varsa)
+          children_count: Çocuk sonuçlarının sayısı
+          comments_count: Bu sonucun aldığı yorum sayısı
           created_at: Sonucun oluşturulma tarihi
+          description: Sonucun açıklaması
+          end_date: Sonucun yürütülmesinin sona erdiği ve tamamlandığı tarih
+          id: Sonucun benzersiz tanımlayıcısı
+          proposal_urls: Bu sonuçta yer alan tekliflerin URL'leri
           taxonomies:
+          title: Sonuç başlığı
+          updated_at: Güncelleme Tarihi
     participatory_spaces:
       highlighted_results:
         see_all: Tüm sonuçları gör (%{count})
@@ -309,3 +361,4 @@ tr:
         result_proposal: Bu sonuca dahil teklifler
     statistics:
       results_count: Sonuçlar
+      results_count_tooltip: Bu alandan elde edilen karar veya sonuç sayısı.

@@ -114,8 +114,6 @@ pl:
           success: Prelegent został pomyślnie usunięty z tej konferencji.
         edit:
           update: Aktualizuj
-        index:
-          conference_speakers_title: Prelegenci konferencyjni
         new:
           create: Utwórz
         publish:
@@ -135,8 +133,6 @@ pl:
           success: Administrator konferencji usunięty pomyślnie.
         edit:
           update: Aktualizuj
-        index:
-          conference_admins_title: Administratorzy konferencji
         new:
           create: Utwórz
         update:
@@ -180,7 +176,6 @@ pl:
           conference_admins: Administratorzy konferencji
           conference_invites: Zaprasza
           conference_speakers: Prelegenci
-          info: O tej konferencji
           moderations: Moderacje
           partners: Partnerzy
           registrations: Rejestracje
@@ -240,7 +235,6 @@ pl:
           update: Aktualizuj
         new:
           create: Utwórz
-          title: Nowy partner
         update:
           error: Wystąpił błąd podczas aktualizacji partnera konferencji.
           success: Partner został pomyślnie zaktualizowany.
@@ -261,12 +255,9 @@ pl:
           update: Aktualizuj
         new:
           create: Utwórz
-          title: Nowy typ rejestracji
         update:
           error: Wystąpił błąd podczas próby aktualizacji typu rejestracji.
           success: Typ rejestracji został zaktualizowany.
-      titles:
-        conferences: Konferencje
     admin_log:
       conference:
         create: "%{user_name} utworzył(a) %{resource_name} konferencję"
@@ -320,14 +311,9 @@ pl:
             select_user: Wybierz użytkownika
           index:
             invite_attendee: Zaproś użytkownika
-            invites: Zaproszeni
           new:
             explanation: Użytkownik zostanie zaproszony do udziału w konferencji. Jeśli e-mail nie został wcześniej zarejestrowany, zostanie również zaproszony do organizacji.
             invite: Zaproś
-            new_invite: Zaproś użytkownika
-        conference_registrations:
-          index:
-            registrations: Rejestracje
         conference_speakers:
           form:
             existing_user: Istniejący użytkownik

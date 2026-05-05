@@ -180,10 +180,6 @@ fr-CA:
               user_authorized: Utilisateur autorisé ?
             import_csv: Importer un CSV
             no_authorized: Utilisateur non autorisé
-            title: Données de recensement actuelles
-          instructions:
-            body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
-            title: Vous devez activer le recensement CSV pour cette organisation
         authorizations:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
@@ -212,7 +208,6 @@ fr-CA:
               error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier.
               success: Utilisateur vérifié avec succès.
             new:
-              introduce_user_data: Introduire les données dans l'image
               reject: Rejeter
               verify: Vérifier
           offline_confirmations:
@@ -221,7 +216,6 @@ fr-CA:
               success: Utilisateur vérifié avec succès.
             new:
               cancel: Annuler
-              introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
               verify: Vérifier
           pending_authorizations:
             index:

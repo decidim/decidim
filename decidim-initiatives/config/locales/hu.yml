@@ -128,9 +128,6 @@ hu:
             name_and_surname: Keresztnév és Vezetéknév
             postal_code: Irányítószám
             timestamp: Időbélyeg
-      titles:
-        initiatives: Kezdeményezések
-        initiatives_types: Kezdeményezési típusai
     events:
       initiatives:
         admin:
@@ -250,7 +247,6 @@ hu:
             publication_date: Legfrissebben közzétett
             random: Véletlenszerű
             signatures: Legtöbb aláírással rendelkező
-            title: Kezdeményezések beállításai
         initiatives_type_scopes:
           create:
             success: Az adott kezdeményezési típushoz új hatáskört hoztunk létre.

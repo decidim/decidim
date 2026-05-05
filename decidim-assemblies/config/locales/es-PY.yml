@@ -40,7 +40,6 @@ es-PY:
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
-        private_space: Espacio privado
         promoted: Destacado
         published_at: Publicado
         purpose_of_action: Propósito de la acción
@@ -102,15 +101,14 @@ es-PY:
         edit:
           update: Actualizar
         index:
-          private: Privado
-          public: Público
+          access_modes:
+            open: Abierta
+            restricted: Restringida
+            transparent: Transparente
           published: Publicado
           unpublished: Despublicada
-        manage_trash:
-          title: Asambleas eliminadas
         new:
           create: Crear
-          title: Nueva asamblea
         update:
           error: Se ha producido un error al actualizar esta asamblea.
           success: La asamblea se ha actualizado correctamente.
@@ -122,7 +120,6 @@ es-PY:
         new:
           duplicate: Duplicar
           select: Selecciona qué datos quieres duplicar
-          title: Duplicar asamblea
       assembly_imports:
         create:
           error: Ha habido un problema importando esta asamblea.
@@ -130,7 +127,6 @@ es-PY:
         new:
           import: Importar
           select: Selecciona qué datos quieres importar
-          title: Importar asamblea
       assembly_publications:
         create:
           error: Se produjo un error al publicar esta asamblea.
@@ -145,13 +141,9 @@ es-PY:
         destroy:
           success: Usuario eliminado con éxito de esta asamblea.
         edit:
-          title: Actualizar administradora de la asamblea
           update: Actualizar
-        index:
-          assembly_admins_title: Usuarios de la Asamblea
         new:
           create: Crear
-          title: Nueva administradora de la asamblea
         update:
           error: Ha habido un error al actualizar un usuario para esta asamblea.
           success: Usuario actualizado con éxito para esta asamblea.
@@ -172,16 +164,16 @@ es-PY:
           attachments: Archivos adjuntos
           components: Componentes
           info: Acerca de esta asamblea
-          landing_page: Disposición de la página de aterrizaje
+          landing_page: Disposición de la página de inicio
           members: Miembros
           moderations: Moderaciones
           see_assembly: Ver la asamblea
       models:
         assembly:
           fields:
+            access_mode: Tipo de acceso
             actions: Acciones
             created_at: Fecha de creación
-            private: Privada
             promoted: Destacado
             published: Publicada
             title: Título
@@ -208,10 +200,6 @@ es-PY:
       taxonomy_filters:
         space_filter_for:
           assemblies: Todas las asambleas
-      titles:
-        assemblies: Asambleas
-        assemblies_deleted: Asambleas eliminadas
-        assemblies_types: Tipo de asamblea
       tooltips:
         deleted_assemblies_info: Una asamblea solo se puede eliminar si su estado es 'Despublicada'.
     admin_log:
@@ -246,7 +234,16 @@ es-PY:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: Acerca de esta asamblea
           form:
+            access:
+              label: Acceso
+              options:
+                open: Cualquiera puede ver y participar a la asamblea.
+                restricted: Solo las miembros pueden ver y participar en la asamblea.
+                transparent: Cualquiera puede ver la asamblea, pero solo las miembros pueden participar.
+              set_this_space_as: Define el tipo de acceso a este espacio
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
@@ -256,7 +253,6 @@ es-PY:
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             other: Otro
-            private_notice: Hace que el espacio de participación no sea visible para las visitantes y sólo lo sea para las usuarias miembro (excepto si también es transparente)
             select_a_created_by: Selecciona creada por
             select_parent_assembly: Seleccionar ensamblaje principal
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -264,24 +260,40 @@ es-PY:
             taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
+          index:
+            title: Asambleas
+          manage_trash:
+            title: Asambleas eliminadas
+          new:
+            title: Nueva asamblea
         assembly_duplicates:
           form:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+          new:
+            title: Duplicar asamblea
         assembly_imports:
           form:
             document_legend: Añadir un documento
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+          new:
+            title: Importar asamblea
         assembly_members:
           form:
             explanation: 'Instrucciones para la imagen:'
             image_guide: Preferiblemente una imagen apaisada que no tenga ningún texto.
             non_user_avatar_help: Debes obtener el consentimiento de las personas antes de publicarlas como miembros.
+        assembly_user_roles:
+          edit:
+            title: Actualizar administradora de la asamblea
+          index:
+            title: Administradoras de la asamblea
+          new:
+            title: Nueva administradora de la asamblea
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidad máxima de elementos para mostrar
         imports:
           attachment_error: No se ha podido importar el archivo adjunto "%{title}" (%{error}).
-          banner_image_error: No se ha podido importar la imagen del banner (%{error}).
           hero_image_error: No se ha podrido importar la imagen principal (%{error}).
         new_import:
           accepted_types:
@@ -310,9 +322,6 @@ es-PY:
           type: Tipo
         show:
           title: Acerca de esta asamblea
-      assembly_members:
-        index:
-          members: Miembros
       content_blocks:
         children_assemblies:
           name: Asambleas
@@ -347,16 +356,9 @@ es-PY:
           highlighted_assemblies:
             active_spaces: Asambleas activas
             see_all_spaces: Ver todas las asambleas
-        user_profile:
-          member_of:
-            member_of: Miembro de
       show:
         duration: Duración
-        private_space: Esta es una asamblea privada
         social_networks_title: Visita la asamblea en
-    assembly_members:
-      index:
-        title: Miembros
     download_your_data:
       show:
         assemblies: Exportar las asambleas
@@ -383,13 +385,12 @@ es-PY:
       value_types:
         assembly_presenter:
           not_found: 'No se encontró la asamblea en la base de datos (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'El tipo de asamblea no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
     open_data:
       help:
         assemblies:
+          access_mode: Tipos de acceso. Si la asamblea es abierta, restringida o transparente.
           area: El área a la que corresponde la asamblea
           assembly_type: El tipo de asamblea
           closing_date: La fecha de cierre de la asamblea

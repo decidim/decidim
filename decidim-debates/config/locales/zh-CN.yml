@@ -98,7 +98,6 @@ zh-CN:
           back: 后退
           create: 创建
         orders:
-          commented: 最多评论
           label: 排序由
           random: 随机顺序
           recent: 最新的

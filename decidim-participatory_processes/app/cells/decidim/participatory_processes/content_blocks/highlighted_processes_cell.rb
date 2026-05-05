@@ -15,7 +15,7 @@ module Decidim
         end
 
         def all_path
-          Decidim::ParticipatoryProcesses::Engine.routes.url_helpers.participatory_processes_path(locale: I18n.locale)
+          Decidim::ParticipatoryProcesses::Engine.routes.url_helpers.participatory_processes_path
         end
 
         def max_results

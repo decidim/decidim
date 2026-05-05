@@ -156,7 +156,7 @@ module Decidim
           :send_to_verified_users,
           :send_to_followers,
           :send_to_participants,
-          :send_to_private_members,
+          :send_to_members,
           verification_types: [],
           participatory_space_types: {
             assemblies: [:manifest_name, { ids: [] }],

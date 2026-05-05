@@ -156,6 +156,9 @@ pt:
         admin:
           proposal_note_created:
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Aceitar
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} foi aceite para aceder como contribuidor de %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceite <strong>para aceder como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
@@ -347,89 +350,6 @@ pt:
           all: Todos
           amendments: Modificações
           proposals: Propostas
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Ocorreu um problema ao publicar o rascunho colaborativo.
-            irreversible_action_modal:
-              cancel: Cancelar
-              ok: Publicar como uma Proposta
-              title: A ação seguinte é irreversível
-            success: Rascunho colaborativo publicado corretamente como uma proposta.
-          withdraw:
-            error: Ocorreu um problema ao fechar o rascunho colaborativo.
-            irreversible_action_modal:
-              cancel: Cancelar
-              ok: Retirar o rascunho colaborativo
-              title: A ação seguinte é irreversível
-            success: Rascunho colaborativo retirado corretamente.
-        create:
-          success: Rascunho colaborativo criado corretamente.
-        edit:
-          back: Retroceder
-          send: Enviar
-          title: Editar rascunho colaborativo
-        filters:
-          all: Todos
-          amendment: Modificações
-          open: Abrir
-          published: Publicados
-          related_to: Relacionado com
-          search: Pesquisar
-          state: Estado
-          withdrawn: Retirado
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desdobrar
-        index:
-          count:
-            one: "%{count} rascunho colaborativo"
-            other: "%{count} rascunhos colaborativos"
-        new:
-          send: Continuar
-        new_collaborative_draft_button:
-          new_collaborative_draft: Novo rascunho colaborativo
-        orders:
-          label: 'Ordenar rascunhos por:'
-          most_contributed: Mais contribuído
-          random: Aleatória
-          recent: Recente
-        requests:
-          accepted_request:
-            error: Não foi possível ser aceite como colaborador, por favor tente novamente mais tarde.
-          access_requested:
-            error: O seu pedido não pode ser concluído, por favor tente novamente mais tarde.
-          collaboration_requests:
-            accept_request: Aceitar
-            reject_request: Rejeitar
-            title: Pedidos de colaboração
-          rejected_request:
-            error: Não foi possível rejeitá-lo como colaborador, por favor tente novamente mais tarde.
-        show:
-          final_proposal: proposta final
-          final_proposal_help_text: Este rascunho está terminado. Verifique a proposta final
-          hidden_authors_count:
-            one: e mais %{count} pessoa
-            other: e mais %{count} pessoas
-          publish: Publicar
-          publish_info: Publicar esta versão do rascunho ou
-          published_proposal: proposta publicada
-          request_access: Solicitar acesso
-          requested_access: Acesso solicitado
-          withdraw: retirar o rascunho
-        states:
-          open: Aberto
-          published: Publicado
-          withdrawn: Retirado
-        update:
-          error: Ocorreu um problema ao guardar o rascunho colaborativo.
-          success: Rascunho colaborativo atualizado corretamente.
-        wizard_aside:
-          back_from_collaborative_draft: Retroceder para os rascunhos colaborativos
-        wizard_header:
-          title: Criar o seu rascunho colaborativo
       create:
         error: Ocorreu um problema ao guardar a proposta.
         success: Proposta criada corretamente. Guardado como Rascunho.
@@ -478,7 +398,6 @@ pt:
           type: Tipo
         index:
           click_here: Ver todas as propostas
-          collaborative_drafts_list: Aceder a rascunhos colaborativos
           count:
             one: "%{count} proposta"
             other: "%{count} propostas"
@@ -510,8 +429,9 @@ pt:
           answer: Responder
           changes_at_title: Modificação a "%{title}"
           estimated_cost: Custo estimado
-          link_to_collaborative_draft_help_text: Esta proposta é o resultado de um rascunho colaborativo. Reveja o histórico
-          link_to_collaborative_draft_text: Ver o rascunho colaborativo
+          hidden_likes_count:
+            one: e mais %{count} pessoa
+            other: e mais %{count} pessoas
           link_to_promoted_emendation_help_text: Esta proposta é uma correção promovida
           link_to_promoted_emendation_text: Ver a correção rejeitada.
           link_to_proposal_from_emendation_help_text: Isto é uma correção rejeitada

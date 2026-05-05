@@ -19,6 +19,7 @@ describe Decidim::NewsletterTemplates::BasicOnlyTextCell, type: :cell do
   let(:body) { Faker::Lorem.sentences.join("\n") }
   let(:settings) { { body_en: body } }
   let(:logo_url) { Rails.application.routes.url_helpers.rails_representation_path(organization.logo.variant(resize_to_fit: [600, 160]), host: organization.host) }
+  let(:root_url) { Decidim::Core::Engine.routes.url_helpers.root_url(host: organization.host, port: Capybara.server_port) }
 
   controller Decidim::PagesController
 
@@ -46,7 +47,7 @@ describe Decidim::NewsletterTemplates::BasicOnlyTextCell, type: :cell do
     end
 
     it "renders the URL to to the application" do
-      expect(subject).to have_css(".decidim-bar a[href='http://#{organization.host}:#{Capybara.server_port}/'] img")
+      expect(subject).to have_css(".decidim-bar a[href='#{root_url}'] img")
     end
   end
 end

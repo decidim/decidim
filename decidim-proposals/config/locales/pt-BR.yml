@@ -497,7 +497,6 @@ pt-BR:
           deleted_proposals_info: Propostas excluídas podem ser restauradas do lixo.
           preview: Previsualização
           view_deleted_proposals: Ver propostas excluídas
-        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Aviso de descontinuação.</b> O recurso de Rascunhos Colaborativos será removido na versão 0.32 do Decidim. As organizações que o utilizavam poderão migrar para o novo recurso de coautoria de propostas."
         evaluation_assignments:
           create:
             invalid: Houve um problema ao atribuir propostas a um avaliador.
@@ -681,6 +680,7 @@ pt-BR:
             related_meetings: Reuniões relacionadas
             remove_assignment: Remover Atribuição
             remove_assignment_confirmation: Tem certeza que deseja remover o avaliador desta proposta?
+            title: Responder proposta
             votes_count: Contagem de votos
           update_taxonomies:
             invalid: 'Essas propostas já tinham as taxonomias %{taxonomies}: %{proposals}.'
@@ -741,103 +741,6 @@ pt-BR:
           all: Todos
           amendments: Emendas
           proposals: Propostas
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Houve erros ao publicar o rascunho colaborativo.
-            irreversible_action_modal:
-              body: Depois de publicar o rascunho como uma proposta, ele não será mais editável.. A proposta não aceitará novos autores ou contribuições.
-              cancel: Cancelar
-              ok: Publicar como uma proposta
-              title: A ação a seguir é irreversível
-            success: Esboço colaborativo publicado com sucesso como uma proposta.
-          withdraw:
-            error: Houve erros ao fechar o rascunho colaborativo.
-            irreversible_action_modal:
-              body: Depois de fechar o rascunho, ele não será mais editável. O rascunho não aceitará novos autores ou contribuições.
-              cancel: Cancelar
-              ok: Retirar o rascunho colaborativo
-              title: A ação a seguir é irreversível
-            success: Esboço colaborativo retirado com sucesso.
-        create:
-          error: Houve um problema ao criar este rascunho colaborativo.
-          success: Rascunho colaborativo criado com sucesso.
-        edit:
-          attachment_legend: Adicionar um documento ou uma imagem
-          back: Costas
-          send: Enviar
-          title: Editar rascunho colaborativo
-        empty: Ainda não há rascunhos colaborativos
-        empty_filters: Não há nenhum rascunho colaborativo com este critério
-        filters:
-          all: Todos
-          amendment: Emendas
-          open: Aberto
-          published: Publicados
-          related_to: Relacionado a
-          search: Pesquisa
-          state: Estado
-          withdrawn: Retirado
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
-        index:
-          count:
-            one: "%{count} rascunho colaborativo"
-            other: "%{count} rascunho colaborativo"
-        name: Rascunhos colaborativos
-        new:
-          add_file: Adicionar arquivo
-          edit_file: Editar arquivo
-          send: Continuar
-        new_collaborative_draft_button:
-          new_collaborative_draft: Novo rascunho colaborativo
-        orders:
-          label: 'Encomenda de rascunhos por:'
-          most_contributed: A maioria contribuiu
-          random: Aleatória
-          recent: Recente
-        requests:
-          accepted_request:
-            error: Não foi possível aceitar como colaborador. Tente novamente mais tarde.
-            success: "@%{user} foi aceito como colaborador com sucesso."
-          access_requested:
-            error: Sua solicitação não pôde ser concluída. Tente novamente mais tarde.
-            success: Sua solicitação para colaborar foi enviada com sucesso.
-          collaboration_requests:
-            accept_request: Aceitar
-            reject_request: Rejeitar
-            title: Pedidos de colaboração
-          rejected_request:
-            error: Não foi possível rejeitá-lo como colaborador. Tente novamente mais tarde.
-            success: "@%{user} foi rejeitado como colaborador com sucesso."
-        show:
-          edit: Editar
-          final_proposal: proposta final
-          final_proposal_help_text: Este rascunho está terminado. Você pode ver a proposta final concluída
-          hidden_authors_count:
-            one: e mais %{count} pessoa
-            other: e mais %{count} pessoas
-          info-message: Este é um <strong>rascunho colaborativo</strong> de uma proposta. Isso significa que você pode ajudar os autores a moldar a proposta usando a seção de comentários abaixo ou aprimorá-la diretamente solicitando acesso para editá-la. Assim que os autores concederem o acesso, você poderá fazer alterações neste rascunho.
-          publish: Publicar
-          publish_info: Publicar esta versão do rascunho ou
-          published_proposal: proposta publicada
-          request_access: Solicitar acesso
-          requested_access: Acesso solicitado
-          withdraw: retirar o rascunho
-        states:
-          open: Aberto
-          published: Publicados
-          withdrawn: Retirado
-        update:
-          error: Houve erros ao salvar o rascunho colaborativo.
-          success: Rascunho colaborativo atualizado com sucesso.
-        wizard_aside:
-          back_from_collaborative_draft: Voltar para rascunhos colaborativos
-        wizard_header:
-          title: Crie seu rascunho colaborativo
       content_blocks:
         highlighted_proposals:
           name: Propostas
@@ -939,7 +842,6 @@ pt-BR:
           voted: Votado
         index:
           click_here: Veja todas as propostas
-          collaborative_drafts_list: Acesse rascunhos colaborativos
           count:
             one: "%{count} proposta"
             other: "%{count} propostas"
@@ -986,8 +888,6 @@ pt-BR:
           hidden_likes_count:
             one: e mais %{count} pessoa
             other: e mais %{count} pessoas
-          link_to_collaborative_draft_help_text: Esta proposta é o resultado de um rascunho colaborativo. Revise o histórico
-          link_to_collaborative_draft_text: Veja o rascunho colaborativo
           link_to_promoted_emendation_help_text: Esta proposta é uma emenda promovida
           link_to_promoted_emendation_text: Veja a emenda rejeitada.
           link_to_proposal_from_emendation_help_text: Esta é uma emenda rejeitada

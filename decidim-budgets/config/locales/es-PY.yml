@@ -52,7 +52,7 @@ es-PY:
         edit_projects: Añadir proyectos
         import: Importar propuestas a proyectos
         new_budget: Añadir presupuesto
-        new_project: Añadir proyecto
+        new_project: Nuevo proyecto
         preview: Previsualizar
         send_voting_reminders: Enviar recordatorios de votación
         title: Acciones
@@ -90,7 +90,7 @@ es-PY:
             invalid: Se ha producido un error al crear este proyecto.
             success: Proyecto creado correctamente.
           edit:
-            title: Editar proyecto
+            title: Editar proyecto en "%{budget}"
             update: Actualizar
           index:
             actions: Acciones
@@ -113,7 +113,7 @@ es-PY:
             title: Proyectos eliminados
           new:
             create: Crear
-            title: Nuevo proyecto
+            title: Nuevo proyecto en "%{budget}"
           update:
             invalid: Se ha producido un error al actualizar este proyecto.
             success: Proyecto actualizado correctamente.

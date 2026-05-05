@@ -59,8 +59,6 @@ ar:
         information: معلومات
         initiatives: المبادرات
         initiatives_settings: الإعدادات
-        initiatives_submenu:
-          info: عن هذه المبادرة
         initiatives_types: أنواع المبادرة
         moderations: الإشراف
       models:
@@ -94,9 +92,6 @@ ar:
             nickname: الاسم المستعار
             postal_code: الكود البريدى
             timestamp: الطابع الزمني
-      titles:
-        initiatives: المبادرات
-        initiatives_types: أنواع المبادرة
     events:
       initiatives:
         initiative_extended:

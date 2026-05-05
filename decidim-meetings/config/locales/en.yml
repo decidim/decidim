@@ -396,7 +396,7 @@ en:
             assign: Assign
             link_a_space: Link a space
             private_meeting_warning: Linked spaces will not be applied if the meeting is private and non transparent.
-            private_space_warning: Linked spaces will not be applied when the meeting belongs to a private non transparent space.
+            restricted_space_warning: Linked spaces will not be applied when the meeting belongs to a restricted space.
             select: Select a space
             table:
               actions: Actions

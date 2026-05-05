@@ -87,12 +87,6 @@ it:
         skip_verification: Puoi saltare questo per ora e %{link}
         start_exploring: comincia ad esplorare
       csv_census:
-        admin:
-          index:
-            title: Dati di censimento attuali
-          instructions:
-            body: Per fare ciò è necessario inserire l'amministrazione del sistema e aggiungere le autorizzazioni csv_census all'organizzazione
-            title: È necessario attivare il censimento CVS per questa organizzazione
         authorizations:
           new:
             error: Non è stato possibile verificare il tuo account o non ci si trova nel censimento dell'organizzazione.
@@ -115,13 +109,11 @@ it:
               error: Si è verificato un errore durante l'aggiornamento della configurazione.
           confirmations:
             new:
-              introduce_user_data: Introduci i dati nella foto
               reject: Rifiuta
               verify: Verifica
           offline_confirmations:
             new:
               cancel: Annulla
-              introduce_user_data: Inserisci l'email dell'utente e i dati del documento
               verify: Verificare
           pending_authorizations:
             index:

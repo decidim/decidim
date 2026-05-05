@@ -109,8 +109,6 @@ fr:
         initiatives_menu:
           see_initiative: Voir la pétition
         initiatives_settings: Paramètres
-        initiatives_submenu:
-          info: À propos de cette pétition
         initiatives_types: Types de pétitions
         moderations: Modérations
       models:
@@ -155,9 +153,6 @@ fr:
       taxonomy_filters:
         space_filter_for:
           initiatives: Toutes les pétitions
-      titles:
-        initiatives: Pétitions
-        initiatives_types: Types de pétition
     download_your_data:
       show:
         initiatives: Exporter les pétitions
@@ -296,7 +291,6 @@ fr:
             publication_date: Publiées le plus récemment
             random: Aléatoire
             signatures: Les plus signées
-            title: Paramètres des initiatives
         initiatives_type_scopes:
           create:
             error: Un problème est survenu lors de la création d'un nouveau champ d'application pour la pétition donnée.

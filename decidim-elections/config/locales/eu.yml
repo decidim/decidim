@@ -51,6 +51,7 @@ eu:
             choose_census: Hautatu hauteskunde hauetarako erabili nahi duzun errolda-mota
             created_at: Sortze-data
             identifier: Parte-hartzailearen identifikatzailea
+            title: Editatu aukera
           preview:
             title:
               one: Aurrebistaren zerrenda erregistro batera mugatuta dago.

@@ -1,1 +1,120 @@
 sk:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Názov
+      template:
+        description: Popis
+        name: Názov
+  decidim:
+    admin:
+      menu:
+        templates: Šablóny
+      templates:
+        actions:
+          new_template: Nová šablóna
+        apply:
+          error: Pri aplikovaní tejto šablóny sa vyskytol problém.
+          success: Šablóna bola úspešne aplikovaná.
+        copy:
+          error: Pri kopírovaní tejto šablóny sa vyskytol problém.
+          success: Šablóna bola úspešne skopírovaná.
+        create:
+          error: Pri vytváraní tejto šablóny sa vyskytol problém.
+          success: Šablóna bola úspešne vytvorená.
+        destroy:
+          success: Šablóna bola úspešne odstránená.
+        empty: Zatiaľ tu nie sú žiadne šablóny.
+        fetch:
+          error: Túto šablónu sa nepodarilo nájsť. Obnovte stránku.
+        missing_resource: "(chýbajúci zdroj)"
+        update:
+          error: Pri aktualizácii tejto šablóny sa vyskytol problém.
+          success: Šablóna bola úspešne aktualizovaná.
+      titles:
+        template_types:
+          questionnaires: Šablóny dotazníkov
+        templates: Šablóny
+    models:
+      questionnaire_template:
+        fields:
+          questions: Počet otázok
+          title: Názov dotazníka
+      template:
+        fields:
+          created_at: Vytvorené
+        name: Šablóna
+    templates:
+      admin:
+        block_user_templates:
+          edit:
+            title: Upraviť šablónu správy o zablokovaní používateľa
+          form:
+            save: Uložiť
+          index:
+            confirm_delete: Naozaj chcete odstrániť túto šablónu?
+            title: Správy o zablokovaní používateľa
+          new:
+            title: Nová šablóna správy o zablokovaní používateľa
+          template_chooser:
+            select_template: Vyberte šablónu odpovede
+        proposal_answer_templates:
+          edit:
+            title: Upraviť šablónu odpovede na návrh
+          form:
+            component_constraint_help: Upozorňujeme, že sa zobrazia iba participatívne priestory s komponentmi typu „návrhy“.
+            hint1_html: "<strong>%{organization}</strong> bude nahradené názvom organizácie"
+            hint2_html: "<strong>%{name}</strong> bude nahradené menom autora"
+            hint3_html: "<strong>%{admin}</strong> bude nahradené menom administrátora (toho, kto odpovedá na návrh)"
+            hint_html: "<strong>Tip:</strong> Tieto premenné môžete použiť kdekoľvek v šablóne odpovede a pri použití šablóny budú nahradené"
+            save: Uložiť
+          index:
+            component_constraint: Pridať obmedzenie
+            confirm_delete: Naozaj chcete odstrániť túto šablónu?
+            missing_state: Chýbajúci stav
+            proposal_state_id: Interný stav
+            title: Odpovede na návrhy
+          new:
+            title: Nová šablóna odpovede na návrh
+          template_chooser:
+            select_template: Vyberte šablónu odpovede
+        questionnaire_templates:
+          choose:
+            continue: Pokračovať
+            description: Môžete vytvoriť nový dotazník alebo si môžete vybrať preddefinovanú šablónu a neskôr ju upraviť. Vyberte možnosť.
+            label: Vybrať šablónu
+            options:
+              create_new_form: Vytvoriť nový formulár
+              select_template: Vybrať šablónu
+            placeholder: Vybrať šablónu
+          edit:
+            edit: Upraviť
+            empty: Zatiaľ tu nie sú žiadne otázky.
+            manage_questions: Otázky
+            questionnaire: Dotazník
+            title: Upraviť šablónu dotazníka
+          edit_questions:
+            add_question: Pridať otázku
+            add_separator: Pridať oddeľovač
+            add_title_and_description: Pridať názov a popis
+          form:
+            title: Šablóna dotazníka %{questionnaire_for}
+          index:
+            confirm_delete: Naozaj chcete odstrániť túto šablónu?
+            title: Šablóny dotazníkov
+          new:
+            title: Nová šablóna dotazníka
+          preview:
+            current_step: Krok %{step}
+            of_total_steps: z %{total_steps}
+            tos_agreement: Účasťou súhlasíte s podmienkami poskytovania služby
+      admin_log:
+        template:
+          create: "%{user_name} vytvoril/a šablónu dotazníka %{resource_name}"
+          delete: "%{user_name} odstránil/a šablónu dotazníka %{resource_name}"
+          duplicate: "%{user_name} duplikoval/a šablónu dotazníka %{resource_name}"
+          update: "%{user_name} aktualizoval/a šablónu dotazníka %{resource_name}"
+      template_types:
+        block_user: Blokovať správy používateľa
+        proposal_answer_templates: Odpovede na návrhy
+        questionnaires: Dotazníky

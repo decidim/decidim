@@ -72,7 +72,6 @@ lb:
           success: Dupliziertes Meeting erfolgreich
         new:
           copy: Kopieren
-          title: Doppelte Besprechung
     components:
       meetings:
         actions:
@@ -158,7 +157,6 @@ lb:
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
-            invite_attendee: Teilnehmer einladen
             invites: Lädt ein
         meeting_closes:
           edit:
@@ -207,7 +205,6 @@ lb:
               one: Es wurde %{count} registriert.
               other: Es gab %{count} Registrierungen.
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
-            title: Anmeldungen
           update:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.

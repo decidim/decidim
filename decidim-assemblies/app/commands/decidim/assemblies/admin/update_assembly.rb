@@ -9,11 +9,11 @@ module Decidim
         fetch_file_attributes :hero_image
 
         fetch_form_attributes :title, :subtitle, :slug, :promoted, :description, :short_description,
-                              :taxonomizations, :parent, :private_space, :developer_group, :local_area,
+                              :taxonomizations, :parent, :access_mode, :developer_group, :local_area,
                               :target, :participatory_scope, :participatory_structure, :meta_scope,
                               :purpose_of_action, :composition, :creation_date, :created_by,
                               :created_by_other, :duration, :included_at, :closing_date, :closing_date_reason,
-                              :internal_organisation, :has_members, :is_transparent, :special_features, :twitter_handler,
+                              :internal_organisation, :has_members, :special_features, :twitter_handler,
                               :facebook_handler, :instagram_handler, :youtube_handler, :github_handler, :weight
 
         private

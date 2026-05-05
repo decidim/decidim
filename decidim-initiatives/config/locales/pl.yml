@@ -108,8 +108,6 @@ pl:
         initiatives_menu:
           see_initiative: Zobacz inicjatywę
         initiatives_settings: Ustawienia
-        initiatives_submenu:
-          info: O tej inicjatywie
         initiatives_types: Typy inicjatyw
         moderations: Moderacja
       models:
@@ -143,9 +141,6 @@ pl:
             name_and_surname: Imię i nazwisko
             postal_code: Kod pocztowy
             timestamp: Znacznik czasu
-      titles:
-        initiatives: Inicjatywy
-        initiatives_types: Typy inicjatyw
     events:
       initiatives:
         admin:
@@ -269,7 +264,6 @@ pl:
             publication_date: Ostatnio opublikowane
             random: Losowo
             signatures: Najczęściej podpisane
-            title: Ustawienia dla inicjatyw
         initiatives_type_scopes:
           create:
             success: Utworzono nowy zakres dla danego typu inicjatywy.

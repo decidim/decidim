@@ -35,9 +35,6 @@ is-IS:
             created_at: Búið til á
             title: Frumgerð tegundir
           name: Frumgerðartegund
-      titles:
-        initiatives: Frumkvæði
-        initiatives_types: Frumgerð tegundir
     initiatives:
       admin:
         answers:

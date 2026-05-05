@@ -10,10 +10,14 @@ module Decidim
 
         attribute :origin_component_id, Integer
         attribute :default_budget, Integer
-        attribute :internal_states, Array[String]
+        attribute :states, Array[String]
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
         validates :default_budget, presence: true, numericality: { greater_than: 0 }
+
+        def states
+          super.compact_blank
+        end
 
         def origin_component
           @origin_component ||= origin_components.find_by(id: origin_component_id)
@@ -31,17 +35,6 @@ module Decidim
 
         def budget
           @budget ||= context[:budget]
-        end
-
-        def available_states(component_id = nil)
-          scope = Decidim::Proposals::ProposalState
-          scope = scope.where(component: Decidim::Component.find(component_id)) if component_id.present?
-
-          states = scope.pluck(:token).uniq.map do |token|
-            OpenStruct.new(token:, title: token.humanize)
-          end
-
-          states + [OpenStruct.new(token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered"))]
         end
       end
     end

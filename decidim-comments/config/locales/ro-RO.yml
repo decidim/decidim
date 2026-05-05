@@ -69,10 +69,6 @@ ro:
         alignment:
           against: Împotrivă
           in_favor: Pentru
-        answers:
-          one: "%{count} răspuns"
-          few: "%{count} răspunsuri"
-          other: "%{count} răspunsuri"
         cancel_reply: Anulați răspunsul
         comment_label: Comentariu %{comment_id}
         comment_label_reply: Comentariu %{comment_id} (răspuns la comentariul %{parent_comment_id})
