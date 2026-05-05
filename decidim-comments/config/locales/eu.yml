@@ -101,7 +101,7 @@ eu:
         show_replies:
           one: Erakutsi %{count} erantzun
           other: Erakutsi %{count} erantzun
-        single_comment_link_title: Lortu lotura
+        single_comment_link_title: Lortu esteka
         sort_by: 'Nork sortua:'
       comment_order_selector:
         order:
