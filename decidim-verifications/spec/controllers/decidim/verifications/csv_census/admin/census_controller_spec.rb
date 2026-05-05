@@ -12,15 +12,12 @@ module Decidim::Verifications::CsvCensus::Admin
     let(:csv_datum) { create(:csv_datum, organization:) }
 
     before do
+      allow(controller).to receive(:csv_census_active?).and_return(true)
       request.env["decidim.current_organization"] = user.organization
       sign_in user, scope: :user
     end
 
     describe "GET #index" do
-      before do
-        allow(controller).to receive(:csv_census_active?).and_return(true)
-      end
-
       it "enforces permission to index authorizations" do
         expect(controller).to receive(:enforce_permission_to).with(:index, :authorization)
 
@@ -34,10 +31,6 @@ module Decidim::Verifications::CsvCensus::Admin
     end
 
     describe "DELETE #destroy" do
-      before do
-        allow(controller).to receive(:csv_census_active?).and_return(true)
-      end
-
       it "enforces permission to destroy authorizations" do
         expect(controller).to receive(:enforce_permission_to).with(:destroy, :authorization)
 
@@ -46,10 +39,6 @@ module Decidim::Verifications::CsvCensus::Admin
     end
 
     describe "GET #new_import" do
-      before do
-        allow(controller).to receive(:csv_census_active?).and_return(true)
-      end
-
       it "enforces permission to create authorizations" do
         expect(controller).to receive(:enforce_permission_to).with(:create, :authorization)
 
@@ -66,8 +55,6 @@ module Decidim::Verifications::CsvCensus::Admin
 
     describe "POST #create_import" do
       before do
-        allow(controller).to receive(:csv_census_active?).and_return(true)
-
         form_errors = instance_double(ActiveModel::Errors, any?: true, full_messages: ["File cannot be blank"])
         form = instance_double(Decidim::Verifications::CsvCensus::Admin::CensusDataForm, validate_csv: nil, errors: form_errors)
         form_builder = double(from_params: form)
@@ -84,10 +71,6 @@ module Decidim::Verifications::CsvCensus::Admin
 
     context "when user is a process admin" do
       let(:user) { create(:process_admin, :confirmed, organization:, participatory_process:) }
-
-      before do
-        allow(controller).to receive(:csv_census_active?).and_return(true)
-      end
 
       it "does not allow index" do
         get :index
