@@ -35,11 +35,16 @@ gem "decidim-dev", github: "decidim/decidim"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+bin/rails data:migrate
 ```
 
 ### 1.4. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
+
+### 2.1. [[TITLE OF THE ACTION]]
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 ## 3. One time actions
 
@@ -80,4 +85,4 @@ You need to change it to:
 ```ruby
 # Explain the usage of the API as it is in the new version
 result = 1 + 1 if after
-        ```
+```

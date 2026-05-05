@@ -1,1 +1,167 @@
+---
 sk:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Telo
+          draft: Koncept
+          title: Názov
+          version_number: Číslo verzie
+        suggestion:
+          nodes: Uzly DOM
+          original: Pôvodný text
+          replace: Nahradenie
+        version:
+          body: Telo
+          draft: Koncept
+          version_number: Číslo verzie
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Spoločný text
+        few: Spoločné texty
+        many: Spoločné texty
+        other: Spoločné texty
+  decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Tento dokument nie je možné vymazať
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Naozaj chcete vymazať tento dokument?
+        deleted_document_info: Vymazaný dokument je možné obnoviť z koša.
+        edit: Upraviť
+        manage: Konfigurovať
+        new: Nový text
+        title: Akcie
+        view_deleted_documents: Zobraziť vymazané dokumenty
+      admin:
+        documents:
+          create:
+            invalid: Vyskytol sa problém pri vytváraní dokumentu.
+            success: Dokument bol úspešne vytvorený.
+          draft_options:
+            accepting_suggestions: Povoliť návrhy v ďalšej verzii
+            accepting_suggestions_help: Povolením návrhov sa spustí nové kolo návrhov pre tento dokument. Aktuálne návrhy nebudú v novej verzii viditeľné.
+            draft: Verzia konceptu
+            draft_help_html: Verzia konceptu nie je verejná a môžu ju upravovať administrátori. Odstráňte stav konceptu, aby sa tento obsah stal verejnou verziou. <strong>Upozorňujeme, že kým je aktívna verzia konceptu, účastníci uvidia predchádzajúcu verziu a nebudú môcť podávať návrhy.</strong>
+          edit:
+            document_has_suggestions_html: <a href="%{url}">Tento dokument obsahuje návrhy</a> a nie je možné ho priamo upravovať. Prijmite alebo odmietnite návrhy, aby ste vytvorili novú verziu konceptu, ktorú bude možné upraviť.
+            draft: Verzia konceptu
+            previous_versions: Predchádzajúce verzie
+            public_version: Verejná verzia
+            title: Upraviť kolaboratívne texty
+            update: Aktualizovať
+            version: Verzia %{version_number}, vytvorená dňa %{created_at}, získala %{suggestions_count} návrhov.
+          edit_settings:
+            title: Konfigurovať kolaboratívne texty
+            update: Aktualizovať
+          index:
+            title: Kolaboratívne texty
+          manage_trash:
+            title: Odstránené dokumenty
+          new:
+            create: Vytvoriť
+            title: Vytvoriť kolaboratívne texty
+          non_draft_options:
+            create_draft: Zahodiť návrhy a vytvoriť novú verziu konceptu
+            draft_help_html: Verzia konceptu nie je verejná a môžu ju upravovať administrátori. Odstráňte stav konceptu, aby sa tento obsah stal verejnou verziou. <strong>Upozorňujeme, že kým je verzia konceptu aktívna, účastníci uvidia predchádzajúcu verziu a nebudú môcť podávať návrhy.</strong>
+            enable_suggestions: Povoliť návrhy
+            enable_suggestions_help: Povolenie návrhov umožní účastníkom podávať návrhy k tejto verzii.
+          publish:
+            invalid: Pri publikovaní tohto dokumentu sa vyskytol problém.
+            success: Dokument bol úspešne publikovaný.
+          unpublish:
+            invalid: Pri zrušení publikovania tohto dokumentu sa vyskytol problém.
+            success: Publikovanie dokumentu bolo úspešne zrušené.
+          update:
+            invalid: Pri aktualizácii dokumentu sa vyskytol problém.
+            success: Dokument bol úspešne aktualizovaný.
+          update_settings:
+            invalid: Pri aktualizácii dokumentu sa vyskytol problém.
+            success: Dokument bol úspešne aktualizovaný.
+        index:
+          published: Publikované
+          unpublished: Nepublikované
+      admin_log:
+        document:
+          create: "%{user_name} vytvoril/a kolaboratívny text %{resource_name} v priestore %{space_name}"
+          delete: "%{user_name} odstránil/a kolaboratívny text %{resource_name} z priestoru %{space_name}"
+          publish: "%{user_name} publikoval/a kolaboratívny text %{resource_name} v priestore %{space_name}"
+          restore: "%{user_name} obnovil/a kolaboratívny text %{resource_name} v priestore %{space_name}"
+          soft_delete: "%{user_name} presunul/a kolaboratívny text %{resource_name} v priestore %{space_name} do koša"
+          unpublish: "%{user_name} zrušil/a publikovanie kolaboratívneho textu %{resource_name} v priestore %{space_name}"
+          update: "%{user_name} aktualizoval/a kolaboratívny text %{resource_name} v priestore %{space_name}"
+        suggestion:
+          create: "%{user_name} navrhol/a zmeny v kolaboratívnom texte %{resource_name} v priestore %{space_name}"
+        version:
+          delete: "%{user_name} odstránil/a verziu kolaboratívneho textu %{resource_name} z priestoru %{space_name}"
+          update: "%{user_name} aktualizoval/a verziu kolaboratívneho textu %{resource_name} v priestore %{space_name}"
+      document:
+        apply: Použiť
+        cancel: Zrušiť
+        consolidate:
+          confirm: Táto akcia zlúči všetky prijaté návrhy do novej verzie dokumentu. Neprijaté návrhy budú presunuté do novej verzie na ďalšie posúdenie. Táto akcia zachová stav povolených návrhov.
+          new: Zlúčiť prijaté návrhy
+        consolidate_counter: Zlúčenie spojí %{applied} použitých návrhov a presunie %{pending} čakajúcich návrhov do novej verzie.
+        controls_label: Ovládacie prvky návrhov
+        draft_counter: Koncept spojí %{applied} použitých návrhov a zahodí %{pending} čakajúcich návrhov.
+        index: Index
+        restore: Obnoviť
+        rollout:
+          confirm: Táto akcia vytvorí novú verziu konceptu dokumentu a budete presmerovaní na stránku úprav pre konečné úpravy. Aktuálna verzia zostane verejná a návrhy budú zakázané.
+          invalid: Pri vytváraní novej verzie dokumentu sa vyskytol problém (%{errors}).
+          new: Vytvoriť koncept novej verzie
+        save: Navrhnúť zmeny
+        status:
+          accepting_suggestions: Ak chcete navrhnúť zmeny, vyberte alebo dvakrát kliknite na text, ktorý chcete upraviť, a potom kliknite na tlačidlo „Navrhnúť zmeny“.
+          draft: Tento dokument momentálne posudzujú administrátori. Návrhy v súčasnosti nie sú povolené, ale môžete si zobraziť návrhy od iných účastníkov.
+          not_accepting_suggestions: Návrhy v súčasnosti nie sú povolené.
+          selection_active: Výber je aktívny. Zrušte aktuálny výber, aby ste mohli vytvoriť nový.
+        suggestions_count: "%{count} návrhov"
+        toggle: Zobraziť/skryť návrhy
+      documents:
+        index:
+          count:
+            one: "%{count} kolaboratívny text"
+            few: "%{count} kolaboratívne texty"
+            many: "%{count} kolaboratívnych textov"
+            other: "%{count} kolaboratívnych textov"
+          empty: Zatiaľ tu nie sú žiadne kolaboratívne texty.
+        show:
+          contributors: Prispievatelia
+      models:
+        collaborative_text:
+          fields:
+            published: Publikované
+            suggestions: Prijať návrhy
+            title: Názov
+      suggestion:
+        add_html: <span class="type">Pridať:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Odstrániť:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Nahradiť:</span> <span class="text">%{text}</span>
+      suggestions:
+        create:
+          invalid: Pri vytváraní návrhu sa vyskytol problém.
+          success: Návrh bol úspešne vytvorený.
+        errors:
+          blank_changeset: Súbor zmien nemôže byť prázdny.
+          invalid_nodes: Neplatné vybrané uzly.
+    components:
+      collaborative_texts:
+        actions:
+          create: Vytvoriť
+          destroy: Odstrániť
+          update: Aktualizovať
+        name: Kolaboratívne texty
+        settings:
+          global:
+            announcement: Oznámenie
+            comments_blocked: Komentáre sú zablokované
+          step:
+            announcement: Oznámenie
+    statistics:
+      all_collaborative_texts_count: Všetky kolaboratívne texty
+      collaborative_texts_count: Kolaboratívne texty
+      collaborative_texts_count_tooltip: Počet kolaboratívnych textov
