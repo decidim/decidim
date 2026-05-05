@@ -8,6 +8,7 @@ There are multiple services that can be enabled in a Decidim installation. It is
 * xref:services:etherpad.adoc[Etherpad]
 * xref:services:machine_translation.adoc[Machine Translation]
 * xref:services:maps.adoc[Maps]
+* xref:services:pwa.adoc[Progressive Web App]
 * xref:services:sms.adoc[SMS]
 * xref:services:smtp.adoc[SMTP]
 * xref:services:social_providers.adoc[Social Providers]
