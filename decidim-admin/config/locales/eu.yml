@@ -1113,7 +1113,7 @@ eu:
           title: Beste gai bat
         update:
           error: Arazo bat egon da gai hau eguneratzean.
-          success: Gaia ongi eguneratu da.
+          success: Gaia zuzen eguneratua.
       static_pages:
         actions:
           view: Bistaratu
@@ -1164,7 +1164,7 @@ eu:
         edit:
           back: Atzera
           description: Taxonomia honetako elementuak baliabideak sailkatzeko edo iragazteko erabiliko dira, hala nola espazio edo osagai parte-hartzaileak. Arrastatu eta utzi zerrenda berrantolatzeko.
-          new_item: Elementu berria
+          new_item: Beste elementu bat
           no_items: Gaur egun ez dago taxonomia honetako elementurik. Sortu hemen elementuen zerrenda bat baliabideak sailkatzeko edo iragazteko, hala nola espazio edo osagai parte-hartzaileak. Elementuak hiru mailatan sailka daitezke.
           subtitle: 'Elementuak hemen: "%{taxonomy_name}"'
           title: Editatu "%{taxonomy_name}" taxonomia
@@ -1173,7 +1173,7 @@ eu:
           search_placeholder: Bilatu
         index:
           description: Taxonomiek eta iragazkiek aukera ematen diete administratzaileei edukiak ordenatzeko eta antolatzeko. Adibidez, gehitu taxonomia bat hiriko auzo eta barrutiekin, eta gero sortu iragazkiak barrutiekin edo auzo jakin baterako.
-          new_taxonomy: Taxonomia berria
+          new_taxonomy: Beste taxonomia bat
           no_items_found: Ez dago bilaketa-irizpidearekin bat datorren taxonomiarik.
           title: Taxonomiak
         name: Izena
@@ -1243,7 +1243,7 @@ eu:
           add_new_items_html: 'Beste iragazki edo elementu bat jarri behar baduzu, egin konfigurazio-ezarpenaren bidez edo klikatuz: <a href="%{url}">here</a>.'
           items_count: "Elementu %{count}"
           save: Gorde
-          title: Taxonomia-iragazkien hautatzaile berria
+          title: Beste taxonomia-iragazk bat hautatzeko
         show:
           items_count: "Elementu %{count}"
           remove: Kendu
@@ -1349,7 +1349,7 @@ eu:
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
-            success: Salaketa zuzen ezeztatu da.
+            success: Salaketa behar bezala ezeztatua.
       models:
         moderation:
           fields:

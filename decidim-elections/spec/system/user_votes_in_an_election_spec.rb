@@ -6,8 +6,8 @@ require "decidim/elections/test/vote_examples"
 describe "Dashboard" do
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:election) { create(:election, :published, :ongoing, :with_internal_users_census, census_settings:) }
-  let!(:question1) { create(:election_question, :with_response_options, skip_injection: true, election:, question_type: "single_option") }
-  let!(:question2) { create(:election_question, :with_response_options, skip_injection: true, election:, question_type: "multiple_option") }
+  let!(:question1) { create(:election_question, :with_response_options, election:, question_type: "single_option") }
+  let!(:question2) { create(:election_question, :with_response_options, election:, question_type: "multiple_option") }
   let(:organization) { election.organization }
   let(:census_settings) do
     {
