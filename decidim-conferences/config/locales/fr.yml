@@ -122,8 +122,11 @@ fr:
           success: Conférencier supprimé avec succès pour cette conférence.
         edit:
           update: Mettre à jour
+        index:
+          conference_speakers_title: Conférenciers
         new:
           create: Créer
+          title: Nouveau conférencier
         publish:
           invalid: Il y a eu un problème lors de la publication de cet intervenant.
           success: L'intervenant de la conférence a été publié avec succès.
