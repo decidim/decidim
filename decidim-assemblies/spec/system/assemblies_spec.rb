@@ -183,6 +183,25 @@ describe "Assemblies" do
         it_behaves_like "has attachments content blocks" do
           let(:attached_to) { assembly }
         end
+
+        context "when the assembly is restricted" do
+          let!(:assembly) { create(:assembly, :published, :restricted, organization:) }
+          let!(:user) { create(:user, :confirmed, organization:) }
+          let!(:member) { create(:member, user:, participatory_space: assembly) }
+          let!(:document) { create(:attachment, :with_pdf, attached_to: assembly) }
+
+          before do
+            login_as user, scope: :user
+            visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
+          end
+
+          it "shows the document extension in the metadata" do
+            within "[data-content] .documents__container" do
+              expect(page).to have_css(".card__list-metadata", text: "pdf")
+            end
+          end
+        end
+
       end
 
       context "when having rich content" do

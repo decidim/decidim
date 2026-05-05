@@ -66,6 +66,17 @@ module Decidim
           expect(subject.file_type).to eq("jpeg")
         end
       end
+
+      context "when the attachment requires a private download" do
+        let(:organization) { create(:organization) }
+        let(:restricted_process) { create(:participatory_process, :published, :restricted, organization:) }
+
+        subject { create(:attachment, :with_pdf, attached_to: restricted_process) }
+
+        it "returns the file extension" do
+          expect(subject.file_type).to eq("pdf")
+        end
+      end
     end
 
     context "when it has an image" do

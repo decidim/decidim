@@ -88,7 +88,7 @@ module Decidim
     # Returns String.
     def file_type
       if file?
-        url&.split(".")&.last&.split("&")&.first&.downcase
+        file.filename.extension&.downcase
       elsif link?
         "link"
       end
