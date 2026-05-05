@@ -68,7 +68,7 @@ module Decidim::Verifications::CsvCensus::Admin
       before do
         allow(controller).to receive(:csv_census_active?).and_return(true)
 
-        form_errors = instance_double(ActiveModel::Errors, any?: true, full_messages: ["File can't be blank"])
+        form_errors = instance_double(ActiveModel::Errors, any?: true, full_messages: ["File cannot be blank"])
         form = instance_double(Decidim::Verifications::CsvCensus::Admin::CensusDataForm, validate_csv: nil, errors: form_errors)
         form_builder = double(from_params: form)
 
