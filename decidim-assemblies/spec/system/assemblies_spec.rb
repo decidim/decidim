@@ -201,7 +201,6 @@ describe "Assemblies" do
             end
           end
         end
-
       end
 
       context "when having rich content" do
