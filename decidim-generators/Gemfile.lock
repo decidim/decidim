@@ -923,7 +923,7 @@ GEM
     wisper-rspec (1.1.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yard (0.9.38)
+    yard (0.9.43)
     zeitwerk (2.7.5)
 
 PLATFORMS
