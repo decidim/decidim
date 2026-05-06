@@ -1,11 +1,11 @@
 = Progressive Web App
 
 Decidim supports Progressive Web App features to make the platform feel closer to a mobile app.
-For operators, the main value is an installable experience, WebPush notifications, and the option to package the same web app for app stores.
+For operators, the main value is a web app experience with optional installation, WebPush notifications, and the option to package the same web app for app stores.
 
 == What it includes
 
-- Installable web app experience through the browser
+- App-like experience in the browser with optional installation
 - Push notifications through WebPush
 - Service worker support for offline-aware behavior and cached assets
 - Optionally, package the app for app stores to improve discoverability
@@ -45,6 +45,6 @@ Use https://www.pwabuilder.com/[PWABuilder] to package the Decidim PWA for app s
 4. Generate the package you need:
    - Android, for Google Play workflows
    - iOS, for Apple distribution workflows
-   - Windows, for Microsoft Store or sideloading
+   - Windows, for Microsoft Store or for installation outside of the Store
 
 PWABuilder does not replace the web app itself. It packages the existing PWA for the target platform, so the underlying Decidim installation must already be correctly configured.
