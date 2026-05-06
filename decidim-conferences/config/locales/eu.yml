@@ -299,9 +299,9 @@ eu:
       registration_types:
         create:
           error: Arazo bat egon da izen-emate mota hau gehitzean jardunaldi honetarako.
-          success: Erregistro motak arrakastaz gehitu du jardunaldi honetara.
+          success: Erregistro mota zuzen gehitu da hitzaldi honetara.
         destroy:
-          success: Izen-emate mota jardunaldi honetatik atera da.
+          success: Izen-emate mota hitzaldi honetatik zuzen atera da.
         edit:
           title: Erregistro mota eguneratu
           update: Eguneratu
@@ -401,7 +401,7 @@ eu:
             no_taxonomy_filters_found: Ez da taxonomia filtrorik aurkitu.
             registrations_count:
               one: Izen-emate 1 egon da.
-              other: Dena den, %{count} izen-emateak.
+              other: Dena den, %{count} izen-emate.
             slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: %{url}'
             taxonomies: Taxonomiak
         content_blocks:
@@ -416,7 +416,7 @@ eu:
             decline: '''%{conference_title}''rako gonbita ez onartu'
             invited_existing_user_to_join_a_conference: "%{invited_by} k zu gonbidatu zaitu %{application} jardunaldira. Beheko esteken bidez baztertu edo onartu dezakezu."
             invited_user_to_join_a_conference: "%{invited_by} k zu gonbidatu zaitu %{application} jardunaldira. Beheko estekan onartu dezakezu."
-            registration: '''%{conference_title}'' jardinalirako izen-ematea'
+            registration: '''%{conference_title}'' hitzaldirako izen-ematea'
         partners:
           index:
             title: Kideak
@@ -441,7 +441,7 @@ eu:
           confirm: Berretsi
         show:
           going: Joango naiz
-          no_slots_available: Ez dago plazarik
+          no_slots_available: Ez dago leku librerik
           registration: Izen-ematea
       conference_program:
         program_item:
@@ -464,13 +464,13 @@ eu:
           unauthorized: Jardunaldian izena eman aurretik sartu behar duzu.
         decline_invitation:
           invalid: Arazo bat egon da gonbidapena ez onartzean.
-          success: Gonbidapena ongi egin du.
+          success: Gonbidapena ongi egin duzu.
           unauthorized: Saioa hasi behar duzu gonbidapenari uko egin aurretik.
         destroy:
           invalid: Arazo bat egon da jardunaldi hau uztean.
           success: Jardunaldia behar bezala utzi duzu.
       conference_speaker:
-        go_to_twitter: X sarera joan
+        go_to_twitter: Joan X sarera
         more_info: informazio gehiago
         personal_website: Webgune pertsonala
         show:
@@ -493,7 +493,7 @@ eu:
           are_you_new?: Beste parte-hartzaile bat?
           login_as: '%{name} <%{email}> gisa erregistratuta zaude'
           make_conference_registration: Eman izena jardunaldian
-          manage_registration: Erregistroa kudeatu
+          manage_registration: Kudeatu erregistroa
           register: Eman izena
           sign_in_description: Hasi saioa hitzaldian erregistratzeko
           sign_up_description: Sortu kontu bat jardunaldian erregistratzeko
@@ -501,7 +501,7 @@ eu:
         highlighted_conferences:
           name: Nabarmendutako jardunaldiak
       index:
-        title: Jardunaldiak
+        title: Hitzaldiak
       last_activity:
         new_conference: 'Beste jardunaldi bat:'
       mailer:
@@ -520,9 +520,9 @@ eu:
         conference_invite:
           fields:
             email: Helbide elektronikoa
-            name: izena
+            name: Izena
             registration_type: Izen-emate mota
-            sent_at: Bidalita
+            sent_at: ' Noiz bidalita'
             status: Egoera
           status:
             accepted: Onartuta (%{at})
@@ -532,7 +532,7 @@ eu:
           fields:
             actions: Ekintzak
             email: Helbide elektronikoa
-            name: izena
+            name: Izena
             registration_type: Izen-emate mota
             state: Estatu
             states:
