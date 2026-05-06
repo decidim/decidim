@@ -37,7 +37,7 @@ module Decidim
         end
 
         it "updates the organization and redirects" do
-          patch :update, params: params
+          patch(:update, params:)
 
           expect(response).to redirect_to(edit_organization_path)
           expect(flash[:notice]).to eq(I18n.t("organization.update.success", scope: "decidim.admin"))
