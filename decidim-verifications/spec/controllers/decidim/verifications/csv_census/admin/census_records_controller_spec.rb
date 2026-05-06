@@ -7,6 +7,7 @@ module Decidim::Verifications::CsvCensus::Admin
     routes { Decidim::Verifications::CsvCensus::AdminEngine.routes }
 
     let(:organization) { create(:organization) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:csv_datum) { create(:csv_datum, organization:) }
 
     before do
@@ -39,7 +40,7 @@ module Decidim::Verifications::CsvCensus::Admin
     end
 
     context "when user is NOT admin" do
-      let(:user) { create(:user, :confirmed, organization:) }
+      let(:user) { create(:process_admin, :confirmed, organization:, participatory_process:) }
 
       describe "GET #new_record" do
         it "prohibits display new record page using redirect" do
