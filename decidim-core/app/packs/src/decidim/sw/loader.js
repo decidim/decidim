@@ -1,5 +1,5 @@
 // check if the browser supports serviceWorker at all
-window.addEventListener("load", async () => {
+const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
     await navigator.serviceWorker.register("/sw.js", { scope: "/" });
 
@@ -15,4 +15,10 @@ window.addEventListener("load", async () => {
   } else {
     console.log("Your browser does not support service workers 🤷‍♀️");
   }
-});
+};
+
+if (document.readyState === "complete") {
+  registerServiceWorker();
+} else {
+  window.addEventListener("load", registerServiceWorker, { once: true });
+}
