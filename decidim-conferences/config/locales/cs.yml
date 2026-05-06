@@ -108,6 +108,7 @@ cs:
         new:
           duplicate: Duplikovat
           select: Vyberte, která data chcete duplikovat
+          title: Duplikovat konferenci
       conference_publications:
         create:
           error: Při publikování této konference došlo k chybě.
