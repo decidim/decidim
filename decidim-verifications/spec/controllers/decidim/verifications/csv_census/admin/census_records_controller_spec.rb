@@ -49,9 +49,25 @@ module Decidim::Verifications::CsvCensus::Admin
         end
       end
 
+      describe "POST #create_record" do
+        it "prohibits creating new records by using redirect" do
+          post :create_record, params: { id: csv_datum.id }
+
+          expect(response).to have_http_status(:redirect)
+        end
+      end
+
       describe "GET #edit_record" do
         it "prohibits display edit record page using redirect" do
           get :edit_record, params: { id: csv_datum.id }
+
+          expect(response).to have_http_status(:redirect)
+        end
+      end
+
+      describe "PATCH #update_record" do
+        it "prohibits record update page using redirect" do
+          patch :edit_record, params: { id: csv_datum.id }
 
           expect(response).to have_http_status(:redirect)
         end
