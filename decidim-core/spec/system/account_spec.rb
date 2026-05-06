@@ -380,6 +380,8 @@ describe "Account" do
 
       context "when on the account page" do
         it "enables push notifications if supported browser" do
+          expect(page).to have_unchecked_field("allow_push_notifications")
+
           sleep 2
           page.find("[for='allow_push_notifications']").click
 
