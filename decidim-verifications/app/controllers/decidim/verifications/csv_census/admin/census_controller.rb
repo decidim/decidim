@@ -18,9 +18,13 @@ module Decidim
 
           helper_method :csv_census_data, :last_login
 
-          def index; end
+          def index
+            enforce_permission_to :index, :authorization
+          end
 
           def destroy
+            enforce_permission_to :destroy, :authorization
+
             Decidim::Commands::DestroyResource.call(census_data, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("census.destroy.success", scope: "decidim.verifications.csv_census.admin")
@@ -30,12 +34,15 @@ module Decidim
           end
 
           def new_import
+            enforce_permission_to :create, :authorization
+
             @form = form(CensusDataForm).from_params(params)
             @status = Status.new(current_organization)
           end
 
           def create_import
             enforce_permission_to :create, :authorization
+
             @form = form(CensusDataForm).from_params(params)
             @status = Status.new(current_organization)
 
@@ -76,6 +83,7 @@ module Decidim
 
           def show_instructions
             enforce_permission_to :index, :authorization
+
             render :instructions
           end
 
