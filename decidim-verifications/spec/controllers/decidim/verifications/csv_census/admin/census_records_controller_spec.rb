@@ -42,7 +42,7 @@ module Decidim::Verifications::CsvCensus::Admin
       let(:user) { create(:user, :confirmed, organization:) }
 
       describe "GET #new_record" do
-        it "renders the new_record template" do
+        it "prohibits display new record page using redirect" do
           get :new_record
 
           expect(response).to have_http_status(:redirect)
@@ -50,7 +50,7 @@ module Decidim::Verifications::CsvCensus::Admin
       end
 
       describe "GET #edit_record" do
-        it "renders the edit_record template" do
+        it "prohibits display edit record page using redirect" do
           get :edit_record, params: { id: csv_datum.id }
 
           expect(response).to have_http_status(:redirect)
