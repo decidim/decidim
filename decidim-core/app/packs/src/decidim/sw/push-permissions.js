@@ -3,14 +3,18 @@ document.addEventListener("turbo:load", async () => {
 
   const hideReminder = function() {
     const reminder = document.querySelector("[data-push-notifications-reminder]")
-    if (!reminder) return
+    if (!reminder) {
+      return;
+    }
 
     reminder.classList.add("hide")
   }
 
   const showError = (message) => {
     const container = document.querySelector("[data-push-notifications-container]")
-    if (!container) return
+    if (!container) {
+      return;
+    }
 
     const existingError = container.querySelector("[data-push-notifications-error]")
     if (existingError) {
