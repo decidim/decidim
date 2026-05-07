@@ -4,6 +4,10 @@ module Decidim
   # This class manages the creation and deletion of user notifications
 
   class NotificationsSubscriptionsPersistor
+    include PushSubscriptionEndpointValidator
+
+    class UnsupportedPushSubscriptionEndpointError < StandardError; end
+
     attr_reader :user
 
     def initialize(user)
@@ -11,6 +15,8 @@ module Decidim
     end
 
     def add_subscription(params)
+      raise UnsupportedPushSubscriptionEndpointError unless supported_push_subscription_endpoint?(params[:endpoint])
+
       subscriptions = user.notification_settings["subscriptions"] || {}
       filtered_params = filter_params(params)
       new_subscription = { filtered_params[:auth] => filtered_params }
