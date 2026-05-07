@@ -68,7 +68,7 @@ module Decidim::Verifications::CsvCensus::Admin
 
       describe "PATCH #update_record" do
         it "prohibits record update page using redirect" do
-          patch :edit_record, params: { id: csv_datum.id }
+          patch :update_record, params: { id: csv_datum.id }
 
           expect(response).to have_http_status(:redirect)
         end
