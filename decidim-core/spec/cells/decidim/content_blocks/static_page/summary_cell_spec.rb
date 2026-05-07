@@ -26,7 +26,7 @@ describe Decidim::ContentBlocks::StaticPage::SummaryCell, type: :cell do
   end
 
   context "when the content contains a script tag" do
-    let(:html_content) { '<p>Summary</p><script>document.cookie</script>' }
+    let(:html_content) { "<p>Summary</p><script>document.cookie</script>"}
 
     it "strips the script tag" do
       expect(subject).to have_text("Summary")
