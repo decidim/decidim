@@ -26,6 +26,37 @@ module Decidim
         }
       end
 
+      context "when endpoint is supported" do
+        let(:params) do
+          {
+            endpoint: "https://fcm.googleapis.com/fcm/send/abc123",
+            keys: {
+              auth: "auth_code_121",
+              p256dh: "a_p256dh"
+            }
+          }
+        end
+
+        it "returns ok" do
+          post :create, params: params
+
+          expect(response).to have_http_status(:ok)
+        end
+
+        it "stores the subscription in user notification settings" do
+          post :create, params: params
+
+          subscriptions = user.reload.notification_settings["subscriptions"]
+          expect(subscriptions).to eq(
+            "auth_code_121" => {
+              "auth" => "auth_code_121",
+              "p256dh" => "a_p256dh",
+              "endpoint" => "https://fcm.googleapis.com/fcm/send/abc123"
+            }
+          )
+        end
+      end
+
       it "returns unprocessable content when endpoint is not supported" do
         post :create, params: params
 
