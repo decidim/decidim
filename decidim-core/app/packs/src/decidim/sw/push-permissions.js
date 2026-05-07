@@ -2,20 +2,23 @@ document.addEventListener("turbo:load", async () => {
   const GRANTED_PERMISSION = "granted"
 
   const hideReminder = function() {
-    const reminder = document.querySelector("#push-notifications-reminder")
+    const reminder = document.querySelector("[data-push-notifications-reminder]")
+    if (!reminder) return
+
     reminder.classList.add("hide")
   }
 
   const showError = (message) => {
-    const container = document.querySelector(".push-notifications")
+    const container = document.querySelector("[data-push-notifications-container]")
     if (!container) return
 
-    const existingError = container.querySelector(".push-notifications__error")
+    const existingError = container.querySelector("[data-push-notifications-error]")
     if (existingError) {
       existingError.remove()
     }
 
     const errorElement = document.createElement("div")
+    errorElement.dataset.pushNotificationsError = "true"
     errorElement.classList.add("flash", "alert", "push-notifications__error")
     errorElement.innerText = message
     container.prepend(errorElement)
@@ -25,7 +28,7 @@ document.addEventListener("turbo:load", async () => {
     const permission = await window.Notification.requestPermission();
 
     if (registration && permission === GRANTED_PERMISSION) {
-      const vapidElement = document.querySelector("#vapidPublicKey")
+      const vapidElement = document.querySelector("[data-push-vapid-public-key]")
       // element could not exist in DOM
       if (vapidElement) {
         const vapidPublicKeyElement = JSON.parse(vapidElement.value)
@@ -77,10 +80,13 @@ document.addEventListener("turbo:load", async () => {
       hideReminder()
       if (currentSubscription) {
         const auth = currentSubscription.toJSON().keys.auth
-        const subKeys = JSON.parse(document.querySelector("#subKeys").value)
-        // Subscribed && browser notifications enabled
-        if (subKeys.includes(auth)) {
-          toggleChecked = true
+        const subKeysElement = document.querySelector("[data-push-sub-keys]")
+        if (subKeysElement) {
+          const subKeys = JSON.parse(subKeysElement.value)
+          // Subscribed && browser notifications enabled
+          if (subKeys.includes(auth)) {
+            toggleChecked = true
+          }
         }
       }
     }
@@ -88,7 +94,7 @@ document.addEventListener("turbo:load", async () => {
   }
 
   if ("serviceWorker" in navigator) {
-    const toggle = document.getElementById("allow_push_notifications")
+    const toggle = document.querySelector("[data-push-notifications-toggle]")
 
     if (toggle) {
       const registration = await navigator.serviceWorker.ready
