@@ -108,7 +108,7 @@ eu:
           error: Arazo bat egon da jardunaldi hau argitaratzean.
           success: Jardunaldia zuzen argitaratua.
         destroy:
-          error: Arazo bat egon da hitzaldi hau despublikatzean.
+          error: Arazo bat egon da jardunaldi hau despublikatzean.
           success: Jardunaldia zuzen despublikatua.
       conference_registration:
         confirm:
@@ -241,7 +241,7 @@ eu:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: Hitzaldiaren administratzailea
+          name: Jardunaldiaren administratzailea
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
@@ -299,9 +299,9 @@ eu:
       registration_types:
         create:
           error: Arazo bat egon da izen-emate mota hau gehitzean jardunaldi honetarako.
-          success: Erregistro mota zuzen gehitu da hitzaldi honetara.
+          success: Erregistro motak zuzen gehitu dira jardunaldi honetara.
         destroy:
-          success: Izen-emate mota hitzaldi honetatik zuzen atera da.
+          success: Izen-emate mota jardunaldi honetatik zuzen atera da.
         edit:
           title: Erregistro mota eguneratu
           update: Eguneratu
@@ -310,7 +310,7 @@ eu:
           title: Beste erregistro mota bat
         update:
           error: Arazo bat egon da jardunaldi honetarako izen-emate mota hau eguneratzean.
-          success: Izen-emate mota arrakastaz eguneratu da jardunaldi honetarako.
+          success: Izen-emate mota zuzen eguneratu da jardunaldi honetarako.
       taxonomy_filters:
         space_filter_for:
           conferences: Jardunaldi guztiak
@@ -542,10 +542,10 @@ eu:
         home:
           highlighted_conferences:
             active_spaces: Jardunaldi aktiboak
-            see_all_spaces: Ikusi hitzaldi guztiak
+            see_all_spaces: Ikusi jardunaldi guztiak
       registration_types:
         index:
-          choose_an_option: 'Aukeratu zure erregistro-aukera:'
+          choose_an_option: 'Hautatu zure erregistro-aukera:'
           no_registrations: Ez dago izen-ematerik
           register: Eman izena
           title: Izen-emate motak
@@ -553,7 +553,7 @@ eu:
         details: Xehetasunak
         introduction: Sarrera
         objectives: Helburuak
-        related_assemblies: Lotutako batzarrak
+        related_assemblies: Lotutako Batzarrak
         related_participatory_processes: Lotutako parte-hartze prozesuak
     download_your_data:
       help:
