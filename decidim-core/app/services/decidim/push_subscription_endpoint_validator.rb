@@ -9,7 +9,7 @@ module Decidim
       return false if endpoint.blank?
 
       uri = URI.parse(endpoint)
-      return false unless uri.is_a?(URI::HTTP)
+      return false unless uri.is_a?(URI::HTTPS)
 
       host = uri.host&.downcase
       return false if host.blank?
