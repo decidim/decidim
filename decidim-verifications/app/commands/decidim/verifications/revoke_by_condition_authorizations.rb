@@ -25,36 +25,15 @@ module Decidim
         return broadcast(:invalid) unless @organization
         return broadcast(:invalid) unless @form.valid?
 
-        # Check before date
         if @form.before_date.present?
-          authorizations_to_revoke = if @form.impersonated_only?
-                                       Decidim::Verifications::AuthorizationsBeforeDate.new(
-                                         organization:,
-                                         date: @form.before_date,
-                                         granted: true,
-                                         impersonated_only: @form.impersonated_only
-                                       )
-                                     else
-                                       Decidim::Verifications::AuthorizationsBeforeDate.new(
-                                         organization:,
-                                         date: @form.before_date,
-                                         granted: true
-                                       )
-                                     end
-
-          auths = authorizations_to_revoke.query
-          auths.find_each do |auth|
-            Decidim.traceability.perform_action!(
-              :destroy,
-              auth,
-              current_user
-            ) do
-              auth.destroy
-            end
-          end
+          RevokeByConditionAuthorizationsJob.perform_later(
+            organization,
+            current_user,
+            @form.before_date,
+            @form.impersonated_only?
+          )
 
           broadcast(:ok)
-
         else
           broadcast(:invalid)
         end
