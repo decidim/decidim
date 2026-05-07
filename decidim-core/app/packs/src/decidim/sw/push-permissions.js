@@ -6,6 +6,21 @@ document.addEventListener("turbo:load", async () => {
     reminder.classList.add("hide")
   }
 
+  const showError = (message) => {
+    const container = document.querySelector(".push-notifications")
+    if (!container) return
+
+    const existingError = container.querySelector(".push-notifications__error")
+    if (existingError) {
+      existingError.remove()
+    }
+
+    const errorElement = document.createElement("div")
+    errorElement.classList.add("flash", "alert", "push-notifications__error")
+    errorElement.innerText = message
+    container.prepend(errorElement)
+  }
+
   const subscribeToNotifications = async (registration) => {
     const permission = await window.Notification.requestPermission();
 
@@ -20,7 +35,7 @@ document.addEventListener("turbo:load", async () => {
         });
 
         if (subscription) {
-          await fetch("/notifications_subscriptions", {
+          const response = await fetch("/notifications_subscriptions", {
             headers: {
               "Content-Type": "application/json",
               "X-CSRF-Token": document.querySelector("meta[name=csrf-token]")?.content
@@ -28,6 +43,11 @@ document.addEventListener("turbo:load", async () => {
             method: "POST",
             body: JSON.stringify(subscription)
           });
+
+          if (!response.ok) {
+            const body = await response.json()
+            throw new Error(body.error)
+          }
         }
       }
       hideReminder()
@@ -76,10 +96,15 @@ document.addEventListener("turbo:load", async () => {
       setToggleState(registration, toggle)
 
       toggle.addEventListener("change", async ({ target }) => {
-        if (target.checked) {
-          await subscribeToNotifications(registration);
-        } else {
-          await unsubscribeFromNotifications(registration)
+        try {
+          if (target.checked) {
+            await subscribeToNotifications(registration)
+          } else {
+            await unsubscribeFromNotifications(registration)
+          }
+        } catch (error) {
+          target.checked = false
+          showError(error.message)
         }
       })
     }

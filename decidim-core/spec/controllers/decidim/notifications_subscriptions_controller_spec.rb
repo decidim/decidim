@@ -1,0 +1,39 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+module Decidim
+  describe NotificationsSubscriptionsController do
+    routes { Decidim::Core::Engine.routes }
+
+    let(:organization) { create(:organization) }
+    let(:user) { create(:user, :confirmed, organization:) }
+
+    before do
+      request.env["devise.mapping"] = ::Devise.mappings[:user]
+      request.env["decidim.current_organization"] = organization
+      sign_in user
+    end
+
+    describe "POST #create" do
+      let(:params) do
+        {
+          endpoint: "https://example.org/subscription",
+          keys: {
+            auth: "auth_code_121",
+            p256dh: "a_p256dh"
+          }
+        }
+      end
+
+      it "returns unprocessable content when endpoint is not supported" do
+        post :create, params: params
+
+        expect(response).to have_http_status(:unprocessable_content)
+        expect(JSON.parse(response.body)).to eq(
+          "error" => I18n.t("notifications_settings.show.push_notifications_unsupported_browser", scope: "decidim")
+        )
+      end
+    end
+  end
+end
