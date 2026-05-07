@@ -64,6 +64,8 @@ module Decidim
         expect(JSON.parse(response.body)).to eq(
           "error" => I18n.t("notifications_settings.show.push_notifications_unsupported_browser", scope: "decidim")
         )
+        subscriptions = user.reload.notification_settings["subscriptions"]
+        expect(subscriptions).to be_nil
       end
     end
   end
