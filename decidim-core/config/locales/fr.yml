@@ -1218,6 +1218,7 @@ fr:
         own_activity: Ma propre activité, comme quand quelqu'un commente dans ma proposition ou me mentionne
         push_notifications: Notifications push
         push_notifications_reminder: Pour recevoir des notifications de la plateforme, vous devez d'abord les autoriser dans les paramètres de votre navigateur.
+        push_notifications_unsupported_browser: Votre navigateur n'est pas pris en charge.
         receive_notifications_about: Je veux recevoir des notifications sur
         update_notifications_settings: Enregistrer les modifications
       update:
