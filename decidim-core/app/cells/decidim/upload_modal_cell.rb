@@ -177,6 +177,11 @@ module Decidim
 
     def file_attachment_path(attachment)
       return unless attachment
+
+      if attachment.respond_to?(:record) && attachment.record.is_a?(Decidim::Authorization) && attachment.name.to_s == "verification_attachment"
+        return decidim.private_download_path(Decidim::PrivateDownload.for(attachment.record, attachment_name: attachment.name).token)
+      end
+
       return Rails.application.routes.url_helpers.rails_blob_url(attachment, only_path: true) if attachment.is_a? ActiveStorage::Blob
 
       if attachment.try(:attached?)

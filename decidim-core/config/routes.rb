@@ -28,6 +28,8 @@ Decidim::Core::Engine.routes.draw do
   end
 
   authenticate(:user) do
+    resources :private_downloads, only: :show
+
     scope "/:locale", **locale_scope_options do
       devise_scope :user do
         get "change_password" => "devise/passwords"
