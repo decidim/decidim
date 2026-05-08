@@ -56,7 +56,18 @@ Decidim.register_component(:collaborative_texts) do |component|
     resource.searchable = true
   end
 
-  # component.exports ...
+  component.exports :document_suggestions do |exports|
+    exports.collection do |component, _user, resource_id|
+      scope = Decidim::CollaborativeTexts::Suggestion
+              .joins(:document)
+              .where(decidim_collaborative_texts_documents: { decidim_component_id: component.id })
+              .includes(:document_version, document: [:component])
+
+      resource_id ? scope.where(document: { id: resource_id }) : scope
+    end
+
+    exports.serializer Decidim::CollaborativeTexts::SuggestionSerializer
+  end
 
   component.seeds do |participatory_space|
     require "decidim/collaborative_texts/seeds"
