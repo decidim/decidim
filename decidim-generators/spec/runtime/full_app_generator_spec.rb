@@ -13,7 +13,7 @@ module Decidim
       after { FileUtils.rm_rf(test_app) }
 
       context "with a full featured application" do
-        let(:command) { "decidim #{test_app} --recreate_db --demo" }
+        let(:command) { "decidim #{test_app} --recreate_db --demo --path #{repo_root}" }
 
         it_behaves_like "a new development application"
         it_behaves_like "an application with extra configurable env vars"
