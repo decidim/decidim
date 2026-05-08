@@ -47,7 +47,7 @@ module Decidim
         it "renders edit when invalid" do
           patch :update, params: params.deep_merge(organization: { name: { en: "" } })
 
-          expect(response).to have_http_status(422)
+          expect(response).to have_http_status(:unprocessable_entity)
           expect(response).to render_template(:edit)
           expect(flash.now[:alert]).to eq(I18n.t("organization.update.error", scope: "decidim.admin"))
         end
