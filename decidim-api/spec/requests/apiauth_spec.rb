@@ -83,6 +83,33 @@ RSpec.describe "Api authentication" do
         expect(parsed_response).to match("data" => { "session" => nil })
       end
     end
+
+    context "when there are other organizations" do
+      let!(:other_organization) { create(:organization) }
+
+      it "does not sign in" do
+        host! other_organization.host
+
+        post(sign_in_path, params:)
+
+        expect(response).to have_http_status(:forbidden)
+        expect(response.headers["Authorization"]).not_to be_present
+        parsed_response_body = JSON.parse(response.body)
+        expect(parsed_response_body["jwt_token"]).not_to be_present
+      end
+
+      it "does not authenticate with the same key from another organization" do
+        host! other_organization.host
+        create(:api_user, organization: other_organization, api_key: key, api_secret: "other-secret")
+
+        post(sign_in_path, params:)
+
+        expect(response).to have_http_status(:forbidden)
+        expect(response.headers["Authorization"]).not_to be_present
+        parsed_response_body = JSON.parse(response.body)
+        expect(parsed_response_body["jwt_token"]).not_to be_present
+      end
+    end
   end
 
   context "with normal user" do

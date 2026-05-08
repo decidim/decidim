@@ -22,7 +22,13 @@ module Devise
         end
 
         def find_for_api_authentication(conditions)
-          find_for_authentication(conditions)
+          organization = conditions.dig(:env, "decidim.current_organization")
+          return unless organization
+
+          find_for_authentication(
+            api_key: conditions[:api_key],
+            decidim_organization_id: organization.id
+          )
         end
       end
     end
