@@ -68,9 +68,9 @@ module Decidim
 
       context "when the attachment requires a private download" do
         let(:organization) { create(:organization) }
-        let(:restricted_process) { create(:participatory_process, :published, :restricted, organization:) }
+        let(:private_process) { create(:participatory_process, :published, :private, organization:) }
 
-        subject { create(:attachment, :with_pdf, attached_to: restricted_process) }
+        subject { create(:attachment, :with_pdf, attached_to: private_process) }
 
         it "returns the file extension" do
           expect(subject.file_type).to eq("pdf")
@@ -132,11 +132,11 @@ module Decidim
           end
         end
 
-        context "when attached to a restricted space" do
-          let(:restricted_process) { create(:participatory_process, :restricted, :published, organization: subject.organization) }
+        context "when attached to a private space" do
+          let(:private_process) { create(:participatory_process, :private, :published, organization: subject.organization) }
 
           before do
-            subject.attached_to = restricted_process
+            subject.attached_to = private_process
           end
 
           it "returns the private download URL" do

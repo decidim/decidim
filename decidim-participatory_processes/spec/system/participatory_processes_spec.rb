@@ -366,11 +366,11 @@ describe "Participatory Processes" do
       end
     end
 
-    context "when the participatory process is restricted" do
+    context "when the participatory process is private" do
       let(:blocks_manifests) { [:related_documents, :related_images] }
-      let!(:participatory_process) { create(:participatory_process, :published, :restricted, :with_content_blocks, blocks_manifests:, organization:) }
+      let!(:participatory_process) { create(:participatory_process, :published, :private, :with_content_blocks, blocks_manifests:, organization:) }
       let!(:user) { create(:user, :confirmed, organization:) }
-      let!(:member) { create(:member, :published, user:, participatory_space: participatory_process) }
+      let!(:member) { create(:participatory_space_private_user, :published, user:, privatable_to: participatory_process) }
       let!(:document) { create(:attachment, :with_pdf, attached_to: participatory_process) }
 
       before do

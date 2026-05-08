@@ -325,11 +325,11 @@ describe "Assemblies" do
       end
     end
 
-    context "when the assembly is restricted" do
+    context "when the assembly is private" do
       let(:blocks_manifests) { [:related_documents, :related_images] }
-      let!(:assembly) { create(:assembly, :published, :restricted, :with_content_blocks, blocks_manifests:, organization:) }
+      let!(:assembly) { create(:assembly, :published, :private, :with_content_blocks, blocks_manifests:, organization:) }
       let!(:user) { create(:user, :confirmed, organization:) }
-      let!(:member) { create(:member, :published, user:, participatory_space: assembly) }
+      let!(:member) { create(:participatory_space_private_user, :published, user:, privatable_to: assembly) }
       let!(:document) { create(:attachment, :with_pdf, attached_to: assembly) }
 
       before do

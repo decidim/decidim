@@ -67,10 +67,10 @@ module Decidim
         end
       end
 
-      context "with an attachment from a restricted space" do
-        let(:restricted_process) { create(:participatory_process, :restricted, :published, organization:) }
-        let(:member) { create(:member, participatory_space: restricted_process, user:) }
-        let(:attachment) { create(:attachment, :with_pdf, attached_to: restricted_process) }
+      context "with an attachment from a private space" do
+        let(:private_process) { create(:participatory_process, :private, :published, organization:) }
+        let(:member) { create(:participatory_space_private_user, :published, user:, privatable_to: private_process) }
+        let(:attachment) { create(:attachment, :with_pdf, attached_to: private_process) }
         let(:token) { Decidim::PrivateDownload.for(attachment, attachment_name: :file).token }
 
         it "allows members to download" do
