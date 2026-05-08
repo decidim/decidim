@@ -158,9 +158,9 @@ module Decidim
     end
 
     def private_download_required?
-      return attached_to.restricted? if attached_to.respond_to?(:restricted?)
+      return attached_to.private_space? if attached_to.respond_to?(:private_space?)
 
-      attached_to.respond_to?(:component) && attached_to.component&.restricted_space?
+      attached_to.respond_to?(:component) && attached_to.component&.private_space?
     end
   end
 end
