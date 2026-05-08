@@ -9,7 +9,7 @@ module Decidim
         auths = Decidim::Verifications::Authorizations.new(
           organization:,
           granted: true
-        ).query.includes(:transfers)
+        ).query.includes(transfers: :records)
 
         auths.find_each do |auth|
           Decidim.traceability.perform_action!(
