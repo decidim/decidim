@@ -160,7 +160,7 @@ module Decidim
     def private_download_required?
       return attached_to.private_space? if attached_to.respond_to?(:private_space?)
 
-      attached_to.respond_to?(:component) && attached_to.component&.private_space?
+      attached_to.respond_to?(:component) && attached_to.component&.private_non_transparent_space?
     end
   end
 end
