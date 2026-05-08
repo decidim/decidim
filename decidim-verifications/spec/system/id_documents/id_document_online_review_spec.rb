@@ -79,7 +79,7 @@ describe "Identity document online review" do
         relogin_as admin, scope: :user
         visit decidim_admin_id_documents.root_path
         click_on "Verification #1"
-        expect(page).to have_css("img[src*='dni.jpg']")
+        expect(page).to have_css("img[src*='/private_downloads/']")
         submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXY")
         expect(page).to have_content("Participant successfully verified")
       end
