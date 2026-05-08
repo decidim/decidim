@@ -58,7 +58,7 @@ eu:
         conference_meeting_ids: Honekin lotutako topaketak
         full_name: Izena
         personal_url: URL pertsonala
-        position: Lekua
+        position: Ardura
         short_bio: Biografia laburra
         twitter_handle: X ezizena
         user_id: Parte-hartzailea
@@ -216,7 +216,7 @@ eu:
             actions: Ekintzak
             affiliation: Afiliazioa
             full_name: Izen osoa
-            position: Kargua
+            position: Ardura
           name: Hizlaria
         conference_user_role:
           fields:
