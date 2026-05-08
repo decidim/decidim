@@ -46,6 +46,6 @@
     "webpack-merge": "^5.9.0",
     "webpack-sources": "^3.2.3",
     "workbox-recipes": "^7.0.0",
-    "workbox-webpack-plugin": "^7.0.0"
+    "workbox-webpack-plugin": "~7.3.0"
   }
 }
