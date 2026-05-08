@@ -60,7 +60,7 @@ module Decidim
       it "returns unprocessable content when endpoint is not supported" do
         post(:create, params:)
 
-        expect(response).to have_http_status(:unprocessable_content)
+        expect(response).to have_http_status(422)
         expect(JSON.parse(response.body)).to eq(
           "error" => I18n.t("notifications_settings.show.push_notifications_unsupported_browser", scope: "decidim")
         )
