@@ -346,7 +346,7 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    css_parser (1.21.1)
+    css_parser (2.2.0)
       addressable
     csv (3.3.5)
     data_migrate (11.3.1)
