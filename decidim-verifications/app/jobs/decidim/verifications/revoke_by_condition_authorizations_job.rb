@@ -21,7 +21,7 @@ module Decidim
                                      )
                                    end
 
-        auths = authorizations_to_revoke.query
+        auths = authorizations_to_revoke.query.includes(:transfers)
         auths.find_each do |auth|
           Decidim.traceability.perform_action!(
             :destroy,
