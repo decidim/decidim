@@ -380,10 +380,11 @@ describe "Account" do
 
       context "when on the account page" do
         it "enables push notifications if supported browser" do
-          expect(page.find_by_id("allow_push_notifications", visible: false).checked?).to be(false)
+          toggle = page.find("[data-push-notifications-toggle]", visible: :all)
+          expect(toggle).not_to be_checked
 
           sleep 2
-          page.find("[for='allow_push_notifications']").click
+          toggle.check(allow_label_click: true)
 
           # Wait for the browser to be subscribed
           sleep 5
@@ -394,7 +395,7 @@ describe "Account" do
 
           expect(page).to have_callout("Your notifications settings were successfully updated.")
 
-          find_by_id("allow_push_notifications", visible: false).execute_script("this.checked = true")
+          find("[data-push-notifications-toggle]", visible: :all).execute_script("this.checked = true")
         end
       end
     end
@@ -409,7 +410,7 @@ describe "Account" do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).to have_no_selector(".push-notifications")
+        expect(page).to have_no_selector("[data-push-notifications-container]")
       end
     end
 
@@ -423,7 +424,7 @@ describe "Account" do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).to have_no_selector(".push-notifications")
+        expect(page).to have_no_selector("[data-push-notifications-container]")
       end
     end
   end

@@ -1348,6 +1348,7 @@ en:
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         push_notifications: Push notifications
         push_notifications_reminder: To get notifications from the platform, you will need to allow them in your browser settings first.
+        push_notifications_unsupported_browser: Your browser is not supported.
         receive_notifications_about: I want to get notifications about
         update_notifications_settings: Save changes
       update:
