@@ -18,7 +18,7 @@ module Decidim
     private
 
     def unsupported_browser
-      render json: { error: I18n.t("notifications_settings.show.push_notifications_unsupported_browser", scope: "decidim") }, status: :unprocessable_content
+      render json: { error: I18n.t("notifications_settings.show.push_notifications_unsupported_browser", scope: "decidim") }, status: :unprocessable_entity
     end
   end
 end
