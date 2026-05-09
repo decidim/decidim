@@ -16,12 +16,14 @@ module Decidim
 
           def index
             enforce_permission_to :index, :authorization
+
             @form = form(CensusDataForm).instance
             @status = Status.new(current_organization)
           end
 
           def create
             enforce_permission_to :create, :authorization
+
             @form = form(CensusDataForm).from_params(params)
             @status = Status.new(current_organization)
             CreateCensusData.call(@form, current_organization) do
@@ -48,6 +50,7 @@ module Decidim
 
           def show_instructions
             enforce_permission_to :index, :authorization
+
             render :instructions
           end
 
