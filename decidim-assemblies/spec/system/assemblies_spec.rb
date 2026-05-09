@@ -325,6 +325,23 @@ describe "Assemblies" do
         end
       end
     end
+
+    context "when the assembly is private" do
+      let(:blocks_manifests) { [:related_documents, :related_images] }
+      let!(:assembly) { create(:assembly, :published, :private, :with_content_blocks, blocks_manifests:, organization:) }
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:member) { create(:participatory_space_private_user, :published, user:, privatable_to: assembly) }
+      let!(:document) { create(:attachment, :with_pdf, attached_to: assembly) }
+
+      before do
+        login_as user, scope: :user
+        visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
+      end
+
+      it "shows the document extension in the metadata" do
+        expect(all("[data-content] .documents__container").first).to have_css(".card__list-metadata", text: "pdf")
+      end
+    end
   end
 
   describe "when going to the assembly child page" do

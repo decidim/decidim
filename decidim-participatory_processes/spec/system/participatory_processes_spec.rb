@@ -419,5 +419,22 @@ describe "Participatory Processes" do
         end
       end
     end
+
+    context "when the participatory process is private" do
+      let(:blocks_manifests) { [:related_documents, :related_images] }
+      let!(:participatory_process) { create(:participatory_process, :published, :private, :with_content_blocks, blocks_manifests:, organization:) }
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:member) { create(:participatory_space_private_user, :published, user:, privatable_to: participatory_process) }
+      let!(:document) { create(:attachment, :with_pdf, attached_to: participatory_process) }
+
+      before do
+        login_as user, scope: :user
+        visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
+      end
+
+      it "shows the document extension in the metadata" do
+        expect(all("[data-content] .documents__container").first).to have_css(".card__list-metadata", text: "pdf")
+      end
+    end
   end
 end
