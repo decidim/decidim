@@ -44,14 +44,14 @@ shared_examples "manage conference speakers examples" do
   end
 
   context "with existing user" do
-    let!(:speaker_user) { create(:user, organization: conference.organization) }
+    let!(:speaker_user) { create(:user, :confirmed, organization: conference.organization) }
 
     it "creates a new conference speaker" do
       click_on "New speaker"
 
       within ".new_conference_speaker" do
         select "Existing participant", from: :conference_speaker_existing_user
-        autocomplete_select "#{speaker_user.name} (@#{speaker_user.nickname})", from: :user_id
+        autocomplete_select speaker_user.name, from: :user_id
 
         find("*[type=submit]").click
       end

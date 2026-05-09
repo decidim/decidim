@@ -19,7 +19,6 @@ module Decidim
       #   - :class (string) You can provide custom class name for the container (ex. autocomplete-field--results-inline)
       # @param [Hash] prompt_options
       #   Prompt configuration. A hash with options:
-      #   - :url (String) The url where the ajax endpoint to fill the select
       #   - :placeholder (String) Text to use as placeholder
       #   - :no_results (String) (optional) Text to use when there are no matching results (default: No results found)
       #   - :search_prompt (String) (optional) Text to prompt for search input (default: Type at least three characters to search)
@@ -30,7 +29,7 @@ module Decidim
       #   - label: This will be the label of the option select.
       #
       # @example How to use it
-      #   <% prompt_options = { url: users_url, text: t(".select_user") }
+      #   <% prompt_options = { placeholder: t(".select_user") }
       #      options = { label: t(".user") } %>
       #   <%= form.autocomplete_select(:user_id, form.object.user.presence, options, prompt_options) do |user|
       #      { value: user.id, label: "#{user.name} (#{user.nickname})" }
@@ -48,7 +47,6 @@ module Decidim
                                     name: options[:name] || "#{@object_name}[#{attribute}]",
                                     options: (options[:default_options].to_a + [selected]).compact,
                                     placeholder: prompt_options[:placeholder],
-                                    searchURL: prompt_options[:url],
                                     changeURL: prompt_options[:change_url],
                                     selected: selected ? selected[:value] : "",
                                     searchPromptText: options[:search_prompt] || I18n.t("autocomplete.search_prompt", scope: "decidim.admin"),
