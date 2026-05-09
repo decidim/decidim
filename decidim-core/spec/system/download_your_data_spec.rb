@@ -89,7 +89,7 @@ describe "DownloadYourData", download: true do
           expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(uuid: active_export.uuid)}\"]")
         else
           tos_page = Decidim::StaticPage.find_by(slug: "terms-of-service", organization:)
-          expect(page).to have_current_path(decidim.page_path(tos_page, locale: I18n.locale))
+          expect(page).to have_current_path(decidim.page_path(tos_page))
         end
       end
     end
