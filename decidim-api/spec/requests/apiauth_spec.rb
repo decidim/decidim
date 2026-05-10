@@ -74,6 +74,17 @@ RSpec.describe "Api authentication" do
           }
         )
       end
+
+      it "does not expose the session from another organization" do
+        authorization = response.headers["Authorization"]
+        other_organization = create(:organization)
+
+        host! other_organization.host
+        post "/api", params: { query: "{session { user { id nickname } } }" }, headers: { HTTP_AUTHORIZATION: authorization }
+
+        parsed_response = JSON.parse(response.body)["data"]
+        expect(parsed_response).to match("session" => nil)
+      end
     end
 
     context "when not signed in" do
