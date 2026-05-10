@@ -29,7 +29,7 @@ module Decidim::Verifications::CsvCensus::Admin
       end
 
       describe "POST #create_record" do
-        it "prohibits creating new records by using redirect" do
+        it "creates the new record" do
           expect(controller).to receive(:enforce_permission_to).with(:create, :authorization).and_call_original
 
           post :create_record, params: { census: { email: "test@example.org" } }
@@ -50,7 +50,7 @@ module Decidim::Verifications::CsvCensus::Admin
       end
 
       describe "PATCH #update_record" do
-        it "prohibits record update page using redirect" do
+        it "updates the record" do
           expect(controller).to receive(:enforce_permission_to).with(:update, :authorization).and_call_original
 
           patch :update_record, params: { id: csv_datum.id, census: { email: "test@example.org" } }
