@@ -87,7 +87,7 @@ module Decidim
 
       def organization_user(user)
         return if user.blank? || current_organization.blank?
-        return unless user.organization == current_organization
+        return unless user.decidim_organization_id == current_organization.id
 
         user
       end
