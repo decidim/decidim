@@ -1525,6 +1525,7 @@ es:
         own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona
         push_notifications: Notificaciones emergentes
         push_notifications_reminder: Para recibir notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
+        push_notifications_unsupported_browser: Tu navegador no es compatible.
         receive_notifications_about: Quiero recibir notificaciones
         update_notifications_settings: Guardar cambios
         valuators: Evaluadoras
