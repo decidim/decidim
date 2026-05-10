@@ -54,6 +54,7 @@ Decidim::Core::Engine.routes.draw do
   end
 
   authenticate(:user) do
+    resources :private_downloads, only: :show
     devise_scope :user do
       get "change_password" => "devise/passwords"
       put "apply_password" => "devise/passwords"

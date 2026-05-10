@@ -91,6 +91,13 @@ module Decidim
       Decidim::AuthorizationTransfer.perform!(self, handler)
     end
 
+    def private_download_authorized?(user, requested_attachment_name)
+      return false unless requested_attachment_name.to_s == "verification_attachment"
+      return true if user&.admin? && user.organization == organization
+
+      user == self.user
+    end
+
     private
 
     def active_handler?
