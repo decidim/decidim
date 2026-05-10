@@ -28,6 +28,17 @@ module Decidim::Verifications::CsvCensus::Admin
         end
       end
 
+      describe "POST #create_record" do
+        it "prohibits creating new records by using redirect" do
+          expect(controller).to receive(:enforce_permission_to).with(:create, :authorization).and_call_original
+
+          post :create_record, params: { census: { email: "test@example.org" } }
+
+          expect(response).to have_http_status(:ok)
+          expect(assigns(:form)).to be_a(Decidim::Verifications::CsvCensus::Admin::CensusForm)
+        end
+      end
+
       describe "GET #edit_record" do
         it "renders the edit_record template" do
           expect(controller).to receive(:enforce_permission_to).with(:update, :authorization).and_call_original
@@ -35,6 +46,18 @@ module Decidim::Verifications::CsvCensus::Admin
           get :edit_record, params: { id: csv_datum.id }
           expect(response).to render_template(:edit_record)
           expect(assigns(:form)).to be_a(Decidim::Verifications::CsvCensus::Admin::CensusForm)
+        end
+      end
+
+      describe "PATCH #update_record" do
+        it "prohibits record update page using redirect" do
+          expect(controller).to receive(:enforce_permission_to).with(:update, :authorization).and_call_original
+
+          patch :update_record, params: { id: csv_datum.id, census: { email: "test@example.org" } }
+
+          expect(assigns(:form)).to be_a(Decidim::Verifications::CsvCensus::Admin::CensusForm)
+          expect(response).to have_http_status(:ok)
+          expect(csv_datum.reload.email).to eq("test@example.org")
         end
       end
     end
