@@ -10,10 +10,14 @@ module Decidim
           helper_method :csv_census_data
 
           def new_record
+            enforce_permission_to :create, :authorization
+
             @form = form(Admin::CensusForm).instance
           end
 
           def create_record
+            enforce_permission_to :create, :authorization
+
             @form = form(Admin::CensusForm).from_params(params)
             Admin::CreateCensusRecord.call(@form) do
               on(:ok) do
@@ -28,10 +32,14 @@ module Decidim
           end
 
           def edit_record
+            enforce_permission_to :update, :authorization
+
             @form = form(Admin::CensusForm).from_model(census_data)
           end
 
           def update_record
+            enforce_permission_to :update, :authorization
+
             @form = form(Admin::CensusForm).from_params(params)
 
             Admin::UpdateCensusRecord.call(@form, census_data) do
