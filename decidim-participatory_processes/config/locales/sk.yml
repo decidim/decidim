@@ -7,9 +7,19 @@ sk:
         decidim_area_id: Plocha
         description: Popis
         developer_group: Skupina promotérov
+        document: Dokument
         domain: Doména
+        duplicate_categories: Duplikovať kategórie
+        duplicate_components: Duplikovať komponenty
+        duplicate_landing_page_blocks: Duplikovať bloky vstupnej stránky
+        duplicate_steps: Duplikovať kroky
         end_date: Dátum ukončenia
+        has_members: Tento priestor má členov
         hero_image: Domáce obrázok
+        import_attachments: Importovať prílohy
+        import_categories: Importovať kategórie
+        import_components: Importovať komponenty
+        import_steps: Importovať kroky
         local_area: Oblasť organizácie
         meta_scope: Rozsah metadát
         participatory_process_group_id: Skupina procesov
@@ -24,10 +34,19 @@ sk:
         subtitle: Titulky
         target: Kto sa zúčastňuje
         title: Titul
+        weight: Pozícia v poradí
       participatory_process_group:
         description: Popis
+        developer_group: Iniciátorská skupina
+        group_url: Webová stránka
         hero_image: obraz
+        local_area: Oblasť organizácie
+        meta_scope: Metadáta rozsahu
         participatory_process_ids: Súvisiace procesy
+        participatory_scope: O čom sa rozhoduje
+        participatory_structure: Ako sa rozhoduje
+        target: Kto sa zúčastňuje
+        title: Názov
       participatory_process_step:
         cta_path: Cesta k akcii
         cta_text: Text výzvy na akciu
@@ -40,6 +59,14 @@ sk:
         email: E-mailom
         name: názov
         role: Úloha
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Neplatný typ dokumentu. Povolené sú len súbory s nasledujúcimi príponami: %{types}'
+              empty: Dokument je prázdny
+              invalid_json: Dokument nie je platný JSON
     models:
       decidim/participatory_process_step_activated_event: Krok aktivovaný
       decidim/participatory_process_step_changed_event: Krok zmenený
@@ -64,6 +91,7 @@ sk:
     admin:
       actions:
         activate: Aktivovať
+        confirm_delete_process: Naozaj chcete odstrániť tento proces? Ak zmeníte názor, môžete ho neskôr obnoviť.
         confirm_destroy: Potvrďte zmazanie
         destroy: Odstrániť
         duplicate: Duplikát
@@ -76,35 +104,57 @@ sk:
         preview: Náhľad
         publish: Publikovať
         resend_invitation: Znovu poslať pozvánku
+        see_process: Zobraziť proces
         unpublish: Zrušiť zverejnenie
+        view_deleted_processes: Zobraziť odstránené procesy
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Podľa skupiny procesov
+        with_any_access_mode:
+          label: Režim prístupu
+          values:
+            open: Otvorený
+            restricted: Obmedzený
+            transparent: Transparentný
       menu:
         participatory_process_groups: Skupiny procesov
+        participatory_process_groups_submenu:
+          landing_page: Rozloženie vstupnej stránky
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Zložky
           attachment_files: Súbory
           attachments: Prílohy
           components: Komponenty
+          landing_page: Rozloženie vstupnej stránky
+          members: Členovia
           moderations: Moderovanie
           process_admins: Spracovať užívateľa
           steps: Kroky
       models:
         participatory_process:
           fields:
+            access_mode: Režim prístupu
+            actions: Akcie
             created_at: Vytvorené u
             published: Publikované
             title: Titul
           name: Participatívne proces
         participatory_process_group:
+          fields:
+            actions: Akcie
+            title: Názov
           name: Skupina procesov
         participatory_process_step:
           fields:
+            actions: Akcie
             end_date: Dátum ukončenia
             start_date: Dátum začatia
             title: Titul
           name: Participatívne krok procesu
         participatory_process_user_role:
           fields:
+            actions: Akcie
             email: E-mailom
             name: názov
             role: Úloha
@@ -112,13 +162,20 @@ sk:
           roles:
             admin: Správca
             collaborator: Spolupracovník
+            evaluator: Hodnotiteľ
             moderator: Moderátor
         user:
           fields:
             invitation_accepted_at: Pozvánka bola prijatá na
             invitation_sent_at: Pozvánka odoslaná na
+            published: Zverejnené
+      participatory_process_duplicates:
+        new:
+          duplicate: Duplikovať
+          select: Vyberte, ktoré údaje chcete duplikovať
       participatory_process_groups:
         destroy:
+          error: Vyskytol sa problém pri odstraňovaní skupiny participatívnych procesov.
           success: Zúčastňujú skupina procesov bola úspešne zmazaná.
         edit:
           update: Aktualizácia
@@ -151,6 +208,9 @@ sk:
           success: Úspešný krok procesu bol úspešne vytvorený.
         default_title: Úvod
         destroy:
+          error:
+            active_step: Aktívnu fázu nie je možné odstrániť.
+            last_step: Poslednú fázu procesu nie je možné odstrániť.
           success: Úspešný krok procesu bol úspešne zmazaný.
         edit:
           update: Aktualizácia
@@ -160,6 +220,7 @@ sk:
           error: Došlo k chybe pri novom usporiadaní týchto krokov procesu participácie.
         update:
           error: Pri aktualizácii tohto kroku procesu participácie došlo k chybe.
+          success: Fáza participatívneho procesu bola úspešne aktualizovaná.
       participatory_process_user_roles:
         create:
           error: Pri pridávaní používateľa pre tento participačné proces došlo k chybe.
@@ -180,16 +241,30 @@ sk:
         edit:
           update: Aktualizácia
         index:
+          access_modes:
+            open: Otvorený
+            restricted: Obmedzený
+            transparent: Transparentný
           published: Publikované
+          unpublished: Nezverejnené
         new:
           create: Vytvoriť
         update:
           error: Pri aktualizácii tohto participatívneho procesu došlo k chybe.
           success: Participatívne proces bol úspešne aktualizovaný.
+      participatory_processes_duplicates:
+        create:
+          error: Vyskytol sa problém pri duplikovaní tohto participatívneho procesu.
+          success: Participatívny proces bol úspešne duplikovaný.
       participatory_processes_group:
         create:
           error: Došlo k chybe pri vytváraní novej skupiny účastníckych procesov.
           success: Skupina úspešne vytvorená skupina účastníkov.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Všetky participatívne procesy
+      tooltips:
+        deleted_processes_info: Proces je možné odstrániť len vtedy, ak má stav „Nezverejnené“.
       users:
         resend_invitation:
           error: Pri odoslaní pozvánky sa vyskytla chyba.
@@ -197,11 +272,19 @@ sk:
     admin_log:
       participatory_process:
         create: "% {USER_NAME} vytvoril% {resource_name} participačné proces"
+        duplicate: "%{user_name} duplikoval/a participatívny proces %{resource_name}"
+        export: "%{user_name} exportoval/a participatívny proces %{resource_name}"
+        import: "%{user_name} importoval/a participatívny proces %{resource_name}"
         publish: "% {USER_NAME} publikoval% {resource_name} participačné proces"
+        publish_all_members: "%{user_name} zverejnil/a všetkých členov participatívneho procesu %{resource_name}"
+        restore: "%{user_name} obnovil/a participatívny proces %{resource_name}"
+        soft_delete: "%{user_name} presunul/a do koša participatívny proces %{resource_name}"
         unpublish: "%{user_name} zrušil zverejnenie participatívneho procesu %{resource_name}"
+        unpublish_all_members: "%{user_name} zrušil/a zverejnenie všetkých členov participatívneho procesu %{resource_name}"
         update: "% {USER_NAME} aktualizoval% {resource_name} participačné proces"
       participatory_process_group:
         create: "% {USER_NAME} vytvoril skupinu% {resource_name} na participačné proces"
+        unpublish: "%{user_name} zrušil/a zverejnenie skupiny participatívnych procesov %{resource_name}"
         update: "% {USER_NAME} aktualizoval skupinu% {resource_name} na participačné proces"
       participatory_process_step:
         activate: "% {USER_NAME} aktivoval% {resource_name} krok% {space_name} participáciu"
@@ -212,8 +295,16 @@ sk:
         create: "% {USER_NAME} pozval užívateľa% {resource_name} do procesu participácie% {space_name}"
         delete: "% {USER_NAME} odstránil používateľa% {resource_name} z procesu participácie% {space_name}"
         update: "% {USER_NAME} zmenilo úlohu používateľa% {resource_name} vo% {space_name} účastníckych procesoch"
+    download_your_data:
+      show:
+        participatory_processes: Export participatívnych procesov
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Boli ste priradený/á ako %{role} pre participatívny proces "%{resource_title}".
+          email_outro: Toto upozornenie ste dostali, pretože ste %{role} participatívneho procesu "%{resource_title}".
+          email_subject: Boli ste priradený/á ako %{role} pre "%{resource_title}".
+          notification_title: Boli ste priradený/á ako %{role} pre participatívny proces <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Krok%{resource_title} je teraz aktívny pre %{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
@@ -232,10 +323,70 @@ sk:
           title: Čo je participatívny proces?
     menu:
       processes: Procesy
+    open_data:
+      help:
+        participatory_processes:
+          access_mode: Režim prístupu. Či je proces otvorený, obmedzený alebo transparentný.
+          area: Oblasť, kde proces prebieha
+          component_settings: Nastavenia komponentov procesu
+          created_at: Dátum vytvorenia tohto priestoru
+          description: Dlhý popis procesu
+          developer_group: Skupina navrhovateľov procesu. Toto je organizácia, ktorá proces propaguje.
+          end_date: Dátum ukončenia procesu
+          follows_count: Počet používateľov sledujúcich tento priestor
+          id: Jedinečný identifikátor tohto procesu
+          local_area: Miestna oblasť procesu. Toto je oblasť organizácie, kde proces prebieha.
+          meta_scope: Metadáta rozsahu procesu
+          participatory_process_group: Skupina procesu, ak nejaká existuje
+          participatory_process_type: Typ procesu
+          participatory_scope: Participatívny rozsah procesu
+          participatory_structure: Participatívna štruktúra procesu. Takto sa o procese rozhoduje.
+          promoted: Či je proces propagovaný alebo nie
+          published_at: Dátum zverejnenia tohto priestoru
+          reference: Jedinečná referencia priestoru
+          remote_hero_image_url: URL adresa hlavného obrázka procesu
+          scope: Rozsah procesu
+          scopes_enabled: Či sú rozsahy povolené alebo nie
+          short_description: Krátky popis procesu
+          slug: Slug procesu (používa sa na identifikačné účely, pre URL adresu)
+          start_date: Dátum začiatku procesu
+          subtitle: Podtitul procesu
+          target: Cieľová skupina procesu. Toto sú tí, ktorí sú vyzvaní zúčastniť sa procesu.
+          title: Názov procesu
+          updated_at: Dátum poslednej aktualizácie tohto priestoru
+          url: URL adresa priestoru
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Propaguje
+          name: Metadáta
+          participatory_scope: O čom sa rozhoduje
+          participatory_structure: Ako sa rozhoduje
+          target: Kto sa zúčastňuje
+        html:
+          name: HTML blok
+        html_1:
+          name: Prvý HTML blok
+        html_2:
+          name: Druhý HTML blok
+        html_3:
+          name: Tretí HTML blok
+        main_data:
+          name: Názov a popis
+        participatory_processes:
+          active: Aktívne participatívne procesy
+          name: Participatívne procesy
         stats:
           name: Štatistiky
+        title:
+          meta_scope: Rozsah
+          participatory_processes:
+            one: 1 proces
+            few: "%{count} procesy"
+            many: "%{count} procesov"
+            other: "%{count} procesov"
+      related_processes:
+        help: Všetky vybrané procesy budú priradené k tejto skupine, vrátane tých, ktoré sú už priradené k iným skupinám.
       show:
         title: Skupiny participatívnych procesov
     participatory_process_steps:
@@ -244,26 +395,219 @@ sk:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            announcement:
+              body_html: |-
+                <ul>
+                <li>Tieto sa vypočítavajú automaticky z údajov Decidim. Budú viditeľné po zverejnení bloku obsahu.</li>
+                <li>Tieto sú založené na vašich odpovediach v nasledujúcom formulári. Budú viditeľné po zodpovedaní všetkých otázok.</li>
+                </ul>
+              title: 'Tento blok obsahu obsahuje dva typy metrík:'
+            citizen_influence:
+              citizen_decisional_intervention:
+                legend: Z celkového počtu fáz procesu (od výberu problémov až po dohľad nad realizáciou), v koľkých má verejnosť možnosť rozhodovať alebo vykonávať exekutívne kroky?
+                options:
+                  five: 80 - 100 %
+                  four: 60 - 80 %
+                  one: 0 - 20 %
+                  three: 40 - 60 %
+                  two: 20 - 40 %
+              citizen_influence_level:
+                legend: Do akej miery majú občania rozhodovaciu právomoc v tomto procese, od jednoduchého prijímania informácií až po rozhodujúce ovplyvňovanie rozhodnutí a riadenie zdrojov?
+                options:
+                  five: Účastníci boli zapojení do rozhodovania a riadenia zdrojov alebo implementácie
+                  four: Účastníci boli rozhodujúcim spôsobom zapojení do rozhodovania
+                  one: Účastníci dostali informácie od organizácie
+                  three: Účastníci boli zapojení s cieľom zdieľať rozhodovaciu právomoc
+                  two: Účastníci boli oslovení konzultačným spôsobom alebo poskytli spätnú väzbu organizácii
+              name: Vplyv občanov
+            inclusiveness:
+              description: Inkluzívnosť podľa kultúrneho pôvodu a funkčnej rozmanitosti.
+              digital_support_offered:
+                legend: Bola účastníkom ponúknutá digitálna podpora?
+                options:
+                  five: 'Áno'
+                  two_five: Čiastočne
+                  zero: 'Nie'
+              functional_diversity_invited:
+                legend: Ako sa hodnotí miera rozmanitosti aktérov a účastníkov vzhľadom na referenčnú populáciu v procese?
+                options:
+                  five: Dobrá
+                  one: Nízka
+                  two_five: Dostatočná
+                  zero: Žiadna
+              languages_communicated:
+                legend: Koľko jazykov sa v procese použilo?
+                options:
+                  five: Viac ako polovica jazykov, ktorými sa hovorí v komunite
+                  one: Jeden jazyk
+                  two_five: Menej ako polovica jazykov, ktorými sa hovorí v komunite
+              mobility_meeting_access:
+                legend: Boli miesta osobných stretnutí prístupné pre osoby so zníženou pohyblivosťou?
+                options:
+                  five: 'Áno'
+                  two_five: Čiastočne
+                  zero: 'Nie'
+              name: Inkluzívnosť
+              participation_scheduling_times:
+                legend: Participačné stretnutia boli naplánované na rôzne časy (ráno, napoludnie, popoludní, večer a cez víkendy).
+                options:
+                  five: 'Áno'
+                  two_five: Čiastočne
+                  zero: 'Nie'
+            informativeness:
+              information_provided:
+                legend: Boli poskytnuté informácie o schopnosti účastníkov ovplyvniť diskutovanú tému? (ako v komunikácii procesu a pozvánkach, tak aj na začiatku každého diskusného stretnutia)
+                options:
+                  five: Vždy
+                  one: Takmer nikdy
+                  two_five: Zvyčajne
+                  zero: Nikdy
+              name: Informatívnosť
+              published_information_clarity:
+                legend: Poskytujú zverejnené informácie jasnosť o mechanizmoch rozhodovania? (napr. hlasovanie, konsenzus, priame rokovania)
+                options:
+                  five: Úplná jasnosť
+                  one: Nízka jasnosť
+                  two_five: Dostatočná jasnosť
+                  zero: Žiadna jasnosť
           highlighted_processes:
+            active: Aktívne
+            all: Všetky
             max_results: Maximálne množstvo prvkov, ktoré chcete zobraziť
+            selection_criteria: Kritériá výberu
+        imports:
+          attachment_error: Prílohu „%{title}“ sa nepodarilo importovať (%{error}).
+          hero_image_error: Hlavný obrázok sa nepodarilo importovať (%{error}).
+        new_import:
+          accepted_types:
+            json: JSON
+          help_html: Táto funkcia importu vám umožňuje vytvoriť nový participatívny proces z exportovaného súboru JSON. Proces môžete exportovať z inej organizácie alebo z tej istej organizácie. Importovaný proces bude obsahovať jeho nastavenia, komponenty a prílohy (ak sú vybraté).
+        participatory_process_duplicates:
+          form:
+            slug_help_html: 'URL slugy sa používajú na generovanie adries URL, ktoré odkazujú na tento proces. Akceptujú sa iba písmená, čísla a pomlčky a musia začínať písmenom. Príklad: %{url}'
+          new:
+            title: Duplikovať participatívny proces
+        participatory_process_groups:
+          edit:
+            title: Upraviť skupinu procesov
+          form:
+            metadata: Metadáta
+            title: O tomto procese
+            visibility: Viditeľnosť
+          index:
+            title: Skupiny participatívnych procesov
+          new:
+            title: Nová skupina procesov
         participatory_process_imports:
           form:
             document_legend: Pridať dokument
+            slug_help_html: 'URL slugy sa používajú na generovanie adries URL, ktoré odkazujú na tento proces. Akceptujú sa iba písmená, čísla a pomlčky a musia začínať písmenom. Príklad: %{url}'
+          new:
+            title: Importovať participatívny proces
+        participatory_process_steps:
+          edit:
+            title: Upraviť fázu participatívneho procesu
+          index:
+            title: Fázy
+          new:
+            title: Nová fáza participatívneho procesu
+        participatory_process_user_roles:
+          edit:
+            title: Aktualizovať administrátora participatívneho procesu
+          index:
+            title: Administrátori participatívneho procesu
+          new:
+            title: Nový administrátor participatívneho procesu
         participatory_processes:
+          edit:
+            title: O tomto procese
           form:
+            access:
+              label: Prístup
+              options:
+                open: Každý môže vidieť proces a zúčastniť sa.
+                restricted: Iba členovia môžu vidieť a zúčastniť sa.
+                transparent: Každý môže vidieť proces, ale zúčastniť sa môžu iba členovia.
+              set_this_space_as: Nastaviť tento priestor ako
+            define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             duration: Čas trvania
+            has_members_help: Budete môcť vytvárať a publikovať členov
             images: snímky
             metadata: Metadata
+            no_taxonomy_filters_found: Nenašli sa žiadne filtre taxonómie.
             related_processes: Súvisiace procesy
             select_process_group: Vyberte skupinu procesov
+            slug_help_html: 'URL slugy sa používajú na generovanie adries URL, ktoré odkazujú na tento proces. Akceptujú sa iba písmená, čísla a pomlčky a musia začínať písmenom. Príklad: %{url}'
+            taxonomies: Taxonómie
             title: Všeobecná informácia
+            visibility: Viditeľnosť
+          index:
+            title: Participatívne procesy
+          manage_trash:
+            title: Odstránené participatívne procesy
+          new:
+            title: Nový participatívny proces
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            description: Tieto indikátory sa získavajú automaticky z údajov platformy.
+            indicators:
+              hybridization: Hybridizácia
+              hybridization_tooltip: Tento indikátor meria úroveň kombinácie medzi online a offline priestormi počas procesu
+              influence: Vplyv občanov
+              influence_tooltip: Tento indikátor meria úroveň vplyvu občanov na prijaté návrhy a výsledky procesu.
+              traceability: Sledovateľnosť
+              traceability_tooltip: Tento indikátor meria transparentnosť a sledovateľnosť participatívneho procesu. Odráža, ako ľahko môžu účastníci sledovať vývoj návrhov a overovať inštitucionálne kroky prostredníctvom zverejnených záznamov.
+              transparency: Reakcieschopnosť
+              transparency_tooltip: Tento indikátor meria úroveň reakcieschopnosti organizácie na podnety účastníkov. Odráža ich zapojenie prostredníctvom oficiálnych odpovedí a implementovaných rozhodnutí.
+            name: Automatické metriky
+          global_score:
+            description_html: Nižšie je uvedený súbor indikátorov používaných na hodnotenie demokratickej kvality tohto participatívneho procesu. Ďalšie podrobnosti o tom, ako sa počítajú, nájdete na <a href="%{info_url}">informačnej stránke o indikátoroch demokratickej kvality</a>.
+            name: Celkové skóre
+            note: "*Indikatívne hodnoty sa merajú na stupnici od 1 do 5, kde 1 predstavuje najnižší a 5 najvyšší indikátor kvality."
+            tooltip: Vypočítané ako priemer všetkých dimenzií
+          name: Indikátor kvality
+          qualitative_metrics:
+            description: Tieto indikátory sa získavajú z odpovedí na sebahodnotiaci dotazník, ktorý vyplnili administrátori platformy.
+            indicators:
+              citizen_influence: Vplyv občanov
+              citizen_influence_tooltip: Meria úroveň vplyvu účastníkov na rozhodovanie.
+              inclusiveness: Inkluzívnosť
+              inclusiveness_tooltip: Hodnotí, či sú spravodlivo zastúpené rôzne zainteresované strany.
+              informativeness: Informatívnosť
+              informativeness_tooltip: Meria úroveň jasnosti a informácií poskytovaných v rámci procesu.
+            name: Metriky sebahodnotenia
+        extra_data:
+          name: Fáza a trvanie
+        hero:
+          name: Hlavný obrázok a CTA
         highlighted_processes:
           name: Zvýraznené procesy
+        related_processes:
+          name: Súvisiace procesy
       index:
         title: Participatívna procesy
+      last_activity:
+        new_participatory_process: 'Nový participatívny proces:'
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Aktívne procesy
+            see_all_spaces: Zobraziť všetky procesy
       participatory_processes:
+        description:
+          area_name: Oblasť
+          data: Údaje o procese
+          developer_group: Skupina navrhovateľov
+          local_area: Oblasť organizácie
+          meta_scope: Rozsah
+          participatory_scope: O čom sa rozhoduje
+          participatory_structure: Ako sa rozhoduje
+          target: Kto sa zúčastňuje
+          title: O tomto procese
         filters:
+          all_types: Všetky typy
           counters:
             active:
               one: 1 aktívny proces
@@ -285,26 +629,226 @@ sk:
               few: "%{count} nadchádzajúcich procesov"
               many: "%{count} nadchádzajúcich procesov"
               other: "%{count} nadchádzajúcich procesov"
+          date: Dátum
           explanations:
+            no_active: Žiadne aktívne procesy.
+            no_active_nor_upcoming: Žiadne aktívne ani nadchádzajúce procesy.
             no_active_nor_upcoming_callout: Nie sú žiadne aktívne alebo nadchádzajúce procesy. Tu je zoznam uplynulých.
+          filter_by: Zobraziť
           names:
             active: Aktívne
             all: Všetko
             past: Uplynulé
             upcoming: Nadchádzajúce
           see: Vidieť
+          type: Typ
+        show:
+          title: O tomto procese
       show:
+        belongs_to_group: Tento proces patrí do
         related_processes: Súvisiace procesy
+      static_pages:
+        democratic_quality_indicators:
+          content: |-
+            <h2>Systém indikátorov na meranie indikátora kvality v Decidim.</h2>
+
+            <h3>Úvod</h3>
+            <p>Demokratická kvalita je základným princípom Decidim. Na jej udržanie sme vyvinuli systém indikátorov, ktoré pomáhajú hodnotiť kvalitu participatívnych procesov na platforme. Tento článok vysvetľuje, ako sa tieto indikátory počítajú.</p>
+
+            <h3>Ako sa počítajú indikátory?</h3>
+            <p>Definovali sme dve metódy zberu indikátorov kvality:</p>
+
+            <ol>
+            <li><strong>Automatické metriky:</strong> Tieto sa počítajú priamo z údajov platformy Decidim.</li>
+            <li><strong>Otázky sebahodnotenia:</strong> Tieto sú založené na formulári, ktorý vyplní administrátor.</li>
+            </ol>
+
+            <p>Každý indikátor je vyjadrený v percentách (n/celkom). Toto percento sa potom prevedie na skóre na stupnici od 1 do 5:</p>
+
+            <ul>
+            <li>1 = 0–20%</li>
+            <li>2 = 20–40%</li>
+            <li>3 = 40–60%</li>
+            <li>4 = 60–80%</li>
+            <li>5 = 80–100%</li>
+            </ul>
+
+            <br><br>
+            <h3>Automatické metriky</h3>
+            <p>Tieto metriky sa automaticky počítajú z údajov dostupných v Decidim. Hodnotia sa pre každý participatívny proces a administrátori ich môžu zverejniť, aby k nim mali prístup všetci účastníci.</p>
+
+            <p>Definovali sme štyri hlavné indikátory: Vplyv občanov, Hybridizácia, Reakcieschopnosť a Sledovateľnosť:</p>
+
+            <h3>Vplyv občanov</h3>
+
+            <p>Tento indikátor meria úroveň vplyvu občanov na prijaté návrhy a výsledky procesu.</p>
+
+            <ul>
+            <li>
+            Vplyv občanov na návrhy
+            <ul>
+            <li>Percento prijatých návrhov (n/celkom)</li>
+            <li>Percento schválených <em>občianskych</em> návrhov z celkového počtu občianskych návrhov (celkový vplyv občanov na schválené návrhy)</li>
+            <li>Percento schválených občianskych návrhov z celkového počtu schválených návrhov (relatívny vplyv občanov na schválený návrh)</li>
+            </ul>
+            </li>
+            <li>
+            Vplyv občanov na výstupy/výsledky
+            <ul>
+            <li>Percento výsledkov spojených s občianskymi návrhmi z celkového počtu výsledkov (celkový vplyv občanov na výstupy)</li>
+            </ul>
+            </li>
+            </ul>
+
+            <h3>Hybridizácia</h3>
+
+            <p>Tento indikátor meria úroveň kombinácie medzi online a offline priestormi počas procesu.</p>
+
+            <ul>
+            <li>Je aktívny komponent stretnutí? (Áno=5, Nie=0)</li>
+            <li>Konajú sa osobné stretnutia? (Áno=5, Nie=0)</li>
+            <li>Konajú sa online stretnutia? (Áno=5, Nie=0)</li>
+            <li>Konajú sa hybridné stretnutia? (Áno=5, Nie=0)</li>
+            <li>Sú vytvorené návrhy zo stretnutí? (Áno=5, Nie=0)</li>
+            </ul>
+
+            <h3>Reakcieschopnosť</h3>
+
+            <p>Tento indikátor meria úroveň reakcieschopnosti organizácie na podnety účastníkov. Odráža ich zapojenie prostredníctvom oficiálnych odpovedí a implementovaných rozhodnutí.</p>
+
+            <ul>
+            <li>Percento návrhov s odpoveďami (n/celkom) – Inštitucionálna reakcieschopnosť na návrhy</li>
+            <li>Percento výsledkov dokončených na 100 % (n/celkom)</li>
+            </ul>
+
+            <h3>Sledovateľnosť</h3>
+
+            <p>Tento indikátor meria transparentnosť a sledovateľnosť participatívneho procesu. Odráža, ako ľahko môžu účastníci sledovať vývoj návrhov a overovať inštitucionálne kroky prostredníctvom zverejnených záznamov.</p>
+
+            <ul>
+            <li>Počet návrhov s históriou (n/celkom)</li>
+            <li>Percento výsledkov spojených s návrhmi (n/celkom)</li>
+            <li>Percento uzavretých stretnutí so zverejnenou zápisnicou (n/celkom)</li>
+            <li>Aktivácia modulu otvorených dát (dichotomické: 0 alebo 5)</li>
+            <li>Percento návrhov súvisiacich s rozpočtami (n/celkom)</li>
+            </ul>
+
+            <br><br>
+            <h3>Metriky sebahodnotenia</h3>
+
+            <p>Okrem automatických metrík navrhujeme použiť <strong>formulár sebahodnotenia</strong> na posúdenie kvalitatívnych dimenzií každého participatívneho procesu. Tento formulár vyplnia administrátori platformy na konci každého procesu a odpovede sa verejne zobrazia v bloku obsahu indikátorov.</p>
+
+            <p>Tieto otázky majú za cieľ zachytiť aspekty demokratickej kvality, ktoré nemožno posúdiť len prostredníctvom kvantitatívnych údajov. Je dôležité poznamenať, že odpovede na tento prieskum sú ovplyvnené názorom administrátorov platformy.</p>
+
+            <br><br>
+            <h3>Otázky sebahodnotenia</h3>
+
+            <p>Otázky, ktoré tvoria formulár sebahodnotenia, na ktoré odpovedajú administrátori, ako aj hodnoty spojené s každou odpoveďou, sú uvedené nižšie.</p>
+
+            <h4>Informatívnosť</h4>
+
+            <ol>
+            <li>Poskytujú zverejnené informácie jasnosť o mechanizmoch rozhodovania (napr. hlasovanie, konsenzus, priame rokovania)?
+            <ul>
+            <li>Žiadna jasnosť = 0</li>
+            <li>Nízka jasnosť = 1</li>
+            <li>Dostatočná jasnosť = 2,5</li>
+            <li>Úplná jasnosť = 5</li>
+            </ul>
+            </li>
+            <li>Boli poskytnuté informácie týkajúce sa schopnosti účastníkov ovplyvniť diskutovanú tému (ako v komunikácii procesu a pozvánkach, tak aj na začiatku každej diskusie)?
+            <ul>
+            <li>Nikdy = 0</li>
+            <li>Takmer nikdy = 1</li>
+            <li>Zvyčajne = 2,5</li>
+            <li>Vždy = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Vplyv občanov</h4>
+
+            <ol>
+            <li>Hodnotenie stupňa účasti v procese
+            <ul>
+            <li>Účastníci dostali informácie od organizácie. = 1</li>
+            <li>Účastníci boli požiadaní konzultatívnym spôsobom alebo poskytli spätnú väzbu organizácii. = 2</li>
+            <li>Účastníci boli zapojení do zdieľania rozhodovacej právomoci. = 3</li>
+            <li>Účastníci boli rozhodujúcim spôsobom zapojení do rozhodovania. = 4</li>
+            <li>Účastníci boli zapojení do rozhodovania a riadenia zdrojov alebo implementácie. = 5</li>
+            </ul>
+            </li>
+            <li>Percento fáz s 0-5 rozhodovacím zásahom občanov.
+            <p>Z celkového počtu fáz v procese (od výberu problémov po dohľad nad realizáciou), v koľkých má verejnosť možnosť prijímať rozhodnutia alebo vykonávať exekutívne kroky?</p>
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Inkluzívnosť</h4>
+
+            <ol>
+            <li>Ako sa hodnotí stupeň rozmanitosti aktérov a účastníkov vzhľadom na referenčnú populáciu v procese?
+            <ul>
+            <li>Žiadny = 0</li>
+            <li>Nízky = 1</li>
+            <li>Dostatočný = 2,5</li>
+            <li>Dobrý = 5</li>
+            </ul>
+            </li>
+            <li>V koľkých jazykoch bol proces komunikovaný?
+            <ul>
+            <li>Jeden jazyk = 1</li>
+            <li>Menej ako polovica jazykov, ktorými sa hovorí v komunite = 2,5</li>
+            <li>Viac ako polovica jazykov, ktorými sa hovorí v komunite = 5</li>
+            </ul>
+            </li>
+            <li>Boli miesta osobných stretnutí prístupné pre osoby so zníženou pohyblivosťou?
+            <ul>
+            <li>Nie = 0</li>
+            <li>Čiastočne = 2,5</li>
+            <li>Áno = 5</li>
+            </ul>
+            </li>
+            <li>Zasadnutia s účasťou boli naplánované na rôzne časy (ráno, napoludnie, popoludní, večer a cez víkendy).
+            <ul>
+            <li>Nie = 0</li>
+            <li>Čiastočne = 2,5</li>
+            <li>Áno = 5</li>
+            </ul>
+            </li>
+            <li>Bola účastníkom ponúknutá digitálna podpora?
+            <ul>
+            <li>Nie = 0</li>
+            <li>Čiastočne = 2,5</li>
+            <li>Áno = 5</li>
+            </ul>
+            </li>
+            </ol>
+          title: Indikátory demokratickej kvality
+    statistics:
+      processes_count: Procesy
+      processes_count_tooltip: Počet participatívnych procesov, ktoré sú verejne dostupné.
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Prechádzať
+          browse_resource: Prehľadávať skupinu procesov %{resource_name}
           processes_count: 'Procesy:'
+      participatory_process_navigation:
+        member_menu_item: Členovia
       participatory_processes:
         index:
           promoted_processes: Zvýraznené procesy
         participatory_process:
           active_step: 'Aktuálny krok:'
           more_info: Viac informácií
+          more_info_about: Viac informácií o procese %{resource_name}
           take_part: Zúčastniť sa
+          take_part_in: Zúčastniť sa procesu %{resource_name}
