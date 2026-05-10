@@ -33,35 +33,6 @@ module Decidim
           end
         end
       end
-
-      def users
-        search(current_organization.users.available)
-      end
-
-      private
-
-      def search(relation)
-        respond_to do |format|
-          format.json do
-            if (term = params[:term].to_s).present?
-              query = if term.start_with?("@")
-                        nickname = term.delete("@")
-                        relation.where("nickname LIKE ?", "#{nickname}%")
-                                .order(Arel.sql(ActiveRecord::Base.sanitize_sql_array("similarity(nickname, '#{nickname}') DESC")))
-                      else
-                        relation.where("name ILIKE ?", "%#{term}%").or(
-                          relation.where("email ILIKE ?", "%#{term}%")
-                        )
-                                .order(Arel.sql(ActiveRecord::Base.sanitize_sql_array("GREATEST(similarity(name, '#{term}'), similarity(email, '#{term}')) DESC")))
-                                .order(Arel.sql(ActiveRecord::Base.sanitize_sql_array("(similarity(name, '#{term}') + similarity(email, '#{term}')) / 2 DESC")))
-                      end
-              render json: query.all.collect { |u| { value: u.id, label: "#{u.name} (@#{u.nickname})" } }
-            else
-              render json: []
-            end
-          end
-        end
-      end
     end
   end
 end
