@@ -35,7 +35,7 @@ PATH
     decidim-api (0.33.0.dev)
       decidim-core (= 0.33.0.dev)
       devise-jwt (>= 0.12.1, < 0.14.0)
-      graphql (>= 2.4.17, < 2.6)
+      graphql (>= 2.4.17, < 2.7)
       graphql-docs (>= 5, < 7)
       rack-cors (>= 1, < 4)
     decidim-assemblies (0.33.0.dev)
@@ -134,7 +134,7 @@ PATH
       i18n-tasks (~> 1.0)
       nokogiri (~> 1.16, >= 1.16.2)
       parallel_tests (>= 4.2, < 6.0)
-      puma (>= 6.5, < 8.0)
+      puma (>= 6.5, < 9.0)
       rails-controller-testing (~> 1.0)
       rspec (~> 3.12)
       rspec-cells (~> 0.3.7)
@@ -298,7 +298,7 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bigdecimal (4.1.0)
+    bigdecimal (4.1.2)
     bindex (0.8.1)
     bootsnap (1.23.0)
       msgpack (~> 1.2)
@@ -348,7 +348,7 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    css_parser (1.21.1)
+    css_parser (2.2.0)
       addressable
     csv (3.3.5)
     data_migrate (11.3.1)
@@ -361,7 +361,7 @@ GEM
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
-    devise (5.0.3)
+    devise (5.0.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 7.0)
@@ -397,7 +397,7 @@ GEM
       concurrent-ruby (~> 1.0)
       logger
       zeitwerk (~> 2.6)
-    erb (6.0.2)
+    erb (6.0.4)
     erb_lint (0.9.0)
       activesupport
       better_html (>= 2.0.1)
@@ -453,7 +453,7 @@ GEM
     google-protobuf (4.33.5-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    graphql (2.5.23)
+    graphql (2.6.1)
       base64
       fiber-storage
       logger
@@ -506,12 +506,12 @@ GEM
     invisible_captcha (2.3.0)
       rails (>= 5.2)
     io-console (0.8.2)
-    irb (1.17.0)
+    irb (1.18.0)
       pp (>= 0.6.0)
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.19.3)
+    json (2.19.5)
     jwt (3.1.2)
       base64
     kaminari (1.2.2)
@@ -562,7 +562,7 @@ GEM
     mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
-    minitest (6.0.2)
+    minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
     msgpack (1.8.0)
@@ -570,7 +570,7 @@ GEM
       bigdecimal (>= 3.1, < 5)
     net-http (0.9.1)
       uri (>= 0.11.1)
-    net-imap (0.6.3)
+    net-imap (0.6.4)
       date
       net-protocol
     net-pop (0.1.2)
@@ -580,9 +580,9 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     nio4r (2.7.5)
-    nokogiri (1.19.2-arm64-darwin)
+    nokogiri (1.19.3-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.19.2-x86_64-linux-gnu)
+    nokogiri (1.19.3-x86_64-linux-gnu)
       racc (~> 1.4)
     oauth (1.1.0)
       oauth-tty (~> 1.0, >= 1.0.1)
@@ -660,7 +660,7 @@ GEM
       date
       stringio
     public_suffix (7.0.5)
-    puma (7.2.0)
+    puma (8.0.1)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.6)
@@ -720,7 +720,7 @@ GEM
       tsort (>= 0.2)
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
-    rake (13.3.1)
+    rake (13.4.2)
     ransack (4.4.1)
       activerecord (>= 7.2)
       activesupport (>= 7.2)
@@ -935,7 +935,7 @@ GEM
     wisper-rspec (1.1.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yard (0.9.38)
+    yard (0.9.42)
     zeitwerk (2.7.5)
 
 PLATFORMS

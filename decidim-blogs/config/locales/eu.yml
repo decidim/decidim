@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       post:
-        body: Testua
+        body: Gorputza
         decidim_author_id: Egilea
         published_at: Argitaratze-data
         title: Izenburua
@@ -59,7 +59,7 @@ eu:
           update: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
       content_blocks:
         highlighted_posts:
-          last_published: Azken argitarapena
+          last_published: Azken argitalpena
           name: Argitalpenak
           see_all: Ikusi argitalpen guztiak
       last_activity:

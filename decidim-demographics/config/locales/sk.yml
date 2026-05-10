@@ -1,1 +1,79 @@
+---
 sk:
+  decidim:
+    demographics:
+      actions:
+        title: Akcie
+      admin:
+        demographics:
+          tabs_menu:
+            title: Demografia
+        demographics_menu:
+          questions: Otázky
+          responses: Odpovede
+          settings: Nastavenia
+        publish_responses:
+          index:
+            description: Popis
+            title: Zobraziť odpovede
+        questions:
+          edit:
+            save: Uložiť
+            title: Otázky
+          questions_form:
+            add_question: Pridať otázku
+            collapse: Zbaliť všetky otázky
+            expand: Rozbaliť všetky otázky
+        responses:
+          index:
+            publish_responses: Zobraziť odpovede
+            title: "Celkovo %{total} odpovedí"
+        settings:
+          show:
+            collect_data: Povoliť zber demografických údajov
+            collect_data_help: Povolenie tohto nastavenia umožní používateľom poskytnúť svoje údaje platforme.
+            save: Uložiť
+            title: Nastavenia
+          update:
+            invalid: Pri ukladaní demografických údajov sa vyskytla chyba
+            success: Demografické údaje boli úspešne uložené
+        title: Demografia
+      demographics:
+        questionnaire:
+          delete_my_data: Vymazať údaje
+          modal_close: Zrušiť
+          modal_ok: OK
+          modal_question: Všetky vaše demografické údaje budú odstránené.
+          modal_title: Vymazať údaje
+          submit: Uložiť údaje
+          terms_of_service: podmienky používania
+          tos_agreement: Účasťou súhlasíte s %{link}.
+        show:
+          page_title: Darovanie demografických údajov
+      destroy:
+        error: Pri odstraňovaní vašich darovaných údajov sa vyskytla chyba
+        success: Vaše darované údaje boli úspešne odstránené
+      name: Darovanie demografických údajov
+      questions:
+        age:
+          options:
+          - 15 až 29 rokov
+          - 30 až 44 rokov
+          - 45 až 64 rokov
+          - 65 rokov a viac
+          question: Aký je váš vek?
+        gender:
+          options:
+          - Muž
+          - Žena
+          - Nebinárne
+          - Moje pohlavie nie je v zozname
+          - Nechcem uviesť
+          question: Čo z nasledujúceho najlepšie vystihuje vaše pohlavie?
+        postal:
+          question: Aké je vaše domáce PSČ?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Poskytnutím týchto informácií prispievate k štatistickej analýze, ktorá pomáha zlepšovať ukazovateľ kvality. Vaše údaje budú agregované a použité len na výskumné účely.
