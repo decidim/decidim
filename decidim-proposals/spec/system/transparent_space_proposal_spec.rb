@@ -82,7 +82,7 @@ describe "Transparent Space Proposal" do
         login_as user, scope: :user
       end
 
-      it "not allows create a proposal" do
+      it "not allows creating a proposal" do
         visit_component
 
         within "aside" do
