@@ -148,6 +148,7 @@ fr:
           success: Cette rencontre a été dupliquée avec succès.
         new:
           copy: Copier
+          title: Dupliquer une rencontre
     components:
       meetings:
         actions:

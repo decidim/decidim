@@ -39,10 +39,10 @@ eu:
           error: Arazo bat ego da iruzkina eguneratzean.
       comments_title: Iruzkina
       last_activity:
-        new_comment: 'Iruzkin berria:'
+        new_comment: 'Beste iruzkin bat:'
       votes:
         create:
-          error: Arazo bat dago iruzkina bozkatzeko.
+          error: Arazo bat egon da iruzkina bozkatzean.
     components:
       add_comment_form:
         account_message: Sartu edo sortu kontu bat zure iruzkina gehitzeko.
@@ -52,8 +52,8 @@ eu:
             label: Iruzkina
             placeholder: Zer deritzozu honi?
           form_error: Testua behar da, eta ezin du izan %{length} karaktere baino gehiago.
-          submit_reply: Erantzuna argitaratu
-          submit_root_comment: Iruzkina argitaratu
+          submit_reply: Argitaratu erantzuna
+          submit_root_comment: Argitaratu iruzkina
           user_group_id:
             label: 'Egin iruzkina honako honen gisa:'
             your_profile: Zure profila
@@ -66,7 +66,7 @@ eu:
           positive: Positiboa
           positive_selected: Zure iritzia gai honi buruz positiboa da
         remaining_characters: "%{count} kakaktere geratzen dira"
-        remaining_characters_1: "karaktere %{count} geratzen da"
+        remaining_characters_1: "%{count} kakaktere geratzen dira"
         title: Gehitu zure iruzkina
       comment:
         alignment:
@@ -75,7 +75,7 @@ eu:
         answers:
           one: "Erantzun %{count}"
           other: "%{count} erantzun"
-        cancel_reply: Erantzuna ezabatu
+        cancel_reply: Ezeztatu erantzuna
         comment_label: Iruzkindu %{comment_id}
         comment_label_reply: Iruzkindu %{comment_id} (erantzun %{parent_comment_id} iruzkinei)
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
@@ -102,8 +102,8 @@ eu:
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
           title: Jakinarazi eduki desegokia
         show_replies:
-          one: Erakutsi erantzuna
-          other: Erakutsi %{count} erantzunak
+          one: Erakutsi %{count} erantzun
+          other: Erakutsi %{count} erantzun
         single_comment_link_title: Lortu esteka
         sort_by: 'Nork sortua:'
       comment_order_selector:
