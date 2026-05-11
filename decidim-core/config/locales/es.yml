@@ -1349,7 +1349,7 @@ es:
     offline:
       name: Sin conexión
       show:
-        message_1: "Parece que no tienes conexión a Internet.<br>\nNo hemos podido conectarnos al servidor. Antes de ponerte en contacto con nosotros, prueba estos sencillos pasos para solucionarlo rápidamente:<br>\n\n<ol>\n <li><strong>Prueba el modo incógnito o privado:</strong><br>\n  Abre una ventana de navegación privada en tu navegador e intenta iniciar sesión de nuevo.<br>\n  ✅ Si funciona: el problema es la caché del navegador. Ve al paso 2.<br>\n  ❌ Si no funciona: el problema podría ser tu conexión a Internet. Comprueba tu conexión Wi-Fi o tus datos móviles.<br>\n</li> \n<br>\n<li><strong>Borra la caché:</strong><br>\n  Si la opción 1 ha funcionado, debes borrar los datos temporales de tu navegador:<br>\n  <ul>\n    <li>Ve a la <strong>configuración</strong> de tu navegador.</li>\n<li>Busca la opción <strong>«Borrar datos de navegación»</strong> o «Historial».</li>\n    Selecciona «Cookies» e «Imágenes y archivos almacenados en caché».</li>\n    Confirma y vuelve a abrir el navegador.</li>\n  </ul>\n</li>\n</ol> "
+        message_1: Parece que no tienes conexión a Internet.
         message_2: Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     onboarding_action_message:
