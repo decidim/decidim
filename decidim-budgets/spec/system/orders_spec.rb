@@ -504,14 +504,14 @@ describe "Orders" do
             end
 
             it "shows private-only activity log entry" do
-              page.visit decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale)
+              page.visit decidim.profile_activity_path(nickname: user.nickname)
               expect(page).to have_content("New budgeting vote at #{translated(budget.title)}")
               expect(page).to have_link(translated(budget.title), href: router.budget_path(budget))
             end
 
             it "does not show activity log entry to another user" do
               relogin_as another_user, scope: :user
-              page.visit decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale)
+              page.visit decidim.profile_activity_path(nickname: user.nickname)
               expect(page).to have_content(user.name)
               expect(page).to have_current_path "/#{I18n.locale}/profiles/#{user.nickname}/activity"
               expect(page).to have_no_content("New budgeting vote at")

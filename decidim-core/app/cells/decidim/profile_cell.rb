@@ -7,6 +7,7 @@ module Decidim
     include Decidim::AriaSelectedLinkToHelper
     include Decidim::ViewHooksHelper
     include ActiveLinkTo
+    include Decidim::ActiveLinkToHelper
 
     delegate :current_organization, :current_user, to: :controller
     delegate :avatar_url, :nickname, :personal_url, :followers_count, :users_followings, :officialized_as, to: :presented_profile
@@ -77,7 +78,7 @@ module Decidim
     # i18n-tasks-use t("decidim.profiles.show.followers")
     def tab_item(key)
       values = TABS_ITEMS[key].dup
-      values[:path] = send(values[:path], nickname: profile_holder.nickname, locale: current_locale)
+      values[:path] = send(values[:path], nickname: profile_holder.nickname)
       values[:text] = t(key, scope: "decidim.profiles.show")
       values
     end

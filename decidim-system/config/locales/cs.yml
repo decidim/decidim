@@ -36,8 +36,12 @@ cs:
               must_be_ssl: URI přesměrování musí být SSL URI
         organization:
           attributes:
+            host:
+              invalid: je neplatný
             password:
               secret_key: Abyste mohli toto pole uložit, musíte definovat proměnnou prostředí SECRET_KEY_BASE.
+            secondary_hosts:
+              invalid: je neplatný
   decidim:
     system:
       actions:
@@ -52,6 +56,7 @@ cs:
           remove: Odebrat uživatele
         confirm_destroy: Opravdu to chcete smazat?
         confirm_refresh_api_secret: Opravdu chcete obnovit tajný klíč pro tohoto uživatele API? Po obnově bude starý tajný klíč neplatný a již nemůže být použit.
+        confirm_remove_api_user: Opravdu chcete odstranit tohoto uživatele API?
         copied: Zkopírováno
         copy_secret: Kopírovat tajný klíč
         copy_secret_clarification: Zkopírovat tajný klíč do schránky
@@ -91,6 +96,10 @@ cs:
           success: Tajný klíč byl úspěšně obnoven. Tajný klíč pro uživatele je viditelný pouze po vytvoření. Zkopírujte jej a uložte jej bezpečně před opuštěním této stránky!
       api_users:
         index:
+          explanation_html: |
+            <p>Uživatelé API umožňují integračním vývojářům přidávat do systému účty pro administrátorské uživatele. Tito uživatelé mohou působit jako správci na platformě pro provádění aktualizací, které by běžní správci prováděli prostřednictvím administrátorského panelu. Typickým případem použití je vnější platforma řízení, kde by automatizovaný skript prováděl administrativní úkoly s platformou, aniž by se skutečný uživatel musel přihlásit do systému. Například systém automatizace může chtít poslat odpovědi na návrhy, v kterémžto případě potřebujeme, aby integrovaný uživatel provedl tento úkol v rámci této platformy.</p>
+            <p>Hlavní rozdíl mezi těmito účty a běžnými účty správce spočívá v tom, že tito uživatelé jsou určeni k používání na strojích, a proto se jejich požadavky na heslo liší. Tito uživatelé nemusí pravidelně aktualizovat své heslo a v případě potřeby může dojít ke změně hesla k účtu řízeným způsobem.</p>
+            <p>Tyto přihlašovací údaje jsou určeny pro použití stroji. Účastnické aplikace by měly být integrovány s <a href="%{oauth_link}">OAuth aplikacemi</a>.</p>
           manage: Správa uživatelů API
         new:
           select_organization: Vyberte vaši organizaci
@@ -174,7 +183,9 @@ cs:
               explanation: Aplikace, které se mohou bezpečně autentizovat s autorizačním serverem, například udržovat registrované klienty zabezpečené. Obvykle aplikace běžící na serveru, kde je uložen tajný kód klienta.
               name: Důvěrné
             public:
+              explanation: Aplikace, které nemohou používat registrované zákaznické tajemství, jako jsou aplikace běžící v prohlížeči nebo na mobilním zařízení.
               name: Veřejné
+          application_type_help_html: 'Typ OAuth klienta definovaný <a href="%{client_type_link}" target="_blank">RFC 6749 Oddíl 2.1</a>. Veřejní klienti musí realizovat tok PKCE definovaný <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
           select_organization: Vybrat organizaci
         index:
           confirm_delete: Jste si jisti, že chcete odstranit tuto žádost?
@@ -245,6 +256,7 @@ cs:
           confirm_resend_invitation: Opravdu chcete znovu odeslat pozvánku?
           resend_invitation: Znovu odeslat pozvánku
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
+          short_name_hint: Krátký název použitý pro progresivní webovou aplikaci. Musí mít maximálně 12 znaků.
           title: Upravit organizaci
         file_upload_settings:
           content_types:

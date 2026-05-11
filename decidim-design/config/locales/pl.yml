@@ -131,11 +131,11 @@ pl:
           not_required: Niewymagane
           properties: Właściwości
           right_aside: Prawa strona
-          section_p_breakpoints: 'Aby zarządzać responsywną maksymalną szerokością elementów, polegamy na domyślnej klasie "container" Tailwind, która określa następujące punkty przerwania:'
+          section_p_breakpoints: 'Aby zarządzać responsywną szerokością elementów, korzystamy z domyślnej klasy Tailwind ''container''. Obsługiwane rozdzielczości to:'
           section_p_code: Podczas wdrażania nowych modułów masz do dyspozycji kilka narzędzi pomocniczych, które automatycznie zapewniają kod potrzebny do skonfigurowania struktury HTML. Powinieneś używać tych pomocników zamiast bezpośredniego używania elementów div z klasami, aby zachować spójność.
           section_p_code_html: Możesz znaleźć podstawowe układy w %{link_section_code}
           section_p_desktop: System siatki w wersji na pulpit składa się z 12 elastycznych kolumn z odstępem między kolumnami wynoszącym 16 pikseli oraz lewym i prawym marginesem wynoszącym 48 pikseli
-          section_p_mobile: System siatki w wersji mobilnej składa się z 4 elastycznych kolumn z odstępem pomiędzy kolumnami wynoszącym 16 pikseli oraz lewym i prawym marginesem wynoszącym 16 pikseli. Dla rozmiarów poniżej 320 pikseli marginesy te są ustawione na 8 pikseli
+          section_p_mobile: Mobilny system przetwarzania sieciowego składa się z 4 elastycznych kolumn z odstępem między kolumnami wynoszącym 16 pikseli oraz marginesami lewym i prawym wynoszącymi 16 pikseli.
           section_p_tablet: System siatki w wersji na tablet składa się z 8 elastycznych kolumn z odstępem między kolumnami wynoszącym 16 pikseli oraz lewym i prawym marginesem wynoszącym 24 pikseli
           tablet: Tablet
           title: Układ
@@ -219,7 +219,6 @@ pl:
         list: Lista
         main_colors: Kolory główne
         meeting_l: Spotkanie L
-        meeting_s: Spotkanie S
         meetings: Spotkania
         meetings_html: Używane przez karty <i>Spotkań</i>
         metadata_items: Elementy metadanych

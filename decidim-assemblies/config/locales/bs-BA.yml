@@ -1,8 +1,5 @@
 bs:
   decidim:
-    admin:
-      titles:
-        assemblies_types: Tipovi veća
     admin_log:
       assembly_type:
         create: "%{user_name} je stvorio tip veća %{resource_name}"
@@ -18,7 +15,3 @@ bs:
           email_intro: Imenovani ste na funkciju %{role} veća %{resource_title}.
           email_outro: Dobili ste ovo obaveštenje zbog toga što ste %{role} veća %{resource_title}.
           email_subject: Imenovani ste na funkciju %{role} %{resource_title}.
-    log:
-      value_types:
-        assembly_type_presenter:
-          not_found: 'Ovaj tip veća nije pronađen u bazi podataka (ID: %{id})'

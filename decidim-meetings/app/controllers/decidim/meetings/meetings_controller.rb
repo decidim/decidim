@@ -232,14 +232,14 @@ module Decidim
 
         breadcrumb = {
           label: translated_attribute(meeting.title),
-          url: Decidim::EngineRouter.main_proxy(current_component).meeting_path(meeting, locale: current_locale),
+          url: Decidim::EngineRouter.main_proxy(current_component).meeting_path(meeting),
           active: false
         }
 
         # If this meeting is being accessed from within a conference program context,
         # add program breadcrumb to maintain proper navigation hierarchy
         if conference_context?
-          program_path = decidim_conferences.conference_conference_program_path(current_participatory_space, current_component, locale: I18n.locale)
+          program_path = decidim_conferences.conference_conference_program_path(current_participatory_space, current_component)
 
           context_breadcrumb_items << {
             label: t("conference_program.index.title", scope: "decidim"),

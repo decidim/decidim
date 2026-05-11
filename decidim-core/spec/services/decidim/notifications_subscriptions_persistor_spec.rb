@@ -7,7 +7,7 @@ module Decidim
     subject { described_class.new(user) }
 
     let(:organization) { create(:organization) }
-    let(:params) { { endpoint: "https://example.es", keys: { auth: "auth_code_121", p256dh: "a_p256dh" } } }
+    let(:params) { { endpoint: "https://fcm.googleapis.com/fcm/send/id", keys: { auth: "auth_code_121", p256dh: "a_p256dh" } } }
 
     describe "#add_subscription" do
       context "when no subscriptions" do
@@ -37,6 +37,17 @@ module Decidim
           expect(user.notifications_subscriptions["auth_code_121"]["endpoint"]).to eq(params[:endpoint])
           expect(user.notifications_subscriptions["auth_code_121"]["auth"]).to eq(params[:keys][:auth])
           expect(user.notifications_subscriptions["auth_code_121"]["p256dh"]).to eq(params[:keys][:p256dh])
+        end
+      end
+
+      context "when endpoint is not supported" do
+        let(:user) { create(:user, organization:) }
+        let(:params) { { endpoint: "https://example.org/subscription", keys: { auth: "auth_code_121", p256dh: "a_p256dh" } } }
+
+        it "raises an unsupported endpoint error" do
+          expect do
+            subject.add_subscription(params)
+          end.to raise_error(Decidim::NotificationsSubscriptionsPersistor::UnsupportedPushSubscriptionEndpointError)
         end
       end
     end

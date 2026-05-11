@@ -1,0 +1,50 @@
+= Progressive Web App
+
+Decidim supports Progressive Web App features to make the platform feel closer to a mobile app.
+For operators, the main value is a web app experience with optional installation, WebPush notifications, and the option to package the same web app for app stores.
+
+== What it includes
+
+- App-like experience in the browser with optional installation
+- Push notifications through WebPush
+- Service worker support for offline-aware behavior and cached assets
+- Optionally, package the app for app stores to improve discoverability
+
+== Operational notes
+
+- PWA features depend on the service worker being enabled.
+- Browser support is not identical across platforms, especially on iOS.
+- Treat offline support as limited cache assistance, not as a fully offline application.
+
+== WebPush setup
+
+To use push notifications, first configure the VAPID keys in your application environment.
+See xref:configure:environment_variables.adoc[Environment Variables] for the supported variables.
+
+Generate a key pair with:
+
+[source,bash]
+----
+bin/rails decidim:pwa:generate_vapid_keys
+----
+
+The command prints the public and private keys.
+Set them as `VAPID_PUBLIC_KEY` and `VAPID_PRIVATE_KEY`, then restart the application.
+
+To test it, log in with any participant account and open the notification settings in the profile.
+There should be an option to enable WebPush notifications.
+After enabling it, new notifications should also be received natively according to the platform being used.
+
+== Packaging with PWABuilder
+
+Use https://www.pwabuilder.com/[PWABuilder] to package the Decidim PWA for app stores.
+
+1. Make sure the site exposes a valid web app manifest and service worker.
+2. Open https://www.pwabuilder.com/[PWABuilder] and enter the Decidim URL.
+3. Review the detected PWA features and fix any issues it reports.
+4. Generate the package you need:
+   - Android, for Google Play workflows
+   - iOS, for Apple distribution workflows
+   - Windows, for Microsoft Store or for installation outside of the Store
+
+PWABuilder does not replace the web app itself. It packages the existing PWA for the target platform, so the underlying Decidim installation must already be correctly configured.

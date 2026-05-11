@@ -2,6 +2,8 @@
 
 require "spec_helper"
 
+require "decidim/forms/test/shared_examples/questionnaire_admin_access"
+
 describe "Admin manages elections questions" do
   let(:current_organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization: current_organization) }
@@ -10,6 +12,8 @@ describe "Admin manages elections questions" do
   let!(:election) { create(:election, component: current_component) }
 
   include_context "when managing a component as an admin"
+
+  it_behaves_like "questionnaire admin access", denied_error: 404
 
   it "opens a questions tab" do
     visit questions_edit_path
@@ -324,5 +328,9 @@ describe "Admin manages elections questions" do
 
   def questions_edit_path
     Decidim::EngineRouter.admin_proxy(current_component).edit_questions_election_path(election)
+  end
+
+  def manage_questions_path
+    questions_edit_path
   end
 end
