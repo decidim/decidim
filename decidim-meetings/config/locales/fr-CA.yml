@@ -146,6 +146,7 @@ fr-CA:
           success: Cette rencontre a été dupliquée avec succès.
         new:
           copy: Copier
+          title: Dupliquer une rencontre
       tooltips:
         cannot_close_meetings: Impossible de fermer cette réunion car elle a été créée par un participant
         cannot_duplicate_meetings: Impossible de dupliquer cette réunion car elle a été créée par un participant
