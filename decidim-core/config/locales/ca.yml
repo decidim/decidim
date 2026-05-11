@@ -1351,7 +1351,7 @@ ca:
       name: Sense connexió
       show:
         message_1: Sembla que no tens connexió a Internet.
-        message_2: Si us plau, torneu-ho a provar més tard.
+        message_2: Si us plau, torna-ho a provar més tard.
         retry: Torna-ho a provar
     onboarding_action_message:
       click_link: Fes clic aquí
