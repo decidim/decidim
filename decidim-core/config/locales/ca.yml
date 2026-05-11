@@ -1349,8 +1349,8 @@ ca:
     offline:
       name: Sense connexió
       show:
-        message_1: "Sembla que no tens connexió a Internet.<br>\nNo hem pogut connectar amb el servidor. Abans de contactar amb nosaltres, prova aquests passos senzills per solucionar-ho ràpidament:<br>\n\n<ol>\n  <li><strong>Prova el mode d'incògnit o privada:</strong><br>\n  Obre una finestra de navegació privada al teu navegador i intenta entrar de nou.<br>\n  ✅ Si funciona: El problema és la memòria cau del navegador. Vés al pas 2.<br>\n  ❌ Si no funciona: El problema pot ser la teva connexió a Internet. Revisa la teva connexió Wi-Fi o les dades mòbils.\n  </li>\n<br>\n  <li><strong>Neteja la memòria cau:</strong><br>\n  Si l'opció 1 ha funcionat, necessites esborrar les dades temporals del navegador:<br>\n  <ul>\n    <li>Vés a la <strong>configuració</strong> del navegador.</li>\n    <li>Busca l'opció <strong>\"Esborrar dades de navegació\"</strong> o <strong>\"Historial\"</strong>.</li>\n    <li>Selecciona <strong>\"Galetes\"</strong> i <strong>\"Imatges i fitxers en memòria cau\"</strong>.</li>\n    <li>Confirma i torna a obrir el navegador.</li>\n  </ul>\n  </li>\n</ol>"
-        message_2: Si us plau, torna-ho a provar més tard.
+        message_1: Sembla que no tens connexió a Internet.
+        message_2: Si us plau, torneu-ho a provar més tard.
         retry: Torna-ho a provar
     onboarding_action_message:
       click_link: Fes clic aquí
