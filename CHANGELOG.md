@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.32.0.rc2](https://github.com/decidim/decidim/tree/0.32.0.rc2)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+Nothing.
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
+
 ## [0.32.0.rc1](https://github.com/decidim/decidim/tree/0.32.0.rc1)
 
 ### Added

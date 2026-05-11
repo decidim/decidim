@@ -3,7 +3,7 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 Gem::Specification.new do |s|
-  version = "0.32.0.rc1"
+  version = "0.32.0.rc2"
   s.version = version
   s.authors = ["Ivan Vergés"]
   s.email = ["ivan@pokecode.net"]
