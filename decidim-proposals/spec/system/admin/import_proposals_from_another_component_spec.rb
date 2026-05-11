@@ -115,7 +115,7 @@ describe "Import proposals from another component" do
     context "when no states are selected" do
       let!(:proposals) { create_list(:proposal, 3, component: origin_component) }
 
-      it "it imports all proposals" do
+      it "imports all proposals" do
         within ".import_proposals" do
           select origin_component.name["en"], from: "Origin component"
         end
