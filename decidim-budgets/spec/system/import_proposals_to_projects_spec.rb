@@ -119,7 +119,7 @@ describe "Import proposals to projects" do
     context "when no states are selected" do
       let!(:proposals) { create_list(:proposal, 3, :published, component: origin_component) }
 
-      it "imports all proposals regardless of their state" do
+      it "imports all proposals" do
         within ".import_proposals" do
           select origin_component.name["en"], from: "Origin component"
           fill_in "Default budget", with: 1000
