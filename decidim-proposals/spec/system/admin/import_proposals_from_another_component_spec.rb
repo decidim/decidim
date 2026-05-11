@@ -112,7 +112,7 @@ describe "Import proposals from another component" do
       end
     end
 
-    context "when the user leaves the state selection empty" do
+    context "when no states are selected" do
       let!(:proposals) { create_list(:proposal, 3, component: origin_component) }
 
       it "it imports all proposals" do
