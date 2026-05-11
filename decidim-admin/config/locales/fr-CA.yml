@@ -352,6 +352,8 @@ fr-CA:
           unpublished: Non publié
       conflicts:
         attempts: Tentatives
+        edit:
+          title: Transférer l'utilisateur
         'false': 'Non'
         index:
           text: Recherche par email, nom ou pseudo de l'utilisateur actuel
@@ -485,6 +487,8 @@ fr-CA:
         form:
           save: sauvegarder
         success: Les sections d'aide ont été mises à jour avec succès.
+        update:
+          title: Sections d'aide
       impersonatable_users:
         index:
           filter:
