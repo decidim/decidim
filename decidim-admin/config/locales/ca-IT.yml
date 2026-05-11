@@ -222,7 +222,7 @@ ca-IT:
           alert: 'Necessari: revisa les nostres condicions del servei d''administració'
           callout: Si us plau, dedica un moment a revisar les condicions del servei d'administració. En cas contrari, no podràs administrar la plataforma.
           cta: Revisar-les ara.
-        title: Termes i condicions d'ús para administradores
+        title: Termes i condicions d'ús per a administradores
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
@@ -882,7 +882,7 @@ ca-IT:
           title: Edita organització
           update: Actualitzar
         form:
-          admin_terms_of_service: Termes i condicions d'ús para administradores
+          admin_terms_of_service: Termes i condicions d'ús per a administradores
           basic_configuration: Configuració bàsica
           colors:
             choose_color: Triar un color primari
