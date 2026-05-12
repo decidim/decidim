@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-initiatives version.
   module Initiatives
     def self.version
-      "0.31.4"
+      "0.31.5"
     end
   end
 end

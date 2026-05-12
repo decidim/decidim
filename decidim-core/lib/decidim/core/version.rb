@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-core version.
   module Core
     def self.version
-      "0.31.4"
+      "0.31.5"
     end
   end
 end
