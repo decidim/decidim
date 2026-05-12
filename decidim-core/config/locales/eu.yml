@@ -208,7 +208,7 @@ eu:
         cancel_error: Ezin izan da ezeztatu helbide elektronikoaren aldaketa.
         cancel_successfully: Posta elektronikoaren aldaketa zuzen ezeztatua.
         resend_error: Ezin izan da birbidali berresteko helbide elektronikoa.
-        resend_successfully: 'Berresteko posta elektronikoa zuzen birbidalia hona: %{unconfirmed_email}.'
+        resend_successfully: Correo de confirmación reenviado con éxito a %{unconfirmed_email}.
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
@@ -223,13 +223,13 @@ eu:
       time_ago: "duela %{time}"
     admin:
       actions:
-        cancel: Ezeztatu
+        cancel: Utzi
       password_change:
         alert: Aurrera jarraitu ahal izateko pasahitza aldatu behar duzu.
         notification: Administratzaile rola duten parte-hartzaileek pasahitza aldatu behar dute %{days} egunik behin.
     admin_log:
       area:
-        create: "%{user_name} parte-hartzaileak%{resource_name} arloa sortu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} arloa sortu du"
         delete: "%{user_name} parte-hartzaileak %{resource_name} arloa ezabatu da"
         update: "%{user_name} parte-hartzaileak %{resource_name} arloa eguneratu du"
       area_type:
@@ -268,7 +268,7 @@ eu:
         manage: "%{user_name} parte-hartzaileak %{resource_name} kudeatu du arrazoi honengatik %{reason}"
       member:
         create: "%{user_name} parte-hartzaileak %{resource_name} baliabidera kide izateko gonbidatu du"
-        create_via_csv: "%{user_name} -k %{resource_name} CSV bidez gonbidatu du kide izateko"
+        create_via_csv: "%{user_name} parte-hartzaileak %{resource_name} CSV bidez gonbidatu du kide izateko"
         delete: "%{user_name} parte-hartzailek %{resource_name} kendu du kide bezala"
       moderation:
         bulk_hide: "%{user_name} parte-hartzaileak %{reported_count} baliabide ezkutatu du"
@@ -478,7 +478,7 @@ eu:
       expires_at: '%{timestamp} iraungitzen da'
       foo_authorization:
         fields:
-          bar: Bar
+          bar: Barra
           foo: Foo
         name: Foo baimena
       granted_at: Onartua %{timestamp}
@@ -512,7 +512,7 @@ eu:
           explanation: Sentitzen dugu, baina ezin diozu heldu ekintza honi, zure baimen-datuetako batzuk ez datozelako bat.
           invalid_field: "%{field} datu-eremuaren balioa %{value} ez da baliozkoa."
           ok: Ados
-          title: Ez dago baimenduta
+          title: Ez zaude baimenduta
         unconfirmed:
           confirmation_instructions: 'Berrespen-argibideak jaso ez badituzu, berriro eska ditzakezu:'
           explanation_html: Ekintza hau burutzeko baimena behar da, egiten zure email berretsi behar duzula aurretik behar duzu <strong>%{email}</strong>.
@@ -770,7 +770,7 @@ eu:
           updated_at: Zein datatan eta zein ordutan eguneratu zen jakinarazpena azken aldiz
         participatory_space_members:
           created_at: Kide hori sortu zen eguna eta ordua
-          id: The unique identifier of this member
+          id: Parte-hartzaile honen identifikatzaile bakarra
           participatory_space: Kide hori zein espaziotakoa den
           published: Parte-hartzaile pribatu hori argitaratuta dagoen ala ez
           role: Kide horrek duen rola
@@ -862,7 +862,7 @@ eu:
         try_later: Mesedez, geroago saiatu berriro. Erroreak jarraitzen badu, mesedez, kopiatu ondoko informazio hau eta bidali plataformaren mantentzaileei partekatu nahi duzun bestelako informazioarekin batera.
         unknown: Ezezaguna
         url: URL
-        user: Parte-hartzailearen ID
+        user: Parte-hartzailearen ID-a
       not_found:
         back_home: Itzuli hasierara
         content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
@@ -876,7 +876,7 @@ eu:
             email_subject: Onartu da %{emendation_author_nickname} ren %{amendable_title} zuzenketa
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname} egileak sortutako </a><a href="% emendation_path}">zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
           follower:
-            email_intro: '%{amendable_title} rako zuzenketa bat onartu da. Orrialde honetan ikus dezakezue:'
+            email_intro: 'Zuzenketa bat onartu honetarako %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
             email_subject: '%{emendation_author_nickname} ren aldaketa onartuta honetarako: %{amendable_title}'
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}"></a> zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
@@ -900,7 +900,7 @@ eu:
           follower:
             email_intro: '%{amendable_title} rako zuzenketa %{amendable_type} berri gisa argitaratu da. Orrialde honetan ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Batetik zuzenketa %{emendation_author_nickname} izan berri gisa argitaratuko %{amendable_type}
+            email_subject: 'Hemendik: %{emendation_author_nickname} zuzenketa bat argitaratu da %{amendable_type} berri gisa'
             notification_title: <a href="%{emendation_path}"> k ukatu du </a> zuzenketa honetarako <a href="%{amendable_path}">%{amendable_title}</a> argitaratu du %{amendable_type} berri gisa honek <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
@@ -928,7 +928,7 @@ eu:
         component_published:
           email_intro: '%{resource_title} osagaia aktibatu da %{participatory_space_title} espazioan. Orrialde honetan ikus dezakezu:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
+          email_subject: 'Eguneraketa bat honetarako: %{participatory_space_title}'
           notification_title: '%{resource_title} osagaia aktibo dago iadanik <a href="%{resource_path}">%{participatory_space_title}</a> espaziorako'
       email_event:
         email_greeting: Kaixo, %{user_name},
@@ -955,7 +955,7 @@ eu:
           email_intro: |-
             Zure %{resource_type} ez da ikusgai egongo.<br>
             Hori gertatu da zuk erantzun duzun proposamena, bilera, eztabaida edo iruzkina moderatu egin delako. Berriro erabilgarri jartzen bada, zure iruzkina automatikoki leheneratuko da.
-          email_outro: Jakinarazpen hau jaso duzu eragindako %{resource_type}-ren egilea zarelako.
+          email_outro: Jakinarazpen hau jaso duzu %{resource_type} ekimenaren egilea zarelako.
           email_subject: Zure %{resource_type} ez da dagoeneko ikusten
           notification_title: |-
             Zure %{resource_type} ez da ikusgai egongo.<br>
@@ -1002,7 +1002,7 @@ eu:
         dummy_resource: Balizko baliabideak
         meeting: Topaketa-zerrenda
         project: Proiektuak
-        proposal: Proposamenak
+        proposal: Proposamen
         result: Emaitzak
     fingerprint:
       check: Egiaztatu hatz-marka
@@ -1014,7 +1014,7 @@ eu:
       value: Balioa
     followers:
       followers_count:
-        one: "Jarraitzaile %{count}"
+        one: "%{count} jarraitzaile"
         other: "%{count} jarraitzaile"
       no_followers: Oraindik ez dago jarraitzailerik.
     following:
@@ -1092,7 +1092,7 @@ eu:
           conditions:
           - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
           description: Bereizgarria jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare soziala eta politikoa da, zure web-orria plataforman beste pertsona batzuekin komunikatzeko ehuna egiten du.
-          description_another: Parte-hartzaile honek %{score} jarraitzaile ditu.
+          description_another: Erabiltzaile honek %{score} jarraitzaile ditu.
           description_own: "%{score} parte-hartzailek jarraitzen zaituzte."
           name: Jarraitzaileak
           next_level_in: Lortu %{score} parte-hartzaile gehiago jarraitzeko hurrengo mailara iristeko!
@@ -1148,7 +1148,7 @@ eu:
     log:
       base_presenter:
         create: "%{user_name} parte-hartzaileak %{resource_name} sortu du"
-        create_with_space: "%{user_name} sortu %{resource_name} en %{space_name}"
+        create_with_space: "%{user_name} parte-hartzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
         delete: "%{user_name} parte-hartzaileak %{resource_name} ezabatu du"
         delete_with_space: "%{user_name} parte-hartzaileak %{resource_name} ezabatu du %{space_name} espazioan"
         publish: "%{user_name} parte-hartzaileak %{resource_name} argitaratu du"
@@ -1156,11 +1156,11 @@ eu:
         unknown_action: "%{user_name} parte-hartzaileak ekintza batzuk egin ditu %{resource_name} ean"
         unknown_action_with_space: "%{user_name} parte-hartzaileak ekintza batzuk egin ditu %{resource_name} ean %{space_name} espazioan"
         unpublish_with_space: "%{user_name} parte-hartzaileak %{resource_name} despargitaratu du %{space_name} espaziotik"
-        update: "%{user_name} k %{resource_name} eguneratu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} eguneratu du"
         update_filters: "%{user_name} parte-hartzaileak %{resource_name} iragazkia eguneratu du"
         update_filters_with_space: "%{user_name} parte-hartzaileak %{resource_name} ren iragazkiak eguneratu ditu %{space_name} espazioan"
-        update_permissions_with_space: "%{user_name} k %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
-        update_with_space: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} hemen %{space_name}"
+        update_permissions_with_space: "%{user_name} parte-hartzaileak %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
+        update_with_space: "%{user_name} parte-hartzileak eguneratu du %{resource_name} hemen %{space_name}"
       value_types:
         access_mode_presenter:
           access_modes:
@@ -1196,12 +1196,12 @@ eu:
         new_conversation:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} bidaltzaileak beste elkarrizketa bat hasi du zurekin. Egin klik hemen ikusteko:"
-          outro: Ongi etorri plataformara!
+          outro: Gozatu plataforma!
           subject: "%{sender} bidaltzaileak elkarrizketa bat hasi du zurekin"
         new_message:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} bidaltzaileak elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
-          outro: Ongi etorri plataformara!
+          outro: Gozatu plataforma!
           subject: '%{sender} bidaltzailearen mezu berriak dituzu'
       conversations:
         add_conversation_users:
@@ -1310,7 +1310,7 @@ eu:
         daily: Jakinarazpenen eguneroko laburpena
         real_time: Denbora erreala
         weekly: Jakinarazpenen asteko laburpena
-      hello: Kaixo %{name},
+      hello: Kaixo, %{name}
       intro:
         daily: 'Hona hemen aktibitatean oinarritutako azken egunetako jakinarazpenak:'
         real_time: 'Jarraitzen ari zaren jarduerari buruzko jakinarazpena da hau:'
