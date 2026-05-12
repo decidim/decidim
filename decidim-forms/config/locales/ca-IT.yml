@@ -200,10 +200,10 @@ ca-IT:
             edit: Edita les respostes
           questionnaire_closed:
             body: El formulari està tancat i no es pot respondre.
-            title: S'ha tancat el formulari
+            title: Formulari tancat
           questionnaire_for_private_users:
             body: El formulari només està disponible per a participants privades
-            title: S'ha tancat el formulari
+            title: Formulari tancat
           questionnaire_js_disabled:
             body: Algunes de les característiques d'aquest formulari es deshabilitaran. Per millorar la teva experiència, si us plau, habilita JavaScript al teu navegador.
             title: JavaScript està desactivat

@@ -230,8 +230,8 @@ sv:
             one: Visa röst
             other: Visa röster
           votes_count:
-            one: Din röst på %{budget_name} har redan registrerats.
-            other: Dina %{count} röster för %{budget_name} har redan registrerats.
+            one: Din röst på %{budget_name} har registrerats.
+            other: Dina %{count} röster för %{budget_name} har registrerats.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Du har valt följande projekt:'
