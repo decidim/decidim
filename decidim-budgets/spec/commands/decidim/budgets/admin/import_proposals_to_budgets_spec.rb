@@ -88,6 +88,18 @@ module Decidim
               end
             end
 
+            context "when there are no states" do
+              let(:internal_states) { [] }
+
+              it "broadcasts ok" do
+                expect { command.call }.to broadcast(:ok)
+              end
+
+              it "imports all proposals" do
+                expect { command.call }.to change { Project.where(budget:).count }.by(3)
+              end
+            end
+
             context "when a proposal was already imported" do
               let(:second_proposal) { create(:proposal, :accepted, component: proposal.component) }
 
