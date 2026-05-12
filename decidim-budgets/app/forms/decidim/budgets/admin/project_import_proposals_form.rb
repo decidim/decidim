@@ -38,10 +38,6 @@ module Decidim
           @budget ||= context[:budget]
         end
 
-        def internal_states=(values)
-          super(Array(values).compact_blank)
-        end
-
         private
 
         def valid_states
