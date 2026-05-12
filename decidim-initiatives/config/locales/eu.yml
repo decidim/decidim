@@ -36,7 +36,7 @@ eu:
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoa
         online_signature_enabled: Sinadura elektronikoa gaituta
-        only_global_scope_enabled: Eremu globaleko ekimenak soilik sortzeko aukera ematea
+        only_global_scope_enabled: Baimendu soilik esparru globaleko ekimenak sortzea
         promoting_committee_enabled: Gaitu batzorde sustatzailea
         signature_type: Sinadura mota
         title: Izenburua
