@@ -1,5 +1,39 @@
 # Changelog
 
+## [0.30.9](https://github.com/decidim/decidim/tree/0.30.9)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-system**: Backport 'Fix one word hostnames for development' to v0.30 [\#16685](https://github.com/decidim/decidim/pull/16685)
+- **decidim-core**, **decidim-generators**: Fix pipeline for v0.30 [\#16729](https://github.com/decidim/decidim/pull/16729)
+- **decidim-core**: Backport 'Fix push notifications configuration and registration' to v0.30 [\#16717](https://github.com/decidim/decidim/pull/16717)
+- **decidim-core**: Backport 'Sanitize "static page" content blocks and HTML content block' to v0.30 [\#16716](https://github.com/decidim/decidim/pull/16716)
+- **decidim-verifications**: Backport 'Fix multitenant access bug on ID documents verification' to v0.30 [\#16721](https://github.com/decidim/decidim/pull/16721)
+- **decidim-verifications**: Backport 'Enforce permission check on admins' CSV census' to v0.30 [\#16719](https://github.com/decidim/decidim/pull/16719)
+- **decidim-admin**, **decidim-conferences**, **decidim-meetings**: Backport 'Refactor autocomplete to use the GraphQL API endpoint' to v0.30 [\#16720](https://github.com/decidim/decidim/pull/16720)
+- **decidim-assemblies**, **decidim-core**, **decidim-participatory processes**, **decidim-verifications**: Backport 'Introduce PrivateDownload logic for some downloads' to v0.30 [\#16752](https://github.com/decidim/decidim/pull/16752)
+- **decidim-core**: Backport 'Check that the endpoint is supported on Web Push notifications' to v0.30 [\#16755](https://github.com/decidim/decidim/pull/16755)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
+
 ## [0.30.8](https://github.com/decidim/decidim/tree/0.30.8)
 
 ### Added
