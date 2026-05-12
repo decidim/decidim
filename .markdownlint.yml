@@ -9,3 +9,5 @@ no-bare-urls: false
 no-inline-html: false
 
 no-duplicate-header: false
+
+no-duplicate-heading: false
