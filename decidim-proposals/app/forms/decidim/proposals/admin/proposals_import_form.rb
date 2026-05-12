@@ -15,7 +15,6 @@ module Decidim
         attribute :states, Array[String]
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
-        validates :states, presence: true
         validate :valid_states
 
         def states
