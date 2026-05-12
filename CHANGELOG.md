@@ -1,5 +1,47 @@
 # Changelog
 
+## [0.32.0.rc2](https://github.com/decidim/decidim/tree/0.32.0.rc2)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-system**: Backport 'Fix one word hostnames for development' to v0.32 [\#16683](https://github.com/decidim/decidim/pull/16683)
+- **decidim-core**: Backport 'Fix flaky spec on `category.erb`' to v0.32 [\#16695](https://github.com/decidim/decidim/pull/16695)
+- **decidim-verifications**: Backport 'Enforce permission check on admins' CSV census' to v0.32 [\#16691](https://github.com/decidim/decidim/pull/16691)
+- **decidim-elections**: Backport 'Escape elections questions titles' to v0.32 [\#16669](https://github.com/decidim/decidim/pull/16669)
+- **decidim-verifications**: Backport 'Fix multitenant access bug on ID documents verification' to v0.32 [\#16693](https://github.com/decidim/decidim/pull/16693)
+- **decidim-admin**, **decidim-conferences**, **decidim-meetings**: Backport 'Refactor autocomplete to use the GraphQL API endpoint' to v0.32 [\#16704](https://github.com/decidim/decidim/pull/16704)
+- **decidim-demographics**, **decidim-elections**, **decidim-forms**, **decidim-meetings**, **decidim-surveys**: Backport 'Improve permissions checks in demographics' questionnaire' to v0.32 [\#16681](https://github.com/decidim/decidim/pull/16681)
+- **decidim-core**: Backport 'Fix push notifications configuration and registration' to v0.32 [\#16710](https://github.com/decidim/decidim/pull/16710)
+- Backport 'Pin workbox-webpack-plugin to v7.3' to v0.32 [\#16742](https://github.com/decidim/decidim/pull/16742)
+- **decidim-generators**: Backport 'Fix spec for full app generator spec' to v0.32 [\#16748](https://github.com/decidim/decidim/pull/16748)
+- **decidim-assemblies**, **decidim-core**, **decidim-participatory processes**, **decidim-verifications**: Backport 'Introduce PrivateDownload logic for some downloads' to v0.32 [\#16739](https://github.com/decidim/decidim/pull/16739)
+- **decidim-api**: Backport 'Prevent using JWT against other organizations' to v0.32 [\#16722](https://github.com/decidim/decidim/pull/16722)
+- **decidim-core**: Backport 'Sanitize "static page" content blocks and HTML content block' to v0.32 [\#16728](https://github.com/decidim/decidim/pull/16728)
+- **decidim-core**: Backport 'Check that the endpoint is supported on Web Push notifications' to v0.32 [\#16730](https://github.com/decidim/decidim/pull/16730)
+- **decidim-verifications**: Backport 'Enforce permission check on admins' CSV census records' to v0.32 [\#16757](https://github.com/decidim/decidim/pull/16757)
+- **decidim-api**: Backport 'Fix organization access check for logged in API user' to v0.32 [\#16759](https://github.com/decidim/decidim/pull/16759)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- Clean-up the releases notes after v0.32.0.rc1 publication [\#16648](https://github.com/decidim/decidim/pull/16648)
+- Backport 'Pin workbox-webpack-plugin to v7.3' to v0.32 [\#16742](https://github.com/decidim/decidim/pull/16742)
+
 ## [0.32.0.rc1](https://github.com/decidim/decidim/tree/0.32.0.rc1)
 
 ### Added
