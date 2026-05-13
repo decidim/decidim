@@ -155,6 +155,8 @@ document.addEventListener("turbo:load", () => {
     deprecationMessage(container, '.callout[role="alert"]', '.flash[role="alert"]'));
   document.querySelectorAll(".js-back-to-list").forEach((container) =>
     deprecationMessage(container, ".js-back-to-list", "NEEDS TO BE REMOVED"));
+  document.querySelectorAll("[data-toggler]").forEach((container) =>
+    deprecationMessage(container, "[data-toggler]", "Use the Stimulus toggle controller with hidden targets"));
 })
 
 // REDESIGN_PENDING: deprecated
