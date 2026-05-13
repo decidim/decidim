@@ -107,8 +107,8 @@ describe "Explore Budgets", :slow do
         end
 
         context "and the voting is open" do
-          it "links to the resource" do
-            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+          it "links the vote CTA to the budget projects" do
+            expect(item).to have_css(".budget__card__highlight-vote[href='#{budget_projects_path(budget)}']")
           end
         end
 
