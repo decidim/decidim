@@ -23,17 +23,19 @@ export default class TabsController extends Controller {
       let tab = this.tabs[index];
       let tabpanel = document.getElementById(tab.getAttribute("aria-controls"));
 
-      tab.tabIndex = -1;
-      tab.setAttribute("aria-selected", "false");
-      this.tabpanels.push(tabpanel);
-
-      tab.addEventListener("keydown", this._onKeydown);
-      tab.addEventListener("click", this._onClick);
-
-      if (!this.firstTab) {
-        this.firstTab = tab;
+      if (tabpanel) {
+        tab.tabIndex = -1;
+        tab.setAttribute("aria-selected", "false");
+        this.tabpanels.push(tabpanel);
+        tab.addEventListener("keydown", this._onKeydown);
+        tab.addEventListener("click", this._onClick);
+        if (!this.firstTab) {
+          this.firstTab = tab;
+        }
+        this.lastTab = tab;
+      } else {
+        console.error(`Tab at index ${index} references a non-existent panel:`, tab.getAttribute("aria-controls"));
       }
-      this.lastTab = tab;
     }
     this.detectAndSetActiveTab();
   }
