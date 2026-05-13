@@ -827,9 +827,9 @@ GEM
     ruby-vips (2.3.0)
       ffi (~> 1.12)
       logger
-    rubyXL (3.4.33)
+    rubyXL (3.4.35)
       nokogiri (>= 1.10.8)
-      rubyzip (>= 1.3.0)
+      rubyzip (>= 3.2.2)
     rubyzip (3.3.0)
     sass-embedded (1.97.3-x86_64-linux-gnu)
       google-protobuf (~> 4.31)
