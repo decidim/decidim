@@ -70,7 +70,7 @@ shared_context "with frontend map elements" do
         <head>
           <title>Map Test</title>
           #{stylesheet_pack_tag "decidim_core"}
-          #{javascript_pack_tag "decidim_core", defer: false}
+          #{javascript_pack_tag "decidim_core", "decidim_controllers", defer: false}
 
           #{head_extra}
         </head>

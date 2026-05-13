@@ -888,6 +888,7 @@ module Decidim
 
       editor_options[:mention] = options.delete(:mentionable)
       editor_options[:emoji] = options.delete(:emojiable)
+      @template.append_javascript_pack_tag("decidim_emoji", defer: true) if editor_options[:emoji]
 
       { editor: editor_options, upload: upload_options }
     end

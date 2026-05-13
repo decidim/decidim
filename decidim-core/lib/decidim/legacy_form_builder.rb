@@ -32,6 +32,8 @@ module Decidim
         options[:data][:controller] ||= ""
         options[:data][:controller] += " date-picker"
 
+        @template.append_javascript_pack_tag "decidim_date_picker", defer: false
+
         field(attribute, options) do |opts|
           super(attribute, opts)
         end
