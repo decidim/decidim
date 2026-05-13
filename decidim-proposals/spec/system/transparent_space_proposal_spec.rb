@@ -44,9 +44,19 @@ describe "Transparent Space Proposal" do
           visit target_path
         end
 
-        it "can access the page but cannot see the votes" do
+        it "can access the page and see the votes" do
           expect(page).to have_content(proposal.title["en"])
-          expect(page).to have_no_content("Votes")
+          expect(page).to have_content("Votes")
+        end
+      end
+
+      context "when accessing the proposal list page" do
+        before do
+          visit_component
+        end
+
+        it "can see the votes" do
+          expect(page).to have_content("Votes")
         end
       end
     end
@@ -58,7 +68,7 @@ describe "Transparent Space Proposal" do
         login_as other_user, scope: :user
       end
 
-      it "not allows create a proposal" do
+      it "allows creating a proposal" do
         visit_component
 
         within "aside" do
@@ -72,7 +82,7 @@ describe "Transparent Space Proposal" do
         login_as user, scope: :user
       end
 
-      it "not allows create a proposal" do
+      it "does not allow creating a proposal" do
         visit_component
 
         within "aside" do

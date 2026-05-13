@@ -135,9 +135,11 @@ fi:
           not_required: Ei vaadittu
           properties: Määritykset
           right_aside: Oikea sivupalkki
+          section_p_breakpoints: 'Hallitaksemme responsiivista elementtien maksimileveyttä, hyödynnämme Tailwind-kehyksen tarjoamaa jäsennysluokkaa `container`. Tuetut resoluutiot ovat:'
           section_p_code: Luodessasi uusia moduuleja tarjoamme avustajia, jotka tarjoavat automaattisesti kaiken koodin HTML-rakenteen määrittämiseen. Hyödynnä näitä avustajia räätälöityjen div-elementtien sijaan, jotta sivusto säilyttää yhtenäisyytensä.
           section_p_code_html: Löydät perusulkoasun asettelut kohteesta %{link_section_code}
           section_p_desktop: Työpöytälaitteiden ruudukkojärjestelmä koostuu 12 joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 48 pikseliä leveät marginaalit
+          section_p_mobile: Mobiililaitteiden ruudukkojärjestelmä koostuu neljästä joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 16 pikseliä leveät marginaalit.
           section_p_tablet: Tablet-laitteiden ruudukkojärjestelmä koostuu kahdeksasta joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 24 pikseliä leveät marginaalit
           tablet: Tablet-laitteet
           title: Ulkoasu
