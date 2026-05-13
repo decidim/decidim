@@ -41,8 +41,9 @@ module Decidim
 
       layout "layouts/decidim/application"
 
-      # Devise uses prepend_before_action instead of before_action, so we need to use it to set the current locale before Devise's own before_actions.
-      prepend_before_action :set_current_locale
+      # Ensure locale is set before Devise's own prepended callbacks and reset
+      # after the request finishes.
+      prepend_around_action :set_current_locale
 
       # Saves the location before loading each page so we can return to the
       # right page.
@@ -62,8 +63,9 @@ module Decidim
         store_location_for(:user, redirect_url)
       end
 
-      def set_current_locale
-        I18n.locale = Decidim::LocaleRouterDetector.new(request, params).locale
+      def set_current_locale(&)
+        locale = Decidim::LocaleRouterDetector.new(request, params).locale
+        I18n.with_locale(locale, &)
       end
     end
   end
