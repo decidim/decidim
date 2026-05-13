@@ -420,10 +420,6 @@ en:
       withdraw:
         error: There was a problem withdrawing the amendment.
         success: The amendment has been withdrawn successfully.
-      wizard_step_form:
-        steps:
-          '1': Create your amendment
-          '2': Publish your amendment
     anonymous_user: Anonymous
     application:
       document:
