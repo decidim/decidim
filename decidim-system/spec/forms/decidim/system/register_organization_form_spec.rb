@@ -386,6 +386,15 @@ module Decidim::System
         context "when host is localhost" do
           before { subject.host = "localhost" }
 
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when host is a single-label hostname in development" do
+          before do
+            allow(Rails).to receive(:env).and_return(ActiveSupport::StringInquirer.new("development"))
+            subject.host = "localhost"
+          end
+
           it { is_expected.to be_valid }
         end
 
@@ -509,6 +518,15 @@ module Decidim::System
 
         context "when secondary_hosts is localhost" do
           before { subject.secondary_hosts = "localhost" }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when secondary_hosts is a single-label hostname in development" do
+          before do
+            allow(Rails).to receive(:env).and_return(ActiveSupport::StringInquirer.new("development"))
+            subject.secondary_hosts = "localhost"
+          end
 
           it { is_expected.to be_valid }
         end

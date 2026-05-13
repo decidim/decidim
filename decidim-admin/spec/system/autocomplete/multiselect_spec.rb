@@ -5,8 +5,7 @@ require "spec_helper"
 describe "Autocomplete multiselect" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:path) { URI.parse(decidim_admin.users_organization_url).path }
-  let(:url) { "http://#{organization.host}:#{Capybara.current_session.server.port}#{path}" }
+  let(:api_path) { "/api" }
   let(:selected) { '""' }
 
   before do
@@ -34,7 +33,6 @@ describe "Autocomplete multiselect" do
             "mode": "multi",
             "options":[],
             "placeholder":"Select user",
-            "searchURL":"#{url}",
             "selected":#{selected}
           }'
           data-autocomplete-for="user_id" data-plugin="autocomplete">
@@ -42,7 +40,9 @@ describe "Autocomplete multiselect" do
       )
     end
 
-    let(:html_head) { "" }
+    let(:html_head) do
+      %(<script>window.Decidim = { config: { get: (key) => key === "api_path" ? "#{api_path}" : null } };</script>)
+    end
     let(:html_document) do
       head_extra = html_head
       body_extra = autocomplete_multifield_select
@@ -103,16 +103,6 @@ describe "Autocomplete multiselect" do
           expect(hidden_input.value).to eq(participant.id.to_s)
           text_input = find("input[type='text']")
           expect(text_input.value).to eq("")
-        end
-
-        context "when the URL has extra parameters in it" do
-          let(:url) { "http://#{organization.host}:#{Capybara.current_session.server.port}#{path}?locale=ca" }
-
-          it "shows selected participant" do
-            find("input[type='text']").fill_in with: participant.name.slice(0..2)
-            find(".autoComplete_wrapper ul#autoComplete_list_1 li", match: :first, wait: 2).click
-            expect(page).to have_content(participant.name)
-          end
         end
       end
 

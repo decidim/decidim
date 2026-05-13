@@ -6,8 +6,8 @@ require "decidim/elections/test/vote_examples"
 describe "Dashboard" do
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:election) { create(:election, :published, :ongoing, :with_internal_users_census, census_settings:) }
-  let!(:question1) { create(:election_question, :with_response_options, skip_injection: true, election:, question_type: "single_option") }
-  let!(:question2) { create(:election_question, :with_response_options, skip_injection: true, election:, question_type: "multiple_option") }
+  let!(:question1) { create(:election_question, :with_response_options, election:, question_type: "single_option") }
+  let!(:question2) { create(:election_question, :with_response_options, election:, question_type: "multiple_option") }
   let(:organization) { election.organization }
   let(:census_settings) do
     {
@@ -99,7 +99,7 @@ describe "Dashboard" do
         expect(page).to have_no_content("You have already voted.")
         visit new_election_vote_path
         expect(page).to have_content("You are not authorized to perform this action.")
-        expect(page).to have_current_path("/")
+        expect(page).to have_current_path(decidim.root_path)
       end
     end
   end

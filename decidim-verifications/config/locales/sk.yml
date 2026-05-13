@@ -1,11 +1,17 @@
 sk:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Príloha overenia
+      census_data:
+        file: Súbor
       config:
         available_methods: Dostupné metódy
         offline: Offline
         offline_explanation: Pokyny pre overenie offline
         online: Online
+      confirmation:
+        verification_code: Overovací kód
       id_document_information:
         document_number: Číslo dokumentu (s písmenom)
         document_type: Typ dokumentu
@@ -14,6 +20,8 @@ sk:
         document_type: Typ dokumentu
         user: Užívateľ
         verification_attachment: Naskenované kópie dokumentu
+      mobile_phone:
+        mobile_phone_number: Číslo mobilného telefónu
       offline_confirmation:
         email: Užívateľský email
       postal_letter_address:
@@ -23,6 +31,12 @@ sk:
       postal_letter_postage:
         full_address: Celá adresa
         verification_code: Overovací kód
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Chybný súbor importu, pozorne si prečítajte pokyny a uistite sa, že súbor je kódovaný v UTF-8.
   decidim:
     admin:
       menu:
@@ -30,54 +44,186 @@ sk:
           before_date_info: Užitočné, pokiaľ už proces začal, a chcete zrušiť povolenia, nastavené v predchádzajúcom procese.
           button: Zrušiť všetky
           button_before: Zrušiť všetky pred dátumom
+          destroy:
+            confirm: Zrušenie autorizácií pred dátumom nie je možné vrátiť späť. Naozaj chcete pokračovať?
+            confirm_all: Zrušenie všetkých autorizácií nie je možné vrátiť späť. Naozaj chcete pokračovať?
+          destroy_nok: Pri rušení autorizácií sa vyskytol problém.
+          destroy_ok: Všetky zhodné autorizácie boli úspešne zrušené.
           info: Je tu celkovo %{count} overených účastníkov.
+          no_data: Žiadni overení účastníci.
+          title: Zrušenie autorizácií
+        authorization_workflows: Autorizácie
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} aktualizoval konfiguráciu autorizácie dokladov totožnosti"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} overil %{resource_name} pomocou offline autorizácie dokladov totožnosti"
     authorization_handlers:
       admin:
+        another_dummy_authorization_handler:
+          help:
+            - Príklad obsluhy autorizácie, aby vývojári pochopili, ako funguje jednoduché overenie.
+            - Je určený pre vývojárov, aby pochopili, ako implementovať vlastný systém overovania.
+            - Získajte overenie zadaním čísla pasu začínajúceho na „A“.
+        csv_census:
+          help:
+            - Administrátori nahrajú súbor CSV s e-mailmi prijatých účastníkov.
+            - Overiť sa môžu iba účastníci s e-mailom v tomto súbore CSV.
+        default:
+          help:
+            - Pomocník pre obsluhu autorizácie nie je definovaný.
+            - Vývojár musí definovať pomocníka v prekladovom (i18n) kľúči "%{authorization_handler}"
+        dummy_authorization_handler:
+          help:
+            - Príklad obsluhy autorizácie, aby vývojári pochopili, ako funguje jednoduché overenie.
+            - Je určený pre vývojárov, aby pochopili, ako implementovať vlastný systém overovania.
+            - Nechajte sa overiť zadaním čísla dokladu končiaceho na "X".
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Príklad dočasnej obsluhy autorizácie, aby vývojári pochopili, ako funguje jednoduché overenie.
+            - Je určený pre vývojárov, aby pochopili, ako implementovať vlastný systém overovania.
+            - Je to kópia príkladu autorizácie.
+            - Nechajte sa overiť zadaním čísla dokladu končiaceho na "X".
         id_documents:
           help:
             - Užívatelia vyplní informácie o svojej identite a nahrajú kópiu dokumentu.
             - Vyplníte informácie obsiahnuté v nahranom obrázku.
             - Informácie by mali zodpovedať používateľovi, ktorý vyplnil.
-            - 
+            - Ak informácie nevidíte jasne alebo ich nemôžete overiť, môžete žiadosť zamietnuť a používateľ ju bude môcť opraviť.
         postal_letter:
           help:
             - Užívatelia požadujú, aby ich adresa bola odoslaná certifikačnému kódu.
             - Na adresu zasielate list s overovacím kódom.
             - Označte písmeno ako odoslaný.
             - Akonáhle označíte odoslanej písmeno, užívateľ bude schopný kód zadať a overiť.
+        sms:
+          help:
+            - Účastníci požiadajú o zaslanie overovacieho kódu na ich telefón.
+            - Na overenie musia zadať kód.
+            - Ak kód nedostanú, môžu oň požiadať znova.
       csv_census:
+        explanation: Nechajte sa overiť pomocou registra organizácie.
         name: Sčítanie organizácie
       direct: Priamo
       help: Pomoc
       id_documents:
+        explanation: Nahrajte svoje doklady totožnosti, aby sme mohli overiť vašu totožnosť.
         name: Doklady totožnosti
       multistep: Viac krokov
       name: názov
       postal_letter:
+        explanation: Pošleme vám list s kódom, ktorý budete musieť zadať, aby sme mohli overiť vašu adresu.
         name: Kód poštou
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_intro: Účastník <a href="%{resource_url}">%{resource_title}</a> sa pokúsil overiť údajmi iného účastníka (<a href="%{managed_user_url}">%{managed_user_name}</a>).
+          email_outro: Skontrolujte <a href="%{conflicts_url}">zoznam konfliktov overení</a> a kontaktujte účastníka, aby ste overili jeho údaje a vyriešili problém.
+          email_subject: Neúspešný pokus o overenie voči inému účastníkovi
+          notification_title: Účastník <a href="%{resource_path}">%{resource_title}</a> sa pokúsil overiť údajmi iného účastníka (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} vytvoril nový záznam v registri s e-mailom %{resource_email}"
+          delete: "%{user_name} odstránil záznam v registri s e-mailom %{resource_email}"
+          import: "%{user_name} importoval %{imported_count} záznamov do registra"
+          update: "%{user_name} aktualizoval záznam v registri s e-mailom %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Údaje ku tejto verifikácii:'
           no_data_stored: Žiadne uložené údaje.
         create:
           error: Pri vytváraní oprávnenia došlo k chybe.
+          success: Boli ste úspešne autorizovaní.
+          transferred: 'Na základe vašej autorizácie sme obnovili nasledujúce údaje o účasti:'
           unconfirmed: Potrebujete potvrdiť svoj e-mail, aby ste sa autorizovali.
         destroy:
           error: Počas rušenia autorizácie nastal problém.
+          success: Úspešne ste odstránili autorizáciu.
         index:
           expired_verification: Overovací kód vypršal
+          granted_verification: Udelené overenie
+          introduce_code: Zadajte kód
+          pending_verification: Čakajúce overenie
           show_renew_info: Kliknite na obnovenie verifikácie
+          subscribe: Odoberať
+          unauthorized_methods: Metódy overenia
         new:
           authorize: Odoslať
           authorize_with: Overte pomocou %{authorizer}
+          tos_agreement: Overením svojej totožnosti prijímate %{link}.
+        onboarding_pending:
+          completed_verifications: Boli ste úspešne autorizovaní, teraz môžete %{action} v %{resource_name}
+          granted_verifications: Udelené overenia
+          onboarding_message_html: Ste takmer pripravení na %{action} v <strong>%{resource_title}</strong> %{resource_name}. Overte svoj účet dokončením nasledujúcich autorizácií.
+          pending_admin_approval_verifications: Overenia čakajúce na schválenie administrátorom
+          pending_verifications: Čakajúce overenia
+          unauthorized: Nemáte oprávnenie na %{action} v tomto zdroji
         renew_modal:
           cancel: zrušenie
           continue: Pokračovať
+          info_renew: Ak chcete aktualizovať údaje, pokračujte v obnove.
           title: Obnoviť verifikáciu
         skip_verification: Môžete to teraz preskočiť a %{link}
         start_exploring: začať skúmať
       csv_census:
+        admin:
+          actions:
+            confirm_destroy: Naozaj chcete odstrániť tento záznam z registra?
+            destroy: Odstrániť
+            edit: Upraviť
+          census:
+            create_import:
+              error: Vyskytol sa problém pri importe registra.
+              no_user: Nenašiel sa žiadny používateľ
+              success: Úspešne sa importovalo %{count} položiek. Údaje spracovávame. Obnovte stránku o niekoľko minút, aby ste videli zmeny.
+            destroy:
+              success: Záznam z registra bol odstránený.
+            index:
+              empty: Neexistujú žiadne údaje v registri. Použite %{import_csv} na importovanie súboru CSV.
+              no_sign_in: Nikdy neprihlásený
+              no_user: Nenašiel sa žiadny používateľ
+              title: Aktuálne údaje registra
+            instructions:
+              body: Ak to chcete urobiť, musíte vstúpiť do správy systému a pridať autorizácie csv_census do organizácie
+              title: Pre túto organizáciu musíte aktivovať register CSV
+            last_login:
+              no_sign_in: Nikdy neprihlásený
+              no_user: Žiadny používateľ
+            new_import:
+              errors:
+                email_exists: E-mailová adresa %{email} už v organizácii %{organization} existuje.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Musí to byť súbor vo formáte CSV s iba jedným stĺpcom s e-mailovou adresou:'
+              submit: Nahrať súbor
+              title: Importovať údaje registra
+              upload_new_census: Nahrať nový register
+          census_records:
+            create_record:
+              success: Záznam do registra bol úspešne pridaný. Údaje spracovávame. Obnovte stránku o niekoľko minút, aby ste videli zmeny.
+            edit_record:
+              save: Uložiť
+              title: Upraviť záznam v registri
+            form:
+              email: E-mail
+            new_record:
+              save: Uložiť
+              title: Pridať nový záznam do registra
+            update_record:
+              invalid: Vyskytol sa problém pri aktualizácii záznamu v registri.
+              success: Záznam v registri bol úspešne aktualizovaný.
+          index:
+            add_new_record_button: Pridať nový záznam
+            authorized: Používateľ autorizovaný
+            fields:
+              actions: Akcie
+              created_at: Vytvorené
+              email: E-mail
+              user_authorized: Používateľ autorizovaný?
+            import_csv: Importovať CSV
+            no_authorized: Používateľ neautorizovaný
         authorizations:
           new:
             error: Váš účet nebol overený, alebo nie ste v sčítanie organizácie.
@@ -89,6 +235,15 @@ sk:
             few: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
             many: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
             other: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
+          user_postal_codes:
+            one: Účasť je obmedzená na účastníkov s PSČ %{postal_codes} a vaše PSČ je %{user_postal_code}.
+            few: 'Účasť je obmedzená na účastníkov s niektorým z nasledujúcich PSČ: %{postal_codes}. Vaše PSČ je %{user_postal_code}.'
+            many: 'Účasť je obmedzená na účastníkov s niektorým z nasledujúcich PSČ: %{postal_codes}. Vaše PSČ je %{user_postal_code}.'
+            other: 'Účasť je obmedzená na účastníkov s niektorým z nasledujúcich PSČ: %{postal_codes}. Vaše PSČ je %{user_postal_code}.'
+      errors:
+        invalid_emails: 'Nasledujúce e-mailové adresy sú neplatné: %{invalid_emails}.'
+        no_emails: Súbor musí obsahovať e-maily
+        wrong_number_columns: "Očakávalo sa %{expected} stĺpcov, ale našlo sa %{actual}."
       id_documents:
         admin:
           config:
@@ -97,13 +252,22 @@ sk:
               update: Aktualizácia
             update:
               error: Pri aktualizácii konfigurácie došlo k chybe.
+              success: Konfigurácia bola úspešne aktualizovaná.
           confirmations:
+            create:
+              error: Overenie sa nezhoduje. Skúste to znova alebo overenie zamietnite, aby ho účastník mohol opraviť.
+              success: Účastník bol úspešne overený.
             new:
               reject: Odmietnuť
+              title: Zadajte údaje z obrázka
               verify: Overte
           offline_confirmations:
+            create:
+              error: Overenie sa nezhoduje. Skúste to znova alebo povedzte účastníkovi, aby ho opravil.
+              success: Účastník bol úspešne overený.
             new:
               cancel: zrušenie
+              title: Zadajte e-mail účastníka a údaje z dokladu
               verify: Overte
           pending_authorizations:
             index:
@@ -111,47 +275,83 @@ sk:
               offline_verification: Overenie offline
               title: Čakajúci overenie online
               verification_number: 'Overenie #%{n}'
+          rejections:
+            create:
+              success: Overenie bolo zamietnuté. Účastník bude vyzvaný na opravu svojich dokladov.
         authorizations:
           choose:
             choose_a_type: 'Vyberte, ako chcete overiť:'
             offline: Offline
             online: Online
             title: Overte svoju identitu
+          create:
+            error: Vyskytol sa problém pri nahrávaní vášho dokladu.
+            success: Doklad bol úspešne nahraný.
           edit:
+            being_reviewed: Kontrolujeme vaše doklady. Čoskoro budete overení.
             offline: Použite overenie offline
             online: Používajte overenie online
+            rejection_clarity: Uistite sa, že informácie sú na nahranom obrázku jasne viditeľné.
+            rejection_correctness: Uistite sa, že zadané informácie sú správne.
+            rejection_notice: Vyskytol sa problém s vaším overením. Skúste to znova.
             send: Znovu požiadajte o overení
           new:
             send: Požiadajte o overenie
             title: Nahrajte svoj doklad totožnosti
+          update:
+            error: Vyskytol sa problém pri opätovnom nahrávaní vášho dokladu.
+            success: Doklad bol úspešne opätovne nahraný.
+        identification_number: Identifikačné číslo
         passport: Cestovný pas
       postal_letter:
         admin:
           pending_authorizations:
             index:
               address: Adresa
+              already_sent: Poštový list už bol odoslaný a nemôže byť znova označený ako odoslaný.
               letter_sent_at: List adresovaný na
               mark_as_sent: Označiť ako odoslané
               not_yet_sent: Doteraz nebola odoslaná
               title: Prebiehajúce overovanie
               username: Užívateľské meno
               verification_code: Overovací kód
+          postages:
+            create:
+              error: Chyba pri označovaní listu ako odoslaného.
+              success: List bol úspešne označený ako odoslaný.
         authorizations:
+          create:
+            error: Vyskytol sa problém s vašou požiadavkou.
+            success: Ďakujeme! Na vašu adresu pošleme overovací kód.
           edit:
             send: Potvrdiť
+            title: Zadajte overovací kód, ktorý ste dostali.
+            waiting_for_letter: Čoskoro vám na vašu adresu pošleme list s overovacím kódom.
           new:
             send: Pošlite mi list
             title: Požiadajte o overovací kód
+          update:
+            error: Váš overovací kód sa nezhoduje s naším. Prosím, skontrolujte list, ktorý sme vám poslali.
+            success: Gratulujeme. Boli ste úspešne overení.
       sms:
         authorizations:
+          create:
+            error: Vyskytol sa problém s vašou požiadavkou.
+            success: Ďakujeme! Poslali sme SMS na váš telefón.
+          destroy:
+            success: Overovací kód bol úspešne obnovený. Prosím, znova zadajte svoje telefónne číslo.
           edit:
             confirm_destroy: Naozaj chcete obnoviť overovací kód?
             destroy: Obnoviť overovací kód
+            resend: Nedostali ste overovací kód?
             send: Potvrdiť
             title: Zadajte overovací kód, ktorý ste obdržali
           new:
             send: Pošlite mi SMS
             title: Požiadajte o overovací kód
+          update:
+            error: Váš overovací kód sa nezhoduje s naším. Prosím, skontrolujte SMS, ktorú sme vám poslali.
+            success: Gratulujeme. Boli ste úspešne overení.
   errors:
     messages:
       uppercase_only_letters_numbers: musia byť všetky veľké a obsahujú iba písmená a / alebo čísla

@@ -51,6 +51,7 @@ fi:
             choose_census: Valitse henkilötietorekisterin tyyppi, jota haluat käyttää tälle vaalille
             created_at: Luonnin ajankohta
             identifier: Käyttäjän tunniste
+            title: Muokkaa vaalia
           preview:
             title:
               one: Esikatselulista on rajattu %{count} tietueeseen.

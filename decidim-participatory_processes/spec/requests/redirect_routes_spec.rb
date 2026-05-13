@@ -31,6 +31,12 @@ describe "Redirect routes" do
       expect(response).to redirect_to("/es/processes/foo-bar")
     end
 
+    it "redirects old url with query string" do
+      get("/processes?filter[scope]=all&page=2", headers:)
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/processes?filter[scope]=all&page=2")
+    end
+
     it "redirects user to the new url" do
       user = create(:user, :confirmed, organization:, locale: "ca")
       login_as user, scope: :user
@@ -49,6 +55,22 @@ describe "Redirect routes" do
       get("/processes?locale=es", headers:)
       expect(response).to have_http_status(:moved_permanently)
       expect(response).to redirect_to("/es/processes")
+    end
+  end
+
+  context "when requesting processes with a query string" do
+    it "redirects old url with query string" do
+      get("/processes?share_token=FOOBAR", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/processes?share_token=FOOBAR")
+    end
+
+    it "redirects old url with query string for nested paths" do
+      get("/processes/foo-bar?share_token=FOOBAR", headers:)
+
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/processes/foo-bar?share_token=FOOBAR")
     end
   end
 

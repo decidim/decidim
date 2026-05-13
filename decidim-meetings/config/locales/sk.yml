@@ -4,25 +4,72 @@ sk:
       close_meeting:
         attendees_count: Počet účastníkov
         attending_organizations: Zoznam organizácií, ktoré sa zúčastnili
+        audio_url: URL adresa zvuku
         closing_report: Minút
         closing_visible: Viditeľný
         contributions_count: Počet príspevkov
         proposal_ids: Návrhy vytvorené na schôdzi
+        video_url: URL adresa videa
       meeting:
         address: Adresa
         available_slots: Dostupné sloty pre toto stretnutie
+        customize_registration_email: Prispôsobiť registračný e-mail
         decidim_category_id: Kategória
         decidim_scope_id: Rozsah
         description: Popis
+        end_time: Čas ukončenia
+        id: ID
+        iframe_access_level: Úroveň prístupu Iframe
+        iframe_embed_type: Typ vloženia Iframe
+        iframe_embed_type_html: Iba niekoľko služieb umožňuje „Vložiť na stránku stretnutia“ alebo „Otvoriť na stránke živého podujatia“. Upozorňujeme, že pri možnosti „Vložiť na stránku stretnutia“ na mobilných zariadeniach, keďže obrazovka zdedí iné rozmery, to bude v skutočnosti fungovať ako „Otvoriť na stránke živého podujatia“.
         location: Umiestnenie
         location_hints: Tipy pre umiestnenie
+        online_meeting_url: URL adresa online stretnutia
+        organizer_gid: Vytvoriť ako
         organizer_id: Organizátor
         private_meeting: Súkromná schôdzka
+        registration_email_custom_content: Vlastný obsah registračného e-mailu
         registration_form_enabled: Registračný formulár je povolený
         registration_terms: Podmienky registrácie
+        registration_type: Typ registrácie
+        registration_url: URL adresa registrácie
         registrations_enabled: Registrácia povolené
+        reserved_slots: Vyhradené miesta pre toto stretnutie
+        start_time: Čas začiatku
         title: Názov
         transparent: Transparentné
+        type_of_meeting: Typ
+      meeting_agenda:
+        title: Názov
+        visible: Viditeľné
+      meeting_agenda_items:
+        description: Popis
+        duration: Trvanie
+        title: Názov
+      meeting_registration_invite:
+        email: E-mail
+        name: Meno
+      response:
+        add_documents: Pridať dokumenty
+      validate_registration_code:
+        code: Kód
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Túto URL adresu nie je možné vložiť na stránku stretnutia alebo živého podujatia.
+            online_meeting_url:
+              url_format: Musí to byť platná URL adresa
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Trvanie položiek presahuje trvanie stretnutia o %{count} minút.
+              too_many_minutes_child: Trvanie podpoložiek presahuje trvanie nadradenej položky programu „%{parent_title}“ o %{count} minút.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Tento e-mailový účet už bol pozvaný.
     models:
       decidim/meetings/close_meeting_event: Stretnutie uzavreté
       decidim/meetings/create_meeting_event: Stretnutie
@@ -32,6 +79,10 @@ sk:
       decidim/meetings/update_meeting_event: Stretnutie aktualizované
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Diskutovalo sa o tom na tomto stretnutí: %{link}'
       decidim/meetings/meeting:
         one: Stretnutie
         few: Stretnutia
@@ -49,27 +100,118 @@ sk:
         other: Registrácie
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Stretnutia
+      filters:
+        accepted_at_not_null:
+          label: Prijaté
+          values:
+            'false': Neprijaté
+            'true': Prijaté
+        meetings:
+          closed_at_present:
+            label: Stav
+            values:
+              'false': Otvorené
+              'true': Zatvorené
+          is_upcoming_true:
+            label: Dátum
+            values:
+              'false': Minulé
+              'true': Nadchádzajúce
+          taxonomies_part_of_contains:
+            label: Taxonómia
+          with_any_origin:
+            label: Pôvod
+            values:
+              official: Oficiálne
+              participants: Účastník
+          with_any_type:
+            label: Typ stretnutia
+            values:
+              hybrid: Hybridné
+              in_person: Prezenčné
+              online: Online
+        rejected_at_not_null:
+          label: Zamietnuté
+          values:
+            'false': Nezamietnuté
+            'true': Zamietnuté
+        search_placeholder:
+          user_name_or_user_email_cont: Hľadať podľa mena alebo e-mailu
+        sent_at_not_null:
+          label: Odoslané
+          values:
+            'false': Neodoslané
+            'true': Odoslané
       meeting_copies:
         create:
           error: Bolo tu chyba, že sa toto stretnutie zdvojnásobila.
           success: Duplicitné schôdzka úspešne.
         new:
           copy: kopírovať
+      tooltips:
+        cannot_close_meetings: Toto stretnutie nie je možné zatvoriť, pretože ho vytvoril účastník
+        cannot_duplicate_meetings: Toto stretnutie nie je možné duplikovať, pretože ho vytvoril účastník
+        cannot_edit_meetings: Toto stretnutie nie je možné upraviť, pretože ho vytvoril účastník
+        cannot_manage_agenda_meetings: V tomto stretnutí nie je možné spravovať program, pretože ho vytvoril účastník
+        cannot_manage_attachments_meetings: V tomto stretnutí nie je možné spravovať prílohy, pretože ho vytvoril účastník
+        cannot_manage_poll_meetings: V tomto stretnutí nie je možné spravovať anketu, pretože ho vytvoril účastník
+        cannot_manage_registrations_meetings: Na tomto stretnutí nie je možné spravovať registrácie, pretože ho vytvoril účastník, má zakázané registrácie alebo sú tieto registrácie externé
+        cannot_mark_attendee: Nie je možné označiť ako účastníka, pretože už bol označený
+        deleted_meetings_info: Toto stretnutie nie je možné odstrániť, pretože ho vytvoril účastník.
     components:
       meetings:
         actions:
+          comment: Komentovať
           join: Pridať sa
+          reply_poll: Odpovedať na anketu
+          vote_comment: Hlasovať za komentár
         name: Stretnutie
         settings:
           global:
             announcement: Oznámenie
+            clear_all: Vymazať všetko
             comments_enabled: Komentáre povolené
+            comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
+            creation_enabled_for_participants: Účastníci môžu vytvárať stretnutia
             default_registration_terms: Východiskové podmienky registrácia
+            define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             enable_pads_creation: Povoliť vytvorenie zdieľaného texte
+            maps_enabled: Mapy povolené
+            no_taxonomy_filters_found: Nenašli sa žiadne taxonomické filtre.
+            registration_code_enabled: Registračný kód a QR povolené
             resources_permissions_enabled: Nastavenie povolení možno nastaviť pre každú schôdzku
+            taxonomy_filters: Vyberte filtre pre komponent
+            taxonomy_filters_add: Pridať filter
+            terms_and_conditions_url_for_meeting_creators: URL adresa podmienok pre tvorcov stretnutí
           step:
             announcement: Oznámenie
             comments_blocked: Komentáre blokované
+            creation_enabled_for_participants: Vytváranie stretnutí účastníkmi je povolené
+    download_your_data:
+      help:
+        invites:
+          accepted_at: Dátum a čas prijatia tejto pozvánky
+          created_at: Dátum a čas vytvorenia tejto pozvánky
+          id: Jedinečný identifikátor tejto pozvánky
+          meeting: Stretnutie, na ktoré sa vzťahuje táto pozvánka
+          rejected_at: Dátum a čas zamietnutia tejto pozvánky
+          sent_at: Dátum a čas odoslania tejto pozvánky
+          updated_at: Dátum a čas poslednej aktualizácie tejto pozvánky
+        registrations:
+          code: Registračný kód
+          created_at: Dátum a čas vytvorenia tejto registrácie
+          id: Jedinečný identifikátor registrácie
+          meeting: Stretnutie, na ktoré sa používateľ zaregistroval
+          public_participation: Či bola táto účasť zobrazená verejne
+          updated_at: Dátum a čas poslednej aktualizácie tejto registrácie
+          user: Používateľ, ktorý vykonal registráciu
+          validated_at: Dátum a čas overenia tejto registrácie
+      show:
+        meeting_comments: Export komentárov k stretnutiam
+        meetings: Export stretnutí
     events:
       meetings:
         meeting_closed:
@@ -84,6 +226,7 @@ sk:
             email_subject: Schôdzka "%{resource_title}" bola uzavretá
             notification_title: Schôdzka <a href="%{resource_path}">%{resource_title} </a> bola uzavretá.
         meeting_created:
+          button_text: Zaregistrovať sa na stretnutie
           email_intro: Schôdzka "%{resource_title}" bola pridaná k "%{participatory_space_title}", ktorú sledujete.
           email_outro: Toto oznámenie ste dostali, pretože sledujete "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Nové stretnutia boli pridané k%{participatory_space_title}
@@ -96,18 +239,41 @@ sk:
           email_subject: Schôdzky obsadené schôdzkou "%{resource_title}" sú nad%{percentage}%
           notification_title: Počet obsadených slotov <a href="%{resource_path}">%{resource_title} </a> je vyššia ako%{percentage}%.
         meeting_updated:
+          email_intro: 'Stretnutie „%{resource_title}“ bolo aktualizované so zmenami v %{changed_fields}. Novú verziu si môžete prečítať na jeho stránke:'
           email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Schôdzka "%{resource_title}" bola aktualizovaná
+          field_names:
+            address: adresa
+            end_time: čas ukončenia
+            location: miesto
+            start_time: čas začiatku
+          notification_title: Stretnutie <a href="%{resource_path}">%{resource_title}</a> bolo aktualizované so zmenami v %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: Boli ste pridaný/á na čakaciu listinu pre stretnutie <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: Váš registračný kód "%{registration_code}" pre stretnutie "%{resource_title}" bol overený.
           email_outro: Toto oznámenie ste dostali, pretože bol overený váš registračný kód pre schôdzku "%{resource_title}".
           email_subject: Váš registračný kód "%{registration_code}" pre stretnutie "%{resource_title}" bol overený
           notification_title: Váš registračný kód "%{registration_code}" pre stretnutie <a href="%{resource_path}">%{resource_title} </a> bol overený.
+        registration_marked_as_attendee:
+          email_intro: Vaša registrácia na stretnutie „%{resource_title}“ bola označená ako účastník.
+          email_outro: Toto upozornenie ste dostali, pretože vaša registrácia na stretnutie „%{resource_title}“ bola označená ako účastník.
+          email_subject: Vaša registrácia na stretnutie „%{resource_title}“ bola označená ako účastník
+          notification_title: Vaša registrácia na stretnutie <a href="%{resource_path}">%{resource_title}</a> bola označená ako účastník.
         registrations_enabled:
           email_intro: 'Schôdzka "%{resource_title}" povolila registrácie. Môžete sa zaregistrovať na svojej stránke: '
           email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Schôdzka "%{resource_title}" povolila registrácie.
           notification_title: Schôdzka <a href="%{resource_path}">%{resource_title} </a> povolila registrácie.
+        upcoming_meeting:
+          default_body: Stretnutie „{{meeting_title}}“ sa začne o menej ako {{before_hours}} h.
+          email_intro: Stretnutie „%{resource_title}“ sa začne o menej ako %{reminders_before_hours} h.
+          email_outro: Toto upozornenie ste dostali, pretože sledujete stretnutie %{resource_title}. Sledovanie môžete zrušiť pomocou predchádzajúceho odkazu.
+          email_subject: Stretnutie „%{resource_title}“ sa začne o menej ako %{reminders_before_hours} h.
+          notification_title: Stretnutie <a href="%{resource_path}">%{resource_title}</a> sa začne o menej ako %{reminders_before_hours} h.
+    forms:
+      meetings:
+        attendees_count_help_text: Nezabudnite uviesť celkový počet účastníkov vášho stretnutia, či už osobne, online alebo hybridne.
     gamification:
       badges:
         attended_meetings:
@@ -118,14 +284,29 @@ sk:
           description_own: Zúčastnili ste sa %{score} stretnutí.
           name: Stretnutia, ktorých ste sa zúčastnili
           next_level_in: Zúčastnite sa ďalších %{score} stretnutí pre dosiahnutie ďalšej úrovne!
+          unearned_another: Tento účastník sa zatiaľ nezúčastnil žiadneho stretnutia.
+          unearned_own: Zatiaľ ste sa nezúčastnili žiadneho stretnutia.
     meetings:
       actions:
         agenda: Denný program
         close: Zavrieť
+        confirm_delete_meeting: Naozaj chcete odstrániť toto stretnutie?
+        confirm_unpublish_meeting: Naozaj chcete zrušiť publikovanie tohto stretnutia?
+        deleted_meetings_info: Odstránené stretnutia je možné obnoviť z koša.
         edit: Upraviť
+        invalid_destroy:
+          proposals_count:
+            one: 'Stretnutie nie je možné odstrániť, pretože je s ním spojený %{count} návrh:'
+            few: 'Stretnutie nie je možné odstrániť, pretože sú s ním spojené %{count} návrhy:'
+            many: 'Stretnutie nie je možné odstrániť, pretože je s ním spojených %{count} návrhov:'
+            other: 'Stretnutie nie je možné odstrániť, pretože je s ním spojených %{count} návrhov:'
+        manage_poll: Spravovať anketu
+        mark_as_attendee: Označiť ako účastníka
+        new_meeting: Nové stretnutie
         preview: Náhľad
         registrations: Registrácia
         title: Akcia
+        view_deleted_meetings: Zobraziť odstránené stretnutia
       admin:
         agenda:
           agenda_item:
@@ -140,6 +321,9 @@ sk:
             down: Dole
             remove: Odstrániť
             up: Hore
+          create:
+            invalid: Pri vytváraní tohto programu sa vyskytol problém.
+            success: Program bol úspešne vytvorený.
           edit:
             title: Upraviť agendu
             update: Aktualizácia
@@ -151,9 +335,15 @@ sk:
           new:
             create: Vytvoriť
             title: Nová agenda
+          update:
+            invalid: Pri aktualizácii tohto programu sa vyskytol problém.
+            success: Program bol úspešne aktualizovaný.
+        deprecation_warning_polls_html: "⚠️ <b>Upozornenie na ukončenie podpory.</b> Funkcia Ankety bude v budúcej verzii (bude určené) odstránená. Organizácie, ktoré používajú ankety na stretnutiach, by mali plánovať používanie externých nástrojov na anketovanie (napríklad prostredníctvom Jitsi) alebo prejsť na iné mechanizmy hlasovania dostupné v systéme Decidim, ako je napríklad nový modul Voľby (`decidim-elections`)."
         exports:
+          meeting_comments: Komentáre
           meetings: Stretnutie
           registrations: Registrácia
+          responses: Odpovede
         invite_join_meeting_mailer:
           invite:
             decline: Odmietnuť pozvanie
@@ -172,21 +362,68 @@ sk:
             select_user: Vyberte používateľa
           index:
             invites: Pozvánky
+            registrations_disabled: Nemôžete pozvať účastníka, pretože registrácie sú zakázané.
+            title: Pozvať účastníka
         meeting_closes:
           edit:
             close: Zavrieť
             title: Zatvorte schôdzku
+        meeting_copies:
+          new:
+            title: Duplikovať stretnutie
         meetings:
+          close:
+            invalid: Pri uzatváraní tohto stretnutia sa vyskytol problém.
+            success: Stretnutie bolo úspešne uzavreté.
+          component:
+            unlink: Zrušiť prepojenie
+          create:
+            invalid: Pri vytváraní tohto stretnutia sa vyskytol problém.
+            success: Stretnutie bolo úspešne vytvorené. Upozorňujeme, že zatiaľ nie je publikované, musíte ho publikovať manuálne.
           edit:
+            title: Upraviť stretnutie
             update: Aktualizácia
           form:
             address_help: 'Adresa: použitý Geocoder pre nájdenie polohy'
+            disclaimer: 'Zrieknutie sa zodpovednosti: Použitím externého registračného systému beriete na vedomie, že organizátori %{organization} nezodpovedajú za údaje poskytnuté používateľmi externej službe.'
+            iframe_embed_type_html: 'Iba niekoľko služieb umožňuje vkladanie do stretnutia alebo živej udalosti z nasledujúcich domén: %{domains}'
             location_help: 'Poloha: správa určená užívateľom, ktorí odovzdávajú miesto, aby sa stretli'
+            location_hints_help: 'Tipy k miestu: ďalšie informácie. Príklad: poschodie budovy, ak ide o osobné stretnutie, alebo heslo stretnutia, ak ide o online stretnutie s obmedzeným prístupom.'
+            online_meeting_url_help: 'Odkaz: umožnite účastníkom pripojiť sa priamo k vášmu stretnutiu'
+            registration_url_help: 'Odkaz: umožnite účastníkom prejsť na externú službu, ktorú používate na registrácie'
+            select_a_meeting_type: Vyberte typ stretnutia
+            select_a_registration_type: Vyberte typ registrácie
+            select_an_iframe_access_level: Vyberte úroveň prístupu pre iframe
           index:
+            linked_meeting_warning_html: Toto stretnutie je potrebné upraviť z <br><a href="%{href}">%{name}</a>
+            published: Publikované
             title: Stretnutie
+            unpublished: Nepublikované
+          linked_spaces:
+            assign: Priradiť
+            link_a_space: Prepojiť priestor
+            private_meeting_warning: Prepojené priestory sa nepoužijú, ak je stretnutie súkromné a netransparentné.
+            restricted_space_warning: Prepojené priestory sa nepoužijú, ak stretnutie patrí do priestoru s obmedzeným prístupom.
+            select: Vyberte priestor
+            table:
+              actions: Akcie
+              component: Prepojené priestory
+            title: Prepojené priestory
+          manage_trash:
+            title: Odstránené stretnutia
           new:
             create: Vytvoriť
             title: Vytvorte schôdzku
+          publish:
+            invalid: Pri publikovaní tohto stretnutia sa vyskytol problém.
+            success: Stretnutie bolo úspešne publikované.
+          reminders:
+            reminder_enabled: Odoslať pripomienku na toto stretnutie
+            reminder_message: Obsah e-mailu s pripomienkou
+            reminder_message_help_text: Prispôsobte si správu podľa potreby. Použite {{meeting_title}} na zobrazenie názvu stretnutia.
+            send_reminder: Naplánovaný e-mail s pripomienkou
+            send_reminder_help_text: Čas pripomienky v hodinách pred stretnutím.
+            title: Pripomienky
           service:
             description: Popis
             down: Dole
@@ -197,23 +434,63 @@ sk:
           services:
             add_service: Pridať službu
             services: Služby
+          unpublish:
+            invalid: Pri zrušení publikovania tohto stretnutia sa vyskytol problém.
+            success: Publikovanie stretnutia bolo úspešne zrušené.
+          update:
+            invalid: Pri aktualizácii tohto stretnutia sa vyskytol problém.
+            success: Stretnutie bolo úspešne aktualizované.
+        meetings_poll:
+          form:
+            title: Upraviť dotazník ankety pre %{questionnaire_for}
+          update:
+            invalid: Pri aktualizácii tejto ankety stretnutia sa vyskytol problém.
+            success: Anketa stretnutia bola úspešne aktualizovaná.
+        poll:
+          edit:
+            title: Upraviť anketu
+          form:
+            announcement_html:
+              - Keď otázka získa odpovede alebo je publikovaná/uzavretá, už ju nie je možné upravovať.
+              - Otázku môžete pridať kedykoľvek.
+              - Anketa bude uzavretá, keď budú publikované výsledky všetkých vytvorených otázok.
+              - Navštívte <a href='%{admin_link}'>stránku správy ankety</a>, kde môžete odosielať otázky a publikovať výsledky.
+        registration_form:
+          edit_questions:
+            title: Upraviť otázky
         registrations:
           edit:
             save: Uložiť
+            title: Registrácie
           form:
             available_slots_help: Nechajte to na 0, ak máte k dispozícii neobmedzené sloty.
             invites: Pozvánky
+            manage_questions: Otázky
             recommendation_message: Z dôvodov zachovania súkromia odporúčame, aby ste vymazali tento prihlasovací formulár, ak ho už nepoužívate. Podľa nastavenia sa vymaže 3 mesiace po ukončení stretnutia.
+            registration_email_help: Tento text sa zobrazí v strede e-mailu s potvrdením registrácie. Hneď za registračným kódom.
             registration_form: Registračný formulár
+            registrations: Zobraziť registrácie
             registrations_count:
               one: Bola tu registrácia%{count}.
               few: Bolo tu%{count} registrácií.
               many: Bolo tu%{count} registrácií.
               other: Bolo tu%{count} registrácií.
+            reserved_slots_help: Ponechajte 0, ak nemáte vyhradené miesta.
             reserved_slots_less_than: Musí byť menšie alebo rovné%{count}
           update:
             invalid: Vyskytol sa problém pri ukladaní nastavení registrácie.
             success: Nastavenie úspešných registráciou bolo úspešne uložené.
+        registrations_attendees:
+          index:
+            title: Registrácie
+            validate: Overiť
+            validate_registration_code: Overiť registračný kód
+          mark_attendee:
+            invalid: Registrácia už bola označená ako zúčastnená.
+            success: Registrácia bola úspešne označená ako zúčastnená.
+          validate_registration_code:
+            invalid: Tento registračný kód je neplatný.
+            success: Registračný kód bol úspešne overený.
       admin_log:
         invite:
           create: "% {USER_NAME} pozval% {attendee_name} aby sa pripojil ku% {resource_name} schôdzke na% {space_name} priestoru"
@@ -224,19 +501,59 @@ sk:
           create: "% {USER_NAME} vytvorila% {resource_name} schôdzku v priestore% {space_name}"
           delete: "% {USER_NAME} zmazala% {resource_name} schôdzku v priestore% {space_name}"
           export_registrations: "% {USER_NAME} exportoval registráciu% {resource_name} schôdzky na% {space_name} priestoru"
+          restore: "%{user_name} obnovil/a stretnutie %{resource_name} v priestore %{space_name}"
+          soft_delete: "%{user_name} presunul/a stretnutie %{resource_name} v priestore %{space_name} do koša"
           update: "% {USER_NAME} aktualizovalo% {resource_name} schôdzku v priestore% {space_name}"
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebol nájdený v databáze (ID:%{id})'
+        questionnaire:
+          update: "%{user_name} aktualizoval/a dotazník pre stretnutie %{meeting_name}"
+      application_helper:
+        filter_meeting_space_values:
+          all: Všetky
+      calendar:
+        meeting_to_event:
+          read_more: Prečítajte si viac o tomto stretnutí
       calendar_modal:
         calendar_url: URL kalendára
+        copy_calendar_url: Kopírovať
+        copy_calendar_url_clarification: Kopírovať URL kalendára do schránky
+        copy_calendar_url_copied: Skopírované!
+        copy_calendar_url_description: Všetky zverejnené stretnutia si môžete pozrieť vo svojej aplikácii kalendára alebo u poskytovateľa. Skopírujte a vložte túto URL adresu do svojho kalendára pomocou možnosti „Pridať nový kalendár z URL“.
+        copy_calendar_url_explanation: Upozorňujeme, že exportujete výber stretnutí, pretože sú aktívne filtre. Ak ich chcete exportovať všetky, najprv zrušte všetky filtre.
+        copy_calendar_url_message: URL adresa bola úspešne skopírovaná do schránky.
         export_calendar: Exportovať kalendár
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: Stretnutie <a href="%{meeting_path}">„%{meeting_title}“</a> čaká na uzavretie. Pridajte správu zo stretnutia pomocou tlačidla „Uzavrieť stretnutie“.
+          greetings: S pozdravom,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Dobrý deň %{username},
+          subject: Teraz môžete uzavrieť stretnutie „%{meeting_title}“ so správou
       conference_venues: Konferenčné priestory
+      content_blocks:
+        upcoming_meetings:
+          name: Nadchádzajúce stretnutia
       directory:
         meetings:
           index:
             meetings: Stretnutie
             space_type: Zúčastňujú priestor
+      iframe_access_level:
+        all: Všetci návštevníci
+        registered: Registrovaní účastníci tohto stretnutia
+        signed_in: Iba prihlásení účastníci
+      iframe_embed_type:
+        embed_in_meeting_page: Vložiť na stránku stretnutia
+        none: Žiadne
+        open_in_live_event_page: Otvoriť na stránke živého podujatia
+        open_in_new_tab: Otvoriť URL v novej karte
+      last_activity:
+        meeting_updated: 'Stretnutie bolo aktualizované:'
+        new_meeting: 'Nové stretnutie:'
+      layouts:
+        live_event:
+          close: zavrieť
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -244,13 +561,87 @@ sk:
         registration_mailer:
           confirmation:
             subject: Registrácia schôdzky bola potvrdená
+      meeting:
+        not_allowed: Nemáte povolenie na zobrazenie tohto stretnutia.
+      meeting_closes:
+        edit:
+          back: Späť
+          close: Uzavrieť stretnutie
+          title: Uzavrieť stretnutie
       meetings:
+        calendar_modal:
+          add_to_calendar: Pridať do kalendára
+          apple: Pridať do Apple kalendára
+          full_details_html: Pre všetky podrobnosti prejdite na %{link}
+          google: Pridať do Google kalendára
+          outlook: Pridať do Outlook kalendára
+        count:
+          meetings_count:
+            one: "%{count} stretnutie"
+            few: "%{count} stretnutia"
+            many: "%{count} stretnutí"
+            other: "%{count} stretnutí"
+        create:
+          invalid: Pri vytváraní tohto stretnutia sa vyskytol problém.
+          success: Stretnutie ste úspešne vytvorili.
+        edit:
+          back: Späť
+          title: Upraviť vaše stretnutie
+          update: Aktualizovať
         filters:
+          activity: Moja aktivita
+          all: Všetky
           category: Kategória
           date: dátum
+          date_values:
+            all: Všetky
+            past: Minulé
+            upcoming: Nadchádzajúce
+          my_meetings: Moje stretnutia
+          origin: Pôvod
+          origin_values:
+            all: Všetky
+            official: Oficiálne
+            participants: Účastníci
           search: Vyhľadávanie
+          type: Typ
+          type_values:
+            all: Všetky
+            hybrid: Hybridné
+            in_person: Osobné
+            online: Online
+        form:
+          address_help: 'Adresa: používa Geocoder na nájdenie polohy'
+          available_slots_help: Ponechajte 0, ak máte k dispozícii neobmedzený počet miest
+          disclaimer: 'Zrieknutie sa zodpovednosti: Použitím externého registračného systému si uvedomujete, že organizátori %{organization} nezodpovedajú za údaje poskytnuté používateľmi externej službe.'
+          iframe_embed_type_html: 'Iba niekoľko služieb umožňuje vloženie do stretnutia alebo živého podujatia z nasledujúcich domén: %{domains}'
+          location_help: 'Miesto: správa pre používateľov označujúca miesto stretnutia'
+          location_hints_help: 'Tipy k miestu: doplňujúce informácie. Príklad: poschodie budovy, ak ide o osobné stretnutie, alebo heslo stretnutia, ak ide o online stretnutie s obmedzeným prístupom.'
+          online_meeting_url_help: 'Odkaz: umožnite účastníkom pripojiť sa priamo k vášmu stretnutiu'
+          registration_url_help: 'Odkaz: umožnite účastníkom prejsť na externú službu, ktorú používate na registrácie'
+          select_a_meeting_type: Vyberte typ stretnutia
+          select_a_registration_type: Vyberte typ registrácie
+          select_an_iframe_access_level: Vyberte úroveň prístupu pre iframe
+        index:
+          click_here: Zobraziť všetky stretnutia
+          new_meeting: Nové stretnutie
+          see_all: Zobraziť všetky stretnutia
+          see_all_withdrawn: Zobraziť všetky stiahnuté stretnutia
+          text_banner: Prezeráte si zoznam stretnutí stiahnutých ich autormi. %{go_back_link}.
+        meeting:
+          close_meeting: Uzavrieť
+          edit_close_meeting: Upraviť správu zo stretnutia
+          edit_meeting: Upraviť
+          join_meeting: Pripojiť sa k stretnutiu
+          reply_poll: Odpovedať na anketu
+          view_poll: Zobraziť anketu
         meetings:
+          no_meetings_warning: Žiadne stretnutia nezodpovedajú vašim kritériám vyhľadávania alebo nie je naplánované žiadne stretnutie.
           upcoming_meetings_warning: V súčasnosti neexistujú žiadne plánované schôdzky, ale nájdete tu všetky minulé stretnutia.
+        new:
+          back: Späť
+          create: Vytvoriť
+          title: Vytvoriť nové stretnutie
         registration_confirm:
           cancel: Zrušiť
           confirm: Potvrdiť
@@ -258,9 +649,23 @@ sk:
           attendees: Počet účastníkov
           contributions: Počet príspevkov
           join: Pripojte sa k stretnutie
+          join_waitlist: Pridať sa na čakaciu listinu
+          leave: Zrušiť vašu registráciu
+          leave_confirmation: Naozaj chcete zrušiť svoju registráciu na toto stretnutie?
+          leave_waitlist: Opustiť čakaciu listinu
+          leave_waitlist_confirmation: Naozaj chcete opustiť čakaciu listinu na toto stretnutie?
+          link_available_soon: Odkaz bude čoskoro k dispozícii
+          link_closed: Odkaz na pripojenie k stretnutiu bude k dispozícii niekoľko minút pred jeho začiatkom
+          live_event: Toto stretnutie práve prebieha
           meeting_minutes: Zápisnica z porady
+          micro_camera_permissions_warning: Po kliknutí na tlačidlo nižšie budete požiadaní o povolenie pre mikrofón a/alebo kameru a pripojíte sa k videokonferencii
           no_slots_available: Žiadne sloty nie sú k dispozícii
           organizations: Účastnícke organizácie
+          pending_address: Miesto bude čoskoro oznámené.
+          redirect_notice: Toto stretnutie je súčasťou iného priestoru, takže ste boli presunutí do %{current_space_name}. <br>Ak chcete, môžete sa vrátiť do <a href="%{previous_space_url}">%{previous_space_name}</a>.
+          registration_and_qr_code: Registrácia a QR kód
+          registration_code: 'Registračný kód: %{code}'
+          registration_code_help_text: Vaša registrácia a QR kód
           registration_state:
             validated: DOKÁZANÝ
             validation_pending: OVERENIE ČAKÁ NA SCHVÁLENIE
@@ -269,6 +674,16 @@ sk:
             few: "%{count} zostávajúcich blokov"
             many: "%{count} zostávajúcich blokov"
             other: "%{count} zostávajúcich blokov"
+          visit_finished: Zobraziť minulé stretnutie
+          waitlist:
+            description: Ak sa uvoľní miesto, vašu registráciu automaticky spracujeme a upozorníme vás e-mailom.
+            status: Ste na čakacej listine
+          withdraw_btn_hint: Ak zmeníte názor, môžete svoje stretnutie stiahnuť. Stretnutie sa nevymaže, zobrazí sa v zozname stiahnutých stretnutí.
+          withdraw_confirmation_html: Naozaj chcete stiahnuť toto stretnutie?<br><br><strong>Túto akciu nie je možné zrušiť!</strong>
+          withdraw_meeting: Stiahnuť
+        update:
+          invalid: Pri aktualizácii stretnutia sa vyskytol problém.
+          success: Stretnutie ste úspešne aktualizovali.
       models:
         invite:
           fields:
@@ -285,25 +700,161 @@ sk:
             closed: Zatvorené
             end_time: Dátum ukončenia
             map: Mapa
+            official_meeting: Oficiálne stretnutie
+            published: Publikované
             start_time: Dátum začatia
+            taxonomies: Taxonómie
             title: Titul
+        registration:
+          actions: Akcie
+          fields:
+            email: E-mail
+            name: Meno
+            status: Stav
+          status:
+            attended: Zúčastnil sa
+            not_attended: Nezúčastnil sa
+      polls:
+        questions:
+          closed_question:
+            announcement: Odpovede na túto otázku boli uzavreté.
+            question: Otázka
+            question_results: Výsledky
+          index:
+            empty_questions: Počas tohto stretnutia budú odoslané niektoré otázky a budete na ne môcť odpovedať. Zobrazia sa tu.
+          index_admin:
+            edit: Upraviť v paneli správcu
+            question: Otázka
+            received_response: prijatá odpoveď
+            received_responses: prijaté odpovede
+            results: Výsledky
+            send: Odoslať
+            sent: Odoslané
+            statuses:
+              closed: Výsledky odoslané (uzavreté)
+              published: Odoslané (otvorené)
+              unpublished: Čaká na odoslanie
+          published_question:
+            max_choices_alert: Je vybratých príliš veľa možností
+            question: Otázka
+            question_replied: Otázka zodpovedaná
+            reply_question: Odpovedať na otázku
+        responses:
+          index:
+            administrate: Spravovať
+            title: Anketa
+          index_admin:
+            back_to_meeting: Späť na stretnutie
+            title: Spravovať anketu
+            view_poll: Zobraziť anketu
+      public_participants_list:
+        attending_participants: Účastníci
+        hidden_participants_count:
+          one: a %{count} ďalšia osoba
+          few: a %{count} ďalšie osoby
+          many: a %{count} ďalších osôb
+          other: a %{count} ďalších osôb
+        show_less: Zobraziť menej
+        show_more: Zobraziť viac
       read_more: "(Prečítajte si viac)"
       registration_mailer:
         confirmation:
           confirmed_html: Vaša registrácia pre stretnutie <a href="%{url}">%{title} </a> bola potvrdená.
           details: Podrobnosti schôdzky nájdete v prílohe.
+          registration_code: Váš registračný kód je %{code}. Ukážte nasledujúci QR kód administrátorovi na potvrdenie vašej účasti.
+      registration_type:
+        on_different_platform: Na inej platforme
+        on_this_platform: Na tejto platforme
+        registration_disabled: Registrácia zakázaná
       registrations:
         create:
           invalid: Na schôdzi došlo k problému.
+          success: Úspešne ste sa pripojili k stretnutiu. Keďže ste sa na toto stretnutie zaregistrovali, budete upozornení na prípadné aktualizácie.
         decline_invitation:
           invalid: Vyskytol sa problém s odmietnutím pozvánky.
           success: Odmietli ste pozvánku úspešne.
         destroy:
           invalid: Pri stretnutí došlo k problému.
           success: Zasadnutie ste úspešne opustili.
+        waitlist:
+          invalid: Pri pripájaní na čakaciu listinu sa vyskytol problém.
+          success: Úspešne ste sa pripojili na čakaciu listinu stretnutia. Budete upozornení, ak bude vaša registrácia úspešne zabezpečená.
+      type_of_meeting:
+        hybrid: Hybridné
+        in_person: Osobne
+        online: Online
       types:
         private_meeting: Privátne stretnutie
         transparent: Priehľadný
+        withdraw: Stiahnuté
+      withdraw:
+        error: Pri sťahovaní stretnutia sa vyskytol problém.
+        success: Stretnutie bolo úspešne stiahnuté.
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Či bol tento komentár za, proti alebo neutrálny
+          author: Meno účastníka, ktorý pridal tento komentár
+          body: Samotný komentár
+          commentable_id: Jedinečné ID komentovateľného objektu
+          commentable_type: Typ komentovateľného objektu (či to bol výsledok, návrh atď.)
+          comments: Údaje o komentároch stretnutia
+          created_at: Dátum vytvorenia tohto komentára
+          depth: Miesto, kde sa tento komentár nachádza v strome komentárov (či ide o odpoveď alebo odpoveď na odpoveď)
+          id: ID tohto komentára
+          locale: Jazyk, ktorý mal účastník nastavený pri zanechaní tohto komentára
+          root_commentable_url: URL adresa zdroja, ktorý sa viaže k tomuto komentáru
+        meetings:
+          address: Adresa stretnutia v prípade, že je osobné a má fyzické miesto
+          attachments: Počet príloh v tomto stretnutí
+          attendees: Počet ľudí zúčastňujúcich sa tohto stretnutia
+          attending_organizations: Organizácie zúčastňujúce sa stretnutia
+          audio_url: Zvukový záznam zo stretnutia
+          author: Údaje o autorovi tohto stretnutia
+          available_slots: Počet voľných miest na stretnutí
+          closed_at: Dátum ukončenia stretnutia
+          closing_report: Správa z uzavretého stretnutia
+          closing_visible: Viditeľnosť stretnutia
+          comments: Údaje o komentároch stretnutia
+          component: Komponent, do ktorého stretnutie patrí
+          contributions: Počet príspevkov na tomto stretnutí od účastníkov
+          created_at: Dátum vytvorenia stretnutia
+          customize_registration_email: Možnosť povoliť vlastný e-mail pri registrácii
+          decidim_author_type: Typ autora stretnutia
+          description: Popis stretnutia
+          end_time: Dátum a čas ukončenia tohto stretnutia
+          follows_count: Počet sledovaní stretnutia
+          id: Jedinečný identifikátor stretnutia
+          iframe_access_level: Úroveň prístupu iframe stretnutia
+          iframe_embed_type: Typ iframe vloženého do stretnutia
+          latitude: Zemepisná šírka stretnutia
+          location: Miesto stretnutia
+          location_hints: Nápoveda k miestu, kde sa stretnutie koná
+          longitude: Zemepisná dĺžka stretnutia
+          online_meeting_url: URL adresa online stretnutia
+          organizations: Organizácie, ktoré sa zúčastňujú tohto stretnutia
+          participatory_space: Do ktorého priestoru (napr. participatívny proces alebo zhromaždenie) toto stretnutie patrí
+          private_meeting: Na označenie, či je stretnutie súkromné alebo nie
+          published: Kedy bolo stretnutie zverejnené
+          reference: Jedinečný identifikátor zdroja na tejto platforme
+          registration_form_enabled: Či bol registračný formulár povolený alebo nie
+          registration_terms: Podmienky dohodnuté pred účasťou na stretnutí
+          registration_type: Typ registrácie na stretnutie
+          registration_url: URL adresa registrácie na stretnutie
+          registrations_enabled: Či boli povolené registrácie
+          related_proposals: Návrhy súvisiace s týmto stretnutím
+          related_results: Výsledky súvisiace s týmto stretnutím
+          reserved_slots: Počet vyhradených miest, ktoré má stretnutie
+          start_time: Dátum a čas začiatku tohto stretnutia
+          taxonomies: Taxonómie, do ktorých toto stretnutie patrí
+          title: Názov stretnutia
+          transparent: Viditeľnosť stretnutia pre nečlenov
+          type_of_meeting: Typ stretnutia
+          updated_at: Čas poslednej aktualizácie stretnutia
+          url: URL adresa stretnutia
+          video_url: Videozáznam zo stretnutia
+          withdrawn: Či bolo toto stretnutie stiahnuté
+          withdrawn_at: Kedy bolo toto stretnutie stiahnuté
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé schôdze
@@ -316,6 +867,11 @@ sk:
       proposals_from_meeting:
         meeting_proposal: 'Súvisiace návrhy:'
         proposal_meeting: 'Súvisiace stretnutie:'
+    statistics:
+      attendees_count: Účastníci stretnutia
+      meetings_count: Stretnutia
+      meetings_count_tooltip: Počet stretnutí, ktoré sa uskutočnili, online aj osobne.
+      participatory_space_meetings_count: Stretnutia
   devise:
     mailer:
       join_meeting:

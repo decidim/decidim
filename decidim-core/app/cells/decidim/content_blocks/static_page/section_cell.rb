@@ -5,7 +5,7 @@ module Decidim
     module StaticPage
       class SectionCell < Decidim::ViewModel
         def content
-          translated_attribute(model.settings.content).html_safe
+          decidim_sanitize_editor_admin(translated_attribute(model.settings.content))
         end
       end
     end

@@ -4,5 +4,5 @@
     <%= link_to translated_attribute(child.name), edit_taxonomy_item_path(taxonomy_id: child.root_taxonomy.id, id: child.id), class: "js-drawer-editor" %>
   </li>
   <li><%= child.taxonomizations_count %></li>
-  <li class="taxonomy-list__actions"><%= render "taxonomy_actions", taxonomy: child %></li>
+  <li class="taxonomy-list__actions"><%= render "decidim/admin/taxonomies/taxonomy_actions", taxonomy: child %></li>
 </ul>
