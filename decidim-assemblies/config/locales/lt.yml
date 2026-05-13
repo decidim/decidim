@@ -162,8 +162,6 @@ lt:
             admin: Administratorius
             collaborator: Bendraautorius
             moderator: Moderatorius
-      titles:
-        assemblies_types: Asamblėjų tipai
     admin_log:
       assembly:
         create: "%{user_name} sukūrė %{resource_name} asamblėją"
@@ -273,9 +271,6 @@ lt:
           highlighted_assemblies:
             active_spaces: Aktyvios asamblėjos
             see_all_spaces: Žiūrėti visas asamblėjas
-        user_profile:
-          member_of:
-            member_of: Narys
       show:
         duration: Trukmė
         social_networks_title: Aplankyti asamblėją
@@ -302,8 +297,6 @@ lt:
       value_types:
         assembly_presenter:
           not_found: 'Asamblėja duomenų bazėje nerasta (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Asamblėjos tipas duomenų bazėje nerastas (ID: %{id})'
     menu:
       assemblies: Asamblėjos
     participatory_processes:

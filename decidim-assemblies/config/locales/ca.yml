@@ -200,8 +200,6 @@ ca:
       taxonomy_filters:
         space_filter_for:
           assemblies: Totes les assemblees
-      titles:
-        assemblies_types: Tipus d'assemblees
       tooltips:
         deleted_assemblies_info: Aquesta assemblea es pot eliminar si el seu estat és 'Despublicada'.
     admin_log:
@@ -245,6 +243,7 @@ ca:
                 open: Qualsevol pot veure i participar a l'assemblea.
                 restricted: Només les membres poden veure i participar a l'assemblea.
                 transparent: Qualsevol pot veure l'assemblea, però només les membres hi poden participar.
+              set_this_space_as: Defineix el tipus d'accés a aquest espai
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
@@ -357,9 +356,6 @@ ca:
           highlighted_assemblies:
             active_spaces: Assemblees actives
             see_all_spaces: Veure totes les assemblees
-        user_profile:
-          member_of:
-            member_of: Membre de
       show:
         duration: Durada
         social_networks_title: Visita l'assemblea a
@@ -389,8 +385,6 @@ ca:
       value_types:
         assembly_presenter:
           not_found: 'L''assemblea no s''ha trobada a la base de dades (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'El tipus d''assemblea no s''ha trobat a la base de dades (ID: %{id})'
     menu:
       assemblies: Assemblees
     open_data:

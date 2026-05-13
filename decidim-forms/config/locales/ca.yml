@@ -188,7 +188,7 @@ ca:
           of_total_steps: de %{total_steps}
           questionnaire_closed:
             body: El formulari està tancat i no es pot respondre.
-            title: S'ha tancat el formulari
+            title: Formulari tancat
           questionnaire_for_members:
             body: El formulari només està disponible per a membres
             title: S'ha tancat el formulari

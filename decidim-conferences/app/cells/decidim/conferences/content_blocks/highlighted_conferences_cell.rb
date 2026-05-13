@@ -17,7 +17,7 @@ module Decidim
         end
 
         def all_path
-          Decidim::Conferences::Engine.routes.url_helpers.conferences_path(locale: current_locale)
+          Decidim::Conferences::Engine.routes.url_helpers.conferences_path
         end
 
         def max_results

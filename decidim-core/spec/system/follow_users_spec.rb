@@ -15,7 +15,7 @@ describe "Follow users" do
   context "when not following the user" do
     context "when user clicks the Follow button" do
       it "makes the user follow the user" do
-        visit decidim.profile_path(followable.nickname, locale: I18n.locale)
+        visit decidim.profile_path(followable.nickname)
         expect do
           click_on "Follow"
           expect(page).to have_content(/stop following/i)
@@ -31,7 +31,7 @@ describe "Follow users" do
 
     context "when user clicks the Follow button" do
       it "makes the user follow the user" do
-        visit decidim.profile_path(followable.nickname, locale: I18n.locale)
+        visit decidim.profile_path(followable.nickname)
         expect do
           click_on "Stop following"
           expect(page).to have_content "Follow"

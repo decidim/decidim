@@ -10,9 +10,7 @@ module Decidim
       isolate_namespace Decidim::Templates
 
       routes do
-        # Add engine routes here
         resources :templates
-        # root to: "templates#index"
       end
 
       initializer "decidim_templates.data_migrate", after: "decidim_core.data_migrate" do

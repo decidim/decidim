@@ -39,7 +39,7 @@ describe "User creates meeting" do
     context "when the user is not logged in" do
       it "redirects the user to the sign in page" do
         page.visit Decidim::EngineRouter.main_proxy(component).new_meeting_path
-        expect(page).to have_current_path("/users/sign_in")
+        expect(page).to have_current_path(decidim.new_user_session_path)
       end
     end
 

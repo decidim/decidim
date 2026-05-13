@@ -8,6 +8,8 @@ module Decidim
     describe ParticipatoryProcessesController do
       routes { Decidim::ParticipatoryProcesses::Engine.routes }
 
+      include Decidim::Core::Engine.routes.url_helpers
+
       let(:organization) { create(:organization) }
       let!(:unpublished_process) do
         create(
@@ -122,7 +124,7 @@ module Decidim
           it "redirects to sign in path" do
             get :show, params: { slug: unpublished_process.slug, locale: I18n.locale }
 
-            expect(response).to redirect_to("/users/sign_in")
+            expect(response).to redirect_to(new_user_session_path)
           end
 
           context "with signed in user" do
@@ -135,7 +137,7 @@ module Decidim
             it "redirects to root path" do
               get :show, params: { slug: unpublished_process.slug, locale: I18n.locale }
 
-              expect(response).to redirect_to("/")
+              expect(response).to redirect_to(root_path)
             end
           end
         end

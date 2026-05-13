@@ -100,6 +100,7 @@ Brakus
 breadcrumb
 browserstack
 bugfixing
+Butlletins
 byebug
 bytesize
 cacatua
@@ -295,6 +296,7 @@ EXISTINGCITY
 faketoken
 Fal
 fcell
+fcm
 FEDER
 felipe
 fhtagn
@@ -556,6 +558,7 @@ modqule
 mongoid
 morphdom
 Mostrar
+mozilla
 mpassid
 mrc
 mri

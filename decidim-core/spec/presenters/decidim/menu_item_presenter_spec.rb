@@ -16,6 +16,10 @@ module Decidim
       expect(subject.render).to have_link("Foo", href: "/boo")
     end
 
+    it "adds the menuitem role by default" do
+      expect(subject.render).to have_css("li[role='menuitem']")
+    end
+
     it "does not add the aria-current attribute for non-active page" do
       expect(subject.render).not_to include('aria-current="page"')
     end

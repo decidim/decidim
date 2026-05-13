@@ -198,7 +198,7 @@ sv:
             minimum_votes_per_user: Minsta antal röster per deltagare
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
-            new_proposal_help_text: Hjälptext om nya förslag
+            new_proposal_help_text: Hjälptext till nya förslag
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             official_proposals_enabled: Aktivera officiella förslag
             participatory_texts_enabled: Aktivera kollaborativa texter
@@ -919,13 +919,13 @@ sv:
           can_accumulate_votes_beyond_threshold:
             description: Förslag kan få fler än gränsen på %{limit} röster
           minimum_votes_per_user:
-            description: Du behöver rösta på %{votes} till förslag för att din röst ska räknas.
+            description: Du behöver rösta på %{votes} förslag för att din röst ska räknas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
           success: Din röst har tagits emot
           threshold_per_proposal:
             description: Förslag behöver få minst %{limit} röster för att gå vidare.
-          title: Regler för omröstning
+          title: Rösta så här
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
             votes: Saknar %{number} röster

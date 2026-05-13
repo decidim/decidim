@@ -1,6 +1,8 @@
 cs:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Maximální počet možností
       token_csv:
         file: Soubor
   activerecord:
@@ -134,11 +136,14 @@ cs:
         questions:
           edit_questions:
             new_question: Nová otázka
+            remove_question_confirm: Opravdu chcete odstranit tuto otázku?
             title: Otázky
           form:
             errors:
               at_least_one_question: Je vyžadována alespoň jedna otázka.
             form_description: Otázka musí mít alespoň dvě odpovědi, aby mohla jít k dalšímu kroku.
+          update:
+            invalid: Při aktualizaci otázek došlo k chybě.
         statuses:
           publish_results:
             invalid: Při publikování výsledků došlo k chybě.
@@ -207,10 +212,12 @@ cs:
         show:
           check_census_button: Zkontrolujte, zda mohu hlasovat
           vote_button: Hlasovat
+          voted: Již jste hlasovali. Můžete hlasovat znovu, pouze vaše poslední hlasování bude započítáno.
         vote_results:
           subtitle:
             per_question: Výsledky jsou k dispozici na jednu otázku. Výsledky pro každou otázku můžete vidět po povolení hlasování a po zveřejnění výsledků.
           title: Výsledky
+          total: 'CELKEM:'
       models:
         election:
           fields:

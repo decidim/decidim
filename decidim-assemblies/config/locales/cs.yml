@@ -107,6 +107,10 @@ cs:
         edit:
           update: Aktualizace
         index:
+          access_modes:
+            open: Otevřený
+            restricted: Omezený
+            transparent: Transparentní
           published: Publikováno
           unpublished: Nezveřejněno
         new:
@@ -173,6 +177,7 @@ cs:
       models:
         assembly:
           fields:
+            access_mode: Přístupový režim
             actions: Akce
             created_at: Vytvořeno v
             promoted: Zvýrazněno
@@ -201,8 +206,6 @@ cs:
       taxonomy_filters:
         space_filter_for:
           assemblies: Všechna shromáždění
-      titles:
-        assemblies_types: Typy shromáždění
       tooltips:
         deleted_assemblies_info: Shromáždění může být odstraněno pouze v případě, že je stav "Nezveřejněný".
     admin_log:
@@ -240,6 +243,13 @@ cs:
           edit:
             title: O tomto shromáždění
           form:
+            access:
+              label: Přístup
+              options:
+                open: Každý může vidět shromáždění a zúčastnit.
+                restricted: Pouze členové se mohou podívat a zúčastnit.
+                transparent: Každý může shromáždění vidět, ale mohou se účastnit pouze členové.
+              set_this_space_as: Nastavit tento prostor jako
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
@@ -352,9 +362,6 @@ cs:
           highlighted_assemblies:
             active_spaces: Aktivní shromáždění
             see_all_spaces: Zobrazit všechna shromáždění
-        user_profile:
-          member_of:
-            member_of: Člen
       show:
         duration: Doba trvání
         social_networks_title: Navštivte shromáždění na
@@ -384,13 +391,12 @@ cs:
       value_types:
         assembly_presenter:
           not_found: 'Shromáždění nebylo nalezeno v databázi (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Typ shromáždění nebyl v databázi nalezen (ID: %{id})'
     menu:
       assemblies: Shromáždění
     open_data:
       help:
         assemblies:
+          access_mode: Režim přístupu. Zda je shromáždění otevřené, omezené nebo transparentní.
           area: Oblast shromáždění
           assembly_type: Typ shromáždění
           closing_date: Datum ukončení shromáždění

@@ -7,6 +7,9 @@ module Decidim
     describe TaxonomyFiltersSelectorController do
       routes { Decidim::Admin::Engine.routes }
 
+      include Decidim::Core::Engine.routes.url_helpers
+      include Decidim::Admin::Engine.routes.url_helpers
+
       let(:organization) { create(:organization) }
       let(:current_user) { create(:user, :admin, :confirmed, organization:) }
       let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
@@ -35,7 +38,7 @@ module Decidim
           get(action, params:)
 
           expect(response).to have_http_status(:redirect)
-          expect(subject).to redirect_to("/admin/")
+          expect(subject).to redirect_to(root_path)
         end
       end
 
@@ -44,7 +47,7 @@ module Decidim
           get(action, params:)
 
           expect(response).to have_http_status(:redirect)
-          expect(subject).to redirect_to("/admin/taxonomy_filters_selector?component_id=#{component_id}")
+          expect(subject).to redirect_to(taxonomy_filters_selector_index_path(component_id:))
         end
       end
 
@@ -53,7 +56,7 @@ module Decidim
           get(action, params:)
 
           expect(response).to have_http_status(:redirect)
-          expect(subject).to redirect_to("/admin/taxonomy_filters_selector/new?component_id=#{component_id}&taxonomy_id=#{taxonomy_id}")
+          expect(subject).to redirect_to(new_taxonomy_filters_selector_path(component_id:, taxonomy_id:))
         end
       end
 
