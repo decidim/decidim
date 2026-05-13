@@ -283,8 +283,9 @@ describe "Admin manages officializations" do
     end
 
     it "shows error message when user is nil or invalid" do
-
-      allow_any_instance_of(Decidim::Admin::OfficializationsController).to receive(:user).and_return(nil)
+      controller_instance = Decidim::Admin::OfficializationsController.new
+      allow(controller_instance).to receive(:user).and_return(nil)
+      allow(Decidim::Admin::OfficializationsController).to receive(:new).and_return(controller_instance)
 
       user = create(:user, organization:)
 
