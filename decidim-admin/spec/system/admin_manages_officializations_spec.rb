@@ -281,5 +281,31 @@ describe "Admin manages officializations" do
         expect(page).to have_content("#{admin.name} retrieved the email of the participant #{user.name}")
       end
     end
+
+    it "shows error message when user is nil or invalid" do
+
+      allow_any_instance_of(Decidim::Admin::OfficializationsController).to receive(:user).and_return(nil)
+
+      user = create(:user, organization:)
+
+      visit decidim_admin.officializations_path
+
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        find("button[data-controller='dropdown']").click
+        click_on "Show email"
+      end
+
+      within "#show-email-modal" do
+        expect(page).to have_content("Show participant's email address")
+
+        click_on "Show"
+
+        expect(page).to have_content(I18n.t("decidim.verifications.csv_census.admin.census.index.no_user"))
+        expect(page).to have_css(".callout.alert")
+        expect(page).to have_no_content(user.email)
+
+        find("button[data-dialog-close]").click
+      end
+    end
   end
 end
