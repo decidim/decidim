@@ -11,8 +11,10 @@ module Decidim
           id: resource.id,
           document_id: resource.document.id,
           document_title: resource.document.title,
-          original_text: resource.changeset["original"]&.join(" ")&.strip,
-          replacement_text: resource.changeset["replace"]&.join(" ")&.strip,
+          original_text: resource.changeset["original"]&.join("\n")&.strip,
+          replacement_text: resource.changeset["replace"]&.join("\n")&.strip,
+          first_node: resource.changeset["firstNode"],
+          last_node: resource.changeset["lastNode"],
           author: author_fields,
           status: resource.status,
           created_at: resource.created_at,
@@ -23,6 +25,8 @@ module Decidim
       private
 
       def author_fields
+        return {} unless resource.author
+
         {
           id: resource.author.id,
           name: author_name(resource.author),
