@@ -2,7 +2,7 @@
   <section class="layout-aside__section">
     <div class="proposal__aside-vote layout-aside__ctas-buttons" data-controller="sticky-buttons">
       <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } unless @proposal.withdrawn? %>
-      <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+      <%= cell("decidim/proposals/proposal_votes_count", @proposal, from_proposals_list: false) %>
     </div>
   </section>
 <% end %>
