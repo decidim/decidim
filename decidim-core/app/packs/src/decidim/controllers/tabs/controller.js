@@ -65,20 +65,36 @@ export default class TabsController extends Controller {
     for (let index = 0; index < this.tabs.length; index += 1) {
       let tab = this.tabs[index];
       if (currentTab === tab) {
-        tab.setAttribute("aria-selected", "true");
-        tab.removeAttribute("tabindex");
+        this.setActiveTab(tab)
         this.tabpanels[index].classList.remove("is-hidden");
         this.tabpanels[index].setAttribute("aria-hidden", "false");
-        if (setFocus) {
+        if (setFocus && tab) {
           tab.focus();
         }
       } else {
-        tab.setAttribute("aria-selected", "false");
-        tab.tabIndex = -1;
+        this.setInactiveTab(tab)
         this.tabpanels[index].classList.add("is-hidden");
         this.tabpanels[index].setAttribute("aria-hidden", "true");
       }
     }
+  }
+
+  setInactiveTab(tab) {
+    if (!tab) {
+      return;
+    }
+    tab.parentNode.classList.remove("is-active");
+    tab.setAttribute("aria-selected", "false");
+    tab.tabIndex = -1;
+  }
+
+  setActiveTab(tab) {
+    if (!tab) {
+      return;
+    }
+    tab.setAttribute("aria-selected", "true");
+    tab.removeAttribute("tabindex");
+    tab.parentNode.classList.add("is-active");
   }
 
   setSelectedToPreviousTab(currentTab) {

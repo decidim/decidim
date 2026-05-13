@@ -224,8 +224,6 @@ class DynamicFieldsComponent {
 
     $(this.fieldSelector).each((idx, el) => {
       $(el).template(this.placeholderId, this._getUID());
-
-      // $(el).find("ul.tabs").attr("data-tabs", true);
     })
   }
 

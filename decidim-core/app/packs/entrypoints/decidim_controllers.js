@@ -23,6 +23,7 @@ import StickyButtonsController from "src/decidim/controllers/sticky_buttons/cont
 import ToggleController from "src/decidim/controllers/toggle/controller";
 import TooltipController from "src/decidim/controllers/tooltip/controller"
 import UserRegistrationFormController from "src/decidim/controllers/user_registration_form/controller";
+import TabsController from "src/decidim/controllers/tabs/controller";
 
 import { definitionsFromContext } from "src/decidim/refactor/support/stimulus"
 
@@ -51,6 +52,7 @@ application.register("sticky-buttons", StickyButtonsController);
 application.register("toggle", ToggleController);
 application.register("tooltip", TooltipController)
 application.register("user-registration-form", UserRegistrationFormController);
+application.register("tabs", TabsController);
 
 application.debug = true
 
