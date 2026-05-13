@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Verifications
-  describe RevokeByConditionAuthorizations do
+  describe RevokeAuthorizationsByCondition do
     subject { described_class.new(organization, form) }
 
     let(:params) do
@@ -59,8 +59,8 @@ module Decidim::Verifications
           expect { subject.call }.to broadcast(:ok)
         end
 
-        it "enqueues a RevokeByConditionAuthorizationsJob" do
-          expect { subject.call }.to have_enqueued_job(RevokeByConditionAuthorizationsJob)
+        it "enqueues a RevokeAuthorizationsByConditionJob" do
+          expect { subject.call }.to have_enqueued_job(RevokeAuthorizationsByConditionJob)
             .with(organization, current_user, before_date, nil)
         end
       end
@@ -70,8 +70,8 @@ module Decidim::Verifications
           expect { subject.call }.to broadcast(:ok)
         end
 
-        it "enqueues a RevokeByConditionAuthorizationsJob with impersonated_only" do
-          expect { subject.call }.to have_enqueued_job(RevokeByConditionAuthorizationsJob)
+        it "enqueues a RevokeAuthorizationsByConditionJob with impersonated_only" do
+          expect { subject.call }.to have_enqueued_job(RevokeAuthorizationsByConditionJob)
             .with(organization, current_user, before_date, true)
         end
       end

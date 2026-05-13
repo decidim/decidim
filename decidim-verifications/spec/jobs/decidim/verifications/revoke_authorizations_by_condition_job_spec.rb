@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Verifications
-  describe RevokeByConditionAuthorizationsJob do
+  describe RevokeAuthorizationsByConditionJob do
     subject { described_class }
 
     let(:organization) { create(:organization) }

@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     # A command to revoke authorizations with filter
-    class RevokeByConditionAuthorizations < Decidim::Command
+    class RevokeAuthorizationsByCondition < Decidim::Command
       delegate :current_user, to: :form
       # Public: Initializes the command.
       #
@@ -26,7 +26,7 @@ module Decidim
         return broadcast(:invalid) unless @form.valid?
 
         if @form.before_date.present?
-          RevokeByConditionAuthorizationsJob.perform_later(
+          RevokeAuthorizationsByConditionJob.perform_later(
             organization,
             current_user,
             @form.before_date,
