@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 690] */
+/* eslint max-lines: ["error", 712] */
 /* global jest */
 /**
  * @jest-environment jsdom
