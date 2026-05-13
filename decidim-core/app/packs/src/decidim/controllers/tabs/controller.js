@@ -34,7 +34,7 @@ export default class TabsController extends Controller {
         }
         this.lastTab = tab;
       } else {
-        console.error(`Tab at index ${index} references a non-existent panel:`, tab.getAttribute("aria-controls"));
+        console.error(`Tab at index ${index} references a nonexistent panel:`, tab.getAttribute("aria-controls"));
       }
     }
     this.detectAndSetActiveTab();
