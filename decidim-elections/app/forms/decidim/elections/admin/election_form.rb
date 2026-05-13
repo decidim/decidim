@@ -50,7 +50,7 @@ module Decidim
         end
 
         def scheduled_election?
-          election&.scheduled?
+          !manual_start? && election&.scheduled?
         end
       end
     end

@@ -194,6 +194,15 @@ module Decidim::Elections
         it { is_expected.to be_valid }
       end
 
+      context "when election is published and scheduled but manual_start is true" do
+        let(:election) { create(:election, :published, component:, start_at: 3.days.from_now, end_at: 4.days.from_now) }
+        let(:manual_start) { true }
+        let(:start_at) { nil }
+        let(:end_at) { 2.days.from_now }
+
+        it { is_expected.to be_valid }
+      end
+
       context "when election is not published" do
         let(:election) { create(:election, component:, start_at: 3.days.from_now, end_at: 4.days.from_now) }
 
