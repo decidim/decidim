@@ -347,9 +347,6 @@ lt:
         success: Pataisos juodraštis sėkmingai atnaujintas.
       withdraw:
         success: Pataisa sėkmingai atsiimta.
-      wizard_step_form:
-        steps:
-          '1': Sukurkite savo pataisą
     anonymous_user: Anonimas
     application:
       document:
