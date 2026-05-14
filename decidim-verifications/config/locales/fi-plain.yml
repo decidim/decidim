@@ -48,7 +48,6 @@ fi-pl:
             confirm: Ennen valittua päivämäärää tehtyjen vahvistustietojen tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
             confirm_all: Vahvistusten tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
           destroy_nok: Vahvistusten kumoaminen epäonnistui.
-          destroy_ok: Kaikki hakua vastanneiden tunnistautumiset on peruutettu onnistuneesti.
           info: Yhteensä %{count} varmennettua osallistujaa.
           no_data: Ei vahvistettuja osallistujia.
           title: Tunnistautumisten peruuttaminen
