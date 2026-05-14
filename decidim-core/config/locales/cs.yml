@@ -457,10 +457,6 @@ cs:
       withdraw:
         error: Při stahování pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh byl úspěšně stažen.
-      wizard_step_form:
-        steps:
-          '1': Vytvořte svůj pozměňovací návrh
-          '2': Publikovat svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       document:
