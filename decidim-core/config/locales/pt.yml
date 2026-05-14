@@ -197,9 +197,6 @@ pt:
       update_draft:
         error: Ocorreu um problema ao atualizar o rascunho da modificação.
         success: Rascunho da modificação atualizado corretamente.
-      wizard_step_form:
-        steps:
-          '1': Criar a sua modificação
     anonymous_user: Anônimo
     application:
       document:
