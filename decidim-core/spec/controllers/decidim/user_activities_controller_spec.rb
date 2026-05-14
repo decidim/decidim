@@ -33,7 +33,7 @@ module Decidim
         let!(:user) { create(:user, nickname: "nick", organization:) }
 
         it "does not return the page" do
-          expect { get :index, params: { nickname: "nick" } }.to raise_error(ActionController::RoutingError, "Profile not published: nick")
+          expect { get :index, params: { locale: I18n.locale, nickname: "nick" } }.to raise_error(ActionController::RoutingError, "Profile not published: nick")
         end
       end
     end
