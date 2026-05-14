@@ -316,10 +316,6 @@ pl:
         success: Szkic poprawki został pomyślnie zaktualizowany.
       withdraw:
         success: Poprawka została pomyślnie wycofana.
-      wizard_step_form:
-        steps:
-          '1': Utwórz poprawkę
-          '2': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
       document:
