@@ -1,1 +1,359 @@
 sk:
+  activemodel:
+    attributes:
+      elections_question:
+        max_choices: Maximálny počet možností
+      token_csv:
+        file: Súbor
+        remove_all: Odstrániť všetky aktuálne údaje zoznamu voličov
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Voľby
+        few: Voľby
+        many: Voľby
+        other: Voľby
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Hlavné
+          election_census: Zoznam voličov
+          election_dashboard: Nástenka
+          election_questions: Otázky
+      tooltips:
+        deleted_elections_info: Tieto voľby nie je možné vymazať
+        edit_elections_info: Tieto voľby nie je možné upraviť
+    components:
+      elections:
+        actions:
+          create: Vytvoriť
+          destroy: Zmazať
+          update: Aktualizovať
+        name: Voľby
+        settings:
+          global:
+            announcement: Oznámenie
+          step:
+            announcement: Oznámenie
+    elections:
+      actions:
+        confirm_delete_election: Naozaj chcete vymazať tieto voľby?
+        confirm_unpublish_election: Naozaj chcete zrušiť zverejnenie týchto volieb?
+        deleted_election_info: Vymazané voľby sa v zozname nezobrazujú. Môžete si ich zobraziť kliknutím na tlačidlo nižšie.
+        edit: Upraviť voľby
+        new: Nové voľby
+        preview: Náhľad
+        title: Akcie
+        view: Zobraziť voľby
+        view_deleted_elections: Zobraziť vymazané voľby
+      admin:
+        census:
+          edit:
+            choose_census: Vyberte typ zoznamu voličov, ktorý chcete použiť pre tieto voľby
+            created_at: Vytvorené
+            identifier: Identifikátor používateľa
+            title: Upraviť voľby
+          preview:
+            title:
+              one: Zoznam náhľadov je obmedzený na %{count} záznam.
+              few: Zoznam náhľadov je obmedzený na %{count} záznamy.
+              many: Zoznam náhľadov je obmedzený na %{count} záznamov.
+              other: Zoznam náhľadov je obmedzený na %{count} záznamov.
+          update:
+            error: Pri generovaní alebo ukladaní zoznamu voličov sa vyskytla chyba.
+            success: Zoznam voličov bol úspešne aktualizovaný.
+        dashboard:
+          calendar:
+            end_at: 'Čas ukončenia:'
+            end_election: Ukončiť voľby
+            manual_start: Manuálne
+            published_results_at: Výsledky zverejnené o
+            start_at: 'Čas začiatku:'
+            start_election: Spustiť voľby
+            title: Kalendár
+          census:
+            title: Zoznam voličov
+          main:
+            labels:
+              calendar: Kalendár
+              description: Popis
+              image: Galéria obrázkov
+              results: Dostupnosť výsledkov
+              title: Názov
+            title: Hlavné
+          publish_confirm: Naozaj chcete zverejniť tieto voľby?
+          questions:
+            labels:
+              answers: Odpovede
+            limit_info: Tieto voľby majú viac otázok. Náhľad je obmedzený na 3 otázky.
+            title: Otázky
+          questions_table:
+            answer: Odpovede
+            percentage: Percento
+            total: Spolu
+            votes: Hlasy
+            votes_count:
+              one: 1 hlas
+              few: "%{count} hlasy"
+              many: "%{count} hlasov"
+              other: "%{count} hlasov"
+          results:
+            not_started: Voľby sa ešte nezačali.
+            per_question_waiting: Hlasovanie zatiaľ nie je povolené pre žiadne otázky. Účastníci uvidia správu „Čaká sa na ďalšiu otázku“, kým neaktivujete aspoň jednu.
+            publish_button: Zverejniť výsledky
+            results_availability:
+              after_end: Všetky výsledky môžete zverejniť po skončení volieb. Výsledky zostanú skryté, kým ich manuálne nezverejníte.
+              per_question: Musíte povoliť hlasovanie a manuálne zverejniť výsledky pre každú otázku samostatne.
+              real_time: Výsledky sa zobrazujú automaticky počas volieb.
+            start_question_button: Povoliť hlasovanie
+            title: Výsledky
+          status:
+            allow_census_check_before_start: Umožniť používateľom skontrolovať, či môžu hlasovať, ešte pred začiatkom volieb
+            census: 'Zoznam voličov:'
+            results_availability:
+              after_end: Výsledky dostupné po skončení volieb
+              per_question: Výsledky dostupné pre každú otázku
+              real_time: Výsledky dostupné v reálnom čase
+            title: Stav volieb
+        elections:
+          create:
+            invalid: Pri vytváraní volieb sa vyskytol problém.
+            success: Voľby boli úspešne vytvorené.
+          dashboard:
+            subtitle: 'Posledný krok: Skontrolujte svoje údaje. Úpravy je možné vykonať ešte pred zverejnením. Po zverejnení budete môcť naďalej aktualizovať popis volieb.'
+            title: Nástenka
+          edit:
+            title: Upraviť voľby
+          form:
+            add_images: Pridať obrázky
+            attachment_legend: Pridať galériu obrázkov (voliteľné)
+            basic_title: Základné informácie
+            calendar: Kalendár
+            calendar_description: Skontrolujte, či je časové pásmo organizácie správne v nastaveniach organizácie. Aktuálna konfigurácia je %{timezone}.
+            edit_attachments: Upraviť prílohy
+            end_at: Čas ukončenia
+            manual_start: Manuálne spustenie
+            publish: Zverejniť
+            results_availability:
+              after_end: Po skončení volieb
+              after_end_help: zverejniť výsledky po skončení volieb
+              per_question: Otázka po otázke
+              per_question_help: manuálne spravovať hlasovanie a zverejniť výsledky pre každú otázku
+              real_time: V reálnom čase
+              real_time_help: automaticky zverejňovať výsledky počas volieb pri hlasovaní
+              title: Dostupnosť výsledkov
+            save: Uložiť a pokračovať
+            start_at: Čas začiatku
+          index:
+            title: Voľby
+          manage_trash:
+            title: Vymazané voľby
+          new:
+            title: Nové voľby
+          publish:
+            invalid: Pri zverejňovaní volieb sa vyskytol problém.
+            success: Voľby boli úspešne zverejnené.
+          toggle_census_check:
+            error: Pri povoľovaní kontroly sčítania sa vyskytla chyba.
+          unpublish:
+            invalid: Pri rušení zverejnenia volieb sa vyskytol problém.
+            success: Zverejnenie volieb bolo úspešne zrušené.
+          update:
+            invalid: Pri aktualizácii volieb sa vyskytol problém.
+            success: Voľby boli úspešne aktualizované.
+        questions:
+          edit_questions:
+            new_question: Nová otázka
+            remove_question_confirm: Naozaj chcete odstrániť túto otázku?
+            title: Otázky
+          form:
+            errors:
+              at_least_one_question: Vyžaduje sa aspoň jedna otázka.
+            form_description: Otázka musí mať aspoň dve odpovede, aby ste mohli prejsť na ďalší krok.
+          update:
+            invalid: Pri aktualizácii otázok sa vyskytol problém.
+            success: Otázky boli úspešne aktualizované.
+        statuses:
+          enable_voting:
+            invalid: Pri povoľovaní hlasovania sa vyskytol problém.
+            success: Hlasovanie bolo úspešne povolené.
+          end:
+            invalid: Pri ukončovaní volieb sa vyskytol problém.
+            success: Voľby boli úspešne ukončené.
+          publish_results:
+            invalid: Pri zverejňovaní výsledkov sa vyskytol problém.
+            success: Výsledky boli úspešne zverejnené.
+          start:
+            invalid: Pri spúšťaní volieb sa vyskytol problém.
+            success: Voľby boli úspešne spustené.
+          unknown: Neznámy stav
+      admin_log:
+        election:
+          create: "%{user_name} vytvoril/a voľby %{resource_name} v priestore %{space_name}"
+          publish: "%{user_name} zverejnil/a voľby %{resource_name} v priestore %{space_name}"
+          restore: "%{user_name} obnovil/a voľby %{resource_name} v priestore %{space_name}"
+          soft_delete: "%{user_name} presunul/a voľby %{resource_name} v priestore %{space_name} do koša"
+          unpublish: "%{user_name} zrušil/a zverejnenie volieb %{resource_name} v priestore %{space_name}"
+          update: "%{user_name} aktualizoval/a voľby %{resource_name} v priestore %{space_name}"
+        question:
+          update: "%{user_name} aktualizoval/a otázky volieb %{resource_name}"
+      census_checks:
+        show:
+          description: To znamená, že po začatí volieb v nich môžete hlasovať.
+          exit_button: Ukončiť kontrolu sčítania
+          title: Boli ste úspešne overený/á
+      censuses:
+        census_ready_html: Údaje zo sčítania sú nahrané a pripravené na použitie vo voľbách <b>%{election_title}</b>.
+        census_size_html:
+          one: V súčasnosti je oprávnená voliť v týchto voľbách <strong>1</strong> osoba (to sa môže zmeniť pri dynamickom sčítaní).
+          few: V súčasnosti sú oprávnené voliť v týchto voľbách <strong>%{count}</strong> osoby (to sa môže zmeniť pri dynamickom sčítaní).
+          many: V súčasnosti je oprávnených voliť v týchto voľbách <strong>%{count}</strong> osôb (to sa môže zmeniť pri dynamickom sčítaní).
+          other: V súčasnosti je oprávnených voliť v týchto voľbách <strong>%{count}</strong> osôb (to sa môže zmeniť pri dynamickom sčítaní).
+        internal_users:
+          already_have_an_account?: Už máte účet?
+          are_you_new?: Nový účastník?
+          info_html: |
+            Účasť vo voľbách môžete obmedziť na účastníkov, ktorí majú oprávnenie.<br>
+            Upozorňujeme, že účastníci budú musieť splniť vybrané oprávnenia, aby mohli hlasovať. Ak necháte všetky začiarkavacie políčka prázdne, bude môcť hlasovať ktokoľvek zaregistrovaný.
+          internal_type_title: Ďalšie požadované oprávnenia na hlasovanie (voliteľné)
+          label: Registrovaní účastníci (dynamické)
+          sign_in_description: Prihláste sa, aby ste mohli hlasovať v týchto voľbách
+          sign_up_description: Vytvorte si účet, aby ste mohli hlasovať v týchto voľbách
+        internal_users_form:
+          authorization_options_invalid: Bohužiaľ, hoci máte všetky požadované oprávnenia, niektoré z nich nie sú pre tieto voľby platné.
+          exit_button: Opustiť volebnú miestnosť
+          invalid: Nemáte oprávnenie hlasovať v týchto voľbách.
+          resume_with_method: Pokračovať v overovaní pomocou %{name}
+          verify_with_method: Overiť pomocou %{name}
+        token_csv:
+          example: |
+            email;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Musí to byť súbor vo formáte CSV s dvoma stĺpcami, jedným s e-mailovou adresou a druhým s hodnotou tokenu, ktorý bude musieť používateľ zadať, aby mohol hlasovať.
+            Musí byť oddelený bodkočiarkou (;)
+          label: Neregistrovaní účastníci s tokenmi (pevné)
+          remove_before_upload: Ak chcete nahrať nové sčítanie, musíte najprv odstrániť to existujúce.
+          upload_file: Nahrať súbor
+          upload_new_census: Nahrať súbor CSV
+        token_csv_form:
+          email: E-mail
+          email_placeholder: Zadajte e-mailovú adresu voliča
+          invalid: E-mail alebo token nie je platný. Skontrolujte údaje a skúste to znova.
+          token: Token
+          token_placeholder: Zadajte token voliča
+      elections:
+        count:
+          elections_count:
+            one: "%{count} voľby"
+            few: "%{count} voľby"
+            many: "%{count} volieb"
+            other: "%{count} volieb"
+        elections:
+          empty: Nie sú k dispozícii žiadne voľby.
+          empty_filters: Žiadne voľby nezodpovedajú vašim filtrom.
+        filters:
+          all: Všetky
+          state: Stav
+          state_values:
+            finished: Ukončené
+            ongoing: Prebiehajúce
+            scheduled: Naplánované
+        orders:
+          end_at: Dátum ukončenia
+          label: Zoradiť podľa
+          recent: Najnovšie
+          start_at: Dátum začiatku
+        questions:
+          subtitle: 'Toto sú otázky pre tento hlasovací proces:'
+          title: Volebné otázky
+        show:
+          active_voting_until: 'Aktívne hlasovanie do: %{end_date}'
+          check_census_button: Skontrolovať, či môžem hlasovať
+          check_census_explanation: Tieto voľby sa ešte nezačali, ale môžete si overiť, či ste zaradení do zoznamu voličov.
+          edit_vote_button: Upraviť hlas
+          vote_button: Hlasovať
+          voted: Už ste hlasovali. Môžete hlasovať znova, započíta sa len váš posledný hlas.
+          votes_count:
+            one: 1 hlas
+            few: "%{count} hlasy"
+            many: "%{count} hlasov"
+            other: "%{count} hlasov"
+          voting_began: 'Hlasovanie sa začalo: %{start_date}'
+        vote_results:
+          subtitle:
+            after_end: Voľby sa skončili. Teraz si môžete pozrieť výsledky.
+            per_question: Výsledky sú k dispozícii pre každú otázku. Výsledky pre každú otázku si môžete pozrieť po povolení hlasovania a zverejnení výsledkov.
+            real_time: Výsledky sú k dispozícii v reálnom čase. Výsledky si môžete pozrieť počas prebiehajúceho hlasovania.
+          title: Výsledky
+          total: 'SPOLU:'
+          total_votes:
+            one: 1 hlas
+            few: "%{count} hlasy"
+            many: "%{count} hlasov"
+            other: "%{count} hlasov"
+      models:
+        election:
+          fields:
+            census: Zoznam voličov
+            end_at: Čas ukončenia
+            start_at: Čas začatia
+            status: Stav
+            title: Názov
+      per_question_votes:
+        waiting:
+          description: Tu môžete počkať, kým bude k dispozícii ďalšia otázka. Keď bude pripravená, budete automaticky presmerovaní na ďalšiu otázku.
+          edit_vote: Upraviť svoj hlas
+          exit_button: Opustiť čakáreň
+          title: Čakanie na ďalšiu otázku
+      status:
+        active: Aktívne
+        finished: Ukončené
+        not_started: Nezačaté
+        ongoing: Prebiehajúce
+        published_results: Zverejnené výsledky
+        scheduled: Naplánované
+        unpublished: Nezverejnené
+        voting_enabled: Prebieha hlasovanie
+      votes:
+        cast:
+          invalid: Pri odovzdávaní vášho hlasu sa vyskytol problém. Skontrolujte zadané údaje a skúste to znova.
+          success: Váš hlas bol úspešne odovzdaný.
+        check_census:
+          access: Prístup
+          election_not_open: Voľby ešte nie sú otvorené. Skontrolujte dátumy a skúste to znova.
+          failed: Vašu totožnosť sa nepodarilo overiť. Skontrolujte zadané údaje a skúste to znova.
+          form_title: Overte svoju totožnosť
+          invalid: Používateľ sa nenašiel v zozname voličov.
+        confirm:
+          cast_vote: Odovzdať hlas
+          edit_vote: Upraviť svoj hlas
+          not_answered: Na túto otázku ste neodpovedali.
+          title: Potvrďte svoj hlas
+        not_authorized: Nemáte oprávnenie hlasovať v týchto voľbách.
+        question:
+          back: Späť
+          cast_vote: Odovzdať hlas
+          max_choices: 'Max. počet možností: %{count}'
+          max_choices_alert: Vybrali ste príliš veľa možností. Ak chcete pokračovať, zrušte výber niektorých z nich.
+          max_choices_exceeded: Nemôžete vybrať viac ako %{max} možností. Vráťte sa späť a upravte svoj výber.
+          next: Ďalej
+        receipt:
+          description: Počas otvoreného obdobia hlasovania môžete kedykoľvek hlasovať znova. Váš predchádzajúci hlas bude prepísaný novým.
+          edit_vote: Upraviť svoj hlas
+          exit_button: Opustiť volebnú miestnosť
+          title: Vaše hlasy boli úspešne odovzdané
+    metadata:
+      progress:
+        published_results: 'Výsledky zverejnené: %{end_date}'
+    statistics:
+      elections_count: Voľby
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Zavrieť
+  time:
+    formats:
+      short_with_time: "%-d. %b %Y, %H:%M"

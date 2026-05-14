@@ -6,7 +6,7 @@ describe "Admin manages conference publication" do
   include_context "when admin administrating a conference"
 
   let(:admin_page_path) { decidim_admin_conferences.conferences_path }
-  let(:public_collection_path) { decidim_conferences.conferences_path(locale: I18n.locale) }
+  let(:public_collection_path) { decidim_conferences.conferences_path }
   let(:title) { "My space" }
   let!(:participatory_space) { conference }
   let(:publish_callout_message) { "Conference successfully published." }

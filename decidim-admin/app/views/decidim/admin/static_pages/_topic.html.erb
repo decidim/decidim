@@ -57,7 +57,7 @@
                     <% end %>
 
                     <li class="dropdown__item">
-                      <%= link_to decidim.page_path(page, locale: current_locale), target: "_blank", data: { "external-link": false }, class: "dropdown__button" do %>
+                      <%= link_to decidim.page_path(page), target: "_blank", data: { "external-link": false }, class: "dropdown__button" do %>
                         <%= icon "eye-line" %>
                         <%= t("actions.view", scope: "decidim.admin.static_pages") %>
                       <% end %>

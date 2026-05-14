@@ -67,6 +67,7 @@ it:
           with_any_type:
             label: Tipologia di incontro
             values:
+              hybrid: Ibridi
               in_person: Fisiche
       meeting_copies:
         create:

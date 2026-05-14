@@ -7,6 +7,7 @@ module Decidim
         include AssembliesHelper
         include Decidim::ComponentPathHelper
         include ActiveLinkTo
+        include Decidim::ActiveLinkToHelper
 
         EXTRA_ATTRIBUTES = %w(purpose_of_action internal_organisation composition).freeze
 

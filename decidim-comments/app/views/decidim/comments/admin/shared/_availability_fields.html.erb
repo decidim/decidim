@@ -2,7 +2,7 @@
   <%= form.check_box :comments_enabled, label: t(".enabled"), data: { controller: :toggle, "toggle-toggle-value": "customize_comments_times-div" } %>
 </div>
 
-<div id="customize_comments_times-div" data-toggler=".hide" class="row column <%= @form.comments_enabled ? nil : "hide" %>">
+<div id="customize_comments_times-div" class="row column <%= @form.comments_enabled ? nil : "hide" %>">
   <div class="mb-4">
     <%= form.datetime_field :comments_start_time, label: t(".start_time") %>
   </div>

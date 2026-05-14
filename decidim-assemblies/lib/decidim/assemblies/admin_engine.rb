@@ -16,6 +16,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        extend Decidim::Routes::LocaleRedirects
+
         constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
           resources :assemblies, param: :slug, except: [:show, :destroy] do
             resource :publish, controller: "assembly_publications", only: [:create, :destroy]
@@ -111,7 +113,11 @@ module Decidim
 
       initializer "decidim_assemblies_admin.mount_routes" do
         Decidim::Core::Engine.routes do
-          mount Decidim::Assemblies::AdminEngine, at: "/admin", as: "decidim_admin_assemblies"
+          extend Decidim::Routes::LocaleRedirects
+
+          scope "/:locale", **locale_scope_options do
+            mount Decidim::Assemblies::AdminEngine, at: "/admin", as: "decidim_admin_assemblies"
+          end
         end
       end
 

@@ -201,8 +201,6 @@ en:
       taxonomy_filters:
         space_filter_for:
           assemblies: All assemblies
-      titles:
-        assemblies_types: Assemblies types
       tooltips:
         deleted_assemblies_info: An assembly can only be deleted if status is "Unpublished".
     admin_log:
@@ -359,9 +357,6 @@ en:
           highlighted_assemblies:
             active_spaces: Active assemblies
             see_all_spaces: See all assemblies
-        user_profile:
-          member_of:
-            member_of: Member of
       show:
         duration: Duration
         social_networks_title: Visit assembly on
@@ -391,8 +386,6 @@ en:
       value_types:
         assembly_presenter:
           not_found: 'The assembly was not found on the database (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'The assembly type was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
     open_data:

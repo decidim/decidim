@@ -16,7 +16,7 @@ module Decidim
     describe "#badges" do
       context "with an user with uppercase" do
         it "returns the lowercased user" do
-          get :badges, params: { nickname: "NICK" }
+          get :badges, params: { locale: I18n.locale, nickname: "NICK" }
           expect(response).to render_template(:show)
         end
       end
@@ -33,8 +33,8 @@ module Decidim
     describe "#show" do
       context "with a confirmed user" do
         it "redirects to the correct page" do
-          get :show, params: { nickname: "Nick" }
-          expect(response).to redirect_to("/profiles/nick/activity")
+          get :show, params: { locale: I18n.locale, nickname: "Nick" }
+          expect(response).to redirect_to("/#{I18n.locale}/profiles/nick/activity")
         end
       end
 
@@ -42,7 +42,7 @@ module Decidim
         let!(:user) { create(:user, :confirmed, :blocked, nickname: "nick", organization:) }
 
         it "does not return the page" do
-          expect { get :show, params: { nickname: "nick" } }.to raise_error(ActionController::RoutingError)
+          expect { get :show, params: { locale: I18n.locale, nickname: "nick" } }.to raise_error(ActionController::RoutingError)
         end
       end
 
@@ -50,7 +50,7 @@ module Decidim
         let!(:user) { create(:user, :confirmed, nickname: "nick", accepted_tos_version: nil, organization:) }
 
         it "does not return the page" do
-          expect { get :show, params: { nickname: "nick" } }.to raise_error(ActionController::RoutingError)
+          expect { get :show, params: { locale: I18n.locale, nickname: "nick" } }.to raise_error(ActionController::RoutingError)
         end
       end
 
@@ -58,7 +58,7 @@ module Decidim
         let!(:user) { create(:user, nickname: "nick", organization:) }
 
         it "does not return the page" do
-          expect { get :show, params: { nickname: "nick" } }.to raise_error(ActionController::RoutingError)
+          expect { get :show, params: { locale: I18n.locale, nickname: "nick" } }.to raise_error(ActionController::RoutingError)
         end
       end
     end

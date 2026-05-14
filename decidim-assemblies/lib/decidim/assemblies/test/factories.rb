@@ -8,14 +8,6 @@ FactoryBot.define do
     "#{Decidim::Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
   end
 
-  factory :assemblies_type, class: "Decidim::AssembliesType" do
-    transient do
-      skip_injection { false }
-    end
-    title { generate_localized_title(:assemblies_type_title, skip_injection:) }
-    organization
-  end
-
   factory :assembly, class: "Decidim::Assembly" do
     transient do
       skip_injection { false }

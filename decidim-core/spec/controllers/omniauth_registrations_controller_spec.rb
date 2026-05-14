@@ -6,6 +6,8 @@ module Decidim
   describe Decidim::Devise::OmniauthRegistrationsController do
     routes { Decidim::Core::Engine.routes }
 
+    include Decidim::Core::Engine.routes.url_helpers
+
     let(:organization) { create(:organization) }
 
     before do
@@ -55,7 +57,7 @@ module Decidim
                     .and_return(["dummy_authorization_handler"])
                 end
 
-                it { is_expected.to eq("/") }
+                it { is_expected.to eq(root_path) }
 
                 context "when there is a pending redirection" do
                   before do
@@ -81,7 +83,7 @@ module Decidim
                     user.update(extended_data:)
                   end
 
-                  it { is_expected.to eq("/authorizations/onboarding_pending") }
+                  it { is_expected.to eq(controller.decidim_verifications.onboarding_pending_authorizations_path) }
                 end
 
                 context "when the user has not confirmed their email" do
@@ -89,7 +91,7 @@ module Decidim
                     user.confirmed_at = nil
                   end
 
-                  it { is_expected.to eq("/") }
+                  it { is_expected.to eq(root_path) }
                 end
 
                 context "when the user is blocked" do
@@ -97,7 +99,7 @@ module Decidim
                     user.blocked = true
                   end
 
-                  it { is_expected.to eq("/") }
+                  it { is_expected.to eq(root_path) }
                 end
 
                 context "when the user is not blocked" do
@@ -105,7 +107,7 @@ module Decidim
                     user.blocked = false
                   end
 
-                  it { is_expected.to eq("/") }
+                  it { is_expected.to eq(root_path) }
                 end
               end
 
@@ -114,14 +116,14 @@ module Decidim
                   allow(user.organization).to receive(:available_authorizations).and_return([])
                 end
 
-                it { is_expected.to eq("/") }
+                it { is_expected.to eq(root_path) }
               end
             end
 
             context "and it is not the first time to log in" do
               let(:user) { build(:user, sign_in_count: 2) }
 
-              it { is_expected.to eq("/") }
+              it { is_expected.to eq(root_path) }
             end
           end
         end
@@ -131,7 +133,7 @@ module Decidim
         let!(:user) { create(:user, organization:, email:, blocked: true) }
 
         before do
-          post :create
+          post :create, params: { locale: I18n.locale }
         end
 
         it "logs in" do
@@ -149,7 +151,7 @@ module Decidim
 
       context "when the unverified email address is already in use" do
         before do
-          post :create
+          post :create, params: { locale: I18n.locale }
         end
 
         it "does not create a new user" do
@@ -170,7 +172,7 @@ module Decidim
 
         context "with the same email as from the identity provider" do
           before do
-            post :create
+            post :create, params: { locale: I18n.locale }
           end
 
           it "logs in" do
@@ -190,7 +192,7 @@ module Decidim
           end
 
           it "does not log in" do
-            post :create
+            post :create, params: { locale: I18n.locale }
 
             expect(controller).not_to be_user_signed_in
           end
@@ -199,7 +201,7 @@ module Decidim
             expect(Decidim::DecidimDeviseMailer).to receive(:confirmation_instructions).and_call_original
 
             expect do
-              post :create
+              post :create, params: { locale: I18n.locale }
             end.to have_enqueued_job(ActionMailer::MailDeliveryJob).with(
               "Decidim::DecidimDeviseMailer",
               "confirmation_instructions",
@@ -209,7 +211,7 @@ module Decidim
           end
 
           it "redirects to root" do
-            post :create
+            post :create, params: { locale: I18n.locale }
 
             expect(controller).to redirect_to(root_path)
           end

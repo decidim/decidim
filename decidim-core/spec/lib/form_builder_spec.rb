@@ -374,12 +374,12 @@ module Decidim
           output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", nil)
 
           expect(output).to match(
-            "<ul class=\"tabs tabs--lang\" id=\"short_description\" data-tabs=\"true\">" \
-            "<li class=\"tabs-title is-active\">" \
-            "<a href=\"#short_description-resource-short_description-tabs-panel-0\">English</a>" \
+            "<ul class=\"tabs tabs--lang\" role=\"tablist\" id=\"short_description\" data-controller=\"tabs\">" \
+            "<li class=\"tabs-title is-active\" role=\"presentation\">" \
+            "<a href=\"#short_description-resource-short_description-tabs-panel-0\" role=\"tab\" aria-selected=\"true\" aria-controls=\"short_description-resource-short_description-tabs-panel-0\" tabindex=\"0\">English</a>" \
             "</li>" \
-            "<li class=\"tabs-title\">" \
-            "<a href=\"#short_description-resource-short_description-tabs-panel-1\">Català</a>" \
+            "<li class=\"tabs-title\" role=\"presentation\">" \
+            "<a href=\"#short_description-resource-short_description-tabs-panel-1\" role=\"tab\" aria-selected=\"false\" aria-controls=\"short_description-resource-short_description-tabs-panel-1\" tabindex=\"-1\">Català</a>" \
             "</li>" \
             "</ul>"
           )
@@ -391,12 +391,12 @@ module Decidim
           output = builder.send(:create_language_selector, available_locales, :short_description, "resource-short_description-tabs", "ca")
 
           expect(output).to match(
-            "<ul class=\"tabs tabs--lang\" id=\"short_description\" data-tabs=\"true\">" \
-            "<li class=\"tabs-title\">" \
-            "<a href=\"#short_description-resource-short_description-tabs-panel-0\">English</a>" \
+            "<ul class=\"tabs tabs--lang\" role=\"tablist\" id=\"short_description\" data-controller=\"tabs\">" \
+            "<li class=\"tabs-title\" role=\"presentation\">" \
+            "<a href=\"#short_description-resource-short_description-tabs-panel-0\" role=\"tab\" aria-selected=\"false\" aria-controls=\"short_description-resource-short_description-tabs-panel-0\" tabindex=\"-1\">English</a>" \
             "</li>" \
-            "<li class=\"tabs-title is-active\">" \
-            "<a href=\"#short_description-resource-short_description-tabs-panel-1\" class=\"is-tab-error\">Català</a>" \
+            "<li class=\"tabs-title is-active\" role=\"presentation\">" \
+            "<a href=\"#short_description-resource-short_description-tabs-panel-1\" class=\"is-tab-error\" role=\"tab\" aria-selected=\"true\" aria-controls=\"short_description-resource-short_description-tabs-panel-1\" tabindex=\"0\">Català</a>" \
             "</li>" \
             "</ul>"
           )

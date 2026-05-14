@@ -48,7 +48,7 @@ module Decidim
 
       it "has an author path" do
         expect(subject.author_path).to be_present
-        expect(subject.author_path).to start_with("/profile")
+        expect(subject.author_path).to start_with("/en/profile")
       end
 
       it "has an author url" do

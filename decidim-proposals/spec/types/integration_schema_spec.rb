@@ -183,7 +183,7 @@ describe "Decidim::Api::QueryType" do
           "name" => e.author.name,
           "nickname" => "@#{e.author.nickname}",
           "organizationName" => { "translation" => translated(e.author.organization.name) },
-          "profilePath" => "/profiles/#{e.author.nickname}" }
+          "profilePath" => "/en/profiles/#{e.author.nickname}" }
       end,
       "likesCount" => proposal.likes.size,
       "executionPeriod" => execution_period,

@@ -13,9 +13,9 @@
         <div class="card">
           <div class="card-section">
             <% if document.draft? %>
-              <%= render "draft_options", form: f %>
+              <%= render "decidim/collaborative_texts/admin/documents/draft_options", form: f %>
             <% else %>
-              <%= render "non_draft_options", form: f %>
+              <%= render "decidim/collaborative_texts/admin/documents/non_draft_options", form: f %>
             <% end %>
           </div>
         </div>

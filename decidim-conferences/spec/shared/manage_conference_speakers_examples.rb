@@ -51,7 +51,7 @@ shared_examples "manage conference speakers examples" do
 
       within ".new_conference_speaker" do
         select "Existing participant", from: :conference_speaker_existing_user
-        autocomplete_select "#{speaker_user.name} (@#{speaker_user.nickname})", from: :user_id
+        autocomplete_select speaker_user.name, from: :user_id
 
         find("*[type=submit]").click
       end
