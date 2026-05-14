@@ -332,10 +332,6 @@ bg:
         success: Черновата на поправка е успешно обновена.
       withdraw:
         success: Изменението беше оттеглено успешно.
-      wizard_step_form:
-        steps:
-          '1': Създайте Ваша поправка
-          '2': Публикувайте своето изменение
     anonymous_user: Анонимен
     application:
       document:
