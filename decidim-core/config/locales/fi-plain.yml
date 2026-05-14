@@ -419,10 +419,6 @@ fi-pl:
       withdraw:
         error: Muutoksen peruminen epäonnistui.
         success: Muutos on peruutettu.
-      wizard_step_form:
-        steps:
-          '1': Luo muutos
-          '2': Julkaise muutoksesi
     anonymous_user: Anonyymi
     application:
       document:
