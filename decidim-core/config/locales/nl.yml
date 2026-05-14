@@ -201,9 +201,6 @@ nl:
       update_draft:
         error: Er is een fout opgetreden bij het bijwerken van dit amendement.
         success: Amendement ontwerp is succesvol bijgewerkt.
-      wizard_step_form:
-        steps:
-          '1': Maak uw amendement
     anonymous_user: Anoniem
     application:
       document:
