@@ -8,7 +8,6 @@ module Decidim
     class CreateInitiative < Decidim::Command
       include CurrentLocale
       include ::Decidim::MultipleAttachmentsMethods
-      include ::Decidim::GalleryMethods
 
       delegate :current_user, to: :form
       # Public: Initializes the command.

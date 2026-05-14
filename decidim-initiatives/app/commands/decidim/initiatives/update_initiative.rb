@@ -6,7 +6,6 @@ module Decidim
     # existing initiative.
     class UpdateInitiative < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
-      include ::Decidim::GalleryMethods
       include CurrentLocale
 
       delegate :current_user, to: :form
