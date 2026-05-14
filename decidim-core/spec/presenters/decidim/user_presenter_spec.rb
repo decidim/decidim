@@ -111,7 +111,7 @@ module Decidim
       describe "#profile_path" do
         subject { presenter.profile_path }
 
-        it { is_expected.to eq("/") }
+        it { is_expected.to eq("/en") }
       end
     end
 

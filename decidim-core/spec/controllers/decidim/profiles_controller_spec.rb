@@ -25,7 +25,7 @@ module Decidim
         let!(:user) { create(:user, nickname: "nick", organization:) }
 
         it "does not return the page" do
-          expect { get :show, params: { nickname: "nick" } }.to raise_error(ActionController::RoutingError)
+          expect { get :badges, params: { locale: I18n.locale, nickname: "nick" } }.to raise_error(ActionController::RoutingError)
         end
       end
     end
