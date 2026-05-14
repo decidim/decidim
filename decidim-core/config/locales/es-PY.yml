@@ -419,7 +419,7 @@ es-PY:
       withdraw:
         error: Se ha producido un error al retirar la enmienda.
         success: La enmienda se ha retirado correctamente.
-      wizard_step_form:
+      wizard:
         steps:
           '1': Crea tu enmienda
           '2': Publica tu enmienda
