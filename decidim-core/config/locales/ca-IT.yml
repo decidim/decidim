@@ -416,7 +416,7 @@ ca-IT:
       withdraw:
         error: Hi ha hagut un problema en retirar l'esmena.
         success: L'esmena s'ha retirat correctament.
-      wizard_step_form:
+      wizard:
         steps:
           '1': Crea la teva esmena
           '2': Publica la teva esmena
