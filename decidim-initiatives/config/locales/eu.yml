@@ -141,18 +141,18 @@ eu:
         initiatives_votes:
           fields:
             date_and_time: Data eta ordua
-            date_of_birth: Jaioteguna
+            date_of_birth: Jaiotze-data
             document_number: Dokumentuaren zenbakia
             hash: Hash
-            initiative_end_date: Amaiera data
+            initiative_end_date: Amaiera-data
             initiative_id: Ekimenaren ID-a
             initiative_scope: Eremua
             initiative_signatures_count: Sinadura kopurua
-            initiative_start_date: Hasiera data
+            initiative_start_date: Hasiera-data
             initiative_title: Ekimenaren izenburua
-            name_and_surname: Izena eta abizena
+            name_and_surname: Izen-abizenak
             nickname: Ezizena
-            postal_code: Posta kodea
+            postal_code: Posta-kodea
             signature_count: Sinaduren zenbaketa
             timestamp: Denbora-marka
       taxonomy_filters:
@@ -209,7 +209,7 @@ eu:
           description_own: '%{score} ekimen dituzu argitaratuta.'
           name: Argitaratutako ekimenak
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
-          unearned_another: Parte-hartzaile honek oraindik ez du ekimenik argitaratuta.
+          unearned_another: Erabiltzaile honek oraindik ez du ekimenik argitaratuta.
           unearned_own: Ez duzu oraindik argitaratutako ekimenik.
     help:
       participatory_spaces:
