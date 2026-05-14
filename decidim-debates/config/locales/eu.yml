@@ -8,7 +8,7 @@ eu:
         end_time: Bukaera-data
         information_updates: Informazioaren eguneratzeak
         instructions: Parte hartzeko argibideak
-        start_time: Hasi da
+        start_time: Hasiera-data
         title: Izenburua
     models:
       decidim/debates/close_debate_event: Eztabaida itxita
