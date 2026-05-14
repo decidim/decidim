@@ -328,7 +328,7 @@ it:
         success: Bozza emendamento aggiornata correttamente.
       wizard_step_form:
         steps:
-          '1': Crea il tuo emendamento
+          '2': Pubblica la tua rettifica
     anonymous_user: Anonimo
     application:
       document:
