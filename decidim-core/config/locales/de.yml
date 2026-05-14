@@ -415,10 +415,6 @@ de:
       withdraw:
         error: Beim Zurückziehen der Änderung ist ein Problem aufgetreten.
         success: Die Änderung wurde erfolgreich zurückgezogen.
-      wizard_step_form:
-        steps:
-          '1': Erstellen Sie Ihre Änderung
-          '2': Änderung veröffentlichen
     anonymous_user: Anonym
     application:
       document:
