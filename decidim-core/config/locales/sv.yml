@@ -428,8 +428,8 @@ sv:
         success: Ändringsförslaget har dragits tillbaka.
       wizard_step_form:
         steps:
-          '1': Skapa ändringsförslag
-          '2': Publicera ditt ändringsförslag
+          '1': Skapa din korrigering
+          '2': Publicera din korrigering
     anonymous_user: Anonym
     application:
       document:
