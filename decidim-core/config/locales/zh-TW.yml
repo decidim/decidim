@@ -289,9 +289,6 @@ zh-TW:
         success: 修正案草稿成功更新。
       withdraw:
         success: 修正案已成功撤回.
-      wizard_step_form:
-        steps:
-          '1': 創建您的修正案
     anonymous_user: 匿名
     application:
       document:
