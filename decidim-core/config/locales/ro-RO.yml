@@ -439,10 +439,6 @@ ro:
       withdraw:
         error: A apărut o eroare la retragerea amendamentului.
         success: Amendamentul a fost retras cu succes.
-      wizard_step_form:
-        steps:
-          '1': Creeați un amendament
-          '2': Publicați amendamentul
     anonymous_user: Anonim
     application:
       document:
