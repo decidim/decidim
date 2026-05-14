@@ -197,10 +197,6 @@ tr:
       update_draft:
         error: Değişiklik taslağı güncellenirken bir hata oluştu.
         success: Değişiklik taslağı başarıyla güncellendi.
-      wizard_step_form:
-        steps:
-          '1': Değişikliğinizi oluşturun
-          '2': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
       document:
