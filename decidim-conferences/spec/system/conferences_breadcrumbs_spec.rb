@@ -14,7 +14,7 @@ describe "Conferences Breadcrumb" do
   end
 
   scenario "shows breadcrumb with only conference" do
-    visit decidim_conferences.conference_path(participatory_space, locale: I18n.locale)
+    visit decidim_conferences.conference_path(participatory_space)
 
     within ".menu-bar" do
       expect(page).to have_content("Conferences")
@@ -52,7 +52,7 @@ describe "Conferences Breadcrumb" do
     end
 
     scenario "shows breadcrumb with conference and program" do
-      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component, locale: I18n.locale)
+      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component)
 
       within ".menu-bar" do
         expect(page).to have_content("Conferences")
@@ -62,7 +62,7 @@ describe "Conferences Breadcrumb" do
     end
 
     scenario "shows breadcrumb with conference, program, and meeting" do
-      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component, locale: I18n.locale)
+      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component)
       click_on decidim_sanitize_translated(meeting.title)
 
       within ".menu-bar" do

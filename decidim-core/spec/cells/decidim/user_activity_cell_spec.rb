@@ -63,10 +63,12 @@ describe Decidim::UserActivityCell, type: :cell do
     end
   end
   let(:controller) { double(url_options: {}) }
+  let(:request) { double(path_parameters: {}) }
 
   before do
     allow(controller).to receive(:current_organization).and_return(component.organization)
     allow(controller).to receive(:params).and_return(ActionController::Parameters.new({ nickname: model.nickname }))
+    allow(controller).to receive(:request).and_return(request)
 
     allow(my_cell).to receive(:url_for).and_return("/")
     allow(my_cell).to receive(:controller).and_return(controller)

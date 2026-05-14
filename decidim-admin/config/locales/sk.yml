@@ -13,47 +13,84 @@ sk:
         attachment_collection_id: Priečinok
         description: Popis
         file: Súbor
+        title: Názov prílohy alebo obrázka
+        weight: Pozícia v poradí
       attachment_collection:
         description: Popis
         name: Názov
+        weight: Pozícia v poradí
       category:
         description: Popis
         name: Názov
         parent_id: Nadradené
+        weight: Pozícia v poradí
       component:
         name: Meno
         published_at: Publikované na
+        weight: Pozícia v poradí
+      external_domain:
+        value: Hodnota
+      help_section:
+        content: Obsah
       id: ID
+      member:
+        email: E-mail
+        name: Meno
+      member_csv_import:
+        file: Súbor
       newsletter:
         body: Telo textu
+        send_to_all_users: Odoslať všetkým účastníkom
+        send_to_followers: Odoslať sledujúcim
+        send_to_participants: Odoslať účastníkom
         subject: Predmet
       organization:
+        admin_terms_of_service_body: Telo podmienok používania pre administrátorov
         alert_color: Upozornenie
+        available_authorizations: Dostupné autorizácie
         badges_enabled: Povoliť odznaky
+        comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
         customize_welcome_notification: Prispôsobte uvítanie
         default_locale: Predvolený jazyk
         description: Popis
+        enable_machine_translations: Povoliť strojové preklady
         enable_omnipresent_banner: Zobraziť všadeprítomný banner
         facebook_handler: Facebook handler
         favicon: Ikona
+        force_authentication: Vynútiť overenie
+        force_users_to_authenticate_before_access_organization: Vynútiť overenie používateľov pred prístupom k organizácii
+        from: E-mailová adresa odosielateľa
         github_handler: GitHub handler
         header_snippets: Krátke kódy v HTML hlavičke
+        highlight_alternative_color: Zvýraznenie, alternatívne
+        highlight_color: Zvýraznenie
+        host: Hostiteľ
         instagram_handler: Instagram handler
         logo: Logo
+        machine_translation_display_priority: Priorita zobrazenia strojového prekladu
+        machine_translation_display_priority_original: Najprv pôvodný text
+        machine_translation_display_priority_translation: Najprv preložený text
         name: Meno
         official_img_footer: Oficiálne logo v päte
         official_url: Oficiálna stránka organizácie
         omnipresent_banner_short_description: Krátky popis
         omnipresent_banner_title: Názov
         omnipresent_banner_url: Adresa URL
+        organization_admin_email: E-mail administrátora organizácie
+        organization_admin_name: Meno administrátora organizácie
+        organization_locales: Jazyky organizácie
         primary_color: Primárne
         reference_prefix: Referenčná predpona
         rich_text_editor_in_public_views: Povoliť pokročilý textový editor pre účastníkov
         secondary_color: Sekundárne
+        secondary_hosts: Sekundárni hostitelia
         send_welcome_notification: Poslať úvodné privítanie
         success_color: Úspech
+        tertiary_color: Terciárna
         time_zone: Časové pásmo
         tos_version: Verzia podmienok použitia
+        twitter_handler: X účet
+        users_registration_mode: Režim registrácie používateľov
         warning_color: Varovanie
         welcome_notification_body: Telo textu úvodného privítania
         welcome_notification_subject: Predmet textu úvodného privítania
@@ -69,25 +106,52 @@ sk:
         name: Názov
         organization: Organizácia
         plural: Množné číslo
+      settings:
+        scope_id: Oblasť
       static_page:
+        allow_public_access: Povoliť prístup bez overenia
         changed_notably: Nastali výrazné zmeny
         content: Obsah
         organization: Organizácia
         show_in_footer: Zobraziť v päte
         slug: URL krátky odkaz
         title: Názov
+        topic_id: Téma
+        weight: Pozícia v poradí
       static_page_topic:
         description: Popis
+        name: Názov témy
         show_in_footer: Zobraziť v päte
         title: Názov
+        weight: Pozícia v poradí
+      taxonomy:
+        item_name: Názov položky
+        parent_id: Nadradená položka
       user_group_csv_verification:
         file: Súbor
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Nesprávne naformátovaný súbor na import, pozorne si prečítajte pokyny a uistite sa, že súbor je kódovaný v UTF-8.
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Vyberte aspoň jeden participatívny priestor.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Nefunkčný obrázkový súbor
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Nesprávne naformátovaný súbor na import, pozorne si prečítajte pokyny a uistite sa, že súbor je kódovaný v UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: Bol poskytnutý neplatný súbor, skontrolujte, či je súbor správne naformátovaný.
+            invalid_mime_type: Neplatný typ MIME.
   activerecord:
     attributes:
       decidim/static_page:
@@ -105,36 +169,97 @@ sk:
   decidim:
     admin:
       actions:
+        actions: Akcie
+        actions_label: Akcie pre %{resource}
         add: Pridať
+        attachment:
+          new: Nová príloha
+        attachment_collection:
+          new: Nový priečinok príloh
+        attachment_collections: Pridať priečinok
+        attachments: Pridať prílohu
         browse: Prechádzať
         configure: Konfigurovať
+        confirm_delete_component: |
+          Naozaj chcete odstrániť tento komponent?<br>
+          Tento komponent obsahuje:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} zdrojov</li>
+          </ul>
+          Ak zmeníte názor, môžete ho neskôr obnoviť.
         export: Exportovať
+        export_all: Exportovať všetko
+        export_selection: Exportovať výber
+        import: Importovať
+        member:
+          new: Nový člen
+        menu_hidden: Skryť z ponuky
+        moderate: Spravovať moderovanie
+        newsletter:
+          new: Nový newsletter
         per_page: Na stranu
+        permissions: Spravovať oprávnenia
+        restore: Obnoviť
+        send_me_a_test_email: Pošlite mi testovací e-mail
+        share: Zdieľať
+        share_tokens: Zdieľať odkaz
+        soft_delete: Presunúť do koša
+        user:
+          new: Nový administrátor
+        view_deleted_components: Zobraziť odstránené komponenty
+      admin_terms:
+        show:
+          title: Podmienky používania pre administrátorov
+      admin_terms_of_service:
+        accept:
+          error: Pri prijímaní podmienok používania pre administrátorov sa vyskytol problém.
+          success: Skvelé! Prijali ste podmienky používania pre administrátorov.
+        actions:
+          accept: Súhlasím s podmienkami
+          are_you_sure: Naozaj chcete odmietnuť podmienky používania pre administrátorov?
+          refuse: Odmietnuť podmienky pre administrátorov
+          title: Súhlasiť s podmienkami používania
+        required_review:
+          alert: 'Povinné: Prečítajte si naše podmienky používania pre administrátorov'
+          callout: Nájdite si chvíľu na prečítanie podmienok používania pre administrátorov. V opačnom prípade nebudete môcť spravovať platformu.
+          cta: Prečítať si ich teraz.
       area_types:
         create:
           error: Pri tvorbe nového typu oblasti nastala chyba.
           success: Nový typ oblasti úspešne vytvorený.
+        destroy:
+          success: Typ oblasti bol úspešne odstránený.
         edit:
           title: Upraviť typ oblasti
           update: Aktualizovať
+        index:
+          title: Typy oblastí
         new:
           create: Vytvoriť nový typ oblasti
           title: Nový typ oblasti
         update:
           error: Pri aktualizácii typu oblasti nastala chyba.
+          success: Typ oblasti bol úspešne aktualizovaný.
       areas:
         create:
           error: Pri tvorbe novej oblasti nastala chyba.
           success: Oblasť úspešne vytvorená.
+        deprecated: Upozorňujeme, že oblasti sú zastarané a v budúcich verziách budú odstránené. Namiesto nich použite taxonómie. Jediný modul, ktorý v súčasnosti využíva oblasti, je modul iniciatív.
+        destroy:
+          has_spaces: Táto oblasť má závislé priestory. Pred jej odstránením sa uistite, že na ňu neodkazuje žiadny participatívny priestor.
+          success: Oblasť bola úspešne odstránená.
         edit:
           title: Upravit oblasť
           update: Aktualizovať
+        index:
+          title: Oblasti
         new:
           create: Vytvoriť oblasť
           title: Nová oblasť
         no_areas: Žiadne oblasti
         update:
           error: Pri aktualizácii oblasti nastala chyba.
+          success: Oblasť bola úspešne aktualizovaná.
       attachment_collections:
         create:
           error: Pri tvorbe nového priečinka nastala chyba.
@@ -144,6 +269,8 @@ sk:
         edit:
           title: Upraviť priečinok
           update: Aktualizovať
+        index:
+          title: Priečinky príloh
         new:
           create: Vytvoriť
           title: Nový priečinok
@@ -159,14 +286,35 @@ sk:
         edit:
           title: Upraviť prílohu
           update: Aktualizovať
+        index:
+          title: Prílohy
         new:
           create: Vytvoriť prílohu
           title: Nová príloha
         update:
           error: Nastal problém pri aktualizácii prílohy.
           success: Príloha bola upravená úspešne.
+      attachments_privacy_warning:
+        message: Pri práci s prílohami v súkromnom priestore buďte opatrní. Ktorýkoľvek účastník by mohol tento dokument zdieľať s ostatnými.
+      authorization_workflows:
+        index:
+          title: Metódy overenia
       autocomplete:
         no_results: Neboli nájdené žiadne výsledky
+        search_prompt: Pre vyhľadávanie zadajte aspoň tri znaky.
+      block_user:
+        bulk_new:
+          action: Zablokovať účty a odoslať odôvodnenie
+          already_reported_html: Pokračovaním v tejto akcii skryjete aj všetok obsah účastníka.
+          description: Zablokovaním používateľa sa jeho účet stane nepoužiteľným. Vo svojom odôvodnení môžete uviesť akékoľvek pokyny o spôsoboch, ktorými by ste zvážili odblokovanie používateľa.
+          justification: Odôvodnenie
+          title: Zablokovať používateľov
+        new:
+          action: Zablokovať účet a odoslať odôvodnenie
+          already_reported_html: Pokračovaním v tejto akcii skryjete aj všetok obsah účastníka.
+          description: Zablokovaním používateľa sa jeho účet stane nepoužiteľným. Vo svojom odôvodnení môžete uviesť akékoľvek pokyny o spôsoboch, ktorými by ste zvážili odblokovanie používateľa.
+          justification: Odôvodnenie
+          title: Zablokovať používateľa %{name}
       categories:
         index:
           categories_title: Kategórie
@@ -178,6 +326,7 @@ sk:
         create:
           error: Vyskytol sa problém s vytvorením tejto súčasti.
           success: Súčasť bola vytvorená úspešne.
+          success_landing_page: Komponent bol úspešne vytvorený. Pre tento komponent môžete pridať blok obsahu na domovskej stránke priestoru. Prejdite na <a href="%{landing_page_path}">Vstupnú stránku</a> a nakonfigurujte ho.
         edit:
           title: Upraviť súčasť
           update: Aktualizovať
@@ -185,12 +334,18 @@ sk:
           default_step_settings: Predvolené nastavenia pre kroky
           global_settings: Globálne nastavenia
           step_settings: Nastavenia krokov
+        hide:
+          success: Komponent bol úspešne skrytý z ponuky.
         index:
           add: Pridať súčasť
           headers:
             actions: Akcie
             name: Názov súčasti
             type: Typ súčasti
+            visibility: Viditeľnosť
+          title: Komponenty
+        manage_trash:
+          title: Odstránené komponenty
         new:
           add: Pridať súčasť
           title: 'Pridať súčasť: %{name}'
@@ -201,13 +356,103 @@ sk:
         update:
           error: Vyskytol sa problém s aktualizáciou tejto súčasti.
           success: Súčasť bola úspešne aktualizovaná.
+        visibility_label:
+          menu_hidden: Skryté v ponuke
+          published: Publikované
+          unpublished: Nepublikované
+      conflicts:
+        attempts: Pokusy
+        edit:
+          title: Preniesť používateľa
+        'false': 'Nie'
+        index:
+          text: Vyhľadávať podľa e-mailu, mena alebo prezývky aktuálneho používateľa
+          title: Konflikty overenia
+        managed_user_name: Spravovaný používateľ
+        solved: Vyriešené
+        transfer:
+          email: E-mail
+          error: Pri prenose aktuálneho účastníka na spravovaného účastníka sa vyskytol problém.
+          name: Meno
+          reason: Dôvod
+          success: Aktuálny prenos bol úspešne dokončený.
+          title: Prenos
+        'true': 'Áno'
+        user_name: Používateľ
+      content_blocks:
+        create:
+          error: Pri vytváraní bloku obsahu sa vyskytol problém.
+          success: Blok obsahu bol úspešne vytvorený.
+        destroy:
+          error: Pri pokuse o odstránenie tohto bloku obsahu sa vyskytol problém.
+          success: Blok obsahu bol úspešne odstránený.
+        edit:
+          active_content_blocks: Aktívne bloky obsahu
+          add: Pridať blok obsahu
+          destroy_confirmation: Naozaj chcete odstrániť tento blok obsahu?
+          inactive_content_blocks: Neaktívne bloky obsahu
+          title: Obsah stránky
+          update: Aktualizovať
       dashboard:
+        pending_moderations:
+          announcement:
+            one: Čaká %{count} moderácia
+            few: Čakajú %{count} moderácie
+            many: Čaká %{count} moderácií
+            other: Čaká %{count} moderácií
+          goto_moderation: Prejsť na globálne moderácie
+          title: Čakajúce moderácie
         show:
+          dropdown: Rozbaľovacie menu
+          title: Nástenka
           view_more_logs: Zobraziť viac logov
+      domain_allowlist:
+        form:
+          domain_too_short: Doména je príliš krátka
+        update:
+          error: Nepodarilo sa aktualizovať zoznam povolených externých domén.
+          success: Zoznam povolených externých domén bol úspešne aktualizovaný.
       exports:
         export_as: "%{name} ako %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: Váš export momentálne prebieha. Po jeho dokončení dostanete e-mail.
       filters:
         filter_label: Filter
+        invitation_accepted_at_present:
+          label: Pozvánka prijatá
+          values:
+            'false': 'Nie'
+            'true': 'Áno'
+        last_sign_in_at_present:
+          label: Niekedy prihlásený
+          values:
+            'false': 'Nie'
+            'true': 'Áno'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Pozvánka prijatá
+            values:
+              'false': Neprijatá
+              'true': Prijatá
+          user_invitation_sent_at_not_null:
+            label: Pozvánka odoslaná
+            values:
+              'false': Neodoslaná
+              'true': Odoslaná
+        moderated_users:
+          reports_reason_eq:
+            label: Dôvod nahlásenia
+            values:
+              does_not_belong: Nepatrí sem
+              offensive: Urážlivé
+              spam: Spam
+        moderations:
+          reportable_type_string_eq:
+            label: Typ
         officialized_at_null:
           label: Štát
           values:
@@ -223,10 +468,41 @@ sk:
           values:
             'false': Zverejnené
             'true': Nepublikované
+        remove_all: Odstrániť všetko
         search_label: Hľadať
+        search_placeholder:
+          name_or_nickname_or_email_cont: Hľadať %{collection} podľa e-mailu, mena alebo prezývky
+          report_count_eq: Počet nahlásení sa rovná
+          reported_id_string_or_reported_content_cont: Hľadať %{collection} podľa ID nahlásenia alebo obsahu
+          title_cont: Hľadať %{collection} podľa názvu
+          user_name_or_user_nickname_or_user_email_cont: Hľadať %{collection} podľa e-mailu, mena alebo prezývky
+        state_eq:
+          label: Stav
+          values:
+            all: Všetky
+            pending: Čakajúce
+            rejected: Zamietnuté
+            verified: Overené
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonómia
+      forms:
+        file_help:
+          import:
+            explanation: 'Pokyny pre súbor:'
+            message_1: Podporované sú súbory CSV, JSON a Excel (.xlsx)
+            message_2: Pre súbory CSV musí byť oddeľovačom stĺpcov bodkočiarka (";")
+          import_csv:
+            explanation: 'Pokyny pre súbor:'
+            message_1: Podporované sú súbory CSV
+            message_2: "Súbor .csv s e-mailovými údajmi"
       help_sections:
+        error: Pri aktualizácii sekcií pomocníka sa vyskytol problém.
         form:
           save: Uložiť
+        success: Sekcie pomocníka boli úspešne aktualizované.
+        update:
+          title: Sekcie pomocníka
       impersonatable_users:
         index:
           filter:
@@ -242,6 +518,7 @@ sk:
           promote: Povýšiť
           search: Hľadať
           status: Stav
+          title: Spravovateľní účastníci
           view_logs: Prezrieť záznam
       impersonations:
         close_session:
@@ -258,7 +535,69 @@ sk:
           impersonate: Vydávať sa za používateľa
           impersonate_existing_managed_user: Spravovanie účastníka "%{name}"
           impersonate_existing_user: Spravovanie účastníka "%{name}"
+          title: Zastupovať účastníka
+      imports:
+        and: a
+        data_errors:
+          duplicate_headers:
+            detail: Skontrolujte, či súbor obsahuje požadované stĺpce alebo hlavičky iba raz.
+            message:
+              one: Duplicitný stĺpec %{columns}.
+              few: Duplicitné stĺpce %{columns}.
+              many: Duplicitné stĺpce %{columns}.
+              other: Duplicitné stĺpce %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Skontrolujte, či sú tieto riadky správne naformátované a obsahujú platné záznamy.
+              message:
+                one: V importovanom súbore sa našla chyba na riadku %{indexes}.
+                few: V importovanom súbore sa našli chyby na riadkoch %{indexes}.
+                many: V importovanom súbore sa našli chyby na riadkoch %{indexes}.
+                other: V importovanom súbore sa našli chyby na riadkoch %{indexes}.
+            records:
+              detail: Skontrolujte, či sú tieto záznamy správne naformátované a obsahujú platné záznamy.
+              message:
+                one: V importovanom súbore sa našla chyba pre záznamy s poradovými číslami %{indexes}.
+                few: V importovanom súbore sa našli chyby pre záznamy s poradovými číslami %{indexes}.
+                many: V importovanom súbore sa našli chyby pre záznamy s poradovými číslami %{indexes}.
+                other: V importovanom súbore sa našli chyby pre záznamy s poradovými číslami %{indexes}.
+          missing_headers:
+            detail: Skontrolujte, či súbor obsahuje požadované stĺpce.
+            message:
+              one: Chýbajúci stĺpec %{columns}.
+              few: Chýbajúce stĺpce %{columns}.
+              many: Chýbajúce stĺpce %{columns}.
+              other: Chýbajúce stĺpce %{columns}.
+        error: Počas importu sa vyskytol problém.
+        example_error: Pri vytváraní príkladu pre daný typ sa vyskytol problém.
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
+          actions:
+            back: Späť
+          download_example: Stiahnuť príklad
+          download_example_format: Príklad ako %{name}
+          file_legend: Pridajte súbor na import, ktorý sa spracuje.
+          import: Importovať
+        notice: "%{count} %{resource_name} úspešne importovaných."
+      logs:
+        filters:
+          participatory_space: Nájsť participatívny priestor
+          text: Hľadať podľa e-mailu, mena alebo prezývky používateľa
+          user: Používateľ
+        index:
+          title: Záznamy administrátora
+        logs_list:
+          no_logs_yet: Zatiaľ tu nie sú žiadne záznamy.
+          no_matching_logs: S poskytnutými filtrami vyhľadávania neexistujú žiadne záznamy. Skúste ich zmeniť a skúste to znova.
+      manage_trash:
+        deleted_items_warning: Momentálne prezeráte odstránené položky. Ak chcete vykonať akékoľvek úpravy alebo zmeny, musíte ich najprv obnoviť.
       managed_users:
+        impersonation_logs:
+          index:
+            title: Zastupovania
         promotion:
           error: Došlo k chybe pri povýšení spravovaného používateľa.
           success: Spravovaný účastník bol úspešne povýšený.
@@ -266,26 +605,83 @@ sk:
           new:
             explanation: Spravovaní účastníci môžu byť povýšení na štandardných účastníkov. To znamená, že budú pozvaní do aplikácie, a už ich nebudete môcť spravovať. Pozvaný účastník obdrží e-mail s Vašou pozvánkou.
             promote: Povýšiť
+            title: Nové povýšenie spravovaného účastníka
+      members:
+        create:
+          error: Pri pridávaní člena do tohto participatívneho priestoru sa vyskytol problém.
+          success: Prístup člena bol úspešne vytvorený.
+        destroy:
+          error: Pri odstraňovaní člena pre tento participatívny priestor sa vyskytol problém.
+          success: Prístup člena bol úspešne odstránený.
+        edit:
+          title: Upraviť člena
+          update: Aktualizovať
+        index:
+          import_via_csv: Importovať cez CSV
+          publish_all: Publikovať všetkých
+          title: Člen
+          unpublish_all: Zrušiť publikovanie všetkých
+        new:
+          create: Vytvoriť
+          title: Nový člen
+        publish_all:
+          error: Pri publikovaní všetkých členov pre tento participatívny priestor sa vyskytol problém.
+          success: Všetci členovia pre tento participatívny priestor boli úspešne publikovaní
+        unpublish_all:
+          error: Pri rušení publikovania všetkých členov pre tento participatívny priestor sa vyskytol problém.
+          success: Publikovanie všetkých členov pre tento participatívny priestor bolo úspešne zrušené
+        update:
+          error: Pri aktualizácii člena pre tento participatívny priestor sa vyskytol problém.
+          success: Člen bol úspešne aktualizovaný
       members_csv_imports:
+        create:
+          invalid: Pri čítaní súboru CSV sa vyskytol problém. Uistite sa, že ste postupovali podľa pokynov.
+          success: Súbor CSV bol úspešne nahraný, účastníkom posielame e-mail s pozvánkou. Môže to chvíľu trvať.
         new:
           csv_upload:
             title: Nahrať súbor CSV
+          destroy:
+            button: Odstrániť všetkých členov
+            confirm: Naozaj chcete odstrániť všetkých členov? Túto akciu nemožno vrátiť späť, nebudete ich môcť obnoviť.
+            empty: Nemáte žiadnych členov.
+            explanation: Máte %{count} členov.
+            title: Odstrániť členov
+          example_file: 'Vzorový súbor:'
+          explanation: 'Nahrajte svoj súbor CSV. Musí mať dva stĺpce bez hlavičiek, pričom v prvom stĺpci je e-mail a v poslednom stĺpci meno používateľov, ktorých chcete pridať do participatívneho priestoru. Vyhnite sa používaniu neplatných znakov ako `<>?%&^*#@()[]=+:;"{}\|` v mene používateľa.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importovať členov cez CSV
+          upload: Nahrať
       menu:
         admin_log: Záznam aktivity administrátora
         admins: Administrátori
         appearance: Vzhľad
         area_types: Typy oblastí
         areas: Oblasti
+        components: Komponenty
         configuration: Konfigurácia
+        content: Nahlásený obsah
+        external_domain_allowlist: Povolené externé domény
         help_sections: Sekcie Pomoci
+        homepage: Rozloženie domovskej stránky
         impersonations: Vydávanie sa za používateľa
+        insights: Prehľady
         manage: Správa
+        moderation: Globálne moderovanie
         newsletters: Spravodaje
         participants: Účastníci
+        reported_users: Nahlásení účastníci
         scope_types: Typy rozsahu
         scopes: Rozsahy
+        see_site: Zobraziť stránku
         settings: Nastavenia
+        share_tokens: Prístupové odkazy
+        static_page_topics: Témy
         static_pages: Stránky
+        statistics: Štatistiky
+        taxonomies: Taxonómie
+        taxonomy_filters: Filtre taxonómií
         users: Účastníci
       models:
         area:
@@ -315,6 +711,8 @@ sk:
             reason: Dôvod
             started_at: Začaté
             user: Účastník
+        member:
+          name: Člen
         newsletter:
           fields:
             created_at: Vytvorené
@@ -331,6 +729,13 @@ sk:
           fields:
             name: Meno
             plural: Množné číslo
+        share_token:
+          fields:
+            actions: Akcie
+            expires_at: Platnosť vyprší
+            registered_only: Iba registrovaní?
+            times_used: Počet použití
+            token: Prístupový odkaz
         static_page:
           fields:
             created_at: Vytvorené
@@ -339,28 +744,106 @@ sk:
           fields:
             created_at: Dátum vytvorenia
             email: E-mail
+            last_sign_in_at: Dátum posledného prihlásenia
             name: Meno
             role: Rola
             roles:
               admin: Admin
               user_manager: Správca účastníkov
           name: Účastník
+      moderated_users:
+        index:
+          actions:
+            block: Zablokovať používateľa
+            bulk_actions:
+              actions_dropdown: Akcie
+              block:
+                title: Zablokovať
+                update_moderated_user_button: Zablokovať používateľov
+              unblock:
+                title: Odblokovať
+                update_moderated_user_button: Odblokovať používateľov
+              unreport:
+                title: Zrušiť nahlásenie
+            ignore:
+              update_moderated_user_button: Zrušiť nahlásenie používateľov
+            title: Akcie
+            unblock: Odblokovať používateľa
+            unreport: Zrušiť nahlásenie
+          cancel: Zrušiť
+          name: Meno
+          nickname: Prezývka
+          reason: Dôvod
+          reports: Počet nahlásení
+          selected: Vybrané
+          title: Nahlásení účastníci
+        report:
+          reasons:
+            does_not_belong: Nepatrí sem
+            offensive: Urážlivé
+            spam: Spam
+        tabs:
+          blocked: Zablokovaní
+          unblocked: Nezablokovaní
       moderations:
+        index:
+          actions:
+            actions_dropdown: Akcie
+            hide:
+              title: Skryť
+              update_moderation_button: Skryť vybrané zdroje
+            unhide:
+              title: Zrušiť skrytie
+              update_moderation_button: Odkryť vybrané zdroje
+            unreport:
+              title: Zrušiť nahlásenie
+              update_moderation_button: Zrušiť nahlásenie vybraných zdrojov
+          cancel: Zrušiť
+          selected: vybrané
+          title: Nahlásený obsah
         report:
           reasons:
             does_not_belong: Nehodí sa
+            hidden_during_block: Skryté počas blokovania používateľa
             offensive: Urážlivé
+            parent_hidden: Nadradený obsah bol skrytý
             spam: Spam
+        reports:
+          index:
+            author: Autor(i)
+            callout_html: Obsah sa zobrazí na paneli moderovania, keď ho používateľ (môže to byť ktokoľvek s registrovaným účtom) nahlási kliknutím na vlajku %{icon} vedľa položky.
+            content_original_language: Pôvodný jazyk obsahu
+            participatory_space: Participatívny priestor
+            reported_content: Nahlásený obsah
+            see_current: Zobraziť aktuálne
+            see_original: Zobraziť originál
+            title: Správy o moderovaní
+          show:
+            report_details: Podrobnosti o dôvode
+            report_language: Jazyk nahlásenia
+            report_reason: Dôvod
+            title: Podrobnosti nahlásenia
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Náhľad
           title: Šablóny spravodaja
           use_template: Použiť túto šablónu
         show:
+          title: 'Náhľad šablóny: %{template_name}'
           use_template: Použiť túto šablónu
       newsletters:
+        confirm_recipients:
+          email: E-mail
+          name: Meno
+          title: Potvrdiť príjemcov
         create:
           error: Vyskytol sa problém s vytváraním spravodaja.
+          success: Newsletter bol úspešne vytvorený. Pred odoslaním ho prosím skontrolujte.
         deliver:
           error: Vyskytol sa problém s doručením spravodaja.
           success: Spravodaj doručený úspešne.
@@ -377,11 +860,14 @@ sk:
           confirm_delete: Naozaj chcete tento spravodaj vymazať?
           followers: 'sledujúci '
           has_been_sent_to: 'Bol poslaný týmto: '
+          members: 'členovia '
           not_sent: Neodoslané
           participants: 'účastníci '
           segmented_to: 'Rozdelené na %{subject}: '
           subscribed_count: 'Prihlásené na odber:'
           title: Spravodaje
+          verification_types: 'Typy overenia: %{types}'
+          verified_users: Overení používatelia
         new:
           save: Uložit
           title: Nový spravodaj
@@ -389,24 +875,56 @@ sk:
           all_spaces: Všetko
           all_users_help: Zaslať spravodaj všetkým potvrdeným používateľom.
           confirm_deliver: Naozaj chcete odstrániť tento spravodaj? Túto akciu nie je možné vrátiť späť.
+          confirm_recipients: Potvrdiť príjemcov
           deliver: Odoslať spravodaj
           followers_help: Poslať spravodaj všetkým potvrdeným účastníkom, ktorí sledujú niektorý z participatívnych priestorov na zozname.
+          members_help: Odošle newsletter všetkým potvrdeným používateľom, ktorí boli pridaní do vybraných participatívnych priestorov ako členovia.
           participants_help: Poslať spravodaj všetkým potvrdeným účastníkom, ktorí participovali na niektorom z participatívnych priestorov na zozname.
           recipients_count: Tento spravodaj bude zasielaný <strong id='recipients_count'>%{count}</strong> používateľom.
+          select_assemblies: Vybrať zhromaždenia
+          select_conferences: Vybrať konferencie
+          select_initiatives: Vybrať iniciatívy
+          select_participatory_processes: Vybrať participatívne procesy
           select_spaces: Vyberte skupiny pre rozdelenie spravodaja
+          select_users_for_participatory_space: Odoslať newsletter do jedného alebo viacerých participatívnych priestorov
+          select_users_general: Odoslať všeobecný newsletter
+          select_verification_types: Vybrať metódy overenia
           send_to_all_users: Poslať všetkým účastníkom
+          send_to_verified_users: Odoslať overeným používateľom
           title: Vyberte príjemcov
+          verified_users_help: Odošle newsletter všetkým potvrdeným a overeným používateľom prostredníctvom akejkoľvek vybranej metódy overenia.
           warning: "<strong>Pozor:</strong> Tento spravodaj bude odoslaný len účastníkom, ktorí aktivovali možnosť <em>Chcem dostávať spravodaje</em> vo svojich nastaveniach."
+        send:
+          no_recipients: Pre tento výber nie sú žiadni príjemcovia.
+        send_to_user:
+          sent_successfully: Newsletter bol úspešne odoslaný na %{email}
         show:
           select_recipients_to_deliver: Vyberte príjemcov
+          send_me_a_test_email: Pošlite mi testovací e-mail
           subject: Predmet
+          title: Náhľad
         update:
           error: Vyskytol sa problém s aktualizáciou spravodaja.
           success: Spravodaj úspešne aktualizovaný. Prosíme skontrolujte ho pred odoslaním.
       officializations:
+        block:
+          error: Pri blokovaní účastníka sa vyskytol problém.
+          success: Účastník bol úspešne zablokovaný.
+        bulk_action:
+          block:
+            invalid: Pri blokovaní účastníkov sa vyskytol problém.
+            success: Účastníci boli úspešne zablokovaní.
+          unblock:
+            invalid: Pri odblokovaní účastníkov sa vyskytol problém.
+            success: Účastníci boli úspešne odblokovaní.
+        create:
+          success: Účastník bol úspešne oficionalizovaný.
+        destroy:
+          success: Oficionalizácia účastníka bola úspešne zrušená.
         index:
           actions: Akcie
           badge: Odznak
+          block: Zablokovať
           created_at: Vytvorené
           name: Meno
           nickname: Prezývka
@@ -414,35 +932,89 @@ sk:
           officialize: Oficializovať
           officialized: Oficializovaní
           reofficialize: Znovu oficializovať
+          reports: Nahlásenia
+          send_message: Poslať správu
+          show_email: Zobraziť e-mail
           status: Stav
+          title: Účastníci
+          unblock: Odblokovať
           unofficialize: Zneoficiálniť
         new:
           badge: Odznak oficializácie
           officialize: Oficializovať
           title: Oficializovať účastníka "%{name}"
+        show_email:
+          title: Zobraziť e-mail
         show_email_modal:
+          description: Ak potrebujete kontaktovať účastníka priamo, môžete kliknúť na tlačidlo Zobraziť a uvidíte jeho e-mailovú adresu. Táto akcia bude zaznamenaná.
           email_address: E-mailová adresa
           full_name: Meno a priezvisko
           hidden: skryté
           show: Zobraziť
+          title: Zobraziť e-mailovú adresu účastníka
+        unblock:
+          error: Pri odblokovaní účastníka sa vyskytol problém.
+          success: Účastník bol úspešne odblokovaný.
       organization:
         edit:
           title: Upraviť organizáciu
           update: Aktualizovať
         form:
+          admin_terms_of_service: Podmienky používania pre administrátorov
+          basic_configuration: Základná konfigurácia
+          colors:
+            choose_color: Vyberte primárnu farbu
+            colors_title: Farby organizácie
+            colors_warning_html: Upozornenie! Zmena týchto farieb môže narušiť kontrasty prístupnosti. Kontrast vášho výberu si môžete overiť pomocou <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> alebo iných podobných nástrojov.
+            explanation: Tento nástroj vám pomôže vybrať farebnú schému, ktorá sa skladá z odtieňov rovnomerne rozmiestnených na farebnom kruhu a bude použitá na webovej stránke organizácie.
+            legend_html: Hlavné farby aplikácie, založené na <a href="https://www.color-meanings.com/triadic-colors/">triadickom algoritme</a>. <i>Sekundárna</i> farba sa automaticky vypočíta z primárnej farby a zvolenej sýtosti.
+            saturation: Sýtosť
+            title: Výber farieb
+            update_suggested_colors: Aktualizovať navrhované farby
+          extra_features: Extra funkcie
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Logá organizácie
+            preview: Náhľad
           rich_text_editor_in_public_views_help: V niektorých textových oknách budú účastníci môcť vkladať niektoré HTML tagy pomocou pokročilého textového editoru.
           social_handlers: Sociálne
+          twitter: X
+          url: URL
+          welcome_notification: Uvítacie upozornenie
           youtube: YouTube
         update:
           error: Pri aktualizácii organizácie došlo k chybe.
           success: Organizácia úspešne aktualizovaná.
+      organization_external_domain_allowlist:
+        edit:
+          title: Zoznam povolených externých domén
+          update: Aktualizovať
+        external_domain:
+          down: Dole
+          external_domain: Externá doména
+          remove: Odstrániť
+          up: Hore
+        form:
+          add: Pridať do zoznamu povolených
+      reminders:
+        create:
+          error: Pri vytváraní pripomienok sa vyskytol problém.
+          success:
+            one: "%{count} používateľ dostane pripomienku."
+            few: "%{count} používatelia dostanú pripomienku."
+            many: "%{count} používateľov dostane pripomienku."
+            other: "%{count} používateľov dostane pripomienku."
+        new:
+          submit: Odoslať
+          title: Odoslať pripomienky
       resource_permissions:
         edit:
           submit: Potvrdiť
           title: Upraviť oprávnenia
+        options_form:
+          ephemeral_warning: Ak chcete povoliť túto metódu autorizácie, musíte <a href="%{path}">zrušiť</a> všetky existujúce autorizácie. Tým sa minimalizuje riziko konfliktov pri overovaní. Všetky autorizácie tohto typu budú v organizácii automaticky zrušené, ak odošlete zmeny pridávajúce túto metódu alebo upravujúce jej konfiguráciu po jej pridaní.
         update:
           success: Práva úspešne aktualizované.
       scope_types:
@@ -454,6 +1026,8 @@ sk:
         edit:
           title: Upraviť typ rozsahu
           update: Aktualizovať
+        index:
+          title: Typy rozsahov
         new:
           create: Vytvoriť nový typ rozsahu
           title: Nový rozsah
@@ -464,9 +1038,14 @@ sk:
         create:
           error: Pri tvorbe nového rozsahu nastala chyba.
           success: Nový rozsah úspešne vytvorený.
+        deprecated: Upozorňujeme, že rozsahy sú zastarané a v budúcich verziách budú odstránené. Namiesto nich použite taxonómie. Jediný modul, ktorý v súčasnosti používa rozsahy, je modul iniciatív.
+        destroy:
+          success: Rozsah bol úspešne odstránený.
         edit:
           title: Upraviť rozsah
           update: Aktualizovať
+        index:
+          title: Rozsahy
         new:
           create: Vytvoriť rozsah
           title: Nový rozsah
@@ -474,44 +1053,247 @@ sk:
         update:
           error: Pri aktualizácii rozsahu nastala chyba.
           success: Nový rozsah úspešne aktualizovaný
+      share_tokens:
+        actions:
+          confirm_destroy: Naozaj chcete odstrániť tento prístup?
+          copy_link: Kopírovať odkaz
+          destroy: Odstrániť
+          edit: Upraviť
+          preview: Náhľad
+        create:
+          invalid: Pri generovaní prístupového odkazu sa vyskytol problém.
+          success: Prístupový odkaz bol úspešne vytvorený.
+        destroy:
+          error: Pri odstraňovaní prístupového odkazu sa vyskytol problém.
+          success: Prístupový odkaz bol úspešne odstránený.
+        edit:
+          title: 'Upraviť prístupové odkazy pre: %{name}'
+          update: Aktualizovať
+        form:
+          automatic: Automatické
+          custom: Vlastné
+          custom_expiration: Vlastné vypršanie platnosti
+          custom_token: Vlastné slovo
+          expires_at: Platnosť vyprší
+          'false': 'Nie'
+          never_expire: Nikdy
+          registered_only: Iba pre registrovaných?
+          token: Prístupový kľúč
+          'true': 'Áno'
+        index:
+          back_to_share_tokens: Späť na prístupové odkazy
+          copied: Prístupový odkaz skopírovaný!
+          copy_message: Text bol úspešne skopírovaný do schránky.
+          create_new_token: Vytvorte si svoj prvý prístupový odkaz!
+          empty_html: Neexistujú žiadne aktívne prístupové odkazy. %{new_token_link}
+          never: Nikdy
+          new_share_token_button: Nový prístupový odkaz
+          share_tokens_help_html: |
+            Vytvorte a zdieľajte prístupový odkaz, aby ste umožnili ostatným zobraziť tento nepublikovaný zdroj.
+            Prístupové odkazy môžu byť platné len pre registrovaných účastníkov alebo môžu mať v prípade potreby dátum vypršania platnosti.
+            Ak chcete s niekým zdieľať nový prístupový odkaz, vytvorte ho a potom odkaz skopírujte pomocou ikony akcie „%{clipboard} schránka“.
+          title: 'Prístupové odkazy pre: %{name}'
+        new:
+          create: Vytvoriť
+          title: 'Nový prístupový odkaz pre: %{name}'
+        update:
+          error: Pri aktualizácii tohto prístupu sa vyskytol problém.
+          success: Prístupový odkaz bol úspešne aktualizovaný.
       shared:
+        adjacent_navigation:
+          next: Nasledujúci
+          next_title: Nasledujúca položka
+          previous: Predchádzajúci
+          previous_title: Predchádzajúca položka
         gallery:
           add_images: Pridať obrázky
+          edit_images: Upraviť obrázky
           gallery_legend: Pridať galériu (voliteľné)
       static_page_topics:
         create:
           error: Pri tvorbe novej témy nastala chyba.
           success: Téma vytvorená úspešne.
+        destroy:
+          success: Téma bola úspešne odstránená.
         edit:
           title: Upraviť tému
           update: Aktualizovať tému
+        index:
+          title: Témy
         new:
+          create: Nová téma
           title: Nová téma
         update:
           error: Pri aktualizácii témy nastala chyba.
+          success: Téma bola úspešne aktualizovaná.
       static_pages:
+        actions:
+          view: Zobraziť
         create:
           error: Pri tvorbe novej stránky nastala chyba.
           success: Nová stránka úspešne vytvorená.
         destroy:
           success: Stránka úspešne vymazaná
         edit:
+          changed_notably_help: Ak je začiarknuté, účastníci budú upozornení, aby prijali nové podmienky používania.
+          last_notable_change: 'Posledná významná zmena: %{tos_version_formatted}'
           title: Upraviť stránku
           update: Aktualizovať
         form:
           none: Žiadne
+          slug_help_html: 'Použite tu čiastočné cesty, nie úplné adresy URL. Akceptuje písmená, čísla, pomlčky a lomky a musí začínať písmenom. Príklad: %{url}'
         index:
           last_notable_change: Posledná výrazná úprava
+          title: Stránky
         new:
+          create: Nová stránka
           title: Nová stránka
         topic:
+          empty: V tejto téme nie sú žiadne stránky.
           without_topic: Stránky bez témy
         update:
           error: Pri aktualizácii stránky nastala chyba.
+          success: Stránka bola úspešne aktualizovaná.
+      statistics:
+        index:
+          title: Štatistiky
+      taxonomies:
+        actions:
+          actions: Akcie
+          destroy: Odstrániť
+          edit: Upraviť
+          filters: Použiť filtre
+        breadcrumb:
+          edit: Upraviť taxonómiu
+          new: Nová taxonómia
+        count: Pridružené zdroje
+        create:
+          invalid: Pri vytváraní tejto taxonómie sa vyskytol problém.
+          success: Taxonómia bola úspešne vytvorená.
+        destroy:
+          invalid: Pri odstraňovaní tejto taxonómie sa vyskytol problém.
+          success: Taxonómia bola úspešne odstránená.
+        edit:
+          back: Späť
+          description: Položky v tejto taxonómii sa použijú na klasifikáciu alebo filtrovanie zdrojov, ako sú participatívne priestory alebo komponenty. Na zmenu poradia v zozname použite funkciu potiahnuť a pustiť.
+          new_item: Nová položka
+          no_items: V tejto taxonómii momentálne nie sú žiadne položky. Vytvorte tu zoznam položiek na klasifikáciu alebo filtrovanie zdrojov, ako sú participatívne priestory alebo komponenty. Položky môžu byť vnorené až do troch úrovní.
+          subtitle: Položky v „%{taxonomy_name}“
+          title: Upraviť taxonómiu „%{taxonomy_name}“
+          update: Aktualizovať
+        filters:
+          search_placeholder: Hľadať
+        index:
+          description: Taxonómie a filtre umožňujú administrátorom triediť a organizovať obsah. Napríklad pridajte taxonómiu s mestskými časťami a štvrťami a potom vytvorte filtre len s mestskými časťami alebo pre konkrétnu štvrť.
+          new_taxonomy: Nová taxonómia
+          no_items_found: Nenašli sa žiadne taxonómie zodpovedajúce kritériám vyhľadávania.
+          title: Taxonómie
+        name: Názov
+        new:
+          create: Vytvoriť taxonómiu
+          title: Nová taxonómia
+        no_taxonomies: Momentálne neexistujú žiadne taxonómie. Vytvorte tu zoznam taxonómií a definujte položky v každej z nich na klasifikáciu alebo filtrovanie zdrojov.
+        table:
+          to_next_page: Potiahnutím prejdete na nasledujúcu stránku
+          to_prev_page: Potiahnutím prejdete na predchádzajúcu stránku
+        taxonomy_actions:
+          confirm_destroy: 'Naozaj chcete odstrániť %{name}? Týmto sa odstránia aj všetky podradené položky. POZNÁMKA: Zdroje, ktoré používajú túto taxonómiu, nebudú ovplyvnené, ale stratia odkaz na túto taxonómiu.'
+        total_filters: Filtre
+        total_items: Položky v taxonómii
+        update:
+          invalid: Pri aktualizácii tejto taxonómie sa vyskytol problém.
+          success: Taxonómia bola úspešne aktualizovaná.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Nový filter taxonómie
+        breadcrumb:
+          edit: Upraviť filter
+          filters: Filtre
+          new: Nový filter
+        create:
+          error: Pri vytváraní tohto filtra taxonómie sa vyskytol problém.
+          success: Filter taxonómie bol úspešne vytvorený.
+        destroy:
+          error: Pri odstraňovaní tohto filtra taxonómie sa vyskytol problém.
+          success: Filter taxonómie bol úspešne odstránený.
+        edit:
+          back: Späť
+          title: Upraviť filter taxonómie
+          update: Aktualizovať filter taxonómie
+        form:
+          all: Všetky
+          items:
+            one: "Vybraná %{count} položka"
+            few: "Vybrané %{count} položky"
+            many: "Vybraných %{count} položiek"
+            other: "Vybraných %{count} položiek"
+          name_help: Názov filtra, ktorý sa má zobraziť vo verejnej časti (frontend).
+          no_items: Pre túto taxonómiu nie sú k dispozícii žiadne položky. Položky môžete vytvoriť v nastaveniach konfigurácie taxonómie.
+          space_filter: Dostupné ako filter pre
+        index:
+          description: Filter taxonómie umožňuje administrátorom triediť a filtrovať participatívne priestory na základe taxonómie. Napríklad pridajte filter taxonómie na triedenie procesov podľa geografického rozsahu.
+          empty: Momentálne neexistujú žiadne filtre taxonómie. Vytvorte tu zoznam filtrov taxonómie na triedenie a filtrovanie participatívnych priestorov na základe taxonómie.
+          new_filter: Nový filter
+          title: Filtre taxonómie pre „%{taxonomy}“
+        new:
+          back: Späť
+          create: Vytvoriť filter taxonómie
+          title: Nový filter taxonómie
+        table:
+          actions: Akcie
+          components_count: Komponenty, ktoré to používajú
+          confirm_destroy: 'Naozaj chcete odstrániť filter %{name}? POZNÁMKA: Zdroje, ktoré používajú tento filter, nebudú ovplyvnené, ale stratia odkaz na tento filter.'
+          destroy: Odstrániť
+          edit: Upraviť
+          internal_name: Interný štítok
+          name: Štítok
+        update:
+          error: Pri aktualizácii tohto filtra taxonómie sa vyskytol problém.
+          success: Filter taxonómie bol úspešne aktualizovaný.
+      taxonomy_filters_selector:
+        index:
+          title: Filtre taxonómie
+        new:
+          add_new_items_html: Ak potrebujete nastaviť nový filter alebo položku, urobte tak prostredníctvom nastavení konfigurácie alebo kliknutím <a href="%{url}">sem</a>.
+          items_count: "%{count} položiek"
+          save: Uložiť
+          title: Nový výber filtra taxonómie
+        show:
+          items_count: "%{count} položiek"
+          remove: Odstrániť
+          title: Výber filtra taxonómie
+        taxonomies_select:
+          filters: Filtre
+          select_filter: Vyberte filter
+          select_taxonomy: Vyberte taxonómiu
+          taxonomies: Taxonómie
+      taxonomy_items:
+        edit:
+          title: Upraviť položku v %{taxonomy}
+          update: Aktualizovať položku
+        new:
+          create: Vytvoriť položku
+          none: Žiadne
+          title: Nová položka v %{taxonomy}
       titles:
         areas: Oblasti
         authorization_workflows: Metódy overovania
+        menu: Menu
+        panel: Admin
         scopes: Rozsahy
+        statistics: Štatistiky
+      tooltips:
+        cannot_destroy_taxonomy_filter: Tento filter taxonómie nie je možné odstrániť
+        cannot_edit_taxonomy_filter: Tento filter taxonómie nie je možné upraviť
+        deleted_attachment_collections_info: Tento priečinok nie je možné odstrániť, pretože obsahuje prílohy.
+        deleted_component_info: Tento komponent je možné odstrániť, len ak má stav 'Nepublikované'.
+      trash_management:
+        restore:
+          invalid: Vyskytol sa problém pri obnove %{resource_name}.
+          success: "%{resource_name} úspešne obnovené."
+        soft_delete:
+          invalid: Vyskytol sa problém pri odstraňovaní %{resource_name}.
+          success: "%{resource_name} úspešne odstránené."
       users:
         create:
           error: Pri pozývaní administrátora nastal problém.
@@ -523,28 +1305,61 @@ sk:
           email: E-mail
           name: Meno
           role: Rola
+        index:
+          title: Administrátori
         new:
           create: Pozvať
+          title: Pozvať nového administrátora
       users_statistics:
         users_count:
           admins: Administrátori
           last_day: Posledný deň
           last_month: Posledný mesiac
           last_week: Posledný týždeň
+          no_users_count_statistics_yet: Zatiaľ nie sú k dispozícii žiadne štatistiky počtu účastníkov.
           participants: Účastníci
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Výber filtrov taxonómie bude možný po vytvorení komponentu.
+    forms:
+      errors:
+        impersonate_user:
+          reason: Pri správe nespravovaného účastníka musíte uviesť dôvod.
     moderations:
       actions:
+        expand: Rozbaliť
         hidden: Skryté
         hide: Skryť
         not_hidden: Neskryté
+        parent_hidden: Tento zdroj nemôžete odkryť, pretože jeho nadradený prvok je stále skrytý.
         title: Akcie
+        unhide: Vrátiť skrytie
+        unreport: Vrátiť nahlásenie
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Vyskytol sa problém pri skrývaní niektorých zdrojov: %{errored}'
+              invalid: Neboli vybrané žiadne moderovania.
+              success: Zdroje boli úspešne skryté.
+            ignore:
+              invalid: Neboli vybrané žiadne moderovania používateľov.
+              success: Nahlásenia účastníkov boli úspešne zrušené.
+            unhide:
+              failed: 'Vyskytol sa problém pri odkrývaní niektorých zdrojov: %{errored}'
+              invalid: Neboli vybrané žiadne moderovania.
+              success: Zdroje boli úspešne odkryté.
+            unreport:
+              failed: 'Vyskytol sa problém pri rušení nahlásení niektorých zdrojov: %{errored}'
+              invalid: Neboli vybrané žiadne moderovania.
+              success: Nahlásenia zdrojov boli úspešne zrušené.
           hide:
             invalid: Pri skrývaní tohto zdroja sa vyskytla chyba.
             success: Zdroj úspešne skrytý.
           unhide:
             invalid: Nastal problém pri odkrývaní zdroja.
+            parent_invalid: Vyskytol sa problém pri odkrývaní zdroja. Nadradený prvok nie je viditeľný.
             success: Zdroj úspešne odkrytý.
           unreport:
             invalid: Nastal problém pri rušení nahlásenia zdroja.
@@ -552,9 +1367,30 @@ sk:
       models:
         moderation:
           fields:
+            created_at: Nahlásené dňa
+            deleted_resource: Odstránený zdroj
             hidden_at: Skryté
+            participatory_space: Participatívny priestor
+            report_count: Počet nahlásení
+            reportable_id: ID
+            reportable_type: Typ
             reported_content_url: Nahlásiť URL obsahu
+            reports: Dôvod
             visit_url: Navštíviť URL
+        report:
+          fields:
+            details: Podrobnosti o dôvode
+            locale: Jazyk
+            reason: Dôvod
   errors:
     messages:
       invalid_json: Neplatný JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Globálne moderovania
+        insights:
+          title: Prehľady
+        taxonomy_filters_selector:
+          title: Filtre

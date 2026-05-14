@@ -38,7 +38,7 @@ module Decidim
           breadcrumb = controller.send(:controller_breadcrumb_items).last
 
           expect(breadcrumb[:label]).to eq(I18n.t("menu.statistics", scope: "decidim.admin"))
-          expect(breadcrumb[:url]).to eq("/admin/statistics")
+          expect(breadcrumb[:url]).to eq(statistics_path)
           expect(breadcrumb[:active]).to be true
         end
       end

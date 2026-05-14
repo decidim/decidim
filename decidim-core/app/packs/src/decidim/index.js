@@ -6,7 +6,6 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
-import "chartkick/chart.js"
 
 // REDESIGN_PENDING: deprecated
 import "foundation-sites";
@@ -90,6 +89,8 @@ window.deprecate = deprecate;
 window.deprecationMessage = deprecationMessage;
 
 document.addEventListener("turbo:load", () => {
+  document.querySelectorAll("[data-tabs]").forEach((elem) =>
+    deprecate(elem, "tabs", "[data-tabs]"))
   document.querySelectorAll("[data-sticky-buttons]").forEach((container) =>
     deprecate(container, "sticky-buttons", "[data-sticky-buttons]"));
   document.querySelectorAll("[data-clipboard-copy]").forEach((container) =>
@@ -155,6 +156,8 @@ document.addEventListener("turbo:load", () => {
     deprecationMessage(container, '.callout[role="alert"]', '.flash[role="alert"]'));
   document.querySelectorAll(".js-back-to-list").forEach((container) =>
     deprecationMessage(container, ".js-back-to-list", "NEEDS TO BE REMOVED"));
+  document.querySelectorAll("[data-toggler]").forEach((container) =>
+    deprecationMessage(container, "[data-toggler]", "Use the Stimulus toggle controller with hidden targets"));
 })
 
 // REDESIGN_PENDING: deprecated
@@ -260,14 +263,3 @@ document.addEventListener("comments:loaded", (event) => {
   }
 });
 
-import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "src/decidim/refactor/support/stimulus"
-
-const application = Application.start()
-application.debug = true
-
-const context = require.context("./controllers", true, /controller\.js$/)
-application.load(definitionsFromContext(context))
-
-window.definitionsFromContext = definitionsFromContext
-window.Stimulus = application

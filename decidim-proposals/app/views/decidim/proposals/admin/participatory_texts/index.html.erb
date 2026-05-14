@@ -30,7 +30,7 @@
                       <span><%= icon "menu-line", class: "fill-black" %></span>
                     </a>
                     <div data-tab-content id="article-<%= proposal.id %>">
-                      <%= render "article-preview", { form: prop_form, proposal: } %>
+                      <%= render "decidim/proposals/admin/participatory_texts/article-preview", { form: prop_form, proposal: } %>
                     </div>
                   </li>
                 <% end %>

@@ -28,7 +28,7 @@
         <h3 class="meeting__aside-block__title"><%= t("organizations", scope: "decidim.meetings.meetings.show") %></h3>
         <ul class="meeting__aside-block__list">
           <% meeting.attending_organizations.split("\n").each do |organizations| %>
-          <li><%= organizations %></li>
+          <li class="break-all"><%= organizations %></li>
           <% end %>
           </ul>
         <% end %>

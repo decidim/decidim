@@ -50,6 +50,12 @@ describe "Edit initiative" do
 
         within ".edit_initiative" do
           find("*[type=submit]").click
+
+          expect(page).to have_css("div.sr-announce")
+          within "div.sr-announce" do
+            expect(page).to have_content("There are errors on the form, please correct them to continue.")
+          end
+
           expect(page).to have_content("There is an error in this field.")
           expect(page).to have_no_css("*[type=submit][data-disable='true']")
           expect(find("button[type='submit']")).not_to be_disabled

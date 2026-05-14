@@ -31,7 +31,7 @@ module Decidim
     def profile_url
       return "" if respond_to?(:deleted?) && deleted?
 
-      decidim.profile_url(__getobj__.nickname, locale: I18n.locale)
+      decidim.profile_url(__getobj__.nickname)
     end
 
     def avatar
@@ -52,7 +52,7 @@ module Decidim
     def profile_path
       return "" if respond_to?(:deleted?) && deleted?
 
-      decidim.profile_path(__getobj__.nickname, locale: I18n.locale)
+      decidim.profile_path(__getobj__.nickname)
     end
 
     def direct_messages_enabled?(context)
