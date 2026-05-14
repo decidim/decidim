@@ -384,7 +384,7 @@ fr:
       withdraw:
         error: Une erreur s'est produite lors du retrait de cet amendement.
         success: L'amendement a été retiré avec succès.
-      wizard_step_form:
+      wizard:
         steps:
           '1': Créez votre amendement
           '2': Publier votre amendement
