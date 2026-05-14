@@ -420,10 +420,6 @@ pt-BR:
       withdraw:
         error: Houve um problema ao retirar a emenda.
         success: A emenda foi retirada com sucesso.
-      wizard_step_form:
-        steps:
-          '1': Crie sua emenda
-          '2': Publique sua emenda
     anonymous_user: Anônimo
     application:
       document:
