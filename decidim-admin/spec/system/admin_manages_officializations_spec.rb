@@ -302,7 +302,7 @@ describe "Admin manages officializations" do
         click_on "Show"
 
         expect(page).to have_content(I18n.t("decidim.verifications.csv_census.admin.census.index.no_user"))
-        expect(page).to have_css(".callout.alert")
+        expect(page).to have_css(".flash.alert")
         expect(page).to have_no_content(user.email)
 
         find("button[data-dialog-close]").click
