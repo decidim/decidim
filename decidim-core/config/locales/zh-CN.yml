@@ -176,9 +176,6 @@ zh-CN:
       update_draft:
         error: 更新修正草案时遇到问题。
         success: 修正草稿已成功更新。
-      wizard_step_form:
-        steps:
-          '1': 创建您的修改
     anonymous_user: 匿名的
     application:
       document:
