@@ -421,7 +421,7 @@ eu:
         success: Zuzenketa zuzen kendu da.
       wizard_step_form:
         steps:
-          '1': Sortu zure zuzenketa
+          '1': Zure zuzenketa egin
           '2': Zure zuzenketa argitaratu
     anonymous_user: Anonimoa
     application:
@@ -1473,11 +1473,11 @@ eu:
           how_to_participate: Nola har dezaket parte prozesu batean?
           meetings: Bilerak
           meetings_explanation: Jakin non eta noiz har dezakezun parte bilera publikoetan.
-          more_info: Argibide gehiago honi buruz %{resource_name}
+          more_info: Informazio gehiago %{resource_name} prozesuari buruz
           proposals: Proposamenak
           proposals_explanation: Egin proposamenak, babestu lehendik daudenak, eta sustatu ikusi nahi dituzun aldaketak.
         footer_sub_hero:
-          footer_sub_hero_body_html: Eraiki dezagun gizarte irekiago, gardenago eta kolaboratiboagoa <br /> Lotu, hartu parte eta erabaki.
+          footer_sub_hero_body_html: Eraiki dezagun gizarte irekiagoa, gardenagoa eta kolaboratiboagoa <br /> Lotu, hartu parte eta erabaki.
           footer_sub_hero_headline: Ongi etorri %{organization} erakundearen partaidetzarako plataformara.
           register: Kontu bat sortu
         hero:
@@ -1500,7 +1500,7 @@ eu:
           success: Bikain! Onartu dituzu zerbitzuaren baldintzak.
         form:
           agreement: Ados nago baldintza hauekin
-          legend: Zerbitzuaren baldintzak onartzen ditut
+          legend: Onartu zerbitzuaren baldintzak
         refuse:
           modal_body: Onartzen ez baduzu, ezin izango duzu plataforman parte hartu, <a href="%{download_your_data_path}">zure datuak deskargatu ahal dituzu</a> eta/edo <a href="%{delete_path}">zure kontua ezabatu</a>.
           modal_btn_continue: Onartu baldintzak eta jarraitu
@@ -1585,10 +1585,10 @@ eu:
         details: Xehetasunak
         hello: Kaixo, %{name},
         id: ID
-        participatory_space: Partaidetza-espazioa
+        participatory_space: Espazio parte-hartzailea
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}"> edukia </a> salatua izan da.</p>
-        see_report: Txostena ikusi
+        see_report: Ikusi txostena
         subject: Eduki bat salatua izan da
     reports:
       create:
@@ -1626,7 +1626,7 @@ eu:
       filters_small_view:
         filter: Iragazi
         filter_and_search: Iragazi eta bilatu
-        filter_by: Iragazi arabera
+        filter_by: Iragazi honen arabera
       results:
         view_all: Ikusi dena (%{count})
     security:
@@ -1655,10 +1655,10 @@ eu:
         description: Eduki hau desegokia da?
         does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
         hide: Ezkutatu
-        hide_content: Edukia ezkutatu
+        hide_content: Ezkutatu edukia
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         reason: Arrazoia
-        report: Salatu
+        report: Txostena
         spam: Clickbait, publizitatea, iruzurrak edo script bot-ak ditu.
         title: Salatu eduki desegokia
       flag_user_modal:
@@ -1701,7 +1701,7 @@ eu:
       comments_count: Iruzkinak
       comments_count_tooltip: Espazio honetan dauden iruzkin guztiak.
       followers_count: Jarraitzaileak
-      followers_count_tooltip: Zenbat parte-hartzaileek jarraitzen duten espazio honen parteren bat eguneratuta egoteko.
+      followers_count_tooltip: Zenbat parte-hartzailek jarraitzen duten espazio honen parteren bat eguneratuta egoteko.
       headline: Estatistikak
       likes_count: Likeak
       no_stats: Oraindik ez dago estatistikarik.
@@ -1739,7 +1739,7 @@ eu:
       notify_deprecation_to_owner:
         body_1: '%{organization_name} (e) n duzun taldearen profilari buruzko eguneraketa garrantzitsu baten berri ematera gatozkizu.'
         body_2: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>%{name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
-        body_3: Zure kontuan sartzen jarraitzeko eta sarbidea partekatzeko, pasahitz bat ezartzea behar dugu. Behin ezarrita, saioa hasteko kredentzialak (posta elektronikoa eta pasahitza) edozeinekin parteka ditzakezu.
+        body_3: Zure kontuan sartzen jarraitzeko eta sarbidea partekatzeko, pasahitz bat ezarri behar dizugu. Behin ezarrita, saioa hasteko kredentzialak (posta elektronikoa eta pasahitza) edonorekin parteka ditzakezu.
         greeting: '%{name}, agurgarria:'
         instructions_1: 'Egin klik beheko estekan zure pasahitza ezartzeko:'
         instructions_2: 'Partekatu saioa hasteko kredentzialak (posta elektronikoa: %{email} eta pasahitz berria) zure lankideekin.'
@@ -1789,7 +1789,7 @@ eu:
         version_index: '%{total} en %{index} bertsioa'
     welcome_notification:
       default_body: <p>Kaixo {{name}}, eskerrik asko {{organization}}-era lotzeagatik eta ongi etorria!</p><ul><li>Hemen zer egin dezakezun ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen garaikurra jasoko duzu. Hemen da <a href="{{badges_url}}">garaikur guztien zerrenda</a> zuk lor ditzakezunak {{organization}} ean parte hartuz.</li><li> Azkenik, lotu beste pertsona batzuei eta partekatu haiekin inplikatzearen eta {{organization}} ean parte hartzearen esperientzia. Egin proposamenak, iruzkinak, eztabaidak, pentsatu nola lagundu denon onerako, eman argudioak konbentzitzeko, entzun eta irakurri zeure burua konbentzitzeko, adierazi zure ideiak modu zehatzean, erantzun pazientziaz eta erabakiz, defendatu zure ideiak eta mantendu burua zabalik, beste pertsona batzuen ideietan lankidetzan aritzeko.</li></ul>
-      default_subject: Thanks for joining {{organization}}!
+      default_subject: Eskerrik asko {{organization}} erakundearekin bat egiteagatik!
     wizard_step_form:
       wizard_aside:
         back: Atzera
@@ -1800,7 +1800,7 @@ eu:
     confirmations:
       confirmed: Zure helbide elektronikoa ondo egiaztatu da.
       new:
-        resend_confirmation_instructions: Berrespen-jarraibideak birbidali
+        resend_confirmation_instructions: Birbidali berrespen-jarraibideak
       send_instructions: Jarraibideak azaltzen dituen mezu elektroniko bat jasoko duzu, zure helbide elektronikoa berretsi ahal izateko minutu gutxi barru.
       send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, mezu elektroniko bat jasoko duzu zure helbide elektronikoa minutu gutxi barru baieztatzeko jarraibideekin.
     failure:
@@ -1839,17 +1839,17 @@ eu:
       email_changed:
         greeting: Kaixo %{recipient}!
         message: 'Zuregana jotzen dugu jakinarazteko zure posta elektronikoa aldatu dela honengatik: %{email}.'
-        subject: Helnbide elektronikoa aldatu da
+        subject: Helbide elektronikoa aldatu da
       invitation_instructions:
         accept: Gonbita onartu
         accept_until: 'Gonbidapen hau data honetan iraungiko da: %{due_date}.'
-        decline: Deuseztatu gonbita
+        decline: Baztertu gonbidapena
         hello: Kaixo, %{email},
         ignore: |-
           Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} admnisitrariak %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         invited_you_as_private_user: "%{invited_by} parte-hartzaileak egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
-        someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onar dezakezu.
+        someone_invited_you: Norbaitek %{application} aplikaziora gonbidatu zaitu. Beheko estekan onar dezakezu.
         someone_invited_you_as_admin: Norbaitek %{application} administratzaile gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         subject: Gonbidapenaren argibideak
@@ -1867,14 +1867,14 @@ eu:
         subject: Pasahitza aldatu da
       reset_password_instructions:
         action: Nire pasahitza aldatu
-        greeting: Kaixo %{recipient}!
+        greeting: Kaixo, %{recipient}!
         instruction: Norbaitek esteka bat eskatu du zure pasahitza aldatzeko, eta beheko estekaren bidez egin dezakezu.
         instruction_2: Ez baduzu hori eskatu, ez egin kasurik mezu honi.
         instruction_3: Zure pasahitza ez da aldatuko aurreko estekara sartu eta beste bat sortu arte.
         subject: Berrezarri pasahitzaren argibideak
       unlock_instructions:
         action: Nire kontua desbloqueatu
-        greeting: Kaixo %{recipient}!
+        greeting: Kaixo, %{recipient}!
         instruction: 'Egin klik beheko estekan zure kontua desblokeatzeko:'
         message: Zure kontua blokeatu egin da saiakeretan izandako gehiegizko saio porrokatuengatik.
         subject: Desblokeatu argibideak
@@ -1926,7 +1926,7 @@ eu:
         sign_up: Sortu kontu bat
       minimum_password_length:
         one: "(karaktere bat gutxienez)"
-        other: "(Gutxienez%{count} karaktere)"
+        other: "(%{count} karaktere gutxienez)"
     unlocks:
       new:
         resend_unlock_instructions: Birbidali desblokeatzeko argibideak
@@ -2128,7 +2128,7 @@ eu:
         social_media: Sare Sozialak
         terms_of_service: Zerbitzuaren baldintzak
       header:
-        back: Itzuli
+        back: Atzera
         close: Itxi
         confirm_close_ephemeral_session: Nabigatzeari uzten badiozu, zure behin-behineko saioa itxita egongo da. Hala ere, zure aurrerapen eta jarduera guztiak salbatuko dira. Jarduera amaitu baduzu, egin klik Ok botoian.
         confirm_title_close_ephemeral_session: Orri honetatik irten baino lehen…
