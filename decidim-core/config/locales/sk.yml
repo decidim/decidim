@@ -445,10 +445,6 @@ sk:
       withdraw:
         error: Pri sťahovaní pozmeňujúceho návrhu sa vyskytol problém.
         success: Pozmeňujúci návrh bol úspešne stiahnutý.
-      wizard_step_form:
-        steps:
-          '1': Vytvorte svoj pozmeňovací návrh
-          '2': Zverejnite svoj pozmeňujúci návrh
     anonymous_user: Anonymné
     application:
       document:
