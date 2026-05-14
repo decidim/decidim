@@ -5,15 +5,13 @@ module Decidim
     class RevokeAuthorizationsByConditionJob < Decidim::ApplicationJob
       queue_as :default
 
-      # Public: Revokes the organization's granted authorizations created before
+      # Revokes the organization's granted authorizations created before
       # the given date, optionally limited to impersonated users only.
       #
-      # organization      - The Decidim::Organization whose authorizations will be revoked.
-      # current_user      - The Decidim::User performing the action (used for traceability).
-      # before_date       - A Date or Time; only authorizations created before it are revoked.
-      # impersonated_only - Boolean; when true, only impersonated users' authorizations are revoked.
-      #
-      # Returns nothing.
+      # @param organization [Decidim::Organization] The organization whose authorizations will be revoked
+      # @param current_user [Decidim::User] the current user.
+      # @param before_date [Date] Only authorizations created before this date are revoked
+      # @param impersonated_only [Boolean] When true, only impersonated users' authorizations are revoked
       def perform(organization, current_user, before_date, impersonated_only)
         authorizations_to_revoke = if impersonated_only
                                      Decidim::Verifications::AuthorizationsBeforeDate.new(

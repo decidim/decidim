@@ -5,11 +5,10 @@ module Decidim
     # A command to revoke authorizations with filter
     class RevokeAuthorizationsByCondition < Decidim::Command
       delegate :current_user, to: :form
-      # Public: Initializes the command.
+      # Initializes the command.
       #
-      # organization - Organization object.
-      # current_user - The current user.
-      # form - A form object with the verification data to confirm it.
+      # @param organization [Decidim::Organization] The organization where authorizations will be revoked
+      # @param form [Decidim::Verifications::RevocationsBeforeDateForm] A form object with the verification data to confirm it
       def initialize(organization, form)
         @organization = organization
         @form = form
