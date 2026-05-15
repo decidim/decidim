@@ -225,7 +225,7 @@ describe "Respond a survey" do
         fill_in "questionnaire_responses_0", with: "test"
         check "questionnaire_tos_agreement"
         click_on "Submit"
-        expect(page).to have_callout("Survey successfully responded.")
+        expect(page).to have_css(".flash", text: "Survey successfully responded.")
       end
 
       it "allows to edit the responses" do
