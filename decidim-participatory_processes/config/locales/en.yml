@@ -518,6 +518,10 @@ en:
           form:
             access:
               label: Access
+              options_labels:
+                open: Open
+                restricted: Restricted
+                transparent: Transparent
               options:
                 open: Everyone can see the process and participate.
                 restricted: Only members can see and participate.

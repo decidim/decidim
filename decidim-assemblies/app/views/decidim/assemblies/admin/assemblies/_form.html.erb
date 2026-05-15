@@ -193,7 +193,7 @@
           <%# i18n-tasks-use t("decidim.assemblies.admin.assemblies.form.access.options.transparent") %>
           <% Decidim::Assembly::ACCESS_MODES.keys.each do |mode| %>
             <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
-              <%= form.radio_button :access_mode, mode %>
+              <%= form.radio_button :access_mode, mode, label: t(mode, scope: "decidim.assemblies.admin.assemblies.form.access.options_labels") %>
               <span><%= t(mode, scope: "decidim.assemblies.admin.assemblies.form.access.options") %></span>
              <% end %>
           <% end %>
