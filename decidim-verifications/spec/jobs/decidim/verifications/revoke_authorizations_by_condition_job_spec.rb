@@ -3,30 +3,14 @@
 require "spec_helper"
 
 module Decidim::Verifications
-  describe RevokeByConditionAuthorizations do
-    subject { described_class.new(organization, form) }
+  describe RevokeAuthorizationsByConditionJob do
+    subject { described_class }
 
-    let(:params) do
-      {
-        impersonated_only:,
-        before_date:
-      }
-    end
-
-    let(:form) do
-      Decidim::Verifications::Admin::RevocationsBeforeDateForm
-        .from_params(params)
-        .with_context(current_user:)
-    end
-
-    let(:authorization) { create(:authorization, id: 9234) }
+    let(:organization) { create(:organization) }
     let(:now) { Time.zone.now }
     let(:prev_week) { Time.zone.today.prev_week }
     let(:prev_month) { Time.zone.today.prev_month }
     let(:prev_year) { Time.zone.today.prev_year }
-    let(:organization) { create(:organization) }
-    let(:impersonated_only) { true }
-    let(:before_date) { prev_week }
     let(:all_authorizations) do
       Decidim::Verifications::Authorizations.new(
         organization:
@@ -60,43 +44,7 @@ module Decidim::Verifications
     let(:user4) { create(:user, :admin, :confirmed, organization:) }
     let(:user5) { create(:user, :admin, :confirmed, organization:, managed: true) }
 
-    describe "when creating a revoke all authorizations command" do
-      context "with organization not set neither current_user but impersonated_only & before_date" do
-        let(:organization) { nil }
-        let(:current_user) { nil }
-
-        it "is not valid" do
-          expect { subject.call }.to broadcast(:invalid)
-        end
-      end
-
-      context "with organization set but no impersonated_only neither before_date" do
-        let(:impersonated_only) { nil }
-        let(:before_date) { nil }
-
-        it "is not valid" do
-          expect { subject.call }.to broadcast(:invalid)
-        end
-      end
-
-      context "with organization & impersonated_only set but no before_date" do
-        let(:before_date) { nil }
-
-        it "is not valid" do
-          expect { subject.call }.to broadcast(:invalid)
-        end
-      end
-
-      context "with organization & before_date but no impersonated_only" do
-        let(:impersonated_only) { nil }
-
-        it "is valid" do
-          expect { subject.call }.to broadcast(:ok)
-        end
-      end
-    end
-
-    describe "with 4 organization's granted auths (only 1 impersonated) and 2 ungranted auths created a month ago." do
+    describe "with 4 organization's granted auths (only 1 impersonated) and 2 ungranted auths created a month ago" do
       let!(:authorization1) { create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user0) }
       let!(:authorization2) { create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user1) }
       let!(:authorization3) { create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user2) }
@@ -104,50 +52,29 @@ module Decidim::Verifications
       let!(:authorization5) { create(:authorization, created_at: prev_month, granted_at: nil, name: Faker::Name.name, user: user4) }
       let!(:authorization6) { create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user5) }
 
-      context "when no before date. When destroy impersonated_only auths" do
-        let(:before_date) { nil }
-
-        it "is not valid" do
-          expect { subject.call }.to broadcast(:invalid)
-        end
-      end
-
-      context "when no before date. When destroy all auths" do
-        let(:before_date) { nil }
-        let(:impersonated_only) { nil }
-
-        it "is not valid" do
-          expect { subject.call }.to broadcast(:invalid)
-        end
-      end
-
-      context "when before date, week ago. When destroy impersonated_only auths" do
+      context "when before date is a week ago and impersonated_only" do
         it "does not destroy any ungranted auth" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_week, true)
           end.not_to change(no_granted_authorizations, :count)
         end
 
-        it "destroy granted auths. 4 granted (only 1 impersonated) to 3" do
+        it "destroys granted auths. 4 granted (only 1 impersonated) to 3" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_week, true)
           end.to change(granted_authorizations, :count).from(4).to(3)
         end
 
-        it "destroy all impersonated_only auths. 1 to 0" do
+        it "destroys all impersonated_only auths. 1 to 0" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_week, true)
           end.to change(impersonated_authorizations, :count).from(1).to(0)
         end
 
         it "total auths are fewer than before. 6 to 5" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_week, true)
           end.to change(all_authorizations, :count).from(6).to(5)
-        end
-
-        it "broadcasts ok" do
-          expect { subject.call }.to broadcast(:ok)
         end
 
         it "traces the action", versioning: true do
@@ -157,61 +84,49 @@ module Decidim::Verifications
               .with(:destroy, auth, current_user)
               .and_call_original
           end
-          expect { subject.call }.to change(Decidim::ActionLog, :count)
+          expect { subject.perform_now(organization, current_user, prev_week, true) }.to change(Decidim::ActionLog, :count)
           action_log = Decidim::ActionLog.last
           expect(action_log.version).to be_present
         end
       end
 
-      context "when before date, year ago. When destroy impersonated_only auths" do
-        let(:before_date) { prev_year }
-
-        it "does not destroy any ungranted auth. None" do
+      context "when before date is a year ago and impersonated_only" do
+        it "does not destroy any ungranted auth" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_year, true)
           end.not_to change(no_granted_authorizations, :count)
         end
 
-        it "destroy all impersonated_only auths before_date only. None" do
+        it "does not destroy any granted auths" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_year, true)
           end.not_to change(granted_authorizations, :count)
         end
 
-        it "total auths are the same than before. 6" do
+        it "total auths are the same. 6" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_year, true)
           end.not_to change(all_authorizations, :count)
-        end
-
-        it "broadcasts ok" do
-          expect { subject.call }.to broadcast(:ok)
         end
       end
 
-      context "when before date, week ago. When destroy all auths" do
-        let(:impersonated_only) { nil }
-
-        it "destroy all ungranted auth. None" do
+      context "when before date is a week ago and not impersonated_only" do
+        it "does not destroy any ungranted auth" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_week, false)
           end.not_to change(no_granted_authorizations, :count)
         end
 
-        it "destroy all granted auths before_date only. 4 to 0" do
+        it "destroys all granted auths before date. 4 to 0" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_week, false)
           end.to change(granted_authorizations, :count).from(4).to(0)
         end
 
         it "total auths are fewer than before. 6 to 2" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_week, false)
           end.to change(all_authorizations, :count).from(6).to(2)
-        end
-
-        it "broadcasts ok" do
-          expect { subject.call }.to broadcast(:ok)
         end
 
         it "traces the action", versioning: true do
@@ -221,7 +136,7 @@ module Decidim::Verifications
               .with(:destroy, auth, current_user)
               .and_call_original
           end
-          expect { subject.call }.to change(Decidim::ActionLog, :count)
+          expect { subject.perform_now(organization, current_user, prev_week, false) }.to change(Decidim::ActionLog, :count)
           action_log = Decidim::ActionLog.last
           expect(action_log.version).to be_present
         end
@@ -237,50 +152,43 @@ module Decidim::Verifications
             create(:authorization_transfer_record, transfer: authorization_transfer3)
           end
 
-          it "destroy all granted auths" do
+          it "destroys all granted auths" do
             expect do
-              subject.call
+              subject.perform_now(organization, current_user, prev_week, false)
             end.to change(granted_authorizations, :count).from(4).to(0)
           end
 
-          it "destroy all authorization transfers" do
+          it "destroys all authorization transfers" do
             expect do
-              subject.call
+              subject.perform_now(organization, current_user, prev_week, false)
             end.to change(Decidim::AuthorizationTransfer, :count).from(3).to(0)
           end
         end
       end
 
-      context "when before date, year ago. When destroy all auths" do
-        let(:before_date) { prev_year }
-        let(:impersonated_only) { nil }
-
-        it "destroy all ungranted auth before date. None" do
+      context "when before date is a year ago and not impersonated_only" do
+        it "does not destroy any ungranted auth" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_year, false)
           end.not_to change(no_granted_authorizations, :count)
         end
 
-        it "destroy all granted auths before_date only. None" do
+        it "does not destroy any granted auths" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_year, false)
           end.not_to change(granted_authorizations, :count)
         end
 
-        it "destroy impersonated_only auths before_date only. None" do
+        it "does not destroy any impersonated auths" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_year, false)
           end.not_to change(impersonated_authorizations, :count)
         end
 
-        it "total auths are the same than before. 6" do
+        it "total auths are the same. 6" do
           expect do
-            subject.call
+            subject.perform_now(organization, current_user, prev_year, false)
           end.not_to change(all_authorizations, :count)
-        end
-
-        it "broadcasts ok" do
-          expect { subject.call }.to broadcast(:ok)
         end
       end
     end
