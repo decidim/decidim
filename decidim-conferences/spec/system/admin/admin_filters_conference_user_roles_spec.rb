@@ -11,8 +11,8 @@ describe "Admin filters user_roles" do
   let(:name) { "Dummy Name" }
   let(:email) { "dummy_email@example.org" }
 
-  let!(:invited_user1) { create(:conference_valuator, name:, conference:) }
-  let!(:invited_user2) { create(:conference_valuator, email:, conference:) }
+  let!(:invited_user1) { create(:conference_evaluator, name:, conference:) }
+  let!(:invited_user2) { create(:conference_evaluator, email:, conference:) }
 
   before do
     invited_user2.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current, last_sign_in_at: Time.current)
@@ -34,7 +34,7 @@ describe "Admin filters user_roles" do
                                                    invitation_accepted_at: 1.day.ago)
       end
       let!(:user) do
-        create(:conference_valuator,
+        create(:conference_evaluator,
                name: "ZZZupper user",
                conference:,
                last_sign_in_at: 30.seconds.ago,
@@ -48,7 +48,7 @@ describe "Admin filters user_roles" do
   end
 
   it_behaves_like "paginating a collection" do
-    let!(:collection) { create_list(:conference_valuator, 100, conference:) }
+    let!(:collection) { create_list(:conference_evaluator, 100, conference:) }
 
     before do
       switch_to_host(organization.host)

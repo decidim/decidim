@@ -11,7 +11,6 @@ en:
         instructions: Instructions to participate
         start_time: Starts at
         title: Title
-        user_group_id: Create debate as
     models:
       decidim/debates/close_debate_event: Debate closed
       decidim/debates/create_debate_event: Debate
@@ -23,39 +22,46 @@ en:
         one: Debate
         other: Debates
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Debates
+      tooltips:
+        deleted_debates_info: Cannot delete this debate
     components:
       debates:
         actions:
           comment: Comment
-          create: Create
-          endorse: Endorse
+          create: Create a debate
+          like: Like
+          vote_comment: Vote comment
         name: Debates
         settings:
           global:
             announcement: Announcement
+            attachments_allowed: Allow attachments
             clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             no_taxonomy_filters_found: No taxonomy filters found.
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Participants can create debates
-            endorsements_blocked: Endorsements blocked
-            endorsements_enabled: Endorsements enabled
+            likes_blocked: Likes blocked
+            likes_enabled: Likes enabled
     debates:
       actions:
         close: Close
-        confirm_destroy: Are you sure?
-        destroy: Delete
+        confirm_delete_debate: Are you sure you want to delete this debate?
+        deleted_debate_info: Deleted debate can be restored from the trash.
         edit: Edit
         new: New debate
         title: Actions
+        view_deleted_debates: View deleted debates
       admin:
         debate_closes:
           edit:
@@ -65,17 +71,26 @@ en:
           create:
             invalid: There was a problem creating the debate.
             success: Debate successfully created.
-          destroy:
-            success: Debate successfully deleted.
           edit:
             title: Edit debate
             update: Update debate
           form:
+            add_attachments: Add attachments
+            attachment_legend: Add a document or an image
+            comments_visualization: Comments visualization
+            comments_warning: Once the first comment is posted, the selected display option cannot be changed.
             debate_type: Debate type
+            edit_attachments: Edit attachments
+            errors:
+              comments_layout_locked: You cannot change the comment layout once comments have been posted.
             finite: Finite (With start and end times)
             open: Open (No start or end times)
+            single_column: 'Single column: Comments are displayed in chronological order and can have replies.'
+            two_columns: 'Two columns: Comments are displayed under "In favor" and "Against" columns and cannot have replies.'
           index:
             title: Debates
+          manage_trash:
+            title: Deleted debates
           new:
             create: Create debate
             title: New debate
@@ -89,6 +104,8 @@ en:
         debate:
           close: "%{user_name} closed the %{resource_name} debate on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
+          restore: "%{user_name} restored the %{resource_name} debate in %{space_name} space"
+          soft_delete: "%{user_name} moved the %{resource_name} debate in %{space_name} space to the trash"
           update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
       content_blocks:
         highlighted_debates:
@@ -132,28 +149,28 @@ en:
           state: Status
           state_values:
             closed: Closed
-            open: Open
-          user_group: Groups
+            ongoing: Ongoing
         index:
           new_debate: New debate
         new:
           back: Back
           create: Create
-          title: New debate
+          title: Create new debate
         orders:
-          commented: Most commented
           label: Order debates by
+          most_commented: Most commented
           random: Random order
           recent: Most recent
           updated: Recently updated
         show:
           close_debate: Close
-          debate_closed: Closed
+          closed: Closed
           debate_conclusions_are: 'The debate was closed on %{date} with these conclusions:'
           edit_conclusions: Edit conclusions
           edit_debate: Edit
-          groups_count: Groups
-          open: Open debate
+          not_started: Not started
+          ongoing: Ongoing
+          open_ended: Open ended
           participants_count: Participants
         update:
           invalid: There was a problem updating the debate.
@@ -225,11 +242,6 @@ en:
           next_level_in: Participate in %{score} more debates to reach the next level!
           unearned_another: This participant has not yet taken part in any debate.
           unearned_own: You have not participated in any debates yet.
-    metrics:
-      debates:
-        description: Number of debates created
-        object: debates
-        title: Debates
     open_data:
       help:
         debate_comments:
@@ -243,7 +255,6 @@ en:
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
         debates:
           author: The data for the author of this debate
           closed_at: The date when this debate was closed
@@ -254,16 +265,20 @@ en:
           created_at: The date and time when the debate was created
           description: The debate description
           end_time: When this debate ends, if it is an open debate and has a limited time
-          followers: The number of followers this debate has
+          follows_count: The number of followers this debate has
           id: The unique identifier of the debate
           information_updates: The updates that the author has made to the debate
           instructions: Which are the instructions to comment in this debate
           last_comment_at: The date when this debate was commented by the last time
+          last_comment_by: The data of last comment made within the debate
+          likes_count: The number of likes the debate has
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this debate belongs to
           reference: The unique identifier of the resource in this platform
           start_time: When this debate starts, if it is an open debate and has a limited time
           taxonomies: The taxonomies of the project
           title: The debate title
+          updated_at: The date of when the debate was last updated
           url: The URL where this debate can be found
     statistics:
       debates_count: Debates
+      debates_count_tooltip: The number of discussions held.

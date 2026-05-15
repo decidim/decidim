@@ -2,13 +2,19 @@
 
 require "spec_helper"
 
+require "decidim/forms/test/shared_examples/questionnaire_admin_access"
+
 describe "Admin manages meetings registration forms" do
   let(:manifest_name) { "meetings" }
+  let(:callout_success) { "Form successfully saved." }
+  let(:callout_failure) { "There was a problem saving" }
 
   let!(:questionnaire) { create(:questionnaire) }
   let!(:meeting) { create(:meeting, scope:, component: current_component, questionnaire:, registrations_enabled: true, registration_form_enabled: true) }
 
   include_context "when managing a component as an admin"
+
+  it_behaves_like "questionnaire admin access", denied_error: 404
 
   it_behaves_like "manage questionnaires"
 
@@ -20,9 +26,25 @@ describe "Admin manages meetings registration forms" do
     Decidim::EngineRouter.admin_proxy(component).edit_meeting_registrations_form_path(meeting_id: meeting.id)
   end
 
+  def manage_questions_path
+    Decidim::EngineRouter.admin_proxy(component).edit_questions_meeting_registrations_form_path(meeting_id: meeting.id)
+  end
+
   def questionnaire_public_path
     Decidim::EngineRouter.main_proxy(component).join_meeting_registration_path(meeting_id: meeting.id)
   end
+
+  def update_component_settings_or_attributes
+    component.update!(
+      step_settings: {
+        component.participatory_space.active_step.id => {
+          allow_responses: true
+        }
+      }
+    )
+  end
+
+  def see_questionnaire_questions; end
 
   describe "manages registration form" do
     it "allows to change the custom content in registration email" do

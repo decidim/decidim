@@ -1,121 +1,5 @@
 import Accordions from "a11y-accordion-component";
-import Dropdowns from "a11y-dropdown-component";
 import Dialogs from "a11y-dialog-component";
-import { screens } from "tailwindcss/defaultTheme"
-
-
-/**
- * Checks if a key is in the current viewport
- *
- * @param {('sm'|'md'|'lg'|'xl'|'2xl')} key - The key to check the screen size.
- * @returns {boolean} - Returns true if the screen size corresponds with the key
- */
-const isScreenSize = (key) => {
-  return window.matchMedia(`(min-width: ${screens[key]})`).matches;
-}
-
-/**
- * Create accordion from a component
- *
- * @param {HTMLElement} component - The component to be created
- * @return {void}
- */
-const createAccordion = (component) => {
-  const accordionOptions = {};
-  accordionOptions.isMultiSelectable = component.dataset.multiselectable !== "false";
-  accordionOptions.isCollapsible = component.dataset.collapsible !== "false";
-
-  // This snippet allows to change the OPEN data-attribute based on the current viewport
-  // Just include the breakpoint where the different value will be applied from.
-  // Ex:
-  // data-open="false" data-open-md="true"
-  Object.keys(screens).forEach((key) => {
-    if (!isScreenSize(key)) {
-      return;
-    }
-
-    const elementsToOpen = component.querySelectorAll(`[data-controls][data-open-${key}]`);
-
-    elementsToOpen.forEach((elem) => {
-      (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])
-    })
-  })
-
-  if (!component.id) {
-    // when component has no id, we enforce to have it one
-    component.id = `accordion-${Math.random().toString(36).substring(7)}`
-  }
-
-  Accordions.render(component.id, accordionOptions);
-}
-
-/**
- * Create dropdown from a component
- *
- * @param {HTMLElement} component - The component to be created
- * @return {void}
- */
-const createDropdown = (component) => {
-  const dropdownOptions = {};
-  dropdownOptions.dropdown = component.dataset.target;
-  dropdownOptions.hover = component.dataset.hover === "true";
-  dropdownOptions.autoClose = component.dataset.autoClose === "true";
-
-  // This snippet allows to disable the dropdown based on the current viewport
-  // Just include the breakpoint where the different value will be applied from.
-  // Ex:
-  // data-disabled-md="true"
-  const isDisabled = Object.keys(screens).some((key) => {
-    if (!isScreenSize(key)) {
-      return false;
-    }
-
-    return Boolean(component.dataset[`disabled-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]);
-  })
-
-  if (isDisabled) {
-    return
-  }
-
-  dropdownOptions.isOpen = component.dataset.open === "true";
-
-  const isOpen = Object.keys(screens).some((key) => {
-    if (!isScreenSize(key)) {
-      return false;
-    }
-    return Boolean(component.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]);
-  });
-
-  dropdownOptions.isOpen = dropdownOptions.isOpen || isOpen;
-
-  if (!component.id) {
-    // when component has no id, we enforce to have it one
-    component.id = `dropdown-${Math.random().toString(36).substring(7)}`
-  }
-
-  const autofocus = component.dataset.autofocus;
-  if (autofocus) {
-    // set the focus to some inner element, use setTimeout hack due to waiting for element to display
-    component.addEventListener("click", () => setTimeout(() => document.getElementById(autofocus).focus(), 0));
-  }
-
-  const scrollToMenu = component.dataset.scrollToMenu === "true";
-  if (scrollToMenu) {
-    // Auto scroll to show the menu on the viewport
-    component.addEventListener("click", (event) => {
-      const heightToScroll = component.getBoundingClientRect().top + window.scrollY + document.documentElement.clientTop;
-      const isCollapsed = event.target.getAttribute("aria-expanded") === "false";
-
-      if (isCollapsed) {
-        return;
-      }
-
-      window.scrollTo({ top: heightToScroll, behavior: "smooth" });
-    });
-  }
-
-  Dropdowns.render(component.id, dropdownOptions);
-}
 
 /**
  * Create dialog from a component
@@ -124,6 +8,13 @@ const createDropdown = (component) => {
  * @return {void}
  */
 const createDialog = (component) => {
+  const getFocusableElements = (container) => {
+    const selectors = "a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex='-1'])";
+    return Array.from(container.querySelectorAll(selectors)).filter(
+      (el) => el.offsetParent !== null
+    );
+  };
+
   const {
     dataset: { dialog, ...attrs }
   } = component;
@@ -145,11 +36,33 @@ const createDialog = (component) => {
     backdropSelector: `[data-dialog="${dialog}"]`,
     enableAutoFocus: false,
     onOpen: (params, trigger) => {
+      const keyHandler = (event) => {
+        if (event.key !== "Tab") {
+          return;
+        }
+        const focusable = getFocusableElements(params);
+        if (focusable.length === 0) {
+          return;
+        }
+        if (event.shiftKey && document.activeElement === focusable[0]) {
+          event.preventDefault();
+          focusable[focusable.length - 1].focus({ preventScroll: true });
+        } else if (!event.shiftKey && document.activeElement === focusable[focusable.length - 1]) {
+          event.preventDefault();
+          focusable[0].focus({ preventScroll: true });
+        }
+      };
+      params._focusTrapHandler = keyHandler;
+      params.addEventListener("keydown", keyHandler);
       setFocusOnTitle(params);
       window.focusGuard.trap(params, trigger);
       params.dispatchEvent(new CustomEvent("open.dialog"));
     },
     onClose: (params) => {
+      if (params._focusTrapHandler) {
+        params.removeEventListener("keydown", params._focusTrapHandler);
+        Reflect.deleteProperty(params, "_focusTrapHandler");
+      }
       window.focusGuard.disable();
       params.dispatchEvent(new CustomEvent("close.dialog"));
     },
@@ -232,11 +145,8 @@ const announceForScreenReader = (message, mode = "assertive") => {
 };
 
 export {
-  createAccordion,
   createDialog,
-  createDropdown,
   announceForScreenReader,
   Accordions,
-  Dialogs,
-  Dropdowns
+  Dialogs
 }

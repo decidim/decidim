@@ -8,6 +8,8 @@ module Decidim
     describe ParticipatoryProcessesController do
       routes { Decidim::ParticipatoryProcesses::Engine.routes }
 
+      include Decidim::Core::Engine.routes.url_helpers
+
       let(:organization) { create(:organization) }
       let!(:unpublished_process) do
         create(
@@ -37,7 +39,7 @@ module Decidim
         end
 
         it "redirects to 404 if there are not any" do
-          expect { get :index }.to raise_error(ActionController::RoutingError)
+          expect { get :index, params: { locale: I18n.locale } }.to raise_error(ActionController::RoutingError)
         end
       end
 
@@ -87,6 +89,13 @@ module Decidim
           expect(controller.helpers.collection)
             .to match_array(published + organization_groups)
         end
+
+        it "orders processes by weight" do
+          process1 = create(:participatory_process, :published, organization:, weight: 2)
+          process2 = create(:participatory_process, :published, organization:, weight: 1)
+
+          expect(controller.helpers.collection).to eq([process2, process1])
+        end
       end
 
       describe "default_date_filter" do
@@ -113,9 +122,9 @@ module Decidim
       describe "GET show" do
         context "when the process is unpublished" do
           it "redirects to sign in path" do
-            get :show, params: { slug: unpublished_process.slug }
+            get :show, params: { slug: unpublished_process.slug, locale: I18n.locale }
 
-            expect(response).to redirect_to("/users/sign_in")
+            expect(response).to redirect_to(new_user_session_path)
           end
 
           context "with signed in user" do
@@ -126,26 +135,10 @@ module Decidim
             end
 
             it "redirects to root path" do
-              get :show, params: { slug: unpublished_process.slug }
+              get :show, params: { slug: unpublished_process.slug, locale: I18n.locale }
 
-              expect(response).to redirect_to("/")
+              expect(response).to redirect_to(root_path)
             end
-          end
-        end
-      end
-
-      describe "GET statistics" do
-        let!(:active) { create(:participatory_process, :published, :active, organization:) }
-
-        before do
-          request.env["decidim.current_organization"] = organization
-        end
-
-        context "when the process can show statistics" do
-          it "shows them" do
-            get :all_metrics, params: { slug: active.slug }
-
-            expect(response).to be_successful
           end
         end
       end

@@ -2,15 +2,12 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-# Maintain your gem's version:
-require "decidim/design/version"
-
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.version = Decidim::Design.version
+  version = "0.33.0.dev"
+  s.version = version
   s.authors = ["Decidim Team"]
   s.email = ["hola@decidim.org"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -19,7 +16,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.name = "decidim-design"
   s.summary = "Decidim Design Guide (DDG) module"
@@ -32,7 +29,16 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::Design.version
-
-  s.add_development_dependency "decidim-dev", Decidim::Design.version
+  s.add_dependency "decidim-core", version
+  s.add_development_dependency "decidim-accountability", version
+  s.add_development_dependency "decidim-assemblies", version
+  s.add_development_dependency "decidim-blogs", version
+  s.add_development_dependency "decidim-budgets", version
+  s.add_development_dependency "decidim-conferences", version
+  s.add_development_dependency "decidim-debates", version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-initiatives", version
+  s.add_development_dependency "decidim-meetings", version
+  s.add_development_dependency "decidim-participatory_processes", version
+  s.add_development_dependency "decidim-proposals", version
 end

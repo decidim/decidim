@@ -13,17 +13,16 @@ module Decidim
       let(:coauthorable) { proposal }
 
       include_examples "coauthorable"
-      include_examples "endorsable"
+      include_examples "likeable"
       include_examples "has component"
       include_examples "has taxonomies"
-      include_examples "has scope"
-      include_examples "has category"
       include_examples "has reference"
       include_examples "reportable"
       include_examples "resourceable"
 
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
+      it { is_expected.to act_as_paranoid }
 
       describe "newsletter participants" do
         subject { Decidim::Proposals::Proposal.newsletter_participant_ids(proposal.component) }
@@ -34,6 +33,160 @@ module Decidim
         let(:author_ids) { proposal.notifiable_identities.pluck(:id) + resource_in_newsletter.notifiable_identities.pluck(:id) }
 
         include_examples "counts commentators as newsletter participants"
+      end
+
+      describe ".with_more_authors_available?" do
+        let(:component) { create(:proposal_component) }
+
+        context "when there are no proposals with coauthors" do
+          let!(:proposal_with_single_author) { create(:proposal, component:) }
+
+          it "returns false" do
+            expect(described_class.with_more_authors_available?(component)).to be false
+          end
+        end
+
+        context "when there are proposals with coauthors" do
+          let!(:proposal_with_coauthors) { create(:proposal, component:) }
+          let!(:coauthorships) { create_list(:coauthorship, 2, coauthorable: proposal_with_coauthors) }
+
+          it "returns true" do
+            expect(described_class.with_more_authors_available?(component)).to be true
+          end
+        end
+
+        context "when proposals are not published" do
+          let!(:proposal_with_coauthors) { create(:proposal, component:) }
+          let!(:coauthorships) { create_list(:coauthorship, 2, coauthorable: proposal_with_coauthors) }
+
+          before do
+            proposal_with_coauthors.update!(published_at: nil)
+          end
+
+          it "returns false" do
+            expect(described_class.with_more_authors_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are hidden" do
+          let!(:proposal_with_coauthors) { create(:proposal, component:) }
+          let!(:coauthorships) { create_list(:coauthorship, 2, coauthorable: proposal_with_coauthors) }
+
+          before do
+            create(:moderation, reportable: proposal_with_coauthors, hidden_at: Time.current)
+          end
+
+          it "returns false" do
+            expect(described_class.with_more_authors_available?(component)).to be false
+          end
+        end
+      end
+
+      describe ".most_commented_available?" do
+        let(:component) { create(:proposal_component) }
+
+        context "when comments are disabled" do
+          let(:component) { create(:proposal_component, :with_comments_disabled) }
+          let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+          it "returns false" do
+            expect(described_class.most_commented_available?(component)).to be false
+          end
+        end
+
+        context "when comments are enabled" do
+          context "when there are no proposals with comments" do
+            let!(:proposal_without_comments) { create(:proposal, component:) }
+
+            it "returns false" do
+              expect(described_class.most_commented_available?(component)).to be false
+            end
+          end
+
+          context "when there are proposals with comments" do
+            let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+            it "returns true" do
+              expect(described_class.most_commented_available?(component)).to be true
+            end
+          end
+
+          context "when proposals are not published" do
+            let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+            before do
+              proposal_with_comments.update!(published_at: nil)
+            end
+
+            it "returns false" do
+              expect(described_class.most_commented_available?(component)).to be false
+            end
+          end
+
+          context "when proposals are hidden" do
+            let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+            before do
+              create(:moderation, reportable: proposal_with_comments, hidden_at: Time.current)
+            end
+
+            it "returns false" do
+              expect(described_class.most_commented_available?(component)).to be false
+            end
+          end
+        end
+      end
+
+      describe ".most_liked_available?" do
+        let(:component) { create(:proposal_component) }
+
+        context "when there are no proposals with likes" do
+          let!(:proposal_without_likes) { create(:proposal, component:) }
+
+          it "returns false" do
+            expect(described_class.most_liked_available?(component)).to be false
+          end
+        end
+
+        context "when there are proposals with likes" do
+          let!(:proposal_with_likes) { create(:proposal, component:, likes_count: 5) }
+
+          it "returns true" do
+            expect(described_class.most_liked_available?(component)).to be true
+          end
+
+          context "when proposals are not published" do
+            let!(:proposal_with_likes) { create(:proposal, component:, likes_count: 5) }
+
+            before do
+              proposal_with_likes.update!(published_at: nil)
+            end
+
+            it "returns false" do
+              expect(described_class.most_liked_available?(component)).to be false
+            end
+          end
+
+          context "when proposals are hidden" do
+            let!(:proposal_with_likes) { create(:proposal, component:, likes_count: 5) }
+
+            before do
+              create(:moderation, reportable: proposal_with_likes, hidden_at: Time.current)
+            end
+
+            it "returns false" do
+              expect(described_class.most_liked_available?(component)).to be false
+            end
+          end
+
+          context "when proposals are withdrawn" do
+            let!(:proposal_with_likes) { create(:proposal, component:, likes_count: 5, withdrawn_at: Time.current) }
+
+            it "returns false" do
+              expect(described_class.most_liked_available?(component)).to be false
+            end
+          end
+        end
       end
 
       it "has a votes association returning proposal votes" do
@@ -140,13 +293,6 @@ module Decidim
 
             it { is_expected.not_to be_editable_by(author) }
           end
-        end
-
-        context "when proposal is from user group and user is admin" do
-          let(:user_group) { create(:user_group, :verified, users: [author], organization: author.organization) }
-          let(:proposal) { create(:proposal, component:, updated_at: Time.current, users: [author], user_groups: [user_group]) }
-
-          it { is_expected.to be_editable_by(author) }
         end
 
         context "when user is not the author" do
@@ -257,15 +403,15 @@ module Decidim
         it { is_expected.not_to be_published_state }
       end
 
-      describe "#with_valuation_assigned_to" do
+      describe "#with_evaluation_assigned_to" do
         let(:user) { create(:user, organization:) }
         let(:space) { component.participatory_space }
-        let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: space) }
+        let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process: space) }
         let(:assigned_proposal) { create(:proposal, component:) }
-        let!(:assignment) { create(:valuation_assignment, proposal: assigned_proposal, valuator_role:) }
+        let!(:assignment) { create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:) }
 
         it "only returns the assigned proposals for the given space" do
-          results = described_class.with_valuation_assigned_to(user, space)
+          results = described_class.with_evaluation_assigned_to(user, space)
 
           expect(results).to eq([assigned_proposal])
         end

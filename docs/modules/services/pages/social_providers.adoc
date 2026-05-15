@@ -101,7 +101,7 @@ An example of custom initializer could be written as:
 [source,ruby]
 ----
 #config/initializers/omniauth_myprovider.rb
-if Rails.application.secrets.dig(:omniauth, :myprovider).present?
+if Decidim.omniauth_providers[:myprovider]
   Rails.application.config.middleware.use OmniAuth::Builder do
     provider(
       :myprovider,

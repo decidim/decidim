@@ -37,7 +37,7 @@ module Decidim
 
         queries = []
         taxonomy_groups.each do |root_id, taxonomy_ids|
-          taxonomy_ids = taxonomy_ids.flatten.filter(&:present?)
+          taxonomy_ids = taxonomy_ids.flatten.compact_blank
           next if taxonomy_ids.empty?
 
           taxonomy_ids = [root_id] if taxonomy_ids.include?("all")
@@ -51,7 +51,7 @@ module Decidim
           Arel::Nodes::Intersect.new(memo, query)
         end
 
-        @klass.from(Arel::Nodes::As.new(subquery, Arel.sql(@klass.arel_table.name)))
+        from(Arel::Nodes::As.new(subquery, Arel.sql(arel_table.name)))
       }
 
       private

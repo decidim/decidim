@@ -30,8 +30,6 @@ module Decidim
                       :search_field_predicate,
                       :adjacent_items
 
-        delegate :categories, to: :current_component
-        delegate :scopes, to: :current_organization
         delegate :taxonomies, to: :current_organization
         delegate :available_root_taxonomies, to: :current_component
         delegate :available_taxonomy_ids, to: :current_component
@@ -79,7 +77,7 @@ module Decidim
         # the query
         def adjacent_items(item)
           query =
-            <<-SQL.squish
+            <<~SQL.squish
               WITH
                 collection AS (#{session_filtered_collection.select(:id).to_sql}),
                 successors AS (
@@ -164,7 +162,7 @@ module Decidim
         # - FilterableHelper#applied_filters_hidden_field_tags
         # To ensure that filters are kept in the search_form_for.
         def filters
-          [:private_space_eq, :published_at_null]
+          [:published_at_null]
         end
 
         # Informs which filters are being used OUTSIDE the dropdown.
@@ -188,34 +186,20 @@ module Decidim
 
         # Plural model name. Used in search_field placeholder.
         def collection_name
-          query.klass.model_name.human(count: 2)
+          query.klass.model_name.human(count: 2).downcase
         end
 
         def taxonomy_order_or_search?
           ransack_params[:taxonomies_part_of_contains].present? || ransack_params[:s]&.include?("taxonomies_name")
         end
 
-        # A tree of Category IDs. Leaves are `nil`.
-        def category_ids_hash(categories)
-          categories.each_with_object({}) do |category, hash|
-            hash[category.id] = category.subcategories.any? ? category_ids_hash(category.subcategories) : nil
-          end
-        end
-
-        # A tree of Scope IDs. Leaves are `nil`.
-        def scope_ids_hash(scopes)
-          scopes.each_with_object({}) do |scope, hash|
-            hash[scope.id] = scope.children.any? ? scope_ids_hash(scope.children) : nil
-          end
-        end
-
         # A tree of Taxonomy IDs. Leaves are `nil`.
         def taxonomy_ids_hash(taxonomies)
-          filtered_taxonomies = taxonomies.where(parent_id: nil).or(taxonomies.where(id: available_taxonomy_ids))
+          filtered_taxonomies = taxonomies.roots.or(taxonomies.where(id: available_taxonomy_ids))
           return nil if filtered_taxonomies.blank?
 
-          filtered_taxonomies.each_with_object({}) do |taxonomy, hash|
-            hash[taxonomy.id] = taxonomy_ids_hash(taxonomy.children)
+          filtered_taxonomies.to_h do |taxonomy|
+            [taxonomy.id, taxonomy_ids_hash(taxonomy.children)]
           end
         end
 

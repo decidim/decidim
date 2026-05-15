@@ -36,7 +36,6 @@ describe "Admin manages participatory process groups" do
       fill_in_i18n(:participatory_process_group_developer_group, "#participatory_process_group-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
       fill_in_i18n_editor(:participatory_process_group_description, "#participatory_process_group-description-tabs", **attributes[:description].except("machine_translations"))
 
-      fill_in :participatory_process_group_hashtag, with: "hashtag"
       fill_in :participatory_process_group_group_url, with: "http://example.org"
       select participatory_processes.first.title["en"], from: :participatory_process_group_participatory_process_ids
     end
@@ -47,15 +46,14 @@ describe "Admin manages participatory process groups" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Participatory process group successfully created.")
     expect(page).to have_field(:participatory_process_group_title_en, with: translated(attributes[:title]))
-    expect(page).to have_field(:participatory_process_group_hashtag, with: "hashtag")
     expect(page).to have_field(:participatory_process_group_group_url, with: "http://example.org")
     expect(page).to have_field(:participatory_process_group_developer_group_en, with: translated(attributes[:developer_group]))
     expect(page).to have_select("Related processes", selected: participatory_processes.first.title["en"])
     expect(page).to have_css("img[src*='#{image1_filename}']")
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Participatory process group successfully created.")
 
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} participatory process group")
@@ -74,6 +72,7 @@ describe "Admin manages participatory process groups" do
 
     it "can edit them" do
       within "tr", text: participatory_process_group.title["en"] do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -81,7 +80,6 @@ describe "Admin manages participatory process groups" do
         fill_in_i18n(:participatory_process_group_title, "#participatory_process_group-title-tabs", **attributes[:title].except("machine_translations"))
         fill_in_i18n_editor(:participatory_process_group_description, "#participatory_process_group-description-tabs", **attributes[:description].except("machine_translations"))
 
-        fill_in :participatory_process_group_hashtag, with: "new_hashtag"
         fill_in :participatory_process_group_group_url, with: "http://new-example.org"
         fill_in_i18n(:participatory_process_group_developer_group, "#participatory_process_group-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
 
@@ -94,10 +92,9 @@ describe "Admin manages participatory process groups" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Participatory process group successfully updated.")
       expect(page).to have_field(:participatory_process_group_title_en, with: translated(attributes[:title]))
       expect(page).to have_content(strip_tags(translated(attributes[:description])).strip)
-      expect(page).to have_field(:participatory_process_group_hashtag, with: "new_hashtag")
       expect(page).to have_field(:participatory_process_group_group_url, with: "http://new-example.org")
       expect(page).to have_field(:participatory_process_group_developer_group_en, with: translated(attributes[:developer_group]))
       expect(page).to have_select("Related processes", selected: participatory_processes.last.title["en"])
@@ -109,6 +106,7 @@ describe "Admin manages participatory process groups" do
 
     it "validates the group attributes" do
       within "tr", text: participatory_process_group.title["en"] do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -129,6 +127,7 @@ describe "Admin manages participatory process groups" do
 
     it "can remove its image" do
       within "tr", text: participatory_process_group.title["en"] do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -146,10 +145,11 @@ describe "Admin manages participatory process groups" do
 
     it "can delete them" do
       within "tr", text: participatory_process_group.title["en"] do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Participatory process group successfully deleted.")
 
       within "table" do
         expect(page).to have_no_content(participatory_process_group.title["en"])
@@ -158,11 +158,13 @@ describe "Admin manages participatory process groups" do
 
     it "has a link to the landing page" do
       within "tr", text: participatory_process_group.title["en"] do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
-      click_on "Manage"
-      click_on "Landing page"
+      within "#admin-sidebar-menu-settings" do
+        click_on "Landing page"
+      end
 
       expect(page).to have_content "Active content blocks"
     end

@@ -18,6 +18,7 @@ module Decidim
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
       attribute :default_locale, String
+      attribute :header_snippets, String
 
       jsonb_attribute :smtp_settings, [
         [:from, String],
@@ -46,7 +47,7 @@ module Decidim
       attribute :file_upload_settings, FileUploadSettingsForm
 
       OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::OmniauthProvider.available.keys.map do |provider|
-        Rails.application.secrets.dig(:omniauth, provider).keys.map do |setting|
+        Decidim.omniauth_providers[provider].keys.map do |setting|
           if setting == :enabled
             [:"omniauth_settings_#{provider}_enabled", Boolean]
           else
@@ -58,9 +59,14 @@ module Decidim
       jsonb_attribute :omniauth_settings, OMNIATH_PROVIDERS_ATTRIBUTES
 
       validates :host, :users_registration_mode, presence: true
-      validate :validate_organization_uniqueness
-      validate :validate_secret_key_base_for_encryption
       validates :users_registration_mode, inclusion: { in: Decidim::Organization.users_registration_modes }
+
+      validate :validate_organization_uniqueness
+      validate :validate_short_name_uniqueness
+      validate :validate_short_name_format
+      validate :validate_secret_key_base_for_encryption
+      validate :validate_host_format
+      validate :validate_secondary_hosts_format
 
       def map_model(model)
         self.default_locale = model.default_locale
@@ -74,13 +80,13 @@ module Decidim
       def clean_secondary_hosts
         return unless secondary_hosts
 
-        secondary_hosts.split("\n").map(&:chomp).select(&:present?)
+        secondary_hosts.split("\n").map(&:chomp).compact_blank
       end
 
       def clean_available_authorizations
         return unless available_authorizations
 
-        available_authorizations.select(&:present?)
+        available_authorizations.compact_blank
       end
 
       def password
@@ -121,6 +127,77 @@ module Decidim
 
       def validate_organization_uniqueness
         raise "#{self.class.name} is expected to implement #validate_organization_uniqueness"
+      end
+
+      def validate_short_name_uniqueness
+        raise "#{self.class.name} is expected to implement #validate_short_name_uniqueness"
+      end
+
+      def validate_short_name_format
+        raise "#{self.class.name} is expected to implement #validate_short_name_format"
+      end
+
+      # Validates the host format for organization domains.
+      #
+      # Valid formats:
+      # - Fully Qualified Domain Names (FQDN): example.org, sub.example.org, my-site.example.org
+      # - One word hostnames in development: localhost, my-machine
+      # - IPv4 addresses: 127.0.0.1, 192.168.1.1
+      # - IPv6 addresses: ::1, 2001:db8::1, [::1]
+      #
+      # Invalid formats (will be rejected):
+      # - Hosts containing spaces
+      # - Hosts with invalid characters (!@#$%^&* etc.)
+      # - Hosts with leading/trailing hyphens in labels (e.g., -example.com or example-.com)
+      # - Labels longer than 63 characters
+      # - Total host length exceeding 253 characters
+      #
+      # @see https://en.wikipedia.org/wiki/Fully_qualified_domain_name
+      # @see https://en.wikipedia.org/wiki/IPv4_address
+      # @see https://en.wikipedia.org/wiki/IPv6_address
+      #
+      HOST_FORMAT_REGEX = %r{
+        \A
+        (?:
+          # FQDN: requires at least one dot, labels separated by dots.
+          # Each label: alphanumeric start/end, alphanumerics and hyphens inside, max 63 chars.
+          (?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,}
+          |
+          # IPv4: four octets (0-255 each).
+          (?:(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)
+          |
+          # IPv6: bracketed form [::1] or unbracketed (standard and compressed forms).
+          (?:\[[\da-fA-F:]+\]|[\da-fA-F:]+\z)
+        )
+        \z
+      }x
+
+      SINGLE_LABEL_HOST_FORMAT_REGEX = /\A[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\z/
+
+      def validate_host_format
+        return if host.blank?
+
+        return if valid_host_format?(host)
+
+        errors.add(:host, :invalid)
+      end
+
+      def validate_secondary_hosts_format
+        return if secondary_hosts.blank?
+
+        clean_secondary_hosts.each do |secondary_host|
+          next if valid_host_format?(secondary_host)
+
+          errors.add(:secondary_hosts, :invalid)
+          break
+        end
+      end
+
+      def valid_host_format?(value)
+        return true if value.match?(HOST_FORMAT_REGEX)
+        return false unless Rails.env.development?
+
+        value.match?(SINGLE_LABEL_HOST_FORMAT_REGEX)
       end
     end
   end

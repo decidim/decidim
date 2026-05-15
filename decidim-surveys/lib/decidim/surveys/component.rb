@@ -12,75 +12,86 @@ Decidim.register_component(:surveys) do |component|
   component.specific_data_importer_class_name = "Decidim::Surveys::DataImporter"
   component.query_type = "Decidim::Surveys::SurveysType"
 
-  component.on(:copy) do |context|
-    Decidim::Surveys::CreateSurvey.call(context[:new_component]) do
-      on(:invalid) { raise "Cannot create survey" }
+  component.on(:publish) do |instance|
+    Decidim::Surveys::Survey.where(component: instance).find_each do |result|
+      Decidim::UpdateSearchIndexesJob.perform_later([result])
     end
   end
 
-  component.on(:create) do |instance|
-    Decidim::Surveys::CreateSurvey.call(instance) do
-      on(:invalid) { raise "Cannot create survey" }
+  component.on(:unpublish) do |instance|
+    Decidim::Surveys::Survey.where(component: instance).find_each do |result|
+      Decidim::RemoveSearchIndexesJob.perform_later([result])
     end
   end
 
-  component.data_portable_entities = ["Decidim::Forms::Answer"]
+  component.data_portable_entities = ["Decidim::Forms::Response"]
 
-  component.newsletter_participant_entities = ["Decidim::Forms::Answer"]
-
-  component.on(:before_destroy) do |instance|
-    survey = Decidim::Surveys::Survey.find_by(decidim_component_id: instance.id)
-    survey_answers_for_component = Decidim::Forms::Answer.where(questionnaire: survey.questionnaire)
-
-    raise "Cannot destroy this component when there are survey answers" if survey_answers_for_component.any?
-  end
+  component.newsletter_participant_entities = ["Decidim::Forms::Response"]
 
   component.register_resource(:survey) do |resource|
     resource.model_class_name = "Decidim::Surveys::Survey"
+    resource.card = "decidim/surveys/survey"
+    resource.searchable = true
+    resource.actions = %w(respond)
   end
 
-  component.register_stat :surveys_count do |components, start_at, end_at|
+  component.register_stat :surveys_count,
+                          primary: true,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          sub_title: "responses",
+                          icon_name: "survey-line",
+                          tooltip_key: "surveys_count_tooltip" do |components, start_at, end_at|
     surveys = Decidim::Surveys::Survey.where(component: components)
     surveys = surveys.where(created_at: start_at..) if start_at.present?
     surveys = surveys.where(created_at: ..end_at) if end_at.present?
-    surveys.count
-  end
-
-  component.register_stat :answers_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
-    surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
-    answers = Decidim::Forms::Answer.where(questionnaire: surveys.map(&:questionnaire))
-    answers = answers.where(created_at: start_at..) if start_at.present?
-    answers = answers.where(created_at: ..end_at) if end_at.present?
-    answers.group(:session_token).count.size
+    first = surveys.count
+    participatory_space_surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
+    responses = Decidim::Forms::Response.where(questionnaire: participatory_space_surveys.map(&:questionnaire))
+    responses = responses.where(created_at: start_at..) if start_at.present?
+    responses = responses.where(created_at: ..end_at) if end_at.present?
+    [
+      first,
+      responses.group(:session_token).count.size
+    ]
   end
 
   # These actions permissions can be configured in the admin panel
-  component.actions = %w(answer)
+  component.actions = %w(respond)
 
   component.settings(:global) do |settings|
-    settings.attribute :scopes_enabled, type: :boolean, default: false
-    settings.attribute :scope_id, type: :scope
-    settings.attribute :starts_at, type: :time
-    settings.attribute :ends_at, type: :time
     settings.attribute :announcement, type: :text, translated: true, editor: true
-    settings.attribute :clean_after_publish, type: :boolean, default: true
   end
 
   component.settings(:step) do |settings|
-    settings.attribute :allow_answers, type: :boolean, default: false
-    settings.attribute :allow_unregistered, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.exports :survey_user_answers do |exports|
-    exports.collection do |f|
-      survey = Decidim::Surveys::Survey.find_by(component: f)
-      Decidim::Forms::QuestionnaireUserAnswers.for(survey.questionnaire)
+  component.exports :survey_user_responses do |exports|
+    exports.collection do |_component, _user, survey_id|
+      survey = Decidim::Surveys::Survey.find(survey_id)
+      Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
 
-    exports.serializer Decidim::Forms::UserAnswersSerializer
+    exports.serializer Decidim::Forms::UserResponsesSerializer
+  end
+
+  component.exports :published_survey_user_responses do |exports|
+    exports.collection do |component|
+      survey = Decidim::Surveys::Survey.find_by(component:)
+
+      Decidim::Forms::Response
+        .joins(:question)
+        .where(questionnaire: survey.questionnaire)
+        .where.not(decidim_forms_questions: { question_type: %w(separator title_and_description) })
+        .where.not(decidim_forms_questions: { survey_responses_published_at: nil })
+        .includes(:question, :choices, :user)
+    end
+
+    exports.formats []
+    exports.include_in_open_data = true
+    exports.serializer Decidim::Surveys::UserResponsesSerializer
   end
 
   component.seeds do |participatory_space|

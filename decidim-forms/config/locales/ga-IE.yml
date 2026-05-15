@@ -1,20 +1,12 @@
 ga:
   activemodel:
     attributes:
-      answer:
-        body: Freagra
-        choices: Roghanna
       question:
         question_type: Cineál
   decidim:
     forms:
       admin:
         questionnaires:
-          answer_option:
-            remove: Bain as
-          answers:
-            actions:
-              export: Easpórtáil
           display_condition:
             condition_question: Ceist
             condition_types:
@@ -30,15 +22,11 @@ ga:
           question:
             add_matrix_row: Suimigh ró
             any: Ar Bith
-            down: Síos
             expand: Méadaigh
             question: Ceist
             remove: Bain as
-            up: Thuas
           separator:
-            down: Ísligh
             remove: Bain as
-            up: Ardaigh
       question_types:
         files: Comhaid
         sorting: Sórtáil
@@ -47,7 +35,3 @@ ga:
           back: Ar Ais
           continue: Lean ar aghaidh
           submit: Deimhnigh
-      user_answers_serializer:
-        body: Freagra
-        ip_hash: Hais IP
-        question: Ceist

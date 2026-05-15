@@ -1,0 +1,5 @@
+<div class="form__wrapper-block flex-col-reverse md:flex-row justify-end">
+  <%= form.submit t("access", scope: "decidim.elections.votes.check_census"),
+                  class: "button button__sm md:button__lg button__secondary",
+                  disabled: local_assigns[:disabled] %>
+</div>

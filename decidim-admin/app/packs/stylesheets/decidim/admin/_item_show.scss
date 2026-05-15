@@ -3,7 +3,7 @@
 }
 
 .item_show__header {
-  @apply flex items-center pb-4 border-b border-gray mb-4 gap-x-2;
+  @apply flex items-center pb-4 border-b border-neutral-200 mb-4 gap-x-2;
 
   > svg {
     @apply w-4 h-4;
@@ -11,10 +11,6 @@
 
   &-title {
     @apply text-xl font-bold block sm:flex items-center justify-between gap-4 w-full first-letter:capitalize first:[&>div]:ml-0 first:[&>*]:ml-auto;
-
-    .dropdown-pane {
-      @apply font-normal;
-    }
   }
 
   &--with-action-options {

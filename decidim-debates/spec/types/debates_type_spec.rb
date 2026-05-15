@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test"
+require "decidim/api/test"
 
 module Decidim
   module Debates
@@ -40,8 +39,8 @@ module Decidim
         context "when the debate does not belong to the component" do
           let(:debate) { create(:debate, component: create(:debates_component)) }
 
-          it "does not find the debate" do
-            expect(response["debate"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Debate not found")
           end
         end
       end

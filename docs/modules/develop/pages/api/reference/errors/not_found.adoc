@@ -1,0 +1,30 @@
+= Not Found Error - NOT_FOUND_ERROR
+
+This error is triggered when the requested record does not exist in the database, or is in a state where you should not have access to it (moderated, belongs to an unpublished component, belongs to a private process where the requesting user does not have access). This is equivalent to 404 HTTP Status code.
+
+The JSON response structure is:
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": "ParticipatoryProcess not found",
+      "extensions": {
+        "code": "NOT_FOUND_ERROR"
+      },
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "participatoryProcess"
+      ]
+    }
+  ],
+  "data": {
+    "participatoryProcess": null
+  }
+}
+----

@@ -5,7 +5,6 @@ module Decidim
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
-      include HashtagsMethods
 
       # Public: Initializes the command.
       #
@@ -74,18 +73,22 @@ module Decidim
           ) do
             proposal = Proposal.new(
               title: {
-                I18n.locale => title_with_hashtags
+                I18n.locale => Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
               },
               body: {
-                I18n.locale => body_with_hashtags
+                I18n.locale => Decidim::ContentProcessor.parse_with_processor(:inline_images, form.body, current_organization: form.current_organization).rewrite
               },
               component: form.component
             )
 
             proposal.taxonomizations = form.taxonomizations if form.taxonomizations.present?
             proposal.documents = form.documents if form.documents.present?
-            proposal.address = form.address if form.has_address? && !form.geocoded?
-            proposal.add_coauthor(@current_user, user_group:)
+            if form.geocoded?
+              proposal.latitude = form.latitude
+              proposal.longitude = form.longitude
+            end
+            proposal.address = form.address if form.has_address?
+            proposal.add_coauthor(@current_user)
             proposal.save!
             @attached_to = proposal
             proposal
@@ -100,15 +103,7 @@ module Decidim
 
         return false if proposal_limit.zero?
 
-        if user_group
-          user_group_proposals.count >= proposal_limit
-        else
-          current_user_proposals.count >= proposal_limit
-        end
-      end
-
-      def user_group
-        @user_group ||= Decidim::UserGroup.find_by(organization:, id: form.user_group_id)
+        current_user_proposals.count >= proposal_limit
       end
 
       def organization
@@ -117,10 +112,6 @@ module Decidim
 
       def current_user_proposals
         Proposal.not_withdrawn.from_author(@current_user).where(component: form.current_component)
-      end
-
-      def user_group_proposals
-        Proposal.not_withdrawn.from_user_group(@user_group).where(component: form.current_component)
       end
 
       def first_attachment_weight

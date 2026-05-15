@@ -52,7 +52,7 @@ describe "Admin manages proposals states" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Status created successfully")
 
       within "table" do
         expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
@@ -128,6 +128,7 @@ describe "Admin manages proposals states" do
 
     it "updates a proposal state" do
       within "tr", text: translated(proposal_state.title) do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -141,7 +142,7 @@ describe "Admin manages proposals states" do
 
         find("*[type=submit]").click
       end
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Status updated successfully")
 
       within "table" do
         expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
@@ -160,6 +161,7 @@ describe "Admin manages proposals states" do
 
     it "updates the label and announcement previews" do
       within "tr", text: translated(proposal_state.title) do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -183,7 +185,7 @@ describe "Admin manages proposals states" do
         end
         find("*[type=submit]").click
       end
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Status updated successfully")
 
       visit decidim_admin.root_path
       expect(page).to have_content("updated #{translated(attributes[:title])} in")
@@ -208,9 +210,10 @@ describe "Admin manages proposals states" do
 
     it "deletes the proposal state" do
       within "tr", text: translated(state.title) do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Status deleted successfully")
 
       state = Decidim::Proposals::ProposalState.find_by(token: "editable")
 
@@ -224,7 +227,10 @@ describe "Admin manages proposals states" do
       expect(state.reload.proposals).to include(proposal)
       expect(state.proposals_count).to eq(1)
       within "tr", text: translated(state.title) do
+        find("button[data-controller='dropdown']").click
         expect(page).to have_no_link("Delete")
+        expect(page).to have_css(".dropdown__button-disabled span", text: "Delete state")
+        expect(page).to have_css(".dropdown__button-disabled svg")
       end
     end
   end

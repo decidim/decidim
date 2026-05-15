@@ -11,9 +11,10 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:root_taxonomy) { create(:taxonomy, organization:) }
         let!(:taxonomies) { create_list(:taxonomy, 3, parent: root_taxonomy, organization:) }
-        let!(:taxonomy_filter1) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:) }
-        let!(:taxonomy_filter2) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:) }
-        let!(:taxonomy_filter3) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:) }
+        let!(:taxonomy_filter1) { create(:taxonomy_filter, participatory_space_manifests: ["participatory_processes"], root_taxonomy:) }
+        let!(:taxonomy_filter2) { create(:taxonomy_filter, participatory_space_manifests: ["participatory_processes"], root_taxonomy:) }
+        let!(:taxonomy_filter3) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"], root_taxonomy:) }
+        let!(:taxonomy_filter4) { create(:taxonomy_filter, participatory_space_manifests: ["participatory_processes"]) }
         let(:title) do
           {
             en: "Title",
@@ -43,8 +44,13 @@ module Decidim
             ca: "Descripció curta"
           }
         end
+        let(:start_date) { 1.month.ago }
+        let(:end_date) { 1.month.from_now }
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
+        let(:private_space) { true }
+        let(:has_members) { true }
+        let(:access_mode) { "open" }
         let(:attributes) do
           {
             "participatory_process" => {
@@ -61,11 +67,74 @@ module Decidim
               "short_description_en" => short_description[:en],
               "short_description_es" => short_description[:es],
               "short_description_ca" => short_description[:ca],
+              "start_date" => start_date,
+              "end_date" => end_date,
               "hero_image" => attachment,
               "slug" => slug,
+              "private_space" => private_space,
+              "has_members" => has_members,
+              "access_mode" => access_mode,
               "taxonomies" => [taxonomies.first.id, taxonomies.second.id]
             }
           }
+        end
+
+        context "when has_members is true" do
+          let(:has_members) { true }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when has_members is false" do
+          let(:has_members) { false }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when access_mode is missing" do
+          let(:access_mode) { nil }
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when access_mode is present" do
+          let(:access_mode) { "open" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when access_mode is invalid" do
+          let(:access_mode) { "foo" }
+
+          it { is_expected.to be_invalid }
+        end
+
+        describe "default access_mode" do
+          let(:attributes) do
+            {
+              "participatory_process" => {
+                "title_en" => title[:en],
+                "title_es" => title[:es],
+                "title_ca" => title[:ca],
+                "slug" => slug,
+                "weight" => weight
+              }
+            }
+          end
+
+          it "is :open" do
+            expect(subject.access_mode).to eq("open")
+          end
+        end
+
+        describe "access_mode reset when has_members is false" do
+          let(:access_mode) { "transparent" }
+          let(:has_members) { false }
+
+          it "resets access_mode to open" do
+            subject.valid?
+            expect(subject.access_mode).to eq("open")
+          end
         end
 
         context "when everything is OK" do
@@ -174,6 +243,45 @@ module Decidim
               expect(subject).to be_valid
             end
           end
+        end
+
+        context "when the start_date is later than end_date" do
+          let(:start_date) { 1.month.from_now }
+          let(:end_date) { 2.months.ago }
+
+          it { is_expected.to be_invalid }
+
+          it "has an error" do
+            subject.valid?
+
+            expect(subject.errors).not_to be_empty
+            expect(subject.errors[:end_date]).not_to be_empty
+            expect(subject.errors[:start_date]).not_to be_empty
+          end
+        end
+
+        context "when start_date is present" do
+          let(:start_date) { 3.months.ago }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when end_date is present" do
+          let(:end_date) { 2.months.from_now }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when start_date is not present" do
+          let(:start_date) { nil }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when end_date is not present" do
+          let(:end_date) { nil }
+
+          it { is_expected.to be_valid }
         end
       end
     end

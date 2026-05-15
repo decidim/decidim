@@ -1,0 +1,44 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<% if templates_defined? && choose_template? %>
+  <%= render "decidim/surveys/admin/surveys/tabs_menu" do %>
+    <%= button_tag t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), class: "main-tabs-menu__cta-button disabled", disabled: true, data: { disabled_button: true } %>
+
+    <%= link_to t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), decidim_admin_templates.skip_questionnaire_templates_path(questionnaire_id: questionnaire, url: request.url), class: "main-tabs-menu__cta-button !hidden", data: { create_new_form_button: true }, method: :post %>
+
+    <%= button_tag t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), class: "main-tabs-menu__cta-button !hidden", data: { with_template_button: true }, form: "choose-template-form" %>
+  <% end %>
+
+  <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t(".title"), show_buttons: false } %>
+<% else %>
+  <div class="questionnaire-questions">
+    <div class="item_show__header" style="border-bottom: none;">
+      <h1 class="item_show__header-title">
+        <%= t(".title") %>
+
+          <% if questionnaire.questions_editable? %>
+            <button class="button button__sm button__transparent-secondary add-question"><%= t("add_question", scope: "decidim.forms.admin.questionnaires.edit_questions") %></button>
+            <button class="button button__sm button__transparent-secondary add-separator"><%= t("add_separator", scope: "decidim.forms.admin.questionnaires.edit_questions") %></button>
+            <button class="button button__sm button__transparent-secondary add-title-and-description"><%= t("add_title_and_description", scope: "decidim.forms.admin.questionnaires.edit_questions") %></button>
+          <% end %>
+      </h1>
+    </div>
+  </div>
+
+  <%= render "decidim/surveys/admin/surveys/tabs_menu" %>
+
+  <div class="grid-cols-1 2xl:mr-80">
+    <div class="item__edit-form pb-24">
+      <%= decidim_form_for(@form, url: update_questions_questions_survey_path(@survey), method: :patch, html: { id: "survey-form", class: "form-defaults form edit_questions_survey" }) do |form| %>
+        <%= render partial: "decidim/forms/admin/questionnaires/questions_form", object: form %>
+      <% end %>
+    </div>
+
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= button_tag t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "button button__sm button__secondary", form: "survey-form" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

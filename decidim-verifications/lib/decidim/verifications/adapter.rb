@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     class InvalidVerificationRoute < StandardError
-      def new(route:)
+      def initialize(route:)
         msg = <<~MSG
           You specified a direct handler but you are trying to use `#{route}`
           which is only available for multi-step authorization workflows. Change
@@ -15,7 +15,7 @@ module Decidim
     end
 
     class MissingVerificationRoute < StandardError
-      def new(handler:, route:, action:)
+      def initialize(handler:, route:, action:)
         msg = <<~MSG
           The authorization handler `#{handler}` does not define the route
           `#{route}`. If you want to enable `#{action}` for `#{handler}`, change
@@ -27,7 +27,7 @@ module Decidim
     end
 
     class MissingEngine < StandardError
-      def new(handler:, engine:)
+      def initialize(handler:, engine:)
         msg = <<~MSG
           The authorization handler `#{handler}` does not define the `#{engine}`
           engine. Please define the engine in the workflow configuration.
@@ -38,6 +38,17 @@ module Decidim
     end
 
     class UnregisteredVerificationManifest < StandardError
+      def initialize(name:)
+        msg = <<~MSG.squish
+          The verification workflow manifest `#{name}` is not defined. Please
+          verify your verification configuration and check your initializers to
+          ensure that the workflow is configured. Note that in some occasions a
+          successful configuration may require configuring some environment
+          variables.
+        MSG
+
+        super(msg)
+      end
     end
 
     #
@@ -54,7 +65,7 @@ module Decidim
       def self.from_element(element)
         manifest = Verifications.find_workflow_manifest(element)
 
-        raise UnregisteredVerificationManifest unless manifest
+        raise UnregisteredVerificationManifest.new(name: element) unless manifest
 
         new(manifest)
       end
@@ -63,7 +74,7 @@ module Decidim
         @manifest = manifest
       end
 
-      delegate :key, :name, :fullname, :description, :type, :icon, to: :manifest
+      delegate :key, :name, :fullname, :description, :type, :icon, :ephemeral?, to: :manifest
 
       #
       # Main entry point for the verification engine

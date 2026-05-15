@@ -1,0 +1,20 @@
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div id="panel-title" class="card-section">
+      <div class="row">
+        <div class="columns">
+          <%= form.text_field :name, readonly: @form.persisted? %>
+        </div>
+        <div class="columns">
+          <%= form.email_field :email, readonly: @form.persisted? %>
+        </div>
+        <div class="columns">
+          <%= form.translated :text_field, :role %>
+        </div>
+        <div class="columns">
+          <%= form.check_box :published %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

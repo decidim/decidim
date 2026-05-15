@@ -4,7 +4,6 @@ module Decidim
   # The controller to show all the last activities in a Decidim Organization.
   class UserActivitiesController < Decidim::ApplicationController
     include Paginable
-    include UserGroups
     include FilterResource
     include Flaggable
     include HasProfileBreadcrumb
@@ -22,7 +21,7 @@ module Decidim
     def user
       return unless params[:nickname]
 
-      @user ||= current_organization.users.find_by("LOWER(nickname) = ?", params[:nickname].downcase)
+      @user ||= current_organization.users.find_by("nickname = ?", params[:nickname].downcase)
     end
 
     def activities
@@ -57,8 +56,7 @@ module Decidim
 
     def resource_types
       @resource_types = begin
-        array = %w(Decidim::Proposals::CollaborativeDraft
-                   Decidim::Comments::Comment
+        array = %w(Decidim::Comments::Comment
                    Decidim::Debates::Debate
                    Decidim::Initiative
                    Decidim::Meetings::Meeting

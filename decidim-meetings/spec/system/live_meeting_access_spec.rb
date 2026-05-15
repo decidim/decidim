@@ -160,12 +160,12 @@ describe "Meeting live event access" do
       end
     end
 
-    shared_examples "belonging to an assembly which is a transparent private space" do
-      let(:assembly) { create(:assembly, :private, :transparent, organization:) }
+    shared_examples "belonging to an assembly which is a transparent space" do
+      let(:assembly) { create(:assembly, :transparent, organization:) }
       let(:participatory_space) { assembly }
       let(:admin) { create(:user, :confirmed, :admin, organization:) }
-      let(:private_user) { create(:user, :confirmed, organization:) }
-      let!(:assembly_private_user) { create(:assembly_private_user, user: private_user, privatable_to: assembly) }
+      let(:member) { create(:user, :confirmed, organization:) }
+      let!(:assembly_member) { create(:assembly_member, user: member, participatory_space: assembly) }
 
       context "when user is not signed in" do
         it "does not show the meeting link embedded" do
@@ -187,9 +187,9 @@ describe "Meeting live event access" do
         end
       end
 
-      context "when private user is signed in" do
+      context "when member is signed in" do
         before do
-          login_as private_user, scope: :user
+          login_as member, scope: :user
         end
 
         it "shows the meeting link embedded" do
@@ -245,7 +245,7 @@ describe "Meeting live event access" do
         end
 
         it_behaves_like "iframe access levels", :embedded
-        it_behaves_like "belonging to an assembly which is a transparent private space"
+        it_behaves_like "belonging to an assembly which is a transparent space"
       end
     end
 
@@ -278,7 +278,7 @@ describe "Meeting live event access" do
         end
 
         it_behaves_like "iframe access levels", :live_event_page
-        it_behaves_like "belonging to an assembly which is a transparent private space"
+        it_behaves_like "belonging to an assembly which is a transparent space"
       end
     end
 
@@ -291,7 +291,7 @@ describe "Meeting live event access" do
         expect(page).to have_link("Join meeting", href: meeting.online_meeting_url)
       end
 
-      it_behaves_like "belonging to an assembly which is a transparent private space"
+      it_behaves_like "belonging to an assembly which is a transparent space"
     end
   end
 

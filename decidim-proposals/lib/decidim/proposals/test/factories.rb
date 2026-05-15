@@ -29,18 +29,18 @@ FactoryBot.define do
       Decidim::Proposals.create_default_states!(proposal_component, nil, with_traceability: false)
     end
 
-    trait :with_endorsements_enabled do
+    trait :with_likes_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { endorsements_enabled: true }
+          participatory_space.active_step.id => { likes_enabled: true }
         }
       end
     end
 
-    trait :with_endorsements_disabled do
+    trait :with_likes_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => { endorsements_enabled: false }
+          participatory_space.active_step.id => { likes_enabled: false }
         }
       end
     end
@@ -105,12 +105,12 @@ FactoryBot.define do
       end
     end
 
-    trait :with_endorsements_blocked do
+    trait :with_likes_blocked do
       step_settings do
         {
           participatory_space.active_step.id => {
-            endorsements_enabled: true,
-            endorsements_blocked: true
+            likes_enabled: true,
+            likes_blocked: true
           }
         }
       end
@@ -171,23 +171,6 @@ FactoryBot.define do
       end
     end
 
-    trait :with_collaborative_drafts_enabled do
-      settings do
-        {
-          collaborative_drafts_enabled: true
-        }
-      end
-    end
-
-    trait :with_attachments_allowed_and_collaborative_drafts_enabled do
-      settings do
-        {
-          attachments_allowed: true,
-          collaborative_drafts_enabled: true
-        }
-      end
-    end
-
     trait :with_minimum_votes_per_user do
       transient do
         minimum_votes_per_user { 3 }
@@ -229,23 +212,6 @@ FactoryBot.define do
       settings do
         {
           comments_enabled: false
-        }
-      end
-    end
-
-    trait :with_extra_hashtags do
-      transient do
-        automatic_hashtags { "AutoHashtag AnotherAutoHashtag" }
-        suggested_hashtags { "SuggestedHashtag AnotherSuggestedHashtag" }
-      end
-
-      step_settings do
-        {
-          participatory_space.active_step.id => {
-            automatic_hashtags:,
-            suggested_hashtags:,
-            creation_enabled: true
-          }
         }
       end
     end
@@ -296,8 +262,6 @@ FactoryBot.define do
   factory :proposal, class: "Decidim::Proposals::Proposal" do
     transient do
       users { nil }
-      # user_groups correspondence to users is by sorting order
-      user_groups { [] }
       skip_injection { false }
       state { :not_answered }
     end
@@ -306,6 +270,7 @@ FactoryBot.define do
     body { generate_localized_description(:proposal_body, skip_injection:) }
     component { create(:proposal_component, skip_injection:) }
     published_at { Time.current }
+    deleted_at { nil }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }
@@ -333,14 +298,13 @@ FactoryBot.define do
                         evaluator.body
                       end
 
-      proposal.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.title, current_organization: proposal.organization).rewrite
-      proposal.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.body, current_organization: proposal.organization).rewrite
+      proposal.title = Decidim::ContentProcessor.parse(proposal.title, current_organization: proposal.organization).rewrite
+      proposal.body = Decidim::ContentProcessor.parse_with_processor(:inline_images, proposal.body, current_organization: proposal.organization).rewrite
 
       if proposal.component
         users = evaluator.users || [create(:user, :confirmed, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]
-        users.each_with_index do |user, idx|
-          user_group = evaluator.user_groups[idx]
-          proposal.coauthorships.build(author: user, user_group:)
+        users.each do |user|
+          proposal.coauthorships.build(author: user)
         end
       end
     end
@@ -355,33 +319,24 @@ FactoryBot.define do
 
     trait :participant_author do
       after :build do |proposal, evaluator|
-        proposal.coauthorships.clear
-        user = build(:user, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
+        proposal.coauthorships.target.clear
+        user = build(:user, :confirmed, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
         proposal.coauthorships.build(author: user)
-      end
-    end
-
-    trait :user_group_author do
-      after :build do |proposal, evaluator|
-        proposal.coauthorships.clear
-        user = create(:user, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
-        user_group = create(:user_group, :verified, organization: user.organization, users: [user], skip_injection: evaluator.skip_injection)
-        proposal.coauthorships.build(author: user, user_group:)
       end
     end
 
     trait :official do
       after :build do |proposal|
-        proposal.coauthorships.clear
+        proposal.coauthorships.target.clear
         proposal.coauthorships.build(author: proposal.organization)
       end
     end
 
     trait :official_meeting do
       after :build do |proposal, evaluator|
-        proposal.coauthorships.clear
-        component = build(:meeting_component, participatory_space: proposal.component.participatory_space, skip_injection: evaluator.skip_injection)
-        proposal.coauthorships.build(author: build(:meeting, component:, skip_injection: evaluator.skip_injection))
+        proposal.coauthorships.target.clear
+        component = build(:meeting_component, :published, participatory_space: proposal.component.participatory_space, skip_injection: evaluator.skip_injection)
+        proposal.coauthorships.build(author: build(:meeting, :published, component:, skip_injection: evaluator.skip_injection))
       end
     end
 
@@ -409,9 +364,9 @@ FactoryBot.define do
 
     trait :accepted_not_published do
       state { :accepted }
+      answer { generate_localized_title }
       answered_at { Time.current }
       state_published_at { nil }
-      answer { generate_localized_title }
     end
 
     trait :with_answer do
@@ -441,11 +396,12 @@ FactoryBot.define do
       end
     end
 
-    trait :with_endorsements do
+    trait :with_likes do
       after :create do |proposal, evaluator|
         5.times.collect do
-          create(:endorsement, resource: proposal, author: build(:user, organization: proposal.participatory_space.organization, skip_injection: evaluator.skip_injection),
-                               skip_injection: evaluator.skip_injection)
+          create(:like, resource: proposal,
+                        author: build(:user, :confirmed, organization: proposal.participatory_space.organization, skip_injection: evaluator.skip_injection),
+                        skip_injection: evaluator.skip_injection)
         end
       end
     end
@@ -489,7 +445,7 @@ FactoryBot.define do
     end
     amendable { build(:proposal, skip_injection:) }
     emendation { build(:proposal, component: amendable.component, skip_injection:) }
-    amender { build(:user, organization: amendable.component.participatory_space.organization, skip_injection:) }
+    amender { build(:user, :confirmed, organization: amendable.component.participatory_space.organization, skip_injection:) }
     state { Decidim::Amendment::STATES.keys.sample }
   end
 
@@ -508,52 +464,6 @@ FactoryBot.define do
     author { build(:user, organization: proposal.organization, skip_injection:) }
   end
 
-  factory :collaborative_draft, class: "Decidim::Proposals::CollaborativeDraft" do
-    transient do
-      skip_injection { false }
-      users { nil }
-      # user_groups correspondence to users is by sorting order
-      user_groups { [] }
-    end
-
-    title { generate_localized_title(:collaborative_draft_title, skip_injection:)["en"] }
-    body { generate_localized_description(:collaborative_draft_body, skip_injection:)["en"] }
-    component { create(:proposal_component, skip_injection:) }
-    address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
-    state { "open" }
-
-    after(:build) do |collaborative_draft, evaluator|
-      if collaborative_draft.component
-        users = evaluator.users || [create(:user, organization: collaborative_draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]
-        users.each_with_index do |user, idx|
-          user_group = evaluator.user_groups[idx]
-          collaborative_draft.coauthorships.build(author: user, user_group:)
-        end
-      end
-    end
-
-    trait :participant_author do
-      after :build do |draft, evaluator|
-        draft.coauthorships.clear
-        user = build(:user, organization: draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
-        draft.coauthorships.build(author: user)
-      end
-    end
-
-    trait :published do
-      state { "published" }
-      published_at { Time.current }
-    end
-
-    trait :open do
-      state { "open" }
-    end
-
-    trait :withdrawn do
-      state { "withdrawn" }
-    end
-  end
-
   factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do
     transient do
       skip_injection { false }
@@ -564,15 +474,15 @@ FactoryBot.define do
     component { create(:proposal_component, skip_injection:) }
   end
 
-  factory :valuation_assignment, class: "Decidim::Proposals::ValuationAssignment" do
+  factory :evaluation_assignment, class: "Decidim::Proposals::EvaluationAssignment" do
     transient do
       skip_injection { false }
     end
     proposal
-    valuator_role do
+    evaluator_role do
       space = proposal.component.participatory_space
       organization = space.organization
-      build(:participatory_process_user_role, role: :valuator, skip_injection:, user: build(:user, organization:, skip_injection:))
+      build(:participatory_process_user_role, role: :evaluator, skip_injection:, user: build(:user, organization:, skip_injection:))
     end
   end
 end

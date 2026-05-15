@@ -21,7 +21,7 @@ module Decidim
       def can_be_administered_by?(user)
         return false if user.blank?
         return true if user.admin?
-        return false if participatory_space.respond_to?(:user_roles) && participatory_space.user_roles(:valuator).where(user:).any?
+        return false if participatory_space.respond_to?(:user_roles) && participatory_space.user_roles(:evaluator).where(user:).any?
 
         [
           participatory_space.moderators.exists?(id: user.id),
@@ -53,8 +53,12 @@ module Decidim
       # Public: The reported content url
       #
       # Returns String
-      def reported_content_url
-        raise NotImplementedError
+      def reported_content_url(options = {})
+        if hidden?
+          ResourceLocatorPresenter.new(self).index(options)
+        else
+          ResourceLocatorPresenter.new(self).url(options)
+        end
       end
 
       # Public: The collection of attribute names that are considered

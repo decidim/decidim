@@ -1,0 +1,50 @@
+<% is_linked = meeting.decidim_component_id != current_component.id %>
+
+<tr data-id="<%= meeting.id %>">
+  <td class="!text-left" data-label="<%= t("models.meeting.fields.title", scope: "decidim.meetings") %>">
+    <% if allowed_to? :update, :meeting, meeting: meeting %>
+      <%= link_to present(meeting).title(html_escape: true), Decidim::ResourceLocatorPresenter.new(meeting).edit %>
+    <% else %>
+      <%= present(meeting).title(html_escape: true) %><br>
+    <% end %>
+  </td>
+  <td data-label="<%= t("models.meeting.fields.start_time", scope: "decidim.meetings") %>">
+    <% if meeting.start_time %>
+      <%= l meeting.start_time, format: :decidim_short %>
+    <% end %>
+  </td>
+  <td data-label="<%= t("models.meeting.fields.end_time", scope: "decidim.meetings") %>">
+    <% if meeting.end_time %>
+      <%= l meeting.end_time, format: :decidim_short %>
+    <% end %>
+  </td>
+  <td data-label="<%= t("models.meeting.fields.closed", scope: "decidim.meetings") %>">
+    <%= humanize_boolean meeting.closed? %>
+  </td>
+
+  <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
+    <td data-label="<%= t("models.meeting.fields.map", scope: "decidim.meetings") %>">
+      <%= static_map_link(meeting, {}, { class: "static-map__admin" }) unless meeting.online? %>
+    </td>
+  <% end %>
+
+  <td data-label="<%= t("models.meeting.fields.taxonomies", scope: "decidim.meetings") %>">
+    <%= present(meeting).taxonomy_names.join(", ") %>
+  </td>
+
+  <td class="table-list__state" data-label="<%= t("models.meeting.fields.published", scope: "decidim.meetings") %>">
+    <% if meeting.published? %>
+      <span class="label success !text-sm"><%= t("admin.meetings.index.published", scope: "decidim.meetings") %></span>
+    <% else %>
+      <span class="label alert !text-sm"><%= t("admin.meetings.index.unpublished", scope: "decidim.meetings") %></span>
+    <% end %>
+  </td>
+
+  <td class="table-list__actions" data-label="<%= t("actions.title", scope: "decidim.meetings") %>">
+    <% if is_linked %>
+      <%= t("index.linked_meeting_warning_html", href: Decidim::ResourceLocatorPresenter.new(meeting).edit, name: present(meeting).space_title, scope: "decidim.meetings.admin.meetings") %>
+    <% else %>
+      <%= render partial: "decidim/meetings/admin/meetings/meeting_actions", locals: { meeting:, view: } %>
+    <% end %>
+  </td>
+</tr>

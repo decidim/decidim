@@ -3,20 +3,23 @@
 require "spec_helper"
 
 describe "rake decidim:upgrade:clean:categories", type: :task do
+  let(:category) { create(:category) }
+  let(:component) { create(:component, participatory_space: category.participatory_space) }
+
   context "when executing task" do
     it "does not throw an exception" do
       expect { task.execute }.not_to raise_exception
     end
 
     context "when there are no errors" do
-      let!(:entries) { create_list(:dummy_resource, 8, :with_categories) }
+      let!(:entries) { create_list(:dummy_resource, 8, category:, component:) }
 
       it "avoid removing entries" do
         expect { task.execute }.not_to change(Decidim::Categorization, :count)
       end
 
       context "when running without issues" do
-        let!(:entries) { create_list(:dummy_resource, 8, :with_categories) }
+        let!(:entries) { create_list(:dummy_resource, 8, category:, component:) }
         let(:invalid) { entries.sample(4) }
         let!(:invalid_entries) { invalid.collect(&:categorization).collect(&:id) }
 
@@ -34,7 +37,7 @@ describe "rake decidim:upgrade:clean:categories", type: :task do
     end
 
     context "when there are errors" do
-      let!(:entries) { create_list(:dummy_resource, 8, :with_categories) }
+      let!(:entries) { create_list(:dummy_resource, 8, category:, component:) }
       let!(:invalid_entries) { entries.collect(&:categorization).collect(&:id).sample(4) }
 
       context "when missing categorization classes" do

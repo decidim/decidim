@@ -24,11 +24,17 @@ module Decidim
     end
 
     def location
+      return pending_location_text if model.respond_to?(:pending_location?) && model.pending_location?
+
       decidim_sanitize_translated(model.location)
     end
 
     def address
-      decidim_sanitize_translated(model.address)
+      decidim_sanitize_translated(model.address) if model.respond_to?(:address) && model.address.present?
+    end
+
+    def pending_location_text
+      t("show.pending_address", scope: "decidim.meetings.meetings")
     end
 
     def display_start_and_end_time?

@@ -1,6 +1,6 @@
 <div class="relative ml-auto">
   <button id="dropdown-trigger-resource-<%= resource.id %>"
-          data-component="dropdown"
+          data-controller="dropdown"
           data-target="dropdown-menu-resource-<%= resource.id %>"
           aria-label="<%= t("decidim.resource.controls_label") %>">
     <span class="sr-only"><%= t("decidim.resource.controls_label") %></span>
@@ -9,13 +9,16 @@
     <%= icon "more-2-fill" %>
   </button>
   <div id="dropdown-menu-resource-<%= resource.id %>" aria-hidden="true">
-    <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4" role="menu">
+    <ul class="dropdown dropdown__bottom divide-y divide-gray-3" role="menu">
       <%= yield %>
       <% unless defined?(skip_report) && skip_report %>
-        <li role="menuitem"><%= cell "decidim/report_button", resource %></li>
+        <li role="menuitem" class="dropdown__item">
+          <%= cell "decidim/report_button", resource, button_classes: "dropdown__button" %>
+        </li>
       <% end %>
-      <li role="menuitem">
-        <%= cell "decidim/follow_button", resource, large: false %></li>
+      <li role="menuitem" class="dropdown__item">
+        <%= cell "decidim/follow_button", resource, large: false, button_classes: "dropdown__button" %>
+      </li>
     </ul>
   </div>
 </div>

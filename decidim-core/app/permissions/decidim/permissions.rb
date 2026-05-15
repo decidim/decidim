@@ -21,9 +21,7 @@ module Decidim
       amend_action?
       notification_action?
       conversation_action?
-      user_group_action?
-      user_group_invitations_action?
-      apply_endorsement_permissions if permission_action.subject == :endorsement
+      apply_like_permissions if permission_action.subject == :like
       show_my_location_button?
 
       permission_action
@@ -106,7 +104,19 @@ module Decidim
         return allow! if component.current_settings.amendment_creation_enabled
       when :accept,
           :reject
-        return allow! if component.current_settings.amendment_reaction_enabled
+        return disallow! unless component.current_settings.amendment_reaction_enabled
+
+        amendable = context.fetch(:amendable, nil)
+
+        if amendable.respond_to?(:official?) && amendable.official?
+          return allow! if user.admin?
+
+          return disallow!
+        end
+
+        return disallow! unless amendable.authored_by?(user)
+
+        return allow!
       when :promote
         return allow! if component.current_settings.amendment_promotion_enabled
       end
@@ -115,10 +125,10 @@ module Decidim
       toggle_allow(amendment&.amender == user)
     end
 
-    def apply_endorsement_permissions
-      is_allowed = current_settings.endorsements_enabled &&
-                   !current_settings.endorsements_blocked &&
-                   authorized?(:endorse, resource: context.fetch(:resource, nil))
+    def apply_like_permissions
+      is_allowed = current_settings.likes_enabled &&
+                   !current_settings.likes_blocked &&
+                   authorized?(:like, resource: context.fetch(:resource, nil))
 
       toggle_allow(is_allowed)
     end
@@ -141,25 +151,6 @@ module Decidim
       return disallow! if [:create, :update].include?(permission_action.action) && !conversation&.accept_user?(interlocutor)
 
       toggle_allow(conversation&.participating?(interlocutor))
-    end
-
-    def user_group_action?
-      return unless permission_action.subject == :user_group
-      return allow! if [:join, :create].include?(permission_action.action)
-
-      user_group = context.fetch(:user_group)
-
-      if permission_action.action == :leave
-        user_can_leave_group = Decidim::UserGroupMembership.where(user:, user_group:).any?
-        return toggle_allow(user_can_leave_group)
-      end
-
-      user_manages_group = Decidim::UserGroups::ManageableUserGroups.for(user).include?(user_group)
-      toggle_allow(user_manages_group) if permission_action.action == :manage
-    end
-
-    def user_group_invitations_action?
-      allow! if permission_action.subject == :user_group_invitations
     end
 
     def user_can_preview_component?

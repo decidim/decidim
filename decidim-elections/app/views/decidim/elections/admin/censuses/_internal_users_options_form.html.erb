@@ -1,0 +1,21 @@
+<%
+  handler_name = local_assigns[:handler_name]
+  schema = form.object.options_schema(handler_name)
+  attributes = form.object.options_attributes(handler_name)
+  # this variable is send as a context in the settings_attribute_input helper
+  @component = current_component
+%>
+
+<%= form.fields_for(:authorization_handlers_options) do |options_form| %>
+  <%= options_form.fields_for(handler_name, schema) do |attribute_options_form| %>
+    <% attributes.each do |name, attribute| %>
+      <%= settings_attribute_input(
+            attribute_options_form,
+            attribute,
+            name,
+            "decidim.authorization_handlers.#{handler_name}.fields",
+            tabs_prefix: "#{name}_tabs_prefix"
+          ) %>
+    <% end %>
+  <% end %>
+<% end %>

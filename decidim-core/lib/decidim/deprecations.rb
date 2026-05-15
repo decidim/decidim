@@ -11,7 +11,7 @@ module Decidim
     # @param [Symbol] replacement - name of the new method to use
     def deprecated_alias(old_name, replacement)
       define_method(old_name) do |*args, &block|
-        ActiveSupport::Deprecation.warn "##{old_name} deprecated (please use ##{replacement})"
+        Decidim.deprecator.warn "##{old_name} deprecated (please use ##{replacement})"
         send replacement, *args, &block
       end
     end

@@ -1,0 +1,110 @@
+zh-TW:
+  activerecord:
+    models:
+      decidim/elections/election:
+        other: 選舉
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_census: 選民名單
+          election_questions: 問題
+    components:
+      elections:
+        actions:
+          create: 創建
+          destroy: 摧毀
+          update: 更新
+        name: 選舉
+        settings:
+          global:
+            announcement: 公告
+          step:
+            announcement: 公告
+    elections:
+      actions:
+        preview: 預覽
+        title: 操作
+      admin:
+        census:
+          edit:
+            created_at: 建立於
+        dashboard:
+          census:
+            title: 選民名單
+          main:
+            labels:
+              description: 說明
+          questions:
+            labels:
+              answers: 回答
+            title: 問題
+          questions_table:
+            answer: 回答
+            votes: 投票
+          results:
+            publish_button: 發佈結果
+            title: 結果
+          status:
+            title: 選舉狀態
+        elections:
+          edit:
+            title: 編輯選舉
+          form:
+            add_images: 添加圖案
+            publish: 發布
+          index:
+            title: 選舉
+          new:
+            title: 新選舉
+        questions:
+          edit_questions:
+            new_question: 新問題
+            title: 問題
+        statuses:
+          publish_results:
+            invalid: 發布結果時出現問題.
+      censuses:
+        token_csv_form:
+          email: 電子郵件
+      elections:
+        count:
+          elections_count:
+            other: "%{count} 個選舉"
+        filters:
+          all: 全部
+          state: 狀態
+          state_values:
+            finished: 已完成
+            ongoing: 進行中
+        orders:
+          recent: 最近
+        questions:
+          title: 選舉問題
+        show:
+          vote_button: 投票
+        vote_results:
+          title: 結果
+      models:
+        election:
+          fields:
+            census: 選民名單
+            status: 狀態
+            title: 標題
+      status:
+        active: 生效
+        finished: 已完成
+        not_started: 尚未啟動
+        ongoing: 進行中
+      votes:
+        confirm:
+          title: 確認您的選票
+        question:
+          back: 返回
+          next: 下一個
+    statistics:
+      elections_count: 選舉
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: 關閉

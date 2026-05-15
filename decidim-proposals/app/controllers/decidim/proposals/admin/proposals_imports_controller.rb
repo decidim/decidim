@@ -16,15 +16,30 @@ module Decidim
           @form = form(Admin::ProposalsImportForm).from_params(params)
 
           Admin::ImportProposals.call(@form) do
-            on(:ok) do |proposals|
-              flash[:notice] = I18n.t("proposals_imports.create.success", scope: "decidim.proposals.admin", number: proposals.length)
+            on(:ok) do
+              flash[:notice] = I18n.t("proposals_imports.create.success", scope: "decidim.proposals.admin")
               redirect_to EngineRouter.admin_proxy(current_component).root_path
             end
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("proposals_imports.create.invalid", scope: "decidim.proposals.admin")
-              render action: "new"
+              render action: "new", status: :unprocessable_content
             end
+          end
+        end
+
+        def component_states
+          enforce_permission_to :import, :proposals
+          component = current_participatory_space.components.find_by(id: params[:origin_id])
+
+          if component
+            states = Decidim::Proposals::ProposalState
+                     .where(component:)
+                     .map { |s| { token: s.token, title: translated_attribute(s.title) } }
+            states << { token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered") }
+            render json: states
+          else
+            render json: []
           end
         end
       end

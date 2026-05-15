@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Pages
@@ -47,6 +47,14 @@ module Decidim
 
         it "returns when the page was updated" do
           expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::ResourceLocatorPresenter.new(model).url)
         end
       end
     end

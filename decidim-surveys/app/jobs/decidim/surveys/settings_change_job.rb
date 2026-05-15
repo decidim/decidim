@@ -29,18 +29,18 @@ module Decidim
       private
 
       def unchanged?(previous_settings, current_settings)
-        current_settings[:allow_answers] == previous_settings[:allow_answers]
+        current_settings[:allow_responses] == previous_settings[:allow_responses]
       end
 
       # rubocop:disable Style/DoubleNegation
       def survey_opened?(previous_settings, current_settings)
-        current_settings[:allow_answers] == true &&
-          !!previous_settings[:allow_answers] == false
+        current_settings[:allow_responses] == true &&
+          !!previous_settings[:allow_responses] == false
       end
 
       def survey_closed?(previous_settings, current_settings)
-        !!current_settings[:allow_answers] == false &&
-          previous_settings[:allow_answers] == true
+        !!current_settings[:allow_responses] == false &&
+          previous_settings[:allow_responses] == true
       end
 
       def clean_after_publish_changed?(previous_settings, current_settings)

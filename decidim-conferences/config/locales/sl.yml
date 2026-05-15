@@ -2,9 +2,7 @@ sl:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Povezane združbe
         description: Opis
-        hashtag: Ključnik
         published_at: Objavljeno
         short_description: Kratek opis
         show_statistics: Pokaži statistiko
@@ -19,9 +17,6 @@ sl:
     admin:
       actions:
         confirm: Potrdi
-      conference_copies:
-        new:
-          copy: Kopiraj
       conference_speakers:
         edit:
           update: Posodobi

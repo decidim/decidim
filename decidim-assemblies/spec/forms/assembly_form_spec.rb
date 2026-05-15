@@ -10,8 +10,6 @@ module Decidim
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         let(:organization) { create(:organization) }
-        let(:assembly_type) { create(:assemblies_type, organization:) }
-        let(:assembly_type_id) { assembly_type.id }
         let(:title) do
           {
             en: "Title",
@@ -43,7 +41,7 @@ module Decidim
         end
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
-        let(:private_space) { true }
+        let(:has_members) { true }
         let(:purpose_of_action) do
           {
             en: "Purpose of action",
@@ -84,7 +82,7 @@ module Decidim
             ca: "Organització interna"
           }
         end
-        let(:is_transparent) { true }
+        let(:access_mode) { "open" }
         let(:special_features) do
           {
             en: "Special features",
@@ -97,20 +95,14 @@ module Decidim
         let(:instagram_handler) { "lorem" }
         let(:youtube_handler) { "lorem" }
         let(:github_handler) { "lorem" }
-        let(:announcement) do
-          {
-            en: "Announcement",
-            es: "Anuncio",
-            ca: "Anunci"
-          }
-        end
         let(:parent_id) { nil }
         let(:assembly_id) { nil }
         let(:root_taxonomy) { create(:taxonomy, organization:) }
         let!(:taxonomies) { create_list(:taxonomy, 3, parent: root_taxonomy, organization:) }
-        let!(:taxonomy_filter1) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:) }
-        let!(:taxonomy_filter2) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:) }
-        let!(:taxonomy_filter3) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:) }
+        let!(:taxonomy_filter1) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"], root_taxonomy:) }
+        let!(:taxonomy_filter2) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"], root_taxonomy:) }
+        let!(:taxonomy_filter3) { create(:taxonomy_filter, participatory_space_manifests: ["participatory_processes"], root_taxonomy:) }
+        let!(:taxonomy_filter4) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"]) }
         let(:attributes) do
           {
             "assembly" => {
@@ -127,13 +119,11 @@ module Decidim
               "short_description_es" => short_description[:es],
               "short_description_ca" => short_description[:ca],
               "hero_image" => attachment,
-              "banner_image" => attachment,
               "slug" => slug,
-              "private_space" => private_space,
+              "has_members" => has_members,
               "purpose_of_action_en" => purpose_of_action[:en],
               "purpose_of_action_es" => purpose_of_action[:es],
               "purpose_of_action_ca" => purpose_of_action[:ca],
-              "decidim_assemblies_type_id" => assembly_type_id,
               "creation_date" => creation_date,
               "created_by" => created_by,
               "created_by_other_en" => created_by_other[:en],
@@ -148,7 +138,7 @@ module Decidim
               "internal_organisation_en" => internal_organisation[:en],
               "internal_organisation_es" => internal_organisation[:es],
               "internal_organisation_ca" => internal_organisation[:ca],
-              "is_transparent" => is_transparent,
+              "access_mode" => access_mode,
               "special_features_en" => special_features[:en],
               "special_features_es" => special_features[:es],
               "special_features_ca" => special_features[:ca],
@@ -159,12 +149,67 @@ module Decidim
               "github_handler" => github_handler,
               "weight" => weight,
               "parent_id" => parent_id,
-              "announcement_en" => announcement[:en],
-              "announcement_es" => announcement[:es],
-              "announcement_ca" => announcement[:ca],
               "taxonomies" => [taxonomies.first.id, taxonomies.second.id]
             }
           }
+        end
+
+        context "when has_members is true" do
+          let(:has_members) { true }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when has_members is false" do
+          let(:has_members) { false }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when access_mode is missing" do
+          let(:access_mode) { nil }
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when access_mode is present" do
+          let(:access_mode) { "open" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when access_mode is invalid" do
+          let(:access_mode) { "foo" }
+
+          it { is_expected.to be_invalid }
+        end
+
+        describe "default access_mode" do
+          let(:attributes) do
+            {
+              "assembly" => {
+                "title_en" => title[:en],
+                "title_es" => title[:es],
+                "title_ca" => title[:ca],
+                "slug" => slug,
+                "weight" => weight
+              }
+            }
+          end
+
+          it "is :open" do
+            expect(subject.access_mode).to eq("open")
+          end
+        end
+
+        describe "access_mode reset when has_members is false" do
+          let(:access_mode) { "transparent" }
+          let(:has_members) { false }
+
+          it "resets access_mode to open" do
+            subject.valid?
+            expect(subject.access_mode).to eq("open")
+          end
         end
 
         context "when everything is OK" do
@@ -183,7 +228,7 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
-        context "when attachment (hero_image or banner_image) is too big" do
+        context "when attachment (hero_image) is too big" do
           before do
             organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 5
@@ -196,19 +241,6 @@ module Decidim
 
         context "when images are not the expected type" do
           let(:attachment) { upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")) }
-
-          it { is_expected.not_to be_valid }
-        end
-
-        context "when assembly type is null" do
-          let(:assembly_type_id) { nil }
-
-          it { is_expected.to be_valid }
-        end
-
-        context "when assembly type is in a different organization" do
-          let(:alt_organization) { create(:organization) }
-          let(:assembly_type) { create(:assemblies_type, organization: alt_organization) }
 
           it { is_expected.not_to be_valid }
         end
@@ -307,10 +339,8 @@ module Decidim
                 subtitle_ca: assembly.subtitle,
                 subtitle_es: assembly.subtitle,
                 slug: "another-slug",
-                hashtag: assembly.hashtag,
                 meta_scope: assembly.meta_scope,
                 hero_image: nil,
-                banner_image: nil,
                 promoted: assembly.promoted,
                 description_en: assembly.description,
                 description_ca: assembly.description,
@@ -319,14 +349,10 @@ module Decidim
                 short_description_ca: assembly.short_description,
                 short_description_es: assembly.short_description,
                 current_organization: assembly.organization,
-                scopes_enabled: assembly.scopes_enabled,
-                scope: assembly.scope,
-                area: assembly.area,
                 errors: assembly.errors,
                 participatory_processes_ids: nil,
                 purpose_of_action: assembly.purpose_of_action,
                 composition: assembly.composition,
-                decidim_assemblies_type_id: assembly_type_id,
                 creation_date: assembly.creation_date,
                 created_by: assembly.created_by,
                 created_by_other: assembly.created_by_other,
@@ -335,7 +361,7 @@ module Decidim
                 closing_date: assembly.closing_date,
                 closing_date_reason: assembly.closing_date_reason,
                 internal_organisation: assembly.internal_organisation,
-                is_transparent: assembly.is_transparent,
+                access_mode: assembly.access_mode,
                 special_features: assembly.special_features,
                 twitter_handler: assembly.twitter_handler,
                 facebook_handler: assembly.facebook_handler,
@@ -343,8 +369,7 @@ module Decidim
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
                 weight: assembly.weight,
-                parent_id: child_assembly,
-                announcement: assembly.announcement
+                parent_id: child_assembly
               }
             }
           end
@@ -366,10 +391,8 @@ module Decidim
                 subtitle_ca: assembly.subtitle,
                 subtitle_es: assembly.subtitle,
                 slug: "another-slug",
-                hashtag: assembly.hashtag,
                 meta_scope: assembly.meta_scope,
                 hero_image: nil,
-                banner_image: nil,
                 promoted: assembly.promoted,
                 description_en: assembly.description,
                 description_ca: assembly.description,
@@ -378,14 +401,10 @@ module Decidim
                 short_description_ca: assembly.short_description,
                 short_description_es: assembly.short_description,
                 current_organization: assembly.organization,
-                scopes_enabled: assembly.scopes_enabled,
-                scope: assembly.scope,
-                area: assembly.area,
                 errors: assembly.errors,
                 participatory_processes_ids: nil,
                 purpose_of_action: assembly.purpose_of_action,
                 composition: assembly.composition,
-                decidim_assemblies_type_id: assembly_type_id,
                 creation_date: assembly.creation_date,
                 created_by: assembly.created_by,
                 created_by_other: assembly.created_by_other,
@@ -394,7 +413,7 @@ module Decidim
                 closing_date: assembly.closing_date,
                 closing_date_reason: assembly.closing_date_reason,
                 internal_organisation: assembly.internal_organisation,
-                is_transparent: assembly.is_transparent,
+                access_mode: assembly.access_mode,
                 special_features: assembly.special_features,
                 twitter_handler: assembly.twitter_handler,
                 facebook_handler: assembly.facebook_handler,
@@ -402,8 +421,7 @@ module Decidim
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
                 weight: assembly.weight,
-                parent_id: grandchild_assembly,
-                announcement: assembly.announcement
+                parent_id: grandchild_assembly
               }
             }
           end

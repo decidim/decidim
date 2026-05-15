@@ -9,15 +9,16 @@ module Decidim
         mimic :proposals_import
 
         attribute :origin_component_id, Integer
-        attribute :scope_id, Integer
         attribute :default_budget, Integer
-        attribute :import_all_accepted_proposals, Boolean
+        attribute :states, Array[String]
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
-        validates :import_all_accepted_proposals, allow_nil: false, acceptance: true
         validates :default_budget, presence: true, numericality: { greater_than: 0 }
-        validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-        validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
+        validate :valid_states
+
+        def states
+          super.compact_blank
+        end
 
         def origin_component
           @origin_component ||= origin_components.find_by(id: origin_component_id)
@@ -33,16 +34,20 @@ module Decidim
           end
         end
 
-        def scope
-          @scope ||= @attributes["scope_id"].value ? current_component.scopes.find_by(id: @attributes["scope_id"].value) : current_component.scope
-        end
-
-        def scope_id
-          @scope_id || scope&.id
-        end
-
         def budget
           @budget ||= context[:budget]
+        end
+
+        private
+
+        def valid_states
+          return unless origin_component
+          return if states.empty?
+
+          valid_tokens = Decidim::Proposals::ProposalState.where(component: origin_component).pluck(:token) + ["not_answered"]
+          return if states.all? { |state| valid_tokens.include?(state) }
+
+          errors.add(:states, :invalid)
         end
       end
     end

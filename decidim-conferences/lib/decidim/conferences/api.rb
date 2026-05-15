@@ -6,5 +6,6 @@ module Decidim
     autoload :ConferenceMediaLinkType, "decidim/api/conference_media_link_type"
     autoload :ConferencePartnerType, "decidim/api/conference_partner_type"
     autoload :ConferenceSpeakerType, "decidim/api/conference_speaker_type"
+    autoload :ConferenceRegistrationTypeType, "decidim/api/conference_registration_type_type"
   end
 end

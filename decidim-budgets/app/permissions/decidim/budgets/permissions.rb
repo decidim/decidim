@@ -4,24 +4,23 @@ module Decidim
   module Budgets
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        return permission_action if permission_action.scope == :public && public_action_allowed?
         return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Budgets::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
-        return permission_action unless [:project, :order].include? permission_action.subject
-
-        if permission_action.subject == :project
-          case permission_action.action
-          when :vote
-            can_vote?(false) if can_vote_project?(project || order&.projects&.first)
-          when :report
-            permission_action.allow!
-          end
+        case [permission_action.action, permission_action.subject]
+        when [:vote, :project]
+          can_vote?(false) if can_vote_project?(project || order&.projects&.first)
+        when [:report, :project]
+          permission_action.allow!
+        when [:create, :order]
+          can_vote?(true)
+        when [:export_pdf, :order]
+          can_export_pdf?
         end
-
-        can_vote?(true) if permission_action.action == :create && permission_action.subject == :order
 
         permission_action
       end
@@ -44,6 +43,12 @@ module Decidim
         @workflow ||= context.fetch(:workflow, nil)
       end
 
+      def public_action_allowed?
+        return unless permission_action.subject == :project && permission_action.action == :read
+
+        toggle_allow(project&.visible? && !project.deleted? && !project.budget.deleted?)
+      end
+
       def can_vote?(active_allow)
         is_allowed = workflow.vote_allowed?(budget)
 
@@ -56,6 +61,12 @@ module Decidim
 
       def can_vote_project?(a_project)
         is_allowed = a_project && authorized?(:vote, resource: project)
+
+        toggle_allow(is_allowed)
+      end
+
+      def can_export_pdf?
+        is_allowed = order.user == user
 
         toggle_allow(is_allowed)
       end

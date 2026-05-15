@@ -41,12 +41,8 @@ module Decidim
               taxonomies_part_of_contains: taxonomy_ids_hash(available_root_taxonomies),
               closed_at_present: %w(true false),
               is_upcoming_true: %w(true false),
-              with_any_origin: %w(participants official user_group)
+              with_any_origin: %w(participants official)
             }
-          end
-
-          def search_field_predicate
-            :id_string_or_title_cont
           end
 
           def meeting_types

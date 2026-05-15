@@ -4,15 +4,19 @@ module Decidim
   module Debates
     # This class holds a Form to create/update debates from Decidim's public views.
     class DebateForm < Decidim::Form
+      include Decidim::HasUploadValidations
+      include Decidim::AttachmentAttributes
       include Decidim::TranslatableAttributes
       include Decidim::HasTaxonomyFormAttributes
 
       attribute :title, String
       attribute :description, String
-      attribute :user_group_id, Integer
+      attribute :attachment, AttachmentForm
 
-      validates :title, presence: true
-      validates :description, presence: true
+      attachments_attribute :documents
+
+      validates :title, :description, presence: true
+      validates :title, :description, etiquette: true
       validate :editable_by_user
 
       def map_model(debate)
@@ -22,7 +26,7 @@ module Decidim
         # user locale is taken as the text locale.
         self.title = debate.title.values.first
         self.description = debate.description.values.first
-        self.user_group_id = debate.decidim_user_group_id
+        self.documents = debate.attachments
       end
 
       def participatory_space_manifest

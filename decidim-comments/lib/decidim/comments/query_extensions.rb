@@ -11,7 +11,7 @@ module Decidim
       #
       # Returns nothing.
       def self.included(type)
-        type.field :commentable, CommentableType, null: false do
+        type.field :commentable, Decidim::Comments::CommentableInterface do
           argument :id, GraphQL::Types::String, "The commentable's ID", required: true
           argument :type, GraphQL::Types::String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`", required: true
           argument :locale, GraphQL::Types::String, "The locale for which to get the comments text", required: true
@@ -20,9 +20,21 @@ module Decidim
       end
 
       def commentable(id:, locale:, toggle_translations:, type:)
+        raise GraphQL::ExecutionError, "#{locale} is not a valid locale" unless available_locales.include?(locale)
+
         I18n.locale = locale.presence
         RequestStore.store[:toggle_machine_translations] = toggle_translations
-        type.constantize.find(id)
+        type.constantize.find_by(id:)
+      end
+
+      private
+
+      def available_locales
+        if context[:current_organization].present?
+          context[:current_organization].available_locales
+        else
+          I18n.available_locales.map(&:to_s)
+        end
       end
     end
   end

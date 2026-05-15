@@ -36,7 +36,6 @@ eo:
     attributes:
       decidim/user:
         current_password: Aktuala Pasvorto
-        email: retpoŝta adreso
         name: Kaŝnomo
         password: Pasvorto
         password_confirmation: Pasvorta konfirmo

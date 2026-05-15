@@ -18,10 +18,10 @@ module Decidim
         expect(subject.questions.count).to eq(2)
       end
 
-      it "has an association of answers" do
-        create(:answer, questionnaire: subject, user: create(:user, organization: questionable.organization))
-        create(:answer, questionnaire: subject, user: create(:user, organization: questionable.organization))
-        expect(subject.reload.answers.count).to eq(2)
+      it "has an association of responses" do
+        create(:response, questionnaire: subject, user: create(:user, organization: questionable.organization))
+        create(:response, questionnaire: subject, user: create(:user, organization: questionable.organization))
+        expect(subject.reload.responses.count).to eq(2)
       end
 
       context "without a questionable" do
@@ -34,24 +34,35 @@ module Decidim
         expect(questionnaire.questionnaire_for).to eq(questionable)
       end
 
+      describe "#count_participants" do
+        it "returns the unique participants number" do
+          user1 = create(:user, organization: questionable.organization)
+          create(:response, questionnaire: subject, user: user1)
+          create(:response, questionnaire: subject, user: user1)
+          create(:response, questionnaire: subject, user: create(:user, organization: questionable.organization))
+
+          expect(subject.reload.count_participants).to eq(2)
+        end
+      end
+
       describe "#questions_editable?" do
-        it "returns false when questionnaire has already answers" do
-          create(:answer, questionnaire:)
+        it "returns false when questionnaire has already responses" do
+          create(:response, questionnaire:)
           expect(subject.reload).not_to be_questions_editable
         end
       end
 
-      describe "#answered_by?" do
+      describe "#responded_by?" do
         let!(:user) { create(:user, organization: questionnaire.questionnaire_for.component.participatory_space.organization) }
         let!(:question) { create(:questionnaire_question, questionnaire:) }
 
-        it "returns false if the given user has not answered the questionnaire" do
-          expect(questionnaire).not_to be_answered_by(user)
+        it "returns false if the given user has not responded the questionnaire" do
+          expect(questionnaire).not_to be_responded_by(user)
         end
 
-        it "returns true if the given user has answered the questionnaire" do
-          create(:answer, questionnaire:, question:, user:)
-          expect(questionnaire).to be_answered_by(user)
+        it "returns true if the given user has responded the questionnaire" do
+          create(:response, questionnaire:, question:, user:)
+          expect(questionnaire).to be_responded_by(user)
         end
       end
 
@@ -80,6 +91,28 @@ module Decidim
           it "returns false" do
             expect(questionnaire.pristine?).to be(false)
           end
+        end
+      end
+
+      describe "#question_types" do
+        let!(:question_separator) { create(:questionnaire_question, questionnaire:, question_type: "separator") }
+        let!(:question_title_desc) { create(:questionnaire_question, questionnaire:, question_type: "title_and_description") }
+        let!(:question_short_answer) { create(:questionnaire_question, questionnaire:, question_type: "short_response") }
+
+        it "returns only actual question types" do
+          expect(subject.question_types).to include(question_short_answer)
+        end
+
+        it "does not include separator questions" do
+          expect(subject.question_types).not_to include(question_separator)
+        end
+
+        it "does not include title_and_description questions" do
+          expect(subject.question_types).not_to include(question_title_desc)
+        end
+
+        it "returns the correct count" do
+          expect(subject.question_types.size).to eq(1)
         end
       end
     end

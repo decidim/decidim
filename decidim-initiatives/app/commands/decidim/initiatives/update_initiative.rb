@@ -8,6 +8,7 @@ module Decidim
       include ::Decidim::MultipleAttachmentsMethods
       include ::Decidim::GalleryMethods
       include CurrentLocale
+
       delegate :current_user, to: :form
 
       # Public: Initializes the command.
@@ -76,9 +77,7 @@ module Decidim
       def attributes
         attrs = {
           title: { current_locale => form.title },
-          description: { current_locale => form.description },
-          hashtag: form.hashtag,
-          decidim_user_group_id: form.decidim_user_group_id
+          description: { current_locale => form.description }
         }
 
         if form.signature_type_updatable?

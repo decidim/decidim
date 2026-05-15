@@ -1,14 +1,44 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Core
     describe UserType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:user) }
+      let(:model) { create(:user, :confirmed) }
+
+      include_examples "timestamps interface"
+      include_examples "followable interface"
+
+      shared_examples "unauthorized User object" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this User because you do not have permissions")
+        end
+      end
+
+      describe "unconfirmed user" do
+        let(:model) { create(:user) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized User object"
+      end
+
+      describe "deleted user" do
+        let(:model) { create(:user, :deleted) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized User object"
+      end
+
+      describe "moderated user" do
+        let(:model) { create(:user, :blocked) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized User object"
+      end
 
       describe "name" do
         let(:query) { "{ name }" }
@@ -30,7 +60,7 @@ module Decidim
         let(:query) { "{ badge }" }
 
         context "when the user is officialized" do
-          let(:model) { create(:user, :officialized) }
+          let(:model) { create(:user, :confirmed, :officialized) }
 
           it "returns the icon to use for the verification badge" do
             expect(response).to include("badge" => "verified-badge")
@@ -38,10 +68,40 @@ module Decidim
         end
 
         context "when the user is not officialized" do
-          let(:model) { create(:user) }
+          let(:model) { create(:user, :confirmed) }
 
           it "returns empty" do
             expect(response).to include("badge" => "")
+          end
+        end
+      end
+
+      describe "badges" do
+        let(:query) { "{ badges { name } }" }
+
+        context "when the gamification is disabled" do
+          let(:organization) { create(:organization, badges_enabled: false) }
+          let(:model) { create(:user, :confirmed, organization:) }
+
+          it "returns empty" do
+            expect(response["badges"]).to be_empty
+          end
+        end
+
+        context "when the gamification is enabled" do
+          context "when the user has no badges" do
+            it "returns empty" do
+              expect(response["badges"]).to be_empty
+            end
+          end
+
+          context "when the user has badges" do
+            let!(:badge) { create(:badge_score, user: model) }
+
+            it "returns the tokenized name of the badge" do
+              expect(response["badges"]).to be_present
+              expect(response["badges"][0]["name"]).to eq("followers")
+            end
           end
         end
       end
@@ -58,15 +118,13 @@ module Decidim
         let(:query) { "{ profilePath }" }
 
         it "returns the user profile path" do
-          expect(response).to include("profilePath" => "/profiles/#{model.nickname}")
+          expect(response).to include("profilePath" => "/en/profiles/#{model.nickname}")
         end
 
         context "when user is deleted" do
           let(:model) { create(:user, :deleted) }
 
-          it "returns empty" do
-            expect(response).to include("profilePath" => "")
-          end
+          it_behaves_like "unauthorized User object"
         end
       end
 
@@ -78,7 +136,7 @@ module Decidim
         end
 
         context "when user direct messages disabled" do
-          let(:model) { create(:user, direct_message_types: "followed-only") }
+          let(:model) { create(:user, :confirmed, direct_message_types: "followed-only") }
 
           it "returns the direct_messages status" do
             expect(response).to include("directMessagesEnabled" => "false")
@@ -89,32 +147,48 @@ module Decidim
       describe "organizationName" do
         let(:query) { '{ organizationName { translation(locale: "en") } } ' }
 
-        it "returns the user's organization name" do
+        it "returns the organization name field" do
           expect(response["organizationName"]["translation"]).to eq(translated(model.organization.name))
         end
       end
 
-      describe "groups" do
-        let(:query) { "{ ...on User { groups { id nickname } } }" }
-        let(:model) { membership.user }
-        let(:user_group) { membership.user_group }
+      describe "followersCount" do
+        let(:query) { "{ followersCount }" }
 
-        context "when user accepted in the group" do
-          let(:membership) { create(:user_group_membership, role: "member") }
-
-          it "returns the user's groups" do
-            groups = response["groups"]
-            expect(groups).to include("id" => user_group.id.to_s, "nickname" => "@#{user_group.nickname}")
-          end
+        it "returns the followers count field" do
+          expect(response).to include("followersCount" => model.followers.count)
         end
+      end
 
-        context "when user is not accepted yet in the group" do
-          let(:membership) { create(:user_group_membership, role: "requested") }
+      describe "followingCount" do
+        let(:query) { "{ followingCount }" }
 
-          it "returns no groups" do
-            groups = response["groups"]
-            expect(groups).to eq([])
-          end
+        it "returns the following count field" do
+          expect(response).to include("followingCount" => model.following_count)
+        end
+      end
+
+      describe "followsCount" do
+        let(:query) { "{ followsCount }" }
+
+        it "returns the follows count field" do
+          expect(response).to include("followsCount" => model.follows.count)
+        end
+      end
+
+      describe "about" do
+        let(:query) { "{ about }" }
+
+        it "returns the about about" do
+          expect(response).to include("about" => model.about)
+        end
+      end
+
+      describe "personalUrl" do
+        let(:query) { "{ personalUrl }" }
+
+        it "returns the personal url field" do
+          expect(response).to include("personalUrl" => model.personal_url)
         end
       end
     end

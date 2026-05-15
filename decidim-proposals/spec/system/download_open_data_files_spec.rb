@@ -29,6 +29,24 @@ describe "Download Open Data files", download: true do
       end
     end
 
+    context "when the proposal's space is restricted" do
+      let!(:proposal) { create(:proposal, component:) }
+      let(:resource_title) { translated_attribute(proposal.title).gsub('"', '""') }
+      let(:component) { create(:proposal_component, participatory_space:) }
+      let(:participatory_space) { create(:assembly, :restricted, organization:) }
+
+      it_behaves_like "does not include it in the open data ZIP file"
+    end
+
+    context "when the proposal's space is transparent" do
+      let!(:proposal) { create(:proposal, component:) }
+      let(:resource_title) { translated_attribute(proposal.title).gsub('"', '""') }
+      let(:component) { create(:proposal_component, participatory_space:) }
+      let(:participatory_space) { create(:assembly, :transparent, organization:) }
+
+      it_behaves_like "includes it in the open data ZIP file"
+    end
+
     context "when the proposal's component is unpublished" do
       let!(:proposal) { create(:proposal, component:) }
       let(:resource_title) { translated_attribute(proposal.title).gsub('"', '""') }

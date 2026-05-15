@@ -33,18 +33,18 @@ module Decidim
       end
 
       def tree_sql_for(item)
-        <<-SQL.squish
-        WITH RECURSIVE search_tree(id, path) AS (
-          SELECT id, ARRAY[id]
-          FROM #{table_name}
-          WHERE id = #{item.id}
-            UNION ALL
-          SELECT #{table_name}.id, path || #{table_name}.id
-            FROM search_tree
-          JOIN #{table_name} ON #{table_name}.#{parent_item_foreign_key} = search_tree.id #{polymorphic_condition(item)}
-            WHERE NOT #{table_name}.id = ANY(path)
-        )
-        SELECT id FROM search_tree ORDER BY path
+        <<~SQL.squish
+          WITH RECURSIVE search_tree(id, path) AS (
+            SELECT id, ARRAY[id]
+            FROM #{table_name}
+            WHERE id = #{item.id}
+              UNION ALL
+            SELECT #{table_name}.id, path || #{table_name}.id
+              FROM search_tree
+            JOIN #{table_name} ON #{table_name}.#{parent_item_foreign_key} = search_tree.id #{polymorphic_condition(item)}
+              WHERE NOT #{table_name}.id = ANY(path)
+          )
+          SELECT id FROM search_tree ORDER BY path
         SQL
       end
     end

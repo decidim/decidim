@@ -17,7 +17,7 @@ module Decidim
         end
 
         it "creates a link" do
-          import_path = "/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/new?name=dummies"
+          import_path = "/en/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/new?name=dummies"
           link = subject.at_css("a[href='#{import_path}']")
 
           expect(link["href"]).to eq(import_path)
@@ -38,7 +38,7 @@ module Decidim
         let(:component) { create(:dummy_component) }
 
         it "returns the correct link" do
-          expect(helper.admin_imports_path(component, name: "dummies")).to eq("/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/new?name=dummies")
+          expect(helper.admin_imports_path(component, name: "dummies")).to eq("/en/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/new?name=dummies")
         end
       end
 
@@ -46,22 +46,7 @@ module Decidim
         let(:component) { create(:dummy_component) }
 
         it "returns the correct link" do
-          expect(helper.admin_imports_example_path(component, name: "dummies", format: "json")).to eq("/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/example.json?name=dummies")
-        end
-      end
-
-      describe "#user_groups" do
-        before do
-          allow(helper).to receive(:current_user).and_return(user)
-        end
-
-        let(:organization) { create(:organization, available_locales: [:en]) }
-        let(:user) { create(:user, organization:) }
-        let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
-        let!(:membership) { create(:user_group_membership, user:, user_group:) }
-
-        it "return users user groups" do
-          expect(helper.user_groups.count).to eq(1)
+          expect(helper.admin_imports_example_path(component, name: "dummies", format: "json")).to eq("/en/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/example.json?name=dummies")
         end
       end
     end

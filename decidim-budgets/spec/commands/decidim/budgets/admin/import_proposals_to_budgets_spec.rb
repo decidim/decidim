@@ -7,7 +7,8 @@ module Decidim
     module Admin
       describe ImportProposalsToBudgets do
         describe "call" do
-          let!(:proposals) { create_list(:proposal, 3, :accepted, component: proposals_component) }
+          let!(:proposals) { create_list(:proposal, 3, :accepted, taxonomies: [taxonomy], component: proposals_component) }
+          let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
           let(:proposals_component) { create(:proposal_component) }
 
           let!(:proposal) { proposals.first }
@@ -21,7 +22,6 @@ module Decidim
           let(:budget) { create(:budget, component: current_component) }
           let!(:current_user) { create(:user, :admin, organization: current_component.participatory_space.organization) }
           let!(:organization) { current_component.participatory_space.organization }
-          let(:scope) { nil }
           let!(:form) do
             instance_double(
               ProjectImportProposalsForm,
@@ -29,34 +29,16 @@ module Decidim
               current_component:,
               current_user:,
               default_budget:,
-              import_all_accepted_proposals:,
-              scope_id: scope&.id,
+              states:,
               budget:,
               valid?: valid
             )
           end
 
           let(:default_budget) { 1000 }
-          let(:import_all_accepted_proposals) { true }
+          let(:states) { ["accepted"] }
 
           let(:command) { described_class.new(form) }
-
-          shared_context "with scoped proposals" do
-            let(:scope) { create(:scope, organization:) }
-            let(:scoped_proposals) { proposals[0..1] }
-
-            before do
-              current_component.participatory_space.update!(scope: space_scope) if respond_to?(:space_scope)
-
-              settings = current_component.settings
-              settings.scope_id = component_scope.id if respond_to?(:component_scope)
-              settings.scopes_enabled = true
-              current_component.settings = settings
-              current_component.save!
-
-              scoped_proposals.each { |pr| pr.update!(decidim_scope_id: scope.id) }
-            end
-          end
 
           describe "when the form is not valid" do
             let(:valid) { false }
@@ -83,21 +65,38 @@ module Decidim
               expect { command.call }.to change { Project.where(budget:).count }.by(3)
             end
 
-            context "when a scope is defined" do
-              include_context "with scoped proposals"
+            context "when importing multiple states" do
+              let!(:rejected_proposals) { create_list(:proposal, 2, :rejected, component: proposals_component) }
+              let(:states) { %w(accepted rejected) }
 
-              it "only imports the proposals mapped to the defined scope" do
-                expect { command.call }.to(change { Project.where(budget:).where(scope:).count }.by(scoped_proposals.count))
+              it "imports proposals from all selected states" do
+                expect { command.call }.to change { Project.where(budget:).count }.by(5)
               end
             end
 
-            context "when there are no proposals in the selected scope" do
-              let(:scope) { create(:scope, organization:) }
+            context "when importing custom states" do
+              let!(:custom_state) { create(:proposal_state, token: "custom_state", component: proposals_component) }
+              let!(:custom_state_proposals) do
+                create_list(:proposal, 2, :published, component: proposals_component).each do |proposal|
+                  proposal.update!(proposal_state: custom_state)
+                end
+              end
+              let(:states) { ["custom_state"] }
 
-              it "does not create any project" do
-                expect do
-                  command.call
-                end.not_to(change { Project.where(budget:).where(scope:).count })
+              it "imports proposals with custom states" do
+                expect { command.call }.to change { Project.where(budget:).count }.by(2)
+              end
+            end
+
+            context "when there are no states" do
+              let(:internal_states) { [] }
+
+              it "broadcasts ok" do
+                expect { command.call }.to broadcast(:ok)
+              end
+
+              it "imports all proposals" do
+                expect { command.call }.to change { Project.where(budget:).count }.by(3)
               end
             end
 
@@ -168,8 +167,7 @@ module Decidim
               new_project = Project.where(budget:).order(:id).first
               expect(new_project.title).to eq(proposal.title)
               expect(new_project.description).to eq(proposal.body)
-              expect(new_project.category).to eq(proposal.category)
-              expect(new_project.scope).to eq(proposal.scope)
+              expect(new_project.taxonomies).to eq(proposal.taxonomies)
               expect(new_project.budget_amount).to eq(proposal.cost)
             end
 
@@ -181,6 +179,27 @@ module Decidim
 
                 new_project = Project.where(budget:).order(:id).first
                 expect(new_project.budget_amount).to eq(default_budget)
+              end
+            end
+
+            describe "proposal states" do
+              let(:states) { %w(not_answered rejected) }
+              let!(:rejected_proposal) { create(:proposal, :rejected, component: proposals_component) }
+              let!(:random_proposal) { create(:proposal, component: proposals_component) }
+              let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component: proposals_component) }
+              let!(:hidden_proposal) { create(:proposal, component: proposals_component) }
+              let!(:moderation) { create(:moderation, reportable: hidden_proposal, hidden_at: 1.day.ago) }
+
+              it "only imports proposals from the selected states" do
+                expect do
+                  command.call
+                end.to change { Project.where(budget:).count }.by(2)
+
+                expect(Project.where(budget:).map(&:title)).to include(random_proposal.title)
+                expect(Project.where(budget:).map(&:title)).to include(rejected_proposal.title)
+                expect(Project.where(budget:).map(&:title)).not_to include(proposal.title)
+                expect(Project.where(budget:).map(&:title)).not_to include(withdrawn_proposal.title)
+                expect(Project.where(budget:).map(&:title)).not_to include(hidden_proposal.title)
               end
             end
           end

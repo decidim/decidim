@@ -18,6 +18,17 @@ cs:
             announcement: Oznámení
           step:
             announcement: Oznámení
+    open_data:
+      help:
+        pages:
+          body: Tělo stránky
+          component: Komponenta, ke které stránka patří,
+          created_at: Datum, kdy byla stránka vytvořena
+          id: Jedinečný identifikátor této stránky
+          participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tato schůzka
+          title: Název stránky
+          updated_at: Poslední datum aktualizace této stránky
+          url: URL pro tuto stránku
     pages:
       admin:
         models:

@@ -3,12 +3,9 @@
 <!doctype html>
 <html class="no-js" lang="<%= I18n.locale %>" dir="<%= rtl_direction %>">
   <head>
-    <meta charset="utf-8">
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <meta name="author" content="">
-    <meta name="copyright" content="">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= tag :meta, charset: "utf-8" %>
+    <%= tag :meta, content: "IE=edge,chrome=1", "http-equiv": "X-UA-Compatible" %>
+    <%= tag :meta, name: "viewport", content: "width=device-width, initial-scale=1.0" %>
     <title><%= decidim_page_title %></title>
     <%= render partial: "layouts/decidim/admin/header" %>
   </head>

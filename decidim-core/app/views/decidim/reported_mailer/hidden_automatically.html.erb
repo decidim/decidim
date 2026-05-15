@@ -1,0 +1,25 @@
+<p class="email-greeting"><%= t(".hello", name: @user.name) %></p>
+
+<p class="email-instructions">
+  <%= t(".report_html", url: report_url ) %>
+</p>
+
+<p><b><%= t(".participatory_space") %></b></p>
+<p><%= link_to translated_attribute(@participatory_space.title), resource_locator(@participatory_space).url %></p>
+
+<p><b><%= t(".reason") %></b></p>
+<p><%= t(@report.reason, organization_name: organization_name(@participatory_space.organization), scope: "decidim.shared.flag_modal") %></p>
+
+<% if @report.details.present? %>
+  <p><b><%= t(".details") %></b></p>
+  <blockquote>
+    <%= @report.details %>
+  </blockquote>
+<% end %>
+
+<p><b><%= t(".content") %></b></p>
+<%= reported_content_cell %>
+
+<p class="email-button email-button__cta">
+  <%= link_to t(".manage_moderations"), manage_moderations_url %>
+</p>

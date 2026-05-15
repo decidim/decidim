@@ -7,10 +7,10 @@ module Decidim
 
     # Public: Initializes the command.
     #
-    # @param term: The term to search for.
-    # @param organization: The Organization to which the results are constrained.
-    # @param filters: (optional) A Hash of SearchableResource attributes to filter for.
-    # @param page_params: (optional) A Hash with `page` and `per_page` options to paginate.
+    # @param term [String] -  The term to search for.
+    # @param organization [Decidim::Organization] - The Organization to which the results are constrained.
+    # @param filters [Hash] - (optional) A Hash of SearchableResource attributes to filter for.
+    # @param page_params [Hash] - (optional) A Hash with `page` and `per_page` options to paginate.
     def initialize(term, organization, filters = {}, page_params = {})
       @term = term
       @organization = organization
@@ -36,6 +36,12 @@ module Decidim
                   else
                     klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
                   end
+
+        uncommentable_resources = uncommentable_resources(results) if results.present?
+        if uncommentable_resources.present?
+          results -= uncommentable_resources
+          results_count -= uncommentable_resources.count
+        end
 
         results_by_type.update(class_name => {
                                  count: results_count,
@@ -85,9 +91,17 @@ module Decidim
         query = query.where(decidim_participatory_space: spaces)
       end
 
-      query = query.order("datetime DESC")
+      query = query.order(datetime: :desc)
       query = query.global_search(I18n.transliterate(term)) if term.present?
       query
+    end
+
+    def uncommentable_resources(results)
+      results.where(id: results.select { |obj| related_uncommentable_resources?(obj) }.map(&:id))
+    end
+
+    def related_uncommentable_resources?(object)
+      object.respond_to?(:commentable) && !object.commentable.commentable?
     end
   end
 end

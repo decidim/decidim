@@ -26,12 +26,35 @@ module Decidim
 
       private
 
+      def progress?
+        current_user && voting_open? && progress_budgets.any?
+      end
+
+      def progress_budgets
+        budgets.select { |budget| current_workflow.status(budget) == :progress }
+      end
+
+      def non_voted_budgets
+        budgets_to_exclude = progress_budgets + voted
+        budgets.where.not(id: budgets_to_exclude.map(&:id))
+      end
+
       def highlighted?
         current_user && highlighted.any?
       end
 
       def voted?
         current_user && voted.any?
+      end
+
+      def non_highlighted
+        budgets_to_exclude = if voting_finished?
+                               highlighted + voted
+                             else
+                               highlighted + voted + progress_budgets
+                             end
+
+        reorder(budgets).where.not(id: budgets_to_exclude.map(&:id))
       end
 
       def finished?
@@ -57,11 +80,11 @@ module Decidim
       def reorder(budgets)
         case order
         when "highest_cost"
-          budgets.order(total_budget: :desc)
+          budgets.reorder(total_budget: :desc, weight: :asc)
         when "lowest_cost"
-          budgets.order(total_budget: :asc)
+          budgets.reorder(total_budget: :asc, weight: :asc)
         when "random"
-          budgets.order_randomly(random_seed)
+          budgets.reorder(nil).order_randomly(random_seed)
         else
           budgets
         end

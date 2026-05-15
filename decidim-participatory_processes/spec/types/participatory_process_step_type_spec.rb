@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module ParticipatoryProcesses
@@ -13,8 +13,10 @@ module Decidim
       end
 
       let(:model) do
-        create(:participatory_process_step, participatory_process: process, cta_path: "#link1")
+        create(:participatory_process_step, participatory_process: process)
       end
+
+      include_examples "timestamps interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -65,23 +67,6 @@ module Decidim
 
         it "returns the step's end date" do
           expect(response["endDate"]).to eq(model.end_date.to_time.iso8601)
-        end
-      end
-
-      describe "call_to_action_path" do
-        let(:query) { "{ callToActionPath }" }
-
-        it "returns the step's call to action path" do
-          expect(response["callToActionPath"]).to eq("#link1")
-        end
-      end
-
-      describe "call_to_action_text" do
-        let(:query) { '{ callToActionText { locales translation(locale:"en") } }' }
-
-        it "returns the step's call to action text" do
-          expect(response["callToActionText"]["locales"]).to include(*model.cta_text.except("machine_translations").keys)
-          expect(response["callToActionText"]["translation"]).to eq(model.cta_text["en"])
         end
       end
 

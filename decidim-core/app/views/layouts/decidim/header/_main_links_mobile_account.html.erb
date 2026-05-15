@@ -1,4 +1,4 @@
-<div id="dropdown-menu-account-mobile" class="main-bar__links-mobile__account" aria-hidden="true">
+<div id="dropdown-menu-account-mobile" class="main-bar__links-mobile__account" aria-hidden="true" data-controller="assign-role" data-role="dialog">
   <div class="main-bar">
     <div class="main-bar__logo">
       <div class="main-bar__logo-desktop">
@@ -10,8 +10,9 @@
     </div>
 
     <div>
-      <div class="main-bar__links-mobile__trigger" onclick="document.querySelector('#dropdown-trigger-links-mobile').click();">
+      <div id="dropdown-trigger-links-mobile-close" class="main-bar__links-mobile__trigger" tabindex="0">
         <%= icon "close-line" %>
+        <p class="sr-only"><%= t("close", scope: "decidim.shared.flag_modal") %></p>
       </div>
     </div>
   </div>
@@ -30,10 +31,23 @@
       </div>
     <% end %>
 
-    <p class="h3 mt-2"><%= t("decidim.block_user_mailer.notify.hello") %>&nbsp;<%= current_user.name %></p>
+    <p class="h3 mt-2"><%= t("layouts.decidim.header.mobile_account_greeting", user_name: current_user.name) %></p>
 
     <ul>
       <%= render partial: "layouts/decidim/header/main_links_dropdown" %>
     </ul>
   </div>
 </div>
+<script type="text/javascript">
+  const closeDiv = document.querySelector('div.main-bar__links-mobile__trigger');
+  const menuDropdown = document.querySelector('#dropdown-menu-account-mobile');
+  const dropdownTrigger = document.querySelector('#dropdown-trigger-links-mobile');
+  // 32 is code for space bar and 13 is code for enter
+  closeDiv.addEventListener('keydown', function(e){
+    if (e.keyCode === 13 || e.keyCode === 32) {
+      menuDropdown.removeAttribute('aria-modal');
+      menuDropdown.setAttribute('aria-hidden', "true");
+      dropdownTrigger.focus();
+    }
+  })
+</script>

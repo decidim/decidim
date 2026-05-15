@@ -1,4 +1,4 @@
-# Decidim::Ai
+# decidim-ai
 
 The Decidim::Ai is a library that aims to provide Artificial Intelligence tools for Decidim. This plugin has been initially developed aiming to analyze the content and provide spam classification using Naive Bayes algorithm.
 All AI related functionality provided by Decidim should be included in this same module.
@@ -15,7 +15,7 @@ To install this module, run in your console:
 bundle add decidim-ai
 ```
 
-After that, add an initializer file as presented in the [documentation](https://docs.decidim.org/en/develop/services/aitools.html#_configuration)
+After that, configure your application using the environment variables as presented in the [documentation](https://docs.decidim.org/en/develop/configure/environment_variables.html)
 
 Then, you need to run the below command, so that the reporting user is created.
 

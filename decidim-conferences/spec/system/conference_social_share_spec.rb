@@ -106,19 +106,19 @@ describe "Social shares" do
   end
 
   context "when visiting the conference speakers" do
-    let(:resource) { decidim_conferences.conference_conference_speakers_path(conference, component) }
+    let(:resource) { decidim_conferences.conference_conference_speakers_path(conference) }
 
     it_behaves_like "a social share meta tag", "city2.jpeg"
   end
 
   context "when visiting the media page" do
-    let(:resource) { decidim_conferences.conference_media_path(conference, component) }
+    let(:resource) { decidim_conferences.conference_media_path(conference) }
 
     it_behaves_like "a social share meta tag", "city2.jpeg"
   end
 
   context "when visiting registration types" do
-    let(:resource) { decidim_conferences.conference_registration_types_path(conference, component) }
+    let(:resource) { decidim_conferences.conference_registration_types_path(conference) }
 
     it_behaves_like "a social share meta tag", "city2.jpeg"
   end

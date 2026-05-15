@@ -4,7 +4,6 @@ lv:
       decidim/comments/comment_by_followed_user_event: Komentēt
       decidim/comments/comment_created_event: Komentēt
       decidim/comments/reply_created_event: Atbildēt uz komentāru
-      decidim/comments/user_group_mentioned_event: Pieminēt
       decidim/comments/user_mentioned_event: Pieminēt
   activerecord:
     models:
@@ -17,6 +16,10 @@ lv:
         one: Balsot
         other: Balsis
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentāri
     comments:
       votes:
         create:
@@ -27,8 +30,6 @@ lv:
           body:
             label: Komentēt
             placeholder: Ko tu domā par šo?
-          user_group_id:
-            label: Komentēt kā
         opinion:
           neutral: Neitrāls
         remaining_characters: "Palikušas %{count} rakstzīmes"
@@ -68,11 +69,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_name}. Jūs varat atsekot šim lietotājam viņa profila lapā.
           email_subject: '%{resource_title} ir jauns%{author_name} komentārs'
           notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> ir jauns komentārs <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'Grupa %{author_name} ir atstājusi komentāru %{resource_title}. Jūs to varat izlasīt šajā lapā:'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_name}. Jūs varat atsekot šai grupai no tās profila lapas.
-          email_subject: '%{resource_title} ir jauns%{author_name} komentārs'
-          notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> ir jauns komentārs <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} ir komentēts. Jūs varat izlasīt komentāru šajā lapā:"
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{resource_title}" vai tā autoram. Jūs varat atsekot tam no iepriekšējās saites.
@@ -83,18 +79,8 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo kāds atbildēja uz jūsu komentāru.
           email_subject: "%{author_name} atbildēja uz jūsu komentāru %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> atbildēja uz jūsu komentāru <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Tika pieminēta grupa, kurai jūs piederat
-          email_outro: Jūs saņēmāt šo paziņojumu, jo esat grupas %{group_name} dalībnieks, kura tika pieminēta %{resource_title}.
-          email_subject: Jūs esat pieminēts %{resource_title} kā %{group_name} dalībnieks
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> jūs <a href="%{author_path}">%{author_name}%{author_nickname}</a> pieminēja kā <a href="%{group_path}">%{group_name}%{group_nickname}</a> dalībnieku
         user_mentioned:
           email_intro: Jūs esat pieminēts
           email_outro: Jūs saņēmāt šo paziņojumu, jo esat pieminēts %{resource_title}.
           email_subject: Jūs esat pieminēts %{resource_title}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> jūs pieminēja <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Dalībnieku izveidoto komentāru skaits
-        object: komentāri
-        title: Komentāri

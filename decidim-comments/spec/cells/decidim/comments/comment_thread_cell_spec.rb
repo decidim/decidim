@@ -16,10 +16,15 @@ module Decidim::Comments
     let(:comment) { create(:comment, commentable:) }
 
     context "when rendering" do
+      before do
+        allow(comment).to receive(:created_at).and_return(Time.zone.parse("2018-02-01 12:30:15"))
+      end
+
       it "renders the thread" do
         expect(subject).to have_css(".comment-thread")
         expect(subject).to have_content(comment.body.values.first)
         expect(subject).to have_no_css(".comment-reply")
+        expect(subject).to have_css("[aria-label='Comment thread started by #{comment.author.name} on 01/02/2018 12:30']")
       end
 
       context "with replies" do
@@ -31,8 +36,10 @@ module Decidim::Comments
           allow(resource_locator).to receive(:path).and_return("/dummies")
         end
 
-        it "renders the reply" do
-          expect(subject).to have_css(".comment-reply .comment", count: 10)
+        it "renders the load replies button and container for lazy-loaded replies" do
+          expect(subject).to have_css(".comment-reply")
+          expect(subject).to have_css("[data-action='click->show-replies#toggle']")
+          expect(subject).to have_css("[aria-label='Comment thread started by #{comment.author.name} on 01/02/2018 12:30']")
         end
 
         context "with a deleted user" do

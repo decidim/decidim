@@ -1,0 +1,18 @@
+<% add_secondary_root_menu(:admin_participatory_process_menu) %>
+
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <% if allowed_to? :preview, :questionnaire %>
+      <%= link_to public_url, class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link", target: :_blank, data: { "external-link": false } do %>
+        <%= icon "eye-line" %>
+        <span>
+          <%= t("actions.see_survey", scope: "decidim.admin") %>
+        </span>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
+<% end %>

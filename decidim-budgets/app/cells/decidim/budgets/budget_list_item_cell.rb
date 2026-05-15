@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Budgets::ProjectsHelper
 
       delegate :highlighted, to: :current_workflow
+      delegate :voting_finished?, to: :controller
 
       property :title, :description, :total_budget
       alias budget model
@@ -14,13 +15,12 @@ module Decidim
       private
 
       def card_class
-        ["card--list__item"].tap do |list|
-          unless voting_finished?
-            list << "card--list__data-added" if voted?
-            list << "card--list__data-progress" if progress?
-          end
-          list << "budget--highlighted" if highlighted?
-        end.join(" ")
+        css_classes = "card--list__item"
+        css_classes += " budget__card__list-budget--highlighted" if highlighted?
+        css_classes += " budget__card__list-budget--progress" if progress?
+        css_classes += " budget__card__list-budget--voted" if voted?
+
+        css_classes
       end
 
       def link_class
@@ -32,7 +32,7 @@ module Decidim
       end
 
       def progress?
-        current_user && status == :progress
+        current_user && status == :progress && voting_open?
       end
 
       def highlighted?
@@ -43,12 +43,38 @@ module Decidim
         @status ||= current_workflow.status(budget)
       end
 
+      # If the voting is open, then do the link for the authorized focus mode
+      # If not (i.e. voting is disabled or finished), then link to the resource itself
+      def link_to_resource_or_vote(css_class)
+        if voting_open?
+          action_authorized_link_to "vote",
+                                    budget_projects_path(budget, start_voting: true),
+                                    resource: budget,
+                                    data: { "redirect-url": budget_projects_path(budget) },
+                                    class: css_class do
+            yield
+          end
+        else
+          link_to resource_path, class: css_class do
+            yield
+          end
+        end
+      end
+
       def button_class
-        "hollow" if voted? || !highlighted?
+        css_classes = "button button__sm w-full budget__card__highlight-vote__button "
+        css_classes += voted? ? "button__transparent-secondary" : "button__secondary"
+        css_classes += " hollow" if voted? || !highlighted?
+
+        css_classes
       end
 
       def button_text
-        key = if current_workflow.vote_allowed?(budget) && !voted?
+        key = if voting_disabled?
+                :see_projects
+              elsif voting_finished?
+                :see_results
+              elsif voting_allowed? && !voted?
                 progress? ? :progress : :vote
               else
                 :show
@@ -73,6 +99,14 @@ module Decidim
 
       def component
         @component ||= controller.try(:current_component) || budget.component
+      end
+
+      def voting_disabled?
+        current_settings.votes == "disabled"
+      end
+
+      def voting_allowed?
+        current_workflow.vote_allowed?(budget)
       end
 
       def voting_context?

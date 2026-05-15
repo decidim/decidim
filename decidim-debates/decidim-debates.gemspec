@@ -2,14 +2,12 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/debates/version"
-
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.version = Decidim::Debates.version
+  version = "0.33.0.dev"
+  s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva", "Genis Matutes Pujol"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com", "genis.matutes@gmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -18,7 +16,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.name = "decidim-debates"
   s.summary = "Decidim debates module"
@@ -31,9 +29,10 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-comments", Decidim::Debates.version
-  s.add_dependency "decidim-core", Decidim::Debates.version
+  s.add_dependency "decidim-comments", version
+  s.add_dependency "decidim-core", version
 
-  s.add_development_dependency "decidim-admin", Decidim::Debates.version
-  s.add_development_dependency "decidim-dev", Decidim::Debates.version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-assemblies", version
+  s.add_development_dependency "decidim-dev", version
 end

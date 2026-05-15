@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 shared_examples "manage taxonomy filters in settings" do
-  let(:space_manifest) { participatory_space.manifest.name }
+  let(:participatory_space_manifests) { [participatory_space.manifest.name] }
   let!(:root_taxonomy) { create(:taxonomy, organization:, name: { en: "A root taxonomy" }) }
-  let!(:taxonomy_item) { create(:taxonomy, organization:, parent: root_taxonomy) }
-  let(:filters_path) { decidim_admin_participatory_processes.participatory_process_filters_path }
+  let!(:another_taxonomy) { create(:taxonomy, organization:, parent: root_taxonomy) }
+  let(:filters_path) { decidim_admin.taxonomies_path }
 
   before do
     within "#admin-sidebar-menu-settings" do
@@ -13,23 +13,63 @@ shared_examples "manage taxonomy filters in settings" do
   end
 
   context "when taxonomy filter exist" do
+    let!(:another_taxonomy_filter) do
+      create(:taxonomy_filter, internal_name: { en: "Another filter" }, participatory_space_manifests: [participatory_space.manifest.name], root_taxonomy:)
+    end
+
     before do
-      click_on "Configure"
+      within "tr", text: translated_attribute(component.name) do
+        find("button[data-controller='dropdown']").click
+        click_on "Configure"
+      end
     end
 
     it "can be added to settings" do
       click_on "Add filter"
       within "#taxonomy_filters-dialog-content" do
-        select "A root taxonomy", from: "available-taxonomy_filters"
-        expect(page).to have_css("span.label", text: "A root taxonomy")
+        select "A root taxonomy", from: "taxonomy_id"
+        select "Internal taxonomy filter name", from: "taxonomy_filter_id"
+        within "#save-taxonomy-filter-form" do
+          expect(page).to have_content("Public taxonomy filter name")
+          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+        end
         click_on "Save"
       end
 
       expect(page).to have_no_css("#taxonomy_filters-dialog-content")
-      expect(page).to have_css("span.label", text: "A root taxonomy")
-      click_on "Update"
-      expect(page).to have_content("The component was updated successfully.")
+      within ".js-current-filters" do
+        expect(page).to have_css("td", text: "Internal taxonomy filter name")
+        expect(page).to have_css("td", text: "Public taxonomy filter name")
+        expect(page).to have_css("button[data-controller='dropdown']", count: 1)
+      end
+
       expect(component.reload.settings.taxonomy_filters).to eq([taxonomy_filter.id.to_s])
+
+      click_on "Add filter"
+      within "#taxonomy_filters-dialog-content" do
+        select "A root taxonomy", from: "taxonomy_id"
+        select "Another filter", from: "taxonomy_filter_id"
+        click_on "Save"
+      end
+
+      expect(page).to have_no_css("#taxonomy_filters-dialog-content")
+      within ".js-current-filters" do
+        expect(page).to have_css("td", text: "Internal taxonomy filter name")
+        expect(page).to have_css("td", text: "Public taxonomy filter name")
+        expect(page).to have_css("td", text: "Another filter")
+        expect(page).to have_css("button[data-controller='dropdown']", count: 2)
+      end
+      expect(component.reload.settings.taxonomy_filters).to contain_exactly(taxonomy_filter.id.to_s, another_taxonomy_filter.id.to_s)
+
+      click_on "Update"
+      within "tr", text: translated(component.name) do
+        find("button[data-controller='dropdown']").click
+        click_on "Configure"
+      end
+      within ".js-current-filters" do
+        expect(page).to have_css("td", text: "Internal taxonomy filter name")
+        expect(page).to have_css("td", text: "Public taxonomy filter name")
+      end
     end
   end
 
@@ -37,45 +77,71 @@ shared_examples "manage taxonomy filters in settings" do
     let(:taxonomy_filter_item) { nil }
     let(:taxonomy_filter) { nil }
     before do
-      click_on "Configure"
+      within "tr", text: translated(component.name) do
+        find("button[data-controller='dropdown']").click
+        click_on "Configure"
+      end
     end
 
-    it "can be added to settings" do
+    it "shows a configuration message" do
       expect(page).to have_content("No taxonomy filters found.")
       expect(page).to have_link("Please define some filters for this participatory space before using this setting", href: filters_path)
     end
   end
 
   context "when a taxonomy filter is already in settings" do
+    let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, name: { en: "Another taxonomy filter name" }) }
+
     before do
-      component.update!(settings: { taxonomy_filters: [taxonomy_filter.id.to_s] })
-      click_on "Configure"
+      component.update!(settings: { taxonomy_filters: [another_taxonomy_filter.id.to_s, taxonomy_filter.id.to_s] })
+      within "tr", text: translated(component.name) do
+        find("button[data-controller='dropdown']").click
+        click_on "Configure"
+      end
     end
 
     it "can be removed from settings" do
-      expect(page).to have_link("Clear all")
-      within "#taxonomy_filters-filters_container" do
-        expect(page).to have_css("span.label", text: "A root taxonomy (1)")
+      within ".js-current-filters" do
+        within "tr", text: "Internal taxonomy filter name" do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit"
+        end
+      end
+
+      within "#taxonomy_filters-dialog-content" do
         click_on "Remove"
       end
-      expect(page).to have_no_content("A root taxonomy (1)")
-      expect(page).to have_no_link("Clear all")
+      sleep 1
+      expect(component.reload.settings.taxonomy_filters).to eq([another_taxonomy_filter.id.to_s])
+      expect(page).to have_css("td", text: "Another taxonomy filter name")
+      expect(page).to have_no_css("#taxonomy_filters-dialog-content")
+      expect(page).to have_no_content("Internal taxonomy filter name")
 
       click_on "Add filter"
       within "#taxonomy_filters-dialog-content" do
-        select "A root taxonomy (1)", from: "available-taxonomy_filters"
-        expect(page).to have_css("span.label", text: "A root taxonomy (1)")
+        select "A root taxonomy", from: "taxonomy_id"
+        select "Internal taxonomy filter name", from: "taxonomy_filter_id"
         click_on "Save"
       end
 
-      within "#taxonomy_filters-filters_container" do
-        expect(page).to have_css("span.label", text: "A root taxonomy (1)")
+      within ".js-current-filters" do
+        expect(page).to have_css("td", text: "Another taxonomy filter name")
+        expect(page).to have_css("td", text: "Internal taxonomy filter name")
+        expect(page).to have_css("td", text: "Public taxonomy filter name")
+        within "table" do
+          expect(page).to have_css("button[data-controller='dropdown']", count: 2)
+        end
       end
-      click_on "Clear all"
 
       click_on "Update"
-      expect(page).to have_content("The component was updated successfully.")
-      expect(component.reload.settings.taxonomy_filters).to eq([])
+      within "tr", text: translated(component.name) do
+        find("button[data-controller='dropdown']").click
+        click_on "Configure"
+      end
+      within ".js-current-filters" do
+        expect(page).to have_css("td", text: "Internal taxonomy filter name")
+        expect(page).to have_css("td", text: "Public taxonomy filter name")
+      end
     end
   end
 end

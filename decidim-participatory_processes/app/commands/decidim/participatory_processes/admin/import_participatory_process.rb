@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # A command with all the business logic when copying a new participatory
+      # A command with all the business logic when duplicating a new participatory
       # process in the system.
       class ImportParticipatoryProcess < Decidim::Command
         delegate :current_user, to: :form
@@ -29,7 +29,7 @@ module Decidim
             add_admins_as_followers(@imported_process)
           end
 
-          broadcast(:ok, @imported_process)
+          broadcast(:ok, @imported_process, @warnings)
         end
 
         private
@@ -37,14 +37,15 @@ module Decidim
         attr_reader :form
 
         def import_participatory_process
-          importer = Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.new(form.current_organization, current_user)
+          @warnings = []
           participatory_processes.each do |original_process|
+            importer = Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.new(form.current_organization, current_user)
             Decidim.traceability.perform_action!("import", Decidim::ParticipatoryProcess, current_user) do
               @imported_process = importer.import(original_process, current_user, title: form.title, slug: form.slug)
               importer.import_participatory_process_steps(original_process["participatory_process_steps"]) if form.import_steps?
-              importer.import_categories(original_process["participatory_process_categories"]) if form.import_categories?
               importer.import_folders_and_attachments(original_process["attachments"]) if form.import_attachments?
               importer.import_components(original_process["components"]) if form.import_components?
+              @warnings.concat(importer.warnings)
               @imported_process
             end
           end

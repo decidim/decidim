@@ -10,14 +10,14 @@ describe "User prints the initiative" do
       before do
         allow(Decidim::Initiatives).to receive(:print_enabled).and_return(print_enabled)
         switch_to_host(organization.host)
-        visit decidim_initiatives.print_initiative_path(initiative)
+        visit decidim_initiatives.print_initiative_path(initiative, locale: I18n.locale)
       end
 
       context "when the setting is enabled" do
         let(:print_enabled) { true }
 
         it "redirects to the login page" do
-          expect(page).to have_current_path("/users/sign_in")
+          expect(page).to have_current_path(decidim.new_user_session_path)
           expect(page).to have_content("You are not authorized to perform this action.")
         end
       end
@@ -26,7 +26,7 @@ describe "User prints the initiative" do
         let(:print_enabled) { false }
 
         it "does not show the print link" do
-          expect(page).to have_current_path("/users/sign_in")
+          expect(page).to have_current_path(decidim.new_user_session_path)
         end
       end
     end
@@ -39,7 +39,7 @@ describe "User prints the initiative" do
         allow(Decidim::Initiatives).to receive(:print_enabled).and_return(print_enabled)
         switch_to_host(organization.host)
         login_as user, scope: :user
-        visit decidim_initiatives.print_initiative_path(initiative)
+        visit decidim_initiatives.print_initiative_path(initiative, locale: I18n.locale)
       end
 
       context "when the setting is enabled" do
@@ -69,17 +69,14 @@ describe "User prints the initiative" do
 
         switch_to_host(organization.host)
         login_as user, scope: :user
-        visit decidim_initiatives.print_initiative_path(initiative)
       end
 
       context "when the setting is enabled" do
         let(:print_enabled) { true }
 
-        it "shows a printable form with all available data about the initiative" do
-          expect(page).to have_current_path(decidim_initiatives.print_initiative_path(initiative))
-          expect(page).to have_content(translated(initiative.title, locale: :en))
-          expect(page).to have_content(translated(initiative.type.title, locale: :en))
-          expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
+        it "shows a printable form with all available data about the initiative", :download do
+          visit decidim_initiatives.print_initiative_path(initiative, locale: I18n.locale)
+          expect(File.basename(download_path)).to include("initiative_submit_#{initiative.id}.pdf")
         end
       end
 
@@ -87,6 +84,7 @@ describe "User prints the initiative" do
         let(:print_enabled) { false }
 
         it "does not show the print link" do
+          visit decidim_initiatives.print_initiative_path(initiative, locale: I18n.locale)
           expect(page).to have_current_path(decidim.root_path)
         end
       end
@@ -102,17 +100,15 @@ describe "User prints the initiative" do
 
         switch_to_host(organization.host)
         login_as user, scope: :user
-        visit decidim_initiatives.print_initiative_path(initiative)
+        visit decidim_initiatives.print_initiative_path(initiative, locale: I18n.locale)
       end
 
       context "when the setting is enabled" do
         let(:print_enabled) { true }
 
-        it "shows a printable form with all available data about the initiative" do
-          expect(page).to have_current_path(decidim_initiatives.print_initiative_path(initiative))
-          expect(page).to have_content(translated(initiative.title, locale: :en))
-          expect(page).to have_content(translated(initiative.type.title, locale: :en))
-          expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
+        it "shows a printable form with all available data about the initiative", :download do
+          visit decidim_initiatives.print_initiative_path(initiative, locale: I18n.locale)
+          expect(File.basename(download_path)).to include("initiative_submit_#{initiative.id}.pdf")
         end
       end
 
@@ -120,6 +116,7 @@ describe "User prints the initiative" do
         let(:print_enabled) { false }
 
         it "does not show the print link" do
+          visit decidim_initiatives.print_initiative_path(initiative, locale: I18n.locale)
           expect(page).to have_current_path(decidim.root_path)
         end
       end
@@ -139,14 +136,12 @@ describe "User prints the initiative" do
       context "when the setting is enabled" do
         let(:print_enabled) { true }
 
-        it "shows a printable form with all available data about the initiative" do
-          new_window = window_opened_by { page.find(".action-icon--print").click }
-
-          page.within_window(new_window) do
-            expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).to have_content(translated(initiative.type.title, locale: :en))
-            expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
+        it "shows a printable form with all available data about the initiative", :download do
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-controller='dropdown']").click
+            click_on "Print"
           end
+          expect(File.basename(download_path)).to include("initiative_submit_#{initiative.id}.pdf")
         end
       end
 
@@ -154,7 +149,10 @@ describe "User prints the initiative" do
         let(:print_enabled) { false }
 
         it "does not show the print link" do
-          expect(page).to have_no_css(".action-icon--print")
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-controller='dropdown']").click
+            expect(page).to have_no_content("Print")
+          end
         end
       end
     end

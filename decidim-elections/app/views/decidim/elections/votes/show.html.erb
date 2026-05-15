@@ -1,0 +1,34 @@
+<%= form_with url: url_for(action: :show, id: question), method: :patch, local: true do %>
+  <%= question_title(question, :h1, class: "vote_booth-question_title") %>
+  <div class="editor-content">
+    <%= render_question_description(question) %>
+  </div>
+
+  <div class="question__response-options mt-4 flex flex-col gap-4 response" data-max-choices="<%= question.max_choices if question.max_choices.presence %>">
+    <% question.response_options.each do |option| %>
+      <label class="rounded-lg border border-gray p-4 js-check-box-collection">
+        <%= render "decidim/elections/votes/responses/#{question.question_type}", option: %>
+      </label>
+    <% end %>
+
+    <% if question.max_choices.presence %>
+      <small class="form-error max-choices-alert" style="display:none;"><%= t("max_choices_alert", scope: "decidim.elections.votes.question") %></small>
+    <% end %>
+  </div>
+
+  <div class="vote-navigation flex justify-between mt-8">
+    <% if question.previous_question %>
+      <%= link_to url_for(action: :show, id: question.previous_question), class: "button button__lg button__secondary" do %>
+        <%= icon "arrow-left-line", class: "fill-current" %>
+        <%= t("back", scope: "decidim.elections.votes.question") %>
+      <% end %>
+    <% end %>
+
+    <div class="ml-auto">
+      <button type="submit" class="button button__lg button__secondary">
+        <%= t("next", scope: "decidim.elections.votes.question") %>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      </button>
+    </div>
+  </div>
+<% end %>

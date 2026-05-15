@@ -1,0 +1,343 @@
+ca:
+  activemodel:
+    attributes:
+      elections_question:
+        max_choices: Número màxim d'opcions
+      token_csv:
+        file: Arxiu
+        remove_all: Eliminar totes les dades del cens actual
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Votació
+        other: Votacions
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Principal
+          election_census: Cens
+          election_dashboard: Tauler de control
+          election_questions: Preguntes
+      tooltips:
+        deleted_elections_info: No es pot esborrar aquesta elecció
+        edit_elections_info: No es pot editar aquesta elecció
+    components:
+      elections:
+        actions:
+          create: Crear
+          destroy: Destruir
+          update: Actualitzar
+        name: Eleccions
+        settings:
+          global:
+            announcement: Avís
+          step:
+            announcement: Avís
+    elections:
+      actions:
+        confirm_delete_election: Segur que vols eliminar aquesta elecció?
+        confirm_unpublish_election: Segur que vols eliminar aquesta elecció?
+        deleted_election_info: 'Les eleccions eliminades no es mostren al llistat. Les pots veure fent clic al botó: "Veure les eleccions eliminades" que trobaràs més avall.'
+        edit: Editar l'elecció
+        new: Nova elecció
+        preview: Previsualitzar
+        title: Accions
+        view: Veure elecció
+        view_deleted_elections: Veure les eleccions eliminades
+      admin:
+        census:
+          edit:
+            choose_census: Tria el tipus de cens que vols vincular a aquesta elecció
+            created_at: Creada el
+            identifier: Identificador d'usuària
+            title: Editar l'elecció
+          preview:
+            title:
+              one: La vista prèvia de la llista està limitada a %{count} registre.
+              other: La vista prèvia de la llista està limitada a %{count} registres.
+          update:
+            error: S'ha produït un error en generar o desar el cens.
+            success: Cens actualitzat correctament.
+        dashboard:
+          calendar:
+            end_at: 'Dia i hora de finalització:'
+            end_election: Finalitzar l'elecció
+            manual_start: Manual
+            published_results_at: Resultats publicats el
+            start_at: 'Dia i hora d''inici:'
+            start_election: Iniciar l'elecció
+            title: Calendari
+          census:
+            title: Cens
+          main:
+            labels:
+              calendar: Calendari
+              description: Descripció
+              image: Galeria d'imatges
+              results: Disponibilitat dels resultats
+              title: Títol
+            title: Principal
+          publish_confirm: Segur que vols publicar aquesta elecció?
+          questions:
+            labels:
+              answers: Respostes
+            limit_info: Aquesta elecció té més preguntes. La previsualització està limitada a 3 preguntes.
+            title: Preguntes
+          questions_table:
+            answer: Respostes
+            percentage: Percentatge
+            total: Total
+            votes: Vots
+            votes_count:
+              one: 1 vot
+              other: "%{count} vots"
+          results:
+            not_started: L'elecció encara no ha començat.
+            per_question_waiting: L'elecció encara no està habilitada per a cap pregunta. Les participants veuran un missatge "Esperant la pregunta següent" fins que s'activi almenys una pregunta.
+            publish_button: Publicar resultats
+            results_availability:
+              after_end: Pots publicar tots els resultats un cop finalitzada l'elecció. Els resultats romandran ocults fins que els publiquis manualment.
+              per_question: Necessites activar la votació i publicar manualment els resultats per a cada pregunta individualment.
+              real_time: Els resultats es mostren automàticament durant l'elecció.
+            start_question_button: Activar la votació
+            title: Resultats
+          status:
+            allow_census_check_before_start: Permetre a les usuàries comprovar si poden votar abans que comenci l'elecció
+            census: 'Cens:'
+            results_availability:
+              after_end: Resultats disponibles després de la finalització de les eleccions
+              per_question: Resultats disponibles per cada pregunta
+              real_time: Resultats disponibles en temps real
+            title: Estat de l'elecció
+        elections:
+          create:
+            invalid: S'ha produït un error en crear l'elecció.
+            success: Elecció creada correctament.
+          dashboard:
+            subtitle: 'Darrer pas: revisa les dades! Encara pots fer modificacions abans de publicar. Un cop publicada, només podreu continuar actualitzant la descripció de l''elecció.'
+            title: Tauler de control
+          edit:
+            title: Editar la votació
+          form:
+            add_images: Afegir imatges
+            attachment_legend: Afegir una galeria d'imatges (opcional)
+            basic_title: Informació bàsica
+            calendar: Calendari
+            calendar_description: Comprova que la zona horària és correcta a la configuració de l'organització. La configuració actual és %{timezone}.
+            edit_attachments: Edita els fitxers adjunts
+            end_at: Dia i hora de finalització
+            manual_start: Inici manual
+            publish: Publicar
+            results_availability:
+              after_end: Després de la fi de les eleccions
+              after_end_help: publciar els resultats quan finalitzi l'elecció
+              per_question: Pregunta per pregunta
+              per_question_help: gestionar manualment les votacions i publicar els resultats de cada pregunta
+              real_time: En temps real
+              real_time_help: publicar automàticament els resultats mentre es vota a l'elecció
+              title: Disponibilitat dels resultats
+            save: Desa i continua
+            start_at: Dia i hora d'inici
+          index:
+            title: Eleccions
+          manage_trash:
+            title: Eleccions eliminades
+          new:
+            title: Nova votació
+          publish:
+            invalid: S'ha produït un error en publicar l'elecció.
+            success: Elecció publicada amb èxit.
+          toggle_census_check:
+            error: S'ha produït un error en activar la comprovació del cens.
+          unpublish:
+            invalid: S'ha produït un error en despublicar l'elecció.
+            success: Elecció despublicada correctament.
+          update:
+            invalid: S'ha produït un error en actualitzar l'elecció.
+            success: Elecció actualitzada correctament.
+        questions:
+          edit_questions:
+            new_question: Nova pregunta
+            remove_question_confirm: Estàs egur que vols eliminar aquesta pregunta?
+            title: Preguntes
+          form:
+            errors:
+              at_least_one_question: Es requereix almenys una pregunta.
+            form_description: La pregunta ha de tenir, com a mínim, dues opcions de resposta per passar al següent pas.
+          update:
+            invalid: Hi ha hagut un problema en actualitzar les preguntes.
+            success: Preguntes actualitzades correctament.
+        statuses:
+          enable_voting:
+            invalid: Hi ha hagut un problema en habilitar la votació.
+            success: S'habilitat la votació amb èxit.
+          end:
+            invalid: Hi ha hagut un problema en tancar l'elecció.
+            success: L'elecció s'ha tancat correctament.
+          publish_results:
+            invalid: Hi ha hagut un problema en publicar els resultats.
+            success: S'han publicat els resultats amb èxit.
+          start:
+            invalid: S'ha produït un error en iniciar l'elecció.
+            success: S'ha iniciat l'elecció amb èxit.
+          unknown: Estat desconegut
+      admin_log:
+        election:
+          create: "%{user_name} ha creat l'elecció \"%{resource_name}\" a %{space_name}"
+          publish: "%{user_name} ha publicat l'elecció \"%{resource_name}\" a %{space_name}"
+          restore: "%{user_name} ha restaurat l'elecció \"%{resource_name}\" a %{space_name}"
+          soft_delete: "%{user_name} ha mogut l'elecció \"%{resource_name}\" de %{space_name} a la paperera"
+          unpublish: "%{user_name} ha despublicat l'elecció \"%{resource_name}\" a %{space_name}"
+          update: "%{user_name} ha actualitzat l'elecció \"%{resource_name}\" a %{space_name}"
+        question:
+          update: "%{user_name} va actualitzar les preguntes de l'elecció \"%{resource_name}\""
+      census_checks:
+        show:
+          description: Això vol dir que, una vegada comencin les eleccions, es podrà votar-hi.
+          exit_button: Sortir de la comprovació del cens
+          title: Se t'ha verificat correctament
+      censuses:
+        census_ready_html: S'han carregat les dades censals i estan a punt per utilitzar-les a l'elecció "<b>%{election_title}</b>".
+        census_size_html:
+          one: Actualment hi ha <strong>1</strong> persona amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
+          other: Actualment hi ha <strong>%{count}</strong> persones amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
+        internal_users:
+          already_have_an_account?: Ja tens un compte?
+          are_you_new?: Encara no ets participant?
+          info_html: |
+            Pots restringir la participació en l'elecció a les participants que tinguin una autorització. <br>Tingues en compte que les participants obtenir l'autorització seleccionada per poder votar. Si deixes totes les caselles de verificació buides, qualsevol persona registrada podrà votar.
+          internal_type_title: Autoritzacions addicionals necessàries per votar (opcional)
+          label: Participants registrades (dinàmic)
+          sign_in_description: Inicia la teva sessió per a votar en aquestes eleccions
+          sign_up_description: Crear un compte per votar en aquestes eleccions
+        internal_users_form:
+          authorization_options_invalid: Malauradament, tot i que tens totes les autoritzacions necessàries, algunes no són vàlides per a aquestes eleccions.
+          exit_button: Sortir de la cabina de votació
+          invalid: No tens autorització per votar en aquestes eleccions.
+          resume_with_method: Reprendre la verificació amb %{name}
+          verify_with_method: Verificar amb %{name}
+        token_csv:
+          example: |
+            email;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Ha de ser un arxiu en format CSV amb només dues columnes, una amb l'adreça de correu electrònic i una altra amb el valor de l'autenticador (token). Els camps han d'estar separats amb punt i coma (;).
+          label: Participants no registrats amb autentificador/token (fixat)
+          remove_before_upload: Si vols pujar un nou cens, primer has d'eliminar el que ja existeix.
+          upload_file: Puja arxiu
+          upload_new_census: Carregar un arxiu CSV
+        token_csv_form:
+          email: Correu electrònic
+          email_placeholder: Introdueix l'adreça electrònica de la votant
+          invalid: El correu electrònic o l'identificador (token) no és vàlid. Si us plau, comprova els detalls i torna a intentar-ho.
+          token: Identificador (token)
+          token_placeholder: Introdueix l'identificador (token) de la votant
+      elections:
+        count:
+          elections_count:
+            one: "%{count} votació"
+            other: "%{count} votacions"
+        elections:
+          empty: No hi ha eleccions disponibles.
+          empty_filters: No hi ha eleccions que coincideixin amb els teus filtres.
+        filters:
+          all: Totes
+          state: Estat
+          state_values:
+            finished: Acabada
+            ongoing: En curs
+            scheduled: Programada
+        orders:
+          end_at: Data de finalització
+          label: Ordenar per
+          recent: Recent
+          start_at: Data d'inici
+        questions:
+          subtitle: 'Aquestes són les preguntes per aquest procés de votació:'
+          title: Preguntes de l'elecció
+        show:
+          active_voting_until: 'Votació activa fins: %{end_date}'
+          check_census_button: Comprova si pots votar
+          check_census_explanation: Aquesta elecció encara no ha començat, però pots comprovar si constes al cens.
+          edit_vote_button: Edita el vot
+          vote_button: Votar
+          voted: Ja has votat. Pots tornar a votar, això esborrarà el teu vot anterior i, només es comptabilitzarà la teva última votació.
+          votes_count:
+            one: 1 vot
+            other: "%{count} vots"
+          voting_began: 'La votació es va iniciar el %{start_date}'
+        vote_results:
+          subtitle:
+            after_end: Les eleccions han finalitzat. Ara pot veure'n els resultats.
+            per_question: Els resultats estan disponibles per pregunta. Pots veure els resultats de cada pregunta una vegada que s'habiliti la votació i es publiquin els resultats.
+            real_time: Els resultats estan disponibles a temps real. Podeu veure els resultats mentre la votació està en curs.
+          title: Resultats
+          total: 'TOTAL:'
+          total_votes:
+            one: 1 vot
+            other: "%{count} vots"
+      models:
+        election:
+          fields:
+            census: Cens
+            end_at: Dia i hora de finalització
+            start_at: Dia i hora d'inici
+            status: Estat
+            title: Títol
+      per_question_votes:
+        waiting:
+          description: Pots esperar fins que la pregunta següent estigui disponible. Seràs redirigit automàticament a la següent pregunta quan estigui a punt.
+          edit_vote: Edita el teu vot
+          exit_button: Sortir de la sala d'espera
+          title: Esperant a la següent pregunta
+      status:
+        active: Activa
+        finished: Acabada
+        not_started: No s'ha iniciat
+        ongoing: En curs
+        published_results: Resultats publicats
+        scheduled: Programada
+        unpublished: Despublicada
+        voting_enabled: Votació en curs
+      votes:
+        cast:
+          invalid: Hi ha hagut un problema en emetre el teu vot. Si us plau, comprova la informació que vas proporcionar i intenta-ho de nou.
+          success: El teu vot s'ha emès correctament.
+        check_census:
+          access: Accedir
+          election_not_open: Les eleccions encara no són obertes. Comprova les dates i torna-ho a provar.
+          failed: No s'ha pogut verificar la teva identitat. Si us plau, comprova la informació que vas proporcionar i intenta-ho de nou.
+          form_title: Verificar la teva identitat
+          invalid: No s'ha trobat aquesta usuària al cens.
+        confirm:
+          cast_vote: Enviar el vot
+          edit_vote: Edita el teu vot
+          not_answered: No has respost a aquesta pregunta.
+          title: Confirmar el teu vot
+        not_authorized: No tens autorització per votar en aquestes eleccions.
+        question:
+          back: Tornar
+          cast_vote: Enviar el vot
+          max_choices: 'Opcions màximes: %{count}'
+          max_choices_alert: Has seleccionat massa opcions. Si us plau, desmarquen algunes per continuar.
+          max_choices_exceeded: No pots seleccionar més de %{max} opcions. Si us plau, torna enrere i ajusta la teva selecció.
+          next: Següent
+        receipt:
+          description: Pots tornar a votar en qualsevol moment mentre el període de votació estigui obert. El teu vot anterior serà substituït pel nou.
+          edit_vote: Edita el teu vot
+          exit_button: Sortir de la cabina de votació
+          title: El teu vot s'ha emès correctament
+    metadata:
+      progress:
+        published_results: 'Resultats publicats: %{end_date}'
+    statistics:
+      elections_count: Eleccions
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Tancar
+  time:
+    formats:
+      short_with_time: "%b %-d, %Y, %-I:%M %p"

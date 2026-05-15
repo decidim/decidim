@@ -1,4 +1,6 @@
 <% form.fields_for :settings, form.object.settings do |settings_fields| %>
-  <%= settings_fields.translated :editor, :left_column, label: label_left_column %>
-  <%= settings_fields.translated :editor, :right_column, label: label_right_column %>
+  <div class="row column">
+    <%= settings_fields.translated :editor, :left_column, label: label_left_column %>
+    <%= settings_fields.translated :editor, :right_column, label: label_right_column %>
+  </div>
 <% end %>

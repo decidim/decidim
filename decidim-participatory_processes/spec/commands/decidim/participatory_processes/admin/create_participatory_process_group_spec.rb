@@ -15,7 +15,6 @@ module Decidim::ParticipatoryProcesses
         invalid?: invalid,
         title: { en: "title" },
         description: { en: "description" },
-        hashtag: "hashtag",
         group_url: "http://example.org",
         hero_image: nil,
         current_organization: organization,

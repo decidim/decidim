@@ -5,6 +5,7 @@ InvisibleCaptcha.setup do |config|
   config.visual_honeypots = false
   config.timestamp_threshold = 4
   config.timestamp_enabled = false
+  config.spinner_enabled = false
   config.injectable_styles = true
   # Leave these unset if you want to use I18n (see below)
   # config.sentence_for_humans     = 'If you are a human, ignore this field'

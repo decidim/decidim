@@ -9,7 +9,7 @@ module Decidim
                         I18n.t("menu.initiatives", scope: "decidim"),
                         decidim_initiatives.initiatives_path,
                         position: 2.4,
-                        active: %r{^/(initiatives|create_initiative)},
+                        active: %r{^/#{current_locale}/(initiatives|create_initiative)},
                         if: Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).any?
         end
       end
@@ -20,7 +20,7 @@ module Decidim
                         I18n.t("menu.initiatives", scope: "decidim"),
                         decidim_initiatives.initiatives_path,
                         position: 2.4,
-                        active: %r{^/(initiatives|create_initiative)},
+                        active: %r{^/#{current_locale}/(initiatives|create_initiative)},
                         if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
         end
       end
@@ -44,7 +44,6 @@ module Decidim
                         icon_name: "lightbulb-flash-line",
                         position: 2.4,
                         active: is_active_link?(decidim_admin_initiatives.initiatives_path) ||
-                                is_active_link?(decidim_admin_initiatives.initiative_filters_path, :inclusive) ||
                                 is_active_link?(decidim_admin_initiatives.initiatives_types_path) ||
                                 is_active_link?(
                                   decidim_admin_initiatives.edit_initiatives_setting_path(
@@ -77,7 +76,7 @@ module Decidim
       def self.register_admin_initiative_menu!
         Decidim.menu :admin_initiative_menu do |menu|
           menu.add_item :edit_initiative,
-                        I18n.t("menu.information", scope: "decidim.admin"),
+                        I18n.t("title", scope: "decidim.initiatives.admin.initiatives.edit"),
                         decidim_admin_initiatives.edit_initiative_path(current_participatory_space),
                         icon_name: "information-line",
                         if: allowed_to?(:edit, :initiative, initiative: current_participatory_space)
@@ -114,7 +113,7 @@ module Decidim
                         decidim_admin_initiatives.initiative_share_tokens_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_initiatives.initiative_share_tokens_path(current_participatory_space)),
                         icon_name: "share-line",
-                        if: allowed_to?(:read, :share_tokens, current_participatory_space:)
+                        if: allowed_to?(:read, :share_token, current_participatory_space:)
         end
       end
 
@@ -141,14 +140,6 @@ module Decidim
                         icon_name: "lightbulb-flash-line",
                         active: is_active_link?(decidim_admin_initiatives.initiatives_path),
                         if: allowed_to?(:index, :initiative)
-
-          menu.add_item :taxonomy_filters,
-                        I18n.t("menu.taxonomy_filters", scope: "decidim.admin"),
-                        decidim_admin_initiatives.initiative_filters_path,
-                        position: 3,
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:manage, :taxonomy_filter),
-                        active: is_active_link?(decidim_admin_initiatives.initiative_filters_path)
 
           menu.add_item :initiatives_types,
                         I18n.t("menu.initiatives_types", scope: "decidim.admin"),

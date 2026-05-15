@@ -24,7 +24,7 @@ module Decidim
 
           update_projects_selection
 
-          broadcast(:update_projects_selection, @response)
+          broadcast(:update_projects_selection, @response, @selection)
         end
 
         private

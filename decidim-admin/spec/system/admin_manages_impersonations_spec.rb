@@ -56,9 +56,9 @@ describe "Admin manages impersonations" do
       it_behaves_like "prevent undesired access"
     end
 
-    context "when logged in as process_valuator" do
+    context "when logged in as process_evaluator" do
       let(:process) { create(:participatory_process, organization:) }
-      let(:test_user) { create(:process_valuator, :confirmed, :admin_terms_accepted, participatory_process: process) }
+      let(:test_user) { create(:process_evaluator, :confirmed, :admin_terms_accepted, participatory_process: process) }
 
       it_behaves_like "prevent undesired access"
     end

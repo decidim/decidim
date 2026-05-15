@@ -10,6 +10,7 @@ module Decidim
 
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::NeedsPermission
+
         participatory_space_admin_layout
 
         helper Decidim::ResourceHelper
@@ -23,15 +24,9 @@ module Decidim
                       :current_participatory_space,
                       :parent_path
 
-        before_action except: [:index, :show] do
-          enforce_permission_to :manage, :component, component: current_component unless skip_manage_component_permission
-        end
+        before_action :enforce_component_permissions
 
-        before_action on: [:index, :show] do
-          enforce_permission_to :read, :component, component: current_component
-        end
-
-        before_action :set_component_breadcrumb_item
+        before_action :set_breadcrumb_items
 
         def permissions_context
           super.merge(
@@ -68,7 +63,16 @@ module Decidim
           false
         end
 
-        def set_component_breadcrumb_item
+        def enforce_component_permissions
+          case action_name.to_sym
+          when :index, :show
+            enforce_permission_to :read, :component, component: current_component
+          else
+            enforce_permission_to :manage, :component, component: current_component unless skip_manage_component_permission
+          end
+        end
+
+        def set_breadcrumb_items
           context_breadcrumb_items << {
             label: t("components", scope: "decidim.admin.menu"),
             url: parent_path,

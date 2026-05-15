@@ -1,27 +1,9 @@
 sr:
+  activemodel:
+    attributes:
+      assembly:
+        youtube: YouTube
   decidim:
-    admin:
-      actions:
-        new_assembly_type: Novi tip veća
-      assemblies_types:
-        create:
-          error: Nastao je problem pri stvaranju novog tipa veća.
-          success: Tip veća uspešno stvoren.
-        destroy:
-          success: Tip veća uspešno obrisan.
-        new:
-          title: Novi tip veća
-        update:
-          error: Nastao je problem pri ažuriranju ovog tipa veća.
-          success: Tip veća uspešno ažuriran.
-      menu:
-        assemblies_types: Tipovi veća
-      models:
-        assembly_user_role:
-          roles:
-            valuator: Procenjivač
-      titles:
-        assemblies_types: Tipovi veća
     admin_log:
       assembly_type:
         create: "%{user_name} je stvorio tip veća %{resource_name}"
@@ -40,7 +22,3 @@ sr:
           email_outro: Dobili ste ovo obaveštenje zbog toga što ste %{role} veća %{resource_title}.
           email_subject: Imenovani ste na funkciju %{role} %{resource_title}.
           notification_title: Imenovani ste na funkciju %{role} veća <a href="%{resource_url}">%{resource_title}</a>.
-    log:
-      value_types:
-        assembly_type_presenter:
-          not_found: 'Ovaj tip veća nije pronađen u bazi podataka (ID: %{id})'

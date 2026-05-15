@@ -1,29 +1,39 @@
 sr:
   activemodel:
     attributes:
+      milestone:
+        description: Opis
+        entry_date: Datum
+        title: Naziv
       result:
         decidim_accountability_status_id: Stanje
         decidim_category_id: Kategorija
         decidim_scope_id: Opseg
         description: Opis
-        end_date: Krajnji datum
+        end_date: Datum završetka
         progress: Naprеdak
         start_date: Datum početka
-        title: Naslov
+        subresults: Podrezultati
+        title: Naziv
         updated_at: Ažurirano u
       status:
         description: Opis
         key: Ključ
         name: Ime
         progress: Napredak
-      timeline_entry:
-        description: Opis
-        entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Predlog uključen u rezultat
       decidim/accountability/result_progress_updated_event: Rezultati napretka ažurirani
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Ovaj rezultat %{link} je uvršten
+            meetings_ids: 'Razmatrano je na ovom sastanku: %{link}'
+            project_ids: 'Uvršteno je u ovaj projekat: %{link}'
+            proposal_ids: 'Uvršteno je u ovaj predlog: %{link}'
+            text: 'Dodato je ovom rezultatu: %{link}'
       decidim/accountability/result:
         one: Rezultat
         few: Rezultati
@@ -31,15 +41,37 @@ sr:
   decidim:
     accountability:
       actions:
+        add_milestone: Dodaj prekretnicu
+        confirm_delete_result: Da li ste sigurni da želite da obrišete ovaj rezultat?
         confirm_destroy: Da li ste sigurni da želite da obrišete ovo %{name}?
         destroy: Obriši
         edit: Izmeni
+        new_milestone: Nova prekretnica
         preview: Pregled
-        timeline_entries: Evolucija predloga
         title: Akcije
       admin:
         exports:
           results: Rezultati
+        import_results:
+          new:
+            title: Uvezi rezultate iz CSV datoteke
+        milestones:
+          create:
+            invalid: Došlo je do problema prilikom kreiranja ove prekretnice.
+            success: Prekretnica je uspešno kreirana.
+          destroy:
+            success: Prekretnica je uspešno obrisana.
+          edit:
+            title: Izmeni prekretnicu
+            update: Ažuriraj prekretnicu
+          index:
+            title: Prekretnice
+          new:
+            create: Kreiraj prekretnicu
+            title: Nova prekretnica
+          update:
+            invalid: Došlo je do problema prilikom ažuriranja ove prekretnice.
+            success: Prekretnica je uspešno ažurirana.
         models:
           result:
             name: Rezultat
@@ -66,16 +98,11 @@ sr:
           new:
             create: Stvori status
             title: Novi status
-        timeline_entries:
-          edit:
-            title: Uredi unos
-            update: Ažuriraj unos
-          index:
-            title: Unosi vremenske linije projekta
-          new:
-            create: Stvori unos
-            title: Nov unos
       admin_log:
+        milestones:
+          create: "%{user_name} je kreirao %{resource_name} prekretnicu"
+          delete: "%{user_name} je obrisao %{resource_name} prekretnicu"
+          update: "%{user_name} je ažurirao %{resource_name} prekretnicu"
         result:
           create: "%{user_name} je stvorio rezultat %{resource_name} u %{space_name}"
           delete: "%{user_name} je obrisao %{resource_name} u %{space_name}"
@@ -84,44 +111,38 @@ sr:
           parent_presenter:
             not_found: 'Ovaj roditelj nije pronađen u bazi podataka (ID: %{id})'
       models:
+        milestone:
+          fields:
+            entry_date: Datum
+            title: Naziv
         result:
           fields:
-            end_date: Krajnji datum
+            end_date: Datum završetka
             progress: Napredak
             start_date: Datum početka
             status: Stanje
-            title: Naslov
+            title: Naziv
         status:
           fields:
             description: Opis
             key: Ključ
             name: Ime
             progress: Napredak
-        timeline_entry:
-          fields:
-            entry_date: Datum
       results:
         count:
           results_count:
             one: 1 rezultat
             few: "%{count} rezultata"
             other: "%{count} rezultata"
-        filters:
-          all: Sve
-        home:
-          categories_label: Kategorije
-          subcategories_label: Podkategorije
         home_header:
           global_status: Sveopšte stanje izvršenja
-        nav_breadcrumb:
-          global: Sveopšte izvršenje
+        milestones:
+          title: Prekretnice
         search:
           search: Potraga za akcijama
         show:
           stats:
             back_to_resource: Vrati se na rezultat
-        timeline:
-          title: Evolucija projekta
     components:
       accountability:
         name: Odgovornost
@@ -144,11 +165,6 @@ sr:
           email_outro: Dobili ste ovo obaveštenje jer pratite "%{proposal_title}", a ovaj predlog je uključen u rezultat "%{resource_title}". Možete da prekinete da dobijate obaveštenja ako pratite prethodni link.
           email_subject: Ažuriranje napredka %{resource_title}
           notification_title: Rezultat <a href="%{resource_path}">%{resource_title}</a>, koji uključuje predlog <a href="%{proposal_path}">%{proposal_title}</a>, je sada %{progress}% gotov.
-    metrics:
-      results:
-        description: Broj generisanih rezultata
-        object: rezultati
-        title: Rezultati
     resource_links:
       included_projects:
         result_project: Projekti koji su deo ovog rezultata

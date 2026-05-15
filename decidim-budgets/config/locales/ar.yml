@@ -6,8 +6,6 @@ ar:
         title: العنوان
         total_budget: الميزانية الإجمالية
       project:
-        decidim_category_id: الفئة
-        decidim_scope_id: نطاق
         description: وصف
         proposal_ids: المقترحات ذات الصلة
         title: عنوان
@@ -21,20 +19,11 @@ ar:
         many: مشاريع
         other: مشاريع
   decidim:
-    admin:
-      filters:
-        projects:
-          category_id_eq:
-            label: الفئة
     budgets:
       actions:
-        attachment_collections: المجلدات
-        attachments: مرفقات
-        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا المشروع؟
-        destroy: حذف
         edit: تعديل
-        edit_projects: إدارة المشاريع
         import: استيراد مقترحات للمشاريع
+        new_project: مشروع جديد
         preview: معاينة
         title: أفعال
       admin:
@@ -45,18 +34,14 @@ ar:
         exports:
           projects: المشاريع
         models:
-          budget:
-            name: الميزانية
           project:
             name: مشروع
         projects:
           edit:
-            title: تحرير المشروع
             update: تحديث
           index:
             actions: الإجراءات
             cancel: إلغاء
-            change_category: تغيير الفئة
             finished_orders: الانتهاء من الأصوات
             pending_orders: في انتظار الأصوات
             selected_options:
@@ -67,7 +52,6 @@ ar:
             update_budget_button: تحديث ميزانية المشروع
           new:
             create: إنشاء
-            title: مشروع جديد
         proposals_imports:
           new:
             create: استيراد مقترحات للمشاريع
@@ -89,8 +73,10 @@ ar:
             name: الإسم
         project:
           fields:
-            category: الفئة
             title: عنوان
+      order:
+        status:
+          title: تم قبول تصويتك بنجاح
       projects:
         budget_confirm:
           cancel: إلغاء
@@ -103,7 +89,6 @@ ar:
           ok: حسنا
         budget_summary:
           are_you_sure: هل أنت متأكد أنك تريد إلغاء تصويتك؟
-          cancel_order: احذف صوتك وابدأ من جديد
           checked_out:
             title: اكتمال التصويت في الميزانية
         count:
@@ -115,8 +100,6 @@ ar:
             many: "%{count} مشاريع"
             other: "%{count} مشاريع"
         filters:
-          category: الفئة
-          scope: نطاق
           search: بحث
         show:
           budget: ميزانية
@@ -126,6 +109,7 @@ ar:
     components:
       budgets:
         actions:
+          comment: تعليق
           vote: تصويت
         name: الميزانيات
         settings:
@@ -141,7 +125,5 @@ ar:
             show_votes: إظهار الأصوات
             votes_choices:
               enabled: تم تمكين التصويت
-    statistics:
-      projects_count: المشاريع
   index:
     confirmed_orders_count: عدد الأصوات

@@ -1,6 +1,10 @@
 sv:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Bilaga för verifiering
+      census_data:
+        file: Fil
       config:
         available_methods: Tillgängliga alternativ
         offline: Offline
@@ -74,6 +78,12 @@ sv:
             - En exempel-auktoriseringshanterare så att utvecklare kan förstå hur en enkel verifiering fungerar.
             - Den riktar sig till utvecklare så att de kan förstå hur man implementerar sitt eget verifieringssystem.
             - Bli verifierad genom att ange ett dokumentnummer som slutar på ”X”.
+        ephemeral_dummy_authorization_handler:
+          help:
+            - En exempel-auktoriseringshanterare så att utvecklare kan förstå hur en enkel verifiering fungerar.
+            - Det riktar sig till utvecklare så att de kan förstå hur man implementerar sitt eget verifieringssystem.
+            - Det är en kopia av exempel-auktorisering.
+            - Bli verifierad genom att ange ett dokumentnummer som slutar på ”X”.
         id_documents:
           help:
             - Användare fyller i sin identitetsinformation och skickar in en kopia av sin ID-handling.
@@ -112,6 +122,12 @@ sv:
           email_subject: Kunde inte verifiera försök mot en annan deltagare
           notification_title: Deltagaren <a href="%{resource_path}">%{resource_title}</a> har försökt verifiera sig själva med data från en annan deltagare (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} skapade en ny post i medlemslistan med e-post %{resource_email}"
+          delete: "%{user_name} raderade en post i medlemslistan med e-post %{resource_email}"
+          import: "%{user_name} importerade %{imported_count} poster till medlemslistan"
+          update: "%{user_name} uppdaterade en post i medlemslistan med e-post %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Följande är uppgifter för den aktuella verifieringen:'
@@ -124,17 +140,6 @@ sv:
         destroy:
           error: Det gick inte att ta bort auktoriseringen.
           success: Du har tagit bort auktoriseringen.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verifiera med hjälp av ett annat auktoriseringsverktyg
-            csv_census: Verifiera mot organisationens medlemslista
-            dummy_authorization_handler: Verifiera via exempelbehörighetshanteraren
-            dummy_authorization_workflow: Verifiera med exemplet på arbetsflöde för auktorisering
-            id_documents: Verifiera dig genom att skicka in din identitetshandling
-            postal_letter: Verifiera dig genom att ta emot en verifieringskod via fysiskt brev
-            sms: Bli verifierad genom att få en verifieringskod med SMS
-          title: Verifiera din identitet
-          verify_with_these_options: 'Det här är de tillgängliga alternativen för att verifiera din identitet:'
         index:
           expired_verification: Verifieringen har gått ut
           granted_verification: Beviljad verifiering
@@ -146,6 +151,14 @@ sv:
         new:
           authorize: Skicka
           authorize_with: Verifiera med %{authorizer}
+          tos_agreement: Genom att verifiera din identitet godkänner du %{link}.
+        onboarding_pending:
+          completed_verifications: Du har blivit auktoriserad, nu kan du %{action} i %{resource_name}
+          granted_verifications: Beviljade verifieringar
+          onboarding_message_html: Du är nästan redo att %{action} på <strong>%{resource_title}</strong> %{resource_name}. Vänligen verifiera ditt konto genom att fylla i följande auktorisationer.
+          pending_admin_approval_verifications: Väntar på godkännande från administratör
+          pending_verifications: Pågående verifieringar
+          unauthorized: Du har inte behörighet att %{action}
         renew_modal:
           cancel: Avbryt
           continue: Fortsätt
@@ -155,30 +168,58 @@ sv:
         start_exploring: börja utforska
       csv_census:
         admin:
+          actions:
+            confirm_destroy: Är du säker på att du vill ta bort posten i medlemslistan?
+            destroy: Ta bort
+            edit: Redigera
           census:
-            create:
-              error: Det gick inte att importera folkbokföringen.
-              success: Importerade %{count} objekt (%{errors} fel).
-            destroy_all:
-              success: All folkbokföringsdata har tagits bort.
-          destroy:
-            confirm: Radering av folkbokföringsdata kan inte ångras. Är du säker på att du vill fortsätta?
-            title: Radera alla medlemsuppgifter
+            create_import:
+              error: Det gick inte att importera medlemslistan.
+              no_user: Ingen användare hittad
+              success: Importerade %{count} objekt. Vi behandlar datan. Uppdatera sidan om några minuter för att se ändringarna.
+            destroy:
+              success: Medlemsuppgift har tagits bort.
+            index:
+              empty: Det finns inga medlemsuppgifter. Använd %{import_csv} för att importera en CSV-fil.
+              no_sign_in: Aldrig inloggad
+              no_user: Ingen användare hittad
+            last_login:
+              no_sign_in: Aldrig loggat in
+              no_user: Ingen användare
+            new_import:
+              errors:
+                email_exists: E-postadressen %{email} finns redan i organisationen %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Filen måste vara i formatet CSV med endast en kolumn med e-postadress:'
+              submit: Ladda upp fil
+              title: Importera medlemslista
+              upload_new_census: Ladda upp en ny medlemslista
+          census_records:
+            create_record:
+              success: Har lagt till medlemsuppgifter. Vi behandlar data. Uppdatera sidan om några minuter för att se ändringarna.
+            edit_record:
+              save: Spara
+              title: Redigera medlemsuppgift
+            form:
+              email: E-post
+            new_record:
+              save: Spara
+              title: Lägg till ny medlemsuppgift
+            update_record:
+              invalid: Det gick inte att uppdatera medlemsuppgift.
+              success: Medlemsuppgiften är uppdaterad.
           index:
-            data: Det finns totalt %{count} inlästa poster. Datum för senaste uppdatering var %{due_date}.
-            empty: Det finns inga medlemsuppgifter. Importera dem som en CSV-fil med formuläret nedan.
-            title: Aktuella medlemsuppgifter
-          instructions:
-            body: För att göra detta måste du öppna systemadministrationen och lägga till godkännande via csv_census till organisationen
-            title: Du måste aktivera medlemsregister via CSV för organisationen
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: ".csv-fil med e-postadresser"
-            info: 'Måste vara en fil i CSV-format med bara en kolumn med e-postadressen:'
-            submit: Skicka in fil
-            title: Skicka in nya medlemsuppgifter
+            add_new_record_button: Lägg till ny post
+            authorized: Användaren är behörig
+            fields:
+              actions: Åtgärder
+              created_at: Skapad
+              email: E-post
+              user_authorized: Användaren är behörig?
+            import_csv: Importera CSV
+            no_authorized: Användare obehörig
         authorizations:
           new:
             error: Vi kunde inte verifiera ditt konto, eller så finns du inte i organisationens medlemsuppgifter.
@@ -188,11 +229,13 @@ sv:
           postal_codes:
             one: Deltagande är begränsat till deltagare med postnummer %{postal_codes}.
             other: 'Deltagande är begränsat till deltagare med något av följande postnummer: %{postal_codes}.'
-          scope: Deltagandet är begränsat till deltagare inom %{scope_name}.
           user_postal_codes:
             one: Deltagandet är begränsat till deltagare med postnumret %{postal_codes} och ditt postnummer är %{user_postal_code}.
             other: 'Deltagandet är begränsat till deltagare med något av följande postnummer: %{postal_codes}. Ditt postnummer är %{user_postal_code}.'
-          user_scope: Deltagandet är begränsat till deltagare med inom %{scope_name} och du tillhör %{user_scope_name}.
+      errors:
+        invalid_emails: 'Följande e-postadresser är ogiltiga: %{invalid_emails}.'
+        no_emails: Filen måste innehålla e-postadresser
+        wrong_number_columns: "Kolumnen %{expected} förväntades, men %{actual} hittades."
       id_documents:
         admin:
           config:
@@ -207,7 +250,6 @@ sv:
               error: Verifieringen stämmer inte. Försök igen eller avvisa verifieringen så att användaren kan rätta den.
               success: Deltagaren har verifierats.
             new:
-              introduce_user_data: För in uppgifterna från bilden
               reject: Avvisa
               verify: Verifiera
           offline_confirmations:
@@ -216,7 +258,6 @@ sv:
               success: Deltagaren har verifierats.
             new:
               cancel: Avbryt
-              introduce_user_data: Mata in deltagarens e-postadress samt identitetsuppgifter
               verify: Verifiera
           pending_authorizations:
             index:
@@ -257,6 +298,7 @@ sv:
           pending_authorizations:
             index:
               address: Adress
+              already_sent: Brevet har redan skickats och kan inte markeras som skickat igen.
               letter_sent_at: Brev skickat
               mark_as_sent: Markera som skickat
               not_yet_sent: inte skickat än

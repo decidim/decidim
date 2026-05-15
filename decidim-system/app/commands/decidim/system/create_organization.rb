@@ -29,7 +29,7 @@ module Decidim
         @organization = nil
         invite_form = nil
 
-        transaction do
+        with_events(with_transaction: true) do
           @organization = create_organization
           CreateDefaultPages.call(@organization)
           CreateDefaultHelpPages.call(@organization)
@@ -51,9 +51,14 @@ module Decidim
 
       attr_reader :form
 
+      def event_arguments
+        { organization: @organization }
+      end
+
       def create_organization
         Decidim::Organization.create!(
           name: { form.default_locale => form.name },
+          short_name: { form.default_locale => form.short_name },
           host: form.host,
           secondary_hosts: form.clean_secondary_hosts,
           reference_prefix: form.reference_prefix,
@@ -63,7 +68,6 @@ module Decidim
           users_registration_mode: form.users_registration_mode,
           force_users_to_authenticate_before_access_organization: form.force_users_to_authenticate_before_access_organization,
           badges_enabled: true,
-          user_groups_enabled: true,
           default_locale: form.default_locale,
           omniauth_settings: form.encrypted_omniauth_settings,
           smtp_settings: form.encrypted_smtp_settings,

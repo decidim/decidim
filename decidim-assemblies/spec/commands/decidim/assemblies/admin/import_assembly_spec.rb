@@ -21,7 +21,6 @@ module Decidim::Assemblies::Admin
         title: { en: "title" },
         slug: "imported-slug",
         import_steps?: import_steps,
-        import_categories?: import_categories,
         import_attachments?: import_attachments,
         import_components?: import_components,
         document: form_doc,
@@ -39,15 +38,10 @@ module Decidim::Assemblies::Admin
     let(:import_steps) { false }
     let(:import_components) { false }
     let(:import_attachments) { false }
-    let(:import_categories) { false }
 
     def stub_calls_to_external_files
       stub_get_request_with_format(
         "http://localhost:3000/uploads/decidim/assembly/hero_image/1/city.jpeg",
-        "image/jpeg"
-      )
-      stub_get_request_with_format(
-        "http://localhost:3000/uploads/decidim/assembly/banner_image/1/city2.jpeg",
         "image/jpeg"
       )
       stub_get_request_with_format(
@@ -108,25 +102,6 @@ module Decidim::Assemblies::Admin
 
       context "with json document" do
         it_behaves_like "import assembly succeeds"
-      end
-    end
-
-    describe "when import_categories exists" do
-      let(:import_categories) { true }
-
-      it "imports an assembly and the categories" do
-        stub_calls_to_external_files
-
-        expect { subject.call }.to change(Decidim::Category, :count).by(8)
-        expect(Decidim::Category.distinct.select(:decidim_participatory_space_id).count).to eq 1
-
-        imported_assembly_category = Decidim::Category.first
-        expect(imported_assembly_category.name).to eq(
-          "ca" => "Sit voluptate molestiae maxime enim.",
-          "en" => "Quidem aliquid reiciendis incidunt iste.",
-          "es" => "Animi asperiores ut sunt aut."
-        )
-        expect(imported_assembly_category.participatory_space).to eq(Decidim::Assembly.last)
       end
     end
 

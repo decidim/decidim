@@ -31,6 +31,16 @@ describe "Account" do
 
     it_behaves_like "accessible page"
 
+    context "when login is not enabled" do
+      let(:organization) { create(:organization, users_registration_mode: "disabled") }
+      let(:user) { create(:user, :confirmed, password:) }
+
+      it "does not have js errors" do
+        sleep 1
+        expect_no_js_errors
+      end
+    end
+
     describe "update avatar" do
       it "can update avatar" do
         dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
@@ -68,9 +78,7 @@ describe "Account" do
           all("*[type=submit]").last.click
         end
 
-        within_flash_messages do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_content("Your account was successfully updated.")
 
         user.reload
 
@@ -86,6 +94,59 @@ describe "Account" do
       end
     end
 
+    describe "when updating the user's nickname" do
+      it "changes the user's nickname - 'nickname'" do
+        within "form.edit_user" do
+          fill_in "Nickname", with: "nickname"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("Your account was successfully updated.")
+        expect(page).to have_field("user[nickname]", with: "nickname", type: "text")
+      end
+
+      it "respects the maxlength attribute with a really long word - 'nicknamenicknamenickname'" do
+        within "form.edit_user" do
+          fill_in "Nickname", with: "nicknamenicknamenickname"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("Your account was successfully updated.")
+        expect(page).to have_field("user[nickname]", with: "nicknamenicknamenick", type: "text")
+      end
+
+      it "shows error when word has a capital letter - 'nickName'" do
+        within "form.edit_user" do
+          fill_in "Nickname", with: "nickName"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("There was a problem updating your account.")
+        expect(page).to have_content("The nickname must be lowercase and contain no spaces")
+        expect(page).to have_field("user[nickname]", with: "nickName", type: "text")
+      end
+
+      it "shows error when word starts with a capital letter - 'Nickname'" do
+        within "form.edit_user" do
+          fill_in "Nickname", with: "Nickname"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("There was a problem updating your account.")
+        expect(page).to have_field("user[nickname]", with: "Nickname", type: "text")
+      end
+
+      it "shows error when string has a space - 'nick name'" do
+        within "form.edit_user" do
+          fill_in "Nickname", with: "nick name"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("There was a problem updating your account.")
+        expect(page).to have_field("user[nickname]", with: "nick name", type: "text")
+      end
+    end
+
     describe "when update password" do
       let!(:encrypted_password) { user.encrypted_password }
       let(:new_password) { "decidim1234567890" }
@@ -96,7 +157,10 @@ describe "Account" do
 
       it "toggles old and new password fields" do
         within "form.edit_user" do
-          expect(page).to have_content("must not be too common (e.g. 123456) and must be different from your nickname and your email.")
+          expect(page).to have_content("10 characters minimum")
+          expect(page).to have_content("must contain at least 5 different characters")
+          expect(page).to have_content("must not be too common")
+          expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
           expect(page).to have_field("user[password]", with: "", type: "password")
           expect(page).to have_field("user[old_password]", with: "", type: "password")
           click_on "Change password"
@@ -121,9 +185,7 @@ describe "Account" do
           fill_in "Current password", with: password
           find("*[type=submit]").click
         end
-        within_flash_messages do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_content("Your account was successfully updated.")
         expect(user.reload.encrypted_password).not_to eq(encrypted_password)
         expect(page).to have_no_field("user[password]", with: "", type: "password")
         expect(page).to have_no_field("user[old_password]", with: "", type: "password")
@@ -173,9 +235,7 @@ describe "Account" do
             perform_enqueued_jobs { find("*[type=submit]").click }
           end
 
-          within_flash_messages do
-            expect(page).to have_content("You will receive an email to confirm your new email address")
-          end
+          expect(page).to have_callout("You will receive an email to confirm your new email address")
         end
 
         after do
@@ -227,9 +287,7 @@ describe "Account" do
           find("*[type=submit]").click
         end
 
-        within_flash_messages do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_callout("Your notifications settings were successfully updated.")
       end
 
       context "when the user is an admin" do
@@ -249,47 +307,7 @@ describe "Account" do
             find("*[type=submit]").click
           end
 
-          within_flash_messages do
-            expect(page).to have_content("successfully")
-          end
-        end
-      end
-    end
-
-    context "when on the interests page" do
-      before do
-        visit decidim.user_interests_path
-      end
-
-      it "does not find any scopes" do
-        expect(page).to have_content("My interests")
-        expect(page).to have_content("This organization does not have any scope yet")
-      end
-
-      context "when scopes are defined" do
-        let!(:scopes) { create_list(:scope, 3, organization:) }
-        let!(:subscopes) { create_list(:subscope, 3, parent: scopes.first) }
-
-        before do
-          visit decidim.user_interests_path
-        end
-
-        it "display translated scope name" do
-          expect(page).to have_content("My interests")
-          within "label[for='user_scopes_#{scopes.first.id}_checked']" do
-            expect(page).to have_content(translated(scopes.first.name))
-          end
-        end
-
-        it "allows to choose interests" do
-          label_field = "label[for='user_scopes_#{scopes.first.id}_checked']"
-          expect(page).to have_content("My interests")
-          find(label_field).click
-          click_on "Update my interests"
-
-          within_flash_messages do
-            expect(page).to have_content("Your interests have been successfully updated.")
-          end
+          expect(page).to have_callout("Your notifications settings were successfully updated.")
         end
       end
     end
@@ -311,9 +329,7 @@ describe "Account" do
 
         click_on "Yes, I want to delete my account"
 
-        within_flash_messages do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_content("Your account was successfully deleted.")
 
         click_on("Log in", match: :first)
 
@@ -353,7 +369,9 @@ describe "Account" do
 
     context "when VAPID keys are set" do
       before do
-        Rails.application.secrets[:vapid] = vapid_keys
+        allow(Decidim).to receive(:vapid_public_key).and_return(vapid_keys[:public_key])
+        allow(Decidim).to receive(:vapid_private_key).and_return(vapid_keys[:private_key])
+
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -362,8 +380,11 @@ describe "Account" do
 
       context "when on the account page" do
         it "enables push notifications if supported browser" do
+          toggle = page.find("[data-push-notifications-toggle]", visible: :all)
+          expect(toggle).not_to be_checked
+
           sleep 2
-          page.find("[for='allow_push_notifications']").click
+          toggle.check(allow_label_click: true)
 
           # Wait for the browser to be subscribed
           sleep 5
@@ -372,18 +393,16 @@ describe "Account" do
             find("*[type=submit]").click
           end
 
-          within_flash_messages do
-            expect(page).to have_content("successfully")
-          end
+          expect(page).to have_callout("Your notifications settings were successfully updated.")
 
-          find_by_id("allow_push_notifications", visible: false).execute_script("this.checked = true")
+          find("[data-push-notifications-toggle]", visible: :all).execute_script("this.checked = true")
         end
       end
     end
 
     context "when VAPID is disabled" do
       before do
-        Rails.application.secrets[:vapid] = { enabled: false }
+        allow(Decidim).to receive(:vapid_public_key).and_return("")
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -391,13 +410,13 @@ describe "Account" do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).to have_no_selector(".push-notifications")
+        expect(page).to have_no_selector("[data-push-notifications-container]")
       end
     end
 
     context "when VAPID keys are not set" do
       before do
-        Rails.application.secrets.delete(:vapid)
+        allow(Decidim).to receive(:vapid_public_key).and_return(nil)
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -405,7 +424,7 @@ describe "Account" do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).to have_no_selector(".push-notifications")
+        expect(page).to have_no_selector("[data-push-notifications-container]")
       end
     end
   end

@@ -38,12 +38,10 @@ lb:
       decidim/profile_updated_event: Profil aktualiséiert
       decidim/promote_to_admin: Als Grupp-Admin fräigeschalt
       decidim/removed_from_group: Aus dem Gruppe geläscht
-      decidim/resource_endorsed_event: Ressource akzeptéiert
   activerecord:
     attributes:
       decidim/user:
         current_password: Aktuellt Passwuert
-        email: Email
         name: Spëtznumm
         password: Passwuert
         password_confirmation: Passwuert Bestätegung
@@ -52,19 +50,15 @@ lb:
       decidim/amendment:
         one: Ännerung
         other: Ännerungen
-      decidim/endorsement:
-        one: Akzeptéiert
-        other: Ennerstëtzungen
       decidim/user:
         one: Teilnehmer
         other: Teilnehmer
-      decidim/user_group:
-        one: Grupp
-        other: Gruppen
   booleans:
     'false': 'Nee'
     'true': 'Jo'
   date:
+    buttons:
+      select: Wiel
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -124,10 +118,6 @@ lb:
         update: "%{user_name} huet d'OAuth-Applikation %{resource_name} aktualiséiert"
       organization:
         update: "%{user_name} huet d'Organisatiouns-Astellungen aktualiséiert"
-      participatory_space_private_user:
-        create: "%{user_name} huet d' %{resource_name} als privaten Benotzer agelueden"
-        create_via_csv: "%{user_name} huet d'%{resource_name} per CSV als privaten Teilnehmer agelueden"
-        delete: "%{user_name} huet den Benotzer %{resource_name} als privaten Benotzer geläscht"
       scope:
         create: "%{user_name} huet den Beräich %{resource_name} erstallt"
         create_with_parent: "%{user_name} huet den Beräich %{resource_name} am iwwergeuerdenten Beräich %{parent_scope} erstallt"
@@ -191,7 +181,6 @@ lb:
             D'Ännerung fir %{amendable_type} %{proposal_link}
             gouf vum Auteur zréck geszunn.
       new:
-        amendment_author: Auteur vun der Ännerung
         send: Erstellen
         title: Ännerungs-Virschlag erstellen
       preview_draft:
@@ -224,9 +213,6 @@ lb:
       comments:
         one: Kommentar
         other: Kommentare
-      endorsements:
-        one: Ënnerstëtzungen
-        other: Befürwortungen
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -236,10 +222,8 @@ lb:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: Erlaabten Postleitzuelen (duerch Komma getrennt)
-          allowed_scope_id: Erlaabten Ëmfang
           document_number: Dokument-Nummer
           postal_code: Postleitzuel
-          scope_id: Ëmfang
         name: Beispill Berechtegung
       dummy_authorization_workflow:
         name: Aarbechtsoflaf Dummy-Berechtegung
@@ -321,8 +305,6 @@ lb:
             dummy_global_translatable_text: Dummy Text ze iwwersetzen
             enable_pads_creation: Erstellen vun Pads erméiglechen
             resources_permissions_enabled: Ressourcen-Berechtegung aktivéiert
-            scope_id: Ëmfank
-            scopes_enabled: Beräicher aktivéiert
           step:
             amendment_creation_enabled: Erstellen vun Ännerungen/Kommentarer aktivéiert
             amendment_promotion_enabled: Fërderung vun Ännerungen aktivéiert
@@ -362,8 +344,6 @@ lb:
         name: Lescht Aktivitéit
         title: Lescht Aktivitéit
         view_all: Alles gesinn
-      metrics:
-        name: Organisations-Metriken
       stats:
         name: Organisations-Statistiken
       sub_hero:
@@ -386,7 +366,6 @@ lb:
           username_help: Den ëffentlechen Numm gëtt an dengen Beiträg ugewisen. Fir d'Anonymat ze garantéieren, kann s'de der och en belibegen Numm eraussichen.
       sessions:
         new:
-          are_you_new?: Nei op dëser Plattform?
           register: Kont uleeën
       shared:
         newsletter_modal:
@@ -394,8 +373,6 @@ lb:
             check: Iwwerpréiwen an weider maachen
             uncheck: Ouni Kontakt-Erlabnis weidermaachen
           title: Newsletter Matdeelungen
-        omniauth_buttons:
-          or: Oder
     doorkeeper:
       authorizations:
         new:
@@ -413,13 +390,6 @@ lb:
     download_your_data:
       export:
         ready: Fäerdeg
-      show:
-        download_data: Daten eroflueden
-        request_data: Daten ufroen
-    endorsements:
-      identities:
-        done: Erleedegt
-        select_identity: Identitéit wielen
     errors:
       internal_server_error:
         title: Op eisem Server ass e Problem opgetrueden
@@ -494,52 +464,6 @@ lb:
           email_outro: Du hues dës Noriicht kritt well s'du op eiser Websäit aktiv wos.
         level_up:
           email_outro: Du hues dës Noriicht kritt well s'du op eiser Websäit aktiv wos.
-      groups:
-        demoted_membership:
-          email_intro: En Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet dir d'Rechter fir d'Administratioun vum Grupp entzunn.
-          email_outro: Du hues dës Noriicht kritt well s'du en Member vum Grupp bass.
-          email_subject: Du bass keen Admin vum Grupp %{user_group_name} méi!
-          notification_title: Du bass elo net méi en Admin vum Grupp <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: En Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet dech an de Grupp agelueden.
-          email_outro: Du hues dës Noriicht kritt well s'du an de Grupp agelueden goufs. Iwwerpréif den Tab "Gruppen" an dengem Profil, fir d'Aluedung unzehuelen.
-          email_subject: Du goufs agelueden dem Grupp %{user_group_name} bäizetrieden!
-          notification_title: Du goufs agelueden dem Grupp <a href="%{resource_path}">%{user_group_name}</a> bäizetrieden. Besich <a href="%{groups_profile_tab_path}">d'Gruppe-Säit</a> an dengem Profil fir d'Aluedung unzehuelen!
-        join_request_accepted:
-          email_intro: Gléckwonsch! Ein Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet deng Ufro do bäizetrieden ugeholl.
-          email_outro: Du hues dës Noriicht kritt, well deng Ufro fir bäizetrieden aktualiséiert gouf.
-          email_subject: Du goufs am Grupp %{user_group_name} ugeholl!
-          notification_title: Du goufs an der Grupp <a href="%{resource_path}">%{user_group_name}</a> opgeholl.
-        join_request_created:
-          email_intro: Et huet eng Persoun gefrot dem Grupp %{user_group_name} bäizetrieden. Du kanns déi Ufro vun der <a href="%{resource_url}">Säit fir Gruppememberen </a> unhuelen oder refuséieren.
-          email_outro: Du hues dës Noriicht kritt, well s'du den Grupp %{user_group_name} verwalten kanns.
-          email_subject: Eng Persoun huet ugefrot dem Grupp %{user_group_name} bäizetrieden!
-          notification_title: Et huet eng Persoun gefrot dem Grupp %{user_group_name} bäizetrieden. Du kanns déi Ufro vun der <a href="%{resource_path}">Säit fir Gruppememberen </a> unhuelen oder refuséieren.
-        join_request_rejected:
-          email_intro: En Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet deng Ufro bäizetrieden refuséiert.
-          email_outro: Du hues dës Noriicht kritt, well deng Ufro fir bäizetrieden aktualiséiert gouf.
-          email_subject: Deng Ufro dem Grupp %{user_group_name} bäizetrieden gouf refuséiert!
-          notification_title: Deng Ufro dem Grupp <a href="%{resource_path}">%{user_group_name}</a> bäizetrieden gouf refuséiert.
-        promoted_to_admin:
-          email_intro: En Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet dir d'Rechter fir d'Administratioun vum Grupp ginn.
-          email_outro: Du hues dës Noriicht kritt well s'du en Member vum Grupp bass.
-          email_subject: Du bass elo en Admin vum Grupp %{user_group_name}!
-          notification_title: Du bass elo en Admin vum Grupp <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: En Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet dech aus dem Grupp geläscht.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe waren.
-          email_subject: Du goufs aus dem Grupp %{user_group_name} geläscht!
-          notification_title: Du goufs aus dem Grupp <a href="%{resource_path}">%{user_group_name}</a> geläscht.
-        user_group_created:
-          email_intro: En neien Benotzer-Grupp mam Numm %{user_group_name} gouf erstallt. Du kanns dat iwwer den <a href="%{groups_admin_url}">Admin-Schaltfläch</a> iwwerpréiwen.
-          email_outro: Du hues dës Noriicht kritt well s'du en Admin vun der Plattform bass.
-          email_subject: Eine neue Benutzergruppe wurde erstellt
-          notification_title: Den Benotzer-Grupp %{user_group_name} gouf erstallt. Du kanns dat iwwer d'<a href="%{groups_admin_path}">Admin-Schaltfläch</a> iwwerpréiwen.
-        user_group_updated:
-          email_intro: Den Benotzer-Grupp %{user_group_name} huet säin Profil aktualiséiert, dat muss op en Neits iwwerpréiwt ginn. Du kanns dat iwwert <a href="%{groups_admin_url}">Admin-Schaltfläch </a> iwwerpréiwen.
-          email_outro: Du hues dës Noriicht kritt well s'du en Admin vun der Plattform bass.
-          email_subject: En Benotzer-Grupp huet säin Profil aktualiséiert
-          notification_title: Den Benotzer-Grupp %{user_group_name} huet säin Profil net iwwerpréiwt aktualiséiert. Du kanns dat iwwert <a href="%{groups_admin_path}">Admin-Schaltfläch </a> iwwerpréiwen.
       reports:
         resource_hidden:
           email_intro: En aAdmin huet den %{resource_type} geläscht, well en als %{report_reasons} gemellt gouf.
@@ -547,11 +471,6 @@ lb:
           email_subject: Deng %{resource_type} gouf geläscht
           notification_title: |-
             En Admin huet däin %{resource_type} geläscht, well en als %{report_reasons}.</br><i>%{resource_content}</i> gemellt gouf
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, dem s''du nogees, huet grad "%{resource_title}" ënnerstëtzt an mir mengen dat kéint dech interesséieren. Kuck der et mol un an diskutéier mat:'
-        email_outro: Du hues dës Noriicht kritt, well s'du dem %{endorser_nickname} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-        email_subject: "%{endorser_nickname} huet eng nei Ënnerstëtzung ausgeschwat"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} gouf vum <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> ënnerstëtzt.
       users:
         profile_updated:
           email_intro: D' <a href="%{resource_url}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
@@ -560,10 +479,7 @@ lb:
           notification_title: D' <a href="%{resource_path}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
     export_mailer:
       download_your_data_export:
-        click_button: 'Klick op den Link, fir den Daten erofzelueden.<br/>D''Datei steet bis den %{date} zur Verfügung.<br/>du brauchs <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows), <a href="https://www.keka.io/en/">Keka</a> (fir MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (fir Linux) fir d''Datei opzemaachen. Passwuert: %{password}'
         download: Eroflueden
-      export:
-        ready: Am Anhang fënns de eng kompriméiert Versioun vun dengem exportéierten Element.
       subject: Däin Export- %{name} ass prett
     filters:
       linked_classes:
@@ -623,50 +539,7 @@ lb:
           title: Ofzeechen
       description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen.
       level: Level %{level}
-    group_admins:
-      actions:
-        demote_admin: Admin läschen
-      index:
-        current_admins: 'Aktuell Admins:'
-        manage_admins: Admins verwalten
-    group_invites:
-      accept_invitation: Unhuelen
-      accept_or_reject_group_invitations: 'Dës Gruppen hunn dech agelueden dech hinnen unzeschléissen. Hir Ufroen unhuelen oder refuséieren:'
-      index:
-        invite: Alueden
-        invite_user: En Teilnehmer alueden
-      reject_invitation: Refuséieren
-    group_members:
-      actions:
-        are_you_sure: Bass du sécher?
-        promote_to_admin: Zum Admin maachen
-        remove_from_group: Teilnehmer läschen
-      index:
-        current_members_without_admins: 'Aktuell Memberen (ouni Admins):'
-        manage_members: Memberen verwalten
     groups:
-      actions:
-        are_you_sure: Bass de sécher?
-      edit:
-        edit_user_group: Grupp beaarbechten
-        update_user_group: Grupp aktualiséieren
-      form:
-        email_help: Email-Adress vun denger Organisatioun, Associatioun, Kollektiv, Grupp, etc.
-        fill_in_for_verification: 'Fëll dës Felder aus, wann däin Grupp soll iwwerpréift ginn:'
-        name_help: Numm vun denger Organisatioun, Associatioun, Kollektiv, Grupp, etc.
-        nickname_help: Benotzer-Numm vun denger Organisatioun, Associatioun, Kollektiv, Grupp, etc. Verwenn weder Espace-Zeechen nach Akzenter.
-      join:
-        success: Bäitrëtts-Ufro gouf erstallt. En Administrateur iwwerpréift deng Ufro, éier s'du an de Grupp ugeholl gëss.
-      leave:
-        success: Aus dem Grupp ausgetrueden.
-      members:
-        accept_or_reject_join_requests: 'Dës Benotzer hunn ugefrot dësem Grupp bäizetrieden. Hir Ufroen unhuelen oder refuséieren:'
-        accept_request: Akzeptéieren
-        reject_request: Refuséieren
-      new:
-        create_user_group: Grupp erstellen
-        new_user_group: Neien Grupp
-        subtitle: Erstell e Grupp a luet aner Benotzer an, op engem kollektiven Level matzemaachen.
       roles:
         admin: Administrateur
         member: Member
@@ -716,34 +589,13 @@ lb:
         latlng_text: 'Breedegrad:%{latitude}, Längegrad:%{longitude}'
         map_service_brand: Stroosse-Kaart opmaachen
     menu:
-      help: Hëllef
       home: Startsäit
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Du kriss dat hei, well s'du en Admin am Grupp %{group} bass.
-          greeting: Moien %{recipient}!
-          intro: "%{manager} huet eng nei Konversatioun am Numm vum Grupp %{group} ugefaangen. Klick hei fir et ze gesinn:"
-          subject: "%{manager} huet eng Konversatioun mam %{group} ugefaangen"
-        comanagers_new_message:
-          admin_in_group: Du kriss dat hei, well s'du en Admin am Grupp %{group} bass.
-          greeting: Moien %{recipient}!
-          intro: "%{manager} huet nei Noriichten gepost an der Konversatioun mam Grupp %{group}. Klick hei fir se ze gesinn:"
-          subject: "%{manager} huet eng nei Noriicht an de %{group} geschéckt"
         new_conversation:
           greeting: Moien %{recipient}!
           intro: "%{sender} huet eng nei Konversatioun mat dir ugefaange. Klick hei fir se ze gesinn:"
           subject: "%{sender} huet eng Konversatioun mat dir ugefaangen"
-        new_group_conversation:
-          admin_in_group: Du kriss dat hei, well s'du en Admin am Grupp %{group} bass.
-          greeting: Moien %{recipient}!
-          intro: "%{sender} huet eng nei Konversatioun am Grupp ugefaange %{group}. Klick hei fir se ze gesinn:"
-          subject: "%{sender} huet eng Konversatioun mam %{group} ugefaangen"
-        new_group_message:
-          admin_in_group: Du kriss dat heiten, well du bass Administrateur am %{group}.
-          greeting: Moien, %{recipient}!
-          intro: "%{sender} huet nei Noriichten gepost an der Konversatioun mam Grupp %{group}. Klick hei fir se ze gesinn:"
-          subject: "%{group} hat neue Nachrichten von %{sender}"
         new_message:
           greeting: Moien, %{recipient}!
           intro: "%{sender} huet nei Noriichten an denger Konversatioun gepost. Klick hei fir se ze gesinn:"
@@ -763,6 +615,8 @@ lb:
           new_conversation: Nei Konversatioun
           next: Weider
           title: Konversatiounen
+        reply_form:
+          placeholder: Deng Äntwert...
         show:
           back: Zeréck bei all d'Konversatiounen
           chat_with: Konversatioun mat
@@ -770,21 +624,6 @@ lb:
           title: Konversatioun mam %{usernames}
         start:
           send: Senden
-    metrics:
-      download:
-        csv: Daten am (CSV) eroflueden
-      followers:
-        description: Zuel vun den Teilnehmer, déi dësem Konversatiouns-Espace nofollegen
-        object: Follower
-        title: Follower
-      participants:
-        description: Zuel vun den aktiven Teilnehmer an dëser Organisatioun
-        object: Teilnehmer
-        title: Teilnehmer
-      users:
-        description: Zuel vun den Teilnehmer an dëser Organisatioun
-        object: Teilnehmer
-        title: Teilnehmer
     newsletter_mailer:
       newsletter:
         unsubscribe: Fir dës Zort Email ofzebestellen, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
@@ -811,10 +650,8 @@ lb:
       unsubscribe:
         success: Du bass ofgemellt.
         token_error: De Link ass ofgelaf.
-        unsubscribe: Ofbestellen
     newsletters_opt_in_mailer:
       notify:
-        body_1: D'Verschaffen vun perséinlechen Daten an hire Schutz, ginn fir ons all ëmmer méi wichteg. Mat der neier RGPD Reglementatioun hunn Eenzelpersounen eng besser Kontroll iwwer hir perséinlech Daten. Aus dem Grond brauchen mir däin "OK" fir dir weiderhin relevant Informatiounen vun %{organization_name} zoukommen ze loossen.
         body_2: 'Wéi kanns du zoustëmmen? Klick einfach op den Knäppchen hei:'
         body_3: Mat denger Zoustëmmung erhëls du weiderhin Informatiounen iwwert Déngschter vun dëser Plattform. Sollten mir, am Géigenzuch, keng Zoustëmmung vun dir erhalen, wäerten mir dir och keng Noriichten méi schécken. Och am Fall vun enger Zoustëmmung, kanns du zu all Moment dës Optioun ofzewielen.
         button: Ja, ich möchte weiterhin relevante Informationen erhalten
@@ -854,23 +691,17 @@ lb:
           proposals_explanation: Maach Virschléi, ënnerstëtz Virschléi an fërder Verännerungen déi dir wichteg sinn.
         footer_sub_hero:
           footer_sub_hero_headline: Wëllkomm %{organization} op der Participatiouns-Plattform.
-          register: Registréieren
         hero:
           participate: Matmaachen
           welcome: Wëllkomm %{organization}!
-        statistics:
-          headline: Aktuellen Stand vun %{organization}
-        sub_hero:
-          register: Registréieren
       index:
         standalone_pages: Säiten
         subheading: Duerch d'Hëllefs-Säiten vun %{name} navigéieren
         title: Hëllef
         topics: Themen
-      participatory_space:
-        metrics:
-          headline: Statistiken
-          link: All Statistiken uweisen
+    participatory_space_members:
+      index:
+        members: Memberen
     profile:
       deleted: Teilnehmer geläscht
     profiles:
@@ -880,30 +711,13 @@ lb:
         conversations: Konversatiounen
         followers: Unhänger
         following: Geet no
-        groups: Gruppen
-        members: Memberen
         officialized: Offiziellen Teilnehmer
         send_private_message: Privat Noriicht schécken
-      sidebar:
-        badges:
-          info: Ofzeechen kann een sech verdéngen, andeems een bestëmmten Aktivitéiten op der Plattform duerchféiert.
-          title: Ofzeechen
       user:
-        create_user_group: Grupp erstellen
-        edit_profile: Profil beaarbechten
-        edit_user_group: Profil vum Grupp beaarbechten
-        invite_user: En Teilnehmer alueden
-        join_user_group: Ufro engem Grupp bäitrieden ze dierfen
-        leave_user_group: Grupp verloossen
-        manage_user_group_admins: Administrateuren verwalten
-        manage_user_group_users: Memberen verwalten
-        resend_email_confirmation_instructions: Den Email mat der Confirmatioun vun den Instruktiounen op en Neits schécken
+        actions:
+          edit_profile: Profil beaarbechten
+          resend_email_confirmation_instructions: Den Email mat der Confirmatioun vun den Instruktiounen op en Neits schécken
     reported_mailer:
-      hide:
-        hello: Moien %{name}
-        manage_moderations: Moderatiounen verwalten
-        report_html: <p>Den folgenden Inhalt <a href="%{url}">Inhalt</a> gouf automatesch ausgeblent.</p>
-        subject: Eng Ressource gouf automatesch ausgeblent
       report:
         authors: Auteuren
         content: Inhalt gouf gemellt
@@ -920,24 +734,11 @@ lb:
     reports:
       create:
         success: De Bericht gouf erstallt a gëtt vun engem Admin iwwerpréift.
-    resource_endorsements:
-      create:
-        error: Bei der Fërderung ass e Problem opgetaucht.
     scopes:
       global: Global Themeberäicher
-      picker:
-        cancel: Ofbriechen
-        change: Ausgewielten Themeberäich änneren
-        choose: Wiel
-        currently_selected: Aktuell ausgewielten Themeberäich
-        title: Wiel %{field}
       prompt: Wiel en Themeberäich
-      scopes: Themeberäicher
-      scopes_picker_input:
-        select_scope: 'Wiel en Themeberäich (aktuell: %{current})'
     search:
       results: Resultater vun der Sich
-      results_found_for_term: '%{count} Resultater vun der Sich: "%{term}"'
       term_input_placeholder: Sich
     searches:
       filters:
@@ -962,9 +763,6 @@ lb:
         close_modal: Modal zou maachen
         ok: Ok
         title: Bestätegen
-      extended_navigation_bar:
-        more: Méi
-        unfold: Opklappen
       filter_form_help:
         help: D'Formular ënnen filtert d'Resultater vun der Sich dynamesch, wann Konditiounen fir d' Sich änneren.
         skip: Weider bis bei d'Resultater
@@ -979,25 +777,15 @@ lb:
         title: Inhalt mellen den net zoulässeg ass
       flag_user_modal:
         already_reported: Dësen Inhalt gouf scho gemellt an gëtt duerch en Admin nogekuckt.
-        close: Zoumaachen
-        description: Wat huet dësen Benotzer gemaach, wat net zoulässeg ass?
         offensive: Enthält Rassismus, Sexismus, Verleumdung, perséinlechen Ugrëff, Doudesdreeung, Opfuerderung zu Selbstmord oder aner Formen vun Haassrieden.
         report: Bericht
         spam: Enthält Klickbait, Reklamm, Bedruch oder Script-Bots.
-        title: Notzer mellen den net zoulässeg ass
       floating_help:
         help: Hëllef
-      participatory_space_filters:
-        filters:
-          areas: Beräicher
-          select_an_area: Wiel e Beräich
       public_participation:
         public_participation: Uweisen, dass ech ageloggt sinn
       reference:
         reference: 'Referenz: %{reference}'
-      represent_user_group:
-        represent_user_group: Ech vertrieden e Grupp
-        select_user_group: Wiel e Grupp
       results_per_page:
         label: 'Ergebnisser pro Säit:'
         title: Wiel d'Unzuel vun de Resultater pro Säit
@@ -1010,41 +798,20 @@ lb:
         share_link: Link deelen
     statistics:
       comments_count: Kommentarer
-      endorsements_count: Ënnerstëtzungen
       followers_count: Follower
       headline: Statistiken
       no_stats: Et gëtt nach keng Statistiken.
       pages_count: Säiten
       participants_count: Benotzer
       users_count: Benotzer
-    tags:
-      filter_results_for_category: 'Resultater no Kategorie filteren: %{resource}'
-      filter_results_for_scope: 'Resultater no Uwendungsberäich filteren: %{resource}'
     translation_bar:
       help_text: "<strong>Warnung:</strong> Inhalt kéint automatesch iwwersetzt sinn an net 100% korrekt sinn."
       show_original: Originaltext weisen
       show_translated: Automatesch iwwersaten Text uweisen
     user_contact_disabled: Dësen Teilnehmer refuséiert direkt Noriichten.
     user_conversations:
-      create:
-        existing_error: Dës Noriicht konnt net erstallt ginn. D'Konversatioun besteet schon, probéier elo nach eng Kéier.
-        success: Konversatioun gestart!
       index:
-        conversations_info: Konversatiounen sinn privat, keen aneren kann se gesinn. Eng Konversatioun kann vun all registréierten Benotzer op der Plattform oder all Grupp ugefaange ginn.
-        no_conversations_warning: Et gëtt nach keng Konversatiounen.
         time_ago: "Virun %{time}"
-      reply:
-        placeholder: Deng Äntwert...
-        send: Senden
-      update:
-        error: Noriicht gouf net geschéckt. Probéier méi spéit nach eng Kéier
-    user_interests:
-      show:
-        my_interests: Meng Interessen
-        update_my_interests: Interessen aktualiséieren
-      update:
-        error: Et gouf e Problem beim Aktualiséieren vun den Interessen.
-        success: D'Interessen goufen aktualiséiert.
     user_report_mailer:
       notify:
         body_1: Den Benotzer %{user} gouf gemellt vun %{token}
@@ -1101,8 +868,6 @@ lb:
         submit_button: Eng Invitatioun verschécken
       no_invitations_remaining: Keng Invitatiounen iwwreg
       send_instructions: Eng Invitatiouns-Email gouf un %{email} geschéckt.
-      updated: Däin Passwuert gouf dir attribuéiert. Du bass elo registréiert.
-      updated_not_active: Däin Passwuert gouf dir attribuéiert.
     mailer:
       confirmation_instructions:
         action: Kont bestätegen
@@ -1118,10 +883,8 @@ lb:
         decline: Invitatioun refuséieren
         hello: Moien %{email},
         invited_you_as_admin: "%{invited_by} huet dech als Admin vun %{application} aglueden. Du kanns se unhuelen andeems op den Link ënnen gees."
-        invited_you_as_private_user: "%{invited_by} huet dech als privaten Teilnehmer vun %{application} agelueden. Du déi kanns iwwer den folgenden Link unhuelen."
         someone_invited_you: Et huet een dech fir d' %{application} agelueden. Du kanns dat unhuelen andeems du op op den Link ënnen gees.
         someone_invited_you_as_admin: Et huet een dech als Admin op %{application} agelueden, du kanns dat iwwer den Link ënnen unhuelen.
-        someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
         subject: Instruktiounen fir d'Invitatioun
       password_change:
         greeting: Moien %{recipient}!
@@ -1212,7 +975,6 @@ lb:
       footer:
         cc_by_license: Creative Commons Lizenz
         decidim_logo: Decidim-Logo
-        download_open_data: Open Data Dateien eroflueden
         log_in: Umelden
         made_with_open_source: Website mat <a target="_blank" href="https://github.com/decidim/decidim">fräi Software erstallt</a>.
       header:
@@ -1222,7 +984,6 @@ lb:
       impersonation_warning:
         close_session: Sëtzung zoumaachen
         description_html: Du verwalts den Benotzer <b>%{user_name}</b>.
-        expire_time_html: Deng Sëtzung wäert an <b><span class="minutes">%{minutes}</span> Minuten</b>oflafen.
       language_chooser:
         choose_language: Sprooch wielen
       notifications_dashboard:
@@ -1250,10 +1011,8 @@ lb:
         authorizations: Berechtegungen
         delete_my_account: Mäin Kont läschen
         my_data: Meng Donnéeën
-        my_interests: Meng Interessen
         notifications_settings: Astellung fir Noriichten
         title: Astellung fir Benotzer
-        user_groups: Gruppen
   locale:
     name: Lëtzebuergesch
     name_with_error: Lëtzebuergesch (Fehler!)
@@ -1263,7 +1022,6 @@ lb:
     fallback: ongülteg
     name_included_in_password: ze vill Ähnlechkeet mat dengem Numm
     not_enough_unique_characters: huet net genuch eemoleg Zeechen
-    password_not_allowed: ass net erlaabt
     password_too_common: ze allgemeng
     password_too_long: ze laang
     password_too_short: ze kuerz
@@ -1291,6 +1049,8 @@ lb:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Wiel
     formats:
       day_of_month: "%b%b"
       day_of_week: "%a"

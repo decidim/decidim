@@ -37,14 +37,14 @@ describe("Link", () => {
     await sleep(50);
 
     expect(editor.getHTML()).toEqual(
-      '<p>Hello, <a target="_blank" href="https://decidim.org">world</a>!</p>'
+      '<p>Hello, <a href="https://decidim.org" target="_blank">world</a>!</p>'
     );
   });
 
   it("allows editing the link through the dialog", async () => {
     editorElement.focus();
     await updateContent(editorElement,
-      '<p>Hello, <a target="_blank" href="https://decidim.org">world</a>!</p>'
+      '<p>Hello, <a href="https://decidim.org" target="_blank" >world</a>!</p>'
     );
 
     // Set the editor cursor inside the link

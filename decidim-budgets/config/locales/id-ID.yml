@@ -2,8 +2,6 @@ id:
   activemodel:
     attributes:
       project:
-        decidim_category_id: Kategori
-        decidim_scope_id: Cakupan
         description: Deskripsi
         proposal_ids: Proposal terkait
         title: Judul
@@ -14,12 +12,9 @@ id:
   decidim:
     budgets:
       actions:
-        attachment_collections: Folder
-        attachments: Lampiran
-        confirm_destroy: Anda yakin ingin menghapus proyek ini?
-        destroy: Menghapus
         edit: Edit
         import: Impor proposal ke proyek
+        new_project: Proyek baru
         preview: Pratinjau
         title: Tindakan
       admin:
@@ -28,7 +23,6 @@ id:
             name: Proyek
         projects:
           edit:
-            title: Edit proyek
             update: Memperbarui
           index:
             finished_orders: Suara jadi
@@ -36,7 +30,6 @@ id:
             title: Proyek
           new:
             create: Membuat
-            title: Proyek baru
         proposals_imports:
           new:
             create: Impor proposal ke proyek
@@ -51,6 +44,9 @@ id:
         project:
           fields:
             title: Judul
+      order:
+        status:
+          title: Pilihan Anda telah berhasil diterima
       projects:
         budget_confirm:
           cancel: Membatalkan
@@ -63,15 +59,12 @@ id:
           ok: baik
         budget_summary:
           are_you_sure: Anda yakin ingin membatalkan suara?
-          cancel_order: hapus suara Anda dan mulai lagi dari awal
           checked_out:
             title: Suara anggaran selesai
         count:
           projects_count:
             other: "%{count} proyek"
         filters:
-          category: Kategori
-          scope: Cakupan
           search: Pencarian
         show:
           budget: Anggaran

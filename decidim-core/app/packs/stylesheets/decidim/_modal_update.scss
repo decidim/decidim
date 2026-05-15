@@ -117,11 +117,7 @@
   }
 
   &__files {
-    @apply mt-1 space-y-4;
-
-    &-container {
-      @apply space-y-10 [&_label]:block [&_label]:mb-4;
-    }
+    @apply mt-2 space-y-4;
 
     /* It does not use regular class names, because it could come from javascript also. Avoid binds among css and js */
     > * {
@@ -131,9 +127,13 @@
         @apply w-full rounded bg-background flex items-center justify-center py-4 [&_img]:object-cover [&_img]:h-[200px];
       }
 
-      span {
-        @apply text-sm text-gray-2 mx-auto;
+      p {
+        @apply text-sm text-gray-2 mx-auto w-full break-all mb-2;
       }
     }
+  }
+
+  &__span {
+    @apply w-full break-all mb-2;
   }
 }

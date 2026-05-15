@@ -1,6 +1,9 @@
 es-MX:
   activemodel:
     attributes:
+      dummy:
+        image: Imagen
+      dummy_attribute: Atributo de prueba
       dummy_resource:
         created_at: Creado en
         decidim_scope_id: Ámbito
@@ -14,6 +17,7 @@ es-MX:
       dummy:
         settings:
           global:
+            clear_all: Limpiar todo
             guided: Entrada guiada
             guided_help: Texto de ayuda
             guided_readonly: Entrada deshabilitada
@@ -22,6 +26,7 @@ es-MX:
             guided_rich_readonly_html: Texto de <strong>ayuda</strong> HTML para la entrada deshabilitada
             readonly_attribute: Atributo de sólo lectura
             test: Test A
+            test_add: Añadir una prueba
             test_choices:
               a: Opción A
               b: Opción B
@@ -31,8 +36,8 @@ es-MX:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Adhesiones bloqueadas
-            endorsements_enabled: Adhesiones habilitadas
+            likes_blocked: '"Me gusta" desactivados'
+            likes_enabled: '"Me gusta" activados'
             readonly_step_attribute: Atributo de sólo lectura
             test_options:
               bar: Barra

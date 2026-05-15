@@ -56,7 +56,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("initiatives.update.error", scope: "decidim.initiatives.admin")
-              render :edit, layout: "decidim/admin/initiative"
+              render :edit, layout: "decidim/admin/initiative", status: :unprocessable_content
             end
           end
         end
@@ -134,7 +134,7 @@ module Decidim
           end
         end
 
-        # GET /admin/initiatives/export
+        # POST /admin/initiatives/export
         def export
           enforce_permission_to :export, :initiatives
 
@@ -142,12 +142,12 @@ module Decidim
             current_user,
             current_organization,
             params[:format] || default_format,
-            params[:collection_ids].presence&.map(&:to_i)
+            params[:collection_ids].presence&.split(",")&.map(&:to_i)
           )
 
           flash[:notice] = t("decidim.admin.exports.notice")
 
-          redirect_back(fallback_location: initiatives_path)
+          redirect_back_or_to(initiatives_path)
         end
 
         # GET /admin/initiatives/:id/export_votes
@@ -172,19 +172,19 @@ module Decidim
 
           @votes = current_initiative.votes
 
-          output = render_to_string(
-            pdf: "votes_#{current_initiative.id}",
-            layout: "decidim/admin/initiatives_votes",
-            template: "decidim/initiatives/admin/initiatives/export_pdf_signatures",
-            format: [:pdf]
-          )
-          output = pdf_signature_service.new(pdf: output).signed_pdf if pdf_signature_service
+          serializer = Decidim::Forms::UserResponsesSerializer
+          pdf_export = Decidim::Exporters::InitiativeVotesPDF.new(@votes, current_initiative, serializer).export
+
+          output = if pdf_signature_service
+                     pdf_signature_service.new(pdf: pdf_export.read).signed_pdf
+                   else
+                     pdf_export.read
+                   end
 
           respond_to do |format|
             format.pdf do
               send_data(output, filename: "votes_#{current_initiative.id}.pdf", type: "application/pdf")
             end
-            format.html
           end
         end
 

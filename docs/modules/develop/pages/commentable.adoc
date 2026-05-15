@@ -6,7 +6,7 @@
 
 When commenting a resource, the comments counter is increased and a notification to all the followers of the participant, the participatory space and/or the resource is sent.
 
-Participants can comment with their own identity or with the identify of the `user_groups` they belong to.
+Participants can comment with their own identity.
 
 == Data model
 
@@ -16,16 +16,14 @@ For performance, a commentable has a counter cache of comments.
 [source,ascii]
 ----
 +----------------------+
-|  Decidim::Commentable |
-|   ((Proposal,...))   |                                  +-------------+
-+----------------------+  0..N +-------------------+   +--+Decidim::User|
-|-has_many comments    |-------+Decidim::Comment   |   |  +-------------+
-|#counter cache column |       +-------------------+   |
-|-comments_counter     |       |-author: may be a  |<--+
-+----------------------+       |         user or a |   |
-                               |         user_group|   |  +------------------+
-                               +-------------------+   +--+Decidim::UserGroup|
-                                                          +------------------+
+| Decidim::Commentable |
+|   ((Proposal,...))   |
++----------------------+  0..N +-------------------+
+|-has_many comments    |-------+Decidim::Comment   |
+|#counter cache column |       +-------------------+      +-------------+
+|-comments_counter     |       |-author: a user    |<-----+Decidim::User|
++----------------------+       +-------------------+      +-------------+
+
 ----
 
 Thus, each commentable must have the comments counter cache column.

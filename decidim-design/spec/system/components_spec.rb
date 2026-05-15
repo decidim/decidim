@@ -33,15 +33,23 @@ describe "Components" do
     it_behaves_like "showing the design page", "Announcement", "secondary color"
   end
 
-  context "when on author page" do
-    it_behaves_like "showing the design page", "Author", "Hovering with the mouse"
-  end
-
   context "when on buttons page" do
     it_behaves_like "showing the design page", "Buttons", "button__xs"
   end
 
   context "when on cards page" do
+    let!(:result) { create(:result) }
+    let!(:meeting) { create(:meeting, :published) }
+    let!(:post) { create(:post, :published) }
+    let!(:project) { create(:project) }
+    let!(:debate) { create(:debate) }
+    let!(:proposal) { create(:proposal, :published) }
+    let!(:assembly) { create(:assembly, :published) }
+    let!(:conference) { create(:conference, :published) }
+    let!(:initiative) { create(:initiative) }
+    let!(:process) { create(:participatory_process, :published) }
+    let!(:process_group) { create(:participatory_process_group) }
+
     it_behaves_like "showing the design page", "Cards", "Variations"
   end
 

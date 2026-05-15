@@ -1,27 +1,67 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/taxonomizable_interface_examples"
-require "decidim/core/test/shared_examples/comments_examples"
-require "decidim/core/test/shared_examples/authorable_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module Debates
     describe DebateType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:debate, :open_ama) }
+      let(:model) { create(:debate, :ongoing_ama) }
       let(:organization) { model.organization }
 
       include_examples "taxonomizable interface"
       include_examples "authorable interface"
+      include_examples "commentable interface"
+      include_examples "timestamps interface"
+      include_examples "followable interface"
+      include_examples "referable interface"
+      include_examples "attachable interface"
+      include_examples "traceable interface"
+      include_examples "likeable interface" do
+        let(:model) { create(:debate, :ongoing_ama, :with_likes) }
+      end
+
+      shared_examples "unauthorized Debate" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Debate because you do not have permissions")
+        end
+      end
 
       describe "id" do
         let(:query) { "{ id }" }
 
         it "returns all the required fields" do
           expect(response).to include("id" => model.id.to_s)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::ResourceLocatorPresenter.new(model).url)
+        end
+      end
+
+      describe "last_comment_at" do
+        let(:model) { create(:debate, :ongoing_ama, :with_likes, last_comment_at: 1.year.ago) }
+
+        let(:query) { "{ lastCommentAt }" }
+
+        it "returns all the required fields" do
+          expect(response["lastCommentAt"]).to eq(model.last_comment_at.to_time.iso8601)
+        end
+      end
+
+      describe "last_comment_by" do
+        let(:last_comment_by) { create(:user, :confirmed, name: "User") }
+        let(:model) { create(:debate, :ongoing_ama, :with_likes, last_comment_by:) }
+        let(:query) { "{ lastCommentBy { id } }" }
+
+        it "returns all the required fields" do
+          expect(response["lastCommentBy"]).to eq({ "id" => model.last_comment_by_id.to_s })
         end
       end
 
@@ -49,6 +89,24 @@ module Decidim
         end
       end
 
+      describe "conclusions" do
+        let(:model) { create(:debate, :closed) }
+        let(:query) { '{ conclusions { translation(locale: "en")}}' }
+
+        it "returns all the required fields" do
+          expect(response["conclusions"]["translation"]).to eq(model.conclusions["en"])
+        end
+      end
+
+      describe "comments_enabled" do
+        let(:model) { create(:debate, :ongoing_ama, comments_enabled: true) }
+        let(:query) { "{ commentsEnabled }" }
+
+        it "returns all the required fields" do
+          expect(response["commentsEnabled"]).to eq(model.comments_enabled)
+        end
+      end
+
       describe "informationUpdates" do
         let(:query) { '{ informationUpdates { translation(locale: "en")}}' }
 
@@ -65,6 +123,15 @@ module Decidim
         end
       end
 
+      describe "closedAt" do
+        let(:model) { create(:debate, :closed) }
+        let(:query) { "{ closedAt }" }
+
+        it "returns the date when the debate closed" do
+          expect(response["closedAt"]).to eq(model.closed_at.to_time.iso8601)
+        end
+      end
+
       describe "endTime" do
         let(:query) { "{ endTime }" }
 
@@ -73,28 +140,49 @@ module Decidim
         end
       end
 
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
+      context "when participatory space is restricted" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :restricted, organization: current_organization) }
+        let(:current_component) { create(:debates_component, participatory_space:) }
+        let(:model) { create(:debate, :ongoing_ama, component: current_component) }
+        let(:query) { "{ id }" }
 
-        it "returns when the debate was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
+        it_behaves_like "unauthorized Debate"
+      end
+
+      context "when participatory space is transparent" do
+        let(:participatory_space) { create(:assembly, :transparent, organization: current_organization) }
+        let(:current_component) { create(:debates_component, participatory_space:) }
+        let(:model) { create(:debate, :ongoing_ama, component: current_component) }
+        let(:query) { "{ id }" }
+
+        it "returns the model" do
+          expect(response).to include("id" => model.id.to_s)
         end
       end
 
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
+      context "when participatory space is not published" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :unpublished, organization: current_organization) }
+        let(:current_component) { create(:debates_component, participatory_space:) }
+        let(:model) { create(:debate, :ongoing_ama, component: current_component) }
+        let(:query) { "{ id }" }
 
-        it "returns when the debate was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
-        end
+        it_behaves_like "unauthorized Debate"
       end
 
-      describe "reference" do
-        let(:query) { "{ reference }" }
+      context "when component is not published" do
+        let(:current_component) { create(:debates_component, :unpublished, organization: current_organization) }
+        let(:model) { create(:debate, :ongoing_ama, component: current_component) }
+        let(:query) { "{ id }" }
 
-        it "returns all the required fields" do
-          expect(response).to include("reference" => model.reference.to_s)
-        end
+        it_behaves_like "unauthorized Debate"
+      end
+
+      context "when debate is moderated" do
+        let(:model) { create(:debate, :ongoing_ama, :hidden) }
+        let(:query) { "{ id }" }
+        let(:root_value) { model.reload }
+
+        it_behaves_like "unauthorized Debate"
       end
     end
   end

@@ -10,12 +10,12 @@ module Decidim
     attribute :name, String
     attribute :icon, String
     attribute :share_uri, String
-    attribute :icon_color, String
+    attribute :type, Symbol, default: :link
     attribute :optional_params, Array
+    attribute :optional_args, Hash, default: {}
 
     validates :name, presence: true
     validates :icon, presence: true
-    validates :icon_color, presence: false
     validates :share_uri, presence: true, format: { with: /%{url}/ }
 
     # Format a given URL to be shareable
@@ -27,8 +27,10 @@ module Decidim
     # @return [String, nil] The formatted URL or nil when some or one of the
     #   required parameters is missing
     def formatted_share_uri(title, args)
+      return "#" unless link?
+
       formatted_args = escape_args(args.compact)
-      format(full_share_uri(formatted_args.keys), title: url_escape(title), **formatted_args)
+      format(share_uri, title: url_escape(title), **formatted_args)
     rescue KeyError
       # This happens when all the arguments needed for the `format()` call are
       # not provided in the `formatted_args` array. E.g. the URL of the page
@@ -47,15 +49,8 @@ module Decidim
 
     private
 
-    # Add optional parameters to a share_uri
-    # This is initially developed for Twitter, as they allow sending a Hashtag and Via as parameters
-    #
-    # @param keys [Array<Symbol>] all the parameters that this service support
-    # @return [String] the share uri with the parameters and optional parameters
-    def full_share_uri(keys)
-      return share_uri if optional_params.empty?
-
-      share_uri + (optional_params.map(&:to_sym) & keys).map { |k| "&#{k}=%{#{k}}" }.join
+    def link?
+      type == :link
     end
 
     # Escape the values of a hash so it has characters compatible with URLs

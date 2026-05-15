@@ -23,7 +23,15 @@ module Decidim
           Decidim::EngineRouter.main_proxy(current_component).join_meeting_registration_path(meeting)
         end
 
+        def edit_questions_template
+          "decidim/meetings/admin/registration_form/edit_questions"
+        end
+
         private
+
+        def i18n_questions_flashes_scope
+          "decidim.forms.admin.questionnaires"
+        end
 
         def meeting
           @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])

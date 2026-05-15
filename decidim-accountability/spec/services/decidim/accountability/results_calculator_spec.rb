@@ -8,8 +8,6 @@ module Decidim::Accountability
 
     let(:participatory_process) { create(:participatory_process, :with_steps) }
     let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
-    let(:scope) { create(:scope, organization: current_component.organization) }
-    let(:other_scope) { create(:scope, organization: current_component.organization) }
     let(:taxonomy) { create(:taxonomy, :with_parent, organization: current_component.organization) }
     let(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization: current_component.organization) }
     let(:another_taxonomy) { create(:taxonomy, :with_parent, organization: current_component.organization) }

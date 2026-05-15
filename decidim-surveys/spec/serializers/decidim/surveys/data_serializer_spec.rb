@@ -32,8 +32,8 @@ module Decidim::Surveys
 
       def questions_should_be_as_expected(questions, serializeds)
         expect(serializeds.size).to eq(3)
-        num_expected_answers_list = [0, 0, 3]
-        serializeds.zip(questions, num_expected_answers_list) do |serialized, question, num_expected_answers|
+        num_expected_responses_list = [0, 0, 3]
+        serializeds.zip(questions, num_expected_responses_list) do |serialized, question, num_expected_responses|
           expect(serialized[:id]).to eq(question.id)
           expect(serialized[:decidim_questionnaire_id]).to eq(question.decidim_questionnaire_id)
           expect(serialized[:position]).to eq(question.position)
@@ -43,13 +43,13 @@ module Decidim::Surveys
           expect(serialized[:description]).to eq(question.description)
           expect(serialized[:max_choices]).to eq(question.max_choices)
 
-          options_should_be_as_expected(question.answer_options.order(:id), serialized[:answer_options], num_expected_answers)
+          options_should_be_as_expected(question.response_options.order(:id), serialized[:response_options], num_expected_responses)
         end
       end
 
-      def options_should_be_as_expected(answer_options, serializeds, num_expected)
+      def options_should_be_as_expected(response_options, serializeds, num_expected)
         expect(serializeds.size).to eq(num_expected)
-        serializeds.zip(answer_options) do |serialized, option|
+        serializeds.zip(response_options) do |serialized, option|
           expect(serialized[:id]).to eq(option.id)
           expect(serialized[:decidim_question_id]).to eq(option.decidim_question_id)
           expect(serialized[:body]).to eq(option.body)

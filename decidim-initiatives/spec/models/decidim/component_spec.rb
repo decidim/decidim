@@ -6,13 +6,15 @@ module Decidim
   describe Component do
     subject { component }
 
-    let!(:organization) { create(:organization) }
-    let!(:participatory_space) { create(:initiative, organization:) }
     let(:component) { build(:component, manifest_name: "dummy", participatory_space:) }
+    let!(:participatory_space) { create(:initiative, organization:) }
+    let!(:organization) { create(:organization) }
 
-    describe ".private_non_transparent_space?" do
-      # since the initiatives do not respond to private_space? we are testing and make sure it does not fail
-      it { expect(subject).not_to be_private_non_transparent_space }
+    it { is_expected.to act_as_paranoid }
+
+    describe ".restricted_space?" do
+      # since the initiatives do not respond to restricted_space? we are testing and make sure it does not fail
+      it { expect(subject).not_to be_restricted_space }
     end
   end
 end

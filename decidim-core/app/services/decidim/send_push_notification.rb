@@ -10,6 +10,7 @@ module Decidim
 
   class SendPushNotification
     include ActionView::Helpers::UrlHelper
+    include PushSubscriptionEndpointValidator
 
     # Send the push notification. Returns `nil` if the user did not allowed push notifications
     # or if the subscription to push notifications does not exist
@@ -19,13 +20,17 @@ module Decidim
     #
     # @return [Array<Net::HTTPCreated>, nil] the result of the dispatch or nil if user or subscription are empty
     def perform(notification, title = nil)
-      return unless Rails.application.secrets.dig(:vapid, :enabled)
+      return if Decidim.vapid_public_key.blank?
+
       raise ArgumentError, "Need to provide a title if the notification is a PushNotificationMessage" if notification.is_a?(Decidim::PushNotificationMessage) && title.nil?
 
       user = notification.user
+      subscriptions = user.notifications_subscriptions.values.select do |subscription|
+        supported_push_subscription_endpoint?(subscription["endpoint"])
+      end
 
       I18n.with_locale(user.locale || user.organization.default_locale) do
-        user.notifications_subscriptions.values.map do |subscription|
+        subscriptions.map do |subscription|
           payload = build_payload(message_params(notification, title), subscription)
           # Capture webpush exceptions in order to avoid this call to be repeated by the background job runner
           # Webpush::Error class is the parent class of all defined errors
@@ -66,8 +71,8 @@ module Decidim
         p256dh: subscription["p256dh"],
         auth: subscription["auth"],
         vapid: {
-          public_key: Rails.application.secrets.vapid[:public_key],
-          private_key: Rails.application.secrets.vapid[:private_key]
+          public_key: Decidim.vapid_public_key,
+          private_key: Decidim.vapid_private_key
         }
       }
     end

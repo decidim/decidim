@@ -33,11 +33,8 @@ he:
       help_section:
         content: תוכן
       id: מספר מזהה
-      import:
-        user_group_id: יצירת ייבוא כ
       newsletter:
         body: גוף
-        send_to_all_users: שליחה לכל המשתמשים.ות
         send_to_followers: שליחה לכל העוקבים.ות
         send_to_participants: שליחה למשתתפים.ות
         subject: נושא
@@ -47,3 +44,8 @@ he:
         available_authorizations: הרשאות זמינות
         badges_enabled: אפשר תגיות
         comments_max_length: אורך מקסימלי לתגובות (השאירו 0 לערך ברירת המחדל)
+  decidim:
+    admin:
+      newsletters:
+        select_recipients_to_deliver:
+          send_to_all_users: שליחה לכל המשתמשים.ות

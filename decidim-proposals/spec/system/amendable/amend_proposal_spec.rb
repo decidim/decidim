@@ -11,6 +11,7 @@ describe "Amend Proposal", versioning: true do
   let(:proposal_title) { translated(proposal.title) }
   let(:emendation_title) { translated(emendation.title) }
   let(:emendation_body) { translated(emendation.body) }
+  let(:user) { proposal.creator_author }
 
   let(:active_step_id) { participatory_space.active_step.id }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
@@ -153,8 +154,8 @@ describe "Amend Proposal", versioning: true do
         component.update!(step_settings: { active_step_id => { amendment_creation_enabled: true } })
       end
 
-      context "and visits an amendable proposal from a private yet transparent space" do
-        let!(:participatory_space) { create(:assembly, :private, :transparent) }
+      context "and visits an amendable proposal from a transparent space" do
+        let!(:participatory_space) { create(:assembly, :transparent) }
         let(:active_step_id) { "default_step" }
 
         before do
@@ -166,7 +167,7 @@ describe "Amend Proposal", versioning: true do
           expect(page).to have_no_css("#amend-button")
         end
 
-        context "when a private user is logged in" do
+        context "when a member is logged in" do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           before do
@@ -204,10 +205,12 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user is logged in and clicks" do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
-          let!(:user_group) { create(:user_group, :verified, organization: user.organization, users: [user]) }
 
           before do
+            expect(page).to have_content("Log in")
+            switch_to_host(component.organization.host)
             login_as user, scope: :user
+            sleep 1
             visit proposal_path
             expect(page).to have_content(proposal_title)
             find("#dropdown-trigger-resource-#{proposal.id}").click
@@ -215,12 +218,11 @@ describe "Amend Proposal", versioning: true do
           end
 
           it "is shown the amendment create form" do
+            expect(page).to have_no_css("#loginModal", visible: :visible), "Login modal was shown instead of amendment form"
             expect(page).to have_content("Create your amendment")
-
             within ".new_amendment" do
               expect(page).to have_content("Title")
               expect(page).to have_content("Body")
-              expect(page).to have_content("Amendment author")
               expect(page).to have_button("Create")
             end
           end
@@ -235,7 +237,6 @@ describe "Amend Proposal", versioning: true do
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "More sidewalks and less roads"
                 fill_in "amendment[emendation_params][body]", with: "Cities need more people, not more cars"
-                select user_group.name, from: :amendment_user_group_id # Optional
               end
               click_on "Create"
             end

@@ -64,7 +64,6 @@ module Decidim
             type_id: scoped_type.type.id,
             signature_type: "online",
             scope_id: scoped_type.scope.id,
-            decidim_user_group_id: nil,
             area_id: area.id
           }
         end

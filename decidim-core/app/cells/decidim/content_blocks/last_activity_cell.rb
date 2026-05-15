@@ -49,7 +49,7 @@ module Decidim
       def cache_hash
         hash = []
         hash << "decidim/content_blocks/last_activity"
-        hash << Digest::MD5.hexdigest(valid_activities.map(&:cache_key_with_version).to_s)
+        hash << Digest::SHA256.hexdigest(valid_activities.map(&:cache_key_with_version).to_s)
         hash << I18n.locale.to_s
 
         hash.join(Decidim.cache_key_separator)

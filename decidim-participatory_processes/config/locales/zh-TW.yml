@@ -4,16 +4,12 @@ zh-TW:
       participatory_process:
         announcement: 公告
         area_id: 區域
-        copy_categories: 複製類別
-        copy_components: 複製組件
-        copy_steps: 複製步驟
         decidim_area_id: 區域
         description: 說明
         developer_group: 促銷團隊
         document: 文件
         domain: 網域
         end_date: 結束日期
-        hashtag: 主題標籤
         hero_image: 首頁圖片
         import_attachments: 匯入附件
         import_categories: 匯入類別
@@ -22,16 +18,11 @@ zh-TW:
         local_area: 組織區域
         meta_scope: 元數據範圍
         participatory_process_group_id: 程序群組
-        participatory_process_type_id: 處理類型
         participatory_scope: 決定了什麼
         participatory_structure: 如何決定
-        private_space: 私有程序
         promoted: 推廣
         published_at: 發佈於
         related_process_ids: 相關程序
-        scope_id: 範圍
-        scope_type_max_depth_id: 範圍篩選深度
-        scopes_enabled: 啟用範圍
         short_description: 簡短說明
         slug: URL網址
         start_date: 開始日期
@@ -43,7 +34,6 @@ zh-TW:
         description: 說明
         developer_group: 促銷團隊
         group_url: 網站
-        hashtag: 主題標籤
         hero_image: 圖片
         local_area: 組織區域
         meta_scope: 元數據範圍
@@ -59,8 +49,6 @@ zh-TW:
         end_date: 結束日期
         short_description: 簡短說明
         start_date: 開始日期
-        title: 標題
-      participatory_process_type:
         title: 標題
       participatory_process_user_role:
         email: 電子郵件
@@ -87,17 +75,14 @@ zh-TW:
     admin:
       actions:
         activate: 啟動
-        configure: 配置
         confirm_destroy: 確認刪除
         destroy: 刪除
         duplicate: 重複
         edit: 編輯
         import_process: 匯入
-        moderate: 管理
         new_process: 新的程序
         new_process_group: 新的程序群組
         new_process_step: 新階段
-        new_process_type: 新的處理類型
         new_process_user_role: 新程序管理員
         preview: 預覽
         publish: 發布
@@ -105,26 +90,19 @@ zh-TW:
         unpublish: 取消發佈
       menu:
         participatory_process_groups: 程序群組
-        participatory_process_groups_submenu:
-          info: 資訊
-          landing_page: 登陸頁面
-        participatory_process_types: 處理類型
         participatory_processes: 程序
         participatory_processes_submenu:
           attachment_collections: 資料夾
           attachment_files: 檔案
           attachments: 附件
-          categories: 類別
           components: 组件
           moderations: 版主
-          private_users: 私人參與者
           process_admins: 程序管理員
           steps: 分類
       models:
         participatory_process:
           fields:
             created_at: 建立於
-            private: 隱私模式
             published: 已發佈
             title: 標題
           name: 參與程序
@@ -138,11 +116,6 @@ zh-TW:
             start_date: 開始日期
             title: 標題
           name: 參與式過程階段
-        participatory_process_type:
-          fields:
-            created_at: 建立於
-            title: 標題
-          name: 處理類型
         participatory_process_user_role:
           fields:
             email: 電子郵件
@@ -153,25 +126,17 @@ zh-TW:
             admin: 管理員
             collaborator: 合作者
             moderator: 版主
-            valuator: 評估者
         user:
           fields:
             invitation_accepted_at: 邀請已接受時間
             invitation_sent_at: 邀請已發送時間
-      participatory_process_copies:
-        new:
-          copy: 複製
-          select: 請選擇您想要複製的資料
-          title: 重複的參與性流程
       participatory_process_groups:
         destroy:
           success: 參與式流程組成功刪除。
         edit:
-          title: 編輯程序群組
           update: 更新
         new:
           create: 建立
-          title: 新的程序群組
         update:
           error: 更新參與程序群組時出現問題。
           success: 參與程序群組已成功更新。
@@ -182,7 +147,6 @@ zh-TW:
         new:
           import: 匯入
           select: 請選擇您想匯入的資料
-          title: 匯入參與流程
       participatory_process_publications:
         create:
           error: 發佈參與流程時出現問題。
@@ -205,33 +169,13 @@ zh-TW:
             last_step: 無法刪除流程的最後一階段。
           success: 參與程序階段成功刪除。
         edit:
-          title: 編輯參與式過程階段
           update: 更新
-        index:
-          steps_title: 階段
         new:
           create: 建立
-          title: 新的參與式過程階段
         ordering:
           error: 重新排列這個參與程序階段時出現問題。
         update:
           error: 更新參與程序階段時出現問題。
-          success: 參與式階段成功更新。
-      participatory_process_types:
-        create:
-          error: 新增程序類型時發生錯誤
-          success: 程序類型已成功創建
-        destroy:
-          success: 程序類型已成功刪除。
-        edit:
-          title: 編輯程序類型
-          update: 更新
-        new:
-          create: 建立
-          title: 新的處理類型
-        update:
-          error: 更新這個程序類型時發生錯誤
-          success: 程序類型成功更新。
       participatory_process_user_roles:
         create:
           error: 新增參與者至此參與式過程時發生問題。
@@ -239,13 +183,9 @@ zh-TW:
         destroy:
           success: 管理員已成功從此參與過程中移除。
         edit:
-          title: 更新參與程序管理員
           update: 更新
-        index:
-          process_admins_title: 參與程序管理員
         new:
           create: 建立
-          title: 新的參與程序管理員
         update:
           error: 更新參與程序管理員時出現問題。
           success: 管理員已成功更新此參與過程。
@@ -256,27 +196,16 @@ zh-TW:
         edit:
           update: 更新
         index:
-          private: 隱私模式
-          public: 公開
           published: 已發佈
         new:
           create: 建立
-          title: 新的參與程序
         update:
           error: 更新此參與程序時出現問題。
           success: 參與程序已成功更新。
-      participatory_processes_copies:
-        create:
-          error: 複製參與流程時發生問題。
-          success: 成功複製參與過程。
       participatory_processes_group:
         create:
           error: 創建新參與程序群組時出現問題。
           success: 成功創建參與過程群組。
-      titles:
-        participatory_process_groups: 參與式流程群組
-        participatory_process_types: 參與式流程類型
-        participatory_processes: 參與程序
       users:
         resend_invitation:
           error: 重新發送邀請時發生問題。
@@ -298,10 +227,6 @@ zh-TW:
         create: "%{user_name} 在 %{space_name} 參與式流程中創建了 %{resource_name} 階段"
         delete: "%{user_name} 刪除了 %{space_name} 參與式流程中的 %{resource_name} 階段"
         update: "%{user_name} 更新了 %{space_name} 參與式流程中的 %{resource_name} 階段"
-      participatory_process_type:
-        create: "%{user_name} 創建了 %{resource_name} 參與性流程類型"
-        delete: "%{user_name} 刪除了 %{resource_name} 參與性流程類型"
-        update: "%{user_name} 更新了 %{resource_name} 參與式流程類型"
       participatory_process_user_role:
         create: "%{user_name} 邀請了參與者 %{resource_name} 加入 %{space_name} 參與式流程"
         delete: "%{user_name} 將參與者 %{resource_name} 從 %{space_name} 參與式流程中移除"
@@ -329,17 +254,8 @@ zh-TW:
           contextual: "<p>一個<strong>參與式過程</strong>是一系列參與性活動的序列（例如，先填寫調查問卷，然後提出建議，在面對面或虛擬會議中進行討論，最終進行優先排序），旨在定義和就特定主題做出決定。</p> <p>參與式過程的例子包括：選舉委員會成員的過程（候選人首先進行介紹，然後進行辯論，最後選擇一個候選人），參與式預算（提出建議，經濟評估，使用可用的資金進行投票），戰略規劃過程，共同起草法規或標準，城市空間設計或公共政策計畫的製定。</p>\n"
           page: "<p>一個<strong>參與性流程是一系列的參與性活動，(例如先填寫調查，然後提出建議，在面對面或虛擬會議中討論這些建議，最後進行優先排序)，以便針對特定主題進行定義和決策。</p> <p>參與性流程的例子包括：選舉委員會成員的程序（首先提出候選人，然後進行辯論，最後選出候選人），參與式預算（提出建議，經濟評估，用可用的資金進行投票），戰略規劃流程，協作制定規則或標準，城市空間的設計或公共政策計劃的制定。</p>\n"
           title: 什麼是參與式過程？
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: '未在資料庫(ID：%{id}) 中找到此流程類型'
     menu:
       processes: 程序
-    metrics:
-      participatory_processes:
-        description: 此組織中的參與式過程數量
-        object: 參與程序
-        title: 參與程序
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -376,21 +292,12 @@ zh-TW:
         participatory_process_imports:
           form:
             document_legend: 添加文檔
-        participatory_process_steps:
-          form:
-            cta_text_help: 如果未設置，按鈕將不會顯示。
         participatory_processes:
           form:
-            announcement_help: 您在此處輸入的文字將顯示至使用者的正下方程序信息
             duration: 持續時間
-            filters: 過濾器
             images: 圖片
             metadata: 元數據
-            other: 其他
             related_processes: 相關程序
-            scope_type_max_depth_help: 限制範圍過濾器深度；過濾器將會從一般範圍到所選範圍層級進行顯示。
-            select_an_area: 選擇一個地區
-            select_participatory_process_type: 選擇一個程序類型
             select_process_group: 選擇一個程序群組
             title: 基本資訊
       content_blocks:
@@ -398,9 +305,6 @@ zh-TW:
           name: 精選程序
       index:
         title: 參與程序
-      participatory_process_steps:
-        index:
-          back_to_process: 返回程序頁
       participatory_processes:
         filters:
           all_types: 所有類型
@@ -428,7 +332,6 @@ zh-TW:
           title: 關於此流程
       show:
         belongs_to_group: 此程序屬於
-        private_space: 這是不公開程序。
         related_processes: 相關程序
     statistics:
       processes_count: 程序

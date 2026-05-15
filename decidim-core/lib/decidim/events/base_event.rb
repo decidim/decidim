@@ -134,6 +134,10 @@ module Decidim
         resource.respond_to?(:hidden?) && resource.hidden?
       end
 
+      def deleted_resource?
+        resource.respond_to?(:deleted?) && resource.deleted?
+      end
+
       private
 
       def component

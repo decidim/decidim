@@ -14,15 +14,11 @@ module Decidim
           body: resource.body.values.first,
           locale: resource.body.keys.first,
           author: {
-            id: resource.author.id,
-            name: resource.author.name
+            id: resource.author.try(:id),
+            name: resource.author.try(:name)
           },
           alignment: resource.alignment,
           depth: resource.depth,
-          user_group: {
-            id: resource.user_group.try(:id),
-            name: resource.user_group.try(:name) || empty_translatable
-          },
           commentable_id: resource.decidim_commentable_id,
           commentable_type: resource.decidim_commentable_type,
           root_commentable_url:

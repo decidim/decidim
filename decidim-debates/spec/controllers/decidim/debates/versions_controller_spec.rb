@@ -5,8 +5,6 @@ require "spec_helper"
 module Decidim
   module Debates
     describe VersionsController, versioning: true do
-      routes { Decidim::Debates::Engine.routes }
-
       let(:resource) { create(:debate) }
 
       it_behaves_like "versions controller"

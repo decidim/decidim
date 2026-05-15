@@ -9,12 +9,12 @@ shared_context "with proposal and users allowed to create proposal notes" do
   let(:current_user) { create(:user, :admin, organization:) }
   let!(:another_admin) { create(:user, :admin, organization:) }
 
-  let!(:valuator) { create(:user, organization:) }
-  let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: participatory_space) }
-  let!(:valuation_assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
+  let!(:evaluator) { create(:user, organization:) }
+  let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user: evaluator, participatory_process: participatory_space) }
+  let!(:evaluation_assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
 
-  let!(:other_valuation_assignment) { create(:valuation_assignment) }
-  let!(:other_proposal_valuator) { other_valuation_assignment.valuator }
+  let!(:other_evaluation_assignment) { create(:evaluation_assignment) }
+  let!(:other_proposal_evaluator) { other_evaluation_assignment.evaluator }
 
   let!(:participatory_space_admin) { create(:user, organization:) }
   let!(:participatory_space_admin_role) { create(:participatory_process_user_role, role: :admin, user: participatory_space_admin, participatory_process: participatory_space) }

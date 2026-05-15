@@ -118,10 +118,10 @@ module Decidim
           end
 
           context "and the variant has been processed" do
-            before { subject.variant(:testing).process }
+            before { subject.variant(:testing).processed }
 
             it "returns a URL to the variant with the correct extension" do
-              expect(subject.variant_url(:testing)).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
+              expect(subject.variant_url(:testing)).to match(%r{^http://#{Regexp.escape(hostname)}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
             end
           end
         end
@@ -195,8 +195,8 @@ module Decidim
         before do
           allow(Rails.env).to receive(:development?).and_return(false)
           allow(Rails.env).to receive(:test?).and_return(false)
-          allow(Rails.application.secrets).to receive(:dig).and_call_original
-          allow(Rails.application.secrets).to receive(:dig).with(:storage, :cdn_host).and_return(cdn_host)
+
+          allow(Decidim).to receive(:storage_cdn_host).and_return(cdn_host)
         end
 
         it "returns a URL containing the CDN configurations" do

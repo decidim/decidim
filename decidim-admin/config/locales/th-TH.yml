@@ -40,15 +40,11 @@ th:
         time_zone: เขตเวลา
         tos_version: เงื่อนไขการให้บริการเวอร์ชัน
         twitter_handler: ตัวจัดการเอ็กซ์
-        user_groups_enabled: เปิดใช้งานกลุ่ม
         users_registration_mode: โหมดการลงทะเบียนผู้ใช้
         warning_color: คำเตือน
         welcome_notification_body: ยินดีต้อนรับเนื้อหาการแจ้งเตือน
         welcome_notification_subject: ยินดีต้อนรับเรื่องการแจ้งเตือน
         youtube_handler: ตัวจัดการ YouTube
-      participatory_space_private_user:
-        email: อีเมล
-        name: ชื่อ
       scope:
         code: รหัส
         name: ชื่อ

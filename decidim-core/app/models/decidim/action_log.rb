@@ -5,15 +5,14 @@ module Decidim
   # for transparency reasons, to log all actions so all other users can
   # see the actions being performed.
   class ActionLog < ApplicationRecord
+    include Decidim::Taxonomizable
     include Decidim::ScopableParticipatorySpace
 
     belongs_to :organization,
                foreign_key: :decidim_organization_id,
                class_name: "Decidim::Organization"
 
-    belongs_to :user,
-               foreign_key: :decidim_user_id,
-               class_name: "Decidim::User"
+    belongs_to :user, class_name: "Decidim::UserBaseEntity"
 
     belongs_to :component,
                foreign_key: :decidim_component_id,
@@ -156,15 +155,7 @@ module Decidim
 
     def self.publicable_public_resource_types
       @publicable_public_resource_types ||= public_resource_types
-                                            .select { |klass| klass.constantize.column_names.include?("published_at") } - publicable_exceptions
-    end
-
-    def self.publicable_exceptions
-      @publicable_exceptions = %w(
-        Decidim::Blogs::Post
-      ).select do |klass|
-        klass.safe_constantize.present?
-      end
+                                            .select { |klass| klass.constantize.column_names.include?("published_at") }
     end
 
     def self.ransackable_scopes(auth_object = nil)
@@ -207,7 +198,7 @@ module Decidim
     # Lazy loads the `user` association through BatchLoader, can be used
     # as a regular object.
     def user_lazy(cache: true)
-      self.class.lazy_relation(decidim_user_id, "Decidim::User", cache)
+      self.class.lazy_relation(user_id, user_type, cache)
     end
 
     # Lazy loads the `participatory_space` association through BatchLoader, can be used
@@ -254,7 +245,7 @@ module Decidim
                 elsif klass.reflect_on_association(:organization)
                   scope.where(id: relation_ids).includes(:organization)
                 elsif klass_name == "Decidim::Comments::Comment"
-                  scope.where(id: relation_ids).includes([:moderation, :root_commentable, :user_group])
+                  scope.where(id: relation_ids).includes([:moderation, :root_commentable])
                 else
                   scope
                 end
@@ -271,7 +262,7 @@ module Decidim
         participatory_space_lazy.present? &&
         !resource_lazy.try(:deleted?) &&
         !resource_lazy.try(:hidden?) &&
-        (participatory_space_lazy.try(:is_transparent?) || !resource_lazy.respond_to?(:can_participate?) || resource_lazy.try(:can_participate?, user))
+        (participatory_space_lazy.try(:transparent?) || !resource_lazy.respond_to?(:can_participate?) || resource_lazy.try(:can_participate?, user))
     rescue NameError => e
       Rails.logger.warn "Failed resource for #{self.class.name}(id=#{id}): #{e.message}"
 

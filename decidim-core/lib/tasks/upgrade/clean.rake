@@ -10,13 +10,15 @@ namespace :decidim do
         :"decidim:upgrade:clean:follows",
         :"decidim:upgrade:clean:categories",
         :"decidim:upgrade:clean:action_logs",
-        :"decidim:upgrade:clean:clean_deleted_users"
+        :"decidim:upgrade:clean:clean_deleted_users",
+        :"decidim:upgrade:clean:fix_blocked_user_notification",
+        :"decidim:upgrade:clean:invalid_private_exports"
       ]
 
       desc "Remove data from deleted users"
       task clean_deleted_users: :environment do
         logger.info("=== Removing extra data from deleted users")
-        Decidim::User.where.not(deleted_at: nil).update_all(personal_url: "", about: "") # rubocop:disable Rails/SkipsModelValidations
+        Decidim::User.where.not(deleted_at: nil).update_all(personal_url: "", about: "", notifications_sending_frequency: "none") # rubocop:disable Rails/SkipsModelValidations
       end
 
       desc "Removes any action logs belonging to invalid resources"
@@ -124,6 +126,37 @@ namespace :decidim do
           invalid += 1
         end
         logger.info("===== Deleted #{invalid} invalid resources")
+      end
+
+      desc "Update all blocked users notifications_sending_frequency setting"
+      task fix_blocked_user_notification: :environment do
+        logger.info("=== Updating all blocked users notifications_sending_frequency ...")
+        blocked_users = 0
+        Decidim::User.blocked.where.not(notifications_sending_frequency: :none).find_each do |blocked_user|
+          unless blocked_user.notifications_sending_frequency == "none"
+            blocked_user.update(notifications_sending_frequency: "none")
+            blocked_users += 1
+          end
+        end
+        logger.info("===== Updated #{blocked_users} blocked users")
+      end
+
+      desc "Removes all the invalid records from private downloads"
+      task invalid_private_exports: :environment do
+        invalid_private_exports = Decidim::PrivateExport.where("export_type ~ '^survey_user_responses_[0-9a-f]{64}$'")
+        logger.info("=== Removing #{invalid_private_exports.length} private exports")
+        invalid_private_exports.delete_all
+      end
+
+      desc "Remove invalid exports from ActiveStorage"
+      task remove_private_exports_attachments: :environment do
+        invalid = ActiveStorage::Attachment.where(record_type: "Decidim::PrivateExport", record_id: 0)
+        logger.info("=== Removing #{invalid.length} invalid PrivateExports attachments")
+        invalid.each(&:purge_later)
+
+        expired = Decidim::PrivateExport.where(expires_at: ..Time.zone.now).collect(&:file).compact_blank
+        logger.info("=== Removing #{expired.length} expired attachments from PrivateExports")
+        expired.each(&:purge_later) if expired.any?
       end
 
       def logger

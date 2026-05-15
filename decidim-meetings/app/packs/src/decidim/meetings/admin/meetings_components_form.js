@@ -1,5 +1,4 @@
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
-import createTooltip from "src/decidim/tooltips"
 
 /**
  * This module manages the Linked Spaces section from the
@@ -34,15 +33,11 @@ const handleAddButton = () => {
 
   title.textContent = componentTitle;
   id.value = componentId;
-  handleRemoveButton(button);
+  if (button) {
+    handleRemoveButton(button);
+  }
 
   body.appendChild(clone);
-
-  const tooltips = body.querySelectorAll("[data-tooltip]")
-
-  if (tooltips.length) {
-    createTooltip(tooltips[tooltips.length - 1]);
-  }
 
   select.value = "";
   table.classList.remove("hidden");
@@ -57,12 +52,19 @@ const setupTomSelect = () => {
     plugins: ["dropdown_input"]
   };
 
-  return new TomSelect(componentsSelect, config);
+  if (componentsSelect) {
+    return new TomSelect(componentsSelect, config);
+  }
+  return null;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   document.querySelectorAll(".js-remove-component").forEach(handleRemoveButton);
-  document.querySelector(".js-add-component").addEventListener("click", handleAddButton);
+  const addButton = document.querySelector(".js-add-component")
+
+  if (addButton) {
+    addButton.addEventListener("click", handleAddButton);
+  }
 
   setupTomSelect();
 });

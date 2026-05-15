@@ -8,7 +8,7 @@ import Text from "@tiptap/extension-text";
 
 import { updateContent } from "src/decidim/editor/test/helpers";
 
-import Heading from "src/decidim/editor/extensions/heading";
+import Heading from "@tiptap/extension-heading";
 
 const createBasicEditor = () => {
   const element = document.createElement("div");

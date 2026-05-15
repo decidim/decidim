@@ -33,20 +33,19 @@ module Decidim
         user_can_read_current_assembly?
         user_can_create_assembly?
         user_can_export_assembly?
-        user_can_copy_assembly?
+        user_can_duplicate_assembly?
+        user_can_upload_images_in_assembly?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
-        assembly_filters_action?
-        assemblies_type_action?
 
         return permission_action unless assembly
 
-        user_can_read_private_users?
+        user_can_read_members?
 
         moderator_action?
         collaborator_action?
-        valuator_action?
+        evaluator_action?
         assembly_admin_action?
 
         permission_action
@@ -54,32 +53,11 @@ module Decidim
 
       private
 
-      def user_can_read_private_users?
-        return unless permission_action.subject == :space_private_user
-        return unless assembly.private_space?
+      def user_can_read_members?
+        return unless permission_action.subject == :space_member
+        return unless assembly.has_members?
 
         toggle_allow(user.admin? || can_manage_assembly?(role: :admin) || can_manage_assembly?(role: :collaborator))
-      end
-
-      def assembly_filters_action?
-        return unless permission_action.subject == :taxonomy_filter
-
-        toggle_allow(user.admin?)
-      end
-
-      def assemblies_type_action?
-        return unless [:assembly_type, :assemblies_type].include? permission_action.subject
-        return disallow! unless user.admin?
-
-        assembly_type = context.fetch(:assembly_type, nil)
-        case permission_action.action
-        when :destroy
-          assemblies_is_empty = assembly_type && assembly_type.assemblies.empty?
-
-          toggle_allow(assemblies_is_empty)
-        else
-          allow!
-        end
       end
 
       # It is an admin user if it is an organization admin or is a space admin
@@ -130,7 +108,7 @@ module Decidim
                       [:assembly, :participatory_space].include?(permission_action.subject) &&
                       assembly
 
-        return disallow! unless can_view_private_space?
+        return disallow! unless can_view_restricted_space?
         return allow! if user&.admin?
         return allow! if assembly.published?
         return allow! if user_can_preview_space?
@@ -138,11 +116,11 @@ module Decidim
         toggle_allow(can_manage_assembly?)
       end
 
-      def can_view_private_space?
-        return true unless assembly.private_space && !assembly.is_transparent?
+      def can_view_restricted_space?
+        return true unless assembly.restricted?
         return false unless user
 
-        user.admin || assembly.users.include?(user)
+        user.admin? || assembly.users.include?(user)
       end
 
       def public_list_members_action?
@@ -194,8 +172,8 @@ module Decidim
         toggle_allow(user.admin? || admin_assembly?)
       end
 
-      def user_can_copy_assembly?
-        return unless permission_action.action == :copy &&
+      def user_can_duplicate_assembly?
+        return unless permission_action.action == :duplicate &&
                       permission_action.subject == :assembly
 
         toggle_allow(user.admin? || admin_assembly?)
@@ -244,14 +222,14 @@ module Decidim
       # Collaborators can read/preview everything inside their assembly.
       def collaborator_action?
         return unless can_manage_assembly?(role: :collaborator)
-        return if permission_action.subject == :space_private_user
+        return if permission_action.subject == :space_member
 
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
 
-      # Valuators can only read the assembly components
-      def valuator_action?
-        return unless can_manage_assembly?(role: :valuator)
+      # Evaluators can only read the assembly components
+      def evaluator_action?
+        return unless can_manage_assembly?(role: :evaluator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component
         allow! if permission_action.action == :export && permission_action.subject == :component_data
@@ -266,15 +244,13 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,
           :assembly,
           :assembly_user_role,
-          :assembly_member,
           :export_space,
-          :share_tokens,
+          :share_token,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -286,15 +262,13 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,
           :assembly,
           :assembly_user_role,
-          :assembly_member,
           :export_space,
-          :share_tokens,
+          :share_token,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -329,6 +303,11 @@ module Decidim
 
           Decidim::Assembly.where(id: assemblies + child_assemblies)
         end
+      end
+
+      # Checks if the assigned admins can upload images on the editor
+      def user_can_upload_images_in_assembly?
+        allow! if user&.admin_terms_accepted? && user_has_any_role?(user, assembly, broad_check: true) && (permission_action.subject == :editor_image)
       end
     end
   end

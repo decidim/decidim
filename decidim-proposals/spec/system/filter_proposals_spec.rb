@@ -8,7 +8,7 @@ describe "Filter Proposals", :slow do
 
   let(:root_taxonomy) { create(:taxonomy, organization:) }
   let!(:taxonomy) { create(:taxonomy, skip_injection: true, parent: root_taxonomy, organization:) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, space_manifest: component.participatory_space.manifest.name) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [component.participatory_space.manifest.name]) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_item: taxonomy, taxonomy_filter:) }
   let!(:user) { create(:user, :confirmed, organization:) }
 
@@ -113,6 +113,30 @@ describe "Filter Proposals", :slow do
     end
   end
 
+  it "collapses the accordions on click" do
+    visit_component
+
+    within ".layout-2col__aside" do
+      expect(page).to have_content "Not answered"
+      expect(page).to have_content "Official"
+    end
+
+    click_on "Status"
+    click_on "Origin"
+
+    within ".layout-2col__aside" do
+      expect(page).to have_no_content "Not answered"
+      expect(page).to have_no_content "Official"
+    end
+
+    click_on "Origin"
+
+    within ".layout-2col__aside" do
+      expect(page).to have_no_content "Not answered"
+      expect(page).to have_content "Official"
+    end
+  end
+
   context "when filtering proposals by TAXONOMY" do
     let!(:taxonomy2) { create(:taxonomy, skip_injection: true, name: { en: "Taxonomy name" }, parent: root_taxonomy, organization:) }
     let!(:taxonomy_filter_item2) { create(:taxonomy_filter_item, taxonomy_item: taxonomy2, taxonomy_filter:) }
@@ -146,10 +170,16 @@ describe "Filter Proposals", :slow do
       end
 
       it "can be ordered by most commented and most followed after filtering" do
+        within "#dropdown-menu-filters div.filter-container", text: "Status" do
+          uncheck "All"
+        end
+
         within "#dropdown-menu-filters div.filter-container", text: "Taxonomy name" do
           uncheck "All"
           check decidim_sanitize_translated(taxonomy.name)
         end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
 
         within "#dropdown-menu-order" do
           click_on "Most commented"
@@ -448,6 +478,7 @@ describe "Filter Proposals", :slow do
                 }
               )
               login_as user, scope: :user
+              sleep 1
               visit_component
             end
 

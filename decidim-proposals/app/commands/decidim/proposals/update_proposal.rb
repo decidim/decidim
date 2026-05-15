@@ -5,7 +5,6 @@ module Decidim
     # A command with all the business logic when a user updates a proposal.
     class UpdateProposal < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
-      include HashtagsMethods
 
       # Public: Initializes the command.
       #
@@ -75,7 +74,7 @@ module Decidim
         PaperTrail.request(enabled: false) do
           @proposal.update(attributes)
           @proposal.coauthorships.clear
-          @proposal.add_coauthor(current_user, user_group:)
+          @proposal.add_coauthor(current_user)
         end
       end
 
@@ -87,16 +86,16 @@ module Decidim
           visibility: "public-only"
         )
         @proposal.coauthorships.clear
-        @proposal.add_coauthor(current_user, user_group:)
+        @proposal.add_coauthor(current_user)
       end
 
       def attributes
         {
           title: {
-            I18n.locale => title_with_hashtags
+            I18n.locale => Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
           },
           body: {
-            I18n.locale => body_with_hashtags
+            I18n.locale => Decidim::ContentProcessor.parse_with_processor(:inline_images, form.body, current_organization: form.current_organization).rewrite
           },
           taxonomizations: form.taxonomizations,
           address: form.address,
@@ -110,11 +109,7 @@ module Decidim
 
         return false if proposal_limit.zero?
 
-        if user_group
-          user_group_proposals.count >= proposal_limit
-        else
-          current_user_proposals.count >= proposal_limit
-        end
+        current_user_proposals.count >= proposal_limit
       end
 
       def first_attachment_weight
@@ -123,20 +118,12 @@ module Decidim
         proposal.photos.count
       end
 
-      def user_group
-        @user_group ||= Decidim::UserGroup.find_by(organization:, id: form.user_group_id)
-      end
-
       def organization
         @organization ||= current_user.organization
       end
 
       def current_user_proposals
         Proposal.from_author(current_user).where(component: form.current_component).published.where.not(id: proposal.id).not_withdrawn
-      end
-
-      def user_group_proposals
-        Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id).not_withdrawn
       end
     end
   end

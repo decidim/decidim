@@ -1,4 +1,5 @@
 <% add_decidim_page_title(t(".title")) %>
+<%= append_javascript_pack_tag "decidim_proposals_admin" %>
 <div class="item_show__header">
   <h1 class="item_show__header-title">
     <%= t(".title") %>
@@ -7,33 +8,27 @@
 
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <%= decidim_form_for(@form, url: proposals_import_path, html: { class: "form form-defaults import_proposals" }) do |f| %>
+    <%= decidim_form_for(@form, url: proposals_import_path, local: true, html: { class: "form form-defaults import_proposals" }) do |f| %>
       <% if @form.origin_components.any? %>
         <div class="form__wrapper">
           <div class="card pt-4">
-            <div class="card-section">
+            <div class="card-section"
+                 data-controller="import-proposals"
+                 data-import-proposals-states-url-value="<%= component_states_proposals_import_path %>">
               <div class="row column">
-                <%= f.select :origin_component_id, @form.origin_components_collection, prompt: t(".select_component") %>
+                <%= f.select :origin_component_id, @form.origin_components_collection, { prompt: t(".select_component") }, { data: { import_proposals_target: "select", action: "change->import-proposals#onSelectChange" } } %>
               </div>
               <div class="row column">
-                <%= f.label t(".select_states") %>
-                <%= f.collection_check_boxes :states, @form.states_collection, :value, :name do |b| %>
-                  <div>
-                    <%= b.label { b.check_box + b.text } %>
-                  </div>
-                <% end %>
+                <label class="ml-4"><%= t(".select_states") %></label>
+                <div id="states-container"
+                  data-import-proposals-target="container"
+                  data-import-proposals-selected-states-value="<%= @form.states.to_json %>"></div>
               </div>
               <div class="row column">
                 <%= f.check_box :keep_authors %>
               </div>
               <div class="row column">
                 <%= f.check_box :keep_answers %>
-              </div>
-              <div class="row column">
-                <%= scopes_picker_filter f, :scope_ids %>
-              </div>
-              <div class="row column">
-                <%= f.check_box :import_proposals %>
               </div>
             </div>
           </div>

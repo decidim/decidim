@@ -17,6 +17,10 @@ module Decidim
           true
         end
 
+        def has_comments?
+          comment_threads.not_hidden.size.positive?
+        end
+
         # Public: Whether the object can have new comments or not.
         def accepts_new_comments?
           true
@@ -77,6 +81,11 @@ module Decidim
         #   - data: Any "data-*" attributes to be included in the link (optional).
         def actions_for_comment(_comment, _current_user)
           []
+        end
+
+        # Public: Returns the visible (not hidden, not deleted) descendant replies for this comment.
+        def replies
+          descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted
         end
       end
     end

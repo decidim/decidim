@@ -13,6 +13,7 @@ module Decidim
           before_action :load_pending_authorization
 
           include Decidim::Admin::WorkflowsBreadcrumb
+          include Decidim::Verifications::Admin::PendingAuthorizationLoader
 
           add_breadcrumb_item_from_menu :workflows_menu
 
@@ -35,7 +36,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = t("confirmations.create.error", scope: "decidim.verifications.id_documents.admin")
-                render action: :new
+                render action: :new, status: :unprocessable_content
               end
             end
           end
@@ -43,7 +44,7 @@ module Decidim
           private
 
           def load_pending_authorization
-            @pending_authorization = Authorization.find(params[:pending_authorization_id])
+            @pending_authorization = load_pending_authorization!("id_documents", params[:pending_authorization_id])
           end
         end
       end

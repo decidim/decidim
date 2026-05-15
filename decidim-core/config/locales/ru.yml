@@ -35,21 +35,16 @@ ru:
     attributes:
       decidim/user:
         current_password: Текущий пароль
-        email: Эл. адрес
         name: Имя участника
         password: Пароль
         password_confirmation: Подтверждение пароля
         remember_me: Запомнить меня
-    models:
-      decidim/user_group:
-        one: Группа участников
-        few: Группы участников
-        many: Групп участников
-        other: Групп участников
   booleans:
     'false': 'Нет'
     'true': 'Да'
   date:
+    buttons:
+      select: Выбрать
     formats:
       decidim_short: "%d.%m.%Y"
       decidim_with_month_name: "%d %B %Y"
@@ -100,9 +95,6 @@ ru:
         update: "%{user_name} обновил приложение OAuth %{resource_name}"
       organization:
         update: "%{user_name} обновил настройки организации"
-      participatory_space_private_user:
-        create: "%{user_name} пригласил %{resource_name} стать частным участником"
-        delete: "%{user_name} удалил участника %{resource_name} как приватного участника"
       scope:
         create: "%{user_name} добавил охват %{resource_name}"
         create_with_parent: "%{user_name} создал охват %{resource_name} внутри охвата %{parent_scope}"
@@ -238,8 +230,6 @@ ru:
         name: Последняя активность
         title: Последняя активность
         view_all: Посмотреть всё
-      metrics:
-        name: Метрики организации
       stats:
         name: Статистика организации
       sub_hero:
@@ -261,15 +251,12 @@ ru:
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
       sessions:
         new:
-          are_you_new?: Вы впервые на этой площадке?
           register: Создать учетную запись
       shared:
         newsletter_modal:
           buttons:
             check: Поставить галочку и продолжить
           title: Уведомления о новостях
-        omniauth_buttons:
-          or: Или
     doorkeeper:
       authorizations:
         new:
@@ -287,9 +274,6 @@ ru:
     download_your_data:
       export:
         ready: Готово
-      show:
-        download_data: Загрузить данные
-        request_data: Запросить данные
     errors:
       internal_server_error:
         title: При попытке связи с нашим сервером произошла ошибка
@@ -333,8 +317,6 @@ ru:
     export_mailer:
       download_your_data_export:
         download: Скачать
-      export:
-        ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
       subject: Ваш сохраненный файл «%{name}» готов
     filters:
       linked_classes:
@@ -366,33 +348,6 @@ ru:
           how: Как вы можете его получить
           title: Значки
       level: Уровень %{level}
-    group_admins:
-      actions:
-        demote_admin: Удалить админа
-      index:
-        current_admins: 'Текущие администраторы:'
-        manage_admins: Управление админами
-    group_invites:
-      accept_invitation: Принять
-      index:
-        invite: Пригласить
-      reject_invitation: Отклонить
-    group_members:
-      actions:
-        are_you_sure: Вы уверены?
-        remove_from_group: Удалить участника
-      index:
-        manage_members: Управление участниками
-    groups:
-      actions:
-        are_you_sure: Вы уверены?
-      edit:
-        edit_user_group: Изменить группу
-        update_user_group: Обновить группу
-      form:
-        email_help: Электронная почта вашей организации, ассоциации, коллектива, группы и т.д.
-      join:
-        success: Запрос на присоединение успешно создан. Администратор рассмотрит ваш запрос перед тем, как принять вас в группу.
     last_activities:
       all: Все виды активности
       index:
@@ -419,7 +374,6 @@ ru:
     managed_users:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
-      help: Справка
       home: Главная
     messaging:
       conversation_mailer:
@@ -445,10 +399,8 @@ ru:
       unsubscribe:
         success: Вы успешно отменили подписку.
         token_error: Срок действия ссылки истек.
-        unsubscribe: Отписаться
     newsletters_opt_in_mailer:
       notify:
-        body_1: Обработка персональных данных и их защита становятся все более важными для всех нас. По новому "Общему положению о защите данных" от 25 мая 2018 года люди получают возможность управлять своими личными данными. Поэтому нам нужно ваше согласие, чтобы продолжить отправлять вам свежие новости о деятельности %{organization_name}.
         body_2: 'Как вы можете дать нам свое согласие? Просто нажмите следующую кнопку:'
         body_3: Согласившись, вы сможете продолжить получать сведения об услугах площадки. Если же мы не получим вашего согласия, то мы прекратим отправку наших сообщений. Если вы подтвердите, что хотите получать новости, вы в любой момент потом сможете отказаться от их получения.
         button: Да, я хочу продолжать получать свежие новости
@@ -477,14 +429,9 @@ ru:
           proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
         footer_sub_hero:
           footer_sub_hero_headline: Добро пожаловать на площадку соучастия %{organization}!
-          register: Зарегистрироваться
         hero:
           participate: Принять участие
           welcome: Добро пожаловать в %{organization}!
-        statistics:
-          headline: Текущее состояние %{organization}
-        sub_hero:
-          register: Зарегистрироваться
     profile:
       deleted: Удаленный участник
     profiles:
@@ -492,21 +439,10 @@ ru:
         conversations: Беседы
         followers: Читают
         following: Следит за
-      sidebar:
-        badges:
-          info: Значки заработаны за выполнение определенных действий на платформе.
-          title: Значки
       user:
-        create_user_group: Создать группу
-        edit_profile: Редактировать профиль
-        edit_user_group: Изменить профиль группы
-        invite_user: Пригласить участника
+        actions:
+          edit_profile: Редактировать профиль
     reported_mailer:
-      hide:
-        hello: Здравствуйте, %{name}!
-        manage_moderations: Управление действиями по модерации
-        report_html: <p>Следующее <a href="%{url}">содержимое</a> было автоматически скрыто.</p>
-        subject: Ресурс был автоматически скрыт
       report:
         hello: Здравствуйте, %{name}!
         report_html: <p>О следующем <a href="%{url}">содержимом</a> была передана жалоба администраторам.</p>
@@ -516,14 +452,8 @@ ru:
         success: Жалоба была успешно создана, и она будет рассмотрена администратором.
     scopes:
       global: Всеобщий охват
-      picker:
-        cancel: Отменить
-        choose: Выбрать
-        title: Выберите %{field}
       prompt: Выбрать охват
-      scopes: Охваты
     search:
-      results_found_for_term: '%{count} Результаты поиска: "%{term}"'
       term_input_placeholder: Поиск
     searches:
       filters:
@@ -551,9 +481,6 @@ ru:
         share_link: Поделиться ссылкой
     statistics:
       comments_count: Комментариев
-    user_conversations:
-      update:
-        error: Сообщение не отправлено. Попробуйте позже
     wizard_step_form:
       wizard_aside:
         back: Назад
@@ -587,8 +514,6 @@ ru:
         submit_button: Отправить приглашение
       no_invitations_remaining: Приглашений не осталось
       send_instructions: Приглашение было отправлено на %{email}.
-      updated: Ваш пароль был успешно установлен. Вы вошли в систему.
-      updated_not_active: Ваш пароль был успешно установлен.
     mailer:
       confirmation_instructions:
         action: Подтвердить мой аккаунт
@@ -604,10 +529,8 @@ ru:
         decline: Отклонить приглашение
         hello: Здравствуйте, %{email}!
         invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это приглашение по ссылке ниже."
-        invited_you_as_private_user: "%{invited_by} пригласил вас в качестве частного участника %{application}. Вы можете принять это приглашение по ссылке ниже."
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
-        someone_invited_you_as_private_user: Кто-то пригласил вас в качестве частного участника %{application}, вы можете принять это приглашение по ссылке ниже.
         subject: Инструкция по приглашению
       password_change:
         greeting: Здравствуйте, %{recipient}!
@@ -656,7 +579,6 @@ ru:
       impersonation_warning:
         close_session: Закрыть сеанс
         description_html: Вы выступаете в роли участника <b>%{user_name}</b>.
-        expire_time_html: Срок действия вашего сеанса истекает через <b><span class="minutes">%{minutes}</span> минут</b>.
       notifications_dashboard:
         mark_all_as_read: Отметить все как прочитанные
       user_menu:
@@ -681,7 +603,6 @@ ru:
     fallback: не действует
     name_included_in_password: слишком похож на Ваше имя
     not_enough_unique_characters: не содержит достаточно уникальных символов
-    password_not_allowed: не допускается
     password_too_common: слишком распространен
     password_too_long: слишком длинный
     password_too_short: слишком короткий
@@ -706,6 +627,8 @@ ru:
     weibo: Сина Вейбо
     xing: Xing
   time:
+    buttons:
+      select: Выбрать
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

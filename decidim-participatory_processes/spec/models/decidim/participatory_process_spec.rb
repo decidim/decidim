@@ -9,11 +9,11 @@ module Decidim
     let(:participatory_process) { build(:participatory_process, slug: "my-slug") }
 
     it { is_expected.to be_valid }
-
     it { is_expected.to be_versioned }
+    it { is_expected.to act_as_paranoid }
 
     it_behaves_like "publicable"
-    it_behaves_like "has private users"
+    it_behaves_like "has members"
 
     it "overwrites the log presenter" do
       expect(described_class.log_presenter_class_for(:foo))
@@ -36,7 +36,8 @@ module Decidim
     end
 
     context "when a process is attached to a scope type" do
-      let!(:participatory_process) { create(:participatory_process, :with_scope, slug: "my-slug", scope_type_max_depth: scope_type, organization:) }
+      let!(:participatory_process) { create(:participatory_process, scope:, slug: "my-slug", scope_type_max_depth: scope_type, organization:) }
+      let(:scope) { create(:scope, organization:) }
       let(:organization) { create(:organization) }
       let(:scope_type) { create(:scope_type, organization:) }
 
@@ -116,7 +117,33 @@ module Decidim
       end
     end
 
-    describe "scopes" do
+    describe ".visible?" do
+      let!(:open_process) { create(:participatory_process, access_mode: :open) }
+      let!(:transparent_process) { create(:participatory_process, access_mode: :transparent) }
+      let!(:restricted_process) { create(:participatory_process, access_mode: :restricted) }
+
+      it "returns the right visibility" do
+        expect(open_process).to be_visible
+        expect(transparent_process).to be_visible
+        expect(restricted_process).not_to be_visible
+      end
+    end
+
+    describe "access mode scopes" do
+      describe "public_spaces" do
+        let!(:open_process) { create(:participatory_process, access_mode: :open) }
+        let!(:transparent_process) { create(:participatory_process, access_mode: :transparent) }
+        let!(:restricted_process) { create(:participatory_process, access_mode: :restricted) }
+
+        it "returns the public ones" do
+          expect(described_class.public_spaces).to include open_process
+          expect(described_class.public_spaces).to include transparent_process
+          expect(described_class.public_spaces).not_to include restricted_process
+        end
+      end
+    end
+
+    describe "temporal scopes" do
       let!(:past) { create(:participatory_process, :past) }
       let!(:upcoming) { create(:participatory_process, :upcoming) }
       let!(:active) { create(:participatory_process, :active) }

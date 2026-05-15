@@ -26,7 +26,6 @@ shared_examples "update an initiative" do
       signature_type: "any",
       type_id: initiative.type.id,
       decidim_scope_id: initiative.scope.id,
-      hashtag: "update_initiative_example",
       offline_votes: { initiative.scope.id.to_s => 1 },
       attachment: attachment_params
     }
@@ -64,7 +63,6 @@ shared_examples "update an initiative" do
         expect(initiative.title["en"]).to eq(form_params[:title][:en])
         expect(initiative.description["en"]).to eq(form_params[:description][:en])
         expect(initiative.type.id).to eq(form_params[:type_id])
-        expect(initiative.hashtag).to eq(form_params[:hashtag])
       end
 
       context "when attachment is present" do

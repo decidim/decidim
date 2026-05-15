@@ -13,11 +13,12 @@ module Decidim::Blogs
     let(:post) { create(:post, component: current_component, author: current_user, published_at:) }
     let(:published_at) { nil }
 
-    include_examples "endorsable"
+    include_examples "likeable"
     include_examples "has component"
     include_examples "resourceable"
 
     it { is_expected.to be_valid }
+    it { is_expected.to act_as_paranoid }
 
     context "without a component" do
       let(:post) { build(:post, component: nil, author: current_user) }

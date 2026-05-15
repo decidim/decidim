@@ -1,0 +1,172 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Elections
+    module Admin
+      class ElectionsController < Admin::ApplicationController
+        helper Decidim::Elections::Admin::ElectionsHelper
+        include Decidim::Admin::HasTrashableResources
+        include Decidim::ApplicationHelper
+        include Decidim::Elections::Admin::Filterable
+
+        helper_method :elections, :election, :election_questions, :per_question_waiting?
+
+        def index
+          enforce_permission_to :read, :election
+        end
+
+        def new
+          enforce_permission_to :create, :election
+          @form = form(Decidim::Elections::Admin::ElectionForm).from_params(
+            attachment: form(AttachmentForm).from_params({})
+          )
+        end
+
+        def create
+          enforce_permission_to :create, :election
+
+          @form = form(Decidim::Elections::Admin::ElectionForm).from_params(params, current_component:)
+
+          CreateElection.call(@form) do
+            on(:ok) do |election|
+              flash[:notice] = I18n.t("elections.create.success", scope: "decidim.elections.admin")
+              redirect_to edit_questions_election_path(election)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("elections.create.invalid", scope: "decidim.elections.admin")
+              render action: "new", status: :unprocessable_content
+            end
+          end
+        end
+
+        def edit
+          enforce_permission_to :update, :election, election:
+          @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
+        end
+
+        def update
+          enforce_permission_to(:update, :election, election:)
+
+          @form = form(Decidim::Elections::Admin::ElectionForm).from_params(params, current_component:, election:)
+
+          UpdateElection.call(@form, election) do
+            on(:ok) do
+              flash[:notice] = I18n.t("elections.update.success", scope: "decidim.elections.admin")
+              redirect_to election.published? ? dashboard_election_path(election) : edit_questions_election_path(election)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("elections.update.invalid", scope: "decidim.elections.admin")
+              render action: "edit", status: :unprocessable_content
+            end
+          end
+        end
+
+        def publish
+          enforce_permission_to(:publish, :election, election:)
+
+          PublishElection.call(election, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("elections.publish.success", scope: "decidim.elections.admin")
+              redirect_to dashboard_election_path(election)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("elections.publish.invalid", scope: "decidim.elections.admin")
+              render action: "index", status: :unprocessable_content
+            end
+          end
+        end
+
+        def unpublish
+          enforce_permission_to(:unpublish, :election, election:)
+
+          Decidim::Elections::Admin::UnpublishElection.call(election, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("elections.unpublish.success", scope: "decidim.elections.admin")
+              redirect_to elections_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("elections.unpublish.invalid", scope: "decidim.elections.admin")
+              render action: "index", status: :unprocessable_content
+            end
+          end
+        end
+
+        def dashboard
+          enforce_permission_to(:dashboard, :election, election:)
+
+          respond_to do |format|
+            format.html { render :dashboard }
+            format.json do
+              render json: election.presenter.to_json(admin: true) # Admins see all votes, not just the published results
+            end
+          end
+        end
+
+        def update_status
+          enforce_permission_to(:update, :election, election:)
+
+          status_action = params[:status_action]
+          UpdateElectionStatus.call(status_action, election) do
+            on(:ok) do
+              flash[:notice] = I18n.t("statuses.#{status_action}.success", scope: "decidim.elections.admin")
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("statuses.unknown", scope: "decidim.elections.admin")
+            end
+          end
+          redirect_to dashboard_election_path(election)
+        end
+
+        def toggle_census_check
+          enforce_permission_to(:update, :election, election:)
+
+          value = ActiveModel::Type::Boolean.new.cast(params[:allow_census_check_before_start])
+          election.update!(allow_census_check_before_start: value)
+
+          render json: { success: true, allow_census_check_before_start: election.allow_census_check_before_start }
+        rescue StandardError
+          render json: { success: false, error: I18n.t("elections.toggle_census_check.error", scope: "decidim.elections.admin") }, status: :unprocessable_content
+        end
+
+        private
+
+        def per_question_waiting?
+          @per_question_waiting ||= election.per_question? && !election.finished? && election.questions.unpublished_results.enabled.none?
+        end
+
+        def elections
+          @elections ||= filtered_collection
+        end
+
+        def collection
+          @collection ||= Election.where(component: current_component).not_hidden
+        end
+
+        def trashable_deleted_resource_type
+          :election
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection ||= elections.only_deleted.deleted_at_desc
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= Election.with_deleted.find_by(component: current_component, id: params[:id])
+        end
+
+        def election
+          @election ||= elections.find(params[:id])
+        end
+
+        def election_questions
+          @election_questions ||= election.questions.includes(:response_options)
+        end
+      end
+    end
+  end
+end

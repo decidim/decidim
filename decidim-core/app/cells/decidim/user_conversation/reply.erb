@@ -1,9 +1,0 @@
-<div data-conversation-reply>
-  <%= reply_form do |f| %>
-    <div class="conversation__reply">
-      <%= f.label :body, nil, class: "sr-only" %>
-      <%= f.text_area :body, label: false, rows: 4, required: true, placeholder: t("placeholder", scope: "decidim.user_conversations.reply"), data: { "input-emoji": true } %>
-      <%= f.submit "#{t("send", scope: "decidim.user_conversations.reply")} #{icon "arrow-right-line", class: "fill-current"}".html_safe, class: "button button__sm button__secondary self-end mt-4" %>
-    </div>
-  <% end %>
-</div>

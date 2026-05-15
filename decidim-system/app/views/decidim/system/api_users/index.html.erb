@@ -1,0 +1,13 @@
+<% add_decidim_page_title(t(".manage")) %>
+
+<% provide :title do %>
+  <h1 class="h1"><%= t ".manage" %></h1>
+<% end %>
+
+<div class="text-content space-y-4">
+  <%= t ".explanation_html", oauth_link: decidim_system.oauth_applications_path %>
+</div>
+
+<%= link_to t("new", scope:"decidim.system.actions.api_users"), [:new, :api_user], class: "button button__sm md:button__lg button__primary" %>
+
+<%= render partial: "decidim/system/shared/api_users", locals: { api_users: @api_users } %>

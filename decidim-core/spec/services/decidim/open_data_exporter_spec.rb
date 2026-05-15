@@ -35,6 +35,7 @@ describe Decidim::OpenDataExporter do
         it "includes the README content" do
           expect(csv_data).to include("# Open Data files for #{organization.name[:en]}")
           expect(csv_data).to include("This ZIP file contains files for studying and researching about this participation platform.")
+          expect(csv_data).to include("Generated on #{Time.current.strftime("%d/%m/%Y")}")
         end
       end
 
@@ -51,8 +52,8 @@ describe Decidim::OpenDataExporter do
 
         it "includes the LICENSE content" do
           expect(csv_data).to include("License")
-          expect(csv_data).to include("is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/")
-          expect(csv_data).to include("Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/")
+          expect(csv_data).to include("is made available under the Open Database License: https://opendatacommons.org/licenses/odbl/1.0/")
+          expect(csv_data).to include("Database Contents License: https://opendatacommons.org/licenses/dbcl/1.0/")
         end
       end
     end
@@ -78,19 +79,23 @@ describe Decidim::OpenDataExporter do
       end
     end
 
-    describe "with user groups" do
-      let(:resource_file_name) { "user_groups" }
-      let(:resource_title) { "### user_groups" }
-      let!(:resource) { create(:user_group, :confirmed, organization:) }
-      let!(:unpublished_resource) { create(:user_group, :confirmed, :blocked, organization:) }
+    describe "with taxonomies" do
+      let(:resource_file_name) { "taxonomies" }
+      let(:resource_title) { "### taxonomies" }
+      let!(:resource) { create(:taxonomy, organization:) }
       let(:help_lines) do
         [
-          "* id: The unique identifier of the user",
-          "* members_count: The number of the users belonging to the user group"
+          "* id: The unique identifier of this taxonomy",
+          "* name: The name of this taxonomy"
         ]
       end
 
-      it_behaves_like "open users data exporter"
+      include_examples "default open data exporter"
+
+      it "includes the resource data" do
+        expect(data).to include(resource.id.to_s)
+        expect(data).to include(resource.weight.to_s)
+      end
     end
 
     describe "with moderations" do
@@ -140,23 +145,24 @@ describe Decidim::OpenDataExporter do
     end
 
     describe "with all the components and spaces" do
-      let!(:user_group) { create(:user_group, :confirmed, organization:) }
-      let(:proposal_component) do
-        create(:proposal_component, organization:, published_at: Time.current)
-      end
-      let!(:proposal) { create(:proposal, :published, component: proposal_component, title: { en: "My super proposal" }) }
+      let(:proposal_component) { create(:proposal_component, organization:, published_at: Time.current) }
+      let!(:proposals) { create_list(:proposal, 5, :published, component: proposal_component, title: { en: "My super proposal" }) }
+      let(:proposal) { proposals.first }
       let!(:proposal_comment) { create(:comment, commentable: proposal) }
-      let(:result_component) do
-        create(:accountability_component, organization:, published_at: Time.current)
-      end
+      let(:another_proposal_component) { create(:proposal_component, organization:, published_at: Time.current) }
+      let!(:more_proposals) { create_list(:proposal, 10, :published, component: another_proposal_component, title: { en: "My super proposal" }) }
+
+      let(:result_component) { create(:accountability_component, organization:, published_at: Time.current) }
       let!(:result) { create(:result, component: result_component) }
-      let(:meeting_component) do
-        create(:meeting_component, organization:, published_at: Time.current)
-      end
+
+      let(:meeting_component) { create(:meeting_component, organization:, published_at: Time.current) }
       let!(:meeting) { create(:meeting, :published, component: meeting_component) }
       let!(:meeting_comment) { create(:comment, commentable: meeting) }
+
       let!(:participatory_process) { create(:participatory_process, :published, organization:) }
       let!(:assembly) { create(:assembly, :published, organization:) }
+
+      let!(:another_tenant_process) { create(:participatory_process, :published) }
 
       before do
         subject.export
@@ -175,19 +181,31 @@ describe Decidim::OpenDataExporter do
         end
       end
 
+      it "includes only one reference por participatory space" do
+        csv_data = zip_contents.glob("*open-data-participatory_processes.csv").first.get_input_stream.read
+        expect(csv_data).to include(participatory_process.title["en"].gsub(/"/, '""')).once
+        csv_data = zip_contents.glob("*open-data-assemblies.csv").first.get_input_stream.read
+        expect(csv_data).to include(assembly.title["en"].gsub(/"/, '""')).once
+      end
+
+      it "does not include data from other tenants" do
+        csv_data = zip_contents.glob("*open-data-participatory_processes.csv").first.get_input_stream.read
+        expect(csv_data).not_to include(another_tenant_process.title["en"].gsub(/"/, '""'))
+        expect(csv_data).to include(participatory_process.title["en"].gsub(/"/, '""')).once
+      end
+
       describe "README content" do
         let(:file_data) { zip_contents.glob("README.md").first.get_input_stream.read }
 
         it "includes the help description for all the entities" do
-          expect(file_data).to include("## users")
-          expect(file_data).to include("## user_groups")
-          expect(file_data).to include("## proposals")
-          expect(file_data).to include("## proposal_comments")
-          expect(file_data).to include("## results")
-          expect(file_data).to include("## meetings")
-          expect(file_data).to include("## meeting_comments")
-          expect(file_data).to include("## participatory_process")
-          expect(file_data).to include("## assemblies")
+          expect(file_data).to include("## users (17 resources)")
+          expect(file_data).to include("## proposals (15 resources)")
+          expect(file_data).to include("## proposal_comments (1 resource)")
+          expect(file_data).to include("## results (1 resource)")
+          expect(file_data).to include("## meetings (1 resource)")
+          expect(file_data).to include("## meeting_comments (1 resource)")
+          expect(file_data).to include("## participatory_processes (5 resources)")
+          expect(file_data).to include("## assemblies (1 resource)")
         end
 
         it "does not have any missing translation" do

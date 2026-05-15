@@ -5,6 +5,8 @@ require "spec_helper"
 describe Decidim::NotificationsDigestSendingDecider do
   subject { described_class }
 
+  before { travel_to(Time.now.utc.noon) }
+
   context "with a user who has never received a notifications digest mail" do
     let(:user) { build(:user, notifications_sending_frequency: :daily, digest_sent_at: nil) }
 

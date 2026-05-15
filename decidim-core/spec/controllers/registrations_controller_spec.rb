@@ -28,11 +28,7 @@ module Decidim
           }
         }
       end
-
-      def send_form_and_expect_rendering_the_new_template_again
-        post(:create, params:)
-        expect(controller).to render_template "new"
-      end
+      let(:request_params) { params.merge(locale: I18n.default_locale) }
 
       context "when the user created is active for authentication" do
         before do
@@ -44,7 +40,7 @@ module Decidim
         end
 
         it "does not ask the user to confirm the email" do
-          post(:create, params:)
+          post(:create, params: request_params)
           expect(controller.flash.notice).to have_no_content("confirmation")
         end
       end
@@ -53,11 +49,12 @@ module Decidim
         let(:email) { nil }
 
         it "renders the new template" do
-          send_form_and_expect_rendering_the_new_template_again
+          post(:create, params: request_params)
+          expect(controller).to render_template "new"
         end
 
         it "adds the flash message" do
-          post(:create, params:)
+          post(:create, params: request_params)
           expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
         end
 
@@ -77,7 +74,7 @@ module Decidim
           end
 
           it "adds the flash message" do
-            post(:create, params:)
+            post(:create, params: request_params)
             expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
           end
         end
@@ -91,7 +88,8 @@ module Decidim
         end
 
         it "informs the user she must accept the pending invitation" do
-          send_form_and_expect_rendering_the_new_template_again
+          post(:create, params: request_params)
+          expect(controller).to render_template "new"
           expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
         end
       end

@@ -22,7 +22,6 @@ module Decidim::ParticipatoryProcesses
             subtitle_es: my_process.subtitle,
             weight: my_process.weight,
             slug: my_process.slug,
-            hashtag: my_process.hashtag,
             meta_scope: my_process.meta_scope,
             promoted: my_process.promoted,
             description_en: my_process.description,
@@ -32,12 +31,9 @@ module Decidim::ParticipatoryProcesses
             short_description_ca: my_process.short_description,
             short_description_es: my_process.short_description,
             current_organization: organization,
-            scopes_enabled: my_process.scopes_enabled,
-            scope: my_process.scope,
-            area: my_process.area,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
-            private_space: my_process.private_space,
+            access_mode: my_process.access_mode,
             taxonomies: [taxonomy.id, taxonomies.first.id]
           }.merge(attachment_params)
         }

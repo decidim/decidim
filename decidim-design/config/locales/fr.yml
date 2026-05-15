@@ -14,7 +14,6 @@ fr:
           trigger: Déclencheur
           usage: Usage
           usage_p: Un accordéon nécessite au moins trois éléments
-          usage_p_1_html: 1. Un wrapper <code>div</code>, avec l'attribut de données <code>data-component="accordion"</code>, sur tous les déclencheurs et panneaux disponibles.
           usage_p_2_html: 2. Un élément de déclencheur utilisable (comme un bouton), pointant vers l'élément pliable à travers <code>data-controls="panel"</code>, où le <i>panneau</i> est l'<code>id</code> du panneau.
           usage_p_3_html: 3. Un élément cachable, dont l' <code>id</code> correspond à la valeur data-controls à laquelle se réfère le déclencheur.
         activities:
@@ -87,26 +86,26 @@ fr:
           adjacent_links_paragraph: Si la même ressource a plusieurs liens adjacents pointant vers elle, Cela rend difficile pour ces utilisateurs de jeter un coup d'œil sur la page car ils pourraient avoir besoin de passer par plusieurs liens pour accéder à la ressource suivante.
           color_contrast: Contraste des couleurs
           color_contrast_paragraph: Lorsque vous créez des interfaces utilisateur ou que vous modifiez les couleurs, assurez-vous toujours que vous ne cassez pas l'accessibilité avec vos modifications. Vous pouvez utiliser le vérificateur de contraste de couleur pour vous assurer que vos couleurs ont un contraste suffisant avec la couleur de fond où elles sont affichées.
-          decidim_follows_html: Decidim suit les recommandations du <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>
+          decidim_follows_html: Decidim suit %{link}
           dynamic_changes_header: La fonctionnalité dynamique modifie le contexte de la page de façon non intuitive
           dynamic_changes_paragraph: Les changements dans les entrées de formulaire ne doivent pas modifier le contexte de la page automatiquement.
           elements_hidden: Éléments cachés
           elements_hidden_header: Éléments cachés de l'API d'accessibilité
           elements_hidden_paragraph: Pour cacher un élément aux technologies d'assistance, utilisez l'attribut aria-hidden="true" sur celui-ci.
           heading_on: Titre sur les sections importantes
-          here_link: ici
           illogical_heading_order: Ordre de titre illogique
           illogical_heading_paragraph: Chaque page doit avoir un ordre de titres logique lorsque vous utilisez les éléments de titre <h1>, <h2>, <h3>, <h4>, <h5> et <h6>.
           important_sections_heading: Titre sur les sections importantes
           important_sections_paragraph: Il est très important que chaque section importante de la page ait un titre pour faciliter la compréhension des sections importantes de la page en parcourant ses rubriques.
+          learn_more_about_html: En savoir plus sur %{link}
           links_and_buttons: Liens et boutons
           links_and_buttons_paragraph: Les éléments d'ancrage (c'est-à-dire les liens) sont destinés à lier à des pages différentes ou à ancrer des positions dans la page. Si l'élément est censé ouvrir un élément caché sur cette page, vous devriez utiliser l'élément <button> à la place.
-          see_further_info_html: Voir plus d'infos %{link}
           unique_h1: H1 unique
           unique_h1_paragraph: Chaque page devrait avoir un titre H1 unique
           use_aria: Utiliser ARIA
           use_aria_header: Utiliser les attributs ARIA si possible
           use_aria_paragraph: De nombreux éléments qui fournissent des fonctionnalités interactives sur le site Web requièrent des attributs ARIA pour les rendre accessibles.
+          wcag_guidelines: Directives d'accessibilité des contenus Web (WCAG)
         color:
           color_header: Couleur 
           description_p1: Nous fournissons une palette de base avec peu de couleurs de sorte que les personnalisations simples soient faciles. Vous pouvez modifier la palette de base soit dans la zone Administration soit dans le fichier de configuration de Tailwind si vous avez besoin d'une personnalisation plus avancée.
@@ -135,11 +134,9 @@ fr:
           not_required: Non requis
           properties: Propriétés
           right_aside: Côté droit
-          section_p_breakpoints: 'Pour gérer la largeur maximale adaptée des éléments, nous comptons sur la classe par défaut `container` Tailwind qui indique les points d''arrêt suivants :'
           section_p_code: Lors de l'implémentation de nouveaux modules, vous avez quelques aides qui vous fournissent automatiquement le code nécessaire pour configurer la structure HTML. Vous devriez utiliser ces aides au lieu d'utiliser directement des éléments div avec des classes, afin de maintenir de la cohérence.
           section_p_code_html: Vous pouvez trouver les mises en page de base dans %{link_section_code}
           section_p_desktop: Le système de grille sur ordinateur de bureau est composé de 12 colonnes flexibles avec un interstice entre les colonnes de 16px et les marges gauche et droite de 48px.
-          section_p_mobile: Le système de grille sur mobile est composé de 4 colonnes flexibles avec un interstice entre des colonnes de 16px et des marges gauche et droite de 16px. Pour les tailles inférieures à 320px ces marges sont réglées sur 8px.
           section_p_tablet: Le système de grille sur tablette est composé de 8 colonnes flexibles avec un interstice entre les colonnes de 16px et les marges gauche et droite de 24px.
           tablet: Tablette
           title: Disposition
@@ -177,7 +174,6 @@ fr:
         card_g: Carte G
         card_l: Carte L
         card_s: Carte S
-        collaborative_draft_l: Brouillon collaboratif L
         colors: Couleurs
         compact: Compact
         compact_description: Cette version de l'auteur est la façon courante d'identifier le créateur de la ressource.
@@ -185,7 +181,7 @@ fr:
         conference_s: Conférence S
         conferences: Conférences
         context: Contexte
-        context_description: Cette cellule affiche quelques informations à propos d'un utilisateur. C'est une aide visuelle pour identifier le créateur de ressource/contenu. Survoler avec la souris affiche une info-bulle avec des informations supplémentaires et des liens vers son profil.
+        context_description: Cette cellule affiche quelques informations à propos d'un utilisateur. C'est une aide visuelle pour identifier le créateur de la ressource/du contenu.
         context_description_2: Pour les ressources, cette cellule apparaît sous le titre principal. Pour les autres contenus, elle apparaît à côté du contenu lui-même.
         debate_l: Débat L
         debate_s: Débat S
@@ -206,7 +202,6 @@ fr:
         dropdowns_description_html: Les listes déroulantes sont une fonctionnalité javascript disponible grâce à une bibliothèque externe appelée %{link}.
         dropdowns_usage_1_description: 2. Un élément cachable, dont l' <code>id</code> correspond à la valeur data-taget à laquelle se réfère le déclencheur.
         dropdowns_usage_description: 'Une liste déroulante nécessite deux éléments :'
-        dropdowns_usage_description_html: 1. Un élément utilisable par l'utilisateur, avec les attributs de données <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Description de la ressource factice
         dummy_title: Titre de la ressource factice
         follow_button: Bouton Suivre
@@ -226,7 +221,6 @@ fr:
         list: Liste
         main_colors: Couleurs principales
         meeting_l: Rencontre L
-        meeting_s: Rencontre S
         meetings: Rencontres
         meetings_html: Utilisé par les cartes <i>Rencontres</i>
         metadata_items: Eléments de métadonnées
@@ -256,8 +250,6 @@ fr:
         share_button: Bouton de partage
         share_usage_description_html: Assurez-vous que le partial <code>decidim/shared/share_modal</code> est présent dans le DOM. Ce partial est placé dans le layout de l'application.
         sizes: Tailles
-        sortition_l: Tirage au sort L
-        sortitions: Tirages au sort
         source_code: Code source
         state: État
         tab_panels_context_description: Ce composant d'onglets rassemble tous les contenus liés ou une autre ressource de l'élément principal affiché, afin d'économiser de l'espace. Cliquer sur l'onglet activera le panneau créé pour afficher le contenu.
@@ -294,6 +286,7 @@ fr:
         usage_typography_2: Texte inline
         usage_typography_3: Texte sur fond sombre
         usage_typography_4: Liens et boutons
+        usage_typography_5: Onglet désactivé
         value: Valeur
         variations: Variantes
         variations_cards_description: Chaque carte sera différente en ce qui concerne les propriétés de la ressource affichée. Vous pouvez remplacer ce comportement dans la cellule spécifique.

@@ -1,0 +1,29 @@
+name: Check locale completeness
+
+on:
+  push:
+    branches:
+      - "chore/l10n/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-locale:
+    name: Check locale completeness
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Run locale completeness check
+        run: bin/rake check_locale_completeness

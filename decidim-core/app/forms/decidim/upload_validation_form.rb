@@ -54,7 +54,7 @@ module Decidim
 
     def form_object_class
       @form_object_class ||= begin
-        form_class.constantize if form_class.present?
+        form_class.presence&.constantize
       rescue NameError
         nil
       end
@@ -79,7 +79,7 @@ module Decidim
     class AttachmentContextProxy
       attr_reader :organization, :attachment_context
 
-      delegate :id, :_read_attribute, to: :organization
+      delegate :id, :_read_attribute, :read_attribute, to: :organization
 
       def initialize(organization, attachment_context)
         @organization = organization
@@ -88,6 +88,14 @@ module Decidim
 
       def self.primary_key
         :id
+      end
+
+      def self.composite_primary_key?
+        false
+      end
+
+      def self.has_query_constraints?
+        false
       end
 
       def self.polymorphic_name

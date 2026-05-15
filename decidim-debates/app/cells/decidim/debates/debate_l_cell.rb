@@ -8,6 +8,7 @@ module Decidim
     # for a given instance of a Debate
     class DebateLCell < Decidim::CardLCell
       include Decidim::SanitizeHelper
+
       delegate :component_settings, to: :controller
 
       alias debate model
@@ -20,7 +21,7 @@ module Decidim
         if model.official?
           Decidim::Core::OfficialAuthorPresenter.new
         else
-          model.normalized_author.presenter
+          model.author.presenter
         end
       end
 

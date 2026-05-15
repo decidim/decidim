@@ -6,7 +6,7 @@ describe "Explore results", :versioning do
   include_context "with a component"
 
   let(:manifest_name) { "accountability" }
-  let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
+  let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
   let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
   let(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
   let!(:other_taxonomy) { create(:taxonomy, parent: taxonomy.parent, organization:) }
@@ -29,14 +29,13 @@ describe "Explore results", :versioning do
       let(:taxonomy_filter_ids) { [] }
 
       it "shows an empty page with a message" do
-        expect(page).to have_content "There are no results yet"
+        expect(page).to have_content "There are no projects"
       end
     end
 
     context "with a taxonomy" do
       it "shows an empty page with a message" do
         within "main" do
-          expect(page).to have_i18n_content(taxonomy.name)
           expect(page).to have_content "There are no projects"
         end
       end
@@ -58,7 +57,7 @@ describe "Explore results", :versioning do
 
     describe "home" do
       before do
-        # Add scopes and categories for the results to test they work correctly
+        # Add taxonomies for the results to test they work correctly
         results[0..2].each { |r| r.update!(taxonomies: [sub_taxonomy]) }
         results[3..-1].each { |r| r.update!(taxonomies: [other_sub_taxonomy]) }
 
@@ -85,14 +84,10 @@ describe "Explore results", :versioning do
         expect(page).to have_css(".accountability__map")
       end
 
-      it "shows taxonomies and sub_taxonomies with results for enabled filters" do
-        [taxonomy, sub_taxonomy].each do |item|
-          taxonomy_count = Decidim::Accountability::ResultsCalculator.new(component, item.id).count
-          expect(page).to have_content(translated(item.name)) if taxonomy_count.positive?
+      it "shows root taxonomies filters" do
+        within("aside") do
+          expect(page).to have_content(translated(taxonomy.parent.name))
         end
-
-        expect(page).to have_no_content(translated(other_taxonomy.name))
-        expect(page).to have_no_content(translated(other_sub_taxonomy.name))
       end
 
       it "shows progress" do
@@ -153,7 +148,7 @@ describe "Explore results", :versioning do
     end
 
     describe "index" do
-      let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
+      let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
 
       before do
         visit path
@@ -171,7 +166,7 @@ describe "Explore results", :versioning do
     end
 
     describe "show" do
-      let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id) }
+      let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
       let(:results_count) { 1 }
       let(:result) { results.first }
 
@@ -235,22 +230,44 @@ describe "Explore results", :versioning do
         end
       end
 
-      context "with timeline entries" do
-        let!(:timeline_entries) { create_list(:timeline_entry, 3, result:) }
-        let(:timeline_entry) { timeline_entries.first }
+      context "with milestones" do
+        let!(:milestones) { create_list(:milestone, 3, result:) }
+        let(:milestone) { milestones.first }
 
         before do
           visit current_path
         end
 
         it "shows the tab" do
-          expect(page).to have_content("Project evolution")
+          expect(page).to have_content("Milestone")
         end
 
-        it "shows the timeline entry" do
-          expect(page).to have_content(decidim_sanitize_translated(timeline_entry.title))
-          expect(page).to have_content(I18n.l(timeline_entry.entry_date, format: :decidim_short))
-          expect(page).to have_content(decidim_sanitize_translated(timeline_entry.description))
+        it "shows the milestone" do
+          expect(page).to have_content(decidim_sanitize_translated(milestone.title))
+          expect(page).to have_content(I18n.l(milestone.entry_date, format: :decidim_short))
+          expect(page).to have_content(decidim_sanitize_translated(milestone.description))
+        end
+
+        context "and milestone's description contains an image" do
+          let!(:image_blob) do
+            ActiveStorage::Blob.create_and_upload!(
+              io: File.open(Decidim::Dev.asset("city.jpeg")),
+              filename: "city.jpeg",
+              content_type: "image/jpeg"
+            )
+          end
+
+          before do
+            image_url = Rails.application.routes.url_helpers.rails_blob_path(image_blob, only_path: true)
+            milestone.update!(description: { "en" => "<p>Milestone description</p><img src=\"#{image_url}\" alt=\"city_image\">" })
+          end
+
+          it "displays the image" do
+            visit current_path
+            expect(page).to have_content(decidim_sanitize_translated(milestone.title))
+            expect(page).to have_content(I18n.l(milestone.entry_date, format: :decidim_short))
+            expect(page).to have_css(".editor-content img[alt=city_image]")
+          end
         end
       end
 

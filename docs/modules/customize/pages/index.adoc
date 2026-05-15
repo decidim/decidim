@@ -21,6 +21,7 @@ Inside of your application you can customize it in different ways:
 * xref:customize:gemfile.adoc[Gemfile]
 * xref:customize:images.adoc[Images]
 * xref:customize:javascript.adoc[JavaScript]
+* xref:customize:localization.adoc[Localization]
 * xref:customize:logic.adoc[Logic]
 * xref:customize:menu.adoc[Menu]
 * xref:customize:admin_filters.adoc[Admin filters]

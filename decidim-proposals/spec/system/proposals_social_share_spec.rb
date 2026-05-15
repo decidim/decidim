@@ -7,7 +7,7 @@ describe "Social shares" do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, hero_image:, organization:) }
   let(:hero_image) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
-  let(:component) { create(:proposal_component, participatory_space: participatory_process, settings: { collaborative_drafts_enabled: true }) }
+  let(:component) { create(:proposal_component, participatory_space: participatory_process) }
   let(:proposal) { create(:proposal, component:, body:) }
   let(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
   let!(:attachment) { create(:attachment, :with_image, attached_to: proposal, file: attachment_file) }
@@ -33,6 +33,48 @@ describe "Social shares" do
   end
 
   it_behaves_like "a social share meta tag", "city3.jpeg"
+  it_behaves_like "a social share widget"
+  it_behaves_like "a social share via QR code" do
+    let(:card_image) { "city3.jpeg" }
+
+    context "when the resource is not published" do
+      let(:proposal) { create(:proposal, :unpublished, component:, body:) }
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: proposal.to_sgid.to_s) }
+      end
+    end
+
+    context "when the resource is moderated" do
+      let(:proposal) { create(:proposal, :published, component:, body:) }
+
+      before do
+        create(:moderation, reportable: proposal, hidden_at: 1.day.ago)
+      end
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: proposal.to_sgid.to_s) }
+      end
+    end
+
+    context "when the resource's component is not published" do
+      let(:component) { create(:proposal_component, :unpublished, participatory_space: participatory_process) }
+      let(:proposal) { create(:proposal, :published, component:, body:) }
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: proposal.to_sgid.to_s) }
+      end
+    end
+
+    context "when the resource's space is not published" do
+      let(:participatory_process) { create(:participatory_process, :unpublished, hero_image:, organization:) }
+      let(:proposal) { create(:proposal, :published, component:, body:) }
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: proposal.to_sgid.to_s) }
+      end
+    end
+  end
 
   context "when no attachment images" do
     let!(:attachment) { nil }
@@ -51,32 +93,5 @@ describe "Social shares" do
     let(:resource) { main_component_path(component) }
 
     it_behaves_like "a social share meta tag", "city2.jpeg"
-  end
-
-  context "when collaborative draft" do
-    let(:collaborative_draft) { create(:collaborative_draft, component:, body:) }
-    let!(:attachment) { create(:attachment, :with_image, attached_to: collaborative_draft, file: attachment_file) }
-    let(:resource) { collaborative_draft }
-
-    it_behaves_like "a social share meta tag", "city3.jpeg"
-
-    context "when no attachment images" do
-      let!(:attachment) { nil }
-
-      it_behaves_like "a social share meta tag", "description_image.jpg"
-    end
-
-    context "when no attachments nor description images" do
-      let(:attachment) { nil }
-      let(:description_image_path) { "" }
-
-      it_behaves_like "a social share meta tag", "city2.jpeg"
-    end
-
-    context "when listing all collaborative drafts" do
-      let(:resource) { main_component_path(component) }
-
-      it_behaves_like "a social share meta tag", "city2.jpeg"
-    end
   end
 end

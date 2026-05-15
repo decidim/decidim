@@ -20,6 +20,13 @@ describe "Explore versions", versioning: true do
     it "shows the versions index" do
       expect(page).to have_link "see other versions"
     end
+
+    context "when showing a version of a debate that is hidden" do
+      include_examples "a version of a hidden object" do
+        let(:resource_path) { debate_path }
+        let(:hidden_object) { debate }
+      end
+    end
   end
 
   context "when visiting versions index" do

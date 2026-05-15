@@ -1,0 +1,22 @@
+<ol class="accountability__result-milestones">
+  <% milestones.each_with_index do |milestone, i| %>
+    <li class="accountability__result-milestones-milestone">
+      <div class="accountability__result-milestones-milestone-number">
+        <span><%= i + 1 %></span>
+      </div>
+      <div class="accountability__result-milestones-milestone-attributes">
+        <h3>
+          <%= decidim_sanitize_translated milestone.title %>
+        </h3>
+        <div>
+          <%= l milestone.entry_date, format: :decidim_short %>
+        </div>
+        <% if translated_attribute(milestone.description).present? %>
+          <div class="editor-content">
+            <%= decidim_sanitize_admin(translated_attribute(milestone.description)) %>
+          </div>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ol>

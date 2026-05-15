@@ -1,4 +1,4 @@
-# Decidim::Dev
+# decidim-dev
 
 This module allows local development of decidim's components and other features.
 
@@ -9,19 +9,11 @@ dummy assets or resources that you can use to test your own modules. It also
 provides a `decidim:generate_external_test_app` rails task that you can use to
 generate a dummy application to test your module.
 
+This is a module oriented for developers, as a building block to be used by other modules.
+
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-dev'
-```
-
-And then execute:
-
-```bash
-bundle
-```
+This is on the default Decidim installation so you should not change anything to use this module.
 
 ## Contributing
 

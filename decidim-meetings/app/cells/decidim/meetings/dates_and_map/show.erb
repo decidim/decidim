@@ -1,23 +1,33 @@
 <div class="meeting__calendar-container">
   <div class="meeting__calendar meeting__calendar__lg">
     <div class="meeting__calendar-month mb-4">
-      <span><%= l(start_time, format: !same_month? ? "%b" : "%B") %></span>
-      <span class="meeting__calendar-separator"><%= "-" if !same_month? %></span>
-      <span><%= l(end_time, format: "%b") if !same_month? %></span>
+      <span><%= l(start_time, format: same_month? ? "%B" : "%b") %></span>
+      <% unless same_month? %>
+        <span class="meeting__calendar-separator">-</span>
+        <span><%= l(end_time, format: "%b") %></span>
+      <% end %>
     </div>
     <div class="meeting__calendar-day">
       <span><%= l(start_time, format: "%d") %></span>
-      <span class="meeting__calendar-separator"><%= "-" if !same_day? || !same_month? %></span>
-      <span><%= l(end_time, format: "%d") if !same_day? || !same_month? %></span>
+      <% unless same_day? && same_month? %>
+        <span class="meeting__calendar-separator">-</span>
+        <span><%= l(end_time, format: "%d") %></span>
+      <% end %>
     </div>
     <div class="meeting__calendar-year">
       <span><%= year %></span>
+      <% unless same_year? %>
+        <span class="meeting__calendar-separator">-</span>
+        <span><%= end_year %></span>
+      <% end %>
     </div>
   </div>
 
-  <%= static_map %>
-
-  <% if online? %>
+  <% if display_map? %>
+    <%= static_map %>
+  <% elsif online? %>
     <%= cell("decidim/address", meeting, online: true) %>
+  <% else %>
+    <%= cell("decidim/address", meeting) %>
   <% end %>
 </div>

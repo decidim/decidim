@@ -25,23 +25,18 @@ module Decidim
           end
 
           def filters
-            [:private_space_eq, :published_at_null, :decidim_assemblies_type_id_eq]
+            [:with_any_access_mode, :published_at_null]
           end
 
           def filters_with_values
             {
-              private_space_eq: [true, false],
-              published_at_null: [true, false],
-              decidim_assemblies_type_id_eq: AssembliesType.where(organization: current_organization).pluck(:id)
+              with_any_access_mode: access_modes,
+              published_at_null: [true, false]
             }
           end
 
-          def dynamically_translated_filters
-            [:decidim_assemblies_type_id_eq]
-          end
-
-          def translated_decidim_assemblies_type_id_eq(id)
-            translated_attribute(Decidim::AssembliesType.find(id).title)
+          def access_modes
+            Assembly::ACCESS_MODES.keys
           end
         end
       end

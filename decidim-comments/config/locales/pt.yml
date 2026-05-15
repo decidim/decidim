@@ -4,7 +4,6 @@ pt:
       decidim/comments/comment_by_followed_user_event: Comentar
       decidim/comments/comment_created_event: Comente
       decidim/comments/reply_created_event: Comentário resposta
-      decidim/comments/user_group_mentioned_event: Menção
       decidim/comments/user_mentioned_event: Menção
   activerecord:
     models:
@@ -15,6 +14,10 @@ pt:
         one: Voto
         other: Votos
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comentários
     comments:
       admin:
         shared:
@@ -36,8 +39,6 @@ pt:
           body:
             label: Comente
             placeholder: O que você pensa sobre isso?
-          user_group_id:
-            label: Comente como
         opinion:
           label: A sua opinião sobre este tópico
           negative: Negativa
@@ -107,11 +108,6 @@ pt:
           email_outro: Recebeu esta notificação porque segue %{author_name}. pode deixar de seguir este utilizador a partir da respetiva página de perfil.
           email_subject: Há um novo comentário por %{author_name} em %{resource_title}
           notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'O grupo %{author_name} deixou um comentário em %{resource_title}. Poderá lê-lo nesta página:'
-          email_outro: Recebeu esta notificação porque segue %{author_name}. Pode deixar de seguir este grupo a partir da respetiva página de perfil.
-          email_subject: Há um novo comentário por %{author_name} em %{resource_title}
-          notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} foi comentado. Você pode ler o comentário nesta página:"
           email_outro: Recebeu esta notificação porque segue "%{resource_title}" ou o seu autor. Pode deixar de segui-lo a partir da ligação anterior.
@@ -132,18 +128,8 @@ pt:
           email_outro: Recebeu esta notificação porque responderam ao seu comentário.
           email_subject: "%{author_name} respondeu ao seu comentário em %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> respondeu ao seu comentário em <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Um grupo ao qual pertence foi mencionado
-          email_outro: Recebeu esta notificação porque é membro do grupo %{group_name} que foi mencionado em %{resource_title}.
-          email_subject: Foi mencionado em %{resource_title} como membro de %{group_name}
-          notification_title: Foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a> como membro de <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Foi mencionado(a)
           email_outro: Recebeu esta notificação porque foi mencionado(a) em %{resource_title}.
           email_subject: Foi mencionado(a) em %{resource_title}
           notification_title: Você foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Número de comentários gerados pelos participantes
-        object: comentários
-        title: Comentários

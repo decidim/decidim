@@ -20,7 +20,7 @@ describe "Admin manages help sections" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout "Help sections updated successfully"
+      expect(page).to have_callout "Help sections updated successfully"
 
       within "#sections_participatory_processes_content-content-panel-0" do
         expect(page).to have_content("Well hello!")
@@ -38,7 +38,7 @@ describe "Admin manages help sections" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout "Help sections updated successfully"
+      expect(page).to have_callout "Help sections updated successfully"
 
       within "#sections_participatory_processes_content-content-panel-0" do
         expect(page).to have_content("")

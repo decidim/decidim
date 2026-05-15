@@ -19,9 +19,11 @@ module Decidim::Admin
     end
     let(:extra_params) do
       {
-        reason: "Need it"
+        reason: "Need it",
+        name:
       }
     end
+    let(:name) { "Rigoberto" }
     let(:form) do
       ImpersonateUserForm.from_params(
         form_params.merge(extra_params)
@@ -87,12 +89,24 @@ module Decidim::Admin
       let(:user) { create(:user, organization:) }
 
       it_behaves_like "the impersonate user command"
+
+      context "and no name is passed to the form" do
+        let(:name) { nil }
+
+        it_behaves_like "the impersonate user command"
+      end
     end
 
     context "when passed an existing managed user" do
       let(:user) { create(:user, :managed, organization:) }
 
       it_behaves_like "the impersonate user command"
+
+      context "and no name is passed to the form" do
+        let(:name) { nil }
+
+        it_behaves_like "the impersonate user command"
+      end
     end
 
     context "when passed a new managed user" do
@@ -102,6 +116,14 @@ module Decidim::Admin
 
       it "creates the user in DB" do
         expect { subject.call }.to change { Decidim::User.managed.count }.by(1)
+      end
+
+      context "and no name is passed to the form" do
+        let(:name) { nil }
+
+        it "is not valid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
       end
     end
   end

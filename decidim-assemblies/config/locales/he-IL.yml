@@ -1,8 +1,6 @@
 he:
   activemodel:
     attributes:
-      assemblies_type:
-        title: כותרת
       assembly:
         announcement: הכרזה
         area_id: אזור
@@ -12,14 +10,10 @@ he:
         closing_date: תאריך סגירה
         closing_date_reason: סיבת תאריך סגירה
         composition: הרכב
-        copy_categories: העתקת קטגוריה
-        copy_components: העתקת רכיבים
-        copy_features: העתקת מאפיינים
         created_by: נוצר ע"י
         created_by_other: נוצר על ידי אחרים
         creation_date: תאריך יצירה
         decidim_area_id: אזור
-        decidim_assemblies_type_id: סוג אסיפה
         decidim_scope_id: היקף
         description: תיאור
         developer_group: קבוצת יזמים
@@ -28,14 +22,12 @@ he:
         duration: משך זמן
         facebook: פייסבוק
         github: Github
-        hashtag: תַּג הַקְבָּצָה
         hero_image: תמונת ראשית
         import_attachments: יבוא צרופות
         import_categories: ייבוא קטגוריות
         import_components: ייבוא רכיבים
         included_at: נכלל ב
         instagram: אינסטגרם
-        internal_organisation: ארגון פנימי
         is_transparent: שקוף
         local_area: אזור ארגון
         meta_scope: מטא נתונים של היקף
@@ -43,20 +35,72 @@ he:
         participatory_processes_ids: תהליך השתתפותי מקושר
         participatory_scope: מה הוחלט
         participatory_structure: איך זה מוחלט
-        private_space: מרחב פרטי
         promoted: הודגש
         published_at: פורסם בתאריך
         purpose_of_action: מטרת הפעולה
-        scope_id: היקף
-        scopes_enabled: היקפים מאופשרים
         short_description: תיאור קצר
         slug: כינוי לקישור
         special_features: מאפיינים מיוחדים
+        subtitle: כותרת משנה
+        target: מי משתתף
+        title: כותרת
+        twitter: X
+        weight: סידור המיקום
+        youtube: יוטיוב
+      assembly_member:
+        birthday: יום הולדת
+        birthplace: מקום לידה
+        ceased_date: תאריך סיום
+        designation_date: תאריך התפטרות
+        full_name: של מלא
+        gender: מגדר
+        non_user_avatar: אווטאר
+        position: מיקום
+        user_id: משתמש או קבוצה
+        weight: סידור המיקום
+      assembly_user_role:
+        email: דוא"ל
+        name: שם
+        role: תפקיד
+  activerecord:
+    models:
+      decidim/assembly:
+        one: אסיפה
+        two: אסיפות
+        many: אסיפות
+        other: אסיפות
+      decidim/assembly_member:
+        one: חבר אסיפה
+        two: חברי אסיפה
+        many: חברי אסיפה
+        other: חברי אסיפה
+      decidim/assembly_user_role:
+        one: תפקיד באסיפה
+        two: תפקידים באסיפה
+        many: תפקידים באסיפה
+        other: תפקידים באסיפה
   decidim:
     admin:
-      assembly_copies:
+      actions:
+        confirm_delete_assembly: האם הנך בטוח שברצונך למחוק את האסיפה? אם תרצה לשנות את דעתך, תוכל לבטל אחרי זה.
+        import_assembly: יבוא
+        new_assembly: אסיפה חדשה
+        new_assembly_user_role: מנהל אסיפה חדש
+        view_deleted_assemblies: צפייה באסיפות מחוקות
+      assemblies:
+        create:
+          error: יש בעיה ביצירת אסיפה חדשה.
+          success: אסיפה נוצרה בהצלחה. כעת ניתן להוסיף רכיבים ולהתאים אותו.
+        edit:
+          update: עדכון
+        index:
+          published: מפורסם
+          unpublished: לא מפורסם
         new:
-          title: שכפל אסיפה
+          create: יצירה
+        update:
+          error: יש בעיה בעדכון אסיפה זו.
+          success: האסיפה עודכנה בהצלחה.
       assembly_imports:
         create:
           error: הייתה בעיה בייבוא ​​אסיפה זו.
@@ -64,24 +108,6 @@ he:
         new:
           import: ייבוא
           select: בחירת הנתונים לייבוא
-          title: ייבוא אסיפה
-      assembly_members:
-        create:
-          error: הייתה בעיה בהוספת חבר.ה עבור אסיפה זו.
-          success: חבר.ה נוצר.ה בהצלחה עבור האסיפה הזו.
-        destroy:
-          success: חבר.ה נמחק.ה בהצלחה מאסיפה זו.
-        edit:
-          title: עדכון חבר.ה אסיפה
-          update: עדכון
-        index:
-          assembly_members_title: חברי.ות אסיפה
-        new:
-          create: יצירה
-          title: חבר.ה אסיפה חדש.ה
-        update:
-          error: הייתה בעיה בעדכון חבר.ה עבור אסיפה זו.
-          success: חבר.ה עודכנ.ה בהצלחה עבור אסיפה זו.
       assembly_publications:
         create:
           error: הייתה בעיה בפרסום ​​אסיפה זו.
@@ -92,3 +118,66 @@ he:
       assembly_user_roles:
         create:
           error: הייתה בעיה בהוספת מנהל.ת עבור אסיפה זו.
+        edit:
+          update: עדכון
+        new:
+          create: יצירה
+      filters:
+        ceased_date_not_null:
+          label: הסתיימו
+          values:
+            'false': לא הסתיימו
+            'true': הסתיימו
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: חיפוש לפי שם או כינוי
+      menu:
+        assemblies: אסיפות
+        assemblies_submenu:
+          assembly_admins: מנהלי אסיפה
+          attachment_collections: תיקיות
+          attachment_files: קבצים
+          attachments: קבצים מצורפים
+          components: רכיבים
+          info: אודות האסיפה
+          moderations: שינויים
+          see_assembly: ראה אסיפה
+      models:
+        assembly:
+          fields:
+            actions: פעולות
+            created_at: נוצרו ב
+            promoted: מודגשים
+            published: פורסמו
+            title: כותרת
+          name: אסיפה
+        assembly_member:
+          name: חבר
+          positions:
+            other: אחר
+            president: נשיא
+            secretary: מזכיר
+            vice_president: סגן נשיא
+        assembly_user_role:
+          fields:
+            email: דוא"ל
+            name: שם
+            role: תפקיד
+          name: מנהל אסיפה
+          roles:
+            admin: מנהל
+            collaborator: שותף
+            moderator: פקח
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: משך
+            images: תמונות
+            metadata: מטא-דאטה
+            other: אחר
+            select_a_created_by: בחירת מי יצר
+            select_parent_assembly: בחירת אסיפת אם
+            social_handlers: חברתי
+            taxonomies: טקסונומיות
+            title: מידע כללי
+            visibility: נראות

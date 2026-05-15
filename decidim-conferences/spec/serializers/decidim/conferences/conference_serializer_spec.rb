@@ -16,7 +16,6 @@ module Decidim::Conferences
 
         expect(serialized).to include(id: resource.id)
         expect(serialized).to include(slug: resource.slug)
-        expect(serialized).to include(hashtag: resource.hashtag)
         expect(serialized).to include(title: resource.title)
         expect(serialized).to include(slogan: resource.slogan)
         expect(serialized).to include(reference: resource.reference)
@@ -49,6 +48,21 @@ module Decidim::Conferences
 
           expect(serialized_scope).to include(id: resource.scope.id)
           expect(serialized_scope).to include(name: resource.scope.name)
+        end
+      end
+
+      context "when assembly has taxonomies" do
+        let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: resource.organization) }
+        let(:serialized_taxonomies) do
+          { ids: taxonomies.pluck(:id) }.merge(taxonomies.to_h { |t| [t.id, t.name] })
+        end
+
+        before do
+          resource.update!(taxonomies:)
+        end
+
+        it "serializes the taxonomies" do
+          expect(subject.serialize[:taxonomies]).to eq(serialized_taxonomies)
         end
       end
 

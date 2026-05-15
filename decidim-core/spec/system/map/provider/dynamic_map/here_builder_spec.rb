@@ -23,7 +23,7 @@ module Decidim
               # further inspection in the rspec expectations.
               <<~HEAD
                 <script type="text/javascript">
-                  document.addEventListener("DOMContentLoaded", function() {
+                  document.addEventListener("turbo:load", function() {
                     window.mapIndex = 1;
                     L.tileLayer.here = function(config) {
                       var configId = "tile_layer_config" + window.mapIndex;

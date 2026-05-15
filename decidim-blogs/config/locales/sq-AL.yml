@@ -17,8 +17,6 @@ sq:
     blogs:
       actions:
         author_id: Krijo postimin si
-        confirm_destroy: Je i sigurt që dëshiron ta fshish këtë postim?
-        destroy: Fshij
         edit: Përpuno
         new: Postim i ri
         title: Veprime
@@ -27,8 +25,6 @@ sq:
           create:
             invalid: Ndodhi një gabim gjatë krijimit të këtij postimi.
             success: Postimi u krijua me sukses.
-          destroy:
-            success: Postimi u fshi me sukses.
           edit:
             save: Përditëso
             title: Përpuno postimin
@@ -73,7 +69,6 @@ sq:
           comment: Koment
           create: Krijo
           destroy: Fshij
-          endorse: Mirato
           update: Përditëso
         name: Blog
         settings:
@@ -84,8 +79,6 @@ sq:
           step:
             announcement: Njoftim
             comments_blocked: Komentet të bllokuara
-            endorsements_blocked: Mbështetjet të bllokuara
-            endorsements_enabled: Mbështetjet të aktivizuara
     events:
       blogs:
         post_created:

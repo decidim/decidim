@@ -13,6 +13,32 @@ shared_examples "comments" do
     expect_no_js_errors
   end
 
+  context "when user name is improperly formatted" do
+    let!(:user) { create(:user, :malicious, :confirmed, organization:) }
+
+    before do
+      # rubocop:disable Rails/SkipsModelValidations
+      comments.each do |comment|
+        comment.author.update_column(:name, "user_#{comment.author.id}\n<script>alert('name')</script>") if comment.author.is_a?(Decidim::UserBaseEntity)
+      end
+      # rubocop:enable Rails/SkipsModelValidations
+    end
+
+    it "properly displays the user name" do
+      login_as user, scope: :user
+      visit resource_path
+
+      within "#add-comment-anchor" do
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          expect(page).to have_css("p.comment__as-author-name")
+          within "p.comment__as-author-name" do
+            expect(page).to have_content("user_#{user.id} alert('name')")
+          end
+        end
+      end
+    end
+  end
+
   it "shows the list of comments for the resource" do
     visit resource_path
 
@@ -21,7 +47,7 @@ shared_examples "comments" do
 
     within "#comments" do
       comments.each do |comment|
-        expect(page).to have_content comment.author.name
+        expect(page).to have_content decidim_sanitize_translated(comment.author.name).gsub("\n", " ")
         expect(page).to have_content comment.body.values.first
       end
     end
@@ -41,7 +67,8 @@ shared_examples "comments" do
       select "Best rated", from: "order"
     end
 
-    expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
+    expect(page).to have_no_css(".loading-comments", visible: :visible)
+    expect(page).to have_css(".comment-threads .comment-thread", text: "Most Rated Comment")
   end
 
   context "when there are comments and replies" do
@@ -53,8 +80,8 @@ shared_examples "comments" do
       expect(page).to have_no_content("Comments are disabled at this time")
       expect(page).to have_css(".comment", minimum: 1)
 
-      within("#accordion-#{single_comment.id}") do
-        expect(page).to have_content "1 answer"
+      within("#comment_#{single_comment.id}") do
+        expect(page).to have_content "1 reply"
       end
     end
 
@@ -106,6 +133,7 @@ shared_examples "comments" do
         visit resource_path
 
         within "#comment_#{deleted_comment.id}" do
+          click_on "1 reply"
           expect(page).to have_css("#comment-#{deleted_comment.id}-replies")
           expect(page).to have_content(reply.author.name)
           expect(page).to have_content(reply.body.values.first)
@@ -114,11 +142,53 @@ shared_examples "comments" do
     end
   end
 
+  context "when there are more comments than the default per page" do
+    let(:per_page) { Decidim::Comments::SortedComments::DEFAULT_COMMENTS_LIMIT }
+    let!(:extra_comments) { create_list(:comment, per_page - comments.size + 1, commentable:) }
+    let(:all_comments) { comments + extra_comments }
+
+    it "shows a load more button and loads the next page" do
+      visit resource_path
+
+      visible_comments = all_comments.sort_by(&:created_at).first(per_page)
+      hidden_comment = (all_comments.sort_by(&:created_at) - visible_comments).first
+
+      visible_comments.each do |comment|
+        expect(page).to have_css("#comment_#{comment.id}")
+      end
+      expect(page).to have_no_css("#comment_#{hidden_comment.id}")
+      expect(page).to have_button("Load more comments")
+
+      click_on "Load more comments"
+
+      expect(page).to have_css("#comment_#{hidden_comment.id}")
+      expect(page).to have_no_button("Load more comments")
+    end
+  end
+
   context "when not authenticated" do
     it "does not show form to add comments to user" do
       visit resource_path
       expect(page).to have_no_css(".add-comment form")
       expect(page).to have_css(".comment-thread")
+    end
+
+    context "when user visit a mobile browser" do
+      before do
+        driven_by(:iphone)
+        switch_to_host(organization.host)
+        visit decidim.root_path
+        click_on "Accept all"
+        visit resource_path
+      end
+
+      it "does not show the add comment button" do
+        expect(page).to have_no_content("Add comment")
+      end
+
+      it "shows a message so user can Log in or create an account" do
+        expect(page).to have_content("Log in or create an account to add your comment.")
+      end
     end
   end
 
@@ -130,6 +200,62 @@ shared_examples "comments" do
 
     it "shows form to add comments to user" do
       expect(page).to have_css(".add-comment form")
+    end
+
+    context "when user visit a computer browser" do
+      before do
+        switch_to_host(organization.host)
+        visit decidim.root_path
+        login_as user, scope: :user
+        visit resource_path
+      end
+
+      it "does not show a modal with form to add comments" do
+        expect(page).to have_no_css(".fullscreen")
+      end
+
+      it "does not show the add comment button" do
+        expect(page).to have_no_content("Add comment")
+      end
+
+      it "allows user to comment" do
+        find("textarea[name='comment[body]']").set("Test comment with a computer.")
+        click_on "Publish comment"
+        expect(page).to have_content("Test comment with a computer.")
+      end
+    end
+
+    context "when user visit a mobile browser" do
+      before do
+        driven_by(:iphone)
+        switch_to_host(organization.host)
+        visit decidim.root_path
+        click_on "Accept all"
+        login_as user, scope: :user
+        visit resource_path
+        if page.has_content?("Log in")
+          login_as user, scope: :user
+          visit resource_path
+        end
+      end
+
+      it "does not show a message so user can Log in or create an account" do
+        expect(page).to have_no_content("Log in or create an account to add your comment.")
+      end
+
+      it "shows a modal with the comment form" do
+        expect(page).to have_content("Add comment")
+        click_on "Add comment"
+
+        expect(page).to have_content("Add comment")
+        expect(page).to have_content("1000 characters left")
+        expect(page).to have_css(".add-comment form")
+        expect(page).to have_css(".fullscreen")
+
+        find("textarea[name='comment[body]']").set("Test comment with a mobile phone.")
+        click_on "Publish comment"
+        expect(page).to have_content("Test comment with a mobile phone.")
+      end
     end
 
     context "when user is not authorized to comment" do
@@ -160,6 +286,8 @@ shared_examples "comments" do
 
     describe "when using emojis" do
       before do
+        skip("This spec does not work in focus mode, since there is no language selector.") if has_selector?(".main-bar--focus-mode-back-button")
+
         within_language_menu do
           click_on "Castellano"
         end
@@ -169,6 +297,9 @@ shared_examples "comments" do
           within_language_menu do
             click_on locale
           end
+
+          sleep 1
+          page.scroll_to(find(".add-comment form"))
 
           within ".add-comment form" do
             expect(page).to have_css(".emoji__container")
@@ -206,6 +337,12 @@ shared_examples "comments" do
       context "when the locale is not supported" do
         let(:locale) { "Català" }
         let(:phrase) { I18n.with_locale(:ca) { I18n.t("emojis.categories.people") } }
+
+        around do |example|
+          I18n.with_locale(:ca) do
+            example.run
+          end
+        end
 
         it_behaves_like "allowing to select emojis"
       end
@@ -493,6 +630,8 @@ shared_examples "comments" do
           field.native.send_keys content
           click_on "Publish comment"
         end
+
+        expect(page).to have_content(content)
       end
 
       it "shows comment to the user, updates the comments counter and clears the comment textarea" do
@@ -536,112 +675,48 @@ shared_examples "comments" do
       end
     end
 
-    context "when the user is writing a new comment while someone else comments" do
-      let(:new_comment_body) { "Hey, I just jumped in the conversation!" }
-      let(:new_comment) { build(:comment, commentable:, body: new_comment_body) }
-      let(:content) { "This is a new comment" }
+    context "when user can show and hide replies on a thread" do
+      let(:thread) { comments.first }
+      let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
+      let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
 
-      before do
-        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-          field.set " "
-          field.native.send_keys content
+      it "displays a way to display content" do
+        visit resource_path
+        within "#comment_#{thread.id}" do
+          expect(page).to have_content("1 reply")
+          click_on "1 reply"
+          expect(page).to have_content(new_reply_body)
+          click_on "Reply", match: :first
+          expect(page).to have_content("Publish reply")
+          find("textarea[name='comment[body]']").set("Test reply comments.")
+          click_on "Publish reply"
+          expect(page).to have_content("Test reply comments.")
         end
-        new_comment.save!
       end
 
-      it "does not clear the current user's comment" do
-        expect(page).to have_content(new_comment.body.values.first, wait: 20)
-        expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to include(content)
+      it "displays a way to hide content" do
+        visit resource_path
+        within "#comment_#{thread.id}" do
+          expect(page).to have_content("1 reply")
+          click_on "1 reply"
+          expect(page).to have_content(new_reply_body)
+          click_on "1 reply"
+          expect(page).to have_no_content(new_reply_body)
+        end
       end
 
-      context "when user can hide replies on a thread" do
-        let(:thread) { comments.first }
-        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
-        let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+      context "when there are more replies" do
+        let!(:new_replies) { create_list(:comment, 2, commentable: thread, root_commentable: commentable, body: new_reply_body) }
 
-        it "displays a way to to display content" do
-          visit current_path
+        it "displays the load replies button" do
+          visit resource_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("1 answer")
-            click_on "1 answer"
+            expect(page).to have_content("3 replies")
+            expect(page).to have_no_content(new_reply_body)
+            click_on "3 replies"
             expect(page).to have_content(new_reply_body)
           end
         end
-
-        it "displays a way hide content" do
-          visit current_path
-          within "#comment_#{thread.id}" do
-            expect(page).to have_content("1 answer")
-            click_on "1 answer"
-            expect(page).to have_content("1 answer")
-            click_on "1 answer"
-            expect(page).to have_no_content(new_reply_body)
-          end
-        end
-
-        context "when are more replies" do
-          let!(:new_replies) { create_list(:comment, 2, commentable: thread, root_commentable: commentable, body: new_reply_body) }
-
-          it "displays the show button" do
-            visit current_path
-            within "#comment_#{thread.id}" do
-              expect(page).to have_content("3 answers")
-              expect(page).to have_no_content(new_reply_body)
-              click_on "3 answers"
-              expect(page).to have_content(new_reply_body)
-            end
-          end
-        end
-      end
-
-      context "when inside a thread reply form" do
-        let(:thread) { comments.first }
-        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
-        let(:new_reply) { build(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
-        let(:reply_content) { "This is a new reply" }
-
-        before do
-          within "div#comment_#{thread.id}" do
-            find("span", text: "Reply").click
-          end
-
-          within "form#new_comment_for_#{thread.commentable_type.demodulize}_#{thread.id}" do
-            field = find("#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}")
-            field.set " "
-            field.native.send_keys reply_content
-          end
-          new_reply.save!
-        end
-
-        it "does not clear the current user's comment" do
-          expect(page).to have_content(new_reply.body.values.first, wait: 20)
-          expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to include(content)
-          expect(page.find("#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}").value).to include(reply_content)
-        end
-      end
-    end
-
-    context "when the user has verified organizations" do
-      let(:user_group) { create(:user_group, :verified) }
-      let(:content) { "This is a new comment" }
-
-      before do
-        create(:user_group_membership, user:, user_group:)
-      end
-
-      it "adds new comment as a user group" do
-        visit resource_path
-
-        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-          field.set " "
-          field.native.send_keys content
-          select user_group.name, from: "Comment as"
-          click_on "Publish comment"
-        end
-
-        expect(page).to have_comment_from(user_group, content, wait: 20)
       end
     end
 
@@ -806,8 +881,32 @@ shared_examples "comments" do
         visit current_path
 
         within "#comments #comment_#{parent.id}" do
-          expect(page).to have_css("#comment-#{parent.id}-replies")
-          expect(page.find("#comment-#{parent.id}-replies").text).to be_blank
+          expect(page).to have_no_css(".show-replies-button")
+          expect(page).to have_no_css("#comment-#{parent.id}-replies")
+        end
+      end
+
+      context "when admin moderates the comment" do
+        let!(:user) { create(:user, :admin, :confirmed, organization:) }
+
+        before do
+          switch_to_host(organization.host)
+          login_as user, scope: :user
+          visit resource_path
+        end
+
+        it "hides the comment" do
+          within "#comment_#{comments.first.id}" do
+            page.find("[id^='dropdown-trigger']").click
+            click_on "Report"
+          end
+
+          within "#flagModalComment#{comments.first.id}" do
+            check "Hide this content"
+            click_on "Hide"
+          end
+
+          expect(page).to have_content("This resource has been hidden.")
         end
       end
     end
@@ -818,29 +917,6 @@ shared_examples "comments" do
           visit resource_path
 
           expect(page).to have_css(".add-comment form")
-        end
-
-        it "works according to the setting in the commentable" do
-          if commentable.comments_have_alignment?
-            page.find("[data-toggle-ok=true]").click
-            expect(page.find("[data-toggle-ok=true]")["aria-pressed"]).to eq("true")
-            expect(page.find("[data-toggle-meh=true]")["aria-pressed"]).to eq("false")
-            expect(page.find("[data-toggle-ko=true]")["aria-pressed"]).to eq("false")
-            expect(page.find("div[data-opinion-toggle] .selected-state", visible: false)).to have_content("Your opinion about this topic is positive")
-
-            within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-              field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-              field.set " "
-              field.native.send_keys "I am in favor about this!"
-              click_on "Publish comment"
-            end
-
-            within "#comments" do
-              expect(page).to have_css "span.success.label", text: "In favor", wait: 20
-            end
-          else
-            expect(page).to have_no_css("[data-toggle-ok=true]")
-          end
         end
       end
     end
@@ -870,6 +946,10 @@ shared_examples "comments" do
             skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
             visit current_path
+
+            within "#comment_#{comments[0].id}" do
+              click_on "1 reply"
+            end
             expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/, visible: :all)
             page.find("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up").click
             expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/, visible: :all)
@@ -932,15 +1012,6 @@ shared_examples "comments" do
           expect(page).to have_no_css(".tribute-container", text: mentioned_user.name)
         end
       end
-
-      context "when mentioning a group" do
-        let!(:mentioned_group) { create(:user_group, :confirmed, organization:) }
-        let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
-
-        it "shows the tribute container" do
-          expect(page).to have_css(".tribute-container", text: mentioned_group.nickname, wait: 10)
-        end
-      end
     end
 
     describe "mentions", :slow do
@@ -962,7 +1033,7 @@ shared_examples "comments" do
 
         it "replaces the mention with a link to the user's profile" do
           expect(page).to have_comment_from(user, "A valid user mention: @#{mentioned_user.nickname}", wait: 20)
-          expect(page).to have_link "@#{mentioned_user.nickname}", href: "http://#{mentioned_user.organization.host}:#{Capybara.server_port}/profiles/#{mentioned_user.nickname}"
+          expect(page).to have_link "@#{mentioned_user.nickname}", href: "http://#{mentioned_user.organization.host}:#{Capybara.server_port}/en/profiles/#{mentioned_user.nickname}"
         end
       end
 
@@ -986,26 +1057,6 @@ shared_examples "comments" do
       end
     end
 
-    describe "hashtags", :slow do
-      let(:content) { "A comment with a hashtag #decidim" }
-
-      before do
-        visit resource_path
-
-        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-          field.set " "
-          field.native.send_keys content
-          click_on "Publish comment"
-        end
-      end
-
-      it "replaces the hashtag with a link to the hashtag search" do
-        expect(page).to have_comment_from(user, "A comment with a hashtag #decidim", wait: 20)
-        expect(page).to have_link "#decidim", href: "/search?term=%23decidim"
-      end
-    end
-
     describe "export_serializer" do
       let(:comment) { comments.first }
 
@@ -1023,7 +1074,6 @@ shared_examples "comments" do
         it { is_expected.to have_key(:author) }
         it { is_expected.to have_key(:alignment) }
         it { is_expected.to have_key(:depth) }
-        it { is_expected.to have_key(:user_group) }
         it { is_expected.to have_key(:commentable_id) }
         it { is_expected.to have_key(:commentable_type) }
         it { is_expected.to have_key(:root_commentable_url) }
@@ -1050,7 +1100,6 @@ shared_examples "comments blocked" do
   end
 
   context "when authenticated" do
-    let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization:) }
     let!(:comments) { create_list(:comment, 3, commentable:) }
 
@@ -1064,7 +1113,7 @@ shared_examples "comments blocked" do
         visit resource_path
         expect(page).to have_link("Comment")
         page.find("a", text: "Comment").click
-        fill_in "Comment", with: "Test admin commenting in a closed comment."
+        find("textarea[name='comment[body]']").set("Test admin commenting in a closed comment.")
         click_on "Publish comment"
         expect(page).to have_content("Test admin commenting in a closed comment.")
 
@@ -1072,7 +1121,7 @@ shared_examples "comments blocked" do
         first("button", text: "Reply").click
         expect(page).to have_css(".comment-thread")
         within first(".comment-thread") do
-          fill_in "Comment", with: "Test admin replying a closed comment."
+          find("textarea[name='comment[body]']").set("Test admin replying a closed comment.")
           click_on "Publish reply"
         end
         expect(page).to have_content("Test admin replying a closed comment.")
@@ -1105,14 +1154,14 @@ shared_examples "comments blocked" do
       end
 
       context "when the user has an evaluator role in the same participatory space" do
-        let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: participatory_space) }
+        let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process: participatory_space) }
 
         it_behaves_like "can answer comments"
       end
 
       shared_examples "evaluator role in different participatory space" do |space_type|
-        let!(:another_space_valuator_role) do
-          create(:"#{space_type}_user_role", role: :valuator, user:, "#{space_type}": create(space_type, organization:))
+        let!(:another_space_evaluator_role) do
+          create(:"#{space_type}_user_role", role: :evaluator, user:, "#{space_type}": create(space_type, organization:))
         end
 
         it "cannot answer" do
@@ -1129,5 +1178,255 @@ shared_examples "comments blocked" do
         include_examples "evaluator role in different participatory space", :assembly
       end
     end
+  end
+end
+
+shared_examples "comments with two columns" do
+  let!(:user) { create(:user, :confirmed, organization:) }
+
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+  end
+
+  context "displays comments list in two columns" do
+    let!(:comments_in_favor) { create_list(:comment, 2, :in_favor, commentable:) }
+    let!(:comments_against) { create_list(:comment, 1, :against, commentable:) }
+
+    it "shows the list of comments for the resource" do
+      visit resource_path
+
+      expect(page).to have_css("#comments")
+      expect(page).to have_css(".comment", count: comments.length)
+
+      within(".comments-two-columns") do
+        check_comments_order(".comments-section__in-favor", comments_in_favor.reverse)
+        check_comments_order(".comments-section__against", comments_against)
+      end
+    end
+  end
+
+  context "in mobile view" do
+    it "shows kebab menu functionality" do
+      resize_window_to_mobile
+      visit resource_path
+
+      within "#comment_#{comments.first.id}" do
+        page.find("[id^='dropdown-trigger']").click
+        expect(page).to have_css("ul.dropdown.dropdown__bottom", visible: :visible)
+      end
+
+      resize_window_to_desktop
+    end
+
+    context "when commentable is closed" do
+      let!(:commentable) { closed_commentable }
+      let!(:comments) { [] }
+      let!(:highest_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago, up_votes_count: 15) }
+      let!(:high_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 4.days.ago, up_votes_count: 10) }
+      let!(:older_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago, up_votes_count: 5) }
+
+      let!(:highest_voted_comment_against) { create(:comment, :against, commentable:, created_at: 2.days.ago, up_votes_count: 12) }
+      let!(:high_voted_comment_against) { create(:comment, :against, commentable:, created_at: 5.days.ago, up_votes_count: 8) }
+      let!(:older_comment_against) { create(:comment, :against, commentable:, created_at: 3.days.ago, up_votes_count: 4) }
+
+      it "shows comments sorted by the selected filter in mobile view" do
+        resize_window_to_mobile
+        visit resource_path
+        sleep 1
+
+        within(".comment-threads") do
+          expected_order = [
+            highest_voted_comment_against,
+            highest_voted_comment_in_favor,
+            older_comment_against,
+            older_comment_in_favor,
+            high_voted_comment_in_favor,
+            high_voted_comment_against
+          ]
+
+          all_comments = all(".comment-thread")
+
+          expected_order.each_with_index do |comment, index|
+            expect(all_comments[index]).to have_content(comment.body["en"])
+          end
+        end
+
+        resize_window_to_desktop
+      end
+    end
+  end
+
+  context "when viewing a single comment" do
+    let!(:single_comment) { create(:comment, commentable:, body: { "en" => "This is a single comment" }) }
+
+    before do
+      visit "#{resource_locator(commentable).path}?commentId=#{single_comment.id}"
+    end
+
+    it "displays only the single comment without columns" do
+      expect(page).to have_css("#comments")
+      expect(page).to have_css(".comment-thread", count: 1)
+      expect(page).to have_content("This is a single comment")
+      expect(page).to have_no_css(".comments-two-columns")
+      expect(page).to have_no_content("In Favor")
+      expect(page).to have_no_content("Against")
+      expect(page).to have_no_content("You are viewing only one comment")
+    end
+  end
+
+  context "when commentable is not closed" do
+    let!(:comments) { [] }
+    let!(:oldest_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago) }
+    let!(:older_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago) }
+    let!(:oldest_against_comment) { create(:comment, :against, commentable:, created_at: 4.days.ago) }
+    let!(:newer_against_comment) { create(:comment, :against, commentable:, created_at: 1.day.ago) }
+
+    it "shows the comments in two columns sorted by creation date in descending order" do
+      resize_window_to_desktop
+      visit resource_path
+
+      within(".comments-two-columns") do
+        check_comments_order(".comments-section__in-favor", [older_in_favor_comment, oldest_in_favor_comment])
+        check_comments_order(".comments-section__against", [newer_against_comment, oldest_against_comment])
+      end
+    end
+
+    it "allows the user to add a new comment at the top of the respective column" do
+      resize_window_to_desktop
+      visit resource_path
+
+      add_new_comment("In favor", "This is a new comment in favor")
+
+      within(".comments-section__in-favor") do
+        expect(page).to have_content("This is a new comment in favor")
+        expect(first(".comment-thread")).to have_content("This is a new comment in favor")
+      end
+    end
+
+    it "disables the publish button until 'in favor' or 'against' is selected" do
+      resize_window_to_desktop
+      visit resource_path
+
+      expect(page).to have_button("Publish comment", disabled: true)
+
+      within(".comment__opinion-container") do
+        click_on "In favor"
+      end
+
+      within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+        fill_in_comment_field("This is a new comment in favor")
+        click_on "Publish comment"
+      end
+    end
+
+    it "shows comments sorted by creation date when viewed on a small screen" do
+      resize_window_to_mobile
+      visit resource_path
+      sleep 1
+
+      within(".comment-threads") do
+        expect(page).to have_css(".comment-thread", minimum: 4)
+
+        expected_order = [
+          newer_against_comment,
+          older_in_favor_comment,
+          oldest_in_favor_comment,
+          oldest_against_comment
+        ]
+
+        expected_order.each_with_index do |comment, index|
+          expect(all(".comment-thread")[index]).to have_content(comment.body["en"])
+        end
+      end
+
+      resize_window_to_desktop
+    end
+  end
+
+  context "when commentable is closed" do
+    let!(:commentable) { closed_commentable }
+    let!(:highest_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago, up_votes_count: 15) }
+    let!(:high_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 4.days.ago, up_votes_count: 10) }
+    let!(:older_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago, up_votes_count: 5) }
+    let!(:recent_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago, up_votes_count: 3) }
+    let!(:latest_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 1.day.ago, up_votes_count: 1) }
+
+    let!(:highest_voted_comment_against) { create(:comment, :against, commentable:, created_at: 2.days.ago, up_votes_count: 12) }
+    let!(:high_voted_comment_against) { create(:comment, :against, commentable:, created_at: 5.days.ago, up_votes_count: 8) }
+    let!(:older_comment_against) { create(:comment, :against, commentable:, created_at: 3.days.ago, up_votes_count: 4) }
+    let!(:recent_comment_against) { create(:comment, :against, commentable:, created_at: 2.days.ago, up_votes_count: 2) }
+    let!(:latest_comment_against) { create(:comment, :against, commentable:, created_at: 1.day.ago, up_votes_count: 1) }
+
+    before do
+      resize_window_to_desktop
+      visit resource_path
+    end
+
+    it "shows the top voted comments at the top of each column, followed by comments in descending chronological order" do
+      within(".comments-two-columns") do
+        check_comments_order(".comments-section__in-favor", [
+                               highest_voted_comment_in_favor,
+                               latest_comment_in_favor,
+                               recent_comment_in_favor,
+                               older_comment_in_favor,
+                               high_voted_comment_in_favor
+                             ])
+
+        check_comments_order(".comments-section__against", [
+                               highest_voted_comment_against,
+                               latest_comment_against,
+                               recent_comment_against,
+                               older_comment_against,
+                               high_voted_comment_against
+                             ])
+      end
+    end
+
+    it "shows the top voted comments with label at the top of each column" do
+      within(".comments-two-columns") do
+        within(".comments-section__in-favor") do
+          expect(page).to have_css(".most-upvoted-label", text: "Most upvoted")
+          expect(page).to have_content(highest_voted_comment_in_favor.body["en"])
+        end
+
+        within(".comments-section__against") do
+          expect(page).to have_css(".most-upvoted-label", text: "Most upvoted")
+          expect(page).to have_content(highest_voted_comment_against.body["en"])
+        end
+      end
+    end
+  end
+
+  def check_comments_order(section_selector, comments)
+    comments_section = all("#{section_selector} .comment-thread")
+    comments.each_with_index do |comment, index|
+      expect(comments_section[index]).to have_content(comment.body["en"])
+    end
+  end
+
+  def add_new_comment(opinion, comment_text)
+    within(".comment__opinion-container") do
+      click_on opinion
+    end
+
+    within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+      fill_in_comment_field(comment_text)
+      click_on "Publish comment"
+    end
+  end
+
+  def fill_in_comment_field(comment_text)
+    field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+    field.set " "
+    field.native.send_keys comment_text
+  end
+
+  def resize_window_to_mobile
+    page.driver.browser.manage.window.resize_to(375, 667)
+  end
+
+  def resize_window_to_desktop
+    page.driver.browser.manage.window.resize_to(1920, 1080)
   end
 end

@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("title", scope: "decidim.meetings.meetings.new")) %>
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
     <h1 class="title-decorator inline-block text-left">
@@ -15,7 +16,10 @@
         <%= icon "arrow-left-line" %>
         <%= t("back", scope: "decidim.meetings.meetings.new") %>
       <% end %>
-      <%= f.submit t("create", scope: "decidim.meetings.meetings.new"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("create", scope: "decidim.meetings.meetings.new") %></span>
+      </button>
     </div>
   <% end %>
 <% end %>

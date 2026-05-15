@@ -1,4 +1,4 @@
-# Decidim::Initiatives
+# decidim-initiatives
 
 Initiatives is the place on Decidim's where participants can promote an initiative. Unlike
 participatory processes that must be created by an administrator, initiatives can be
@@ -18,19 +18,15 @@ This plugin provides:
 
 * Public views for initiatives via a high level section in the main menu.
 
+You can see the documentation of this feature at the [Decidim Documentation](https://docs.decidim.org/en/develop/admin/spaces/initiatives).
+
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-initiatives'
-```
-
-And then execute:
+To install this module, run in your console:
 
 ```bash
-bundle
-bundle exec rails decidim_initiatives:install:migrations
+bundle add decidim-initiatives
+bundle exec rails decidim:upgrade
 bundle exec rails db:migrate
 ```
 
@@ -44,29 +40,66 @@ CREATE EXTENSION pg_trgm;
 
 ## Deactivating authorization requirement and other module settings
 
-Some of the settings of the module need to be set in the code of your app, for example in the file `config/initializers/decidim.rb`.
+Some of the settings of the module need to be set in the code of your app using the [environment variables](https://docs.decidim.org/en/develop/configure/environment_variables)
 
 This is the case if you want to enable the creation of initiatives even when no authorization method is set.
 
-Just use the following line:
+Just set the following environment variable:
 
-```ruby
-Decidim::Initiatives.do_not_require_authorization = true
+```bash
+export INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION=true
 ```
 
-All the settings and their default values which can be overridden can be found in the file [`lib/decidim/initiatives.rb`](https://github.com/decidim/decidim/blob/develop/decidim-initiatives/lib/decidim/initiatives.rb).
+For example, you can also change the minimum number of required committee members to 1 (default is 2) by exporting the following variable:
 
-For example, you can also change the minimum number of required committee members to 1 (default is 2) by adding this line:
-
-```ruby
-Decidim::Initiatives.minimum_committee_members = 1
+```bash
+export INITIATIVES_MINIMUM_COMMITTEE_MEMBERS=1
 ```
 
 Or change the number of days given to gather signatures to 365 (default is 120) with:
 
 ```ruby
-Decidim::Initiatives.default_signature_time_period_length = 365
+export INITIATIVES_DEFAULT_SIGNATURE_TIME_PERIOD_LENGTH=365
 ```
+
+### Initiatives signatures
+
+Different signature workflows can be registered in the code of your app and used in the signature workflow settings of signatures types. A signature workflow defines some options of the signature steps and the form objects and commands responsible for validating and managing the data provided by the users.
+
+To define a signature workflow create an initializer in your application and register it. For example, in `config/initializers/decidim_initiatives.rb`:
+
+```ruby
+Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_handler) do |workflow|
+  workflow.form = "DummySignatureHandler"
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
+  workflow.promote_authorization_validation_errors = true
+  workflow.sms_verification = true
+  workflow.sms_mobile_phone_validator = "DummySmsMobilePhoneValidator"
+end
+
+Decidim::Initiatives::Signatures.register_workflow(:ephemeral_dummy_signature_handler) do |workflow|
+  workflow.form = "DummySignatureHandler"
+  workflow.ephemeral = true
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
+  workflow.promote_authorization_validation_errors = true
+  workflow.sms_verification = false
+end
+
+Decidim::Initiatives::Signatures.register_workflow(:legacy_signature_handler) do |workflow|
+  workflow.form = "Decidim::Initiatives::LegacySignatureHandler"
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.save_authorizations = false
+  workflow.sms_verification = true
+end
+```
+
+All the attributes of a workflow are optional except the registered name with which the workflow is registered. A flow without attributes uses default values that generate a direct signature process without steps.
+
+Signature workflows can be defined as ephemeral, in which case users can sign initiatives without prior registration. For a workflow of this type to work correctly, an authorization handler form must be defined in `authorization_handler_form` and authorizations saving must not be disabled using the `save_authorizations` setting, in order to ensure that user verifications are saved based on the personal data they provide.
+
+For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest` and `Decidim::Initiatives::SignatureHandler`
 
 ## Rake tasks
 

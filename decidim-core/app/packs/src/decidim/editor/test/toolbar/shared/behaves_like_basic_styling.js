@@ -5,13 +5,17 @@ import contextHelpers from "src/decidim/editor/test/toolbar/shared/context";
 export default (ctx) => {
   const { getControl, setContent } = contextHelpers(ctx);
 
+  const normalizeHTML = (html) => {
+    return html.replace(/<p><br class="ProseMirror-trailingBreak"><\/p>$/g, "").trim();
+  };
+
   describe("bold", () => {
     it("makes text bold", async () => {
       await setContent("Hello, world!");
       selectContent(ctx.prosemirror);
       getControl("bold").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p><strong>Hello, world!</strong></p>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p><strong>Hello, world!</strong></p>");
     });
 
     it("makes already bolded text normal", async () => {
@@ -20,7 +24,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror, "p strong");
       getControl("bold").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>");
     });
   });
 
@@ -30,7 +34,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror);
       getControl("italic").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p><em>Hello, world!</em></p>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p><em>Hello, world!</em></p>");
     });
 
     it("makes already italic text normal", async () => {
@@ -39,7 +43,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror, "p em");
       getControl("italic").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>");
     });
   });
 
@@ -49,7 +53,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror);
       getControl("underline").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p><u>Hello, world!</u></p>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p><u>Hello, world!</u></p>");
     });
 
     it("makes already underlined text normal", async () => {
@@ -58,7 +62,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror, "p u");
       getControl("underline").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>");
     });
   });
 
@@ -71,7 +75,7 @@ export default (ctx) => {
 
       getControl("common:eraseStyles").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>")
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>")
     });
 
     it("makes ordered list content as normal text", async () => {
@@ -80,7 +84,7 @@ export default (ctx) => {
 
       getControl("common:eraseStyles").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>")
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>")
     });
 
     it("makes bullet list content as normal text", async () => {
@@ -89,7 +93,7 @@ export default (ctx) => {
 
       getControl("common:eraseStyles").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>")
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>")
     });
   });
 };

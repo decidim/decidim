@@ -31,6 +31,22 @@ describe "Admin checks logs" do
     end
   end
 
+  context "when viewing trashed resources" do
+    before do
+      create(:action_log, organization:, component: nil, resource: action_logs.first.component, participatory_space: action_logs.first.participatory_space, action: "publish", visibility: "all")
+      create(:action_log, organization:, component: nil, resource: action_logs.first.resource, participatory_space: action_logs.first.participatory_space, action: "publish", visibility: "all")
+      action_logs.first.participatory_space.destroy # soft delete
+      click_on "Admin activity log"
+    end
+
+    it "shows the generic log message" do
+      within ".logs.table" do
+        expect(page).to have_css("div.logs__log", count: 5)
+        expect(page).to have_content("published")
+      end
+    end
+  end
+
   context "when filtering" do
     context "and there are no matching logs" do
       let(:admin1) { create(:user, :admin, organization:, name: "John Doe", nickname: "joe", email: "jdoe@example.org") }

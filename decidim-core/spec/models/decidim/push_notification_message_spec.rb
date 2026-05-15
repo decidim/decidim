@@ -6,7 +6,7 @@ module Decidim
   describe PushNotificationMessage do
     subject { push_notification_message }
 
-    let(:organization) { build(:organization, favicon:) }
+    let!(:organization) { create(:organization, favicon:) }
     let(:conversation) { create(:conversation) }
     let(:recipient) { build(:user, organization:) }
     let(:favicon) { nil }
@@ -37,14 +37,14 @@ module Decidim
         let(:favicon) { Decidim::Dev.test_file("icon.png", "image/png") }
 
         it "returns the organization's favicon" do
-          expect(subject.icon).to start_with("http://")
+          expect(subject.icon).to end_with("icon.png")
         end
       end
     end
 
     describe "#url" do
       it "returns the conversation url" do
-        expect(subject.url).to eq("/conversations/#{conversation.id}")
+        expect(subject.url).to eq(Decidim::Core::Engine.routes.url_helpers.conversation_path(host: organization.host, id: conversation))
       end
     end
   end

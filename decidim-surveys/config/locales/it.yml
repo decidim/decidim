@@ -8,28 +8,13 @@ it:
       decidim/surveys/survey:
         one: Questionario
         other: indagini
-      decidim/surveys/survey_answer:
-        one: Risposta
-        other: risposte
   decidim:
     components:
       surveys:
-        actions:
-          answer: Risposta
-        name: Questionario
         settings:
           global:
             announcement: Annuncio
-            clean_after_publish: Eliminare le risposte quando si pubblica il sondaggio
-            ends_at: Risposte accettate fino al
-            ends_at_help: Lascia vuoto se nessuna data è specificata
-            scope_id: Obiettivo
-            scopes_enabled: Obiettivi abilitati
-            starts_at: Risposte accettate da
-            starts_at_help: Lascia vuoto se nessuna data è specificata
           step:
-            allow_answers: Consenti risposte
-            allow_unregistered: Consenti agli utenti non registrati di rispondere al sondaggio
             announcement: Annuncio
     events:
       surveys:
@@ -43,22 +28,12 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
           email_subject: Un nuovo questionario su %{participatory_space_title}
           notification_title: Il questionario <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è ora aperto.
-    metrics:
-      survey_answers:
-        description: Numero di sondaggi rispondenti dagli utenti
-        object: risposte ai sondaggi
-        title: Risposte ai sondaggi
-    statistics:
-      answers_count: Risposte
     surveys:
       admin:
-        exports:
-          survey_user_answers: Risposte dei partecipanti al sondaggio
         surveys:
           update:
             invalid: Ci sono stati degli errori durante il salvataggio del sondaggio.
             success: Sondaggio salvato correttamente.
-      surveys:
-        answer:
-          invalid: Ci sono stati errori nel rispondere al sondaggio.
-          success: Le risposte sono state registrate correttamente.
+      admin_log:
+        survey:
+          unpublish: "%{user_name} ha aggiornato il budget %{resource_name} nello spazio %{space_name}"

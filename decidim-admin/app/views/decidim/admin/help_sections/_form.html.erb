@@ -9,7 +9,7 @@
     <% f.object.sections.each do |section| %>
       <%= f.fields_for "sections[]", section do |section_form| %>
         <div class="form__wrapper">
-          <div class="card" data-component="accordion" id="accordion-<%= translated_attribute section.name %>">
+          <div class="card" data-controller="accordion" id="accordion-<%= translated_attribute section.name %>">
             <div class="card-divider">
               <button class="card-divider-button" data-open="true" data-controls="panel-<%= translated_attribute section.name %>" type="button">
                 <%= icon "arrow-right-s-line" %>

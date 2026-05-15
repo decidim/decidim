@@ -40,7 +40,19 @@ describe Decidim::NotificationCell, type: :cell do
     let!(:resource) { create(:dummy_resource, :moderated, component:) }
 
     it "does not render the resource" do
-      expect(subject.to_s).to include("Content moderated")
+      expect(subject.to_s).to include("Content has been hidden through moderation.")
+    end
+  end
+
+  context "when resource is deleted" do
+    let!(:resource) { create(:dummy_resource, component:) }
+
+    before do
+      resource.destroy
+    end
+
+    it "does not render the resource" do
+      expect(subject.to_s).to include("Content has been deleted by the author.")
     end
   end
 

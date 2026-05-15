@@ -13,6 +13,7 @@ module Decidim
           before_action :load_pending_authorization
 
           include Decidim::Admin::WorkflowsBreadcrumb
+          include Decidim::Verifications::Admin::PendingAuthorizationLoader
 
           add_breadcrumb_item_from_menu :workflows_menu
 
@@ -28,7 +29,7 @@ module Decidim
               end
 
               on(:invalid) do
-                render json: { error: I18n.t("postages.create.error", scope: "decidim.verifications.postal_letter.admin") }, status: :unprocessable_entity
+                render json: { error: I18n.t("postages.create.error", scope: "decidim.verifications.postal_letter.admin") }, status: :unprocessable_content
               end
             end
           end
@@ -36,7 +37,7 @@ module Decidim
           private
 
           def load_pending_authorization
-            @pending_authorization = Authorization.find(params[:pending_authorization_id])
+            @pending_authorization = load_pending_authorization!("postal_letter", params[:pending_authorization_id])
           end
         end
       end

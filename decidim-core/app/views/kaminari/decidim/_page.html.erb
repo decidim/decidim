@@ -6,6 +6,6 @@
     total_pages:   total number of pages
     per_page:      number of items to fetch per page
     remote:        data-remote -%>
-<li class="w-6 h-6 rounded-full hover:bg-background-3 transition<%= "mx-2 bg-background-3 grid place-items-center" if page.current? %>" <%== 'aria-current="page"' if page.current? %> data-page>
+<li class="w-6 h-6 px-2 rounded-full hover:bg-background-3 transition min-w-fit <%= "bg-background-3 grid place-items-center" if page.current? %>" <%== 'aria-current="page"' if page.current? %> data-page>
   <%= link_to_unless page.current?, page, url, { class: "w-full h-full grid place-items-center", remote:, rel: page.rel, title: t("views.pagination.title") << page.to_s } %>
 </li>

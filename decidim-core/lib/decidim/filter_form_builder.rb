@@ -35,24 +35,22 @@ module Decidim
 
       @template.render(
         "decidim/shared/filters/#{type}",
-        **options.merge(
-          method:,
-          collection:,
-          label:,
-          id:,
-          form: self
-        )
+        **options, method:,
+                   collection:,
+                   label:,
+                   id:,
+                   form: self
       )
     end
 
     def dropdown_label(item, method, options = {})
-      @template.render("decidim/shared/filters/dropdown_label", **options.merge(item:, method:, form: self))
+      @template.render("decidim/shared/filters/dropdown_label", **options, item:, method:, form: self)
     end
 
     private
 
     def check_boxes_tree_id(*args)
-      args.map(&:to_s).join("_")
+      args.join("_")
     end
 
     def default_form_type_for_collection(collection)

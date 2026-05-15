@@ -9,12 +9,12 @@ module Decidim
       include FilterResource
       include Paginable
       include HasParticipatorySpaceContentBlocks
+      include ParticipatoryProcessBreadcrumb
 
       helper_method :collection,
                     :promoted_collection,
                     :participatory_processes,
                     :stats,
-                    :metrics,
                     :participatory_process_group,
                     :default_date_filter,
                     :related_processes,
@@ -31,20 +31,15 @@ module Decidim
         enforce_permission_to :read, :process, process: current_participatory_space
       end
 
-      def all_metrics
-        enforce_permission_to :read, :process, process: current_participatory_space
-      end
-
       private
 
       def search_collection
-        ParticipatoryProcess.where(organization: current_organization).published.visible_for(current_user)
+        published_processes.query
       end
 
       def default_filter_params
         {
           with_any_taxonomies: nil,
-          with_any_type: nil,
           with_date: default_date_filter
         }
       end
@@ -109,10 +104,6 @@ module Decidim
 
       def stats
         @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_space)
-      end
-
-      def metrics
-        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space, view_context:)
       end
 
       def participatory_process_group

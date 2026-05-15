@@ -56,10 +56,8 @@ describe "Admin filters proposals" do
     before { visit_component_admin }
 
     STATES.each do |state|
-      i18n_state = I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")
-
-      context "when filtering proposals by state: #{i18n_state}" do
-        it_behaves_like "a filtered collection", options: "State", filter: i18n_state do
+      context "when filtering proposals by state: #{I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")}" do
+        it_behaves_like "a filtered collection", options: "State", filter: I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values") do
           let(:in_filter) { translated(proposal_with_state(state).title) }
           let(:not_in_filter) { translated(proposal_without_state(state).title) }
         end
@@ -110,8 +108,8 @@ describe "Admin filters proposals" do
     let(:root_taxonomy2) { create(:taxonomy, organization: component.organization, name: { "en" => "Root2" }) }
     let!(:taxonomy1) { create(:taxonomy, parent: root_taxonomy1, organization:, name: { "en" => "Taxonomy1" }) }
     let!(:taxonomy2) { create(:taxonomy, parent: root_taxonomy2, organization:, name: { "en" => "Taxonomy2" }) }
-    let(:taxonomy1_filter) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, space_manifest: component.participatory_space.manifest.name) }
-    let(:taxonomy2_filter) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, space_manifest: component.participatory_space.manifest.name) }
+    let(:taxonomy1_filter) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, participatory_space_manifests: [component.participatory_space.manifest.name]) }
+    let(:taxonomy2_filter) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, participatory_space_manifests: [component.participatory_space.manifest.name]) }
     let!(:taxonomy1_filter_item) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy1_filter, taxonomy_item: taxonomy1) }
     let!(:taxonomy2_filter_item) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy2_filter, taxonomy_item: taxonomy2) }
     let!(:answered_proposal_with_taxonomy1) { create(:proposal, :with_answer, component:, taxonomies: [taxonomy1]) }
@@ -158,6 +156,7 @@ describe "Admin filters proposals" do
 
       it "stores the filters in the session and recovers it when visiting the component page" do
         within("tr[data-id='#{answered_proposal_with_taxonomy1.id}']") do
+          find("button[data-controller='dropdown']").click
           click_on("Answer proposal")
         end
 
@@ -191,6 +190,7 @@ describe "Admin filters proposals" do
         ids = find_all("tr[data-id]").map { |node| node["data-id"].to_i }
 
         within("tr[data-id='#{ids[0]}']") do
+          find("button[data-controller='dropdown']").click
           click_on("Answer proposal")
         end
 
@@ -210,19 +210,13 @@ describe "Admin filters proposals" do
     end
   end
 
-  context "when searching by ID or title" do
+  context "when searching by title" do
     let!(:proposal1) { create(:proposal, component:) }
     let!(:proposal2) { create(:proposal, component:) }
     let!(:proposal1_title) { ActionView::Base.full_sanitizer.sanitize(translated(proposal1.title)) }
     let!(:proposal2_title) { ActionView::Base.full_sanitizer.sanitize(translated(proposal2.title)) }
 
     before { visit_component_admin }
-
-    it "can be searched by ID" do
-      search_by_text(proposal1.id)
-
-      expect(page).to have_content(proposal1_title)
-    end
 
     it "can be searched by title" do
       search_by_text(proposal2_title)

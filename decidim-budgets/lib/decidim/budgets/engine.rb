@@ -16,6 +16,8 @@ module Decidim
           resource :order, only: [:destroy] do
             member do
               post :checkout
+              get :status
+              get :export_pdf
             end
             resource :line_item, only: [:create, :destroy]
           end
@@ -32,6 +34,13 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Budgets::Order", icon: "check-double-fill", description: "Budget voting", category: "activity", engine: :budgets)
 
         Decidim.icons.register(name: "git-pull-request-line", icon: "git-pull-request-line", category: "system", description: "", engine: :budgets)
+        Decidim.icons.register(name: "progress-2-line", icon: "progress-2-line", category: "system", description: "", engine: :budgets)
+      end
+
+      initializer "decidim_budgets.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
       end
 
       initializer "decidim_budgets.add_cells_view_paths" do
@@ -39,17 +48,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/views") # for partials
       end
 
-      initializer "decidim_budgets.register_metrics" do
-        Decidim.metrics_operation.register(:participants, :budgets) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetParticipantsMetricMeasure"
-        end
-
-        Decidim.metrics_operation.register(:followers, :budgets) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetFollowersMetricMeasure"
-        end
-      end
-
-      initializer "decidim_budgets.webpacker.assets_path" do
+      initializer "decidim_budgets.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

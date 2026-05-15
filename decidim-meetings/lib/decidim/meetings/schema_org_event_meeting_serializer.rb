@@ -37,24 +37,15 @@ module Decidim
       private
 
       attr_reader :meeting
+      alias resource meeting
 
       def organizer
-        return organizer_user_group if meeting.decidim_user_group_id?
-
         case meeting.author.class.name
         when "Decidim::Organization"
           organizer_organization
         when "Decidim::User"
           organizer_user
         end
-      end
-
-      def organizer_user_group
-        {
-          "@type": "Organization",
-          name: meeting.author.name,
-          url: EngineRouter.new("decidim", router_options).profile_url(meeting.user_group.nickname)
-        }
       end
 
       def organizer_organization
@@ -69,7 +60,7 @@ module Decidim
         {
           "@type": "Person",
           name: decidim_escape_translated(meeting.author.name),
-          url: EngineRouter.new("decidim", router_options).profile_url(meeting.author.nickname)
+          url: profile_url(meeting.author)
         }
       end
 

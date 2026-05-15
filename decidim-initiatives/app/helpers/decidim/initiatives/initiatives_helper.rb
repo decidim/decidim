@@ -6,7 +6,10 @@ module Decidim
     module InitiativesHelper
       # Items to display in the navigation of an initiative
       def initiative_nav_items(participatory_space)
-        components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
+        components = participatory_space
+                     .components
+                     .published.or(Decidim::Component.where(id: try(:current_component)))
+                     .where(visible: true)
 
         components.map do |component|
           {
@@ -26,15 +29,29 @@ module Decidim
       # i18n-tasks-use t('decidim.initiatives.initiatives.filters.author')
       def filter_sections
         sections = [
-          { method: :with_any_state, collection: filter_states_values, label: t("decidim.initiatives.initiatives.filters.state"), id: "state" },
-          { method: :with_any_scope, collection: filter_global_scopes_values, label: t("decidim.initiatives.initiatives.filters.scope"), id: "scope" }
+          { method: :with_any_state,
+            name: "[with_any_state]",
+            collection: filter_states_values,
+            label: t("decidim.initiatives.initiatives.filters.state"),
+            id: "state" },
+          { method: :with_any_scope,
+            name: "[with_any_scope]",
+            collection: filter_global_scopes_values,
+            label: t("decidim.initiatives.initiatives.filters.scope"),
+            id: "scope" }
         ]
         unless single_initiative_type?
-          sections.append(method: :with_any_type, collection: filter_types_values, label: t("decidim.initiatives.initiatives.filters.type"),
+          sections.append(method: :with_any_type,
+                          name: "[with_any_type]",
+                          collection: filter_types_values,
+                          label: t("decidim.initiatives.initiatives.filters.type"),
                           id: "type")
         end
-        sections.append(method: :with_any_area, collection: filter_areas_values, label: t("decidim.initiatives.initiatives.filters.area"), id: "area")
-        sections.append(method: :author, collection: filter_author_values, label: t("decidim.initiatives.initiatives.filters.author"), id: "author") if current_user
+        sections.append(method: :with_any_area,
+                        name: "[with_any_area]",
+                        collection: filter_areas_values,
+                        label: t("decidim.initiatives.initiatives.filters.area"),
+                        id: "area")
         sections.reject { |item| item[:collection].blank? }
       end
 

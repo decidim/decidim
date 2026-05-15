@@ -14,25 +14,23 @@ module Decidim
   module Meetings
     autoload :Registrations, "decidim/meetings/registrations"
     autoload :MeetingSerializer, "decidim/meetings/meeting_serializer"
-    autoload :UserAnswersSerializer, "decidim/meetings/user_answers_serializer"
-    autoload :DownloadYourDataUserAnswersSerializer, "decidim/meetings/download_your_data_user_answers_serializer"
+    autoload :UserResponsesSerializer, "decidim/meetings/user_responses_serializer"
     autoload :SchemaOrgEventMeetingSerializer, "decidim/meetings/schema_org_event_meeting_serializer"
 
-    include ActiveSupport::Configurable
+    class << self
+      def config = self
 
-    # Public Setting that defines whether proposals can be linked to meetings
-    config_accessor :enable_proposal_linking do
-      Decidim.const_defined?("Proposals")
+      def configure
+        yield self
+      end
     end
 
     # Public Setting that defines the interval when the upcoming meeting will be sent
-    config_accessor :upcoming_meeting_notification do
-      2.days
-    end
+    mattr_accessor :upcoming_meeting_notification, default: Decidim::Env.new("MEETINGS_UPCOMING_MEETING_NOTIFICATION", 2).to_i.days
 
-    config_accessor :embeddable_services do
-      %w(www.youtube.com www.twitch.tv meet.jit.si)
-    end
+    mattr_accessor :embeddable_services, default: Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES", "www.youtube.com www.twitch.tv meet.jit.si").to_array(separator: " ")
+
+    mattr_accessor :waiting_list_enabled, default: Decidim::Env.new("MEETINGS_WAITING_LIST_ENABLED", true).present?
   end
 
   module ContentParsers

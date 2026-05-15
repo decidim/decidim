@@ -25,6 +25,12 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Debates::Debate", icon: "discuss-line", description: "Debate", category: "activity", engine: :debates)
       end
 
+      initializer "decidim_debates.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_debates.settings_changes" do
         config.to_prepare do
           Decidim::SettingsChange.subscribe "debates" do |changes|
@@ -46,7 +52,7 @@ module Decidim
         Decidim::Gamification.register_badge(:commented_debates) do |badge|
           badge.levels = [1, 5, 10, 30, 50]
 
-          badge.valid_for = [:user, :user_group]
+          badge.valid_for = [:user]
 
           badge.reset = lambda do |user|
             debates = Decidim::Comments::Comment.where(
@@ -62,49 +68,18 @@ module Decidim
             comment = Decidim::Comments::Comment.find(data[:comment_id])
             next unless comment.decidim_root_commentable_type == "Decidim::Debates::Debate"
 
-            if comment.user_group.present?
-              comments = Decidim::Comments::Comment.where(
-                decidim_root_commentable_id: comment.decidim_root_commentable_id,
-                decidim_root_commentable_type: comment.decidim_root_commentable_type,
-                user_group: comment.user_group
-              )
+            comments = Decidim::Comments::Comment.where(
+              decidim_root_commentable_id: comment.decidim_root_commentable_id,
+              decidim_root_commentable_type: comment.decidim_root_commentable_type,
+              author: comment.author
+            )
 
-              Decidim::Gamification.increment_score(comment.user_group, :commented_debates) if comments.count == 1
-            elsif comment.author.present?
-              comments = Decidim::Comments::Comment.where(
-                decidim_root_commentable_id: comment.decidim_root_commentable_id,
-                decidim_root_commentable_type: comment.decidim_root_commentable_type,
-                author: comment.author
-              )
-
-              Decidim::Gamification.increment_score(comment.author, :commented_debates) if comments.count == 1
-            end
+            Decidim::Gamification.increment_score(comment.author, :commented_debates) if comments.count == 1
           end
         end
       end
 
-      initializer "decidim_debates.register_metrics" do
-        Decidim.metrics_registry.register(:debates) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Debates::Metrics::DebatesMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(participatory_process)
-            settings.attribute :weight, type: :integer, default: 3
-            settings.attribute :stat_block, type: :string, default: "small"
-          end
-        end
-
-        Decidim.metrics_operation.register(:participants, :debates) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Debates::Metrics::DebateParticipantsMetricMeasure"
-        end
-
-        Decidim.metrics_operation.register(:followers, :debates) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Debates::Metrics::DebateFollowersMetricMeasure"
-        end
-      end
-
-      initializer "decidim_debates.webpacker.assets_path" do
+      initializer "decidim_debates.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
@@ -122,6 +97,12 @@ module Decidim
             Decidim::Debates::HideAllCreatedByAuthorJob.perform_later(**data)
           end
         end
+      end
+
+      initializer "decidim_debates.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Debates::DebatesMutationType
+        )
       end
     end
   end

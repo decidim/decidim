@@ -1,0 +1,8 @@
+require:
+  - decidim/dev/rubocop/cop/decidim/message_antipattern
+
+Decidim/MessageAntipattern:
+  Enabled: true
+  Include:
+    - "**/spec/**/*"
+    - "**/test/**/*"

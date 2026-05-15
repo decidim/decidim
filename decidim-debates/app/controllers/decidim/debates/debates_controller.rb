@@ -11,8 +11,9 @@ module Decidim
       include Paginable
       include Flaggable
       include Decidim::Debates::Orderable
+      include Decidim::AttachmentsHelper
 
-      helper_method :debates, :debate, :form_presenter, :paginated_debates, :close_debate_form
+      helper_method :debates, :debate, :form_presenter, :paginated_debates, :close_debate_form, :tab_panel_items
       before_action :authenticate_user!, only: [:new, :create]
 
       def new
@@ -34,7 +35,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("debates.create.invalid", scope: "decidim.debates")
-            render action: "new"
+            render action: "new", status: :unprocessable_content
           end
         end
       end
@@ -62,7 +63,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("debates.update.invalid", scope: "decidim.debates")
-            render :edit
+            render :edit, status: :unprocessable_content
           end
         end
       end
@@ -75,12 +76,12 @@ module Decidim
         CloseDebate.call(@form) do
           on(:ok) do |debate|
             flash[:notice] = I18n.t("debates.close.success", scope: "decidim.debates")
-            redirect_back fallback_location: Decidim::ResourceLocatorPresenter.new(debate).path
+            redirect_back_or_to(Decidim::ResourceLocatorPresenter.new(debate).path)
           end
 
           on(:invalid) do
             flash[:alert] = I18n.t("debates.close.invalid", scope: "decidim.debates")
-            redirect_back fallback_location: Decidim::ResourceLocatorPresenter.new(debate).path
+            redirect_back_or_to(Decidim::ResourceLocatorPresenter.new(debate).path)
           end
         end
       end
@@ -115,9 +116,23 @@ module Decidim
         {
           search_text_cont: "",
           with_any_origin: nil,
-          activity: %w(all),
+          activity: "all",
           with_any_taxonomies: nil,
-          with_any_state: %w(open closed)
+          with_any_state: "all"
+        }
+      end
+
+      def tab_panel_items
+        @tab_panel_items ||= attachments_tab_panel_items(debate)
+      end
+
+      def add_breadcrumb_item
+        return {} if debate.blank?
+
+        {
+          label: translated_attribute(debate.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).debate_path(debate),
+          active: false
         }
       end
     end

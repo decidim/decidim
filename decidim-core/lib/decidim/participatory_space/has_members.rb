@@ -1,0 +1,61 @@
+# frozen_string_literal: true
+
+require "active_support/concern"
+
+module Decidim
+  module ParticipatorySpace
+    # A concern with the features needed when you want a model to be able to create
+    # members
+    module HasMembers
+      extend ActiveSupport::Concern
+      include Decidim::UserRoleChecker
+
+      included do
+        has_many :members,
+                 class_name: "Decidim::ParticipatorySpace::Member",
+                 as: :participatory_space,
+                 dependent: :destroy
+        has_many :users,
+                 through: :members,
+                 class_name: "Decidim::User",
+                 foreign_key: "member_to_id"
+
+        def self.visible_for(user)
+          if user
+            return all if user.admin?
+
+            where(
+              id: public_spaces +
+                  private_spaces
+                  .joins(:members)
+                  .where(decidim_members: { decidim_user_id: user.id })
+            )
+          else
+            public_spaces
+          end
+        end
+
+        def members_public_page?
+          has_members && members.published.any?
+        end
+
+        def can_participate?(user)
+          return false unless published?
+          return true if open?
+          return true if user_has_any_role?(user, self)
+          return false unless user
+
+          members.exists?(decidim_user_id: user.id)
+        end
+
+        def self.public_spaces
+          where(access_mode: [:open, :transparent]).published
+        end
+
+        def self.private_spaces
+          where(access_mode: [:restricted, :transparent]).published
+        end
+      end
+    end
+  end
+end

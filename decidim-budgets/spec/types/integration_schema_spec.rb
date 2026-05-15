@@ -1,48 +1,108 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/component_context"
-require "decidim/budgets/test/factories"
+require "decidim/api/test"
 
 describe "Decidim::Api::QueryType" do
-  include_context "with a graphql decidim component"
+  include_context "with a graphql decidim component" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Budgets {
+        budget(id: #{budget.id}) {
+          createdAt
+          description {
+            translation(locale:"#{locale}")
+          }
+          id
+          projects {
+            acceptsNewComments
+            address
+            attachments{
+              type
+            }
+            budget_amount
+            comments{ id }
+            commentsHaveAlignment
+            commentsHaveVotes
+            confirmedVotes
+            coordinates { latitude longitude }
+            createdAt
+            description{ translation(locale: "#{locale}")}
+            followsCount
+            hasComments
+            id
+            reference
+            taxonomies{ id }
+            selected
+            selectedAt
+            title{ translation(locale: "#{locale}")}
+            totalCommentsCount
+            type
+            updatedAt
+            url
+            userAllowedToComment
+          }
+          title {
+            translation(locale:"#{locale}")
+          }
+          total_budget
+          updatedAt
+          url
+          versions {
+            id
+          }
+          versionsCount
+          weight
+        }
+      }
+    )
+    end
+  end
   let(:component_type) { "Budgets" }
-  let!(:current_component) { create(:budgets_component, participatory_space: participatory_process) }
+  let!(:current_component) { create(:budgets_component, :published, participatory_space: participatory_process) }
   let!(:budget) { create(:budget, component: current_component) }
-  let!(:projects) { create_list(:project, 2, budget:, taxonomies:) }
+  let!(:projects) { create_list(:project, 2, :selected, budget:, taxonomies:) }
 
   let(:budget_single_result) do
     {
-      "createdAt" => budget.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => budget.created_at.to_time.iso8601,
       "description" => { "translation" => budget.description[locale] },
       "id" => budget.id.to_s,
       "projects" => budget.projects.map do |project|
         {
           "acceptsNewComments" => project.accepts_new_comments?,
+          "address" => project.address,
           "attachments" => [],
           "budget_amount" => project.budget_amount,
           "taxonomies" => [{ "id" => project.taxonomies.first.id.to_s }],
           "comments" => [],
           "commentsHaveAlignment" => project.comments_have_alignment?,
           "commentsHaveVotes" => project.comments_have_votes?,
-          "createdAt" => project.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+          "confirmedVotes" => nil,
+          "coordinates" => { "latitude" => project.latitude, "longitude" => project.longitude },
+          "createdAt" => project.created_at.to_time.iso8601,
           "description" => { "translation" => project.description[locale] },
+          "followsCount" => project.follows_count,
           "hasComments" => project.comment_threads.size.positive?,
           "id" => project.id.to_s,
           "reference" => project.reference,
           "selected" => project.selected?,
+          "selectedAt" => project.selected_at.to_time.iso8601,
           "title" => { "translation" => project.title[locale] },
           "totalCommentsCount" => project.comments_count,
           "type" => "Decidim::Budgets::Project",
-          "updatedAt" => project.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
-          "userAllowedToComment" => project.user_allowed_to_comment?(current_user)
+          "updatedAt" => project.updated_at.to_time.iso8601,
+          "userAllowedToComment" => project.user_allowed_to_comment?(current_user),
+          "url" => project.resource_locator.url
         }
       end,
       "title" => { "translation" => budget.title[locale] },
       "total_budget" => budget.total_budget,
-      "updatedAt" => budget.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => budget.updated_at.to_time.iso8601,
+      "url" => Decidim::EngineRouter.main_proxy(budget.component).budget_url(budget),
       "versions" => [],
-      "versionsCount" => 0
+      "versionsCount" => 0,
+      "weight" => budget.weight
     }
   end
 
@@ -58,22 +118,51 @@ describe "Decidim::Api::QueryType" do
           }
         ]
       },
+      "url" => Decidim::EngineRouter.main_proxy(current_component).root_url,
       "weight" => 0
     }
+  end
+
+  shared_examples "unauthorized Budget" do
+    it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+      expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Budget because you do not have permissions")
+    end
+  end
+
+  describe "commentable" do
+    let(:component_fragment) { nil }
+
+    let(:participatory_process_query) do
+      %(
+        commentable(id: "#{projects.first.id}", type: "Decidim::Budgets::Project", locale: "en", toggleTranslations: false) {
+          __typename
+        }
+      )
+    end
+
+    it "executes successfully" do
+      expect { response }.not_to raise_error
+    end
+
+    it do
+      expect(response).to eq({ "commentable" => { "__typename" => "Project" } })
+    end
   end
 
   describe "valid connection query" do
     let(:budget_single_result) do
       {
-        "createdAt" => budget.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+        "createdAt" => budget.created_at.to_time.iso8601,
         "description" => { "translation" => budget.description[locale] },
         "id" => budget.id.to_s,
         "projects" => budget.projects.map { |project| { "id" => project.id.to_s } },
         "title" => { "translation" => budget.title[locale] },
         "total_budget" => budget.total_budget,
-        "updatedAt" => budget.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+        "updatedAt" => budget.updated_at.to_time.iso8601,
+        "url" => Decidim::EngineRouter.main_proxy(budget.component).budget_url(budget),
         "versions" => [],
-        "versionsCount" => 0
+        "versionsCount" => 0,
+        "weight" => budget.weight
       }
     end
 
@@ -96,10 +185,12 @@ describe "Decidim::Api::QueryType" do
               }
               total_budget
               updatedAt
+              url
               versions {
                 id
               }
               versionsCount
+              weight
             }
           }
         }
@@ -117,8 +208,81 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
-    let(:component_fragment) do
-      %(
+    it "executes successfully" do
+      expect { response }.not_to raise_error
+    end
+
+    it do
+      expect(response["participatoryProcess"]["components"].first["budget"]).to eq(budget_single_result)
+    end
+  end
+
+  context "with resource visibility" do
+    let(:component_factory) { :budgets_component }
+    let(:lookout_key) { "budget" }
+    let(:query_result) do
+      {
+        "createdAt" => budget.created_at.to_time.iso8601,
+        "description" => { "translation" => budget.description[locale] },
+        "id" => budget.id.to_s,
+        "projects" => budget.projects.map do |project|
+          {
+            "acceptsNewComments" => project.accepts_new_comments?,
+            "address" => project.address,
+            "attachments" => [],
+            "budget_amount" => project.budget_amount,
+            "taxonomies" => [{ "id" => project.taxonomies.first.id.to_s }],
+            "comments" => [],
+            "commentsHaveAlignment" => project.comments_have_alignment?,
+            "commentsHaveVotes" => project.comments_have_votes?,
+            "confirmedVotes" => nil,
+            "coordinates" => { "latitude" => project.latitude, "longitude" => project.longitude },
+            "createdAt" => project.created_at.to_time.iso8601,
+            "description" => { "translation" => project.description[locale] },
+            "hasComments" => project.comment_threads.size.positive?,
+            "followsCount" => project.follows_count,
+            "id" => project.id.to_s,
+            "reference" => project.reference,
+            "selected" => project.selected?,
+            "selectedAt" => project.selected_at.to_time.iso8601,
+            "title" => { "translation" => project.title[locale] },
+            "totalCommentsCount" => project.comments_count,
+            "type" => "Decidim::Budgets::Project",
+            "updatedAt" => project.updated_at.to_time.iso8601,
+            "url" => project.resource_locator.url,
+            "userAllowedToComment" => project.user_allowed_to_comment?(current_user)
+          }
+        end,
+        "title" => { "translation" => budget.title[locale] },
+        "total_budget" => budget.total_budget,
+        "updatedAt" => budget.updated_at.to_time.iso8601,
+        "url" => Decidim::EngineRouter.main_proxy(budget.component).budget_url(budget),
+        "versions" => [],
+        "versionsCount" => 0,
+        "weight" => budget.weight
+      }
+    end
+    let(:process_space_factory) { :participatory_process }
+
+    context "when space is published" do
+      let!(:participatory_process) { create(process_space_factory, :published, :with_steps, organization: current_organization) }
+
+      context "when component is published" do
+        let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
+
+        context "when the user is admin" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+
+        context "when user is visitor" do
+          let!(:current_user) { nil }
+
+          let(:component_fragment) do
+            %(
       fragment fooComponent on Budgets {
         budget(id: #{budget.id}) {
           createdAt
@@ -126,48 +290,307 @@ describe "Decidim::Api::QueryType" do
             translation(locale:"#{locale}")
           }
           id
-          projects {
-            acceptsNewComments
-            attachments{
-              type
-            }
-            budget_amount
-            comments{ id }
-            commentsHaveAlignment
-            commentsHaveVotes
-            createdAt
-            description{ translation(locale: "#{locale}")}
-            hasComments
-            id
-            reference
-            taxonomies{ id }
-            selected
-            title{ translation(locale: "#{locale}")}
-            totalCommentsCount
-            type
-            updatedAt
-            userAllowedToComment
-          }
           title {
             translation(locale:"#{locale}")
           }
           total_budget
           updatedAt
+          url
           versions {
             id
           }
           versionsCount
+          weight
         }
       }
     )
+          end
+
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result.except("projects"))
+          end
+        end
+
+        context "when user is normal user" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+      end
+
+      context "when component is not published" do
+        let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
+
+        context "when the user is admin" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it_behaves_like "unauthorized Budget"
+        end
+
+        context "when user is visitor" do
+          let!(:current_user) { nil }
+
+          it "should not be visible" do
+            expect(response["participatoryProcess"]["components"]).to be_empty
+          end
+        end
+
+        context "when user is normal user" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it "should not be visible" do
+            expect(response["participatoryProcess"]["components"]).to be_empty
+          end
+        end
+      end
     end
 
-    it "executes successfully" do
-      expect { response }.not_to raise_error
+    context "when space is published but restricted" do
+      let!(:participatory_process) { create(process_space_factory, :published, :restricted, :with_steps, organization: current_organization) }
+
+      context "when component is published" do
+        let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
+
+        context "when the user is admin" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it_behaves_like "unauthorized Budget"
+        end
+
+        context "when user is visitor" do
+          let!(:current_user) { nil }
+
+          it_behaves_like "graphQL not found space"
+        end
+
+        context "when user is normal user" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it_behaves_like "graphQL not found space"
+        end
+      end
+
+      context "when component is not published" do
+        let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
+
+        context "when the user is admin" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it_behaves_like "unauthorized Budget"
+        end
+
+        context "when user is visitor" do
+          let!(:current_user) { nil }
+
+          it_behaves_like "graphQL not found space"
+        end
+
+        context "when user is normal user" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it_behaves_like "graphQL not found space"
+        end
+      end
     end
 
-    it do
-      expect(response["participatoryProcess"]["components"].first["budget"]).to eq(budget_single_result)
+    context "when space is published and transparent" do
+      let(:process_space_factory) { :assembly }
+      let(:space_type) { "assembly" }
+
+      let(:participatory_process_query) do
+        %(
+      assembly(id: #{participatory_process.id}) {
+        components(filter: {type: "#{component_type}"}){
+          id
+          name {
+            translation(locale: "#{locale}")
+          }
+          weight
+          __typename
+          ...fooComponent
+        }
+        id
+      }
+    )
+      end
+      let!(:participatory_process) { create(process_space_factory, :published, :transparent, organization: current_organization) }
+
+      context "when component is published" do
+        let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
+
+        context "when the user is admin" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it "is visible" do
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+
+        Decidim::AssemblyUserRole::ROLES.each do |role|
+          context "when the user is space #{role}" do
+            let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+            let!(:role) { create(:assembly_user_role, assembly: participatory_process, user: current_user, role:) }
+
+            it "is visible" do
+              expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
+            end
+          end
+        end
+        context "when user is visitor" do
+          let!(:current_user) { nil }
+
+          let(:component_fragment) do
+            %(
+      fragment fooComponent on Budgets {
+        budget(id: #{budget.id}) {
+          createdAt
+          description {
+            translation(locale:"#{locale}")
+          }
+          id
+          title {
+            translation(locale:"#{locale}")
+          }
+          total_budget
+          updatedAt
+          url
+          versions {
+            id
+          }
+          versionsCount
+          weight
+        }
+      }
+    )
+          end
+
+          it "is visible" do
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.except("projects"))
+          end
+        end
+
+        context "when user is member" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+          let!(:member) { create(:assembly_member, user: current_user, participatory_space: participatory_process) }
+
+          it "is visible" do
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+
+        context "when user is normal user" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it "is visible" do
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+      end
+
+      context "when component is not published" do
+        let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
+
+        context "when the user is admin" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it_behaves_like "unauthorized Budget"
+        end
+
+        %w(admin collaborator evaluator).each do |role|
+          context "when the user is space #{role}" do
+            let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+            let!(:role) { create(:assembly_user_role, assembly: participatory_process, user: current_user, role:) }
+
+            it "is visible" do
+              expect(response["assembly"]["components"]).to be_empty
+            end
+          end
+        end
+
+        context "when the user is space moderator" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+          let!(:role) { create(:assembly_user_role, assembly: participatory_process, user: current_user, role: "moderator") }
+
+          it "is visible" do
+            expect(response["assembly"]["components"]).to be_empty
+          end
+        end
+
+        context "when user is visitor" do
+          let!(:current_user) { nil }
+
+          it "should not be visible" do
+            expect(response["assembly"]["components"]).to be_empty
+          end
+
+          context "when user is member" do
+            let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+            let!(:member) { create(:assembly_member, user: current_user, participatory_space: participatory_process) }
+
+            it "should not be visible" do
+              expect(response["assembly"]["components"]).to be_empty
+            end
+          end
+        end
+
+        context "when user is normal user" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it "should not be visible" do
+            expect(response["assembly"]["components"]).to be_empty
+          end
+        end
+      end
+    end
+
+    context "when space is unpublished" do
+      let(:participatory_process) { create(process_space_factory, :unpublished, :with_steps, organization: current_organization) }
+
+      context "when component is published" do
+        let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
+
+        context "when the user is admin" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it_behaves_like "unauthorized Budget"
+        end
+
+        context "when user is visitor" do
+          let!(:current_user) { nil }
+
+          it_behaves_like "graphQL not found space"
+        end
+
+        context "when user is normal user" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it_behaves_like "graphQL not found space"
+        end
+      end
+
+      context "when component is not published" do
+        let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
+
+        context "when the user is admin" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it_behaves_like "unauthorized Budget"
+        end
+
+        context "when user is visitor" do
+          let!(:current_user) { nil }
+
+          it_behaves_like "graphQL not found space"
+        end
+
+        context "when user is normal user" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it_behaves_like "graphQL not found space"
+        end
+      end
     end
   end
 end

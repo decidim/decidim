@@ -20,6 +20,12 @@ module Decidim
         end
       end
 
+      initializer "decidim_comments.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Comments::Engine, at: "/", as: "decidim_comments"
+        end
+      end
+
       initializer "decidim_comments.query_extensions" do
         Decidim::Api::QueryType.include QueryExtensions
       end
@@ -29,9 +35,12 @@ module Decidim
       end
 
       initializer "decidim_comments.stats" do
-        Decidim.stats.register :comments_count, priority: StatsRegistry::MEDIUM_PRIORITY do |organization|
+        Decidim.stats.register :comments_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "chat-1-line",
+                               tooltip_key: "comments_count" do |organization|
           Decidim.component_manifests.sum do |component|
-            component.stats.filter(tag: :comments).with_context(organization.published_components).map { |_name, value| value }.sum
+            component.stats.filter(tag: :comments).with_context(organization.published_components).map { |_name, value| value }.compact_blank.sum
           end
         end
       end
@@ -41,6 +50,7 @@ module Decidim
 
         Decidim.icons.register(name: "Decidim::Comments::Comment", icon: "chat-1-line", description: "Comment", category: "activity", engine: :comments)
         Decidim.icons.register(name: "comments_count", icon: "wechat-line", description: "Comments Count", category: "activity", engine: :comments)
+        Decidim.icons.register(name: "star-s-line", icon: "star-s-line", description: "Most upvoted comment", category: "activity", engine: :comments)
 
         Decidim.icons.register(name: "thumb-up-line", icon: "thumb-up-line", description: "Upvote comment button", **common_parameters)
         Decidim.icons.register(name: "thumb-up-fill", icon: "thumb-up-fill", description: "User upvoted comment", **common_parameters)
@@ -49,20 +59,9 @@ module Decidim
         Decidim.icons.register(name: "edit-line", icon: "edit-line", description: "Edit comment button", **common_parameters)
       end
 
-      initializer "decidim_comments.register_metrics" do
-        Decidim.metrics_registry.register(:comments) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Comments::Metrics::CommentsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
-            settings.attribute :weight, type: :integer, default: 6
-            settings.attribute :stat_block, type: :string, default: "small"
-          end
-        end
-
-        Decidim.metrics_operation.register(:participants, :comments) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Comments::Metrics::CommentParticipantsMetricMeasure"
+      initializer "decidim_comments.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
         end
       end
 
@@ -79,7 +78,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Comments::Engine.root}/app/views") # for partials
       end
 
-      initializer "decidim_comments.webpacker.assets_path" do
+      initializer "decidim_comments.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

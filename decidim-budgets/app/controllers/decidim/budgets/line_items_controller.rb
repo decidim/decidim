@@ -8,6 +8,8 @@ module Decidim
 
       helper_method :budget, :project
 
+      before_action :set_focus_mode, :set_request_origin
+
       def create
         enforce_permission_to :vote, :project, project:, budget:, workflow: current_workflow
 
@@ -20,12 +22,12 @@ module Decidim
             AddLineItem.call(persisted_current_order, project, current_user) do
               on(:ok) do |order|
                 self.current_order = order
-                format.html { redirect_back(fallback_location: budget_path(budget)) }
+                format.html { redirect_back_or_to(budget_path(budget)) }
                 format.js { render "update_budget" }
               end
 
               on(:invalid) do
-                format.js { render "update_budget", status: :unprocessable_entity }
+                format.js { render "update_budget", status: :unprocessable_content }
               end
             end
           end
@@ -36,18 +38,35 @@ module Decidim
         respond_to do |format|
           RemoveLineItem.call(current_order, project) do
             on(:ok) do |_order|
-              format.html { redirect_back(fallback_location: budget_path(budget)) }
+              format.html { redirect_back_or_to(budget_path(budget)) }
               format.js { render "update_budget" }
             end
 
             on(:invalid) do
-              format.js { render "update_budget", status: :unprocessable_entity }
+              format.js { render "update_budget", status: :unprocessable_content }
             end
           end
         end
       end
 
       private
+
+      def set_request_origin
+        return unless request.referer
+
+        path = URI(request.referer).path
+        @focus_mode_origin = if path.match?(%r{/budgets/\d+/projects/\d+$})
+                               "show"
+                             elsif path.match?(%r{/budgets/\d+/projects$})
+                               "index"
+                             else
+                               "unknown"
+                             end
+      end
+
+      def set_focus_mode
+        @focus_mode = true
+      end
 
       def project
         @project ||= budget&.projects&.find_by(id: params[:project_id])

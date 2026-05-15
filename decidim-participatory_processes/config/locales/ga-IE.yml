@@ -3,21 +3,17 @@ ga:
     attributes:
       participatory_process:
         area_id: Ceantar
-        copy_categories: Cóipeáil catagóirí
         decidim_area_id: Ceantar
         domain: Fearann
         end_date: Dáta deiridh
-        hashtag: Haischlib
         participatory_process_group_id: Grúpa próisis
         promoted: Curtha chun cinn
         related_process_ids: Próisis Ceangailte
-        scope_id: Scóip
         slug: Píosa URL
         subtitle: Fotheideal
         title: Teideal
       participatory_process_group:
         group_url: Suíomh Gréasáin
-        hashtag: Haischlib
         hero_image: Íomhá
         participatory_process_ids: Próisis Ceangailte
         title: Teideal
@@ -41,20 +37,16 @@ ga:
         publish: Foilsigh
       menu:
         participatory_process_groups: Grúpaí próiseas
-        participatory_process_groups_submenu:
-          info: Eolas
         participatory_processes: Próisis
         participatory_processes_submenu:
           attachment_collections: Fillteáin
           attachment_files: Comhaid
           attachments: Ceangaltáin
-          categories: Catagóirí
           process_admins: Riaracháin próiseas
           steps: Céimeanna
       models:
         participatory_process:
           fields:
-            private: Príobháideach
             title: Teideal
           name: Próiseas Rannpháirtíochta
         participatory_process_group:
@@ -74,10 +66,6 @@ ga:
           name: Riarachán próisis rannpháirtíochta
           roles:
             admin: Riarthóir
-            valuator: Luachálaí
-      participatory_process_copies:
-        new:
-          copy: Cóipeáil
       participatory_process_groups:
         edit:
           update: Nuashonraigh
@@ -90,8 +78,6 @@ ga:
         default_title: Réamhrá
         edit:
           update: Nuashonraigh
-        index:
-          steps_title: Céimeanna
         new:
           create: Cruthaigh
       participatory_process_user_roles:
@@ -102,9 +88,6 @@ ga:
       participatory_processes:
         edit:
           update: Nuashonraigh
-        index:
-          private: Príobháideach
-          public: Poblach
         new:
           create: Cruthaigh
     participatory_process_groups:
@@ -119,10 +102,8 @@ ga:
         participatory_processes:
           form:
             duration: Fad
-            filters: Scagairí
             images: Íomhánna
             metadata: Meiteashonraí
-            other: Eile
       participatory_processes:
         filters:
           names:

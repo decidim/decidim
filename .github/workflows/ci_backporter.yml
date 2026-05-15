@@ -1,7 +1,7 @@
 name: Backport
 on:
   pull_request_target:
-    types: ["labeled", "closed"]
+    types: ["labeled", "unlabeled", "closed"]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
@@ -9,7 +9,7 @@ concurrency:
 
 env:
   CI: "true"
-  RUBY_VERSION: 3.3.4
+  RUBY_VERSION: 3.4.7
 
 jobs:
   backport:
@@ -39,7 +39,7 @@ jobs:
         )
       )
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
           ref: 'develop'

@@ -1,16 +1,32 @@
-import "src/decidim/admin/scope_picker_enabler.component"
 import "src/decidim/admin/proposal_infinite_edit"
 
 import BudgetRuleTogglerComponent from "src/decidim/admin/budget_rule_toggler.component"
 
 // Checks if the form contains fields with special CSS classes added in
 // Decidim::Admin::SettingsHelper and acts accordingly.
-$(() => {
-  const budgetRuleToggler = new BudgetRuleTogglerComponent({
-    ruleCheckboxes: $("input[id^='component_settings_vote_rule_']")
+document.addEventListener("turbo:load", () => {
+
+  const budgetTogglerRadios = Array.from(
+    document.querySelectorAll(
+      "input[type='radio'][name='component[settings][voting_rule]']"
+    )
+  );
+
+  const budgetTogglerMapping = {
+    thresholdPercent: [".vote_threshold_percent_container"],
+    minimumProjects: [".vote_minimum_budget_projects_number_container"],
+    selectedProjects: [
+      ".vote_selected_projects_minimum_container",
+      ".vote_selected_projects_maximum_container"
+    ]
+  };
+
+  const budgetToggler = new BudgetRuleTogglerComponent({
+    ruleRadios: budgetTogglerRadios,
+    mapping: budgetTogglerMapping
   });
 
-  budgetRuleToggler.run();
+  budgetToggler.init();
 
   // Prevents readonly containers from being modified.
   const $readonlyContainer = $(".readonly_container input");

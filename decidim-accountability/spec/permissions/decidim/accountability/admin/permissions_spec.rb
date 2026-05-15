@@ -40,22 +40,6 @@ describe Decidim::Accountability::Admin::Permissions do
       end
     end
 
-    describe "destroy" do
-      let(:action) do
-        { scope: :admin, action: :destroy, subject: action_subject }
-      end
-
-      context "when the resource is present" do
-        it { is_expected.to be true }
-      end
-
-      context "when the resource is not present" do
-        let(:resource) { nil }
-
-        it_behaves_like "permission is not set"
-      end
-    end
-
     context "when any other action" do
       let(:action) do
         { scope: :admin, action: :foo, subject: :action_subject }
@@ -102,11 +86,11 @@ describe Decidim::Accountability::Admin::Permissions do
     it_behaves_like "crud permissions"
   end
 
-  describe "timeline_entry" do
+  describe "milestone" do
     let(:result) { create(:result, component: accountability_component) }
-    let(:resource) { create(:timeline_entry, result:) }
-    let(:action_subject) { :timeline_entry }
-    let(:extra_context) { { timeline_entry: resource } }
+    let(:resource) { create(:milestone, result:) }
+    let(:action_subject) { :milestone }
+    let(:extra_context) { { milestone: resource } }
 
     it_behaves_like "crud permissions"
   end
@@ -119,8 +103,8 @@ describe Decidim::Accountability::Admin::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  describe "import_projects" do
-    let(:action_subject) { :import_projects }
+  describe "import_component" do
+    let(:action_subject) { :import_component }
 
     let(:action) do
       { scope: :admin, action: :create, subject: action_subject }

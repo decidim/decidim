@@ -6,36 +6,20 @@ module Decidim
       # A form object to be used when admin users want to import a collection of proposals
       # from another component.
       class ProposalsImportForm < Decidim::Form
+        include TranslatableAttributes
+
         mimic :proposals_import
 
         attribute :origin_component_id, Integer
-        attribute :import_proposals, Boolean
         attribute :keep_answers, Boolean
         attribute :keep_authors, Boolean
-        attribute :states, Array
-        attribute :scope_ids, Array
+        attribute :states, Array[String]
 
-        validates :origin_component_id, :origin_component, :states, :current_component, presence: true
-        validates :import_proposals, allow_nil: false, acceptance: true
+        validates :origin_component_id, :origin_component, :current_component, presence: true
         validate :valid_states
-
-        VALID_STATES = %w(accepted not_answered evaluating rejected).freeze
-
-        def states_collection
-          VALID_STATES.map do |state|
-            OpenStruct.new(
-              name: I18n.t(state, scope: "decidim.proposals.answers"),
-              value: state
-            )
-          end
-        end
 
         def states
           super.compact_blank
-        end
-
-        def scopes
-          Decidim::Scope.where(organization: current_organization, id: scope_ids)
         end
 
         def origin_component
@@ -55,9 +39,11 @@ module Decidim
         private
 
         def valid_states
-          return if states.all? do |state|
-            VALID_STATES.include?(state)
-          end
+          return unless origin_component
+          return if states.empty?
+
+          valid_tokens = Decidim::Proposals::ProposalState.where(component: origin_component).pluck(:token) + ["not_answered"]
+          return if states.all? { |state| valid_tokens.include?(state) }
 
           errors.add(:states, :invalid)
         end

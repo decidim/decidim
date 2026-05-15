@@ -23,8 +23,6 @@ module Decidim
       let(:another_assembly) { create(:assembly, organization:) }
       let(:body) { "This is a new comment" }
       let(:alignment) { 1 }
-      let(:user_group) { create(:user_group, :verified) }
-      let(:user_group_id) { user_group.id }
 
       let(:commentable) { create(:dummy_resource) }
 
@@ -33,7 +31,6 @@ module Decidim
           "comment" => {
             "body" => body,
             "alignment" => alignment,
-            "user_group_id" => user_group_id,
             "commentable" => commentable
           }
         }

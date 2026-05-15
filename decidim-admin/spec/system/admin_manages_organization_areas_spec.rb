@@ -32,7 +32,7 @@ describe "Organization Areas" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Area created successfully.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:name]))
@@ -58,6 +58,7 @@ describe "Organization Areas" do
 
       it "can edit them" do
         within "tr", text: translated(area.name) do
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
 
@@ -66,7 +67,7 @@ describe "Organization Areas" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Area updated successfully.")
 
         within "table" do
           expect(page).to have_content(translated(attributes[:name]))
@@ -79,7 +80,7 @@ describe "Organization Areas" do
       it "can delete them" do
         click_delete_area
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Area successfully destroyed.")
 
         within "#areas" do
           expect(page).to have_no_content(translated(area.name))
@@ -92,7 +93,7 @@ describe "Organization Areas" do
         it "cannot be deleted" do
           click_delete_area
           expect(area.reload.destroyed?).to be false
-          expect(page).to have_admin_callout("This area has dependent spaces")
+          expect(page).to have_callout("This area has dependent spaces")
         end
       end
     end
@@ -102,6 +103,7 @@ describe "Organization Areas" do
 
   def click_delete_area
     within "tr", text: translated(area.name) do
+      find("button[data-controller='dropdown']").click
       accept_confirm { click_on "Delete" }
     end
   end

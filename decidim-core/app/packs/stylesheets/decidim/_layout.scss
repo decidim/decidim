@@ -2,11 +2,11 @@
   @apply flex flex-col min-h-screen;
 
   &__skip {
-    @apply absolute z-10 left-0 -translate-x-full py-1 px-4 bg-primary rounded-br-lg text-white cursor-pointer transition focus:translate-x-0;
+    @apply absolute z-[9999] left-0 -translate-x-full py-1 px-4 bg-primary rounded-br-lg text-white cursor-pointer transition focus:translate-x-0;
   }
 
   [data-content] {
-    @apply relative flex flex-col;
+    @apply relative flex flex-col flex-1;
   }
 }
 
@@ -47,6 +47,18 @@
 
   &__reverse &__main {
     @apply pl-0 md:pr-16;
+  }
+
+  &__large {
+    @apply md:block lg:grid;
+  }
+
+  &__large &__aside {
+    @apply lg:grid md:pr-0 md:gap-6 lg:col-span-3 lg:pr-16 py-0 md:py-6 lg:py-12 gap-6 lg:gap-12 md:before:bg-transparent lg:before:bg-background;
+  }
+
+  &__large &__main {
+    @apply md:pl-0 lg:pl-16 py-6;
   }
 }
 
@@ -120,8 +132,6 @@
   }
 
   .dropdown__bottom {
-    @apply [&>li]:pl-0;
-
     .button {
       @apply [&>svg]:order-1 [&>span]:order-2;
     }
@@ -137,7 +147,7 @@
 }
 
 .layout-aside__ctas-buttons {
-  @apply md:relative inset-x-0 bottom-0 z-30 md:z-0 flex flex-row-reverse md:flex-col items-center md:items-stretch last:[&>button]:font-semibold first:[&>button]:text-lg justify-around bg-white md:bg-transparent gap-4 md:gap-0 p-4 md:p-0 shadow-inner md:shadow-none first:[&>*]:grow md:first:[&>*]:grow-0 last:[&>*]:w-1/2 md:last:[&>*]:w-auto h-20 md:h-fit first:[&>button]:py-3;
+  @apply fixed md:relative inset-x-0 bottom-0 z-30 md:z-0 flex flex-row-reverse md:flex-col items-center md:items-stretch last:[&>button]:font-semibold first:[&>button]:text-lg justify-around bg-white md:bg-transparent gap-4 md:gap-0 p-4 md:p-0 shadow-inner md:shadow-none first:[&>*]:grow md:first:[&>*]:grow-0 last:[&>*]:w-1/2 md:last:[&>*]:w-auto h-20 md:h-fit first:[&>button]:py-3;
 
   .meeting__aside-progress,
   .proposals__aside-progress {

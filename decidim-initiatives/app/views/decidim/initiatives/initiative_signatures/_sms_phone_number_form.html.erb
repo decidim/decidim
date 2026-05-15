@@ -1,0 +1,13 @@
+<% disabled = local_assigns[:disabled] %>
+
+<div class="text-left editor-content">
+  <p><%= t("decidim.initiatives.initiative_signatures.sms_phone_number.help_enter_your_number") %></p>
+</div>
+
+<div class="form__wrapper">
+  <%= sms_phone_number_form.text_field :mobile_phone_number, type: "tel", disabled: %>
+  <button class="button button__lg button__secondary" <%= disabled ? "disabled" : "" %>>
+    <span><%= t("decidim.initiatives.initiative_signatures.sms_phone_number.receive_code") %></span>
+    <%= icon "arrow-right-line", class: "fill-current" %>
+  </button>
+</div>

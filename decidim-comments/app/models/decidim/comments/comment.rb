@@ -17,6 +17,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::ActsAsTree
+      include ActionView::Helpers::TextHelper
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -79,6 +80,10 @@ module Decidim
         where(alignment: -1)
       end
 
+      def reported_title
+        truncate(translated_attribute(body))
+      end
+
       def organization
         commentable&.organization || participatory_space&.organization
       end
@@ -139,8 +144,10 @@ module Decidim
 
         if root_commentable.respond_to?(:polymorphic_resource_url)
           root_commentable.polymorphic_resource_url(url_params)
+        elsif root_commentable.respond_to?(:reported_content_url)
+          root_commentable.reported_content_url(url_params)
         else
-          ResourceLocatorPresenter.new(root_commentable).url(url_params)
+          "/"
         end
       end
 
@@ -151,7 +158,7 @@ module Decidim
 
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
-        [normalized_author.name]
+        [author.name]
       end
 
       def self.export_serializer
@@ -203,7 +210,7 @@ module Decidim
       end
 
       def edited?
-        Decidim::ActionLog.where(resource: self).exists?(["extra @> ?", Arel.sql("{\"edit\":true}")])
+        Decidim::ActionLog.where(resource: self).exists?(["extra @> ?", { edit: true }.to_json])
       end
 
       def extra_actions_for(current_user)

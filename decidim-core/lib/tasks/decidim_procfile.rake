@@ -11,20 +11,26 @@ namespace :decidim do
         shakapacker: bin/shakapacker-dev-server
       RUBY
 
+      if defined?(Sidekiq)
+        actions :append_file, "Procfile.dev", <<~RUBY
+          sidekiq: bundle exec sidekiq -C config/sidekiq.yml
+        RUBY
+      end
+
       actions :create_file, "bin/dev", %(#!/usr/bin/env sh
 
 set -e
 
 bundle check || bundle install --jobs 20 --retry 5
 
-bin/rails decidim:upgrade db:migrate
+bin/rails decidim:upgrade db:migrate data:migrate
 
 if ! gem list foreman -i --silent; then
   echo "Installing foreman..."
   gem install foreman
 fi
 
-exec foreman start -f Procfile.dev "$@")
+exec foreman start -f Procfile.dev "$@"), force: true
 
       actions :chmod, "bin/dev", 0o755
     end

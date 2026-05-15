@@ -22,7 +22,7 @@ module Decidim
       describe "#url" do
         subject { described_class.new(resource).url }
 
-        it { is_expected.to eq("http://1.lvh.me:#{Capybara.server_port}/processes/my-process/f/1/dummy_resources/1") }
+        it { is_expected.to eq("http://1.lvh.me:#{Capybara.server_port}/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1") }
 
         context "when specific port configured" do
           before do
@@ -31,26 +31,26 @@ module Decidim
               .and_return(port: 3000)
           end
 
-          it { is_expected.to eq("http://1.lvh.me:3000/processes/my-process/f/1/dummy_resources/1") }
+          it { is_expected.to eq("http://1.lvh.me:3000/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1") }
         end
       end
 
       describe "#path" do
         subject { described_class.new(resource).path }
 
-        it { is_expected.to eq("/processes/my-process/f/1/dummy_resources/1") }
+        it { is_expected.to eq("/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1") }
       end
 
       describe "#show" do
         subject { described_class.new(participatory_process).show }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process") }
+        it { is_expected.to start_with("/#{I18n.locale}/admin/participatory_processes/my-process") }
       end
 
       describe "#edit" do
         subject { described_class.new(participatory_process).edit }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process/edit") }
+        it { is_expected.to start_with("/#{I18n.locale}/admin/participatory_processes/my-process/edit") }
       end
     end
 
@@ -62,7 +62,7 @@ module Decidim
       describe "#url" do
         subject { described_class.new([resource, nested_resource]).url }
 
-        it { is_expected.to eq("http://1.lvh.me:#{Capybara.server_port}/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
+        it { is_expected.to eq("http://1.lvh.me:#{Capybara.server_port}/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
 
         context "when specific port configured" do
           before do
@@ -71,38 +71,58 @@ module Decidim
               .and_return(port: 3000)
           end
 
-          it { is_expected.to eq("http://1.lvh.me:3000/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
+          it { is_expected.to eq("http://1.lvh.me:3000/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
         end
       end
 
       describe "#path" do
         subject { described_class.new([resource, nested_resource]).path }
 
-        it { is_expected.to eq("/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
+        it { is_expected.to eq("/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
       end
 
       describe "#index" do
         subject { described_class.new([resource, nested_resource]).index }
 
-        it { is_expected.to eq("/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources") }
+        it { is_expected.to eq("/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources") }
       end
 
       describe "#admin_index" do
         subject { described_class.new([resource, nested_resource]).admin_index }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources") }
+        it { is_expected.to start_with("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources") }
+      end
+
+      context "when a locale option is passed" do
+        describe "#admin_index" do
+          subject { described_class.new([resource, nested_resource]).admin_index(locale: I18n.locale) }
+
+          it { is_expected.to eq("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources") }
+        end
+
+        describe "#show" do
+          subject { described_class.new([resource, nested_resource]).show(locale: I18n.locale) }
+
+          it { is_expected.to eq("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
+        end
+
+        describe "#edit" do
+          subject { described_class.new([resource, nested_resource]).edit(locale: I18n.locale) }
+
+          it { is_expected.to eq("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1/edit") }
+        end
       end
 
       describe "#show" do
         subject { described_class.new([resource, nested_resource]).show }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
+        it { is_expected.to start_with("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
       end
 
       describe "#edit" do
         subject { described_class.new([resource, nested_resource]).edit }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1/edit") }
+        it { is_expected.to start_with("/#{I18n.locale}/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1/edit") }
       end
     end
 
@@ -110,13 +130,37 @@ module Decidim
       describe "#url" do
         subject { described_class.new(participatory_process).url }
 
-        it { is_expected.to start_with("http://1.lvh.me:#{Capybara.server_port}/processes/my-process") }
+        it { is_expected.to start_with("http://1.lvh.me:#{Capybara.server_port}/#{I18n.locale}/processes/my-process") }
       end
 
       describe "#path" do
         subject { described_class.new(participatory_process).path }
 
-        it { is_expected.to start_with("/processes/my-process") }
+        it { is_expected.to start_with("/#{I18n.locale}/processes/my-process") }
+      end
+    end
+
+    describe "#normalize_locale_route" do
+      subject { described_class.new(participatory_process).send(:normalize_locale_route, path, locale) }
+
+      let(:locale) { "en" }
+
+      context "when the path already contains a different locale" do
+        let(:path) { "/ca/processes/my-process?locale=es&share_token=faketoken" }
+
+        it { is_expected.to eq("/en/processes/my-process?share_token=faketoken") }
+      end
+
+      context "when the path is locale-only" do
+        let(:path) { "/ca?locale=es" }
+
+        it { is_expected.to eq("/en/") }
+      end
+
+      context "when the path does not start with a slash" do
+        let(:path) { "ca/processes/my-process" }
+
+        it { is_expected.to eq("/en/processes/my-process") }
       end
     end
   end

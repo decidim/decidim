@@ -16,6 +16,7 @@ module Decidim
       include Decidim::ScopableResource
       include Decidim::Authorable
       include Decidim::Reportable
+      include Decidim::HasAttachments
       include Decidim::HasReference
       include Decidim::Traceable
       include Decidim::Loggable
@@ -24,9 +25,10 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
-      include Decidim::Endorsable
+      include Decidim::Likeable
       include Decidim::Randomable
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
 
       belongs_to :last_comment_by, polymorphic: true, foreign_type: "last_comment_by_type", optional: true
       component_manifest_name "debates"
@@ -45,7 +47,8 @@ module Decidim
 
       scope :updated_at_desc, -> { order(arel_table[:updated_at].desc) }
       scope :open, -> { where(closed_at: nil) }
-      scope :closed, -> { where.not(closed_at: nil) }
+      scope :closed, -> { where.not(closed_at: nil).or(where(end_time: ..Time.current)) }
+      scope :ongoing, -> { open.where(start_time: ..Time.current, end_time: Time.current..).or(open.where(start_time: nil, end_time: nil)) }
       scope :authored_by, ->(author) { where(author:) }
       scope :commented_by, lambda { |author|
         joins(:comments).where(
@@ -56,7 +59,7 @@ module Decidim
           }
         )
       }
-      scope_search_multi :with_any_state, [:open, :closed]
+      scope_search_multi :with_any_state, [:ongoing, :closed]
 
       # Returns the presenter for this debate, to be used in the views.
       # Required by ResourceRenderer.
@@ -74,11 +77,6 @@ module Decidim
 
       def comments_end_time
         end_time
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
 
       # Public: Overrides the `reported_attributes` Reportable concern method.
@@ -101,23 +99,44 @@ module Decidim
         start_time.present? && end_time.present?
       end
 
-      # Public: Checks whether the debate is an AMA-styled one and is open.
+      # Public: Checks whether the debate is an AMA-styled one and is ongoing.
       #
       # Returns a boolean.
-      def open_ama?
+      def ongoing_ama?
         ama? && Time.current.between?(start_time, end_time)
       end
 
-      # Public: Checks if the debate is open or not.
+      # Public: Checks if the debate is ongoing or not.
       #
       # Returns a boolean.
-      def open?
-        (ama? && open_ama?) || !ama?
+      def ongoing?
+        (ama? && ongoing_ama?) || !ama?
+      end
+
+      def not_started?
+        start_time.present? && start_time > Time.current
+      end
+
+      # Note that a debate can be finished even if it is not closed (meaning it has no conclusions).
+      def finished?
+        end_time.present? && end_time < Time.current
+      end
+
+      def state
+        if closed?
+          :closed
+        elsif ongoing?
+          :ongoing
+        elsif not_started?
+          :not_started
+        else
+          :finished
+        end
       end
 
       # Public: Overrides the `accepts_new_comments?` CommentableWithComponent concern method.
       def accepts_new_comments?
-        return false unless open?
+        return false unless ongoing?
         return false if closed?
 
         commentable? && !comments_blocked? && comments_allowed?
@@ -136,6 +155,16 @@ module Decidim
       # Public: Identifies the commentable type in the API.
       def commentable_type
         self.class.name
+      end
+
+      # Public: Checks whether the comments are displayed in a single-column layout.
+      def single_column_layout?
+        comments_layout == "single_column"
+      end
+
+      # Public: Checks whether the comments are displayed in a two-column layout.
+      def two_columns_layout?
+        comments_layout == "two_columns"
       end
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
@@ -191,11 +220,11 @@ module Decidim
       # rubocop:disable Rails/SkipsModelValidations
       def update_comments_count
         comments_count = comments.not_hidden.not_deleted.count
-        last_comment = comments.not_hidden.not_deleted.order("created_at DESC").first
+        last_comment = comments.not_hidden.not_deleted.order(created_at: :desc).first
 
         update_columns(
           last_comment_at: last_comment&.created_at,
-          last_comment_by_id: last_comment&.decidim_user_group_id || last_comment&.decidim_author_id,
+          last_comment_by_id: last_comment&.decidim_author_id,
           last_comment_by_type: last_comment&.decidim_author_type,
           comments_count:,
           updated_at: Time.current
@@ -206,6 +235,15 @@ module Decidim
       # Create i18n ransackers for :title and :description.
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :description]
+
+      def self.most_commented_available?(component)
+        return false unless component.settings.comments_enabled?
+
+        where(component:)
+          .not_hidden
+          .where("comments_count > 0")
+          .exists?
+      end
 
       def self.ransackable_scopes(_auth_object = nil)
         [:with_any_state, :with_any_origin, :with_any_taxonomies]

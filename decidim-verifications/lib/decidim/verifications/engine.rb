@@ -12,15 +12,20 @@ module Decidim
         authenticate(:user) do
           resources :authorizations, only: [:new, :create, :index] do
             collection do
-              get :first_login
+              get :onboarding_pending
               get :renew_modal
               get :renew
+              delete :clear_onboarding_data
             end
           end
 
           Decidim.authorization_engines.each do |manifest|
             mount manifest.engine, at: "/#{manifest.name}", as: "decidim_#{manifest.name}"
           end
+        end
+
+        resources :authorizations, only: nil do
+          post :renew_onboarding_data, on: :collection
         end
 
         namespace :admin do
@@ -30,12 +35,42 @@ module Decidim
         end
       end
 
+      initializer "decidim_verifications.mount_routes" do
+        Decidim::Core::Engine.routes do
+          extend Decidim::Routes::LocaleRedirects
+
+          scope "/:locale", **locale_scope_options do
+            mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
+          end
+        end
+      end
+
+      initializer "decidim_verifications.mount_admin_routes" do
+        Decidim::Core::Engine.routes do
+          constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
+            extend Decidim::Routes::LocaleRedirects
+
+            scope "/:locale", **locale_scope_options do
+              Decidim.authorization_admin_engines.each do |manifest|
+                mount manifest.admin_engine, at: "/admin/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
+              end
+            end
+          end
+        end
+      end
+
+      initializer "decidim_verifications.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       # Initializer to include cells views paths
       initializer "decidim_verifications.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Verifications::Engine.root}/app/cells")
       end
 
-      initializer "decidim_verifications.webpacker.assets_path" do
+      initializer "decidim_verifications.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

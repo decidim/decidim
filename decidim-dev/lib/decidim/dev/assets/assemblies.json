@@ -2,7 +2,6 @@
   {
     "id": 1,
     "slug": "quae-a",
-    "hashtag": "id",
     "decidim_organization_id": 1,
     "title": {
       "ca": "Eius iure laborum hic et.",
@@ -48,6 +47,7 @@
       "es": "Incidunt provident doloremque."
     },
     "decidim_scope_id": null,
+    "access_mode": "open",
     "paticipatory_scope": {
       "ca": "Assumenda.",
       "en": "Quidem.",
@@ -59,7 +59,6 @@
       "es": "Et molestiae."
     },
     "scopes_enabled": true,
-    "private_space": false,
     "reference": "PhD-ASSE-2020-01-1",
     "purpose_of_action": {
       "ca": "<p>Velit a qui. Debitis rem occaecati. Id minus est.</p>",
@@ -91,7 +90,6 @@
       "en": "<p>Optio ducimus velit. Facilis omnis asperiores. Corporis ipsa non.</p>",
       "es": "<p>Est dolorum et. Quo sed ut. Corporis quos sit.</p>"
     },
-    "is_transparent": true,
     "special_features": {
       "ca": "<p>Dolor et reprehenderit. Unde soluta eum. Omnis occaecati omnis.</p>",
       "en": "<p>Et atque perspiciatis. Quas impedit corporis. Nesciunt blanditiis ipsa.</p>",
@@ -107,7 +105,6 @@
       "en": "ut",
       "es": "rerum"
     },
-    "decidim_assemblies_type_id": 1,
     "area": {
       "id": null,
       "name": {
@@ -515,7 +512,6 @@
           "geocoding_enabled": false,
           "attachments_allowed": false,
           "resources_permissions_enabled": true,
-          "collaborative_drafts_enabled": true,
           "participatory_texts_enabled": false,
           "amendments_enabled": false,
           "amendments_wizard_help_text": {
@@ -580,23 +576,6 @@
         "published_at": "2020-01-22 07:55:05 UTC"
       },
       {
-        "manifest_name": "sortitions",
-        "id": 26,
-        "name": {
-          "ca": "Sortejos",
-          "en": "Sortitions",
-          "es": "Sorteos"
-        },
-        "participatory_space_id": 1,
-        "participatory_space_type": "Decidim::Assembly",
-        "settings": {
-          "comments_enabled": true
-        },
-        "weight": 0,
-        "permissions": null,
-        "published_at": "2020-01-22 07:55:19 UTC"
-      },
-      {
         "manifest_name": "surveys",
         "id": 23,
         "name": {
@@ -653,7 +632,7 @@
                   "id": 9,
                   "decidim_questionnaire_id": 9,
                   "position": null,
-                  "question_type": "short_answer",
+                  "question_type": "short_response",
                   "mandatory": null,
                   "body": {
                     "ca": "Est incidunt ut. Et distinctio velit. Perferendis ratione qui.",
@@ -664,15 +643,13 @@
                   "max_choices": null,
                   "created_at": "2020-01-22T07:55:13.496Z",
                   "updated_at": "2020-01-22T07:55:13.496Z",
-                  "answer_options": [
-
-                  ]
+                  "response_options": []
                 },
                 {
                   "id": 10,
                   "decidim_questionnaire_id": 9,
                   "position": null,
-                  "question_type": "long_answer",
+                  "question_type": "long_response",
                   "mandatory": null,
                   "body": {
                     "ca": "Unde qui recusandae. Ab saepe praesentium. Quis velit et.",
@@ -683,9 +660,7 @@
                   "max_choices": null,
                   "created_at": "2020-01-22T07:55:13.507Z",
                   "updated_at": "2020-01-22T07:55:13.507Z",
-                  "answer_options": [
-
-                  ]
+                  "response_options": []
                 },
                 {
                   "id": 11,
@@ -702,7 +677,7 @@
                   "max_choices": null,
                   "created_at": "2020-01-22T07:55:13.520Z",
                   "updated_at": "2020-01-22T07:55:13.520Z",
-                  "answer_options": [
+                  "response_options": [
                     {
                       "id": 13,
                       "decidim_question_id": 11,
@@ -750,7 +725,7 @@
                   "max_choices": null,
                   "created_at": "2020-01-22T07:55:13.564Z",
                   "updated_at": "2020-01-22T07:55:13.564Z",
-                  "answer_options": [
+                  "response_options": [
                     {
                       "id": 16,
                       "decidim_question_id": 12,

@@ -10,8 +10,7 @@
     <%= render :content %>
   <% end %>
 <% else %>
-  <%= action_authorized_button_to(
-        :follow,
+  <%= logged_button_to(
         path,
         resource: model,
         class: button_classes,

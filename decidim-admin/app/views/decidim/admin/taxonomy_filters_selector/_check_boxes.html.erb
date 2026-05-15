@@ -1,0 +1,7 @@
+<% taxonomy_items_options_for_filter(taxonomy_filter).each do |text, id| %>
+  <div class="ml-4">
+    <%= label_tag("checkbox-taxonomy-#{id}", style: "padding-left: #{text.split("&nbsp;").count / 5}em") do
+        check_box_tag("checkbox-taxonomy-#{id}", id, true, autocomplete: false, disabled: true) + text.gsub("&nbsp;", "")
+    end %>
+  </div>
+<% end %>

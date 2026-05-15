@@ -14,7 +14,7 @@ fi:
           trigger: Liipaisin
           usage: Käyttöesimerkki
           usage_p: Haitarielementti tarvitsee vähintään kolme elementtiä
-          usage_p_1_html: 1. Jäsentävä <code>div</code>-elementti, jossa on data-attribuutti <code>data-component="accordion"</code>, joka pitää sisällään kaikki liipaisimet ja paneelit.
+          usage_p_1_html: 1. Jäsentävä <code>div</code>-elementti, jossa on data-attribuutti <code>data-controller="accordion"</code>, joka pitää sisällään kaikki liipaisimet ja paneelit.
           usage_p_2_html: 2. Käyttäjän kohdistettavissa oleva liipaisinelementti (painike), joka viittaa hallinnoitavaan elementtiin attribuutin <code>data-controls="panel"</code> avulla. Kyseisessä attribuutissa <i>panel</i> on viitattavan paneelielementin <code>id</code>-attribuutin arvo.
           usage_p_3_html: 3. Piilotettava tai näytettävä elementti, jonka <code>id</code>-attribuutti vastaa <code>data-controls</code>-attribuutin arvoa haitarielementin liipaisimessa.
         activities:
@@ -87,26 +87,26 @@ fi:
           adjacent_links_paragraph: Jos samaan kohteeseen on useita vierekkäisiä linkkejä, se hankaloittaa sivun ymmärtämistä avustavien teknologioiden käyttäjille, koska kyseisten käyttäjien tulee siirtää kohdistusta useaan otteeseen päästäkseen seuraavaan kohteeseen.
           color_contrast: Värien kontrasti
           color_contrast_paragraph: Luodessasi käyttöliittymiä tai muuttaessasi värimäärityksiä, varmista, että et riko sivun saavutettavuutta näillä muutoksilla. Voit käyttää värien kontrastiarvon tarkastustyökalua varmistaaksesi, että väreillä on tarpeeksi kontrastia niiden taustaväriin verrattuna.
-          decidim_follows_html: Desidim noudattaa <u>Verkkosisällön saavutettavuusohjeita (WCAG) 2.1</u>
+          decidim_follows_html: Decidim seuraa %{link}
           dynamic_changes_header: Sivujen dynaamiset toiminnot muuttavat sivun kontekstia epäjohdonmukaisesti
           dynamic_changes_paragraph: Lomakekenttien muutosten ei tulisi muuttaa sivun kontekstia automaattisesti.
           elements_hidden: Piilotetut elementit
           elements_hidden_header: Avustavilta teknologioilta piilotetut elementit
           elements_hidden_paragraph: Käytä aria-hidden="true" -attribuuttia piilottaaksesi elementin avustavilta teknologioilta.
           heading_on: Tärkeiden osioiden otsikointi
-          here_link: täältä
           illogical_heading_order: Epäjohdonmukainen otsikointijärjestys
           illogical_heading_paragraph: Jokaisen sivun on noudatettava johdonmukaista otsikoiden järjestystä käytettäessä <h1>, <h2>, <h3>, <h4>, <h5> ja <h6> otsikkoelementtejä.
           important_sections_heading: Tärkeiden osioiden otsikointi
           important_sections_paragraph: On erityisen tärkeää, että jokaisella sivun tärkeällä osiolla on otsikko, jotta sivun rakenne on helppo ymmärtää selaamalla pelkästään sivun otsikot.
+          learn_more_about_html: Lisätietoja aiheesta %{link}
           links_and_buttons: Linkit ja painikkeet
           links_and_buttons_paragraph: Ankkurielementit (eli linkit) on tarkoitettu linkittämään eri sivuille tai saman sivun eri osioihin. Mikäli elementin on tarkoitus avata esimerkiksi piilotettua sisältöä samalla sivulla muuttamatta sivun kontekstia, toteutuksessa tulisi käyttää <button>-elementtiä ankkurin sijaan.
-          see_further_info_html: Löydät lisätietoja %{link}
           unique_h1: Yksilölliset H1-tason otsikot
           unique_h1_paragraph: Jokaisella sivulla on oltava yksilöllinen H1-otsikko
           use_aria: Hyödynnä ARIA-attribuutteja
           use_aria_header: Hyödynnä ARIA-attribuutteja mahdollisuuksien mukaan
           use_aria_paragraph: Monet dynaamisia toimintoja tarjoavat elementit tarvitsevat ARIA-attribuuttimäärityksiä toimiakseen saavutettavasti ja ollakseen yhteensopivia avustavien teknologioiden kanssa.
+          wcag_guidelines: Verkkosisällön saavutettavuusohjeita (WCAG)
         color:
           color_header: Värit
           description_p1: Tarjoamme oletusväripaletin muutamilla esimääritetyillä väreillä, jotta värimaailman muuttaminen olisi helppoa. Voit muokata väripalettia joko hallintapaneelista tai muuttamalla Tailwind-asetustiedostoa, mikäli haluat muokata useampia asioita.
@@ -135,11 +135,11 @@ fi:
           not_required: Ei vaadittu
           properties: Määritykset
           right_aside: Oikea sivupalkki
-          section_p_breakpoints: 'Hallitaksemme responsiivista elementtien maksimileveyttä, hyödynnämme Tailwind-kehyksen tarjoamaa jäsennysluokkaa `container`, joka määrittää seuraavat muutospisteet:'
+          section_p_breakpoints: 'Hallitaksemme responsiivista elementtien maksimileveyttä, hyödynnämme Tailwind-kehyksen tarjoamaa jäsennysluokkaa `container`. Tuetut resoluutiot ovat:'
           section_p_code: Luodessasi uusia moduuleja tarjoamme avustajia, jotka tarjoavat automaattisesti kaiken koodin HTML-rakenteen määrittämiseen. Hyödynnä näitä avustajia räätälöityjen div-elementtien sijaan, jotta sivusto säilyttää yhtenäisyytensä.
           section_p_code_html: Löydät perusulkoasun asettelut kohteesta %{link_section_code}
           section_p_desktop: Työpöytälaitteiden ruudukkojärjestelmä koostuu 12 joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 48 pikseliä leveät marginaalit
-          section_p_mobile: Mobiililaitteiden ruudukkojärjestelmä koostuu neljästä joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 16 pikseliä leveät marginaalit. Alle 320 pikseliä levelille ruudunleveyksille nämä marginaalit asetetaan 8 pikseliin.
+          section_p_mobile: Mobiililaitteiden ruudukkojärjestelmä koostuu neljästä joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 16 pikseliä leveät marginaalit.
           section_p_tablet: Tablet-laitteiden ruudukkojärjestelmä koostuu kahdeksasta joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 24 pikseliä leveät marginaalit
           tablet: Tablet-laitteet
           title: Ulkoasu
@@ -170,14 +170,13 @@ fi:
         block_text: Käytä extra_data -lohkoa
         blog_cards_html: Käytetään <i>Blogien</i> korteissa
         blogs: Blogit
-        budget_card_html: 'Käytetään <i>Budjetointihankkeiden</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>'
+        budget_card_html: 'Käytetään <i>Budjetointiprojektien</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>'
         budgets: Budjetit
         callout_class: Huomautuselementin luokka
         callout_description: Tämä attribuutti määrittää ilmoituksen tilan. Oletuksena se käyttää toissijaista väriä.
         card_g: Kortti G
         card_l: Kortti L
         card_s: Kortti S
-        collaborative_draft_l: Yhteistyöluonnos L
         colors: Värit
         compact: Tiivis näkymä
         compact_description: Tämä laatijaelementin versio on yleisin tapa tunnistaa tietueiden laatija.
@@ -185,7 +184,7 @@ fi:
         conference_s: Konferenssi S
         conferences: Konferenssit
         context: Asiayhteys
-        context_description: Tämä solu näyttää tietoja käyttäjästä. Se on visuaalinen tapa tunnistaa tietueen sisältöä tai sen laatija. Hiiren osoittaminen elementin päällä näyttää sivun päälle avautuvan työkaluvinkin, jossa on lisätietoa ja linkkejä profiiliin.
+        context_description: Tämä solu näyttää tietoja käyttäjästä. Sitä käytetään visuaalisena vihjeenä, joka auttaa tunnistamaan asian/sisällön luojan.
         context_description_2: Tämä solu näytetään pääotsikon alapuolella tietueille. Muilla sisällöillä se näytetään sisällön vieressä.
         debate_l: Keskustelu L
         debate_s: Keskustelu S
@@ -206,7 +205,7 @@ fi:
         dropdowns_description_html: Pudotusvalikot ovat ulkoisen %{link} -kirjaston tarjoama JavaScript ominaisuus.
         dropdowns_usage_1_description: 2. Piilotettava elementti, jonka <code>id</code>-attribuutti vastaa pudotusvalikkoon viittaavan liipaisinelementin <code>data-target</code>-attribuutin arvoa.
         dropdowns_usage_description: 'Pudotusvalikko tarvitsee kaksi elementtiä:'
-        dropdowns_usage_description_html: 1. Käyttäjän kohdistettavissa oleva elementti, joka sisältää data-attribuutit <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
+        dropdowns_usage_description_html: 1. Käyttäjän kohdistettavissa oleva elementti, joka sisältää data-attribuutit <code>data-controller="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Esimerkkitietueen kuvaus
         dummy_title: Esimerkkitietueen otsikko
         follow_button: Seuraa-painike
@@ -226,7 +225,6 @@ fi:
         list: Luettelo
         main_colors: Pääasialliset värit
         meeting_l: Tapaaminen L
-        meeting_s: Tapaaminen S
         meetings: Tapaamiset
         meetings_html: Käytetään <i>Tapaamisten</i> korteissa
         metadata_items: Metatieto-elementit
@@ -242,8 +240,8 @@ fi:
         post_g: Artikkeli G
         post_l: Artikkeli L
         post_s: Artikkeli S
-        project_l: Hanke L
-        project_s: Hanke S
+        project_l: Projekti L
+        project_s: Projekti S
         proposal_l: Ehdotus L
         proposal_s: Ehdotus S
         proposals: Ehdotukset
@@ -256,8 +254,6 @@ fi:
         share_button: Jaa-painike
         share_usage_description_html: Varmista, että sivun osa <code>decidim/shared/share_modal</code> on lisätty näkymään. Tämä sivun osa liitetään sovelluksen näkymään.
         sizes: Koot
-        sortition_l: sortition_l
-        sortitions: Satunnaisvalinnat
         source_code: Lähdekoodi
         state: Tilaa kuvaavat värit
         tab_panels_context_description: Tämä välilehtipaneeli kokoaa kaikki asiaan liittyvät sisällöt tai tietueeseen liitetyt muut tietueet, säästääkseen tilaa sivun pystysuunnassa. Välilehteä painamalla, kysiseen välilehteen liitetty paneeli aktivoituu ja näyttää sisältönsä.
@@ -294,6 +290,7 @@ fi:
         usage_typography_2: Leipäteksti
         usage_typography_3: Tumman taustan päällä näytettävän tekstin väri
         usage_typography_4: Linkit ja painikkeet
+        usage_typography_5: Käytöstä poistettu välilehti
         value: Arvo
         variations: Muunnelmat
         variations_cards_description: Jokainen kortti näyttää erilaiselta, riippuen mitä tietueen ominaisuuksia näytetään. Voit ohittaa tämän oletustoiminnallisuuden yksittäisissä soluissa.

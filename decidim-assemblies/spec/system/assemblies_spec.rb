@@ -15,7 +15,6 @@ describe "Assemblies" do
   let(:base_assembly) do
     create(
       :assembly,
-      :with_type,
       :with_content_blocks,
       organization:,
       description:,
@@ -40,18 +39,6 @@ describe "Assemblies" do
     end
   end
 
-  context "when there are no assemblies and accessing from the homepage" do
-    let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-    it "the menu link is not shown" do
-      visit decidim.root_path
-
-      within "#home__menu" do
-        expect(page).to have_no_content("Assemblies")
-      end
-    end
-  end
-
   context "when the assembly does not exist" do
     it_behaves_like "a 404 page" do
       let(:target_path) { decidim_assemblies.assembly_path(99_999_999) }
@@ -67,18 +54,6 @@ describe "Assemblies" do
     context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
         let(:target_path) { decidim_assemblies.assemblies_path }
-      end
-    end
-
-    context "and accessing from the homepage" do
-      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-      it "the menu link is not shown" do
-        visit decidim.root_path
-
-        within "#home__menu" do
-          expect(page).to have_no_content("Assemblies")
-        end
       end
     end
   end
@@ -101,20 +76,6 @@ describe "Assemblies" do
     context "and requesting the assemblies path" do
       before do
         visit decidim_assemblies.assemblies_path
-      end
-
-      context "and accessing from the homepage" do
-        let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-        it "the menu link is shown" do
-          visit decidim.root_path
-
-          within "#home__menu" do
-            click_on "Assemblies"
-          end
-
-          expect(page).to have_current_path decidim_assemblies.assemblies_path
-        end
       end
 
       it "lists all the highlighted assemblies" do
@@ -186,7 +147,6 @@ describe "Assemblies" do
             expect(page).to have_content(translated(assembly.subtitle, locale: :en))
             expect(page).to have_content(translated(assembly.short_description, locale: :en))
             expect(page).to have_content(translated(assembly.meta_scope, locale: :en))
-            expect(page).to have_content(assembly.hashtag)
             expect(page).to have_content(translated(assembly.developer_group, locale: :en))
             expect(page).to have_content(translated(assembly.local_area, locale: :en))
             expect(page).to have_content(translated(assembly.target, locale: :en))
@@ -254,8 +214,8 @@ describe "Assemblies" do
 
         it "shows the components" do
           within ".participatory-space__nav-container" do
-            expect(page).to have_content(translated(proposals_component.name, locale: :en))
-            expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
+            expect(page).to have_content(decidim_escape_translated(proposals_component.name))
+            expect(page).to have_no_content(decidim_escape_translated(meetings_component.name))
           end
         end
       end
@@ -264,7 +224,7 @@ describe "Assemblies" do
         let(:blocks_manifests) { [:stats] }
 
         it "renders the stats for those components are visible" do
-          within "[data-statistic]" do
+          within "[data-statistic][class*=proposals]" do
             expect(page).to have_css(".statistic__title", text: "Proposals")
             expect(page).to have_css(".statistic__number", text: "3")
             expect(page).to have_no_css(".statistic__title", text: "Meetings")
@@ -296,26 +256,26 @@ describe "Assemblies" do
         end
       end
 
-      context "when the assembly has children private and transparent assemblies and related assemblies block is active" do
-        let!(:private_transparent_child_assembly) { create(:assembly, organization:, parent: assembly, private_space: true, is_transparent: true) }
-        let!(:private_transparent_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: true) }
+      context "when the assembly has children with transparent assemblies and related assemblies block is active" do
+        let!(:transparent_child_assembly) { create(:assembly, organization:, parent: assembly, access_mode: :transparent) }
+        let!(:transparent_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, access_mode: :transparent) }
         let(:blocks_manifests) { [:related_assemblies] }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)
         end
 
-        it "shows only the published, private and transparent children assemblies" do
+        it "shows only the published and transparent children assemblies" do
           within(".participatory-space__block-grid") do
-            expect(page).to have_link translated(private_transparent_child_assembly.title)
-            expect(page).to have_no_link translated(private_transparent_unpublished_child_assembly.title)
+            expect(page).to have_link translated(transparent_child_assembly.title)
+            expect(page).to have_no_link translated(transparent_unpublished_child_assembly.title)
           end
         end
       end
 
-      context "when the assembly has children private and not transparent assemblies" do
-        let!(:private_child_assembly) { create(:assembly, organization:, parent: assembly, private_space: true, is_transparent: false) }
-        let!(:private_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: false) }
+      context "when the assembly has children with restricted assemblies" do
+        let!(:child_assembly) { create(:assembly, organization:, parent: assembly, access_mode: :restricted) }
+        let!(:unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, access_mode: :restricted) }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)
@@ -324,6 +284,23 @@ describe "Assemblies" do
         it "not shows any children assemblies" do
           expect(page).to have_no_css(".participatory-space__block-grid")
         end
+      end
+    end
+
+    context "when the assembly is restricted" do
+      let(:blocks_manifests) { [:related_documents, :related_images] }
+      let!(:assembly) { create(:assembly, :published, :restricted, :with_content_blocks, blocks_manifests:, organization:) }
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:member) { create(:member, :published, user:, participatory_space: assembly) }
+      let!(:document) { create(:attachment, :with_pdf, attached_to: assembly) }
+
+      before do
+        login_as user, scope: :user
+        visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
+      end
+
+      it "shows the document extension in the metadata" do
+        expect(all("[data-content] .documents__container").first).to have_css(".card__list-metadata", text: "pdf")
       end
     end
   end

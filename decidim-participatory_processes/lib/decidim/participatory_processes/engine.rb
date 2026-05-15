@@ -15,47 +15,73 @@ module Decidim
       isolate_namespace Decidim::ParticipatoryProcesses
 
       routes do
-        get "processes/:process_id", to: redirect { |params, _request|
-          process = Decidim::ParticipatoryProcess.find(params[:process_id])
-          process ? "/processes/#{process.slug}" : "/404"
-        }, constraints: { process_id: /[0-9]+/ }
+        extend Decidim::Routes::LocaleRedirects
 
-        get "/processes/:process_id/f/:component_id", to: redirect { |params, _request|
-          process = Decidim::ParticipatoryProcess.find(params[:process_id])
-          process ? "/processes/#{process.slug}/f/#{params[:component_id]}" : "/404"
-        }, constraints: { process_id: /[0-9]+/ }
+        scope "/:locale", **locale_scope_options do
+          get "processes/:process_id", to: redirect { |params, _request|
+            process = Decidim::ParticipatoryProcess.find(params[:process_id])
+            process ? "/#{params[:locale]}/processes/#{process.slug}" : "/404"
+          }, constraints: { process_id: /[0-9]+/ }
 
-        get "processes/:process_id/all-metrics", to: redirect { |params, _request|
-          process = Decidim::ParticipatoryProcess.find(params[:process_id])
-          process ? "/processes/#{process.slug}/all-metrics" : "/404"
-        }, constraints: { process_id: /[0-9]+/ }, as: :all_metrics
+          get "/processes/:process_id/f/:component_id", to: redirect { |params, _request|
+            process = Decidim::ParticipatoryProcess.find(params[:process_id])
+            process ? "/#{params[:locale]}/processes/#{process.slug}/f/#{params[:component_id]}" : "/404"
+          }, constraints: { process_id: /[0-9]+/ }
 
-        resources :participatory_process_groups, only: :show, path: "processes_groups"
-        resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
-          get "all-metrics", on: :member
-        end
+          resources :participatory_process_groups, only: :show, path: "processes_groups"
+          resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
+            resources :members, only: :index, path: "members"
+          end
 
-        scope "/processes/:participatory_process_slug/f/:component_id" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.engine
+          scope "/processes/:participatory_process_slug/f/:component_id" do
+            Decidim.component_manifests.each do |manifest|
+              next unless manifest.engine
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.engine, at: "/", as: "decidim_participatory_process_#{manifest.name}"
+              constraints CurrentComponent.new(manifest) do
+                mount manifest.engine, at: "/", as: "decidim_participatory_process_#{manifest.name}"
+              end
             end
           end
+        end
+
+        get "/participatory_process_groups/*rest", to: redirect { |params, request| locale_redirector("/processes_groups/#{params[:rest]}").call(params, request) }
+
+        get "/processes", to: redirect(&locale_redirector("/processes"))
+
+        get "/processes/*rest", to: redirect { |params, request| locale_redirector("/processes/#{params[:rest]}").call(params, request) }
+      end
+
+      initializer "decidim_participatory_processes.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::ParticipatoryProcesses::Engine, at: "/", as: "decidim_participatory_processes"
         end
       end
 
       initializer "decidim_participatory_processes.register_icons" do
         Decidim.icons.register(name: "Decidim::ParticipatoryProcess", icon: "treasure-map-line", description: "Participatory Process", category: "activity",
                                engine: :participatory_process)
+        Decidim.icons.register(name: "Decidim::ParticipatoryProcessGroup", icon: "treasure-map-line", description: "Participatory Process Group", category: "activity",
+                               engine: :participatory_process)
         Decidim.icons.register(name: "archive-line", icon: "archive-line", category: "system", description: "", engine: :participatory_process)
         Decidim.icons.register(name: "grid-line", icon: "grid-line", category: "system", description: "", engine: :participatory_process)
         Decidim.icons.register(name: "globe-line", icon: "globe-line", category: "system", description: "", engine: :participatory_process)
       end
 
+      initializer "decidim_participatory_processes.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_participatory_processes.query_extensions" do
         Decidim::Api::QueryType.include Decidim::ParticipatoryProcesses::QueryExtensions
+      end
+
+      initializer "decidim_participatory_processes.extend_component_controllers" do
+        config.to_prepare do
+          # Extend component controllers with participatory process breadcrumb when mounted under participatory processes
+          Decidim::Components::BaseController.include(Decidim::ParticipatoryProcesses::ParticipatoryProcessBreadcrumb)
+        end
       end
 
       initializer "decidim_participatory_processes.add_cells_view_paths" do
@@ -74,33 +100,42 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.stats" do
-        Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
-          Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_space)
+        Decidim.stats.register :processes_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "treasure-map-line",
+                               tooltip_key: "processes_count_tooltip" do |organization, start_at, end_at|
+          processes = ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(organization)
+
+          processes = processes.where(created_at: start_at..) if start_at.present?
+          processes = processes.where(created_at: ..end_at) if end_at.present?
+          processes.count
         end
 
-        Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
-          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_space)
+        Decidim.stats.register :followers_count,
+                               priority: StatsRegistry::MEDIUM_PRIORITY,
+                               icon_name: "user-follow-line",
+                               tooltip_key: "followers_count_tooltip" do |participatory_space|
+          Decidim::ParticipatoryProcesses::ParticipatoryProcessesStatsFollowersCount.for(participatory_space)
+        end
+
+        Decidim.stats.register :participants_count,
+                               priority: StatsRegistry::MEDIUM_PRIORITY,
+                               icon_name: "user-line",
+                               tooltip_key: "participants_count_tooltip" do |participatory_space|
+          Decidim::ParticipatoryProcesses::ParticipatoryProcessesStatsParticipantsCount.for(participatory_space)
         end
       end
 
-      initializer "decidim_participatory_processes.register_metrics" do
-        Decidim.metrics_registry.register(:participatory_processes) do |metric_registry|
-          metric_registry.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricManage"
+      initializer "decidim_participatory_processes.shakapacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
 
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 2
+      initializer "decidim_participatory_processes.static_pages" do
+        config.to_prepare do
+          Decidim::EventsManager.subscribe("decidim.system.create_organization:after") do |_event_name, data|
+            Decidim::ParticipatoryProcesses::CreateDemocraticQualityIndicatorsPage.call(data[:organization].id)
           end
         end
-
-        Decidim.metrics_operation.register(:followers, :participatory_process) do |metric_operation|
-          metric_operation.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessFollowersMetricMeasure"
-        end
-      end
-
-      initializer "decidim_participatory_processes.webpacker.assets_path" do
-        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

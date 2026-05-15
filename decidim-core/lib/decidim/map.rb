@@ -24,7 +24,7 @@ module Decidim
     # Public: Returns a boolean indicating if the category of mapping services
     # is available for this instance that the provided key represents.
     #
-    # @param *categories [Symbol] The utility category key to check the
+    # @param categories [Array<Symbol>] The utility category key to check the
     #   availability for.
     # @return [Boolean] A boolean indicating if the category of mapping services
     #   is available.
@@ -58,7 +58,7 @@ module Decidim
     # map utilities. The configured utility class (through Decidim.maps) is
     # should be under these namespaces.
     #
-    # @return [Hash<Symbol, Module>] The modules within which the utility
+    # @return [Hash{Symbol => Module}] The modules within which the utility
     #   classes should be defined in.
     def self.utility_modules
       @utility_modules ||= {}
@@ -73,12 +73,9 @@ module Decidim
       @utility_modules ||= {}
       @utility_modules[category] = mod
 
-      # Dynamically define the category method.
-      module_eval %{
-        def self.#{category}(options)    # def self.dynamic(options)
-          utility(:#{category}, options) #  utility(:dynamic, options)
-        end                              # end
-      }, __FILE__, __LINE__ - 4
+      define_singleton_method(category) do |options|
+        utility(category, options)
+      end
 
       mod
     end

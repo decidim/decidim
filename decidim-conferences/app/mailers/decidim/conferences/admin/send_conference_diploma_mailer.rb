@@ -33,13 +33,7 @@ module Decidim
         private
 
         def add_diploma_attachment
-          diploma = WickedPdf.new.pdf_from_string(
-            render_to_string(pdf: "conference-diploma",
-                             template: "decidim/conferences/admin/send_conference_diploma_mailer/diploma_user",
-                             layout: "decidim/diploma"),
-            orientation: "Landscape"
-          )
-
+          diploma = Decidim::Conferences::ConferenceDiplomaPDF.new(@conference, @user).render
           attachments["conference-#{@user.nickname.parameterize}-diploma.pdf"] = diploma
         end
       end

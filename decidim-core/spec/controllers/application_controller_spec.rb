@@ -6,7 +6,9 @@ module Decidim
   describe ApplicationController do
     let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization:) }
-    let(:tos_path) { "/pages/terms-of-service" }
+    let(:tos_path) { "/#{I18n.locale}/pages/terms-of-service" }
+
+    include Decidim::Core::Engine.routes.url_helpers
 
     controller Decidim::ApplicationController do
       def show
@@ -26,7 +28,7 @@ module Decidim
       request.env["decidim.current_organization"] = organization
       routes.draw do
         get "show" => "decidim/application#show"
-        get "pages/terms-of-service" => "decidim/application#tos"
+        get "/:locale/pages/terms-of-service" => "decidim/application#tos"
         get "unauthorized" => "decidim/application#unauthorized"
       end
     end
@@ -131,7 +133,7 @@ module Decidim
 
           context "and requesting the terms of service page itself" do
             it "does not redirect the user to the terms of service page or store the location" do
-              get :tos
+              get :tos, params: { locale: I18n.locale }
               expect(response).not_to redirect_to(tos_path)
               expect(session[:user_return_to]).to be_nil
             end
@@ -159,7 +161,7 @@ module Decidim
         end
 
         it "stores the terms of service page location" do
-          get :tos
+          get :tos, params: { locale: I18n.locale }
           expect(session[:user_return_to]).to eq(tos_path)
         end
 
@@ -202,7 +204,7 @@ module Decidim
         context "when not authenticated" do
           it "redirects to sign in path" do
             get :show
-            expect(response).to redirect_to("/users/sign_in")
+            expect(response).to redirect_to(new_user_session_path)
             expect(flash[:warning]).to include("Please, log in with your account before access")
           end
         end
@@ -213,7 +215,7 @@ module Decidim
       it "redirects the user to the sign in page" do
         get :unauthorized
 
-        expect(response).to redirect_to("/users/sign_in")
+        expect(response).to redirect_to(new_user_session_path)
       end
 
       context "when authenticated" do
@@ -224,7 +226,7 @@ module Decidim
         it "redirects the user to root path" do
           get :unauthorized
 
-          expect(response).to redirect_to("/")
+          expect(response).to redirect_to(root_path)
         end
       end
     end

@@ -17,12 +17,11 @@ module Decidim
         with_tooltip(title, options.merge(class: "top")) do
           link_to(link,
                   method: options[:method],
-                  class: "action-icon #{options[:class]}",
+                  class: options[:class],
                   data: options[:data] || {},
                   title:,
                   target: options[:target]) do
-            content_tag(:span, data: { tooltip: true, disable_hover: false, click_open: false },
-                               title:) do
+            content_tag(:span) do
               icon(icon_name, aria_label: title, role: "img")
             end
           end

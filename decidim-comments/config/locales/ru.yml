@@ -4,7 +4,6 @@ ru:
       decidim/comments/comment_by_followed_user_event: Комментарий
       decidim/comments/comment_created_event: Комментарий
       decidim/comments/reply_created_event: Ответ на комментарий
-      decidim/comments/user_group_mentioned_event: Упоминание
       decidim/comments/user_mentioned_event: Упоминание
   activerecord:
     models:
@@ -19,6 +18,10 @@ ru:
         many: Голосов
         other: Голосов
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Комментарии
     comments:
       votes:
         create:
@@ -29,8 +32,6 @@ ru:
           body:
             label: Комментарий
             placeholder: Что вы думаете об этом?
-          user_group_id:
-            label: Комментировать как
         opinion:
           neutral: Безучастно
         remaining_characters: "Осталось %{count} символов"
@@ -68,9 +69,6 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за %{author_name}. Вы можете отписаться от таких уведомлений, перейдя на страницу профиля этого участника.
           email_subject: В %{resource_title} появился новый комментарий от %{author_name}
           notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        comment_by_followed_user_group:
-          email_subject: В %{resource_title} появился новый комментарий от %{author_name}
-          notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         comment_created:
           email_intro: "%{resource_title} прокомментировали. Вы можете прочитать комментарий на странице:"
           email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
@@ -86,8 +84,3 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы были упомянуты в %{resource_title}.
           email_subject: Вы были упомянуты в %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> упомянул вас в <a href="%{resource_path}">%{resource_title}</a>
-    metrics:
-      comments:
-        description: Количество комментариев, созданных участниками
-        object: коментарии
-        title: Комментарии

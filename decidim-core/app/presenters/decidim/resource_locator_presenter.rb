@@ -55,8 +55,9 @@ module Decidim
     # Returns a String.
     def show(options = {})
       options.merge!(options_for_polymorphic)
+      locale = options.delete(:locale) || I18n.locale
 
-      admin_route_proxy.send("#{member_route_name}_path", target, options)
+      normalize_locale_route(admin_route_proxy.send("#{member_route_name}_path", target, options), locale)
     end
 
     # Builds the admin edit path to the resource.
@@ -66,8 +67,9 @@ module Decidim
     # Returns a String.
     def edit(options = {})
       options.merge!(options_for_polymorphic)
+      locale = options.delete(:locale) || I18n.locale
 
-      admin_route_proxy.send("edit_#{member_route_name}_path", target, options)
+      normalize_locale_route(admin_route_proxy.send("edit_#{member_route_name}_path", target, options), locale)
     end
 
     private
@@ -112,14 +114,26 @@ module Decidim
 
     def admin_collection_route(route_type, options)
       options.merge!(options_for_polymorphic)
+      locale = options.delete(:locale) || I18n.locale
 
-      admin_route_proxy.send("#{collection_route_name}_#{route_type}", options)
+      normalize_locale_route(admin_route_proxy.send("#{collection_route_name}_#{route_type}", options), locale)
     end
 
     def manifest_for(record)
       record.try(:resource_manifest) ||
         record.class.try(:resource_manifest) ||
-        record.class.try(:participatory_space_manifest)
+        record.class.try(:participatory_space_manifest) ||
+        record.to_s
+    end
+
+    def route_name_for(record)
+      manifest = manifest_for(record)
+
+      if manifest.respond_to?(:route_name)
+        manifest.route_name
+      else
+        manifest.to_s
+      end
     end
 
     def component
@@ -130,14 +144,14 @@ module Decidim
       if polymorphic?
         polymorphic_member_route_name
       else
-        manifest_for(target).route_name
+        route_name_for(target)
       end
     end
 
     def polymorphic_member_route_name
       return unless polymorphic?
 
-      resource.map { |record| manifest_for(record).route_name }.join("_")
+      resource.map { |record| route_name_for(record) }.join("_")
     end
 
     def collection_route_name
@@ -149,7 +163,7 @@ module Decidim
 
       parent_resources = {}
       (resource - [target]).each do |parent|
-        parent_resources["#{manifest_for(parent).route_name}_id"] = parent.id
+        parent_resources["#{route_name_for(parent)}_id"] = parent.id unless parent.is_a?(String)
       end
       parent_resources
     end
@@ -160,6 +174,22 @@ module Decidim
 
     def admin_route_proxy
       @admin_route_proxy ||= EngineRouter.admin_proxy(component || target)
+    end
+
+    def normalize_locale_route(path, locale)
+      path = path.sub(/([?&])locale=[^&]*(?=&|\z)/, "\\1")
+      path = path.delete_suffix("?")
+      path = path.delete_suffix("&")
+      path = path.sub("?&", "?")
+
+      path = "/#{path}" unless path.start_with?("/")
+
+      locale_candidates = Regexp.union(I18n.available_locales.map(&:to_s).sort_by(&:length).reverse)
+      path = path.sub(%r{\A/#{locale_candidates}(?=/|\z)}, "")
+
+      path = "/" if path.empty?
+
+      "/#{locale}#{path}"
     end
   end
 end

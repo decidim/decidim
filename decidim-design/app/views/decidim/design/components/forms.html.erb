@@ -1,3 +1,6 @@
+<%= append_javascript_pack_tag "decidim_emoji" %>
+<%= append_javascript_pack_tag "decidim_date_picker" %>
+
 <% content_for :heading do %>
   <%= cell "decidim/announcement", t(".header_alert"), callout_class: "alert" %>
   <%= t(".title") %>
@@ -40,8 +43,8 @@
 
     <% text_types.each do |element| %>
       <label>
-        input type="<%= element %>"
-        <input type="<%= element %>" <% if %w(datetime-local date).include?(element) %> hide_help="true" <% end %>>
+        input type="<%= element %>"  <% if %w(datetime-local date).include?(element) %> data-controller="date-picker" <% end %>
+        <input type="<%= element %>" <% if %w(datetime-local date).include?(element) %> hide_help="true" data-controller="date-picker" <% end %>>
       </label>
     <% end %>
 
@@ -80,9 +83,9 @@
   <div class="form__wrapper">
     <% text_types.each do |element| %>
       <label>
-        input type="<%= element %>"
+        input type="<%= element %>" <% if %w(datetime-local date).include?(element) %> data-controller="date-picker" <% end %>
         <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
-        <input type="<%= element %>">
+        <input type="<%= element %>" <% if %w(datetime-local date).include?(element) %> data-controller="date-picker" <% end %>>
       </label>
     <% end %>
 
@@ -124,8 +127,8 @@
   <div class="form__wrapper">
     <% text_types.each do |element| %>
       <label>
-        input type="<%= element %>" disabled
-        <input type="<%= element %>" disabled>
+        input type="<%= element %>" disabled <% if %w(datetime-local date).include?(element) %> data-controller="date-picker" <% end %>
+        <input type="<%= element %>" disabled <% if %w(datetime-local date).include?(element) %> data-controller="date-picker" <% end %>>
       </label>
     <% end %>
 
@@ -166,8 +169,8 @@
 
     <% text_types.each do |element| %>
       <label>
-        input type="<%= element %>" required
-        <input type="<%= element %>" required>
+        input type="<%= element %>" required <% if %w(datetime-local date).include?(element) %> data-controller="date-picker" <% end %>
+        <input type="<%= element %>" required <% if %w(datetime-local date).include?(element) %> data-controller="date-picker" <% end %>>
         <div class="form-error">Lorem ipsum dolor sit amet.</div>
       </label>
     <% end %>
@@ -201,23 +204,23 @@
     <%= cell "decidim/announcement", t(".min_max_length_description") %>
 
     <label>
-      input type="text" maxlength="20"
-      <input type="text" maxlength="20">
+      input type="text" maxlength="20" data-controller="character-counter"
+      <input type="text" maxlength="20" data-controller="character-counter">
     </label>
 
     <label>
-      textarea maxlength="20"
-      <textarea cols="30" rows="10" maxlength="20"></textarea>
+      textarea maxlength="20" data-controller="character-counter"
+      <textarea cols="30" rows="10" maxlength="20" data-controller="character-counter"></textarea>
     </label>
 
     <label>
-      input type="text" minlength="5" maxlength="20"
-      <input type="text" minlength="5" maxlength="20">
+      input type="text" minlength="5" maxlength="20" data-controller="character-counter"
+      <input type="text" minlength="5" maxlength="20" data-controller="character-counter">
     </label>
 
     <label>
-      textarea minlength="5" maxlength="20"
-      <textarea cols="30" rows="10" minlength="5" maxlength="20"></textarea>
+      textarea minlength="5" maxlength="20" data-controller="character-counter"
+      <textarea cols="30" rows="10" minlength="5" data-controller="character-counter" maxlength="20"></textarea>
     </label>
   </div>
 </section>
@@ -229,8 +232,8 @@
     <%= cell "decidim/announcement", t(".emojis_description") %>
 
     <label>
-      textarea data-input-emoji="true"
-      <textarea cols="30" rows="10" data-input-emoji="true"></textarea>
+      textarea data-controller="emoji"
+      <textarea cols="30" rows="10" data-controller="emoji"></textarea>
     </label>
   </div>
 </section>
@@ -242,8 +245,8 @@
     <p><%= t(".multiselect_description_html") %></p>
 
     <label>
-      input type="text" class="js-tags-container" value="abc, 123"
-      <input type="text" class="js-tags-container" value="abc, 123">
+      input type="text" data-controller="input-tags" value="abc, 123"
+      <input type="text" data-controller="input-tags" value="abc, 123">
     </label>
   </div>
 </section>

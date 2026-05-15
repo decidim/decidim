@@ -1,0 +1,98 @@
+pt:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Eleição
+        other: Eleições
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Perguntas
+    components:
+      elections:
+        actions:
+          create: Criar
+          destroy: Destruir
+          update: Actualizar
+        name: Eleições
+        settings:
+          global:
+            announcement: Anúncio
+          step:
+            announcement: Anúncio
+    elections:
+      actions:
+        preview: Pré-visualizar
+        title: Ações
+      admin:
+        census:
+          edit:
+            created_at: Criado em
+        dashboard:
+          main:
+            labels:
+              description: Descrição
+          questions:
+            labels:
+              answers: Respostas
+            title: Perguntas
+          questions_table:
+            answer: Respostas
+            votes: Votos
+          results:
+            publish_button: Publicar resultados
+            title: Resultado
+          status:
+            title: Estado da eleição
+        elections:
+          edit:
+            title: Editar eleição
+          form:
+            add_images: Adicionar imagens
+            publish: Publicar
+          index:
+            title: Eleições
+          new:
+            title: Nova eleição
+        questions:
+          edit_questions:
+            new_question: Nova pergunta
+            title: Perguntas
+      elections:
+        count:
+          elections_count:
+            one: "%{count} eleição"
+            other: "%{count} eleições"
+        filters:
+          all: Todos
+          state: Estado
+          state_values:
+            finished: Terminado
+            ongoing: Em andamento
+        orders:
+          recent: Mais recentes
+        questions:
+          title: Questões da eleição
+        show:
+          vote_button: Votar
+        vote_results:
+          title: Resultado
+      models:
+        election:
+          fields:
+            status: Estado
+            title: Título
+      status:
+        active: Activo
+        finished: Terminado
+        not_started: Não iniciado
+        ongoing: Em andamento
+      votes:
+        confirm:
+          title: Confirmar o seu voto
+        question:
+          back: Recuar
+          next: Seguinte
+    statistics:
+      elections_count: Eleições

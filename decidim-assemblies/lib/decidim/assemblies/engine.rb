@@ -15,35 +15,53 @@ module Decidim
       isolate_namespace Decidim::Assemblies
 
       routes do
-        get "assemblies/:assembly_id", to: redirect { |params, _request|
-          assembly = Decidim::Assembly.find(params[:assembly_id])
-          assembly ? "/assemblies/#{assembly.slug}" : "/404"
-        }, constraints: { assembly_id: /[0-9]+/ }
+        extend Decidim::Routes::LocaleRedirects
 
-        get "/assemblies/:assembly_id/f/:component_id", to: redirect { |params, _request|
-          assembly = Decidim::Assembly.find(params[:assembly_id])
-          assembly ? "/assemblies/#{assembly.slug}/f/#{params[:component_id]}" : "/404"
-        }, constraints: { assembly_id: /[0-9]+/ }
+        scope "/:locale", **locale_scope_options do
+          get "assemblies/:assembly_id", to: redirect { |params, _request|
+            assembly = Decidim::Assembly.find(params[:assembly_id])
+            assembly ? "/#{params[:locale]}/assemblies/#{assembly.slug}" : "/404"
+          }, constraints: { assembly_id: /[0-9]+/ }
 
-        resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
-          resources :assembly_members, only: :index, path: "members"
-        end
+          get "/assemblies/:assembly_id/f/:component_id", to: redirect { |params, _request|
+            assembly = Decidim::Assembly.find(params[:assembly_id])
+            assembly ? "/#{params[:locale]}/assemblies/#{assembly.slug}/f/#{params[:component_id]}" : "/404"
+          }, constraints: { assembly_id: /[0-9]+/ }
 
-        scope "/assemblies/:assembly_slug/f/:component_id" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.engine
+          resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
+            resources :members, only: :index, path: "members"
+          end
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.engine, at: "/", as: "decidim_assembly_#{manifest.name}"
+          scope "/assemblies/:assembly_slug/f/:component_id" do
+            Decidim.component_manifests.each do |manifest|
+              next unless manifest.engine
+
+              constraints CurrentComponent.new(manifest) do
+                mount manifest.engine, at: "/", as: "decidim_assembly_#{manifest.name}"
+              end
             end
           end
+        end
+
+        get "/assemblies", to: redirect(&locale_redirector("/assemblies"))
+
+        get "/assemblies/*rest", to: redirect { |params, request| locale_redirector("/assemblies/#{params[:rest]}").call(params, request) }
+      end
+
+      initializer "decidim_assemblies.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Assemblies::Engine, at: "/", as: "decidim_assemblies"
+        end
+      end
+
+      initializer "decidim_assemblies.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
         end
       end
 
       initializer "decidim_assemblies.register_icons" do
         Decidim.icons.register(name: "Decidim::Assembly", icon: "government-line", description: "Assembly", category: "activity", engine: :assemblies)
-        Decidim.icons.register(name: "assembly_type", icon: "group-2-line", description: "Type", category: "assemblies", engine: :assemblies)
-
         Decidim.icons.register(name: "group-2-line", icon: "group-2-line", category: "system", description: "", engine: :assemblies)
       end
 
@@ -53,7 +71,10 @@ module Decidim
       end
 
       initializer "decidim_assemblies.stats" do
-        Decidim.stats.register :assemblies_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
+        Decidim.stats.register :assemblies_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "government-line",
+                               tooltip_key: "assemblies_count_tooltip" do |organization, _start_at, _end_at|
           Decidim::Assembly.where(organization:).public_spaces.count
         end
       end
@@ -64,50 +85,23 @@ module Decidim
         Decidim::Assemblies::Menu.register_home_content_block_menu!
       end
 
-      initializer "decidim_assemblies.view_hooks" do
-        Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
-                                                      .query.distinct
-                                                      .joins(:members)
-                                                      .merge(Decidim::AssemblyMember.where(user: view_context.profile_holder))
-                                                      .reorder(title: :asc)
-
-          next unless assemblies.any?
-
-          # Since this is rendered inside a cell we need to access the parent context in order to render it.
-          view_context = view_context.controller.view_context
-
-          view_context.render(
-            partial: "decidim/assemblies/pages/user_profile/member_of",
-            locals: {
-              assemblies:
-            }
-          )
-        end
-      end
-
       initializer "decidim_assemblies.content_blocks" do
         Decidim::Assemblies::ContentBlocks::RegistryManager.register!
-      end
-
-      initializer "decidim_assemblies.register_metrics" do
-        Decidim.metrics_registry.register(:assemblies) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Assemblies::Metrics::AssembliesMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
       end
 
       initializer "decidim_assemblies.query_extensions" do
         Decidim::Api::QueryType.include Decidim::Assemblies::QueryExtensions
       end
 
-      initializer "decidim_assemblies.webpacker.assets_path" do
+      initializer "decidim_assemblies.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_assemblies.extend_component_controllers" do
+        config.to_prepare do
+          # Extend component controllers with assembly breadcrumb when mounted under assemblies
+          Decidim::Components::BaseController.include(Decidim::Assemblies::AssemblyBreadcrumb)
+        end
       end
     end
   end

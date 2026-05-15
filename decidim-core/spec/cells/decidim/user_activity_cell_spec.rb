@@ -26,7 +26,6 @@ describe Decidim::UserActivityCell, type: :cell do
   let(:model) { create(:user, :confirmed, organization: component.organization) }
   let(:resource_types) do
     %w(
-      Decidim::Proposals::CollaborativeDraft
       Decidim::Comments::Comment
       Decidim::Debates::Debate
       Decidim::Initiative
@@ -63,11 +62,13 @@ describe Decidim::UserActivityCell, type: :cell do
       )
     end
   end
-  let(:controller) { double }
+  let(:controller) { double(url_options: {}) }
+  let(:request) { double(path_parameters: {}) }
 
   before do
     allow(controller).to receive(:current_organization).and_return(component.organization)
-    allow(controller).to receive(:params).and_return(ActionController::Parameters.new({}))
+    allow(controller).to receive(:params).and_return(ActionController::Parameters.new({ nickname: model.nickname }))
+    allow(controller).to receive(:request).and_return(request)
 
     allow(my_cell).to receive(:url_for).and_return("/")
     allow(my_cell).to receive(:controller).and_return(controller)
@@ -86,6 +87,33 @@ describe Decidim::UserActivityCell, type: :cell do
       expect(page).to have_css("li.page.current", text: "1")
       expect(page).to have_css("li.page a", text: "2")
       expect(page).to have_no_selector("li.page a", text: "3")
+    end
+  end
+
+  context "when comment is deleted" do
+    let!(:logs) do
+      comments.first(14).map do |comment|
+        create(
+          :action_log,
+          action: "publish",
+          visibility: "all",
+          user: model,
+          resource: comment,
+          organization: component.organization,
+          participatory_space: component.participatory_space
+        )
+      end
+    end
+    let!(:log_one) { create(:action_log, action: "create", visibility: "all", user: model, resource: comments.last, organization: component.organization, participatory_space: component.participatory_space) }
+    let!(:log_two) { create(:action_log, action: "delete", visibility: "all", user: model, resource: comments.last, organization: component.organization, participatory_space: component.participatory_space) }
+
+    it "does not display the references to the comment on the first page if comment has been deleted" do
+      logs.last(2) do |log|
+        root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
+        comment_link = "#{root_link}?commentId=#{log.resource.id}#comment_#{log.resource.id}"
+        title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
+        expect(subject).to have_no_link(title, href: comment_link)
+      end
     end
   end
 

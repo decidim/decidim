@@ -1,0 +1,51 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "7a3411e36cd1e0fe2644f8be0eafd08ce2b1f5cacab6a6e88d9598671a3ed523",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/decidim/design/components_controller.rb",
+      "line": 15,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => \"decidim/design/#{controller_name}/#{params[:id]}\", {})",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Decidim::Design::ComponentsController",
+        "method": "show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Medium",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "ef8d78c5d19841fda160e60f935722ac88bb1be92003164a8e63fd7b51e8bcc5",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/decidim/design/foundations_controller.rb",
+      "line": 15,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => \"decidim/design/#{controller_name}/#{params[:id]}\", {})",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Decidim::Design::FoundationsController",
+        "method": "show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Medium",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
+    }
+  ],
+  "brakeman_version": "7.0.0"
+}

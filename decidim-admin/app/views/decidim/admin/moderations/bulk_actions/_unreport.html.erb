@@ -1,0 +1,20 @@
+<div id="js-unreport-global-moderations-actions" class="hide js-bulk-action-form">
+  <%= form_tag(bulk_action_moderations_path(bulk_action: :unreport), method: :patch, id: "js-form-unreport-global-moderations", class: "form form-defaults flex items-center gap-x-2") do %>
+
+    <div class="hide">
+      <% moderations.each do |moderation| %>
+        <%= check_box_tag "moderation_ids[]", moderation.id, false, class: "js-check-all-moderations js-moderation-id-#{moderation.id}" %>
+      <% end %>
+    </div>
+
+    <%= submit_tag(
+          t("decidim.admin.moderations.index.actions.unreport.update_moderation_button"),
+          id: "js-submit-unreport-global-moderations",
+          class: "button button__sm button__secondary small button--simple float-left"
+        ) %>
+
+    <button id="js-cancel-unreport-global-moderations" class="button button__sm button__secondary js-cancel-bulk-action" type="button">
+      <%= t("decidim.admin.moderations.index.cancel") %>
+    </button>
+  <% end %>
+</div>

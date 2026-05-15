@@ -1,1 +1,306 @@
+---
 sk:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: Obsah panela
+          demo: Ukážka
+          demo_description: V celej aplikácii sa akordeóny používajú hlavne na zobrazenie/skrytie obsahu v kartách alebo na zbalenie/rozbalenie viditeľných textov.
+          description_accordions_html: Akordeóny sú javascriptová funkcia dostupná vďaka externej knižnici s názvom %{link_code} a11y-accordion-component.
+          github_source_html: Zdrojový kód na GitHub %{github_link}
+          panel: Panel
+          title: Akordeóny
+          trigger: Spúšťač
+          usage: Použitie
+          usage_p: Akordeón vyžaduje aspoň tri prvky
+          usage_p_1_html: 1. Obalový <code>div</code> s dátovým atribútom <code>data-controller="accordion"</code> nad všetkými dostupnými spúšťačmi a panelmi.
+          usage_p_2_html: 2. Spúšťací prvok, na ktorý môže používateľ kliknúť (ako tlačidlo), ukazujúci na zbaľovací prvok prostredníctvom <code>data-controls="panel"</code>, kde <i>panel</i> je <code>id</code> panela.
+          usage_p_3_html: 3. Skrývateľný prvok, ktorého <code>id</code> sa zhoduje s hodnotou data-controls, na ktorú odkazuje spúšťač.
+        activities:
+          activities: Aktivity
+        address:
+          title: Adresa
+        announcement:
+          iam_an_announcement: Som oznámenie
+          this_is_the_body: Toto je telo
+          this_is_the_title: Toto je názov
+          title: Oznámenie
+        author:
+          title: Autor
+        buttons:
+          description_html: 'Tlačidlá sú vytvorené pomocou rôznych kombinácií tried CSS: triedy <code>button</code>, veľkosti a farby.'
+          title: Tlačidlá
+        cards:
+          title: Karty
+        dialogs:
+          dialog_demo_description_html: Dialógové okná alebo modálne komponenty sú implementované prostredníctvom rails helpera <code>decidim_modal</code>.
+          dialogs_description_html: Dialógové okná sú javascriptová funkcia dostupná vďaka externej knižnici s názvom <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'Ak chcete zobraziť komplexné modálne okno so zodpovedajúcimi štýlmi, použite nasledujúce značky:'
+          tips_description_html: Venujte pozornosť <i>dátovým atribútom</i> a <i>id</i>. Napríklad id <code>[data-dialog-title]</code> začína na <i>dialog-title</i> plus <i>id modálneho okna</i>.
+          title: Dialógové okná
+          usage_description: Dialógové okno vyžaduje dva prvky
+          usage_description_2_html: 2. Modálny prvok, ktorého <code>id</code> sa zhoduje s hodnotou data-target, na ktorú odkazuje spúšťač.
+          usage_description_html: 1. Prvok, na ktorý môže používateľ kliknúť, s dátovým atribútom <code>data-dialog-open="example"</code>, kde example je <code>id</code> modálneho okna.
+        follow:
+          title: Sledovať
+        forms:
+          disabled: Zakázané
+          emojis: Emodži
+          emojis_description: Funguje iba pre textové pole (textarea)
+          errors: Chyby
+          errors_description: Nevzťahuje sa na výber (select)
+          header_alert: Táto stránka pochádza zo staršieho zobrazenia. Obsah je zastaraný.
+          help_texts: Texty pomocníka
+          html_regular_inputs: Bežné vstupy HTML
+          min_max_length: Min/Max dĺžka
+          min_max_length_description: Funguje iba pre input type='text' a textarea
+          multiselect: Viacnásobný výber
+          multiselect_description_html: Viacnásobné výbery sú javascriptová funkcia dostupná vďaka externej knižnici s názvom <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>.
+          regular_inputs_description: 'Zobrazuje iba bežné typy, úplný dostupný zoznam: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          textarea_required: vyžaduje sa textarea
+          title: Formuláre
+        report:
+          title: Nahlásiť
+        share:
+          title: Zdieľať
+        tab_panels:
+          title: Panely kariet
+        tooltips:
+          demo: Ukážka
+          demo_description: Aby tento komponent fungoval, účastník musí prejsť myšou na prvok.
+          description: Popis (tooltip) je komponent, na ktorý môžu používatelia prejsť myšou, aby o ňom získali ďalšie informácie.
+          github_source_html: Zdrojový kód na GitHub %{github_link}
+          title: Popisy (Tooltips)
+          usage: Použitie
+          usage_p: 'Popis vyžaduje použitie helpera `with_tooltip` s tromi argumentmi:'
+          usage_p_1_html: 1. Reťazec s hodnotou popisu. V príklade na tejto stránke je to „Hello world“.
+          usage_p_2_html: 2. Voliteľná trieda so symbolom, kde sa popis zobrazí. Možné hodnoty sú <code>:top</code>, <code>:bottom</code>, <code>:right</code> alebo <code>:left</code>.
+          usage_p_3_html: 3. Blok s reťazcom, na ktorý musí používateľ prejsť myšou, aby sa zobrazil.
+      foundations:
+        accessibility:
+          accessibility_labels: Štítky prístupnosti
+          accessibility_labels_paragraph: Pri definovaní prvkov sa vždy uistite, že dávajú zmysel pre používateľov čítačiek obrazovky.
+          accessibility_title: Prístupnosť
+          adjacent_links: Susediace odkazy
+          adjacent_links_header: Susediace odkazy na rovnaký zdroj
+          adjacent_links_paragraph: Ak má rovnaký zdroj viacero susediacich odkazov, ktoré naň smerujú, sťažuje to takýmto používateľom prezeranie stránky, pretože by mohli musieť prejsť viacerými odkazmi, aby sa dostali k ďalšiemu zdroju.
+          color_contrast: Farebný kontrast
+          color_contrast_paragraph: Pri vytváraní používateľských rozhraní alebo úprave farieb sa vždy uistite, že svojimi zmenami nenarušíte prístupnosť. Môžete použiť nástroj na kontrolu farebného kontrastu, aby ste sa uistili, že vaše farby majú dostatočný kontrast voči farbe pozadia, na ktorom sú zobrazené.
+          decidim_follows_html: Decidim sa riadi %{link}
+          dynamic_changes_header: Dynamická funkcionalita mení kontext stránky neintuitívne
+          dynamic_changes_paragraph: Zmeny vo vstupoch formulára by nemali automaticky meniť kontext stránky.
+          elements_hidden: Skryté prvky
+          elements_hidden_header: Prvky skryté pred API pre prístupnosť
+          elements_hidden_paragraph: Ak chcete skryť prvok pred asistenčnými technológiami, použite na ňom atribút aria-hidden="true".
+          heading_on: Nadpis v dôležitých sekciách
+          illogical_heading_order: Nelogické poradie nadpisov
+          illogical_heading_paragraph: Každá stránka by mala mať logické poradie nadpisov pri použití prvkov nadpisov <h1>, <h2>, <h3>, <h4>, <h5> a <h6>.
+          important_sections_heading: Nadpis v dôležitých sekciách
+          important_sections_paragraph: Je veľmi dôležité, aby každá dôležitá sekcia stránky mala nadpis, čo uľahčí pochopenie toho, aké dôležité sekcie sa na stránke nachádzajú, len prechádzaním jej nadpisov.
+          learn_more_about_html: Zistite viac o %{link}
+          links_and_buttons: Odkazy a tlačidlá
+          links_and_buttons_paragraph: Prvky kotvy (t. j. odkazy) sú určené na odkazovanie na iné stránky alebo na pozície kotvy v rámci stránky. Ak má prvok napr. otvoriť nejakú skrytú položku na danej stránke, mali by ste namiesto toho použiť prvok <button>.
+          unique_h1: Jedinečný H1
+          unique_h1_paragraph: Každá stránka by mala mať jedinečný nadpis H1
+          use_aria: Použite ARIA
+          use_aria_header: Kde je to možné, použite atribúty ARIA
+          use_aria_paragraph: Mnohé prvky, ktoré poskytujú interaktívnu funkcionalitu na webovej stránke, vyžadujú atribúty ARIA, aby boli prístupné.
+          wcag_guidelines: Smernice pre prístupnosť obsahu webu (WCAG)
+        color:
+          color_header: Farba
+          description_p1: Poskytujeme základnú paletu s niekoľkými farbami, takže jednoduché prispôsobenia sú ľahké. Základnú paletu môžete upraviť buď v oblasti administrácie, alebo v konfiguračnom súbore Tailwind, ak potrebujete pokročilejšie prispôsobenie.
+          description_p2_html: Pri prispôsobovaní farieb majte na pamäti %{contrast_link}. Kontrast vášho výberu si môžete overiť pomocou %{checker_link} alebo iných podobných nástrojov.
+          wcag_compliant_rations: Pomer kontrastu v súlade s WCAG 2.1 AA
+          wcag_contrast_checker: Nástroj na kontrolu kontrastu WebAIM
+        iconography:
+          description_iconography: Ikony používame na posilnenie významu akcií, názvov atď.
+          description_iconography_html: 'Používame open source knižnicu Remixicon: %{iconography_link}'
+          title: Ikonografia
+        layout:
+          breakpoint: Bod zlomu
+          breakpoints: Body zlomu
+          centered: Zarovnané na stred
+          code: Kód
+          columns: Pričom počet stĺpcov je 10, 8 alebo 6.
+          description_layout_p1: Pre počítače používa Decidim 12-stĺpcovú mriežku s obmedzeným počtom šablón (konfigurácií mriežky) pre rôzne typy obsahu. Cieľom je, aby mal daný typ obsahu (domovská stránka, zoznam prvkov, jednotlivá položka) charakteristické rozloženie, takže používatelia môžu pochopiť, v akom druhu obsahu sa nachádzajú, len na základe celkového vzhľadu stránky.
+          description_layout_p2: Tieto jednoduché pravidlá by sa mali dodržiavať pri vytváraní nových modulov alebo prispôsobovaní existujúcich, aby si stránka Decidim zachovala svoju konzistenciu.
+          desktop: Počítač
+          full_width: Plná šírka
+          layout_list_1: 'Domovská stránka (stránky, priestoru): plná šírka'
+          layout_list_2: 'Zoznam prvkov (priestorov, položiek v priestore atď.): ľavý bočný panel'
+          layout_list_3: 'Jednotlivá položka (návrh, príspevok na blogu): zarovnané na stred, voliteľne s pravým bočným panelom'
+          left_aside: Ľavý bočný panel
+          mobile: Mobil
+          not_required: Nevyžaduje sa
+          properties: Vlastnosti
+          right_aside: Pravý bočný panel
+          section_p_breakpoints: 'Na správu responzívnej šírky prvkov sa spoliehame na predvolenú triedu Tailwind `container`. Podporované rozlíšenia sú:'
+          section_p_code: Pri implementácii nových modulov máte k dispozícii niekoľko pomocníkov (helpers), ktorí vám automaticky poskytnú kód potrebný na nastavenie štruktúry HTML. Mali by ste používať týchto pomocníkov namiesto priameho používania prvkov div s triedami, aby ste zachovali konzistenciu.
+          section_p_code_html: Základné rozloženia nájdete v %{link_section_code}
+          section_p_desktop: Systém mriežky pre počítače sa skladá z 12 flexibilných stĺpcov s medzerou medzi stĺpcami 16px a ľavým a pravým okrajom 48px
+          section_p_mobile: Mobilný mriežkový systém sa skladá zo 4 flexibilných stĺpcov s medzerou medzi stĺpcami 16px a ľavým a pravým okrajom 16px.
+          section_p_tablet: Systém mriežky pre tablety sa skladá z 8 flexibilných stĺpcov s medzerou medzi stĺpcami 16px a ľavým a pravým okrajom 24px
+          tablet: Tablet
+          title: Rozloženie
+        typography:
+          description: Tieto usmernenia zhrňujú, ako používať typografiu v Decidime, a slúžia ako mantinely pre dizajnérov, aby mohli slobodne navrhovať s ohľadom na najlepšie typografické postupy.
+          headings:
+            characters: Znakov na riadok
+            layout: Stĺpce rozloženia
+            size: Veľkosť
+          title: Typografia
+          typefaces_description_1: Decidim používa ako primárne písmo Source Sans Pro. Toto písmo podporuje 310 jazykov
+          typefaces_description_2: Tieto písma sú licencované pod Open Font License
+      helpers:
+        accountability: Zodpovednosť
+        accountability_cards_html: Používa sa na kartách <i>Projektov zodpovednosti</i>. Táto karta vyžaduje na správne zobrazenie prostriedky modulu, t. j. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        activity: Aktivita
+        address_description: Bunka adresy prijme zdroj a prehľadá geolokalizovateľné atribúty, aby vygenerovala špecifické značkovanie.
+        address_description_2: V závislosti od typu obsahu môže byť adresou online URL. V takýchto prípadoch sú zobrazené informácie takmer rovnaké, ale prispôsobené tak, aby vyhovovali.
+        ally_link: a11y-dropdown-component
+        argument: Argument
+        assemblies: Zhromaždenia
+        assembly_g: Zhromaždenie G
+        assembly_s: Zhromaždenie S
+        avatar: Avatar
+        avatar_description: Používa sa v úzkych priestoroch, kde je autor sekundárnou informáciou.
+        background: Pozadie a okraje
+        base: Základ
+        block_text: Použite blok extra_data
+        blog_cards_html: Používa sa na kartách <i>Blogov</i>
+        blogs: Blogy
+        budget_card_html: Používa sa na kartách <i>Rozpočtových projektov</i>. Táto karta vyžaduje na správne zobrazenie prostriedky modulu, t. j. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
+        budgets: Rozpočty
+        callout_class: Trieda upozornenia
+        callout_description: Tento atribút aplikuje stav na oznámenie. Predvolene používa sekundárnu farbu.
+        card_g: Karta G
+        card_l: Karta L
+        card_s: Karta S
+        colors: Farby
+        compact: Kompaktné
+        compact_description: Táto verzia autora je bežným spôsobom identifikácie tvorcu zdroja.
+        conference_g: Konferencia G
+        conference_s: Konferencia S
+        conferences: Konferencie
+        context: Kontext
+        context_description: Táto bunka zobrazuje niektoré informácie o používateľovi. Je to vizuálna pomôcka na identifikáciu tvorcu zdroja/obsahu.
+        context_description_2: Pri zdrojoch sa táto bunka zobrazuje pod hlavným nadpisom. Pri inom obsahu sa zobrazuje vedľa samotného obsahu.
+        debate_l: Debata L
+        debate_s: Debata S
+        debates: Debaty
+        debates_cards_html: Používa sa na kartách <i>Debát</i>
+        debates_cards_text: Použite inú šablónu pre blok obrázka
+        default: Predvolené
+        default_description: Volanie bunky bez ďalších argumentov, iba so samotným používateľom.
+        demo: Demo
+        demo_text: 'Táto bunka prijíma model položiek LastActivity a zobrazuje nasledujúce prvky:'
+        demo_text_2: Používa sa na stránke poslednej aktivity, v bloku obsahu a v rozbaľovacích ponukách.
+        description: Popis
+        disabled: Neaktívne
+        dropdowns: Rozbaľovacie ponuky
+        dropdowns_demo_1_description: 'Nasledujúci príklad nebude viditeľný na počítači, ale na mobilnom zariadení:'
+        dropdowns_demo_description: Rozbaľovacie ponuky sa používajú v celej aplikácii na zbalenie veľkých, ľahko čitateľných ponúk pre stolné zariadenia, ktoré sú však pre mobilné zariadenia príliš rozsiahle.
+        dropdowns_demo_description_html: 'Táto funkcia javascriptu je vylepšená malým css prostredníctvom pomenovania: skrytý obsah MUSÍ MAŤ <code>id</code> začínajúce na <i>dropdown-menu</i>.'
+        dropdowns_description_html: Rozbaľovacie ponuky sú funkciou javascriptu dostupnou vďaka externej knižnici s názvom %{link}.
+        dropdowns_usage_1_description: 2. Skrývateľný prvok, ktorého <code>id</code> sa zhoduje s hodnotou data-target, na ktorú odkazuje spúšťač.
+        dropdowns_usage_description: 'Rozbaľovacia ponuka vyžaduje dva prvky:'
+        dropdowns_usage_description_html: 1. Prvok, s ktorým môže používateľ interagovať, s dátovými atribútmi <code>data-controller="dropdown" data-target="dropdown-menu-element"</code>.
+        dummy_description: Popis fiktívneho zdroja
+        dummy_title: Názov fiktívneho zdroja
+        follow_button: Tlačidlo Sledovať
+        follower_description_html: Uistite sa, že čiastočná šablóna <code>decidim/shared/login_modal</code> je prítomná v DOM. Táto čiastočná šablóna sa umiestni do rozloženia aplikácie, keď je používateľ prihlásený.
+        form_elements: Prvky formulára
+        generic_cards: Všeobecné karty
+        grid: Mriežka
+        hex_code: Hex kód
+        highlight: Zvýraznenie
+        highlight_description: Používané zdrojmi, ktoré umožňujú zvýraznenie
+        html_tips: Tipy pre HTML
+        icons: Ikony
+        image_and_description: Obrázok a popis
+        initiative_g: initiative_g
+        initiative_s: initiative_s
+        initiatives: Iniciatívy
+        list: Zoznam
+        main_colors: Hlavné farby
+        meeting_l: Stretnutie L
+        meetings: Stretnutia
+        meetings_html: Používané kartami <i>Stretnutia</i>
+        metadata_items: Položky metadát
+        metadata_text: Každý zdroj definuje svoje vlastné položky metadát
+        participatory_process_g: Participatívny proces G
+        participatory_process_group_g: Skupina participatívnych procesov G
+        participatory_process_group_s: Skupina participatívnych procesov S
+        participatory_process_s: Participatívny proces S
+        participatory_processes: Participatívne procesy
+        plain_text: Som len obyčajný text
+        plain_text_description: Ako prvý argument môžete poskytnúť obyčajný text aj objekt hash
+        plain_text_vs_hash: Obyčajný text vs Hash
+        post_g: Príspevok G
+        post_l: Príspevok L
+        post_s: Príspevok S
+        project_l: Projekt L
+        project_s: Projekt S
+        proposal_l: Návrh L
+        proposal_s: Návrh S
+        proposals: Návrhy
+        report_button: Tlačidlo Nahlásiť
+        report_usage_description: Tlačidlo Nahlásiť otvorí modálne okno na označenie aktuálneho zdroja.
+        result_l: Výsledok L
+        rgba_code: RGBA kód
+        search: Hľadať
+        send: Odoslať
+        share_button: Tlačidlo Zdieľať
+        share_usage_description_html: Uistite sa, že čiastočná šablóna <code>decidim/shared/share_modal</code> je prítomná v DOM. Táto čiastočná šablóna je umiestnená v rozložení aplikácie.
+        sizes: Veľkosti
+        source_code: Zdrojový kód
+        state: Stav
+        tab_panels_context_description: Tento komponent panelu kariet zhromažďuje všetok súvisiaci obsah alebo iné zdroje zobrazeného hlavného prvku, aby sa ušetril vertikálny priestor. Kliknutím na kartu sa aktivuje vytvorený panel a zobrazí sa obsah.
+        tab_panels_context_description_html: Používa sa hlavne v rámci <i>layout_item</i> alebo <i>layout_center</i>, za hlavným obsahom zdroja.
+        tab_panels_usage_description: 'Tento komponent prijíma pole hashov a preusporiada výstup každej položky do štruktúry panelu kariet. Dostupné vlastnosti pre každý panel:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Argumenty pre predchádzajúcu metódu"
+        tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. Podmienečné vykreslenie karty"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Jedinečné id"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Akákoľvek funkcia, ktorej rails rozumie"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Kľúč Remixicon"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Názov karty"
+        tailwind: Názov Tailwind
+        text: Text
+        transparent: Priehľadné
+        transparent_description: 'V prípade tmavšieho pozadia:'
+        types: Typy
+        typography_texts: Typografia a texty
+        usage: Použitie
+        usage_background_1: Pozadie bočného panela
+        usage_background_2: Pozadie vybraného filtra bočného panela
+        usage_background_3: Predvolená farba ikony
+        usage_background_4: Čiary a oddeľovače
+        usage_background_5: Pozadie pätičky
+        usage_background_6: Pozadie rozloženia administrátora
+        usage_base_1: Pozadie hlavného navigačného komponentu\nNavigačné ponuky na domovskej stránke a domovskej stránke priestoru
+        usage_base_2: Hlavná farba pre odkazy a tlačidlá
+        usage_base_3: Grafické ornamenty a farba zvýraznenia\nOkraj kariet a položiek zoznamu pri ukázaní myšou
+        usage_formelements_1: Predvolené pozadie vstupných prvkov
+        usage_formelements_2: Pozadie vstupných prvkov v neaktívnom stave
+        usage_state_1: Okraj oznámenia o úspechu\nVýplň ikony upozornenia\nPozadie tlačidla pri správe o úspechu
+        usage_state_2: Okraj oznámenia o varovaní
+        usage_state_3: Okraj oznámenia o upozornení\nVýplň ikony upozornenia
+        usage_typography_1: Nadpisy a názvy sekcií
+        usage_typography_2: Vložený text
+        usage_typography_3: Text na tmavom pozadí
+        usage_typography_4: Odkazy a tlačidlá
+        usage_typography_5: Neaktívna karta
+        value: Hodnota
+        variations: Variácie
+        variations_cards_description: Každá karta bude vyzerať inak v závislosti od vlastností zobrazeného zdroja. Toto správanie môžete prepísať v konkrétnej bunke.
+        variations_description: Existujú tri rôzne verzie tejto bunky. Každá sa lepšie hodí vzhľadom na kontext, v ktorom sa zobrazuje.
+        variations_text: V závislosti od typu aktivity môže bunka zobrazovať rôzny obsah, informovať o rôznych zdrojoch, či už patria do participatívneho priestoru alebo nie, či majú autora alebo nie.
+      home:
+        index:
+          by_sharing_principles: Zdieľaním princípov, filozofie a dôvodov, ktoré stoja za rozhodnutiami o dizajne, chceme posilniť komunitu, aby prispievala konzistentne, a tak sme dosiahli najlepšiu skúsenosť účastníkov.
+          decidim_guide: Sprievodca dizajnom všetkého v Decidime
+          different_ui_components: Zároveň dokumentujeme rôzne používané komponenty a vzory používateľského rozhrania, ktoré by sa mali opätovne použiť alebo rozšíriť.
+          github_source: Zdrojový kód na GitHube
+          home_header: Sprievodca dizajnom Decidim
+          welcome_sentence: Vitajte v Sprievodcovi dizajnom Decidim (DDG). Tento sprievodca je zdrojom pre dizajnérov a vývojárov, ktorí potrebujú prispôsobovať, vyvíjať nové moduly a integrovať nové funkcie.

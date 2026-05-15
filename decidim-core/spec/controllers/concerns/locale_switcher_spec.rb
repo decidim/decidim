@@ -148,5 +148,61 @@ module Decidim
         end
       end
     end
+
+    describe "#canonical_url" do
+      let!(:organization) { create(:organization, default_locale:) }
+
+      before do
+        allow(Decidim).to receive(:default_locale).and_return default_locale
+        allow(Decidim).to receive(:available_locales).and_return available_locales
+        allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
+      end
+
+      it "prefixes internal URLs with the locale" do
+        expect(controller.canonical_url("/foo/bar")).to eq("/en/foo/bar")
+      end
+
+      it "changes the link to the correct locale" do
+        expect(controller.canonical_url("http://example.com/en/foo/bar", "ca")).to eq("http://example.com/ca/foo/bar")
+      end
+
+      it "strips the locale from the url" do
+        expect(controller.canonical_url("https://example.com/en/foo/bar?locale=ca", "ca")).to eq("https://example.com/ca/foo/bar")
+      end
+
+      it "requesting the same language" do
+        expect(controller.canonical_url("https://example.com/ca/foo/bar?locale=ca", "ca")).to eq("https://example.com/ca/foo/bar")
+      end
+
+      it "requesting multiple languages at once" do
+        expect(controller.canonical_url("https://example.com/en/foo/bar?locale=es", "ca")).to eq("https://example.com/ca/foo/bar")
+      end
+
+      it "keeps non-locale path segments that start with locale letters" do
+        expect(controller.canonical_url("https://example.com/ca/english/foo/bar?locale=es", "ca")).to eq("https://example.com/ca/english/foo/bar")
+      end
+
+      it "returns the default locale when it is not a valid locale" do
+        expect(controller.canonical_url("https://example.com/en/foo/bar", "zz")).to eq("https://example.com/en/foo/bar")
+      end
+    end
+
+    describe "#default_url_options" do
+      it "includes the current locale by default" do
+        allow(I18n).to receive(:locale).and_return(:en)
+
+        expect(controller.default_url_options).to eq(locale: "en")
+      end
+
+      context "when request script_name already includes locale" do
+        before do
+          allow(controller.request).to receive(:script_name).and_return("/en/admin")
+        end
+
+        it "does not inject locale again" do
+          expect(controller.default_url_options).to eq({})
+        end
+      end
+    end
   end
 end

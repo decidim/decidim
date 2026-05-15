@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # A form object used to block users or user groups on the admin dashboard.
+    # A form object used to block users on the admin dashboard.
     class BlockUserForm < Form
       attribute :user_id, Integer
       attribute :justification, String

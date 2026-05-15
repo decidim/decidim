@@ -7,6 +7,7 @@ module Decidim
       class ProposalAnswersController < Admin::ApplicationController
         include ActionView::Helpers::SanitizeHelper
         include Decidim::Proposals::Admin::NeedsInterpolations
+        include Decidim::Proposals::Admin::Filterable
 
         helper_method :proposal
 
@@ -33,7 +34,7 @@ module Decidim
 
             on(:invalid) do
               flash.keep[:alert] = I18n.t("proposals.answer.invalid", scope: "decidim.proposals.admin")
-              render template: "decidim/proposals/admin/proposals/show"
+              render template: "decidim/proposals/admin/proposals/show", status: :unprocessable_content
             end
           end
         end
@@ -77,6 +78,10 @@ module Decidim
 
         def proposals
           @proposals ||= Proposal.where(component: current_component).where(id: params[:proposal_ids])
+        end
+
+        def collection
+          @collection ||= Proposal.where(component: current_component).not_hidden.published
         end
 
         def template

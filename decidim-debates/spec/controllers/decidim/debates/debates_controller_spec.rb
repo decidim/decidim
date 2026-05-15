@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Debates
     describe DebatesController do
-      routes { Decidim::Debates::Engine.routes }
+      include Decidim::Core::Engine.routes.url_helpers
 
       let(:user) { create(:user, :confirmed, organization: component.organization) }
 
@@ -30,7 +30,7 @@ module Decidim
           it "redirects to the login page" do
             get(:new)
             expect(response).to have_http_status(:found)
-            expect(response.body).to have_text("You are being redirected")
+            expect(response).to redirect_to(new_user_session_path)
           end
         end
       end

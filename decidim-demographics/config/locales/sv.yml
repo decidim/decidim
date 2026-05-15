@@ -1,0 +1,79 @@
+---
+sv:
+  decidim:
+    demographics:
+      actions:
+        title: Åtgärder
+      admin:
+        demographics:
+          tabs_menu:
+            title: Demografi
+        demographics_menu:
+          questions: Frågor
+          responses: Svar
+          settings: Inställningar
+        publish_responses:
+          index:
+            description: Beskrivning
+            title: Visa svar
+        questions:
+          edit:
+            save: Spara
+            title: Frågor
+          questions_form:
+            add_question: Lägg till fråga
+            collapse: Dölj alla frågor
+            expand: Expandera alla frågor
+        responses:
+          index:
+            publish_responses: Visa svar
+            title: "%{total} svar totalt"
+        settings:
+          show:
+            collect_data: Aktivera demografisk datainsamling
+            collect_data_help: Om den här inställningen aktiveras kan användare tillgängliggöra sina data till plattformen.
+            save: Spara
+            title: Inställningar
+          update:
+            invalid: Det gick inte att spara demografiska data
+            success: Demografiska data har sparats
+        title: Demografi
+      demographics:
+        questionnaire:
+          delete_my_data: Ta bort data
+          modal_close: Avbryt
+          modal_ok: Ok
+          modal_question: All din demografiska data kommer att tas bort.
+          modal_title: Radera data
+          submit: Spara data
+          terms_of_service: användarvillkor
+          tos_agreement: Genom att delta accepterar du %{link}.
+        show:
+          page_title: Dela demografisk data
+      destroy:
+        error: Det gick inte att ta bort dina delade data
+        success: Din delade data har tagits bort
+      name: Dela demografisk data
+      questions:
+        age:
+          options:
+          - 15 till 29 år
+          - 30 till 44 år
+          - 45 till 64 år
+          - 65 år eller äldre
+          question: Hur gammal är du?
+        gender:
+          options:
+          - Man
+          - Kvinna
+          - Icke-binär
+          - Mitt kön är inte listat
+          - Vill inte svara
+          question: Vilket av följande beskriver dig bäst?
+        postal:
+          question: Vad är ditt postnummer?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Genom att dela den här informationen bidrar du till statistisk analys som kan förbättra deltagandekvaliteten. Dina data kommer att aggregeras och endast användas för forskningsändamål.

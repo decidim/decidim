@@ -43,7 +43,7 @@ describe Decidim::Meetings::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  context "when subject is not a meeting and answer or a question" do
+  context "when subject is not a meeting and response or a question" do
     let(:action) do
       { scope: :public, action: :vote, subject: :foo }
     end
@@ -51,17 +51,17 @@ describe Decidim::Meetings::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  context "when answering a question" do
+  context "when responding a question" do
     let(:action) do
-      { scope: :public, action: :create, subject: :answer }
+      { scope: :public, action: :create, subject: :response }
     end
 
-    context "when question not answered" do
+    context "when question not responded" do
       it { is_expected.to be true }
     end
 
-    context "when question answered" do
-      let!(:answer) { create(:meetings_poll_answer, user:, question:, questionnaire: poll_questionnaire) }
+    context "when question responded" do
+      let!(:response) { create(:meetings_poll_response, user:, question:, questionnaire: poll_questionnaire) }
 
       it { is_expected.to be false }
     end
@@ -212,8 +212,8 @@ describe Decidim::Meetings::Permissions do
       it { is_expected.to be true }
     end
 
-    context "when space is private and setting is enabled" do
-      let(:participatory_space) { create(:participatory_process, :with_steps, private_space: true) }
+    context "when space is restricted and setting is enabled" do
+      let(:participatory_space) { create(:participatory_process, :with_steps, :restricted) }
       let(:component_settings) do
         double(creation_enabled_for_participants?: true)
       end
@@ -225,14 +225,14 @@ describe Decidim::Meetings::Permissions do
       context "when user is admin and not a member" do
         let(:user) { admin_user }
 
-        it { is_expected.to be false }
+        it { is_expected.to be true }
       end
 
       context "when user is admin but is a member" do
         let(:user) { admin_user }
 
         before do
-          create(:participatory_space_private_user, user:, privatable_to: participatory_space)
+          create(:member, user:, participatory_space:)
         end
 
         it { is_expected.to be true }
@@ -243,12 +243,12 @@ describe Decidim::Meetings::Permissions do
           create(:participatory_process_user_role, user:, participatory_process: participatory_space)
         end
 
-        it { is_expected.to be false }
+        it { is_expected.to be true }
       end
 
-      context "when user is a space private participant" do
+      context "when user is a space member" do
         before do
-          create(:participatory_space_private_user, user:, privatable_to: participatory_space)
+          create(:member, user:, participatory_space:)
         end
 
         it { is_expected.to be true }

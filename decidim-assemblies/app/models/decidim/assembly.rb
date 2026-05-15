@@ -31,12 +31,13 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
-    include Decidim::HasPrivateUsers
+    include Decidim::ParticipatorySpace::HasMembers
     include Decidim::Searchable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::SoftDeletable
     include Decidim::ShareableWithToken
 
     CREATED_BY = %w(city_council public others).freeze
@@ -52,20 +53,11 @@ module Decidim
                foreign_key: "decidim_area_id",
                class_name: "Decidim::Area",
                optional: true
-    belongs_to :assembly_type,
-               foreign_key: "decidim_assemblies_type_id",
-               class_name: "Decidim::AssembliesType",
-               optional: true
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
              foreign_type: "decidim_participatory_space_type",
              dependent: :destroy,
              as: :participatory_space
-
-    has_many :members,
-             foreign_key: "decidim_assembly_id",
-             class_name: "Decidim::AssemblyMember",
-             dependent: :destroy
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
@@ -75,16 +67,11 @@ module Decidim
     has_one_attached :hero_image
     validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
-    has_one_attached :banner_image
-    validates_upload :banner_image, uploader: Decidim::BannerImageUploader
-
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 
     after_create :set_parents_path
     after_update :set_parents_path, :update_children_paths, if: :saved_change_to_parent_id?
-
-    scope :with_any_type, ->(*type_ids) { where(decidim_assemblies_type_id: type_ids) }
 
     searchable_fields({
                         scope_id: :decidim_scope_id,
@@ -98,10 +85,14 @@ module Decidim
                       index_on_create: ->(_assembly) { false },
                       index_on_update: ->(assembly) { assembly.visible? })
 
-    # Overwriting existing method Decidim::HasPrivateUsers.public_spaces
-    def self.public_spaces
-      where(private_space: false).or(where(private_space: true).where(is_transparent: true)).published
-    end
+    # Access modes are consistent across participatory spaces (assemblies and processes)
+    # open: visible and accessible for all
+    # transparent: visible for all but the actions require to be a member of the space
+    # restricted: visible and accessible only for members fo the space
+    ACCESS_MODES = { open: 0, transparent: 1, restricted: 2 }.freeze
+    enum :access_mode, ACCESS_MODES
+
+    scope_search_multi :with_any_access_mode, ACCESS_MODES.keys
 
     # Scope to return only the promoted assemblies.
     #
@@ -126,11 +117,7 @@ module Decidim
 
     # This is a overwrite for Decidim::ParticipatorySpaceResourceable.visible?
     def visible?
-      published? && (!private_space? || (private_space? && is_transparent?))
-    end
-
-    def hashtag
-      attributes["hashtag"].to_s.delete("#")
+      published? && (open? || transparent?)
     end
 
     def to_param
@@ -167,7 +154,7 @@ module Decidim
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_any_taxonomies, :with_any_type]
+      [:with_any_taxonomies, :with_any_access_mode]
     end
 
     def shareable_url(share_token)
@@ -179,11 +166,11 @@ module Decidim
 
       return base unless auth_object&.admin?
 
-      base + %w(published_at private_space parent_id decidim_assemblies_type_id)
+      base + %w(published_at created_at parent_id access_mode)
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area assembly_type scope parent children categories)
+      %w(parent children taxonomies)
     end
 
     private
@@ -204,7 +191,7 @@ module Decidim
     #
     # rubocop:disable Rails/SkipsModelValidations
     def set_parents_path
-      update_column(:parents_path, [parent&.parents_path, id].select(&:present?).join("."))
+      update_column(:parents_path, [parent&.parents_path, id].compact_blank.join("."))
     end
     # rubocop:enable Rails/SkipsModelValidations
 
@@ -239,7 +226,5 @@ module Decidim
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker_i18n :title
-
-    ransack_alias :type_id, :decidim_assemblies_type_id
   end
 end

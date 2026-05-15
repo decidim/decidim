@@ -5,16 +5,17 @@ en:
       participatory_process:
         announcement: Announcement
         area_id: Area
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_steps: Copy steps
         decidim_area_id: Area
         description: Description
         developer_group: Promoter group
         document: Document
         domain: Domain
+        duplicate_categories: Duplicate categories
+        duplicate_components: Duplicate components
+        duplicate_landing_page_blocks: Duplicate landing page blocks
+        duplicate_steps: Duplicate steps
         end_date: End date
-        hashtag: Hashtag
+        has_members: This space has members
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -23,16 +24,11 @@ en:
         local_area: Organization area
         meta_scope: Scope metadata
         participatory_process_group_id: Processes group
-        participatory_process_type_id: Processes type
         participatory_scope: What is decided
         participatory_structure: How is it decided
-        private_space: Private process
         promoted: Promoted
         published_at: Published at
         related_process_ids: Related processes
-        scope_id: Scope
-        scope_type_max_depth_id: Scope filter depth
-        scopes_enabled: Scopes enabled
         short_description: Short description
         slug: URL slug
         start_date: Start date
@@ -44,7 +40,6 @@ en:
         description: Description
         developer_group: Promoter group
         group_url: Website
-        hashtag: Hashtag
         hero_image: Image
         local_area: Organization area
         meta_scope: Scope metadata
@@ -61,8 +56,6 @@ en:
         short_description: Short description
         start_date: Start date
         title: Title
-      participatory_process_type:
-        title: Title
       participatory_process_user_role:
         email: Email
         name: Name
@@ -73,6 +66,8 @@ en:
           attributes:
             document:
               allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}'
+              empty: The document is empty
+              invalid_json: The document is not valid JSON
     models:
       decidim/participatory_process_step_activated_event: Phase activated
       decidim/participatory_process_step_changed_event: Phase changed
@@ -91,72 +86,70 @@ en:
     admin:
       actions:
         activate: Activate
-        configure: Configure
+        confirm_delete_process: Are you sure you want to delete this process? If you change your mind, you can restore it later.
         confirm_destroy: Confirm delete
         destroy: Delete
         duplicate: Duplicate
         edit: Edit
         import_process: Import
-        menu_hidden: Hide
-        moderate: Moderate
         new_process: New process
         new_process_group: New process group
         new_process_step: New phase
-        new_process_type: New process type
         new_process_user_role: New process admin
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
         see_process: See process
         unpublish: Unpublish
+        view_deleted_processes: View deleted processes
       filters:
         decidim_participatory_process_group_id_eq:
           label: By process group
+        with_any_access_mode:
+          label: Access mode
+          values:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
-          info: Info
-          landing_page: Landing page
-        participatory_process_types: Process types
+          landing_page: Landing page layout
         participatory_processes: Processes
         participatory_processes_submenu:
           attachment_collections: Folders
           attachment_files: Files
           attachments: Attachments
-          categories: Categories
           components: Components
-          info: About this process
-          landing_page: Landing page
+          landing_page: Landing page layout
+          members: Members
           moderations: Moderations
-          private_users: Private participants
           process_admins: Process admins
           steps: Phases
       models:
         participatory_process:
           fields:
+            access_mode: Access mode
             actions: Actions
             created_at: Created at
-            private: Private
             published: Published
             title: Title
           name: Participatory process
         participatory_process_group:
           fields:
+            actions: Actions
             title: Title
           name: Process group
         participatory_process_step:
           fields:
+            actions: Actions
             end_date: End date
             start_date: Start date
             title: Title
           name: Participatory process phase
-        participatory_process_type:
-          fields:
-            created_at: Created at
-            title: Title
-          name: Process type
         participatory_process_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Name
             role: Role
@@ -164,27 +157,25 @@ en:
           roles:
             admin: Administrator
             collaborator: Collaborator
+            evaluator: Evaluator
             moderator: Moderator
-            valuator: Valuator
         user:
           fields:
             invitation_accepted_at: Invitation accepted at
             invitation_sent_at: Invitation sent at
-      participatory_process_copies:
+            published: Published
+      participatory_process_duplicates:
         new:
-          copy: Copy
+          duplicate: Duplicate
           select: Select which data you would like to duplicate
-          title: Duplicate participatory process
       participatory_process_groups:
         destroy:
           error: There was a problem while destroying the participatory process group.
           success: Participatory process group successfully deleted.
         edit:
-          title: Edit process group
           update: Update
         new:
           create: Create
-          title: New process group
         update:
           error: There was a problem updating this participatory process group.
           success: Participatory process group successfully updated.
@@ -195,7 +186,6 @@ en:
         new:
           import: Import
           select: Select which data you would like to import
-          title: Import participatory process
       participatory_process_publications:
         create:
           error: There was a problem publishing this participatory process.
@@ -218,40 +208,14 @@ en:
             last_step: Cannot delete the last phase of a process.
           success: Participatory process phase successfully deleted.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Configuring the CTA through the Phase of the participatory process is deprecated with the new design.
-              Now this is done in the <b>Landing Page</b>, using the <b>Hero and image</b> content block.
-              We have left it here for you to migrate the CTAs that you need. The fields <i>Call to action path</i> and
-              <i>Call to action text</i> will be removed in the next version.
-            title: CTA deprecated
-          title: Edit participatory process phase
           update: Update
-        index:
-          steps_title: Phases
         new:
           create: Create
-          title: New participatory process phase
         ordering:
           error: There was a problem in reordering these phases of the participatory process.
         update:
           error: There was a problem updating this phase of the participatory process.
-          success: Participatory phase successfully updated.
-      participatory_process_types:
-        create:
-          error: There was a problem creating a new process type.
-          success: Process type successfully created.
-        destroy:
-          success: Process type successfully deleted.
-        edit:
-          title: Edit process type
-          update: Update
-        new:
-          create: Create
-          title: New process type
-        update:
-          error: There was a problem updating this process type.
-          success: Process type successfully updated.
+          success: Participatory process phase successfully updated.
       participatory_process_user_roles:
         create:
           error: There was a problem adding a participant for this participatory process.
@@ -259,13 +223,9 @@ en:
         destroy:
           success: Admin successfully removed from this participatory process.
         edit:
-          title: Update participatory process admin
           update: Update
-        index:
-          process_admins_title: Participatory process admins
         new:
           create: Create
-          title: New participatory process admin
         update:
           error: There was a problem updating an admin for this participatory process.
           success: Admin successfully updated for this participatory process.
@@ -276,17 +236,18 @@ en:
         edit:
           update: Update
         index:
-          private: Private
-          public: Public
+          access_modes:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
           published: Published
           unpublished: Unpublished
         new:
           create: Create
-          title: New participatory process
         update:
           error: There was a problem updating this participatory process.
           success: Participatory process successfully updated.
-      participatory_processes_copies:
+      participatory_processes_duplicates:
         create:
           error: There was a problem duplicating this participatory process.
           success: Participatory process successfully duplicated.
@@ -294,10 +255,11 @@ en:
         create:
           error: There was a problem creating a new participatory process group.
           success: Participatory process group successfully created.
-      titles:
-        participatory_process_groups: Participatory process groups
-        participatory_process_types: Participatory process types
-        participatory_processes: Participatory processes
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: All participatory processes
+      tooltips:
+        deleted_processes_info: A process can only be deleted if status is "Unpublished".
       users:
         resend_invitation:
           error: There was a problem resending the invitation.
@@ -309,20 +271,21 @@ en:
         export: "%{user_name} exported the %{resource_name} participatory process"
         import: "%{user_name} imported the %{resource_name} participatory process"
         publish: "%{user_name} published the %{resource_name} participatory process"
+        publish_all_members: "%{user_name} published all members of the %{resource_name} participatory process"
+        restore: "%{user_name} restored the %{resource_name} participatory process"
+        soft_delete: "%{user_name} trashed the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        unpublish_all_members: "%{user_name} unpublished all members of the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_group:
         create: "%{user_name} created the %{resource_name} participatory process group"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process group"
         update: "%{user_name} updated the %{resource_name} participatory process group"
       participatory_process_step:
         activate: "%{user_name} activated the %{resource_name} phase in the %{space_name} participatory process"
         create: "%{user_name} created the %{resource_name} phase in the %{space_name} participatory process"
         delete: "%{user_name} deleted the %{resource_name} phase in the %{space_name} participatory process"
         update: "%{user_name} updated the %{resource_name} phase in the %{space_name} participatory process"
-      participatory_process_type:
-        create: "%{user_name} created the %{resource_name} participatory process type"
-        delete: "%{user_name} deleted the %{resource_name} participatory process type"
-        update: "%{user_name} updated the %{resource_name} participatory process type"
       participatory_process_user_role:
         create: "%{user_name} invited the participant %{resource_name} to the %{space_name} participatory process"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} participatory process"
@@ -353,28 +316,19 @@ en:
           contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
           page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
           title: What is a participatory process?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'The process type was not found on the database (ID: %{id}).'
     menu:
       processes: Processes
-    metrics:
-      participatory_processes:
-        description: Number of participatory processes in this organization
-        object: participatory processes
-        title: Participatory processes
     open_data:
       help:
         participatory_processes:
-          announcement: The announcement (callout) information
+          access_mode: Access mode. Wheter the process is open, restricted or transparent.
           area: The area where the process is taking place
+          component_settings: The component settings of the process
           created_at: The date this space was created
           description: A long description of the process
           developer_group: The developer group of the process. This is the organization that is promoting the process.
           end_date: The end date of the process
           follows_count: The number of users following this space
-          hashtag: The process hashtag, used for Twitter/X
           id: The unique identifier of this process
           local_area: The local area of the process. This is the organization area where the process is taking place.
           meta_scope: The scope metadata of the process
@@ -424,6 +378,8 @@ en:
           participatory_processes:
             one: 1 process
             other: "%{count} processes"
+      related_processes:
+        help: All the selected processes will be assigned to this group, including the ones that are already assigned to other groups.
       show:
         title: Participatory process groups
     participatory_process_steps:
@@ -432,50 +388,189 @@ en:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            announcement:
+              body_html: |-
+                <ul>
+                  <li>These are calculated automatically from Decidim data. They will become visible once you publish the content block.</li>
+                  <li>These are based on your responses in the following form. They will be visible once you have answered all the questions.</li>
+                </ul>
+              title: 'This content block includes two types of metrics:'
+            citizen_influence:
+              citizen_decisional_intervention:
+                legend: Out of all phases in the process (from selecting issues to supervising execution), in how many does the public have the ability to make decisions or take executive action?
+                options:
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                legend: To what extent do citizens hold decisional authority in this process, ranging from simply receiving information to decisively influencing decisions and managing resources?
+                options:
+                  five: Participants were involved in the decision-making and the management of resources or the implementation
+                  four: Participants were involved decisively in the decision-making
+                  one: Participants received information from the organisation
+                  three: Participants were involved to share decision-making power
+                  two: Participants were asked in a consultative manner or gave feedback to the organisation
+              name: Citizen influence
+            inclusiveness:
+              description: Inclusivity according to cultural origin and functional diversity.
+              digital_support_offered:
+                legend: Has digital support been offered to the participants?
+                options:
+                  five: 'Yes'
+                  two_five: Partially
+                  zero: 'No'
+              functional_diversity_invited:
+                legend: How is the degree of diversity of the agents and participants assessed with respect to the population of reference in the process?
+                options:
+                  five: Good
+                  one: Low
+                  two_five: Sufficient
+                  zero: None
+              languages_communicated:
+                legend: How many languages have been used within the process?
+                options:
+                  five: More than half of the languages spoken in the community
+                  one: One language
+                  two_five: Less than half of the languages spoken in the community
+              mobility_meeting_access:
+                legend: Were the venues of the face-to-face meetings accessible to people with reduced mobility?
+                options:
+                  five: 'Yes'
+                  two_five: Partially
+                  zero: 'No'
+              name: Inclusiveness
+              participation_scheduling_times:
+                legend: The participation sessions have been scheduled at varied times (morning, midday, afternoon, evening, and weekends).
+                options:
+                  five: 'Yes'
+                  two_five: Partially
+                  zero: 'No'
+            informativeness:
+              information_provided:
+                legend: Has information been provided regarding the participants capacity to influence the topic under discussion? (both in the communication of the process and invitations, as well as at the beginning of each debate session)
+                options:
+                  five: Always
+                  one: Almost never
+                  two_five: Usually
+                  zero: Never
+              name: Informativeness
+              published_information_clarity:
+                legend: Does the published information provide clarity on the decision-making mechanisms? (e.g. voting, consensus, direct negotiations)
+                options:
+                  five: Full clarity
+                  one: Low clarity
+                  two_five: Suficient clarity
+                  zero: No clarity
           highlighted_processes:
             active: Active
             all: All
             max_results: Maximum amount of elements to show
             selection_criteria: Selection criteria
+        imports:
+          attachment_error: The attachment "%{title}" could not be imported (%{error}).
+          hero_image_error: The hero image could not be imported (%{error}).
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
+          help_html: This import feature allows you to create a new participatory process from an exported JSON file. You can export a process from another organization or from this same organization. The imported process will include its settings, components, and attachments (if selected).
+        participatory_process_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          new:
+            title: Duplicate participatory process
         participatory_process_groups:
+          edit:
+            title: Edit process group
           form:
             metadata: Metadata
             title: About this process
             visibility: Visibility
+          index:
+            title: Participatory process groups
+          new:
+            title: New process group
         participatory_process_imports:
           form:
             document_legend: Add a document
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          new:
+            title: Import participatory process
         participatory_process_steps:
-          form:
-            cta_path_help_html: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
-            cta_text_help: If not set, the button will not be shown.
+          edit:
+            title: Edit participatory process phase
+          index:
+            title: Phases
+          new:
+            title: New participatory process phase
+        participatory_process_user_roles:
+          edit:
+            title: Update participatory process admin
+          index:
+            title: Participatory process admins
+          new:
+            title: New participatory process admin
         participatory_processes:
+          edit:
+            title: About this process
           form:
-            announcement_help: The text you enter here will be shown to the user right below the process information.
+            access:
+              label: Access
+              options:
+                open: Everyone can see the process and participate.
+                restricted: Only members can see and participate.
+                transparent: Everyone can see the process, but only members can participate.
+              set_this_space_as: Set this space as
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
-            filters: Filters
+            has_members_help: You will be able to create and publish members
             images: Images
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
-            other: Other
             related_processes: Related processes
-            scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
-            select_an_area: Select an Area
-            select_participatory_process_type: Select a process type
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
+          index:
+            title: Participatory processes
+          manage_trash:
+            title: Deleted participatory processes
+          new:
+            title: New participatory process
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            description: These indicators are obtained automatically from the platform data.
+            indicators:
+              hybridization: Hybridization
+              hybridization_tooltip: This indicator measures the level of combination between online and offline spaces during the process
+              influence: Citizen influence
+              influence_tooltip: This indicator measures the level of citizen influence on the accepted proposals and the outcomes of the process.
+              traceability: Traceability
+              traceability_tooltip: This indicator measures the transparency and traceability of the participatory process. It reflects how easily participants can follow the evolution of proposals and verify institutional actions through published records.
+              transparency: Responsiveness
+              transparency_tooltip: This indicator measures the level of responsiveness of the organization to participant input. It reflects their engagement through official responses and implemented decisions.
+            name: Automatic metrics
+          global_score:
+            description_html: Below is a set of indicators used to assess the democratic quality of this participatory process. For more details on how they are calculated, see the <a href="%{info_url}">information page on democratic quality indicators</a>.
+            name: Global score
+            note: "*The indicative values are measured on a scale from 1 to 5, where 1 represents the lowest and 5 the highest quality indicator."
+            tooltip: Calculated as the average of all the dimensions
+          name: Quality indicator
+          qualitative_metrics:
+            description: These indicators are obtained from the answers to a self-assessment survey filled in by the platform's administrators.
+            indicators:
+              citizen_influence: Citizen influence
+              citizen_influence_tooltip: Measures the level of participant impact on decision-making.
+              inclusiveness: Inclusiveness
+              inclusiveness_tooltip: Assesses whether diverse interested parties are fairly represented.
+              informativeness: Informativeness
+              informativeness_tooltip: Measures the level of clarity and information provided within the process.
+            name: Self-assessment metrics
         extra_data:
           name: Phase & duration
         hero:
@@ -493,9 +588,6 @@ en:
           highlighted_processes:
             active_spaces: Active processes
             see_all_spaces: See all processes
-      participatory_process_steps:
-        index:
-          back_to_process: Back to the process page
       participatory_processes:
         description:
           area_name: Area
@@ -539,10 +631,194 @@ en:
           title: About this process
       show:
         belongs_to_group: This process belongs to
-        private_space: This is a private process
         related_processes: Related processes
+      static_pages:
+        democratic_quality_indicators:
+          content: |-
+            <h2>Indicator system to measure quality indicator in Decidim.</h2>
+
+            <h3>Introduction</h3>
+            <p>Democratic quality is a core principle of Decidim. To uphold this, we have developed a system of indicators that help evaluate the quality of participatory processes on the platform. This article explains how these indicators are calculated.</p>
+
+            <h3>How Are Indicators Calculated?</h3>
+            <p>We have defined two methods for collecting quality indicators:</p>
+
+            <ol>
+              <li><strong>Automatic Metrics:</strong> These are calculated directly from Decidim platform data.</li>
+              <li><strong>Self-Assessment Questions:</strong> These are based on a form filled out by an administrator.</li>
+            </ol>
+
+            <p>Each indicator is expressed as a percentage (n/total). This percentage is then converted to a score on a 1-to-5 scale:</p>
+
+            <ul>
+              <li>1 = 0–20%</li>
+              <li>2 = 20–40%</li>
+              <li>3 = 40–60%</li>
+              <li>4 = 60–80%</li>
+              <li>5 = 80–100%</li>
+            </ul>
+
+            <br><br>
+            <h3>Automatic Metrics</h3>
+            <p>These metrics are automatically calculated from data available in Decidim. They are evaluated per participatory process and can be made public by administrators, so all participants can access it.</p>
+
+            <p>We have defined four main indicators: Citizen Influence, Hybridization, Responsiveness and Traceability:</p>
+
+            <h3>Citizen Influence</h3>
+
+            <p>This indicator measures the level of citizen influence on the accepted proposals and the outcomes of the process.</p>
+
+            <ul>
+              <li>
+                Citizen influence on proposals
+                <ul>
+                  <li>Percentage of proposals accepted (n/total)</li>
+                  <li>Percentage of approved <em>citizen</em> proposals over total of citizen proposals (total citizen influence on proposals approved)</li>
+                  <li>Percentage of approved citizen proposals over total of approved proposals (relative citizen influence on approved proposal)</li>
+                </ul>
+              </li>
+              <li>
+                Citizen influence on outputs/results
+                <ul>
+                  <li>Percentage of results linked to citizen proposals out of the total of results (total citizen influence on outputs)</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>Hybridization</h3>
+
+            <p>This indicator measures the level of combination between online and offline spaces during the process.</p>
+
+            <ul>
+              <li>Is a meeting component active? (Yes=5, No=0)</li>
+              <li>Are there face to face meetings? (Yes=5, No=0)</li>
+              <li>Are there online meetings ? (Yes=5, No=0)</li>
+              <li>Are there hybrid meetings? (Yes=5, No=0)</li>
+              <li>Are there proposals created from meetings? (Yes=5, No=0)</li>
+            </ul>
+
+            <h3>Responsiveness</h3>
+
+            <p>This indicator measures the level of responsiveness of the organization to participant input. It reflects their engagement through official responses and implemented decisions.</p>
+
+            <ul>
+              <li>Percentage of proposals with answers (n/total) – Proposal institutional responsiveness</li>
+              <li>Percentage of results completed at 100% (n/total)</li>
+            </ul>
+
+            <h3>Traceability</h3>
+
+            <p>This indicator measures the transparency and traceability of the participatory process. It reflects how easily participants can follow the evolution of proposals and verify institutional actions through published records.</p>
+
+            <ul>
+              <li>Number of Proposals with history (n/total)</li>
+              <li>Percentage of results linked to proposals (n/total)</li>
+              <li>Percentage of meetings closed with minutes published (n/total)</li>
+              <li>Activation of the open data module (dichotomic: 0 or 5)</li>
+              <li>Percentage of proposals related to budgets (n/total)</li>
+            </ul>
+
+            <br><br>
+            <h3>Self-Assessment Metrics</h3>
+
+            <p>In addition to automatic metrics, we propose the use of a <strong>self-evaluation form</strong> to assess the qualitative dimensions of each participatory process. This form will be completed by platform administrators at the end of each process, and the responses will be publicly displayed in the indicators content block.</p>
+
+            <p>These questions aim to capture aspects of democratic quality that cannot be assessed through quantitative data alone. It is important to note that the responses to this survey are biased by the opinion of the platform administrators.</p>
+
+            <br><br>
+            <h3>Self-assessment questions</h3>
+
+            <p>The questions that make up the self-assessment form answered by the administrators, as well as the values associated with each answer, are set out below.</p>
+
+            <h4>Informativeness</h4>
+
+            <ol>
+              <li>Does the published information provide clarity on the decision-making mechanisms (e.g., voting, consensus, direct negotiations)?
+                <ul>
+                  <li>No clarity = 0</li>
+                  <li>Low clarity = 1</li>
+                  <li>Sufficient clarity = 2,5</li>
+                  <li>Full clarity = 5</li>
+                </ul>
+              </li>
+              <li>Has information been provided regarding the participants' capacity to influence the topic under discussion (both in the communication of the process and invitations, as well as at the beginning of each debate session)?
+                <ul>
+                  <li>Never = 0</li>
+                  <li>Almost never = 1</li>
+                  <li>Usually = 2,5</li>
+                  <li>Always = 5</li>
+                </ul>
+              </li>
+            </ol>
+
+            <h4>Citizens influence</h4>
+
+            <ol>
+              <li>Assessment of the degree of participation in the process
+                <ul>
+                  <li>Participants received information from the organisation. = 1</li>
+                  <li>Participants were asked in a consultative manner or gave feedback to the organisation. = 2</li>
+                  <li>Participants were involved to share decision-making power. = 3</li>
+                  <li>Participants were involved decisively in the decision-making. = 4</li>
+                  <li>Participants were involved in the decision-making and the management of resources or the implementation. = 5</li>
+                </ul>
+              </li>
+              <li>Percentage of phases with 0-5 citizen decisional intervention.
+                <p>Out of all phases in the process (from selecting issues to supervising execution), in how many does the public have the ability to make decisions or take executive action?</p>
+                <ul>
+                  <li>0-20% = 1</li>
+                  <li>20-40% = 2</li>
+                  <li>40-60% = 3</li>
+                  <li>60-80% = 4</li>
+                  <li>80-100% = 5</li>
+                </ul>
+              </li>
+            </ol>
+
+            <h4>Inclusiveness</h4>
+
+            <ol>
+              <li>How is the degree of diversity of the agents and participants assessed with respect to the population of reference in the process?
+                <ul>
+                  <li>None = 0</li>
+                  <li>Low = 1</li>
+                  <li>Sufficient = 2,5</li>
+                  <li>Good = 5</li>
+                </ul>
+              </li>
+              <li>In how many languages has the process been communicated?
+                <ul>
+                  <li>One language = 1</li>
+                  <li>Less than half of the languages spoken in the community = 2,5</li>
+                  <li>More than half of the languages spoken in the community = 5</li>
+                </ul>
+              </li>
+              <li>Were the venues of the face-to-face meetings accessible to people with reduced mobility?
+                <ul>
+                  <li>No = 0</li>
+                  <li>Partially = 2,5</li>
+                  <li>Yes = 5</li>
+                </ul>
+              </li>
+              <li>The participation sessions have been scheduled at varied times (morning, midday, afternoon, evening, and weekends).
+                <ul>
+                  <li>No = 0</li>
+                  <li>Partially = 2,5</li>
+                  <li>Yes = 5</li>
+                </ul>
+              </li>
+              <li>Has digital support been offered to the participants?
+                <ul>
+                  <li>No = 0</li>
+                  <li>Partially = 2,5</li>
+                  <li>Yes = 5</li>
+                </ul>
+              </li>
+            </ol>
+          title: Democratic quality indicators
     statistics:
       processes_count: Processes
+      processes_count_tooltip: The number of participatory processes that are publicly available.
   layouts:
     decidim:
       participatory_process_groups:
@@ -550,6 +826,8 @@ en:
           browse: Browse
           browse_resource: Browse process group %{resource_name}
           processes_count: 'Processes:'
+      participatory_process_navigation:
+        member_menu_item: Members
       participatory_processes:
         index:
           promoted_processes: Highlighted processes

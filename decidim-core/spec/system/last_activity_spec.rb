@@ -4,7 +4,10 @@ require "spec_helper"
 
 describe "Last activity" do
   let(:organization) { create(:organization) }
-  let(:commentable) { create(:dummy_resource, component:) }
+  let!(:proposal_component) { create(:proposal_component, :published) }
+  let!(:withdrawn_proposal) { create(:proposal, :published, :withdrawn, component: proposal_component) }
+  let!(:proposal) { create(:proposal, :published, component: proposal_component) }
+  let(:commentable) { create(:dummy_resource, :published, component:) }
   let(:comment) { create(:comment, commentable:) }
   let!(:action_log) do
     create(:action_log,
@@ -13,6 +16,12 @@ describe "Last activity" do
            participatory_space: comment.participatory_space,
            resource: comment,
            organization:)
+  end
+  let!(:action_log_for_withdrawn_proposal) do
+    create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: withdrawn_proposal, organization:, participatory_space: comment.participatory_space)
+  end
+  let!(:action_log_for_proposal) do
+    create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: proposal, organization:, participatory_space: comment.participatory_space)
   end
   let!(:another_action_log) do
     create(:action_log,
@@ -31,18 +40,20 @@ describe "Last activity" do
            organization:)
   end
   let(:long_body_comment) { "This is my very long comment for Last Activity card that must be shorten up because is more than 100 chars" }
-  let(:another_comment) { create(:comment, body: long_body_comment) }
+  let(:another_comment) { create(:comment, body: long_body_comment, commentable: second_commentable) }
   let(:component) do
     create(:component, :published, organization:)
   end
   let(:resource) do
-    create(:dummy_resource, component:, published_at: Time.current)
+    create(:dummy_resource, :published, component:)
   end
+  let(:second_commentable) { create(:dummy_resource, :published, component:) }
 
   before do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
       %w(
         Decidim::Comments::Comment
+        Decidim::Proposals::Proposal
         Decidim::Dev::DummyResource
       )
     )
@@ -61,13 +72,14 @@ describe "Last activity" do
 
     it "displays the activities at the home page" do
       within "#last_activity" do
-        expect(page).to have_css("[data-activity]", count: 3)
+        expect(page).to have_css("[data-activity]", count: 4)
       end
     end
 
     it "shows activities long comment shorten text" do
       expect(page).to have_content(long_body_comment[0..79])
       expect(page).to have_no_content(another_comment.translated_body)
+      expect(page).to have_no_content(withdrawn_proposal.title)
     end
 
     context "when there is a deleted comment" do
@@ -88,10 +100,12 @@ describe "Last activity" do
       end
 
       it "shows all activities" do
-        expect(page).to have_css("[data-activity]", count: 3)
+        expect(page).to have_css("[data-activity]", count: 4)
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
         expect(page).to have_content(translated(another_comment.commentable.title))
+        expect(page).to have_content(translated(proposal.title))
+        expect(page).to have_no_content(translated(withdrawn_proposal.title))
       end
 
       it "shows the activities in correct order" do
@@ -134,14 +148,14 @@ describe "Last activity" do
         end
       end
 
-      context "when there are activities from private spaces" do
+      context "when there are activities from restricted spaces" do
         before do
-          comment.update(body: { es: "this is a private comment" })
-          another_comment.update(body: { es: "this is another private comment" })
+          comment.update(body: { es: "this is a restricted comment" })
+          another_comment.update(body: { es: "this is another restricted comment" })
 
-          component.participatory_space.update(private_space: true)
-          comment.participatory_space.update(private_space: true)
-          another_comment.participatory_space.update(private_space: true)
+          component.participatory_space.update(access_mode: :restricted)
+          comment.participatory_space.update(access_mode: :restricted)
+          another_comment.participatory_space.update(access_mode: :restricted)
 
           visit current_path
         end
@@ -163,7 +177,7 @@ describe "Last activity" do
         end
 
         it "works without an empty pagination" do
-          expect(page).to have_css("[data-activity]", count: 3)
+          expect(page).to have_css("[data-activity]", count: 4)
         end
       end
     end

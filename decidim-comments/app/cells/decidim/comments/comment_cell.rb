@@ -44,6 +44,12 @@ module Decidim
         "comment_#{model.decidim_commentable_id}"
       end
 
+      def top_comment_label
+        return unless options[:top_comment]
+
+        I18n.t("decidim.components.comments.top_comment_label")
+      end
+
       def comment_label
         if reply?
           t("decidim.components.comment.comment_label_reply", comment_id: model.id, parent_comment_id: model.decidim_commentable_id)
@@ -80,10 +86,6 @@ module Decidim
         formatted_body
       end
 
-      def replies
-        SortedComments.for(model, order_by: order)
-      end
-
       def order
         options[:order] || "older"
       end
@@ -99,7 +101,7 @@ module Decidim
             "#{icon(action[:icon]) if action[:icon].present?}#{action[:label]}",
             action[:url],
             {
-              class: "dropdown__item"
+              class: "dropdown__button"
             }
           ].tap do |link|
             link[2][:method] = action[:method] if action[:method].present?
@@ -118,17 +120,25 @@ module Decidim
       end
 
       def can_reply?
-        return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)
+        return false if two_columns_layout?
+        return false if model.depth >= Comment::MAX_DEPTH
+
+        if current_participatory_space
+          return true if user_has_any_role?(current_user, current_participatory_space)
+          return false unless current_participatory_space.can_participate?(current_user)
+        end
 
         user_signed_in? && accepts_new_comments? &&
           root_commentable.user_allowed_to_comment?(current_user)
       end
 
+      def two_columns_layout?
+        root_commentable.respond_to?(:two_columns_layout?) && root_commentable.two_columns_layout?
+      end
+
       def author_presenter
         if model.author.respond_to?(:official?) && model.author.official?
           Decidim::Core::OfficialAuthorPresenter.new
-        elsif model.user_group
-          model.user_group.presenter
         else
           model.author.presenter
         end
@@ -224,7 +234,11 @@ module Decidim
       end
 
       def has_replies_in_children?
-        model.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.exists?
+        replies_count.positive?
+      end
+
+      def replies_count
+        @replies_count ||= model.replies.count
       end
 
       # action_authorization_button expects current_component to be available
@@ -242,6 +256,10 @@ module Decidim
         return button_to(path, params, &) unless current_component
 
         action_authorized_button_to(:vote_comment, path, params.merge(resource: root_commentable), &)
+      end
+
+      def decidim_verifications
+        Decidim::Verifications::Engine.routes.url_helpers
       end
     end
   end

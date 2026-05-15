@@ -13,16 +13,18 @@ module Decidim
 
       routes do
         resources :proposals, only: [:show, :index, :new, :create, :edit, :update] do
-          resources :valuation_assignments, only: [:destroy]
+          resources :evaluation_assignments, only: [:destroy]
+          member do
+            patch :soft_delete
+            patch :restore
+          end
           collection do
-            post :update_category
+            post :update_taxonomies
             post :publish_answers
-            post :update_scope
             post :update_multiple_answers, controller: "proposal_answers"
-            resource :proposals_import, only: [:new, :create]
-            resource :proposals_merge, only: [:create]
+            get :manage_trash, controller: "proposals"
             resource :proposals_split, only: [:create]
-            resource :valuation_assignment, only: [:create, :destroy]
+            resource :evaluation_assignment, only: [:create, :destroy]
           end
           resources :proposal_answers, only: [:edit, :update]
           resources :proposal_notes, only: [:create] do
@@ -31,6 +33,11 @@ module Decidim
             end
           end
         end
+
+        resource :proposals_import, only: [:new, :create] do
+          get :component_states
+        end
+        resource :proposals_merge, only: [:new, :create]
 
         resources :proposal_states
 

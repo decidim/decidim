@@ -3,7 +3,7 @@
 shared_examples_for "a taxonomizable resource" do
   let(:root_taxonomy) { create(:taxonomy, organization:) }
   let(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, space_manifest: participatory_space.manifest.name) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
   let(:taxonomy_filters) { [taxonomy_filter.id] }
 
   before do

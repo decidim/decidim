@@ -102,7 +102,16 @@ module Decidim
       # - is published
       # - is not private
       def visible?
-        published? && !try(:private_space?)
+        published? && access_mode_visible?
+      end
+
+      # Checks if the ParticipatorySpace has an access_mode attribute
+      # If it does not have it, then returns true
+      # If it has it, then checks if this access_mode should be visible (open or transparent)
+      def access_mode_visible?
+        return true unless respond_to?(:access_mode)
+
+        try(:open?) || try(:transparent?)
       end
 
       # Defines a way to get the user roles for the current participatory space.
@@ -125,8 +134,8 @@ module Decidim
           Decidim::ParticipatorySpaceRoleConfig::Admin.new(user)
         when :admin # ParticipatorySpace admin
           Decidim::ParticipatorySpaceRoleConfig::ParticipatorySpaceAdmin.new(user)
-        when :valuator
-          Decidim::ParticipatorySpaceRoleConfig::Valuator.new(user)
+        when :evaluator
+          Decidim::ParticipatorySpaceRoleConfig::Evaluator.new(user)
         when :moderator
           Decidim::ParticipatorySpaceRoleConfig::Moderator.new(user)
         when :collaborator

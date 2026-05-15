@@ -116,6 +116,7 @@ shared_examples "manage resource share tokens" do
         expect(page).to have_content("Yes")
       end
       within ".share_tokens tbody tr", text: last_token.token do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -142,8 +143,9 @@ shared_examples "manage resource share tokens" do
 
     it "allows copying the share link from the share token" do
       within ".share_tokens tbody tr", text: last_token.token do
+        find("button[data-controller='dropdown']").click
         click_on "Copy link"
-        expect(page).to have_content("Copied!")
+        expect(page).to have_content("copied!")
         expect(page).to have_css("[data-clipboard-copy-label]")
         expect(page).to have_css("[data-clipboard-copy-message]")
         expect(page).to have_css("[data-clipboard-content]")
@@ -153,6 +155,7 @@ shared_examples "manage resource share tokens" do
     it "has a share link for each token" do
       urls = share_tokens.map(&:url)
       within ".share_tokens tbody tr", text: last_token.token do
+        find("button[data-controller='dropdown']").click
         share_window = window_opened_by { click_on "Preview" }
 
         within_window share_window do
@@ -163,6 +166,7 @@ shared_examples "manage resource share tokens" do
 
     it "has a share button that opens the share url for the resource" do
       within ".share_tokens tbody tr", text: last_token.token do
+        find("button[data-controller='dropdown']").click
         share_window = window_opened_by { click_on "Preview", wait: 2 }
 
         within_window share_window do
@@ -173,10 +177,11 @@ shared_examples "manage resource share tokens" do
 
     it "can delete tokens" do
       within ".share_tokens tbody tr", text: last_token.token do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("Access link successfully destroyed")
+      expect(page).to have_callout("Access link successfully destroyed")
       expect(page).to have_css("tbody tr", count: 2)
     end
   end
@@ -211,8 +216,11 @@ shared_examples "manage component share tokens" do
 
   def visit_share_tokens_page
     visit components_path
-    within ".table-list" do
-      click_on "Access links"
+
+    within("tr", text: resource_name) do
+      #  To remove once all the actions are migrated to dropdowns
+      find("button[data-controller='dropdown']").click
+      click_on "Share link"
     end
   end
 
@@ -230,7 +238,12 @@ shared_examples "manage participatory space share tokens" do
 
   def visit_share_tokens_page
     visit participatory_spaces_path
-    click_on "Access links"
+
+    within("tr", text: resource_name) do
+      #  To remove once all the actions are migrated to dropdowns
+      find("button[data-controller='dropdown']").click
+      click_on "Share link"
+    end
   end
 
   it_behaves_like "manage resource share tokens"

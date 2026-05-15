@@ -2,16 +2,11 @@ lt:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Susijusios Asamblėjos
         available_slots: Laisvos vietos
         banner_image: Reklamjuostės paveikslėlis
-        copy_categories: Kopijuoti kategorijas
-        copy_components: Kopijuoti komponentus
-        copy_features: Kopijuoti požymius
         decidim_scope_id: Apimtis
         description: Aprašymas
         end_date: Pabaigos data
-        hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
         location: Vieta
         main_logo: Pagrindinis logotipas
@@ -21,8 +16,6 @@ lt:
         published_at: Publikuota
         registration_terms: Registracijos sąlygos
         registrations_enabled: Registracijos įjungtos
-        scope_id: Apimtis
-        scopes_enabled: Sritys įjungtos
         short_description: Trumpas aprašymas
         show_statistics: Rodyti statistiką
         sign_date: Pasirašymo data
@@ -95,11 +88,6 @@ lt:
       actions:
         confirm: Patvirtinti
         send_diplomas: Siųsti dalyvavimo konferencijoje pažymėjimus
-      conference_copies:
-        new:
-          copy: Kopijuoti
-          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
-          title: Dubliuoti konferenciją
       conference_publications:
         create:
           error: Publikuojant šią konferenciją iškilo problema.
@@ -118,13 +106,9 @@ lt:
         destroy:
           success: Konferencijos pranešėjas pašalintas.
         edit:
-          title: Atnaujinti konferencijos pranešėją.
           update: Atnaujinti
-        index:
-          conference_speakers_title: Konferencijos pranešėjai
         new:
           create: Sukurti
-          title: Naujas konferencijos pranešėjas.
         update:
           error: Atnaujinant šį konferencijos pranešėją iškilo problema.
           success: Konferencijos pranešėjas atnaujintas.
@@ -135,13 +119,9 @@ lt:
         destroy:
           success: Konferencijos administratorius pašalintas.
         edit:
-          title: Atnaujinti konferencijos administratorių.
           update: Atnaujinti
-        index:
-          conference_admins_title: Konferencijos administratoriai
         new:
           create: Sukurti
-          title: Naujas konferencijos administratorius.
         update:
           error: Atnaujinant šios konferencijos administratorių iškilo problema.
           success: Konferencijos administratorius atnaujintas.
@@ -154,54 +134,37 @@ lt:
         exports:
           registrations: Registracijos
         form:
+          images: Paveikslėliai
           title: Bendroji informacija
         index:
           published: Publikuota
         new:
           create: Sukurti
-          title: Konferencija
         update:
           error: Atnaujinant šią konferenciją iškilo problema.
           success: Konferencija atnaujinta.
-      conferences_copies:
-        create:
-          error: Dubliuojant šią konferenciją iškilo problema.
-          success: Konferencija dubliuota.
       media_links:
         create:
           error: Kuriant naują multimedijos nuorodą iškilo problema.
-          success: Multimedijos nuoroda sukurta.
-        destroy:
-          success: Multimedijos nuoroda pašalinta.
         edit:
-          title: Atnaujinti multimedijos nuorodą.
           update: Atnaujinti
-        index:
-          media_links_title: Multimedijos Nuorodos
         new:
           create: Sukurti
-          title: Multimedijos Nuoroda
         update:
           error: Atnaujinant šią multimedijos nuorodą iškilo problema.
-          success: Multimedijos Nuoroda atnaujinta.
       menu:
         conferences: Konferencijos
         conferences_submenu:
           attachment_collections: Aplankai
           attachment_files: Dokumentai
           attachments: Priedai
-          categories: Kategorijos
           components: Komponentai
           conference_admins: Konferencijos administratoriai
           conference_invites: Pakvietimai
           conference_speakers: Pranešėjai
-          diploma: Dalyvavimo konferencijoje pažymėjimas
-          media_links: Multimedijos Nuorodos
           moderations: Moderavimai
           partners: Partneriai
-          registration_types: Registracijos tipai
           registrations: Registracijos
-          user_registrations: Naudotojų registracijos
       models:
         conference:
           fields:
@@ -224,13 +187,11 @@ lt:
             admin: Administratorius
             collaborator: Bendraautorius
             moderator: Moderatorius
-            valuator: Vertintojas
         media_link:
           fields:
             date: Data
             link: Nuoroda
             title: Pavadinimas
-          name: Multimedijos Nuoroda
         partner:
           fields:
             link: Nuoroda
@@ -256,11 +217,9 @@ lt:
         destroy:
           success: Konferencijos partneris pašalintas.
         edit:
-          title: Atnaujinti partnerį.
           update: Atnaujinti
         new:
           create: Sukurti
-          title: Naujas partneris
         update:
           error: Atnaujinant šios konferencijos partnerį iškilo problema.
           success: Konferencijos partneris atnaujintas.
@@ -278,16 +237,12 @@ lt:
         destroy:
           success: Konferencijos registracijos tipas pašalintas.
         edit:
-          title: Atnaujinti registracijos tipą.
           update: Atnaujinti
         new:
           create: Sukurti
-          title: Naujas registracijos tipas
         update:
           error: Atnaujinant šios konferencijos registracijos tipą iškilo problema.
           success: Konferencijos registracijos tipas atnaujintas.
-      titles:
-        conferences: Konferencijos
     admin_log:
       conference:
         create: "%{user_name} sukūrė %{resource_name} konferenciją"
@@ -341,14 +296,9 @@ lt:
             select_user: Pasirinkti dalyvį
           index:
             invite_attendee: Kviesti dalyvį
-            invites: Pakvietimai
           new:
             explanation: Dalyvis bus pakviestas dalyvauti konferencijoje. Jei e. laiškas nebus užregistruotas, dalyvis bus taip pat pakviestas būti organizacijos dalimi.
             invite: Pakviesti
-            new_invite: Kviesti dalyvį
-        conference_registrations:
-          index:
-            registrations: Registracijos
         conference_speakers:
           form:
             existing_user: Esamas dalyvis
@@ -368,7 +318,6 @@ lt:
         diplomas:
           edit:
             save: Išsaugoti
-            title: Dalyvavimo pažymėjimas
         invite_join_conference_mailer:
           invite:
             decline: Atmesti kvietimą į „%{conference_title}“
@@ -388,11 +337,9 @@ lt:
             diploma_html: Rasite konferencijos <a href="%{url}">%{title}</a> dalyvavimo pažymėjimą laiško prieduose.
           diploma_user:
             attendance_verified_by: Dalyvavimas patvirtintas
-            certificate_of_attendance: Dalyvavimo pažymėjimas
             certificate_of_attendance_description: Patvirtiname, kad <strong>%{user}</strong> dalyvavo <strong>%{title}</strong> konferencijoje vykusioje <strong>%{location}</strong> nuo <strong>%{start} iki %{end}</strong>
         send_diploma:
           error: Siunčiant dalyvavimo pažymėjimus iškilo problema.
-          success: Dalyvavimo konferencijoje pažymėjimai išsiųsti
       conference:
         registration_confirm:
           cancel: Atšaukti

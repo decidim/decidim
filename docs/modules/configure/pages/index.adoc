@@ -45,12 +45,11 @@ Then make use of the related xref:configure:environment_variables.adoc[Environme
 Just as a reminder, these files are important:
 
 * config/database.yml
-* config/secrets.yml
 
 Although most of these settings you can change them through xref:configure:environment_variables.adoc[Environment Variables].
 
 You also have more settings in:
 
 * xref:configure:initializer.adoc[Decidim initializer file].
-* System panel.
-
+* xref:configure:environment_variables.adoc[Environment variables].
+* xref:configure:system.adoc[System panel].

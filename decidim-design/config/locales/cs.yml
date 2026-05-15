@@ -6,11 +6,14 @@ cs:
         accordions:
           content_panel: Obsah panelu
           demo: Demo
+          demo_description: Po celou dobu uplatňování jsou výrazně používány k zobrazování/skrytí obsahu v tabulkách nebo skládání/rozkládání viditelných textů.
+          description_accordions_html: Accordions jsou javascriptovou funkcí, která je k dispozici díky externí knihovně s názvem %{link_code} a11y-accordion-component.
           github_source_html: Zdrojový kód na GitHub %{github_link}
           panel: Panel
+          title: Accordions
           trigger: Spouštěč
           usage: Použití
-          usage_p_1_html: 1. wrapper <code>div</code>, s atributem dat <code>data-component="accordion"</code>, přes všechny dostupné spouštěče a panely.
+          usage_p: Akce vyžaduje nejméně tři prvky
           usage_p_2_html: 2. spouštěcí prvek, uživatelsky proveditelný (jako tlačítko), ukazující na sbalitelný prvek prostřednictvím <code>data-controls="panel"</code>, kde <i>panel</i> je <code>id</code> panelu.
           usage_p_3_html: 3. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
         activities:
@@ -33,6 +36,7 @@ cs:
           dialog_demo_description_html: Dialogy nebo modální komponenty jsou implementovány přes rails helper <code>decidim_modal</code>.
           dialogs_description_html: Dialogy jsou javascript funkce dostupné díky externí knihovně s názvem <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
           tips_description: 'Chcete-li zobrazit komplexní modál, který odpovídá stylům, proveďte následující markup:'
+          tips_description_html: Věnujte pozornost <i>atributům dat</i> a <i>id</i>. Například id <code>[data-dialog-title]</code> začíná <i>dialog-title</i> plus <i>modal id</i>.
           title: Dialogy
           usage_description: Dialog vyžaduje dva prvky
           usage_description_2_html: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
@@ -82,21 +86,18 @@ cs:
           adjacent_links_paragraph: Pokud má tentýž zdroj více sousedících odkazů, které na něj ukazují, pro tyto uživatele je obtížné podívat se na stránku, protože možná budou muset procházet více odkazů, aby se dostali k dalšímu zdroji.
           color_contrast: Barevný kontrast
           color_contrast_paragraph: Při vytváření uživatelských rozhraní nebo při úpravě barev se vždy ujistěte, že svými změnami neporušujete přístupnost. Můžete použít kontrolu kontrastu barev k zajištění dostatečného kontrastu barev s barvou pozadí, ve kterém jsou zobrazeny.
-          decidim_follows_html: Decidim se řídí <u>Pokyny pro přístupnost webového obsahu (WCAG) 2.1</u>
           dynamic_changes_header: Dynamická funkce neintuitivně mění kontext stránky
           dynamic_changes_paragraph: Změny ve vstupech formuláře by neměly automaticky měnit kontext stránky.
           elements_hidden: Skryté prvky
           elements_hidden_header: Prvky skryté z API pro přístupnost
           elements_hidden_paragraph: Pro skrytí prvku před asistenčními technologiemi použijte atribut aria-hidden="true".
           heading_on: Záhlaví na důležitých oddílech
-          here_link: zde
           illogical_heading_order: Nelogické pořadí záhlaví
           illogical_heading_paragraph: Každá stránka by měla mít logické pořadí nadpisů při použití prvků <h1>, <h2>, <h3>, <h4>, <h5> a <h6>.
           important_sections_heading: Záhlaví na důležitých oddílech
           important_sections_paragraph: Je velmi důležité, aby každá důležitá část stránky měla nadpis, který usnadní pochopení důležitých částí na stránce jen prohlížením jejích záhlaví.
           links_and_buttons: Odkazy a tlačítka
           links_and_buttons_paragraph: Kotevní prvky (tj. odkazy) mají odkazovat na různé stránky nebo ukotvit umístění na stránce. Pokud má prvek například otevřít na této stránce skrytou položku, měli byste místo toho použít prvek <button>.
-          see_further_info_html: Zobrazit další informace %{link}
           unique_h1: Unikátní H1
           unique_h1_paragraph: Každá stránka by měla mít jedinečný nadpis H1
           use_aria: Použití ARIA
@@ -130,11 +131,9 @@ cs:
           not_required: Nevyžadováno
           properties: Vlastnosti
           right_aside: Vpravo
-          section_p_breakpoints: 'Pro správu maximální citlivosti elementů spoléháme na výchozí třídu `container` Tailwind, která udává následující zarážky:'
           section_p_code: Při implementaci nových modulů máte některé pomocníky, které vám automaticky poskytují kód potřebný k nastavení HTML struktury. Měli byste použít tyto pomocníky namísto přímého použití prvků div s třídami, abyste zachovali konzistenci.
           section_p_code_html: Základní rozložení můžete najít v %{link_section_code}
           section_p_desktop: Souřadnicová síť pro desktop se skládá z 12 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 48px
-          section_p_mobile: Souřadnicová síť pro mobilní zařízení se skládá ze 4 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 16px. Pro velikosti menší než 320px jsou tyto okraje nastaveny na 8px
           section_p_tablet: Souřadnicová síť pro tablet je složena z 8 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 24px
           tablet: Tablet
           title: Rozložení
@@ -149,6 +148,7 @@ cs:
           typefaces_description_2: Tato písma jsou licencována pod Open Font License
       helpers:
         accountability: Odpovědnost
+        accountability_cards_html: Používá kartu <i>Projekty odpovědnosti</i>. Tato karta vyžaduje správné zobrazení assetů modulu, tj. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         activity: Aktivita
         address_description: Adresa buňky obdrží zdroj a vyhledá geolokalizovatelné atributy, aby se vytvořilo specifické označení.
         address_description_2: V závislosti na typu obsahu může být adresa online url. V takových případech jsou zobrazené informace zcela stejné, ale ve tvaru tak, aby se přizpůsobily.
@@ -171,7 +171,6 @@ cs:
         card_g: Karta G
         card_l: Karta L
         card_s: Karta S
-        collaborative_draft_l: Společný koncept L
         colors: Barvy
         compact: Kompaktní
         compact_description: Tato autorská verze je běžným způsobem, jak identifikovat tvůrce zdrojů.
@@ -179,11 +178,11 @@ cs:
         conference_s: Konference S
         conferences: Konference
         context: Kontext
-        context_description: Tato buňka zobrazuje některé informace o uživateli. Je to vizuální nápověda k identifikaci zdroje/tvůrce obsahu. Po najetí myší se zobrazí nápověda s dalšími informacemi a odkazy na její profil.
+        context_description: Tato buňka zobrazuje některé informace o uživateli. Je to vizuální pomoc k identifikaci tvůrce zdrojů/obsahu.
         context_description_2: Pro zdroje se tato buňka objevuje pod hlavní položkou. U jiného obsahu se objeví vedle samotného obsahu.
-        debate_l: Rozprava L
-        debate_s: Rozprava S
-        debates: Rozpravy
+        debate_l: Debata L
+        debate_s: Debata S
+        debates: Debaty
         debates_cards_html: Použito na kartě <i>Debaty</i>
         debates_cards_text: Použít jinou šablonu pro blok obrázků
         default: Výchozí
@@ -200,13 +199,16 @@ cs:
         dropdowns_description_html: Stahovací nabídky jsou javascript funkce dostupná díky externí knihovně s názvem %{link}.
         dropdowns_usage_1_description: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
         dropdowns_usage_description: 'Rozevírací nabídka vyžaduje dva prvky:'
-        dropdowns_usage_description_html: 1. Uživatelsky proveditelný prvek, s atributy <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
+        dummy_description: Zástupný popis zdoje
+        dummy_title: Zástupný titulek zdroje
         follow_button: Tlačítko Sledovat
+        follower_description_html: Ujistěte se, že v DOM je přítomna část <code>Rozhodnout/shared/login_modal</code>. Tato část je umístěna v rozvržení aplikace, když je uživatel přihlášen.
         form_elements: Prvky formuláře
         generic_cards: Obecné karty
         grid: Mřížka
         hex_code: Hex kód
         highlight: Zvýraznění
+        highlight_description: Používá se u zdrojů, které umožňují zvýraznit
         html_tips: HTML tipy
         icons: Ikony
         image_and_description: Obrázek a popis
@@ -216,7 +218,6 @@ cs:
         list: Seznam
         main_colors: Hlavní barvy
         meeting_l: Schůzka L
-        meeting_s: Schůzka S
         meetings: Schůzky
         meetings_html: Používá karty <i>Schůzky</i>
         metadata_items: Položky metadat
@@ -246,14 +247,15 @@ cs:
         share_button: Tlačítko Sdílet
         share_usage_description_html: Ujistěte se, že v DOM je přítomen částečný <code>decidim/shared/share_modal</code>. Tato část je umístěna do rozvržení aplikace.
         sizes: Velikosti
-        sortition_l: sortition_l
-        sortitions: Losování
         source_code: Zdrojový kód
         state: Stav
         tab_panels_context_description: Tato komponenta panelů shromažďuje veškerý související obsah nebo jiné zdroje hlavního zobrazeného prvku, aby se ušetřil svislý prostor. Kliknutím na kartu se aktivuje vytvořený panel pro zobrazení obsahu.
+        tab_panels_context_description_html: Především se používá v <i>layout_item</i> nebo <i>layout_center</i>, po hlavním obsahu dokumentu.
+        tab_panels_usage_description: 'Tato komponenta přijímá řadu hashů a přepne výstup každé položky do struktury panelů. Dostupné vlastnosti pro každý panel:'
         tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Argumenty pro předchozí metodu"
         tab_panels_usage_description_html: "<strong>povoleno</strong>: <i>Boolean</i>. Podmíněné vykreslení záložky"
         tab_panels_usage_description_id_html: "<strong>id</strong>: <i>řetězec</i>. Jedinečné Id"
+        tab_panels_usage_description_rails_html: "<strong>metoda</strong>: <i>Symbol</i>. Jakákoli funkce rails rozumí"
         tab_panels_usage_description_remixicon_html: "<strong>ikona</strong>: <i>řetězec</i>. Klávesa Remixicon"
         tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>řetězec</i>. Název karty"
         tailwind: Tailwind název
@@ -273,12 +275,15 @@ cs:
         usage_base_2: Hlavní barva odkazů a tlačítek
         usage_base_3: Grafické ozdobné prvky a barva zvýraznění\nKarty a seznam položek při najetí na okraj stavu
         usage_formelements_1: Výchozí pozadí vstupních prvků
+        usage_formelements_2: Vstupní prvky s vypnutým stavem na pozadí
+        usage_state_1: Hranice s oznámením o úspěšnosti\nVýplň ikony upozornění\nPozadí tlačítka při úspěšné zprávě
         usage_state_2: Okraj výstražného upozornění
         usage_state_3: Ohraničení výstrahy\nvyplnění ikony výstrahy
         usage_typography_1: Nadpisy a názvy sekcí
         usage_typography_2: Vložený text
         usage_typography_3: Text na tmavém pozadí
         usage_typography_4: Odkazy a tlačítka
+        usage_typography_5: Vypnutá karta
         value: Hodnota
         variations: Variace
         variations_cards_description: Každá karta bude vypadat jinak než s ohledem na vlastnosti zobrazeného dokumentu. Toto chování můžete přepsat v konkrétní buňce.

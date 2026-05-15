@@ -2,13 +2,12 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/initiatives/version"
-
 Gem::Specification.new do |s|
-  s.version = Decidim::Initiatives.version
+  version = "0.33.0.dev"
+  s.version = version
   s.authors = ["Juan Salvador Perez Garcia"]
   s.email = ["jsperezg@gmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -17,7 +16,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.name = "decidim-initiatives"
   s.summary = "Decidim initiatives module"
@@ -30,13 +29,11 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-admin", Decidim::Initiatives.version
-  s.add_dependency "decidim-comments", Decidim::Initiatives.version
-  s.add_dependency "decidim-core", Decidim::Initiatives.version
-  s.add_dependency "decidim-verifications", Decidim::Initiatives.version
-  s.add_dependency "hexapdf", "~> 1.0.0"
-  s.add_dependency "wicked_pdf", "~> 2.1"
+  s.add_dependency "decidim-admin", version
+  s.add_dependency "decidim-comments", version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-verifications", version
 
-  s.add_development_dependency "decidim-dev", Decidim::Initiatives.version
-  s.add_development_dependency "decidim-meetings", Decidim::Initiatives.version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-meetings", version
 end

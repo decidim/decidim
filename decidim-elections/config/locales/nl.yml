@@ -1,0 +1,86 @@
+nl:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Verkiezing
+        other: Verkiezingen
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: vragen
+    components:
+      elections:
+        actions:
+          create: Creëren
+          destroy: Vernietig
+          update: Bijwerken
+        name: Verkiezingen
+        settings:
+          global:
+            announcement: Mededeling
+          step:
+            announcement: Mededeling
+    elections:
+      actions:
+        preview: Voorvertoning
+        title: acties
+      admin:
+        census:
+          edit:
+            created_at: Aangemaakt op
+        dashboard:
+          main:
+            labels:
+              description: Beschrijving
+          questions:
+            labels:
+              answers: Antwoorden
+            title: vragen
+          questions_table:
+            answer: Antwoorden
+            votes: Stemmen
+          results:
+            title: Resultaten
+          status:
+            title: Verkiezingsstatus
+        elections:
+          edit:
+            title: Bewerken van verkiezing
+          form:
+            add_images: Afbeeldingen toevoegen
+            publish: Publiceren
+          index:
+            title: Verkiezingen
+          new:
+            title: Nieuwe verkiezing
+        questions:
+          edit_questions:
+            new_question: Nieuwe vraag
+            title: vragen
+      elections:
+        count:
+          elections_count:
+            one: "%{count} verkiezing"
+            other: "%{count} verkiezingen"
+        filters:
+          state: Status
+        show:
+          vote_button: Stemming
+        vote_results:
+          title: Resultaten
+      models:
+        election:
+          fields:
+            status: Status
+            title: Aanspreektitel
+      status:
+        not_started: Niet begonnen
+      votes:
+        confirm:
+          title: Bevestig uw stem
+        question:
+          back: Terug
+          next: Volgende
+    statistics:
+      elections_count: Verkiezingen

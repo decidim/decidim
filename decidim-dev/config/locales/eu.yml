@@ -1,10 +1,13 @@
 eu:
   activemodel:
     attributes:
+      dummy:
+        image: Irudia
+      dummy_attribute: Balizko atributua
       dummy_resource:
         created_at: Sortua
-        decidim_scope_id: Esparrua
-        field: Nire eremua
+        decidim_scope_id: Eremua
+        field: Nire datu-eremua
         start_date: Hasiera data
         title: Izenburua
         translatable_text: Itzul daitekeen testua
@@ -14,14 +17,16 @@ eu:
       dummy:
         settings:
           global:
+            clear_all: Garbitu dena
             guided: Input gidatua
             guided_help: Laguntza-testua
             guided_readonly: Input desgaitua
-            guided_rich: Input gidatu aberastua
-            guided_rich_help_html: HTML<strong>ayuda</strong> testua
-            guided_rich_readonly_html: HTML<strong>laguntza</strong>testua input desgaiturako
+            guided_rich: Sarrera aberats gidatua
+            guided_rich_help_html: HTML<strong>laguntza </strong> testua
+            guided_rich_readonly_html: HTML <strong>laguntza</strong> desaktibatutako testua sartzeko
             readonly_attribute: Soilik irakurtzeko atributua
             test: Proba bat
+            test_add: Testa erantsi
             test_choices:
               a: A aukera
               b: B aukera
@@ -31,24 +36,24 @@ eu:
               baz: Baz
               foo: foo
           step:
-            endorsements_blocked: Atxikimenduak blokeatuta
-            endorsements_enabled: Atxikimenduak gaituta
+            likes_blocked: Likeak blokeatuta
+            likes_enabled: Likeak gaituta
             readonly_step_attribute: Soilik irakurtzeko atributua
             test_options:
               bar: Bar
               baz: Baz
-              foo: foo
+              foo: Foo
     dummy:
       admin:
         exports:
-          dummies: Probak
+          dummies: Alegiazko parte-hartzaileak
     gamification:
       badges:
         test:
           conditions:
-            - Erabili probako ingurunea erabakitzeko.
+            - Erabili probako ingurune bat Decidim-erako.
           description: Parte-hartzaileek garaikur hau lortzen dute probak sortzeagatik.
-          description_another: Erabiltzaile honek %{score} proba egin ditu.
+          description_another: Parte-hartzaile honek %{score} proba egin ditu.
           description_own: '%{score} proba sortu dituzu.'
           name: Probak
           next_level_in: Sortu %{score} proba gehiago hurrengo mailara iristeko!
@@ -59,6 +64,6 @@ eu:
         dummy_resource_dummy: ' Honekin lotutako proba'
     statistics:
       bar: Bar
-      dummies_count_high: Dummies altua
-      dummies_count_medium: Dummies ertainak
-      foo: foo
+      dummies_count_high: Alegiazko parte-hartzaileen gehieneko kopurua
+      dummies_count_medium: Alegiazko parte-hartzaileen batez bestekoa
+      foo: Foo

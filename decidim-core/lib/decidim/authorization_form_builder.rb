@@ -37,7 +37,6 @@ module Decidim
 
     def input_field(name, type)
       return hidden_field(name) if name.to_s == "handler_name"
-      return scopes_selector if name.to_s == "scope_id"
 
       case type
       when :date, :datetime, :time, :"decidim/attributes/localized_date"
@@ -45,12 +44,6 @@ module Decidim
       else
         text_field name
       end
-    end
-
-    def scopes_selector
-      return if object.user.blank?
-
-      collection_select :scope_id, object.user.organization.scopes, :id, ->(scope) { translated_attribute(scope.name) }
     end
 
     def find_input_type(name)

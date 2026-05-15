@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test"
-require "decidim/core/test/shared_examples/input_sort_examples"
+require "decidim/api/test"
 
 module Decidim
   module Proposals
@@ -23,10 +21,10 @@ module Decidim
         include_examples "connection has input sort", "proposals", "publishedAt"
       end
 
-      context "when sorting by endorsement_count" do
-        let!(:most_endorsed) { create(:proposal, :published, :with_endorsements, component: model) }
+      context "when sorting by like_count" do
+        let!(:most_liked) { create(:proposal, :published, :with_likes, component: model) }
 
-        include_examples "connection has endorsement_count sort", "proposals"
+        include_examples "connection has like_count sort", "proposals"
       end
 
       context "when sorting by vote_count" do

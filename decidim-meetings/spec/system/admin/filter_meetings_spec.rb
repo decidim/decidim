@@ -7,9 +7,14 @@ describe "Admin filters meetings" do
   let(:manifest_name) { "meetings" }
   let(:model_name) { Decidim::Meetings::Meeting.model_name }
   let(:resource_controller) { Decidim::Meetings::Admin::MeetingsController }
-  let!(:meeting) { create(:meeting, scope:, component: current_component) }
+  let!(:meeting) { create(:meeting, scope:, component:) }
 
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
+
+  it_behaves_like "access permissions form" do
+    let!(:row_text) { translated(meeting.title) }
+  end
 
   TYPES = Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys
 
@@ -33,10 +38,8 @@ describe "Admin filters meetings" do
     before { visit_component_admin }
 
     TYPES.each do |state|
-      i18n_state = I18n.t(state, scope: "decidim.admin.filters.meetings.with_any_type.values")
-
-      context "when filtering meetings by type: #{i18n_state}" do
-        it_behaves_like "a filtered collection", options: "Type", filter: i18n_state do
+      context "when filtering meetings by type: #{I18n.t(state, scope: "decidim.admin.filters.meetings.with_any_type.values")}" do
+        it_behaves_like "a filtered collection", options: "Type", filter: I18n.t(state, scope: "decidim.admin.filters.meetings.with_any_type.values") do
           let(:in_filter) { translated(meeting_with_type(state).title) }
           let(:not_in_filter) { translated(meeting_without_type(state).title) }
         end
@@ -58,7 +61,6 @@ describe "Admin filters meetings" do
   context "when filtering by origin" do
     let!(:official_meeting) { create(:meeting, :official, component:) }
     let!(:participant_meeting) { create(:meeting, :not_official, component:) }
-    let!(:user_group_meeting) { create(:meeting, :user_group_author, component:) }
 
     before { visit_component_admin }
 
@@ -69,13 +71,6 @@ describe "Admin filters meetings" do
           let(:not_in_filter) { translated(official_meeting.title) }
         end
       end
-
-      context "when no user group is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "Participant" do
-          let(:in_filter) { translated(participant_meeting.title) }
-          let(:not_in_filter) { translated(user_group_meeting.title) }
-        end
-      end
     end
 
     context "when filtering official" do
@@ -83,29 +78,6 @@ describe "Admin filters meetings" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "Official" do
           let(:in_filter) { translated(official_meeting.title) }
           let(:not_in_filter) { translated(participant_meeting.title) }
-        end
-      end
-
-      context "when no user group is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "Official" do
-          let(:in_filter) { translated(official_meeting.title) }
-          let(:not_in_filter) { translated(user_group_meeting.title) }
-        end
-      end
-    end
-
-    context "when filtering user groups" do
-      context "when no participant meeting is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
-          let(:in_filter) { translated(user_group_meeting.title) }
-          let(:not_in_filter) { translated(participant_meeting.title) }
-        end
-      end
-
-      context "when no official meeting is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
-          let(:in_filter) { translated(user_group_meeting.title) }
-          let(:not_in_filter) { translated(official_meeting.title) }
         end
       end
     end
@@ -128,19 +100,13 @@ describe "Admin filters meetings" do
     end
   end
 
-  context "when searching by ID or title" do
+  context "when searching by title" do
     let!(:meeting1) { create(:meeting, component:) }
     let!(:meeting2) { create(:meeting, component:) }
     let!(:meeting1_title) { translated(meeting1.title) }
     let!(:meeting2_title) { translated(meeting2.title) }
 
     before { visit_component_admin }
-
-    it "can be searched by ID" do
-      search_by_text(meeting1.id)
-
-      expect(page).to have_content(meeting1_title)
-    end
 
     it "can be searched by title" do
       search_by_text(meeting2_title)

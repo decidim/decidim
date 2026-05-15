@@ -15,27 +15,22 @@ FactoryBot.define do
     transient do
       skip_injection { false }
       users { nil }
-      # user_groups correspondence to users is by sorting order
-      user_groups { [] }
+      organization { create(:organization, skip_injection:) }
     end
     title { generate_localized_title(:dummy_resource_title, skip_injection:) }
-    component { create(:dummy_component, skip_injection:) }
+    component { create(:dummy_component, organization:, skip_injection:) }
     author { create(:user, :confirmed, organization: component.organization, skip_injection:) }
     scope { create(:scope, organization: component.organization, skip_injection:) }
-
-    trait :with_categories do
-      category { create(:category, participatory_space: component.participatory_space, skip_injection:) }
-    end
 
     trait :published do
       published_at { Time.current }
     end
 
-    trait :with_endorsements do
+    trait :with_likes do
       after :create do |resource, evaluator|
         5.times.collect do
-          create(:endorsement, resource:, skip_injection: evaluator.skip_injection,
-                               author: build(:user, organization: resource.component.organization, skip_injection: evaluator.skip_injection))
+          create(:like, resource:, skip_injection: evaluator.skip_injection,
+                        author: build(:user, organization: resource.component.organization, skip_injection: evaluator.skip_injection))
         end
       end
     end
@@ -65,13 +60,8 @@ FactoryBot.define do
 
     after :build do |resource, evaluator|
       evaluator.authors_list.each do |coauthor|
-        resource.coauthorships << if coauthor.is_a?(Decidim::UserGroup)
-                                    build(:coauthorship, author: coauthor.users.first, user_group: coauthor, coauthorable: resource,
-                                                         organization: evaluator.component.organization, skip_injection: evaluator.skip_injection)
-                                  else
-                                    build(:coauthorship, author: coauthor, coauthorable: resource, organization: evaluator.component.organization,
-                                                         skip_injection: evaluator.skip_injection)
-                                  end
+        resource.coauthorships << build(:coauthorship, author: coauthor, coauthorable: resource, organization: evaluator.component.organization,
+                                                       skip_injection: evaluator.skip_injection)
       end
     end
   end

@@ -7,26 +7,28 @@ module Decidim
 
       layout "decidim/admin/settings"
 
-      add_breadcrumb_item_from_menu :admin_settings_menu
-
-      helper_method :collection, :parent_options, :taxonomy
-
+      before_action :set_taxonomies_breadcrumb_item
       before_action only: :edit do
         redirect_to edit_taxonomy_path(taxonomy.parent) unless taxonomy && taxonomy.root?
       end
 
+      helper_method :collection, :parent_options, :taxonomy
+
       def index
+        enforce_permission_to :index, :taxonomy
         @taxonomies = filtered_collection
       end
 
       def new
         enforce_permission_to :create, :taxonomy
+        add_breadcrumb_item :new, decidim_admin.new_taxonomy_path
 
         @form = form(Decidim::Admin::TaxonomyForm).instance
       end
 
       def create
         enforce_permission_to :create, :taxonomy
+        add_breadcrumb_item :new, decidim_admin.new_taxonomy_path
 
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
         CreateTaxonomy.call(@form) do
@@ -37,19 +39,23 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("create.invalid", scope: "decidim.admin.taxonomies")
-            render action: "new"
+            render action: "new", status: :unprocessable_content
           end
         end
       end
 
       def edit
         enforce_permission_to(:update, :taxonomy, taxonomy:)
+        add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_path(taxonomy)
+
         @form = form(Decidim::Admin::TaxonomyForm).from_model(taxonomy)
         @taxonomies = filtered_collection
       end
 
       def update
         enforce_permission_to(:update, :taxonomy, taxonomy:)
+        add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_path(taxonomy)
+
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
 
         UpdateTaxonomy.call(@form, taxonomy) do
@@ -60,7 +66,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("update.invalid", scope: "decidim.admin.taxonomies")
-            render action: "edit"
+            render action: "edit", status: :unprocessable_content
           end
         end
       end
@@ -71,14 +77,13 @@ module Decidim
         DestroyTaxonomy.call(taxonomy, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("destroy.success", scope: "decidim.admin.taxonomies")
-            redirect_to taxonomies_path
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("destroy.invalid", scope: "decidim.admin.taxonomies")
-            redirect_to taxonomies_path
           end
         end
+        redirect_back_or_to(taxonomies_path)
       end
 
       def reorder
@@ -107,6 +112,17 @@ module Decidim
 
       def taxonomy
         @taxonomy ||= current_organization.taxonomies.find_by(id: params[:id])
+      end
+
+      def set_taxonomies_breadcrumb_item
+        add_breadcrumb_item I18n.t("menu.taxonomies", scope: "decidim.admin"), decidim_admin.taxonomies_path
+      end
+
+      def add_breadcrumb_item(key, url)
+        controller_breadcrumb_items << {
+          label: I18n.t(key, scope: "decidim.admin.taxonomies.breadcrumb", default: key),
+          url:
+        }
       end
     end
   end

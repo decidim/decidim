@@ -28,7 +28,6 @@ module Decidim
 
         percentage_after = initiative.reload.percentage
 
-        send_notification
         notify_percentage_change(percentage_before, percentage_after)
         notify_support_threshold_reached(percentage_before, percentage_after)
 
@@ -46,7 +45,7 @@ module Decidim
       def create_votes
         @votes = form.authorized_scopes.map do |scope|
           initiative.votes.create!(
-            author: form.signer,
+            author: form.user,
             encrypted_metadata: form.encrypted_metadata,
             timestamp:,
             hash_id: form.hash_id,
@@ -63,15 +62,6 @@ module Decidim
 
       def timestamp_service
         @timestamp_service ||= Decidim.timestamp_service.to_s.safe_constantize
-      end
-
-      def send_notification
-        Decidim::EventsManager.publish(
-          event: "decidim.events.initiatives.initiative_endorsed",
-          event_class: Decidim::Initiatives::EndorseInitiativeEvent,
-          resource: initiative,
-          followers: initiative.author.followers
-        )
       end
 
       def notify_percentage_change(before, after)

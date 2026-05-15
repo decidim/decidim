@@ -5,10 +5,12 @@ require "spec_helper"
 describe "Admin manages assembly publication" do
   include_context "when admin administrating an assembly"
 
-  let(:admin_page_path) { decidim_admin_assemblies.edit_assembly_path(participatory_space) }
+  let(:admin_page_path) { decidim_admin_assemblies.assemblies_path }
   let(:public_collection_path) { decidim_assemblies.assemblies_path }
   let(:title) { "My space" }
   let!(:participatory_space) { assembly }
+  let(:publish_callout_message) { "Assembly successfully published." }
+  let(:unpublish_callout_message) { "Assembly successfully unpublished." }
 
   it_behaves_like "manage participatory space publications"
 
@@ -20,9 +22,15 @@ describe "Admin manages assembly publication" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit admin_page_path
-    click_on "Publish"
 
+    within("tr", text: translated_attribute(participatory_space.title)) do
+      find("button[data-controller='dropdown']").click
+      click_on "Publish"
+    end
+
+    visit decidim.root_path
     visit decidim.last_activities_path
+
     expect(page).to have_content("New assembly: #{title}")
 
     within "#filters" do

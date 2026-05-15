@@ -57,6 +57,7 @@ module Decidim
       # @param closable [Boolean] - Whether the close icon is added.
       #
       # @return [String] the HTML with the alert box
+      # @param [Hash{Symbol => Object}] opts
       def alert_box(value, alert_class, closable, opts = {})
         options = {
           class: "flash #{alert_class}",
@@ -117,9 +118,9 @@ module Decidim
       end
 
       def message(value)
-        return content_tag(:div, value, class: "flash__message") unless value.is_a?(Hash)
+        return content_tag(:p, value, class: "flash__message") unless value.is_a?(Hash)
 
-        content_tag(:div, class: "flash__message") do
+        content_tag(:p, class: "flash__message") do
           concat value[:title]
           concat content_tag(:span, value[:body], class: "flash__message-body")
         end

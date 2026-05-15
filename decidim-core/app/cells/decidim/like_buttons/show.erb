@@ -1,0 +1,17 @@
+<div id="resource-<%= resource&.id %>-like-button">
+  <% path = resource.liked_by?(current_user) ? path_to_destroy_like(resource) : path_to_create_like(resource) %>
+  <% method = resource.liked_by?(current_user) ? :delete : :post %>
+  <%= action_authorized_button_to(
+        :like,
+        path,
+        :resource => resource,
+        :method => method,
+        :remote => true,
+        :class => button_classes,
+        :id => "like-button",
+        "aria-label" => like_translated
+      ) do %>
+    <span><%= t("decidim.like_buttons_cell.like") %></span>
+    <%= like_icon %>
+  <% end %>
+</div>

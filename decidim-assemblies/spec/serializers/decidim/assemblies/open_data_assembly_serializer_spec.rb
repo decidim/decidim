@@ -17,14 +17,12 @@ module Decidim::Assemblies
         expect(serialized).to include(id: resource.id)
         expect(serialized).to include(reference: resource.reference)
         expect(serialized).to include(slug: resource.slug)
-        expect(serialized).to include(hashtag: resource.hashtag)
         expect(serialized).to include(title: resource.title)
-        expect(serialized).to include(url: "http://#{resource.organization.host}:#{Capybara.server_port}/assemblies/#{resource.slug}")
+        expect(serialized).to include(url: "http://#{resource.organization.host}:#{Capybara.server_port}/#{I18n.locale}/assemblies/#{resource.slug}")
         expect(serialized).to include(subtitle: resource.subtitle)
         expect(serialized).to include(short_description: resource.short_description)
         expect(serialized).to include(description: resource.description)
         expect(serialized[:remote_hero_image_url]).to be_blob_url(resource.hero_image.blob)
-        expect(serialized[:remote_banner_image_url]).to be_blob_url(resource.banner_image.blob)
         expect(serialized).to include(promoted: resource.promoted)
         expect(serialized).to include(developer_group: resource.developer_group)
         expect(serialized).to include(meta_scope: resource.meta_scope)
@@ -38,6 +36,7 @@ module Decidim::Assemblies
         expect(serialized).to include(participatory_scope: resource.participatory_scope)
         expect(serialized).to include(participatory_structure: resource.participatory_structure)
         expect(serialized).to include(scopes_enabled: resource.scopes_enabled)
+        expect(serialized).to include(access_mode: resource.access_mode)
         expect(serialized).to include(reference: resource.reference)
         expect(serialized).to include(purpose_of_action: resource.purpose_of_action)
         expect(serialized).to include(composition: resource.composition)
@@ -49,7 +48,6 @@ module Decidim::Assemblies
         expect(serialized).to include(creation_date: resource.creation_date)
         expect(serialized).to include(closing_date_reason: resource.closing_date_reason)
         expect(serialized).to include(internal_organisation: resource.internal_organisation)
-        expect(serialized).to include(is_transparent: resource.is_transparent)
         expect(serialized).to include(special_features: resource.special_features)
         expect(serialized).to include(twitter_handler: resource.twitter_handler)
         expect(serialized).to include(instagram_handler: resource.instagram_handler)
@@ -92,24 +90,6 @@ module Decidim::Assemblies
 
           expect(serialized_scope).to include(id: resource.scope.id)
           expect(serialized_scope).to include(name: resource.scope.name)
-        end
-      end
-
-      context "when assembly has type" do
-        let(:assembly_type) { create(:assemblies_type, organization: resource.organization) }
-
-        before do
-          resource.assembly_type = assembly_type
-          resource.save
-        end
-
-        it "includes the assembly type" do
-          serialized_assembly_type = subject.serialize[:assembly_type]
-
-          expect(serialized_assembly_type).to be_a(Hash)
-
-          expect(serialized_assembly_type).to include(id: resource.assembly_type.id)
-          expect(serialized_assembly_type).to include(title: resource.assembly_type.title)
         end
       end
     end

@@ -1,0 +1,175 @@
+#!/usr/bin/env bash
+
+# Configuration
+CONTAINER_NAME="decidim-rails-app"
+SCRIPT_NAME=$(basename "$0")
+CONTAINERS_TO_STOP=("decidim-rails-app-1" "decidim-selenium-1" "decidim-postgres-1" "decidim-redis-1")
+DEVCONTAINER_DIR=".devcontainer"
+DEVCONTAINER_JSON="$DEVCONTAINER_DIR/devcontainer.json"
+DEVCONTAINER_LOCAL_JSON="$DEVCONTAINER_DIR/devcontainer.local.json"
+DEVCONTAINER_BACKUP_JSON="$DEVCONTAINER_DIR/devcontainer.json.backup"
+
+# Function to use local config if it exists
+#
+# This allows having a file with local instructions for your personal developer environment at
+# .devcontainer/devcontainer.local.json
+# So, for instance, you can have
+#
+# ```json
+# {
+#   "postCreateCommand": ".devcontainer/devcontainer.local.postCreateCommand.bash"
+# }
+# ```
+#
+# And there you can add your own packages, dotfiles, etc. Do not forget to also call `bin/setup`
+# at the end of your script.
+#
+use_local_config() {
+    if [ -f "$DEVCONTAINER_LOCAL_JSON" ]; then
+        # Check if jq is available
+        if command -v jq &> /dev/null; then
+            echo "Merging devcontainer.local.json with devcontainer.json..." >&2
+
+            # Backup original
+            cp "$DEVCONTAINER_JSON" "$DEVCONTAINER_BACKUP_JSON"
+
+            # Merge configs: base config with local overrides
+            # jq -s '.[0] * .[1]' merges two objects, with the second overriding the first
+            if jq -s '.[0] * .[1]' "$DEVCONTAINER_BACKUP_JSON" "$DEVCONTAINER_LOCAL_JSON" > "$DEVCONTAINER_JSON"; then
+                return 0
+            else
+                echo "Error: Failed to merge JSON configs. Restoring backup..." >&2
+                mv "$DEVCONTAINER_BACKUP_JSON" "$DEVCONTAINER_JSON"
+                return 1
+            fi
+        else
+            echo "Warning: jq not found. Install jq to use devcontainer.local.json." >&2
+            return 1
+        fi
+    fi
+    return 1
+}
+
+# Function to restore original devcontainer config
+restore_devcontainer_config() {
+    if [ -f "$DEVCONTAINER_BACKUP_JSON" ]; then
+        mv "$DEVCONTAINER_BACKUP_JSON" "$DEVCONTAINER_JSON"
+    fi
+}
+
+# Check if devcontainer CLI is installed
+if ! command -v devcontainer &> /dev/null; then
+    echo "devcontainer CLI not found. Installing..."
+    npm install -g @devcontainers/cli
+
+    # Check if installation was successful
+    if ! command -v devcontainer &> /dev/null; then
+        echo "Error: Failed to install devcontainer CLI"
+        exit 1
+    fi
+    echo "devcontainer CLI installed successfully"
+fi
+
+# Handle commands that don't need container ID first
+case "$1" in
+    up)
+        use_local_config
+        devcontainer up --workspace-folder=.
+        status=$?
+        restore_devcontainer_config
+        exit "$status"
+        ;;
+    down)
+        echo "Stopping containers..."
+        for container in "${CONTAINERS_TO_STOP[@]}"; do
+            if docker ps -a --format "{{.Names}}" | grep -q "^${container}$"; then
+                echo "Stopping $container..."
+                docker stop "$container"
+            else
+                echo "Container $container not found, skipping..."
+            fi
+        done
+        restore_devcontainer_config
+        exit 0
+        ;;
+    rebuild)
+        echo "Removing development_app directory..."
+        rm -rf development_app/
+        use_local_config
+        devcontainer up --workspace-folder=. --remove-existing-container
+        status=$?
+        restore_devcontainer_config
+        exit "$status"
+        ;;
+    rm)
+        echo "Removing all containers and cleaning up..."
+        for container in "${CONTAINERS_TO_STOP[@]}"; do
+            if docker ps -a --format "{{.Names}}" | grep -q "^${container}$"; then
+                echo "Removing $container..."
+                docker rm -f "$container"
+            else
+                echo "Container $container not found, skipping..."
+            fi
+        done
+        echo "Cleaning up development_app directory..."
+        rm -rf development_app/
+        restore_devcontainer_config
+        echo "Cleanup complete!"
+        exit 0
+        ;;
+    ps)
+        echo "Checking container status..."
+        echo ""
+        found_any=false
+        for container in "${CONTAINERS_TO_STOP[@]}"; do
+            if docker ps -a --format "{{.Names}}" | grep -q "^${container}$"; then
+                found_any=true
+                status=$(docker ps -a --format "{{.Names}}\t{{.Status}}" | grep "^${container}\s" | cut -f2)
+                echo "  $container: $status"
+            fi
+        done
+        if [ "$found_any" = false ]; then
+            echo "  No containers found"
+        fi
+        exit 0
+        ;;
+    ""| help | --help | -h)
+        echo "Usage: $SCRIPT_NAME <command>"
+        echo ""
+        echo "Container Management:"
+        echo "  up              - Start the devcontainer"
+        echo "  down            - Stop all containers"
+        echo "  rebuild         - Rebuild the devcontainer"
+        echo "  rm              - Remove all containers and clean up"
+        echo "  ps              - Check container status"
+        echo ""
+        echo "Execute Commands:"
+        echo "  $SCRIPT_NAME <command>                                        Execute any command in the container"
+        echo ""
+        echo "Examples:"
+        echo "  $SCRIPT_NAME dev                                             - Run bin/dev"
+        echo "  $SCRIPT_NAME rails console                                   - Run bin/rails console"
+        echo "  $SCRIPT_NAME bundle install                                  - Run bin/bundle install"
+        echo "  $SCRIPT_NAME bundle exec rake test_app                       - Generates the test_app"
+        echo "  $SCRIPT_NAME rspec decidim-budgets/spec/models/order_spec.rb - Runs the specs for the budgets' order model"
+        exit 0
+        ;;
+esac
+
+# Get the container ID for decidim-rails-app
+container_id=$(docker ps --filter "name=$CONTAINER_NAME" --format "{{.ID}}" | head -n 1)
+
+# Check if container was found
+if [ -z "$container_id" ]; then
+    echo "Error: $CONTAINER_NAME container not found. Start it with '$SCRIPT_NAME up'"
+    exit 1
+fi
+
+# Check if the command exists in ./bin directory
+if [ -f "./bin/$1" ] && [ -x "./bin/$1" ]; then
+    # If it's a script in bin/, prepend bin/ to the path
+    devcontainer exec --container-id "$container_id" --workspace-folder=. "bin/$@"
+else
+    # Otherwise execute the command as-is
+    devcontainer exec --container-id "$container_id" --workspace-folder=. "$@"
+fi

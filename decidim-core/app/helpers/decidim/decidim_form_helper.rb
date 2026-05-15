@@ -11,11 +11,7 @@ module Decidim
     #
     # Returns a String.
     def decidim_form_for(record, options = {}, &)
-      options[:data] ||= {}
-      options[:data].update(:abide => true, "live-validate" => true, "validate-on-blur" => true)
-
-      options[:html] ||= {}
-      options[:html].update(novalidate: true) unless options[:html].has_key?(:novalidate)
+      options = parse_html_options(options)
 
       # Generally called by form_for but we need the :url option generated
       # already before that.
@@ -56,39 +52,10 @@ module Decidim
         template += label_tag(name, options[:label]) if options[:label] != false
         template += hidden_field_tag(name, value, options)
         template += content_tag(:div, nil, class: "editor-container", data: {
-                                  toolbar: options[:toolbar]
+                                  toolbar: options[:toolbar], controller: "editor"
                                 }, style: "height: #{options[:lines]}rem")
         template.html_safe
       end
-    end
-
-    # A custom helper to include a scope picker field without requiring a form
-    # object
-    #
-    # name - The input name
-    # value - The input value as a scope id
-    # options - The set of options to send to the field
-    #           :id - The id to generate for the element (optional)
-    #
-    # Returns a scopes picker tag to be included in an html template.
-    def scopes_picker_field_tag(name, value, id: nil)
-      picker_options = {
-        id: id || sanitize_to_id(name),
-        class: "picker-single",
-        name:
-      }
-
-      prompt_params = yield(nil)
-      selected_scopes = value ? Decidim::Scope.where(id: value) : []
-      scopes = selected_scopes.map { |scope| [scope, yield(scope)] }
-
-      template = ""
-      template += render("decidim/scopes/scopes_picker_input",
-                         picker_options:,
-                         prompt_params:,
-                         scopes:,
-                         values_on_top: true)
-      template.html_safe
     end
 
     # A custom helper to include a translated field without requiring a form object.
@@ -121,7 +88,7 @@ module Decidim
 
       tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs".underscore
       enabled_tabs = options[:enable_tabs].nil? ? true : options[:enable_tabs]
-      tabs_panels_data = enabled_tabs ? { tabs: true } : {}
+      tabs_panels_data = enabled_tabs ? { controller: "tabs" } : {}
 
       label_tabs = content_tag(:div, class: "label--tabs") do
         tabs_panels = "".html_safe
@@ -221,19 +188,19 @@ module Decidim
       organization.area_types
     end
 
-    def ordered_scopes_descendants(root = nil)
-      root = try(:current_participatory_space)&.scope if root == false
-      if root.present?
-        root.descendants
-      else
-        current_organization.scopes
-      end.sort { |a, b| a.part_of.reverse <=> b.part_of.reverse }
-    end
+    private
 
-    def ordered_scopes_descendants_for_select(root = nil)
-      ordered_scopes_descendants(root).map do |scope|
-        [" #{"&nbsp;" * 4 * (scope.part_of.count - 1)} #{translated_attribute(scope.name)}".html_safe, scope&.id]
-      end
+    def parse_html_options(options)
+      options[:data] ||= {}
+      options[:data].update(live_validate: true, validate_on_blur: true)
+      options[:data].update(controller: "") unless options[:data].has_key?(:controller)
+      options[:data][:controller] += " form-validator"
+      options[:data][:controller].strip!
+
+      options[:html] ||= {}
+      options[:html].update(novalidate: true) unless options[:html].has_key?(:novalidate)
+
+      options
     end
   end
 end

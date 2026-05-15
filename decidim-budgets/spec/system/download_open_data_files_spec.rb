@@ -7,6 +7,22 @@ require "decidim/core/test/shared_examples/download_open_data_shared_examples"
 describe "Download Open Data files", download: true do
   let(:organization) { create(:organization) }
 
+  before do
+    I18n.backend.reload!
+    I18n.backend.store_translations(
+      :en,
+      decidim: {
+        open_data: {
+          help: {
+            projects: {
+              test_field: "Test field for projects serializer subscription"
+            }
+          }
+        }
+      }
+    )
+  end
+
   include_context "when downloading open data files"
 
   it "lets the users download open data files" do
@@ -27,6 +43,24 @@ describe "Download Open Data files", download: true do
         content = extract_content_from_zip(download_path, file_name)
         expect(content).to eq("\n")
       end
+    end
+
+    context "when the project's space is restricted" do
+      let!(:project) { create(:project, component:) }
+      let(:resource_title) { translated_attribute(project.title).gsub('"', '""') }
+      let(:component) { create(:budgets_component, participatory_space:) }
+      let(:participatory_space) { create(:assembly, :restricted, organization:) }
+
+      it_behaves_like "does not include it in the open data ZIP file"
+    end
+
+    context "when the project's space is transparent" do
+      let!(:project) { create(:project, component:) }
+      let(:resource_title) { translated_attribute(project.title).gsub('"', '""') }
+      let(:component) { create(:budgets_component, participatory_space:) }
+      let(:participatory_space) { create(:assembly, :transparent, organization:) }
+
+      it_behaves_like "includes it in the open data ZIP file"
     end
 
     context "when the project's component is unpublished" do

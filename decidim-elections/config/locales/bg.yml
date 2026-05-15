@@ -1,0 +1,113 @@
+bg:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Избор
+        other: Избори
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_census: Преброяване
+          election_questions: Въпроси
+    components:
+      elections:
+        actions:
+          create: Създаване
+          destroy: Унищожи
+          update: Актуализация
+        name: Избори
+        settings:
+          global:
+            announcement: Обявление
+          step:
+            announcement: Обявление
+    elections:
+      actions:
+        preview: Преглед
+        title: Активности
+      admin:
+        census:
+          edit:
+            created_at: Създадено на
+        dashboard:
+          census:
+            title: Преброяване
+          main:
+            labels:
+              description: Описание
+          questions:
+            labels:
+              answers: Отговори
+            title: Въпроси
+          questions_table:
+            answer: Отговори
+            votes: Гласове
+          results:
+            publish_button: Публикуване на резултатите
+            title: Резултати
+          status:
+            title: Статус на изборите
+        elections:
+          edit:
+            title: Редактиране на избора
+          form:
+            add_images: Добави изображения
+            publish: Публикувай
+          index:
+            title: Избори
+          new:
+            title: Нов избор
+        questions:
+          edit_questions:
+            new_question: Нов въпрос
+            title: Въпроси
+        statuses:
+          publish_results:
+            invalid: Възникна проблем при публикуването на резултатите.
+      censuses:
+        token_csv_form:
+          email: Имейл
+      elections:
+        count:
+          elections_count:
+            one: "%{count} избор"
+            other: "%{count} избора"
+        filters:
+          all: Всички
+          state: Статус
+          state_values:
+            finished: Завършено
+            ongoing: В момента
+        orders:
+          recent: Скорошни
+        questions:
+          title: Изборни въпроси
+        show:
+          vote_button: Глас
+        vote_results:
+          title: Резултати
+      models:
+        election:
+          fields:
+            census: Преброяване
+            status: Статус
+            title: Заглавие
+      status:
+        active: Активно
+        finished: Завършено
+        not_started: Не е започнало
+        ongoing: В момента
+        unpublished: Непубликувано
+      votes:
+        confirm:
+          title: Потвърдете гласа си
+        question:
+          back: Назад
+          next: Напред
+    statistics:
+      elections_count: Избори
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Затваряне

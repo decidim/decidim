@@ -22,9 +22,10 @@ module Decidim
           @possible_orders ||= begin
             possible_orders = %w(random recent)
             possible_orders << "most_voted" if most_voted_order_available?
-            possible_orders << "most_endorsed" if current_settings.endorsements_enabled?
-            possible_orders << "most_commented" if component_settings.comments_enabled?
-            possible_orders << "most_followed" << "with_more_authors"
+            possible_orders << "most_liked" if most_liked_order_available?
+            possible_orders << "most_commented" if most_commented_order_available?
+            possible_orders << "most_followed" # always shown, as the author automatically follows their proposals
+            possible_orders << "with_more_authors" if with_more_authors_order_available?
             possible_orders
           end
         end
@@ -52,6 +53,24 @@ module Decidim
           current_settings.votes_enabled? && !current_settings.votes_hidden?
         end
 
+        def with_more_authors_order_available?
+          return @with_more_authors_order_available if defined?(@with_more_authors_order_available)
+
+          @with_more_authors_order_available = Decidim::Proposals::Proposal.with_more_authors_available?(current_component)
+        end
+
+        def most_commented_order_available?
+          return @most_commented_order_available if defined?(@most_commented_order_available)
+
+          @most_commented_order_available = Decidim::Proposals::Proposal.most_commented_available?(current_component)
+        end
+
+        def most_liked_order_available?
+          return @most_liked_order_available if defined?(@most_liked_order_available)
+
+          @most_liked_order_available = Decidim::Proposals::Proposal.most_liked_available?(current_component)
+        end
+
         def order_by_votes?
           most_voted_order_available? && current_settings.votes_blocked?
         end
@@ -60,8 +79,8 @@ module Decidim
           case order
           when "most_commented"
             proposals.order(comments_count: :desc)
-          when "most_endorsed"
-            proposals.order(endorsements_count: :desc)
+          when "most_liked"
+            proposals.order(likes_count: :desc)
           when "most_followed"
             proposals.order(follows_count: :desc)
           when "most_voted"

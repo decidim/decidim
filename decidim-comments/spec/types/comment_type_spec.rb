@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Comments
@@ -11,28 +11,102 @@ module Decidim
       let(:model) { create(:comment) }
       let(:sgid) { double("sgid", to_s: "1234") }
 
+      shared_examples "unauthorized Comment" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Comment because you do not have permissions")
+        end
+      end
+
+      context "when participatory space is unpublished" do
+        let(:participatory_space) { create(:assembly, :unpublished) }
+        let(:current_component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, :published, component: current_component) }
+        let!(:moderation) { create(:moderation, reportable: commentable, hidden_at: 2.days.ago) }
+
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized Comment"
+      end
+
+      context "when participatory space is transparent" do
+        let(:participatory_space) { create(:assembly, :transparent) }
+        let(:component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, :published, component:) }
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it "returns the model" do
+          expect(response).to include("id" => model.id.to_s)
+        end
+      end
+
+      context "when participatory space is restricted" do
+        let(:participatory_space) { create(:assembly, :published, :restricted) }
+        let(:component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, :published, component:) }
+
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized Comment"
+      end
+
+      context "when component is unpublished" do
+        let(:current_component) { create(:dummy_component, :unpublished) }
+        let(:commentable) { create(:dummy_resource, :published, component: current_component) }
+
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized Comment"
+      end
+
+      context "when resource is unpublished" do
+        let(:commentable) { create(:dummy_resource) }
+
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized Comment"
+      end
+
+      context "when resource is moderated" do
+        let(:commentable) { create(:dummy_resource, :published) }
+        let!(:moderation) { create(:moderation, reportable: commentable, hidden_at: 2.days.ago) }
+
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized Comment"
+      end
+
+      describe "deleted comment" do
+        let(:model) { create(:comment, :deleted) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized Comment"
+      end
+
+      describe "moderated comment" do
+        let(:model) { create(:comment, :moderated) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized Comment"
+      end
+
       describe "author" do
         let(:query) { "{ author { name } }" }
-        let(:commentable) { build(:dummy_resource) }
+        let(:commentable) { build(:dummy_resource, :published) }
         let(:model) do
-          create(:comment, author:, user_group:, commentable:)
+          create(:comment, author:, commentable:)
         end
 
         context "when the author is a user" do
-          let(:author) { create(:user, organization: commentable.organization) }
-          let(:user_group) { nil }
+          let(:author) { create(:user, :confirmed, organization: commentable.organization) }
 
           it "returns the user" do
             expect(response).to include("author" => { "name" => author.name })
-          end
-        end
-
-        context "when the author is a user group" do
-          let(:user_group) { create(:user_group, :verified, organization: commentable.organization, users: [create(:user, organization: commentable.organization)]) }
-          let(:author) { user_group.managers.first }
-
-          it "returns the user" do
-            expect(response).to include("author" => { "name" => user_group.name })
           end
         end
       end
@@ -50,7 +124,7 @@ module Decidim
         let(:query) { "{ createdAt }" }
 
         it "returns its created_at field to iso format" do
-          expect(response).to include("createdAt" => model.created_at.iso8601)
+          expect(response).to include("createdAt" => model.created_at.to_time.iso8601)
         end
       end
 
@@ -62,7 +136,7 @@ module Decidim
         end
 
         it "returns true if the comment has comments" do
-          FactoryBot.create(:comment, commentable: model)
+          create(:comment, commentable: model)
           expect(response).to include("hasComments" => true)
         end
 
@@ -86,8 +160,8 @@ module Decidim
       end
 
       describe "comments" do
-        let!(:random_comment) { FactoryBot.create(:comment) }
-        let!(:replies) { Array.new(3) { |n| FactoryBot.create(:comment, commentable: model, created_at: Time.current - n.days) } }
+        let!(:random_comment) { create(:comment) }
+        let!(:replies) { Array.new(3) { |n| create(:comment, commentable: model, created_at: Time.current - n.days) } }
 
         let(:query) { "{ comments { id } }" }
 
@@ -153,6 +227,14 @@ module Decidim
         it "returns the reported_by? method evaluation with the current user" do
           allow(model).to receive(:reported_by?).with(current_user).and_return(true)
           expect(response).to include("alreadyReported" => true)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(model.reported_content_url)
         end
       end
     end

@@ -27,6 +27,7 @@ module Decidim
             transaction do
               increment_score
               notify_followers
+              notify_authors
             end
           end
 
@@ -48,19 +49,30 @@ module Decidim
             event: "decidim.events.proposals.proposal_state_changed",
             event_class: Decidim::Proposals::ProposalStateChangedEvent,
             resource: proposal,
-            affected_users: proposal.notifiable_identities,
             followers: proposal.followers - proposal.notifiable_identities
+          )
+        end
+
+        def notify_authors
+          return if proposal.state == "not_answered"
+
+          Decidim::EventsManager.publish(
+            event: "decidim.events.proposals.proposal_state_changed_for_authors",
+            event_class: Decidim::Proposals::ProposalStateChangedEvent,
+            resource: proposal,
+            affected_users: proposal.authors,
+            extra: { force_email: true }
           )
         end
 
         def increment_score
           if proposal.accepted?
             proposal.coauthorships.find_each do |coauthorship|
-              Decidim::Gamification.increment_score(coauthorship.user_group || coauthorship.author, :accepted_proposals)
+              Decidim::Gamification.increment_score(coauthorship.author, :accepted_proposals)
             end
           elsif initial_state == "accepted"
             proposal.coauthorships.find_each do |coauthorship|
-              Decidim::Gamification.decrement_score(coauthorship.user_group || coauthorship.author, :accepted_proposals)
+              Decidim::Gamification.decrement_score(coauthorship.author, :accepted_proposals)
             end
           end
         end

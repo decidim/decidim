@@ -6,13 +6,10 @@ module Decidim
 
     module InitiativeTypeInterface
       include Decidim::Api::Types::BaseInterface
+
       description "An interface that can be used in Initiative objects."
 
-      field :initiative_type, Decidim::Initiatives::InitiativeApiType, "The object's initiative type", null: true
-
-      def initiative_type
-        object.type
-      end
+      field :initiative_type, Decidim::Initiatives::InitiativeApiType, "The object's initiative type", null: true, method: :type
     end
   end
 end

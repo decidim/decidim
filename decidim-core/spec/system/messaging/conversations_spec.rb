@@ -25,25 +25,6 @@ describe "Conversations" do
         expect(page).to have_no_selector("span[data-unread-items]")
       end
     end
-
-    context "when searching for a user group to a new conversation" do
-      let!(:user_group) { create(:user_group, :confirmed, name: "Example user group", nickname: "example", organization:) }
-
-      it "only shows one match even if the keyword matches both name and nickname" do
-        visit decidim.conversations_path
-
-        click_on "New conversation"
-
-        fill_in "add_conversation_users", with: "example"
-
-        expect(find_by_id("autoComplete_list_1")).to have_css("li", count: 1)
-
-        within "#autoComplete_result_0" do
-          expect(page).to have_content("example")
-          expect(page).to have_content("Example user group")
-        end
-      end
-    end
   end
 
   shared_examples "create new conversation" do
@@ -313,6 +294,29 @@ describe "Conversations" do
           expect(page).to have_css("#autoComplete_list_1 li.disabled", wait: 5)
         end
       end
+
+      context "when selecting participants from autocomplete" do
+        let!(:user1) { create(:user, :confirmed, name: "Ana", organization:) }
+        let!(:user2) { create(:user, :confirmed, name: "Maria", organization:) }
+
+        it "does not insert element twice and closes dropdown", :slow do
+          visit_inbox
+          click_on "New conversation"
+          expect(page).to have_css("#add_conversation_users")
+
+          field = find_by_id("add_conversation_users")
+          field.native.send_keys "Mar"
+
+          expect(page).to have_css("#autoComplete_list_1 li", wait: 5)
+
+          find("#autoComplete_list_1 li").click
+
+          expect(page).to have_css(".conversation__modal-results li", count: 1)
+          expect(page).to have_content("Maria")
+          expect(page).to have_no_css("#autoComplete_list_1 li", wait: 2)
+          expect(field.value).to eq("")
+        end
+      end
     end
   end
 
@@ -368,7 +372,7 @@ describe "Conversations" do
 
     context "and it is with four participants" do
       let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user_group, organization:) }
+      let(:user2) { create(:user, organization:) }
       let(:user3) { create(:user, organization:) }
       let!(:conversation4) do
         Decidim::Messaging::Conversation.start!(
@@ -428,7 +432,7 @@ describe "Conversations" do
 
     context "and it is with ten participants" do
       let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user_group, organization:) }
+      let(:user2) { create(:user, organization:) }
       let(:user3) { create(:user, organization:) }
       let(:user4) { create(:user, organization:) }
       let(:user5) { create(:user, organization:) }

@@ -2,13 +2,12 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/conferences/version"
-
 Gem::Specification.new do |s|
-  s.version = Decidim::Conferences.version
+  version = "0.33.0.dev"
+  s.version = version
   s.authors = ["Isaac Massot Gil"]
   s.email = ["isaac.mg@coditramuntana.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -17,7 +16,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.name = "decidim-conferences"
   s.summary = "Decidim conferences module"
@@ -30,10 +29,9 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::Conferences.version
-  s.add_dependency "decidim-meetings", Decidim::Conferences.version
-  s.add_dependency "wicked_pdf", "~> 2.7"
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-meetings", version
 
-  s.add_development_dependency "decidim-admin", Decidim::Conferences.version
-  s.add_development_dependency "decidim-dev", Decidim::Conferences.version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-dev", version
 end

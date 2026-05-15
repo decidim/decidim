@@ -24,7 +24,7 @@ module Decidim::ParticipatoryProcesses
     end
 
     it "counts the processes" do
-      expect(subject.filtered_processes("all", filter_with_type: false).count).to eq(2)
+      expect(subject.filtered_processes("all").count).to eq(2)
     end
 
     describe "#current_filter" do

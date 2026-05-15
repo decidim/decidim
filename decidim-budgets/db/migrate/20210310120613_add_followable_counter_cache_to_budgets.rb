@@ -7,7 +7,7 @@ class AddFollowableCounterCacheToBudgets < ActiveRecord::Migration[5.2]
     reversible do |dir|
       dir.up do
         Decidim::Budgets::Project.reset_column_information
-        Decidim::Budgets::Project.find_each do |record|
+        Decidim::Budgets::Project.unscoped.find_each do |record|
           record.class.reset_counters(record.id, :follows)
         end
       end

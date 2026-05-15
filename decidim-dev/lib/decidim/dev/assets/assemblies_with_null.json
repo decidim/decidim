@@ -2,7 +2,6 @@
   {
     "id": 1,
     "slug": "quae-a",
-    "hashtag": "id",
     "decidim_organization_id": 1,
     "title": {
       "ca": "Eius iure laborum hic et.",
@@ -59,7 +58,7 @@
       "es": "Et molestiae."
     },
     "scopes_enabled": true,
-    "private_space": false,
+    "access_mode": "open",
     "reference": "PhD-ASSE-2020-01-1",
     "purpose_of_action": {
       "ca": "<p>Velit a qui. Debitis rem occaecati. Id minus est.</p>",
@@ -107,7 +106,6 @@
       "en": "ut",
       "es": "rerum"
     },
-    "decidim_assemblies_type_id": 1,
     "area": {
       "id": null,
       "name": {

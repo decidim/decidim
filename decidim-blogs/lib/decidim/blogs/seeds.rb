@@ -4,7 +4,7 @@ require "decidim/components/namer"
 
 module Decidim
   module Blogs
-    class Seeds
+    class Seeds < Decidim::Seeds
       attr_reader :participatory_space
 
       def initialize(participatory_space:)
@@ -43,11 +43,9 @@ module Decidim
           Decidim::Component.create!(params)
         end
 
-        6.times do |n|
+        number_of_records.times do |n|
           author = if n >= 3
                      Decidim::User.where(organization: component.organization).sample
-                   elsif n <= 1
-                     Decidim::UserGroup.where(organization: component.organization).sample
                    else
                      component.organization
                    end

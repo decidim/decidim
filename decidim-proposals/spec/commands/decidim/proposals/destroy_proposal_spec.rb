@@ -16,7 +16,7 @@ module Decidim
 
         it "broadcasts ok" do
           expect { described_class.call(proposal_draft, current_user) }.to broadcast(:ok)
-          expect { proposal_draft.reload }.to raise_error(ActiveRecord::RecordNotFound)
+          expect(proposal_draft.reload).to be_deleted
         end
 
         it "broadcasts invalid when the proposal is not a draft" do

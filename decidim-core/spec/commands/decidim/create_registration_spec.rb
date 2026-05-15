@@ -9,7 +9,6 @@ module Decidim
         let(:organization) { create(:organization) }
 
         let(:name) { "Username" }
-        let(:nickname) { "nickname" }
         let(:email) { "user@example.org" }
         let(:password) { "Y1fERVzL2F" }
         let(:tos_agreement) { "1" }
@@ -20,7 +19,6 @@ module Decidim
           {
             "user" => {
               "name" => name,
-              "nickname" => nickname,
               "email" => email,
               "password" => password,
               "tos_agreement" => tos_agreement,
@@ -93,6 +91,27 @@ module Decidim
             ).and_call_original
 
             expect { command.call }.to change(User, :count).by(1)
+          end
+
+          context "when name is Capitalized" do
+            let(:name) { "Username" }
+
+            it "downcases generated user nickname" do
+              expect(User).to receive(:create!).with(
+                name: form.name,
+                nickname: "username",
+                email: form.email,
+                password: form.password,
+                password_updated_at: an_instance_of(ActiveSupport::TimeWithZone),
+                tos_agreement: form.tos_agreement,
+                newsletter_notifications_at: form.newsletter_at,
+                organization:,
+                accepted_tos_version: organization.tos_version,
+                locale: form.current_locale
+              ).and_call_original
+
+              expect { command.call }.to change(User, :count).by(1)
+            end
           end
 
           it "sets the password_updated_at to the current time" do

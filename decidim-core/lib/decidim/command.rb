@@ -8,6 +8,7 @@
 module Decidim
   class Command
     include ::Wisper::Publisher
+
     delegate :locale, to: :I18n
 
     def self.call(*, **, &)
@@ -22,7 +23,7 @@ module Decidim
     end
 
     def evaluate(&block)
-      @caller = eval("self", block.binding, __FILE__, __LINE__)
+      @caller = block.binding.receiver
       instance_eval(&block)
     end
 

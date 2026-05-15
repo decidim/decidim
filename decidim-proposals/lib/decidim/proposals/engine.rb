@@ -28,16 +28,6 @@ module Decidim
             end
           end
         end
-        resources :collaborative_drafts, except: [:destroy] do
-          member do
-            post :request_access, controller: "collaborative_draft_collaborator_requests"
-            post :request_accept, controller: "collaborative_draft_collaborator_requests"
-            post :request_reject, controller: "collaborative_draft_collaborator_requests"
-            post :withdraw
-            post :publish
-          end
-          resources :versions, only: [:show]
-        end
         scope "/proposals" do
           root to: "proposals#index"
         end
@@ -45,22 +35,24 @@ module Decidim
       end
 
       initializer "decidim_proposals.register_icons" do
-        Decidim.icons.register(name: "Decidim::Proposals::CollaborativeDraft", icon: "draft-line", category: "activity",
-                               description: "Collaborative draft", engine: :proposals)
         Decidim.icons.register(name: "Decidim::Proposals::Proposal", icon: "chat-new-line", category: "activity",
                                description: "Proposal", engine: :proposals)
         Decidim.icons.register(name: "participatory_texts_item", icon: "bookmark-line", description: "Index item", category: "participatory_texts",
                                engine: :proposals)
 
         Decidim.icons.register(name: "scan-line", icon: "scan-line", category: "system", description: "", engine: :proposals)
-        Decidim.icons.register(name: "edit-2-line", icon: "edit-2-line",
-                               category: "action", description: "Edit icon for Collaborative Drafts", engine: :proposals)
 
         Decidim.icons.register(name: "bookmark-line", icon: "bookmark-line", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "bar-chart-2-line", icon: "bar-chart-2-line", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "scales-line", icon: "scales-line", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "layout-grid-fill", icon: "layout-grid-fill", category: "system", description: "", engine: :proposals)
+      end
+
+      initializer "decidim_proposals.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
       end
 
       initializer "decidim_proposals.content_processors" do |_app|
@@ -103,7 +95,7 @@ module Decidim
 
       initializer "decidim_proposals.remove_space_admins" do
         ActiveSupport::Notifications.subscribe("decidim.admin.participatory_space.destroy_admin:after") do |_event_name, data|
-          Decidim::Proposals::ValuationAssignment.where(valuator_role_type: data.fetch(:class_name), valuator_role_id: data.fetch(:role)).destroy_all
+          Decidim::Proposals::EvaluationAssignment.where(evaluator_role_type: data.fetch(:class_name), evaluator_role_id: data.fetch(:role)).destroy_all
         end
       end
 
@@ -111,44 +103,26 @@ module Decidim
         Decidim::Gamification.register_badge(:proposals) do |badge|
           badge.levels = [1, 5, 10, 30, 60]
 
-          badge.valid_for = [:user, :user_group]
+          badge.valid_for = [:user]
 
           badge.reset = lambda { |model|
-            case model
-            when User
-              Decidim::Coauthorship.where(
-                coauthorable_type: "Decidim::Proposals::Proposal",
-                author: model,
-                user_group: nil
-              ).count
-            when UserGroup
-              Decidim::Coauthorship.where(
-                coauthorable_type: "Decidim::Proposals::Proposal",
-                user_group: model
-              ).count
-            end
+            Decidim::Coauthorship.where(
+              coauthorable_type: "Decidim::Proposals::Proposal",
+              author: model
+            ).count
           }
         end
 
         Decidim::Gamification.register_badge(:accepted_proposals) do |badge|
           badge.levels = [1, 5, 15, 30, 50]
 
-          badge.valid_for = [:user, :user_group]
+          badge.valid_for = [:user]
 
           badge.reset = lambda { |model|
-            proposal_ids = case model
-                           when User
-                             Decidim::Coauthorship.where(
-                               coauthorable_type: "Decidim::Proposals::Proposal",
-                               author: model,
-                               user_group: nil
-                             ).select(:coauthorable_id)
-                           when UserGroup
-                             Decidim::Coauthorship.where(
-                               coauthorable_type: "Decidim::Proposals::Proposal",
-                               user_group: model
-                             ).select(:coauthorable_id)
-                           end
+            proposal_ids = Decidim::Coauthorship.where(
+              coauthorable_type: "Decidim::Proposals::Proposal",
+              author: model
+            ).select(:coauthorable_id)
 
             Decidim::Proposals::Proposal.where(id: proposal_ids).accepted.count
           }
@@ -163,60 +137,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_proposals.register_metrics" do
-        Decidim.metrics_registry.register(:proposals) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Proposals::Metrics::ProposalsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: true
-            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
-            settings.attribute :weight, type: :integer, default: 2
-            settings.attribute :stat_block, type: :string, default: "medium"
-          end
-        end
-
-        Decidim.metrics_registry.register(:accepted_proposals) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Proposals::Metrics::AcceptedProposalsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
-            settings.attribute :weight, type: :integer, default: 3
-            settings.attribute :stat_block, type: :string, default: "small"
-          end
-        end
-
-        Decidim.metrics_registry.register(:votes) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Proposals::Metrics::VotesMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: true
-            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
-            settings.attribute :weight, type: :integer, default: 3
-            settings.attribute :stat_block, type: :string, default: "medium"
-          end
-        end
-
-        Decidim.metrics_registry.register(:endorsements) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Proposals::Metrics::EndorsementsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(participatory_process)
-            settings.attribute :weight, type: :integer, default: 4
-            settings.attribute :stat_block, type: :string, default: "medium"
-          end
-        end
-
-        Decidim.metrics_operation.register(:participants, :proposals) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Proposals::Metrics::ProposalParticipantsMetricMeasure"
-        end
-        Decidim.metrics_operation.register(:followers, :proposals) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Proposals::Metrics::ProposalFollowersMetricMeasure"
-        end
-      end
-
-      initializer "decidim_proposals.webpacker.assets_path" do
+      initializer "decidim_proposals.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
@@ -234,6 +155,12 @@ module Decidim
             Decidim::Proposals::HideAllCreatedByAuthorJob.perform_later(**data)
           end
         end
+      end
+
+      initializer "decidim_proposals.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Proposals::ProposalsMutationType
+        )
       end
     end
   end

@@ -6,6 +6,7 @@ require "decidim/forms/test/shared_examples/manage_questionnaires/add_questions"
 require "decidim/forms/test/shared_examples/manage_questionnaires/update_questions"
 require "decidim/forms/test/shared_examples/manage_questionnaires/add_display_conditions"
 require "decidim/forms/test/shared_examples/manage_questionnaires/update_display_conditions"
+require "decidim/forms/test/shared_examples/manage_questionnaires/draggable_behavior"
 
 shared_examples_for "manage questionnaires" do
   let(:body) do
@@ -24,44 +25,24 @@ shared_examples_for "manage questionnaires" do
     }
   end
 
-  it "updates the questionnaire" do
-    visit questionnaire_edit_path
-
-    new_description = {
-      en: "<p>New description</p>",
-      ca: "<p>Nova descripció</p>",
-      es: "<p>Nueva descripción</p>"
-    }
-
-    within "form.edit_questionnaire" do
-      fill_in_i18n_editor(:questionnaire_description, "#questionnaire-description-tabs", new_description)
-      click_on "Save"
-    end
-
-    expect(page).to have_admin_callout("successfully")
-
-    visit questionnaire_public_path
-
-    expect(page).to have_content("New description")
-  end
-
-  context "when the questionnaire is not already answered" do
+  context "when the questionnaire is not already responded" do
     before do
-      visit questionnaire_edit_path
+      visit manage_questions_path
     end
 
     it_behaves_like "add questions"
     it_behaves_like "update questions"
     it_behaves_like "add display conditions"
     it_behaves_like "update display conditions"
+    it_behaves_like "manage questionnaire draggable behavior"
   end
 
-  context "when the questionnaire is already answered" do
+  context "when the questionnaire is already responded" do
     let!(:question) { create(:questionnaire_question, questionnaire:, body:, question_type: "multiple_option") }
-    let!(:answer) { create(:answer, questionnaire:, question:) }
+    let!(:response) { create(:response, questionnaire:, question:) }
 
     it "cannot modify questionnaire questions" do
-      visit questionnaire_edit_path
+      visit manage_questions_path
 
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
@@ -112,8 +93,8 @@ shared_examples_for "manage questionnaires" do
     find(".button.expand-all").click
   end
 
-  def visit_questionnaire_edit_path_and_expand_all
-    visit questionnaire_edit_path
+  def visit_manage_questions_and_expand_all
+    click_on "Questions"
     expand_all_questions
   end
 end

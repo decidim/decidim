@@ -4,11 +4,7 @@ shared_examples "proposals wizards" do |options|
   include_context "with a component"
   let(:manifest_name) { "proposals" }
   let(:organization) { create(:organization) }
-
-  let!(:category) { create(:category, participatory_space: participatory_process) }
-  let!(:scope) { create(:scope, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Plaça Santa Jaume, 1, 08002 Barcelona" }
   let(:latitude) { 41.3825 }
@@ -40,11 +36,14 @@ shared_examples "proposals wizards" do |options|
           fill_in :proposal_body, with: proposal_body
           find("*[type=submit]").click
         end
+
+        expect(page).to have_css("[data-active]", text: "Publish your proposal")
+        expect(page).to have_css("[data-past]", count: 1)
       end
 
       context "when the back button is clicked" do
         before do
-          click_on "Back"
+          click_on "Back to proposals"
         end
 
         it "redirects to proposals_path" do
@@ -119,12 +118,12 @@ shared_examples "proposals wizards" do |options|
         it "displays the attachments correctly" do
           click_on "Images"
           within "#panel-images" do
-            expect(find("img")["alt"]).to eq(".jpg")
+            expect(find("img")["data-filename"]).to eq(".jpg")
           end
 
           click_on "Documents"
           within "#panel-documents" do
-            expect(find("a.card__list-title")["innerHTML"]).to include("&lt;svg onload=alert('ALERT')&gt;.pdf")
+            expect(find(".card__list-title")["innerHTML"]).to include("&lt;svg onload=alert('ALERT')&gt;.pdf")
           end
         end
       end
@@ -154,9 +153,7 @@ shared_examples "proposals wizards" do |options|
 
           accept_confirm
 
-          within_flash_messages do
-            expect(page).to have_content "successfully"
-          end
+          expect(page).to have_callout("Proposal draft was successfully deleted.")
           within "#wizard-steps" do
             expect(page).to have_css("[data-active]", text: "Create your proposal")
             expect(page).to have_css("[data-past]", count: 0)

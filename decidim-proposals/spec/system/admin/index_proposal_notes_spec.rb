@@ -27,6 +27,7 @@ describe "Index Proposal Notes" do
 
   before do
     within "tr", text: translated(proposal.title) do
+      find("button[data-controller='dropdown']").click
       click_on "Answer proposal"
     end
     click_on "Private notes"
@@ -48,7 +49,7 @@ describe "Index Proposal Notes" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Proposal note successfully created.")
 
       click_on "Private notes"
 
@@ -84,7 +85,7 @@ describe "Index Proposal Notes" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Proposal note reply successfully created.")
 
     click_on "Private notes"
 

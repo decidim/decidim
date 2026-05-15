@@ -15,10 +15,20 @@ Decidim.register_component(:budgets) do |component|
 
   component.query_type = "Decidim::Budgets::BudgetsType"
 
-  component.actions = %w(vote comment)
+  component.actions = %w(vote comment vote_comment)
 
-  component.on(:before_destroy) do |instance|
-    raise StandardError, "Cannot remove this component" if Decidim::Budgets::Budget.where(component: instance).any?
+  component.on(:publish) do |instance|
+    Decidim::Budgets::Budget.where(component: instance).find_each do |budget|
+      Decidim::UpdateSearchIndexesJob.perform_later([budget])
+      Decidim::UpdateSearchIndexesJob.perform_later(budget.projects.to_a)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Budgets::Budget.where(component: instance).find_each do |budget|
+      Decidim::RemoveSearchIndexesJob.perform_later([budget])
+      Decidim::RemoveSearchIndexesJob.perform_later(budget.projects.to_a)
+    end
   end
 
   component.register_resource(:budget) do |resource|
@@ -31,7 +41,6 @@ Decidim.register_component(:budgets) do |component|
     resource.model_class_name = "Decidim::Budgets::Project"
     resource.template = "decidim/budgets/projects/linked_projects"
     resource.card = "decidim/budgets/project"
-    resource.actions = %w(vote comment)
     resource.searchable = true
   end
 
@@ -39,24 +48,36 @@ Decidim.register_component(:budgets) do |component|
     Decidim::Budgets::Budget.where(component: components).count
   end
 
-  component.register_stat :projects_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
-    Decidim::Budgets::FilteredProjects.for(components, start_at, end_at).count
-  end
-
-  component.register_stat :orders_count do |components, start_at, end_at|
+  component.register_stat :projects_count,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          sub_title: "votes",
+                          icon_name: "git-pull-request-line",
+                          tooltip_key: "projects_count_tooltip" do |components, start_at, end_at|
     budgets = Decidim::Budgets::Budget.where(component: components)
+    projects = Decidim::Budgets::FilteredProjects.for(components, start_at, end_at)
     orders = Decidim::Budgets::Order.where(budget: budgets)
     orders = orders.where(created_at: start_at..) if start_at.present?
     orders = orders.where(created_at: ..end_at) if end_at.present?
-    orders.count
+    [
+      projects.count,
+      orders.count
+    ]
   end
 
-  component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
+  component.register_stat :comments_count,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "chat-1-line",
+                          tooltip_key: "comments_count",
+                          tag: :comments do |components, start_at, end_at|
     projects = Decidim::Budgets::FilteredProjects.for(components, start_at, end_at)
     projects.sum(:comments_count)
   end
 
-  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+  component.register_stat :followers_count,
+                          tag: :followers,
+                          icon_name: "user-follow-line",
+                          tooltip_key: "followers_count_tooltip",
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     projects_ids = Decidim::Budgets::FilteredProjects.for(components, start_at, end_at).pluck(:id)
     Decidim::Follow.where(decidim_followable_type: "Decidim::Budgets::Project", decidim_followable_id: projects_ids).count
   end
@@ -75,19 +96,19 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.settings(:global) do |settings|
-    settings.attribute :scopes_enabled, type: :boolean, default: false
-    settings.attribute :scope_id, type: :scope
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
-    settings.attribute :workflow, type: :enum, default: "one", choices: -> { Decidim::Budgets.workflows.keys.map(&:to_s) }
+    settings.attribute :workflow, type: :enum, default: "one", choices: ->(_context) { Decidim::Budgets.workflows.keys.map(&:to_s) }
     settings.attribute :projects_per_page, type: :integer, default: 12
-    settings.attribute :vote_rule_threshold_percent_enabled, type: :boolean, default: true
+    settings.attribute :voting_rule, type: :enum, default: "threshold_percent", choices: %w(threshold_percent minimum_projects selected_projects)
+
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
-    settings.attribute :vote_rule_minimum_budget_projects_enabled, type: :boolean, default: false
+
     settings.attribute :vote_minimum_budget_projects_number, type: :integer, default: 1
-    settings.attribute :vote_rule_selected_projects_enabled, type: :boolean, default: false
+
     settings.attribute :vote_selected_projects_minimum, type: :integer, default: 0
     settings.attribute :vote_selected_projects_maximum, type: :integer, default: 1
+
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false

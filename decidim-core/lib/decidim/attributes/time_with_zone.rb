@@ -23,13 +23,17 @@ module Decidim
       def cast_value(value)
         return value unless value.is_a?(String)
 
-        Time.zone.strptime(value, I18n.t("time.formats.decidim_short"))
+        if Date._iso8601(value).present?
+          Time.zone.iso8601(value)
+        else
+          Time.zone.strptime(value, I18n.t("time.formats.decidim_short"))
+        end
       rescue ArgumentError
         fallback = super
         return fallback unless fallback.is_a?(Time)
         return Time.zone.parse(fallback.strftime("%F %T")) if ISO_DATETIME_WITHOUT_TIMEZONE.match?(value)
 
-        ActiveSupport::TimeWithZone.new(fallback, Time.zone)
+        fallback
       end
     end
   end

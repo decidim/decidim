@@ -16,6 +16,7 @@ shared_examples "manage attachment collections examples" do
 
   it "can view an attachment collection details" do
     within "#attachment_collections table" do
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -43,7 +44,7 @@ shared_examples "manage attachment collections examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Folder created successfully.")
 
     within "#attachment_collections table" do
       expect(page).to have_content(translated(attributes[:name]))
@@ -56,6 +57,7 @@ shared_examples "manage attachment collections examples" do
   it "can update an attachment collection" do
     within "#attachment_collections" do
       within "tr", text: translated(attachment_collection.name) do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
@@ -70,7 +72,7 @@ shared_examples "manage attachment collections examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Folder updated successfully.")
 
     within "#attachment_collections table" do
       expect(page).to have_content(translated(attributes[:name]))
@@ -90,10 +92,11 @@ shared_examples "manage attachment collections examples" do
 
       it "can delete the attachment collection" do
         within "tr", text: translated(attachment_collection2.name) do
+          find("button[data-controller='dropdown']").click
           accept_confirm { click_on "Delete" }
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Folder destroyed successfully.")
 
         within "#attachment_collections table" do
           expect(page).to have_no_content(translated(attachment_collection2.name))
@@ -110,7 +113,8 @@ shared_examples "manage attachment collections examples" do
 
       it "cannot delete it" do
         within "tr", text: translated(attachment_collection.name) do
-          expect(page).to have_no_css("a.action-icon--remove")
+          find("button[data-controller='dropdown']").click
+          expect(page).to have_no_css(".button", text: "Delete")
         end
       end
     end

@@ -2,14 +2,10 @@ is-IS:
   decidim:
     components:
       surveys:
-        actions:
-          answer: Svara
-        name: Könnun
         settings:
           global:
             announcement: Tilkynning
           step:
-            allow_answers: Leyfa svörum
             announcement: Tilkynning
     events:
       surveys:

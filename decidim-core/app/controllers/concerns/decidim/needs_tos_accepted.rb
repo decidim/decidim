@@ -15,7 +15,7 @@ module Decidim
     def tos_accepted_by_user
       return true unless request.format.html?
       return true unless current_user
-      return if current_user.tos_accepted?
+      return if current_user.tos_accepted? || current_user.ephemeral?
       return if permitted_paths?
 
       redirect_to_tos
@@ -43,7 +43,7 @@ module Decidim
     end
 
     def tos_path
-      decidim.page_path terms_of_service_page
+      decidim.page_path terms_of_service_page, locale: current_locale
     end
 
     def redirect_to_tos

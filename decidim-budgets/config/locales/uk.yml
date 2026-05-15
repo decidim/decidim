@@ -2,8 +2,6 @@ uk:
   activemodel:
     attributes:
       project:
-        decidim_category_id: Категорія
-        decidim_scope_id: Обсяг
         description: Опис
         proposal_ids: Супутні пропозиції
         title: Назва
@@ -17,12 +15,9 @@ uk:
   decidim:
     budgets:
       actions:
-        attachment_collections: Теки
-        attachments: Вкладені файли
-        confirm_destroy: Ви дійсно бажаєте видалити цей проект?
-        destroy: Видалити
         edit: Редагувати
         import: Внести до проектів запозичені пропозиції
+        new_project: Додати новий проект
         preview: Попередній перегляд
         title: Дії
       admin:
@@ -31,7 +26,6 @@ uk:
             name: Проект
         projects:
           edit:
-            title: Редагувати проект
             update: Оновити
           index:
             finished_orders: Завершені голосування
@@ -39,7 +33,6 @@ uk:
             title: Проекти
           new:
             create: Додати
-            title: Додати новий проект
         proposals_imports:
           new:
             create: Внести до проектів запозичені пропозиції
@@ -54,6 +47,9 @@ uk:
         project:
           fields:
             title: Назва
+      order:
+        status:
+          title: Ваш голос успішно прийнято
       projects:
         budget_confirm:
           cancel: Скасувати
@@ -66,7 +62,6 @@ uk:
           ok: Гаразд
         budget_summary:
           are_you_sure: Ви дійсно бажаєте скасувати ваш голос?
-          cancel_order: видалити ваш голос і почати все спочатку
           checked_out:
             title: Голосування щодо бюджету завершено
         count:
@@ -76,8 +71,6 @@ uk:
             many: "%{count} проектів"
             other: "%{count} проектів"
         filters:
-          category: Категорія
-          scope: Обсяг
           search: Шукати
         project_budget_button:
           added: Додано

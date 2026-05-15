@@ -74,19 +74,15 @@
         }
 
         a {
-          @apply flex items-center gap-x-4 text-secondary;
-
-          svg {
-            @apply fill-gray;
-          }
-
-          &:hover {
-            @apply underline;
-          }
+          @apply flex items-center gap-x-4;
         }
 
         &:hover {
-          @apply no-underline;
+          @apply text-white;
+
+          svg {
+            @apply fill-white;
+          }
         }
       }
     }

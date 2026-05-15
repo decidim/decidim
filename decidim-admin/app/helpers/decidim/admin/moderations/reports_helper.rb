@@ -12,14 +12,14 @@ module Decidim
 
         # Public: Returns the reportable's author names separated by commas.
         def reportable_author_name(reportable)
-          reportable_authors = reportable.try(:authors) || [reportable.try(:normalized_author)]
+          reportable_authors = reportable.try(:authors) || [reportable.try(:author)]
           content_tag :ul, class: "reportable-authors" do
-            reportable_authors.select(&:present?).map do |author|
+            reportable_authors.compact_blank.map do |author|
               case author
               when User
                 content_tag :li do
                   link_to current_or_new_conversation_path_with(author), target: "_blank", rel: "noopener" do
-                    "#{author.name} #{icon "mail-send-line"}".html_safe
+                    "#{author.presenter.name} #{icon "mail-send-line"}".html_safe
                   end
                 end
               when Decidim::Meetings::Meeting

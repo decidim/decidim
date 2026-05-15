@@ -8,6 +8,7 @@ describe "Editor" do
 
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:context_current_participatory_space) { "" }
 
   # Which features to enable for the toolbar: basic|full
   let(:features) { "basic" }
@@ -30,20 +31,30 @@ describe "Editor" do
       api_path: "/api",
       messages: {
         editor: I18n.t("editor"),
-        selfxssWarning: I18n.t("decidim.security.selfxss_warning")
+        selfxssWarning: I18n.t("decidim.security.selfxss_warning"),
+        characterCounter: {
+          charactersAtLeast: {
+            one: I18n.t("forms.length_validator.minimum.one", count: "%count%", default: "forms.length_validator.minimum.other"),
+            other: I18n.t("forms.length_validator.minimum.other", count: "%count%")
+          },
+          charactersLeft: {
+            one: I18n.t("decidim.components.add_comment_form.remaining_characters_1", count: "%count%"),
+            other: I18n.t("decidim.components.add_comment_form.remaining_characters", count: "%count%")
+          }
+        }
       }
     }
     editor_wrapper = form.editor(:body, toolbar: features, **editor_options)
-    content_wrapper = ""
+    meta_context = "<meta name='context-current-participatory-space' content='#{context_current_participatory_space}'>"
     content_wrapper = <<~HTML
       <div data-content>
-        <main class="layout-1col">
-          <div class="cols-6">
+        <main>
+          <div>
             <div class="text-center py-12">
               <h1 class="h1 decorator inline-block text-left">Editor test</h1>
             </div>
             <div class="page__container">
-              <form action="/form_action" method="post">
+              <form action="/form_action" method="post" data-controller="test">
                 #{editor_wrapper}
               </form>
             </div>
@@ -56,6 +67,7 @@ describe "Editor" do
         <!doctype html>
         <html lang="en">
         <head>
+          <meta charset="UTF-8">
           <title>Editor Test</title>
           <!--
             The CSRF token has to exist on the page for the image uploads to
@@ -63,7 +75,9 @@ describe "Editor" do
             protection.
           -->
           <meta name="csrf-token" content="abcdef0123456789">
+          #{meta_context}
           #{stylesheet_pack_tag "decidim_core", media: "all"}
+          #{javascript_pack_tag "decidim_core", "decidim_controllers", defer: false}
         </head>
         <body>
           <header>
@@ -71,9 +85,9 @@ describe "Editor" do
           </header>
           #{content_wrapper}
           <footer>Decidim</footer>
-          #{javascript_pack_tag "decidim_core", defer: false}
           <script>
             Decidim.config.set(#{js_configs.to_json});
+            window.isTestEnvironment = true;
           </script>
         </body>
         </html>
@@ -247,28 +261,31 @@ describe "Editor" do
       )
     end
 
-    it "link" do
+    it "link" do # rubocop:disable RSpec/ExampleLength
       click_toggle("link")
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://decidim.org"
         select "New tab", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.5
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <p>Another <a target="_blank" href="https://decidim.org">paragraph.</a></p>
+          <p>Another <a href="https://decidim.org" target="_blank">paragraph.</a></p>
         HTML
       )
 
       within prosemirror_selector do
         find("a").double_click
       end
+      sleep 0.5
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://docs.decidim.org"
         select "Default (same tab)", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.2
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -278,15 +295,17 @@ describe "Editor" do
 
       # Test that editing works also when re-clicking the link toolbar button
       click_toggle("link")
+      sleep 0.5
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://try.decidim.org"
         select "New tab", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.5
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <p>Another <a target="_blank" href="https://try.decidim.org">paragraph.</a></p>
+          <p>Another <a href="https://try.decidim.org" target="_blank">paragraph.</a></p>
         HTML
       )
 
@@ -422,7 +441,7 @@ describe "Editor" do
       prosemirror.native.send_keys "Hello, world!"
     end
 
-    it "videoEmbed" do
+    it "videoEmbed" do # rubocop:disable RSpec/ExampleLength
       click_toggle("videoEmbed")
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Video URL", with: "https://www.youtube.com/watch?v=f6JMgJAQ2tc"
@@ -448,6 +467,8 @@ describe "Editor" do
         find("button[data-action='save']").click
       end
 
+      sleep 0.5
+
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -466,6 +487,8 @@ describe "Editor" do
         fill_in "Title", with: "La plataforma digital"
         find("[data-input='src'] input").native.send_keys [:enter]
       end
+
+      sleep 0.5
 
       expect_value(
         <<~HTML
@@ -515,6 +538,144 @@ describe "Editor" do
       expect(Decidim::EditorImage.count).to be(1)
 
       src = Decidim::EditorImage.last.attached_uploader(:file).path
+      expect_value(
+        <<~HTML
+          <p>Hello, world!</p>
+          <div class="editor-content-image" data-image="">
+            <img src="#{src}" alt="City landscape">
+          </div>
+        HTML
+      )
+    end
+
+    it "allows adding a link to an image" do
+      click_toggle("image")
+      within "[data-dialog][aria-hidden='false']" do
+        add_file("city.jpeg", "[data-dropzone]", "drop")
+        fill_in "Alternative text for the image", with: "City landscape"
+
+        within "[data-dialog-actions]" do
+          find("button[data-dropzone-save]").click
+        end
+      end
+      expect(Decidim::EditorImage.count).to be(1)
+
+      src = Decidim::EditorImage.last.attached_uploader(:file).path
+
+      # Select the image and add a link
+      within prosemirror_selector do
+        find("img").click
+      end
+
+      click_toggle("link")
+      within "[data-dialog][aria-hidden='false']" do
+        fill_in "Link URL", with: "https://example.com"
+        select "New tab", from: "Target"
+        find("button[data-action='save']").click
+      end
+      sleep 0.5
+
+      expect_value(
+        <<~HTML
+          <p>Hello, world!</p>
+          <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+            <div class="editor-content-image" data-image="">
+              <img src="#{src}" alt="City landscape">
+            </div>
+          </a>
+        HTML
+      )
+    end
+
+    it "allows editing an image link" do
+      click_toggle("image")
+      within "[data-dialog][aria-hidden='false']" do
+        add_file("city.jpeg", "[data-dropzone]", "drop")
+        fill_in "Alternative text for the image", with: "City landscape"
+
+        within "[data-dialog-actions]" do
+          find("button[data-dropzone-save]").click
+        end
+      end
+      expect(Decidim::EditorImage.count).to be(1)
+
+      src = Decidim::EditorImage.last.attached_uploader(:file).path
+
+      # Select the image and add a link
+      within prosemirror_selector do
+        find("img").click
+      end
+
+      click_toggle("link")
+      within "[data-dialog][aria-hidden='false']" do
+        fill_in "Link URL", with: "https://example.com"
+        select "New tab", from: "Target"
+        find("button[data-action='save']").click
+      end
+      sleep 0.5
+
+      # Edit the link
+      within prosemirror_selector do
+        find("img").click
+      end
+
+      click_toggle("link")
+      within "[data-dialog][aria-hidden='false']" do
+        expect(page).to have_field("Link URL", with: "https://example.com")
+        fill_in "Link URL", with: "https://docs.example.com"
+        select "Default (same tab)", from: "Target"
+        find("button[data-action='save']").click
+      end
+      sleep 0.5
+
+      expect_value(
+        <<~HTML
+          <p>Hello, world!</p>
+          <a href="https://docs.example.com">
+            <div class="editor-content-image" data-image="">
+              <img src="#{src}" alt="City landscape">
+            </div>
+          </a>
+        HTML
+      )
+    end
+
+    it "allows removing a link from an image" do
+      click_toggle("image")
+      within "[data-dialog][aria-hidden='false']" do
+        add_file("city.jpeg", "[data-dropzone]", "drop")
+        fill_in "Alternative text for the image", with: "City landscape"
+
+        within "[data-dialog-actions]" do
+          find("button[data-dropzone-save]").click
+        end
+      end
+      expect(Decidim::EditorImage.count).to be(1)
+
+      src = Decidim::EditorImage.last.attached_uploader(:file).path
+
+      # Select the image and add a link
+      within prosemirror_selector do
+        find("img").click
+      end
+
+      click_toggle("link")
+      within "[data-dialog][aria-hidden='false']" do
+        fill_in "Link URL", with: "https://example.com"
+        select "New tab", from: "Target"
+        find("button[data-action='save']").click
+      end
+      sleep 0.5
+
+      # Remove the link using the bubble menu
+      within prosemirror_selector do
+        find("img").click
+      end
+
+      within ".editor [data-bubble-menu] [data-linkbubble]" do
+        click_on "Remove"
+      end
+
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -579,6 +740,7 @@ describe "Editor" do
           fill_in "Link URL", with: "https://demo.decidim.org"
           find("[data-input='href'] input").native.send_keys [:enter]
         end
+        sleep 0.5
         expect_value(
           <<~HTML
             <p>Hello, world!</p>
@@ -1102,7 +1264,9 @@ describe "Editor" do
     context "when resizing an image" do
       let(:image) { create(:editor_image, organization:) }
       let(:image_src) { image.attached_uploader(:file).path }
-      let(:dimensions) { MiniMagick::Image.read(image.file.blob.download).dimensions }
+      let(:vips_image) { Vips::Image.new_from_buffer(image.file.blob.download, "") }
+      let(:width) { vips_image.width }
+      let(:height) { vips_image.height }
       let(:editor_content) do
         <<~HTML
           <div class="editor-content-image" data-image="">
@@ -1120,30 +1284,27 @@ describe "Editor" do
         context "with right side controls" do
           it "allows resizing the image" do
             drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 50)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 50}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 50}"></div>))
           end
 
           it "removes the width attribute when resizing back to original width or above it" do
             drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 100)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
 
             drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 500)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
           end
 
           it "shows and updates image sizes" do
-            width = dimensions[0]
-            height = dimensions[1]
-
             expect(page).to have_css("[data-image-resizer-dimension-value='#{width}']", visible: :all)
             expect(page).to have_css("[data-image-resizer-dimension-value='#{height}']", visible: :all)
 
@@ -1156,21 +1317,21 @@ describe "Editor" do
         context "with left side controls" do
           it "allows resizing the image" do
             drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 50)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 50}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 50}"></div>))
           end
 
           it "removes the width attribute when resizing back to original width or above it" do
             drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 100)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
 
             drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
-            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{width - 100}"></div>))
 
             drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 500)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
@@ -1229,28 +1390,12 @@ describe "Editor" do
     end
   end
 
-  context "with hashtags, mentions and emojis" do
-    let(:editor_options) { { hashtaggable: true, mentionable: true, emojiable: true } }
+  context "with mentions" do
+    let(:editor_options) { { mentionable: true } }
 
     let!(:user1) { create(:user, :confirmed, name: "John Doe", nickname: "doe_john", organization:) }
     let!(:user2) { create(:user, :confirmed, name: "Jon Doe", nickname: "doe_jon", organization:) }
     let!(:user3) { create(:user, :confirmed, name: "Jane Doe", nickname: "doe_jane", organization:) }
-
-    let!(:hashtag1) { create(:hashtag, name: "nature", organization:) }
-    let!(:hashtag2) { create(:hashtag, name: "nation", organization:) }
-    let!(:hashtag3) { create(:hashtag, name: "native", organization:) }
-
-    it "allows selecting hashtags" do
-      prosemirror.native.send_keys "#na"
-
-      expect(page).to have_css(".editor-suggestions-item", text: "nature")
-      expect(page).to have_css(".editor-suggestions-item", text: "nation")
-      expect(page).to have_css(".editor-suggestions-item", text: "native")
-
-      find(".editor-suggestions-item", text: "nature").click
-
-      expect_value(%(<p><span data-type="hashtag" data-label="#nature">#nature</span> a</p>))
-    end
 
     it "allows selecting mentions" do
       prosemirror.native.send_keys "@doe"
@@ -1259,10 +1404,47 @@ describe "Editor" do
       expect(page).to have_css(".editor-suggestions-item", text: "@doe_jon (Jon Doe)")
       expect(page).to have_css(".editor-suggestions-item", text: "@doe_jane (Jane Doe)")
 
-      find(".editor-suggestions-item", text: "@doe_john (John Doe)").click
+      prosemirror.native.send_keys [:enter]
 
-      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> e</p>))
+      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> doe</p>))
     end
+  end
+
+  context "with resource mentions" do
+    let(:editor_options) { { resource_mentionable: true } }
+    let!(:participatory_space) { create(:participatory_process, organization:) }
+    let(:context_current_participatory_space) { participatory_space.to_global_id }
+
+    it "allows selecting resource mentions with a slash" do
+      allow(Decidim::SearchableResource).to receive(:where).with(
+        resource_type: %w(Decidim::Proposals::Proposal),
+        organization:,
+        decidim_participatory_space: participatory_space,
+        locale: I18n.locale
+      ).and_return(double(
+                     autocomplete_search: double(
+                       limit: [
+                         double(resource_global_id: "gid://decidim.org/Proposal/1", content_a: "Proposal 1"),
+                         double(resource_global_id: "gid://decidim.org/Proposal/2", content_a: "Proposal 2"),
+                         double(resource_global_id: "gid://decidim.org/Proposal/3", content_a: "Proposal 3")
+                       ]
+                     )
+                   ))
+
+      prosemirror.native.send_keys "/pro"
+
+      expect(page).to have_css(".editor-suggestions-item", text: "Proposal 1")
+      expect(page).to have_css(".editor-suggestions-item", text: "Proposal 2")
+      expect(page).to have_css(".editor-suggestions-item", text: "Proposal 3")
+
+      prosemirror.native.send_keys [:enter]
+
+      expect_value(%(<p><span data-type="mentionResource" data-id="gid://decidim.org/Proposal/1" data-label="Proposal 1">Proposal 1</span> </p>))
+    end
+  end
+
+  context "with emojis" do
+    let(:editor_options) { { emojiable: true } }
 
     it "allows selecting emojis" do
       within ".editor-container .editor-input" do
@@ -1341,7 +1523,7 @@ describe "Editor" do
           select "New tab", from: "Target"
           find("button[data-action='save']").click
         end
-        expect_value(%(<p>Hello, <a target="_blank" href="https://docs.decidim.org">world</a>!</p>))
+        expect_value(%(<p>Hello, <a href="https://docs.decidim.org" target="_blank">world</a>!</p>))
 
         # Should show the bubble menu after the link is closed
         within ".editor" do
@@ -1365,6 +1547,8 @@ describe "Editor" do
         within ".editor [data-bubble-menu] [data-linkbubble]" do
           click_on "Remove"
         end
+
+        sleep 0.5
 
         expect_value(%(<p>Hello, world!</p>))
 

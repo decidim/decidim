@@ -7,6 +7,7 @@ module Decidim
       module Admin
         class ConfigForm < Decidim::Form
           include TranslatableAttributes
+
           mimic :config
 
           attribute :offline, Boolean

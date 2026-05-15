@@ -64,11 +64,11 @@ module Decidim
       # Initiates a conversation between a user and a set of interlocutors with
       # an initial message.
       #
-      # @param originator [Decidim::UserBaseEntity] The user or group starting the conversation
+      # @param originator [Decidim::UserBaseEntity] The user starting the conversation
       # @param interlocutors [Array<Decidim::User>] The set of interlocutors in
       #   the conversation (not including the originator).
       # @param body [String] The content of the initial message
-      # @param user [Decidim::User] The user starting the conversation in case originator is a group
+      # @param user [Decidim::User] The user starting the conversation
       #
       # @return [Decidim::Messaging::Conversation] The newly created conversation
       #
@@ -97,7 +97,7 @@ module Decidim
       #
       # @param sender [Decidim::UserBaseEntity] The sender of the message
       # @param body [String] The content of the message
-      # @param user [Decidim::User] The user sending the message in case sender is a group
+      # @param user [Decidim::User] The user sending the message
       #
       # @return [Decidim::Messaging::Message] The newly created message
       #
@@ -126,7 +126,6 @@ module Decidim
       # @return Boolean
       #
       def accept_user?(user)
-        # if user is a group, members are accepted
         blocked = interlocutors(user).detect { |participant| !participant.accepts_conversation?(user) }
         blocked.blank?
       end
@@ -142,7 +141,6 @@ module Decidim
 
       #
       # Given a user, returns if the user is participating in the conversation
-      # for groups being part of a conversation all their admin member are accepted
       #
       # @return Boolean
       #

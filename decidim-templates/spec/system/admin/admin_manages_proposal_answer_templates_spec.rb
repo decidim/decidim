@@ -56,13 +56,13 @@ describe "Admin manages proposal answer templates" do
         page.find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Template created successfully.")
       expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
       within ".table-list" do
         expect(page).to have_i18n_content("Participatory process: A participatory process > A component")
         expect(page).to have_content(translated(attributes[:name]))
       end
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Template created successfully.")
 
       visit decidim_admin.root_path
       expect(page).to have_content("created the #{translated(attributes[:name])} questionnaire template")
@@ -83,13 +83,13 @@ describe "Admin manages proposal answer templates" do
         page.find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Template updated successfully.")
       expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
       within ".table-list" do
         expect(page).to have_i18n_content("Participatory process: A participatory process > A component")
         expect(page).to have_content(translated(attributes[:name]))
       end
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Template updated successfully.")
 
       visit decidim_admin.root_path
       expect(page).to have_content("updated the #{translated(attributes[:name])} questionnaire template")
@@ -115,7 +115,7 @@ describe "Admin manages proposal answer templates" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("problem")
+      expect(page).to have_callout("There was a problem updating this template.")
     end
   end
 
@@ -126,10 +126,11 @@ describe "Admin manages proposal answer templates" do
 
     it "copies the template" do
       within "tr", text: translated(template.name) do
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Template copied successfully.")
       expect(page).to have_content(template.name["en"], count: 2)
     end
   end
@@ -141,10 +142,11 @@ describe "Admin manages proposal answer templates" do
 
     it "destroys the template" do
       within "tr", text: translated(template.name) do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Template deleted successfully.")
       expect(page).to have_no_i18n_content(template.name)
     end
   end
@@ -158,7 +160,10 @@ describe "Admin manages proposal answer templates" do
 
     before do
       visit Decidim::EngineRouter.admin_proxy(templatable).root_path
-      find("a", class: "action-icon--show-proposal").click
+      within "tr", text: translated_attribute(proposal.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Answer proposal"
+      end
     end
 
     it "uses the template" do
@@ -169,7 +174,7 @@ describe "Admin manages proposal answer templates" do
         click_on "Answer"
       end
 
-      expect(page).to have_admin_callout("Proposal successfully answered")
+      expect(page).to have_callout("Proposal successfully answered")
 
       within "tr", text: proposal.title["en"] do
         expect(page).to have_content("Rejected")
@@ -181,7 +186,10 @@ describe "Admin manages proposal answer templates" do
       before do
         template.destroy!
         visit Decidim::EngineRouter.admin_proxy(templatable).root_path
-        find("a", class: "action-icon--show-proposal").click
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Answer proposal"
+        end
       end
 
       it "hides the template selector in the proposal answer page" do
@@ -195,7 +203,10 @@ describe "Admin manages proposal answer templates" do
 
       before do
         visit Decidim::EngineRouter.admin_proxy(templatable).root_path
-        find("a", class: "action-icon--show-proposal").click
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Answer proposal"
+        end
       end
 
       it "displays the global template in dropdown" do

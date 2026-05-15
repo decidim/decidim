@@ -22,18 +22,28 @@ describe "Admin applies questionnaire templates" do
   end
 
   it "installs a survey component" do
-    find("button[data-toggle=add-component-dropdown]").click
+    find("button[data-target=add-component-dropdown]").click
 
     within "#add-component-dropdown" do
-      find(".surveys").click
+      click_on "Surveys"
     end
 
     click_on "Add component"
-    click_on "Survey"
+    within ".table-stacked" do
+      click_on "Surveys"
+    end
+    click_on "New survey"
 
+    fill_in_i18n :survey_title, "#survey-title-tabs", en: "Hello"
+    fill_in_i18n_editor :survey_tos, "#survey-tos-tabs", en: "Hello"
+
+    click_on "Save"
+    click_on "Questions"
+
+    choose("Select template")
     select(translated_attribute(questionnaire_template.name), from: "select-template")
     expect(page).to have_content("If you are human, ignore this field")
-    click_on "Create from template"
+    click_on "Continue"
 
     expect(page).to have_content("Template applied successfully.")
   end

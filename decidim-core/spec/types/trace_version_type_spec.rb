@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Core
     describe TraceVersionType do
       include_context "with a graphql class type"
 
-      let(:user) { create(:user) }
+      let(:user) { create(:user, :confirmed) }
       let(:change) do
         {
           "test" => "test object"

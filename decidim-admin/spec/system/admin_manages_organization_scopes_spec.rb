@@ -32,7 +32,7 @@ describe "Organization scopes" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Scope created successfully.")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:name]))
@@ -51,6 +51,7 @@ describe "Organization scopes" do
 
       it "can edit them" do
         within "tr", text: translated(scope.name) do
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
 
@@ -59,7 +60,7 @@ describe "Organization scopes" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Scope updated successfully")
 
         within "table" do
           expect(page).to have_content(translated(attributes[:name]))
@@ -71,10 +72,11 @@ describe "Organization scopes" do
 
       it "can delete them" do
         within "tr", text: translated(scope.name) do
+          find("button[data-controller='dropdown']").click
           accept_confirm { click_on "Delete" }
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Scope successfully destroyed.")
 
         within "[data-content]" do
           expect(page).to have_no_content(translated(scope.name))
@@ -98,7 +100,7 @@ describe "Organization scopes" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Scope created successfully.")
 
         within "table" do
           expect(page).to have_content("My nice subdistrict")

@@ -7,6 +7,8 @@ module Decidim
     describe CommentsController do
       routes { Decidim::Comments::Engine.routes }
 
+      include Decidim::Core::Engine.routes.url_helpers
+
       let(:organization) { create(:organization) }
       let(:participatory_process) { create(:participatory_process, organization:) }
       let(:component) { create(:component, participatory_space: participatory_process) }
@@ -106,8 +108,8 @@ module Decidim
             end
           end
 
-          context "when trying to comment on a private space where the user is not assigned to" do
-            let(:participatory_process) { create(:participatory_process, :private, organization:) }
+          context "when trying to comment on a restricted space where the user is not assigned to" do
+            let(:participatory_process) { create(:participatory_process, :restricted, organization:) }
 
             it "redirects with a flash alert" do
               post :create, xhr: true, params: { comment: comment_params }
@@ -201,7 +203,7 @@ module Decidim
             delete :destroy, xhr: true, params: { id: comment.id }
           end.not_to(change { Decidim::Comments::Comment.not_deleted.count })
 
-          expect(response).to redirect_to("/users/sign_in")
+          expect(response).to redirect_to(new_user_session_path)
         end
 
         context "when a user different of the author is signed in" do
@@ -229,6 +231,51 @@ module Decidim
             end.to change { Decidim::Comments::Comment.not_deleted.count }.by(-1)
 
             expect(response).to have_http_status(:success)
+          end
+        end
+      end
+
+      describe "PUT update" do
+        let(:user) { create(:user, :confirmed, locale: "en", organization:) }
+        let(:comment_author) { create(:user, :confirmed, locale: "en", organization:) }
+        let!(:comment) { create(:comment, commentable:, author: user) }
+
+        it "redirects to sign in path if not signed in" do
+          put :update, xhr: true, params: { id: comment.id }
+          expect(response).to redirect_to(new_user_session_path)
+        end
+
+        context "when the body length is more than 1000" do
+          let(:random_string) do
+            ::Faker::Lorem.characters(number: 1100)
+          end
+          let(:comment_params) do
+            {
+              id: comment.id,
+              comment: { body: random_string }
+            }
+          end
+
+          before do
+            sign_in user, scope: :user
+          end
+
+          context "when component is present and has comments length setting" do
+            before do
+              (component.presence&.update!(settings: { comments_max_length: random_string.length + 10 }))
+            end
+
+            it "renders template update" do
+              put :update, xhr: true, params: comment_params
+              expect(subject).to render_template(:update)
+            end
+          end
+
+          context "when component is present and has a default comments length" do
+            it "renders template update_error" do
+              put :update, xhr: true, params: comment_params
+              expect(subject).to render_template(:update_error)
+            end
           end
         end
       end

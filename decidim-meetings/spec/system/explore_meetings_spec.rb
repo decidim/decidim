@@ -28,6 +28,7 @@ describe "Explore meetings", :slow do
   describe "index" do
     it "shows all meetings for the given process" do
       visit_component
+
       expect(page).to have_selector(meetings_selector, count: meetings_count)
 
       meetings.each do |meeting|
@@ -77,6 +78,64 @@ describe "Explore meetings", :slow do
         expect(page).to have_content(translated(upcoming_meeting.title))
       end
 
+      context "when maps are enabled" do
+        let!(:meetings) { create_list(:meeting, 2, :not_official, :in_person, :published, component:) }
+        let!(:hybrid_meetings) { create_list(:meeting, 2, :not_official, :hybrid, :published, component:) }
+        let!(:online_meetings) { create_list(:meeting, 2, :not_official, :online, :published, component:) }
+        let!(:upcoming_meeting) { create(:meeting, :not_official, :online, :published, component:) }
+
+        # We are providing a list of coordinates to make sure the points are scattered all over the map
+        # otherwise, there is a chance that markers can be clustered, which may result in a flaky spec.
+        before do
+          coordinates = [
+            [-95.501705376541395, 95.10059236654689],
+            [-95.501705376541395, -95.10059236654689],
+            [95.10059236654689, -95.501705376541395],
+            [95.10059236654689, 95.10059236654689],
+            [142.15275006889419, -33.33377235135252],
+            [33.33377235135252, -142.15275006889419],
+            [-33.33377235135252, 142.15275006889419],
+            [-142.15275006889419, 33.33377235135252],
+            [-55.28745034772282, -35.587843900166945]
+          ]
+          Decidim::Meetings::Meeting.where(component:).geocoded.each_with_index do |meeting, index|
+            meeting.update!(latitude: coordinates[index][0], longitude: coordinates[index][1]) if coordinates[index]
+          end
+
+          visit_component
+        end
+
+        it "shows markers for 'in person' selected meetings" do
+          expect(page).to have_css(".leaflet-marker-icon", count: 4)
+          within "#panel-dropdown-menu-type" do
+            click_filter_item "In-person"
+          end
+          expect(page).to have_css(".leaflet-marker-icon", count: 2)
+
+          expect_no_js_errors
+        end
+
+        it "shows markers for 'hybrid' selected meetings" do
+          expect(page).to have_css(".leaflet-marker-icon", count: 4)
+          within "#panel-dropdown-menu-type" do
+            click_filter_item "Hybrid"
+          end
+          expect(page).to have_css(".leaflet-marker-icon", count: 2)
+
+          expect_no_js_errors
+        end
+
+        it "hides markers when 'online' selected meetings" do
+          expect(page).to have_css(".leaflet-marker-icon", count: 4)
+          within "#panel-dropdown-menu-type" do
+            click_filter_item "Online"
+          end
+          expect(page).to have_css(".leaflet-marker-icon", count: 0)
+
+          expect_no_js_errors
+        end
+      end
+
       it "does not show past meetings" do
         visit_component
         within "#meetings" do
@@ -87,18 +146,12 @@ describe "Explore meetings", :slow do
 
     context "when checking withdrawn meetings" do
       context "when there are no withdrawn meetings" do
-        let!(:meeting) { create_list(:meeting, 3, :published, component:) }
+        let!(:non_withdrawn_meetings) { create_list(:meeting, 3, :published, component:) }
 
-        before do
+        it "does not show the withdrawn link" do
           visit_component
-          click_on "See all withdrawn meetings"
-        end
 
-        it "shows an empty page with a message" do
-          expect(page).to have_content("No meetings match your search criteria or there is not any meeting scheduled.")
-          within ".flash.info", match: :first do
-            expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
-          end
+          expect(page).to have_no_link("See all withdrawn meetings")
         end
       end
 
@@ -115,6 +168,20 @@ describe "Explore meetings", :slow do
           within ".flash.info", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
+        end
+      end
+
+      context "when there are withdrawn linked meetings" do
+        let(:linked_component) { create(:meeting_component, participatory_space:) }
+        let!(:linked_withdrawn_meeting) { create(:meeting, :withdrawn, :published, component: linked_component) }
+
+        before do
+          create(:meeting_link, meeting: linked_withdrawn_meeting, component:)
+          visit_component
+        end
+
+        it "shows the withdrawn link" do
+          expect(page).to have_link("See all withdrawn meetings")
         end
       end
     end
@@ -179,7 +246,6 @@ describe "Explore meetings", :slow do
         end
 
         let!(:official_meeting) { create(:meeting, :published, :official, component:, author: organization) }
-        let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component:) }
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do
@@ -193,21 +259,6 @@ describe "Explore meetings", :slow do
 
             within meetings_selector do
               expect(page).to have_content(translated(official_meeting.title))
-            end
-          end
-        end
-
-        context "with 'groups' origin" do
-          it "lists the filtered meetings" do
-            visit_component
-
-            within "#panel-dropdown-menu-origin" do
-              click_filter_item "Groups"
-            end
-
-            expect(page).to have_css(meetings_selector, count: 1)
-            within meetings_selector do
-              expect(page).to have_content(translated(user_group_meeting.title))
             end
           end
         end
@@ -371,6 +422,30 @@ describe "Explore meetings", :slow do
         end
 
         expect(page).to have_css(meetings_selector, count: 1)
+      end
+
+      it "collapses the accordions on click" do
+        visit_component
+
+        within ".layout-2col__aside" do
+          expect(page).to have_content "Upcoming"
+          expect(page).to have_content "Online"
+        end
+
+        click_on "Date"
+        click_on "Type"
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_content "Upcoming"
+          expect(page).to have_no_content "Online"
+        end
+
+        click_on "Type"
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_content "Upcoming"
+          expect(page).to have_content "Online"
+        end
       end
     end
 
@@ -555,6 +630,23 @@ describe "Explore meetings", :slow do
         within "[data-content]" do
           expect(page).to have_css(".meeting__aside-block", text: "Attendees count\n#{meeting.attendees_count}")
           expect(page).to have_css(".meeting__aside-block", text: "Attending organizations\n#{meeting.attending_organizations}")
+        end
+      end
+    end
+
+    context "when the meeting is closed and has audio and video urls" do
+      let(:video_url) { "https://decidim.org" }
+      let(:audio_url) { "https://example.com" }
+
+      let!(:meeting) { create(:meeting, :published, :closed, contributions_count: 0, component:, video_url:, audio_url:) }
+
+      it_behaves_like "a closing report page" do
+        it "shows the video url" do
+          expect(page).to have_content(video_url)
+        end
+
+        it "shows the audio url" do
+          expect(page).to have_content(audio_url)
         end
       end
     end

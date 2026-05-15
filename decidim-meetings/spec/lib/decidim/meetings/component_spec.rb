@@ -7,34 +7,8 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
   let(:organization) { component.organization }
   let!(:current_user) { create(:user, :admin, organization:) }
 
-  describe "on destroy" do
-    context "when there are no meetings for the component" do
-      it "destroys the component" do
-        expect do
-          Decidim::Admin::DestroyComponent.call(component, current_user)
-        end.to change(Decidim::Component, :count).by(-1)
-
-        expect(component).to be_destroyed
-      end
-    end
-
-    context "when there are meetings for the component" do
-      before do
-        create(:meeting, component:)
-      end
-
-      it "raises an error" do
-        expect do
-          Decidim::Admin::DestroyComponent.call(component, current_user)
-        end.to broadcast(:invalid)
-
-        expect(component).not_to be_destroyed
-      end
-    end
-  end
-
   describe "statistics" do
-    subject { current_stat[2] }
+    subject { current_stat[1][:data] }
 
     let(:raw_stats) do
       Decidim.component_manifests.map do |component_manifest|
@@ -52,7 +26,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
     let!(:hidden_meeting) { create(:meeting, :published, component:) }
     let!(:moderation) { create(:moderation, reportable: hidden_meeting, hidden_at: 1.day.ago) }
 
-    let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
+    let(:current_stat) { stats.find { |stat| stat[1][:name] == stats_name } }
 
     describe "meetings_count" do
       let(:stats_name) { :meetings_count }
@@ -72,7 +46,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    describe "endorsements_count" do
+    describe "likes_count" do
       let(:stats_name) { :followers_count }
 
       before do

@@ -2,15 +2,12 @@ ro:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Domeniu de interes
         description: Descriere
         title: Titlu
         total_budget: Total budget
         weight: Ordinea în poziționare
       project:
         budget_amount: Sumă bugetară
-        decidim_category_id: Categorie
-        decidim_scope_id: Domeniu de interes
         description: Descriere
         proposal_ids: Propuneri asociate
         proposals: Propuneri
@@ -28,10 +25,6 @@ ro:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Categorie
-          scope_id_eq:
-            label: Domeniu de interes
           selected_at_null:
             label: Selectate
             values:
@@ -39,13 +32,9 @@ ro:
               'true': Implementare refuzată
     budgets:
       actions:
-        attachment_collections: Dosare
-        attachments: Atașamente
-        confirm_destroy: Sigur dorești să ştergi acest proiect?
-        destroy: Ștergere
         edit: Editare
-        edit_projects: Gestionați proiectele
         import: Importă propuneri în proiecte
+        new_project: Proiect nou
         preview: Previzualizare
         send_voting_reminders: Trimite memento-uri de votare
         title: Acțiuni
@@ -66,19 +55,14 @@ ro:
         exports:
           projects: Proiecte
         models:
-          budget:
-            name: Buget
           project:
             name: Proiect
         projects:
           edit:
-            title: Editare proiect
             update: Actualizare
           index:
             actions: Acțiuni
             cancel: Anulează
-            change_category: Schimbă categoria
-            change_scope: Schimbă domeniul
             change_selected: Schimbă starea selectată
             finished_orders: Voturi terminate
             pending_orders: Voturi în așteptare
@@ -86,14 +70,14 @@ ro:
             selected: Selectate
             title: Proiecte
             update: Actualizare
-            update_scope_button: Actualizează domeniu
           new:
             create: Creează
-            title: Proiect nou
         proposals_imports:
           new:
             create: Importă propuneri în proiecte
             no_components: Nu există alte componente de propuneri în acest spațiu participativ pentru a importa propunerile în proiecte.
+            proposal_states: Stări ale propunerii
+            proposal_states_help: Selectați una sau mai multe stări de propunere pentru a importa în proiecte. Prin neselectarea vreuneia, veți importa toate propunerile publicate care nu au fost deja importate în alte bugete din această componentă.
             select_component: Te rugăm selectează o componentă
       admin_log:
         budget:
@@ -126,15 +110,18 @@ ro:
             total_budget: Buget total
         project:
           fields:
-            category: Categorie
-            id: ID
             title: Titlu
+      order:
+        status:
+          share_text: "Tocmai am votat pentru proiectele mele favorite în %{space_name}! 🎉Votați acum: %{component_url}"
+          title: Votul tău a fost acceptat cu succes
+      order_pdf:
+        text: Ați votat în %{space_name}, pentru următoarele proiecte
       order_summary_mailer:
         order_summary:
           selected_projects: 'Proiectele pe care le-ai selectat sunt:'
           subject: Ai votat pentru spațiul participativ %{space_name}
           voted_on_space: Ai votat pentrul bugetul %{budget_name} aferent spațiului participativ %{space_name}.
-          voted_on_space_with_scope: Ai votat pentrul bugetul %{budget_name} aferent spațiului participativ %{space_name} pentru %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Dacă te răzgândești, poți modifica votul mai târziu.
@@ -150,7 +137,7 @@ ro:
             title: Numărul maxim de proiecte a fost depășit
         budget_summary:
           are_you_sure: Sigur dorești să îți anulezi votul?
-          cancel_order: șterge votul și reia procesul
+          cancel_order: Ștergeți votul dumneavoastră
           checked_out:
             title: Votul pentru buget a fost finalizat
         count:
@@ -164,8 +151,6 @@ ro:
           message: Votul tău nu a fost înregistrat încă pentru că nu ai finalizat procesul de votare. Sigur dorești să ieși din secțiunea de votare?
           title: Nu ai votat încă
         filters:
-          category: Categorie
-          scope: Domeniu
           search: Caută
           status: Stadiu
           status_values:
@@ -189,6 +174,7 @@ ro:
           add: Adaugă la votul tău
           added: Adăugat la votul tău
         projects_for: Proiecte pentru %{name}
+        select_projects: Adaugați proiecte
         show:
           budget: Buget
     components:
@@ -206,8 +192,6 @@ ro:
             more_information_modal: Mai multe informații
             projects_per_page: Proiecte pe pagină
             resources_permissions_enabled: Pentru fiecare proiect pot fi setate drepturi pentru acțiuni
-            scope_id: Domeniu de interes
-            scopes_enabled: Domenii activate
             title: Titlu
             total_budget: Buget total
             vote_minimum_budget_projects_number: Numărul minim de proiecte de votat
@@ -234,18 +218,12 @@ ro:
               disabled: Votare dezactivată
               enabled: Votare activată
               finished: Votare terminată
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Bugetul %{resource_title} este acum activ pentru %{participatory_space_title}. Îl poți vizualiza pe această pagină:'
-          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula abonarea de la link-ul anterior.
-          email_subject: Bugetul %{resource_title} este în prezent activ pentru %{participatory_space_title}.
-          notification_title: Bugetul <a href="%{resource_path}">%{resource_title}</a> este activ pentru %{participatory_space_title}.
     resource_links:
       included_proposals:
         project_proposal: Propuneri incluse în acest proiect
     statistics:
       orders_count: Voturi
-      projects_count: Proiecte
+      projects_count: Bugete
+      projects_count_tooltip: Numărul de proiecte bugetare participative și totalul voturilor exprimate asupra acestora.
   index:
     confirmed_orders_count: Numărul de voturi

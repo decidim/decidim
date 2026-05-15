@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Core
@@ -23,12 +23,15 @@ module Decidim
       end
 
       describe "stats" do
-        let(:query) { %({ stats { name value } }) }
-        let!(:confirmed_users) { create_list(:user, 5, :confirmed, organization: model) }
+        let(:query) { %({ stats { name { translation(locale:  "en") } value } }) }
+        let!(:confirmed_users) { create_list(:user, 4, :confirmed, organization: model) }
         let!(:unconfirmed_users) { create_list(:user, 2, organization: model) }
 
-        it "show all the stats for this organization" do
-          expect(response["stats"]).to include("name" => "users_count", "value" => 5)
+        it "shows all the stats for this organization" do
+          # As we have 4 confirmed users and the admin (assuming they are counted as confirmed), we expect 5.
+          expect(response["stats"]).to include(
+            hash_including("name" => { "translation" => "Participants" }, "value" => 5)
+          )
         end
       end
 

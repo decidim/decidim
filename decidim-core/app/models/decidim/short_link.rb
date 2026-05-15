@@ -94,7 +94,7 @@ module Decidim
     #
     # @return [String] The target full URL that the short link should link to.
     def target_url
-      url_helpers.send("#{route_name}_url", **params)
+      url_helpers.send("#{route_name}_url", { locale: I18n.locale }.reverse_merge(params))
     end
 
     private

@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-
-require "decidim/core/test/shared_examples/attachable_interface_examples"
-require "decidim/core/test/shared_examples/taxonomizable_interface_examples"
-require "decidim/core/test/shared_examples/participatory_space_resourcable_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module Assemblies
@@ -18,6 +14,10 @@ module Decidim
       include_examples "attachable interface"
       include_examples "participatory space resourcable interface"
       include_examples "taxonomizable interface"
+      include_examples "referable interface"
+      include_examples "followable interface"
+      include_examples "traceable interface"
+      include_examples "timestamps interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -35,6 +35,14 @@ module Decidim
         end
       end
 
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(EngineRouter.main_proxy(model).assembly_url(model))
+        end
+      end
+
       describe "slug" do
         let(:query) { "{ slug }" }
 
@@ -43,27 +51,11 @@ module Decidim
         end
       end
 
-      describe "hashtag" do
-        let(:query) { "{ hashtag }" }
+      describe "weight" do
+        let(:query) { "{ weight }" }
 
-        it "returns the Assembly' hashtag" do
-          expect(response["hashtag"]).to eq(model.hashtag)
-        end
-      end
-
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns when the Assembly was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when the Assembly was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
+        it "returns the Assembly' weight" do
+          expect(response["weight"]).to eq(model.weight)
         end
       end
 
@@ -83,27 +75,11 @@ module Decidim
         end
       end
 
-      describe "reference" do
-        let(:query) { "{ reference }" }
-
-        it "returns the Assembly' reference" do
-          expect(response["reference"]).to eq(model.reference)
-        end
-      end
-
       describe "heroImage" do
         let(:query) { "{ heroImage }" }
 
         it "returns the hero image field" do
           expect(response["heroImage"]).to be_blob_url(model.hero_image.blob)
-        end
-      end
-
-      describe "bannerImage" do
-        let(:query) { "{ bannerImage }" }
-
-        it "returns the banner image field" do
-          expect(response["bannerImage"]).to be_blob_url(model.banner_image.blob)
         end
       end
 
@@ -163,19 +139,11 @@ module Decidim
         end
       end
 
-      describe "privateSpace" do
-        let(:query) { "{ privateSpace }" }
+      describe "accessMode" do
+        let(:query) { "{ accessMode }" }
 
-        it "returns the privateSpace field" do
-          expect(response["privateSpace"]).to eq(model.private_space)
-        end
-      end
-
-      describe "area" do
-        let(:query) { "{ area { id } }" }
-
-        it "returns the area field" do
-          expect(response["area"]).to be_nil
+        it "returns the accessMode field" do
+          expect(response["accessMode"]).to eq(model.access_mode.upcase)
         end
       end
 
@@ -237,26 +205,6 @@ module Decidim
 
         it "returns the composition field" do
           expect(response["composition"]["translation"]).to eq(model.composition["en"])
-        end
-      end
-
-      describe "assemblyType" do
-        let(:query) { "{ assemblyType { id } }" }
-
-        it "returns the assemblyType field" do
-          expect(response["assemblyType"]).to be_nil
-        end
-      end
-
-      context "when there is type" do
-        let(:model) { create(:assembly, :with_type) }
-
-        describe "assemblyType" do
-          let(:query) { "{ assemblyType { id } }" }
-
-          it "returns the assemblyType field" do
-            expect(response["assemblyType"]["id"]).to eq(model.assembly_type.id.to_s)
-          end
         end
       end
 
@@ -324,14 +272,6 @@ module Decidim
         end
       end
 
-      describe "isTransparent" do
-        let(:query) { "{ isTransparent }" }
-
-        it "returns the assembly isTransparent field" do
-          expect(response["isTransparent"]).to eq(model.is_transparent)
-        end
-      end
-
       describe "specialFeatures" do
         let(:query) { '{ specialFeatures { translation(locale: "en" ) }}' }
 
@@ -377,14 +317,6 @@ module Decidim
 
         it "returns the assembly githubHandler field" do
           expect(response["githubHandler"]).to eq(model.github_handler)
-        end
-      end
-
-      describe "announcement" do
-        let(:query) { '{ announcement { translation(locale: "en")}}' }
-
-        it "returns all the required fields" do
-          expect(response["announcement"]["translation"]).to eq(model.announcement["en"])
         end
       end
     end

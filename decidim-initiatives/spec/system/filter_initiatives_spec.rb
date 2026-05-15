@@ -29,7 +29,7 @@ describe "Filter Initiatives", :slow do
       create(:initiative, organization:, scoped_type: scoped_type2)
       create(:initiative, organization:, scoped_type: scoped_type3)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by scope" do
@@ -75,11 +75,15 @@ describe "Filter Initiatives", :slow do
           click_filter_item scoped_type1.scope_name[I18n.locale.to_s]
         end
 
+        # Wait for the scope filter to be applied and the page to update
+        expect(page).to have_css(".card__grid", count: 2)
+
         within "#dropdown-menu-order" do
           click_on "Most commented"
         end
 
-        expect(page).to have_css(".card__grid[id^='initiative']", count: 2)
+        # Wait for both filter and ordering to be applied
+        expect(page).to have_css(".card__grid[id^='initiative']", count: 2, wait: 10)
         expect(page).to have_css(".card__grid[id^='initiative']:first-child", text: translated(first_initiative.title))
       end
     end
@@ -93,7 +97,7 @@ describe "Filter Initiatives", :slow do
       create(:initiative, :acceptable, organization:)
       create(:initiative, organization:, answered_at: Time.current)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by state" do
@@ -188,7 +192,7 @@ describe "Filter Initiatives", :slow do
       before do
         create_list(:initiative, 3, organization:, scoped_type: scoped_type1)
 
-        visit decidim_initiatives.initiatives_path
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
       end
 
       it "does not display TYPE filter" do
@@ -206,7 +210,7 @@ describe "Filter Initiatives", :slow do
         create_list(:initiative, 2, organization:, scoped_type: scoped_type1)
         create(:initiative, organization:, scoped_type: scoped_type2)
 
-        visit decidim_initiatives.initiatives_path
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
       end
 
       it "can be filtered by type" do
@@ -245,7 +249,7 @@ describe "Filter Initiatives", :slow do
       create(:initiative, organization:, area: area2)
       create(:initiative, organization:, area: area3)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by area" do
@@ -291,62 +295,6 @@ describe "Filter Initiatives", :slow do
 
         expect(page).to have_css(".card__grid", count: 3)
         expect(page).to have_content("3 initiatives")
-      end
-    end
-  end
-
-  context "when filtering initiatives by AUTHOR" do
-    context "when not logged in" do
-      before do
-        visit decidim_initiatives.initiatives_path
-      end
-
-      it "cannot be filtered by author" do
-        within "form.new_filter" do
-          expect(page).to have_no_content(/Author/i)
-        end
-      end
-    end
-
-    context "when logged in" do
-      let(:user) { create(:user, :confirmed, organization:) }
-
-      before do
-        create_list(:initiative, 2, organization:, author: user)
-        create_list(:initiative, 1, :created, organization:, author: user)
-        create(:initiative, organization:)
-
-        login_as user, scope: :user
-
-        visit decidim_initiatives.initiatives_path
-      end
-
-      it "can be filtered by author" do
-        within "form.new_filter" do
-          expect(page).to have_content(/Author/i)
-        end
-      end
-
-      context "when selecting any author" do
-        it "lists all initiatives", :slow do
-          within "#panel-dropdown-menu-author" do
-            click_filter_item "Any"
-          end
-
-          expect(page).to have_css(".card__grid", count: 3)
-          expect(page).to have_content("3 initiatives")
-        end
-      end
-
-      context "when selecting my initiatives" do
-        it "lists the filtered initiatives", :slow do
-          within "#panel-dropdown-menu-author" do
-            click_filter_item "My initiatives"
-          end
-
-          expect(page).to have_css(".card__grid", count: 3)
-          expect(page).to have_content("3 initiatives")
-        end
       end
     end
   end

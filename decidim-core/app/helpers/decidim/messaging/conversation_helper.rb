@@ -116,7 +116,7 @@ module Decidim
       end
 
       #
-      # Links to the conversation between the current user and another users group
+      # Links to the conversation between the current user and another users
       #
       def current_or_new_conversation_path_with_multiple(users, opts = {})
         return decidim_routes.new_user_session_path unless user_signed_in?

@@ -26,7 +26,7 @@ module Decidim
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
-        validates :budget_amount, presence: true, numericality: { greater_than: 0 }
+        validates :budget_amount, presence: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 9_223_372_036_854_775_807 }
         validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
 
         validate :notify_missing_attachment_if_errored

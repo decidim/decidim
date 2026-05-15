@@ -1,21 +1,10 @@
 (function () {
   'use strict';
 
-  var $initiativeVotesCount = $('#initiative-<%= current_initiative.id %>-progress-bar'),
-      userIdentitiesDialog = $('#user-identities'),
-      refreshUrl;
+  var $initiativeVotesCount = $('#initiative-<%= current_initiative.id %>-progress-bar');
 
   $initiativeVotesCount.html('<%= j(render partial: "decidim/initiatives/initiatives/progress_bar", locals: { initiative: current_initiative }) %>');
 
-  // Update the identities dialog, if exists.
-  if (userIdentitiesDialog.length) {
-    refreshUrl = userIdentitiesDialog.data('refresh-url');
-
-    $.ajax(refreshUrl).done(function(response){
-      userIdentitiesDialog.html(response);
-    });
-  } else {
-    var $initiativeVoteButton = $('#initiative-<%= current_initiative.id %>-vote-cabin');
-    $initiativeVoteButton.html('<%= j(render partial: "decidim/initiatives/initiatives/vote_cabin", locals: { initiative: current_initiative }) %>');
-  }
+  var $initiativeVoteButton = $('#initiative-<%= current_initiative.id %>-vote-cabin');
+  $initiativeVoteButton.html('<%= j(render partial: "decidim/initiatives/initiatives/vote_cabin", locals: { initiative: current_initiative }) %>');
 }());

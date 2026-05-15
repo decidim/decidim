@@ -114,43 +114,43 @@ It is possible to render actions into the notifications area. These actions are 
 
 In order to add actions to your notification, you need to implement the methods `action_cell`, `action_data` in your event class. The `action_cell` method should return the name of the cell that will be rendered in the notification area. The `action_data` method should return the data that will be passed to the cell.
 
-Currently, there is only one action cell available, `Decidim::Notifications::Actions::ButtonCell`. This cell renders a list of buttons with the text and URL provided in the `action_data`. See the code for the `Decidim::InvitedToGroupEvent` to render actions that allow users to accept or reject a membership invitation to a group:
+Currently, there is only one action cell available, `Decidim::Notifications::Actions::ButtonCell`. This cell renders a list of buttons with the text and URL provided in the `action_data`. See the code for the `Decidim::Proposals::CoauthorInvitedEvent` to render actions that allow users to accept or reject a proposal coauthorship invitation:
 
 [source,ruby]
 ----
-# decidim-core/app/events/decidim/invited_to_group_event.rb
+# decidim-proposals/app/events/decidim/proposals/coauthor_invited_event.rb
 
-def membership_id
-  extra["membership_id"]
+def user_is_coauthor?
+  resource.authors.include?(user)
 end
 
-def invitation
-  @invitation ||= UserGroupMembership.find_by(user:, id: membership_id, role: "invited")
+def invite_path
+  @invite_path ||= EngineRouter.main_proxy(component).proposal_invite_coauthor_path(proposal_id: resource, id: user.id)
 end
 
 def action_cell
-  "decidim/notification_actions/buttons" if invitation
+  "decidim/notification_actions/buttons" unless user_is_coauthor?
 end
 
 def action_data
   [
     {
-      url: url_helpers.group_invite_path(user_group_nickname, membership_id, format: :json),
+      i18n_label: "decidim.events.proposals.coauthor_invited.actions.accept",
+      url: invite_path,
       icon: "check-line",
-      method: "patch",
-      i18n_label: "decidim.group_invites.accept_invitation"
+      method: "patch"
     },
     {
-      url: url_helpers.group_invite_path(user_group_nickname, membership_id, format: :json),
+      i18n_label: "decidim.events.proposals.coauthor_invited.actions.decline",
+      url: invite_path,
       icon: "close-circle-line",
-      method: "delete",
-      i18n_label: "decidim.group_invites.reject_invitation"
+      method: "delete"
     }
   ]
 end
 ----
 
-The previous code will render a couple of buttons to accept/reject the invitation but only if the UserGroupMembership is not accepted yet.
+The previous code will render a couple of buttons to accept/reject the invitation but only if the user is not coauthor yet.
 
 Note that the cell returned is "decidim/notification_actions/buttons", if you want to use a custom cell, you should create it in your application and return it accordingly.
 
@@ -165,67 +165,38 @@ So, it is advisable for the controller handling the request to respond with a JS
 }
 ----
 
-Use standard HTTP status codes to indicate the result of the operation. For an example, see the implementation of the `Decidim::GroupInvitesController` that responds with a JSON object only when requests are made with the `:json` format:
+Use standard HTTP status codes to indicate the result of the operation. For an example, see the implementation of the `Decidim::Proposals::InviteCoauthorsController` that responds with a JSON object only when requests are made with the `:json` format:
 
 [source,ruby]
 ----
-# decidim-core/app/controllers/decidim/group_invites_controller.rb
+# decidim-proposals/app/controllers/decidim/proposals/invite_coauthors_controller.rb
 
+# coauthor accepts invitation
 def update
-  enforce_permission_to :accept, :user_group_invitations
-  AcceptGroupInvitation.call(inviting_user_group, current_user) do
+  enforce_permission_to :accept, :proposal_coauthor_invites, { proposal:, coauthor: }
+
+  AcceptCoauthorship.call(proposal, current_user) do
     on(:ok) do
-      respond_to do |format|
-        format.json do
-          render json: { message: t("group_invites.accept.success", scope: "decidim") }
-        end
-        format.all do
-          flash[:notice] = t("group_invites.accept.success", scope: "decidim")
-          redirect_to profile_groups_path(current_user.nickname)
-        end
-      end
+      render json: { message: I18n.t("update.success", scope: "decidim.proposals.invite_coauthors") }
     end
 
     on(:invalid) do
-      respond_to do |format|
-        format.json do
-          render json: { message: t("group_invites.accept.error", scope: "decidim") }, status: :unprocessable_entity
-        end
-        format.all do
-          flash[:alert] = t("group_invites.accept.error", scope: "decidim")
-          redirect_to profile_groups_path(current_user.nickname)
-        end
-      end
+      render json: { message: I18n.t("update.error", scope: "decidim.proposals.invite_coauthors") }, status: :unprocessable_entity
     end
   end
 end
 
+# coauthor declines invitation
 def destroy
-  enforce_permission_to :reject, :user_group_invitations
+  enforce_permission_to :decline, :proposal_coauthor_invites, { proposal:, coauthor: }
 
-  RejectGroupInvitation.call(inviting_user_group, current_user) do
+  RejectCoauthorship.call(proposal, current_user) do
     on(:ok) do
-      respond_to do |format|
-        format.json do
-          render json: { message: t("group_invites.reject.success", scope: "decidim") }
-        end
-        format.all do
-          flash[:notice] = t("group_invites.reject.success", scope: "decidim")
-          redirect_to profile_groups_path(current_user.nickname)
-        end
-      end
+      render json: { message: I18n.t("destroy.success", scope: "decidim.proposals.invite_coauthors") }
     end
 
     on(:invalid) do
-      respond_to do |format|
-        format.json do
-          render json: { message: t("group_invites.reject.error", scope: "decidim") }, status: :unprocessable_entity
-        end
-        format.all do
-          flash[:alert] = t("group_invites.reject.error", scope: "decidim")
-          redirect_to profile_groups_path(current_user.nickname)
-        end
-      end
+      render json: { message: I18n.t("destroy.error", scope: "decidim.proposals.invite_coauthors") }, status: :unprocessable_entity
     end
   end
 end

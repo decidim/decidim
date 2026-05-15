@@ -21,25 +21,25 @@ module Decidim
         expect(subject.questionnaire).to eq(questionnaire)
       end
 
-      describe "#answered_by?" do
-        it "returns false if user has not answered the question" do
-          expect(subject.answered_by?(current_user)).to be(false)
+      describe "#responded_by?" do
+        it "returns false if user has not responded the question" do
+          expect(subject.responded_by?(current_user)).to be(false)
         end
 
-        it "returns true if user has answered the question" do
-          create(:meetings_poll_answer, question:, user: current_user, questionnaire:)
-          expect(subject.answered_by?(current_user)).to be(true)
+        it "returns true if user has responded the question" do
+          create(:meetings_poll_response, question:, user: current_user, questionnaire:)
+          expect(subject.responded_by?(current_user)).to be(true)
         end
       end
 
-      describe "#answers_count" do
-        it "returns zero if there are no answers" do
-          expect(subject.answers_count).to be(0)
+      describe "#responses_count" do
+        it "returns zero if there are no responses" do
+          expect(subject.responses_count).to be(0)
         end
 
-        it "returns the number of answers" do
-          create(:meetings_poll_answer, question:, user: current_user, questionnaire:)
-          expect(subject.answers_count).to be(1)
+        it "returns the number of responses" do
+          create(:meetings_poll_response, question:, user: current_user, questionnaire:)
+          expect(subject.responses_count).to be(1)
         end
       end
 

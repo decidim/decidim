@@ -31,8 +31,8 @@ describe Decidim::DateRangeCell, type: :cell do
     let(:end_time) { end_time_same_date }
 
     it "renders only one date and time" do
-      has_date 1
-      has_time 1
+      expect(subject).to have_css("[data-date]", count: 1)
+      expect(subject).to have_css("[data-time]", count: 1)
     end
   end
 
@@ -40,8 +40,8 @@ describe Decidim::DateRangeCell, type: :cell do
     let(:end_time) { end_time_different_date }
 
     it "renders the two dates and times" do
-      has_date 2
-      has_time 2
+      expect(subject).to have_css("[data-date]", count: 2)
+      expect(subject).to have_css("[data-time]", count: 2)
     end
   end
 
@@ -49,8 +49,8 @@ describe Decidim::DateRangeCell, type: :cell do
     let(:end_time) { end_time_different_year }
 
     it "renders the two dates and times" do
-      has_date 2
-      has_time 2
+      expect(subject).to have_css("[data-date]", count: 2)
+      expect(subject).to have_css("[data-time]", count: 2)
     end
 
     it "renders two year elements" do
@@ -67,17 +67,5 @@ describe Decidim::DateRangeCell, type: :cell do
       expect(subject).to have_content(start_time.year.to_s)
       expect(subject).to have_content(end_time.year.to_s)
     end
-  end
-
-  def has_time(count)
-    expect(subject).to have_css("[data-time]", count:)
-  end
-
-  def has_date(count)
-    expect(subject).to have_css("[data-date]", count:)
-  end
-
-  def has_month(count)
-    expect(subject).to have_css("[data-month]", count:)
   end
 end

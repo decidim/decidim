@@ -16,13 +16,6 @@ module Decidim
         expect(proposal.official?).to be true
       end
 
-      def proposal_should_conform(section_level, title, body)
-        proposal = Decidim::Proposals::Proposal.where(component:).last
-        expect(proposal.participatory_text_level).to eq(Decidim::Proposals::ParticipatoryTextSection::LEVELS[section_level])
-        expect(translated(proposal.title)).to eq(title)
-        expect(translated(proposal.body)).to eq(body)
-      end
-
       let!(:component) { create(:proposal_component) }
       let(:parser) { MarkdownToProposals.new(component, create(:user)) }
       let(:items) { [] }
@@ -202,7 +195,11 @@ module Decidim
 
           it "are articles" do
             should_parse_and_produce_proposals(1)
-            proposal_should_conform(:article, "1", list)
+            proposal = Decidim::Proposals::Proposal.where(component:).last
+
+            expect(proposal.participatory_text_level).to eq(Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article])
+            expect(translated(proposal.title)).to eq("1")
+            expect(translated(proposal.body)).to eq(list)
           end
         end
 
@@ -221,7 +218,11 @@ module Decidim
 
           it "are articles" do
             should_parse_and_produce_proposals(1)
-            proposal_should_conform(:article, "1", list)
+            proposal = Decidim::Proposals::Proposal.where(component:).last
+
+            expect(proposal.participatory_text_level).to eq(Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article])
+            expect(translated(proposal.title)).to eq("1")
+            expect(translated(proposal.body)).to eq(list)
           end
         end
       end

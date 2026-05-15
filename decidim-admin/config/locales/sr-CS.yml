@@ -30,8 +30,6 @@ sr:
       organization:
         alert_color: Upozorеnjе
         badges_enabled: Omogući značke
-        cta_button_path: Put dugmeta poziva na akciju
-        cta_button_text: Tekst dugmeta poziva na akciju
         customize_welcome_notification: Prilagodi obaveštenje dobrodošlice
         default_locale: Podrazumevana vrednost
         description: Opis
@@ -40,20 +38,13 @@ sr:
         favicon: Ikona
         github_handler: Administrator GitHub-a
         header_snippets: Fragmenti zaglavlja
-        highlighted_content_banner_action_subtitle: Podnastlov dugmeta akcije
-        highlighted_content_banner_action_title: Naslov dugmeta akcije
-        highlighted_content_banner_action_url: Link dugmeta akcije
-        highlighted_content_banner_enabled: Prikaži istaknut baner sadržaja
-        highlighted_content_banner_image: Slika
-        highlighted_content_banner_short_description: Kratak opis
-        highlighted_content_banner_title: Naslov
         instagram_handler: Administrator Instagram-a
         logo: Logo
         name: Ime
         official_img_footer: Zvanično podnožje logoa
         official_url: Zvaničan link organizacije
         omnipresent_banner_short_description: Kratak opis
-        omnipresent_banner_title: Naslov
+        omnipresent_banner_title: Naziv
         omnipresent_banner_url: Adrеsa
         primary_color: Primarni
         reference_prefix: Prefiks reference
@@ -63,7 +54,6 @@ sr:
         success_color: Uspeh
         time_zone: Vremenska zona
         tos_version: Verzija uslova korišćenja
-        user_groups_enabled: Omogući grupe
         warning_color: Upozorenje
         welcome_notification_body: Glavni tekst obaveštenja dobrodošlice
         welcome_notification_subject: Naslov obaveštenja dobrodošlice
@@ -85,11 +75,11 @@ sr:
         organization: Organizacija
         show_in_footer: Prikaži u podnožju
         slug: Zadnji deo URL-a
-        title: Naslov
+        title: Naziv
       static_page_topic:
         description: Opis
         show_in_footer: Prikaži u podnožju
-        title: Naslov
+        title: Naziv
       user_group_csv_verification:
         file: Fajl
     errors:
@@ -103,7 +93,7 @@ sr:
       decidim/static_page:
         content: Sadržaj
         slug: Zadnji deo URL-a
-        title: Naslov
+        title: Naziv
       doorkeeper/application:
         authorize_url: Autorizuj URL
         client_id: Identitet klijenta
@@ -117,11 +107,9 @@ sr:
       actions:
         add: Dodaj
         browse: Prеglеdaj
-        manage: Upravljaj
+        export: Izvezi
+        export_selection: Izvezi izabrano
         per_page: Po stranici
-        permissions: Dozvole
-        reject: Odbaci
-        verify: Overi
       area_types:
         create:
           error: Nastao je problem pri stvaranju novog tipa oblasti.
@@ -156,8 +144,6 @@ sr:
         edit:
           title: Izmeni fasciklu
           update: Ažuriraj
-        index:
-          attachment_collections_title: Fascikle priloga
         new:
           create: Stvori
           title: Nova fascikla
@@ -173,8 +159,6 @@ sr:
         edit:
           title: Izmeni prilog
           update: Ažuriraj
-        index:
-          attachments_title: Prilozi
         new:
           create: Stvori prilog
           title: Novi prilog
@@ -184,23 +168,8 @@ sr:
       autocomplete:
         no_results: Nema rezultata
       categories:
-        create:
-          error: Nastao je problem pri stvaranju ove kategorije.
-          success: Kategorija je uspešno stvorena.
-        destroy:
-          error: Nastao je problem pri brisanju ove kategorije. Molimo Vas da prvo obrišete sve podkategorije, proverite da nijedan drugi entitet ne pripada ovoj kategoriji i pokušate ponovo.
-          success: Kategorija je uspešno obrisana.
-        edit:
-          title: Izmeni kategoriju
-          update: Ažuriraj
         index:
           categories_title: Kategorije
-        new:
-          create: Stvori kategoriju
-          title: Nova katеgorija
-        update:
-          error: Nastao je problem pri ažuriranju ove kategorije.
-          success: Kategorija je uspešno ažurirana.
       component_permissions:
         update:
           error: Nastao je problem pri ažuriranju dozvola ove komponente.
@@ -209,9 +178,6 @@ sr:
         create:
           error: Nastao je problem pri stvaranju ove komponente.
           success: Komponenta je uspešno stvorena.
-        destroy:
-          error: Nastao je problem pri uništavanju ove komponente.
-          success: Komponenta je uspešno obrisana.
         edit:
           title: Uređivanje komponente
           update: Ažuriraj
@@ -230,7 +196,6 @@ sr:
           title: 'Dodaj komponentu: %{name}'
         publish:
           success: Komponenta je uspešno objavljena.
-        title: Komponente
         unpublish:
           success: Objava komponente je uspešno povučena.
         update:
@@ -242,8 +207,6 @@ sr:
       exports:
         export_as: "%{name} kao %{export_format}"
       filters:
-        category_id_eq:
-          label: Kategorija
         filter_label: Filter
         officialized_at_null:
           label: Državno
@@ -260,12 +223,7 @@ sr:
           values:
             'false': Objavljeno
             'true': Neobjavljeno
-        scope_id_eq:
-          label: Opseg
         search_label: Pretraži
-        search_placeholder:
-          name_or_nickname_or_email_cont: Pretraži %{collection} prema e-pošti, imenu ili nadimku.
-          title_cont: Pretraži %{collection} prema nazivu.
       help_sections:
         form:
           save: Sačuvaj
@@ -300,7 +258,6 @@ sr:
           impersonate: Predstavlja
           impersonate_existing_managed_user: Upravljaj učesnikom "%{name}"
           impersonate_existing_user: Upravljaj učesnikom "%{name}"
-          impersonate_new_managed_user: Upravljanje novim učesnikom
       managed_users:
         promotion:
           error: Pojavio se problem pri unapređivanju učesnika.
@@ -308,7 +265,6 @@ sr:
         promotions:
           new:
             explanation: Upravljani učesnici mogu biti unapređeni u regularne učesnike. To znači da će biti pozvani da se prijave, nakon čega nećete više biti u mogućnosti da upravljate njihovim nalozima. Pozvani učesnici će primiti e-mail i potrebno je da prihvate poziv.
-            new_managed_user_promotion: Unapređenje novog upravljanog učesnika
             promote: Unapredi
       menu:
         admin_log: Zapisnik aktivnosti administratora
@@ -318,7 +274,6 @@ sr:
         areas: Oblasti
         configuration: Konfiguracija
         help_sections: Sekcije za pomoć
-        homepage: Početna stranica
         impersonations: Predstavljanja
         manage: Upravljaj
         newsletters: Bilteni
@@ -327,11 +282,7 @@ sr:
         scopes: Oblasti
         settings: Podešavanja
         static_pages: Stranice
-        user_groups: Grupe
         users: Učesnici
-      metrics:
-        metrics:
-          see_more_metrics: Prikaži više metrika
       models:
         area:
           fields:
@@ -346,7 +297,7 @@ sr:
             collection: Fascikla
             content_type: Tip
             file_size: Veličina
-            title: Naslov
+            title: Naziv
           name: Prilog
         attachment_collection:
           name: Fascikla
@@ -368,8 +319,6 @@ sr:
             sent_to: Poslato
             subject: Naslov
           name: Bilten
-        participatory_space_private_user:
-          name: Privatni učesnik prostora za diskusiju
         scope:
           fields:
             name: Ime
@@ -381,7 +330,7 @@ sr:
         static_page:
           fields:
             created_at: Kreirano na
-            title: Naslov
+            title: Naziv
         user:
           fields:
             created_at: Datum kreiranja
@@ -392,15 +341,6 @@ sr:
               admin: Administrator
               user_manager: Rukovodilac učesnika
           name: Učesnik
-        user_group:
-          fields:
-            actions: Akcije
-            created_at: Kreirano na
-            document_number: Broj dokumenta
-            name: Ime
-            phone: Telefon
-            state: Država
-            users_count: Broj učesnika
       moderations:
         report:
           reasons:
@@ -413,7 +353,6 @@ sr:
           title: Šabloni biltena
           use_template: Koristite ovaj šablon
         show:
-          preview: 'Pregledajte šablon %{template_name}'
           use_template: Koristite ovaj šablon
       newsletters:
         create:
@@ -434,7 +373,6 @@ sr:
           confirm_delete: Da li ste sigurni da želite da obrišete ovaj bilten?
           followers: 'pratioci '
           has_been_sent_to: 'Poslat je: '
-          no_scopes: Nema oblasti
           not_sent: Nije poslato
           participants: 'učesnici '
           segmented_to: 'Podeljeno po %{subject}: '
@@ -449,17 +387,13 @@ sr:
           confirm_deliver: Da li ste sigurni da želite da dostavite ovaj bilten? Ova radnja se ne može poništiti.
           deliver: Dostavi bilten
           followers_help: Pošalji bilten svim potvrđenim učesnicima koji prate bilo koji od odabranih prostora za učešće sa liste.
-          none: Nijеdan
           participants_help: Pošalji bilten svim potvrđenim učesnicima koji su učestvovali u bilo kojem od odabranih prostora za učešće sa liste.
           recipients_count: Ovaj bilten biće dostavljen <strong id='recipients_count'>%{count}</strong> korisnicima.
-          scopes_help: Šalje bilten korisnicima koji su aktivirali makar jedan od odabranih opsega u podešavanjima "Moji interesi" svog naloga.
-          select_scopes: Filter za korisnike koji su aktivirali makar jedan od odabranih opsega u podešavanjima "Moji interesi" svog naloga.
           select_spaces: Izaberite prostore da podelite bilten
-          select_users: Izaberite kojim korisnicima želite da pošaljete bilten
+          send_to_all_users: Pošalji svim korisnicima
           title: Izaberi primaoce za dostavu
           warning: "<strong>Pažnja:</strong> Ovaj bilten će biti poslan samo korisnicima koji su aktivirali <em>Želim da dobijam biltene</em> u svojim podešavanjima obaveštenja."
         show:
-          preview: Pregled
           select_recipients_to_deliver: Izaberi primaoce za dostavu
           subject: Naslov
         update:
@@ -476,7 +410,6 @@ sr:
           officialize: Ozvaniči
           officialized: Ozvaničen
           reofficialize: Ponovo ozvaniči
-          show_email: Prikaži adresu e-pošte
           status: Status
           unofficialize: Razreši zvaničnog statusa
         new:
@@ -502,21 +435,10 @@ sr:
         update:
           error: Pojavio se problem pri ažuriranju ove organizacije.
           success: Organizacija je uspešno ažurirana.
-      organization_appearance:
-        edit:
-          update: Ažuriraj
-        form:
-          homepage_appearance_title: Promeni izgled početne stranice
-          images:
-            preview: Pregled
-          omnipresent_banner_appearance_title: Izmeni sveprisutni baner
       shared:
         gallery:
           add_images: Dodaj slike
           gallery_legend: Dodaj galeriju slika (opciono)
-      titles:
-        metrics: Metrika
-        statistics: Aktivnost
       users_statistics:
         users_count:
           last_day: Poslednji dan

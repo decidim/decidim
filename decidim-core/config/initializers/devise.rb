@@ -175,6 +175,12 @@ Devise.setup do |config|
   # Default: true
   config.allow_insecure_sign_in_after_accept = true
 
+  # Require password when user accepts the invitation.
+  # Disable if you do not want to ask for or enforce setting a password while accepting,
+  # because it is set when the user is invited or will be set later.
+  # Default: true
+  config.require_password_on_accepting = false
+
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
   # their account within 3 days after the mail was sent, but on the fourth day
@@ -301,6 +307,14 @@ Devise.setup do |config|
   config.warden do |manager|
     manager.failure_app = RandomStalling
   end
+
+  # To be compatible with Turbo, from Devise v.4.9.0 on,
+  # devise keep error status for validation as :ok, and sets
+  # the redirect_status as :found. However, these configuration
+  # options is devised to change this behavior as
+  # needed (for more information refer to
+  # https://github.com/heartcombo/devise/blob/v4.9.0/CHANGELOG.md#490---2023-02-17):
+  config.responder.error_status = :forbidden
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, we can call it `MyEngine`, and this engine

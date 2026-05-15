@@ -1,6 +1,9 @@
 ca:
   activemodel:
     attributes:
+      dummy:
+        image: Imatge
+      dummy_attribute: Atribut de prova
       dummy_resource:
         created_at: Creat el
         decidim_scope_id: Àmbit
@@ -14,6 +17,7 @@ ca:
       dummy:
         settings:
           global:
+            clear_all: Netejar-ho tot
             guided: Entrada guiada
             guided_help: Text d'ajuda
             guided_readonly: Entrada deshabilitada
@@ -22,6 +26,7 @@ ca:
             guided_rich_readonly_html: HTML <strong>ajuda</strong> text per l'entrada deshabilitada
             readonly_attribute: Atribut de només lectura
             test: Una prova
+            test_add: Afegir una prova
             test_choices:
               a: Opció A
               b: Opció B
@@ -31,8 +36,8 @@ ca:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Adhesions bloquejades
-            endorsements_enabled: Adhesions habilitades
+            likes_blocked: '"M''agrada" desactivats'
+            likes_enabled: '"M''agrada" activats'
             readonly_step_attribute: Atribut de només lectura
             test_options:
               bar: Barra
@@ -47,7 +52,7 @@ ca:
         test:
           conditions:
             - Utilitza un entorn de prova per decidim.
-          description: Les participants obtenen aquesta insígnia creant proves.
+          description: Les participants obtenen aquesta ensenya creant proves.
           description_another: Aquesta participant ha creat %{score} proves.
           description_own: Has creat %{score} proves.
           name: Proves

@@ -3,8 +3,6 @@
 module Decidim
   module Ai
     module SpamDetection
-      include ActiveSupport::Configurable
-
       autoload :Service, "decidim/ai/spam_detection/service"
 
       module Resource
@@ -13,7 +11,6 @@ module Decidim
         autoload :Debate, "decidim/ai/spam_detection/resource/debate"
         autoload :Initiative, "decidim/ai/spam_detection/resource/initiative"
         autoload :Proposal, "decidim/ai/spam_detection/resource/proposal"
-        autoload :CollaborativeDraft, "decidim/ai/spam_detection/resource/collaborative_draft"
         autoload :Meeting, "decidim/ai/spam_detection/resource/meeting"
         autoload :UserBaseEntity, "decidim/ai/spam_detection/resource/user_base_entity"
       end
@@ -28,19 +25,31 @@ module Decidim
         autoload :Bayes, "decidim/ai/spam_detection/strategy/bayes"
       end
 
+      class << self
+        def config = self
+
+        def configure
+          yield self
+        end
+      end
+
+      # When the engine is consistently marking spam content without errors,
+      # you can skip human intervention by enabling this functionality
+      mattr_accessor :hide_reported_resources_automatically, default: Decidim::Env.new("DECIDIM_SPAM_HIDE_REPORTED_RESOURCES_AUTOMATICALLY", false).present?
+
       # This is the email address used by the spam engine to
       # properly identify the user that will report users and content
-      config_accessor :reporting_user_email do
-        "decidim-reporting-user@example.org"
-      end
+      mattr_accessor :reporting_user_email, default: Decidim::Env.new("DECIDIM_SPAM_REPORTING_USER", "decidim-reporting-user@example.org").value
 
       # You can configure the spam threshold for the spam detection service.
       # The threshold is a float value between 0 and 1.
       # The default value is 0.75
       # Any value below the threshold will be considered spam.
-      config_accessor :resource_score_threshold do
-        0.75
-      end
+      mattr_accessor :resource_score_threshold, default: Decidim::Env.new("DECIDIM_SPAM_DETECTION_RESOURCE_SCORE_THRESHOLD", 0.75).to_f
+
+      # You can configure the spam delay for the spam detection service.
+      # The default value is 30 seconds
+      mattr_accessor :spam_detection_delay, default: Decidim::Env.new("DECIDIM_SPAM_DETECTION_DELAY_IN_SECONDS", 30).to_i.seconds
 
       # Registered analyzers.
       # You can register your own analyzer by adding a new entry to this array.
@@ -59,49 +68,41 @@ module Decidim
       #     }
       #   }
       # }
-      config_accessor :resource_analyzers do
-        [
-          {
-            name: :bayes,
-            strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
-            options: {
-              adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE", "redis"),
-              params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL", "redis://localhost:6379/2") }
-            }
+      mattr_accessor :resource_analyzers, default: [
+        {
+          name: :bayes,
+          strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
+          options: {
+            adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE", "redis"),
+            params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL", "redis://localhost:6379/2") }
           }
-        ]
-      end
+        }
+      ]
 
-      # This config_accessor allows the implementers to change the class being used by the classifier,
+      # This setting allows the implementers to change the class being used by the classifier,
       # in order to change the finder method. or even define own resource visibility criteria.
       # This is the place where new resources can be registered following the pattern
       # Resource => Handler
-      config_accessor :resource_models do
-        @models ||= begin
-          models = {}
-          models["Decidim::Comments::Comment"] = "Decidim::Ai::SpamDetection::Resource::Comment" if Decidim.module_installed?("comments")
-          models["Decidim::Debates::Debate"] = "Decidim::Ai::SpamDetection::Resource::Debate" if Decidim.module_installed?("debates")
-          models["Decidim::Initiative"] = "Decidim::Ai::SpamDetection::Resource::Initiative" if Decidim.module_installed?("initiatives")
-          models["Decidim::Meetings::Meeting"] = "Decidim::Ai::SpamDetection::Resource::Meeting" if Decidim.module_installed?("meetings")
-          models["Decidim::Proposals::Proposal"] = "Decidim::Ai::SpamDetection::Resource::Proposal" if Decidim.module_installed?("proposals")
-          models["Decidim::Proposals::CollaborativeDraft"] = "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" if Decidim.module_installed?("proposals")
-          models
-        end
+      mattr_accessor :resource_models
+      self.resource_models ||= begin
+        models = {}
+        models["Decidim::Comments::Comment"] = "Decidim::Ai::SpamDetection::Resource::Comment" if Decidim.module_installed?("comments")
+        models["Decidim::Debates::Debate"] = "Decidim::Ai::SpamDetection::Resource::Debate" if Decidim.module_installed?("debates")
+        models["Decidim::Initiative"] = "Decidim::Ai::SpamDetection::Resource::Initiative" if Decidim.module_installed?("initiatives")
+        models["Decidim::Meetings::Meeting"] = "Decidim::Ai::SpamDetection::Resource::Meeting" if Decidim.module_installed?("meetings")
+        models["Decidim::Proposals::Proposal"] = "Decidim::Ai::SpamDetection::Resource::Proposal" if Decidim.module_installed?("proposals")
+        models
       end
 
       # Spam detection service class.
       # If you want to use a different spam detection service, you can use a class service having the following contract
-      config_accessor :resource_detection_service do
-        "Decidim::Ai::SpamDetection::Service"
-      end
+      mattr_accessor :resource_detection_service, default: Decidim::Env.new("DECIDIM_SPAM_DETECTION_RESOURCE_SERVICE", "Decidim::Ai::SpamDetection::Service").value
 
       # You can configure the spam threshold for the spam detection service.
       # The threshold is a float value between 0 and 1.
       # The default value is 0.75
       # Any value below the threshold will be considered spam.
-      config_accessor :user_score_threshold do
-        0.75
-      end
+      mattr_accessor :user_score_threshold, default: Decidim::Env.new("DECIDIM_SPAM_DETECTION_USER_SCORE_THRESHOLD", 0.75).to_f
 
       # Registered analyzers.
       # You can register your own analyzer by adding a new entry to this array.
@@ -120,37 +121,24 @@ module Decidim
       #     }
       #   }
       # }
-      config_accessor :user_analyzers do
-        [
-          {
-            name: :bayes,
-            strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
-            options: {
-              adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER", "redis"),
-              params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER_REDIS_URL", "redis://localhost:6379/3") }
-            }
+      mattr_accessor :user_analyzers, default: [
+        {
+          name: :bayes,
+          strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
+          options: {
+            adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER", "redis"),
+            params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER_REDIS_URL", "redis://localhost:6379/3") }
           }
-        ]
-      end
+        }
+      ]
 
-      # This config_accessor allows the implementers to change the class being used by the classifier,
+      # This setting allows the implementers to change the class being used by the classifier,
       # in order to change the finder method or what a hidden user really is.
-      # The same applies for UserGroups.
-      config_accessor :user_models do
-        @user_models ||= begin
-          user_models = {}
-
-          user_models["Decidim::UserGroup"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
-          user_models["Decidim::User"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
-          user_models
-        end
-      end
+      mattr_accessor :user_models, default: { "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity" }
 
       # Spam detection service class.
       # If you want to use a different spam detection service, you can use a class service having the following contract
-      config_accessor :user_detection_service do
-        "Decidim::Ai::SpamDetection::Service"
-      end
+      mattr_accessor :user_detection_service, default: Decidim::Env.new("DECIDIM_SPAM_DETECTION_USER_SERVICE", "Decidim::Ai::SpamDetection::Service").value
 
       # this is the generic resource classifier class. If you need to change your own class, please change the
       # configuration of `Decidim::Ai::SpamDetection.detection_service` variable.

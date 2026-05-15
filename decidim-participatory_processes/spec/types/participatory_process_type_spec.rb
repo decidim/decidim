@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-
-require "decidim/core/test/shared_examples/attachable_interface_examples"
-require "decidim/core/test/shared_examples/taxonomizable_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module ParticipatoryProcesses
@@ -16,6 +13,9 @@ module Decidim
 
       include_examples "attachable interface"
       include_examples "taxonomizable interface"
+      include_examples "timestamps interface"
+      include_examples "followable interface"
+      include_examples "referable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -41,27 +41,19 @@ module Decidim
         end
       end
 
-      describe "hashtag" do
-        let(:query) { "{ hashtag }" }
+      describe "weight" do
+        let(:query) { "{ weight }" }
 
-        it "returns the process' hashtag" do
-          expect(response["hashtag"]).to eq(model.hashtag)
+        it "returns the process' weight" do
+          expect(response["weight"]).to eq(model.weight)
         end
       end
 
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
+      describe "url" do
+        let(:query) { "{ url }" }
 
-        it "returns when the process was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when the process was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::EngineRouter.main_proxy(model).participatory_process_url(model))
         end
       end
 
@@ -178,19 +170,11 @@ module Decidim
         end
       end
 
-      describe "announcement" do
-        let(:query) { '{ announcement { translation(locale: "en")}}' }
+      describe "accessMode" do
+        let(:query) { "{ accessMode }" }
 
-        it "returns all the required fields" do
-          expect(response["announcement"]["translation"]).to eq(model.announcement["en"])
-        end
-      end
-
-      describe "reference" do
-        let(:query) { "{ reference }" }
-
-        it "returns the process' reference" do
-          expect(response["reference"]).to eq(model.reference)
+        it "returns the accessMode field" do
+          expect(response["accessMode"]).to eq(model.access_mode.upcase)
         end
       end
 

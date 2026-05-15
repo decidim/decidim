@@ -1,0 +1,68 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Elections
+    # Custom helpers, scoped to the elections engine.
+    #
+    module ApplicationHelper
+      include PaginateHelper
+      include Decidim::DateRangeHelper
+      include Decidim::CheckBoxesTreeHelper
+
+      # Returns a TreeNode to be used in the list filters to filter elections by
+      # its state.
+      def filter_elections_state_values
+        %w(scheduled ongoing finished).map { |k| [k, t(k, scope: "decidim.elections.elections.filters.state_values")] }.prepend(
+          ["all", t("all", scope: "decidim.elections.elections.filters")]
+        )
+      end
+
+      def filter_sections
+        @filter_sections ||= begin
+          items = [{
+            method: :with_any_state,
+            name: "[with_any_state]",
+            collection: filter_elections_state_values,
+            label: t("decidim.elections.elections.filters.state"),
+            id: "date",
+            type: :radio_buttons
+          }]
+
+          items.reject { |item| item[:collection].blank? }
+        end
+      end
+
+      def search_variable = :search_text_cont
+
+      def component_name
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.elections.name")
+      end
+
+      def question_title(question, tag = :h3, **)
+        content_tag(tag, **) do
+          title = translated_attribute(question.body)
+          if question.max_choices.present? && question.question_type == "multiple_option"
+            title += " (#{t("decidim.elections.votes.question.max_choices", count: question.max_choices)})"
+          end
+          title
+        end
+      end
+
+      def render_question_description(question)
+        description = translated_attribute(question.description)
+        return if description.blank?
+
+        decidim_sanitize_editor_admin(description)
+      end
+
+      def selected_response_option_id(question)
+        session.dig(:votes_buffer, question.id.to_s, "response_option_id")&.to_i
+      end
+
+      def voted_by_current_user?(election)
+        voter_uid = session[:voter_uid] || election.census.voter_uid(election, {}, current_user:)
+        election.votes.exists?(voter_uid:)
+      end
+    end
+  end
+end

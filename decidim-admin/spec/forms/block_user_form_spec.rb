@@ -8,7 +8,7 @@ module Decidim
       let(:organization) { create(:organization) }
       let(:justification) { "" }
 
-      shared_examples "blocking a user or group" do
+      shared_examples "blocking a user" do
         describe "from a model" do
           subject do
             described_class.from_model(
@@ -55,13 +55,7 @@ module Decidim
       context "with a user" do
         let(:user) { create(:user, organization:) }
 
-        it_behaves_like "blocking a user or group"
-      end
-
-      context "with a user group" do
-        let(:user) { create(:user_group, organization:) }
-
-        it_behaves_like "blocking a user or group"
+        it_behaves_like "blocking a user"
       end
     end
   end

@@ -12,6 +12,10 @@ module Decidim
 
     default_scope { order(created_at: :desc) }
 
+    before_create do |record|
+      record.uuid = SecureRandom.uuid
+    end
+
     def expired?
       expires_at < Time.zone.now
     end
@@ -19,6 +23,12 @@ module Decidim
     def set_content_type_and_size
       self.content_type = file.content_type
       self.file_size = file.byte_size
+    end
+
+    def private_download_authorized?(user, requested_attachment_name)
+      return false unless requested_attachment_name.to_s == "file"
+
+      attached_to == user
     end
   end
 end

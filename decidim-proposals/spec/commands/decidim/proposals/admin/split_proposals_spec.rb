@@ -7,7 +7,8 @@ module Decidim
     module Admin
       describe SplitProposals do
         describe "call" do
-          let!(:proposals) { Array(create(:proposal, component: current_component)) }
+          let!(:proposals) { Array(create(:proposal, component: current_component, taxonomies:)) }
+          let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: current_component.organization) }
           let!(:current_component) { create(:proposal_component) }
           let!(:target_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
           let(:form) do
@@ -69,7 +70,7 @@ module Decidim
               expect(new_proposal.title).to eq(proposal.title)
               expect(new_proposal.body).to eq(proposal.body)
               expect(new_proposal.creator_author).to eq(current_component.organization)
-              expect(new_proposal.category).to eq(proposal.category)
+              expect(new_proposal.taxonomies).to eq(proposal.taxonomies)
 
               expect(new_proposal.state).to be_nil
               expect(new_proposal.answer).to be_nil
@@ -90,7 +91,7 @@ module Decidim
 
               context "when the original proposal has links to other proposals" do
                 let(:previous_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
-                let(:previous_proposals) { create(:proposal, component: previous_component) }
+                let(:previous_proposals) { create(:proposal, component: previous_component, taxonomies:) }
 
                 before do
                   proposals.each do |proposal|

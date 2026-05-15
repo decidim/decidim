@@ -19,7 +19,36 @@ describe Decidim::OpenDataExporter do
     end
     let!(:second_resource) { create(:debate, :closed, component: second_component) }
 
-    let(:resource_title) { "## debates" }
+    let(:resource_title) { "## debates (2 resources)" }
+    let(:help_lines) do
+      [
+        "* id: The unique identifier of the debate",
+        "* conclusions: The conclusions of the debate if it was closed"
+      ]
+    end
+    let(:unpublished_component) do
+      create(:debates_component, organization:, published_at: nil)
+    end
+    let(:unpublished_resource) { create(:debate, component: unpublished_component) }
+
+    it_behaves_like "open data exporter"
+  end
+
+  describe "debates by deleted user" do
+    let(:resource_file_name) { "debates" }
+    let(:component) do
+      create(:debates_component, organization:, published_at: Time.current)
+    end
+
+    let!(:deleted_user) { create(:user, :confirmed, :deleted, organization:) }
+    let!(:resource) { create(:debate, component:, author: deleted_user) }
+
+    let(:second_component) do
+      create(:debates_component, organization:, published_at: Time.current)
+    end
+    let!(:second_resource) { create(:debate, :closed, component: second_component, author: deleted_user) }
+
+    let(:resource_title) { "## debates (2 resources)" }
     let(:help_lines) do
       [
         "* id: The unique identifier of the debate",
@@ -41,7 +70,7 @@ describe Decidim::OpenDataExporter do
     end
     let(:debate) { create(:debate, component:) }
     let!(:resource) { create(:comment, commentable: debate) }
-    let(:resource_title) { "## debate_comments" }
+    let(:resource_title) { "## debate_comments (1 resource)" }
     let(:help_lines) do
       [
         "* id: The id for this comment"

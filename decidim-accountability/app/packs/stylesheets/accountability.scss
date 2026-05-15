@@ -91,16 +91,22 @@
       @apply text-3xl;
     }
 
-    &__project &-title {
+    &__result &-title {
       @apply text-gray-2 text-md font-normal;
     }
   }
 
   &__grid {
-    @apply grid md:grid-cols-3 items-start gap-x-10 gap-y-8 md:gap-y-16;
+    @apply grid md:grid-cols-3 items-start gap-x-6 gap-y-6;
 
-    & > :nth-child(even) {
-      @apply grid md:col-span-2;
+    &--one-level {
+      @apply grid;
+    }
+
+    &--two-levels {
+      & > :nth-child(even) {
+        @apply grid md:col-span-2;
+      }
     }
 
     /* display the titles only for the first two rows in desktop */
@@ -126,7 +132,7 @@
     @apply ml-auto rounded px-3 md:px-6 py-4 bg-background font-bold text-gray-2 text-xl w-full md:w-auto min-w-[120px] grid place-items-center;
   }
 
-  &__project {
+  &__result {
     &-aside {
       @apply bg-background p-4 rounded divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0;
 
@@ -143,10 +149,10 @@
       }
     }
 
-    &-timeline {
+    &-milestones {
       @apply flex flex-col gap-6;
 
-      &-entry {
+      &-milestone {
         @apply flex items-start gap-2 relative before:absolute before:w-px before:-z-10 before:left-3 before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-6 before:-top-3 first:before:top-3;
 
         &-number {
@@ -170,5 +176,29 @@
 
   &__filters {
     @apply w-full space-y-10;
+  }
+
+  &__taxonomies {
+    @apply w-full;
+
+    ul {
+      @apply flex flex-wrap gap-4 mt-4;
+
+      li {
+        @apply bg-white py-1 px-4 rounded;
+
+        a {
+          @apply text-secondary font-semibold text-sm;
+        }
+
+        &.active {
+          @apply bg-secondary text-white;
+
+          a {
+            @apply text-white;
+          }
+        }
+      }
+    }
   }
 }

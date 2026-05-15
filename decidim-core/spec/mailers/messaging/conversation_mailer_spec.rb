@@ -7,7 +7,6 @@ module Decidim
     describe ConversationMailer do
       let(:organization) { create(:organization) }
       let(:conversation) { create(:conversation) }
-      let(:group) { create(:user_group, organization:, users: [manager]) }
       let(:manager) { create(:user, organization:) }
       let(:message) { create(:message) }
       let(:originator) { create(:user, organization:) }
@@ -46,45 +45,9 @@ module Decidim
         it_behaves_like "conversation mail"
       end
 
-      describe ".new_group_conversation" do
-        subject { described_class.new_group_conversation(originator, manager, conversation, group) }
-        let(:mail_subject) { "#{originator.name} has started a conversation with #{group.name}" }
-        let(:mail_message_body) { conversation.messages.first.body }
-        let(:recipient) { [manager.email] }
-
-        it_behaves_like "conversation mail"
-      end
-
-      describe ".comanagers_new_conversation" do
-        subject { described_class.comanagers_new_conversation(group, user, conversation, manager) }
-        let(:mail_subject) { "#{manager.name} has started a new conversation as a #{manager.name}" }
-        let(:mail_message_body) { conversation.messages.first.body }
-        let(:recipient) { [user.email] }
-
-        it_behaves_like "conversation mail"
-      end
-
       describe ".new_message" do
         subject { described_class.new_message(sender, user, conversation, message) }
         let(:mail_subject) { "You have new messages from #{sender.name}" }
-        let(:mail_message_body) { decidim_escape_translated(message.body) }
-        let(:recipient) { [user.email] }
-
-        it_behaves_like "conversation mail"
-      end
-
-      describe ".new_group_message" do
-        subject { described_class.new_group_message(sender, user, conversation, message, group) }
-        let(:mail_subject) { "#{group.name} have new messages from #{sender.name}" }
-        let(:mail_message_body) { decidim_escape_translated(message.body) }
-        let(:recipient) { [user.email] }
-
-        it_behaves_like "conversation mail"
-      end
-
-      describe ".comanagers_new_message" do
-        subject { described_class.comanagers_new_message(sender, user, conversation, message, manager) }
-        let(:mail_subject) { "#{manager.name} has send new messages as a #{manager.name}" }
         let(:mail_message_body) { decidim_escape_translated(message.body) }
         let(:recipient) { [user.email] }
 

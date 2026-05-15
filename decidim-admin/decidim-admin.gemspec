@@ -2,15 +2,12 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-# Maintain your gem's version:
-require "decidim/admin/version"
-
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.version = Decidim::Admin.version
+  version = "0.33.0.dev"
+  s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -19,7 +16,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.name = "decidim-admin"
   s.summary = "Decidim organization administration"
@@ -33,11 +30,11 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "active_link_to", "~> 1.0"
-  s.add_dependency "decidim-core", Decidim::Admin.version
-  s.add_dependency "devise", "~> 4.7"
+  s.add_dependency "decidim-core", version
+  s.add_dependency "devise", ">= 4.7", "< 6.0"
   s.add_dependency "devise-i18n", "~> 1.2"
   s.add_dependency "devise_invitable", "~> 2.0", ">= 2.0.9"
 
-  s.add_development_dependency "decidim-dev", Decidim::Admin.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim::Admin.version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-participatory_processes", version
 end

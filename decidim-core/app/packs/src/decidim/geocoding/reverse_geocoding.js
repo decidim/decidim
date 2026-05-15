@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+export const initializeReverseGeocoding = function() {
   const info = (target, msg) => {
     const label = target.closest("label");
     label.querySelectorAll(".form-error").forEach((el) => el.remove());
@@ -57,4 +57,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-});
+};

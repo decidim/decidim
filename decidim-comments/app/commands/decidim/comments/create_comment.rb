@@ -51,7 +51,6 @@ module Decidim
           root_commentable: root_commentable(form.commentable),
           body: { I18n.locale => parsed.rewrite },
           alignment: form.alignment,
-          decidim_user_group_id: form.user_group_id,
           participatory_space: form.current_component.try(:participatory_space)
         }
 
@@ -63,13 +62,12 @@ module Decidim
         )
 
         mentioned_users = parsed.metadata[:user].users
-        mentioned_groups = parsed.metadata[:user_group].groups
         CommentCreation.publish(@comment, parsed.metadata)
-        send_notifications(mentioned_users, mentioned_groups)
+        send_notifications(mentioned_users)
       end
 
-      def send_notifications(mentioned_users, mentioned_groups)
-        NewCommentNotificationCreator.new(comment, mentioned_users, mentioned_groups).create
+      def send_notifications(mentioned_users)
+        NewCommentNotificationCreator.new(comment, mentioned_users).create
       end
 
       def root_commentable(commentable)

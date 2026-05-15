@@ -9,9 +9,9 @@ shared_context "with filterable context" do
 
   def apply_filter(options, filter)
     within(".filters__section") do
-      find_link("Filter").hover
-      find_link(options).hover
-      within ".submenu > .is-active > .submenu" do
+      find_link("Filter").click
+      find_link(options).click
+      within ".dropdown .dropdown__right[aria-hidden='false']" do
         click_on(filter)
       end
     end
@@ -19,11 +19,11 @@ shared_context "with filterable context" do
 
   def apply_sub_filter(option1, option2, filter)
     within(".filters__section") do
-      find_link("Filter").hover
-      find_link(option1).hover
-      within ".submenu > .is-active > .submenu" do
-        find_link(option2).hover
-        within ".submenu > .is-active > .submenu" do
+      find_link("Filter").click
+      find_link(option1).click
+      within ".dropdown .dropdown__right[aria-hidden='false']" do
+        find_link(option2).click
+        within ".dropdown .dropdown__right[aria-hidden='false']" do
           click_on(filter)
         end
       end
@@ -75,8 +75,6 @@ shared_context "with filterable context" do
         page_has_content(ActionView::Base.full_sanitizer.sanitize(t))
       end
     end
-
-    after { search_by_text("") }
   end
 
   shared_examples "a filtered collection" do |options:, filter:|
@@ -150,41 +148,50 @@ shared_examples "filtering collection by published/unpublished" do
   it_behaves_like "paginating a collection"
 end
 
-shared_examples "filtering collection by private/public" do
+shared_examples "filtering collection by open/restricted/transparent" do
   include_context "with filterable context"
 
   unless block_given?
-    let!(:public_space) do
-      create(factory_name, private_space: false, organization:)
+    let!(:open_space) do
+      create(factory_name, :open, organization:)
     end
 
-    let!(:private_space) do
-      create(factory_name, private_space: true, organization:)
+    let!(:restricted_space) do
+      create(factory_name, :restricted, organization:)
+    end
+
+    let!(:transparent_space) do
+      create(factory_name, :transparent, organization:)
     end
   end
 
-  it_behaves_like "a filtered collection", options: "Private", filter: "Public" do
-    let(:in_filter) { translated(public_space.title) }
-    let(:not_in_filter) { translated(private_space.title) }
+  it_behaves_like "a filtered collection", options: "Access mode", filter: "Open" do
+    let(:in_filter) { translated(open_space.title) }
+    let(:not_in_filter) { [translated(restricted_space.title), translated(transparent_space.title)] }
   end
 
-  it_behaves_like "a filtered collection", options: "Private", filter: "Private" do
-    let(:in_filter) { translated(private_space.title) }
-    let(:not_in_filter) { translated(public_space.title) }
+  it_behaves_like "a filtered collection", options: "Access mode", filter: "Restricted" do
+    let(:in_filter) { translated(restricted_space.title) }
+    let(:not_in_filter) { [translated(open_space.title), translated(transparent_space.title)] }
+  end
+
+  it_behaves_like "a filtered collection", options: "Access mode", filter: "Transparent" do
+    let(:in_filter) { translated(transparent_space.title) }
+    let(:not_in_filter) { [translated(open_space.title), translated(restricted_space.title)] }
   end
 
   it_behaves_like "paginating a collection"
 end
 
 shared_examples "a collection filtered by taxonomies" do
-  let(:root_taxonomy1) { create(:taxonomy, organization: component.organization, name: { "en" => "Root1" }) }
-  let(:root_taxonomy2) { create(:taxonomy, organization: component.organization, name: { "en" => "Root2" }) }
-  let!(:taxonomy11) { create(:taxonomy, parent: root_taxonomy1, organization: component.organization, name: { "en" => "Taxonomy11" }) }
-  let!(:taxonomy12) { create(:taxonomy, parent: root_taxonomy1, organization: component.organization, name: { "en" => "Taxonomy12" }) }
-  let!(:taxonomy21) { create(:taxonomy, parent: root_taxonomy2, organization: component.organization, name: { "en" => "Taxonomy21" }) }
-  let!(:taxonomy22) { create(:taxonomy, parent: root_taxonomy2, organization: component.organization, name: { "en" => "Taxonomy22" }) }
-  let(:taxonomy1_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, space_manifest: component.participatory_space.manifest.name) }
-  let(:taxonomy2_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, space_manifest: component.participatory_space.manifest.name) }
+  let(:root_taxonomy1) { create(:taxonomy, organization:, name: { "en" => "Root1" }) }
+  let(:root_taxonomy2) { create(:taxonomy, organization:, name: { "en" => "Root2" }) }
+  let!(:taxonomy11) { create(:taxonomy, parent: root_taxonomy1, organization:, name: { "en" => "Taxonomy11" }) }
+  let!(:taxonomy12) { create(:taxonomy, parent: root_taxonomy1, organization:, name: { "en" => "Taxonomy12" }) }
+  let!(:taxonomy21) { create(:taxonomy, parent: root_taxonomy2, organization:, name: { "en" => "Taxonomy21" }) }
+  let!(:taxonomy22) { create(:taxonomy, parent: root_taxonomy2, organization:, name: { "en" => "Taxonomy22" }) }
+  let(:taxonomy1_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, participatory_space_manifests: [participatory_space.manifest.name]) }
+  let(:taxonomy2_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, participatory_space_manifests: [participatory_space.manifest.name]) }
   let!(:taxonomy_filter_item11) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy1_filter1, taxonomy_item: taxonomy11) }
   let!(:taxonomy_filter_item12) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy1_filter1, taxonomy_item: taxonomy12) }
   let!(:taxonomy_filter_item21) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy2_filter1, taxonomy_item: taxonomy21) }
@@ -203,15 +210,5 @@ shared_examples "a collection filtered by taxonomies" do
   it_behaves_like "a sub-filtered collection", option1: "Taxonomy", option2: "Root2", filter: "Taxonomy21" do
     let(:in_filter) { resource_with_taxonomy21_title }
     let(:not_in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title, resource_with_taxonomy22_title] }
-  end
-
-  it_behaves_like "a filtered collection", options: "Taxonomy", filter: "Root1" do
-    let(:in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title] }
-    let(:not_in_filter) { [resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
-  end
-
-  it_behaves_like "a filtered collection", options: "Taxonomy", filter: "Root2" do
-    let(:in_filter) { [resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
-    let(:not_in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title] }
   end
 end

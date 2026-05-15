@@ -5,6 +5,7 @@ module Decidim
     module ContentBlocks
       module LandingPage
         extend ActiveSupport::Concern
+
         included do
           helper_method :active_blocks, :active_content_blocks_title, :add_content_block_text, :available_manifests,
                         :content_block_destroy_confirmation_text, :content_blocks_title, :inactive_blocks,

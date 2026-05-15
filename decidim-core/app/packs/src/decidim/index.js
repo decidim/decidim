@@ -1,5 +1,3 @@
-/* eslint-disable max-lines */
-
 /**
  * External dependencies
  */
@@ -20,80 +18,147 @@ import morphdom from "morphdom"
 /**
  * Local dependencies
  */
+import updateExternalDomainLinks from "src/decidim/refactor/implementation/external_domain_warning"
+import ExternalLink from "src/decidim/refactor/implementation/external_link"
+import Configuration from "src/decidim/refactor/implementation/configuration"
+import setOnboardingAction from "src/decidim/refactor/integration/onboarding_pending_action"
 
 // local deps with no initialization
-import "src/decidim/input_tags"
-import "src/decidim/input_hashtags"
-import "src/decidim/input_mentions"
-import "src/decidim/input_multiple_mentions"
-import "src/decidim/input_autojump"
-import "src/decidim/history"
-import "src/decidim/callout"
-import "src/decidim/clipboard"
-import "src/decidim/append_elements"
-import "src/decidim/user_registrations"
-import "src/decidim/account_form"
+import "src/decidim/refactor/moved/history"
 import "src/decidim/append_redirect_url_to_modals"
 import "src/decidim/form_attachments"
 import "src/decidim/form_remote"
-import "src/decidim/delayed"
-import "src/decidim/vizzs"
-import "src/decidim/responsive_horizontal_tabs"
+import "src/decidim/refactor/moved/delayed"
 import "src/decidim/security/selfxss_warning"
 import "src/decidim/session_timeouter"
 import "src/decidim/results_listing"
-import "src/decidim/impersonation"
-import "src/decidim/gallery"
-import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/data_consent"
-import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
-import "src/decidim/sticky_header"
 import "src/decidim/attachments"
+import "src/decidim/callout"
 
 // local deps that require initialization
 import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
-import formDatePicker from "src/decidim/datepicker/form_datepicker"
-import Configuration from "src/decidim/configuration"
-import ExternalLink from "src/decidim/external_link"
-import updateExternalDomainLinks from "src/decidim/external_domain_warning"
-import scrollToLastChild from "src/decidim/scroll_to_last_child"
-import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
-import FormValidator from "src/decidim/form_validator"
-import FormFilterComponent from "src/decidim/form_filter"
-import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
-import FocusGuard from "src/decidim/focus_guard"
-import backToListLink from "src/decidim/back_to_list"
+import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field"
+import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocoding"
+import FocusGuard from "src/decidim/refactor/moved/focus_guard"
 import markAsReadNotifications from "src/decidim/notifications"
-import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
-import selectActiveIdentity from "src/decidim/identity_selector_dialog"
-import createTooltip from "src/decidim/tooltips"
-import createToggle from "src/decidim/toggle"
 import {
-  createAccordion,
   createDialog,
-  createDropdown,
   announceForScreenReader,
   Dialogs
 } from "src/decidim/a11y"
-import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referenced through a single Decidim.I18n object
 window.Decidim = window.Decidim || {
   config: new Configuration(),
   ExternalLink,
-  InputCharacterCounter,
-  FormValidator,
-  addInputEmoji,
-  EmojiButton,
   Dialogs,
   ConfirmDialog,
   announceForScreenReader
 };
 
 window.morphdom = morphdom
+
+// eslint-disable-next-line max-params
+const deprecate = (element, targetController, oldSyntax) => {
+  if (element.hasAttribute("data-controller") && element.getAttribute("data-controller").includes(targetController)) {
+    return;
+  }
+
+  console.warn(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - data-controller="${targetController}" - ${window.location.href}`)
+
+  if (typeof window.Decidim.dev !== "undefined" && window.Decidim.dev === true) {
+    // eslint-disable-next-line no-alert
+    alert(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - data-controller="${targetController}"`)
+  }
+}
+
+const deprecationMessage = (element, oldSyntax, newSyntax) => {
+  console.warn(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
+
+  if (typeof window.Decidim.dev !== "undefined" && window.Decidim.dev === true) {
+    // eslint-disable-next-line no-alert
+    alert(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
+  }
+}
+
+window.deprecate = deprecate;
+window.deprecationMessage = deprecationMessage;
+
+document.addEventListener("turbo:load", () => {
+  document.querySelectorAll("[data-tabs]").forEach((elem) =>
+    deprecate(elem, "tabs", "[data-tabs]"))
+  document.querySelectorAll("[data-sticky-buttons]").forEach((container) =>
+    deprecate(container, "sticky-buttons", "[data-sticky-buttons]"));
+  document.querySelectorAll("[data-clipboard-copy]").forEach((container) =>
+    deprecate(container, "clipboard", "[data-clipboard-copy]"));
+  document.querySelectorAll('[data-component="accordion"]').forEach((container) =>
+    deprecate(container, "accordion", "data-component='accordion'"));
+  document.querySelectorAll('[data-component="dropdown"]').forEach((container) =>
+    deprecate(container, "dropdown", "data-component='dropdown'"));
+  document.querySelectorAll("[data-scroll-last-child]").forEach((container) =>
+    deprecate(container, "scroll-to-last", "data-scroll-last-child"));
+  document.querySelectorAll(".editor-container").forEach((container) =>
+    deprecate(container, "editor", ".editor-container"));
+  document.querySelectorAll(".new_report").forEach((container) =>
+    deprecate(container, "report-form", ".new_report"));
+  document.querySelectorAll(".user-password").forEach((container) =>
+    deprecate(container, "password-toggler", ".user-password"));
+  document.querySelectorAll(".api-user-secret").forEach((container) =>
+    deprecate(container, "password-toggler", ".api-user-secret"));
+  document.querySelectorAll("[data-input-emoji]").forEach((container) =>
+    deprecate(container, "emoji", "[data-input-emoji]"));
+  document.querySelectorAll(".js-mentions").forEach((container) =>
+    deprecate(container, "mention", ".js-mentions"));
+  document.querySelectorAll(".js-multiple-mentions").forEach((container) =>
+    deprecate(container, "multiple-mentions", ".js-multiple-mentions"))
+  document.querySelectorAll("[data-tooltip]").forEach((elem) =>
+    deprecate(elem, "tooltip", "[data-tooltip]"))
+  document.querySelectorAll(".delete-account").forEach((container) =>
+    deprecate(container, "delete-account-form", ".delete-account"))
+  document.querySelectorAll("[data-notification-action]").forEach((elem) =>
+    deprecate(elem, "notification-action", "[data-notification-action]"))
+  document.querySelectorAll("#register-from").forEach((elem) =>
+    deprecate(elem, "user-registration-form", "#register-from"))
+  document.querySelectorAll("#omniauth-register-from").forEach((elem) =>
+    deprecate(elem, "user-registration-form", "#omniauth-register-from"))
+  document.querySelectorAll(".js-tags-container").forEach((container) =>
+    deprecate(container, "input-tags", ".js-tags-container"))
+  document.querySelectorAll("[data-toggle]").forEach((elem) =>
+    deprecate(elem, "toggle", "[data-toggle]"))
+  document.querySelectorAll("[data-impersonation-warning]").forEach((container) =>
+    deprecate(container, "impersonation-warning", "[data-impersonation-warning]"))
+  document.querySelectorAll("#panel-password.user-password").forEach((container) =>
+    deprecate(container, "account-form", "#panel-password"))
+  document.querySelectorAll(".slug").forEach((container) =>
+    deprecate(container, ".slug", "slug"))
+  document.querySelectorAll("textarea[maxlength], textarea[minlength]").forEach((container) =>
+    deprecate(container, "character-counter", "textarea[maxlength], textarea[minlength]"))
+  document.querySelectorAll("input[type='text'][maxlength], input[type='text'][minlength]").forEach((container) =>
+    deprecate(container, "character-counter", "input[type='text'][maxlength], input[type='text'][minlength]"))
+  document.querySelectorAll(".editor>input[type='hidden'][maxlength], .editor>input[type='hidden'][minlength]").forEach((container) =>
+    deprecate(container, "character-counter", ".editor>input[type='hidden'][maxlength], .editor>input[type='hidden'][minlength]"))
+
+  document.querySelectorAll('input[type="datetime-local"]').forEach((container) =>
+    deprecate(container, "date-picker", 'input[type="datetime-local"]'));
+  document.querySelectorAll('input[type="date"]').forEach((container) =>
+    deprecate(container, "date-picker", 'input[type="date"]'));
+
+  document.querySelectorAll("form.new_filter").forEach((container) =>
+    deprecate(container, "form-filter", "form.new_filter"))
+
+  document.querySelectorAll(".responsive-tab-block").forEach((container) =>
+    deprecationMessage(container, ".responsive-tab-block", "NEEDS TO BE REMOVED"));
+  document.querySelectorAll('.callout[role="alert"]').forEach((container) =>
+    deprecationMessage(container, '.callout[role="alert"]', '.flash[role="alert"]'));
+  document.querySelectorAll(".js-back-to-list").forEach((container) =>
+    deprecationMessage(container, ".js-back-to-list", "NEEDS TO BE REMOVED"));
+  document.querySelectorAll("[data-toggler]").forEach((container) =>
+    deprecationMessage(container, "[data-toggler]", "Use the Stimulus toggle controller with hidden targets"));
+})
 
 // REDESIGN_PENDING: deprecated
 window.initFoundation = (element) => {
@@ -112,7 +177,7 @@ window.initFoundation = (element) => {
   $document.off("click.zf.trigger", window.Foundation.Triggers.Listeners.Basic.openListener);
   $document.on("click.zf.trigger", "[data-open]", (ev, ...restArgs) => {
     // Do not apply for the accordion triggers.
-    const accordion = ev.currentTarget?.closest("[data-component='accordion']");
+    const accordion = ev.currentTarget?.closest("[data-controller='accordion']");
     if (accordion) {
       return;
     }
@@ -142,28 +207,6 @@ const initializer = (element = document) => {
 
   svg4everybody();
 
-  element.querySelectorAll('input[type="datetime-local"],input[type="date"]').forEach((elem) => formDatePicker(elem))
-
-  element.querySelectorAll(".editor-container").forEach((container) => window.createEditor(container));
-
-  // initialize character counter
-  $("input[type='text'], textarea, .editor>input[type='hidden']", element).each((_i, elem) => {
-    const $input = $(elem);
-
-    if (!$input.is("[minlength]") && !$input.is("[maxlength]")) {
-      return;
-    }
-
-    createCharacterCounter($input);
-  });
-
-  $("form.new_filter", element).each(function () {
-    // eslint-disable-next-line no-invalid-this
-    const formFilter = new FormFilterComponent($(this));
-
-    formFilter.mountComponent();
-  })
-
   element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
     // both functions (updateExternalDomainLinks and ExternalLink) are related, so if we disable one, the other also
     updateExternalDomainLinks(elem)
@@ -171,46 +214,41 @@ const initializer = (element = document) => {
     return new ExternalLink(elem)
   })
 
-  addInputEmoji(element)
-
-  backToListLink(element.querySelectorAll(".js-back-to-list"));
-
   markAsReadNotifications(element)
-  handleNotificationActions(element)
-
-  scrollToLastChild(element)
-
-  element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
-
-  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
 
   element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
 
   // Initialize available remote modals (ajax-fetched contents)
   element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
 
-  // Add event listeners to identity modal
-  element.querySelectorAll("[data-user-identity]").forEach((elem) => selectActiveIdentity(elem))
+  // https://github.com/tremend-cofe/decidim-js/pull/6
+  element.querySelectorAll("[data-controller='onboarding']").forEach((elem) => setOnboardingAction(elem));
+  element.querySelectorAll("[data-onboarding-action]").forEach((elem) => {
+    console.error(`${window.location.href} Using data-onboarding-action. Please switch to data-controller="onboarding" data-onboarding-action-value="$action".`);
+    setOnboardingAction(elem);
+  })
 
-  // Initialize data-tooltips
-  element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
+  initializeUploadFields(element.querySelectorAll("button[data-upload]"));
+  initializeReverseGeocoding()
 
-  // Initialize data-toggles
-  element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
-
-  element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
+  element.querySelectorAll("[data-controller='accordion']").forEach((accordion) => {
+    accordion.dispatchEvent(new CustomEvent("accordion:reconnect", { detail: { collapse: true } }));
+  });
 
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete
 // mentions stops working
-// document.addEventListener("DOMContentLoaded", () => {
 $(() => initializer());
 
 // Run initializer action over the new DOM elements
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
 document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
+});
 
 // Run initializer action over the new DOM elements (for example after comments polling)
 document.addEventListener("comments:loaded", (event) => {
@@ -224,3 +262,4 @@ document.addEventListener("comments:loaded", (event) => {
     });
   }
 });
+

@@ -17,10 +17,13 @@ describe "AdminAccess" do
 
     it_behaves_like "admin participatory space access"
     it_behaves_like "admin participatory space edit button"
+    it_behaves_like "admin menu shows only assigned space",
+                    space_name: "Conferences",
+                    other_spaces: %w(Processes Initiatives Assemblies)
   end
 
-  context "with participatory space valuator" do
-    let(:role) { create(:conference_valuator, :confirmed, organization:, conference: participatory_space) }
+  context "with participatory space evaluator" do
+    let(:role) { create(:conference_evaluator, :confirmed, organization:, conference: participatory_space) }
     let(:target_path) { decidim_admin_conferences.components_path(participatory_space) }
     let(:unauthorized_target_path) { decidim_admin_conferences.components_path(other_participatory_space) }
 

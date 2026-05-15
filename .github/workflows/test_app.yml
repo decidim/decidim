@@ -1,14 +1,9 @@
 on:
   workflow_call:
     inputs:
-      codecov_token:
-        required: false
-        description: 'Codecov token'
-        default: "bc15b944-6b42-420a-b3f9-a5a8fb214326"
-        type: string
       ruby_version:
         description: 'Ruby Version'
-        default: "3.3.4"
+        default: "3.4.7"
         required: false
         type: string
       working-directory:
@@ -41,7 +36,7 @@ on:
       chrome_version:
         description: 'Chrome & Chromedriver version'
         required: false
-        default: "126.0.6478.182"
+        default: "139.0.7258.66"
         type: string
 
 jobs:
@@ -56,6 +51,7 @@ jobs:
       DATABASE_HOST: localhost
       DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
       DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
+      PARALLEL_TEST_PROCESSORS: 3
     services:
       validator:
         image: ghcr.io/validator/validator:latest
@@ -70,21 +66,26 @@ jobs:
           --health-retries 5
         env:
           POSTGRES_PASSWORD: postgres
-      redis:
-        image: redis
-        ports: ["6379:6379"]
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 1
+      - run: |
+          sudo apt-get update && sudo apt-get install libvips libvips-tools
+        name: Install libvips
+        shell: "bash"
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
+          bundler-cache: true
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+          cache-dependency-path: ./package-lock.json
+      - run: npm config set fetch-retries 5 && npm config set fetch-retry-mintimeout 20000 && npm config set fetch-retry-maxtimeout 120000
+        name: Tune NPM configuration
+        shell: "bash"
       - run: |
           sudo apt update
           sudo apt install libu2f-udev
@@ -95,14 +96,16 @@ jobs:
         with:
           chromedriver-version: ${{inputs.chrome_version}}
         name: Install Chrome version ${{inputs.chrome_version}}
-      - run: |
-          sudo apt install wkhtmltopdf
-      - uses: actions/cache@v4
-        id: app-cache
-        with:
-          path: ./spec/decidim_dummy_app/
-          key: app-${{ github.sha }}
-          restore-keys: app-${{ github.sha }}
+      - run: bundle exec brakeman --rails7 --force-scan .
+        name: Scanning Security issues on module
+        working-directory: ${{ inputs.working-directory }}
+        shell: "bash"
+      - run: bundle exec rake test_app
+        name: Create test app
+        shell: "bash"
+      - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
+        name: Create the screenshots folder
+        shell: "bash"
       - run: |
           bundle install
           bundle exec rake parallel:create parallel:load_schema
@@ -118,7 +121,6 @@ jobs:
           VALIDATOR_HTML_URI: http://localhost:8888/
           RUBY_VERSION: ${{ inputs.ruby_version }}
           DECIDIM_MODULE: ${{ inputs.working-directory }}
-          CODECOV_TOKEN: ${{ inputs.codecov_token }}
           DECIDIM_BULLET_ENABLED: ${{ inputs.bullet_enabled }}
           DECIDIM_BULLET_N_PLUS_ONE: ${{ inputs.bullet_n_plus_one }}
           DECIDIM_BULLET_COUNTER_CACHE: ${{ inputs.bullet_counter_cache }}
@@ -128,16 +130,21 @@ jobs:
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
-      - uses: codecov/codecov-action@v4
+      - uses: qltysh/qlty-action/coverage@v2
+        with:
+          token: ${{secrets.QLTY_COVERAGE_TOKEN}}
+          files: coverage/coverage.xml
+          verbose: true
+          add-prefix: ${{ env.DECIDIM_MODULE }}
+      - uses: codecov/codecov-action@v6
         name: Upload coverage
         with:
-          token: ${{ inputs.codecov_token }}
           name: ${{ inputs.working-directory }}
           flags: ${{ inputs.working-directory }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: screenshots
+          name: Screenshots of run ${{ github.run_id }}
           path: ./spec/decidim_dummy_app/tmp/screenshots
           if-no-files-found: ignore
           overwrite: true

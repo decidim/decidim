@@ -14,6 +14,7 @@ module Decidim
     include Decidim::HasAttachmentCollections
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::DownloadYourData
     include Decidim::Initiatives::InitiativeSlug
     include Decidim::Resourceable
     include Decidim::HasReference
@@ -33,6 +34,7 @@ module Decidim
     delegate :document_number_authorization_handler, :promoting_committee_enabled?, :attachments_enabled?,
              :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
     delegate :name, to: :area, prefix: true, allow_nil: true
+    delegate :name, to: :author, prefix: true
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -64,12 +66,10 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    enum signature_type: [:online, :offline, :any], _suffix: true
-    enum state: [:created, :validating, :discarded, :open, :rejected, :accepted]
+    enum :signature_type, [:online, :offline, :any], suffix: true
+    enum :state, [:created, :validating, :discarded, :open, :rejected, :accepted]
 
     validates :title, :description, :state, :signature_type, presence: true
-    validates :hashtag,
-              uniqueness: { allow_blank: true, case_sensitive: false }
 
     validate :signature_type_allowed
 
@@ -145,7 +145,6 @@ module Decidim
 
     before_update :set_offline_votes_total
     after_commit :notify_state_change
-    after_create :notify_creation
 
     searchable_fields({
                         participatory_space: :itself,
@@ -157,8 +156,16 @@ module Decidim
                       # is Resourceable instead of ParticipatorySpaceResourceable so we cannot use `visible?`
                       index_on_update: ->(initiative) { initiative.published? })
 
+    def self.export_serializer
+      Decidim::Initiatives::DownloadYourDataInitiativeSerializer
+    end
+
     def self.log_presenter_class_for(_log)
       Decidim::Initiatives::AdminLog::InitiativePresenter
+    end
+
+    def presenter
+      Decidim::InitiativePresenter.new(self)
     end
 
     def self.ransackable_attributes(auth_object = nil)
@@ -166,49 +173,20 @@ module Decidim
 
       return base unless auth_object&.admin?
 
-      base + %w(published_at state decidim_area_id type_id)
+      base + %w(published_at created_at state decidim_area_id type_id)
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area scope categories)
+      %w(area scope taxonomies)
     end
 
     def self.ransackable_scopes(_auth_object = nil)
       [:with_any_state, :with_any_type, :with_any_scope, :with_any_area]
     end
 
-    # Public: Overrides participatory space's banner image with the banner image defined
-    # for the initiative type.
-    #
-    # Returns Decidim::BannerImageUploader
-    def banner_image
-      type.attached_uploader(:banner_image)
-    end
-
     # Public: Whether the object's comments are visible or not.
     def commentable?
       type.comments_enabled?
-    end
-
-    # Public: Check if an initiative has been created by an individual person.
-    # If it is false, then it has been created by an authorized organization.
-    #
-    # Returns a Boolean
-    def created_by_individual?
-      decidim_user_group_id.nil?
-    end
-
-    # Public: Returns the author name. If it has been created by an organization it will
-    # return the organization's name. Otherwise it will return author's name.
-    #
-    # Returns a string
-    def author_name
-      user_group&.name || author.name
-    end
-
-    # Public: Overrides the `reported_content_url` Reportable concern method.
-    def reported_content_url
-      ResourceLocatorPresenter.new(self).url
     end
 
     # Public: Overrides the `reported_attributes` Reportable concern method.
@@ -276,11 +254,6 @@ module Decidim
     # Public: Returns whether the signature interval is already defined or not.
     def has_signature_interval_defined?
       signature_end_date.present? && signature_start_date.present?
-    end
-
-    # Public: Returns the hashtag for the initiative.
-    def hashtag
-      attributes["hashtag"].to_s.delete("#")
     end
 
     # Public: Calculates the number of total current supports.
@@ -460,6 +433,12 @@ module Decidim
       Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
     end
 
+    # Public: Initiatives do not have user roles like other participatory spaces.
+    # Returns an empty relation.
+    def user_roles(_role_name = nil)
+      self.class.none
+    end
+
     # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
     def allow_resource_permissions?
       true
@@ -467,6 +446,10 @@ module Decidim
 
     def user_allowed_to_comment?(user)
       ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
+    end
+
+    def user_allowed_to_vote_comment?(user)
+      ActionAuthorizer.new(user, "vote_comment", self, nil).authorize.ok?
     end
 
     def shareable_url(share_token)
@@ -500,11 +483,6 @@ module Decidim
     def notify_state_change
       return unless saved_change_to_state?
 
-      notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
-      notifier.notify
-    end
-
-    def notify_creation
       notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
       notifier.notify
     end

@@ -10,6 +10,7 @@ module Decidim
       # Renders the dates of a conference
       #
       def render_date(conference)
+        return if conference.start_date.nil? || conference.end_date.nil?
         return l(conference.start_date, format: :decidim_with_month_name_short) if conference.start_date == conference.end_date
 
         "#{l(conference.start_date, format: :decidim_with_month_name_short)} - #{l(conference.end_date, format: :decidim_with_month_name_short)}"
@@ -26,8 +27,16 @@ module Decidim
             }
           end
 
-          meeting_components = participatory_space.components.published.where(manifest_name: "meetings")
-          other_components = participatory_space.components.published.where.not(manifest_name: "meetings")
+          meeting_components = participatory_space
+                               .components
+                               .published
+                               .where(manifest_name: "meetings")
+                               .where(visible: true)
+          other_components = participatory_space
+                             .components
+                             .published
+                             .where.not(manifest_name: "meetings")
+                             .where(visible: true)
 
           meeting_components.each do |component|
             next unless Decidim::Meetings::Meeting.where(component:).published.not_hidden.visible_for(current_user).exists?

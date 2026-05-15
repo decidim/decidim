@@ -37,7 +37,7 @@ shared_examples "manage assembly admins examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Admin successfully added to this assembly.")
 
     within "#assembly_admins table" do
       expect(page).to have_content(other_user.email)
@@ -56,6 +56,7 @@ shared_examples "manage assembly admins examples" do
     it "updates an assembly admin", versioning: true do
       within "#assembly_admins" do
         within "#assembly_admins tr", text: other_user.email do
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
       end
@@ -66,7 +67,7 @@ shared_examples "manage assembly admins examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Admin updated successfully for this assembly.")
 
       within "#assembly_admins table" do
         expect(page).to have_content("Collaborator")
@@ -77,10 +78,11 @@ shared_examples "manage assembly admins examples" do
 
     it "deletes an assembly_user_role" do
       within "#assembly_admins tr", text: other_user.email do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Admin successfully removed from this assembly.")
 
       within "#assembly_admins table" do
         expect(page).to have_no_content(other_user.email)
@@ -105,10 +107,11 @@ shared_examples "manage assembly admins examples" do
 
       it "resends the invitation to the user" do
         within "#assembly_admins tr", text: "test@example.org" do
+          find("button[data-controller='dropdown']").click
           click_on "Resend invitation"
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Invitation successfully resent.")
       end
     end
   end

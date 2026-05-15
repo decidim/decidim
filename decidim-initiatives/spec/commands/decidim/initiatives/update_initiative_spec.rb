@@ -18,7 +18,6 @@ module Decidim
         )
       end
       let(:signature_type) { "online" }
-      let(:hashtag) { nil }
       let(:attachment) { nil }
       let(:uploaded_files) { [] }
       let(:current_files) { [] }
@@ -113,7 +112,6 @@ module Decidim
                 description: "A reasonable initiative description",
                 type_id: initiative_type.id,
                 signature_type: "online",
-                decidim_user_group_id: nil,
                 area_id: area.id
               }
             end

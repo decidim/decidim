@@ -1,5 +1,5 @@
 // Choose a Proposal Answer template, get it by AJAX and add the Template in the Proposal Answer textarea
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const proposalAnswerTemplateChooser = document.getElementById("proposal_answer_template_chooser");
   if (proposalAnswerTemplateChooser) {
     proposalAnswerTemplateChooser.addEventListener("change", () => {

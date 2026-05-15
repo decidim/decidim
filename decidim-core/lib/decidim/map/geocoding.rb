@@ -22,7 +22,7 @@ module Decidim
       # A common search method to lookup information about an address or
       # coordinates from the geocoder.
       #
-      # @param query [String, Array(<Float, String>, <Float, String>)] The
+      # @param query [Array(Array<Float, String>, Array<Float, String>)] The
       #   search query to be passed to the geocoder
       # @param options [Hash] Extra options to be provided for the geocoder
       #   search
@@ -55,7 +55,7 @@ module Decidim
       # (latitude/longitude) coordinates and returns a clear text address for
       # the closest result.
       #
-      # @param coordinates [Array(<Float, String>, <Float, String>)] An array of
+      # @param coordinates [Array(Array<Float, String>, Array<Float, String>)] An array of
       #   the coordinates where the first element is the latitude and the second
       #   element is the longitude
       # @param options [Hash] Extra options to be provided for the geocoder

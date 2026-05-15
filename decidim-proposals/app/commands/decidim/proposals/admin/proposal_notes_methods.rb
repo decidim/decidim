@@ -19,9 +19,9 @@ module Decidim
           @rewritten_body ||= parsed_body.rewrite
         end
 
-        def proposal_valuators
-          @proposal_valuators ||= Decidim::Proposals::ValuationAssignment.where(proposal:).filter_map do |assignment|
-            assignment.valuator unless assignment.valuator == form.current_user
+        def proposal_evaluators
+          @proposal_evaluators ||= Decidim::Proposals::EvaluationAssignment.where(proposal:).filter_map do |assignment|
+            assignment.evaluator unless assignment.evaluator == form.current_user
           end
         end
 
@@ -35,11 +35,11 @@ module Decidim
           end
         end
 
-        def mentioned_admins_or_valuators
+        def mentioned_admins_or_evaluators
           mentioned_users.select do |user|
             admins.exists?(user.id) ||
               space_admins.include?(user) ||
-              proposal_valuators.include?(user)
+              proposal_evaluators.include?(user)
           end
         end
       end

@@ -5,7 +5,7 @@
 // https://docs.decidim.org/en/develop/customize/styles
 //
 
-const { inherit, current, transparent, white } = require("tailwindcss/colors")
+const { inherit, current, transparent, white, neutral } = require("tailwindcss/colors")
 
 const withOpacity =
   (variable) =>
@@ -15,7 +15,7 @@ const withOpacity =
       : `rgb(var(${variable}) / ${opacityValue})`;
 
 module.exports = {
-  // This content is generated automatically by decidim:webpacker:install task, it
+  // This content is generated automatically by decidim:shakapacker:install task, it
   // should not be updated manually.
   // The array must contain all the decidim modules active in the application
   content: [<%= tailwind_content_directories %>].flatMap(directory => [
@@ -33,6 +33,7 @@ module.exports = {
       current,
       transparent,
       white,
+      neutral,
       primary: withOpacity("--primary-rgb"),
       secondary: withOpacity("--secondary-rgb"),
       tertiary: withOpacity("--tertiary-rgb"),
@@ -45,7 +46,8 @@ module.exports = {
         2: "#3E4C5C",
         3: "#E1E5EF",
         4: "#242424",
-        5: "#F6F8FA"
+        5: "#F6F8FA",
+        6: "#D3D5D9"
       },
       background: {
         DEFAULT: "#F3F4F7",
@@ -66,7 +68,7 @@ module.exports = {
       sans: ["Source Sans Pro", "ui-sans-serif", "system-ui", "sans-serif"]
     },
     fontSize: {
-      xs: ["13px", "16px"],
+      xs: ["12px", "16px"],
       sm: ["14px", "18px"],
       md: ["16px", "20px"],
       lg: ["18px", "23px"],
@@ -79,6 +81,9 @@ module.exports = {
     extend: {
       transitionProperty: {
         'top': 'top',
+      },
+      screens: {
+        'xs': '375px'
       }
     }
   },

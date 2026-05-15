@@ -8,7 +8,7 @@ module Decidim
       end
 
       def html_content
-        translated_attribute(model.settings.html_content).html_safe
+        decidim_sanitize_editor_admin(translated_attribute(model.settings.html_content))
       end
     end
   end

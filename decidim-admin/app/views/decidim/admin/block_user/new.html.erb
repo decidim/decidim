@@ -1,4 +1,5 @@
 <% add_decidim_page_title(t(".title", name: user.name)) %>
+
 <div class="item_show__header">
   <h1 class="item_show__header-title">
     <%= t(".title", name: user.name) %>
@@ -26,7 +27,7 @@
             <div class="row column">
               <%= f.hidden_field :user_id %>
               <%= f.hidden_field :hide %>
-              <%= f.text_area :justification, required: true, label: t(".justification") %>
+              <%= f.text_area :justification, required: true, label: t(".justification"), data: { controller: "character-counter" } %>
             </div>
           </div>
         </div>

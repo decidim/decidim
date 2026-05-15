@@ -41,6 +41,23 @@ module Decidim
             expect(result).to eq("01/01/2016 - ?")
           end
         end
+
+        describe "available_taxonomy_filters" do
+          before do
+            allow(helper).to receive(:current_organization).and_return(organization)
+          end
+
+          let(:taxonomy) { create(:taxonomy, :with_parent) }
+          let(:root_taxonomy) { taxonomy.parent }
+          let(:organization) { root_taxonomy.organization }
+          let!(:taxonomy_filter1) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: %w(participatory_processes assemblies)) }
+          let!(:taxonomy_filter2) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: ["assemblies"]) }
+          let!(:external_taxonomy_filter) { create(:taxonomy_filter, participatory_space_manifests: ["participatory_processes"]) }
+
+          it "returns the available taxonomy filters for participatory processes" do
+            expect(helper.available_taxonomy_filters).to eq([taxonomy_filter1])
+          end
+        end
       end
     end
   end

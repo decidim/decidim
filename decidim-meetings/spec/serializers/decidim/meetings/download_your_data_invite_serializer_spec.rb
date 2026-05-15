@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe DownloadYourDataInviteSerializer do
-    let(:resource) { build_stubbed(:invite) }
+    let(:resource) { create(:invite) }
 
     subject { described_class.new(resource) }
 
@@ -18,15 +18,8 @@ module Decidim::Meetings
         expect(subject.serialize).to include(sent_at: resource.sent_at)
         expect(subject.serialize).to include(accepted_at: resource.accepted_at)
         expect(subject.serialize).to include(rejected_at: resource.rejected_at)
-      end
-
-      it "includes the user" do
-        serialized_user = subject.serialize[:user]
-
-        expect(serialized_user).to be_a(Hash)
-
-        expect(serialized_user).to include(name: resource.user.name)
-        expect(serialized_user).to include(email: resource.user.email)
+        expect(subject.serialize).to include(created_at: resource.created_at)
+        expect(subject.serialize).to include(updated_at: resource.updated_at)
       end
 
       it "includes the meeting" do
@@ -35,6 +28,7 @@ module Decidim::Meetings
         expect(serialized_meeting).to be_a(Hash)
 
         expect(serialized_meeting).to include(title: resource.meeting.title)
+        expect(serialized_meeting).to include(url: Decidim::ResourceLocatorPresenter.new(resource.meeting).url)
         expect(serialized_meeting).to include(description: resource.meeting.description)
         expect(serialized_meeting).to include(start_time: resource.meeting.start_time)
         expect(serialized_meeting).to include(end_time: resource.meeting.end_time)

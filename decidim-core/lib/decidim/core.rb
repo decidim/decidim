@@ -59,6 +59,7 @@ module Decidim
   autoload :AdminFilter, "decidim/admin_filter"
   autoload :AdminFiltersRegistry, "decidim/admin_filters_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
+  autoload :MutationRegistry, "decidim/mutation_registry"
   autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :UrlOptionResolver, "decidim/url_option_resolver"
@@ -67,19 +68,13 @@ module Decidim
   autoload :ContentBlockRegistry, "decidim/content_block_registry"
   autoload :ContentBlockManifest, "decidim/content_block_manifest"
   autoload :ContentBlocks, "decidim/content_blocks"
-  autoload :MetricRegistry, "decidim/metric_registry"
-  autoload :MetricManifest, "decidim/metric_manifest"
-  autoload :MetricOperation, "decidim/metric_operation"
-  autoload :MetricOperationManifest, "decidim/metric_operation_manifest"
   autoload :AttributeEncryptor, "decidim/attribute_encryptor"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :NewsletterParticipant, "decidim/newsletter_participant"
   autoload :Searchable, "decidim/searchable"
   autoload :FilterableResource, "decidim/filterable_resource"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
-  autoload :QueryExtensions, "decidim/query_extensions"
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
-  autoload :HasPrivateUsers, "decidim/has_private_users"
   autoload :ViewModel, "decidim/view_model"
   autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
   autoload :Fingerprintable, "decidim/fingerprintable"
@@ -88,7 +83,6 @@ module Decidim
   autoload :DownloadYourDataExporter, "decidim/download_your_data_exporter"
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
-  autoload :Hashtag, "decidim/hashtag"
   autoload :Etherpad, "decidim/etherpad"
   autoload :Paddable, "decidim/paddable"
   autoload :OpenDataExporter, "decidim/open_data_exporter"
@@ -96,7 +90,7 @@ module Decidim
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
-  autoload :Endorsable, "decidim/endorsable"
+  autoload :Likeable, "decidim/likeable"
   autoload :ActionAuthorization, "decidim/action_authorization"
   autoload :Map, "decidim/map"
   autoload :Geocodable, "decidim/geocodable"
@@ -127,7 +121,24 @@ module Decidim
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
   autoload :IconRegistry, "decidim/icon_registry"
   autoload :HasConversations, "decidim/has_conversations"
+  autoload :SoftDeletable, "decidim/soft_deletable"
   autoload :PrivateDownloadHelper, "decidim/private_download_helper"
+  autoload :OAuth, "decidim/oauth"
+  autoload :PdfSignatureExample, "decidim/pdf_signature_example"
+  autoload :HasWorkflows, "decidim/has_workflows"
+  autoload :StatsFollowersCount, "decidim/stats_followers_count"
+  autoload :StatsParticipantsCount, "decidim/stats_participants_count"
+  autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
+  autoload :ApiResponseHelper, "decidim/api_response_helper"
+  autoload :ResourceHelper, "decidim/resource_helper"
+  autoload :TooltipHelper, "decidim/tooltip_helper"
+  autoload :FormFactory, "decidim/form_factory"
+  autoload :LocaleRouterDetector, "decidim/locale_router_detector"
+  autoload :Routes, "decidim/routes"
+
+  module ParticipatorySpace
+    autoload :HasMembers, "decidim/participatory_space/has_members"
+  end
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
@@ -135,9 +146,18 @@ module Decidim
     autoload :DestroyResource, "decidim/commands/destroy_resource"
     autoload :ResourceHandler, "decidim/commands/resource_handler"
     autoload :HookError, "decidim/commands/hook_error"
+    autoload :SoftDeleteResource, "decidim/commands/soft_delete_resource"
+    autoload :RestoreResource, "decidim/commands/restore_resource"
   end
 
-  include ActiveSupport::Configurable
+  class << self
+    def config = self
+
+    def configure
+      yield self
+    end
+  end
+
   # Loads seeds from all engines.
   def self.seed!
     # After running the migrations, some records may have loaded their column
@@ -165,7 +185,7 @@ module Decidim
 
     seed_gamification_badges!
 
-    seed_endorsements!
+    seed_likes!
 
     I18n.available_locales = original_locale
   end
@@ -195,15 +215,15 @@ module Decidim
     end
   end
 
-  def self.seed_endorsements!
+  def self.seed_likes!
     resources_types = Decidim.resource_manifests
                              .map { |resource| resource.attributes[:model_class_name] }
-                             .select { |resource| resource.constantize.include? Decidim::Endorsable }
+                             .select { |resource| resource.constantize.include? Decidim::Likeable }
 
     resources_types.each do |resource_type|
       resource_type.constantize.find_each do |resource|
-        # exclude the users that already endorsed
-        users = resource.endorsements.map(&:author)
+        # exclude the users that already liked
+        users = resource.likes.map(&:author)
         remaining_count = Decidim::User.count - users.count
         next if remaining_count < 1
 
@@ -211,7 +231,7 @@ module Decidim
           user = (Decidim::User.all - users).sample
           next unless user
 
-          Decidim::Endorsement.create!(resource:, author: user)
+          Decidim::Like.create!(resource:, author: user)
           users << user
         end
       end
@@ -230,38 +250,69 @@ module Decidim
   end
 
   # Exposes a configuration option: The application name String.
-  config_accessor :application_name
+  mattr_accessor :application_name, default: Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_s
 
   # Exposes a configuration option: The email String to use as sender in all
   # the mails.
-  config_accessor :mailer_sender
+  mattr_accessor :mailer_sender, default: Decidim::Env.new("DECIDIM_MAILER_SENDER", "change-me@example.org").to_s
 
   # Whether SSL should be forced or not.
-  config_accessor :force_ssl do
-    Rails.env.starts_with?("production") || Rails.env.starts_with?("staging")
-  end
+  mattr_accessor :force_ssl
+  self.force_ssl ||= if Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists.to_s == "auto"
+                       Rails.env.starts_with?("production") || Rails.env.starts_with?("staging")
+                     else
+                       Decidim::Env.new("DECIDIM_FORCE_SSL").present?
+                     end
+
+  # CDN host configuration
+  mattr_accessor :storage_cdn_host, default: Decidim::Env.new("STORAGE_CDN_HOST", nil).to_s
+
+  # Which storage provider is going to be used for the application, provides support for the most popular options.
+  mattr_accessor :storage_provider, default: Decidim::Env.new("STORAGE_PROVIDER", "local").to_s
+
+  # VAPID public key that will be used to sign the Push API requests.
+  mattr_accessor :vapid_public_key, default: Decidim::Env.new("VAPID_PUBLIC_KEY", nil).to_s
+
+  # VAPID private key that will be used to sign the Push API requests.
+  mattr_accessor :vapid_private_key, default: Decidim::Env.new("VAPID_PRIVATE_KEY", nil).to_s
 
   # Having this on true will change the way the svg assets are being served.
-  config_accessor :cors_enabled do
-    false
-  end
+  mattr_accessor :cors_enabled, default: Decidim::Env.new("DECIDIM_CORS_ENABLED", "false").present?
 
   # Exposes a configuration option: The application available locales.
-  config_accessor :available_locales do
-    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
-  end
+  mattr_accessor :available_locales, default: Decidim::Env.new("DECIDIM_AVAILABLE_LOCALES", %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl
+                                                                                               fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl
+                                                                                               sr sv tr uk vi zh-CN zh-TW).join(",")).to_array
 
   # Exposes a configuration option: The application default locale.
-  config_accessor :default_locale do
-    :en
+  mattr_accessor :default_locale, default: (Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").presence || :en).to_s
+
+  # Users that have not logged in for this period of time will be deleted
+  mattr_accessor :delete_inactive_users_after_days, default: Decidim::Env.new("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
+
+  # The minimum allowed inactivity period for deleting participants.
+  mattr_accessor :minimum_inactivity_period, default: Decidim::Env.new("DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS", 30).to_i
+
+  # Users will be warned for the first time this amount of days before the final removal
+  mattr_accessor :delete_inactive_users_first_warning_days_before, default: Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE", 30).to_i
+
+  # Users will be warned for the last time this amount of days before the final removal
+  mattr_accessor :delete_inactive_users_last_warning_days_before, default: Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE", 7).to_i
+
+  # Returns the inactivity threshold (in days) to trigger the first warning email.
+  def self.first_warning_inactive_users_after_days
+    delete_inactive_users_after_days - delete_inactive_users_first_warning_days_before
+  end
+
+  # Returns the inactivity threshold (in days) to trigger the final warning email.
+  def self.last_warning_inactive_users_after_days
+    delete_inactive_users_first_warning_days_before - delete_inactive_users_last_warning_days_before
   end
 
   # Disable the redirection to the external host when performing redirect back
   # For more details https://github.com/rails/rails/issues/39643
   # Additional context: This has been revealed as an issue during a security audit on Future of Europe installation
-  config_accessor :allow_open_redirects do
-    false
-  end
+  mattr_accessor :allow_open_redirects, default: Decidim::Env.new("DECIDIM_ALLOW_OPEN_REDIRECTS").present?
 
   # Exposes a configuration option: an array of symbols representing processors
   # that will be automatically executed when a content is parsed or rendered.
@@ -276,16 +327,60 @@ module Decidim
   #
   #   Decidim::ContentParsers::UserParser < BaseParser
   #   Decidim::ContentRenderers::UserRenderer < BaseRenderer
-  config_accessor :content_processors do
-    []
-  end
+  mattr_accessor :content_processors, default: Decidim::Env.new("DECIDIM_CONTENT_PROCESSORS", "").to_array
 
   # Exposes a configuration option: an object to configure geocoder
-  config_accessor :geocoder
+  mattr_accessor :geocoder
 
   # Exposes a configuration option: an object to configure the mapping
   # functionality. See Decidim::Map for more information.
-  config_accessor :maps
+  mattr_accessor :maps
+  self.maps ||= if Decidim::Env.new("MAPS_STATIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).present?
+                  @maps ||= begin
+                    static_provider = Decidim::Env.new("MAPS_STATIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
+                    maps = {
+                      provider: static_provider,
+                      api_key: Decidim::Env.new("MAPS_STATIC_API_KEY", ENV.fetch("MAPS_API_KEY", nil)).to_s,
+                      static: false,
+                      dynamic: false
+                    }
+
+                    maps[:geocoding] = { host: ENV["MAPS_GEOCODING_HOST"], use_https: true } if ENV["MAPS_GEOCODING_HOST"]
+
+                    static_url = ENV.fetch("MAPS_STATIC_URL", nil)
+                    static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here"
+                    maps[:static] = { url: static_url } if static_url
+
+                    dynamic_provider = Decidim::Env.new("MAPS_DYNAMIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
+
+                    if dynamic_provider.present?
+                      dynamic_url = ENV.fetch("MAPS_DYNAMIC_URL", nil)
+                      maps[:dynamic] = {
+                        provider: dynamic_provider,
+                        api_key: Decidim::Env.new("MAPS_DYNAMIC_API_KEY", ENV.fetch("MAPS_API_KEY", nil)).to_s
+                      }
+                      maps[:dynamic][:tile_layer] = {}
+                      maps[:dynamic][:tile_layer][:url] = dynamic_url if dynamic_url
+                      maps[:dynamic][:tile_layer][:attribution] = ENV["MAPS_ATTRIBUTION"] if ENV["MAPS_ATTRIBUTION"]
+                    end
+                    if dynamic_provider.present? && Decidim::Env.new("MAPS_EXTRA_VARS").present?
+                      vars = URI.decode_www_form(Decidim::Env.new("MAPS_EXTRA_VARS").to_s)
+                      vars.each do |key, value|
+                        # perform a naive type conversion
+                        maps[:dynamic][:tile_layer][key] = case value
+                                                           when /^true$|^false$/i
+                                                             value.downcase == "true"
+                                                           when /\A[-+]?\d+\z/
+                                                             value.to_i
+                                                           else
+                                                             value
+                                                           end
+                      end
+                    end
+
+                    maps
+                  end
+                end
 
   # Exposes a configuration option: a custom method to generate references.
   # If overwritten, it should handle both component resources and participatory spaces.
@@ -299,163 +394,138 @@ module Decidim
   #       (MEET for meetings or PROJ for projects).
   # 2017-02: Year-Month of the resource creation date
   # 6589: ID of the resource
-  config_accessor :reference_generator do
-    lambda do |resource, component|
-      ref = ""
+  mattr_accessor :reference_generator
+  self.reference_generator ||= lambda do |resource, component|
+    ref = ""
 
-      if resource.is_a?(Decidim::HasComponent) && component.present?
-        # It is a component resource
-        ref = component.participatory_space.organization.reference_prefix
-      elsif resource.is_a?(Decidim::Participable)
-        # It is a participatory space
-        ref = resource.organization.reference_prefix
-      end
-
-      class_identifier = resource.class.name.demodulize[0..3].upcase
-      year_month = (resource.created_at || Time.current).strftime("%Y-%m")
-
-      [ref, class_identifier, year_month, resource.id].join("-")
+    if resource.is_a?(Decidim::HasComponent) && component.present?
+      # It is a component resource
+      ref = component.participatory_space.organization.reference_prefix
+    elsif resource.is_a?(Decidim::Participable)
+      # It is a participatory space
+      ref = resource.organization.reference_prefix
     end
+    class_identifier = resource.class.name.demodulize[0..3].upcase
+    year_month = (resource.created_at || Time.current).strftime("%Y-%m")
+
+    [ref, class_identifier, year_month, resource.id].join("-")
   end
 
   # Exposes a configuration option: the IPs that are allowed to access the system
-  config_accessor :system_accesslist_ips do
-    []
-  end
+  mattr_accessor :system_accesslist_ips, default: Decidim::Env.new("DECIDIM_SYSTEM_ACCESSLIST_IPS").to_array
 
   # Exposes a configuration option: the currency unit
-  config_accessor :currency_unit do
-    "€"
-  end
+  mattr_accessor :currency_unit, default: if Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").present?
+                                            Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").to_s
+                                          else
+                                            "€"
+                                          end
 
   # Exposes a configuration option: The image uploader quality.
-  config_accessor :image_uploader_quality do
-    80
-  end
+  mattr_accessor :image_uploader_quality, default: Decidim::Env.new("DECIDIM_IMAGE_UPLOADER_QUALITY", "80").to_i
 
   # The number of reports which a resource can receive before hiding it
-  config_accessor :max_reports_before_hiding do
-    3
-  end
+  mattr_accessor :max_reports_before_hiding, default: Decidim::Env.new("DECIDIM_MAX_REPORTS_BEFORE_HIDING", "3").to_i
 
   # Allow organization's administrators to inject custom HTML into the frontend
-  config_accessor :enable_html_header_snippets do
-    true
-  end
+  mattr_accessor :enable_html_header_snippets, default: Decidim::Env.new("DECIDIM_ENABLE_HTML_HEADER_SNIPPETS").present?
 
   # Allow organization's administrators to track newsletter links
-  config_accessor :track_newsletter_links do
-    true
-  end
+  mattr_accessor :track_newsletter_links
+  self.track_newsletter_links ||= if Decidim::Env.new("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto").default_or_present_if_exists.to_s == "auto"
+                                    true
+                                  else
+                                    Decidim.force_ssl
+                                  end
 
   # Time that download your data files are available in server
-  config_accessor :download_your_data_expiry_time do
-    7.days
-  end
+  mattr_accessor :download_your_data_expiry_time, default: Decidim::Env.new("DECIDIM_DOWNLOAD_YOUR_DATA_EXPIRY_TIME", "7").to_i.days
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
-  config_accessor :throttling_max_requests do
-    100
-  end
+  mattr_accessor :throttling_max_requests, default: Decidim::Env.new("DECIDIM_THROTTLING_MAX_REQUESTS", "100").to_i
 
   # Time window in which the throttling is applied.
-  config_accessor :throttling_period do
-    1.minute
-  end
+  mattr_accessor :throttling_period, default: Decidim::Env.new("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
 
   # Time window were users can access the website even if their email is not confirmed.
-  config_accessor :unconfirmed_access_for do
-    0.days
-  end
+  mattr_accessor :unconfirmed_access_for, default: Decidim::Env.new("DECIDIM_UNCONFIRMED_ACCESS_FOR", "0").to_i.days
 
   # Allow machine translations
-  config_accessor :enable_machine_translations do
-    false
-  end
+  mattr_accessor :enable_machine_translations, default: Decidim::Env.new("DECIDIM_ENABLE_MACHINE_TRANSLATION", false).present?
 
   # How long can a user remained logged in before the session expires. Notice that
   # this is also maximum time that user can idle before getting automatically signed out.
-  config_accessor :expire_session_after do
-    30.minutes
-  end
+  mattr_accessor :expire_session_after, default: Decidim::Env.new("DECIDIM_EXPIRE_SESSION_AFTER", "30").to_i.minutes
+
+  # Defines how long the OAuth access tokens and API access tokens are valid.
+  # Defaults to the default value as defined in Doorkeeper.
+  mattr_accessor :oauth_access_token_expires_in, default: Decidim::Env.new("DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN", "120").to_i.minutes
 
   # If set to true, users have option to "remember me". Notice that expire_session_after will not take
   # effect when the user wants to be remembered.
-  config_accessor :enable_remember_me do
-    true
-  end
+  mattr_accessor :enable_remember_me
+  self.enable_remember_me ||= if Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists.to_s == "auto"
+                                true
+                              else
+                                Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists
+                              end
 
   # Defines how often session_timeouter.js checks time between current moment and last request
-  config_accessor :session_timeout_interval do
-    10.seconds
-  end
+  mattr_accessor :session_timeout_interval, default: Decidim::Env.new("DECIDIM_SESSION_TIMEOUT_INTERVAL", "10").to_i.seconds
 
   # Exposes a configuration option: an object to configure Etherpad
-  config_accessor :etherpad do
-    # {
-    #   server: <your url>,
-    #   api_key: <your key>,
-    #   api_version: <your version>
-    # }
-  end
+  mattr_accessor :etherpad
+  self.etherpad ||= if Decidim::Env.new("ETHERPAD_SERVER").present? && Decidim::Env.new("ETHERPAD_API_KEY").present?
+                      {
+                        server: Decidim::Env.new("ETHERPAD_SERVER").to_s,
+                        api_key: Decidim::Env.new("ETHERPAD_API_KEY").to_s,
+                        api_version: Decidim::Env.new("ETHERPAD_API_VERSION", "1.2.1").to_s
+                      }
+                    end
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
   # environments, but in different folders.
-  config_accessor :base_uploads_path do
-    nil
-  end
+  mattr_accessor :base_uploads_path, default: (Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").presence&.to_s)
 
   # The name of the class to deliver SMS codes to users.
   #
   # Check the example in `decidim-verifications`.
-  config_accessor :sms_gateway_service do
-    # "MyGatewayClass"
-  end
+  mattr_accessor :sms_gateway_service, default: Decidim::Env.new("DECIDIM_SMS_GATEWAY_SERVICE", nil).value
 
   # The name of the class used to generate a timestamp from a document.
   #
   # Check the example in `decidim-initiatives`
-  config_accessor :timestamp_service do
-    # "MyTimestampService"
-  end
+  mattr_accessor :timestamp_service, default: Decidim::Env.new("DECIDIM_TIMESTAMP_SERVICE", nil).value
 
   # The name of the class used to process a pdf and add a signature to the
   # document.
   #
   # Check the example in `decidim-initiatives`
-  config_accessor :pdf_signature_service do
-    # "MyPDFSignatureService"
-  end
+  mattr_accessor :pdf_signature_service, default: Decidim::Env.new("DECIDIM_PDF_SIGNATURE_SERVICE", nil).value
 
   # The name of the class to translate user content.
   #
-  config_accessor :machine_translation_service do
-    # "MyTranslationService"
-  end
+  mattr_accessor :machine_translation_service, default: Decidim::Env.new("DECIDIM_MACHINE_TRANSLATION_SERVICE", nil).value
+
+  mattr_accessor :maximum_attachment_size, default: Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i
+
+  mattr_accessor :maximum_avatar_size, default: Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i
 
   # Social Networking services used for social sharing
-  config_accessor :social_share_services do
-    %w(X Facebook WhatsApp Telegram)
-  end
+  mattr_accessor :social_share_services, default: Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "X, Facebook, WhatsApp, Telegram").to_array
 
   # The Decidim::Exporters::CSV's default column separator
-  config_accessor :default_csv_col_sep do
-    ";"
-  end
+  mattr_accessor :default_csv_col_sep, default: Decidim::Env.new("DECIDIM_DEFAULT_CSV_COL_SEP", ";").to_s
 
   # Exposes a configuration option: HTTP_X_FORWARDED_HOST header follow-up.
   # If a caching system is in place, it can also allow cache and log poisoning attacks,
   # allowing attackers to control the contents of caches and logs that could be used for other attacks.
-  config_accessor :follow_http_x_forwarded_host do
-    false
-  end
+  mattr_accessor :follow_http_x_forwarded_host, default: Decidim::Env.new("DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST").present?
 
   # The list of roles a user can have, not considering the space-specific roles.
-  config_accessor :user_roles do
-    %w(admin user_manager)
-  end
+  mattr_accessor :user_roles, default: Decidim::Env.new("DECIDIM_USER_ROLES", "admin,user_manager").to_array
 
   # The list of visibility options for amendments. An Array of Strings that
   # serve both as locale keys and values to construct the input collection in
@@ -464,21 +534,15 @@ module Decidim
   # This collection is used in Decidim::Admin::SettingsHelper to generate a
   # radio buttons collection input field form for a Decidim::Component
   # step setting :amendments_visibility.
-  config_accessor :amendments_visibility_options do
-    %w(all participants)
-  end
+  mattr_accessor :amendments_visibility_options, default: Decidim::Env.new("DECIDIM_AMENDMENTS_VISIBILITY_OPTIONS", "all,participants").to_array
 
   # Exposes a configuration option: The maximum length for conversation
   # messages.
-  config_accessor :maximum_conversation_message_length do
-    1_000
-  end
+  mattr_accessor :maximum_conversation_message_length, default: Decidim::Env.new("DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH", 1000).to_i
 
   # Defines the name of the cookie used to check if the user has given consent
   # to store local data in their browser.
-  config_accessor :consent_cookie_name do
-    "decidim-consent"
-  end
+  mattr_accessor :consent_cookie_name, default: Decidim::Env.new("DECIDIM_CONSENT_COOKIE_NAME", "decidim-consent").to_s
 
   # Defines data consent categories. Note that when adding an item you need to
   # add following i18n entries also (change 'foo' with the name of the data
@@ -486,107 +550,104 @@ module Decidim
   #
   # layouts.decidim.data_consent.details.items.foo.service
   # layouts.decidim.data_consent.details.items.foo.description
-  config_accessor :consent_categories do
-    [
-      {
-        slug: "essential",
-        mandatory: true,
-        items: [
-          {
-            type: "cookie",
-            name: "_session_id"
-          },
-          {
-            type: "cookie",
-            name: Decidim.consent_cookie_name
-          },
-          {
-            type: "local_storage",
-            name: "pwaInstallPromptSeen"
-          }
-        ]
-      },
-      {
-        slug: "preferences",
-        mandatory: false
-      },
-      {
-        slug: "analytics",
-        mandatory: false
-      },
-      {
-        slug: "marketing",
-        mandatory: false
-      }
-    ]
-  end
+  mattr_accessor :consent_categories, default: [
+    {
+      slug: "essential",
+      mandatory: true,
+      items: [
+        {
+          type: "cookie",
+          name: "_session_id"
+        },
+        {
+          type: "cookie",
+          name: Decidim.consent_cookie_name
+        },
+        {
+          type: "local_storage",
+          name: "pwaInstallPromptSeen"
+        }
+      ]
+    },
+    {
+      slug: "preferences",
+      mandatory: false
+    },
+    {
+      slug: "analytics",
+      mandatory: false
+    },
+    {
+      slug: "marketing",
+      mandatory: false
+    }
+  ]
 
   # Denied passwords. Array may contain strings and regex entries.
-  config_accessor :denied_passwords do
-    []
-  end
+  mattr_accessor :denied_passwords, default: Decidim::Env.new("DECIDIM_DENIED_PASSWORDS").to_array(separator: ", ")
 
   # Ignores strings similar to email / domain on password validation if too short
-  config_accessor :password_similarity_length do
-    4
-  end
+  mattr_accessor :password_similarity_length, default: Decidim::Env.new("DECIDIM_PASSWORD_SIMILARITY_LENGTH", 4).to_i
 
   # Defines if admins are required to have stronger passwords than other users
-  config_accessor :admin_password_strong do
-    true
-  end
+  mattr_accessor :admin_password_strong, default: Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_STRONG", true).present?
 
-  config_accessor :admin_password_expiration_days do
-    90
-  end
+  mattr_accessor :admin_password_expiration_days, default: Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS", 90).to_i
 
-  config_accessor :admin_password_min_length do
-    15
-  end
+  mattr_accessor :admin_password_min_length, default: Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_MIN_LENGTH", 15).to_i
 
-  config_accessor :admin_password_repetition_times do
-    5
-  end
+  mattr_accessor :admin_password_repetition_times, default: Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES", 5).to_i
 
   # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store
   # as it creates some namespaces within the cached data.
   # use `config.cache_key_separator = ":"` in your initializer to have namespaced data
-  config_accessor :cache_key_separator do
-    "/"
-  end
+  mattr_accessor :cache_key_separator, default: Decidim::Env.new("DECIDIM_CACHE_KEY_SEPARATOR", "/").to_s
 
   # This is the maximum time that the cache will be stored. If nil, the cache will be stored indefinitely.
   # Currently, cache is applied in the Cells where the method `cache_hash` is defined.
-  config_accessor :cache_expiry_time do
-    24.hours
-  end
+  mattr_accessor :cache_expiry_time, default: Decidim::Env.new("DECIDIM_CACHE_EXPIRATION_TIME", "1440").to_i.minutes
 
   # Same as before, but specifically for cell displaying stats
-  config_accessor :stats_cache_expiry_time do
-    10.minutes
-  end
+  mattr_accessor :stats_cache_expiry_time, default: Decidim::Env.new("DECIDIM_STATS_CACHE_EXPIRATION_TIME", 10).to_i.minutes
 
   # Enable/Disable the service worker
-  config_accessor :service_worker_enabled do
-    Rails.env.exclude?("development")
-  end
+  mattr_accessor :service_worker_enabled, default: Decidim::Env.new("DECIDIM_SERVICE_WORKER_ENABLED", Rails.env.exclude?("development")).present?
 
   # List of static pages' slugs that can include content blocks
-  config_accessor :page_blocks do
-    %w(terms-of-service)
-  end
+  mattr_accessor :page_blocks, default: Decidim::Env.new("DECIDIM_PAGE_BLOCKS", "terms-of-service").to_array
 
   # The default max last activity users to be shown
-  config_accessor :default_max_last_activity_users do
-    6
-  end
+  mattr_accessor :default_max_last_activity_users, default: Decidim::Env.new("DECIDIM_DEFAULT_MAX_LAST_ACTIVITY_USERS", 6).to_i
 
   # List of additional content security policies to be appended to the default ones
   # This is useful for adding custom CSPs for external services like Here Maps, YouTube, etc.
   # Read more: https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy
-  config_accessor :content_security_policies_extra do
-    {}
-  end
+  mattr_accessor :content_security_policies_extra, default: {}
+
+  mattr_accessor :omniauth_providers, default: {
+    developer: {
+      enabled: Rails.env.local?,
+      icon: "phone-line"
+    },
+    facebook: {
+      enabled: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID").present?,
+      app_id: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID", nil).value,
+      app_secret: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_SECRET", nil).value,
+      icon_path: "media/images/facebook.svg"
+    },
+    twitter: {
+      enabled: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY").present?,
+      api_key: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY", nil).value,
+      api_secret: Decidim::Env.new("OMNIAUTH_TWITTER_API_SECRET", nil).value,
+      icon_path: "media/images/twitter-x.svg"
+    },
+    google_oauth2: {
+      enabled: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID").present?,
+      icon_path: "media/images/google.svg",
+      client_id: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID", nil).value,
+      client_secret: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil).value
+    }
+  }
 
   CoreDataManifest = Data.define(:name, :collection, :serializer, :include_in_open_data)
 
@@ -595,8 +656,8 @@ module Decidim
       CoreDataManifest.new(
         name: :moderated_users,
         collection: lambda { |organization|
-                      Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: organization.id }).where.not(decidim_users: { blocked_at: nil })
-                    },
+          Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: organization.id }).where.not(decidim_users: { blocked_at: nil })
+        },
         serializer: Decidim::Exporters::OpenDataBlockedUserSerializer,
         include_in_open_data: true
       ),
@@ -613,9 +674,9 @@ module Decidim
         include_in_open_data: true
       ),
       CoreDataManifest.new(
-        name: :user_groups,
-        collection: ->(organization) { Decidim::UserGroup.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
-        serializer: Decidim::Exporters::OpenDataUserGroupSerializer,
+        name: :taxonomies,
+        collection: ->(organization) { Decidim::Taxonomy.where(organization:) },
+        serializer: Decidim::Exporters::OpenDataTaxonomySerializer,
         include_in_open_data: true
       )
     ]
@@ -838,16 +899,6 @@ module Decidim
     @traceability ||= Traceability.new
   end
 
-  # Public: Stores an instance of MetricRegistry
-  def self.metrics_registry
-    @metrics_registry ||= MetricRegistry.new
-  end
-
-  # Public: Stores an instance of MetricOperation
-  def self.metrics_operation
-    @metrics_operation ||= MetricOperation.new
-  end
-
   # Public: Returns the correct settings object for the given organization or
   # the default settings object when the organization cannot be determined. The
   # model to be passed to this method can be any model that responds to the
@@ -876,9 +927,11 @@ module Decidim
   # Decidim::MachineTranslationResourceJob due to a ActiveJob::DeserializationError.
   # In some Decidim Installations, ActiveJob can be configured to discard jobs failing with
   # ActiveJob::DeserializationError
-  config_accessor :machine_translation_delay do
-    0.seconds
-  end
+  mattr_accessor :machine_translation_delay, default: 0.seconds
+
+  # The etiquette validator is applied to the create and edit forms of Proposals, Meetings,
+  # and Debates for both regular and admin users.
+  mattr_accessor :enable_etiquette_validator, default: true
 
   def self.machine_translation_service_klass
     return unless Decidim.enable_machine_translations
@@ -930,5 +983,9 @@ module Decidim
     true
   rescue LoadError
     false
+  end
+
+  def self.deprecator(gem_name: "decidim-core", deprecation_horizon: "0.32")
+    @deprecator ||= ActiveSupport::Deprecation.new(deprecation_horizon, gem_name)
   end
 end

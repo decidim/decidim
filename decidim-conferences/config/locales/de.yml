@@ -2,16 +2,15 @@ de:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Ähnliche Assemblies
+        assemblies_ids: Ähnliche Gremien
         available_slots: Verfügbare Plätze
         banner_image: Banner-Bild
-        copy_categories: Kategorien kopieren
-        copy_components: Kopieren Sie Komponenten
-        copy_features: Funktionen kopieren
         decidim_scope_id: Umfang
         description: Beschreibung
+        duplicate_categories: Kategorien duplizieren
+        duplicate_components: Komponenten duplizieren
+        duplicate_features: Funktionen duplizieren
         end_date: Enddatum
-        hashtag: Hashtag
         hero_image: Hauptbild
         location: Ort
         main_logo: Hauptlogo
@@ -20,9 +19,7 @@ de:
         promoted: Gefördert
         published_at: Veröffentlicht am
         registration_terms: Registrierungsbedingungen
-        registrations_enabled: Registrierungen aktiviert
-        scope_id: Umfang
-        scopes_enabled: Bereiche aktiviert
+        registrations_enabled: Anmeldungen aktiviert
         short_description: Kurze Beschreibung
         show_statistics: Zeige Statistiken
         sign_date: Unterzeichnungsdatum
@@ -68,6 +65,8 @@ de:
         email: Email
         name: Name
         role: Rolle
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -89,6 +88,7 @@ de:
     admin:
       actions:
         confirm: Bestätigen
+        confirm_delete_conference: Sind Sie sicher, dass Sie diese Konferenz löschen möchten? Wenn Sie Ihre Meinung ändern, können Sie sie später wiederherstellen.
         new_conference: Neue Konferenz
         new_conference_user_role: Neuer Konferenz-Admin
         new_media_link: Neuer Medienlink
@@ -96,11 +96,11 @@ de:
         new_registration_type: Neuer Registrierungstyp
         new_speaker: Neuer Redner
         send_diplomas: Senden Sie eine Teilnahmebestätigung
-      conference_copies:
+        view_deleted_conferences: Gelöschte Konferenzen anzeigen
+      conference_duplicates:
         new:
-          copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Doppelte Konferenz
+          duplicate: Duplizieren
+          select: Zu duplizierende Daten auswählen
       conference_publications:
         create:
           error: Beim Veröffentlichen dieser Konferenz ist ein Fehler aufgetreten.
@@ -119,13 +119,9 @@ de:
         destroy:
           success: Der Redner wurde für diese Konferenz erfolgreich gelöscht.
         edit:
-          title: Konferenzsprecher aktualisieren
           update: Aktualisieren
-        index:
-          conference_speakers_title: Konferenzsprecher
         new:
           create: Erstellen
-          title: Neuer Konferenzsprecher.
         publish:
           invalid: Beim Veröffentlichen dieser RednerIn ist ein Problem aufgetreten.
           success: KonferenzrednerIn erfolgreich veröffentlicht.
@@ -142,13 +138,9 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Konferenzadmin aktualisieren.
           update: Aktualisieren
-        index:
-          conference_admins_title: Konferenzadmins
         new:
           create: Erstellen
-          title: Neuer Konferenzbenutzer
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Konferenz aktualisiert worden.
           success: Der Benutzer wurde für diese Konferenz erfolgreich aktualisiert.
@@ -161,71 +153,73 @@ de:
         exports:
           registrations: Anmeldungen
         form:
+          duration: Dauer
+          images: Bilder
+          metadata: Metadaten
+          registrations: Registrierungen
+          related_spaces: Ähnliche Bereiche
           title: Allgemeine Information
+          visibility: Sichtbarkeit
         index:
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
         new:
           create: Erstellen
-          title: Konferenz
         update:
           error: Beim Aktualisieren dieser Konferenz ist ein Fehler aufgetreten.
           success: Konferenz wurde erfolgreich aktualisiert.
-      conferences_copies:
+      conferences_duplicates:
         create:
           error: Beim Duplizieren dieser Konferenz ist ein Fehler aufgetreten.
           success: Konferenz wurde erfolgreich dupliziert.
       media_links:
         create:
           error: Beim Erstellen einer neuen Medienverknüpfung ist ein Fehler aufgetreten.
-          success: Medienlink erfolgreich erstellt
+          success: Medienlink erfolgreich erstellt.
         destroy:
-          success: Medienlink wurde erfolgreich gelöscht.
+          success: Medienlink erfolgreich gelöscht.
         edit:
-          title: Medienlink aktualisieren
           update: Aktualisieren
-        index:
-          media_links_title: Medienlinks
         new:
           create: Erstellen
-          title: Medienlink
         update:
           error: Beim Aktualisieren dieser Medienverbindung ist ein Fehler aufgetreten.
-          success: Media Link wurde erfolgreich aktualisiert.
+          success: Medienlink erfolgreich aktualisiert.
       menu:
         conferences: Konferenzen
         conferences_submenu:
           attachment_collections: Ordner
           attachment_files: Dateien
           attachments: Anhänge
-          categories: Kategorien
           components: Komponenten
           conference_admins: Konferenzadministratoren
           conference_invites: Lädt ein
-          conference_speakers: Lautsprecher
+          conference_speakers: Sprechende
           diploma: Teilnahmebestätigung
-          info: Über diese Konferenz
           media_links: Medienlinks
           moderations: Moderationen
           partners: Partner
           registration_types: Registrierungsarten
           registrations: Registrierungen
           see_conference: Konferenz ansehen
-          user_registrations: Benutzerregistrierungen
+          user_registrations: Teilnehmende Benutzende
       models:
         conference:
           fields:
+            actions: Aktionen
             created_at: Erstellt am
             published: Veröffentlicht
             title: Titel
         conference_speaker:
           fields:
+            actions: Aktionen
             affiliation: Zugehörigkeit
             full_name: Vollständiger Name
             position: Position
           name: Konferenzsprecher
         conference_user_role:
           fields:
+            actions: Aktionen
             email: Email
             name: Name
             role: Rolle
@@ -233,16 +227,18 @@ de:
           roles:
             admin: Administrator
             collaborator: Mitarbeiter
+            evaluator: Bewertende Person
             moderator: Moderator
-            valuator: Bewertende
         media_link:
           fields:
+            actions: Aktionen
             date: Datum
             link: Verknüpfung
             title: Titel
           name: Medienlink
         partner:
           fields:
+            actions: Aktionen
             link: Verknüpfung
             logo: Logo
             name: Name
@@ -253,7 +249,8 @@ de:
             main_promotor: Hauptförderer
         registration_type:
           fields:
-            conference_meetings: Konferenzsitzungen
+            actions: Aktionen
+            conference_meetings: Veranstaltungen der Konferenz
             price: Preis
             registrations_count: Registrierungen zählen
             title: Titel
@@ -266,11 +263,9 @@ de:
         destroy:
           success: Der Partner wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Partner aktualisieren
           update: Aktualisieren
         new:
           create: Erstellen
-          title: Neuer Partner
         update:
           error: Bei einem Fehler ist ein Partner für diese Konferenz aktualisiert worden.
           success: Der Partner wurde für diese Konferenz erfolgreich aktualisiert.
@@ -288,21 +283,25 @@ de:
         destroy:
           success: Der Registrierungstyp wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Registrierungsart aktualisieren
           update: Aktualisieren
         new:
           create: Erstellen
-          title: Neuer Registrierungstyp
         update:
           error: Bei einem Fehler ist ein Registrierungstyp für diese Konferenz aktualisiert worden.
           success: Die Registrierung wurde für diese Konferenz erfolgreich aktualisiert.
-      titles:
-        conferences: Konferenzen
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Alle Konferenzen
+      tooltips:
+        deleted_conferences_info: Konferenzen können nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
     admin_log:
       conference:
         create: "%{user_name} hat die Konferenz %{resource_name} erstellt"
+        duplicate: "%{user_name} hat die Konferenz %{resource_name} dupliziert"
         publish: "%{user_name} hat die Konferenz %{resource_name} veröffentlicht"
+        restore: "%{user_name} hat die Konferenz %{resource_name} wiederhergestellt"
         send_conference_diplomas: "%{user_name} hat Teilnahmebescheinigungen an die Teilnehmenden der Konferenz %{resource_name} gesendet"
+        soft_delete: "%{user_name} hat die Konferenz %{resource_name} in den Papierkorb verschoben"
         unpublish: "%{user_name} hat die Konferenz %{resource_name} auf \"unveröffentlicht\" gesetzt"
         update: "%{user_name} hat die Konferenz %{resource_name} aktualisiert"
         update_diploma: "%{user_name} hat die Konfiguration der Teilnahmebescheinigungen für die Konferenz %{resource_name} aktualisiert"
@@ -336,12 +335,14 @@ de:
         title: Programm
     conference_speakers:
       index:
-        title: Lautsprecher
+        title: Sprechende
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
-            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Konferenz verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Konferenz verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
+          new:
+            title: Konferenz duplizieren
         conference_invites:
           create:
             error: Beim Einladen des Benutzers zur Teilnahme an der Konferenz ist ein Problem aufgetreten.
@@ -354,15 +355,17 @@ de:
             select_user: Nutzer wählen
           index:
             invite_attendee: Teilnehmer einladen
-            invites: Lädt ein
+            title: Einladungen
           new:
             explanation: Die Person wird zur Teilnahme an der Konferenz eingeladen. Wenn die E-Mail nicht registriert ist, werden sie ebenfalls zur Organisation eingeladen.
             invite: Einladen
-            new_invite: Nutzer einladen
+            title: Teilnehmer einladen
         conference_registrations:
           index:
-            registrations: Anmeldungen
+            title: Registrierungen
         conference_speakers:
+          edit:
+            title: Referierende Person aktualisieren
           form:
             existing_user: Existierender Benutzer
             non_user: Nichtbenutzer
@@ -370,13 +373,34 @@ de:
             user_type: Benutzertyp
           index:
             search: Suche
+            title: Konferenzredner
+          new:
+            title: Neuer Konferenzredner
+        conference_user_roles:
+          edit:
+            title: Konferenzadmin aktualisieren
+          index:
+            title: Konferenzadmins
+          new:
+            title: Neuer Konferenzadmin
         conferences:
+          edit:
+            title: Über diese Konferenz
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             registrations_count:
               one: Es gab 1 Registrierung.
               other: Es gab %{count} Registrierungen.
             slug_help_html: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            taxonomies: Klassifizierungen
+          index:
+            title: Konferenzen
+          manage_trash:
+            title: Gelöschte Konferenzen
+          new:
+            title: Neue Konferenz
         content_blocks:
           highlighted_conferences:
             max_results: Maximale Anzahl angezeigter Elemente
@@ -390,33 +414,45 @@ de:
             invited_existing_user_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
             invited_user_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz auf %{application} teilzunehmen. Sie können die Einladung über den unten stehenden Link akzeptieren."
             registration: Registrierung für '%{conference_title}'
+        media_links:
+          edit:
+            title: Medienlink aktualisieren
+          index:
+            title: Medienlinks
+          new:
+            title: Neuer Medienlink
         partners:
+          edit:
+            title: Partner aktualisieren
           index:
             title: Partner
+          new:
+            title: Neuer Partner
         registration_types:
           form:
-            select_conference_meetings: Konferenzmeetings auswählen
+            select_conference_meetings: Konferenzveranstaltungen auswählen
           index:
             title: Registrierungsarten
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
+            diploma_html: Die Teilnahmebestätigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
           diploma_user:
             attendance_verified_by: Anwesenheit überprüft durch
             certificate_of_attendance: Teilnahmebestätigung
             certificate_of_attendance_description: Hiermit wird bestätigt, dass <strong>%{user}</strong> an den <strong>%{title}</strong> teilgenommen hat, die am <strong>%{location}</strong> am <strong>%{start} - %{end}</strong>abgehalten wurden
         send_diploma:
           error: Beim Senden der Teilnahmebestätigung der Konferenz ist ein Problem aufgetreten.
-          success: Konferenz-Teilnahmebestätigung korrekt gesendet
       conference:
         registration_confirm:
           cancel: Abbrechen
           confirm: Bestätigen
         show:
           going: Gehen
-          no_slots_available: Keine Steckplätze verfügbar
+          no_slots_available: Keine Plätze verfügbar
           registration: Anmeldung
       conference_program:
+        program_item:
+          other_category: Andere
         show:
           program: Programm
       conference_registration_mailer:
@@ -501,6 +537,7 @@ de:
             sent: Geschickt
         conference_registration:
           fields:
+            actions: Aktionen
             email: Email
             name: Name
             registration_type: Registrierungstyp
@@ -525,6 +562,25 @@ de:
         objectives: Ziele
         related_assemblies: Ähnliche Gremien
         related_participatory_processes: Ähnliche Beteiligungsprozesse
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: Das Datum, an dem die Konferenzeinladung angenommen wurde
+          conference: Die Konferenz, zu der diese Einladung versendet wurde
+          confirmed_at: Das Datum, an dem diese Einladung bestätigt wurde
+          created_at: Das Datum, an dem diese Einladung erstellt wurde
+          id: Der eindeutige Bezeichnung der Konferenzeinladung
+          registration_type: Die Art der Registrierung für diese Konferenz, zu der eingeladen wurde
+          rejected_at: Das Datum, an dem die Konferenzeinladung abgelehnt wurde
+          sent_at: Das Datum, an dem diese Konferenzeinladung versendet wurde
+          updated_at: Das Datum, an dem diese Einladung zuletzt Mal aktualisiert wurde
+        conference_registrations:
+          conference: Die Konferenz, zu der dies gehört
+          confirmed_at: Das Datum, an dem diese Registrierung bestätigt wurde
+          created_at: Das Datum, an dem diese Registrierung erstellt wurde
+          id: Die eindeutige Kennung der Konferenzanmeldungen
+          registration_type: Die Art der Registrierung, zu der diese gehört
+          updated_at: Das Datum, an dem diese Registrierung zuletzt Mal aktualisiert wurde
     events:
       conferences:
         conference_registration_confirmed:
@@ -542,10 +598,10 @@ de:
           email_subject: Die Konferenz "%{resource_title}" wurde aktualisiert
           notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> wurde aktualisiert.
         registrations_enabled:
-          email_intro: 'Die Konferenz "%{resource_title}" hat Registrierungen aktiviert. Sie können sich auf der Konferenz-Seite registrieren:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Die Konferenz "%{resource_title}" hat Registrierungen aktiviert.
-          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
+          email_intro: 'Für die Konferenz "%{resource_title}" wurde die Anmeldung aktiviert. Sie können sich auf dieser Seite anmelden:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
+          email_subject: Die Konferenz "%{resource_title}" hat die Anmeldung aktiviert.
+          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> hat die Anmeldung aktiviert.
         role_assigned:
           email_intro: Sie wurden als %{role} für die Konferenz "%{resource_title}" ausgewählt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Konferenz "%{resource_title}" sind.
@@ -572,8 +628,35 @@ de:
         title: Medien und Links
     menu:
       conferences: Konferenzen
+    open_data:
+      help:
+        conferences:
+          created_at: Erstellungsdatum dieses Bereichs
+          decidim_scope_id: Das Thema der Konferenz
+          description: Eine lange Beschreibung der Konferenz
+          end_date: Das Datum, an dem diese Konferenz endet.
+          follows_count: Die Anzahl Nutzende, die diesem Raum folgen
+          id: Die eindeutige Bezeichnung dieser Konferenz
+          location: Der Tagungsort, wo diese Konferenz stattfinden wird.
+          objectives: Die Ziele dieser Konferenz.
+          promoted: Ob die Konferenz hervorgehoben ist oder nicht
+          published_at: Veröffentlichungsdatum des Bereichs
+          reference: Die eindeutige Referenz des Bereichs
+          remote_banner_image_url: Die URL des Konferenz-Bannerbildes
+          remote_hero_image_url: Die URL des Konferenztitelbildes
+          scope: Das Thema der Konferenz
+          scopes_enabled: Ob Themen aktiviert sind oder nicht
+          short_description: Eine kurze Beschreibung der Konferenz
+          slogan: Das Motto dieser Konferenz
+          slug: Der URL-Slug der Konferenz (verwendet für Identifikationszwecke in der URL)
+          start_date: Das Datum, an dem diese Konferenz beginnt.
+          taxonomies: Die Klassifizierungen der Konferenz
+          title: Der Titel der Konferenz
+          updated_at: Letztes Aktualisierungsdatum dieses Bereichs
+          url: Die URL des Bereichs
     statistics:
       conferences_count: Konferenzen
+      conferences_count_tooltip: Die Anzahl der veröffentlichten Konferenzen.
   devise:
     mailer:
       join_conference:
@@ -595,6 +678,6 @@ de:
             other: "%{count} Konferenzen"
       conferences_nav:
         conference_partners_menu_item: Partner
-        conference_speaker_menu_item: Lautsprecher
+        conference_speaker_menu_item: Sprechende
         media: Medien
         venues: Veranstaltungsorte

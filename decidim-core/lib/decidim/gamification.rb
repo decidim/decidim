@@ -101,7 +101,7 @@ module Decidim
     #
     # Returns nothing.
     def self.reset_badges(users = nil)
-      return reset_badges(User.all) && reset_badges(UserGroup.all) unless users
+      return reset_badges(User.all) unless users
 
       badges.each do |badge|
         Rails.logger.info "Resetting #{badge.name}..."

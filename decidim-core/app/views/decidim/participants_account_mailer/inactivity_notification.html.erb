@@ -1,0 +1,13 @@
+<p class="email-greeting"><%= t(".hello_html", username: @user.name) %></p>
+
+<p class="email-instructions"><%= t(
+                                    ".body_html",
+                                    organization_name: organization_name(@organization),
+                                    date_account_creation: I18n.l(@user.created_at.to_date , format: :decidim_with_month_name),
+                                    date_last_connection: @user.current_sign_in_at&.then { |date| I18n.l(date.to_date , format: :decidim_with_month_name) } || t(".never_logged_in"),
+                                    days: @days_before_deletion,
+                                    login_url: link_to(t(".log_in"), decidim.new_user_session_url(host: @organization.host))
+                                  ) %></p>
+<p class="email-closing">
+  <%= t(".greetings_html", organization_name: organization_name(@user.organization), organization_url: decidim.root_url(host: @user.organization.host)) %>
+</p>

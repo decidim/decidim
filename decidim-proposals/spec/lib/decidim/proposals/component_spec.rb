@@ -7,34 +7,8 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   let(:organization) { component.organization }
   let!(:current_user) { create(:user, :confirmed, :admin, organization:) }
 
-  describe "on destroy" do
-    context "when there are no proposals for the component" do
-      it "destroys the component" do
-        expect do
-          Decidim::Admin::DestroyComponent.call(component, current_user)
-        end.to change(Decidim::Component, :count).by(-1)
-
-        expect(component).to be_destroyed
-      end
-    end
-
-    context "when there are proposals for the component" do
-      before do
-        create(:proposal, component:)
-      end
-
-      it "raises an error" do
-        expect do
-          Decidim::Admin::DestroyComponent.call(component, current_user)
-        end.to broadcast(:invalid)
-
-        expect(component).not_to be_destroyed
-      end
-    end
-  end
-
   describe "stats" do
-    subject { current_stat[2] }
+    subject { current_stat[1][:data] }
 
     let(:raw_stats) do
       Decidim.component_manifests.map do |component_manifest|
@@ -53,7 +27,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component:) }
     let!(:moderation) { create(:moderation, reportable: hidden_proposal, hidden_at: 1.day.ago) }
 
-    let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
+    let(:current_stat) { stats.find { |stat| stat[1][:name] == stats_name } }
 
     describe "proposals_count" do
       let(:stats_name) { :proposals_count }
@@ -90,20 +64,20 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    describe "endorsements_count" do
-      let(:stats_name) { :endorsements_count }
+    describe "likes_count" do
+      let(:stats_name) { :likes_count }
 
       before do
         2.times do
-          create(:endorsement, resource: proposal, author: build(:user, organization:))
+          create(:like, resource: proposal, author: build(:user, organization:))
         end
         3.times do
-          create(:endorsement, resource: hidden_proposal, author: build(:user, organization:))
+          create(:like, resource: hidden_proposal, author: build(:user, organization:))
         end
       end
 
-      it "counts the endorsements from visible proposals" do
-        expect(Decidim::Endorsement.count).to eq 5
+      it "counts the likes from visible proposals" do
+        expect(Decidim::Like.count).to eq 5
         expect(subject).to eq 2
       end
     end
@@ -245,6 +219,51 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         end
       end
     end
+
+    describe "default_sort_order choices" do
+      let(:default_sort_order_container) { page.all(".default_sort_order_container").first }
+
+      before do
+        visit edit_component_path
+      end
+
+      context "when there are no proposals with coauthors" do
+        it "does not include with_more_authors" do
+          expect(default_sort_order_container).to have_no_content("With more authors")
+        end
+      end
+
+      context "when there are proposals with coauthors" do
+        let!(:proposal_with_coauthors) { create(:proposal, component:) }
+        let!(:coauthorships) { create_list(:coauthorship, 2, coauthorable: proposal_with_coauthors) }
+
+        before do
+          visit edit_component_path
+        end
+
+        it "includes with_more_authors" do
+          expect(default_sort_order_container).to have_content("With more authors")
+        end
+      end
+
+      context "when there are no proposals with comments" do
+        it "does not include most_commented" do
+          expect(default_sort_order_container).to have_no_content("Most commented")
+        end
+      end
+
+      context "when there are proposals with comments" do
+        let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+        before do
+          visit edit_component_path
+        end
+
+        it "includes most_commented" do
+          expect(default_sort_order_container).to have_content("Most commented")
+        end
+      end
+    end
   end
 
   describe "proposals exporter" do
@@ -263,12 +282,12 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     let(:participatory_process) { component.participatory_space }
     let(:organization) { participatory_process.organization }
 
-    context "when the user is a valuator" do
+    context "when the user is a evaluator" do
       let!(:user) { create(:user, admin: false, organization:) }
-      let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
+      let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process:) }
 
       before do
-        create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
+        create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:)
       end
 
       it "only exports assigned proposals" do

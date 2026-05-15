@@ -1,24 +1,14 @@
-# Decidim::Pages
+# decidim-pages
 
-The Pages module adds static page capabilities to any participatory process. It basically provides an interface to include arbitrary HTML content to any step.
+The Pages module adds static page capabilities to any participatory space. It basically provides an interface to include arbitrary HTML content to any step.
 
 ## Usage
 
-Pages will be available as a Component for a Participatory Process.
+Pages will be available as a Component for a Participatory Space.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-pages'
-```
-
-And then execute:
-
-```bash
-bundle
-```
+This is on the default Decidim installation so you should not change anything to use this component.
 
 ## Contributing
 

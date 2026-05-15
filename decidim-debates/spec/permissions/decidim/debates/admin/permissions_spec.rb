@@ -66,22 +66,6 @@ describe Decidim::Debates::Admin::Permissions do
     end
   end
 
-  describe "debate delete" do
-    let(:action) do
-      { scope: :admin, action: :delete, subject: :debate }
-    end
-
-    context "when the debate is official" do
-      it { is_expected.to be true }
-    end
-
-    context "when debate is not official" do
-      let(:debate) { create(:debate, author: user, component: debates_component) }
-
-      it { is_expected.to be false }
-    end
-  end
-
   describe "debates export" do
     let(:action) do
       { scope: :admin, action: :export, subject: :debates }

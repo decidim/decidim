@@ -2,69 +2,66 @@
 
 require "spec_helper"
 
-describe "Admin filters members" do
+describe "Admin filters assemblies members" do
+  include_context "with filterable context"
+
   let(:organization) { create(:organization) }
-  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
-  let(:assembly) { create(:assembly, organization:) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:assembly) { create(:assembly, organization:, has_members: true) }
 
-  let(:resource_controller) { Decidim::Assemblies::Admin::AssemblyMembersController }
-  let(:full_name) { "Dummy Name" }
+  let!(:invited_user1) { create(:user, name:, organization:, invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current) }
+  let!(:invited_member1) { create(:assembly_member, user: invited_user1, participatory_space: assembly) }
+  let!(:invited_user2) { create(:user, email:, organization:) }
+  let!(:invited_member2) { create(:assembly_member, user: invited_user2, participatory_space: assembly) }
 
-  let!(:member1) { create(:assembly_member, full_name:, assembly:) }
-  let!(:member2) { create(:assembly_member, :ceased, assembly:) }
+  let(:name) { "Dummy Name" }
+  let(:email) { "dummy_email@example.org" }
+
+  let(:resource_controller) { Decidim::Assemblies::Admin::MembersController }
 
   before do
     switch_to_host(organization.host)
-    login_as admin, scope: :user
-    visit decidim_admin_assemblies.assembly_members_path(assembly_slug: assembly.slug)
+    login_as user, scope: :user
+    visit decidim_admin_assemblies.members_path(assembly_slug: assembly.slug)
   end
 
-  include_context "with filterable context"
-
-  context "when filtering by ceased" do
-    context "when filtering Ceased" do
-      it_behaves_like "a filtered collection", options: "Ceased", filter: "Ceased" do
-        let(:in_filter) { member2.full_name }
-        let(:not_in_filter) { member1.full_name }
+  context "when managing assembly with members" do
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim_admin_assemblies.edit_assembly_path(assembly)
+      within_admin_sidebar_menu do
+        click_on "Members"
       end
     end
 
-    context "when filtering: Not ceased" do
-      it_behaves_like "a filtered collection", options: "Ceased", filter: "Not ceased" do
-        let(:in_filter) { member1.full_name }
-        let(:not_in_filter) { member2.full_name }
-      end
-    end
+    include_examples "filterable participatory space users"
+    include_examples "searchable participatory space users"
   end
 
-  describe "search" do
-    context "when searching members without user" do
-      include_examples "admin is searching participatory space users" do
-        let(:value) { full_name }
-      end
-    end
+  context "when trying to manage members and the space does not have members" do
+    let(:assembly) { create(:assembly, organization:, has_members: false) }
 
-    context "when searching members with user" do
-      let(:user_name) { "Jorge Mendoza" }
-      let(:user_nickname) { "mendocito" }
-      let(:user) { create(:user, name: user_name, nickname: user_nickname) }
-      let!(:member3) { create(:assembly_member, user:, assembly:) }
-
-      context "when searching by name" do
-        include_examples "admin is searching participatory space users" do
-          let(:value) { user_name }
-        end
-      end
-
-      context "when searching by nickname" do
-        include_examples "admin is searching participatory space users" do
-          let(:value) { user_nickname }
-        end
-      end
+    it "restricts access" do
+      expect(page).to have_callout("You are not authorized to perform this action.")
     end
   end
 
-  it_behaves_like "paginating a collection" do
-    let!(:collection) { create_list(:assembly_member, 100, assembly:) }
+  describe "when publishing all members" do
+    let!(:member) { create(:member, :unpublished, user:, participatory_space: assembly) }
+
+    it "publishes all members" do
+      click_on "Publish all"
+
+      sleep(1)
+      expect(member.reload).to be_published
+    end
+
+    it "displays the correct log message" do
+      click_on "Publish all"
+      sleep(1)
+      visit decidim_admin.root_path
+      expect(page).to have_content("published all members of the #{translated(assembly.title)} assembly")
+    end
   end
 end

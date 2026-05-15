@@ -18,13 +18,8 @@ describe "Admin checks dashboard panel statistics" do
     expect(page).to have_content(t("decidim.admin.users_statistics.users_count.admins"))
   end
 
-  it "show metrics panel" do
-    # More in admin_checks_metrics_spec.rb
-    expect(page).to have_content(t("decidim.admin.titles.metrics"))
-  end
-
   it "show Admin log panel" do
-    expect(page).to have_content(t("decidim.admin.titles.admin_log"))
+    expect(page).to have_content(t("decidim.admin.logs.index.title"))
   end
 
   context "when does not have Pending moderations" do

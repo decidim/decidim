@@ -9,11 +9,12 @@ module Decidim
         super.merge(
           {
             categories: serialize_categories,
+            taxonomies:,
             attachments: {
               attachment_collections: serialize_attachment_collections,
               files: serialize_attachments
             },
-            private_space: resource.private_space,
+            access_mode: resource.access_mode,
             weight: resource.weight,
             components: serialize_components
           }

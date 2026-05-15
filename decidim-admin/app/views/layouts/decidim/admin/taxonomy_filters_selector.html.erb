@@ -1,0 +1,10 @@
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+    <%= yield(:action_buttons) %>
+  </h1>
+</div>
+
+<div class="form-defaults">
+  <%= yield %>
+</div>

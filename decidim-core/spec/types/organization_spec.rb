@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql class type"
@@ -12,11 +12,18 @@ describe "Decidim::Api::QueryType" do
   let(:query) do
     %(
       query {
-        organization{
+        organization {
           name { translation(locale: "#{locale}") }
-          stats{
-            name
+          stats {
+            key
+            name { translation(locale: "#{locale}") }
             value
+            description {
+              translations {
+                text
+                locale
+              }
+            }
           }
         }
       }
@@ -32,18 +39,41 @@ describe "Decidim::Api::QueryType" do
       expect(response["organization"]["name"]["translation"]).to eq(translated(current_organization.name))
     end
 
-    %w(
-      users_count
-      processes_count
-      comments_count
-      assemblies_count
-      conferences_count
-      followers_count
-      participants_count
-    ).each do |stat|
-      it {
-        expect(response["organization"]["stats"].select { |hash| hash["name"] == stat }).to eq(["name" => stat, "value" => 0])
-      }
+    it "displays the admin in the stats" do
+      expect(response["organization"]["stats"].select { |hash| hash["key"] == "users_count" })
+        .to eq([{
+                 "key" => "users_count",
+                 "name" => { "translation" => "Participants" },
+                 "value" => 1,
+                 "description" => {
+                   "translations" => [
+                     { "locale" => "en", "text" => "The total number of users who have signed up and confirmed their account via email." },
+                     { "locale" => "ca", "text" => "El nombre total d'usuàries que s'han registrat i confirmat el vostre compte per correu electrònic." },
+                     { "locale" => "es", "text" => "El número total de usuarias que se han registrado y confirmado su cuenta por correo electrónico." }
+                   ]
+                 }
+               }])
+    end
+
+    TRANSLATION_MAP = {
+      "users_count" => "Participants"
+    }.freeze
+
+    %w(users_count)
+      .each do |stat|
+      it "displays the stat for #{stat}" do
+        stats = response["organization"]["stats"].select { |hash| hash["key"] == stat }
+
+        stats.each { |s| s.delete("description") }
+
+        expected_stat = {
+          "key" => stat,
+          "name" => { "translation" => TRANSLATION_MAP.fetch(stat, stat.capitalize.tr("_", " ")) },
+          "value" => stats.first["value"]
+        }
+
+        expect(stats).to eq([expected_stat])
+      end
     end
   end
 end

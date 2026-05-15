@@ -10,11 +10,11 @@ module Decidim
     # also resolves the current mounted route name to make it possible to refer
     # to the same context when redirecting the short URL to correct full URL.
     #
-    # @option kwargs [Boolean] :route_name the route name to which the short
-    #   link should link to
-    # @option kwargs [Float] :params the URL query parameters that should be
-    #   included in the URL where the short link redirects to
-    # @return [String] The short URL
+    # Accepts keyword arguments such as:
+    #   - `route_name`: the route name to link to
+    #   - `params`: query parameters for the redirect
+    #
+    # @return [String] The short URL.
     def short_url(**)
       target = respond_to?(:current_component) && current_component
       target ||= respond_to?(:current_participatory_space) && current_participatory_space

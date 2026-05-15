@@ -18,7 +18,7 @@ describe "decidim_meetings:clean_registration_forms", type: :task do
     let!(:meeting) { create(:meeting, end_time: 4.months.ago) }
     let(:questionnaire) { meeting.questionnaire }
 
-    it "removes related questionnaires and answers but not the meeting itself" do
+    it "removes related questionnaires and responses but not the meeting itself" do
       expect(meeting.end_time).to be <= threshold
       task.execute(months:)
 

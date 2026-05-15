@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Core
@@ -27,7 +27,7 @@ module Decidim
         let(:query) { "{ source }" }
 
         it "returns source as a string" do
-          expect(response["source"]).to eq("{\"test\"=>\"test object\"}")
+          expect(response["source"]).to eq("{\"test\" => \"test object\"}")
         end
       end
     end

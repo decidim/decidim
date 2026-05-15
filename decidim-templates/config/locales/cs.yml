@@ -80,16 +80,23 @@ cs:
             select_template: Vyberte šablonu odpovědi
         questionnaire_templates:
           choose:
-            create_from_template: Vytvořit ze šablony
-            description: Chystáte se vytvořit nový dotazník. Můžete si vybrat předem definovanou šablonu a poté ji upravit.
+            continue: Pokračovat
+            description: Můžete vytvořit nový dotazník, nebo si můžete vybrat předdefinovanou šablonu a později ji upravit. Vyberte možnost.
             label: Vyberte šablonu
+            options:
+              create_new_form: Vytvořit nový formulář
+              select_template: Vyberte šablonu
             placeholder: Vyberte šablonu
-            skip_template: Přeskočit
           edit:
             edit: Upravit
             empty: Zatím nejsou žádné otázky.
+            manage_questions: Otázky
             questionnaire: Dotazník
             title: Upravit šablonu dotazníku
+          edit_questions:
+            add_question: Přidat otázku
+            add_separator: Přidat oddělovač
+            add_title_and_description: Přidat název a popis
           form:
             title: Šablona dotazníku %{questionnaire_for}
           index:

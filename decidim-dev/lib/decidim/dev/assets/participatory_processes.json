@@ -12,7 +12,6 @@
       "es": "In laudantium."
     },
     "slug": "distinctio-cupiditate",
-    "hashtag": "harum",
     "short_description": {
       "ca": "<p>Harum magnam id.</p>",
       "en": "<p>Aut quam doloribus.</p>",
@@ -88,7 +87,7 @@
         "es": "South Carolina"
       }
     },
-    "private_space": false,
+    "access_mode": "open",
     "promoted": true,
     "scopes_enabled": true,
     "participatory_process_steps": [
@@ -106,9 +105,6 @@
         },
         "start_date": "2019-09-02",
         "end_date": "2019-12-02",
-        "cta_path": null,
-        "cta_text": {
-        },
         "active": true,
         "position": 0
       }

@@ -1,5 +1,90 @@
 # frozen_string_literal: true
 
+shared_examples "admin creates resource gallery for resources" do
+  context "when uploading images" do
+    let(:uploaded_files) do
+      [
+        {
+          title: "Picture of the city",
+          file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
+        },
+        {
+          title: "Picture of another city",
+          file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city2.jpeg", "image/jpeg"), filename: "city2.jpeg").signed_id
+        }
+      ]
+    end
+    let(:photos) { [] }
+
+    it "creates a gallery for the resource" do
+      command.call
+      expect { command.call }.to change(Decidim::Attachment, :count).by(uploaded_files.count)
+
+      resource = resource_class.last
+      expect(resource.photos.count).to eq(uploaded_files.count)
+      last_attachment = Decidim::Attachment.last
+      expect(last_attachment.attached_to).to eq(resource)
+    end
+
+    context "when gallery is left blank" do
+      let(:uploaded_files) { [] }
+
+      it "broadcasts ok" do
+        expect { command.call }.to broadcast(:ok)
+      end
+    end
+  end
+end
+
+shared_examples "admin manages resource gallery for resources" do
+  context "when managing images" do
+    let(:uploaded_files) do
+      [
+        {
+          title: "Picture of the city",
+          file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
+        },
+        {
+          title: "Picture of another city",
+          file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city2.jpeg", "image/jpeg"), filename: "city2.jpeg").signed_id
+        }
+      ]
+    end
+    let(:photos) { [] }
+
+    it "creates a gallery for the resource" do
+      command.call
+      expect { command.call }.to change(Decidim::Attachment, :count).by(uploaded_files.count)
+      resource = resource_class.last
+      expect(resource.photos.count).to eq(4)
+      last_attachment = Decidim::Attachment.last
+      expect(last_attachment.attached_to).to eq(resource)
+    end
+
+    context "when gallery is left blank" do
+      let(:uploaded_files) { [] }
+
+      it "broadcasts ok" do
+        expect { command.call }.to broadcast(:ok)
+      end
+    end
+
+    context "when images are removed" do
+      let!(:image1) { create(:attachment, :with_image, attached_to: resource) }
+      let!(:image2) { create(:attachment, :with_image, attached_to: resource) }
+      let(:uploaded_files) { [] }
+      let(:documents) { [] }
+
+      it "to decrease the number of photos in the gallery" do
+        expect(resource.attachments.count).to eq(3)
+        command.call
+        expect { command.call }.to change(Decidim::Attachment, :count).by(uploaded_files.count)
+        expect(resource.attachments.count).to eq(1)
+      end
+    end
+  end
+end
+
 shared_examples "admin creates resource gallery" do
   context "when uploading images" do
     let(:uploaded_photos) do

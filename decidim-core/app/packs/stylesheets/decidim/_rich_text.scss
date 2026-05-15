@@ -7,6 +7,19 @@
   .editor-content-videoEmbed {
     @apply my-10 mx-auto;
   }
+
+  .editor-mention {
+    @apply inline-flex items-center align-bottom font-semibold underline text-secondary;
+
+    img,
+    svg {
+      @apply w-5 h-5 rounded-full;
+    }
+
+    span {
+      @apply ml-1;
+    }
+  }
 }
 
 .rich-text-display,
@@ -92,5 +105,22 @@
 
   .editor-indent-10 {
     @apply ml-40;
+  }
+
+  // Style for external link icon inside linked images
+  a:has(.editor-content-image) [data-external-link="true"] {
+    @apply block relative;
+
+    margin: -1.5rem 0 1em auto;
+    width: fit-content;
+
+    svg {
+      @apply w-4 h-4;
+    }
+  }
+
+  // Make sure the anchor with image is positioned for proper icon placement
+  a:has(.editor-content-image) {
+    @apply block relative;
   }
 }

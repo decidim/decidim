@@ -2,14 +2,11 @@ zh-CN:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: 范围
         description: 描述
         title: 标题
         total_budget: 预算总额
       project:
         budget_amount: 预算金额
-        decidim_category_id: 类别
-        decidim_scope_id: 范围
         description: 描述
         proposal_ids: 有关提议
         title: 标题
@@ -20,13 +17,9 @@ zh-CN:
   decidim:
     budgets:
       actions:
-        attachment_collections: 文件夹
-        attachments: 附件
-        confirm_destroy: 您确定要删除此项目吗？
-        destroy: 删除
         edit: 编辑
-        edit_projects: 管理项目
         import: 导入提案到项目
+        new_project: 新建项目
         preview: 预览
         title: 行动
       admin:
@@ -40,13 +33,10 @@ zh-CN:
             create: 创建预算
             title: 新预算
         models:
-          budget:
-            name: 三. 预算
           project:
             name: 项目
         projects:
           edit:
-            title: 编辑项目
             update: 更新
           index:
             finished_orders: 完成的投票
@@ -55,7 +45,6 @@ zh-CN:
             title: 项目
           new:
             create: 创建
-            title: 新建项目
         proposals_imports:
           new:
             create: 导入提案到项目
@@ -90,6 +79,9 @@ zh-CN:
         project:
           fields:
             title: 标题
+      order:
+        status:
+          title: 您的投票已被接受
       order_summary_mailer:
         order_summary:
           selected_projects: '您选择的项目是：'
@@ -108,15 +100,12 @@ zh-CN:
           ok: 好的
         budget_summary:
           are_you_sure: 您确定要取消您的投票吗？
-          cancel_order: 删除您的投票并开始
           checked_out:
             title: 预算投票完成
         count:
           projects_count:
             other: "%{count} 个项目"
         filters:
-          category: 类别
-          scope: 范围
           search: 搜索
           status: 状态
           status_values:
@@ -153,8 +142,6 @@ zh-CN:
             landing_page_content: 预算登陆页
             more_information_modal: 更多信息模式
             projects_per_page: 每页项目数
-            scope_id: 范围
-            scopes_enabled: 范围已启用
             title: 标题
             total_budget: 预算总额
             vote_minimum_budget_projects_number: 要投票的项目最小数量
@@ -178,12 +165,5 @@ zh-CN:
             votes_choices:
               disabled: 投票已禁用
               finished: 投票结束
-    events:
-      budgets:
-        budget_published:
-          email_intro: '%{resource_title} 的预算现在为 %{participatory_space_title}激活。您可以从这个页面查看：'
-          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
-          email_subject: '%{resource_title} 的预算现在在 %{participatory_space_title} 处于活动状态。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 预算现在已经在 %{participatory_space_title} 中生效。
   index:
     confirmed_orders_count: 所得票数

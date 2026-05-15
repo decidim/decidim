@@ -15,15 +15,11 @@
 
 .datepicker {
   &__clock-button {
-    @apply top-0;
+    @apply top-2;
   }
 
   &__calendar-button {
-    @apply top-0;
-  }
-
-  &__pick-calendar {
-    @apply z-[3];
+    @apply top-2;
   }
 
   &__close-calendar {

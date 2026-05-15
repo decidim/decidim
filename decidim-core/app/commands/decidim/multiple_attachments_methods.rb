@@ -41,8 +41,9 @@ module Decidim
 
     def create_attachments(first_weight: 0)
       weight = first_weight
-      # Add the weights first to the old document
-      @form.documents.each do |document|
+      # Add the weights first to the old documents
+      document_ids = keep_ids
+      Decidim::Attachment.where(id: document_ids).each do |document|
         document.update!(weight:)
         weight += 1
       end
@@ -59,7 +60,7 @@ module Decidim
       documents = include_all_attachments ? documents_attached_to.attachments.with_attached_file : documents_attached_to.documents
 
       documents.each do |document|
-        document.destroy! if @form.documents.map(&:id).exclude? document.id
+        document.destroy! unless keep_ids.include?(document.id)
       end
 
       documents_attached_to.reload
@@ -97,6 +98,22 @@ module Decidim
 
     def blob(signed_id)
       ActiveStorage::Blob.find_signed(signed_id)
+    end
+
+    def keep_ids
+      documents_array = Array(@form.documents)
+      documents_array.map do |doc|
+        case doc
+        when Decidim::Attachment
+          doc.id
+        when Integer
+          doc
+        when String
+          doc.match?(/\A\d+\z/) ? doc.to_i : nil
+        when Hash
+          (doc[:id] || doc["id"]).to_i
+        end
+      end.compact
     end
   end
 end

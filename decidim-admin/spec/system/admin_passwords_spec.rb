@@ -50,7 +50,7 @@ describe "Admin passwords" do
         fill_in :password_user_password, with: new_password
         click_on "Change my password"
 
-        expect(page).to have_admin_callout("Password successfully updated")
+        expect(page).to have_callout("Password successfully updated")
         expect(page).to have_current_path(decidim_admin.root_path)
       end
     end

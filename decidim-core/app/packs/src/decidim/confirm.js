@@ -1,3 +1,5 @@
+import icon from "src/decidim/refactor/moved/icon"
+
 /**
  * A custom confirm dialog for Decidim based on Foundation reveals.
  *
@@ -14,13 +16,22 @@ class ConfirmDialog {
       this.$source = $(sourceElement);
     }
     this.$content = $("[data-confirm-modal-content]", this.$modal);
+    this.$title = $("[data-dialog-title]", this.$modal);
+    this.$iconContainer = $(".confirm-modal-icon", this.$modal);
     this.$buttonConfirm = $("[data-confirm-ok]", this.$modal);
     this.$buttonCancel = $("[data-confirm-cancel]", this.$modal);
 
     window.Decidim.currentDialogs["confirm-modal"].open()
   }
 
-  confirm(message) {
+  confirm(message, title, iconName) {
+    if (title) {
+      this.$title.html(title);
+    }
+    if (iconName) {
+      this.$iconContainer.html(icon(iconName, { width: null, height: null }));
+    }
+
     this.$content.html(message);
 
     this.$buttonConfirm.off("click");
@@ -51,9 +62,9 @@ class ConfirmDialog {
   }
 }
 
-const runConfirm = (message, sourceElement = null) => new Promise((resolve) => {
+const runConfirm = (message, sourceElement = null, opts = {}) => new Promise((resolve) => {
   const dialog = new ConfirmDialog(sourceElement);
-  dialog.confirm(message).then((answer) => {
+  dialog.confirm(message, opts.title, opts.iconName).then((answer) => {
     let completed = true;
     if (sourceElement) {
       completed = Rails.fire(sourceElement, "confirm:complete", [answer]);
@@ -73,6 +84,10 @@ const runConfirm = (message, sourceElement = null) => new Promise((resolve) => {
 // so for the moment this needs to be executed **before** Rails.start()
 const allowAction = (ev, element) => {
   const message = $(element).data("confirm");
+  const opts = {
+    title: $(element).data("confirm-title"),
+    iconName: $(element).data("confirm-icon")
+  };
   if (!message) {
     return true;
   }
@@ -81,7 +96,7 @@ const allowAction = (ev, element) => {
     return false;
   }
 
-  runConfirm(message, element).then((answer) => {
+  runConfirm(message, element, opts).then((answer) => {
     if (!answer) {
       return;
     }
@@ -91,6 +106,10 @@ const allowAction = (ev, element) => {
     // checking.
     $(element).data("confirm", null);
     $(element).removeAttr("data-confirm");
+    $(element).data("confirm-title", null);
+    $(element).removeAttr("data-confirm-title");
+    $(element).data("confirm-icon", null);
+    $(element).removeAttr("data-confirm-icon");
 
     // The submit button click events will not do anything if they are
     // dispatched as is. In these cases, just submit the underlying form.
@@ -100,7 +119,7 @@ const allowAction = (ev, element) => {
         $(element).is('input[type="submit"]')
       )
     ) {
-      $(element).parents("form").submit();
+      $(element).parents("form").get(0).requestSubmit();
     } else {
       let origEv = ev.originalEvent || ev;
       let newEv = origEv;
@@ -150,7 +169,9 @@ export const initializeConfirm = () => {
     return handleDocumentEvent(ev, [
       Rails.linkClickSelector,
       Rails.buttonClickSelector,
-      Rails.formInputClickSelector
+      Rails.formInputClickSelector,
+      'button[data-confirm][type="button"]',
+      "form button[data-confirm]"
     ]);
   });
   document.addEventListener("change", (ev) => {
@@ -164,9 +185,14 @@ export const initializeConfirm = () => {
   // Abide registers its own submit click listeners since Foundation 5.6.x
   // which will be handled before the document listeners above. This would
   // break the custom confirm functionality when used with Foundation Abide.
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("turbo:load", function() {
     $(Rails.formInputClickSelector).on("click.confirm", (ev) => {
       handleConfirm(ev, getMatchingEventTarget(ev, Rails.formInputClickSelector));
+    });
+
+    // Handle button[type="button"] with data-confirm inside forms
+    $('button[data-confirm][type="button"]').on("click.confirm", (ev) => {
+      handleConfirm(ev, ev.currentTarget);
     });
   });
 };

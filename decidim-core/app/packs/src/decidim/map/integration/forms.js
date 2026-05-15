@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   $("[data-decidim-map]").on("ready.decidim", (ev, _map, mapConfig) => {
     const $map = $(ev.target);
     const ctrl = $map.data("map-controller");

@@ -1,0 +1,17 @@
+<div class="accountability__taxonomies">
+  <h2 class="accountability__taxonomies__title">
+    <%= t("decidim.accountability.results.root_taxonomies.title") %>
+  </h2>
+  <ul>
+    <% current_component.available_root_taxonomies.each do |taxonomy| %>
+      <% is_selected = selected_root_taxonomy&.id == taxonomy.id %>
+      <li class="<%= "active" if is_selected && action_name == "home" %>">
+        <% if is_selected %>
+          <%= link_to translated_attribute(taxonomy.name), home_results_path(root_taxonomy_id: "list") %>
+        <% else %>
+          <%= link_to translated_attribute(taxonomy.name), home_results_path(root_taxonomy_id: taxonomy.id) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

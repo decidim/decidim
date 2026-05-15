@@ -32,7 +32,7 @@ describe "Admin manages participatory process group landing page" do
       expect do
         within ".edit_content_blocks" do
           click_on "Add content block"
-          within ".add-components" do
+          within "#add-content-block-dropdown" do
             find("a", text: "Hero image").click
           end
         end
@@ -45,7 +45,7 @@ describe "Admin manages participatory process group landing page" do
       expect do
         within ".edit_content_blocks" do
           click_on "Add content block"
-          within ".add-components" do
+          within "#add-content-block-dropdown" do
             find("a", text: "Hero image").click
           end
         end

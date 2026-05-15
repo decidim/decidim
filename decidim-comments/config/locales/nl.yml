@@ -5,7 +5,6 @@ nl:
       decidim/comments/comment_created_event: Commentaar
       decidim/comments/comment_upvoted_event: Reactie omhoog gestemd
       decidim/comments/reply_created_event: Reactie antwoord
-      decidim/comments/user_group_mentioned_event: Vermelding
       decidim/comments/user_mentioned_event: Vermelding
   activerecord:
     models:
@@ -16,6 +15,10 @@ nl:
         one: Stem
         other: Stemmen
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Reacties
     comments:
       admin:
         shared:
@@ -37,8 +40,6 @@ nl:
           body:
             label: Reactie
             placeholder: Wat wil je hierover zeggen?
-          user_group_id:
-            label: Reageer als
         opinion:
           label: Jouw mening over dit onderwerp
           negative: Negatief
@@ -109,11 +110,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{author_name}volgt. Je kan deze gebruiker ontvolgen via zijn profielpagina.
           email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
           notification_title: Er is een nieuwe reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'De groep %{author_name} heeft een reactie achtergelaten in %{resource_title}. Je kunt het op deze pagina lezen:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{author_name}volgt. Je kan stoppen met deze groep te volgen via de profielpagina.
-          email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
-          notification_title: Er is een nieuwe reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} heeft een reactie ontvangen. Je kan de opmerking op deze pagina lezen:"
           email_outro: Je hebt deze melding ontvangen omdat je '%{resource_title}' of de auteur ervan volgt. Ontvolgen kan door te klikken op de vorige link.
@@ -134,18 +130,8 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je reactie beantwoord is.
           email_subject: "%{author_name} heeft op je comment gereageerd in %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft gereageerd op je opmerking in <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Een groep waartoe u behoort is genoemd
-          email_outro: Je hebt deze melding ontvangen omdat je lid bent van de groep %{group_name} die is genoemd in %{resource_title}.
-          email_subject: U bent genoemd in %{resource_title} als lid van %{group_name}
-          notification_title: U bent genoemd in <a href="%{resource_path}">%{resource_title}</a> door <a href="%{author_path}">%{author_name} %{author_nickname}</a> als lid van <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Iemand heeft je getagd
           email_outro: Je hebt deze melding ontvangen omdat je bent getagd in %{resource_title}.
           email_subject: Je bent getagd in %{resource_title}
           notification_title: Je bent getagd in <a href="%{resource_path}">%{resource_title}</a> door <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Aantal reacties gegenereerd door deelnemers
-        object: reacties
-        title: Reacties

@@ -8,7 +8,7 @@ module Decidim
       attribute :proposal_ids, Array[Integer]
       attribute :proposals
       attribute :closed_at, Decidim::Attributes::TimeWithZone, default: -> { Time.current }
-      attribute :attendees_count, Integer, default: 0
+      attribute :attendees_count, Integer
 
       validates :closing_report, presence: true
       validates :attendees_count,
@@ -22,6 +22,7 @@ module Decidim
         self.proposal_ids = model.linked_resources(:proposals, "proposals_from_meeting").pluck(:id)
         presenter = MeetingEditionPresenter.new(model)
         self.closing_report = presenter.closing_report(all_locales: false)
+        self.attendees_count = model.attendees_count || model.registrations.where.not(validated_at: nil).count
       end
 
       def proposals

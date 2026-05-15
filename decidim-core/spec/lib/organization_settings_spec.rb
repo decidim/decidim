@@ -151,8 +151,9 @@ module Decidim
         let(:maximum_attachment_size) { 20 }
 
         before do
-          allow(Rails.application.secrets.decidim).to receive(:[]).and_call_original
-          allow(Rails.application.secrets.decidim).to receive(:[]).with(:maximum_attachment_size).and_return(maximum_attachment_size)
+          allow(ENV).to receive(:fetch).and_call_original
+          allow(Decidim).to receive(:maximum_attachment_size).and_return(maximum_attachment_size.to_s)
+
           # defaults method is memoized, we need to reset it to make sure it uses the stubbed values
           described_class.instance_variable_set(:@defaults, nil)
         end
@@ -165,13 +166,13 @@ module Decidim
 
     describe "#wrap_upload_maximum_file_size" do
       it "turns the passed value into megabytes" do
-        expect(subject.wrap_upload_maximum_file_size(1)).to eq(1.megabytes)
+        expect(subject.wrap_upload_maximum_file_size(1)).to eq(1.megabyte)
       end
     end
 
     describe "#wrap_upload_maximum_file_size_avatar" do
       it "turns the passed value into megabytes" do
-        expect(subject.wrap_upload_maximum_file_size_avatar(1)).to eq(1.megabytes)
+        expect(subject.wrap_upload_maximum_file_size_avatar(1)).to eq(1.megabyte)
       end
     end
 

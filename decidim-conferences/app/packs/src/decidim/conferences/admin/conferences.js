@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $conferenceScopeEnabled = $("#conference_scopes_enabled");
   const $conferenceScopeId = $("#conference_scope_id");
   const $form = $(".edit_conference, .new_conference");

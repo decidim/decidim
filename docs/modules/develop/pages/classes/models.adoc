@@ -45,7 +45,7 @@ Most commonly used concerns are:
 - `xref:develop:authorable.adoc[Decidim::Authorable]`
 - `xref:develop:authorable.adoc[Decidim::Coauthorable]`
 - `Decidim::DownloadYourData`
-- `xref:develop:endorsable.adoc[Decidim::Endorsable]`
+- `xref:develop:likeable.adoc[Decidim::likeable]`
 - `Decidim::FilterableResource`
 - `Decidim::Fingerprintable`
 - `xref:develop:followable.adoc[Decidim::Followable]`
@@ -87,10 +87,9 @@ Most commonly used concerns are:
 - `Decidim::Forms::HasQuestionnaire`
 - `Decidim::Initiatives::HasArea`
 - `Decidim::Initiatives::InitiativeSlug`
-- `Decidim::Proposals::CommentableCollaborativeDraft`
 - `Decidim::Proposals::CommentableProposal`
 - `Decidim::Proposals::ParticipatoryTextSection`
-- `Decidim::Proposals::Valuatable`
+- `Decidim::Proposals::Evaluable`
 - `Decidim::Templates::Templatable`
 
 == More information

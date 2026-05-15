@@ -1,4 +1,4 @@
-import AutoComplete from "src/decidim/autocomplete";
+import AutoComplete from "src/decidim/refactor/moved/autocomplete";
 
 /**
  * Sends a query to the API and resolves the resulting data in the returned
@@ -252,7 +252,7 @@ const createAutocomplete = (searchInput, spaces, inputIndex) => {
   return ac;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const searchElements = document.querySelectorAll("input.participatory-space-search")
   if (searchElements.length < 1) {
     return;

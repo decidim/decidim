@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "User activity" do
   let(:organization) { create(:organization) }
-  let(:comment) { create(:comment) }
+  let(:comment) { create(:comment, commentable: resource) }
   let(:user) { create(:user, :confirmed, organization:) }
 
   let!(:action_log) do
@@ -40,7 +40,7 @@ describe "User activity" do
   end
 
   let(:resource_types) do
-    ["Collaborative draft", "Comment", "Debate", "Initiative", "Meeting", "Post", "Proposal"]
+    %w(Comment Debate Initiative Meeting Post Proposal)
   end
 
   before do
@@ -123,7 +123,7 @@ describe "User activity" do
       end
 
       it "displays an error message" do
-        expect(page).to have_text("Puma caught this error: Missing user: invalid_nickname")
+        expect(page).to have_text("Routing Error\nMissing user: invalid_nickname")
       end
     end
   end

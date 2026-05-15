@@ -5,10 +5,12 @@ require "spec_helper"
 describe "Admin manages conference publication" do
   include_context "when admin administrating a conference"
 
-  let(:admin_page_path) { decidim_admin_conferences.edit_conference_path(participatory_space) }
+  let(:admin_page_path) { decidim_admin_conferences.conferences_path }
   let(:public_collection_path) { decidim_conferences.conferences_path }
   let(:title) { "My space" }
   let!(:participatory_space) { conference }
+  let(:publish_callout_message) { "Conference successfully published." }
+  let(:unpublish_callout_message) { "Conference successfully unpublished." }
 
   it_behaves_like "manage participatory space publications"
 
@@ -20,9 +22,15 @@ describe "Admin manages conference publication" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit admin_page_path
-    click_on "Publish"
 
+    within("tr", text: translated_attribute(participatory_space.title)) do
+      find("button[data-controller='dropdown']").click
+      click_on "Publish"
+    end
+
+    visit decidim.root_path
     visit decidim.last_activities_path
+
     expect(page).to have_content("New conference: #{title}")
 
     within "#filters" do

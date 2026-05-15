@@ -20,23 +20,28 @@ module Decidim
         attribute :comments_start_time, Decidim::Attributes::TimeWithZone
         attribute :comments_end_time, Decidim::Attributes::TimeWithZone
         attribute :iframe_access_level, String
+        attribute :reminder_enabled, Boolean, default: true
+        attribute :send_reminders_before_hours, Integer, default: Decidim::Meetings.upcoming_meeting_notification.in_hours.to_i
 
         translatable_attribute :title, String
         translatable_attribute :description, Decidim::Attributes::RichText
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
+        translatable_attribute :reminder_message_custom_content, String
 
         validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
-        validates :title, translatable_presence: true
-        validates :description, translatable_presence: true
+        validates :title, :description, translatable_presence: true, translated_etiquette: true
         validates :registration_type, presence: true
         validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
         validates :type_of_meeting, presence: true
-        validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
+        validates :address, presence: true, if: ->(form) { form.needs_address? && form.location.values.any?(&:present?) && form.address.blank? }
+        validates :location, translatable_presence: true, if: ->(form) { form.needs_address? && form.address.present? }
+        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
         validates :online_meeting_url, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
         validates :comments_start_time, date: { before: :comments_end_time, allow_blank: true, if: proc { |obj| obj.comments_end_time.present? } }
         validates :comments_end_time, date: { after: :comments_start_time, allow_blank: true, if: proc { |obj| obj.comments_start_time.present? } }
         validates :clean_type_of_meeting, presence: true
+        validates :send_reminders_before_hours, numericality: { only_integer: true, greater_than: 0 }, if: :reminder_enabled
         validates(
           :iframe_access_level,
           inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
@@ -62,7 +67,7 @@ module Decidim
 
         # linked components
         def components
-          return [] if private_non_transparent_space?
+          return [] if restricted_space?
 
           if private_meeting && !transparent
             []
@@ -71,7 +76,7 @@ module Decidim
           end
         end
 
-        delegate :private_non_transparent_space?, to: :current_component
+        delegate :restricted_space?, to: :current_component
 
         def number_of_services
           services.size
@@ -81,6 +86,26 @@ module Decidim
 
         def clean_type_of_meeting
           type_of_meeting.presence
+        end
+
+        def reminder_message_custom_content
+          return unless reminder_enabled
+
+          return super if super.respond_to?(:values) && super.values.any?(&:present?)
+
+          @default_reminder_message ||= if current_organization
+                                          current_organization.available_locales.index_with do |locale|
+                                            I18n.t("decidim.events.meetings.upcoming_meeting.default_body", locale:)
+                                          end
+                                        else
+                                          {}
+                                        end
+        end
+
+        def send_reminders_before_hours
+          return nil unless reminder_enabled
+
+          super.presence&.to_i
         end
 
         def iframe_access_level_select

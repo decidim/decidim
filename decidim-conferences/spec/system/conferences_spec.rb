@@ -28,18 +28,6 @@ describe "Conferences" do
     end
   end
 
-  context "when there are no conferences and accessing from the homepage" do
-    let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-    it "the menu link is not shown" do
-      visit decidim.root_path
-
-      within "#home__menu" do
-        expect(page).to have_no_content("Conferences")
-      end
-    end
-  end
-
   context "when the conference does not exist" do
     it_behaves_like "a 404 page" do
       let(:target_path) { decidim_conferences.conference_path(99_999_999) }
@@ -57,18 +45,6 @@ describe "Conferences" do
         let(:target_path) { decidim_conferences.conferences_path }
       end
     end
-
-    context "and accessing from the homepage" do
-      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-      it "the menu link is not shown" do
-        visit decidim.root_path
-
-        within "#home__menu" do
-          expect(page).to have_no_content("Conferences")
-        end
-      end
-    end
   end
 
   context "when there are some published conferences" do
@@ -83,20 +59,6 @@ describe "Conferences" do
     it_behaves_like "shows contextual help" do
       let(:index_path) { decidim_conferences.conferences_path }
       let(:manifest_name) { :conferences }
-    end
-
-    context "and accessing from the homepage" do
-      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-      it "the menu link is shown" do
-        visit decidim.root_path
-
-        within "#home__menu" do
-          click_on "Conferences"
-        end
-
-        expect(page).to have_current_path decidim_conferences.conferences_path
-      end
     end
 
     it "lists all the highlighted conferences" do
@@ -218,7 +180,6 @@ describe "Conferences" do
       within "[data-conference-hero]", match: :first do
         expect(page).to have_content(translated(conference.title, locale: :en))
         expect(page).to have_content(translated(conference.slogan, locale: :en))
-        expect(page).to have_content(conference.hashtag)
       end
 
       expect(page).to have_content(translated(conference.description, locale: :en))
@@ -237,7 +198,7 @@ describe "Conferences" do
       end
 
       it "renders the stats for those components that are visible" do
-        within "[data-statistic]" do
+        within all("[data-statistic]")[0] do
           expect(page).to have_css(".statistic__title", text: "Proposals")
           expect(page).to have_css(".statistic__number", text: "3")
           expect(page).to have_no_css(".statistic__title", text: "Meetings")

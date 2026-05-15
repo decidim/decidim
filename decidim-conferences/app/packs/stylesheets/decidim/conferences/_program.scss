@@ -13,7 +13,7 @@
     @apply h-10 grid place-items-center border-b-2 border-tertiary text-center text-xl text-gray-2 font-semibold;
   }
 
-  &-category {
+  &-taxonomy {
     @apply h-10 w-full bg-background-4 border-b-2 border-secondary text-center text-secondary font-semibold text-md truncate leading-10;
 
     &-container {

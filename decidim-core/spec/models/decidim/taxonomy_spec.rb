@@ -4,22 +4,81 @@ require "spec_helper"
 
 module Decidim
   describe Taxonomy do
-    subject(:taxonomy) { build(:taxonomy, name: taxonomy_name, parent: root_taxonomy, organization:) }
+    subject(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
 
     let(:organization) { create(:organization) }
     let(:root_taxonomy) { create(:taxonomy, organization:) }
-    let(:taxonomy_name) { attributes_for(:taxonomy)[:name] }
 
-    context "when everything is ok" do
-      it { is_expected.to be_valid }
-      it { is_expected.not_to be_root }
+    context "when building" do
+      subject(:taxonomy) { build(:taxonomy, name: taxonomy_name, parent: root_taxonomy, organization:) }
+      let(:taxonomy_name) { attributes_for(:taxonomy)[:name] }
 
-      it "returns the root taxonomy" do
-        expect(taxonomy.root_taxonomy).to eq(root_taxonomy)
+      context "when everything is ok" do
+        it { is_expected.to be_valid }
+        it { is_expected.not_to be_root }
+
+        it "returns the root taxonomy" do
+          expect(taxonomy.root_taxonomy).to eq(root_taxonomy)
+        end
       end
 
-      it "returns the parent ids" do
-        expect(taxonomy.parent_ids).to eq([root_taxonomy.id])
+      context "when name is missing" do
+        let(:taxonomy_name) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+    end
+
+    it { is_expected.to be_valid }
+    it { is_expected.not_to be_root }
+    it { is_expected.to be_versioned }
+
+    it "returns the parent ids" do
+      expect(taxonomy.root_taxonomy).to eq(root_taxonomy)
+      expect(taxonomy.parent_ids).to eq([root_taxonomy.id])
+    end
+
+    describe "scopes" do
+      let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+      let!(:external_taxonomy) { create(:taxonomy, :with_parent) }
+
+      it "returns the root taxonomies" do
+        expect(described_class.roots).to include(root_taxonomy)
+        expect(described_class.roots).to include(external_taxonomy.parent)
+        expect(described_class.roots).not_to include(taxonomy)
+        expect(described_class.roots).not_to include(external_taxonomy)
+      end
+
+      it "returns the non root taxonomies" do
+        expect(described_class.non_roots).to include(taxonomy)
+        expect(described_class.non_roots).to include(external_taxonomy)
+        expect(described_class.non_roots).not_to include(root_taxonomy)
+        expect(described_class.non_roots).not_to include(external_taxonomy.parent)
+      end
+
+      context "when filtering by organization" do
+        let(:base) { described_class.for(organization) }
+
+        it "returns the taxonomies for the organization" do
+          expect(base).to include(taxonomy)
+          expect(base).to include(root_taxonomy)
+          expect(base).not_to include(external_taxonomy)
+          expect(base).not_to include(external_taxonomy.parent)
+        end
+
+        it "returns the root taxonomies for the organization" do
+          expect(base.roots).to include(root_taxonomy)
+          expect(base.roots).not_to include(external_taxonomy.parent)
+          expect(base.roots).not_to include(taxonomy)
+          expect(base.roots).not_to include(external_taxonomy)
+        end
+
+        it "returns the non root taxonomies for the organization" do
+          expect(base.non_roots).to include(taxonomy)
+          expect(base.non_roots).not_to include(external_taxonomy)
+          expect(base.non_roots).not_to include(root_taxonomy)
+          expect(base.non_roots).not_to include(external_taxonomy.parent)
+        end
       end
     end
 
@@ -39,14 +98,8 @@ module Decidim
       end
 
       it "returns the parent ids" do
-        expect(child.parent_ids).to eq([root_taxonomy.id, taxonomy.id])
+        expect(child.parent_ids).to contain_exactly(root_taxonomy.id, taxonomy.id)
       end
-    end
-
-    context "when name is missing" do
-      let(:taxonomy_name) { nil }
-
-      it { is_expected.to be_invalid }
     end
 
     context "when organization is missing" do
@@ -237,13 +290,12 @@ module Decidim
     end
 
     describe "creating several taxonomies on a transaction" do
-      let(:taxonomies) { build_list(:taxonomy, 8, organization:) }
+      let(:taxonomies) { create_list(:taxonomy, 8, organization:) }
 
       before do
         taxonomy.transaction do
           taxonomies.each_with_index do |tax, i|
-            tax.parent_id = taxonomies[i / 2].id if i.positive?
-            tax.save!
+            tax.update(parent_id: taxonomies[i / 2].id) if i.positive?
           end
         end
       end

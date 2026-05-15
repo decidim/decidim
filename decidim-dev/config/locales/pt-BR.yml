@@ -31,8 +31,6 @@ pt-BR:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Endossos bloqueados
-            endorsements_enabled: Endossos habilitados
             readonly_step_attribute: Atributo passo somente leitura
             test_options:
               bar: Bar

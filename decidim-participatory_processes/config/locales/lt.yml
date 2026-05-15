@@ -4,16 +4,12 @@ lt:
       participatory_process:
         announcement: Pranešimas
         area_id: Aplinka
-        copy_categories: Kopijuoti kategorijas
-        copy_components: Kopijuoti komponentus
-        copy_steps: Kopijuoti veiksmus
         decidim_area_id: Aplinka
         description: Aprašymas
         developer_group: Rėmėjų grupė
         document: Dokumentas
         domain: Domenas
         end_date: Pabaigos data
-        hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
         import_attachments: Importuoti priedus
         import_categories: Importuoti kategorijas
@@ -22,16 +18,11 @@ lt:
         local_area: Organizacijos aplinka
         meta_scope: Srities metaduomenys
         participatory_process_group_id: Procesų grupė
-        participatory_process_type_id: Proceso tipas
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
-        private_space: Privatus procesas
         promoted: Paaukštintas/a
         published_at: Publikuota
         related_process_ids: Susiję procesai
-        scope_id: Apimtis
-        scope_type_max_depth_id: Srities filtro gylis
-        scopes_enabled: Sritys įjungtos
         short_description: Trumpas aprašymas
         slug: URL priedas
         start_date: Pradžios data
@@ -43,7 +34,6 @@ lt:
         description: Aprašymas
         developer_group: Rėmėjų grupė
         group_url: Tinklalapis
-        hashtag: Grotažymė
         hero_image: Paveikslėlis
         local_area: Organizacijos aplinka
         meta_scope: Srities metaduomenys
@@ -59,8 +49,6 @@ lt:
         end_date: Pabaigos data
         short_description: Trumpas aprašymas
         start_date: Pradžios data
-        title: Pavadinimas
-      participatory_process_type:
         title: Pavadinimas
       participatory_process_user_role:
         email: El. paštas
@@ -96,17 +84,14 @@ lt:
     admin:
       actions:
         activate: Aktyvuoti
-        configure: Konfigūruoti
         confirm_destroy: Patvirtinti ištrynimą
         destroy: Ištrinti
         duplicate: Sukurti kopiją
         edit: Redaguoti
         import_process: Importuoti
-        moderate: Moderuoti
         new_process: Naujas procesas
         new_process_group: Nauja procesų grupė
         new_process_step: Naujas etapas
-        new_process_type: Naujas proceso tipas
         new_process_user_role: Naujas proceso administratorius
         preview: Peržiūra
         publish: Publikuoti
@@ -114,27 +99,19 @@ lt:
         unpublish: Depublikuoti
       menu:
         participatory_process_groups: Procesų grupės
-        participatory_process_groups_submenu:
-          info: Informacija
-          landing_page: Pagrindinis puslapis
-        participatory_process_types: Proceso tipas
         participatory_processes: Procesai
         participatory_processes_submenu:
           attachment_collections: Aplankai
           attachment_files: Dokumentai
           attachments: Priedai
-          categories: Kategorijos
           components: Komponentai
-          landing_page: Pagrindinis puslapis
           moderations: Moderavimai
-          private_users: Privatūs dalyviai
           process_admins: Proceso administratoriai
           steps: Etapai
       models:
         participatory_process:
           fields:
             created_at: Sukurta
-            private: Privatu
             published: Paskelbta
             title: Pavadinimas
           name: Dalyvaujamasis procesas
@@ -148,11 +125,6 @@ lt:
             start_date: Pradžios data
             title: Pavadinimas
           name: Dalyvaujamojo proceso etapas
-        participatory_process_type:
-          fields:
-            created_at: Sukurta
-            title: Pavadinimas
-          name: Proceso tipas
         participatory_process_user_role:
           fields:
             email: El. paštas
@@ -163,25 +135,17 @@ lt:
             admin: Administratorius
             collaborator: Bendraautorius
             moderator: Moderatorius
-            valuator: Vertintojas
         user:
           fields:
             invitation_accepted_at: Kvietimas priimtas
             invitation_sent_at: Kvietimas išsiųstas
-      participatory_process_copies:
-        new:
-          copy: Kopijuoti
-          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
-          title: Dubliuoti dalyvaujamąjį procesą
       participatory_process_groups:
         destroy:
           success: Dalyvaujamojo proceso grupė pašalinta.
         edit:
-          title: Keisti procesų grupę
           update: Atnaujinti
         new:
           create: Sukurti
-          title: Nauja procesų grupė
         update:
           error: Atnaujinant šio dalyvaujamojo proceso grupę iškilo problema.
           success: Dalyvaujamojo proceso grupė atnaujinta.
@@ -192,7 +156,6 @@ lt:
         new:
           import: Importuoti
           select: Pasirinkite, kuriuos duomenis norėtumėte importuoti
-          title: Importuoti dalyvaujamąjį procesą
       participatory_process_publications:
         create:
           error: Skelbiant šį dalyvaujamąjį procesą iškilo problema.
@@ -215,33 +178,13 @@ lt:
             last_step: Negalima pašalinti proceso paskutinio etapo.
           success: Dalyvaujamojo proceso etapas pašalintas.
         edit:
-          title: Redaguoti dalyvaujamojo proceso etapą
           update: Atnaujinti
-        index:
-          steps_title: Etapai
         new:
           create: Sukurti
-          title: Naujas dalyvaujamojo proceso etapas
         ordering:
           error: Pertvarkant šiuos dalyvaujamojo proceso etapus iškilo problema.
         update:
           error: Atnaujinant šio dalyvaujamojo proceso etapą iškilo problema.
-          success: Dalyvaujamasis etapas atnaujintas.
-      participatory_process_types:
-        create:
-          error: Kuriant naują proceso tipą iškilo problema.
-          success: Proceso tipas sėkmingai sukurtas.
-        destroy:
-          success: Proceso tipas sėkmingai ištrintas.
-        edit:
-          title: Redaguoti proceso tipą
-          update: Atnaujinti
-        new:
-          create: Sukurti
-          title: Naujas proceso tipas
-        update:
-          error: Atnaujinant šį proceso tipą iškilo problema.
-          success: Proceso tipas sėkmingai sukurtas.
       participatory_process_user_roles:
         create:
           error: Pridedant dalyvį prie dalyvaujamojo proceso iškilo problema.
@@ -249,13 +192,9 @@ lt:
         destroy:
           success: Šio dalyvaujamojo proceso administratorius pašalintas.
         edit:
-          title: Atnaujinti dalyvaujamojo proceso administratorių
           update: Atnaujinti
-        index:
-          process_admins_title: Dalyvaujamojo proceso administratoriai
         new:
           create: Sukurti
-          title: Naujas dalyvaujamojo proceso administratorius
         update:
           error: Atnaujinant šio dalyvaujamojo proceso administratorių iškilo problema.
           success: Šio dalyvaujamojo proceso administratorius atnaujintas.
@@ -266,27 +205,16 @@ lt:
         edit:
           update: Atnaujinti
         index:
-          private: Privatu
-          public: Vieša
           published: Paskelbta
         new:
           create: Sukurti
-          title: Naujas dalyvaujamasis procesas
         update:
           error: Atnaujinant šį dalyvaujamąjį procesą iškilo problema.
           success: Dalyvaujamasis procesas atnaujintas.
-      participatory_processes_copies:
-        create:
-          error: Dubliuojant šį dalyvaujamąjį procesą iškilo problema.
-          success: Dalyvaujamasis procesas dubliuotas.
       participatory_processes_group:
         create:
           error: Kuriant naują dalyvaujamojo proceso grupę iškilo problema.
           success: Dalyvaujamojo proceso grupė sukurta.
-      titles:
-        participatory_process_groups: Dalyvaujamojo proceso grupės
-        participatory_process_types: Dalyvaujamųjų procesų tipai
-        participatory_processes: Dalyvaujamieji procesai
       users:
         resend_invitation:
           error: Dar kartą siunčiant šį kvietimą iškilo problema.
@@ -308,10 +236,6 @@ lt:
         create: "%{user_name} sukūrė %{space_name} dalyvaujamojo proceso %{resource_name} etapą"
         delete: "%{user_name} pašalino %{space_name} dalyvaujamojo proceso %{resource_name} etapą"
         update: "%{user_name} atnaujino %{space_name} dalyvaujamojo proceso %{resource_name} etapą"
-      participatory_process_type:
-        create: "%{user_name} sukūrė %{resource_name} dalyvaujamojo proceso tipą"
-        delete: "%{user_name} ištrynė %{resource_name} dalyvaujamojo proceso tipą"
-        update: "%{user_name} atnaujino %{resource_name} dalyvaujamojo proceso tipą"
       participatory_process_user_role:
         create: "%{user_name} pakvietė %{resource_name} dalyvį į %{space_name} dalyvaujamąjį procesą"
         delete: "%{user_name} pašalino %{resource_name} dalyvį iš %{space_name} dalyvaujamojo proceso"
@@ -339,17 +263,8 @@ lt:
           contextual: "<p> <strong>dalyvaujamasis procesas</strong> – dalyvaujamųjų veiklų seka (pvz., visų pirma surengiama apklausa, tada pateikiami pasiūlymai, jie aptariami tiesioginiuose susitikimuose arba vaizdo konferencijose ir galiausiai nustatomi pasiūlymų prioritetai). Šios veiklos tikslas – nustatyti ir priimti sprendimus konkrečia tema.</p> <p>Dalyvaujamojo proceso pavyzdžiai: komiteto narių rinkimo procesas (pirmiausia pateikiamos kandidatūros, po to diskutuojama ir galiausiai pasirenkamas kandidatas), dalyvaujamojo biudžeto nustatymas (teikiami pasiūlymai, jie vertinami ekonomiškai ir dėl jų balsuojama remiantis turimomis lėšomis), strateginio planavimo procesas, bendras reglamento ar standarto rengimas, miesto erdvės planavimas arba viešosios politikos plano rengimas.</p>\n"
           page: "<p> <strong>dalyvaujamasis procesas</strong> – dalyvaujamųjų veiklų seka (pvz., visų pirma surengiama apklausa, tada pateikiami pasiūlymai, jie aptariami tiesioginiuose susitikimuose arba vaizdo konferencijose ir galiausiai nustatomi pasiūlymų prioritetai). Šios veiklos tikslas – nustatyti ir priimti sprendimus konkrečia tema.</p> <p>Dalyvaujamojo proceso pavyzdžiai: komiteto narių rinkimo procesas (pirmiausia pateikiamos kandidatūros, po to diskutuojama ir galiausiai pasirenkamas kandidatas), dalyvaujamojo biudžeto nustatymas (teikiami pasiūlymai, jie vertinami ekonomiškai ir dėl jų balsuojama remiantis turimomis lėšomis), strateginio planavimo procesas, bendras reglamento ar standarto rengimas, miesto erdvės planavimas arba viešosios politikos plano rengimas.</p>\n"
           title: Kas yra dalyvaujamasis procesas?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Proceso tipas duomenų bazėje nerastas (ID: %{id}).'
     menu:
       processes: Procesai
-    metrics:
-      participatory_processes:
-        description: Dalyvaujamųjų procesų skaičius šioje organizacijoje
-        object: dalyvaujamieji procesai
-        title: Dalyvaujamieji procesai
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -403,21 +318,12 @@ lt:
         participatory_process_imports:
           form:
             document_legend: Pridėti dokumentą
-        participatory_process_steps:
-          form:
-            cta_text_help: Jei nenustatyta, mygtukas nebus matomas.
         participatory_processes:
           form:
-            announcement_help: Čia įrašytas tekstas naudotojui bus rodomas iš karto po informacijos apie procesą.
             duration: Trukmė
-            filters: Filtrai
             images: Paveikslėliai
             metadata: Metaduomenys
-            other: Kita
             related_processes: Susiję procesai
-            scope_type_max_depth_help: Riboti srities filtro dydį; Filtras parodys nuo bendros iki pasirinktos apimties tipo.
-            select_an_area: Pasirinkti aplinką
-            select_participatory_process_type: Pasirinkti proceso tipą
             select_process_group: Pasirinkti procesų grupę
             title: Bendroji informacija
       content_blocks:
@@ -436,9 +342,6 @@ lt:
           highlighted_processes:
             active_spaces: Aktyvūs procesai
             see_all_spaces: Žiūrėti visus procesus
-      participatory_process_steps:
-        index:
-          back_to_process: Grįžti į procesų puslapį
       participatory_processes:
         description:
           area_name: Aplinka
@@ -490,7 +393,6 @@ lt:
           title: Apie šį procesą
       show:
         belongs_to_group: Šis procesas priklauso
-        private_space: Tai yra uždaras procesas
         related_processes: Susiję procesai
     statistics:
       processes_count: Procesai

@@ -35,8 +35,9 @@ module Decidim
 
       it "forces authentication" do
         get :show
-        expect(response.location).to eq("http://test.host/users/sign_in")
-        expect(response.body).to have_text("You are being redirected")
+        sign_in_url = Decidim::Core::Engine.routes.url_helpers.new_user_session_url(host: "test.host")
+
+        expect(response.location).to eq(sign_in_url)
         expect(response).to have_http_status(:found)
       end
 

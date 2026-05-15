@@ -27,11 +27,13 @@ module Decidim
     end
 
     def self.searchable_resources_of_type_participant
-      searchable_resources.slice("Decidim::User", "Decidim::UserGroup")
+      searchable_resources.slice("Decidim::User")
     end
 
     def self.searchable_resources_of_type_participatory_space
-      searchable_resources.select { |r| r.constantize.reflect_on_association(:components).present? }
+      searchable_resources
+        .select { |r| r.constantize.reflect_on_association(:organization).present? }
+        .reject { |r| searchable_resources_of_type_participant.keys.include?(r) }
     end
 
     def self.searchable_resources_of_type_component
@@ -99,7 +101,7 @@ module Decidim
 
       # Public: after_update callback to update index information of the model.
       #
-      def try_update_index_for_search_resource
+      def try_update_index_for_search_resource(current_depth = 0)
         return unless self.class.searchable_resource?(self)
 
         org = self.class.search_resource_fields_mapper.retrieve_organization(self)
@@ -122,13 +124,13 @@ module Decidim
           searchables_in_org.destroy_all
         end
 
-        find_and_update_descendants
+        find_and_update_descendants(current_depth)
       end
 
       private
 
-      def find_and_update_descendants
-        Decidim::FindAndUpdateDescendantsJob.perform_later(self)
+      def find_and_update_descendants(current_depth = 0)
+        Decidim::FindAndUpdateDescendantsJob.perform_later(self, current_depth)
       end
 
       def contents_to_searchable_resource_attributes(fields, locale)

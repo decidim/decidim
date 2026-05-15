@@ -39,7 +39,7 @@ module Decidim
     # @!attribute rewrite
     #   @return [String] the rewritten content
     # @!attribute metadata
-    #   @return [Hash<Symbol, Metadata>] a hash where the keys are the parsers
+    #   @return [Hash{Symbol => Metadata}] a hash where the keys are the parsers
     #     names, and the values are the Metadata object returned by the parser
     Result = Struct.new(:rewrite, :metadata)
 
@@ -57,7 +57,7 @@ module Decidim
     end
 
     # Public: Calls the specified processors to process the given content with
-    # it. For example, to convert hashtags to its Global ID representation.
+    # it. For example, to convert user mentions to its Global ID representation.
     #
     # @param type [String] the name of the processor to use.
     # @param content [String] already rewritten content or regular content

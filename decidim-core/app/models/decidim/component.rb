@@ -12,6 +12,7 @@ module Decidim
     include Loggable
     include Decidim::ShareableWithToken
     include ScopableComponent
+    include Decidim::SoftDeletable
     include TranslatableAttributes
 
     belongs_to :participatory_space, polymorphic: true
@@ -21,7 +22,7 @@ module Decidim
 
     default_scope { registered_component_manifests.registered_space_manifests.order(arel_table[:weight].asc, arel_table[:manifest_name].asc) }
 
-    delegate :organization, :categories, to: :participatory_space
+    delegate :organization, to: :participatory_space
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::ComponentPresenter
@@ -63,6 +64,7 @@ module Decidim
       {
         :host => organization.host,
         :component_id => id,
+        :locale => I18n.locale,
         :"#{participatory_space.underscored_name}_slug" => participatory_space.slug
       }
     end
@@ -76,7 +78,10 @@ module Decidim
 
     # Public: Returns the value of the registered primary stat.
     def primary_stat
-      @primary_stat ||= manifest.stats.filter(primary: true).with_context([self]).map { |name, value| [name, value] }.first&.last
+      @primary_stat ||= begin
+        data = manifest.stats.filter(primary: true).with_context([self]).map { |name, value| [name, value] }.first&.first&.[](:data)
+        data.respond_to?(:first) ? data.first : data
+      end
     end
 
     # Public: Returns the component's name as resource title
@@ -96,21 +101,20 @@ module Decidim
     def resource_description; end
 
     def can_participate_in_space?(user)
-      return true unless participatory_space.try(:private_space?)
+      return false unless published?
+      return false unless participatory_space.published?
+
+      return true unless participatory_space.respond_to?(:restricted?) && participatory_space.restricted?
       return false unless user
 
       participatory_space.can_participate?(user)
     end
+    alias can_participate? can_participate_in_space?
 
-    def private_non_transparent_space?
-      return false unless participatory_space.respond_to?(:private_space?)
-      return false unless participatory_space.private_space?
+    def restricted_space?
+      return false unless participatory_space.respond_to?(:restricted?)
 
-      if participatory_space.respond_to?(:is_transparent?)
-        !participatory_space.is_transparent?
-      else
-        true
-      end
+      participatory_space.restricted?
     end
 
     # Public: Public URL for component with given share token as query parameter

@@ -11,7 +11,7 @@ module Decidim
       let(:event_name) { "decidim.events.gamification.level_up" }
       let(:resource) { create(:user) }
       let(:resource_path) do
-        Decidim::Core::Engine.routes.url_helpers.profile_badges_path(nickname: resource.nickname)
+        Decidim::Core::Engine.routes.url_helpers.profile_badges_path(nickname: resource.nickname, locale: I18n.locale)
       end
 
       it_behaves_like "a simple event", skip_space_checks: true

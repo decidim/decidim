@@ -4,15 +4,11 @@ lb:
       participatory_process:
         announcement: Ukënnegung
         area_id: Bereich
-        copy_categories: Kategorien kopieren
-        copy_components: Komponenten kopieren
-        copy_steps: Phasen kopieren
         decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
         domain: Domäne
         end_date: Enddatum
-        hashtag: Hashtag
         hero_image: Hauptbild
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
@@ -22,9 +18,6 @@ lb:
         promoted: Hervorgehoben
         published_at: Veröffentlicht unter
         related_process_ids: Ähnliche Beteiligungsprozesse
-        scope_id: Themenbereich
-        scope_type_max_depth_id: Umfang-Filtertiefe
-        scopes_enabled: Themenbereiche aktiviert
         short_description: Kurzbeschreibung
         slug: URL-Slug
         start_date: Ufanksdatum
@@ -36,7 +29,6 @@ lb:
         description: Beschreibung
         developer_group: Gruppe der Unterstützer
         group_url: Website
-        hashtag: Hashtag
         hero_image: Bild
         local_area: Organisationsbereich
         meta_scope: Informationen zum Bereich
@@ -75,7 +67,6 @@ lb:
     admin:
       actions:
         activate: Aktivieren
-        configure: Konfigurieren
         confirm_destroy: Läsche bestätegen
         destroy: Läschen
         duplicate: Duplizieren
@@ -91,25 +82,19 @@ lb:
         unpublish: Veröffentlichung rückgängig machen
       menu:
         participatory_process_groups: Prozessgruppen
-        participatory_process_groups_submenu:
-          info: Info
-          landing_page: Startseite
         participatory_processes: Beteiligungsprozesse
         participatory_processes_submenu:
           attachment_collections: Dossieren
           attachment_files: Dateien
           attachments: Unhäng
-          categories: Kategorien
           components: Komponenten
           moderations: Moderationen
-          private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
           steps: Phasen
       models:
         participatory_process:
           fields:
             created_at: Erstallt den
-            private: Privat
             published: Verëffentlecht
             title: Titel
           name: Bedeelegungsprozess
@@ -133,25 +118,17 @@ lb:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
-            valuator: Schätzer
         user:
           fields:
             invitation_accepted_at: Einladung akzeptiert am
             invitation_sent_at: Einladung gesendet am
-      participatory_process_copies:
-        new:
-          copy: Kopieren
-          select: Wählen Sie aus, welche Daten Sie duplizieren möchten
-          title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
           success: Beteiligungsprozess erfolgreich gelöscht.
         edit:
-          title: Prozessgruppe bearbeiten
           update: Aktualisieren
         new:
           create: Erstellen
-          title: Neue Prozessgruppe
         update:
           error: Beim Aktualisieren dieser partizipativen Prozessgruppe ist ein Fehler aufgetreten.
           success: Partizipative Prozessgruppe wurde erfolgreich aktualisiert.
@@ -162,7 +139,6 @@ lb:
         new:
           import: Import
           select: Wählen Sie aus, welche Daten Sie importieren möchten
-          title: Beteiligungsprozess importieren
       participatory_process_publications:
         create:
           error: Bei der Veröffentlichung dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
@@ -182,18 +158,13 @@ lb:
         destroy:
           success: Participatory-Prozessschritt erfolgreich gelöscht.
         edit:
-          title: Beteiligungsschritt bearbeiten
           update: Aktualiséieren
-        index:
-          steps_title: Phasen
         new:
           create: Erstellen
-          title: Neuer partizipativer Prozessschritt
         ordering:
           error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
         update:
           error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
-          success: Partizipativer Prozessschritt erfolgreich aktualisiert.
       participatory_process_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.
@@ -201,15 +172,9 @@ lb:
         destroy:
           success: Der Benutzer wurde erfolgreich aus diesem partizipativen Prozess entfernt.
         edit:
-          title: Administrator des Beteiligungsprozesses aktualisieren
           update: Aktualiséieren
-        index:
-          process_admins_title: Partizipative Prozessbenutzer
         new:
           create: Erstellen
-      titles:
-        participatory_process_groups: Prozessgruppen
-        participatory_processes: Bedeelegungsprozesser
       users:
         resend_invitation:
           error: Beim erneuten Senden der Einladung ist ein Fehler aufgetreten.
@@ -257,11 +222,6 @@ lb:
           title: Was ist ein partizipativer Prozess?
     menu:
       processes: Bedeelegungsprozesser
-    metrics:
-      participatory_processes:
-        description: Anzahl der Beteiligungsprozesse in dieser Organisation
-        object: Bedeelegungsprozesser
-        title: Bedeelegungsprozesser
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -282,10 +242,7 @@ lb:
       admin:
         participatory_processes:
           form:
-            other: Andere
             related_processes: Ähnliche Beteiligungsprozesse
-            scope_type_max_depth_help: Beschränken Sie die Bereichs-Filtertiefe; der Filter zeigt nur Ergebnisse von Allgemein bis zum ausgewählten Bereichstyp an.
-            select_an_area: Wählen Sie einen Bereich aus
             select_process_group: Wählen Sie eine Prozessgruppe aus
             title: Allgemeine Information
       content_blocks:
@@ -293,9 +250,6 @@ lb:
           name: Hervorgehobene Beteiligungsprozesse
       index:
         title: Bedeelegungsprozesser
-      participatory_process_steps:
-        index:
-          back_to_process: Zurück zur Prozessseite
       participatory_processes:
         filters:
           counters:
@@ -312,7 +266,6 @@ lb:
           see: Sehen
       show:
         belongs_to_group: Dieser Prozess gehört zu
-        private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
     statistics:
       processes_count: Bedeelegungsprozesser

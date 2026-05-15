@@ -15,6 +15,7 @@ describe "AdminAccess" do
 
   context "when the user is a visitor" do
     it "shows the unauthenticated message" do
+      # Prevent flaky spec, where sometimes the language is not changed before the visit
       sleep 2
       visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
 
@@ -67,8 +68,8 @@ describe "AdminAccess" do
     end
   end
 
-  context "when the user is a valuator" do
-    let(:user) { create(:process_valuator, :confirmed, participatory_process:) }
+  context "when the user is a evaluator" do
+    let(:user) { create(:process_evaluator, :confirmed, participatory_process:) }
 
     before do
       login_as user, scope: :user

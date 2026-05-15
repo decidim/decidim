@@ -37,7 +37,7 @@ shared_examples "manage conference admins examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Conference admin successfully added.")
 
     within "#conference_admins table" do
       expect(page).to have_content(other_user.email)
@@ -55,6 +55,7 @@ shared_examples "manage conference admins examples" do
     it "updates a conference admin", versioning: true do
       within "#conference_admins" do
         within "#conference_admins tr", text: other_user.email do
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
       end
@@ -65,7 +66,7 @@ shared_examples "manage conference admins examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference admin successfully updated.")
 
       within "#conference_admins table" do
         expect(page).to have_content("Collaborator")
@@ -76,10 +77,11 @@ shared_examples "manage conference admins examples" do
 
     it "deletes a conference_user_role" do
       within "#conference_admins tr", text: other_user.email do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference admin successfully removed.")
 
       within "#conference_admins table" do
         expect(page).to have_no_content(other_user.email)
@@ -107,10 +109,11 @@ shared_examples "manage conference admins examples" do
 
       it "resends the invitation to the user" do
         within "#conference_admins tr", text: "test@example.org" do
+          find("button[data-controller='dropdown']").click
           click_on "Resend invitation"
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Invitation successfully resent")
       end
     end
   end

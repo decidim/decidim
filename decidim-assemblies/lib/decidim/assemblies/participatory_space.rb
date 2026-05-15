@@ -13,12 +13,24 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
   participatory_space.query_type = "Decidim::Assemblies::AssemblyType"
 
-  participatory_space.breadcrumb_cell = "decidim/assemblies/assembly_dropdown_metadata"
-
   participatory_space.register_resource(:assembly) do |resource|
     resource.model_class_name = "Decidim::Assembly"
     resource.card = "decidim/assemblies/assembly"
     resource.searchable = true
+  end
+
+  participatory_space.register_stat :followers_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-follow-line",
+                                    tooltip_key: "followers_count_tooltip" do
+    Decidim::Assemblies::AssembliesStatsFollowersCount.for(participatory_space)
+  end
+
+  participatory_space.register_stat :participants_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-line",
+                                    tooltip_key: "participants_count_tooltip" do
+    Decidim::Assemblies::AssembliesStatsParticipantsCount.for(participatory_space)
   end
 
   participatory_space.context(:public) do |context|
@@ -32,10 +44,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
   end
 
   participatory_space.exports :assemblies do |export|
-    export.collection do
-      Decidim::Assembly
-        .public_spaces
-        .includes(:area, :scope, :attachment_collections, :categories)
+    export.collection do |participatory_space, user|
+      Decidim::Assembly.visible_for(user).includes(:attachment_collections).where(id: participatory_space)
     end
 
     export.include_in_open_data = true
@@ -46,7 +56,6 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
   participatory_space.register_on_destroy_account do |user|
     Decidim::AssemblyUserRole.where(user:).destroy_all
-    Decidim::AssemblyMember.where(user:).destroy_all
   end
 
   participatory_space.seeds do

@@ -18,6 +18,9 @@ describe "Manage OAuth applications" do
 
     within ".new_oauth_application" do
       fill_in :oauth_application_name, with: "Meta Decidim"
+      within "fieldset", text: "Application type" do
+        choose "Confidential"
+      end
       fill_in :oauth_application_redirect_uri, with: "https://example.org/oauth/decidim"
       select translated(organization.name), from: :oauth_application_decidim_organization_id
       fill_in :oauth_application_organization_name, with: "Ajuntament de Barcelona"
@@ -30,10 +33,33 @@ describe "Manage OAuth applications" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_content("successfully")
+    expect(page).to have_callout("Application created successfully.")
 
     within "table" do
       expect(page).to have_content("Meta Decidim")
+    end
+  end
+
+  context "when the application type is not selected" do
+    it "shows an error message" do
+      click_on "New"
+
+      within ".new_oauth_application" do
+        fill_in :oauth_application_name, with: "Meta Decidim"
+        fill_in :oauth_application_redirect_uri, with: "https://example.org/oauth/decidim"
+        select translated(organization.name), from: :oauth_application_decidim_organization_id
+        fill_in :oauth_application_organization_name, with: "Ajuntament de Barcelona"
+        fill_in :oauth_application_organization_url, with: "https://www.barcelona.cat"
+      end
+
+      dynamically_attach_file(:oauth_application_organization_logo, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+
+      within ".new_oauth_application" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("There was a problem creating this application")
+      expect(page).to have_content("is not included in the list")
     end
   end
 
@@ -54,7 +80,7 @@ describe "Manage OAuth applications" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Application updated successfully.")
 
       within "table" do
         expect(page).to have_content("Test application")
@@ -66,7 +92,7 @@ describe "Manage OAuth applications" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Application destroyed successfully.")
 
       within "table" do
         expect(page).to have_no_content(application.name)

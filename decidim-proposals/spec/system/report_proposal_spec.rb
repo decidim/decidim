@@ -9,6 +9,7 @@ describe "Report Proposal" do
   let!(:proposals) { create_list(:proposal, 3, :participant_author, component:) }
   let(:reportable) { proposals.first }
   let(:reportable_path) { resource_locator(reportable).path }
+  let(:reportable_index_path) { resource_locator(reportable).index }
 
   let!(:component) do
     create(:proposal_component,
@@ -68,8 +69,8 @@ describe "Report Proposal" do
       include_examples "higher user role does not have hide"
     end
 
-    context "when reporting user is process valuator" do
-      let!(:user) { create(:process_valuator, :confirmed, participatory_process:) }
+    context "when reporting user is process evaluator" do
+      let!(:user) { create(:process_evaluator, :confirmed, participatory_process:) }
 
       include_examples "higher user role reports"
       include_examples "higher user role does not have hide"

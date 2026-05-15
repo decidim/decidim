@@ -2,15 +2,12 @@ ru:
   activemodel:
     attributes:
       debate:
-        category_id: Категория
-        decidim_category_id: Категория
         description: Описание
         end_time: 'Заканчивается:'
         information_updates: Обновления сведений
         instructions: Указания для участия
         start_time: 'Начинается:'
         title: Название
-        user_group_id: Начать обсуждение в качестве
     models:
       decidim/debates/create_debate_event: Обсуждение
       decidim/debates/creation_disabled_event: Обсуждения отключены
@@ -24,8 +21,6 @@ ru:
   decidim:
     components:
       debates:
-        actions:
-          create: Добавить
         name: Обсуждения
         settings:
           global:
@@ -36,8 +31,6 @@ ru:
             comments_blocked: Комментарии отключены
     debates:
       actions:
-        confirm_destroy: Вы уверены?
-        destroy: Удалить
         edit: Редактировать
         title: Действия
       admin:
@@ -45,8 +38,6 @@ ru:
           create:
             invalid: При попытке создать это обсуждение произошла ошибка.
             success: Обсуждение успешно создано.
-          destroy:
-            success: Обсуждение успешно удалено.
           edit:
             title: Редактировать обсуждение
             update: Обновить обсуждение
@@ -79,14 +70,11 @@ ru:
           official: Служебные
           origin: Источник
           search: Поиск
-        form:
-          select_a_category: Пожалуйста, выберите категорию
         index:
           new_debate: Начать новое обсуждение
         new:
           back: Вернуться
           create: Создать
-          title: Начать новое обсуждение
       models:
         debate:
           fields:

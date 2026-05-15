@@ -1,0 +1,17 @@
+<div class="accountability__grid accountability__grid--one-level">
+  <% selected_taxonomy_children.each do |taxonomy| %>
+    <% subelements = cell(
+      "decidim/accountability/status",
+      taxonomy,
+      extra_classes: "accountability__status__background",
+      url: results_path(filter: { taxonomies_part_of_contains: taxonomy }),
+      render_blank: true
+    ) %>
+
+    <% if subelements.has_results? %>
+      <div>
+        <%= subelements.call %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

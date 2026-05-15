@@ -60,7 +60,7 @@ module Decidim
       collection = export_manifest.collection.call(organization)
       exporter = Decidim::Exporters::CSV.new(collection, export_manifest.serializer)
 
-      get_help_definition(:core, exporter, export_manifest) unless collection.empty?
+      get_help_definition(:core, exporter, export_manifest, collection.count) unless collection.empty?
 
       exporter.export
     end
@@ -69,7 +69,7 @@ module Decidim
       export_manifest = (core_data_manifests + open_data_component_manifests + open_data_participatory_space_manifests)
                         .select { |manifest| manifest.name == resource.to_sym }.first
 
-      case export_manifest.manifest
+      case export_manifest.respond_to?(:manifest) && export_manifest.manifest
       when Decidim::ComponentManifest
         data_for_component(export_manifest).read
       when Decidim::ParticipatorySpaceManifest
@@ -83,7 +83,7 @@ module Decidim
       headers = []
       collection = []
       ActiveRecord::Base.uncached do
-        components.where(manifest_name: export_manifest.manifest.name).find_each do |component|
+        components.where(manifest_name: export_manifest.manifest.name).unscope(:order).find_each do |component|
           export_manifest.collection.call(component).find_in_batches(batch_size: 100) do |batch|
             serializer = export_manifest.open_data_serializer.nil? ? export_manifest.serializer : export_manifest.open_data_serializer
             exporter = Decidim::Exporters::CSV.new(batch, serializer)
@@ -98,7 +98,8 @@ module Decidim
 
             collection.push(filename)
 
-            get_help_definition(:components, exporter, export_manifest) unless collection.empty?
+            collection_count = exported.read.split("\n").count - 1
+            get_help_definition(:components, exporter, export_manifest, collection_count) unless collection.empty?
           end
         end
       end
@@ -116,27 +117,32 @@ module Decidim
     end
 
     def data_for_participatory_space(export_manifest)
-      collection = participatory_spaces.flat_map do |participatory_space|
-        export_manifest.collection.call(participatory_space)
+      collection = participatory_spaces.filter { |space| space.manifest.name == export_manifest.manifest.name }.flat_map do |participatory_space|
+        export_manifest.collection.call(participatory_space, nil)
       end
+
       serializer = export_manifest.open_data_serializer.nil? ? export_manifest.serializer : export_manifest.open_data_serializer
       exporter = Decidim::Exporters::CSV.new(collection, serializer)
-      get_help_definition(:spaces, exporter, export_manifest) unless collection.empty?
+      get_help_definition(:spaces, exporter, export_manifest, collection.count) unless collection.empty?
 
       exporter.export
     end
 
-    def get_help_definition(manifest_type, exporter, export_manifest)
+    def get_help_definition(manifest_type, exporter, export_manifest, collection_count)
       help_definition[manifest_type] = {} if help_definition[manifest_type].nil?
       help_definition[manifest_type][export_manifest.name] = {} if help_definition[manifest_type][export_manifest.name].blank?
+      help_definition[manifest_type][export_manifest.name][:headers] = {} if help_definition[manifest_type][export_manifest.name][:headers].blank?
       exporter.headers_without_locales.each do |header|
-        help_definition[manifest_type][export_manifest.name][header] = I18n.t("decidim.open_data.help.#{export_manifest.name}.#{header}")
+        help_definition[manifest_type][export_manifest.name][:headers][header] = I18n.t("decidim.open_data.help.#{export_manifest.name}.#{header}")
       end
+      help_definition[manifest_type][export_manifest.name][:collection_count] = 0 if help_definition[manifest_type][export_manifest.name][:collection_count].nil?
+      help_definition[manifest_type][export_manifest.name][:collection_count] += collection_count
     end
 
     def readme
       "# #{I18n.t("decidim.open_data.help.core.title", organization: translated_attribute(organization.name))}\n\n
 #{I18n.t("decidim.open_data.help.core.description")}\n\n
+#{I18n.t("decidim.open_data.help.core.generated_on_date", date: I18n.l(Time.current, format: :decidim_short))}\n\n
 #{core_readme}
 #{space_readme}
 #{component_readme}
@@ -147,8 +153,9 @@ module Decidim
       return unless help_definition.fetch(:core, false)
 
       readme_file = "## #{I18n.t("decidim.open_data.help.core.main")}\n\n"
-      help_definition.fetch(:core, []).each do |element, headers|
-        readme_file << "### #{element}\n\n"
+      help_definition.fetch(:core, []).each do |element, metadata|
+        headers = metadata[:headers]
+        readme_file << "### #{element} (#{I18n.t("decidim.open_data.help.core.resources", count: metadata[:collection_count])})\n\n"
 
         headers.each do |header, help_value|
           readme_file << "* #{header}: #{help_value}\n"
@@ -164,8 +171,9 @@ module Decidim
 
       readme_file = "## #{I18n.t("decidim.open_data.help.core.spaces")}\n\n"
 
-      help_definition.fetch(:spaces, []).each do |space, headers|
-        readme_file << "### #{space}\n\n"
+      help_definition.fetch(:spaces, []).each do |space, metadata|
+        headers = metadata[:headers]
+        readme_file << "### #{space} (#{I18n.t("decidim.open_data.help.core.resources", count: metadata[:collection_count])})\n\n"
 
         headers.each do |header, help_value|
           readme_file << "* #{header}: #{help_value}\n"
@@ -181,8 +189,9 @@ module Decidim
 
       readme_file = "## #{I18n.t("decidim.open_data.help.core.components")}\n\n"
 
-      help_definition.fetch(:components, []).each do |component, headers|
-        readme_file << "### #{component}\n\n"
+      help_definition.fetch(:components, []).each do |component, metadata|
+        headers = metadata[:headers]
+        readme_file << "### #{component} (#{I18n.t("decidim.open_data.help.core.resources", count: metadata[:collection_count])})\n\n"
 
         headers.each do |header, help_value|
           readme_file << "* #{header}: #{help_value}\n"

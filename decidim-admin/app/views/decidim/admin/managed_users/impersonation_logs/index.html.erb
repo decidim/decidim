@@ -1,8 +1,9 @@
-<% add_decidim_page_title(t("decidim.admin.titles.impersonations")) %>
+<% add_decidim_page_title(t(".title")) %>
+
 <div class="card">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
-      <%= t "decidim.admin.titles.impersonations" %>
+      <%= t ".title" %>
     </h1>
   </div>
   <div class="table-scroll">
@@ -23,9 +24,9 @@
             <td><%= impersonation_log.admin.name %></td>
             <td><%= impersonation_log.user.name %></td>
             <td><%= impersonation_log.reason %></td>
-            <td><%= impersonation_log.started_at ? l(impersonation_log.started_at, format: :long) : nil %></td>
-            <td><%= impersonation_log.ended_at ? l(impersonation_log.ended_at, format: :long) : nil %></td>
-            <td><%= impersonation_log.expired_at ? l(impersonation_log.expired_at, format: :long) : nil %></td>
+            <td><%= impersonation_log.started_at ? l(impersonation_log.started_at, format: :decidim_short) : nil %></td>
+            <td><%= impersonation_log.ended_at ? l(impersonation_log.ended_at, format: :decidim_short) : nil %></td>
+            <td><%= impersonation_log.expired_at ? l(impersonation_log.expired_at, format: :decidim_short) : nil %></td>
           </tr>
         <% end %>
       </tbody>

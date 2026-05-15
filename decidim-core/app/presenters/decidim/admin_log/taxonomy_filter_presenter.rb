@@ -12,20 +12,24 @@ module Decidim
     #    view_helpers # => this comes from the views
     #    TaxonomyFilterPresenter.new(action_log, view_helpers).present
     class TaxonomyFilterPresenter < Decidim::Log::BasePresenter
+      include Decidim::SanitizeHelper
+
       private
 
       def diff_fields_mapping
         {
+          name: :i18n,
+          internal_name: :i18n,
           root_taxonomy_id: :taxonomy,
-          space_manifest: :string
+          participatory_space_manifests: :array
         }
       end
 
       def action_string
         case action
         when "create", "delete", "update"
-          if filter_items_count.present?
-            "decidim.admin_log.taxonomy_filter.#{action}_with_filter_items_count"
+          if filter_items_count.present? && taxonomy_name.present?
+            "decidim.admin_log.taxonomy_filter.#{action}_with_filter_info"
           else
             "decidim.admin_log.taxonomy_filter.#{action}"
           end
@@ -37,7 +41,7 @@ module Decidim
       def i18n_params
         super.merge(
           filter_items_count:,
-          space_manifest_name:
+          taxonomy_name: decidim_escape_translated(taxonomy_name)
         )
       end
 
@@ -45,10 +49,8 @@ module Decidim
         action_log.extra.dig("extra", "filter_items_count")
       end
 
-      def space_manifest_name
-        return unless (manifest_name = action_log.extra.dig("extra", "space_manifest"))
-
-        I18n.t("menu.#{manifest_name}", scope: "decidim.admin", default: manifest_name)
+      def taxonomy_name
+        action_log.extra.dig("extra", "taxonomy_name")
       end
     end
   end

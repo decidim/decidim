@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Decidim.register_component(:accountability) do |component|
+  include Decidim::TranslatableAttributes
+
   component.engine = Decidim::Accountability::Engine
   component.admin_engine = Decidim::Accountability::AdminEngine
   component.icon = "media/images/decidim_accountability.svg"
@@ -9,33 +11,54 @@ Decidim.register_component(:accountability) do |component|
   component.permissions_class_name = "Decidim::Accountability::Permissions"
   component.query_type = "Decidim::Accountability::AccountabilityType"
 
-  component.on(:before_destroy) do |instance|
-    raise StandardError, "Cannot remove this component" if Decidim::Accountability::Result.where(component: instance).any?
+  component.on(:publish) do |instance|
+    Decidim::Accountability::Result.where(component: instance).find_each do |result|
+      Decidim::UpdateSearchIndexesJob.perform_later([result])
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Accountability::Result.where(component: instance).find_each do |result|
+      Decidim::RemoveSearchIndexesJob.perform_later([result])
+    end
   end
 
   # These actions permissions can be configured in the admin panel
-  component.actions = %w(comment)
+  component.actions = %w(comment vote_comment)
 
   component.register_resource(:result) do |resource|
     resource.model_class_name = "Decidim::Accountability::Result"
     resource.template = "decidim/accountability/results/linked_results"
     resource.card = "decidim/accountability/result"
-    resource.searchable = false
-    resource.actions = %w(comment)
+    resource.searchable = true
+    resource.actions = %w(comment vote_comment)
   end
 
   component.settings(:global) do |settings|
-    settings.attribute :scopes_enabled, type: :boolean, default: true
-    settings.attribute :scope_id, type: :scope
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :intro, type: :text, translated: true, editor: true
     settings.attribute :display_progress_enabled, type: :boolean, default: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
+    settings.attribute :default_taxonomy, type: :select, include_blank: true, raw_choices: true, choices: lambda { |context|
+      context[:component].available_root_taxonomies.map { |taxonomy| [translated_attribute(taxonomy.name), taxonomy.id] }
+    }
   end
 
-  component.register_stat :results_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
+  component.register_stat :results_count,
+                          primary: true,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          icon_name: "briefcase-2-line",
+                          tooltip_key: "results_count_tooltip" do |components, _start_at, _end_at|
+    Decidim::Accountability::Result.where(component: components).count
+  end
+
+  component.register_stat :comments_count,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "chat-1-line",
+                          tooltip_key: "comments_count",
+                          tag: :comments do |components, _start_at, _end_at|
     Decidim::Accountability::Result.where(component: components).count
   end
 

@@ -2,20 +2,13 @@ tr:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: İlgili kurullar
         banner_image: Banner resmi
-        copy_categories: Kategorileri kopyala
-        copy_components: Bileşenleri kopyala
-        copy_features: Özellikleri kopyala
         decidim_scope_id: Kapsam
         description: Açıklama
-        hashtag: Etiket
         hero_image: Ana resim
         participatory_processes_ids: İlgili katılımcı süreçleri
         promoted: Vurgulanan
         published_at: Yayınlandı
-        scope_id: Kapsam
-        scopes_enabled: Kapsamlar etkinleştirildi
         short_description: Kısa Açıklama
         show_statistics: İstatistikleri göster
         slogan: Slogan
@@ -49,11 +42,6 @@ tr:
         new_registration_type: Yeni kayıt türü
         new_speaker: Yeni Konuşmacı
         send_diplomas: Katılım sertifikaları gönder
-      conference_copies:
-        new:
-          copy: Kopyala
-          select: Çoğaltmak istediğiniz verileri seçin
-          title: Konferansı çoğalt
       conference_publications:
         create:
           error: Bu konferansı yayınlarken bir sorun oluştu.
@@ -72,13 +60,9 @@ tr:
         destroy:
           success: Bu konferans için konuşmacı başarıyla silindi.
         edit:
-          title: Konferans konuşmacısını güncelle.
           update: Güncelleştirme
-        index:
-          conference_speakers_title: Konferans konuşmacıları
         new:
           create: yaratmak
-          title: Yeni konferans konuşmacı.
         update:
           error: Bu konferans için konuşmacı güncellenirken bir hata oluştu.
           success: Bu konferans için konuşmacı başarıyla güncellendi.
@@ -89,11 +73,9 @@ tr:
         destroy:
           success: Yönetici bu konferanstan başarıyla kaldırıldı.
         edit:
-          title: Konferans yöneticisi güncelle.
           update: Güncelle
         new:
           create: Oluştur
-          title: Yeni konferans yöneticisi
         update:
           error: Bu konferans yöneticisini güncellerken bir sorun oluştu.
           success: Konferans yöneticisi başarıyla güncellendi.
@@ -106,54 +88,37 @@ tr:
         exports:
           registrations: Kayıtlar
         form:
+          images: Fotoğraflar
           title: Genel bilgi
         index:
           published: Yayınlandı
         new:
           create: Oluştur
-          title: Konferans
         update:
           error: Bu konferans güncellenirken bir hata oluştu.
           success: Konferans başarıyla güncellendi.
-      conferences_copies:
-        create:
-          error: Bu konferansı çoğaltırken bir hata oluştu.
-          success: Konferans başarıyla kopyalandı.
       media_links:
         create:
           error: Yeni bir medya bağlantısı oluştururken bir hata oluştu.
-          success: Medya Bağlantısı başarıyla oluşturuldu.
-        destroy:
-          success: Medya Bağlantısı başarıyla silindi.
         edit:
-          title: Medya bağlantısını güncelle.
           update: Güncelle
-        index:
-          media_links_title: Medya Bağlantıları
         new:
           create: Oluştur
-          title: Medya Bağlantısı
         update:
           error: Bu medya bağlantısını güncellerken bir hata oluştu.
-          success: Medya Bağlantısı başarıyla güncellendi.
       menu:
         conferences: Konferanslar
         conferences_submenu:
           attachment_collections: Klasörler
           attachment_files: Dosyalar
           attachments: Ekler
-          categories: Kategoriler
           components: Bileşenler
           conference_admins: Konferans yöneticileri
           conference_invites: Davetler
           conference_speakers: Konuşmacılar
-          diploma: Katılım sertifikası
-          media_links: Medya Bağlantıları
           moderations: Moderasyonlar
           partners: Ortaklar
-          registration_types: Kayıt Türleri
           registrations: Kayıtlar
-          user_registrations: Kullanıcı Kayıtları
       models:
         conference:
           fields:
@@ -176,13 +141,11 @@ tr:
             admin: Yönetici
             collaborator: İşbirlikçi
             moderator: Moderatör
-            valuator: Bilirkişi
         media_link:
           fields:
             date: Tarih
             link: Bağlantı
             title: Başlık
-          name: Medya Bağlantısı
         partner:
           fields:
             link: Bağlantı
@@ -207,11 +170,9 @@ tr:
         destroy:
           success: İş ortağı bu konferanstan başarıyla kaldırıldı.
         edit:
-          title: İş ortağı güncelle.
           update: Güncelle
         new:
           create: Oluştur
-          title: Yeni iş ortağı
         update:
           error: Bu konferans için bir iş ortağı güncellenirken hata oluştu.
           success: Bu konferans için iş ortağı başarıyla güncellendi.
@@ -229,16 +190,12 @@ tr:
         destroy:
           success: Kayıt türü bu konferanstan başarıyla kaldırıldı.
         edit:
-          title: Kayıt türünü güncelle.
           update: Güncelle
         new:
           create: Oluştur
-          title: Yeni kayıt türü
         update:
           error: Bu konferans için bir kayıt türü güncellendiğinde bir hata oluştu.
           success: Bu konferans için kayıt türü başarıyla güncellendi.
-      titles:
-        conferences: Konferanslar
     admin_log:
       conference:
         create: "%{user_name} %{resource_name} konferansı oluşturdu"
@@ -287,13 +244,8 @@ tr:
             select_user: Kullanıcı seç
           index:
             invite_attendee: Katılımcı Davet Et
-            invites: Davetler
           new:
             invite: Davet et
-            new_invite: Kullanıcı davet et
-        conference_registrations:
-          index:
-            registrations: Kayıtlar
         conference_speakers:
           form:
             existing_user: Mevcut kullanıcı
@@ -311,7 +263,6 @@ tr:
         diplomas:
           edit:
             save: Kayıt etmek
-            title: Katılım sertifikası
         invite_join_conference_mailer:
           invite:
             decline: '''%{conference_title}'' davetiyesini reddet'
@@ -330,11 +281,9 @@ tr:
             diploma_html: <a href="%{url}">%{title}</a> konferansına katılım belgesini ekte bulabilirsiniz.
           diploma_user:
             attendance_verified_by: Katılım onaylandı
-            certificate_of_attendance: Katılım sertifikası
             certificate_of_attendance_description: Bu, <strong>%{user}</strong> <strong>%{start} - %{end}</strong><strong>%{location}</strong> tutulan <strong>%{title}</strong> katılıp katıldığını onaylamaktır.
         send_diploma:
           error: Konferansa katılım sertifikalarını gönderirken bir sorun oluştu.
-          success: Konferansa katılım sertifikaları doğru gönderildi
       conference:
         registration_confirm:
           cancel: İptal etmek

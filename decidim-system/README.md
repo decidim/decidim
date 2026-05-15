@@ -1,23 +1,11 @@
-# Decidim::System
+# decidim-system
 
 This engine adds an administration dashboard so admin can manage a Decidim deploy
 and its organizations when working in a multi-tenant environment.
 
 ## Usage
 
-`decidim-system` is already included in the `decidim` gem, but you can also include it separately:
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-system'
-```
-
-And then execute:
-
-```bash
-bundle
-```
+This is on the default Decidim installation so you should not change anything to use this feature.
 
 ## Multi-tenancy in Decidim
 

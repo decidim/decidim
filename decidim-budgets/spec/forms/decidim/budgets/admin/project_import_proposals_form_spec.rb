@@ -12,14 +12,12 @@ module Decidim
         let(:component) { project.component }
         let(:origin_component) { create(:proposal_component, participatory_space: component.participatory_space) }
         let(:default_budget) { 1000 }
-        let(:scope_id) { nil }
-        let(:import_all_accepted_proposals) { true }
+        let(:states) { %w(accepted rejected) }
         let(:params) do
           {
             origin_component_id: origin_component.try(:id),
             default_budget:,
-            import_all_accepted_proposals:,
-            scope_id:
+            states:
           }
         end
 
@@ -46,10 +44,10 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when the import proposals is not accepted" do
-          let(:import_all_accepted_proposals) { false }
+        context "when no states are selected" do
+          let(:states) { [] }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.to be_valid }
         end
 
         describe "origin_component" do
@@ -71,41 +69,47 @@ module Decidim
           end
         end
 
-        describe "#scope" do
-          subject { form.scope }
+        describe "valid_states validation" do
+          context "when all selected states are valid" do
+            let(:states) { %w(accepted rejected) }
 
-          let(:space_scope) { create(:scope, organization: component.organization) }
-          let(:component_scope) { create(:scope, organization: component.organization, parent: space_scope) }
-          let(:project_scope) { create(:scope, organization: component.organization, parent: component_scope) }
+            it { is_expected.to be_valid }
+          end
 
-          context "when the scope is not defined" do
-            it "returns nil" do
-              expect(subject).to be_nil
-            end
+          context "when including the special not_answered state" do
+            let(:states) { %w(accepted not_answered) }
 
-            context "and the component has a scope" do
-              before do
-                component.participatory_space.update!(scope: space_scope)
+            it { is_expected.to be_valid }
+          end
 
-                settings = component.settings
-                settings.scope_id = component_scope.id
-                settings.scopes_enabled = true
-                component.settings = settings
-                component.save!
-              end
+          context "when only not_answered is selected" do
+            let(:states) { %w(not_answered) }
 
-              it "returns the component's scope" do
-                expect(subject).to eq(component_scope)
-              end
+            it { is_expected.to be_valid }
+          end
+
+          context "when some states are invalid" do
+            let(:states) { %w(accepted invalid_state) }
+
+            it { is_expected.to be_invalid }
+
+            it "adds an error to the states attribute" do
+              form.valid?
+              expect(form.errors[:states]).to be_present
             end
           end
 
-          context "when the scope is defined" do
-            let(:scope_id) { project_scope.id }
+          context "when all states are invalid" do
+            let(:states) { %w(nonexistent_state another_invalid) }
 
-            it "returns the scope" do
-              expect(subject).to eq(project_scope)
-            end
+            it { is_expected.to be_invalid }
+          end
+
+          context "when there is no origin component" do
+            let(:origin_component) { nil }
+            let(:states) { %w(invalid_state) }
+
+            it { is_expected.to be_invalid }
           end
         end
       end

@@ -12,25 +12,16 @@ module Decidim
     describe "when no images were uploaded" do
       before do
         assembly.hero_image.purge
-        assembly.banner_image.purge
       end
 
       it "return nil for hero_image_url" do
         expect(subject.hero_image_url).to be_nil
-      end
-
-      it "return nil for banner_image_url" do
-        expect(subject.banner_image_url).to be_nil
       end
     end
 
     describe "when images are attached" do
       it "resolves hero_image_url" do
         expect(subject.hero_image_url).to be_blob_url(assembly.hero_image.blob)
-      end
-
-      it "resolves banner_image_url" do
-        expect(subject.banner_image_url).to be_blob_url(assembly.banner_image.blob)
       end
     end
   end

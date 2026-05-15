@@ -1,7 +1,0 @@
-<div id="resource-<%= resource&.id %>-endorsement-button">
-  <button id="select-identity-button" type="button" name="button" class="<%= button_classes %>" data-dialog-open="user-identities" data-dialog-remote-url="<%= reveal_identities_url %>" aria-label="<%= endorse_translated %>">
-    <%= render "button_content" %>
-  </button>
-
-  <%= decidim_modal id: "user-identities", class: "identities-modal", remote: true %>
-</div>

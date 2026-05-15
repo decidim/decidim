@@ -54,7 +54,7 @@ module Decidim::Comments
       end
 
       context "with a user who is not allowed to comment" do
-        let(:participatory_process) { create(:participatory_process, :private, organization:) }
+        let(:participatory_process) { create(:participatory_process, :restricted, organization:) }
         let(:user) { create(:user, :confirmed, locale: "en", organization:) }
 
         it { is_expected.to be false }
@@ -88,7 +88,7 @@ module Decidim::Comments
       end
 
       context "with a user who is not allowed to comment" do
-        let(:participatory_process) { create(:participatory_process, :private, organization:) }
+        let(:participatory_process) { create(:participatory_process, :restricted, organization:) }
         let(:user) { create(:user, :confirmed, locale: "en", organization:) }
 
         it { is_expected.to be false }

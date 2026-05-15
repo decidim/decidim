@@ -4,7 +4,6 @@ gl:
       decidim/comments/comment_by_followed_user_event: Comentario
       decidim/comments/comment_created_event: Comentario
       decidim/comments/reply_created_event: Comentario de resposta
-      decidim/comments/user_group_mentioned_event: Mención
       decidim/comments/user_mentioned_event: Mención
   activerecord:
     models:
@@ -15,6 +14,10 @@ gl:
         one: Vota
         other: Votos
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comentarios
     comments:
       admin:
         shared:
@@ -36,8 +39,6 @@ gl:
           body:
             label: Comentario
             placeholder: Que vos parece?
-          user_group_id:
-            label: Comentar como
         opinion:
           label: A túa opinión canto a este tema
           negative: Negativa
@@ -108,9 +109,6 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{author_name}. Podes deixar de seguir este usuario desde a súa páxina de perfil.
           email_subject: Hai un novo comentario por %{author_name} en %{resource_title}
           notification_title: Hai un novo comentario <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_subject: Hai un novo comentario por %{author_name} en %{resource_title}
-          notification_title: Hai un novo comentario <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "Comentouse %{resource_title} . Podes ler o comentario nesta páxina:"
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}" ou o seu autor. Podes deixar de seguir desde a ligazón anterior.
@@ -126,8 +124,3 @@ gl:
           email_outro: Recibiches esta notificación porque foi mencionado en %{resource_title}.
           email_subject: Foi mencionado en %{resource_title}
           notification_title: Foi mencionado en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Número de comentarios xerados polos usuarios
-        object: comentarios
-        title: Comentarios

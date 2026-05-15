@@ -45,9 +45,11 @@ edit_link(
       </section>
     <% end %>
 
-    <section class="layout-aside__section">
-      <%= cell("decidim/nav_links", initiative_nav_items(current_initiative)) %>
-    </section>
+    <% if current_initiative.open? || current_initiative.accepted? %>
+      <section class="layout-aside__section">
+        <%= cell("decidim/nav_links", initiative_nav_items(current_initiative)) %>
+      </section>
+    <% end %>
 
     <% if current_initiative.type.promoting_committee_enabled? && current_user&.admin? %>
       <div class="layout-aside__section">
@@ -58,7 +60,7 @@ edit_link(
           </span>
           <div class="ml-auto fill-secondary inline-block">
             <input id="urlShareLink-committee" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
-            <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink-committee">
+            <button type="button" class="button button__sm button__text-secondary" data-controller="clipboard-copy" data-clipboard-copy="#urlShareLink-committee">
               <%= render_committee_tooltip %>
               <span class="sr-only"><%= t("decidim.shared.share_modal.copy_share_link") %></span>
             </button>
@@ -180,24 +182,8 @@ edit_link(
 </section>
 
 <section class="layout-main__section">
-  <% if tabs.any? %>
-    <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
-      <ul class="tab-x-container">
-        <% tabs.each_with_index do |tab, i| %>
-          <li>
-            <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i.zero? %>">
-              <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
-            </button>
-          </li>
-        <% end %>
-      </ul>
-
-      <% panels.each do |panel| %>
-        <div id="panel-<%= panel[:id] %>" class="py-8">
-          <%= send(panel[:method], *panel[:args]) %>
-        </div>
-      <% end %>
-    </div>
+  <% if tab_panel_items.any? %>
+    <%= cell "decidim/tab_panels", tab_panel_items %>
   <% end %>
 </section>
 
@@ -210,7 +196,7 @@ edit_link(
     <%= cell "decidim/comments_button", nil, display: current_initiative.commentable? && current_initiative.published? %>
   <% end %>
   <div class="ml-auto lg:ml-0">
-    <%= cell "decidim/share_button", nil %>
+    <%= cell "decidim/share_widget", current_initiative %>
   </div>
 </section>
 

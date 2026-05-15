@@ -33,11 +33,8 @@ bg:
       help_section:
         content: Съдържание
       id: ID
-      import:
-        user_group_id: Създаване на импорта като
       newsletter:
         body: Тяло
-        send_to_all_users: Изпращане до всички потребители
         send_to_followers: Изпращане до последователите
         send_to_participants: Изпращане до участниците
         subject: Тема
@@ -47,13 +44,10 @@ bg:
         available_authorizations: Активни оторизации
         badges_enabled: Включи значките
         comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
-        cta_button_path: Път на бутона "призив към действие"
-        cta_button_text: Текст на бутона "призив към действие"
         customize_welcome_notification: Персонализирайте приветствието
         default_locale: Език по подразбиране
         description: Описание
         enable_omnipresent_banner: Показвай всепоказван банер
-        enable_participatory_space_filters: Активиране на филтри за пространство за участие
         facebook_handler: Манипулатор на Facebook
         favicon: Икона
         force_authentication: Принудително оторизиране
@@ -63,13 +57,6 @@ bg:
         header_snippets: Части на HTML заглавката
         highlight_alternative_color: Подчертаване, алтернативен
         highlight_color: Акцентирано
-        highlighted_content_banner_action_subtitle: Подзаглавие на бутон за действие
-        highlighted_content_banner_action_title: Надпис на бутон за действие
-        highlighted_content_banner_action_url: Адрес на бутон за действие
-        highlighted_content_banner_enabled: Показвай банер на подчертано съдържание
-        highlighted_content_banner_image: Изображение
-        highlighted_content_banner_short_description: Кратко описание
-        highlighted_content_banner_title: Заглавие
         host: Хост
         instagram_handler: Манипулатор на Instagram
         logo: Лого
@@ -96,15 +83,11 @@ bg:
         time_zone: Часова зона
         tos_version: Версия на условия за ползване
         twitter_handler: X манипулатор
-        user_groups_enabled: Разреши групи
         users_registration_mode: Режим на регистрация на потребители
         warning_color: Предупреждение
         welcome_notification_body: Тяло на приветствието
         welcome_notification_subject: Тема на приветствието
         youtube_handler: Манипулатор на YouTube
-      participatory_space_private_user:
-        email: Имейл
-        name: Име
       scope:
         code: Код
         name: Име
@@ -146,10 +129,6 @@ bg:
           attributes:
             official_img_footer:
               allowed_file_content_types: Невалиден файл на изображението
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Неправилен файл за импортиране, моля, прочетете внимателно инструкциите и се уверете, че файлът е UTF-8 кодиран.
         user_group_csv_verification:
           attributes:
             file:
@@ -182,24 +161,16 @@ bg:
         attachment_collection:
           new: Нова прикачена папка
         browse: Разглеждане
-        category:
-          new: Нова категория
-        export: Експорт на всички
-        export-selection: Експорт на селекцията
+        configure: Конфигуриране
+        export_all: Експорт на всички
         import: Импортиране
-        manage: Управление
         newsletter:
           new: Нов бюлетин
-        participatory_space_private_user:
-          new: Нов частен потребител на пространство за участие
         per_page: За страница
-        permissions: Разрешения
-        reject: Откажи
         send_me_a_test_email: Изпратете ми тестов e-mail
         share: Сподели
         user:
           new: Нов администратор
-        verify: Провери
       admin_terms_of_service:
         accept:
           error: Възникна проблем при приемането на условията за ползване на администратора.
@@ -213,7 +184,6 @@ bg:
           alert: 'Задължително: Прегледайте нашите административни условия за ползване'
           callout: Моля, отделете малко време, за да прегледате административните условия за ползване. В противен случай, няма да можете да администрирате платформата.
           cta: Прегледайте ги сега.
-        title: Административни условия на услугата
       area_types:
         create:
           error: Възникна проблем при създаването на нов тип област.
@@ -255,8 +225,6 @@ bg:
         edit:
           title: Редактиране на папка
           update: Актуализация
-        index:
-          attachment_collections_title: Папки с прикачени файлове
         new:
           create: Създаване
           title: Нова папка
@@ -272,8 +240,6 @@ bg:
         edit:
           title: Редактиране на прикачения файл
           update: Актуализация
-        index:
-          attachments_title: Прикачени файлове
         new:
           create: Създаване на прикачен файл
           title: Нов прикачен файл
@@ -288,28 +254,12 @@ bg:
       block_user:
         new:
           action: Блокирайте акаунта и изпратете обосновка
-          already_reported_html: Продължавайки с това действие, вие също ще скриете съдържанието за всички участници.
           description: Блокирането на потребител ще направи акаунта му неизползваем. Можете да предоставите във вашата обосновка всякакви насоки относно начините, по които бихте обмислили деблокирането на потребителя.
           justification: Обосновка
           title: Блокиране на потребител %{name}
       categories:
-        create:
-          error: Възникна проблем при създаването на тази категория.
-          success: Категорията беше създадена успешно.
-        destroy:
-          error: Възникна проблем при изтриването на тази категория. Моля, първо изтрийте всички подкатегории, уверете се, че към тази категория не принадлежат други елементи, след което опитайте отново.
-          success: Категорията беше изтрита успешно.
-        edit:
-          title: Редактиране на категория
-          update: Актуализация
         index:
           categories_title: Категории
-        new:
-          create: Създаване на категория
-          title: Нова категория
-        update:
-          error: Възникна проблем при актуализирането на тази категория.
-          success: Категорията е обновена.
       component_permissions:
         update:
           error: Възникна проблем при актуализирането на разрешенията на този компонент.
@@ -319,9 +269,6 @@ bg:
           error: Възникна проблем при създаването на този компонент.
           success: Компонентът беше създаден успешно.
           success_landing_page: Компонентът е създаден успешно. Можете да добавите блок със съдържание за този компонент в началната страница на пространството. Отидете на <a href="%{landing_page_path}">целевата страница</a>, за да я конфигурирате.
-        destroy:
-          error: Възникна проблем при премахването на този компонент.
-          success: Компонентът беше изтрит успешно.
         edit:
           title: Редактиране на компонента
           update: Актуализация
@@ -343,7 +290,6 @@ bg:
           title: 'Добавяне на компонент: %{name}'
         publish:
           success: Компонентът беше публикуван успешно.
-        title: Компоненти
         unpublish:
           success: Публикацията на компонента беше премахната успешно.
         update:
@@ -356,11 +302,8 @@ bg:
       conflicts:
         attempts: Опити
         'false': 'Не'
-        index:
-          text: Търсете по имейл, име или псевдоним на текущия потребител.
         managed_user_name: Управляван потребител
         solved: Разрешен случай
-        title: Проверка на конфликти
         transfer:
           email: Имейл
           error: Възникна проблем при прехвърлянето на текущия участник към управляван участник.
@@ -398,7 +341,6 @@ bg:
         form:
           domain_too_short: Домейнът е твърде кратък
         update:
-          error: Неуспешно актуализиране на списъка с разрешени външни домейни
           success: Списъкът с разрешени външни домейни е актуализиран успешно.
       exports:
         export_as: "%{name} като %{export_format}"
@@ -409,8 +351,6 @@ bg:
           JSON: JSON
         notice: Вашето експортиране се извършва в момента. Ще получите имейл, когато приключи.
       filters:
-        category_id_eq:
-          label: Категория
         filter_label: Филтър
         invitation_accepted_at_present:
           label: Поканата е приета
@@ -437,17 +377,6 @@ bg:
           values:
             'false': Официализирано
             'true': Неофициализирано
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Поканата е приета
-            values:
-              'false': Не се приема
-              'true': Прието
-          user_invitation_sent_at_not_null:
-            label: Поканата е изпратена
-            values:
-              'false': Не е изпратено
-              'true': Изпратено
         private_space_eq:
           label: Частни
           values:
@@ -459,15 +388,9 @@ bg:
             'false': Публикувано
             'true': Непубликувано
         remove_all: Премахване на всички
-        scope_id_eq:
-          label: Обхват
         search_label: Търсене
         search_placeholder:
-          name_or_nickname_or_email_cont: Търсене на %{collection} по имейл, име или псевдоним.
           report_count_eq: Отчитане на броя
-          reported_id_string_or_reported_content_cont: Търсете в %{collection} по ID или съдържание, което може да бъде отчетено.
-          title_cont: Търсене на %{collection} по заглавие.
-          user_name_or_user_nickname_or_user_email_cont: Търсене на %{collection} по имейл, име или псевдоним.
         state_eq:
           label: Състояние
           values:
@@ -520,7 +443,6 @@ bg:
           impersonate: Имитирай
           impersonate_existing_managed_user: Управление на участник „%{name}“
           impersonate_existing_user: Управление на участник „%{name}“
-          impersonate_new_managed_user: Управление на нов участник
       imports:
         and: и
         data_errors:
@@ -562,7 +484,6 @@ bg:
       logs:
         filters:
           participatory_space: Намерете място за участие
-          text: Търсете по потребителски имейл, име или псевдоним.
           user: Потребител
         logs_list:
           no_logs_yet: Все още няма регистри.
@@ -574,8 +495,11 @@ bg:
         promotions:
           new:
             explanation: Управляваните участници могат да бъдат повишавани до стандартни участници. Това означава, че ще бъдат поканени в приложението и повече няма да можете да ги управлявате. Поканеният участник ще получи имейл, за да приеме поканата Ви.
-            new_managed_user_promotion: Ново повишение на управляван участник
             promote: Повишаване
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Качете своя CSV файл
       menu:
         admin_log: Регистър на дейността на администраторите
         admins: Администратори
@@ -587,7 +511,6 @@ bg:
         content: Докладвано съдържание
         external_domain_allowlist: Лист с позволени външни домейни
         help_sections: Помощни раздели
-        homepage: Начална страница
         impersonations: Имитация
         manage: Управление
         moderation: Глобални модерации
@@ -602,11 +525,7 @@ bg:
         static_pages: Страници
         taxonomies: Категоризации
         taxonomy_filters: Класификационни филтри
-        user_groups: Групи
         users: Участници
-      metrics:
-        metrics:
-          see_more_metrics: Показване на повече индикатори
       models:
         area:
           fields:
@@ -643,8 +562,6 @@ bg:
             sent_to: Изпратено до
             subject: Относно
           name: Бюлетин
-        participatory_space_private_user:
-          name: Пространство за участие на частен участник
         scope:
           fields:
             name: Име
@@ -655,12 +572,8 @@ bg:
             plural: Множествено число
         share_token:
           fields:
-            created_at: Създадено на
             expires_at: Изтича на
-            last_used_at: Последно използвано
             times_used: Брой използвания
-            token: Токен
-            user: Създадено от
         static_page:
           fields:
             created_at: Създадено на
@@ -676,23 +589,15 @@ bg:
               admin: Администратор
               user_manager: Мениджър на участника
           name: Участник
-        user_group:
-          fields:
-            actions: Активности
-            created_at: Създадено на
-            document_number: Номер на документ
-            name: Име
-            nickname: Псевдоним
-            phone: Телефон
-            state: Състояние
-            users_count: Брой участници
       moderated_users:
         index:
           actions:
             block: Блокиране на потребител
+            bulk_actions:
+              unreport:
+                title: Отмяна на доклада
             title: Активности
             unblock: Разблокирай потребител
-            unreport: Отмяна на доклада
           name: Име
           nickname: Псевдоним
           reason: Причина
@@ -736,7 +641,6 @@ bg:
           title: Шаблони за бюлетин
           use_template: Използване на този шаблон
         show:
-          preview: 'Визуализация на шаблона: %{template_name}'
           use_template: Използване на този шаблон
       newsletters:
         create:
@@ -758,7 +662,6 @@ bg:
           confirm_delete: Наистина ли искате да изтриете този бюлетин?
           followers: 'последователи '
           has_been_sent_to: 'Беше изпратено до: '
-          no_scopes: Няма обхвати
           not_sent: Не е изпратено
           participants: 'участници '
           segmented_to: 'Сегментирано за %{subject}: '
@@ -773,13 +676,10 @@ bg:
           confirm_deliver: Наистина ли искате да доставите този бюлетин? Това действие не може да бъде отменено.
           deliver: Доставяне на бюлетина
           followers_help: Изпраща бюлетина до всички потвърдени потребители, които следят някое от избраните пространства за участие в списъка.
-          none: Няма
           participants_help: Изпраща бюлетина до всички потвърдени потребители, които са участвали в някое от избраните пространства за участие в списъка.
           recipients_count: Този бюлетин ще бъде изпратен на <strong id='recipients_count'>%{count}</strong> потребители.
-          scopes_help: Изпраща бюлетина на потребителите, които са активирали някой от избраните обхвати в настройките за „Моите интереси“ в профила си.
-          select_scopes: Филтрирайте по потребители, които са активирали някой от изброените обхвати в настройките за „Моите интереси“ в профила си.
           select_spaces: Изберете пространства, за да сегментирате бюлетина
-          select_users: Изберете до кои потребители искате да изпратите бюлетина
+          send_to_all_users: Изпращане до всички потребители
           title: Изберете получатели, на които да бъде изпратено
           warning: "<strong>Внимание:</strong> Този бюлетин ще бъде изпратен само на потребители, които са включили <em>Искам да получавам бюлетини</em> в настройките си за известия."
         send:
@@ -787,7 +687,6 @@ bg:
         send_to_user:
           sent_successfully: Бюлетинът е изпратен успешно до %{email}
         show:
-          preview: Преглед
           select_recipients_to_deliver: Изберете получатели, на които да бъде доставено
           send_me_a_test_email: Изпратете ми тестов e-mail
           subject: Относно
@@ -805,7 +704,6 @@ bg:
         index:
           actions: Активности
           badge: Бадж
-          block: Блокиране на потребител
           created_at: Създадено на
           name: Име
           nickname: Псевдоним
@@ -814,9 +712,7 @@ bg:
           officialized: Официализирано
           reofficialize: Повторно официализиране
           reports: Доклади
-          show_email: Показване на електронната поща
           status: Статус
-          unblock: Разблокирай Потребител
           unofficialize: Премахване на официализирането
         new:
           badge: Бадж за официализиране
@@ -847,30 +743,6 @@ bg:
         update:
           error: Възникна проблем при актуализирането на тази организация.
           success: Организацията беше актуализирана успешно.
-      organization_appearance:
-        edit:
-          update: Актуализация
-        form:
-          colors:
-            choose_color: Изберете основен цвят
-            colors_title: Цветове на организацията
-            colors_warning_html: Внимание! Промяната на тези цветове може да наруши контрастите на достъпността. Можете да проверите контраста на Вашия избор с <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> или други подобни инструменти.
-            explanation: Този инструмент ви помага да изберете цветова схема, съставена от нюанси, разположени на еднакво разстояние около цветното колело, която ще се използва в уебсайта на организацията.
-            legend_html: Основни цветове на приложението, базирани на <a href="https://www.color-meanings.com/triadic-colors/">Триаден алгоритъм</a>. <i>Вторичният</i> цвят се изчислява автоматично от основния цвят и наситеността, която сте избрали.
-            saturation: Наситеност
-            title: Палитра
-            update_suggested_colors: Обнови предложените цветове
-          cta_button_path_help_html: 'Можете да презапишете къде да води бутонът, призоваващ към действие, на началната страница. Тук използвайте частични пътища, а не пълни URL адреси. Допуска се използването на букви, цифри, тирета, наклонени черти и пътят трябва да започва с буква. Бутонът, призоваващ към действие, се показва на началната страница между текста за добре дошли и описанието. Пример: %{url}'
-          cta_button_text_help: Можете да презапишете текста на бутона, призоваващ към действие, в началната страница за всеки наличен език във вашата организация. Ако не е зададено, ще се използва стойността по подразбиране. Бутонът, призоваващ към действие, се показва на началната страница между текста за добре дошли и описанието.
-          header_snippets:
-            header_snippets_help_html: Използвайте това поле, за да добавите неща към главата на HTML. Най-честата употреба е за интегриране на услуги на трети страни, които изискват допълнителен JavaScript или CSS. Освен това можете да го използвате, за да добавите допълнителни мета тагове към HTML. Имайте предвид, че това ще бъде изобразено само в публични страници, а не в раздела за администриране. Ако кодът взаимодейства с външни API или не отговаря на указанията за сигурност на приложението, ще е необходимо да промените Политиката за сигурност на съдържанието. Прочетете повече за <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">на сайта с документация</a>.
-            title: HTML header snippets
-          homepage_appearance_title: Редактиране на външния вид на началната страница
-          homepage_highlighted_content_banner_title: Банер с подчертано съдържание
-          images:
-            layout_appearance_title: Редактиране външния вид шаблона
-            preview: Преглед
-          omnipresent_banner_appearance_title: Редактиране на присъстващия навсякъде банер
       organization_external_domain_allowlist:
         edit:
           update: Актуализация
@@ -881,40 +753,6 @@ bg:
           up: Горе
         form:
           add: Добави в листа с позволени
-          title: Лист с позволени външни домейни
-      participatory_space_private_users:
-        create:
-          error: Възникна проблем при добавянето на частен участник за това пространство за участие.
-          success: Достъпът на частния участник до пространството за участие беше създаден успешно.
-        destroy:
-          error: Възникна проблем при изтриването на частен участник за това пространство за участие.
-          success: Достъпът на частния участник до пространството за участие беше премахнат успешно.
-        index:
-          import_via_csv: Импортиране чрез CSV
-          title: Пространство за участие на частен участник
-        new:
-          create: Създаване
-          title: Ново пространство за участие на частен участник.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Възникна проблем при четенето на CSV файла. Моля, уверете се, че сте следвали инструкциите.
-          success: Файлът във формат CSV беше качен успешно; изпращаме имейл с покана на участниците. Това може да отнеме известно време.
-        new:
-          csv_upload:
-            title: Качете своя файл във формат CSV
-          destroy:
-            button: Изтрийте всички частни участници
-            confirm: Сигурни ли сте, че искате да изтриете всички частни участници? Това действие е необратимо, няма да можете да ги възстановите.
-            empty: Нямате частни участници.
-            explanation: Имате %{count} частни участници.
-            title: Изтрийте частни участници
-          example_file: 'Примерен файл:'
-          explanation: Качете своя файл във формат CSV. Трябва да съдържа две колони — електронната поща в първата колона и името в последната колона от файла (електронна поща, име) — за потребителите, които искате да добавите в пространството за участие, без заглавки.
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Импортирайте частни участници чрез CSV
-          upload: Качване
       reminders:
         create:
           error: Възникна проблем при създаването на напомняния.
@@ -929,10 +767,6 @@ bg:
           title: Редактирай разрешенията
         update:
           success: Разрешенията бяха актуализирани успешно.
-      resources:
-        index:
-          headers:
-            scope: Обхват
       scope_types:
         create:
           error: Възникна проблем при създаването на нов тип обхват.
@@ -966,16 +800,7 @@ bg:
           success: Обхватът беше актуализиран успешно
       share_tokens:
         actions:
-          confirm_destroy: Наистина ли искате да изтриете този маркер?
           destroy: Изтрий
-          share: Сподели
-        destroy:
-          error: Възникна проблем при премахването на маркера.
-          success: Маркерът беше премахнат успешно.
-        share_tokens:
-          empty: Няма активни маркери.
-          help: Маркерите се използват за публично споделяне на този непубликуван ресурс с всеки потребител. Те ще бъдат скрити, след като ресурсът бъде публикуван. Щракнете върху иконата за споделяне на маркера, за да посетите URL адреса с възможност за споделяне.
-          title: Споделяне на маркери
       shared:
         adjacent_navigation:
           next: Следващ
@@ -996,14 +821,10 @@ bg:
           title: Редактиране на темата
           update: Актуализиране на темата
         new:
-          create: Създаване на тема
           title: Нова тема
         update:
           error: Възникна проблем при актуализирането на тази тема.
-          success: Темата беше актуализирана успешно
       static_pages:
-        actions:
-          view: Преглед на публичната страница
         create:
           error: Възникна проблем при създаването на нова страница.
           success: Страницата беше създадена успешно.
@@ -1020,7 +841,6 @@ bg:
         index:
           last_notable_change: Последна значима промяна
         new:
-          create: Създаване на страница
           title: Нова страница
         topic:
           empty: Няма страници с тази тема.
@@ -1029,9 +849,6 @@ bg:
           error: Възникна проблем при актуализирането на тази страница.
           success: Страницата беше актуализирана успешно.
       taxonomies:
-        actions: Активности
-        amount: Сума
-        count: Брой
         create:
           invalid: Възникна проблем при създаването на тази класификация.
           success: Класификацията беше създадена успешно.
@@ -1049,75 +866,27 @@ bg:
         filters:
           search_placeholder: Търсене
         index:
-          description: Класификацията позволява на администраторите да категоризират и организират съдържание. Например, добавете таксономия, за да класифицирате процесите по географски обхват.
           new_taxonomy: Нова класификация
           no_items_found: Няма намерени класификации, отговарящи на критериите за търсене.
         name: Име
         new:
           create: Създаване на класификация
           title: Нова класификация
-        no_taxonomies: В момента няма класификации. Създайте списък с класификации тук и дефинирайте елементи във всяка от тях, за да класифицирате или филтрирате ресурси.
         table:
           to_next_page: Плъзнете за следващата страница
           to_prev_page: Плъзнете за предишната страница
-        taxonomy_actions:
-          confirm_destroy: Сигурни ли сте, че искате да изтриете %{name}? Това също ще изтрие всички дъщерни елементи.
         update:
           invalid: Възникна проблем при актуализирането на тази класификация.
           success: Класификацията беше актуализирана успешно.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Нов класификационен филтър
-        callout:
-          modify_taxonomy_html: Ако трябва да промените тази класификация или нейните елементи, направете го чрез настройките за конфигурация в секцията <a href="%{url}">Класификации</a>.
       titles:
-        admin_log: Администраторски регистри
-        area_types: Типове области
         areas: Области
         authorization_workflows: Методи за проверка
-        dashboard: Контролен панел
-        edit_external_domains: Лист с позволени външни домейни
-        edit_landing_page: Съдържание на страницата
-        edit_organization_appearance: Редактиране на външния вид на началната страница
-        impersonatable_users: Управляеми участници
-        impersonations: Управление на участниците
         menu: Меню
-        metrics: Метрики
-        page_topics: Tеми
-        pages: Страници
         panel: Администратор
-        participants: Участници
-        scope_types: Типове на обхвата
         scopes: Обхвати
-        statistics: Активност
-        user_groups: Групи
-        users: Администратори
-      user_group:
-        csv_verify:
-          invalid: Възникна проблем при прочитането на CSV файла.
-          success: CSV файлът беше качен успешно, проверяваме групите, които отговарят на критериите. Това може да отнеме известно време.
-        reject:
-          invalid: Възникна проблем с отхвърлянето на тази група.
-          success: Групата беше отхвърлена успешно.
-        verify:
-          invalid: Възникна проблем с проверката на тази група.
-          success: Групата беше проверена успешно.
-      user_groups:
-        index:
-          state:
-            pending: Изчакване
-            rejected: Отхвърлено
-            verified: Проверен
-          verify_via_csv: Проверка чрез CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Примерен файл:'
-          explanation: Качете своя файл във формат CSV. Трябва да съдържа официалните електронни пощи на групите в организацията Ви в първата колона от файла, без заглавки. Ще бъдат валидирани само групите с потвърдена електронна поща и с адрес на електронната поща във файла във формат CSV.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Качете своя CSV файл
-          upload: Качване
       users:
         create:
           error: Възникна проблем с поканата на този администратор.
@@ -1138,22 +907,11 @@ bg:
           last_day: Предният ден
           last_month: Миналия месец
           last_week: Последната седмица
-          no_users_count_statistics_yet: Все още няма статистика за броя на потребителите.
           participants: Участници
     forms:
       errors:
         impersonate_user:
           reason: Необходимо е да предоставите причина, когато управлявате участник, който не е управляван.
-    metrics:
-      blocked_users:
-        object: блокирани потребители
-        title: Блокирани потребители
-      reported_users:
-        object: докладвани потребители
-        title: Докладвани потребители
-      user_reports:
-        object: доклади на потребители
-        title: Доклади на потребители
     moderations:
       actions:
         expand: Разтваряне
@@ -1161,8 +919,6 @@ bg:
         hide: Скриване
         not_hidden: Не скрито
         title: Активности
-        unhide: Разкриване
-        unreport: Отмяна на доклада
       admin:
         reportable:
           hide:

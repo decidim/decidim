@@ -16,15 +16,15 @@ on:
       - "decidim-dev/**"
       - "packages/**"
 
+permissions:
+  contents: read
+  pull-requests: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build_app:
-    uses: ./.github/workflows/build_app.yml
-    secrets: inherit
-    name: Build test application
   main:
     strategy:
       fail-fast: false
@@ -36,11 +36,10 @@ jobs:
             name: "System specs"
           - command: bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern 'spec/(system|lib|tasks)'
             name: "Tests without system, lib and tasks specs"
-          - command: bundle exec parallel_test --type rspec --pattern spec/tasks --exclude-pattern 'spec/tasks/decidim_tasks_webpacker_spec.rb'
+          - command: bundle exec parallel_test --type rspec --pattern spec/tasks --exclude-pattern 'spec/tasks/decidim_tasks_shakapacker_spec.rb'
             name: "Tasks specs"
-          - command: bundle exec rspec spec/tasks/decidim_tasks_webpacker_spec.rb
-            name: "Webpacker tasks specs"
-    needs: build_app
+          - command: bundle exec rspec spec/tasks/decidim_tasks_shakapacker_spec.rb
+            name: "Shakapacker tasks specs"
     name: ${{ matrix.test.name }}
     uses: ./.github/workflows/test_app.yml
     secrets: inherit

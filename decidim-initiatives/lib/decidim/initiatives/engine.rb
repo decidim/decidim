@@ -16,73 +16,97 @@ module Decidim
       isolate_namespace Decidim::Initiatives
 
       routes do
-        get "/initiative_types/search", to: "initiative_types#search", as: :initiative_types_search
-        get "/initiative_type_scopes/search", to: "initiatives_type_scopes#search", as: :initiative_type_scopes_search
-        get "/initiative_type_signature_types/search", to: "initiatives_type_signature_types#search", as: :initiative_type_signature_types_search
+        extend Decidim::Routes::LocaleRedirects
 
-        resources :create_initiative do
-          collection do
-            get :select_initiative_type
-            put :select_initiative_type, to: "create_initiative#store_initiative_type"
-            get :fill_data
-            put :fill_data, to: "create_initiative#store_data"
-            get :promotal_committee
-            get :finish
-          end
-        end
+        scope "/:locale", **locale_scope_options do
+          get "/initiative_types/search", to: "initiative_types#search", as: :initiative_types_search
+          get "/initiative_type_scopes/search", to: "initiatives_type_scopes#search", as: :initiative_type_scopes_search
+          get "/initiative_type_signature_types/search", to: "initiatives_type_signature_types#search", as: :initiative_type_signature_types_search
 
-        get "initiatives/:initiative_id", to: redirect { |params, _request|
-          initiative = Decidim::Initiative.find(params[:initiative_id])
-          initiative ? "/initiatives/#{initiative.slug}" : "/404"
-        }, constraints: { initiative_id: /[0-9]+/ }
-
-        get "/initiatives/:initiative_id/f/:component_id", to: redirect { |params, _request|
-          initiative = Decidim::Initiative.find(params[:initiative_id])
-          initiative ? "/initiatives/#{initiative.slug}/f/#{params[:component_id]}" : "/404"
-        }, constraints: { initiative_id: /[0-9]+/ }
-
-        resources :initiatives, param: :slug, only: [:index, :show, :edit, :update], path: "initiatives" do
-          resources :signatures, controller: "initiative_signatures" do
+          resources :create_initiative do
             collection do
-              get :fill_personal_data
-              put :fill_personal_data, to: "initiative_signatures#store_personal_data"
-              get :sms_phone_number
-              put :sms_phone_number, to: "initiative_signatures#store_sms_phone_number"
-              get :sms_code
-              put :sms_code, to: "initiative_signatures#store_sms_code"
+              get :load_initiative_draft
+              get :select_initiative_type
+              put :select_initiative_type, to: "create_initiative#store_initiative_type"
+              get :fill_data
+              put :fill_data, to: "create_initiative#store_data"
+              get :promotal_committee
               get :finish
-              put :finish, to: "initiative_signatures#store_finish"
             end
           end
 
-          member do
-            get :authorization_sign_modal, to: "authorization_sign_modals#show"
-            get :authorization_create_modal, to: "authorization_create_modals#show"
-            get :print, to: "initiatives#print", as: "print"
-            get :send_to_technical_validation, to: "initiatives#send_to_technical_validation"
-          end
+          get "initiatives/:initiative_id", to: redirect { |params, _request|
+            initiative = Decidim::Initiative.find(params[:initiative_id])
+            initiative ? "/#{params[:locale]}/initiatives/#{initiative.slug}" : "/404"
+          }, constraints: { initiative_id: /[0-9]+/ }
 
-          resource :initiative_vote, only: [:create, :destroy]
-          resources :committee_requests, only: [:new] do
-            collection do
-              get :spawn
+          get "/initiatives/:initiative_id/f/:component_id", to: redirect { |params, _request|
+            initiative = Decidim::Initiative.find(params[:initiative_id])
+            initiative ? "/#{params[:locale]}/initiatives/#{initiative.slug}/f/#{params[:component_id]}" : "/404"
+          }, constraints: { initiative_id: /[0-9]+/ }
+
+          resources :initiatives, param: :slug, only: [:index, :show, :edit, :update], path: "initiatives" do
+            resources :signatures, controller: "initiative_signatures" do
+              collection do
+                get :fill_personal_data
+                put :fill_personal_data, to: "initiative_signatures#store_personal_data"
+                get :sms_phone_number
+                put :sms_phone_number, to: "initiative_signatures#store_sms_phone_number"
+                get :sms_code
+                put :sms_code, to: "initiative_signatures#store_sms_code"
+                get :finish
+                put :finish, to: "initiative_signatures#store_finish"
+              end
             end
+
             member do
-              get :approve
-              delete :revoke
+              get :authorization_sign_modal, to: "authorization_sign_modals#show"
+              get :authorization_create_modal, to: "authorization_create_modals#show"
+              get :print, to: "initiatives#print", as: "print"
+              get :send_to_technical_validation, to: "initiatives#send_to_technical_validation"
+              delete :discard, to: "initiatives#discard"
+            end
+
+            resource :initiative_vote, only: [:create, :destroy]
+            resources :committee_requests, only: [:new] do
+              collection do
+                get :spawn
+              end
+              member do
+                get :approve
+                delete :revoke
+              end
+            end
+            resources :versions, only: [:show]
+          end
+
+          scope "/initiatives/:initiative_slug/f/:component_id" do
+            Decidim.component_manifests.each do |manifest|
+              next unless manifest.engine
+
+              constraints CurrentComponent.new(manifest) do
+                mount manifest.engine, at: "/", as: "decidim_initiative_#{manifest.name}"
+              end
             end
           end
-          resources :versions, only: [:show]
         end
 
-        scope "/initiatives/:initiative_slug/f/:component_id" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.engine
+        get "/initiatives", to: redirect(&locale_redirector("/initiatives"))
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.engine, at: "/", as: "decidim_initiative_#{manifest.name}"
-            end
-          end
+        get "/initiatives/*rest", to: redirect { |params, request| locale_redirector("/initiatives/#{params[:rest]}").call(params, request) }
+
+        get "/initiative_types/*rest", to: redirect { |params, request| locale_redirector("/initiative_types/#{params[:rest]}").call(params, request) }
+
+        get "/initiative_type_scopes/*rest", to: redirect { |params, request| locale_redirector("/initiative_type_scopes/#{params[:rest]}").call(params, request) }
+
+        get "/initiative_type_signature_types/*rest", to: redirect { |params, request|
+          locale_redirector("/initiative_type_signature_types/#{params[:rest]}").call(params, request)
+        }
+      end
+
+      initializer "decidim_initiatives.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Initiatives::Engine, at: "/", as: "decidim_initiatives"
         end
       end
 
@@ -91,6 +115,21 @@ module Decidim
         Decidim.icons.register(name: "apps-line", icon: "apps-line", category: "system", description: "", engine: :initiatives)
         Decidim.icons.register(name: "printer-line", icon: "printer-line", category: "system", description: "", engine: :initiatives)
         Decidim.icons.register(name: "forbid-line", icon: "forbid-line", category: "system", description: "", engine: :initiatives)
+      end
+
+      initializer "decidim_initiatives.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
+      initializer "decidim_initiatives.stats" do
+        Decidim.stats.register :initiatives_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "lightbulb-flash-line",
+                               tooltip_key: "initiatives_count_tooltip" do |organization, _start_at, _end_at|
+          Decidim::Initiative.where(organization:).public_spaces.count
+        end
       end
 
       initializer "decidim_initiatives.content_blocks" do
@@ -112,20 +151,12 @@ module Decidim
         Decidim::Gamification.register_badge(:initiatives) do |badge|
           badge.levels = [1, 5, 15, 30, 50]
 
-          badge.valid_for = [:user, :user_group]
+          badge.valid_for = [:user]
 
           badge.reset = lambda { |model|
-            case model
-            when User
-              Decidim::Initiative.where(
-                author: model,
-                user_group: nil
-              ).published.count
-            when UserGroup
-              Decidim::Initiative.where(
-                user_group: model
-              ).published.count
-            end
+            Decidim::Initiative.where(
+              author: model
+            ).published.count
           }
         end
       end
@@ -134,7 +165,7 @@ module Decidim
         Decidim::Api::QueryType.include QueryExtensions
       end
 
-      initializer "decidim_initiatives.webpacker.assets_path" do
+      initializer "decidim_initiatives.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
@@ -143,7 +174,7 @@ module Decidim
         # We need to make sure we call `Preview.all` before requiring our
         # previews, otherwise any previews the app attempts to add need to be
         # manually required.
-        if Rails.env.development? || Rails.env.test?
+        if Rails.env.local?
           ActionMailer::Preview.all
 
           Dir[root.join("spec/mailers/previews/**/*_preview.rb")].each do |file|

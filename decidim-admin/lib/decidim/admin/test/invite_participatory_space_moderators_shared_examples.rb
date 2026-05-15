@@ -20,16 +20,18 @@ shared_examples "inviting participatory space moderators" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_current_path "/admin/admin_terms/show"
+      expect(page).to have_current_path decidim_admin.admin_terms_show_path
 
       visit decidim_admin.admin_terms_show_path
       find_button("I agree with the terms").click
 
       click_on space_sidebar_label
 
-      within "div.table-scroll" do
-        expect(page).to have_i18n_content(participatory_space.title)
-        click_on "Moderate"
+      within ".table-list" do
+        within("tr", text: translated(participatory_space.title)) do
+          find("button[data-controller='dropdown']").click
+          click_on "Manage moderations"
+        end
       end
 
       within "div.process-title-content-breadcrumb-container-left" do
@@ -56,10 +58,11 @@ shared_examples "inviting participatory space moderators" do
 
       click_on space_sidebar_label
 
-      within "div.table-scroll" do
+      within ".table-list" do
         expect(page).to have_i18n_content(participatory_space.title)
-        within "tr", text: translated(participatory_space.title) do
-          click_on "Moderate"
+        within("tr", text: translated(participatory_space.title)) do
+          find("button[data-controller='dropdown']").click
+          click_on "Manage moderations"
         end
       end
 

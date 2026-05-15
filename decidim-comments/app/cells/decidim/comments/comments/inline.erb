@@ -1,0 +1,31 @@
+<div id="comments">
+  <div class="comments">
+    <% if user_signed_in? %>
+      <button class="button button__lg button__secondary flex md:hidden w-full h-9 text-sm add-comment-mobile">
+        <%= t("add_comment", scope: "decidim.components.add_comment_form") %>
+      </button>
+    <% end %>
+    <%= add_comment %>
+    <%= user_comments_blocked_warning %>
+    <div class="comments__header mt-8">
+      <h2 class="h4">
+        <% if single_comment? %>
+          <%= t("decidim.components.comments.comment_details_title") %>
+        <% else %>
+          <%= icon "chat-1-line", class: "fill-tertiary w-6 h-6 inline-block align-middle" %>
+          <span class="comments-count inline-block align-middle">
+            <%= t("decidim.components.comments.title", count: comments_count) %>
+          </span>
+        <% end %>
+      </h2>
+      <% if two_columns_layout? %>
+        <div class="md:hidden"><%= render :order_control %></div>
+      <% else %>
+        <%= render :order_control %>
+      <% end %>
+    </div>
+    <%= single_comment_warning %>
+    <%= blocked_comments_warning %>
+    <%= render_comments %>
+  </div>
+</div>

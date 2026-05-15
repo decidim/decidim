@@ -22,9 +22,10 @@ describe "Admin reports user" do
         click_on "Report"
       end
 
-      expect(page).to have_css(".flag-modal", visible: :visible)
+      expect(page).to have_css(".flag-user-modal", visible: :visible)
 
-      within ".flag-modal" do
+      within ".flag-user-modal" do
+        expect(page).to have_content("Report inappropriate participant")
         find(:css, "input[name='report[block]']").set(true)
         expect(page).to have_field(name: "report[block]", visible: :visible)
         expect(page).to have_field(name: "report[hide]", visible: :visible)
@@ -45,9 +46,10 @@ describe "Admin reports user" do
         click_on "Report"
       end
 
-      expect(page).to have_css(".flag-modal", visible: :visible)
+      expect(page).to have_css(".flag-user-modal", visible: :visible)
 
-      within ".flag-modal" do
+      within ".flag-user-modal" do
+        expect(page).to have_content("Report inappropriate participant")
         find(:css, "input[name='report[block]']").set(true)
         find(:css, "input[name='report[hide]']").set(true)
         expect(page).to have_field(name: "report[block]", visible: :visible)
@@ -56,7 +58,7 @@ describe "Admin reports user" do
       end
 
       expect(page).to have_current_path(decidim_admin.new_user_block_path(user_id: reportable.id), ignore_query: true)
-      expect(page).to have_content("Continuing with this action you will also hide all the participants contents")
+      expect(page).to have_content("By continuing with this action, you will also hide all the participant's content.")
     end
   end
 

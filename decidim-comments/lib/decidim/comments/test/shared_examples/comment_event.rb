@@ -17,11 +17,6 @@ shared_context "when it is a comment event" do
 
   let(:extra) { { comment_id: comment.id } }
   let(:resource_title) { decidim_sanitize_translated(resource.title) }
-  let(:user_group) do
-    user_group = create(:user_group, :verified, organization:, users: [comment_author])
-    comment.update!(user_group:)
-    user_group
-  end
 end
 
 shared_examples_for "a comment event" do
@@ -29,11 +24,7 @@ shared_examples_for "a comment event" do
 
   describe "author" do
     it "returns the comment author" do
-      if defined? user_group_author
-        expect(subject.author).to eq(user_group_author)
-      else
-        expect(subject.author).to eq(comment_author)
-      end
+      expect(subject.author).to eq(comment_author)
     end
   end
 
@@ -72,6 +63,38 @@ shared_examples_for "a comment event" do
 
       it "returns true" do
         expect(subject.hidden_resource?).to be true
+      end
+    end
+  end
+
+  describe "deleted_resource?" do
+    context "when comment is not moderated" do
+      it "returns false" do
+        expect(subject.deleted_resource?).to be false
+      end
+    end
+
+    context "when comment is moderated" do
+      let(:comment) { create(:comment, deleted_at: Time.zone.now) }
+
+      it "returns true" do
+        expect(subject.deleted_resource?).to be true
+      end
+    end
+
+    context "when resource is not moderated" do
+      it "returns false" do
+        expect(subject.deleted_resource?).to be false
+      end
+    end
+
+    context "when resource is moderated" do
+      before do
+        resource.update(deleted_at: Time.zone.now)
+      end
+
+      it "returns true" do
+        expect(subject.deleted_resource?).to be true
       end
     end
   end

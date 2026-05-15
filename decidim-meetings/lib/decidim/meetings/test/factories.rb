@@ -37,6 +37,9 @@ FactoryBot.define do
     longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
+    reminder_enabled { true }
+    send_reminders_before_hours { 48 }
+    reminder_message_custom_content { generate_localized_description(:meeting_reminder_message, skip_injection:) }
     private_meeting { false }
     transparent { true }
     questionnaire { build(:questionnaire) }
@@ -47,6 +50,7 @@ FactoryBot.define do
     component { build(:meeting_component) }
     iframe_access_level { :all }
     iframe_embed_type { :none }
+    deleted_at { nil }
 
     author do
       component.try(:organization)
@@ -62,6 +66,12 @@ FactoryBot.define do
 
     trait :in_person do
       type_of_meeting { :in_person }
+    end
+
+    trait :hidden do
+      after :create do |meeting, evaluator|
+        create(:moderation, hidden_at: Time.current, reportable: meeting, skip_injection: evaluator.skip_injection)
+      end
     end
 
     trait :online do
@@ -97,15 +107,6 @@ FactoryBot.define do
     end
 
     trait(:participant_author) { not_official }
-
-    trait :user_group_author do
-      author do
-        create(:user, organization: component.organization, skip_injection:) if component
-      end
-      user_group do
-        create(:user_group, :verified, organization: component.organization, users: [author], skip_injection:) if component
-      end
-    end
 
     trait :closed do
       closing_report { generate_localized_title(:meeting_closing_report, skip_injection:) }
@@ -181,7 +182,7 @@ FactoryBot.define do
 
   factory :meeting_link, class: "Decidim::Meetings::MeetingLink" do
     meeting
-    component
+    component { meeting.component }
   end
 
   factory :registration, class: "Decidim::Meetings::Registration" do
@@ -189,7 +190,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     meeting
-    user
+    user { create(:user, :confirmed, organization: meeting.component.organization, skip_injection:) }
   end
 
   factory :agenda, class: "Decidim::Meetings::Agenda" do
@@ -235,7 +236,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     meeting
-    user
+    user { create(:user, :confirmed, organization: meeting.component.organization, skip_injection:) }
     sent_at { 1.day.ago }
     accepted_at { nil }
     rejected_at { nil }
@@ -284,8 +285,8 @@ FactoryBot.define do
     status { 0 }
     question_type { Decidim::Meetings::Question::QUESTION_TYPES.first }
     questionnaire factory: :meetings_poll_questionnaire
-    answer_options do
-      Array.new(3).collect { build(:meetings_poll_answer_option, question: nil, skip_injection:) }
+    response_options do
+      Array.new(3).collect { build(:meetings_poll_response_option, question: nil, skip_injection:) }
     end
 
     trait :unpublished do
@@ -301,7 +302,7 @@ FactoryBot.define do
     end
   end
 
-  factory :meetings_poll_answer, class: "Decidim::Meetings::Answer" do
+  factory :meetings_poll_response, class: "Decidim::Meetings::Response" do
     transient do
       skip_injection { false }
     end
@@ -310,7 +311,7 @@ FactoryBot.define do
     user { create(:user, organization: questionnaire.questionnaire_for.organization, skip_injection:) }
   end
 
-  factory :meetings_poll_answer_option, class: "Decidim::Meetings::AnswerOption" do
+  factory :meetings_poll_response_option, class: "Decidim::Meetings::ResponseOption" do
     transient do
       skip_injection { false }
     end
@@ -318,11 +319,11 @@ FactoryBot.define do
     body { generate_localized_title }
   end
 
-  factory :meetings_poll_answer_choice, class: "Decidim::Meetings::AnswerChoice" do
+  factory :meetings_poll_response_choice, class: "Decidim::Meetings::ResponseChoice" do
     transient do
       skip_injection { false }
     end
-    answer factory: :meetings_poll_answer
-    answer_option { create(:meetings_poll_answer_option, question: answer.question, skip_injection:) }
+    response factory: :meetings_poll_response
+    response_option { create(:meetings_poll_response_option, question: response.question, skip_injection:) }
   end
 end

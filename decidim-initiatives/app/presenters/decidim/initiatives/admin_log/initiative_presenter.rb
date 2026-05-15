@@ -31,8 +31,7 @@ module Decidim
             signature_start_date: :date,
             signature_end_date: :date,
             description: :i18n,
-            title: :i18n,
-            hashtag: :string
+            title: :i18n
           }
         end
 

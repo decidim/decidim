@@ -11,24 +11,29 @@ ro:
       menu:
         templates: Șabloane
       templates:
+        actions:
+          new_template: Șablon nou
         apply:
           error: A apărut o eroare la aplicarea acestui șablon.
           success: Șablonul a fost aplicat cu succes.
         copy:
-          error: A apărut o eroare la copierea acestui model.
+          error: A apărut o eroare la copierea acestui șablon.
           success: Șablonul a fost copiat cu succes.
         create:
-          error: A apărut o eroare la crearea acestui model.
+          error: A apărut o eroare la crearea acestui șablon.
           success: Șablonul a fost creat cu succes.
         destroy:
           success: Șablonul a fost șters cu succes.
-        empty: Nu există încă nici un model.
+        empty: Nu există încă nici un șablon.
+        fetch:
+          error: Nu am putut găsi acest șablon. Vă rugăm să reîncărcați pagina.
+        missing_resource: "(resursă lipsă)"
         update:
           error: A apărut o eroare la actualizarea acestui șablon.
-          success: Șablonul a fost importat cu succes.
+          success: Șablonul a fost actualizat cu succes.
       titles:
         template_types:
-          questionnaires: Şabloane chestionar
+          questionnaires: Șabloane chestionar
         templates: Şabloane
     models:
       questionnaire_template:
@@ -38,46 +43,78 @@ ro:
       template:
         fields:
           created_at: Creat la
-        name: Model
+        name: Șablon
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Modificați șablonul pentru mesajele către participanții blocați
           form:
-            save: Salvează
+            save: Salvaţi
           index:
             confirm_delete: Sunteți sigur că doriți să ștergeți acest șablon?
-            title: Blochează mesajele utilizatorilor
+            title: Mesaje către participanții blocați
+          new:
+            title: Adaugați șablon nou cu mesajul către participanții blocați
           template_chooser:
-            select_template: Selectați un răspuns șablon
+            select_template: Selectați un șablon de răspuns
         proposal_answer_templates:
+          edit:
+            title: Modificați șablon de răspuns pentru propuneri
           form:
-            save: Salvează
+            component_constraint_help: Trebuie remarcat faptul că vor fi enumerate numai spațiile participative care conțin componente de tipul „propuneri”.
+            hint1_html: "<strong>%{organization}</strong> va fi înlocuit cu numele organizației"
+            hint2_html: "<strong>%{name}</strong> va fi înlocuit cu numele autorului"
+            hint3_html: "<strong>%{admin}</strong> va fi înlocuit cu numele administratorului (cel care răspunde propunerii)"
+            hint_html: "<strong>Sugestie:</strong> Puteți utiliza aceste variabile oriunde în șablonul de răspuns care va fi înlocuit atunci când utilizați șablonul"
+            save: Salvați
+          index:
+            component_constraint: Adaugați o constrângere
+            confirm_delete: Sunteți sigur că doriți să ștergeți acest șablon?
+            missing_state: Stare lipsă
+            proposal_state_id: Stare internă
+            title: Răspunsuri pentru propuneri
+          new:
+            title: Modificați șablon de răspuns pentru propuneri
+          template_chooser:
+            select_template: Selectați șablon de răspuns pentru propuneri
         questionnaire_templates:
           choose:
-            create_from_template: Creează după model
-            description: Ești pe cale de a crea un nou chestionar. Poți alege un model predefinit și să-l modifici ulterior.
-            label: Alege un model
-            placeholder: Alege un model
-            skip_template: Treci peste
+            continue: Continuați
+            description: Puteți crea un nou chestionar sau puteți alege un șablon predefinit și să îl modificați mai târziu. Selectați o opțiune.
+            label: Alegeți un șablon
+            options:
+              create_new_form: Creați un formular nou
+              select_template: Selectați șablonul
+            placeholder: Alegeți un șablon
           edit:
-            edit: Editează
-            empty: Nu există încă întrebări.
+            edit: Modificați
+            empty: Nu există întrebări încă.
+            manage_questions: Întrebări
             questionnaire: Chestionar
+            title: Modificați șablonul chestionar
+          edit_questions:
+            add_question: Adăugați o întrebare
+            add_separator: Adăugați un separator
+            add_title_and_description: Adaugați titlu și descriere
           form:
-            title: Model de chestionar %{questionnaire_for}
+            title: Sablon chestionar %{questionnaire_for}
           index:
-            confirm_delete: Sigur dorești să ștergi acest model?
-            title: Model de chestionar
+            confirm_delete: Sunteți sigur că doriți să ștergeți acest șablon?
+            title: Şabloane chestionar
+          new:
+            title: Șablon nou de chestionar
           preview:
             current_step: Pasul %{step}
             of_total_steps: din %{total_steps}
-            tos_agreement: Prin participare accepți Termenii și condițiile sale de utilizare
+            tos_agreement: Prin participare acceptați termenii și condițiile de utilizare ale platformei
       admin_log:
         template:
           create: "%{user_name} a creat șablonul chestionarului %{resource_name}"
           delete: "%{user_name} a șters șablonul chestionarului %{resource_name}"
-          duplicate: "%{user_name} a duplicat șablonul chestionarului %{resource_name}"
+          duplicate: "%{user_name} a copiat șablonul chestionarului %{resource_name}"
           update: "%{user_name} a actualizat șablonul chestionarului %{resource_name}"
       template_types:
-        block_user: Blochează mesajele utilizatorilor
+        block_user: Mesaje către participanții blocați
+        proposal_answer_templates: Răspunsuri pentru propuneri
         questionnaires: Chestionare

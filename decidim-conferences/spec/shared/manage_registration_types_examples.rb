@@ -9,7 +9,7 @@ shared_examples "manage registration types examples" do
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
     within_admin_sidebar_menu do
-      click_on "Registration Types"
+      click_on "Registration types"
     end
   end
 
@@ -36,7 +36,7 @@ shared_examples "manage registration types examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference registration type successfully added.")
       expect(page).to have_current_path decidim_admin_conferences.conference_registration_types_path(conference)
 
       within "#registration_types table" do
@@ -49,6 +49,7 @@ shared_examples "manage registration types examples" do
 
     it "updates a conference registration types" do
       within "#registration_types tr", text: translated(registration_type.title) do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -59,7 +60,7 @@ shared_examples "manage registration types examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference registration type successfully updated.")
       expect(page).to have_current_path decidim_admin_conferences.conference_registration_types_path(conference)
 
       within "#registration_types table" do
@@ -72,10 +73,11 @@ shared_examples "manage registration types examples" do
 
     it "deletes the conference registration type" do
       within "#registration_types tr", text: translated(registration_type.title) do
-        accept_confirm { find("a.action-icon--remove").click }
+        find("button[data-controller='dropdown']").click
+        accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference registration type successfully removed.")
 
       within "#registration_types table" do
         expect(page).to have_no_content(translated(registration_type.title))

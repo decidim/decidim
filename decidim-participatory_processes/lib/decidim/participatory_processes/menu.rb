@@ -10,7 +10,7 @@ module Decidim
                         decidim_participatory_processes.participatory_processes_path,
                         position: 2,
                         if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                        active: %r{^/process(es|_groups)}
+                        active: %r{^/#{current_locale}/process(es|_groups)}
         end
       end
 
@@ -21,7 +21,7 @@ module Decidim
                         decidim_participatory_processes.participatory_processes_path,
                         position: 2,
                         if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                        active: %r{^/process(es|_groups)}
+                        active: %r{^/#{current_locale}/process(es|_groups)}
         end
       end
 
@@ -32,7 +32,7 @@ module Decidim
                         decidim_participatory_processes.participatory_processes_path,
                         position: 10,
                         if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                        active: %r{^/process(es|_groups)}
+                        active: %r{^/#{current_locale}/process(es|_groups)}
         end
       end
 
@@ -44,9 +44,7 @@ module Decidim
                         icon_name: "treasure-map-line",
                         position: 2,
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_processes_path, :inclusive) ||
-                                is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path, :inclusive) ||
-                                is_active_link?(decidim_admin_participatory_processes.participatory_process_filters_path, :inclusive) ||
-                                is_active_link?(decidim_admin_participatory_processes.participatory_process_types_path),
+                                is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path, :inclusive),
                         if: allowed_to?(:enter, :space_area, space_name: :processes) || allowed_to?(:enter, :space_area, space_name: :process_groups)
         end
       end
@@ -111,7 +109,7 @@ module Decidim
       def self.register_admin_participatory_process_menu!
         Decidim.menu :admin_participatory_process_menu do |menu|
           menu.add_item :edit_participatory_process,
-                        I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        I18n.t("title", scope: "decidim.participatory_processes.admin.participatory_processes.edit"),
                         decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space)),
                         icon_name: "information-line",
@@ -140,13 +138,6 @@ module Decidim
                         if: allowed_to?(:read, :component),
                         submenu: { target_menu: :admin_participatory_process_components_menu }
 
-          menu.add_item :categories,
-                        I18n.t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.categories_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.categories_path(current_participatory_space)),
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:read, :category)
-
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space),
@@ -162,12 +153,12 @@ module Decidim
                         icon_name: "user-settings-line",
                         if: allowed_to?(:read, :process_user_role)
 
-          menu.add_item :participatory_space_private_users,
-                        I18n.t("private_users", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space)),
-                        icon_name: "spy-line",
-                        if: allowed_to?(:read, :space_private_user, current_participatory_space:)
+          menu.add_item :members,
+                        I18n.t("members", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.members_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.members_path(current_participatory_space)),
+                        icon_name: "user-settings-line",
+                        if: allowed_to?(:read, :space_member, current_participatory_space:)
 
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"),
@@ -181,14 +172,14 @@ module Decidim
                         decidim_admin_participatory_processes.participatory_process_share_tokens_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_share_tokens_path(current_participatory_space)),
                         icon_name: "share-line",
-                        if: allowed_to?(:read, :share_tokens, current_participatory_space:)
+                        if: allowed_to?(:read, :share_token, current_participatory_space:)
         end
       end
 
       def self.register_admin_participatory_process_group_menu!
         Decidim.menu :admin_participatory_process_group_menu do |menu|
           menu.add_item :edit_participatory_process_group,
-                        I18n.t("info", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
+                        I18n.t("title", scope: "decidim.participatory_processes.admin.participatory_process_groups.edit"),
                         decidim_admin_participatory_processes.edit_participatory_process_group_path(participatory_process_group),
                         position: 1,
                         icon_name: "information-line",
@@ -221,22 +212,6 @@ module Decidim
                         icon_name: "upload-line",
                         if: allowed_to?(:import, :process),
                         active: is_active_link?(decidim_admin_participatory_processes.new_import_path)
-
-          menu.add_item :taxonomy_filters,
-                        I18n.t("menu.taxonomy_filters", scope: "decidim.admin"),
-                        decidim_admin_participatory_processes.participatory_process_filters_path,
-                        position: 3,
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:manage, :taxonomy_filter),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_filters_path)
-
-          menu.add_item :participatory_process_types,
-                        I18n.t("menu.participatory_process_types", scope: "decidim.admin"),
-                        decidim_admin_participatory_processes.participatory_process_types_path,
-                        position: 3,
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:manage, :participatory_process_type),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_types_path)
         end
       end
     end

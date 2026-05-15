@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test"
+require "decidim/api/test"
 
 module Decidim
   module Meetings
@@ -69,16 +68,16 @@ module Decidim
         context "when the meeting does not belong to the component" do
           let!(:meeting) { create(:meeting, :published, component: create(:meeting_component)) }
 
-          it "returns null" do
-            expect(response["meeting"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Meeting not found")
           end
         end
 
         context "when private" do
           let!(:meeting) { create(:meeting, :published, component: model, private_meeting: true, transparent: false) }
 
-          it "returns null" do
-            expect(response["meeting"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Meeting not found")
           end
         end
       end

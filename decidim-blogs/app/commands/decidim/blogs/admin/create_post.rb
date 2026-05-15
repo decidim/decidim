@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user creates a Post from the admin
       # panel.
       class CreatePost < Decidim::Commands::CreateResource
-        fetch_form_attributes :title, :body, :published_at, :author, :component
+        fetch_form_attributes :title, :body, :published_at, :author, :component, :taxonomizations
 
         private
 
@@ -15,11 +15,11 @@ module Decidim
         def extra_params = { visibility: "all" }
 
         def run_after_hooks
-          Decidim::EventsManager.publish(
-            event: "decidim.events.blogs.post_created",
-            event_class: Decidim::Blogs::CreatePostEvent,
-            resource:,
-            followers: resource.participatory_space.followers
+          resource.reload
+          Decidim::Blogs::PublishPostJob.set(wait_until: resource.published_at).perform_later(
+            resource.id,
+            current_user,
+            resource.published_at
           )
         end
       end

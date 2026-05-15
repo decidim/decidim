@@ -22,14 +22,14 @@ shared_examples "inviting participatory space collaborators" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_current_path "/admin/admin_terms/show"
+      expect(page).to have_current_path decidim_admin.admin_terms_show_path
 
       visit decidim_admin.admin_terms_show_path
       find_button("I agree with the terms").click
 
       click_on space_sidebar_label
 
-      within "div.table-scroll" do
+      within ".table-list" do
         expect(page).to have_i18n_content(participatory_space.title)
       end
     end
@@ -53,7 +53,7 @@ shared_examples "inviting participatory space collaborators" do
 
       click_on space_sidebar_label
 
-      within "div.table-scroll" do
+      within ".table-list" do
         expect(page).to have_i18n_content(participatory_space.title)
       end
     end

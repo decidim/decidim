@@ -1,0 +1,30 @@
+= Validation Error - VALIDATION_ERROR
+
+This error is triggered when the requesting user performs an action that contains an error, for example, when the user tries to publish a resource that is already published. This is equivalent to the flash messages displayed on the Website.
+
+The JSON response structure is:
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": "There was a problem voting the proposal.",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "vote"
+      ],
+      "extensions": {
+        "code": "VALIDATION_ERROR"
+      }
+    }
+  ],
+  "data": {
+    "vote": null
+  }
+}
+----

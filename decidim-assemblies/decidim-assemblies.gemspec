@@ -2,13 +2,12 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/assemblies/version"
-
 Gem::Specification.new do |s|
-  s.version = Decidim::Assemblies.version
+  version = "0.33.0.dev"
+  s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -17,7 +16,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.name = "decidim-assemblies"
   s.summary = "Decidim assemblies module"
@@ -30,10 +29,10 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::Assemblies.version
+  s.add_dependency "decidim-core", version
 
-  s.add_development_dependency "decidim-admin", Decidim::Assemblies.version
-  s.add_development_dependency "decidim-dev", Decidim::Assemblies.version
-  s.add_development_dependency "decidim-meetings", Decidim::Assemblies.version
-  s.add_development_dependency "decidim-proposals", Decidim::Assemblies.version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-meetings", version
+  s.add_development_dependency "decidim-proposals", version
 end

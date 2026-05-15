@@ -6,7 +6,8 @@ describe Decidim::EmailNotificationGenerator do
   subject { described_class.new(event, event_class, resource, followers, affected_users, extra) }
 
   let(:event) { "decidim.events.dummy.dummy_resource_updated" }
-  let(:resource) { create(:dummy_resource) }
+  let(:component) { create(:dummy_component, :published) }
+  let(:resource) { create(:dummy_resource, :published) }
   let(:follow) { create(:follow, followable: resource, user: recipient) }
   let(:recipient) { resource.author }
   let(:event_class) { Decidim::Events::BaseEvent }
@@ -101,6 +102,15 @@ describe Decidim::EmailNotificationGenerator do
         context "and the user cannot participate" do
           before do
             allow(resource).to receive(:can_participate?).with(kind_of(Decidim::User)).and_return(false)
+          end
+
+          it_behaves_like "does not enqueue the job"
+        end
+
+        context "when the user is blocked" do
+          before do
+            recipient.update!(blocked: true, blocked_at: Time.now.utc)
+            follower.update!(blocked: true, blocked_at: Time.now.utc)
           end
 
           it_behaves_like "does not enqueue the job"

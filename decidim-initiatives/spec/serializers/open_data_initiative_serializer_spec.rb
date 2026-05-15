@@ -19,7 +19,7 @@ module Decidim::Initiatives
       end
 
       it "includes the url" do
-        expect(serialized).to include(url: "http://#{initiative.organization.host}:#{Capybara.server_port}/initiatives/i-#{initiative.id}")
+        expect(serialized).to include(url: "http://#{initiative.organization.host}:#{Capybara.server_port}/#{I18n.locale}/initiatives/i-#{initiative.id}")
       end
 
       it "includes the description" do
@@ -68,10 +68,6 @@ module Decidim::Initiatives
 
       it "includes the answer_url" do
         expect(serialized).to include(answer_url: initiative.answer_url)
-      end
-
-      it "includes the hashtag" do
-        expect(serialized).to include(hashtag: initiative.hashtag)
       end
 
       it "includes the first_progress_notification_at timestamp" do

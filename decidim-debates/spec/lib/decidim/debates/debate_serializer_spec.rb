@@ -13,6 +13,10 @@ module Decidim
       let!(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: component.organization) }
       let(:participatory_process) { component.participatory_space }
       let(:component) { debate.component }
+      let(:new_debate) { described_class.new(debate) }
+      let(:serialized_taxonomies) do
+        { ids: taxonomies.pluck(:id) }.merge(taxonomies.to_h { |t| [t.id, t.name] })
+      end
 
       before do
         debate.update!(taxonomies:)
@@ -26,9 +30,7 @@ module Decidim
         end
 
         it "serializes the taxonomies" do
-          expect(serialized[:taxonomies].length).to eq(2)
-          expect(serialized[:taxonomies][:id]).to match_array(taxonomies.map(&:id))
-          expect(serialized[:taxonomies][:name]).to match_array(taxonomies.map(&:name))
+          expect(serialized[:taxonomies]).to eq(serialized_taxonomies)
         end
 
         describe "author" do
@@ -50,12 +52,9 @@ module Decidim
           end
 
           context "when it is a user" do
-            let!(:debate) { create(:debate, :participant_author) }
-
-            before do
-              debate.author.update!(name: "John Doe")
-              debate.reload
-            end
+            let(:author) { create(:user, name: "John Doe", organization: component.organization) }
+            let(:component) { create(:debates_component) }
+            let!(:debate) { create(:debate, component:, author:) }
 
             it "serializes the user name" do
               expect(serialized[:author]).to include(name: "John Doe")
@@ -64,22 +63,14 @@ module Decidim
             it "serializes the link to its profile" do
               expect(serialized[:author]).to include(url: profile_url(debate.author.nickname))
             end
-          end
 
-          context "when it is a user group" do
-            let!(:debate) { create(:debate, :user_group_author) }
+            context "when author is deleted" do
+              let(:author) { create(:user, :deleted, organization: component.organization) }
+              let!(:debate) { create(:debate, component:, author:) }
 
-            before do
-              debate.author.update!(name: "ACME", nickname: "acme")
-              debate.reload
-            end
-
-            it "serializes the user name of the user group" do
-              expect(serialized[:author]).to include(name: "ACME")
-            end
-
-            it "serializes the link to the profile of the user group" do
-              expect(serialized[:author]).to include(url: profile_url("acme"))
+              it "does not serialize the fields" do
+                expect(serialized[:author]).to eq({})
+              end
             end
           end
         end
@@ -121,8 +112,8 @@ module Decidim
           expect(serialized).to include(comments: debate.comments_count)
         end
 
-        it "serializes the followers" do
-          expect(serialized).to include(followers: debate.follows.size)
+        it "serializes the number of followers" do
+          expect(serialized).to include(follows_count: debate.follows_count)
         end
 
         it "serializes the url" do
@@ -135,6 +126,18 @@ module Decidim
 
         it "serializes the comments enabled" do
           expect(serialized).to include(comments_enabled: debate.comments_enabled)
+        end
+
+        it "includes the created at" do
+          expect(serialized).to include(created_at: debate.created_at)
+        end
+
+        it "includes the updated at" do
+          expect(serialized).to include(updated_at: debate.updated_at)
+        end
+
+        it "serializes the likes" do
+          expect(serialized).to include(likes_count: debate.likes_count)
         end
 
         describe "conclusions and closed at" do
@@ -157,11 +160,53 @@ module Decidim
               expect(serialized).to include(closed_at: debate.closed_at)
             end
           end
+
+          context "when the debate is not closed" do
+            let!(:debate) { create(:debate, closed_at: nil) }
+
+            it "does not serialize the conclusion" do
+              expect(serialized[:conclusions]).to be_nil
+            end
+
+            it "does not serialize the closed at" do
+              expect(serialized[:closed_at]).to be_nil
+            end
+          end
+        end
+
+        context "when there is a last comment" do
+          let(:last_comment_by) { create(:user, name: "User") }
+          let(:debate) { create(:debate, last_comment_by:) }
+
+          it "serializes the last comment by fields" do
+            expect(serialized[:last_comment_by]).to eq(
+              id: last_comment_by.id,
+              name: "User",
+              url: profile_url(last_comment_by.nickname)
+            )
+          end
+
+          context "when the last comment is from a deleted user" do
+            let(:last_comment_by) { create(:user, :deleted) }
+            let(:debate) { create(:debate, last_comment_by:) }
+
+            it "does not serialize the fields" do
+              expect(serialized[:last_comment_by]).to eq({})
+            end
+          end
+        end
+
+        context "when there is no last comment" do
+          let(:debate) { create(:debate, last_comment_by: nil) }
+
+          it "returns no values" do
+            expect(serialized[:last_comment_by]).to eq({})
+          end
         end
       end
 
       def profile_url(nickname)
-        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
+        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:, port: Capybara.server_port)
       end
 
       def root_url

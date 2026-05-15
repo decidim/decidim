@@ -5,7 +5,6 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes" do
   let(:organization) { create(:organization) }
-  let(:hashtag) { true }
   let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
   let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
 
@@ -25,25 +24,13 @@ describe "Participatory Processes" do
 
   context "when there are no processes and directly accessing form URL" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_participatory_processes.participatory_processes_path }
-    end
-  end
-
-  context "when there are no processes and accessing from the homepage" do
-    let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-    it "does not show the menu link" do
-      visit decidim.root_path
-
-      within "#home__menu" do
-        expect(page).to have_no_content("Processes")
-      end
+      let(:target_path) { decidim_participatory_processes.participatory_processes_path(locale: I18n.locale) }
     end
   end
 
   context "when the process does not exist" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_participatory_processes.participatory_process_path(99_999_999) }
+      let(:target_path) { decidim_participatory_processes.participatory_process_path(99_999_999, locale: I18n.locale) }
     end
   end
 
@@ -55,19 +42,7 @@ describe "Participatory Processes" do
 
     context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_participatory_processes.participatory_processes_path }
-      end
-    end
-
-    context "and accessing from the homepage" do
-      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-      it "the menu link is not shown" do
-        visit decidim.root_path
-
-        within "#home__menu" do
-          expect(page).to have_no_content("Processes")
-        end
+        let(:target_path) { decidim_participatory_processes.participatory_processes_path(locale: I18n.locale) }
       end
     end
   end
@@ -82,40 +57,26 @@ describe "Participatory Processes" do
     let!(:group) { create(:participatory_process_group, participatory_processes: [grouped_process], organization:) }
 
     it_behaves_like "shows contextual help" do
-      let(:index_path) { decidim_participatory_processes.participatory_processes_path }
+      let(:index_path) { decidim_participatory_processes.participatory_processes_path(locale: I18n.locale) }
       let(:manifest_name) { :participatory_processes }
     end
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim_participatory_processes.participatory_processes_path }
+      let(:target_path) { decidim_participatory_processes.participatory_processes_path(locale: I18n.locale) }
     end
 
     context "when requesting the processes path" do
       before do
-        visit decidim_participatory_processes.participatory_processes_path
+        visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
       end
 
       it_behaves_like "accessible page"
-
-      context "and accessing from the homepage" do
-        let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-        it "the menu link is not shown" do
-          visit decidim.root_path
-
-          within "#home__menu" do
-            click_on "Processes"
-          end
-
-          expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
-        end
-      end
 
       context "with highlighted processes" do
         before do
           promoted_process.title["en"] = "D'Artagnan #{promoted_process.title["en"]}"
           promoted_process.save!
-          visit decidim_participatory_processes.participatory_processes_path
+          visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
         end
 
         it_behaves_like "accessible page"
@@ -149,7 +110,7 @@ describe "Participatory Processes" do
       it "links to the individual process page" do
         first(".card__grid h3", text: translated(participatory_process.title, locale: :en)).click
 
-        expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
+        expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
       end
 
       context "with active steps" do
@@ -162,7 +123,7 @@ describe "Participatory Processes" do
         end
 
         it "links to the active step" do
-          visit decidim_participatory_processes.participatory_processes_path
+          visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
 
           within "#processes-grid .card__grid", text: translated(participatory_process.title) do
             within ".card__grid-metadata" do
@@ -179,7 +140,7 @@ describe "Participatory Processes" do
         before do
           promoted_group.title["en"] = "D'Artagnan #{promoted_group.title["en"]}"
           promoted_group.save!
-          visit decidim_participatory_processes.participatory_processes_path
+          visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
         end
 
         it "shows a highlighted processes section" do
@@ -206,7 +167,7 @@ describe "Participatory Processes" do
     let!(:participatory_process) { base_process }
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:followable) { participatory_process }
-    let(:followable_path) { decidim_participatory_processes.participatory_process_path(participatory_process) }
+    let(:followable_path) { decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale) }
   end
 
   context "when going to the participatory process page" do
@@ -221,14 +182,14 @@ describe "Participatory Processes" do
 
     describe "page title" do
       it "has the participatory process title in the show page" do
-        visit decidim_participatory_processes.participatory_process_path(participatory_process)
+        visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
 
         expect(page).to have_title("#{translated(participatory_process.title)} - #{translated(organization.name)}")
       end
     end
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim_participatory_processes.participatory_process_path(participatory_process) }
+      let(:target_path) { decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale) }
     end
 
     context "when requesting the participatory process path" do
@@ -238,7 +199,7 @@ describe "Participatory Processes" do
         blocks_manifests.each do |manifest_name|
           create(:content_block, organization:, scope_name: :participatory_process_homepage, manifest_name:, scoped_resource_id: participatory_process.id)
         end
-        visit decidim_participatory_processes.participatory_process_path(participatory_process)
+        visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
       end
 
       context "when requesting the process path" do
@@ -260,7 +221,6 @@ describe "Participatory Processes" do
               expect(page).to have_content(translated(participatory_process.participatory_structure, locale: :en))
               expect(page).to have_content(I18n.l(participatory_process.start_date, format: :decidim_short_with_month_name_short))
               expect(page).to have_content(I18n.l(participatory_process.end_date, format: :decidim_short_with_month_name_short))
-              expect(page).to have_content(participatory_process.hashtag)
             end
           end
 
@@ -286,9 +246,9 @@ describe "Participatory Processes" do
           let(:blocks_manifests) { [:extra_data] }
 
           it "has a link to the group the process belongs to" do
-            visit decidim_participatory_processes.participatory_process_path(participatory_process)
+            visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
 
-            expect(page).to have_link(translated(group.title, locale: :en), href: decidim_participatory_processes.participatory_process_group_path(group))
+            expect(page).to have_link(translated(group.title, locale: :en), href: decidim_participatory_processes.participatory_process_group_path(group, locale: I18n.locale))
           end
         end
 
@@ -303,57 +263,23 @@ describe "Participatory Processes" do
                 [published_process, unpublished_process],
                 "related_processes"
               )
-            visit decidim_participatory_processes.participatory_process_path(participatory_process)
+            visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
             expect(page).to have_content(translated(published_process.title))
             expect(page).to have_no_content(translated(unpublished_process.title))
           end
         end
 
         context "and the process has some components" do
-          let(:blocks_manifests) { [:main_data] }
+          let(:blocks_manifests) { [:hero, :main_data] }
 
           it "shows the components" do
             within ".participatory-space__nav-container" do
-              expect(page).to have_content(translated(proposals_component.name, locale: :en))
-              expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
+              expect(page).to have_content(decidim_escape_translated(proposals_component.name))
+              expect(page).to have_no_content(decidim_escape_translated(meetings_component.name))
             end
           end
 
-          context "and the process metrics are enabled" do
-            let(:organization) { create(:organization) }
-            let(:metrics) do
-              Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
-                create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today - 1.week, organization:, participatory_space_type: Decidim::ParticipatoryProcess.name, participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
-              end
-            end
-            let(:blocks_manifests) { [:metrics] }
-
-            before do
-              metrics
-              visit current_path
-            end
-
-            it "shows the metrics charts" do
-              expect(page).to have_css("h2.h2", text: "Metrics")
-
-              within "[data-metrics]" do
-                Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
-                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
-                end
-              end
-            end
-
-            it "renders a link to all metrics" do
-              within "[data-metrics]" do
-                expect(page).to have_link("Show all")
-              end
-            end
-
-            it "click link" do
-              click_on("Show all")
-              have_current_path(decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process))
-            end
-          end
+          it_behaves_like "accessible page"
 
           context "and the process statistics are enabled" do
             let(:blocks_manifests) { [:hero, :stats] }
@@ -374,39 +300,21 @@ describe "Participatory Processes" do
               expect(page).to have_no_css(".statistic__number", text: "3")
             end
           end
-
-          context "and the process metrics are not enabled" do
-            it "the metrics for the participatory processes are not rendered" do
-              expect(page).to have_no_css("h4", text: "METRICS")
-            end
-
-            it "has no link to all metrics" do
-              expect(page).to have_no_link("Show all metrics")
-            end
-          end
-
-          context "and the process does not have hashtag" do
-            let(:hashtag) { false }
-
-            it "the hashtags for those components are not visible" do
-              expect(page).to have_no_content("#")
-            end
-          end
         end
 
         context "when assemblies are linked to participatory process" do
           let!(:published_assembly) { create(:assembly, :published, organization:) }
           let!(:unpublished_assembly) { create(:assembly, :unpublished, organization:) }
-          let!(:private_assembly) { create(:assembly, :published, :private, :opaque, organization:) }
-          let!(:transparent_assembly) { create(:assembly, :published, :private, :transparent, organization:) }
+          let!(:restricted_assembly) { create(:assembly, :published, :restricted, organization:) }
+          let!(:transparent_assembly) { create(:assembly, :published, :transparent, organization:) }
           let(:blocks_manifests) { [:related_assemblies] }
 
           before do
             published_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
             unpublished_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
-            private_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
+            restricted_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
             transparent_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
-            visit decidim_participatory_processes.participatory_process_path(participatory_process)
+            visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
           end
 
           it "display related assemblies" do
@@ -414,9 +322,26 @@ describe "Participatory Processes" do
             expect(page).to have_content(translated(published_assembly.title))
             expect(page).to have_content(translated(transparent_assembly.title))
             expect(page).to have_no_content(translated(unpublished_assembly.title))
-            expect(page).to have_no_content(translated(private_assembly.title))
+            expect(page).to have_no_content(translated(restricted_assembly.title))
           end
         end
+      end
+    end
+
+    context "when the participatory process is restricted" do
+      let(:blocks_manifests) { [:related_documents, :related_images] }
+      let!(:participatory_process) { create(:participatory_process, :published, :restricted, :with_content_blocks, blocks_manifests:, organization:) }
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:member) { create(:member, :published, user:, participatory_space: participatory_process) }
+      let!(:document) { create(:attachment, :with_pdf, attached_to: participatory_process) }
+
+      before do
+        login_as user, scope: :user
+        visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
+      end
+
+      it "shows the document extension in the metadata" do
+        expect(all("[data-content] .documents__container").first).to have_css(".card__list-metadata", text: "pdf")
       end
     end
   end

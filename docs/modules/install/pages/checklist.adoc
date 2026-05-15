@@ -21,7 +21,8 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 . Setup *backup* on your server. The most important things to save are the `public/uploads` and the database.
 . Decide and implement which kind of *xref:customize:authorizations.adoc[Authorization]* you are going to use.
 . Comply with our License (Affero GPL 3) and *publish your code* to http://github.com[GitHub] or wherever you want.
-. Review your *decidim initializer* on your application (config/initializers/decidim.rb).
+. Review your environment variables on the deployment server.
+. Review your *decidim initializer* contents (config/initializers/decidim.rb) - If the file exists.
 . Configure your xref:services:activejob.adoc[*ActiveJob*] background queue.
 . Configure your xref:services:activestorage.adoc[*ActiveStorage*] dynamic uploads.
 . If you want, configure your xref:services:social_providers.adoc[*social providers*] to enable login using external applications.

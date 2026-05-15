@@ -4,15 +4,11 @@ zh-CN:
       participatory_process:
         announcement: 通 知
         area_id: 区域
-        copy_categories: 复制类别
-        copy_components: 复制组件
-        copy_steps: 复制步骤
         decidim_area_id: 区域
         description: 描述
         developer_group: 促销者组
         domain: 域
         end_date: 结束日期
-        hashtag: 标签
         hero_image: 首页图像
         local_area: 组织区域
         meta_scope: 范围元数据
@@ -22,9 +18,6 @@ zh-CN:
         promoted: 已升级
         published_at: 发布于
         related_process_ids: 相关进程
-        scope_id: 范围
-        scope_type_max_depth_id: 范围过滤器深度：
-        scopes_enabled: 范围已启用
         short_description: 简短描述
         slug: URL 名称
         start_date: 开始日期
@@ -62,7 +55,6 @@ zh-CN:
     admin:
       actions:
         activate: 激活
-        configure: 配置
         confirm_destroy: 确认删除
         destroy: 删除
         duplicate: Duplicate
@@ -83,17 +75,14 @@ zh-CN:
           attachment_collections: 文件夹
           attachment_files: 文件
           attachments: 附件
-          categories: 类别管理
           components: 组件
           moderations: 版面
-          private_users: 私人参与者
           process_admins: 进程管理员
           steps: 阶段
       models:
         participatory_process:
           fields:
             created_at: 创建于
-            private: 非公开的
             published: 已发布
             title: 标题
           name: 参与性进程
@@ -115,25 +104,17 @@ zh-CN:
             admin: 管理员
             collaborator: 协作者
             moderator: 版主
-            valuator: 值者
         user:
           fields:
             invitation_accepted_at: 邀请接受于
             invitation_sent_at: 邀请发送于
-      participatory_process_copies:
-        new:
-          copy: 复制
-          select: 选择要重复的数据
-          title: 重复的参与进程
       participatory_process_groups:
         destroy:
           success: 参与进程组已成功删除。
         edit:
-          title: 编辑流程组
           update: 更新
         new:
           create: 创建
-          title: 新建流程组
         update:
           error: 在更新这一参与进程小组方面存在问题。
           success: 参与进程组已成功更新。
@@ -144,7 +125,6 @@ zh-CN:
         new:
           import: 导入
           select: 选择您想要导入的数据
-          title: 导入参与进程
       participatory_process_publications:
         create:
           error: 在公布这一参与过程时遇到了问题。
@@ -164,18 +144,13 @@ zh-CN:
         destroy:
           success: 参与进程阶段已成功删除。
         edit:
-          title: 编辑参与进程阶段
           update: 更新
-        index:
-          steps_title: 阶段
         new:
           create: 创建
-          title: 新的参与进程阶段
         ordering:
           error: 在重新安排参与进程这些阶段的顺序方面存在问题。
         update:
           error: 在更新这一阶段的参与进程时遇到了问题。
-          success: 参与阶段更新成功。
       participatory_process_user_roles:
         create:
           error: 在这个参与进程中增加参与者时遇到了问题。
@@ -183,13 +158,9 @@ zh-CN:
         destroy:
           success: 管理员成功地从这个参与进程中移除。
         edit:
-          title: 更新参与进程管理员
           update: 更新
-        index:
-          process_admins_title: 参与性进程管理员
         new:
           create: 创建
-          title: 新的参与进程管理员
         update:
           error: 在更新这一参与进程的管理员时遇到了问题。
           success: 管理员已成功更新此参与进程。
@@ -200,26 +171,16 @@ zh-CN:
         edit:
           update: 更新
         index:
-          private: 非公开的
-          public: 公开的
           published: 已发布
         new:
           create: 创建
-          title: 新的参与进程
         update:
           error: 在更新这一参与进程方面存在问题。
           success: 参与进程已成功更新。
-      participatory_processes_copies:
-        create:
-          error: 出现了重复这一参与进程的问题。
-          success: 参与进程成功地重复。
       participatory_processes_group:
         create:
           error: 建立一个新的参与性进程小组存在问题。
           success: 参与进程组已成功创建。
-      titles:
-        participatory_process_groups: 参与性进程组
-        participatory_processes: 参与进程
       users:
         resend_invitation:
           error: 发出邀请时出现问题。
@@ -267,11 +228,6 @@ zh-CN:
           title: 什么是参与性进程？
     menu:
       processes: 进程
-    metrics:
-      participatory_processes:
-        description: 本组织参与进程的数目
-        object: 参与进程
-        title: 参与进程
     participatory_process_groups:
       content_blocks:
         stats:
@@ -289,20 +245,12 @@ zh-CN:
         participatory_process_imports:
           form:
             document_legend: 添加文档
-        participatory_process_steps:
-          form:
-            cta_text_help: 如果未设置，按钮将不会显示。
         participatory_processes:
           form:
-            announcement_help: 您在此输入的文本将会显示给流程信息下方的用户。
             duration: 期限
-            filters: 筛选器
             images: 图像
             metadata: 元数据
-            other: 其他
             related_processes: 相关进程
-            scope_type_max_depth_help: 限制范围过滤器深度; 过滤器将从一般到所选范围类型显示。
-            select_an_area: 选择区域
             select_process_group: 选择一个流程组
             title: 一般信息
       content_blocks:
@@ -310,9 +258,6 @@ zh-CN:
           name: 高亮的进程
       index:
         title: 参与进程
-      participatory_process_steps:
-        index:
-          back_to_process: 返回进程页面
       participatory_processes:
         filters:
           counters:
@@ -333,7 +278,6 @@ zh-CN:
             upcoming: 即将到来的
           see: 查看
       show:
-        private_space: 这是一个私密进程
         related_processes: 相关进程
   layouts:
     decidim:

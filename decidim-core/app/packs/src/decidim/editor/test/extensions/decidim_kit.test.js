@@ -32,15 +32,24 @@ describe("DecidimKit", () => {
         "code",
         "doc",
         "dropCursor",
-        "gapCursor",
         "hardBreak",
-        "history",
+        "paragraph",
+        "link",
+        "decidimKit",
+        "starterKit",
         "horizontalRule",
         "italic",
         "listItem",
-        "paragraph",
         "strike",
-        "text"
+        "text",
+        "characterCount",
+        "bold",
+        "dialog",
+        "indent",
+        "orderedList",
+        "codeBlock",
+        "underline",
+        "heading"
       ].forEach((name) => expect(extensions).toContain(name));
     });
 
@@ -66,7 +75,6 @@ describe("DecidimKit", () => {
       [
         "videoEmbed",
         "image",
-        "hashtag",
         "mention",
         "emoji"
       ].forEach((name) => expect(extensions).not.toContain(name));
@@ -76,8 +84,8 @@ describe("DecidimKit", () => {
   const extensionSettings = {
     videoEmbed: true,
     image: { uploadDialogSelector: "#upload_dialog", uploadImagesPath: "/upload" },
-    hashtag: true,
     mention: true,
+    mentionResource: true,
     emoji: true
   };
   Object.keys(extensionSettings).forEach((extensionKey) => {

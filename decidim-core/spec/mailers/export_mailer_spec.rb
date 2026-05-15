@@ -12,7 +12,7 @@ module Decidim
 
     describe "export" do
       let(:mail) { described_class.export(user, private_download) }
-      let!(:private_download) { Decidim::DownloadYourDataExporter.new(user, "dummy", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export }
+      let!(:private_download) { create(:private_export, export_type: "dummy", attached_to: user, organization:) }
 
       it "sets a subject" do
         expect(mail.subject).to include("dummy", "ready")
@@ -24,13 +24,13 @@ module Decidim
       end
 
       it "has a link" do
-        expect(mail).to have_link("Download", href: decidim.download_download_your_data_url(private_download, host: organization.host))
+        expect(mail).to have_link("Download", href: decidim.download_download_your_data_url(uuid: private_download.uuid, host: organization.host))
       end
     end
 
     describe "download your data export" do
       let(:images) { [] }
-      let!(:private_download) { Decidim::DownloadYourDataExporter.new(user, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export }
+      let!(:private_download) { create(:private_export, attached_to: user, organization:) }
 
       let(:mail) { described_class.download_your_data_export(user, private_download) }
 
@@ -44,7 +44,7 @@ module Decidim
       end
 
       it "has a link" do
-        expect(mail).to have_link("Download", href: decidim.download_download_your_data_url(private_download, host: organization.host))
+        expect(mail).to have_link("Download", href: decidim.download_download_your_data_url(uuid: private_download.uuid, host: organization.host))
       end
     end
   end

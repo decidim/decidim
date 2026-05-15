@@ -19,26 +19,39 @@ module Decidim
         "decidim/proposals/proposal_metadata"
       end
 
-      def cache_hash
-        hash = []
-        hash << I18n.locale.to_s
-        hash << model.cache_key_with_version
-        hash << model.proposal_votes_count
-        hash << model.endorsements_count
-        hash << model.comments_count
-        hash << Digest::MD5.hexdigest(model.component.cache_key_with_version)
-        hash << Digest::MD5.hexdigest(resource_image_url) if resource_image_url
-        hash << render_space? ? 1 : 0
-        if current_user
-          hash << current_user.cache_key_with_version
-          hash << current_user.follows?(model) ? 1 : 0
-        end
-        hash << model.follows_count
-        hash << Digest::MD5.hexdigest(model.authors.map(&:cache_key_with_version).to_s)
-        hash << (model.must_render_translation?(model.organization) ? 1 : 0) if model.respond_to?(:must_render_translation?)
-        hash << model.component.participatory_space.active_step.id if model.component.participatory_space.try(:active_step)
+      def has_actions?
+        model.component.current_settings.votes_enabled? && !model.draft? && !model.withdrawn? && !model.rejected?
+      end
 
-        hash.join(Decidim.cache_key_separator)
+      def proposal_vote_cell
+        "decidim/proposals/proposal_vote"
+      end
+
+      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Metrics/PerceivedComplexity
+      def cache_hash
+        @cache_hash ||= begin
+          hash = []
+          hash << I18n.locale.to_s
+          hash << self.class.name.demodulize.underscore
+          hash << model.cache_key_with_version
+          hash << model.proposal_votes_count
+          hash << options[:show_voting] ? 0 : 1
+          hash << model.likes_count
+          hash << model.comments_count
+          hash << Digest::SHA256.hexdigest(model.component.cache_key_with_version)
+          hash << Digest::SHA256.hexdigest(resource_image_url) if resource_image_url
+          hash << render_space? ? 1 : 0
+          hash << model.follows_count
+          hash << Digest::SHA256.hexdigest(model.authors.map(&:cache_key_with_version).to_s)
+          hash << (model.must_render_translation?(model.organization) ? 1 : 0) if model.respond_to?(:must_render_translation?)
+          hash << model.component.participatory_space.active_step.id if model.component.participatory_space.try(:active_step)
+          hash << (current_user&.id || 0)
+
+          hash.join(Decidim.cache_key_separator)
+        end
+        # rubocop:enable Metrics/PerceivedComplexity
+        # rubocop:enable Metrics/CyclomaticComplexity
       end
     end
   end

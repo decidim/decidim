@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Comments
     describe CommentableMutationType do
       include_context "with a graphql class type"
 
-      let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-      let(:component) { create(:component, participatory_space: participatory_process) }
-      let(:model) { create(:dummy_resource, component:) }
+      let(:participatory_process) { create(:participatory_process, :published, organization: current_organization) }
+      let(:component) { create(:component, :published, participatory_space: participatory_process) }
+      let(:model) { create(:dummy_resource, :published, component:) }
       let(:body) { "test" }
       let(:alignment) { 1 }
 
@@ -20,7 +20,7 @@ module Decidim
         end
 
         it "calls CreateComment command" do
-          params = { "comment" => { "body" => body, "alignment" => alignment, "user_group_id" => nil, "commentable" => model } }
+          params = { "comment" => { "body" => body, "alignment" => alignment, "commentable" => model } }
           context = { current_organization:, current_user:, current_component: model.component }
           expect(Decidim::Comments::CommentForm).to receive(:from_params).with(params).and_call_original
           expect_any_instance_of(Decidim::Comments::CommentForm) # rubocop:disable RSpec/AnyInstance

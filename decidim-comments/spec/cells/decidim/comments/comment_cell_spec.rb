@@ -20,11 +20,9 @@ module Decidim::Comments
     context "when rendering" do
       it "renders the card" do
         expect(subject).to have_css("#comment_#{comment.id}")
-        # An empty replies element is needed when dynamically adding replies
-        expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
         expect(subject).to have_css(".comment__content")
         expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
-        expect(subject).to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
+        expect(subject).to have_css("a[href='/en/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
         expect(subject).to have_content(comment.body.values.first)
         expect(subject).to have_content(created_at.strftime("%d/%m/%Y"))
         expect(subject).to have_content(comment.author.name)
@@ -33,6 +31,7 @@ module Decidim::Comments
         expect(subject).to have_no_css(".comment-reply")
         expect(subject).to have_no_css("#flagModalComment#{comment.id}")
         expect(subject).to have_no_css(".label.alignment")
+        expect(subject).to have_no_css("#comment-#{comment.id}-replies")
       end
 
       context "when deleted" do
@@ -81,10 +80,9 @@ module Decidim::Comments
 
         it "renders the card with an Edited message" do
           expect(subject).to have_css("#comment_#{comment.id}")
-          expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
           expect(subject).to have_css(".comment__content")
           expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
-          expect(subject).to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
+          expect(subject).to have_css("a[href='/en/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
           expect(subject).to have_content("Edited")
           expect(subject).to have_content(comment.body.values.first)
           expect(subject).to have_content(created_at.strftime("%d/%m/%Y"))
@@ -93,6 +91,7 @@ module Decidim::Comments
           expect(subject).to have_no_css(".add-comment")
           expect(subject).to have_no_css(".comment-reply")
           expect(subject).to have_no_css(".label.alignment")
+          expect(subject).to have_no_css("#comment-#{comment.id}-replies")
         end
       end
 
@@ -149,12 +148,10 @@ module Decidim::Comments
           allow(resource_locator).to receive(:path).and_return("/dummies")
         end
 
-        it "renders the replies" do
-          element = subject.find("#comment-#{comment.id}-replies")
-          replies.each do |reply|
-            expect(element).to have_css("#comment_#{reply.id}")
-            expect(element).to have_content(reply.body.values.first)
-          end
+        it "renders the load replies button" do
+          expect(subject).to have_css("button[data-action='click->show-replies#toggle']")
+          expect(subject).to have_content(I18n.t("decidim.components.comment.replies_count", count: replies.size))
+          expect(subject).to have_css("#comment-#{comment.id}-replies.hidden")
         end
       end
 
@@ -170,6 +167,7 @@ module Decidim::Comments
           expect(subject).to have_css(".comment__actions button")
           expect(subject).to have_css("button[data-dialog-open='flagModalComment#{comment.id}']")
           expect(subject).to have_css("#flagModalComment#{comment.id}")
+          expect(subject).to have_css("#comment-#{comment.id}-replies")
         end
 
         context "with votes" do
@@ -219,25 +217,25 @@ module Decidim::Comments
             end
           end
 
-          context "and the user is a valuator in the same participatory space" do
-            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :valuator) }
+          context "and the user is a evaluator in the same participatory space" do
+            let!(:evaluator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :evaluator) }
 
             it "renders the reply form" do
               expect(subject).to have_css(".add-comment")
             end
           end
 
-          context "and the user is a valuator in another participatory process" do
-            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: create(:participatory_process, organization: component.organization), role: :valuator) }
+          context "and the user is a evaluator in another participatory process" do
+            let!(:evaluator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: create(:participatory_process, organization: component.organization), role: :evaluator) }
 
             it "does not render the reply form" do
               expect(subject).to have_no_css(".add-comment")
             end
           end
 
-          context "and the user is a valuator in another participatory space" do
+          context "and the user is a evaluator in another participatory space" do
             let!(:component) { create(:component, participatory_space: assembly) }
-            let!(:valuator_role) { create(:assembly_user_role, user: current_user, assembly: create(:assembly, organization: component.organization), role: :valuator) }
+            let!(:evaluator_role) { create(:assembly_user_role, user: current_user, assembly: create(:assembly, organization: component.organization), role: :evaluator) }
 
             it "does not render the reply form" do
               expect(subject).to have_no_css(".add-comment")
@@ -270,13 +268,13 @@ module Decidim::Comments
         end
 
         it "renders an action_authorized button" do
-          expect(subject).to have_css("[data-dialog-open=\"authorizationModal\"]")
+          expect(subject).to have_css("[data-onboarding-action-value=\"vote_comment\"]")
         end
       end
 
       context "when commentable has no permissions set for the vote_comment action" do
         it "renders a plain button" do
-          expect(subject).to have_no_css("[data-dialog-open=\"authorizationModal\"]")
+          expect(subject).to have_no_css("[data-onboarding-action-value=\"vote_comment\"]")
         end
       end
     end
@@ -301,6 +299,111 @@ module Decidim::Comments
       it "generates a cache hash with the action data" do
         hash = my_cell.send(:cache_hash)
         expect(hash).to include(actions.to_s)
+      end
+    end
+
+    describe "#can_reply?" do
+      before do
+        allow(commentable).to receive(:user_allowed_to_comment?).and_return(true)
+        allow(commentable).to receive(:accepts_new_comments?).and_return(true)
+      end
+
+      context "when depth is equal to MAX_DEPTH" do
+        before do
+          allow(controller).to receive(:user_signed_in?).and_return(true)
+          allow(comment).to receive(:depth).and_return(Comment::MAX_DEPTH)
+        end
+
+        it "returns false when user is normal user" do
+          expect(my_cell.send(:can_reply?)).to be false
+        end
+
+        it "returns false when user is admin user" do
+          allow(my_cell).to receive(:user_has_any_role?).and_return(true)
+          expect(my_cell.send(:can_reply?)).to be false
+        end
+      end
+
+      context "when two columns layout is enabled" do
+        before do
+          allow(commentable).to receive(:two_columns_layout?).and_return(true)
+        end
+
+        it "returns false" do
+          expect(my_cell.send(:can_reply?)).to be false
+        end
+
+        it "does not render the reply button" do
+          expect(subject).to have_no_css("button[data-controls*='panel-']")
+        end
+      end
+
+      context "when two columns layout is disabled" do
+        before do
+          allow(commentable).to receive(:two_columns_layout?).and_return(false)
+        end
+
+        it "returns true when user has the right role and comments are allowed" do
+          allow(controller).to receive(:current_participatory_space).and_return(component.participatory_space)
+          allow(my_cell).to receive(:user_has_any_role?).and_return(true)
+
+          expect(my_cell.send(:can_reply?)).to be_truthy
+        end
+
+        it "renders the reply button when user has the right role and comments are allowed" do
+          allow(controller).to receive(:current_participatory_space).and_return(component.participatory_space)
+          allow(my_cell).to receive(:user_has_any_role?).and_return(true)
+
+          expect(subject).to have_css("button[data-controls*='panel-']", text: I18n.t("decidim.components.comment.reply"))
+        end
+
+        it "returns true when user is signed in and allowed to comment" do
+          allow(controller).to receive(:user_signed_in?).and_return(true)
+
+          expect(my_cell.send(:can_reply?)).to be_truthy
+        end
+
+        it "renders the reply button when user is signed in and allowed to comment" do
+          allow(controller).to receive(:user_signed_in?).and_return(true)
+
+          expect(subject).to have_css("button[data-controls*='panel-']", text: I18n.t("decidim.components.comment.reply"))
+        end
+
+        it "returns false when comments are blocked" do
+          allow(commentable).to receive(:accepts_new_comments?).and_return(false)
+
+          expect(my_cell.send(:can_reply?)).to be false
+        end
+
+        it "does not render the reply button when comments are blocked" do
+          allow(commentable).to receive(:accepts_new_comments?).and_return(false)
+
+          expect(subject).to have_no_css("button[data-controls*='panel-']")
+        end
+
+        it "returns false when user is not allowed to comment" do
+          allow(commentable).to receive(:user_allowed_to_comment?).and_return(false)
+
+          expect(my_cell.send(:can_reply?)).to be false
+        end
+
+        it "does not render the reply button when user is not allowed to comment" do
+          allow(commentable).to receive(:user_allowed_to_comment?).and_return(false)
+
+          expect(subject).to have_no_css("button[data-controls*='panel-']")
+        end
+
+        it "returns false when user is not signed in" do
+          allow(controller).to receive(:user_signed_in?).and_return(false)
+
+          expect(my_cell.send(:can_reply?)).to be false
+        end
+
+        it "does not render the reply button when user is not signed in" do
+          allow(controller).to receive(:user_signed_in?).and_return(false)
+
+          expect(subject).to have_no_css("button[data-controls*='panel-']")
+        end
       end
     end
   end

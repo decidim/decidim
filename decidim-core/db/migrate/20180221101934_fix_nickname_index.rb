@@ -11,7 +11,7 @@ class FixNicknameIndex < ActiveRecord::Migration[5.1]
     User.where(nickname: nil)
         .where(deleted_at: nil)
         .where(managed: false)
-        .find_each { |u| u.update(nickname: UserBaseEntity.nicknamize(u.name, decidim_organization_id: u.decidim_organization_id)) }
+        .find_each { |u| u.update(nickname: UserBaseEntity.nicknamize(u.name, u.decidim_organization_id)) }
 
     # rubocop:disable Rails/SkipsModelValidations
     User.where(nickname: nil).update_all("nickname = ''")

@@ -2,24 +2,33 @@
 
 module Decidim
   module Accountability
-    class AccountabilityType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
-
+    class AccountabilityType < Decidim::Core::ComponentType
       graphql_name "Accountability"
       description "An accountability component of a participatory space."
 
-      field :results, Decidim::Accountability::ResultType.connection_type, null: true, connection: true
+      field :result, Decidim::Accountability::ResultType, "A single Result object", null: true do
+        argument :id, ID, "The id of the Result requested", required: true
+      end
+      field :results, Decidim::Accountability::ResultType.connection_type, "A collection of Results", null: true, connection: true
+      field :status, Decidim::Accountability::StatusType, "A single Status object", null: true do
+        argument :id, ID, "The id of the Status requested", required: true
+      end
+      field :statuses, [Decidim::Accountability::StatusType], "The Statuses for this component", null: false
 
       def results
         Result.where(component: object).includes(:component)
       end
 
-      field :result, Decidim::Accountability::ResultType, null: true do
-        argument :id, ID, required: true
+      def result(id:)
+        Result.where(component: object).find(id)
       end
 
-      def result(**args)
-        Result.where(component: object).find_by(id: args[:id])
+      def statuses
+        Status.where(component: object).order(:progress, :key, :id)
+      end
+
+      def status(id:)
+        Status.where(component: object).find(id)
       end
     end
   end

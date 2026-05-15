@@ -3,17 +3,21 @@
 shared_examples "export debates" do
   let!(:debates) { create_list(:debate, 3, component: current_component) }
 
-  let(:export_type) { "Export all" }
+  let(:export_type) { "Export" }
 
   it_behaves_like "export as CSV"
   it_behaves_like "export as JSON"
 
   it "exports a CSV" do
     expect(Decidim::PrivateExport.count).to eq(0)
-    find(".exports").click
-    perform_enqueued_jobs { click_on "Comments as CSV" }
 
-    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
+    click_on export_type
+    perform_enqueued_jobs do
+      click_on "Comments as CSV"
+      sleep 1
+    end
+
+    expect(page).to have_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "debate_comments" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("debate_comments")
@@ -21,10 +25,14 @@ shared_examples "export debates" do
 
   it "exports a JSON" do
     expect(Decidim::PrivateExport.count).to eq(0)
-    find(".exports").click
-    perform_enqueued_jobs { click_on "Comments as JSON" }
 
-    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
+    click_on export_type
+    perform_enqueued_jobs do
+      click_on "Comments as JSON"
+      sleep 1
+    end
+
+    expect(page).to have_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "debate_comments" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("debate_comments")
@@ -34,10 +42,14 @@ end
 shared_examples "export as CSV" do
   it "exports a CSV" do
     expect(Decidim::PrivateExport.count).to eq(0)
-    find("span.exports", text: export_type).click
-    perform_enqueued_jobs { click_on "Debates as CSV" }
 
-    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
+    click_on export_type
+    perform_enqueued_jobs do
+      click_on "Debates as CSV"
+      sleep 1
+    end
+
+    expect(page).to have_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "debates" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("debates")
@@ -48,10 +60,13 @@ shared_examples "export as JSON" do
   it "exports a JSON" do
     expect(Decidim::PrivateExport.count).to eq(0)
 
-    find("span.exports", text: export_type).click
-    perform_enqueued_jobs { click_on "Debates as JSON" }
+    click_on export_type
+    perform_enqueued_jobs do
+      click_on "Debates as JSON"
+      sleep 1
+    end
 
-    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
+    expect(page).to have_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "debates" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("debates")

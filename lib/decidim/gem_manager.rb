@@ -33,7 +33,6 @@ module Decidim
       pages
       proposals
       surveys
-      sortitions
       blogs
     ).freeze
 
@@ -59,6 +58,19 @@ module Decidim
           "lib/#{name.tr("-", "/")}/version.rb",
           /def self\.version(\s*)"[^"]*"/,
           "def self.version\\1\"#{version}\""
+        )
+      end
+    end
+
+    def replace_gemspec_version
+      Dir.chdir(@dir) do
+        gemspec_file = Dir.glob("*.gemspec").first
+        return unless gemspec_file
+
+        replace_file(
+          gemspec_file,
+          /(?<!required_ruby_)version = "[^"]*"/,
+          "version = \"#{version}\""
         )
       end
     end
@@ -98,7 +110,9 @@ module Decidim
 
       def replace_versions
         all_dirs do |dir|
-          new(dir).replace_gem_version
+          manager = new(dir)
+          manager.replace_gem_version
+          manager.replace_gemspec_version
         end
 
         package_dirs do |dir|
@@ -184,7 +198,9 @@ module Decidim
       end
 
       def plugins
-        Dir.glob("#{root}/decidim-*/")
+        Dir.glob("#{root}/decidim-*/").select do |dir|
+          File.exist?(File.join(dir, "lib", "decidim"))
+        end
       end
 
       def semver_friendly_version(a_version)

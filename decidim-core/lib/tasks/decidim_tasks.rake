@@ -5,8 +5,10 @@ namespace :decidim do
   task upgrade: [
     :choose_target_plugins,
     :"decidim:upgrade_app",
+    :"decidim:upgrade:shakapacker_npm",
     :"railties:install:migrations",
-    :"decidim:upgrade:webpacker",
+    :"decidim:upgrade:migrations",
+    :"decidim:upgrade:shakapacker",
     :"decidim_api:generate_docs"
   ]
 
@@ -21,16 +23,17 @@ namespace :decidim do
       decidim_assemblies
       decidim_blogs
       decidim_budgets
+      decidim_collaborative_texts
       decidim_comments
       decidim_conferences
       decidim_debates
+      decidim_elections
       decidim_forms
       decidim_initiatives
       decidim_meetings
       decidim_pages
       decidim_participatory_processes
       decidim_proposals
-      decidim_sortitions
       decidim_surveys
       decidim_system
       decidim_templates

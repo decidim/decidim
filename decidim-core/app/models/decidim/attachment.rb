@@ -9,7 +9,7 @@ module Decidim
     include Traceable
 
     before_save :set_content_type_and_size, if: :attached?
-    before_validation :set_link_content_type_and_size, if: :link?
+    before_validation :set_link_content_type_and_size, if: :editable_link?
 
     translatable_fields :title, :description
     belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
@@ -69,12 +69,26 @@ module Decidim
       link.present?
     end
 
+    # Whether this attachment is a link that can be edited or not.
+    #
+    # Returns Boolean.
+    def editable_link?
+      !destroyed? && !frozen? && link?
+    end
+
+    # Whether this attachment has a file or not.
+    #
+    # Returns Boolean.
+    def file?
+      file.attached?
+    end
+
     # Which kind of file this is.
     #
     # Returns String.
     def file_type
       if file?
-        url&.split(".")&.last&.split("&")&.first&.downcase
+        file.filename.extension&.downcase
       elsif link?
         "link"
       end
@@ -86,7 +100,13 @@ module Decidim
     def url
       @url ||=
         if file?
-          attached_uploader(:file).url
+          if private_download_required?
+            Decidim::Core::Engine.routes.url_helpers.private_download_path(
+              Decidim::PrivateDownload.for(self, attachment_name: :file).token
+            )
+          else
+            attached_uploader(:file).url
+          end
         elsif link?
           link
         end
@@ -122,6 +142,25 @@ module Decidim
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::AttachmentPresenter
+    end
+
+    def can_participate?(user)
+      return true unless attached_to
+      return true unless attached_to.respond_to?(:can_participate?)
+
+      attached_to.can_participate?(user)
+    end
+
+    def private_download_authorized?(user, requested_attachment_name)
+      return false unless requested_attachment_name.to_s == "file"
+
+      can_participate?(user)
+    end
+
+    def private_download_required?
+      return attached_to.restricted? if attached_to.respond_to?(:restricted?)
+
+      attached_to.respond_to?(:component) && attached_to.component&.restricted_space?
     end
   end
 end

@@ -1,27 +1,58 @@
-<% data = has_tooltip? ? { tooltip: render(:profile_minicard).html_safe } : nil %>
-<span class="author" data-author>
-  <%= content_tag :span, class: "author__container#{" is-compact" if layout == :compact}", data: do %>
-    <% if layout == :compact %>
-      <%= render :avatar %>
+<%= content_tag(:p, class: :author, data: ) do %>
+  <% if layout == :compact %>
 
-      <span>
-        <%= render :name %>
+    <% if profile_path? %>
+      <%= link_to profile_path, class: "author__container is-compact" do %>
+        <%= render :avatar %>
 
-        <% context_actions.each do |action| %>
-          <%= render action %>
-        <% end %>
-      </span>
-    <% elsif layout == :avatar %>
-      <%= render :avatar %>
+        <span>
+          <span class="flex gap-2">
+            <%= render :name %>
+            <%= render :badge %>
+          </span>
+
+          <% context_actions.each do |action| %>
+            <%= render action %>
+          <% end %>
+        </span>
+      <% end %>
     <% else %>
-      <%= render :avatar %>
-      <%= render :name %>
+      <%= content_tag :span, class: "author__container is-compact" do %>
+        <%= render :avatar %>
+
+        <span>
+          <%= render :name %>
+
+          <% context_actions.each do |action| %>
+            <%= render action %>
+          <% end %>
+        </span>
+      <% end %>
+    <% end %>
+  <% elsif layout == :avatar %>
+    <%= render :avatar %>
+  <% else %>
+    <% if profile_path? %>
+      <%= link_to profile_path, class: "author__container" do %>
+        <%= render :avatar %>
+
+        <%= render :name %>
+        <%= render :badge %>
+      <% end %>
+    <% else %>
+      <%= content_tag :span, class: "author__container" do %>
+        <%= render :avatar %>
+        <%= render :name %>
+        <%= render :badge %>
+      <% end %>
     <% end %>
   <% end %>
 
   <% if layout == :default %>
-    <% context_actions.each do |action| %>
-      <%= render action %>
+    <%= content_tag :span, class: "author__container" do %>
+      <% context_actions.each do |action| %>
+        <%= render action %>
+      <% end %>
     <% end %>
   <% end %>
-</span>
+<% end %>

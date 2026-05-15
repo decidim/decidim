@@ -7,6 +7,7 @@ module Decidim
       #
       class ConferenceRegistrationInviteForm < Form
         include TranslatableAttributes
+
         attribute :name, String
         attribute :email, String
         attribute :user_id, Integer

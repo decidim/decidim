@@ -26,12 +26,6 @@ module Decidim
       expect(subject.identities).to eq([])
     end
 
-    it "has an association for user groups" do
-      user_group = create(:user_group)
-      create(:user_group_membership, user: subject, user_group:)
-      expect(subject.user_groups).to eq([user_group])
-    end
-
     describe "name" do
       context "when it has a name" do
         let(:user) { build(:user, name: "Oriol") }
@@ -157,6 +151,7 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
+      # See UploaderImageDimensionsValidator#validate_image_size
       context "when the file is a malicious image" do
         let(:avatar_path) { Decidim::Dev.asset("malicious.jpg") }
         let(:user) do
@@ -209,6 +204,27 @@ module Decidim
       it "sends them asynchronously" do
         create(:user)
         expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
+      end
+    end
+
+    describe "scopes" do
+      let!(:user_group) { create(:user, organization:, extended_data: { group: true }) }
+      let!(:user_group_not_set) { create(:user, organization:, extended_data: { group: false }) }
+      let!(:not_set_user) { create(:user, organization:, extended_data: {}) }
+
+      describe ".user_group" do
+        it "finds the user group" do
+          expect(described_class.user_group).to eq([user_group])
+          expect(described_class.user_group.length).to eq(1)
+        end
+      end
+
+      describe ".not_user_group" do
+        it "finds the required users" do
+          expect(described_class.not_user_group).to include(user_group_not_set)
+          expect(described_class.not_user_group).to include(not_set_user)
+          expect(described_class.not_user_group).not_to include(user_group)
+        end
       end
     end
 
@@ -405,113 +421,6 @@ module Decidim
 
         it "returns true when user is a moderator" do
           expect(moderator.moderator?).to be true
-        end
-      end
-    end
-
-    describe ".interested_in_scopes" do
-      let(:scopes) { [] }
-
-      let(:scope1) { create(:scope, organization:) }
-      let(:scope2) { create(:scope, organization:) }
-      let(:scope3) { create(:scope, organization:) }
-      let(:scope4) { create(:scope, organization:) }
-      let(:scope5) { create(:scope, organization:) }
-
-      let(:users_scope1) { create_list(:user, 10, organization:, extended_data: { interested_scopes: scope1.id }) }
-      let(:users_scope2) { create_list(:user, 10, organization:, extended_data: { interested_scopes: [scope2.id] }) }
-      let(:users_multiscope) { create_list(:user, 10, organization:, extended_data: { interested_scopes: [scope1.id, scope2.id, scope3.id] }) }
-
-      # It needs to be controlled when the users are created which is why this
-      # needs to be separated to its own method instead of using the bang
-      # method assignments.
-      def create_users_and_scopes
-        scope1
-        scope2
-        scope3
-        scope4
-        scope5
-        users_scope1
-        users_scope2
-        users_multiscope
-      end
-
-      context "when searching with an empty array" do
-        before { create_users_and_scopes }
-
-        it "finds all users" do
-          expect(described_class.interested_in_scopes(scopes).count).to eq(Decidim::User.count)
-        end
-      end
-
-      context "when searching with an array containing empty values" do
-        let(:scopes) { ["", nil] }
-
-        before { create_users_and_scopes }
-
-        it "finds all users" do
-          expect(described_class.interested_in_scopes(scopes).count).to eq(Decidim::User.count)
-        end
-      end
-
-      context "when searching with a single scope" do
-        let(:scopes) { [scope1.id] }
-
-        before { create_users_and_scopes }
-
-        it "finds the correct users interested in particular scope" do
-          expected_ids = users_scope1.map(&:id) + users_multiscope.map(&:id)
-          actual_ids = described_class.interested_in_scopes(scopes).pluck(:id)
-          expect(actual_ids.count).to eq(expected_ids.count)
-          expect(actual_ids).to match_array(expected_ids)
-        end
-      end
-
-      context "when searching with a multiple scopes" do
-        let(:scopes) { [scope1.id, scope2.id, scope3.id, scope4.id, scope5.id] }
-
-        before { create_users_and_scopes }
-
-        it "finds the correct users interested in one of the scopes" do
-          expected_ids = users_scope1.map(&:id) + users_scope2.map(&:id) + users_multiscope.map(&:id)
-          actual_ids = described_class.interested_in_scopes(scopes).pluck(:id)
-          expect(actual_ids.count).to eq(expected_ids.count)
-          expect(actual_ids).to match_array(expected_ids)
-        end
-      end
-
-      context "when searching with scopes no one is interested in" do
-        let(:scopes) { [scope4.id, scope5.id] }
-
-        before { create_users_and_scopes }
-
-        it "does not find any users" do
-          expect(described_class.interested_in_scopes(scopes).count).to eq(0)
-        end
-      end
-
-      context "when there are scopes with matching numbers in their IDs" do
-        let(:scopes) { [scope1.id] }
-        let(:extra_scopes) { create_list(:scope, 15, organization:) }
-        let(:users_scope11) { create_list(:user, 10, organization:, extended_data: { interested_scopes: [11] }) }
-
-        before do
-          # Reset the scope IDs to start from 1 in order to get possibly
-          # "conflicting" ID sequences for the `.interested_in_scopes` call.
-          # This ensures the method that finds the matches will not consider
-          # "conflicting" matches as full matches.
-          ActiveRecord::Base.connection.reset_pk_sequence!(Decidim::Scope.table_name)
-
-          create_users_and_scopes
-          extra_scopes
-          users_scope11
-        end
-
-        it "finds the correct users interested in particular scope" do
-          expected_ids = users_scope1.map(&:id) + users_multiscope.map(&:id)
-          actual_ids = described_class.interested_in_scopes(scopes).pluck(:id)
-          expect(actual_ids.count).to eq(expected_ids.count)
-          expect(actual_ids).to match_array(expected_ids)
         end
       end
     end

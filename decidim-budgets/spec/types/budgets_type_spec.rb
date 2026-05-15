@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test"
+require "decidim/api/test"
 
 module Decidim
   module Budgets
@@ -41,8 +40,8 @@ module Decidim
         context "when the budget does not belong to the component" do
           let!(:budget) { create(:budget, component: create(:budgets_component)) }
 
-          it "returns null" do
-            expect(response["budget"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Budget not found")
           end
         end
       end

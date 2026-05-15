@@ -16,8 +16,7 @@
             <div class="row column">
               <p class="mt-3"><%= t(".info_1") %></p>
               <ul id="participatory-text" class="draggable-list js-connect js-list-actives mt-2.5 ml-2.5 mr-2.5"
-                  data-component="accordion"
-                  data-accordion
+                  data-controller="accordion"
                   data-sort-url="#"
                   data-multi-expand="true"
                   data-allow-all-closed="true">
@@ -31,7 +30,7 @@
                       <span><%= icon "menu-line", class: "fill-black" %></span>
                     </a>
                     <div data-tab-content id="article-<%= proposal.id %>">
-                      <%= render "article-preview", { form: prop_form, proposal: } %>
+                      <%= render "decidim/proposals/admin/participatory_texts/article-preview", { form: prop_form, proposal: } %>
                     </div>
                   </li>
                 <% end %>

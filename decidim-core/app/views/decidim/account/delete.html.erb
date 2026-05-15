@@ -10,7 +10,7 @@
   <p class="help-text">
     <%= t("explanation", scope:"decidim.account.delete") %>
   </p>
-  <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user", html: { class: "form-defaults delete-account" }) do |f| %>
+  <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user", data: { controller: "delete-account-form" }, html: { class: "form-defaults delete-account" }) do |f| %>
     <div class="form__wrapper">
       <label>
         <%= f.text_area :delete_reason, rows: 2, label: false, help_text: t("activemodel.attributes.account.delete_reason") %>

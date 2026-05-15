@@ -1,8 +1,6 @@
 de:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Titel
       assembly:
         announcement: Ankündigung
         area_id: Bereich
@@ -12,28 +10,27 @@ de:
         closing_date: Auflösungsdatum
         closing_date_reason: Grund der Auflösung
         composition: Zusammensetzung
-        copy_categories: Kategorien kopieren
-        copy_components: Komponenten kopieren
-        copy_features: Funktionen kopieren
         created_by: Erstellt von
         created_by_other: Erstellt von anderen
         creation_date: Gründungsdatum
         decidim_area_id: Bereich
-        decidim_assemblies_type_id: Versammlungstyp
         decidim_scope_id: Umfang
         description: Beschreibung
         developer_group: Promoter-Gruppe
         document: Dokument
         domain: Domain
+        duplicate_categories: Kategorien duplizieren
+        duplicate_components: Komponenten duplizieren
+        duplicate_features: Funktionen duplizieren
         duration: Aktiv bis
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
+        has_members: Dieser Bereich hat Mitglieder
         hero_image: Hauptbild
         import_attachments: Anhänge importieren
         import_categories: Kategorien importieren
         import_components: Komponenten importieren
-        included_at: Hinzugefügt am
+        included_at: Inbegriffen in
         instagram: Instagram
         internal_organisation: Interne Organisation
         is_transparent: Ist transparent
@@ -43,12 +40,9 @@ de:
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         participatory_scope: Was wird entschieden?
         participatory_structure: Wie wird es entschieden?
-        private_space: Privatsphäre
         promoted: Hervorgehoben
         published_at: Veröffentlicht am
         purpose_of_action: Handlungszweck
-        scope_id: Umfang
-        scopes_enabled: Bereiche aktiviert
         short_description: Kurze Beschreibung
         slug: URL-Block
         special_features: Besondere Merkmale
@@ -79,6 +73,8 @@ de:
           attributes:
             document:
               allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}.'
+              empty: Das Dokument ist leer
+              invalid_json: Das Dokument ist kein gültiges JSON
   activerecord:
     models:
       decidim/assembly:
@@ -93,49 +89,37 @@ de:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Sind Sie sicher, dass Sie dieses Gremium löschen möchten? Wenn Sie Ihre Meinung ändern, können Sie sie später wiederherstellen.
         import_assembly: Importieren
         new_assembly: Neues Gremium
-        new_assembly_member: Neues Gremienmitglied
-        new_assembly_type: Neuer Gremiumtyp
         new_assembly_user_role: Neuer Gremium-Admin
+        view_deleted_assemblies: Gelöschte Gremien anzeigen
       assemblies:
         create:
           error: Beim Erstellen eines neuen Gremiums ist ein Fehler aufgetreten.
-          success: Das Gremium wurde erfolgreich erstellt.
+          success: Gremium erfolgreich erstellt. Sie können nun Komponenten hinzufügen und konfigurieren.
         edit:
           update: Aktualisieren
         index:
-          private: Privat
-          public: Öffentlich
+          access_modes:
+            open: Offen
+            restricted: Eingeschränkt
+            transparent: Öffentlich sichtbar
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
         new:
           create: Erstellen
-          title: Neues Gremium
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Die Versammlung wurde erfolgreich aktualisiert.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich dupliziert.
-      assemblies_types:
-        create:
-          error: Beim Erstellen eines neuen Gremiumtyps ist ein Fehler aufgetreten.
-          success: Gremiumtyp wurde erfolgreich erstellt.
-        destroy:
-          success: Gremiumtyp wurde erfolgreich gelöscht.
+      assembly_duplicates:
         new:
-          create: Erstellen
-          title: Neuer Gremiumtyp
-        update:
-          error: Beim Aktualisieren dieses Gremiumtyps ist ein Fehler aufgetreten.
-          success: Gremiumtyp wurde erfolgreich aktualisiert.
-      assembly_copies:
-        new:
-          copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Dupliziertes Gremium
+          duplicate: Duplizieren
+          select: Wählen Sie, welche Daten Sie duplizieren möchten
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
@@ -143,24 +127,6 @@ de:
         new:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
-          title: Gremium importieren
-      assembly_members:
-        create:
-          error: Beim Hinzufügen eines Mitglieds zu diesem Gremium ist ein Fehler aufgetreten.
-          success: Mitglied wurde diesem Gremium erfolgreich hinzugefügt.
-        destroy:
-          success: Mitglied wurde erfolgreich aus diesem Gremium entfernt.
-        edit:
-          title: Versammlungsmitglieder aktualisieren
-          update: Aktualisieren
-        index:
-          assembly_members_title: Gremienmitglieder
-        new:
-          create: Erstellen
-          title: Neues Gremienmitglied
-        update:
-          error: Beim Aktualisieren des Mitglieds dieses Gremiums ist ein Fehler aufgetreten.
-          success: Mitglied dieses Gremiums erfolgreich aktualisiert.
       assembly_publications:
         create:
           error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
@@ -175,13 +141,9 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
-          title: Gremienadmin aktualisieren
           update: Aktualisieren
-        index:
-          assembly_admins_title: Assembly Benutzer
         new:
           create: Erstellen
-          title: Neuer Gremienadmin
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
@@ -191,46 +153,32 @@ de:
           values:
             'false': Nicht eingestellt
             'true': Eingestellt
-        decidim_assemblies_type_id_eq:
-          label: Versammlungstyp
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Name oder Kontoname suchen
       menu:
         assemblies: Gremien
         assemblies_submenu:
           assembly_admins: Assembly Benutzer
-          assembly_members: Mitglieder
           attachment_collections: Ordner
           attachment_files: Dateien
           attachments: Anhänge
-          categories: Kategorien
           components: Komponenten
           info: Über dieses Gremium
-          landing_page: Startseite
+          landing_page: Startseiten-Layout
+          members: Mitglieder
           moderations: Moderationen
-          private_users: Private Teilnehmende
           see_assembly: Gremium ansehen
-        assemblies_types: Versammlungstypen
       models:
-        assemblies_types:
-          fields:
-            created_at: Erstellt am
-            title: Titel
         assembly:
           fields:
+            access_mode: Zugriffsmodus
             actions: Aktionen
             created_at: Erstellt am
-            private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
           name: Gremium
         assembly_member:
-          fields:
-            ceased_date: Aufgegebenes Datum
-            designation_date: Datum der Benennung
-            full_name: Name
-            position: Position
           name: Mitglied
           positions:
             other: Andere
@@ -239,6 +187,7 @@ de:
             vice_president: Vizepräsident
         assembly_user_role:
           fields:
+            actions: Aktionen
             email: Email
             name: Name
             role: Rolle
@@ -246,19 +195,25 @@ de:
           roles:
             admin: Administrator
             collaborator: Mitarbeiter
+            evaluator: Bewertende Person
             moderator: Moderator
-            valuator: Bewertende
-      titles:
-        assemblies: Gremien
-        assemblies_types: Versammlungstypen
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Alle Gremien
+      tooltips:
+        deleted_assemblies_info: Ein Gremium kann nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
     admin_log:
       assembly:
         create: "%{user_name} hat das Gremium %{resource_name} erstellt"
-        duplicate: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
+        duplicate: "%{user_name} hat das Gremium %{resource_name} dupliziert"
         export: "%{user_name} hat das Gremium %{resource_name} exportiert"
         import: "%{user_name} hat das Gremium %{resource_name} importiert"
         publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"
+        publish_all_members: "%{user_name} hat alle Mitglieder des Gremiums %{resource_name} veröffentlicht"
+        restore: "%{user_name} hat das Gremium %{resource_name} wiederhergestellt"
+        soft_delete: "%{user_name} hat das Gremium %{resource_name} in den Papierkorb verschoben"
         unpublish: "%{user_name} hat das Gremium %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        unpublish_all_members: "%{user_name} hat die Veröffentlichung aller Mitglieder des Gremiums %{resource_name} aufgehoben"
         update: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
       assembly_member:
         create: "%{user_name} hat das Mitglied %{resource_name} im Gremium %{space_name} erstellt"
@@ -279,43 +234,52 @@ de:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: Über dieses Gremium
           form:
-            announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Gremien-Informationen angezeigt.
+            access:
+              label: Zugriff
+              options:
+                open: Jeder kann die Versammlung sehen und teilnehmen.
+                restricted: Nur Mitglieder können sehen und teilnehmen.
+                transparent: Jeder kann die Versammlung sehen, aber nur die Mitglieder können teilnehmen.
+              set_this_space_as: Setze diesen Bereich als
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Aktiv bis
             duration_help: Wenn die Dauer dieses Gremiums begrenzt ist, dann wählen Sie hier das Enddatum aus. Andernfalls wird das Datum als unbestimmt angezeigt.
-            filters: Filter
+            has_members_help: Sie können Mitglieder erstellen und veröffentlichen
             images: Bilder
             included_at_help: Wählen Sie das Datum aus, an dem dieses Gremium zur Plattform hinzugefügt wurde. Das Datum muss nicht zwingend mit dem Gründungsdatum übereinstimmen.
             metadata: Metadaten
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             other: Andere
             select_a_created_by: Wählen Sie eine erstellt von aus
-            select_an_area: Wählen Sie einen Bereich
-            select_an_assembly_type: Wählen Sie einen Gremiumstyp
             select_parent_assembly: Übergeordnetes Gremium auswählen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
-            taxonomies: Taxonomien
+            taxonomies: Klassifizierungen
             title: Allgemeine Information
             visibility: Sichtbarkeit
-        assemblies_types:
+          index:
+            title: Gremien
+          manage_trash:
+            title: Gelöschte Gremien
+          new:
+            title: Neues Gremium
+        assembly_duplicates:
           form:
-            title: Titel
-        assembly_copies:
-          form:
-            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
+          new:
+            title: Gremium duplizieren
         assembly_imports:
           form:
+            document_legend: Dokument hinzufügen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
-            existing_user: Existierender Benutzer
             explanation: 'Hinweise für das Bild:'
             image_guide: Vorzugsweise ein Portraitbild, das keinen Text enthält.
-            non_user: Nichtbenutzer
             non_user_avatar_help: Sie sollten die Zustimmung der Personen einholen, bevor Sie sie als Mitglied veröffentlichen.
-            select_a_position: Wählen Sie eine Position
-            select_user: Wählen Sie einen Benutzer aus
-            user_type: Benutzertyp
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
@@ -345,17 +309,6 @@ de:
           type: Typ
         show:
           title: Über dieses Gremium
-      assembly_members:
-        index:
-          members: Mitglieder
-      assembly_types:
-        commission: Kommission
-        consultative_advisory: Beratende / Beratende
-        executive: Exekutive
-        government: Regierung
-        others: Andere
-        participatory: Teilnehmend
-        working_group: Arbeitsgruppe
       content_blocks:
         children_assemblies:
           name: Gremien
@@ -390,26 +343,19 @@ de:
           highlighted_assemblies:
             active_spaces: Aktive Gremien
             see_all_spaces: Alle Gremien anzeigen
-        user_profile:
-          member_of:
-            member_of: Mitglied von
       show:
-        assembly_type: Montageart
         duration: Aktiv bis
-        private_space: Dies ist eine private Versammlung
         social_networks_title: Gremium besuchen unter
-    assembly_members:
-      assembly_member:
-        designated_on: Bezeichnet am
-      index:
-        title: Mitglieder
+    download_your_data:
+      show:
+        assemblies: Export der Gremien
     events:
       assemblies:
         create_assembly_member:
           email_intro: Ein Administrator des Gremiums <a href="%{resource_url}">%{resource_name}</a> hat Sie als Mitglied eingeladen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einem Gremium eingeladen wurden. Gehen Sie zur <a href="%{resource_url}">Gremiumsseite</a>, um mitzumachen!
           email_subject: Sie wurden als Mitglied des Gremiums %{resource_name} eingeladen!
-          notification_title: Sie wurden als Mitglied des Gremiums <a href="%{resource_path}">%{resource_name}</a> registriert. Gehen Sie zur <a href="%{resource_path}">Gremiumsseite</a>, um mitzuwirken!
+          notification_title: Sie wurden als Mitglied des Gremiums <a href="%{resource_path}">%{resource_name}</a> eingetragen. Gehen Sie zur <a href="%{resource_path}">Gremiumsseite</a>, um mitzuwirken!
       assembly:
         role_assigned:
           email_intro: Sie wurden als %{role} für die Versammlung "%{resource_title}" ausgewählt.
@@ -426,20 +372,61 @@ de:
       value_types:
         assembly_presenter:
           not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Der Versammlungstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Gremien
-    metrics:
-      assemblies:
-        description: Anzahl der erstellten Gremien
-        object: Gremien
-        title: Gremien
+    open_data:
+      help:
+        assemblies:
+          area: Der Bereich des Gremiums
+          assembly_type: Der Typ des Gremiums
+          closing_date: Das Auflösungsdatum des Gremiums
+          closing_date_reason: Der Auflösungsgrund des Gremiums
+          composition: Die Zusammensetzung des Gremiums
+          created_at: Erstellungsdatum des Raums
+          created_by: Wer hat dieses Gremium gegründet hat
+          created_by_other: Weitere Gründungspersonen des Gremiums
+          creation_date: Das Gründungsdatum des Gremiums
+          decidim_scope_id: Die Themen des Gremiums
+          description: Eine lange Beschreibung des Gremiums
+          developer_group: Die Entwicklungsgruppe des Gremiums
+          duration: Die Dauer des Gremiums
+          facebook_handler: Social Media Handler für Facebook
+          follows_count: Die Anzahl der Benutzer, die diesem Raum folgen
+          github_handler: Social Media Handler für GitHub
+          id: Die eindeutige Bezeichnung dieser Assembly
+          included_at: Datum des Einbezugs des Ergebnisses
+          instagram_handler: Social Media Handler für Instagram
+          internal_organisation: Die interne Organisation dieses Gremiums
+          is_transparent: Ob das Gremium öffentlich zugänglich ist oder nicht
+          local_area: Der lokale Bereich des Gremiums
+          meta_scope: Die Bereichsmetadaten des Ergebnisses
+          participatory_scope: Der partizipative Bereich des Gremiums
+          participatory_structure: Die partizipative Struktur des Gremiums
+          promoted: Ob das Gremium hervorgehoben ist oder nicht
+          published_at: Das Datum der Veröffentlichung des Raums
+          purpose_of_action: Der Zweck des Gremiums
+          reference: Die eindeutige Referenz des Bereichs
+          remote_banner_image_url: Die URL des Gremium-Bannerbildes
+          remote_hero_image_url: Die URL des Gremium-Titelbildes
+          scope: Die Themen des Gremiums
+          scopes_enabled: Ob Themen aktiviert sind oder nicht
+          short_description: Eine kurze Beschreibung des Gremiums
+          slug: Der URL-Slug des Gremiums (verwendet für Identifikationszwecke in der URL)
+          special_features: Welche besonderen Merkmale dieses Gremium hat
+          subtitle: Der Untertitel des Gremiums
+          target: Das Ziel des Gremiums
+          taxonomies: Die Klassifizierungen des Projekts
+          title: Der Titel des Gremiums
+          twitter_handler: Social Media Handler für X/Twitter
+          updated_at: Letztes Aktualisierungsdatum dieses Bereichs
+          url: Die URL des Bereichs
+          youtube_handler: Social Media Handler für YouTube
     participatory_processes:
       show:
         related_assemblies: Ähnliche Versammlungen
     statistics:
       assemblies_count: Gremien
+      assemblies_count_tooltip: Die Anzahl der öffentlichen Gremien, in denen kollektive Entscheidungen getroffen werden.
   layouts:
     decidim:
       assemblies:

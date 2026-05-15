@@ -2,10 +2,13 @@
   <%= decidim_form_for(registration_form, url: meeting_registration_path(model), method: :delete) do |form| %>
     <div data-dialog-container>
       <%= icon "door-open-line" %>
-      <h2 id="dialog-title-meeting-cancelation-confirm-<%= model.id %>" data-dialog-title><%= t("leave", scope: "decidim.meetings.meetings.show") %></h2>
+      <h2 id="dialog-title-meeting-cancelation-confirm-<%= model.id %>" data-dialog-title>
+        <%= i18n_modal_title %>
+      </h2>
       <div>
-
-        <div id="dialog-desc-meeting-cancelation-confirm-<%= model.id %>" class="meeting__cancelation-modal__description"><%= t("leave_confirmation", scope: "decidim.meetings.meetings.show") %></div>
+        <div id="dialog-desc-meeting-cancelation-confirm-<%= model.id %>" class="meeting__cancelation-modal__description">
+          <%= i18n_modal_confirmation_text %>
+        </div>
       </div>
     </div>
     <div data-dialog-actions>
@@ -13,7 +16,7 @@
         <span><%= t("close", scope: "decidim.shared.flag_modal") %></span>
       </button>
       <button type="submit" class="button button__sm md:button__lg button__transparent-secondary">
-        <span><%= t("leave", scope: "decidim.meetings.meetings.show") %></span>
+        <span><%= cancel_button_text %></span>
         <%= icon "arrow-right-line" %>
       </button>
     </div>

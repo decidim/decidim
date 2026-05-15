@@ -23,6 +23,33 @@ describe "Edit proposals" do
       login_as user, scope: :user
     end
 
+    context "and empties the form" do
+      it "allows submission and show errors" do
+        visit_component
+
+        click_on proposal_title
+        find("#dropdown-trigger-resource-#{proposal.id}").click
+        click_on "Edit"
+
+        expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+        fill_in "proposal_title", with: ""
+
+        within ".edit_proposal" do
+          find("*[type=submit]").click
+
+          expect(page).to have_css("div.sr-announce")
+          within "div.sr-announce" do
+            expect(page).to have_content("There are errors on the form, please correct them to continue.")
+          end
+
+          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+          expect(find("button[type='submit']")).not_to be_disabled
+        end
+      end
+    end
+
     it "can be updated" do
       visit_component
 
@@ -71,7 +98,7 @@ describe "Edit proposals" do
           find("#dropdown-trigger-resource-#{proposal.id}").click
           click_on "Edit"
 
-          click_on "Edit documents"
+          click_on("Edit attachments")
           within ".upload-modal" do
             within "[data-filename='city.jpeg']" do
               click_on("Remove")
@@ -95,10 +122,10 @@ describe "Edit proposals" do
           it "can change attachment titles" do
             find("#dropdown-trigger-resource-#{proposal.id}").click
             click_on "Edit"
-            click_on "Edit documents"
+            click_on("Edit attachments")
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
-              expect(page).to have_content("For images, use preferably landscape images, the service crops the image")
+              expect(page).to have_content("If it is an image, it preferably be a landscape image that does not have any text. The platform crops the image.")
               within "[data-filename='city.jpeg']" do
                 find("input[type='text']").set(attachment_image_title)
               end
@@ -129,7 +156,7 @@ describe "Edit proposals" do
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
             click_on "Edit"
             expect(page).to have_content("Required fields are marked with an asterisk")
-            click_on("Edit documents")
+            click_on("Edit attachments")
             within "[data-dialog]" do
               click_on("Save")
             end
@@ -152,7 +179,7 @@ describe "Edit proposals" do
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
             click_on "Edit"
             expect(page).to have_content("Required fields are marked with an asterisk")
-            click_on("Edit documents")
+            click_on("Edit attachments")
             within "[data-dialog]" do
               click_on("Save")
             end
@@ -205,7 +232,7 @@ describe "Edit proposals" do
         stub_geocoding(new_address, [latitude, longitude])
       end
 
-      it "can be updated with address", :serves_geocoding_autocomplete do
+      it "can be updated with address" do
         visit_component
 
         click_on translated(proposal.title)
@@ -303,12 +330,12 @@ describe "Edit proposals" do
         expect(page).to have_content "Edit proposal"
 
         within "form.edit_proposal" do
-          fill_in :proposal_title, with: "A title with a #hashtag"
-          fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL"
+          fill_in :proposal_title, with: "A proposal with a title"
+          fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL or a COLLABORATIVE DRAFT"
         end
         click_on "Send"
 
-        expect(page).to have_css("input[value='A title with a #hashtag']")
+        expect(page).to have_css("input[value='A proposal with a title']")
         expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end
