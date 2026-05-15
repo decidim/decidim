@@ -94,7 +94,7 @@ eu:
             title: Beste eztabaida bat
           update:
             invalid: Arazo bat egon da eztabaida hau eguneratzean.
-            success: Debate arrakastaz eguneratu da.
+            success: Eztabaida zuzen eguneratu da.
         exports:
           debate_comments: Iruzkinak
           debates: Eztabaidak
@@ -125,7 +125,7 @@ eu:
             other: "%{count} eztabaida"
         create:
           invalid: Arazo bat egon da eztabaida sortzean.
-          success: Debate sortu da behar bezala.
+          success: Eztabaida zuzen eguneratu da.
         debates:
           empty: Oraindik ez dago eztabaidarik.
           empty_filters: Ez dago irizpide hau duen eztabaidarik.
