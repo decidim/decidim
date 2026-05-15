@@ -12,7 +12,10 @@
       </button>
     </div>
     <div id="panel-question-<%= question.id %>" class="card-accordion-section" aria-hidden="true">
-      <div class="mb-4"><%= decidim_sanitize translated_attribute(question.description) %></div>
+       <% description = render_question_description(question) %>
+       <% if description.present? %>
+         <div class="editor-content"><%= description %></div>
+       <% end %>
 
         <% question.response_options.each do |answer| %>
           <h4><%= translated_attribute answer.body %></h4>

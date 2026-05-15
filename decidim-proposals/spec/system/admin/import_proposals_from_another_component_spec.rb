@@ -111,5 +111,23 @@ describe "Import proposals from another component" do
         expect(Decidim::Proposals::Proposal.where(component:).count).to eq(2)
       end
     end
+
+    context "when no states are selected" do
+      let!(:proposals) { create_list(:proposal, 3, component: origin_component) }
+
+      it "imports all proposals" do
+        within ".import_proposals" do
+          select origin_component.name["en"], from: "Origin component"
+        end
+
+        click_on "Import proposals"
+
+        expect(page).to have_content("The import process has started. We will let you know once it has finished.")
+        perform_enqueued_jobs
+        visit current_path
+
+        expect(Decidim::Proposals::Proposal.where(component:).count).to eq(3)
+      end
+    end
   end
 end

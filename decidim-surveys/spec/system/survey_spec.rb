@@ -198,6 +198,42 @@ describe "Respond a survey" do
         it_behaves_like "has embedded video in description", :question_description
       end
     end
+
+    context "when the survey allows to edit responses, and question has display conditions" do
+      let!(:question_two) do
+        create(:questionnaire_question,
+               questionnaire:,
+               question_type: "short_response",
+               position: 1,
+               options: [])
+      end
+      let!(:display_condition) do
+        create(:display_condition,
+               condition_type: "not_responded",
+               question: question_two,
+               condition_question: question)
+      end
+
+      before do
+        survey.update!(
+          allow_responses: true,
+          allow_editing_responses: true
+        )
+        login_as user, scope: :user
+        visit_component
+        click_on translated_attribute(questionnaire.title)
+        fill_in "questionnaire_responses_0", with: "test"
+        check "questionnaire_tos_agreement"
+        click_on "Submit"
+        expect(page).to have_callout("Survey successfully responded.")
+      end
+
+      it "allows to edit the responses" do
+        click_on "Edit your responses"
+        expect(page).to have_content(translated_attribute(survey.title))
+        expect(page).to have_content(translated_attribute(question.body))
+      end
+    end
   end
 
   context "when survey has a custom announcement" do
