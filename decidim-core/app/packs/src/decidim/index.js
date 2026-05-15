@@ -6,7 +6,6 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
-import "chartkick/chart.js"
 
 // REDESIGN_PENDING: deprecated
 import "foundation-sites";

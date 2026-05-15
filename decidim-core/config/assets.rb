@@ -4,6 +4,7 @@ base_path = File.expand_path("..", __dir__)
 
 Decidim::Shakapacker.register_path("#{base_path}/app/packs")
 Decidim::Shakapacker.register_entrypoints(
+  decidim_chartkick: "#{base_path}/app/packs/entrypoints/decidim_chartkick.js",
   decidim_date_picker: "#{base_path}/app/packs/entrypoints/decidim_date_picker.js",
   decidim_emoji: "#{base_path}/app/packs/entrypoints/decidim_emoji.js",
   decidim_controllers: "#{base_path}/app/packs/entrypoints/decidim_controllers.js",

@@ -148,7 +148,7 @@ describe "Authorizations revocation flow" do
   end
 
   context "when clicking revoke all authorizations option with admin user" do
-    it "shows an informative message to the user with all authorizations revoked ok" do
+    it "shows an informative message to the user that revocation has started in the background" do
       accept_confirm do
         click_on(t("decidim.admin.menu.authorization_revocation.button"))
       end
@@ -158,7 +158,7 @@ describe "Authorizations revocation flow" do
   end
 
   context "when clicking revoke before date authorizations option with admin user" do
-    it "shows an informative message to the user with before date authorizations revoked ok" do
+    it "shows an informative message to the user that revocation has started in the background" do
       accept_confirm do
         click_on(t("decidim.admin.menu.authorization_revocation.button_before"))
       end
