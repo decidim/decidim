@@ -5,12 +5,12 @@ module Decidim
     class CreateProjectType < Decidim::Api::Types::BaseMutation
       graphql_name "CreateProject"
 
-      description "Creates a Project"
+      description "Creates a project"
       type Decidim::Budgets::ProjectType
 
       required_scopes "api:read", "admin:read", "admin:write"
 
-      argument :attributes, ProjectAttributes, description: "input attributes to create a project", required: true
+      argument :attributes, ProjectAttributes, description: "Input attributes for creating a project", required: true
 
       def resolve(attributes:)
         params = extract_from(attributes)
