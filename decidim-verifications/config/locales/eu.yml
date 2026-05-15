@@ -48,6 +48,7 @@ eu:
             confirm: Data horren aurreko baimenak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
             confirm_all: Baimen guztiak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
           destroy_nok: Arazo bat izn da baimenak ezeztatzean.
+          destroy_ok: Baimenak ezeztatzen ari dira. Minutu batzuk beharko ditugu hau bukatzeko.
           info: Guztira %{count} parte-hartzaile egiaztatuta daude.
           no_data: Ez dago parte-hartzaile egiaztaturik.
           title: Baimenak ezeztatzea
