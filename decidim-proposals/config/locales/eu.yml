@@ -920,7 +920,7 @@ eu:
           can_accumulate_votes_beyond_threshold:
             description: Proposamen bakoitzak %{limit} babes baino gehiago jaso dezake
           minimum_votes_per_user:
-            description: Gutxienez %{votes} babes banatu behar duzu proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
+            description: Gutxienez %{votes} babes banatu behar duzu proposamen ezberdinen artean zure hautuak kontuan har daitezen.
           proposal_limit:
             description: Proposamen(ak) sortu ditzakezu.
           success: Zure babesak ongi onartu dira
