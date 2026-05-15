@@ -77,7 +77,7 @@ eu:
             export_response:
               title: survey_user_answers_%{token}
             index:
-              title: "Guztira, %{total} erantzun"
+              title: "Guztira, %{guztira} erantzun"
             show:
               title: '#%{number} erantzun'
           display_condition:
