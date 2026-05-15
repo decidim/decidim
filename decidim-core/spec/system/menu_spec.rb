@@ -68,6 +68,40 @@ describe "Menu" do
     end
   end
 
+  describe "when there are special characters (', &) in the nav links" do
+    let(:component_name) { "People's Budget & Ideas" }
+    let(:participatory_space) { create(:participatory_process, organization:) }
+    let(:proposal_component) { create(:proposal_component, name: { en: component_name }, participatory_space:) }
+    let(:proposal) { create(:proposal, component: proposal_component) }
+    let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
+
+    context "when it is a desktop device" do
+      it "renders the component name correctly" do
+        visit proposal_path
+        within ".menu-bar__breadcrumb-desktop" do
+          expect(page).to have_content(component_name)
+          expect(page).to have_no_content("&#39;")
+          expect(page).to have_no_content("&amp;#39;")
+        end
+      end
+    end
+
+    context "when it is a mobile device" do
+      before do
+        driven_by(:iphone)
+      end
+
+      it "renders the component name correctly" do
+        visit proposal_path
+        within ".menu-bar__breadcrumb-mobile" do
+          expect(page).to have_content(component_name)
+          expect(page).to have_no_content("&#39;")
+          expect(page).to have_no_content("&amp;#39;")
+        end
+      end
+    end
+  end
+
   context "when the admin_insights_menu is displayed" do
     let(:user) { create(:user, :admin, :confirmed, organization:) }
 
