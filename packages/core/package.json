@@ -43,6 +43,7 @@
     "a11y-accordion-component": "^1.2.6",
     "a11y-dialog-component": "^5.5.1",
     "a11y-dropdown-component": "^1.2.0",
+    "chart.js": "^4.4.6",
     "chartkick": "^5.0.1",
     "classnames": "^2.2.5",
     "dayjs": "^1.11.0",
