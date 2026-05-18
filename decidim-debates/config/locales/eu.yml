@@ -138,7 +138,7 @@ eu:
           activity: Nire jarduera
           all: Guztiak
           category: Kategoria
-          category_prompt: Kategoria bat aukeratu
+          category_prompt: Hautatu kategoria bat
           commented: Iruzkina eginda
           my_debates: Nire eztabaidak
           official: Ofiziala
@@ -176,15 +176,15 @@ eu:
           success: Eztabaida zuzen eguneratu da.
       last_activity:
         debate_updated: 'Eztabaida eguneratu da:'
-        new_debate: 'Eztabaida berria:'
+        new_debate: 'Beste eztabaida bat:'
       models:
         debate:
           fields:
             end: Amaiera
-            end_time: Amaiera data
-            official_debate: Ofizial eztabaida
+            end_time: Amaiera-data
+            official_debate: Eztabaida ofiziala
             start: Hasi
-            start_time: Hasiera data
+            start_time: Hasiera-data
             taxonomies: Taxonomiak
             title: Izenburua
     download_your_data:
