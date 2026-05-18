@@ -105,5 +105,23 @@ module Decidim
         end
       end
     end
+
+    describe "sorting by report count" do
+      subject(:sorter) { described_class.where(organization:).ransack({ s: "user_moderation_report_count asc" }, auth_object: admin) }
+
+      let(:admin) { build(:user, :admin, :confirmed, organization:) }
+      let!(:without_moderation) { create(:user, :confirmed, organization:) }
+      let!(:with_few_reports) { create(:user, :confirmed, organization:) }
+      let!(:with_many_reports) { create(:user, :confirmed, organization:) }
+
+      before do
+        create(:user_moderation, user: with_few_reports, report_count: 3)
+        create(:user_moderation, user: with_many_reports, report_count: 9)
+      end
+
+      it "sorts users treating a missing moderation as zero reports" do
+        expect(sorter.result.map(&:id)).to eq([without_moderation.id, with_few_reports.id, with_many_reports.id])
+      end
+    end
   end
 end

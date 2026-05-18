@@ -70,11 +70,18 @@ module Decidim
     end
 
     ransacker :role do
-      Arel.sql(%(CASE WHEN "decidim_users"."admin" = true THEN 'admin' ELSE "decidim_users"."roles"::text END))
+      Arel.sql(%{CASE WHEN "decidim_users"."admin" = true THEN 'admin' ELSE cast("decidim_users"."roles" as text) END})
     end
 
     ransacker :user_moderation_report_count do
-      Arel.sql(%(COALESCE("decidim_user_moderations"."report_count", 0)))
+      query = <<~SQL.squish
+        (
+            SELECT COALESCE(MAX(decidim_user_moderations.report_count), 0)
+            FROM decidim_user_moderations
+            WHERE decidim_user_moderations.decidim_user_id = decidim_users.id
+        )
+      SQL
+      Arel.sql(query)
     end
 
     def self.ransackable_attributes(auth_object = nil)
