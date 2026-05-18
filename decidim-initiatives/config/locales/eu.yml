@@ -209,7 +209,7 @@ eu:
           description_own: '%{score} ekimen dituzu argitaratuta.'
           name: Argitaratutako ekimenak
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du ekimenik argitaratuta.
+          unearned_another: Parte-hartzaile honek oraindik ez du ekimenik argitaratuta.
           unearned_own: Ez duzu oraindik argitaratutako ekimenik.
     help:
       participatory_spaces:
@@ -228,9 +228,9 @@ eu:
           info_initiative:
             created_at: Noiz sortua
             description: Deskribapena
-            initiative_votes_count: Babesen zenbaketa
+            initiative_votes_count: Botoen zenbaketa
             initiatives: Ekimenak
-            state: Estatu
+            state: Egoera
         committee_requests:
           index:
             approve: Onartu
@@ -261,11 +261,11 @@ eu:
             accept: Onartu ekimena
             confirm: Ziur zaude?
             confirm_send_to_technical_validation: Ziur zaude?
-            discard: Ekimena baztertu
+            discard: Kendu ekimena
             export_pdf_signatures: Esportatu sinaduren PDF fitxetagia
             export_votes: Esportatu sinadurak
             reject: Ekimena ukatu
-            send_to_technical_validation: Baliozkotze teknikorako bidali
+            send_to_technical_validation: Bidali balidazio teknikora
             success: Ekimena baliozkotze teknikora bidali da.
             update: Eguneratu
           form:
