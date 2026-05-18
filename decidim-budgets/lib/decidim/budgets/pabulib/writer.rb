@@ -30,8 +30,8 @@ module Decidim
           write_type_attributes
 
           if metadata.date_begin && metadata.date_end
-            write(date_begin: metadata.date_begin.strftime("%Y-%m-%d"))
-            write(date_end: metadata.date_end.strftime("%Y-%m-%d"))
+            write(date_begin: metadata.date_begin.strftime("%d.%m.%Y"))
+            write(date_end: metadata.date_end.strftime("%d.%m.%Y"))
           end
         end
 
