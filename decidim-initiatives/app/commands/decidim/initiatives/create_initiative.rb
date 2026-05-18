@@ -31,9 +31,9 @@ module Decidim
           return broadcast(:invalid) if attachments_invalid?
         end
 
-        if process_gallery?
-          build_gallery
-          return broadcast(:invalid) if gallery_invalid?
+        if process_attachments?
+          build_attachments
+          return broadcast(:invalid) if attachments_invalid?
         end
 
         initiative = create_initiative
@@ -59,7 +59,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :attachment, :initiative
+      attr_reader :form, :documents, :initiative
 
       # Creates the initiative and all default components
       def create_initiative
@@ -71,7 +71,6 @@ module Decidim
 
           @attached_to = initiative
           create_attachments if process_attachments?
-          create_gallery if process_gallery?
 
           create_components_for(initiative)
           send_notification(initiative)

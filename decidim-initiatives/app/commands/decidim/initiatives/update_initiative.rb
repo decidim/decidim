@@ -34,9 +34,9 @@ module Decidim
           return broadcast(:invalid) if attachments_invalid?
         end
 
-        if process_gallery?
-          build_gallery
-          return broadcast(:invalid) if gallery_invalid?
+        if process_attachments?
+          build_attachments
+          return broadcast(:invalid) if attachments_invalid?
         end
 
         with_events(with_transaction: true) do
@@ -49,7 +49,6 @@ module Decidim
           photo_cleanup!
           document_cleanup!
           create_attachments if process_attachments?
-          create_gallery if process_gallery?
         end
 
         broadcast(:ok, initiative)
@@ -71,7 +70,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :initiative
+      attr_reader :form, :initiative, :documents
 
       def attributes
         attrs = {
