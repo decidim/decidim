@@ -162,6 +162,19 @@ describe "Admin filters meetings" do
       expect(titles.find_index { |t| t.include?("Has alpha") }).to be < titles.find_index { |t| t.include?("Has beta") }
       expect(titles.find_index { |t| t.include?("Has beta") }).to be < titles.find_index { |t| t.include?("Has gamma") }
     end
+
+    context "and a meeting has multiple taxonomies" do
+      let!(:meeting_multi) { create(:meeting, component:, title: { en: "Has many topics" }, taxonomies: [taxonomy_alpha, taxonomy_gamma]) }
+
+      it "lists the meeting only once when 'Taxonomies' is clicked" do
+        within "table thead" do
+          click_on "Taxonomies"
+        end
+
+        titles = page.all("table tbody tr td:first-child").map(&:text)
+        expect(titles.count { |t| t.include?("Has many topics") }).to eq(1)
+      end
+    end
   end
 
   context "when sorting by title" do
