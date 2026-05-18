@@ -73,11 +73,8 @@ module Decidim
       end
 
       def valid_taxonomy_items
-        return if taxonomy_items.all? do |item|
-          next unless root_taxonomy
-
-          root_taxonomy.all_children.map(&:id).include?(item.to_i)
-        end
+        valid_ids = root_taxonomy ? root_taxonomy.all_children.pluck(:id).to_set : Set.new
+        return if taxonomy_items.all? { |item| valid_ids.include?(item.to_i) }
 
         errors.add(:taxonomy_items, :invalid)
       end
