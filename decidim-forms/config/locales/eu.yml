@@ -132,14 +132,14 @@ eu:
             export_response:
               title: galdetegia_parte-hartzailea_erantzunak_%{token}
             index:
-              title: "Guztira, %{guztira} erantzun"
+              title: "Guztira, %{total} erantzun"
             show:
               title: '#%{number} erantzun'
           separator:
             remove: Kendu
             separator: Bereizlea
           title_and_description:
-            collapse: Tolestu
+            collapse: Kolapsoa
             description: Deskribapena
             expand: Zabaldu
             remove: Kendu
