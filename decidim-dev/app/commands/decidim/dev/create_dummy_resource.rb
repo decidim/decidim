@@ -3,7 +3,7 @@
 module Decidim
   module Dev
     class CreateDummyResource < Decidim::Command
-      include Decidim::GalleryMethods
+      include Decidim::MultipleAttachmentsMethods
 
       def initialize(form)
         @form = form
@@ -30,7 +30,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :dummy_resource, :gallery
+      attr_reader :form, :dummy_resource, :attachment
 
       def create_dummy_resource
         @dummy_resource = DummyResource.create!(
