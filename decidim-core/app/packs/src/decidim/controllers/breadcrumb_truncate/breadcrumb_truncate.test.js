@@ -112,18 +112,20 @@ describe("BreadcrumbTruncateController", () => {
     element = document.querySelector('[data-controller="breadcrumb-truncate"]')
     const itemElements = element.querySelectorAll('[data-breadcrumb-truncate-target="item"]')
     const textElements = element.querySelectorAll('[data-breadcrumb-truncate-target="text"]')
+    const initialWidths = [150, 50]
 
     Reflect.defineProperty(element, "clientWidth", { configurable: true, value: 100 })
-    Reflect.defineProperty(element, "scrollWidth", { configurable: true, value: 200 })
-    Reflect.defineProperty(itemElements[0], "scrollWidth", { configurable: true, value: 150 })
-    Reflect.defineProperty(itemElements[1], "scrollWidth", { configurable: true, value: 50 })
     Reflect.defineProperty(itemElements[0], "clientWidth", {
       configurable: true,
-      get: () => Number.parseInt(itemElements[0].style.maxWidth || "150", 10)
+      get: () => Number.parseInt(itemElements[0].style.maxWidth || `${initialWidths[0]}`, 10)
     })
     Reflect.defineProperty(itemElements[1], "clientWidth", {
       configurable: true,
-      get: () => Number.parseInt(itemElements[1].style.maxWidth || "50", 10)
+      get: () => Number.parseInt(itemElements[1].style.maxWidth || `${initialWidths[1]}`, 10)
+    })
+    Reflect.defineProperty(element, "scrollWidth", {
+      configurable: true,
+      get: () => Array.from(itemElements).reduce((sum, item) => sum + item.clientWidth, 0)
     })
     Reflect.defineProperty(itemElements[0], "scrollWidth", {
       configurable: true,
@@ -142,5 +144,68 @@ describe("BreadcrumbTruncateController", () => {
     expect(textElements[0].textContent).not.toBe("Very long participatory space title example")
     expect(textElements[0].textContent.endsWith("...")).toBe(true)
     expect(textElements[1].textContent).toBe("Proposals")
+  })
+
+  it("preserves shorter deep breadcrumb labels while shrinking the longest one first", async () => {
+    document.body.innerHTML = `
+      <nav data-controller="breadcrumb-truncate">
+        <span data-breadcrumb-truncate-target="item">
+          <span data-breadcrumb-truncate-target="text">Proyecto de Orden Foral por la que se modifica la Orden Foral</span>
+        </span>
+        <span data-breadcrumb-truncate-target="item">
+          <span data-breadcrumb-truncate-target="text">Debates</span>
+        </span>
+        <span data-breadcrumb-truncate-target="item">
+          <span data-breadcrumb-truncate-target="text">Debate made by a participant</span>
+        </span>
+      </nav>
+    `
+
+    application.stop()
+    application = Application.start()
+    application.register("breadcrumb-truncate", BreadcrumbTruncateController)
+
+    element = document.querySelector('[data-controller="breadcrumb-truncate"]')
+    const itemElements = element.querySelectorAll('[data-breadcrumb-truncate-target="item"]')
+    const textElements = element.querySelectorAll('[data-breadcrumb-truncate-target="text"]')
+
+    Reflect.defineProperty(element, "clientWidth", { configurable: true, value: 220 })
+
+    const initialWidths = [180, 56, 104]
+
+    itemElements.forEach((item, index) => {
+      Reflect.defineProperty(item, "clientWidth", {
+        configurable: true,
+        get: () => Number.parseInt(item.style.maxWidth || `${initialWidths[index]}`, 10)
+      })
+    })
+    Reflect.defineProperty(element, "scrollWidth", {
+      configurable: true,
+      get: () => Array.from(itemElements).reduce((sum, item) => sum + item.clientWidth, 0)
+    })
+
+    Reflect.defineProperty(itemElements[0], "scrollWidth", {
+      configurable: true,
+      get: () => (textElements[0].textContent.length > 18
+        ? 160
+        : 80)
+    })
+    Reflect.defineProperty(itemElements[1], "scrollWidth", {
+      configurable: true,
+      get: () => 56
+    })
+    Reflect.defineProperty(itemElements[2], "scrollWidth", {
+      configurable: true,
+      get: () => (textElements[2].textContent.length > 20
+        ? 120
+        : 96)
+    })
+
+    await startController()
+    controller.refresh()
+
+    expect(textElements[0].textContent.endsWith("...")).toBe(true)
+    expect(textElements[1].textContent).toBe("Debates")
+    expect(textElements[2].textContent).toBe("Debate made by a participant")
   })
 })

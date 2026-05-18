@@ -1,6 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
 const ELLIPSIS = "..."
+const PREFERRED_MIN_WIDTH = 96
+const ABSOLUTE_MIN_WIDTH = 24
 
 export default class extends Controller {
   static get targets() {
@@ -43,8 +45,6 @@ export default class extends Controller {
       return
     }
 
-    let overflow = this.element.scrollWidth - this.element.clientWidth
-
     const candidates = this.itemTargets.map((item, index) => ({
       item,
       text: this.textTargets[index],
@@ -53,19 +53,41 @@ export default class extends Controller {
     })).sort((left, right) => right.width - left.width)
 
     candidates.forEach((candidate) => {
-      if (overflow <= 0) {
+      if (!this.isOverflowing(this.element)) {
         return
       }
 
-      const nextWidth = Math.max(1, candidate.width - overflow)
+      this.shrinkCandidate(candidate, PREFERRED_MIN_WIDTH)
 
-      candidate.item.style.flex = `0 1 ${nextWidth}px`
-      candidate.item.style.maxWidth = `${nextWidth}px`
-      candidate.item.style.minWidth = "0"
-
-      this.truncateItem(candidate.item, candidate.text, candidate.originalText)
-      overflow -= candidate.width - nextWidth
+      if (this.isOverflowing(this.element)) {
+        this.shrinkCandidate(candidate, ABSOLUTE_MIN_WIDTH)
+      }
     })
+  }
+
+  shrinkCandidate(candidate, minimumWidth) {
+    const overflow = this.element.scrollWidth - this.element.clientWidth
+
+    if (overflow <= 0) {
+      return
+    }
+
+    const minWidth = Math.min(candidate.width, minimumWidth)
+    const shrinkableWidth = candidate.width - minWidth
+
+    if (shrinkableWidth <= 0) {
+      return
+    }
+
+    const reduction = Math.min(overflow, shrinkableWidth)
+    const nextWidth = candidate.width - reduction
+
+    candidate.item.style.flex = `0 1 ${nextWidth}px`
+    candidate.item.style.maxWidth = `${nextWidth}px`
+    candidate.item.style.minWidth = "0"
+
+    this.truncateItem(candidate.item, candidate.text, candidate.originalText)
+    candidate.width = nextWidth
   }
 
   resetItem(item, text, originalText) {

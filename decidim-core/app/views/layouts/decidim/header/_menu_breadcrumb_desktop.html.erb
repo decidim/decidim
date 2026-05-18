@@ -1,7 +1,7 @@
 <%= link_to decidim.root_url, class: "menu-bar__breadcrumb-desktop__dropdown-wrapper menu-bar__breadcrumb-desktop__dropdown-trigger" do %>
   <span><%= t("decidim.menu.home") %></span>
 <% end %>
-<% truncatable_items = breadcrumb_items.reject(&:blank?).last(2) %>
+<% truncatable_items = breadcrumb_items.reject(&:blank?).drop(1) %>
 <% breadcrumb_items.each do |item| %>
   <% next if item.blank? %>
 
