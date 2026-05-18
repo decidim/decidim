@@ -28,7 +28,7 @@ module Decidim
 
       def sync_filter_items!
         removed_ids = current_taxonomy_item_ids - selected_taxonomy_item_ids
-        added_ids   = selected_taxonomy_item_ids - current_taxonomy_item_ids
+        added_ids = selected_taxonomy_item_ids - current_taxonomy_item_ids
 
         resource.filter_items.where(taxonomy_item_id: removed_ids).destroy_all if removed_ids.any?
         added_ids.each { |taxonomy_item_id| resource.filter_items.create!(taxonomy_item_id:) }
