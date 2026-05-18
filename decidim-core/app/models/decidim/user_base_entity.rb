@@ -69,12 +69,20 @@ module Decidim
       Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self }).blocked.exists?
     end
 
+    ransacker :role do
+      Arel.sql(%(CASE WHEN "decidim_users"."admin" = true THEN 'admin' ELSE "decidim_users"."roles"::text END))
+    end
+
+    ransacker :user_moderation_report_count do
+      Arel.sql(%(COALESCE("decidim_user_moderations"."report_count", 0)))
+    end
+
     def self.ransackable_attributes(auth_object = nil)
-      base = %w(name email nickname last_sign_in_at)
+      base = %w(name email nickname last_sign_in_at created_at)
 
       return base unless auth_object&.admin?
 
-      base + %w(invitation_sent_at invitation_accepted_at officialized_at)
+      base + %w(invitation_sent_at invitation_accepted_at officialized_at role user_moderation_report_count)
     end
 
     def self.ransackable_associations(_auth_object = nil)

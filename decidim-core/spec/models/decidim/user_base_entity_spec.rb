@@ -81,5 +81,29 @@ module Decidim
         end
       end
     end
+
+    describe ".ransackable_attributes" do
+      let(:admin) { build(:user, :admin, :confirmed, organization:) }
+
+      context "when auth_object is an admin" do
+        it "allows sorting/filtering by created_at" do
+          expect(described_class.ransackable_attributes(admin)).to include("created_at")
+        end
+
+        it "allows sorting by role" do
+          expect(described_class.ransackable_attributes(admin)).to include("role")
+        end
+
+        it "allows sorting by user_moderation_report_count" do
+          expect(described_class.ransackable_attributes(admin)).to include("user_moderation_report_count")
+        end
+      end
+
+      context "when auth_object is a regular user" do
+        it "allows sorting/filtering by created_at" do
+          expect(described_class.ransackable_attributes(user)).to include("created_at")
+        end
+      end
+    end
   end
 end
