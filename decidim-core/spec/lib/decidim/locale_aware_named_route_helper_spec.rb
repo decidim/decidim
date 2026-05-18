@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Engine route helpers locale injection" do
+describe Decidim::LocaleAwareNamedRouteHelper do
   let(:organization) { create(:organization) }
   let(:static_page) { create(:static_page, organization:, slug: "help") }
 
