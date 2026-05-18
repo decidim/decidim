@@ -16,16 +16,13 @@ module Decidim
           private
 
           def base_query
-            meetings = Meeting
-                       .not_hidden
-                       .where(component: current_component)
-                       .or(MeetingLink.find_meetings(component: current_component))
-                       .order(start_time: :desc)
-                       .page(params[:page])
-                       .per(15)
-            return meetings unless taxonomy_order_or_search?
-
-            meetings.includes(:taxonomies).joins(:taxonomies)
+            Meeting
+              .not_hidden
+              .where(component: current_component)
+              .or(MeetingLink.find_meetings(component: current_component))
+              .order(start_time: :desc)
+              .page(params[:page])
+              .per(15)
           end
 
           def filters
