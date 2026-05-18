@@ -61,6 +61,17 @@ module Decidim
         end
       end
 
+      describe "new" do
+        context "when user is not found" do
+          it "sets flash alert message and redirects to moderated_users_path" do
+            get :new, params: { user_id: 999_999_999 } # Non-existent user ID
+
+            expect(flash[:alert]).to eq(flash[:alert] = I18n.t("csv_census.admin.census.index.no_user", scope: "decidim.verifications"))
+            expect(response).to redirect_to(officializations_path)
+          end
+        end
+      end
+
       describe "block" do
         shared_examples "blocking a user" do
           context "when having a user" do
