@@ -35,7 +35,7 @@ module Decidim
       private
 
       def meeting
-        @meeting ||= Meeting.where(component: current_component).find(params[:id])
+        @meeting ||= Meeting.where(component: current_component).find(params.expect(:id))
       end
     end
   end
