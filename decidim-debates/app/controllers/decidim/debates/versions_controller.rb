@@ -9,7 +9,7 @@ module Decidim
       include Decidim::ResourceVersionsConcern
 
       def versioned_resource
-        @versioned_resource ||= Debate.where(component: current_component).not_hidden.find(params[:debate_id])
+        @versioned_resource ||= Debate.where(component: current_component).not_hidden.find(params.expect(:debate_id))
       end
 
       def add_breadcrumb_item
