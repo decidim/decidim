@@ -6,11 +6,9 @@ module Decidim
       inner_options = inner_options&.symbolize_keys
       inner_options ||= {}
 
-      if @options[:locale].present? && !inner_options.key?(:locale)
-        inner_options = inner_options.merge(locale: I18n.locale)
-      end
+      inner_options = inner_options.merge(locale: I18n.locale) if @options[:locale].present? && !inner_options.has_key?(:locale)
 
-      super(t, method_name, args, inner_options, url_strategy)
+      super
     end
   end
 end
