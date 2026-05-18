@@ -2,7 +2,7 @@
 
 module Decidim
   module LocaleAwareNamedRouteHelper
-    def call(t, method_name, args, inner_options, url_strategy)
+    def call(_target, _method_name, _args, inner_options, _url_strategy)
       inner_options = inner_options&.symbolize_keys
       inner_options ||= {}
 
