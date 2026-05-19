@@ -289,6 +289,7 @@ module Decidim
               end.not_to raise_error
 
               expect(User.count).to eq(1)
+              expect(Identity.count).to eq(1)
             end
           end
         end
