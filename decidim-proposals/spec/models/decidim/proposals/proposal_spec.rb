@@ -501,6 +501,20 @@ module Decidim
           end
         end
       end
+
+      describe ".ransackable_attributes" do
+        it "allows sorting by state_published" do
+          expect(described_class.ransackable_attributes).to include("state_published")
+        end
+
+        it "allows sorting by evaluation_assignments_count" do
+          expect(described_class.ransackable_attributes).to include("evaluation_assignments_count")
+        end
+
+        it "allows sorting by translated_title" do
+          expect(described_class.ransackable_attributes).to include("translated_title")
+        end
+      end
     end
   end
 end

@@ -7,6 +7,7 @@ module Decidim
 
       description "Answers a proposal"
       type Decidim::Proposals::ProposalType
+      required_scopes "api:read", "api:write", "admin:write"
 
       argument :attributes, AnswerProposalAttributes, description: "input attributes of a proposal", required: true
 
@@ -35,14 +36,10 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        authorized = super && allowed_to?(:create, :proposal_answer, object, context, scope: :admin)
+        authorized = super && allowed_to?(:create, :proposal_answer, object, context)
         raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless authorized
 
         true
-      end
-
-      def current_user
-        context[:current_user]
       end
     end
   end
