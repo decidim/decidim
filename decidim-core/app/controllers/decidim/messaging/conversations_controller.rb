@@ -30,7 +30,7 @@ module Decidim
           conversation = conversation_between(current_user, @form.recipient)
         end
 
-        return redirect_back_or_to(profile_path(current_user.nickname, locale: current_locale)) if @form.recipient.empty?
+        return redirect_back_or_to(profile_path(current_user.nickname)) if @form.recipient.empty?
 
         return redirect_to conversation_path(conversation) if conversation
 

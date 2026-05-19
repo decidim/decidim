@@ -170,8 +170,6 @@ bg:
             admin: Администратор
             collaborator: Сътрудник
             moderator: Модератор
-      titles:
-        assemblies_types: Типове събрания
     admin_log:
       assembly:
         create: "%{user_name} създаде събранието %{resource_name}"
@@ -285,9 +283,6 @@ bg:
           highlighted_assemblies:
             active_spaces: Активни събрания
             see_all_spaces: Вижте всички събрания
-        user_profile:
-          member_of:
-            member_of: Член на
       show:
         duration: Продължителност
         social_networks_title: Посетете събранието на
@@ -314,8 +309,6 @@ bg:
       value_types:
         assembly_presenter:
           not_found: 'Събранието не беше намерено в базата данни (Идент. №: %{id})'
-        assembly_type_presenter:
-          not_found: 'Типът събрание не бе намерен в базата данни (Идент. №: %{id})'
     menu:
       assemblies: Събрания
     participatory_processes:

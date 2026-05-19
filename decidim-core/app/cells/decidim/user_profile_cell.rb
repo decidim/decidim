@@ -20,7 +20,7 @@ module Decidim
     end
 
     def resource_path
-      user.try(:profile_url) || decidim.profile_path(user.nickname, locale: I18n.locale)
+      user.try(:profile_url) || decidim.profile_path(user.nickname)
     end
 
     def presented_resource

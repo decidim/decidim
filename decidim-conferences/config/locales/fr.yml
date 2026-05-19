@@ -364,6 +364,9 @@ fr:
             user_type: Type d'utilisateur
           index:
             search: Chercher
+            title: Conférenciers
+          new:
+            title: Nouveau conférencier
         conference_user_roles:
           edit:
             title: Mettre à jour l'administrateur de la conférence

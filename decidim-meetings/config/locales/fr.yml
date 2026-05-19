@@ -349,6 +349,9 @@ fr:
           edit:
             close: Clore
             title: Clore la rencontre
+        meeting_copies:
+          new:
+            title: Dupliquer une rencontre
         meetings:
           close:
             invalid: Il y a eu un problème au moment de clore cette rencontre.

@@ -1,7 +1,7 @@
 {
   "name": "@decidim/webpacker",
   "description": "The webpacker dependencies for Decidim",
-  "version": "0.32.0-dev",
+  "version": "0.33.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
@@ -46,6 +46,6 @@
     "webpack-merge": "^5.9.0",
     "webpack-sources": "^3.2.3",
     "workbox-recipes": "^7.0.0",
-    "workbox-webpack-plugin": "^7.0.0"
+    "workbox-webpack-plugin": "~7.3.0"
   }
 }

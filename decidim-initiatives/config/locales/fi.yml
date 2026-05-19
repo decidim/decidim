@@ -259,6 +259,7 @@ fi:
             reject: Torju aloite
             send_to_technical_validation: Lähetä tekniseen tarkastukseen
             success: Aloite on lähetetty tekniseen tarkastukseen.
+            title: Tietoa tästä aloitteesta
             update: Päivitä
           form:
             attachments_title: Liitteet
@@ -268,6 +269,7 @@ fi:
             actions_title: Toiminnot
             preview: Esikatsele
             print: Tulosta
+            title: Aloitteet
           initiative_attachments:
             documents: Asiakirjat
             edit: Muokkaa
@@ -284,6 +286,7 @@ fi:
             success: Aloitteen päivitys onnistui.
         initiatives_settings:
           edit:
+            title: Aloitteen asetukset
             update: Päivitä
           form:
             comments: Eniten kommentoidut
@@ -313,12 +316,15 @@ fi:
           destroy:
             success: Aloitetyypin poisto onnistui.
           edit:
+            title: Muokkaa aloitetyyppiä
             update: Päivitä
           form:
             child_scope_threshold_enabled_help_html: 'Tämä asetus ei tue fyysisiä äänestyksiä. Se ottaa käyttöön alateemat ja toimii sellaisten tunnistautumistapojen kanssa, jotka yhdistävät käyttäjän tiettyyn teemaan. Varmista, että valitset tällaisen tunnistautumistavan alla olevista asetuksista. Tämän asetuksen toiminta vaatii teemojen määrityksen hierarkisesti: 1 vanhempi - N lasta. Jos tarvitset lisätietoja kuinka tämä asetus toimii, tutustu <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">aloitteiden hallinnoinnin dokumentaatioon</a>.'
             only_global_scope_enabled_help_html: Ota tämä asetus käyttöön, jos otit käyttöön "alateemojen allekirjoitukset" ja asetit yleisen yläteeman. Ottamalla tämän asetuksen käyttöön, aloitteen tyypin valinta sivuutetaan aloitteiden luontinäkymässä. Saat <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">lisätietoja tästä ominaisuudesta täältä</a>.
             options: Valinnat
             signature_workflow_settings: Allekirjoitusten työnkulun asetukset
+          index:
+            title: Aloitetyypit
           initiative_type_scopes:
             title: Aloitetyypin teemat
           new:

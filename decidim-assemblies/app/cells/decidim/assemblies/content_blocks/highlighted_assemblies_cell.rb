@@ -15,7 +15,7 @@ module Decidim
         end
 
         def all_path
-          Decidim::Assemblies::Engine.routes.url_helpers.assemblies_path(locale: current_locale)
+          Decidim::Assemblies::Engine.routes.url_helpers.assemblies_path
         end
 
         def max_results

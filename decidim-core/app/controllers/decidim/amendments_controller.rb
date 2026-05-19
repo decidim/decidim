@@ -12,6 +12,8 @@ module Decidim
     helper_method :amendment, :amendable, :emendation
     before_action :ensure_is_draft_from_user, only: [:edit_draft, :update_draft, :destroy_draft, :preview_draft, :publish_draft]
 
+    # i18n-tasks-use t('decidim.amendments.wizard.steps.1')
+    # i18n-tasks-use t('decidim.amendments.wizard.steps.2')
     def new
       raise ActionController::RoutingError, "Not Found" unless amendable
 

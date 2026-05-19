@@ -23,7 +23,7 @@ module Decidim
         )
       end
 
-      let(:destination_path) { decidim_assemblies.assembly_path(participatory_space, locale: I18n.locale) }
+      let(:destination_path) { decidim_assemblies.assembly_path(participatory_space) }
 
       let(:slug_param) { "assembly_slug" }
       let(:slug) { participatory_space.slug }

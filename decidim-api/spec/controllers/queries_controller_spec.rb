@@ -7,6 +7,8 @@ module Decidim
     describe QueriesController do
       routes { Decidim::Api::Engine.routes }
 
+      include Decidim::Core::Engine.routes.url_helpers
+
       let(:organization) { create(:organization) }
 
       before do
@@ -24,7 +26,7 @@ module Decidim
         it "does not accept queries" do
           post :create, params: { query: "{ __schema { queryType { name } } }" }
 
-          expect(response).to redirect_to("/users/sign_in")
+          expect(response).to redirect_to(new_user_session_path)
         end
       end
 
@@ -44,7 +46,7 @@ module Decidim
           it "redirects to login page for HTML requests" do
             post :create, params: {}
             expect(response).to have_http_status(:found)
-            expect(response).to redirect_to("/users/sign_in")
+            expect(response).to redirect_to(new_user_session_path)
           end
 
           it "returns 401 Unauthorized for JSON requests" do
@@ -68,6 +70,21 @@ module Decidim
           it "allows access for JSON requests" do
             post :create, params: { query: "{ __schema { queryType { name } } }" }, format: :json
             expect(response).to have_http_status(:success)
+          end
+        end
+
+        context "when the signed in user belongs to another organization" do
+          let(:current_user) { create(:user, :confirmed, :admin, organization: create(:organization)) }
+
+          before do
+            sign_in current_user
+          end
+
+          it "does not expose the session" do
+            post :create, params: { query: "{ session { user { id } } }" }, format: :json
+
+            parsed_response = JSON.parse(response.body)["data"]
+            expect(parsed_response).to match("session" => nil)
           end
         end
       end

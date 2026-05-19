@@ -17,7 +17,7 @@ describe "Proposals Breadcrumb" do
 
   describe "index" do
     it "shows the correct information in breadcrumb (space, component)" do
-      visit router.root_path(locale: I18n.locale)
+      visit router.root_path
 
       within ".menu-bar" do
         expect(page).to have_content(translated(component.participatory_space.title))
@@ -28,7 +28,7 @@ describe "Proposals Breadcrumb" do
 
   describe "show" do
     it "shows the correct information in breadcrumb (space, component, proposal)" do
-      visit router.proposal_path(proposal, locale: I18n.locale)
+      visit router.proposal_path(proposal)
 
       within ".menu-bar" do
         expect(page).to have_content(translated(component.participatory_space.title))
@@ -72,7 +72,7 @@ describe "Proposals Breadcrumb" do
     let(:command) { Decidim::Amendable::Accept.new(form) }
 
     before do
-      visit router.proposal_path(proposal, locale: I18n.locale)
+      visit router.proposal_path(proposal)
       command.call
       click_on "see other versions"
       click_on("Version 2 of 2")
@@ -106,7 +106,7 @@ describe "Proposals Breadcrumb" do
     end
 
     it "shows the correct information in breadcrumb (space, component, amendment)" do
-      visit router.proposal_path(emendation, locale: I18n.locale)
+      visit router.proposal_path(emendation)
 
       within ".menu-bar" do
         expect(page).to have_content(translated(component.participatory_space.title))
