@@ -188,6 +188,9 @@
           <%= t("access.set_this_space_as", scope: "decidim.assemblies.admin.assemblies.form") %>
         </legend>
         <div class="radio-group">
+          <%# i18n-tasks-use t("decidim.assemblies.admin.assemblies.form.access.options.open") %>
+          <%# i18n-tasks-use t("decidim.assemblies.admin.assemblies.form.access.options.restricted") %>
+          <%# i18n-tasks-use t("decidim.assemblies.admin.assemblies.form.access.options.transparent") %>
           <%= form.collection_radio_buttons :access_mode,
                                             Decidim::Assembly::ACCESS_MODES.keys,
                                             ->(mode) { mode },

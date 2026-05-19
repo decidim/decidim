@@ -165,6 +165,9 @@
           <%= t("access.set_this_space_as", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
         </legend>
         <div class="radio-group">
+          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.open") %>
+          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.restricted") %>
+          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.transparent") %>
           <%= form.collection_radio_buttons :access_mode,
                                             Decidim::ParticipatoryProcess::ACCESS_MODES.keys,
                                             ->(mode) { mode },
