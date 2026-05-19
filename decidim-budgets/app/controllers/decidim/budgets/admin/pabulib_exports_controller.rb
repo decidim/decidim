@@ -29,8 +29,8 @@ module Decidim
           filename = "decidim-budget-#{budget.id}-results-#{Time.zone.now.strftime("%Y-%m-%d-%H%M%S")}.pb"
           response.content_type = "text/csv"
           response.headers["Content-Disposition"] = %(attachment; filename="#{filename}")
-          response.headers["Cache-Control"] = "no-cache"
-          response.headers["Last-Modified"] = Time.now.httpdate
+          response.headers["Cache-Control"] = "no-cache, no-store"
+          response.headers["Last-Modified"] = Time.current.httpdate
 
           exporter = Pabulib::Exporter.new(@form)
           exporter.export(budget, response)

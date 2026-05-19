@@ -12,10 +12,18 @@ module Decidim
         end
 
         def export(budget, io)
+          votes_by_project =
+            Decidim::Budgets::LineItem
+            .joins(:order)
+            .where(decidim_project_id: budget.projects.select(:id))
+            .where.not(decidim_budgets_orders: { checked_out_at: nil })
+            .group(:decidim_project_id)
+            .count
+
           writer = Pabulib::Writer.new(io, create_metadata_for(budget))
           writer.write_metadata
-          writer.write_projects(budget.projects) { |project| convert_project(project) }
-          writer.write_votes(budget.orders.finished) { |order| convert_vote(order) }
+          writer.write_projects(budget.projects.order(:id)) { |project| convert_project(project, votes_by_project) }
+          writer.write_votes(budget.orders.finished.order(:checked_out_at)) { |order| convert_vote(order) }
         end
 
         private
@@ -43,23 +51,20 @@ module Decidim
             max_sum_points: config.max_sum_points,
             default_score: config.default_score
           ).tap do |metadata|
-            if budget.orders.any?
-              metadata.date_begin = budget.orders.order(:created_at).first.created_at
-              metadata.date_end = budget.orders.order(:created_at).last.created_at
+            finished_orders = budget.orders.finished
+            if finished_orders.any?
+              metadata.date_begin = finished_orders.order(:created_at).first.created_at
+              metadata.date_end = finished_orders.order(:created_at).last.created_at
             end
           end
         end
 
-        def convert_project(project)
-          votes_amount = Decidim::Budgets::LineItem.joins(:order).where(project:).where.not(
-            decidim_budgets_orders: { checked_out_at: nil }
-          ).count
-
+        def convert_project(project, votes_by_project)
           Pabulib::Project.new(
             project_id: project.id,
             name: translated_attribute(project.title),
             cost: project.budget_amount,
-            votes: votes_amount,
+            votes: votes_by_project.fetch(project.id, 0),
             selected: project.selected? ? 1 : 0
           )
         end
@@ -70,7 +75,7 @@ module Decidim
           # through the API.
           Pabulib::Vote.new(
             voter_id: order.id,
-            vote: order.projects.pluck(:id).join(",")
+            vote: order.projects.order(:id).pluck(:id).join(",")
           )
         end
       end

@@ -12,7 +12,7 @@ describe Decidim::Budgets::Pabulib::Writer do
   end
   let(:metadata) do
     Decidim::Budgets::Pabulib::Metadata.new(
-      description: "Example description",
+      description: %(Example description "with quotes"\nand another line),
       country: "Finland",
       unit: "Helsinki",
       instance: "2026",
@@ -55,7 +55,7 @@ describe Decidim::Budgets::Pabulib::Writer do
           <<~OUT
             META
             key;value
-            description;#{metadata.description}
+            #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
             instance;#{metadata.instance}
@@ -85,7 +85,7 @@ describe Decidim::Budgets::Pabulib::Writer do
           <<~OUT
             META
             key;value
-            description;#{metadata.description}
+            #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
             instance;#{metadata.instance}
@@ -114,7 +114,7 @@ describe Decidim::Budgets::Pabulib::Writer do
           <<~OUT
             META
             key;value
-            description;#{metadata.description}
+            #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
             instance;#{metadata.instance}
@@ -146,7 +146,7 @@ describe Decidim::Budgets::Pabulib::Writer do
           <<~OUT
             META
             key;value
-            description;#{metadata.description}
+            #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
             instance;#{metadata.instance}
@@ -192,7 +192,7 @@ describe Decidim::Budgets::Pabulib::Writer do
     let(:budget) { create(:budget, total_budget: 1_000_000) }
     let(:projects) do
       [
-        create(:project, :selected, title: { en: "First project" }, budget_amount: 500_000),
+        create(:project, :selected, title: { en: %(First project "with quotes"\nand a new line) }, budget_amount: 500_000),
         create(:project, :selected, title: { en: "Second project" }, budget_amount: 400_000),
         create(:project, title: { en: "Third project" }, budget_amount: 300_000),
         create(:project, :selected, title: { en: "Fourth project" }, budget_amount: 200_000),
@@ -207,7 +207,7 @@ describe Decidim::Budgets::Pabulib::Writer do
         <<~OUT
           PROJECTS
           project_id;name;cost;votes;selected
-          #{projects.map { |pr| "#{pr.id};#{pr.title["en"]};#{pr.budget_amount};#{pr.id * 5};#{pr.selected? ? 1 : 0}" }.join("\n")}
+          #{projects.map { |pr| CSV.generate_line([pr.id, pr.title["en"], pr.budget_amount, pr.id * 5, pr.selected? ? 1 : 0], col_sep: ";") }.join.strip}
         OUT
       )
     end

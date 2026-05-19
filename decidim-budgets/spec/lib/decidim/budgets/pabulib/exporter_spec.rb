@@ -83,7 +83,7 @@ describe Decidim::Budgets::Pabulib::Exporter do
           date_end;#{order.created_at.strftime("%d.%m.%Y")}
           PROJECTS
           project_id;name;cost;votes;selected
-          #{budget.projects.map { |pr| "#{pr.id};#{pr.title["en"]};#{pr.budget_amount};#{calculate_votes.call(pr)};#{pr.selected? ? 1 : 0}" }.join("\n")}
+          #{budget.projects.order(:id).map { |pr| "#{pr.id};#{pr.title["en"]};#{pr.budget_amount};#{calculate_votes.call(pr)};#{pr.selected? ? 1 : 0}" }.join("\n")}
           VOTES
           voter_id;vote
           #{order.id};#{order.projects.pluck(:id).join(",")}

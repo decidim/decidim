@@ -71,9 +71,9 @@ shared_examples "export as Pabulib" do
         <<~OUT
           META
           key;value
-          description;#{find("input#pabulib_export_description").value}
+          #{CSV.generate_line(["description", find("input#pabulib_export_description").value], col_sep: ";").strip}
           country;#{find("input#pabulib_export_country").value}
-          unit;#{find("input#pabulib_export_unit").value}
+          #{CSV.generate_line(["unit", find("input#pabulib_export_unit").value], col_sep: ";").strip}
           instance;#{find("input#pabulib_export_instance").value}
           num_projects;#{budget.projects.count}
           num_votes;0
@@ -82,7 +82,7 @@ shared_examples "export as Pabulib" do
           #{vote_type_data}
           PROJECTS
           project_id;name;cost;votes;selected
-          #{budget.projects.map { |pr| "#{pr.id};#{pr.title["en"]};#{pr.budget_amount};0;#{pr.selected? ? 1 : 0}" }.join("\n")}
+          #{budget.projects.order(:id).map { |pr| CSV.generate_line([pr.id, pr.title["en"], pr.budget_amount, 0, pr.selected? ? 1 : 0], col_sep: ";") }.join.strip}
         OUT
       )
     end

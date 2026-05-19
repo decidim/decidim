@@ -51,7 +51,11 @@ module Decidim
           io.write "#{str}\n" if str.present?
           return unless kwargs.any?
 
-          io.write "#{kwargs.map { |key, val| [key, val].join(";") }.join(";")}\n"
+          write_row(kwargs.flat_map { |key, val| [key, val] })
+        end
+
+        def write_row(values)
+          io.write CSV.generate_line(values, col_sep: ";")
         end
 
         def write_type_attributes
@@ -70,7 +74,10 @@ module Decidim
         end
 
         def write_attributes(source, *attrs)
-          attrs.each { |key| write("#{key};#{source.public_send(key)}") if source.public_send(key).present? }
+          attrs.each do |key|
+            val = source.public_send(key)
+            write_row([key, val]) if val.present?
+          end
         end
 
         def write_data(section, data)
@@ -79,8 +86,8 @@ module Decidim
           write(section)
           data.each_with_index do |item, idx|
             struct = yield item
-            write(struct.members.join(";")) if idx.zero?
-            write(struct.members.map { |key| struct.public_send(key) }.join(";"))
+            write_row(struct.members) if idx.zero?
+            write_row(struct.members.map { |key| struct.public_send(key) })
           end
         end
 
