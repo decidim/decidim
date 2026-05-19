@@ -286,13 +286,13 @@ eu:
             add_agenda_item_child: Gai-zerrendan azpi-gai bat gehitu
             agenda_item: Gai zerrendaren gaia
             agenda_item_children: Gai zerrenda azpi gaiak
-            down: Behera
-            remove: Kendu
+            down: Jaitsi
+            remove: Ezabatu
             up: Gora
           agenda_item_child:
             agenda_item_child: Gai zerrenda azpi-gaia
             down: Behera
-            remove: Kendu
+            remove: Ezabatu
             up: Gora
           create:
             invalid: Arazo bat egon da gai-zerrenda hau sortzean.
@@ -318,7 +318,7 @@ eu:
           registrations: Izen-emateak
         invite_join_meeting_mailer:
           invite:
-            decline: Gonbidapena deuseztatu
+            decline: Deuseztatu gonbidapena
             invited_you_to_join_a_meeting: "%{invited_by} k %{application} topaketan parte hartzera gonbidatu zaitu. Beheko estekan onar dezakezu gobidapena."
             join: Erregistratu '%{meeting_title}' topaketa
         invites:
