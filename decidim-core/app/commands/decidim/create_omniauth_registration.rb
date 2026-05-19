@@ -32,7 +32,7 @@ module Decidim
 
         initialize_user
         transaction do
-          @identity = create_identity
+          @identity = existing_identity || create_identity
         end
         trigger_omniauth_event
 
