@@ -62,7 +62,7 @@ module Decidim
       raise e if @create_retries >= 2
 
       @create_retries += 1
-      create_or_find_user
+      initialize_user
     end
 
     def create_or_find_user
