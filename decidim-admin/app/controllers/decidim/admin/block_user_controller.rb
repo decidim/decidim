@@ -12,11 +12,11 @@ module Decidim
 
         unless user
           flash[:alert] = I18n.t("csv_census.admin.census.index.no_user", scope: "decidim.verifications")
-          redirect_to officializations_path and return
+          redirect_to officializations_path
+        else
+          @form = form(BlockUserForm).from_model(user)
+          @form.hide = params[:hide] || false
         end
-
-        @form = form(BlockUserForm).from_model(user)
-        @form.hide = params[:hide] || false
       end
 
       def create
