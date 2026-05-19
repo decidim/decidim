@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     module Pabulib
-      # Exports a single budget to the Paulib format (.pb).
+      # Exports a single budget to the Pabulib format (.pb).
       class Exporter
         include Decidim::TranslatableAttributes
 
