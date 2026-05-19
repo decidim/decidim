@@ -9,8 +9,8 @@ module Decidim
       def serialize
         {
           id: resource.id,
-          document_id: resource.document.id,
-          document_title: resource.document.title,
+          document_id: resource.document&.id,
+          document_title: resource.document&.title,
           original_text: resource.changeset["original"]&.join("\n")&.strip,
           replacement_text: resource.changeset["replace"]&.join("\n")&.strip,
           first_node: resource.changeset["firstNode"],

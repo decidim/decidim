@@ -7,10 +7,12 @@ module Decidim
         def permissions
           return permission_action if permission_action.scope != :admin
 
+          allow! if permission_action.action == :export && permission_action.subject == :component_data
+
           return permission_action if permission_action.subject != :collaborative_text
 
           case permission_action.action
-          when :update, :read, :create, :destroy, :export
+          when :update, :read, :create, :destroy
             allow!
           end
 
