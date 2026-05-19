@@ -183,6 +183,7 @@ export default class UploadModal {
       </div>
     `
 
+    const titleInputId = `upload-title-${this.getOrdinalNumber()}`
     const titleTemplate = `
       <img src="data:," alt="" />
       <div>
@@ -191,8 +192,8 @@ export default class UploadModal {
           <span class="upload-modal__span">${escapeHtml(file.name)}</span>
         </div>
         <div>
-          <label for="${file.name}">${this.locales.title}</label>
-          <input class="sm" type="text" value="${escapeHtml(opts.title || file.name)}" id="${file.name}" />
+          <label for="${titleInputId}">${this.locales.title}</label>
+          <input class="sm" type="text" value="${escapeHtml(opts.title || file.name)}" id="${titleInputId}" />
         </div>
       </div>
     `
@@ -252,7 +253,10 @@ export default class UploadModal {
   }
 
   setProgressBar(name, value) {
-    this.uploadItems.querySelector(`[data-filename="${escapeHtml(name)}"] progress`).value = value
+    const item = Array.from(this.uploadItems.querySelectorAll("[data-filename]")).find((el) => el.dataset.filename === name);
+    if (item) {
+      item.querySelector("progress").value = value;
+    }
   }
 
   updateAddAttachmentsButton() {
