@@ -31,10 +31,7 @@ module Decidim
           return broadcast(:invalid) if attachments_invalid?
         end
 
-        if process_attachments?
-          build_attachments
-          return broadcast(:invalid) if attachments_invalid?
-        end
+        initiative = create_initiative
 
         initiative = create_initiative
 
