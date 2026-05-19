@@ -34,10 +34,7 @@ module Decidim
           return broadcast(:invalid) if attachments_invalid?
         end
 
-        if process_attachments?
-          build_attachments
-          return broadcast(:invalid) if attachments_invalid?
-        end
+         with_events(with_transaction: true) do
 
         with_events(with_transaction: true) do
           @initiative = Decidim.traceability.update!(
