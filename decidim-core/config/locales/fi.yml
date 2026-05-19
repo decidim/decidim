@@ -421,6 +421,10 @@ fi:
       withdraw:
         error: Muutoksen peruminen epäonnistui.
         success: Muutos on peruttu.
+      wizard_step_form:
+        steps:
+          '1': Luo muutos
+          '2': Julkaise muutos
     anonymous_user: Anonyymi
     application:
       document:
@@ -1336,6 +1340,7 @@ fi:
         own_activity: Oma toiminta, kuten omia ehdotuksia koskevat kommentit tai maininnat
         push_notifications: Push-ilmoitukset
         push_notifications_reminder: Mikäli haluat vastaanottaa push-ilmoituksia alustalta, sinun on sallittava ne ensin selaimesi asetuksista tälle sivustolle.
+        push_notifications_unsupported_browser: Selaimesi ei ole tuettu.
         receive_notifications_about: Haluan saada ilmoituksia
         update_notifications_settings: Tallenna muutokset
       update:
