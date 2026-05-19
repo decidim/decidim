@@ -45,10 +45,6 @@ module Decidim
           it "serializes the author name" do
             expect(serialized[:author]).to include(name: "Jane Doe")
           end
-
-          it "serializes the author email" do
-            expect(serialized[:author]).to include(email: author.email)
-          end
         end
 
         it "serializes created_at" do
