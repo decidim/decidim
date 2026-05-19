@@ -59,7 +59,7 @@ module Decidim
       # row which some Omniauth providers may allow (e.g. through a double
       # click). This should ensure that the user will not get an error even if
       # the authentication service sent the callback request several times.
-      raise e if @create_retries >= 2
+      raise if @create_retries >= 2
 
       @create_retries += 1
       initialize_user

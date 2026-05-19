@@ -285,7 +285,7 @@ module Decidim
                   end
                 end
                 # Wait for each thread to finish
-                threads.each(&:join)
+                threads.map(&:value)
               end.not_to raise_error
 
               expect(User.count).to eq(1)
