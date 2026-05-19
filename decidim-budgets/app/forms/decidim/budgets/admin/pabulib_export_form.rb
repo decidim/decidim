@@ -8,14 +8,14 @@ module Decidim
       class PabulibExportForm < Decidim::Form
         attribute :description, String
         validates :description, presence: true
-        
+
         attribute :country, String
         attribute :unit, String
         attribute :instance, String
 
         attribute :vote_type, String
         validates :vote_type, presence: true, inclusion: { in: ->(_form) { Decidim::Budgets::Pabulib::VOTE_TYPES } }
-        
+
         attribute :min_length, Integer
         attribute :max_length, Integer
 
