@@ -51,7 +51,9 @@ export default class extends Controller {
   }
 
   disconnect() {
-    this.triggeringInput.removeEventListener("change", this._changeListenerProxy)
+    if (this.triggeringInput) {
+      this.triggeringInput.removeEventListener("change", this._changeListenerProxy)
+    }
 
     Reflect.deleteProperty(this, "triggeringInput");
     Reflect.deleteProperty(this, "triggersList");
