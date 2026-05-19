@@ -361,7 +361,7 @@ eu:
           all: Guztiak
           answered: Erantzunda
           closed: Itxita
-          open: Open
+          open: Irekita
           rejected: Ez ditu lortu beharrezko sinadurak
         filter_type_values:
           all: Guztiak
@@ -399,7 +399,7 @@ eu:
           go_to_initiatives: Ekimenetara joan
           publish_helper_text_html: "Gogoan izan zure ekimena argitaratzeko teknikoki baliozkotu behar dela, administratzaile batek berrikus dezan.\n"
         previous_form:
-          back: Back
+          back: Atzera
         promotal_committee:
           individual_help_text: Zure ekimena sortu da, eta zirriborro gisa gorde da. Orain jendea gehitu behar zaio batzorde sustatzaileari.
           invite_link_title: Jendea gonbidatzeko esteka
@@ -409,7 +409,7 @@ eu:
         return_to_initiatives_button:
           return_initiatives_html: Oraingoz, joan eta <a href="%{initiatives_path}">itzuli ekimenetara</a>
         select_initiative_type:
-          back: Back
+          back: Atzera
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
           consult_existing_initiatives: Lehendik dauden ekimenak konsultatu
           continue: Jarraitu
@@ -492,7 +492,7 @@ eu:
           invalid_authorization: Ekintzari ekiteko emandako datuak ez dira bateragarriak zure baimenekin edo baimen berri bat lortu behar duzu.
           invalid_data: Zure nortasuna egiaztatzeko emandako datu pertsonal batzuk ez dira baliozkoak.
         finish:
-          back_to_initiative: Ekimenera itzuli
+          back_to_initiative: Itzuli ekimenera
           title: Ekimena sinatu duzu
         sms_phone_number:
           confirmed_data: Zure datuak baieztatu dituzu.
@@ -549,7 +549,7 @@ eu:
           most_commented: Iruzkin gehien dutenak
           most_voted: Sinadura gehien dutenak
           random: Random
-          recent: Berrienetatik zaharrenetara
+          recent: Azkenak
           recently_published: Oraintsu argitaratutakoa
         pending_initiatives:
           description: Ekimen horiek oraindik ez dira publikoak. Berrikus itzazue, mesedez, eta balioztatze teknikorako aurkez itzazue, argitara eman daitezen.
@@ -598,7 +598,7 @@ eu:
           votes_blocked: Sinadura desgaituta dago
         votes_count:
           count:
-            one: SIGNATURE
+            one: Sinadura
             other: Sinadurak
       initiatives_mailer:
         creation_subject: Zure '%{title}'ekimena sortu egin da
