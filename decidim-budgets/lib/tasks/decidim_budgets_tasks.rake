@@ -24,8 +24,8 @@ namespace :decidim do
         end
         if File.exist?(args.output_path)
           print "File already exists at the defined output path. Do you want to override it? [y/N] "
-          answer = $stdin.gets.strip
-          unless %w(y Y yes).include?(answer)
+          answer = $stdin.gets.to_s.strip.downcase
+          unless %w(y yes).include?(answer)
             puts "Export cancelled."
             next
           end
@@ -54,7 +54,7 @@ namespace :decidim do
           vote_type: "approval"
         }
         args.extras.each do |configdef|
-          key, value = configdef.split("=")
+          key, value = configdef.split("=", 2)
           config[key.to_sym] = value
         end
 
