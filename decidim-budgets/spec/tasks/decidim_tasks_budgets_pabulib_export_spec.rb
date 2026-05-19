@@ -71,8 +71,8 @@ describe "Executing Pabulib export tasks" do
           vote_type;approval
           min_length;1
           max_length;#{projects.count}
-          date_begin;#{orders.first.created_at.strftime("%d.%m.%Y")}
-          date_end;#{orders.first.created_at.strftime("%d.%m.%Y")}
+          date_begin;#{orders.map(&:created_at).min.strftime("%d.%m.%Y")}
+          date_end;#{orders.map(&:created_at).max.strftime("%d.%m.%Y")}
           PROJECTS
           project_id;name;cost;votes;selected
           #{budget.projects.order(:id).map { |pr| CSV.generate_line([pr.id, pr.title["en"], pr.budget_amount, calculate_votes.call(pr), pr.selected? ? 1 : 0], col_sep: ";") }.join.strip}
