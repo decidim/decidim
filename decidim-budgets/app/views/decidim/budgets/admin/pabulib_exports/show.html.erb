@@ -75,7 +75,7 @@
               <%= f.number_field :max_length, label: t(".fields.max_length.label", field: "max_length"), help_text: t(".fields.max_length.help", default_value: "∞") %>
             </div>
 
-            <div data-selector="vote_type" data-value="approval" class="hide">
+            <div data-controller="selective-display" data-selective-display-selector-value="#pabulib_export_vote_type" data-selective-display-triggers-value="approval" class="hide">
               <div class="row column">
                 <%= f.number_field :min_sum_cost, label: t(".fields.min_sum_cost.label", field: "min_sum_cost"), help_text: t(".fields.min_sum_cost.help", default_value: 0) %>
               </div>
@@ -84,13 +84,13 @@
               </div>
             </div>
 
-            <div data-selector="vote_type" data-value="ordinal" class="hide">
+            <div data-controller="selective-display" data-selective-display-selector-value="#pabulib_export_vote_type" data-selective-display-triggers-value="ordinal" class="hide">
               <div class="row column">
                 <%= f.select :scoring_fn, pabulib_scoring_fn_options, label: t(".fields.scoring_fn.label", field: "scoring_fn"), help_text: t(".fields.scoring_fn.help", default_value: pabulib_scoring_fn_options.first) %>
               </div>
             </div>
 
-            <div data-selector="vote_type" data-value="cumulative" class="hide">
+            <div data-controller="selective-display" data-selective-display-selector-value="#pabulib_export_vote_type" data-selective-display-triggers-value="cumulative" class="hide">
               <div class="row column">
                 <%= f.number_field :min_sum_points, label: t(".fields.min_sum_points.label", field: "min_sum_points"), help_text: t(".fields.min_sum_points.help", default_value: 0) %>
               </div>
@@ -99,7 +99,7 @@
               </div>
             </div>
 
-            <div data-selector="vote_type" data-value="cumulative scoring" class="hide">
+            <div data-controller="selective-display" data-selective-display-selector-value="#pabulib_export_vote_type" data-selective-display-triggers-value="cumulative scoring" class="hide">
               <div class="row column">
                 <%= f.number_field :min_points, label: t(".fields.min_points.label", field: "min_points"), help_text: t(".fields.min_points.help", default_value: 0) %>
               </div>
@@ -108,7 +108,7 @@
               </div>
             </div>
 
-            <div data-selector="vote_type" data-value="scoring" class="hide">
+            <div data-controller="selective-display" data-selective-display-selector-value="#pabulib_export_vote_type" data-selective-display-triggers-value="scoring" class="hide">
               <div class="row column">
                 <%= f.number_field :default_score, label: t(".fields.default_score.label", field: "default_score"), help_text: t(".fields.default_score.help", default_value: 0) %>
               </div>
@@ -127,25 +127,3 @@
     <% end %>
   </div>
 </div>
-
-<script>
-  document.addEventListener("decidim:loaded", function() {
-    var typeSelect = document.getElementById("pabulib_export_vote_type");
-    var conditionalSections = document.querySelectorAll("[data-selector='vote_type']")
-    var showTypeFields = function() {
-      conditionalSections.forEach(function(section) {
-        var target = section.dataset.value.split(" ");
-        if (target.includes(typeSelect.value)) {
-          section.classList.remove("hide");
-        } else {
-          section.classList.add("hide");
-        }
-      });
-    };
-
-    typeSelect.addEventListener("change", function() {
-      showTypeFields();
-    });
-    showTypeFields();
-  });
-</script>
