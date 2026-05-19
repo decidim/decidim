@@ -357,7 +357,7 @@ eu:
           all: Guztiak
           answered: Erantzunda
           closed: Itxita
-          open: Open
+          open: Irekita
           rejected: Ez ditu lortu beharrezko sinadurak
         filter_type_values:
           all: Guztiak
@@ -394,13 +394,13 @@ eu:
         finish_help:
           publish_helper_text: Gogoratu zure ekimena argitaratu ahal izateko eskatzen zaizun informazioa bete behar duzula, eta <strong>baliozkotze teknikora</strong> bidali, administratzaile batek berrikus dezan.
         previous_form:
-          back: Back
+          back: Atzera
           continue: Jarraitu
         promotal_committee:
           individual_help_text: Herritarren ekimen mota horrek batzorde sustatzaile bat eskatzen du, gutxienez %{committee_size} kidez osatua (ziurtatzaileak). Ekimen honetan parte hartzen duten gainerako pertsonekin partekatu behar duzu esteka hau. Zure kontaktuek esteka hau jasotzen dutenean, adierazten zaizkien urratsak jarraitu beharko dituzte.
           more_information: "(Informazio gehiago)"
         select_initiative_type:
-          back: Back
+          back: Atzera
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
           more_information: Informazio gehiago
           new: Beste ekimen bat sortu
@@ -459,7 +459,7 @@ eu:
           continue: Jarraitu
           help: Mesedez, bete hurrengo eremuak zure datu pertsonalekin ekimena sinatzeko.
         finish:
-          back_to_initiative: Ekimenera itzuli
+          back_to_initiative: Itzuli ekimenera
         sms_code:
           continue: Egiaztatu kodea eta jarraitu
           help: Egiaztatu telefonoan jasotako SMSa
@@ -518,7 +518,7 @@ eu:
           most_commented: Iruzkin gehien dutenak
           most_voted: Sinadura gehien dutenak
           random: Random
-          recent: Berrienetatik zaharrenetara
+          recent: Azkenak
           recently_published: Oraintsu argitaratutakoa
         print:
           address: Helbidea
@@ -564,7 +564,7 @@ eu:
           votes_blocked: Sinadura desgaituta dago
         votes_count:
           count:
-            one: SIGNATURE
+            one: Sinadura
             other: Sinadurak
       initiatives_mailer:
         creation_subject: Zure '%{title}'ekimena sortu egin da
