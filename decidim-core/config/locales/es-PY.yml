@@ -1547,8 +1547,8 @@ es-PY:
         members: Miembros
     participatory_spaces:
       show:
-        restricted_space: Este es un espacio restringido. Solo las miembros pueden verlo y participar.
-        transparent_space: Este es un espacio restringido pero transparente. Cualquiera puede ver el contenido, pero solo las miembros pueden participar.
+        restricted_space: Este es un espacio restringido. Solo miembros y administradoras pueden verlo y participar.
+        transparent_space: Este es un espacio transparente. Cualquiera puede ver el contenido, pero solo miembros y administradores pueden participar.
     passwords:
       update:
         error: Ha habido un problema al actualizar la contraseña.
