@@ -1396,8 +1396,8 @@ fr-CA:
         members: Membres
     participatory_spaces:
       show:
-        restricted_space: Ceci est un espace restreint. Seuls les membres peuvent le voir et y participer.
-        transparent_space: Ceci est un espace transparent. N'importe qui peut voir le contenu, mais seuls les membres peuvent participer.
+        restricted_space: Il s'agit d'un espace restreint. Seuls les membres et les administrateurs peuvent le voir et y participer.
+        transparent_space: Ceci est un espace transparent. N'importe qui peut voir le contenu, mais seuls les membres et les administrateurs peuvent participer.
     passwords:
       update:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
