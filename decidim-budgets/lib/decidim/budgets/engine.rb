@@ -78,6 +78,12 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_budgets.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Budgets::BudgetsMutationType
+        )
+      end
     end
   end
 end
