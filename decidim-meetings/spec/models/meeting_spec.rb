@@ -508,5 +508,25 @@ module Decidim::Meetings
         expect(update_jobs).to be <= Decidim::FindAndUpdateDescendantsJob::MAX_DEPTH
       end
     end
+
+    describe ".ransackable_attributes" do
+      let(:admin) { build(:user, :admin, :confirmed) }
+
+      it "allows admins to sort by start_time" do
+        expect(described_class.ransackable_attributes(admin)).to include("start_time")
+      end
+
+      it "allows admins to sort by end_time" do
+        expect(described_class.ransackable_attributes(admin)).to include("end_time")
+      end
+
+      it "allows admins to sort by closed" do
+        expect(described_class.ransackable_attributes(admin)).to include("closed")
+      end
+
+      it "allows admins to sort by translated_title" do
+        expect(described_class.ransackable_attributes(admin)).to include("translated_title")
+      end
+    end
   end
 end

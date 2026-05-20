@@ -1,6 +1,6 @@
 import { Uploader } from "src/decidim/direct_uploads/uploader";
 import icon from "src/decidim/refactor/moved/icon";
-import { escapeHtml, escapeQuotes } from "src/decidim/utilities/text";
+import { escapeHtml } from "src/decidim/utilities/text";
 
 const STATUS = {
   VALIDATED: "validated",
@@ -170,7 +170,7 @@ export default class UploadModal {
 
   createUploadItem(file, errors, opts = {}) {
     const okTemplate = `
-      <img src="data:,", role="presentation" />
+      <img src="data:," alt="" />
       <span class="upload-modal__span">${escapeHtml(file.name)}</span>
     `
 
@@ -183,16 +183,17 @@ export default class UploadModal {
       </div>
     `
 
+    const titleInputId = `upload-title-${this.getOrdinalNumber()}`
     const titleTemplate = `
-      <img src="data:," role="presentation" />
+      <img src="data:," alt="" />
       <div>
         <div>
           <label>${this.locales.filename}</label>
           <span class="upload-modal__span">${escapeHtml(file.name)}</span>
         </div>
         <div>
-          <label for="${file.name}">${this.locales.title}</label>
-          <input class="sm" type="text" value="${escapeQuotes(opts.title || file.name)}" id="${file.name}" />
+          <label for="${titleInputId}">${this.locales.title}</label>
+          <input class="sm" type="text" value="${escapeHtml(opts.title || file.name)}" id="${titleInputId}" />
         </div>
       </div>
     `
@@ -216,7 +217,7 @@ export default class UploadModal {
       ? `data-attachment-id="${opts.attachmentId}"`
       : ""
     const fullTemplate = `
-      <li ${attachmentId} data-filename="${escapeQuotes(file.name)}" data-state="${state}">
+      <li ${attachmentId} data-filename="${escapeHtml(file.name)}" data-state="${state}">
         <div data-template="${template}">
           ${content.trim()}
           <button>${this.locales.remove}</button>
@@ -252,7 +253,10 @@ export default class UploadModal {
   }
 
   setProgressBar(name, value) {
-    this.uploadItems.querySelector(`[data-filename="${escapeQuotes(name)}"] progress`).value = value
+    const item = Array.from(this.uploadItems.querySelectorAll("[data-filename]")).find((el) => el.dataset.filename === name);
+    if (item) {
+      item.querySelector("progress").value = value;
+    }
   }
 
   updateAddAttachmentsButton() {
