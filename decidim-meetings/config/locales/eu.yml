@@ -18,7 +18,7 @@ eu:
         decidim_category_id: Kategoria
         decidim_scope_id: Eremua
         description: Deskribapena
-        end_time: Bukaera ordua
+        end_time: Amaiera-ordua
         id: ID
         iframe_access_level: Iframe sarbide-maila
         iframe_embed_type: Txertatutako iframe mota
@@ -36,7 +36,7 @@ eu:
         registration_url: Izena ematearen URLa
         registrations_enabled: Izen-emateak gaituta
         reserved_slots: Erreserbatuta dauden plazak
-        start_time: Hasiera ordua
+        start_time: Hasiera-ordua
         title: Titulua
         transparent: Gardena
         type_of_meeting: Mota
@@ -102,7 +102,7 @@ eu:
         accepted_at_not_null:
           label: Onartua
           values:
-            'false': Ez onartuta
+            'false': Ez onartua
             'true': Onartua
         meetings:
           closed_at_present:
@@ -221,7 +221,7 @@ eu:
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
         meeting_created:
-          button_text: Eman izena topaketan
+          button_text: Eman izena bileran
           email_intro: '"%{resource_title}" topaketa jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" prozesua jarraitzen ari zarelako. Aureko estekan utzi ahal diozu jarraitzeari.
           email_subject: 'Beste topaketa bat gehituta honi: %{participatory_space_title}'
@@ -339,7 +339,7 @@ eu:
           responses: Erantzunak
         invite_join_meeting_mailer:
           invite:
-            decline: Deuseztatu gonbidapena
+            decline: Gonbidapena deuseztatu
             invited_you_to_join_a_meeting: "%{invited_by} k %{application} topaketan parte hartzera gonbidatu zaitu. Beheko estekan onar dezakezu gobidapena."
             join: Erregistratu '%{meeting_title}' topaketa
         invites:
