@@ -1541,10 +1541,6 @@ eu:
     participatory_space_members:
       index:
         members: Kideak
-    participatory_spaces:
-      show:
-        restricted_space: Partaidetza espazio hau murriztua da. Kideek ikusi eta parte hartu ahal izango dute soilik.
-        transparent_space: Hau espazio murriztua, baina gardena da. Edonork ikus dezake edukia, baina soilik kideek har dezakete parte.
     passwords:
       update:
         error: Arazo bat egon da pasahitza eguneratzean.
