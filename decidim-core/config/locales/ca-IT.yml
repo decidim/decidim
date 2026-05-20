@@ -1543,8 +1543,8 @@ ca-IT:
         members: Membres
     participatory_spaces:
       show:
-        restricted_space: Aquest és un espai restringit. Només les membres el poden veure i participar-hi.
-        transparent_space: Aquest és un espai restringit però transparent. Qualsevol pot veure'n el contingut, però només les membres hi poden participar.
+        restricted_space: Aquest és un espai restringit. Només membres i administradores el poden veure i participar-hi.
+        transparent_space: Aquest és un espai restringit però transparent. Qualsevol pot veure'n el contingut, però només les membres i administradores hi poden participar.
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
