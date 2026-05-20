@@ -144,6 +144,55 @@ If you have installed the `decidim-initiatives` module, you may want to add to y
 0 8 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_initiatives:notify_progress
 ----
 
+==== Spam-detection (AI) module
+
+The `decidim-ai` module ships a spam-detection engine that classifies user
+profiles and resources. The Rake tasks that drive it are *training and
+maintenance commands rather than cron jobs* — they are run once on install
+and then whenever you want to re-train the classifier. There is currently
+no scheduled task that you should add to `crontab` for spam detection; the
+classifier learns from reports made through the platform's
+"report as spam" affordances in real time.
+
+The relevant tasks, all under the `decidim:ai:spam` namespace, are:
+
+[source,console]
+----
+# Create the system user that owns the spam reports the classifier produces.
+# Run this once after installing the module.
+bundle exec rake decidim:ai:spam:create_reporting_user
+
+# Load a baseline training dataset from a file into both the user
+# classifier and the resource classifier.
+# `<file>` is a path to a dataset file shipped with `decidim-ai` (see the
+# module's docs for the exact path).
+bundle exec rake decidim:ai:spam:load_application_dataset[<file>]
+
+# Re-train the classifier from the current application database.
+# Useful periodically (e.g. weekly or monthly) after you have accumulated
+# moderation decisions — schedule this only if you want a regular
+# retrain.
+bundle exec rake decidim:ai:spam:train_application_database
+
+# Reset both classifiers (user and resource). Destructive — use with
+# care.
+bundle exec rake decidim:ai:spam:reset
+----
+
+If — and only if — you want a periodic retrain on top of live moderation
+data, you can add a single entry to your crontab, for example weekly on
+Sundays at 03:00 UTC:
+
+[source,console]
+----
+# Re-train the spam classifier from accumulated application data
+0 3 * * 0 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:ai:spam:train_application_database
+----
+
+NOTE: Refer to xref:services:aitools.adoc[AI tools] for the full
+configuration of the AI/spam module before scheduling any of these
+commands.
+
 === Further configuration
 
 We also have other guides on how to configure some extra mandatory components:
