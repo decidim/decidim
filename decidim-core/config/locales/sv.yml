@@ -1544,10 +1544,6 @@ sv:
     participatory_space_members:
       index:
         members: Medlemmar
-    participatory_spaces:
-      show:
-        restricted_space: Detta är ett begränsat rum. Bara medlemmar kan se och delta i det.
-        transparent_space: Detta är ett transparent rum. Alla kan se innehållet, men bara medlemmar kan delta.
     passwords:
       update:
         error: Det gick inte att uppdatera lösenordet.
