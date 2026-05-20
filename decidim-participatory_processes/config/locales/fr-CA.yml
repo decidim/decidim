@@ -456,6 +456,13 @@ fr-CA:
             title: Étapes
           new:
             title: Nouvelle étape du processus participatif
+        participatory_process_user_roles:
+          edit:
+            title: Mettre à jour l'administrateur du processus participatif
+          index:
+            title: Administrateurs du processus participatif
+          new:
+            title: Nouvel administrateur du processus participatif
         participatory_processes:
           edit:
             title: À propos de ce processus

@@ -834,6 +834,7 @@ cs:
           delete_reason: Důvod pro odstranění tohoto uživatele
           deleted_at: Datum a čas, kdy byl tento uživatel odstraněn
           email: E-mailová adresa tohoto uživatele
+          followers_count: Počet účastníků, kteří sledují tohoto uživatele
           following_count: Počet účastníků, které tento uživatel sleduje
           id: Jedinečný identifikátor tohoto uživatele
           invitation_accepted_at: Datum a čas, kdy byla pozvánka přijata
@@ -1181,6 +1182,7 @@ cs:
         create_with_space: "%{user_name} vytvořil %{resource_name} v %{space_name}"
         delete: "%{user_name} odstraněno %{resource_name}"
         delete_with_space: "%{user_name} smazán %{resource_name} v %{space_name}"
+        publish: "%{user_name} publikoval %{resource_name}"
         publish_with_space: "%{user_name} publikoval %{resource_name} v %{space_name}"
         unknown_action: "%{user_name} provedla nějakou akci na %{resource_name}"
         unknown_action_with_space: "%{user_name} provedlo nějakou akci na %{resource_name} v %{space_name}"

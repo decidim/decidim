@@ -100,6 +100,7 @@ Brakus
 breadcrumb
 browserstack
 bugfixing
+busques
 Butlletins
 byebug
 bytesize
@@ -296,6 +297,7 @@ EXISTINGCITY
 faketoken
 Fal
 fcell
+fcm
 FEDER
 felipe
 fhtagn
@@ -420,6 +422,7 @@ infoa
 infob
 informables
 iniciar
+iniciat
 inodes
 inputdialog
 inputname
@@ -557,6 +560,7 @@ modqule
 mongoid
 morphdom
 Mostrar
+mozilla
 mpassid
 mrc
 mri
@@ -902,6 +906,7 @@ traslatable
 trashable
 trgm
 trobada
+trobat
 tsearch
 turbolinks
 Twilio

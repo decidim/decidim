@@ -2,6 +2,7 @@ sk:
   activemodel:
     attributes:
       assembly:
+        announcement: Oznámenie
         area_id: Oblasť
         assembly_type: Typ zhromaždenia
         assembly_type_other: Iný typ zhromaždenia
@@ -16,13 +17,22 @@ sk:
         decidim_scope_id: Rozsah
         description: Popis
         developer_group: Propagačná skupina
+        document: Dokument
         domain: Doména
+        duplicate_categories: Duplikovať kategórie
+        duplicate_components: Duplikovať komponenty
+        duplicate_features: Duplikovať funkcie
         duration: Trvanie
         facebook: Facebook
         github: GitHub
+        has_members: Tento priestor má členov
         hero_image: Obrázok na hlavnej stránke
+        import_attachments: Importovať prílohy
+        import_categories: Importovať kategórie
+        import_components: Importovať komponenty
         included_at: Zahrnuté v
         instagram: Instagram
+        internal_organisation: Interná organizácia
         is_transparent: Je transparentné
         local_area: Oblasť organizácie
         meta_scope: Rozsah metadát
@@ -39,6 +49,8 @@ sk:
         subtitle: Podnadpis
         target: Kto sa zúčastňuje
         title: Názov
+        twitter: X
+        weight: Pozícia v poradí
         youtube: YouTube
       assembly_member:
         birthday: Dátum narodenia
@@ -47,11 +59,22 @@ sk:
         designation_date: Dátum konania
         full_name: Meno a priezvisko
         gender: Pohlavie
+        non_user_avatar: Avatar
         position: Pozícia
+        user_id: Používateľ alebo skupina
+        weight: Pozícia v poradí
       assembly_user_role:
         email: E-mail
         name: Meno
         role: Rola
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Neplatný typ dokumentu. Povolené sú len súbory s nasledujúcimi príponami: %{types}.'
+              empty: Dokument je prázdny
+              invalid_json: Dokument nie je platný JSON
   activerecord:
     models:
       decidim/assembly:
@@ -72,26 +95,378 @@ sk:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Naozaj chcete odstrániť toto zhromaždenie? Ak zmeníte názor, môžete ho neskôr obnoviť.
+        import_assembly: Importovať
         new_assembly: Nové zhromaždenie
+        new_assembly_user_role: Nový administrátor zhromaždenia
+        view_deleted_assemblies: Zobraziť odstránené zhromaždenia
       assemblies:
         create:
           error: Pri tvorbe nového zhromaždenia nastala chyba.
+          success: Zhromaždenie bolo úspešne vytvorené. Teraz môžete pridať komponenty a nakonfigurovať ho.
         edit:
           update: Aktualizovať
         index:
+          access_modes:
+            open: Otvorené
+            restricted: Obmedzené
+            transparent: Transparentné
           published: Zverejnené
+          unpublished: Nepublikované
         new:
           create: Vytvoriť
         update:
           error: Pri tvorbe nového zhromaždenia nastala chyba.
           success: Zhromaždenie úspešne aktualizované.
+      assemblies_duplicates:
+        create:
+          error: Vyskytol sa problém pri duplikovaní tohto zhromaždenia.
+          success: Zhromaždenie bolo úspešne duplikované.
+      assembly_duplicates:
+        new:
+          duplicate: Duplikovať
+          select: Vyberte údaje, ktoré chcete duplikovať
+      assembly_imports:
+        create:
+          error: Vyskytol sa problém pri importovaní tohto zhromaždenia.
+          success: Zhromaždenie bolo úspešne importované.
+        new:
+          import: Importovať
+          select: Vyberte údaje, ktoré chcete importovať
+      assembly_publications:
+        create:
+          error: Vyskytol sa problém pri publikovaní tohto zhromaždenia.
+          success: Zhromaždenie bolo úspešne publikované.
+        destroy:
+          error: Vyskytol sa problém pri zrušení publikovania tohto zhromaždenia.
+          success: Publikovanie zhromaždenia bolo úspešne zrušené.
+      assembly_user_roles:
+        create:
+          error: Vyskytol sa problém pri pridávaní administrátora pre toto zhromaždenie.
+          success: Administrátor bol úspešne pridaný do tohto zhromaždenia.
+        destroy:
+          success: Administrátor bol úspešne odstránený z tohto zhromaždenia.
+        edit:
+          update: Aktualizovať
+        new:
+          create: Vytvoriť
+        update:
+          error: Pri aktualizácii administrátora pre toto zhromaždenie sa vyskytol problém.
+          success: Administrátor pre toto zhromaždenie bol úspešne aktualizovaný.
+      filters:
+        ceased_date_not_null:
+          label: Ukončené
+          values:
+            'false': Neukončené
+            'true': Ukončené
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Hľadať podľa mena alebo prezývky
+      menu:
+        assemblies: Zhromaždenia
+        assemblies_submenu:
+          assembly_admins: Administrátori zhromaždenia
+          attachment_collections: Priečinky
+          attachment_files: Súbory
+          attachments: Prílohy
+          components: Komponenty
+          info: O tomto zhromaždení
+          landing_page: Rozloženie vstupnej stránky
+          members: Členovia
+          moderations: Moderovanie
+          see_assembly: Zobraziť zhromaždenie
+      models:
+        assembly:
+          fields:
+            access_mode: Režim prístupu
+            actions: Akcie
+            created_at: Vytvorené
+            promoted: Zvýraznené
+            published: Publikované
+            title: Názov
+          name: Zhromaždenie
+        assembly_member:
+          name: Člen
+          positions:
+            other: Iné
+            president: Predseda
+            secretary: Tajomník
+            vice_president: Podpredseda
+        assembly_user_role:
+          fields:
+            actions: Akcie
+            email: E-mail
+            name: Meno
+            role: Rola
+          name: Administrátor zhromaždenia
+          roles:
+            admin: Administrátor
+            collaborator: Spolupracovník
+            evaluator: Hodnotiteľ
+            moderator: Moderátor
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Všetky zhromaždenia
+      tooltips:
+        deleted_assemblies_info: Zhromaždenie je možné odstrániť, len ak má stav „Nepublikované“.
     admin_log:
+      assembly:
+        create: "%{user_name} vytvoril/a zhromaždenie %{resource_name}"
+        duplicate: "%{user_name} duplikoval/a zhromaždenie %{resource_name}"
+        export: "%{user_name} exportoval/a zhromaždenie %{resource_name}"
+        import: "%{user_name} importoval/a zhromaždenie %{resource_name}"
+        publish: "%{user_name} publikoval/a zhromaždenie %{resource_name}"
+        publish_all_members: "%{user_name} publikoval/a všetkých členov zhromaždenia %{resource_name}"
+        restore: "%{user_name} obnovil/a zhromaždenie %{resource_name}"
+        soft_delete: "%{user_name} presunul/a zhromaždenie %{resource_name} do koša"
+        unpublish: "%{user_name} zrušil/a publikovanie zhromaždenia %{resource_name}"
+        unpublish_all_members: "%{user_name} zrušil/a publikovanie všetkých členov zhromaždenia %{resource_name}"
+        update: "%{user_name} aktualizoval/a zhromaždenie %{resource_name}"
+      assembly_member:
+        create: "%{user_name} vytvoril/a člena %{resource_name} v zhromaždení %{space_name}"
+        delete: "%{user_name} odstránil/a člena %{resource_name} zo zhromaždenia %{space_name}"
+        update: "%{user_name} aktualizoval/a člena %{resource_name} v zhromaždení %{space_name}"
+      assembly_setting:
+        update: "%{user_name} aktualizoval/a nastavenia zhromaždení"
       assembly_type:
         create: "%{user_name} vytvoril %{resource_name} nový typ zhromaždenia"
+        delete: "%{user_name} odstránil/a typ zhromaždenia %{resource_name}"
         publish: "%{user_name} vytvoril nový typ zhromaždenia %{resource_name}"
         unpublish: "%{user_name} zrušil publikovanie typu zhromaždenia %{resource_name}"
         update: "%{user_name} aktualizoval typ zhromaždenia %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} pozval/a %{resource_name} do zhromaždenia %{space_name}"
+        delete: "%{user_name} odstránil/a účastníka %{resource_name} zo zhromaždenia %{space_name}"
+        update: "%{user_name} zmenil/a rolu používateľa %{resource_name} v zhromaždení %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          edit:
+            title: O tomto zhromaždení
+          form:
+            access:
+              label: Prístup
+              options:
+                open: Každý môže vidieť zhromaždenie a zúčastniť sa.
+                restricted: Iba členovia môžu vidieť a zúčastniť sa.
+                transparent: Každý môže vidieť zhromaždenie, ale zúčastniť sa môžu iba členovia.
+              set_this_space_as: Nastaviť tento priestor ako
+            define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
+            duration: Trvanie
+            duration_help: Ak je trvanie tohto zhromaždenia obmedzené, vyberte dátum ukončenia. V opačnom prípade sa bude zobrazovať ako neurčité.
+            has_members_help: Budete môcť vytvárať a publikovať členov
+            images: Obrázky
+            included_at_help: Vyberte dátum, kedy bolo toto zhromaždenie pridané na platformu. Nemusí to byť nevyhnutne rovnaký dátum ako dátum vytvorenia.
+            metadata: Metadáta
+            no_taxonomy_filters_found: Nenašli sa žiadne taxonomické filtre.
+            other: Iné
+            select_a_created_by: Vyberte tvorcu
+            select_parent_assembly: Vyberte nadradené zhromaždenie
+            slug_help_html: 'URL slugy sa používajú na generovanie URL adries, ktoré odkazujú na toto zhromaždenie. Akceptujú sa iba písmená, čísla a pomlčky a musia začínať písmenom. Príklad: %{url}'
+            social_handlers: Sociálne siete
+            taxonomies: Taxonómie
+            title: Všeobecné informácie
+            visibility: Viditeľnosť
+          index:
+            title: Zhromaždenia
+          manage_trash:
+            title: Odstránené zhromaždenia
+          new:
+            title: Nové zhromaždenie
+        assembly_duplicates:
+          form:
+            slug_help_html: 'URL slugy sa používajú na generovanie URL adries, ktoré odkazujú na toto zhromaždenie. Akceptujú sa iba písmená, čísla a pomlčky a musia začínať písmenom. Príklad: %{url}'
+          new:
+            title: Duplikovať zhromaždenie
+        assembly_imports:
+          form:
+            document_legend: Pridať dokument
+            slug_help_html: 'URL slugy sa používajú na generovanie URL adries, ktoré odkazujú na toto zhromaždenie. Akceptujú sa iba písmená, čísla a pomlčky a musia začínať písmenom. Príklad: %{url}'
+          new:
+            title: Importovať zhromaždenie
+        assembly_members:
+          form:
+            explanation: 'Pokyny pre obrázok:'
+            image_guide: Najlepšie obrázok na výšku, ktorý neobsahuje žiadny text.
+            non_user_avatar_help: Pred zverejnením osôb ako členov by ste mali získať ich súhlas.
+        assembly_user_roles:
+          edit:
+            title: Aktualizovať administrátora zhromaždenia
+          index:
+            title: Administrátori zhromaždenia
+          new:
+            title: Nový administrátor zhromaždenia
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximálny počet prvkov na zobrazenie
+        imports:
+          attachment_error: Prílohu „%{title}“ sa nepodarilo importovať (%{error}).
+          hero_image_error: Hlavný obrázok sa nepodarilo importovať (%{error}).
+        new_import:
+          accepted_types:
+            json: JSON
+          help_html: Táto funkcia importu vám umožňuje vytvoriť nové zhromaždenie z exportovaného súboru JSON. Zhromaždenie môžete exportovať z inej organizácie alebo z tej istej organizácie. Importované zhromaždenie bude obsahovať svoje nastavenia, komponenty a prílohy (ak sú vybraté).
+      assemblies:
+        description:
+          area_name: Oblasť
+          closing_date: Dátum ukončenia
+          created_by: Vytvoril/a
+          creation_date: Dátum vytvorenia
+          data: Údaje zhromaždenia
+          developer_group: Skupina propagátorov
+          duration: Trvanie
+          included_at: Zahrnuté dňa
+          indefinite_duration: Na neurčito
+          local_area: Oblasť organizácie
+          meta_scope: Rozsah
+          participatory_scope: O čom sa rozhoduje
+          participatory_structure: Ako sa rozhoduje
+          target: Kto sa zúčastňuje
+          title: O tomto zhromaždení
+        filters:
+          names:
+            all: Všetky
+          type: Typ
+        show:
+          title: O tomto zhromaždení
+      content_blocks:
+        children_assemblies:
+          name: Zhromaždenia
+        dates_metadata:
+          name: Metadáta dátumov
+        extra_data:
+          name: Typ a trvanie
+        highlighted_assemblies:
+          name: Zvýraznené zhromaždenia
+        related_assemblies:
+          name: Súvisiace zhromaždenia
+      created_by:
+        city_council: Mestské zastupiteľstvo
+        others: Ostatné
+        public: Verejnosť
+      filter:
+        all: Všetky typy
+        commission: Komisia
+        consultative_advisory: Konzultačné/Poradné
+        executive: Výkonné
+        government: Vláda
+        help: 'Zobraziť:'
+        others: Ostatné
+        participatory: Participatívne
+        working_group: Pracovná skupina
+      index:
+        title: Zhromaždenia
+      last_activity:
+        new_assembly: 'Nové zhromaždenie:'
+      pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Aktívne zhromaždenia
+            see_all_spaces: Zobraziť všetky zhromaždenia
+      show:
+        duration: Trvanie
+        social_networks_title: Navštívte zhromaždenie na
+    download_your_data:
+      show:
+        assemblies: Export zhromaždení
     events:
       assemblies:
         create_assembly_member:
           email_intro: Administrátor zo skupiny <a href="%{resource_url}">%{resource_name} </a> vás pridal do skupiny.
+          email_outro: Toto upozornenie ste dostali, pretože ste boli pozvaní do zhromaždenia. Pozrite si <a href="%{resource_url}">stránku zhromaždenia</a> a zapojte sa!
+          email_subject: Boli ste pozvaní stať sa členom zhromaždenia %{resource_name}!
+          notification_title: Boli ste zaregistrovaní ako člen zhromaždenia <a href="%{resource_path}">%{resource_name}</a>. Pozrite si <a href="%{resource_path}">stránku zhromaždenia</a> a zapojte sa!
+      assembly:
+        role_assigned:
+          email_intro: Boli ste priradení ako %{role} pre zhromaždenie „%{resource_title}“.
+          email_outro: Toto upozornenie ste dostali, pretože ste %{role} zhromaždenia „%{resource_title}“.
+          email_subject: Boli ste priradení ako %{role} pre „%{resource_title}“.
+          notification_title: Boli ste priradení ako %{role} pre zhromaždenie <a href="%{resource_url}">%{resource_title}</a>.
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p><strong>Zhromaždenie</strong> je skupina členov organizácie, ktorí sa pravidelne stretávajú, aby prijímali rozhodnutia o konkrétnej oblasti alebo rozsahu pôsobnosti organizácie.</p> <p>Zhromaždenia organizujú stretnutia, niektoré sú neverejné a niektoré verejné. Ak sú verejné, je možné sa na nich zúčastniť (napríklad: účasť, ak to kapacita dovoľuje, pridávanie bodov do programu alebo pripomienkovanie návrhov a rozhodnutí prijatých týmto orgánom).</p> <p>Príklady: Valné zhromaždenie (ktoré sa schádza raz ročne, aby hlasovaním určilo hlavné smery činnosti organizácie, ako aj jej výkonné orgány), poradný výbor pre rovnosť (ktorý sa schádza každé dva mesiace, aby predkladal návrhy na zlepšenie rodových vzťahov v organizácii), hodnotiaca komisia (ktorá sa schádza každý mesiac, aby monitorovala proces) alebo garančný orgán (ktorý zhromažďuje incidenty, zneužitia alebo návrhy na zlepšenie rozhodovacích postupov) sú všetko príklady zhromaždení.</p>\n"
+          page: "<p><strong>Zhromaždenie</strong> je skupina členov organizácie, ktorí sa pravidelne stretávajú, aby prijímali rozhodnutia o konkrétnej oblasti alebo rozsahu pôsobnosti organizácie.</p> <p>Zhromaždenia organizujú stretnutia, niektoré sú neverejné a niektoré verejné. Ak sú verejné, je možné sa na nich zúčastniť (napríklad: účasť, ak to kapacita dovoľuje, pridávanie bodov do programu alebo pripomienkovanie návrhov a rozhodnutí prijatých týmto orgánom).</p> <p>Príklady: Valné zhromaždenie (ktoré sa schádza raz ročne, aby hlasovaním určilo hlavné smery činnosti organizácie, ako aj jej výkonné orgány), poradný výbor pre rovnosť (ktorý sa schádza každé dva mesiace, aby predkladal návrhy na zlepšenie rodových vzťahov v organizácii), hodnotiaca komisia (ktorá sa schádza každý mesiac, aby monitorovala proces) alebo garančný orgán (ktorý zhromažďuje incidenty, zneužitia alebo návrhy na zlepšenie rozhodovacích postupov) sú všetko príklady zhromaždení.</p>\n"
+          title: Čo sú zhromaždenia?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Zhromaždenie sa nenašlo v databáze (ID: %{id})'
+    menu:
+      assemblies: Zhromaždenia
+    open_data:
+      help:
+        assemblies:
+          access_mode: Režim prístupu. Či je zhromaždenie otvorené, obmedzené alebo transparentné.
+          area: Oblasť zhromaždenia
+          assembly_type: Typ zhromaždenia
+          closing_date: Dátum ukončenia zhromaždenia
+          closing_date_reason: Dôvod ukončenia zhromaždenia
+          component_settings: Nastavenia komponentov zhromaždenia
+          composition: Zloženie zhromaždenia
+          created_at: Dátum vytvorenia tohto priestoru
+          created_by: Kto vytvoril toto zhromaždenie
+          created_by_other: Iný tvorca zhromaždenia
+          creation_date: Dátum vytvorenia tohto zhromaždenia
+          decidim_scope_id: Rozsah zhromaždenia
+          description: Dlhý popis zhromaždenia
+          developer_group: Skupina propagátorov zhromaždenia
+          duration: Trvanie zhromaždenia
+          facebook_handler: Identifikátor sociálnej siete pre Facebook
+          follows_count: Počet používateľov sledujúcich tento priestor
+          github_handler: Identifikátor sociálnej siete pre GitHub
+          id: Jedinečný identifikátor tohto zhromaždenia
+          included_at: Dátum, kedy bolo zhromaždenie zahrnuté
+          instagram_handler: Identifikátor sociálnej siete pre Instagram
+          internal_organisation: Vnútorná organizácia tohto zhromaždenia
+          is_transparent: Či je zhromaždenie transparentné alebo nie
+          local_area: Miestna oblasť zhromaždenia
+          meta_scope: Metadáta rozsahu zhromaždenia
+          participatory_scope: Participatívny rozsah zhromaždenia
+          participatory_structure: Participatívna štruktúra zhromaždenia
+          promoted: Či je zhromaždenie propagované alebo nie
+          published_at: Dátum zverejnenia tohto priestoru
+          purpose_of_action: Účel činnosti zhromaždenia
+          reference: Jedinečná referencia priestoru
+          remote_banner_image_url: URL adresa obrázka bannera zhromaždenia
+          remote_hero_image_url: URL adresa hlavného obrázka zhromaždenia
+          scope: Rozsah zhromaždenia
+          scopes_enabled: Či sú rozsahy povolené alebo nie
+          short_description: Krátky popis zhromaždenia
+          slug: Slug zhromaždenia (používa sa na identifikačné účely, pre URL)
+          special_features: Aké špeciálne funkcie má toto zhromaždenie
+          subtitle: Podtitul zhromaždenia
+          target: Cieľová skupina zhromaždenia
+          taxonomies: Taxonómie projektu
+          title: Názov zhromaždenia
+          twitter_handler: Používateľské meno pre Twitter
+          updated_at: Dátum poslednej aktualizácie tohto priestoru
+          url: URL adresa priestoru
+          youtube_handler: Používateľské meno pre YouTube
+    participatory_processes:
+      show:
+        related_assemblies: Súvisiace zhromaždenia
+    statistics:
+      assemblies_count: Zhromaždenia
+      assemblies_count_tooltip: Počet verejných zhromaždení, na ktorých sa prijímajú kolektívne rozhodnutia.
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Viac informácií
+          take_part: Zúčastniť sa
+        index:
+          promoted_assemblies: Zvýraznené zhromaždenia
+        metadata:
+          children_item:
+            one: "%{count} zhromaždenie"
+            few: "%{count} zhromaždenia"
+            many: "%{count} zhromaždení"
+            other: "%{count} zhromaždení"
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} zhromaždenie"
+            few: "%{count} zhromaždenia"
+            many: "%{count} zhromaždení"
+            other: "%{count} zhromaždení"
+      assembly_navigation:
+        assembly_member_menu_item: Členovia

@@ -7,7 +7,7 @@
       <span class="cursor-pointer truncate flex items-center gap-x-2">
         <span aria-hidden="true"><%= icon "arrow-left-s-line" %></span>
         <% if previous_item %>
-          <% item_label = decidim_escape_translated(previous_item[:label]) %>
+          <% item_label = translated_attribute(previous_item[:label]) %>
           <% if previous_item[:url].present? && !is_active_link?(previous_item[:url], :exclusive) %>
             <%= link_to(item_label, previous_item[:url], class: "menu-bar__breadcrumb-item") %>
           <% else %>

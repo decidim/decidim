@@ -8,7 +8,7 @@ module Decidim
 
       required_scopes "api:read", "admin:read", "admin:write"
 
-      argument :attributes, BudgetAttributes, description: "input attributes to create a budget", required: true
+      argument :attributes, BudgetAttributes, description: "Input attributes for creating a budget", required: true
 
       def resolve(attributes:)
         params = extract_from(attributes)

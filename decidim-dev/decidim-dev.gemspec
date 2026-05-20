@@ -45,7 +45,7 @@ Gem::Specification.new do |s|
   s.add_dependency "i18n-tasks", "~> 1.0"
   s.add_dependency "nokogiri", "~> 1.16", ">= 1.16.2"
   s.add_dependency "parallel_tests", ">= 4.2", "< 6.0"
-  s.add_dependency "puma", ">= 6.5", "< 8.0"
+  s.add_dependency "puma", ">= 6.5", "< 9.0"
   s.add_dependency "rails-controller-testing", "~> 1.0"
   s.add_dependency "rspec", "~> 3.12"
   s.add_dependency "rspec-cells", "~> 0.3.7"

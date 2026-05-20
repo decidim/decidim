@@ -18,6 +18,17 @@ sk:
             announcement: Oznámenie
           step:
             announcement: Oznámenie
+    open_data:
+      help:
+        pages:
+          body: Telo stránky
+          component: Komponent, do ktorého stránka patrí
+          created_at: Dátum vytvorenia tejto stránky
+          id: Jedinečný identifikátor tejto stránky
+          participatory_space: Do ktorého priestoru (napr. participatívny proces alebo zhromaždenie) táto stránka patrí
+          title: Názov stránky
+          updated_at: Dátum poslednej aktualizácie tejto stránky
+          url: URL adresa tejto stránky
     pages:
       admin:
         models:
@@ -30,3 +41,5 @@ sk:
           update:
             invalid: Vyskytol sa problém s ukladaním stránky.
             success: Stránka úspešne uložená.
+      show:
+        empty: Na tejto stránke zatiaľ nie je žiadny obsah.

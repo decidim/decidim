@@ -141,7 +141,7 @@ module Decidim
       #
       # Valid formats:
       # - Fully Qualified Domain Names (FQDN): example.org, sub.example.org, my-site.example.org
-      # - Localhost: localhost (common for development)
+      # - One word hostnames in development: localhost, my-machine
       # - IPv4 addresses: 127.0.0.1, 192.168.1.1
       # - IPv6 addresses: ::1, 2001:db8::1, [::1]
       #
@@ -163,9 +163,6 @@ module Decidim
           # Each label: alphanumeric start/end, alphanumerics and hyphens inside, max 63 chars.
           (?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,}
           |
-          # Localhost: common development hostname.
-          localhost
-          |
           # IPv4: four octets (0-255 each).
           (?:(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)
           |
@@ -175,10 +172,12 @@ module Decidim
         \z
       }x
 
+      SINGLE_LABEL_HOST_FORMAT_REGEX = /\A[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\z/
+
       def validate_host_format
         return if host.blank?
 
-        return if host.match?(HOST_FORMAT_REGEX)
+        return if valid_host_format?(host)
 
         errors.add(:host, :invalid)
       end
@@ -187,11 +186,18 @@ module Decidim
         return if secondary_hosts.blank?
 
         clean_secondary_hosts.each do |secondary_host|
-          next if secondary_host.match?(HOST_FORMAT_REGEX)
+          next if valid_host_format?(secondary_host)
 
           errors.add(:secondary_hosts, :invalid)
           break
         end
+      end
+
+      def valid_host_format?(value)
+        return true if value.match?(HOST_FORMAT_REGEX)
+        return false unless Rails.env.development?
+
+        value.match?(SINGLE_LABEL_HOST_FORMAT_REGEX)
       end
     end
   end

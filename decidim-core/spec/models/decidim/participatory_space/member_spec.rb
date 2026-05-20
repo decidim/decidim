@@ -33,5 +33,13 @@ module Decidim::ParticipatorySpace
 
       it { is_expected.not_to be_valid }
     end
+
+    describe ".ransackable_attributes" do
+      let(:admin) { build(:user, :admin, :confirmed) }
+
+      it "allows admins to sort by published" do
+        expect(described_class.ransackable_attributes(admin)).to include("published")
+      end
+    end
   end
 end

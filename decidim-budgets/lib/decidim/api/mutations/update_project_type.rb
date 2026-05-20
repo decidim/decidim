@@ -3,12 +3,12 @@
 module Decidim
   module Budgets
     class UpdateProjectType < Decidim::Api::Types::BaseMutation
-      description "Update a project"
+      description "Updates a project"
       type Decidim::Budgets::ProjectType
 
       required_scopes "api:read", "admin:read", "admin:write"
 
-      argument :attributes, ProjectAttributes, description: "input attributes to update a project", required: true
+      argument :attributes, ProjectAttributes, description: "Input attributes to update a project", required: true
       argument :id, GraphQL::Types::ID, "The ID of the project", required: true
 
       def resolve(attributes:, id:)

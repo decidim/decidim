@@ -7,7 +7,7 @@ module Decidim
 
       required_scopes "api:read", "api:write"
 
-      description "soft-deletes a resource"
+      description "Soft-deletes a resource: moves it to the 'trash', so it can be restored"
 
       argument :id, GraphQL::Types::ID, "The ID of the resource", required: true
 

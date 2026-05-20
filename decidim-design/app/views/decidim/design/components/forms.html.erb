@@ -1,3 +1,6 @@
+<%= append_javascript_pack_tag "decidim_emoji" %>
+<%= append_javascript_pack_tag "decidim_date_picker" %>
+
 <% content_for :heading do %>
   <%= cell "decidim/announcement", t(".header_alert"), callout_class: "alert" %>
   <%= t(".title") %>

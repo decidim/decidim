@@ -77,7 +77,7 @@ describe "Editor" do
           <meta name="csrf-token" content="abcdef0123456789">
           #{meta_context}
           #{stylesheet_pack_tag "decidim_core", media: "all"}
-          #{javascript_pack_tag "decidim_core", defer: false}
+          #{javascript_pack_tag "decidim_core", "decidim_controllers", defer: false}
         </head>
         <body>
           <header>
