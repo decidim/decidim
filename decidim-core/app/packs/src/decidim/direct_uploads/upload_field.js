@@ -1,5 +1,5 @@
 import UploadModal from "src/decidim/direct_uploads/upload_modal";
-import { escapeHtml, escapeQuotes } from "src/decidim/utilities/text";
+import { escapeHtml } from "src/decidim/utilities/text";
 
 const updateModalTitle = (modal) => {
   if (modal.uploadItems.children.length === 0) {
@@ -67,7 +67,7 @@ const updateActiveUploads = (modal) => {
       const titleField = isMultiple
         ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
         : `${modal.options.resourceName}[${modal.options.addAttribute}][title]`
-      hidden += `<input type="hidden" name="${titleField}" value="${escapeQuotes(titleValue)}" />`
+      hidden += `<input type="hidden" name="${titleField}" value="${escapeHtml(titleValue)}" />`
 
       title = titleValue
     }
@@ -77,8 +77,8 @@ const updateActiveUploads = (modal) => {
       : `data-hidden-field="${file.hiddenField}"`
 
     const template = `
-      <div ${attachmentIdOrHiddenField} data-filename="${escapeQuotes(file.name)}" data-title="${escapeQuotes(title)}">
-        ${(/image/).test(file.type) && "<div><img src=\"data:,\" role=\"presentation\" /></div>" || ""}
+      <div ${attachmentIdOrHiddenField} data-filename="${escapeHtml(file.name)}" data-title="${escapeHtml(title)}">
+        ${(/image/).test(file.type) && "<div><img src=\"data:,\" alt=\"\" /></div>" || ""}
         <p>${escapeHtml(title)}</p>
         ${hidden}
       </div>
