@@ -47,12 +47,18 @@ module Decidim
       # If not (i.e. voting is disabled or finished), then link to the resource itself
       def link_to_resource_or_vote(css_class)
         if voting_open?
-          action_authorized_link_to "vote",
-                                    budget_projects_path(budget, start_voting: true),
-                                    resource: budget,
-                                    data: { "redirect-url": budget_projects_path(budget) },
-                                    class: css_class do
-            yield
+          if current_user
+            action_authorized_link_to :vote,
+                                      budget_projects_path(budget, start_voting: true),
+                                      resource: budget,
+                                      class: css_class,
+                                      data: { "redirect-url": budget_projects_path(budget) } do
+              yield
+            end
+          else
+            link_to budget_projects_path(budget, start_voting: true), class: css_class do
+              yield
+            end
           end
         else
           link_to resource_path, class: css_class do
