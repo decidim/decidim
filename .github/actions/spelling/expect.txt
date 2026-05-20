@@ -27,6 +27,7 @@ adjunt
 admins
 adoc
 AFFERO
+affordance
 AGPL
 aitools
 Ajuntament
@@ -34,6 +35,7 @@ Ajuntamentde
 alabs
 alecslupu
 Alexandru
+alexrlpz
 amagat
 amd
 amendables
