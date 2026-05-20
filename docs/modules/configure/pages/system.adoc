@@ -143,3 +143,90 @@ In the case where you have an external provider configured (like the `Omniauth s
 Finally, you can also Edit an organization, although some fields cannot be changed as some contents in the database depends on them.
 
 For accessing your newly created Organization, you can do it by going to the domain or subdomain that you have configured in `Host`.
+
+== Delete an organization
+
+The System Panel intentionally **does not** expose a button to delete an organization.
+A Decidim organization is the root of a large tree of records — users, participatory
+spaces (processes, assemblies, conferences, initiatives, consultations), components,
+attachments, taxonomies, moderation traces, audit logs, etc. Deleting all of those
+records correctly requires running a database-level script that walks the entire
+tree and handles a number of validation, search-index, and `PaperTrail` callbacks
+along the way. There is no way to undo this operation; once an organization is
+deleted, all of its data is gone.
+
+If you really need to delete an organization (for example to remove a stale demo
+instance from a multi-tenant install, or after migrating its data elsewhere),
+the community currently maintains a Ruby script that does the deletion in the
+right order: link:https://gist.github.com/alexrlpz/90bcdb6304d68d21360d1ffa9c9bd1c7[gist.github.com/alexrlpz/90bcdb6304d68d21360d1ffa9c9bd1c7].
+The script is run with `rails runner` and takes the organization's host as a
+single argument.
+
+WARNING: **This is a destructive, irreversible operation.** Always take a full
+database backup before running the script (`pg_dump`, snapshot, or whatever
+backup tooling your platform offers), and run it first against a copy of your
+database — never directly on production. Read the script before running it so
+you understand exactly which tables it will touch on your installation.
+
+=== Steps
+
+. Identify the `host` of the organization you want to delete. This is the value
+of the `Host` field in the System panel (for example `decidim.example.org`).
+This is what uniquely identifies the organization in the database.
+. Take a fresh database backup.
+. Download the script to your Decidim application root (the directory that
+contains `bin/rails`):
++
+[source, console]
+....
+curl -L -o destroy_organization.rb \
+  https://gist.githubusercontent.com/alexrlpz/90bcdb6304d68d21360d1ffa9c9bd1c7/raw/destroy_organization.rb
+....
+. Review the script's contents. It deletes data from many tables — including
+users, participatory spaces, components, moderations, action logs, and
+`PaperTrail` versions — for the organization matching the given host. If you
+maintain custom modules with their own organization-scoped tables, you may
+need to extend the script to clean those up too.
+. Run the script with `rails runner` against your **production-like backup
+database** first, passing the host as the argument. The script asks for an
+interactive `YES` confirmation before deleting anything:
++
+[source, console]
+....
+bin/rails runner destroy_organization.rb decidim.example.org
+....
+. If the dry-run on the backup succeeds and the resulting database looks
+correct, only then run the same command against the real database.
+
+=== What the script does, at a high level
+
+The script is intentionally long because Decidim is a large platform; at a
+high level it:
+
+* monkey-patches a handful of models (e.g. `Decidim::StaticPage`,
+`Decidim::ActionLog`, `Decidim::Comments::Comment`,
+`Decidim::Meetings::Meeting`, `Decidim::ConferenceMeeting`,
+`Decidim::Initiative`) so default static pages, action logs, and
+searchable resources do not block deletion;
+* disables `PaperTrail` for the duration of the run so deleting traceable
+entities does not create yet more rows in `PaperTrail::Version`;
+* finds the target organization by `host` and walks every participatory
+space it owns (processes, assemblies, conferences, initiatives,
+consultations), destroying each space's components, attachments,
+categorizations, moderations, and `PaperTrail` versions;
+* deletes per-user data (amendments, coauthorships, badges, impersonation
+logs, reports, blocks, authorizations, moderations, comments, …) for
+every user that belongs to the organization, then the users themselves;
+* deletes the organization-scoped “system” tables that are not cleaned up by
+ActiveRecord callbacks (areas, scopes, OAuth applications, content blocks,
+identities, metrics, share tokens, short links, static pages, user groups,
+…);
+* finally destroys the `Decidim::Organization` record itself.
+
+NOTE: There is an open discussion to surface a clearer "this cannot be deleted
+from the UI on purpose, here is how to do it from the console" affordance in
+the System Panel (see https://github.com/decidim/decidim/issues/15825[issue #15825])
+and previous related issues
+https://github.com/decidim/decidim/issues/9291[#9291] and
+https://github.com/decidim/decidim/issues/15610[#15610]. Once those land, this
+page will be updated accordingly.
