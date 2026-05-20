@@ -166,7 +166,9 @@ bundle exec rake decidim:ai:spam:create_reporting_user
 # classifier and the resource classifier.
 # `<file>` is a path to a dataset file shipped with `decidim-ai` (see the
 # module's docs for the exact path).
-bundle exec rake decidim:ai:spam:load_application_dataset[<file>]
+# NOTE: keep the brackets quoted — zsh and some other shells try to glob
+# inside `[…]` and will fail otherwise.
+bundle exec rake "decidim:ai:spam:load_application_dataset[<file>]"
 
 # Re-train the classifier from the current application database.
 # Useful periodically (e.g. weekly or monthly) after you have accumulated
@@ -181,11 +183,14 @@ bundle exec rake decidim:ai:spam:reset
 
 If — and only if — you want a periodic retrain on top of live moderation
 data, you can add a single entry to your crontab, for example weekly on
-Sundays at 03:00 UTC:
+Sundays at 03:00 UTC. By default `cron` runs in the system's local
+timezone, so the `CRON_TZ=UTC` line below pins the schedule to UTC
+regardless of where the server lives:
 
 [source,console]
 ----
 # Re-train the spam classifier from accumulated application data
+CRON_TZ=UTC
 0 3 * * 0 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:ai:spam:train_application_database
 ----
 
