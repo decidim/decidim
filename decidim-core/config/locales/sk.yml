@@ -1584,10 +1584,6 @@ sk:
     participatory_space_members:
       index:
         members: Členovia
-    participatory_spaces:
-      show:
-        restricted_space: Toto je vyhradený priestor. Iba členovia ho môžu zobraziť a zúčastniť sa.
-        transparent_space: Toto je transparentný priestor. Ktokoľvek môže zobraziť obsah, ale zúčastniť sa môžu iba členovia.
     passwords:
       update:
         error: Pri aktualizácii hesla sa vyskytol problém.
