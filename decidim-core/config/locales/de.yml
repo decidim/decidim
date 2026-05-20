@@ -1517,10 +1517,6 @@ de:
     participatory_space_members:
       index:
         members: Mitglieder
-    participatory_spaces:
-      show:
-        restricted_space: Dies ist ein eingeschränkter Bereich. Nur Mitglieder können ihn sehen und teilnehmen.
-        transparent_space: Dies ist ein öffentlich sichtbarer Bereich. Alle können die Inhalte einsehen, aber nur Mitglieder können teilnehmen.
     passwords:
       update:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
