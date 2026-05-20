@@ -55,8 +55,9 @@ module Decidim
     # @return [Rack::Test::UploadedFile] A new uploaded test file instance
     def self.uploaded_file(path, content_type, binary: false)
       original_filename = File.basename(path)
+      extension = File.extname(original_filename)
 
-      tempfile = Tempfile.open([original_filename, File.extname(original_filename)])
+      tempfile = Tempfile.open([File.basename(original_filename, extension), extension])
       tempfile.binmode if binary
       tempfile.write(binary ? File.binread(path) : File.read(path))
       tempfile.rewind
