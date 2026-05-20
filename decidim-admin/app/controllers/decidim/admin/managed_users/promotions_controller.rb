@@ -33,7 +33,7 @@ module Decidim
         private
 
         def user
-          @user ||= current_organization.users.managed.find(params[:impersonatable_user_id])
+          @user ||= current_organization.users.managed.find(params.expect(:impersonatable_user_id))
         end
       end
     end

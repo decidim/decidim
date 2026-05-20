@@ -88,7 +88,7 @@ module Decidim
       end
 
       def root_taxonomy
-        @root_taxonomy ||= Taxonomy.roots.find(params[:taxonomy_id])
+        @root_taxonomy ||= Taxonomy.roots.find(params.expect(:taxonomy_id))
       end
 
       def taxonomy_filter

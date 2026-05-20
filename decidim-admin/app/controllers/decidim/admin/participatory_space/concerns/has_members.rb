@@ -156,7 +156,7 @@ module Decidim
             end
 
             def set_member
-              @member = collection.find(params[:id])
+              @member = collection.find(params.expect(:id))
             end
           end
         end
