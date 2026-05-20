@@ -56,12 +56,14 @@ module Decidim
     def self.uploaded_file(path, content_type, binary: false)
       original_filename = File.basename(path)
 
-      content = File.read(path)
       tempfile = Tempfile.open([original_filename, File.extname(original_filename)])
-      tempfile.write(content)
+      tempfile.binmode if binary
+      tempfile.write(binary ? File.binread(path) : File.read(path))
       tempfile.rewind
 
       Rack::Test::UploadedFile.new(tempfile, content_type, binary, original_filename:)
+    ensure
+      tempfile&.close!
     end
 
     # Public: add rake tasks
