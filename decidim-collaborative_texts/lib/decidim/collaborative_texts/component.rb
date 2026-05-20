@@ -60,6 +60,7 @@ Decidim.register_component(:collaborative_texts) do |component|
     exports.collection do |component, _user, resource_id|
       documents_constraint = { decidim_component_id: component.id }
       documents_constraint[:id] = resource_id if resource_id.present?
+
       Decidim::CollaborativeTexts::Suggestion
         .joins(:document)
         .where(decidim_collaborative_texts_documents: documents_constraint)

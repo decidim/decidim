@@ -45,6 +45,14 @@ module Decidim
           it "serializes the author name" do
             expect(serialized[:author]).to include(name: "Jane Doe")
           end
+
+          it "serializes the author id" do
+            expect(serialized[:author]).to include(id: author.id)
+          end
+
+          it "serializes the author profile url" do
+            expect(serialized[:author]).to include(url: profile_url(author.nickname))
+          end
         end
 
         it "serializes created_at" do
@@ -53,6 +61,14 @@ module Decidim
 
         it "serializes updated_at" do
           expect(serialized).to include(updated_at: suggestion.updated_at)
+        end
+
+        def profile_url(nickname)
+          Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:, port: Capybara.server_port)
+        end
+
+        def host
+          suggestion.organization.host
         end
       end
     end
