@@ -72,6 +72,21 @@ module Decidim
             expect(response).to have_http_status(:success)
           end
         end
+
+        context "when the signed in user belongs to another organization" do
+          let(:current_user) { create(:user, :confirmed, :admin, organization: create(:organization)) }
+
+          before do
+            sign_in current_user
+          end
+
+          it "does not expose the session" do
+            post :create, params: { query: "{ session { user { id } } }" }, format: :json
+
+            parsed_response = JSON.parse(response.body)["data"]
+            expect(parsed_response).to match("session" => nil)
+          end
+        end
       end
     end
   end

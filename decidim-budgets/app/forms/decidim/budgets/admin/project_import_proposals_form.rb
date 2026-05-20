@@ -14,6 +14,7 @@ module Decidim
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
         validates :default_budget, presence: true, numericality: { greater_than: 0 }
+        validate :valid_states
 
         def states
           super.compact_blank
@@ -35,6 +36,18 @@ module Decidim
 
         def budget
           @budget ||= context[:budget]
+        end
+
+        private
+
+        def valid_states
+          return unless origin_component
+          return if states.empty?
+
+          valid_tokens = Decidim::Proposals::ProposalState.where(component: origin_component).pluck(:token) + ["not_answered"]
+          return if states.all? { |state| valid_tokens.include?(state) }
+
+          errors.add(:states, :invalid)
         end
       end
     end

@@ -68,7 +68,7 @@ eu:
         post:
           fields:
             author: Egilea
-            body: Testua
+            body: Gorputza
             official_blog_post: Argitalpen ofiziala
             published_at: Argitaratze-data
             taxonomies: Taxonomiak
@@ -87,7 +87,7 @@ eu:
           title: Izenburua
         index:
           count:
-            one: "Argitalpen %{count}"
+            one: "%{count} argitalpen"
             other: "%{count} argitalpen"
           empty: Oraindik ez dago argitalpenik.
           new_post: Beste sarrera bat
@@ -130,7 +130,7 @@ eu:
         post_created:
           email_intro: '"%{resource_title}" argitalpena jarraitzen ari zaren "%{participatory_space_title}" espazioan argitaratu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
-          email_subject: Argitalpen berria %{participatory_space_title} espazioan
+          email_subject: Beste argitalpen bat %{participatory_space_title} espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> sarrera %{participatory_space_title} argitaratu da
     open_data:
       help:

@@ -1340,6 +1340,7 @@ ca-IT:
         own_activity: La meva pròpia activitat, com quan algú fa comentaris a la meva proposta o em menciona
         push_notifications: Notificacions emergents
         push_notifications_reminder: Per rebre notificacions de la plataforma, primer les has de permetre a la configuració del teu navegador.
+        push_notifications_unsupported_browser: El navegador no és compatible.
         receive_notifications_about: Vull rebre notificacions
         update_notifications_settings: Guardar canvis
       update:

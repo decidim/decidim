@@ -257,7 +257,14 @@ describe "Admin manages newsletters" do
 
           within(".newsletter_deliver") do
             choose("Send to verified users")
-            select_verification_type(verification_type_first.name) # Одна авторизация передается как строка
+          end
+
+          within "#recipients_count" do
+            expect(page).to have_content(0)
+          end
+
+          within(".newsletter_deliver") do
+            select_verification_type(verification_type_first.name) # One authorization is passed as a string
           end
 
           within "#recipients_count" do
@@ -293,7 +300,14 @@ describe "Admin manages newsletters" do
 
           within(".newsletter_deliver") do
             choose("Send to verified users")
-            select_verification_type([verification_type_first.name, verification_type_last.name]) # Несколько авторизаций передаются как массив
+          end
+
+          within "#recipients_count" do
+            expect(page).to have_content(0)
+          end
+
+          within(".newsletter_deliver") do
+            select_verification_type([verification_type_first.name, verification_type_last.name]) # Multiple authorizations are passed as an array
           end
 
           within "#recipients_count" do

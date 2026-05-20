@@ -25,7 +25,7 @@ describe "Accessibility tool" do
         <head>
           <title>Accessibility Test</title>
           #{stylesheet_pack_tag "decidim_core"}
-          #{javascript_pack_tag "decidim_core", "decidim_dev", defer: false}
+          #{javascript_pack_tag "decidim_core", "decidim_controllers", "decidim_dev", defer: false}
           #{stylesheet_pack_tag "decidim_dev"}
         </head>
         <body>
