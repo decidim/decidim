@@ -7,11 +7,8 @@ import { initializeCommentsDropdown } from "../../decidim/comments/comments_drop
 
 // Add comment card for mobile
 const addCommentMobile = function (addCommentCard) {
-  const smBreakpoint = parseInt(screens.sm.replace("px", ""), 10);
-  if (window.matchMedia(`(max-width: ${smBreakpoint}px)`).matches) {
-    addCommentCard.classList.remove("hidden");
-    addCommentCard.classList.add("fullscreen");
-  }
+  addCommentCard.classList.remove("hidden");
+  addCommentCard.classList.add("fullscreen");
 };
 
 const closeAddComment = function (addCommentCard) {
