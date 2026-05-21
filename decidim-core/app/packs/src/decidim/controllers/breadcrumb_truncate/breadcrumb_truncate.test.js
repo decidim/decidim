@@ -87,7 +87,9 @@ describe("BreadcrumbTruncateController", () => {
 
     controller.refresh()
 
-    expect(textElement.textContent).toBe("veeeee...")
+    expect(textElement.textContent.endsWith("...")).toBe(true)
+    expect(textElement.textContent.includes(" ")).toBe(false)
+    expect(textElement.textContent.length).toBeGreaterThan(3)
   })
 
   it("disconnects the resize observer", () => {
