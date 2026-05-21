@@ -85,7 +85,7 @@ module Decidim
         end
 
         def status
-          @status ||= statuses.find(params[:id])
+          @status ||= statuses.find(params.expect(:id))
         end
       end
     end

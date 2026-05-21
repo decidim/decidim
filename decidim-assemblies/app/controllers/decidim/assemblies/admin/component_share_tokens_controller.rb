@@ -10,7 +10,7 @@ module Decidim
         include Concerns::AssemblyAdmin
 
         def resource
-          @resource ||= current_participatory_space.components.find(params[:component_id])
+          @resource ||= current_participatory_space.components.find(params.expect(:component_id))
         end
       end
     end

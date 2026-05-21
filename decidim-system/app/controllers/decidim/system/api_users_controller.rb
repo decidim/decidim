@@ -65,11 +65,11 @@ module Decidim
       def api_user
         return unless params[:id]
 
-        @api_user ||= ::Decidim::Api::ApiUser.find(params[:id])
+        @api_user ||= ::Decidim::Api::ApiUser.find(params.expect(:id))
       end
 
       def organization
-        ::Decidim::Organization.find(params[:admin][:organization])
+        ::Decidim::Organization.find(params.expect(admin: [:organization])[:organization])
       end
     end
   end

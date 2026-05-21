@@ -108,7 +108,7 @@ module Decidim
         alias current_participatory_space current_participatory_process
 
         def participatory_process_params
-          { id: params[:slug] }.merge(params[:participatory_process].to_unsafe_h)
+          { id: params.fetch(:slug) }.merge(params.fetch(:participatory_process).to_unsafe_h)
         end
       end
     end

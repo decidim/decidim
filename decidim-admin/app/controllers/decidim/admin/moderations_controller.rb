@@ -16,7 +16,7 @@ module Decidim
 
       def show
         enforce_permission_to :read, authorization_scope
-        @moderation = collection.find(params[:id])
+        @moderation = collection.find(params.expect(:id))
       end
 
       def unreport
@@ -110,7 +110,7 @@ module Decidim
       end
 
       def reportable
-        @reportable ||= participatory_space_moderations.find(params[:id]).reportable
+        @reportable ||= participatory_space_moderations.find(params.expect(:id)).reportable
       end
 
       def selected_moderations

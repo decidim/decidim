@@ -20,7 +20,7 @@ module Decidim
     let(:blob) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
     let(:form_class) { "Decidim::Dev::DummyForm" }
 
-    let(:parsed_response) { JSON.parse(response.body) }
+    let(:parsed_response) { response.parsed_body }
 
     describe "#create" do
       it "validates" do

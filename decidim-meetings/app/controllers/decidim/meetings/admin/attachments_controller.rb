@@ -18,7 +18,7 @@ module Decidim
         end
 
         def meeting
-          @meeting ||= meetings.find(params[:meeting_id])
+          @meeting ||= meetings.find(params.expect(:meeting_id))
         end
       end
     end

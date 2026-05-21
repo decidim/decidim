@@ -47,9 +47,11 @@ module Decidim
       let!(:page1) { create(:static_page, title: { ca: "Bcde", en: "Afgh" }) }
       let!(:page2) { create(:static_page, title: { ca: "Abcd", en: "Defg" }) }
 
-      before { I18n.locale = :ca }
-
-      after { I18n.locale = :en }
+      around do |example|
+        I18n.with_locale(:ca) do
+          example.run
+        end
+      end
 
       it "orders by the title in the current locale" do
         expect(described_class.where.not(slug: "terms-of-service").sorted_by_i18n_title).to eq [page2, page1]

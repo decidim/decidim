@@ -33,7 +33,7 @@ module Decidim
       it "executes a query" do
         post :create, params: { query: "{ organization { name { translations { locale text } } } }" }
 
-        parsed_response = JSON.parse(response.body)["data"]
+        parsed_response = response.parsed_body["data"]
         expect(parsed_response["organization"]["name"]["translations"]).to include("locale" => "en", "text" => translated(organization.name))
       end
 
@@ -83,7 +83,7 @@ module Decidim
           it "does not expose the session" do
             post :create, params: { query: "{ session { user { id } } }" }, format: :json
 
-            parsed_response = JSON.parse(response.body)["data"]
+            parsed_response = response.parsed_body["data"]
             expect(parsed_response).to match("session" => nil)
           end
         end
