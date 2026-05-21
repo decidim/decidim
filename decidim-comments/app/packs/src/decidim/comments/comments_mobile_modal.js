@@ -2,7 +2,6 @@
 // 2. Handles dropdown menus: Dynamically updates button content based on user selection, hides selected items, and manages dropdown visibility.
 // This creates a responsive, interactive comment interface with mobile-friendly design and dynamic user group selection.
 
-import { screens } from "tailwindcss/defaultTheme"
 import { initializeCommentsDropdown } from "../../decidim/comments/comments_dropdown";
 
 // Add comment card for mobile
