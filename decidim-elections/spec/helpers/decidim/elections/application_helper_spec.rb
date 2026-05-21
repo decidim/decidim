@@ -9,7 +9,6 @@ module Decidim
 
       before do
         allow(helper).to receive(:current_organization).and_return(organization)
-        allow(helper).to receive(:rich_text_editor_in_public_views?).and_return(true)
       end
 
       describe "#question_description" do
@@ -24,14 +23,14 @@ module Decidim
         context "when the description has plain text" do
           let(:question) { create(:election_question, description: { "en" => "More info" }) }
 
-          it { is_expected.to eq("More info") }
+          it { is_expected.to eq('<div class="rich-text-display">More info</div>') }
         end
 
         context "when the description includes markup" do
           let(:question) { build(:election_question, description: { "en" => "<strong>Intro</strong>" }) }
 
           it "keeps the allowed tags" do
-            expect(rendered_description).to eq("<strong>Intro</strong>")
+            expect(rendered_description).to eq('<div class="rich-text-display"><strong>Intro</strong></div>')
           end
         end
 
