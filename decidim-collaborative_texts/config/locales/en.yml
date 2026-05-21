@@ -79,6 +79,8 @@ en:
           update_settings:
             invalid: There was a problem updating the document.
             success: Document successfully updated.
+        exports:
+          document_suggestions: Suggestions
         index:
           published: Published
           unpublished: Unpublished

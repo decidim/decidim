@@ -45,8 +45,7 @@ module Decidim
         @closed_initiatives ||= search_with(filter_params.merge(with_any_state: %w(closed)))
 
         if @closed_initiatives.result.present?
-          params[:filter] ||= {}
-          params[:filter][:with_any_state] = %w(closed)
+          params.fetch(:filter, {}).merge!(with_any_state: %w(closed))
           @forced_closed_initiatives = true
 
           @search = @closed_initiatives
@@ -136,7 +135,7 @@ module Decidim
       def current_participatory_space
         return unless params["slug"]
 
-        @current_participatory_space ||= Initiative.find(id_from_slug(params[:slug]))
+        @current_participatory_space ||= Initiative.find(id_from_slug(params.expect(:slug)))
       end
 
       def current_participatory_space_manifest
