@@ -117,9 +117,9 @@ module Decidim
 
         # Writes the attributes from the given source object.
         #
-        # @example Writes "foo;foovalue\nbar;barvalue"
+        # @example Writes "foo;foo_value\nbar;bar_value"
         #   Example = Struct.new(:foo, :bar)
-        #   object = Example.new(foo: "foovalue", bar: "barvalue")
+        #   object = Example.new(foo: "foo_value", bar: "bar_value")
         #   writer.write_attributes(object, :foo, :bar)
         #
         # @param source [Object] The source object that publicly responds to
