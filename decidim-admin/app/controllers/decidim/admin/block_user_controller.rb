@@ -10,11 +10,7 @@ module Decidim
       def new
         enforce_permission_to :block, :admin_user
 
-        unless user
-          flash[:alert] = I18n.t("csv_census.admin.census.index.no_user", scope: "decidim.verifications")
-          redirect_to officializations_path
-          return
-        end
+        return redirect_to(officializations_path, alert: I18n.t("officializations.block.no_user", scope: "decidim.admin")) unless user
 
         @form = form(BlockUserForm).from_model(user)
         @form.hide = params[:hide] || false
