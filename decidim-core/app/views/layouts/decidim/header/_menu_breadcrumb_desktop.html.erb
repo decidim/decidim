@@ -27,7 +27,7 @@
     <% end %>
   <% else %>
     <%# This block is executed if the condition is false %>
-    <%= content_tag :span, class: [*trigger_classes, "no-interactive"].join(" "), data: (truncatable ? { breadcrumb_truncate_target: "item" } : {}), tabindex: "0", "aria-current": (item[:active] ? "page" : nil) do %>
+    <%= content_tag :span, class: [*trigger_classes, "no-interactive"].join(" "), data: (truncatable ? { breadcrumb_truncate_target: "item" } : {}), "aria-current": (item[:active] ? "page" : nil) do %>
       <% if truncatable %>
         <span class="menu-bar__breadcrumb-desktop__label--truncatable">
           <span class="menu-bar__breadcrumb-text" data-breadcrumb-truncate-target="text"><%= item_label %></span>
