@@ -105,7 +105,7 @@ describe "Admin imports participatory process" do
       end
     end
     let(:uploaded_file) do
-      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+      Decidim::Dev.uploaded_file(json_file.path, "application/json")
     end
 
     before do
@@ -158,7 +158,7 @@ describe "Admin imports participatory process" do
       end
     end
     let(:uploaded_file) do
-      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+      Decidim::Dev.uploaded_file(json_file.path, "application/json")
     end
 
     before do
@@ -211,7 +211,7 @@ describe "Admin imports participatory process" do
       end
     end
     let(:uploaded_file) do
-      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+      Decidim::Dev.uploaded_file(json_file.path, "application/json")
     end
 
     before do
