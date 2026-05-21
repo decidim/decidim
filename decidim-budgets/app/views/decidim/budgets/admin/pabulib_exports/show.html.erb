@@ -1,6 +1,6 @@
 <% add_decidim_page_title(t(".title", budget: translated_attribute(budget.title))) %>
 
-<% format_link = link_to(t(".explanation_link_label_format"), "https://pabulib.org/format", target: "_blank") %>
+<% format_link = link_to(t(".explanation_link_label_format"), "https://pabulib.org/format", target: "_blank", rel: "noopener noreferrer") %>
 
 <div class="item_show__header">
   <h1 class="item_show__header-title">
@@ -30,8 +30,8 @@
             <%= t(
               ".explanation_html",
               format_link:,
-              equal_shares_link: link_to(t(".explanation_link_label_equal_shares"), "https://equalshares.net/", target: "_blank"),
-              tool_link: link_to(t(".explanation_link_label_equal_shares_tool"), "https://equalshares.net/tools/compute/", target: "_blank")
+              equal_shares_link: link_to(t(".explanation_link_label_equal_shares"), "https://equalshares.net/", target: "_blank", rel: "noopener noreferrer"),
+              tool_link: link_to(t(".explanation_link_label_equal_shares_tool"), "https://equalshares.net/tools/compute/", target: "_blank", rel: "noopener noreferrer")
             ) %>
           </div>
         </div>
