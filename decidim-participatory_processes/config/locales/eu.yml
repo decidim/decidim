@@ -214,7 +214,7 @@ eu:
           error: Arazo bat egon da partaidetza-prozesu honen faseak berrantolatzean.
         update:
           error: Arazo bat egon da partaidetza-prozesu honan fase hau eguneratzean.
-          success: Partaidetza-prozesuaren fasea behar bezala eguneratu da.
+          success: Prozesu parte-hartzailearen fasea zuzen eguneratua.
       participatory_process_user_roles:
         create:
           error: Arazo bat egon da partaidetza-prozesu honetarako parte-hartzailea gehitzean.
@@ -519,6 +519,8 @@ eu:
               label: Sarbidea
               options:
                 open: Edonork ikus dezake prozesua eta parte hartu.
+                restricted: Soilik kideek eta administratzaileek ikusi eta hartu ahal dute parte.
+                transparent: Edonork ikus dezake prozesua, baina soilik kideek eta administratzaileek har dezakete parte.
               set_this_space_as: Partaidetza-espazio hau ondorengo izenarekin ezarri
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
