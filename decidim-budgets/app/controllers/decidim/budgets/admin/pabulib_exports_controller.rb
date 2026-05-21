@@ -8,6 +8,7 @@ module Decidim
       class PabulibExportsController < Admin::ApplicationController
         helper_method :pabulib_vote_type_options, :pabulib_scoring_fn_options
 
+        # Initializes the show view.
         def show
           @form = form(PabulibExportForm).from_params(
             description: "#{translated_attribute(current_organization.name)} - #{translated_attribute(current_component.name)} - #{translated_attribute(budget.title)}",
@@ -19,6 +20,7 @@ module Decidim
           )
         end
 
+        # Handles the form submission.
         def create
           @form = form(PabulibExportForm).from_params(params)
           unless @form.valid?
@@ -40,12 +42,18 @@ module Decidim
 
         private
 
+        # Returns the pabulib vote type options for the select tag helper.
+        #
+        # @return [Array<Array<String>>]
         def pabulib_vote_type_options
           Pabulib::VOTE_TYPES.map do |type|
             [t(type, scope: "activemodel.attributes.pabulib_vote_types", type:), type]
           end
         end
 
+        # Returns the pabulib scoring functions for the select tag helper.
+        #
+        # @return [Array<String>]
         def pabulib_scoring_fn_options
           Pabulib::SCORING_FNS
         end

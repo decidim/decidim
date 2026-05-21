@@ -6,6 +6,7 @@ module Decidim
       autoload :Exporter, "decidim/budgets/pabulib/exporter"
       autoload :Writer, "decidim/budgets/pabulib/writer"
 
+      # For the structs and constants below, see https://pabulib.org/format.
       VOTE_TYPES = %w(approval ordinal cumulative scoring).freeze
       SCORING_FNS = %w(Borda).freeze
       Metadata = Struct.new(
