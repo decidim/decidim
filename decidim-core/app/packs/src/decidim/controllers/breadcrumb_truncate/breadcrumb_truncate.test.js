@@ -71,7 +71,7 @@ describe("BreadcrumbTruncateController", () => {
   })
 
   it("falls back to character truncation for a single long word", () => {
-    textElement.textContent = "Supercalifragilisticexpialidocious"
+    textElement.textContent = "veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery"
     controller.originalTexts = [textElement.textContent]
 
     Reflect.defineProperty(element, "clientWidth", { configurable: true, value: 100 })
@@ -84,7 +84,7 @@ describe("BreadcrumbTruncateController", () => {
 
     controller.refresh()
 
-    expect(textElement.textContent).toBe("Superc...")
+    expect(textElement.textContent).toBe("veeeee...")
   })
 
   it("disconnects the resize observer", () => {
@@ -164,7 +164,7 @@ describe("BreadcrumbTruncateController", () => {
     document.body.innerHTML = `
       <nav data-controller="breadcrumb-truncate">
         <span data-breadcrumb-truncate-target="item">
-          <span data-breadcrumb-truncate-target="text">Proyecto de Orden Foral por la que se modifica la Orden Foral</span>
+          <span data-breadcrumb-truncate-target="text">This is a very long title for a participatory process for a test</span>
         </span>
         <span data-breadcrumb-truncate-target="item">
           <span data-breadcrumb-truncate-target="text">Debates</span>
