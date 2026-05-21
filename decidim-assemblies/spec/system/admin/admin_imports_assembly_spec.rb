@@ -101,7 +101,7 @@ describe "Admin imports assembly" do
       end
     end
     let(:uploaded_file) do
-      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+      Decidim::Dev.uploaded_file(json_file.path, "application/json")
     end
 
     before do
@@ -150,7 +150,7 @@ describe "Admin imports assembly" do
       end
     end
     let(:uploaded_file) do
-      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+      Decidim::Dev.uploaded_file(json_file.path, "application/json")
     end
     let(:hero_image_url) { "http://example.com/#{"a" * 5000}.jpg" }
 
@@ -200,7 +200,7 @@ describe "Admin imports assembly" do
       end
     end
     let(:uploaded_file) do
-      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+      Decidim::Dev.uploaded_file(json_file.path, "application/json")
     end
 
     before do
