@@ -93,6 +93,20 @@ describe("BreadcrumbTruncateController", () => {
     expect(resizeObserverMock.disconnect).toHaveBeenCalled()
   })
 
+  it("does nothing when no text target exists", async () => {
+    document.body.innerHTML = "<nav data-controller=\"breadcrumb-truncate\"></nav>"
+
+    application.stop()
+    application = Application.start()
+    application.register("breadcrumb-truncate", BreadcrumbTruncateController)
+
+    element = document.querySelector('[data-controller="breadcrumb-truncate"]')
+
+    await startController()
+
+    expect(() => controller.refresh()).not.toThrow()
+  })
+
   it("prioritizes truncating the widest item in group mode", async () => {
     document.body.innerHTML = `
       <nav data-controller="breadcrumb-truncate">

@@ -26,6 +26,10 @@ export default class extends Controller {
   }
 
   refresh() {
+    if (!this.hasTextTarget) {
+      return
+    }
+
     if (this.hasItemTarget) {
       this.refreshGroup()
       return
