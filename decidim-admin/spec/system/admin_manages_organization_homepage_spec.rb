@@ -112,7 +112,7 @@ describe "Admin manages organization homepage" do
         expect(page.html).to include("city2.jpeg")
       end
 
-      it "displays ths 'Resolution is too large' error message when image is invalid" do
+      it "displays the 'Resolution is too large' error message when image is invalid" do
         visit decidim_admin.edit_organization_homepage_content_block_path(content_block)
 
         dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("8001x4000.png"))
