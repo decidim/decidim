@@ -1079,7 +1079,7 @@ eu:
       value: Balioa
     followers:
       followers_count:
-        one: "%{count} jarraitzaile"
+        one: "Jarraitzaile %{count}"
         other: "%{count} jarraitzaile"
       no_followers: Oraindik ez dago jarraitzailerik.
     following:
