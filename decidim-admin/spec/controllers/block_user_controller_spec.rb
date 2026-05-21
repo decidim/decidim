@@ -71,6 +71,7 @@ module Decidim
             expect(subject).to render_template(:new)
           end
         end
+
         context "when user is not found" do
           it "sets flash alert message and redirects back" do
             get :new, params: { user_id: 999_999_999 }
