@@ -114,14 +114,14 @@ ca:
       menu:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
-          landing_page: Disposició de la pàgina de destinació
+          landing_page: Disposició de la pàgina d'inici
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
           components: Components
-          landing_page: Disposició de la pàgina de destinació
+          landing_page: Disposició de la pàgina d'inici
           members: Membres
           moderations: Moderacions
           process_admins: Administradores del procés
