@@ -71,8 +71,8 @@ module Decidim
           ).tap do |metadata|
             finished_orders = budget.orders.finished
             if finished_orders.any?
-              metadata.date_begin = finished_orders.order(:created_at).first.created_at
-              metadata.date_end = finished_orders.order(:created_at).last.created_at
+              metadata.date_begin = finished_orders.order(:checked_out_at).first.checked_out_at
+              metadata.date_end = finished_orders.order(:checked_out_at).last.checked_out_at
             end
           end
         end

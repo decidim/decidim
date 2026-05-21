@@ -65,7 +65,7 @@ module Decidim
             it "returns the correct status code" do
               post :create, params: { budget_id: budget.id }
 
-              expect(response).to have_http_status(:ok)
+              expect(response).to have_http_status(:unprocessable_content)
               expect(response.content_type).to eq("text/html; charset=utf-8")
               expect(flash[:alert]).not_to be_empty
             end
