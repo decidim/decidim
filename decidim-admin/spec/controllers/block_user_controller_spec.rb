@@ -77,7 +77,7 @@ module Decidim
             get :new, params: { user_id: 999_999_999 }
 
             expect(flash[:alert]).to be_present
-            expect(flash[:alert]).to eq(I18n.t("csv_census.admin.census.index.no_user", scope: "decidim.verifications"))
+            expect(flash[:alert]).to eq("No user found")
             expect(response).to redirect_to(officializations_path)
           end
         end
