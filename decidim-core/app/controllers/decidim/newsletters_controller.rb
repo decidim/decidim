@@ -44,7 +44,7 @@ module Decidim
     end
 
     def newsletter
-      @newsletter ||= collection.find(params[:id])
+      @newsletter ||= collection.find(params.expect(:id))
     end
 
     private

@@ -139,7 +139,7 @@ describe "Admin manages assemblies" do
           click_on translated(assembly3.title)
         end
 
-        expect(page).to have_checked_field("assembly_access_mode_transparent")
+        expect(page).to have_css('input[name="assembly[access_mode]"][value="transparent"]:checked', visible: :all)
       end
     end
   end

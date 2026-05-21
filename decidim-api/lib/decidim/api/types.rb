@@ -11,6 +11,7 @@ module Decidim
     autoload :RequiredScopes, "decidim/api/required_scopes"
     autoload :GraphqlPermissions, "decidim/api/graphql_permissions"
     autoload :ComponentMutationType, "decidim/api/component_mutation_type"
+    autoload :SoftDeleteResourceType, "decidim/api/soft_delete_resource_type"
 
     module Errors
       autoload :IntrospectionDisabledError, "decidim/api/errors/introspection_disabled_error"

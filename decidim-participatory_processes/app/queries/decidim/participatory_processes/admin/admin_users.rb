@@ -43,7 +43,7 @@ module Decidim
         def processes_user_admins
           Decidim::User.where(
             id: Decidim::ParticipatoryProcessUserRole.where(participatory_process: processes, role: :admin)
-                .select(:decidim_user_id)
+                                                     .select(:decidim_user_id)
           )
         end
 
