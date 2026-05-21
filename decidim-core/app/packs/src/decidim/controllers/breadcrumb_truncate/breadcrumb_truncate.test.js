@@ -8,6 +8,7 @@ describe("BreadcrumbTruncateController", () => {
   let element = null
   let textElement = null
   let resizeObserverMock = null
+  let originalResizeObserver = null
 
   const startController = () => new Promise((resolve) => {
     setTimeout(() => {
@@ -17,6 +18,7 @@ describe("BreadcrumbTruncateController", () => {
   })
 
   beforeEach(() => {
+    originalResizeObserver = window.ResizeObserver
     resizeObserverMock = {
       observe: jest.fn(),
       disconnect: jest.fn()
@@ -42,6 +44,7 @@ describe("BreadcrumbTruncateController", () => {
   afterEach(() => {
     application.stop()
     document.body.innerHTML = ""
+    window.ResizeObserver = originalResizeObserver
     jest.restoreAllMocks()
   })
 
