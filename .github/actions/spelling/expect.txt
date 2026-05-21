@@ -904,6 +904,7 @@ traslatable
 trashable
 trgm
 trobada
+truncatable
 tsearch
 turbolinks
 Twilio
