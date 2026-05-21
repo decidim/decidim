@@ -118,23 +118,7 @@ module Decidim
         end
       end
 
-      context "with admin user" do
-        it_behaves_like "manage proposal answer mutation examples" do
-          let!(:user_type) { :admin }
-        end
-      end
-
-      context "with normal user" do
-        it "throws Decidim::Api::Errors::MutationNotAuthorizedError" do
-          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-        end
-      end
-
-      context "with api_user" do
-        it_behaves_like "manage proposal answer mutation examples" do
-          let!(:user_type) { :api_user }
-        end
-      end
+      it_behaves_like "admin API access checks", "manage proposal answer mutation examples"
     end
   end
 end

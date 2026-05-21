@@ -81,7 +81,7 @@ module Decidim
       def tab_menu_name = :admin_static_pages_menu
 
       def topic
-        @topic ||= topics.find(params[:id])
+        @topic ||= topics.find(params.expect(:id))
       end
 
       def topics

@@ -20,6 +20,11 @@ module Decidim
           RequestStore.store[:toggle_machine_translations] = toggle_translations
         end
 
+        def validate_multiple_locales(attributes, field)
+          locales = (attributes.to_h.fetch(field, {}).presence || {}).keys.collect(&:to_s) - available_locales
+          raise I18n::InvalidLocale, "#{locales.join(", ")} are not valid locales" if locales.size.positive?
+        end
+
         def current_user
           context[:current_user]
         end
