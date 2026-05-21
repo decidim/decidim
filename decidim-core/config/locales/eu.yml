@@ -1014,7 +1014,7 @@ eu:
       value: Balioa
     followers:
       followers_count:
-        one: "%{count} jarraitzaile"
+        one: "Jarraitzaile %{count}"
         other: "%{count} jarraitzaile"
       no_followers: Oraindik ez dago jarraitzailerik.
     following:
@@ -1542,6 +1542,10 @@ eu:
     participatory_space_members:
       index:
         members: Kideak
+    participatory_spaces:
+      show:
+        restricted_space: Hau espazio murriztua da. Soilik kideek eta administratzaileek ikusi eta har dezakete parte.
+        transparent_space: Hau espazio gardena da. Edonork ikus dezake edukia, baina soilik kideek eta administratzaoileek har dezakete parte.
     passwords:
       update:
         error: Arazo bat egon da pasahitza eguneratzean.
