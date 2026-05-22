@@ -1,5 +1,5 @@
 <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-  <li role="presentatino">
+  <li role="presentation">
     <%= link_to edit_meeting_path(meeting), class: "button button__sm button__text button__text-secondary", role: "menuitem"  do %>
       <span><%= t("edit_meeting", scope: "decidim.meetings.meetings.meeting") %></span>
       <%= icon "pencil-line" %>
