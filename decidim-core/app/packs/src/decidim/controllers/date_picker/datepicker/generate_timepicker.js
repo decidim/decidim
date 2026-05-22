@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 /* eslint max-lines: ["error", 310] */
 
 import icon from "src/decidim/refactor/moved/icon"

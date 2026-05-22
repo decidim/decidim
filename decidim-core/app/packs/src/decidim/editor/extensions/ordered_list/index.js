@@ -98,9 +98,9 @@ export default OrderedList.extend({
    * For further details, see:
    * https://github.com/tailwindlabs/tailwindcss-typography/issues/296
    *
-   * @param {Object} attributes The attributes object containing the
-   *   `HTMLAttributes` key for the attributes to be rendered
-   * @returns {Array} The node definition array as defined by TipTap
+   * @param {attributes} object - The attributes object containing the
+   *    `HTMLAttributes` key for the attributes to be rendered
+   * @returns {Array} array - The node definition array as defined by TipTap
    */
   renderHTML({ HTMLAttributes }) {
     const { start, ...attributesWithoutStart } = HTMLAttributes

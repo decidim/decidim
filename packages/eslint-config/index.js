@@ -7,13 +7,16 @@ module.exports = {
   },
   extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
   parserOptions: {
+    ecmaVersion: "latest",
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
       jsx: true
     },
     sourceType: "module"
   },
-  plugins: ["react",
+  plugins: [
+    "react",
+    "jsdoc",
     "no-relative-import-paths"
   ],
   globals: {
@@ -225,7 +228,16 @@ module.exports = {
     "quote-props": "off",
     quotes: ["error", "double", { avoidEscape: true }],
     radix: "error",
-    "require-jsdoc": "error",
+    "jsdoc/require-jsdoc": "error",
+    "jsdoc/require-param": "error",
+    "jsdoc/require-param-type": "error",
+    "jsdoc/require-returns": "error",
+    "jsdoc/require-returns-type": "error",
+    "jsdoc/check-tag-names": [2, {definedTags: ["jest-environment"]}],
+    "jsdoc/check-alignment": "warn",
+    "jsdoc/require-description": "warn",
+    "jsdoc/require-param-description": "warn",
+    "jsdoc/require-returns-description": "warn",
     "rest-spread-spacing": "error",
     semi: "off",
     "semi-spacing": "error",
@@ -242,7 +254,6 @@ module.exports = {
     "symbol-description": "error",
     "template-curly-spacing": "error",
     "unicode-bom": ["error", "never"],
-    "valid-jsdoc": "error",
     "vars-on-top": "error",
     "wrap-iife": "error",
     "wrap-regex": "error",
