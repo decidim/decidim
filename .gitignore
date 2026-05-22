@@ -36,3 +36,4 @@ decidim-packs
 packages/**/package-lock.json
 
 temporary_changelog.md
+.devcontainer/devcontainer.local.*
