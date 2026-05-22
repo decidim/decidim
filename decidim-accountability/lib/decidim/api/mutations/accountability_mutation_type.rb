@@ -4,11 +4,11 @@ module Decidim
   module Accountability
     class AccountabilityMutationType < Decidim::Core::ComponentType
       graphql_name "AccountabilityMutation"
-      description "Accountability mutations"
+      description "Results of a component"
 
-      field :create_result, mutation: CreateResultType, description: "create result"
-      field :result, ResultMutationType, "A single Result object", null: true do
-        argument :id, GraphQL::Types::ID, description: "id of the result", required: true
+      field :create_result, mutation: CreateResultType, description: "creates a result"
+      field :result, ResultMutationType, "Mutates a result", null: true do
+        argument :id, GraphQL::Types::ID, description: "The ID of the result", required: true
       end
 
       def result(id:)

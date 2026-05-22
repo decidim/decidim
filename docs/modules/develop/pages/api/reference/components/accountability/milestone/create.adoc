@@ -17,10 +17,10 @@ The `CreateMilestone` mutation allows authenticated administrators to create new
 
 [source,graphql]
 ----
-mutation createMilestone($componentId: ID!, $input: CreateMilestoneInput!){
+mutation createMilestone($componentId: ID!, $resultId: ID!, $input: CreateMilestoneInput!){
   component(id: $componentId) {
     ... on AccountabilityMutation {
-      result(id: ${resultId) {
+      result(id: $resultId) {
         createMilestone(input: $input) {
           id
           url
@@ -37,6 +37,7 @@ Example of submitted variables
 ----
 {
   "componentId": "3",
+  "resultId": "5",
   "input": {
     "attributes": {
       "title": { "en": "My Result Title" },

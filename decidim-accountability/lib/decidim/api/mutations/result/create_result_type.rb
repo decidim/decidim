@@ -8,7 +8,7 @@ module Decidim
 
       required_scopes "admin:read", "admin:write"
 
-      argument :attributes, ResultAttributes, description: "input attributes of a result", required: true
+      argument :attributes, ResultAttributes, description: "Input attributes for creating a result", required: true
 
       def resolve(attributes:)
         params = extract_from(attributes)

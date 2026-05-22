@@ -25,7 +25,7 @@ Example of submitted variables
 ----
 {
   "componentId": "3",
-  "budgetId": "5"
+  "resultId": "5"
 }
 ----
 

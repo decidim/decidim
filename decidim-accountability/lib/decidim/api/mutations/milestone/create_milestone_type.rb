@@ -10,7 +10,7 @@ module Decidim
 
       required_scopes "admin:read", "admin:write"
 
-      argument :attributes, MilestoneAttributes, description: "input attributes of a milestone", required: true
+      argument :attributes, MilestoneAttributes, description: "Input attributes for creating a milestone", required: true
 
       def resolve(attributes:)
         params = extract_from(attributes)

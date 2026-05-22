@@ -98,7 +98,7 @@ module Decidim::Accountability
           let(:variables) do
             {
               component_id: current_component.id,
-              budget_id: model.id,
+              result_id: model.id,
               input: {
                 attributes: {
                   title: { "en" => title_en, "tlh" => "Foo bar" },
@@ -180,6 +180,6 @@ module Decidim::Accountability
       end
     end
 
-    it it_behaves_like "admin API access checks", "API updatable result"
+    it_behaves_like "admin API access checks", "API updatable result"
   end
 end

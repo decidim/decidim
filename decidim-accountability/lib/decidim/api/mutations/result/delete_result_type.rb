@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     class DeleteResultType < Api::SoftDeleteResourceType
-      description "deletes a result"
+      description "Deletes a result"
 
       type Decidim::Accountability::ResultType
 
@@ -13,7 +13,7 @@ module Decidim
         result = find_resource(id)
         context[:trashable_deleted_resource] = result
 
-        unless super && allowed_to?(:soft_delete, :budget, result, context)
+        unless super && allowed_to?(:soft_delete, :result, result, context)
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 
