@@ -13,7 +13,7 @@ module Decidim
       argument :parent_id, GraphQL::Types::Int, "Parent id of the result", required: false
       argument :progress, GraphQL::Types::Float, description: "Progress of this result", required: false
       argument :project_ids, [GraphQL::Types::Int], description: "Linked proposal IDs of the result", required: false
-      argument :proposal_ids, [GraphQL::Types::Int], description: "Linked proposal IDs of the result", required: false
+      argument :proposal_ids, [GraphQL::Types::Int], description: "Linked project IDs of the result", required: false
       argument :start_date, GraphQL::Types::String, description: "Start date of this result(in 'dd-mm-yyyy' format)", required: false
       argument :taxonomies, [GraphQL::Types::Int], description: "Taxonomies of the result", required: false
       argument :title, GraphQL::Types::JSON, description: "Title of this result", required: false
