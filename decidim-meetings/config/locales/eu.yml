@@ -596,7 +596,7 @@ eu:
         show:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
-          join: Izena eman
+          join: Eman izena
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
           link_available_soon: Esteka hau laster izango da eusukagarri
