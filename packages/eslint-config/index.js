@@ -5,7 +5,7 @@ module.exports = {
     es6: true,
     es2021: true
   },
-  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  extends: ["eslint:recommended", "plugin:react/recommended", "prettier", "plugin:import/recommended"],
   parserOptions: {
     ecmaVersion: "latest",
     ecmaFeatures: {
@@ -14,7 +14,47 @@ module.exports = {
     },
     sourceType: "module"
   },
+  settings: {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      node: {
+        extensions: [".js"],
+        moduleDirectory: [
+          "decidim-accountability/app/packs/",
+          "decidim-admin/app/packs/",
+          "decidim-ai/app/packs/",
+          "decidim-api/app/packs/",
+          "decidim-assemblies/app/packs/",
+          "decidim-blogs/app/packs/",
+          "decidim-budgets/app/packs/",
+          "decidim-collaborative_texts/app/packs/",
+          "decidim-comments/app/packs/",
+          "decidim-conferences/app/packs/",
+          "decidim-core/app/packs/",
+          "decidim-debates/app/packs/",
+          "decidim-demographics/app/packs/",
+          "decidim-design/app/packs/",
+          "decidim-dev/app/packs/",
+          "decidim-elections/app/packs/",
+          "decidim-forms/app/packs/",
+          "decidim-initiatives/app/packs/",
+          "decidim-meetings/app/packs/",
+          "decidim-pages/app/packs/",
+          "decidim-participatory_processes/app/packs/",
+          "decidim-proposals/app/packs/",
+          "decidim-surveys/app/packs/",
+          "decidim-system/app/packs/",
+          "decidim-templates/app/packs/",
+          "decidim-verifications/app/packs/",
+          "node_modules/"
+        ]
+      }
+    }
+  },
   plugins: [
+    "import",
     "react",
     "jsdoc",
     "no-relative-import-paths"
@@ -259,7 +299,7 @@ module.exports = {
     "wrap-regex": "error",
     "yield-star-spacing": "error",
     yoda: "error",
-    "import/no-named-as-default": "off",
+    "imports/no-named-as-default": "off",
     "import/no-extraneous-dependencies": "off",
     "react/prefer-stateless-function": "off",
     "react/jsx-filename-extension": "off",

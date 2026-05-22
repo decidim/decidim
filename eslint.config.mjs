@@ -13,7 +13,8 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([globalIgnores([
-  "**/*\\{.,-}min.js",
+  "**/*.min.js",
+  "**/*-min.js",
   "decidim-*/vendor/**/*.js",
   "spec/decidim_dummy_app/**/*.js",
   "**/development_app",
