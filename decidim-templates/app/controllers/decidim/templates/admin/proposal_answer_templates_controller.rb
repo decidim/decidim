@@ -140,7 +140,7 @@ module Decidim
         end
 
         def proposal
-          @proposal ||= Decidim::Proposals::Proposal.find(params[:proposalId])
+          @proposal ||= Decidim::Proposals::Proposal.find(params.expect(:proposalId))
         end
 
         def availability_option_as_text(template)

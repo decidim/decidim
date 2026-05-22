@@ -20,7 +20,7 @@ module Decidim
     end
 
     describe "#seconds_until_timeout" do
-      let(:parsed_response) { JSON.parse(response.body) }
+      let(:parsed_response) { response.parsed_body }
 
       context "when forcing users to authenticate before access organization" do
         let(:organization) { create(:organization, force_users_to_authenticate_before_access_organization: true) }

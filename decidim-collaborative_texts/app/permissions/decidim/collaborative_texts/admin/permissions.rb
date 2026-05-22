@@ -10,7 +10,7 @@ module Decidim
           return permission_action if permission_action.subject != :collaborative_text
 
           case permission_action.action
-          when :update, :read, :create, :destroy
+          when :update, :read, :create, :destroy, :export
             allow!
           end
 

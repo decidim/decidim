@@ -40,7 +40,7 @@ module Decidim
       end
 
       def document
-        @document ||= documents.find(params[:document_id])
+        @document ||= documents.find(params.expect(:document_id))
       end
 
       def documents

@@ -12,7 +12,7 @@ module Decidim
       private
 
       def election
-        @election ||= Election.where(component: current_component).published.find(params[:election_id])
+        @election ||= Election.where(component: current_component).published.find(params.expect(:election_id))
       end
 
       def session_authenticated?

@@ -42,7 +42,7 @@ module Decidim
         def conferences_user_admins
           Decidim::User.where(
             id: Decidim::ConferenceUserRole.where(conference: conferences, role: :admin)
-                .select(:decidim_user_id)
+                                           .select(:decidim_user_id)
           )
         end
 

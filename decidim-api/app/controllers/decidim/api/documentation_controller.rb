@@ -19,7 +19,7 @@ module Decidim
       def safe_content_path
         return "" unless params[:path]
 
-        params[:path].split("/").excluding("..", ".")
+        params.fetch(:path, "").split("/").excluding("..", ".")
       end
 
       def set_cache_headers

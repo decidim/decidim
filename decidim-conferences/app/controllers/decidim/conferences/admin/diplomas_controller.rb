@@ -54,7 +54,7 @@ module Decidim
         def diploma_params
           {
             id: params[:slug]
-          }.merge(params[:conference].to_unsafe_h)
+          }.merge(params.fetch(:conference, {}).to_unsafe_h)
         end
       end
     end
