@@ -24,6 +24,16 @@ module Decidim
             expect(response.body).to have_content("No user found")
           end
         end
+
+        context "when user is found" do
+          let!(:user) { create(:user, :confirmed, organization:) }
+
+          it "renders show_email template" do
+            get :show_email, params: { user_id: user.id }
+            expect(subject).to render_template(:show_email)
+            expect(response.body).to have_content(user.email)
+          end
+        end
       end
     end
   end
