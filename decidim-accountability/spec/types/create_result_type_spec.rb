@@ -21,6 +21,9 @@ module Decidim::Accountability
     let(:title_en) { Faker::Lorem.sentence(word_count: 3) }
     let(:description_en) { Faker::Lorem.paragraph(sentence_count: 2) }
     let(:weight) { 0 }
+    let!(:root_taxonomy) { create(:taxonomy, organization: current_organization) }
+    let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization: current_organization) }
+    let(:taxonomy_id) { taxonomy.id }
     let(:status_id) { nil }
     let(:attributes) do
       {
@@ -32,7 +35,7 @@ module Decidim::Accountability
         proposalIds: proposal_ids,
         projectIds: project_ids,
         startDate: start_date,
-        taxonomies:,
+        taxonomies: [taxonomy_id],
         weight:,
         decidimAccountabilityStatusId: status_id
       }
@@ -150,7 +153,7 @@ module Decidim::Accountability
             "externalId" => "dummy_external_id",
             "progress" => 12.4,
             "startDate" => "2020-01-01",
-            "taxonomies" => [],
+            "taxonomies" => [{ "id" => taxonomy.id.to_s }],
             "status" => nil,
             "weight" => 0
           }
@@ -238,8 +241,7 @@ module Decidim::Accountability
           let(:taxonomy_id) { "foo" }
 
           it "raises an error" do
-            expect(response["createResult"]["taxonomies"]).to be_empty
-            expect(response["createResult"]["taxonomies"]).to eq([])
+            expect { response }.to raise_error(GraphQL::ExecutionError, /Could not coerce value/)
           end
         end
 
