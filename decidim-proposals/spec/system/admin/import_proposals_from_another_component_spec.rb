@@ -2,29 +2,22 @@
 
 require "spec_helper"
 
-describe "Import proposals to projects" do
-  let(:manifest_name) { "budgets" }
-  let(:participatory_space) { create(:participatory_process, organization:) }
-  let!(:budget) { create(:budget, component: current_component) }
+describe "Import proposals from another component" do
+  let(:component) { create(:proposal_component) }
+  let(:participatory_space) { component.participatory_space }
   let!(:origin_component) { create(:proposal_component, participatory_space:) }
-  let(:organization) { current_component.organization }
-  let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:organization) { component.organization }
 
-  include_context "when managing a component as an admin"
+  let(:manifest_name) { "proposals" }
+  let(:user) { create(:user, organization:) }
+
+  include_context "when managing a component as an admin" do
+    let!(:component) { create(:proposal_component, participatory_space:) }
+  end
 
   before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-
-    visit_component_admin
-
-    within "tr", text: translated(budget.title) do
-      find("button[data-controller='dropdown']").click
-      click_on "Add projects"
-    end
-
     click_on "Import"
-    click_on "Import proposals to projects"
+    click_on "Import proposals from another component"
   end
 
   it "does not show state checkboxes before a component is selected" do
@@ -65,14 +58,16 @@ describe "Import proposals to projects" do
     it "only imports proposals matching the selected state" do
       within ".import_proposals" do
         select origin_component.name["en"], from: "Origin component"
-        fill_in "Default budget", with: 1000
         check "Accepted"
       end
 
-      click_on "Import proposals to projects"
+      click_on "Import proposals"
 
-      expect(page).to have_content("2 proposals successfully imported")
-      expect(Decidim::Budgets::Project.where(budget:).count).to eq(2)
+      expect(page).to have_content("The import process has started. We will let you know once it has finished.")
+      perform_enqueued_jobs
+      visit current_path
+
+      expect(Decidim::Proposals::Proposal.where(component:).count).to eq(2)
     end
   end
 
@@ -95,40 +90,43 @@ describe "Import proposals to projects" do
     end
 
     context "when importing proposals with the custom state" do
-      let!(:custom_proposals) do
-        create_list(:proposal, 2, :published, component: origin_component).each do |proposal|
-          proposal.update!(proposal_state: custom_state)
-        end
+      let!(:custom_state_on_target) do
+        create(:proposal_state, component:, token: "under_review", title: custom_title)
       end
+      let!(:custom_proposals) { create_list(:proposal, 2, component: origin_component, state: "under_review") }
       let!(:accepted_proposals) { create_list(:proposal, 1, :accepted, component: origin_component) }
 
       it "only imports proposals in the custom state" do
         within ".import_proposals" do
           select origin_component.name["en"], from: "Origin component"
-          fill_in "Default budget", with: 1000
           check "Under review"
         end
 
-        click_on "Import proposals to projects"
+        click_on "Import proposals"
 
-        expect(page).to have_content("2 proposals successfully imported")
-        expect(Decidim::Budgets::Project.where(budget:).count).to eq(2)
+        expect(page).to have_content("The import process has started. We will let you know once it has finished.")
+        perform_enqueued_jobs
+        visit current_path
+
+        expect(Decidim::Proposals::Proposal.where(component:).count).to eq(2)
       end
     end
 
     context "when no states are selected" do
-      let!(:proposals) { create_list(:proposal, 3, :published, component: origin_component) }
+      let!(:proposals) { create_list(:proposal, 3, component: origin_component) }
 
       it "imports all proposals" do
         within ".import_proposals" do
           select origin_component.name["en"], from: "Origin component"
-          fill_in "Default budget", with: 1000
         end
 
-        click_on "Import proposals to projects"
+        click_on "Import proposals"
 
-        expect(page).to have_content("3 proposals successfully imported")
-        expect(Decidim::Budgets::Project.where(budget:).count).to eq(3)
+        expect(page).to have_content("The import process has started. We will let you know once it has finished.")
+        perform_enqueued_jobs
+        visit current_path
+
+        expect(Decidim::Proposals::Proposal.where(component:).count).to eq(3)
       end
     end
   end
