@@ -29,11 +29,11 @@ module Decidim
     delegate :content_tag, :safe_join, :link_to, :active_link_to_class, :is_active_link?, :icon, to: :@view
 
     def render
-      content_tag :li, role: menuitem_role, class: link_wrapper_classes do
+      content_tag :li, role: wrapper_role, class: link_wrapper_classes do
         output = if url == "#"
-                   [content_tag(:span, composed_label, class: "sidebar-menu__item-disabled")]
+                   [content_tag(:span, composed_label, class: "sidebar-menu__item-disabled", role: menuitem_role)]
                  else
-                   [link_to(composed_label, url, link_options)]
+                    [link_to(composed_label, url, link_options)]
                  end
         output.push(@view.send(:simple_menu, **@menu_item.submenu).render) if @menu_item.submenu
 
@@ -52,7 +52,7 @@ module Decidim
         { aria: { current: "page" } }
       else
         {}
-      end.merge({ class: link_classes })
+      end.merge({ class: link_classes, role: menuitem_role })
     end
 
     def composed_label
@@ -73,6 +73,12 @@ module Decidim
       return if @options.role == false
 
       @options.role || :menuitem
+    end
+
+    def wrapper_role
+      return if menuitem_role.blank?
+
+      :presentation
     end
 
     def active_class
