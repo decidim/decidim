@@ -19,7 +19,7 @@ eu:
         address: Helbidea
         answer: Erantzuna
         answered_at: '-k erantzuna'
-        body: Testua
+        body: Gorputza
         decidim_proposals_proposal_state_id: Egoera
         decidim_scope_id: Eremua
         has_address: Helbidea du
@@ -53,7 +53,7 @@ eu:
         file: Fitxategia
       proposals_import:
         import_proposals: Proposamenak inportatu
-        keep_answers: Egoera-orriak eta erantzunak mantendu
+        keep_answers: Mantendu egoera eta erantzunak
         keep_authors: Mantendu jatorrizko egileak
     errors:
       models:
@@ -337,7 +337,7 @@ eu:
           email_subject: 'Proposamenak orain eskuragarri hemen: %{participatory_space_title}'
           notification_title: 'Orain honi <a href="%{resource_path}"> proposamen berriak aurkeztu ahal dizkiozu hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         liking_enabled:
-          email_intro: 'Proposamenak atsegin ditzakezu hemen: %{participatory_space_title} Hasi orri honetan parte hartzen:'
+          email_intro: 'Proposamenak atsegin ditzakezu hemen: % {participatory_space_title} Hasi orri honetan parte hartzen:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: 'Proposamenak atxikitzen hasi dira hemen: %{participatory_space_title}'
           notification_title: 'Orain has zaitezke <a href="%{resource_path}">proposamena bozkatzen hemen: s</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
@@ -394,7 +394,7 @@ eu:
           description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da 
           description_another: Parte-hartzaile honek %{score} proposamen onartu ditu.
           description_own: Zure %{score} proposamen onartu dira.
-          name: Onartutako proposamenak
+          name: Proposamen onartuak
           next_level_in: Lortu %{score} proposamen gehiago onartuak izatea hurrengo mailara igotzeko!
           unearned_another: Parte-hartzaile honek ez du oraindik lortu bere proposamen bat ere onartua izatea.
           unearned_own: Oraindik ez duzu onartutako proposamenik.
@@ -452,7 +452,7 @@ eu:
           id: Proposamenaren identifikatzaile bakarra
           is_amend: Proposamen honek beste proposamen bat dakarren
           latitude: Proposamenaren latitudea, baldin eta kokagune fisikoa badu
-          likes: Proposamen honek duen atxikimendu ("like") kopurua
+          likes: Proposamen honek duen atxikimendu kopurua
           longitude: Proposamenaren luzera, baldin eta kokagune fisikoa badu
           meeting_urls: Proposamen hau aurkeztu edo eztabaidatu zen bileretako URLak
           original_proposal: Hasierako proposamenaren erreferentzia, zuzenketa bat bada
@@ -484,7 +484,7 @@ eu:
         import: Inportatu proposamenak beste osagai batetik
         mark_as_coauthor: Markatu egilekide gisa
         mark_as_coauthor_confirm: Ziur zaude parte-hartzaile hau egilekide gisa markatu nahi duzula? Parte-hartzaileak jakinarazpena jasoko du gonbidapena onartzeko edo baztertzeko.
-        new: Proposamen berria
+        new: Beste proposamen bat
         new_proposal_state: Beste egoera bat
         participatory_texts: Testu parte-hartzaileak
         show: Ikusi proposamena
@@ -637,7 +637,7 @@ eu:
             assign_to_evaluator_button: Esleitu
             cancel: Utzi
             change_taxonomies: Aldatu taxonomiak
-            merge: Beste batean fusionatu
+            merge: Bat egin berri batekin
             merge_button: Sortu
             no_templates_available: Ez dago txantiloirik eskuragarri
             publish: Argitaratu
@@ -663,13 +663,13 @@ eu:
           show:
             amendments_count: Zuzenketa kopurua
             assigned_evaluators: Ebaluatzaileak esleituta
-            body: Testua
+            body: Gorputza
             comments_count: Iruzkin kopurua
             documents: Dokumentuak
             evaluators: Ebaluatzaileak
             likes: Likeak
             likes_count: Like kopurua
-            link: Ikusi proposamena
+            link: Proposamena ikusi
             n_more_likes:
               one: eta 1 gehiago
               other: eta %{count} gehiago
@@ -715,11 +715,11 @@ eu:
           answer: "%{user_name} parte-hartzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
           create: "%{user_name} parte-hartzaileak sortu zuen %{resource_name} proposamena %{space_name} esparruko %{merged_count} proposamenen bat egitetik"
           publish_answer: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} proposamenaren erantzuna %{space_name} espazioan"
-          restore: "%{user_name} parte-hartzailea berreskuratu du %{resource_name} proposamena %{space_name} espazioan"
-          soft_delete: "%{user_name} parte-hartzailea eraman du %{resource_name} proposamena %{space_name} espaziora"
+          restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} osagaia %{space_name} espazioan"
+          soft_delete: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} proposamena %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} proposamena eguneratu du %{space_name} espazioan"
         proposal_note:
-          create: "%{user_name} k %{resource_name} proposamenari buruzko ohar pribatu bat utzi du %{space_name} espazioan"
+          create: "%{user_name} parte-hartzaileak %{resource_name} proposamenari buruzko ohar pribatu bat utzi du %{space_name} espazioan"
       answers:
         accepted: Onartuta
         evaluating: Ebaluatzen
@@ -1017,7 +1017,7 @@ eu:
           can_accumulate_votes_beyond_threshold:
             description: Proposamen bakoitzak %{limit} babes baino gehiago jaso dezake
           minimum_votes_per_user:
-            description: Gutxienez %{votes} babes banatu behar duzu proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
+            description: Gutxienez %{votes} babes banatu behar duzu proposamen ezberdinen artean zure hautuak kontuan har daitezen.
           proposal_limit:
             description: Proposamen(ak) sortu ditzakezu.
           success: Zure babesak ongi onartu dira
