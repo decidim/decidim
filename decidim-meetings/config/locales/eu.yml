@@ -636,7 +636,7 @@ eu:
         show:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
-          join: Izena eman
+          join: Eman izena
           join_waitlist: Sartu itxarote-zerrendan
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
