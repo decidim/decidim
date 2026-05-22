@@ -133,7 +133,7 @@ module Decidim
       end
 
       def membership_request
-        @membership_request ||= current_initiative.committee_members.find(params[:committee_member_id])
+        @membership_request ||= current_initiative.committee_members.find(params.expect(:committee_member_id))
       end
 
       def ensure_user_can_create_initiative

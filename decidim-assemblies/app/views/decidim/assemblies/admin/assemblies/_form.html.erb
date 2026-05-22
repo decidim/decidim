@@ -191,11 +191,17 @@
           <%# i18n-tasks-use t("decidim.assemblies.admin.assemblies.form.access.options.open") %>
           <%# i18n-tasks-use t("decidim.assemblies.admin.assemblies.form.access.options.restricted") %>
           <%# i18n-tasks-use t("decidim.assemblies.admin.assemblies.form.access.options.transparent") %>
-          <% Decidim::Assembly::ACCESS_MODES.keys.each do |mode| %>
-            <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
-              <%= form.radio_button :access_mode, mode %>
-              <span><%= t(mode, scope: "decidim.assemblies.admin.assemblies.form.access.options") %></span>
-             <% end %>
+          <%= form.collection_radio_buttons :access_mode,
+                                            Decidim::Assembly::ACCESS_MODES.keys,
+                                            ->(mode) { mode },
+                                            ->(mode) { t(mode, scope: "decidim.admin.assemblies.index.access_modes") } do |builder| %>
+            <%= builder.label(for: nil, class: "form__wrapper-checkbox-label") do %>
+              <%= builder.radio_button(id: nil, label: false) %>
+              <span>
+                <strong class="font-semibold"><%= builder.text %></strong>
+                <%= t(builder.value, scope: "decidim.assemblies.admin.assemblies.form.access.options") %>
+              </span>
+            <% end %>
           <% end %>
         </div>
       </fieldset>

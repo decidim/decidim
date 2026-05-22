@@ -118,7 +118,7 @@ module Decidim
         end
 
         def assembly_params
-          { id: params[:slug] }.merge(params[:assembly].to_unsafe_h)
+          { id: params.expect(:slug) }.merge(params.fetch(:assembly, {}).to_unsafe_h)
         end
       end
     end

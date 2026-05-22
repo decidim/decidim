@@ -70,7 +70,7 @@ module Decidim
           private
 
           def census_data
-            @census_data ||= CsvDatum.where(organization: current_organization).find(params[:id])
+            @census_data ||= CsvDatum.where(organization: current_organization).find(params.expect(:id))
           end
 
           def csv_census_data
