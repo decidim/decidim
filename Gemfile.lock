@@ -382,7 +382,7 @@ GEM
       nokogiri (~> 1.19)
       rubyzip (~> 3.2)
     docile (1.4.1)
-    doorkeeper (5.9.0)
+    doorkeeper (5.9.1)
       railties (>= 5)
     doorkeeper-i18n (5.2.8)
       doorkeeper (>= 5.2)
