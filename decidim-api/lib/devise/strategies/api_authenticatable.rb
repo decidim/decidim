@@ -9,7 +9,7 @@ module Devise
         key = authentication_hash[:key]
         secret = authentication_hash[:secret]
 
-        resource = mapping.to.find_for_api_authentication(api_key: key)
+        resource = mapping.to.find_for_api_authentication(api_key: key, env:)
         validation_status = validate(resource) { resource.valid_api_secret?(secret) }
 
         success!(resource) if validation_status

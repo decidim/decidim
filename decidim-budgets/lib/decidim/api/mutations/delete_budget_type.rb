@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     class DeleteBudgetType < Api::SoftDeleteResourceType
-      description "deletes a budget"
+      description "Deletes a budget"
 
       type Decidim::Budgets::BudgetType
 

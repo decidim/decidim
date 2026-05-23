@@ -71,7 +71,7 @@ module Decidim::Accountability
           let(:variables) do
             {
               component_id: current_component.id,
-              budget_id: model.id,
+              result_id: model.id,
               input: {
                 attributes: {
                   title: { :en => title_en, "tlh" => "Foo bar" },

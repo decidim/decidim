@@ -7,7 +7,7 @@ import {
   hourDisplay,
   minuteDisplay,
   formatTime
-} from "src/decidim/datepicker/datepicker_functions"
+} from "src/decidim/controllers/date_picker/datepicker/datepicker_functions"
 
 describe("setHour", () => {
   it("returns the hour in correct 24-hour format", () => {

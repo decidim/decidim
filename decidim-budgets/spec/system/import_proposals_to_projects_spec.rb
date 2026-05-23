@@ -115,5 +115,21 @@ describe "Import proposals to projects" do
         expect(Decidim::Budgets::Project.where(budget:).count).to eq(2)
       end
     end
+
+    context "when no states are selected" do
+      let!(:proposals) { create_list(:proposal, 3, :published, component: origin_component) }
+
+      it "imports all proposals" do
+        within ".import_proposals" do
+          select origin_component.name["en"], from: "Origin component"
+          fill_in "Default budget", with: 1000
+        end
+
+        click_on "Import proposals to projects"
+
+        expect(page).to have_content("3 proposals successfully imported")
+        expect(Decidim::Budgets::Project.where(budget:).count).to eq(3)
+      end
+    end
   end
 end

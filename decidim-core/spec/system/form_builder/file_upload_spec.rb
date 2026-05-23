@@ -40,7 +40,7 @@ describe "File upload" do
             </div>
           </main>
 
-          #{javascript_pack_tag "decidim_core", defer: false}
+          #{javascript_pack_tag "decidim_core", "decidim_controllers", defer: false}
         </body>
         </html>
       HTML

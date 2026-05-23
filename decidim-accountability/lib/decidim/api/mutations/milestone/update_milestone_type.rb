@@ -3,12 +3,12 @@
 module Decidim
   module Accountability
     class UpdateMilestoneType < Decidim::Api::Types::BaseMutation
-      description "updates a milestone"
+      description "Updates a milestone"
       type Decidim::Accountability::MilestoneType
 
       required_scopes "admin:read", "admin:write"
 
-      argument :attributes, MilestoneAttributes, description: "input attributes of a milestone", required: true
+      argument :attributes, MilestoneAttributes, description: "Input attributes to update a milestone", required: true
       argument :id, GraphQL::Types::ID, "The ID of the milestone", required: true
 
       def resolve(attributes:, id:)
@@ -45,7 +45,7 @@ module Decidim
       def milestone(id = nil)
         context[:milestone] ||= begin
           id ||= arguments[:id]
-          object.milestones.find_by(id:)
+          object.milestones.find(id)
         end
       end
 
@@ -58,7 +58,7 @@ module Decidim
 
         attributes[:title] = attributes.to_h.fetch(:title, context[:milestone].title)
         attributes[:description] = attributes.to_h.fetch(:description, context[:milestone].description)
-        attributes[:entry_date] = attributes.to_h.fetch(:entry_date, nil)
+        attributes[:entry_date] = attributes.to_h.fetch(:entry_date, context[:milestone].entry_date)
 
         attributes
       end

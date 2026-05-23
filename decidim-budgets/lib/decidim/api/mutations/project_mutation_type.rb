@@ -8,6 +8,9 @@ module Decidim
 
       include Decidim::Core::AttachableMutations
       include Decidim::Core::AttachableCollectionMutations
+
+      field :delete, mutation: Decidim::Budgets::DeleteProjectType, description: "Deletes a project"
+      field :update, mutation: Decidim::Budgets::UpdateProjectType, description: "Updates a project"
     end
   end
 end

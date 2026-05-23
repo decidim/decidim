@@ -18,6 +18,10 @@ module Decidim
           on(:ok, resource) do
             return resource
           end
+
+          on(:invalid) do
+            raise Decidim::Api::Errors::ValidationError, message
+          end
         end
       end
 

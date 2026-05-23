@@ -26,7 +26,7 @@ The `CreateResult` mutation allows authenticated administrators to create new re
 
 [source,graphql]
 ----
-mutation createResult($componentId: ID!, $input: CreateBudgetInput!){
+mutation createResult($componentId: ID!, $input: CreateResultInput!){
   component(id: $componentId) {
     ... on AccountabilityMutation {
       createResult(input: $input) {

@@ -1534,6 +1534,11 @@ fi:
           %{organization_name}
         hello: Hei %{username},
         subject: Käyttämättä ollut tili on poistettu
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Jäsen ryhmässä
     participatory_space_members:
       index:
         members: Jäsenet
@@ -2061,8 +2066,8 @@ fi:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:
       minimum:
-        one: Vähintään %{count} kirjain
-        other: Vähintään %{count} kirjainta
+        one: Vähintään %{count} merkki
+        other: Vähintään %{count} merkkiä
     required: Pakollinen kenttä
     required_explanation: "* Vaaditut kentät on merkitty tähtimerkillä"
   invisible_captcha:

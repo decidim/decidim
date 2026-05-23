@@ -22,7 +22,7 @@ module Decidim
         end
 
         def project
-          @project ||= projects.find(params[:project_id])
+          @project ||= projects.find(params.expect(:project_id))
         end
       end
     end

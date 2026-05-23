@@ -225,6 +225,35 @@ describe "Admin filters proposals" do
     end
   end
 
+  context "when sorting by title" do
+    let!(:beta_proposal) { create(:proposal, component:, title: { en: "Beta proposal" }) }
+    let!(:alpha_proposal) { create(:proposal, component:, title: { en: "Alpha proposal" }) }
+    let!(:gamma_proposal) { create(:proposal, component:, title: { en: "Gamma proposal" }) }
+
+    before { visit_component_admin }
+
+    it "sorts by title ascending when 'Title' is clicked" do
+      within "table thead" do
+        click_on "Title"
+      end
+
+      titles = page.all("table tbody tr td:nth-child(2)").map(&:text)
+      expect(titles.find_index { |t| t.include?("Alpha proposal") }).to be < titles.find_index { |t| t.include?("Beta proposal") }
+      expect(titles.find_index { |t| t.include?("Beta proposal") }).to be < titles.find_index { |t| t.include?("Gamma proposal") }
+    end
+
+    it "sorts by title descending when 'Title' is clicked twice" do
+      within "table thead" do
+        click_on "Title"
+        click_on "Title"
+      end
+
+      titles = page.all("table tbody tr td:nth-child(2)").map(&:text)
+      expect(titles.find_index { |t| t.include?("Gamma proposal") }).to be < titles.find_index { |t| t.include?("Beta proposal") }
+      expect(titles.find_index { |t| t.include?("Beta proposal") }).to be < titles.find_index { |t| t.include?("Alpha proposal") }
+    end
+  end
+
   it_behaves_like "paginating a collection" do
     let!(:collection) { create_list(:proposal, 50, component:) }
   end

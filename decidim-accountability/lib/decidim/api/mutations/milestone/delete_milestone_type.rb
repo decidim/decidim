@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     class DeleteMilestoneType < Api::DestroyResourceType
-      description "deletes a milestone"
+      description "Deletes a milestone"
 
       type Decidim::Accountability::MilestoneType
 

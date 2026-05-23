@@ -4,17 +4,17 @@ module Decidim
   module Accountability
     class ResultMutationType < Decidim::Api::Types::BaseObject
       graphql_name "ResultMutation"
-      description "Accountability result mutations"
+      description "Result mutation"
 
       include Decidim::Core::AttachableMutations
       include Decidim::Core::AttachableCollectionMutations
 
-      field :delete, mutation: DeleteResultType, description: "update result"
-      field :update, mutation: UpdateResultType, description: "update result"
+      field :delete, mutation: DeleteResultType, description: "Deletes a result"
+      field :update, mutation: UpdateResultType, description: "Updates a result"
 
-      field :create_milestone, mutation: CreateMilestoneType, description: "create milestone"
-      field :delete_milestone, mutation: Decidim::Accountability::DeleteMilestoneType, description: "delete milestone"
-      field :update_milestone, mutation: UpdateMilestoneType, description: "update milestone"
+      field :create_milestone, mutation: CreateMilestoneType, description: "Creates a milestone"
+      field :delete_milestone, mutation: Decidim::Accountability::DeleteMilestoneType, description: "Deletes a milestone"
+      field :update_milestone, mutation: UpdateMilestoneType, description: "Updates a milestone"
     end
   end
 end

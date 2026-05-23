@@ -8,13 +8,13 @@ eu:
         weight: Kokapenaren hurrenkera
       project:
         budget_amount: Aurrekontuaren zenbatekoa
-        description: Deskribapena
+        description: Descripción
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
         selected: Ezarpenerako hautatuak
         title: Izenburua
       proposals_import:
-        scope_id: Eremua
+        scope_id: Esparrua
   activerecord:
     models:
       decidim:
@@ -73,7 +73,7 @@ eu:
             users_with_finished_orders: Parte-hatzaile hauek babesak emanda
             users_with_pending_orders: Parte-hatzaile hauek babesak emateke
           manage_trash:
-            title: Ezabatutako aurrekoantuak
+            title: Ezabatutako aurrekontuak
           new:
             create: Sortu aurrekontua
             title: Beste aurrekontu bat
@@ -96,12 +96,12 @@ eu:
             actions: Ekintzak
             cancel: Ezeztatu
             change_budget: Aldatu aurrekontua
-            change_selected: Aldatu hautatutako eremua
+            change_selected: Aldatu hautatutako egoera
             change_taxonomies: Aldatu taxonomiak
             deselect_implementation: Kendu gauzatzekoetatik
             finished_orders: Amaitutako babesak
             pending_orders: Zain dauden botoak
-            select_for_implementation: Gauzatzeko hautatua
+            select_for_implementation: Hautatu gauzatzeko
             selected: Hautatua
             selected_options:
               'no': 'Ez'
@@ -152,7 +152,7 @@ eu:
           orders:
             description: Parte-hatzaileek mezu elektroniko bat jasoko dute, eskaera bat egiteke duten aurrekontuetarako estekekin.
             title:
-              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} erabiltzaileri
+              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} partte-hartzaileari
               other: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} parte-hartzaileri
       admin_log:
         budget:
@@ -175,11 +175,11 @@ eu:
       budgets_list:
         budgets: Aurrekontuak
         cancel_order:
-          more_than_one: ezabatu zure babesa hemen %{name} eta hasi berriro
+          more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
           only_one: ezabatu zure babesa eta hasi berriro.
         completed: Amaituta
         count:
-          one: "Aurrekontu %{count}"
+          one: "%{count} aurrekontu"
           other: "%{count} aurrekontu"
         empty: Oraindik ez dago aurrekonturik
         finished_message: Amaitu duzu babesa emateko prozesua. Eskerrik asko parte hartzeagatik!
@@ -193,8 +193,8 @@ eu:
           random: Ausazko ordena
         progress: Amaitu babes ematea
         remove_vote: Kendu babesa
-        see_projects: Proiektuak ikusi
-        see_results: Emaitzak ikusi
+        see_projects: Ikusi proiektuak
+        see_results: Ikusi emaitzak
         show: Ikusi proiektuak
         vote: Eman babesa
         voted_budgets: Babestutako aurrekontuak
@@ -216,7 +216,7 @@ eu:
           fields:
             map: Mapa
             taxonomies: Taxonomiak
-            title: Izenburua
+            title: Titulua
       order:
         status:
           continue_voting: Jarraitu bozkatzen
@@ -226,13 +226,13 @@ eu:
             other: Beste aurrekontu batzuetan bozkatu dezakezu
           share_text: "Botoa eman diet nire proiekturik gogokoenei hemen %{space_name}! 🎉 Eman botoa orain: %{component_url}"
           share_vote: Partekatu zure hautaketa
-          title: Zure babesa ongi bideratu da
+          title: Zure botua zuzen onartu da
           view_votes:
             one: Ikusi babesa
-            other: Botoak ikusi
+            other: Ikusi botoak
           votes_count:
             one: 'Zure babesa honentzat: %{budget_name} erregistratu da.'
-            other: 'Zure %{count} babes honentzat: %{budget_name} erregistratu dira.'
+            other: 'Zure %{count} botoak honentzat: %{budget_name} erregistratu dira.'
       order_pdf:
         text: Botoa eman duzu hemen %{space_name}, honako proiektu hauetan
         title: Zure botua zuzen onartu da.
@@ -242,7 +242,7 @@ eu:
           subject: Babesa eman duzu parte hartzeko espazio honetan %{space_name}
           voted_on_space: Babesa eman duzu %{budget_name} aurrekontuan %{space_name} parte hartzeko espaziorako.
       projects:
-        back_to_budgets: Aurrekontuetara itzuli
+        back_to_budgets: Itzuli aurrekontuetara
         budget_confirm:
           are_you_sure: Iritzia aldatzen baduzu, zure babesa alda dezakezu geroago.
           cancel: Ezeztatu
@@ -260,19 +260,19 @@ eu:
             title: Gehieneko proiektu kopurua gainditu egin da
         budget_summary:
           are_you_sure: Ziur zaude zure babesa ezeztatu nahi duzula?
-          cancel_order: Ezabatu ezazu babesa
+          cancel_order: Ezabatu ezazu botoa
           checked_out:
             description: Jada babesa eman duzu aurrekonturako. Iritzia aldatu baduzu, ezabatu ahal duzu zure babesa.
             title: Aurrekontuen bozketa amaituta
           vote: Aurrekontuari babesa eman
         count:
           projects_count:
-            one: Proiektu bat
+            one: 1 proiektu
             other: "%{count} proiektu"
         empty: Oraindik ez dago proiekturik
         exit_modal:
-          cancel: Berriro bozkatu
-          exit: Bozketatik irten
+          cancel: Itzuli bozketara
+          exit: Irten bozketatik
           message: Zure babesa ez da erregistratu, oraindik ez duzulako osatu bozketa-prozesua. Ziur zaude bozketatik irten nahi duzula?
           title: Oraindik ez duzu bozkatu
         filters:
@@ -320,10 +320,10 @@ eu:
           added: Gehituta
           all: Guztiak
         projects_for: '%{name} parte-hartzailearen proiektuak'
-        select_projects: Proiektuak gehitu
+        select_projects: Gehitu proiektuak
         show:
           budget: Aurrekontua
-          votes: Babesak
+          votes: Botoak
       prompt: Aukeratu aurrekontua
       vote_reminder_mailer:
         vote_reminder:
@@ -434,7 +434,7 @@ eu:
         error: Arazo bat egon da zure babesa prozesatzean.
       destroy:
         error: Arazo bat egon da zure babesa ezeztatzean.
-        success: Zure babesa behar bezala ezeztatu da.
+        success: Zure botoa behar bezala ezeztatu da.
     resource_links:
       included_proposals:
         project_proposal: Proiektu honetan sartuta dauden proposamenak

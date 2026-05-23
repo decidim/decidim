@@ -3,10 +3,10 @@
 module Decidim
   module Accountability
     class UpdateResultType < Decidim::Api::Types::BaseMutation
-      description "Creates a result"
+      description "Updates a result"
       type Decidim::Accountability::ResultType
 
-      argument :attributes, ResultAttributes, description: "input attributes of a result", required: true
+      argument :attributes, ResultAttributes, description: "Input attributes to update a result", required: true
 
       required_scopes "admin:read", "admin:write"
 

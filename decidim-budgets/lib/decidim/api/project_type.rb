@@ -16,7 +16,8 @@ module Decidim
 
       description "A project"
 
-      field :budget_amount, GraphQL::Types::Int, "The budget amount for this project", null: true, camelize: false
+      field :budget_amount, GraphQL::Types::Int, "The budget amount for this project", null: true, camelize: false,
+                                                                                       deprecation_reason: "Please use budgetAmount instead. This field is deprecated since decidim 0.33.0, and will be removed in the upcoming versions" # rubocop:disable Layout/LineLength
       field :budget_amount, GraphQL::Types::Int, "The budget amount for this project", null: true
       field :budget_url, String, "The URL for the budget", null: false
       field :confirmed_votes, Integer, "The number of confirmed votes this project has received", null: true

@@ -37,10 +37,10 @@ eu:
           error: Arazo bat ego da iruzkina eguneratzean.
       comments_title: Iruzkina
       last_activity:
-        new_comment: 'Iruzkin berria:'
+        new_comment: 'Beste iruzkin bat:'
       votes:
         create:
-          error: Arazo bat dago iruzkina bozkatzeko.
+          error: Arazo bat egon da iruzkina bozkatzean.
     components:
       add_comment_form:
         account_message: Sartu edo sortu kontu bat zure iruzkina gehitzeko.
@@ -50,8 +50,8 @@ eu:
             label: Iruzkina
             placeholder: Zer deritzozu honi?
           form_error: Testua behar da, eta ezin du izan %{length} karaktere baino gehiago.
-          submit_reply: Erantzuna argitaratu
-          submit_root_comment: Iruzkina argitaratu
+          submit_reply: Argitaratu erantzuna
+          submit_root_comment: Argitaratu iruzkina
         opinion:
           label: Zure iritzia gai honi buruz
           negative: Negatiboa
@@ -61,13 +61,13 @@ eu:
           positive: Positiboa
           positive_selected: Zure iritzia gai honi buruz positiboa da
         remaining_characters: "%{count} kakaktere geratzen dira"
-        remaining_characters_1: "karaktere %{count} geratzen da"
+        remaining_characters_1: "%{count} kakaktere geratzen dira"
         title: Gehitu zure iruzkina
       comment:
         alignment:
           against: Aurka
           in_favor: Alde
-        cancel_reply: Erantzuna ezabatu
+        cancel_reply: Ezeztatu erantzuna
         comment_label: Iruzkindu %{comment_id}
         comment_label_reply: Iruzkindu %{comment_id} (erantzun %{parent_comment_id} iruzkinei)
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
@@ -80,10 +80,10 @@ eu:
         hide_replies:
           one: Ezkutatu erantzuna
           other: Ezkutatu %{count} erantzun
-        load_replies: Erantzunak igo
+        load_replies: Igo erantzunak
         moderated_at: Iruzkina %{date}-an moderatu egin da
         replies_count:
-          one: "Erantzun bat"
+          one: "%{count} erantzun"
           other: "%{count} erantzun"
         reply: Erantzuna
         report:
@@ -98,8 +98,8 @@ eu:
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
           title: Jakinarazi eduki desegokia
         show_replies:
-          one: Erakutsi erantzuna
-          other: Erakutsi %{count} erantzunak
+          one: Erakutsi %{count} erantzun
+          other: Erakutsi %{count} erantzun
         single_comment_link_title: Lortu esteka
         sort_by: 'Nork sortua:'
       comment_order_selector:
@@ -116,7 +116,7 @@ eu:
         blocked_comments_warning: Iruzkinak desaktibatuta daude, administratzaileek soilik erantzun dezakete edo berriak argitaratu.
         comment_details_title: Iruzkinaren xehetasunak
         in_favor: Alde
-        load_more_comments: Iruzkin gehiago igo
+        load_more_comments: Igo iruzkin gehiago
         loading: Iruzkinak kargatzen...
         no_comments_yet: Oraindik ez dago iruzkinik
         single_comment_warning: <a href="%{url}"> iruzkin guztiak ikusgai </a>
