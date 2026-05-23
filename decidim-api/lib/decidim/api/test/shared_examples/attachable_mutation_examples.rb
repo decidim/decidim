@@ -13,9 +13,9 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
   end
   let(:attributes) do
     {
-      weight: weight,
-      title: title,
-      description: description,
+      weight:,
+      title:,
+      description:,
       file: { blobId: blob.id }
     }
   end
@@ -28,7 +28,7 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
     let(:variables) do
       {
         input: {
-          attributes: attributes
+          attributes:
         }
       }
     end
@@ -77,7 +77,7 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
       {
         input: {
           id: attachment.id,
-          attributes: attributes
+          attributes:
         }
       }
     end
@@ -164,8 +164,8 @@ shared_examples_for "creatable attachment" do |supports_collection:|
   context "when weight is not provided" do
     let(:attributes) do
       {
-        title: title,
-        description: description,
+        title:,
+        description:,
         file: { blobId: blob.id }
       }
     end
@@ -179,8 +179,8 @@ shared_examples_for "creatable attachment" do |supports_collection:|
   context "when description is not provided" do
     let(:attributes) do
       {
-        weight: weight,
-        title: title,
+        weight:,
+        title:,
         file: { blobId: blob.id }
       }
     end
@@ -216,8 +216,8 @@ shared_examples_for "updatable attachment" do |supports_collection:|
   context "when weight is not provided" do
     let(:attributes) do
       {
-        title: title,
-        description: description,
+        title:,
+        description:,
         file: { blobId: blob.id }
       }
     end
@@ -232,7 +232,7 @@ shared_examples_for "updatable attachment" do |supports_collection:|
   context "when description is not provided" do
     let(:attributes) do
       {
-        title: title,
+        title:,
         file: { blobId: blob.id }
       }
     end
@@ -264,9 +264,9 @@ shared_examples_for "create attachment with collection support" do
   context "when collection is provided using ID" do
     let(:attributes) do
       {
-        weight: weight,
-        title: title,
-        description: description,
+        weight:,
+        title:,
+        description:,
         file: { blobId: blob.id },
         collection: { id: collection.id }
       }
@@ -290,9 +290,9 @@ shared_examples_for "create attachment with collection support" do
     context "and the ID is not set" do
       let(:attributes) do
         {
-          weight: weight,
-          title: title,
-          description: description,
+          weight:,
+          title:,
+          description:,
           file: { blobId: blob.id },
           collection: { id: nil }
         }
@@ -307,9 +307,9 @@ shared_examples_for "create attachment with collection support" do
   context "when collection is provided using slug" do
     let(:attributes) do
       {
-        weight: weight,
-        title: title,
-        description: description,
+        weight:,
+        title:,
+        description:,
         file: { blobId: blob.id },
         collection: { slug: collection.key }
       }
@@ -325,9 +325,9 @@ shared_examples_for "create attachment with collection support" do
     context "and the slug is not found" do
       let(:attributes) do
         {
-          weight: weight,
-          title: title,
-          description: description,
+          weight:,
+          title:,
+          description:,
           file: { blobId: blob.id },
           collection: { slug: "foo" }
         }
@@ -349,9 +349,9 @@ shared_examples_for "create attachment with collection support" do
     context "and the slug is empty" do
       let(:attributes) do
         {
-          weight: weight,
-          title: title,
-          description: description,
+          weight:,
+          title:,
+          description:,
           file: { blobId: blob.id },
           collection: { slug: "" }
         }
@@ -365,9 +365,9 @@ shared_examples_for "create attachment with collection support" do
     context "and the slug is not set" do
       let(:attributes) do
         {
-          weight: weight,
-          title: title,
-          description: description,
+          weight:,
+          title:,
+          description:,
           file: { blobId: blob.id },
           collection: { slug: nil }
         }
@@ -385,7 +385,7 @@ shared_examples_for "update attachment with collection support" do
     let(:collection) { create(:attachment_collection, collection_for: model) }
     let(:attributes) do
       {
-        title: title,
+        title:,
         file: { blobId: blob.id },
         collection: { id: collection.id }
       }
@@ -400,7 +400,7 @@ shared_examples_for "update attachment with collection support" do
     context "and the ID is not set" do
       let(:attributes) do
         {
-          title: title,
+          title:,
           file: { blobId: blob.id },
           collection: { id: nil }
         }
@@ -415,7 +415,7 @@ shared_examples_for "update attachment with collection support" do
   context "when collection is provided using key" do
     let(:attributes) do
       {
-        title: title,
+        title:,
         file: { blobId: blob.id },
         collection: { key: collection.key }
       }
@@ -431,7 +431,7 @@ shared_examples_for "update attachment with collection support" do
     context "and the key is not found" do
       let(:attributes) do
         {
-          title: title,
+          title:,
           file: { blobId: blob.id },
           collection: { key: "foo" }
         }
@@ -453,7 +453,7 @@ shared_examples_for "update attachment with collection support" do
     context "and the key is empty" do
       let(:attributes) do
         {
-          title: title,
+          title:,
           file: { blobId: blob.id },
           collection: { key: "" }
         }
@@ -467,7 +467,7 @@ shared_examples_for "update attachment with collection support" do
     context "and the key is not set" do
       let(:attributes) do
         {
-          title: title,
+          title:,
           file: { blobId: blob.id },
           collection: { key: nil }
         }
@@ -483,7 +483,7 @@ shared_examples_for "update attachment with collection support" do
     let!(:collection) { create(:attachment_collection, collection_for: model, key: "testing") }
     let(:attributes) do
       {
-        title: title,
+        title:,
         file: { blobId: blob.id },
         collection: { slug: collection.key }
       }
@@ -498,7 +498,7 @@ shared_examples_for "update attachment with collection support" do
     context "and the slug is not found" do
       let(:attributes) do
         {
-          title: title,
+          title:,
           file: { blobId: blob.id },
           collection: { slug: "foo" }
         }
@@ -512,7 +512,7 @@ shared_examples_for "update attachment with collection support" do
     context "and the slug is empty" do
       let(:attributes) do
         {
-          title: title,
+          title:,
           file: { blobId: blob.id },
           collection: { slug: "" }
         }
@@ -526,7 +526,7 @@ shared_examples_for "update attachment with collection support" do
   context "and the slug is not set" do
     let(:attributes) do
       {
-        title: title,
+        title:,
         file: { blobId: blob.id },
         collection: { slug: nil }
       }

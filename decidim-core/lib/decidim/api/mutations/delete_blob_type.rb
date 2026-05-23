@@ -5,11 +5,15 @@ module Decidim
     class DeleteBlobType < Api::DestroyResourceType
       description "deletes a blob"
 
+      required_scopes "admin:read", "admin:write"
+
       type Decidim::Core::BlobType
 
       def authorized?(id:)
         blob = find_resource(id)
-        super && allowed_to?(:delete, :blob, blob, context, scope: :admin)
+        raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:delete, :blob, blob, context)
+
+        true
       end
 
       private
@@ -17,7 +21,7 @@ module Decidim
       def find_resource(id = nil)
         context[:blob] ||= begin
           id ||= arguments[:id]
-          ActiveStorage::Blob.find_by(id:)
+          ActiveStorage::Blob.find(id)
         end
       end
     end

@@ -6,6 +6,8 @@ module Decidim
       description "Updates an attachment"
       type Decidim::Core::AttachmentType
 
+      required_scopes "admin:read", "admin:write"
+
       argument :attributes, AttachmentAttributes, description: "input attributes to update an attachment", required: true
       argument :id, GraphQL::Types::ID, "The ID of the attachment", required: true
 
@@ -40,7 +42,11 @@ module Decidim
       end
 
       def authorized?(attributes:, id:)
-        super && allowed_to?(:update, :attachment, attachment(id), context, scope: :admin)
+        unless super && allowed_to?(:update, :attachment, attachment(id), context)
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
+
+        true
       end
 
       private
@@ -48,7 +54,7 @@ module Decidim
       def attachment(id = nil)
         context[:attachment] ||= begin
           id ||= arguments[:id]
-          object.attachments.find_by(id:)
+          object.attachments.find(id)
         end
       end
 

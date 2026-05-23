@@ -11,7 +11,7 @@ describe Decidim::Api::Permissions do
   let(:context) do
     {
       current_user: user,
-      blob: blob
+      blob:
     }
   end
 

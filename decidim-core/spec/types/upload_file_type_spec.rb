@@ -10,7 +10,7 @@ module Decidim
       include_context "with a graphql class mutation"
       let(:variables) do
         {
-          input: { file: file }
+          input: { file: }
         }
       end
 

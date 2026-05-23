@@ -6,6 +6,8 @@ module Decidim
       description "Creates an attachment"
       type Decidim::Core::AttachmentType
 
+      required_scopes "admin:read", "admin:write"
+
       argument :attributes, AttachmentAttributes, description: "input attributes to create an attachment", required: true
 
       def resolve(attributes:)
@@ -41,7 +43,11 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        super && allowed_to?(:create, :attachment, object, context, scope: :admin)
+        unless super && allowed_to?(:create, :attachment, object, context)
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
+
+        true
       end
     end
   end

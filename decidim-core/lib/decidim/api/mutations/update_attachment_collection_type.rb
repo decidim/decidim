@@ -6,6 +6,8 @@ module Decidim
       description "Creates an attachment collection"
       type Decidim::Core::AttachmentCollectionType
 
+      required_scopes "admin:read", "admin:write"
+
       argument :attributes, AttachmentCollectionAttributes, description: "input attributes to create an attachment collection", required: true
       argument :id, GraphQL::Types::ID, "The ID of the attachment collection", required: true
 
@@ -40,7 +42,11 @@ module Decidim
       end
 
       def authorized?(attributes:, id:)
-        super && allowed_to?(:update, :attachment_collection, attachment_collection(id), context, scope: :admin)
+        unless super && allowed_to?(:update, :attachment_collection, attachment_collection(id), context)
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
+
+        true
       end
 
       private
@@ -48,7 +54,7 @@ module Decidim
       def attachment_collection(id = nil)
         context[:attachment_collection] ||= begin
           id ||= arguments[:id]
-          object.attachment_collections.find_by(id:)
+          object.attachment_collections.find(id)
         end
       end
 
@@ -56,7 +62,7 @@ module Decidim
         key = attributes[:key].presence || attributes[:slug] || attachment_collection.key
 
         {
-          key: key,
+          key:,
           description: attachment_collection.description,
           name: attachment_collection.name,
           weight: attachment_collection.weight,

@@ -22,7 +22,7 @@ RSpec.shared_examples "attachable collection mutations" do
     let(:variables) do
       {
         input: {
-          attributes: attributes
+          attributes:
         }
       }
     end
@@ -70,7 +70,7 @@ RSpec.shared_examples "attachable collection mutations" do
       {
         input: {
           id: collection.id,
-          attributes: attributes
+          attributes:
         }
       }
     end

@@ -25,8 +25,8 @@ RSpec.describe "UploadFile Mutation" do
   end
   let(:operations) do
     {
-      query: query,
-      variables: variables
+      query:,
+      variables:
     }.to_json
   end
   let(:map) do
@@ -44,18 +44,18 @@ RSpec.describe "UploadFile Mutation" do
   context "with an API user" do
     let(:key) { "dummykey123456" }
     let(:secret) { "decidim123456789" }
-    let!(:user) { create(:api_user, organization: organization, api_key: key, api_secret: secret) }
+    let!(:user) { create(:api_user, organization:, api_key: key, api_secret: secret) }
     let(:params) do
       {
         api_user: {
-          key: key,
-          secret: secret
+          key:,
+          secret:
         }
       }
     end
 
     let(:authorization) do
-      post sign_in_path, params: params
+      post(sign_in_path, params:)
       response.headers["Authorization"]
     end
 
@@ -69,7 +69,7 @@ RSpec.describe "UploadFile Mutation" do
            headers: {
              "Authorization" => authorization
            }
-      json = JSON.parse(response.body)
+      json = response.parsed_body
       blob_data = json.dig("data", "uploadFile", "blob")
       blob = ActiveStorage::Blob.last
       expect(blob_data).to include(
@@ -92,7 +92,7 @@ RSpec.describe "UploadFile Mutation" do
          headers: {
            "Authorization" => "Bearer Fake Authorization"
          }
-    json = JSON.parse(response.body)
+    json = response.parsed_body
     blob_data = json.dig("data", "uploadFile", "blob")
     expect(blob_data).to be_nil
   end

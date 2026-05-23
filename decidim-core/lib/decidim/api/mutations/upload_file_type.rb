@@ -5,6 +5,7 @@ module Decidim
     class UploadFileType < Decidim::Api::Types::BaseMutation
       include Decidim::Api::GraphqlPermissions
 
+      required_scopes "admin:read", "admin:write"
       description "Upload a file via multipart form"
 
       argument :file, Decidim::Api::Types::BaseUpload, description: "File being uploaded", required: true
@@ -16,19 +17,21 @@ module Decidim
         return GraphQL::ExecutionError.new(errors.join(", ")) unless errors.empty?
 
         filename = File.basename(file.original_filename)
-        content_type = file.content_type || Marcel::MimeType.for(file.tempfile, filename: filename)
+        content_type = file.content_type || Marcel::MimeType.for(file.tempfile, filename:)
 
         blob = ActiveStorage::Blob.create_and_upload!(
           io: file,
-          filename: filename,
-          content_type: content_type
+          filename:,
+          content_type:
         )
 
-        { blob: blob }
+        { blob: }
       end
 
       def authorized?(file:)
-        super && allowed_to?(:create, :blob, nil, context, scope: :admin)
+        raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:create, :blob, nil, context)
+
+        true
       end
 
       private
@@ -43,7 +46,7 @@ module Decidim
         allowed_exts = Decidim.organization_settings(context[:current_organization]).upload_allowed_file_extensions_admin || []
         errors << I18n.t("decidim.api.file_upload.errors.file_ext_not_supported") unless allowed_exts.include?(ext)
 
-        content_type = file.content_type || Marcel::MimeType.for(file.tempfile, filename: filename)
+        content_type = file.content_type || Marcel::MimeType.for(file.tempfile, filename:)
         allowed_types = Decidim.organization_settings(context[:current_organization]).upload_allowed_content_types_admin || []
         errors << I18n.t("decidim.api.file_upload.errors.type_not_supported") unless allowed_types.any? { |t| (t.is_a?(Regexp) ? t.match?(content_type) : t.to_s == content_type) }
 

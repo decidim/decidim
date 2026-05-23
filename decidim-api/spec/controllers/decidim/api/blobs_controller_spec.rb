@@ -27,7 +27,7 @@ describe Decidim::Api::BlobsController do
       let(:params) { { file: "foobar" } }
 
       it "responds with HTTP code 422" do
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
         expect(response.parsed_body).to eq({ "error" => "file_not_provided" })
       end
     end
@@ -52,7 +52,7 @@ describe Decidim::Api::BlobsController do
       let!(:organization) { create(:organization, file_upload_settings:) }
 
       it "does not allow uploading a file" do
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
         expect(response.parsed_body).to eq({ "error" => "unallowed_file_extension" })
       end
     end
@@ -66,7 +66,7 @@ describe Decidim::Api::BlobsController do
       end
 
       it "does not allow uploading a file" do
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
         expect(response.parsed_body).to eq({ "error" => "unallowed_content_type" })
       end
     end
@@ -127,7 +127,7 @@ describe Decidim::Api::BlobsController do
   context "with an api user" do
     let(:api_key) { "user_key" }
     let(:api_secret) { "decidim123456789" }
-    let(:api_user) { create(:api_user, organization: organization, api_key: api_key, api_secret: api_secret) }
+    let(:api_user) { create(:api_user, organization:, api_key:, api_secret:) }
 
     before do
       request.env["devise.mapping"] = Devise.mappings[:api_user]

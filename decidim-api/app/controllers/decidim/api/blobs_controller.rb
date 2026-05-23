@@ -17,9 +17,9 @@ module Decidim
       def create
         enforce_permission_to :create, :blob, context
 
-        return render json: { error: :file_not_provided }, status: :unprocessable_entity unless file_uploaded?
-        return render json: { error: :unallowed_file_extension }, status: :unprocessable_entity unless extension_allowlist.any? { |ext| ext == uploaded_file_extension }
-        return render json: { error: :unallowed_content_type }, status: :unprocessable_entity unless content_type_allowlist.any? { |type| type.match?(uploaded_file.content_type) }
+        return render json: { error: :file_not_provided }, status: :unprocessable_content unless file_uploaded?
+        return render json: { error: :unallowed_file_extension }, status: :unprocessable_content unless extension_allowlist.any? { |ext| ext == uploaded_file_extension }
+        return render json: { error: :unallowed_content_type }, status: :unprocessable_content unless content_type_allowlist.any? { |type| type.match?(uploaded_file.content_type) }
 
         blob = ActiveStorage::Blob.create_and_upload!(
           io: uploaded_file,
