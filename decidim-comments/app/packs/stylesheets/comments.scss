@@ -6,7 +6,7 @@
   }
 
   .add-comment {
-    @apply mt-2 md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
+    @apply mt-2 mb-4 md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
 
     .new_comment {
       @apply w-full;
@@ -73,7 +73,7 @@
 }
 
 .comment {
-  @apply rounded-lg border-2 border-background-5 p-3 pl-6;
+  @apply rounded-lg border-2 border-background-5 p-3 pl-6 mt-4 md:mt-0;
 
   &.top-comment {
     @apply border-gray-2;
@@ -140,7 +140,7 @@
   }
 
   &-thread {
-    @apply mb-8;
+    @apply mb-4;
 
     .button[aria-expanded="false"] {
       svg:first-of-type {
