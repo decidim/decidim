@@ -1,6 +1,6 @@
 <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-  <li class="dropdown__item" role="menuitem">
-    <%= link_to edit_meeting_path(meeting), class: "dropdown__button"  do %>
+  <li class="dropdown__item" role="presentation">
+    <%= link_to edit_meeting_path(meeting), class: "dropdown__button", role: "menuitem"  do %>
       <span><%= t("edit_meeting", scope: "decidim.meetings.meetings.meeting") %></span>
       <%= icon "pencil-line" %>
     <% end %>
@@ -9,8 +9,8 @@
 
 <% if allowed_to?(:close, :meeting, meeting: meeting) %>
   <% caption = meeting.closed? ? t("edit_close_meeting", scope: "decidim.meetings.meetings.meeting") : t("close_meeting", scope: "decidim.meetings.meetings.meeting") %>
-  <li class="dropdown__item" role="menuitem">
-    <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "dropdown__button"  do %>
+  <li class="dropdown__item" role="presentation">
+    <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "dropdown__button", role: "menuitem"  do %>
       <span><%= caption %></span>
       <%= icon "lock-line" %>
     <% end %>
@@ -18,12 +18,13 @@
 <% end %>
 
 <% if meeting.withdrawable_by?(current_user) %>
-  <li class="dropdown__item" role="menuitem">
+  <li class="dropdown__item" role="presentation">
     <%= action_authorized_link_to(
           :withdraw,
           withdraw_meeting_path(meeting),
           method: :put,
           class: "dropdown__button" ,
+          role: "menuitem",
           title: t("withdraw_btn_hint", scope: "decidim.meetings.meetings.show"),
           data: { confirm: t("withdraw_confirmation_html", scope: "decidim.meetings.meetings.show") }
         ) do %>

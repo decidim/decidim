@@ -15,12 +15,12 @@
 
     <div class="collaborative-texts-suggestions-box-header-menu" id="dropdown-menu-{{ID}}" role="menu" aria-labelledby="dropdown-trigger-{{ID}}" tabindex="-1" aria-hidden="true">
       <ul class="dropdown dropdown__bottom divide-y divide-gray-3 pt-1 pb-0" role="menu">
-        <li role="menuitem" class="dropdown__item">
-          <button class="button-apply dropdown__button">
+        <li role="presentation" class="dropdown__item">
+          <button class="button-apply dropdown__button" role="menuitem">
             <%= icon "checkbox-circle-line" %>
             <%= t("decidim.collaborative_texts.document.apply") %>
           </button>
-          <button class="button-restore dropdown__button">
+          <button class="button-restore dropdown__button" role="menuitem">
             <%= icon "arrow-go-back-line" %>
             <%= t("decidim.collaborative_texts.document.restore") %>
           </button>
