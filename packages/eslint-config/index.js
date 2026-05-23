@@ -16,7 +16,8 @@ module.exports = {
       experimentalObjectRestSpread: true,
       jsx: true
     },
-    sourceType: "module"
+    sourceType: "module",
+    ecmaVersion: "latest"
   },
   plugins: [
     "react",
@@ -24,6 +25,9 @@ module.exports = {
     "no-relative-import-paths"
   ],
   settings: {
+    "react": {
+      "version": "detect"
+    },
     "import/resolver": {
       node: {
         extensions: [".js"],
@@ -54,6 +58,8 @@ module.exports = {
           "decidim-system/app/packs/",
           "decidim-templates/app/packs/",
           "decidim-verifications/app/packs/",
+          "packages/core/node_modules/",
+          "packages/webpacker/node_modules/",
           "node_modules/"
         ]
       }
