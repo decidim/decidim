@@ -1,3 +1,44 @@
 {
-  "extends": "@decidim"
+  "extends": "@decidim",
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js"],
+        "moduleDirectory": [
+          "decidim-accountability/app/packs/",
+          "decidim-admin/app/packs/",
+          "decidim-ai/app/packs/",
+          "decidim-api/app/packs/",
+          "decidim-assemblies/app/packs/",
+          "decidim-blogs/app/packs/",
+          "decidim-budgets/app/packs/",
+          "decidim-collaborative_texts/app/packs/",
+          "decidim-comments/app/packs/",
+          "decidim-conferences/app/packs/",
+          "decidim-core/app/packs/",
+          "decidim-debates/app/packs/",
+          "decidim-demographics/app/packs/",
+          "decidim-design/app/packs/",
+          "decidim-dev/app/packs/",
+          "decidim-elections/app/packs/",
+          "decidim-forms/app/packs/",
+          "decidim-initiatives/app/packs/",
+          "decidim-meetings/app/packs/",
+          "decidim-pages/app/packs/",
+          "decidim-participatory_processes/app/packs/",
+          "decidim-proposals/app/packs/",
+          "decidim-surveys/app/packs/",
+          "decidim-system/app/packs/",
+          "decidim-templates/app/packs/",
+          "decidim-verifications/app/packs/",
+          "packages/core/node_modules/",
+          "packages/webpacker/node_modules/",
+          "node_modules/"
+        ]
+      }
+    }
+  }
 }
