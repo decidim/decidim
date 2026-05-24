@@ -1,5 +1,5 @@
 /* global jest */
-/* eslint max-lines: ["error", 550] */
+/* eslint max-lines: ["error", 660] */
 
 import { Application } from "@hotwired/stimulus";
 import TabsController from "src/decidim/controllers/tabs/controller";
