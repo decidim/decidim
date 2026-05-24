@@ -16,15 +16,7 @@ document.addEventListener("stimulus:load", () => {
   window.Stimulus.load(window.definitionsFromContext(context))
 }, { once: true });
 
-
-// REDESIGN_PENDING: deprecated
-window.initFoundation = (element) => {
-  $(element).foundation();
-};
-
 document.addEventListener("turbo:load", () => {
-  window.initFoundation(document);
-
   toggleNav();
 
   createSortList("#steps tbody", {
