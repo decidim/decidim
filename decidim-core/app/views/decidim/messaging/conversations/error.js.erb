@@ -1,10 +1,17 @@
-var $messageError = $("#messageErrorModal");
-if ($messageError.length > 0) {
-  $messageError.foundation("_destroy").remove();
+var messageError = document.getElementById("messageErrorModal");
+
+if (messageError){
+  messageError.remove();
 }
 
-$("#messages").append("<%= j(render "error_modal", error:, messages:).html_safe %>");
-$messageError = $("#messageErrorModal");
+const messagesContainer = document.getElementById("messages");
+if (messagesContainer) {
+  messagesContainer.insertAdjacentHTML(
+    "beforeend",
+    "<%= j(render 'error_modal', error:, messages:).html_safe %>"
+  );
+}
 
-var messageErrorReveal = new Foundation.Reveal($messageError);
-messageErrorReveal.open();
+var messageError = document.getElementById("messageErrorModal");
+
+alert("There is an error")
