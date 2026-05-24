@@ -6,10 +6,7 @@ if (messageError){
 
 const messagesContainer = document.getElementById("messages");
 if (messagesContainer) {
-  messagesContainer.insertAdjacentHTML(
-    "beforeend",
-    "<%= j(render 'error_modal', error:, messages:).html_safe %>"
-  );
+  messagesContainer.insertAdjacentHTML("beforeend", "<%= j(render "error_modal", error:, messages:).html_safe %>");
 }
 
 var messageError = document.getElementById("messageErrorModal");
