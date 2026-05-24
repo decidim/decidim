@@ -108,6 +108,133 @@ describe("TabsController", () => {
       expect(panels[2].classList.contains("is-hidden")).toBe(true);
       expect(panels[2].getAttribute("aria-hidden")).toBe("true");
     });
+
+    it("adds focus event listeners to all tab panels", () => {
+      const addSpy = jest.spyOn(HTMLElement.prototype, "addEventListener");
+
+      application.stop();
+      document.body.innerHTML = `
+  <div class="row column">
+    <ul class="tabs" role="tablist" id="focus-test-tabs" data-controller="tabs">
+      <li class="tabs-title" role="presentation">
+        <a href="#focus-panel-0" role="tab" aria-controls="focus-panel-0">Tab 1</a>
+      </li>
+      <li class="tabs-title" role="presentation">
+        <a href="#focus-panel-1" role="tab" aria-controls="focus-panel-1">Tab 2</a>
+      </li>
+    </ul>
+    <div class="tabs-content">
+      <div class="tabs-panel" id="focus-panel-0"></div>
+      <div class="tabs-panel" id="focus-panel-1"></div>
+    </div>
+  </div>
+`;
+      application = Application.start();
+      application.register("tabs", TabsController);
+      tablistElement = document.querySelector('[data-controller="tabs"]');
+
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const focusCalls = addSpy.mock.calls.filter((call) => call[0] === "focus");
+          expect(focusCalls).toHaveLength(2);
+          resolve();
+        }, 0);
+      });
+    });
+  });
+
+  describe("onFocus", () => {
+    it("focuses a ProseMirror editor when present in the panel", () => {
+      application.stop();
+      document.body.innerHTML = `
+  <div class="row column">
+    <ul class="tabs" role="tablist" id="editor-tabs" data-controller="tabs">
+      <li class="tabs-title" role="presentation">
+        <a href="#editor-panel-0" role="tab" aria-controls="editor-panel-0">Tab 1</a>
+      </li>
+    </ul>
+    <div class="tabs-content">
+      <div class="tabs-panel" id="editor-panel-0">
+        <div class="editor">
+          <div class="ProseMirror">Editor content</div>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
+      application = Application.start();
+      application.register("tabs", TabsController);
+      tablistElement = document.querySelector('[data-controller="tabs"]');
+      tabs = Array.from(tablistElement.querySelectorAll("[role=tab]"));
+      panels = [document.getElementById("editor-panel-0")];
+
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          controller = application.getControllerForElementAndIdentifier(tablistElement, "tabs");
+          resolve();
+        }, 0);
+      });
+    });
+
+    it("focuses an input when no ProseMirror is present", () => {
+      application.stop();
+      document.body.innerHTML = `
+  <div class="row column">
+    <ul class="tabs" role="tablist" id="input-tabs" data-controller="tabs">
+      <li class="tabs-title" role="presentation">
+        <a href="#input-panel-0" role="tab" aria-controls="input-panel-0">Tab 1</a>
+      </li>
+    </ul>
+    <div class="tabs-content">
+      <div class="tabs-panel" id="input-panel-0">
+        <input type="text" value="some value" />
+      </div>
+    </div>
+  </div>
+`;
+      application = Application.start();
+      application.register("tabs", TabsController);
+      tablistElement = document.querySelector('[data-controller="tabs"]');
+      tabs = Array.from(tablistElement.querySelectorAll("[role=tab]"));
+      panels = [document.getElementById("input-panel-0")];
+
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          controller = application.getControllerForElementAndIdentifier(tablistElement, "tabs");
+          resolve();
+        }, 0);
+      });
+    });
+
+    it("does nothing when panel has no ProseMirror and no input", () => {
+      application.stop();
+      document.body.innerHTML = `
+  <div class="row column">
+    <ul class="tabs" role="tablist" id="empty-tabs" data-controller="tabs">
+      <li class="tabs-title" role="presentation">
+        <a href="#empty-panel-0" role="tab" aria-controls="empty-panel-0">Tab 1</a>
+      </li>
+    </ul>
+    <div class="tabs-content">
+      <div class="tabs-panel" id="empty-panel-0">
+        <p>No editor or input here</p>
+      </div>
+    </div>
+  </div>
+`;
+      application = Application.start();
+      application.register("tabs", TabsController);
+      tablistElement = document.querySelector('[data-controller="tabs"]');
+      tabs = Array.from(tablistElement.querySelectorAll("[role=tab]"));
+      panels = [document.getElementById("empty-panel-0")];
+
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          controller = application.getControllerForElementAndIdentifier(tablistElement, "tabs");
+          resolve();
+        }, 0);
+      });
+    });
   });
 
   describe("disconnect", () => {
@@ -128,6 +255,16 @@ describe("TabsController", () => {
 
       spies.forEach((spy) => {
         expect(spy).toHaveBeenCalledWith("click", controller._onClick);
+      });
+    });
+
+    it("removes focus event listeners from all tab panels", () => {
+      const spies = panels.map((panel) => jest.spyOn(panel, "removeEventListener"));
+
+      controller.disconnect();
+
+      spies.forEach((spy) => {
+        expect(spy).toHaveBeenCalledWith("focus", controller._onFocus);
       });
     });
   });
@@ -175,6 +312,24 @@ describe("TabsController", () => {
       controller.setSelectedTab(tabs[1]);
 
       expect(focusSpy).toHaveBeenCalled();
+    });
+
+    it("dispatches a custom focus event on the tabpanel when setFocus is true", () => {
+      const dispatchSpy = jest.spyOn(panels[1], "dispatchEvent");
+
+      controller.setSelectedTab(tabs[1], true);
+
+      expect(dispatchSpy).toHaveBeenCalled();
+      const event = dispatchSpy.mock.calls[0][0];
+      expect(event.type).toBe("focus");
+    });
+
+    it("does not dispatch a custom focus event on the tabpanel when setFocus is false", () => {
+      const dispatchSpy = jest.spyOn(panels[1], "dispatchEvent");
+
+      controller.setSelectedTab(tabs[1], false);
+
+      expect(dispatchSpy).not.toHaveBeenCalled();
     });
   });
 

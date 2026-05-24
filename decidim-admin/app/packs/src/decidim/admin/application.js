@@ -25,14 +25,6 @@ window.initFoundation = (element) => {
 document.addEventListener("turbo:load", () => {
   window.initFoundation(document);
 
-  $(document).on("show.zf.dropdownMenu", function(event, $element) {
-    $element.attr("aria-hidden", "false");
-  });
-
-  $(document).on("hide.zf.dropdownMenu", function(event, $element) {
-    $element.children(".is-dropdown-submenu").attr("aria-hidden", "true");
-  });
-
   toggleNav();
 
   createSortList("#steps tbody", {

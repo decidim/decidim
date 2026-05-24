@@ -26,7 +26,6 @@ import setOnboardingAction from "src/decidim/refactor/integration/onboarding_pen
 // local deps with no initialization
 import "src/decidim/refactor/moved/history"
 import "src/decidim/append_redirect_url_to_modals"
-import "src/decidim/form_attachments"
 import "src/decidim/form_remote"
 import "src/decidim/refactor/moved/delayed"
 import "src/decidim/security/selfxss_warning"
@@ -163,28 +162,6 @@ document.addEventListener("turbo:load", () => {
 // REDESIGN_PENDING: deprecated
 window.initFoundation = (element) => {
   $(element).foundation();
-
-  // Fix compatibility issue with the `a11y-accordion-component` package that
-  // uses the `data-open` attribute to indicate the open state for the accordion
-  // trigger.
-  //
-  // In Foundation, these listeners are initiated on the document node always,
-  // regardless of the element for which foundation is initiated. Therefore, we
-  // need the document node here instead of the `element` passed to this
-  // function.
-  const $document = $(document);
-
-  $document.off("click.zf.trigger", window.Foundation.Triggers.Listeners.Basic.openListener);
-  $document.on("click.zf.trigger", "[data-open]", (ev, ...restArgs) => {
-    // Do not apply for the accordion triggers.
-    const accordion = ev.currentTarget?.closest("[data-controller='accordion']");
-    if (accordion) {
-      return;
-    }
-
-    // Otherwise call the original implementation
-    Reflect.apply(window.Foundation.Triggers.Listeners.Basic.openListener, ev.currentTarget, [ev, ...restArgs]);
-  });
 };
 
 // Confirm initialization needs to happen before Rails.start()
