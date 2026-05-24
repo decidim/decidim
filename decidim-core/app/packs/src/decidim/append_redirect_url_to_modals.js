@@ -52,32 +52,38 @@ document.addEventListener("turbo:load", () => {
     return url;
   }
 
-  $(document).on("click.zf.trigger", (event) => {
-    // Try to get the <a> directly or find the closest parent <a>
-    const $target = $(event.target).closest("a");
+  document.querySelectorAll("[data-dialog-open]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      let target = event.target.closest("a");
 
-    // Check if an <a> was found
-    if (!$target) {
-      return;
-    }
+      const dialogTarget = document.getElementById(target.dataset.dialogOpen)
+      const redirectUrl = target.dataset.redirectUrl;
 
-    const dialogTarget = `#${$target.data("dialog-open")}`;
-    const redirectUrl = $target.data("redirectUrl");
+      if (!dialogTarget && !redirectUrl) {
+        return;
+      }
 
-    if (!dialogTarget || !redirectUrl) {
-      return;
-    }
+      let redirectUrlInput = dialogTarget.querySelector("#redirect_url");
 
-    $("<input type='hidden' />").
-      attr("id", "redirect_url").
-      attr("name", "redirect_url").
-      attr("value", redirectUrl).
-      appendTo(`${dialogTarget} form`);
+      if (!redirectUrlInput) {
+        redirectUrlInput = `<input type="hidden" id="redirect_url" name="redirect_url" value="${redirectUrl}">`;
 
-    $(`${dialogTarget} a`).attr("href", (index, href) => {
-      const querystring = jQuery.param({"redirect_url": redirectUrl});
-      return href + (href.match(/\?/) ? "&" : "?") + querystring;
-    });
+        dialogTarget.querySelector("form").insertAdjacentHTML("beforeend", redirectUrlInput);
+      }
+
+      redirectUrlInput.value = redirectUrl
+
+      const queryString = new URLSearchParams({ "redirect_url": redirectUrl }).toString();
+
+      dialogTarget.querySelectorAll("a").forEach((anchor) => {
+        const currentHref = anchor.getAttribute("href");
+        if (currentHref) {
+          const separator = currentHref.includes("?") ? "&" : "?";
+
+          anchor.setAttribute("href", currentHref + separator + queryString);
+        }
+      });
+    })
   });
 
   $(document).on("closed.zf.reveal", (event) => {
