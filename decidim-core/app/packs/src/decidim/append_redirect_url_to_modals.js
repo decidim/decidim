@@ -32,7 +32,10 @@ document.addEventListener("turbo:load", () => {
       const dialogTarget = document.getElementById(target.dataset.dialogOpen)
       const redirectUrl = target.dataset.redirectUrl;
 
-      if (!dialogTarget && !redirectUrl) {
+      console.log(dialogTarget)
+      console.log(redirectUrl)
+      console.log(!dialogTarget || !redirectUrl)
+      if (!dialogTarget || !redirectUrl) {
         return;
       }
 
