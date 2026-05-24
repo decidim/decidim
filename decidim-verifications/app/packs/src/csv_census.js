@@ -33,8 +33,6 @@ document.addEventListener("decidim:loaded", () => {
         container.innerHTML = html;
 
         container.classList.remove("spinner-container");
-        // We still need foundation for form validations
-        $(container).foundation();
         activateDrawerForm()
       });
     };
