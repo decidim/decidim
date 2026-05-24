@@ -74,8 +74,7 @@ document.addEventListener("decidim:loaded", () => {
       fetch(urlToFetch).then((response) => response.text()).then((html) => {
         container.innerHTML = html;
         container.classList.remove("spinner-container");
-        // We still need foundation for form validations
-        $(container).foundation();
+
         activateDrawerForm();
       });
     };
