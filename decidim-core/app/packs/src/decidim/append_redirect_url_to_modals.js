@@ -56,6 +56,10 @@ document.addEventListener("turbo:load", () => {
     link.addEventListener("click", (event) => {
       let target = event.target.closest("a");
 
+      if (!target) {
+        return;
+      }
+
       const dialogTarget = document.getElementById(target.dataset.dialogOpen)
       const redirectUrl = target.dataset.redirectUrl;
 
