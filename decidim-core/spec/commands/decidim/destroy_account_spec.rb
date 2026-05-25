@@ -48,11 +48,12 @@ module Decidim
       end
 
       it "sends the email" do
+        original_name = user.name
         command.call
         perform_enqueued_jobs
         email = last_email
         expect(email.subject).to eq("Your account has been deleted")
-        expect(last_email_body).to include("Dear #{user.name}")
+        expect(last_email_body).to include("Dear #{original_name}")
       end
 
       it "stores the deleted_at and delete_reason to the user" do
