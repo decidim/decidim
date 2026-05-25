@@ -31,10 +31,7 @@ module Decidim
 
       context "when the related attachment exists" do
         let(:original_image) do
-          Rack::Test::UploadedFile.new(
-            Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-            "image/jpeg"
-          )
+          Decidim::Dev.test_file("city.jpeg", "image/jpeg")
         end
 
         before do
@@ -52,10 +49,7 @@ module Decidim
 
       context "when the image is larger in size than the organization allows" do
         let(:original_image) do
-          Rack::Test::UploadedFile.new(
-            Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-            "image/jpeg"
-          )
+          Decidim::Dev.test_file("city.jpeg", "image/jpeg")
         end
 
         before do
