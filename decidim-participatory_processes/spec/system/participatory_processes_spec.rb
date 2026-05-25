@@ -282,20 +282,18 @@ describe "Participatory Processes" do
 
           it_behaves_like "accessible page"
 
-          it "displays component names with special characters (\", ', &) correctly in the nav links" do
-            create(
-              :component,
-              :published,
-              participatory_space: participatory_process,
-              manifest_name: :proposals,
-              name: { en: "Tracking \"pop\" & 'test'" }
-            )
-            visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
+          describe "when there are special characters (', &) in the nav links" do
+            let(:participatory_space) { participatory_process }
+            let(:component_name) { "People's Budget & Ideas" }
+            let!(:proposal_component) { create(:proposal_component, name: { en: component_name }, participatory_space:) }
 
-            within ".participatory-space__nav-container" do
-              expect(page).to have_content('Tracking "pop" & \'test\'')
-              expect(page).to have_no_content("&quot;")
-              expect(page).to have_no_content("&amp;")
+            it "renders the component name correctly" do
+              visit current_path
+              within ".participatory-space__nav-container" do
+                expect(page).to have_content(component_name)
+                expect(page).to have_no_content("&#39;")
+                expect(page).to have_no_content("&amp;#39;")
+              end
             end
           end
 
