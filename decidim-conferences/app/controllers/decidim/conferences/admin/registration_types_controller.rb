@@ -41,13 +41,13 @@ module Decidim
         end
 
         def edit
-          @registration_type = collection.find(params[:id])
+          @registration_type = collection.find(params.expect(:id))
           enforce_permission_to :update, :registration_type, registration_type: @registration_type
           @form = form(Decidim::Conferences::Admin::RegistrationTypeForm).from_model(@registration_type)
         end
 
         def update
-          @registration_type = collection.find(params[:id])
+          @registration_type = collection.find(params.expect(:id))
           enforce_permission_to :update, :registration_type, registration_type: @registration_type
           @form = form(Decidim::Conferences::Admin::RegistrationTypeForm).from_params(params)
 
@@ -65,7 +65,7 @@ module Decidim
         end
 
         def destroy
-          @registration_type = collection.find(params[:id])
+          @registration_type = collection.find(params.expect(:id))
           enforce_permission_to :destroy, :registration_type, registration_type: @registration_type
 
           DestroyRegistrationType.call(@registration_type, current_user) do

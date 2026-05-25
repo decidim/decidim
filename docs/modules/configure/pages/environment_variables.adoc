@@ -668,13 +668,13 @@ A content processor is a concept to refer to a set of two classes:
 
 |*DECIDIM_ENABLE_MACHINE_TRANSLATION*
 | Whether the Decidim attempt to automatically translate missing translations.
-Read more about this at xref:services:machine_translation.adoc[Machine Translation] service page.
+Read more about this at xref:services:machine_translations.adoc[Machine Translations] service page.
 | false
 | No
 
 |*DECIDIM_MACHINE_TRANSLATION_SERVICE*
 | The name of the class to translate user content.
-Read more about this at xref:services:machine_translation.adoc[Machine Translation] service page.
+Read more about this at xref:services:machine_translations.adoc[Machine Translations] service page.
 | nil
 | No
 

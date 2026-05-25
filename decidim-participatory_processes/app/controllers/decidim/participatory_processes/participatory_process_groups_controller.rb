@@ -29,7 +29,7 @@ module Decidim
       end
 
       def set_group
-        @group = Decidim::ParticipatoryProcessGroup.where(organization: current_organization).find(params[:id])
+        @group = Decidim::ParticipatoryProcessGroup.where(organization: current_organization).find(params.expect(:id))
       end
 
       def active_content_blocks

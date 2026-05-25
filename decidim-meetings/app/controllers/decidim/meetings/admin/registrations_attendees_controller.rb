@@ -17,7 +17,7 @@ module Decidim
         end
 
         def qr_mark_as_attendee
-          registration = registrations.find_by!(code: params[:id])
+          registration = registrations.find_by!(code: params.expect(:id))
 
           MarkAsAttendee.call(registration) do
             on(:ok) do
@@ -49,7 +49,7 @@ module Decidim
         end
 
         def mark_as_attendee
-          registration = registrations.find(params[:id])
+          registration = registrations.find(params.expect(:id))
 
           MarkAsAttendee.call(registration) do
             on(:ok) do
@@ -67,7 +67,7 @@ module Decidim
         private
 
         def meeting
-          @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
+          @meeting ||= Meeting.where(component: current_component).find(params.expect(:meeting_id))
         end
 
         def registrations

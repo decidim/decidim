@@ -24,7 +24,7 @@ module Decidim
       private
 
       def meeting
-        @meeting ||= Decidim::Meetings::Meeting.where(component: current_component).find(params[:id])
+        @meeting ||= Decidim::Meetings::Meeting.where(component: current_component).find(params.expect(:id))
       end
 
       def set_default_request_format

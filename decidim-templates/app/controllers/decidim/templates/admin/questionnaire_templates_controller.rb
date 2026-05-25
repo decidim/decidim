@@ -161,7 +161,7 @@ module Decidim
         end
 
         def template
-          @template ||= collection.find(params[:id])
+          @template ||= collection.find(params.expect(:id))
         end
 
         def search(term)

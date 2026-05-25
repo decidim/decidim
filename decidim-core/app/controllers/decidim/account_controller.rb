@@ -105,7 +105,7 @@ module Decidim
     end
 
     def account_params
-      params[:user].to_unsafe_h
+      params.fetch(:user, {}).to_unsafe_h
     end
 
     def fetch_entered_password(password)

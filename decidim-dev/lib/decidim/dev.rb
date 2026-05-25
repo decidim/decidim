@@ -33,7 +33,38 @@ module Decidim
 
     # Public: Returns a file for testing, just like file fields expect it
     def self.test_file(filename, content_type)
-      Rack::Test::UploadedFile.new(asset(filename), content_type)
+      uploaded_file(asset(filename), content_type)
+    end
+
+    # Public: Creates a safe uploaded file for tests.
+    #
+    # Creating instances of Rack::Test::UploadedFile directly from file paths
+    # may lead to 0-byte files created in the storage under specific
+    # configurations/kernels and specifically with Docker containers. This
+    # method creates a safe uploaded file that does not have this problem.
+    #
+    # See:
+    # https://github.com/rails/rails/issues/41991
+    # https://github.com/docker/for-mac/issues/5570
+    # https://github.com/docker/for-linux/issues/1015
+    #
+    # @param path [String] The path to the original file
+    # @param content_type [String] The MIME type for the file
+    # @param binary [Boolean] Boolean indicating whether the uploaded file's
+    #   tempfile should be in binary mode
+    # @return [Rack::Test::UploadedFile] A new uploaded test file instance
+    def self.uploaded_file(path, content_type, binary: false)
+      original_filename = File.basename(path)
+      extension = File.extname(original_filename)
+
+      tempfile = Tempfile.open([File.basename(original_filename, extension), extension])
+      tempfile.binmode if binary
+      tempfile.write(binary ? File.binread(path) : File.read(path))
+      tempfile.rewind
+
+      Rack::Test::UploadedFile.new(tempfile, content_type, binary, original_filename:)
+    ensure
+      tempfile&.close!
     end
 
     # Public: add rake tasks
