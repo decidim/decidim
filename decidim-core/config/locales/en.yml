@@ -175,6 +175,13 @@ en:
         date_button: Open calendar picker for %{label}
         time_button: Open time picker for %{label}
   decidim:
+    delete_user_mailer:
+      delete:
+        hello: Dear %{username},
+        body_1: Your account has been deactivated and is no longer accessible. Your personal data is scheduled for permanent deletion in accordance with our data retention policies.
+        body_2: For security reasons, some authorization-related data will be retained; if you create a new account and authorize again, it may be linked to your new account.
+        greetings_html: Kind regards,<br/><a href="%{organization_url}">%{organization_name}</a>
+      subject: Your account has been deleted
     accessibility:
       external_link: External link
       front_page_link: Go to front page

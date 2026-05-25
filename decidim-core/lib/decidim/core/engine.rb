@@ -463,6 +463,14 @@ module Decidim
         end
       end
 
+      initializer "decidim_core.delete_account" do
+        config.to_prepare do
+          ActiveSupport::Notifications.subscribe("decidim.destroy_account:after") do |_event_name, data|
+            Decidim::DeleteUserMailer.delete(user_email: data[:user_email], user_name: data[:user_name], locale: data[:locale], organization: data[:organization]).deliver_later
+          end
+        end
+      end
+
       initializer "decidim_core.add_cells_view_paths" do
         Cell::ViewModel.view_paths << Rails.root.join("app/views") # for partials
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
