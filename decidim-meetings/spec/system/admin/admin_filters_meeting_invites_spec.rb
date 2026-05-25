@@ -62,7 +62,7 @@ describe "Admin filters invites" do
   context "when user does not exist in database" do
     let(:meeting) { create(:meeting, :with_registrations_enabled) }
 
-    it "successfully handles the error" do
+    it "successfully handles the invite" do
       invited = build(:user, organization:)
 
       within "#new_meeting_registration_invite" do
