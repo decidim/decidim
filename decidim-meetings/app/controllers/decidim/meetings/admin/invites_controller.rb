@@ -24,13 +24,11 @@ module Decidim
 
           InviteUserToJoinMeeting.call(@form, meeting, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("invites.create.success", scope: "decidim.meetings.admin")
-              redirect_to meeting_registrations_invites_path(meeting)
+              redirect_to meeting_registrations_invites_path(meeting), notice: I18n.t("invites.create.success", scope: "decidim.meetings.admin")
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("invites.create.error", scope: "decidim.meetings.admin")
-              render :index, status: :unprocessable_content
+              redirect_to meeting_registrations_invites_path(meeting), alert: I18n.t("invites.create.error", scope: "decidim.meetings.admin")
             end
           end
         end
