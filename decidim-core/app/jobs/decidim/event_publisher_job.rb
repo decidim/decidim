@@ -4,6 +4,8 @@ module Decidim
   class EventPublisherJob < ApplicationJob
     queue_as :events
 
+    self.enqueue_after_transaction_commit = :always
+
     attr_reader :resource, :data
 
     def perform(event_name, data)

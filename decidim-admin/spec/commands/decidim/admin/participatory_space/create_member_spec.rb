@@ -10,7 +10,7 @@ module Decidim::Admin::ParticipatorySpace
     let(:participatory_space) { create(:participatory_process) }
     let!(:email) { "my_email@example.org" }
     let!(:name) { "Weird Guy" }
-    let!(:user) { create(:user, email: "my_email@example.org", organization: participatory_space.organization) }
+    let!(:user) { create(:user, :confirmed, email: "my_email@example.org", organization: participatory_space.organization) }
     let!(:current_user) { create(:user, email: "some_email@example.org", organization: participatory_space.organization) }
     let(:role) { generate_localized_title(:role) }
     let(:form) do
@@ -56,6 +56,16 @@ module Decidim::Admin::ParticipatorySpace
         described_class.new(form, participatory_space, via_csv:).call
 
         expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1
+      end
+
+      it "sends the notification" do
+        expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 0
+
+        perform_enqueued_jobs { subject.call }
+
+        expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1
+
+        expect(last_email_body).to include("You have been added as a member to a participatory space.")
       end
 
       it "creates a new user with no application admin privileges" do

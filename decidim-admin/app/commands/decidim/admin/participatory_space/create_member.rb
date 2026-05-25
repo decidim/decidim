@@ -68,7 +68,18 @@ module Decidim
             organization: member_to.organization
           )
 
-          InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user&.invitation_pending?
+          if @existing_user&.invitation_pending?
+            InviteUserAgain.call(@existing_user, invitation_instructions)
+          else
+            Decidim::EventsManager.publish(
+              event: "decidim.events.participatory_space.member_added",
+              event_class: Decidim::ParticipatorySpace::MemberAddedEvent,
+              resource: member_to,
+              affected_users: [@existing_user],
+              force_send: true,
+              extra: { force_email: true }
+            )
+          end
 
           @existing_user
         end
