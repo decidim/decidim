@@ -107,7 +107,7 @@ module Decidim
       end
 
       def conversation
-        @conversation ||= Conversation.find(params[:id])
+        @conversation ||= Conversation.find(params.expect(:id))
       end
 
       def new_conversation(recipient)

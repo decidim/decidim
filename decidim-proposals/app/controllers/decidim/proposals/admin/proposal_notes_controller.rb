@@ -9,7 +9,7 @@ module Decidim
 
         def reply
           enforce_permission_to(:create, :proposal_note, proposal:)
-          parent_note = proposal.notes.find(params[:id])
+          parent_note = proposal.notes.find(params.expect(:id))
           @form = form(ProposalNoteForm).from_params(params)
 
           ReplyProposalNote.call(@form, parent_note) do
@@ -49,7 +49,7 @@ module Decidim
         end
 
         def proposal
-          @proposal ||= Proposal.where(component: current_component).find(params[:proposal_id])
+          @proposal ||= Proposal.where(component: current_component).find(params.expect(:proposal_id))
         end
       end
     end

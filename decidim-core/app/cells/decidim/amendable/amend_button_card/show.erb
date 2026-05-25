@@ -1,5 +1,5 @@
-<li role="menuitem" class="dropdown__item">
-  <%= action_authorized_link_to :amend, new_amend_path, resource: model, data: { "redirect_url" => new_amend_path }, id: "amend-button", class: "dropdown__button" do %>
+<li role="presentation" class="dropdown__item">
+  <%= action_authorized_link_to :amend, new_amend_path, resource: model, data: { "redirect_url" => new_amend_path }, id: "amend-button", class: "dropdown__button", role: "menuitem" do %>
     <span><%= t("button", scope: "decidim.amendments.amendable", model_name: nil) %></span>
     <%= icon "pencil-line" %>
   <% end %>

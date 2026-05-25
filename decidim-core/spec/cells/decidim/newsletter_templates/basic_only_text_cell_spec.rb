@@ -31,10 +31,7 @@ describe Decidim::NewsletterTemplates::BasicOnlyTextCell, type: :cell do
 
   context "when the organization has a logo set" do
     let(:logo) do
-      Rack::Test::UploadedFile.new(
-        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        "image/jpeg"
-      )
+      Decidim::Dev.test_file("city.jpeg", "image/jpeg")
     end
 
     before do

@@ -1,1 +1,15 @@
+---
 sk:
+  decidim:
+    api:
+      errors:
+        introspection_disabled: Introspekcia je pre túto požiadavku zakázaná
+        invalid_locale: Poskytnutý neplatný jazyk
+        locale_argument_error: Pri internom spracovaní údajov i18n sa vyskytla chyba
+        not_found: "%{type} sa nenašiel"
+        permission_not_set: Pre tento %{type} nebolo nastavené oprávnenie
+        recursion_limit_exceeded_error: V dopyte bolo zistených príliš veľa rekurzií
+        too_many_aliases_error: Použilo sa príliš veľa aliasov. Použili ste %{size} aliasov, ale povolených je %{limit}.
+        unauthorized_field: Nemôžete zobraziť ani upraviť pole %{field} v %{type}, pretože nemáte oprávnenie
+        unauthorized_mutation: Nemáte oprávnenie vykonať túto mutáciu
+        unauthorized_object: Nemôžete zobraziť ani upraviť tento %{type}, pretože nemáte oprávnenia

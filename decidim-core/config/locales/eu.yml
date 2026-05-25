@@ -1340,6 +1340,7 @@ eu:
         own_activity: Neure jarduera, norbaitek nire proposamenean iruzkina egiten duenean bezala, edo aipatzen nauenean
         push_notifications: Push jakinarazpenak
         push_notifications_reminder: Plataformaren jakinarazpenak jasotzeko, lehen zure nabigatzailearen konfigurazioan baimendu behar dituzu.
+        push_notifications_unsupported_browser: Zure nabigatzaileak ez du euskarririk.
         receive_notifications_about: Jakinarazpenak jaso nahi ditut
         update_notifications_settings: Gorde aldaketak
       update:

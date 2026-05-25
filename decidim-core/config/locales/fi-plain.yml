@@ -1534,6 +1534,11 @@ fi-pl:
           %{organization_name}
         hello: Hei %{username},
         subject: Käyttämättä ollut tili on poistettu
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Jäsen ryhmässä
     participatory_space_members:
       index:
         members: Jäsenet

@@ -38,14 +38,14 @@ RSpec.describe "Api authentication" do
       post(sign_in_path, params:)
       expect(response.headers["Authorization"]).to be_present
       expect(response.body["jwt_token"]).to be_present
-      parsed_response_body = JSON.parse(response.body)
+      parsed_response_body = response.parsed_body
       expect(response.headers["Authorization"]).to eq("Bearer #{parsed_response_body["jwt_token"]}")
     end
 
     it "renders resource when invalid credentials" do
       post sign_in_path, params: invalid_params
 
-      parsed_response = JSON.parse(response.body)
+      parsed_response = response.parsed_body
       expect(parsed_response["id"]).not_to be_present
       expect(parsed_response["jwt_token"]).not_to be_present
     end
@@ -67,20 +67,58 @@ RSpec.describe "Api authentication" do
       it "can use token to post to api" do
         authorization = response.headers["Authorization"]
         post "/api", params: { query: "{session { user { id nickname } } }" }, headers: { HTTP_AUTHORIZATION: authorization }
-        parsed_response = JSON.parse(response.body)["data"]
+        parsed_response = response.parsed_body["data"]
         expect(parsed_response).to match(
           "session" => {
             "user" => { "id" => user.id.to_s, "nickname" => "@#{user.nickname}" }
           }
         )
       end
+
+      it "does not expose the session from another organization" do
+        authorization = response.headers["Authorization"]
+        other_organization = create(:organization)
+
+        host! other_organization.host
+        post "/api", params: { query: "{session { user { id nickname } } }" }, headers: { HTTP_AUTHORIZATION: authorization }
+
+        parsed_response = response.parsed_body["data"]
+        expect(parsed_response).to match("session" => nil)
+      end
     end
 
     context "when not signed in" do
       it "does not return session details" do
         post "/api", params: { query: }
-        parsed_response = JSON.parse(response.body)
+        parsed_response = response.parsed_body
         expect(parsed_response).to match("data" => { "session" => nil })
+      end
+    end
+
+    context "when there are other organizations" do
+      let!(:other_organization) { create(:organization) }
+
+      it "does not sign in" do
+        host! other_organization.host
+
+        post(sign_in_path, params:)
+
+        expect(response).to have_http_status(:forbidden)
+        expect(response.headers["Authorization"]).not_to be_present
+        parsed_response_body = response.parsed_body
+        expect(parsed_response_body["jwt_token"]).not_to be_present
+      end
+
+      it "does not authenticate with the same key from another organization" do
+        host! other_organization.host
+        create(:api_user, organization: other_organization, api_key: key, api_secret: "other-secret")
+
+        post(sign_in_path, params:)
+
+        expect(response).to have_http_status(:forbidden)
+        expect(response.headers["Authorization"]).not_to be_present
+        parsed_response_body = response.parsed_body
+        expect(parsed_response_body["jwt_token"]).not_to be_present
       end
     end
   end
@@ -100,7 +138,7 @@ RSpec.describe "Api authentication" do
     it "does not authenticate user" do
       post(sign_in_path, params:)
 
-      parsed_response = JSON.parse(response.body)
+      parsed_response = response.parsed_body
       anonymized_key = parsed_response["api_key"]
       expect(anonymized_key).to be_nil
       expect(parsed_response["jwt_token"]).not_to be_present

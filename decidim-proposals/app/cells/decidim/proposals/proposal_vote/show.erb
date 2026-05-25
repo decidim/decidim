@@ -1,19 +1,4 @@
-<% if !current_settings.votes_hidden? && (current_component.participatory_space.can_participate?(current_user) || current_user&.admin?) %>
-  <% if component_settings.participatory_texts_enabled? && from_proposals_list %>
-    <%= render partial: "decidim/proposals/proposals/participatory_texts/proposal_votes_count", locals: { proposal: resource, from_proposals_list: true } %>
-  <% else %>
-    <% progress ||= resource.proposal_votes_count || 0 %>
-    <% total ||= resource.maximum_votes || 0 %>
-    <%= cell(
-          "decidim/progress_bar",
-          progress,
-          total:,
-          units_name: "decidim.proposals.proposals.votes_count.count",
-          element_id: "proposal-#{resource.id}-votes-count",
-          class: total.positive? ? "card__proposals-votes-limited" : "card__proposals-votes-unlimited"
-        ) %>
-  <% end %>
-<% end %>
+<%= cell("decidim/proposals/proposal_votes_count", resource, from_proposals_list:) %>
 
 <% button_classes = "button button__sm button__secondary w-full" %>
 

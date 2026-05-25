@@ -33,7 +33,7 @@ module Decidim
       it "executes a query" do
         post :create, params: { query: "{ organization { name { translations { locale text } } } }" }
 
-        parsed_response = JSON.parse(response.body)["data"]
+        parsed_response = response.parsed_body["data"]
         expect(parsed_response["organization"]["name"]["translations"]).to include("locale" => "en", "text" => translated(organization.name))
       end
 
@@ -70,6 +70,21 @@ module Decidim
           it "allows access for JSON requests" do
             post :create, params: { query: "{ __schema { queryType { name } } }" }, format: :json
             expect(response).to have_http_status(:success)
+          end
+        end
+
+        context "when the signed in user belongs to another organization" do
+          let(:current_user) { create(:user, :confirmed, :admin, organization: create(:organization)) }
+
+          before do
+            sign_in current_user
+          end
+
+          it "does not expose the session" do
+            post :create, params: { query: "{ session { user { id } } }" }, format: :json
+
+            parsed_response = response.parsed_body["data"]
+            expect(parsed_response).to match("session" => nil)
           end
         end
       end

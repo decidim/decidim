@@ -4,7 +4,7 @@ module Decidim
   # This holds decidim-accountability version.
   module Accountability
     def self.version
-      "0.32.0.dev"
+      "0.33.0.dev"
     end
   end
 end

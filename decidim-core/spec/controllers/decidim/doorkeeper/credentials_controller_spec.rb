@@ -23,7 +23,7 @@ describe Decidim::Doorkeeper::CredentialsController do
     it "returns public information about the user" do
       get :me
 
-      credentials = JSON.parse(response.body)
+      credentials = response.parsed_body
 
       expect(credentials.keys).to eq(%w(id email name nickname image))
       expect(credentials["id"]).to eq(user.id)

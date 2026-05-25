@@ -88,7 +88,7 @@ module Decidim
 
       tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs".underscore
       enabled_tabs = options[:enable_tabs].nil? ? true : options[:enable_tabs]
-      tabs_panels_data = enabled_tabs ? { tabs: true } : {}
+      tabs_panels_data = enabled_tabs ? { controller: "tabs" } : {}
 
       label_tabs = content_tag(:div, class: "label--tabs") do
         tabs_panels = "".html_safe

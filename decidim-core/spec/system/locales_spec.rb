@@ -69,15 +69,35 @@ describe "Locales" do
       let(:user) { create(:user, :confirmed, locale: "ca", organization:) }
 
       before do
+        allow(Rails.application).to \
+          receive(:env_config).with(no_args).and_wrap_original do |m, *|
+          m.call.merge(
+            "action_dispatch.show_exceptions" => true,
+            "action_dispatch.show_detailed_exceptions" => false
+          )
+        end
+
         login_as user, scope: :user
 
         # Prevent flaky spec, where sometimes the language is not changed before the visit
         sleep 2
-        visit decidim.root_redirect_path
       end
 
       it "uses the user's locale" do
+        visit decidim.root_redirect_path
         expect(page).to have_content("Menú")
+      end
+
+      it "displays not found messages with the right locale" do
+        visit decidim_admin.root_path
+
+        expect(page).to have_content("No s'ha trobat la pàgina que busques")
+      end
+
+      it "displays devise messages with the right locale" do
+        visit decidim.new_user_session_path(locale: "ca")
+
+        expect(page).to have_content("Ja has iniciat la sessió.")
       end
     end
   end

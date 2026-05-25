@@ -5,7 +5,7 @@ module Decidim
     module StaticPage
       class SummaryCell < Decidim::ViewModel
         def content
-          translated_attribute(model.settings.summary).html_safe
+          decidim_sanitize_editor_admin(translated_attribute(model.settings.summary))
         end
       end
     end

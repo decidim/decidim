@@ -419,13 +419,13 @@ class FormValidator {
       return true;
     }
 
-    checkboxGroup.forEach((checkboxElement) => {
-      if (isValid) {
-        this.removeInputErrorClasses(checkboxElement);
-      } else {
+    if (isValid) {
+      this.removeCheckboxGroupErrorClasses(groupName);
+    } else {
+      checkboxGroup.forEach((checkboxElement) => {
         this.addInputErrorClasses(checkboxElement, ["required"]);
-      }
-    });
+      });
+    }
 
     return isValid;
   }

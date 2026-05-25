@@ -101,10 +101,7 @@ module Decidim::Assemblies
     context "when duplicate_landing_page_blocks exists" do
       let(:duplicate_landing_page_blocks) { true }
       let(:original_image) do
-        Rack::Test::UploadedFile.new(
-          Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-          "image/jpeg"
-        )
+        Decidim::Dev.test_file("city.jpeg", "image/jpeg")
       end
 
       before do

@@ -1,6 +1,10 @@
 sk:
   activemodel:
     attributes:
+      milestone:
+        description: Popis
+        entry_date: Dátum
+        title: Názov
       result:
         decidim_accountability_status_id: Stav
         decidim_category_id: Kategória
@@ -9,6 +13,7 @@ sk:
         end_date: Koniec
         progress: Postup
         start_date: Začiatok 
+        subresults: Čiastkové výsledky
         title: Názov
         updated_at: Aktualizované
       status:
@@ -21,6 +26,14 @@ sk:
       decidim/accountability/result_progress_updated_event: Aktualizovaný pokrok vo výsledku
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Tento výsledok %{link} bol zahrnutý
+            meetings_ids: 'Diskutovalo sa o tom na tomto stretnutí: %{link}'
+            project_ids: 'Bolo to zahrnuté v tomto projekte: %{link}'
+            proposal_ids: 'Bolo to zahrnuté v tomto návrhu: %{link}'
+            text: 'Bolo to pridané k tomuto výsledku: %{link}'
       decidim/accountability/result:
         one: Výsledok
         few: Výsledky
@@ -29,35 +42,159 @@ sk:
   decidim:
     accountability:
       actions:
+        add_milestone: Pridať míľnik
+        add_result: Pridať výsledok
+        confirm_delete_result: Naozaj chcete odstrániť tento výsledok?
         confirm_destroy: Naozaj chcete odstrániť toto %{name}?
+        deleted_results_info: Odstránené výsledky je možné obnoviť z koša.
         destroy: Odstrániť
         edit: Upraviť
+        import: Importovať výsledky z iného komponentu
+        import_csv: Importovať výsledky zo súboru CSV
+        new_milestone: Nový míľnik
+        new_result: Nový výsledok
+        new_status: Nový stav
         preview: Ukážka
         title: Akcie
+        view_deleted_results: Zobraziť odstránené výsledky
       admin:
         exports:
+          result_comments: Komentáre
           results: Výsledky
+        import_components:
+          create:
+            invalid: Pri importovaní výsledkov sa vyskytol problém, pozorne postupujte podľa pokynov a uistite sa, že ste vybrali projekty na implementáciu.
+          filters:
+            new_items_projects:
+              one: Bude importovaný 1 vybraný projekt
+              few: "Budú importované %{count} vybrané projekty"
+              many: "Bude importovaných %{count} vybraných projektov"
+              other: "Bude importovaných %{count} vybraných projektov"
+            new_items_proposals:
+              one: Bude importovaný 1 návrh
+              few: "Budú importované %{count} návrhy"
+              many: "Bude importovaných %{count} návrhov"
+              other: "Bude importovaných %{count} návrhov"
+            proposal_state: Stav návrhu
+            select_state: Vybrať stav
+          form:
+            create: Importovať
+            no_components: V tomto participatívnom priestore nie sú žiadne komponenty na import.
+            origin_component_id: Pôvodný komponent
+            select_component: Vyberte komponent
+          new:
+            success:
+              one: 1 výsledok bol zaradený do frontu na import. Po dokončení budete upozornení e-mailom.
+              few: "%{count} výsledky boli zaradené do frontu na import. Po dokončení budete upozornení e-mailom."
+              many: "%{count} výsledkov bolo zaradených do frontu na import. Po dokončení budete upozornení e-mailom."
+              other: "%{count} výsledkov bolo zaradených do frontu na import. Po dokončení budete upozornení e-mailom."
+            title: Importovať výsledky z iného komponentu
         import_results:
           new:
+            download_export: Stiahnuť export vo formáte CSV
             import: Importovať
+            info: |
+              <p>Odporúčame vám postupovať podľa týchto krokov:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Vytvorte stavy pre výsledky</a>, ktoré chcete pridať</li>
+              <li><a href='%{link_new_result}' target='_blank'>Vytvorte aspoň jeden výsledok manuálne</a> prostredníctvom tohto panela správcu pred použitím importu, aby ste lepšie porozumeli formátu a tomu, čo budete musieť vyplniť.</li>
+              <li>%{link_export_csv}</li>
+              <li>Vykonajte zmeny lokálne. Môžete zmeniť iba nasledujúce stĺpce CSV (ostatné budú ignorované):</li>
+                <ul>
+                <li><b>taxonomies/ids:</b> ID pre taxonómie (ak je ich viac, oddeľte ich čiarkou)</li>
+                <li><b>parent/id:</b> ID nadradeného prvku (pre súvisiace výsledky). Voliteľné</li>
+                <li><b>title/en:</b> Názov v anglickom jazyku. Bude to závisieť od konfigurácie jazyka vašej platformy.</li>
+                <li><b>description/en:</b> Popis v anglickom jazyku. Bude to závisieť od konfigurácie jazyka vašej platformy.</li>
+                <li><b>start_date:</b> dátum začiatku realizácie výsledku (formát RRRR-MM-DD)</li>
+                <li><b>end_date:</b> dátum ukončenia realizácie výsledku (formát RRRR-MM-DD)</li>
+                <li><b>status/id:</b> ID stavu pre tento výsledok</li>
+                <li><b>progress:</b> Percento (od 0 do 100) realizácie</li>
+                <li><b>proposals_ids:</b> interné ID súvisiacich návrhov (oddelené čiarkou). Automaticky sa skonvertuje na <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
+            title: Importovať výsledky zo súboru CSV
+        imports:
+          create:
+            invalid: Pri importovaní výsledkov sa vyskytol problém.
+            success: Súbor sa začal importovať. V priebehu niekoľkých minút dostanete e-mail s výsledkom importu.
+        milestones:
+          create:
+            invalid: Pri vytváraní tohto míľnika sa vyskytol problém.
+            success: Míľnik bol úspešne vytvorený.
+          destroy:
+            success: Míľnik bol úspešne odstránený.
+          edit:
+            title: Upraviť míľnik
+            update: Aktualizovať míľnik
+          index:
+            title: Míľniky
+          new:
+            create: Vytvoriť míľnik
+            title: Nový míľnik
+          update:
+            invalid: Pri aktualizácii tohto míľnika sa vyskytol problém.
+            success: Míľnik bol úspešne aktualizovaný.
         models:
           result:
             name: Výsledok
           status:
             name: Stav
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Zmeniť dátum
+              end_date: Dátum ukončenia
+              start_date: Dátum začiatku
+            dropdown:
+              actions: Akcie
+              change_dates: Zmeniť dátumy
+              change_status: Zmeniť stav
+              change_taxonomies: Zmeniť taxonómie
+            status_form:
+              change_status: Zmeniť stav
+              status: Stav
+            submit_buttons:
+              cancel: Zrušiť
+            taxonomies_form:
+              change_taxonomies: Zmeniť taxonómie
+          create:
+            invalid: Pri vytváraní tohto výsledku sa vyskytol problém.
+            success: Výsledok bol úspešne vytvorený.
           edit:
             title: Upraviť výsledok
             update: Aktualizovať výsledok
           index:
+            selected: Vybrané
             title: Výsledky
+          manage_trash:
+            title: Odstránené výsledky
           new:
             create: Vytvoriť výsledok
             title: Nový výsledok
+          update:
+            invalid: Pri aktualizácii tohto výsledku sa vyskytol problém.
+            success: Výsledok bol úspešne aktualizovaný.
+          update_dates:
+            invalid: Pri aktualizácii dátumov výsledkov sa vyskytol problém
+            success: Dátumy výsledkov boli úspešne aktualizované
+          update_status:
+            invalid: Pri aktualizácii stavu výsledkov sa vyskytol problém
+            success: Stav výsledkov bol úspešne aktualizovaný
+          update_taxonomies:
+            invalid: Nepodarilo sa aktualizovať taxonómie %{taxonomies} pre výsledky %{results}
+            select_a_result: Vyberte výsledok
+            select_a_taxonomy: Vyberte taxonómiu
+            success: Úspešne aktualizované taxonómie %{taxonomies} pre výsledky %{results}
         shared:
           subnav:
             statuses: Stavy
         statuses:
+          create:
+            invalid: Pri vytváraní tohto stavu sa vyskytol problém.
+            success: Stav bol úspešne vytvorený.
+          destroy:
+            success: Stav bol úspešne odstránený.
           edit:
             title: Upraviť status
             update: Aktualizovať stav
@@ -66,30 +203,72 @@ sk:
           new:
             create: Vytvoriť nový stav
             title: Nový stav
+          update:
+            invalid: Pri aktualizácii tohto stavu sa vyskytol problém.
+            success: Stav bol úspešne aktualizovaný.
       admin_log:
+        milestones:
+          create: "%{user_name} vytvoril/a míľnik %{resource_name}"
+          delete: "%{user_name} odstránil/a míľnik %{resource_name}"
+          update: "%{user_name} aktualizoval/a míľnik %{resource_name}"
         result:
           create: "%{user_name} vytvoril výsledok %{resource_name} v %{space_name}"
           delete: "%{user_name} vymazal výsledok %{resource_name} v priestore %{space_name}"
+          restore: "%{user_name} obnovil/a výsledok %{resource_name} v priestore %{space_name}"
+          soft_delete: "%{user_name} presunul/a výsledok %{resource_name} v priestore %{space_name} do koša"
           update: "%{user_name} aktualizoval výsledok %{resource_name} v %{space_name}"
+        status:
+          create: "%{user_name} vytvoril/a stav %{resource_name}"
+          delete: "%{user_name} odstránil/a stav %{resource_name}"
+          update: "%{user_name} aktualizoval/a stav %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Nadradený záznam nebol nájdený v databáze(ID: %{id})'
       content_blocks:
         highlighted_results:
           results: Výsledky
+      creation:
+        text: Tento výsledok bol vytvorený
       import_mailer:
         import:
           errors: Chyby
+          errors_present: Pri importovaní výsledkov sa vyskytol problém.
           row_number: Riadky
           subject: Import výsledkov bol úspešný
           success: Import výsledkov bol úspešný. Výsledky je možné skontrolovať v správcovskom rozhraní.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Jeden výsledok bol importovaný z projektov.
+            few: "Z projektov bol importovaný %{count} výsledok."
+            many: "Z projektov boli importované %{count} výsledky."
+            other: "Z projektov bolo importovaných %{count} výsledkov."
+          subject: Úspešný import projektov
+          success: Projekty boli úspešne importované do výsledkov v komponente %{component_name}. Výsledky si môžete prezrieť v administračnom rozhraní.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Z návrhov bol importovaný jeden výsledok
+            few: "Z návrhov bol importovaný %{count} výsledok."
+            many: "Z návrhov boli importované %{count} výsledky."
+            other: "Z návrhov bolo importovaných %{count} výsledkov."
+          subject: Úspešný import návrhov
+          success: Návrhy boli úspešne importované do výsledkov v komponente %{component_name}. Výsledky si môžete prezrieť v administračnom rozhraní.
+      last_activity:
+        new_result: 'Nový výsledok:'
       models:
+        milestone:
+          fields:
+            entry_date: Dátum
+            title: Názov
         result:
           fields:
+            created_at: Vytvorené
             end_date: Koniec
             progress: Postup
             start_date: Začiatok 
             status: Stav
+            taxonomies: Taxonómie
             title: Názov
         status:
           fields:
@@ -106,21 +285,52 @@ sk:
             other: "%{count} výsledkov"
         home_header:
           global_status: Globálny stav vykonávania
+        milestones:
+          title: Míľniky
+        no_results: Nie sú tu žiadne projekty
+        root_taxonomies:
+          title: 'Zobraziť podľa:'
         search:
           search: Hľadať akcie
         show:
           stats:
             back_to_resource: Naspať na výsledky
+    admin:
+      filters:
+        results:
+          status_id_eq:
+            label: Stav
+          taxonomies_part_of_contains:
+            label: Taxonómia
+      tooltips:
+        deleted_results_info: Tento výsledok nie je možné odstrániť
     components:
       accountability:
+        actions:
+          comment: Komentár
+          vote_comment: Hlasovať za komentár
         name: Zodpovednosť
         settings:
           global:
+            clear_all: Vymazať všetko
             comments_enabled: Komentáre povolené
+            comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
+            default_taxonomy: Predvolená taxonómia
+            default_taxonomy_help: Vyberte, ktorú taxonómiu chcete predvolene zobraziť. Ak nie je vybraná žiadna taxonómia, výsledky sa zobrazia vo formáte zoznamu.
+            define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             display_progress_enabled: Zobraziť priebeh
+            geocoding_enabled: Mapy povolené
             intro: Úvod
+            no_taxonomy_filters_found: Nenašli sa žiadne filtre taxonómie.
+            taxonomy_filters: Vyberte filtre pre komponent
+            taxonomy_filters_add: Pridať filter
           step:
             comments_blocked: Zablokované komentáre
+          visualization: Vizualizácia
+    download_your_data:
+      show:
+        result_comments: Export komentárov k výsledkom
+        results: Export výsledkov
     events:
       accountability:
         proposal_linked:
@@ -133,8 +343,48 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože sledujete návrh %{proposal_title}, a tento návrh je zahrnutý vo výsledku "%{resource_title}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Aptualizácia postupu v %{resource_title}
           notification_title: Výsledok <a href="%{resource_path}">%{resource_title}</a>, ktorý zahŕňa návrh <a href="%{proposal_path}">%{proposal_title}</a>, je teraz z %{progress} % hotový.
+    open_data:
+      help:
+        result_comments:
+          alignment: Či bol tento komentár za, proti alebo neutrálny
+          author: Meno účastníka, ktorý napísal tento komentár
+          body: Samotný komentár
+          commentable_id: Jedinečné ID komentovaného objektu
+          commentable_type: Typ komentovaného objektu (či to bol výsledok, návrh atď.)
+          created_at: Dátum vytvorenia tohto komentára
+          depth: Miesto, kde sa tento komentár nachádza v strome komentárov (či ide o odpoveď alebo odpoveď na odpoveď)
+          id: ID tohto komentára
+          locale: Jazyk, ktorý mal účastník nastavený pri zanechaní tohto komentára
+          root_commentable_url: URL adresa zdroja, ktorý sa viaže k tomuto komentáru
+        results:
+          address: Adresa výsledku (ak existuje)
+          children_count: Počet podradených výsledkov
+          comments_count: Počet komentárov, ktoré má tento výsledok
+          component: Komponent, do ktorého výsledok patrí
+          created_at: Dátum vytvorenia výsledku
+          description: Popis výsledku
+          end_date: Dátum, kedy sa končí realizácia výsledku a je dokončený
+          id: Jedinečný identifikátor výsledku
+          latitude: Zemepisná šírka výsledku v prípade, že má fyzickú polohu
+          longitude: Zemepisná dĺžka výsledku v prípade, že má fyzickú polohu
+          parent: Nadradený výsledok (ak existuje) tohto výsledku
+          progress: Percento realizácie výsledku
+          proposal_urls: URL adresy návrhov, ktoré sú zahrnuté v tomto výsledku
+          reference: Jedinečná referencia výsledku
+          start_date: Dátum začiatku realizácie výsledku
+          status: Aktuálny stav tohto výsledku
+          taxonomies: Taxonómie výsledku
+          title: Názov výsledku
+          updated_at: Dátum poslednej aktualizácie tohto výsledku
+          url: URL adresa, na ktorej možno nájsť tento výsledok
+    participatory_spaces:
+      highlighted_results:
+        see_all: Zobraziť všetky výsledky
     resource_links:
       included_projects:
         result_project: Projekty, zahrnutý vo výsledku
       included_proposals:
         result_proposal: Návrhy, zahrnuté v tomto výsledku
+    statistics:
+      results_count: Výsledky
+      results_count_tooltip: Počet rozhodnutí alebo výstupov vygenerovaných z tohto priestoru.
