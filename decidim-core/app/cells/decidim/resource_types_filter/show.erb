@@ -10,8 +10,8 @@
   </button>
   <ul id="dropdown-menu-resource">
     <% resource_types.each do |resource_type| %>
-      <li role="menuitem">
-        <%= link_to filter_url(resource_type[0]), class: "filter#{" is-active" if filter_param == resource_type[0]}" do %>
+      <li role="presentation">
+        <%= link_to filter_url(resource_type[0]), class: "filter#{" is-active" if filter_param == resource_type[0]}", role: "menuitem" do %>
           <span class="sr-only"><%= resource_type[1] %></span>
           <%= text_with_resource_icon(*resource_type) %>
         <% end %>

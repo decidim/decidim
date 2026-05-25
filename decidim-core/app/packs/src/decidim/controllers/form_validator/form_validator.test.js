@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 690] */
+/* eslint max-lines: ["error", 712] */
 /* global jest */
 /**
  * @jest-environment jsdom
@@ -252,6 +252,28 @@ describe("FormValidator", () => {
       checkbox2.checked = true;
       const isValidTwo = validatorInstance.validateCheckboxGroup("multiCheckboxes");
       expect(isValidTwo).toBe(true);
+    });
+
+    it("should remove error classes once for the group, not per checkbox", () => {
+      formElement.innerHTML = `
+        <fieldset>
+          <input type="checkbox" id="cb-1" name="largeGroup" value="1" required>
+          <input type="checkbox" id="cb-2" name="largeGroup" value="2" required>
+          <input type="checkbox" id="cb-3" name="largeGroup" value="3" required>
+        </fieldset>
+        <button type="submit">Submit</button>
+      `;
+      validatorInstance = new FormValidator(formElement);
+      formElement.querySelector("#cb-1").checked = true;
+
+      const removeGroupSpy = jest.spyOn(validatorInstance, "removeCheckboxGroupErrorClasses");
+      const removeInputSpy = jest.spyOn(validatorInstance, "removeInputErrorClasses");
+
+      const isValid = validatorInstance.validateCheckboxGroup("largeGroup");
+
+      expect(isValid).toBe(true);
+      expect(removeGroupSpy).toHaveBeenCalledTimes(1);
+      expect(removeInputSpy).not.toHaveBeenCalled();
     });
   });
 

@@ -42,7 +42,7 @@ module Decidim
         def assemblies_user_admins
           Decidim::User.where(
             id: Decidim::AssemblyUserRole.where(assembly: assemblies, role: :admin)
-                .select(:decidim_user_id)
+                                         .select(:decidim_user_id)
           )
         end
 

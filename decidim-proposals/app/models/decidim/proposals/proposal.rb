@@ -426,8 +426,14 @@ module Decidim
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :body]
 
+      ransacker_i18n :translated_title, :title
+
       def self.ransackable_attributes(_auth_object = nil)
-        %w(id_string search_text title body is_emendation comments_count proposal_votes_count published_at proposal_notes_count)
+        %w(
+          id_string search_text title translated_title body is_emendation
+          comments_count proposal_votes_count published_at proposal_notes_count
+          state_published evaluation_assignments_count
+        )
       end
 
       def self.ransackable_associations(_auth_object = nil)

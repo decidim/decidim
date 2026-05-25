@@ -25,7 +25,7 @@ module Decidim
       #
       # Returns a resource implementing the `Decidim::Reportable` concern.
       def reportable
-        @reportable ||= moderations_for_user.find(params[:id]).reportable
+        @reportable ||= moderations_for_user.find(params.expect(:id)).reportable
       end
 
       def selected_moderations

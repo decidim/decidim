@@ -58,7 +58,7 @@ module Decidim
         private
 
         def survey
-          @survey ||= Survey.where(component: current_component).find(params[:survey_id])
+          @survey ||= Survey.where(component: current_component).find(params.expect(:survey_id))
         end
       end
     end

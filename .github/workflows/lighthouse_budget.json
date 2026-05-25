@@ -18,6 +18,16 @@
         "metric": "largest-contentful-paint",
         "budget": 3500
       }
+    ],
+    "resourceSizes": [
+      {
+        "resourceType": "script",
+        "budget": 4000
+      },
+      {
+        "resourceType": "stylesheet",
+        "budget": 600
+      }
     ]
   }
 ]

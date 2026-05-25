@@ -53,7 +53,7 @@ describe "Autocomplete multiselect" do
           <head>
             <title>Autocomplete multiselect Test</title>
             #{stylesheet_pack_tag "decidim_core"}
-            #{javascript_pack_tag "decidim_core", "decidim_admin", defer: false}
+            #{javascript_pack_tag "decidim_core", "decidim_controllers", "decidim_admin", defer: false}
             #{head_extra}
           </head>
           <body>
