@@ -936,6 +936,7 @@ en:
           officialize: Officialize
           title: Officialize participant "%{name}"
         show_email:
+          no_user: No user found
           title: Show email
         show_email_modal:
           description: If you need to contact a participant directly, you can click on the Show button to see their email address. This action will be logged.
