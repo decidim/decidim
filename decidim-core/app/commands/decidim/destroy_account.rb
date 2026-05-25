@@ -111,7 +111,7 @@ module Decidim
       end
     end
 
-    # We use memoization in this particular email, as we want to have the data availbale before the actual anonimization
+    # We use memoization in this particular email, as we want to have the data available before the actual anonymization
     def event_arguments
       @event_arguments ||= {
         user_id: current_user.id,
