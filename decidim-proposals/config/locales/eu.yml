@@ -337,7 +337,7 @@ eu:
           email_subject: 'Proposamenak orain eskuragarri hemen: %{participatory_space_title}'
           notification_title: 'Orain honi <a href="%{resource_path}"> proposamen berriak aurkeztu ahal dizkiozu hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         liking_enabled:
-          email_intro: 'Proposamenak atsegin ditzakezu hemen: % {participatory_space_title} Hasi orri honetan parte hartzen:'
+          email_intro: 'Proposamenak atsegin ditzakezu hemen: %{participatory_space_title} Hasi orri honetan parte hartzen:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: 'Proposamenak atxikitzen hasi dira hemen: %{participatory_space_title}'
           notification_title: 'Orain has zaitezke <a href="%{resource_path}">proposamena bozkatzen hemen: s</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
@@ -729,7 +729,7 @@ eu:
       application_helper:
         filter_origin_values:
           all: Guztiak
-          meetings: Bilerak
+          meetings: Topaketak
           official: Ofiziala
           participants: Parte-hartzaileak
         filter_state_values:
@@ -796,7 +796,7 @@ eu:
           label: 'Zirriborroak honela ordenatu:'
           most_contributed: Bozka gehien jaso duena
           random: Ausazko ordena
-          recent: Berrienetatik zaharrenetara
+          recent: Azkenak
         requests:
           accepted_request:
             error: Ezin izan da kolaboratzaile gisa onartu, saiatu berriro geroago.
@@ -929,7 +929,7 @@ eu:
           my_proposals: Nire proposamenak
           origin: Jatorria
           related_to: Honekin lotuta
-          scope: Eremua
+          scope: Esparrua
           search: Bilatu
           state: Egoera
           taxonomy_filters: Iragazkiak
@@ -957,7 +957,7 @@ eu:
           most_liked: Like gehien
           most_voted: Gehien babestutakoak
           random: Ausazko ordena
-          recent: Berrienetatik zaharrenetara
+          recent: Azkenak
           with_more_authors: Egile gehiagorekin
         participatory_texts:
           view_index:
