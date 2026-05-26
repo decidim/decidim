@@ -8,7 +8,7 @@ The `DeleteMilestone` mutation allows authenticated administrators to delete mil
 ----
 mutation deleteMilestone($componentId: ID!, $resultId: ID!, $milestoneId: ID!){
   component(id: $componentId){
-    ...on AccountabilityMutation{
+    ... on AccountabilityMutation {
       result(id: $resultId){
         deleteMilestone(id: $milestoneId){
           id

@@ -6,18 +6,18 @@ When you want to add or create data in your accountability component, you need t
 
 [source]
 ----
-• decidim_accountability_status_id  (Optional)   - Int
+• decidim_accountability_status_id  (Optional)   - Integer
 • description                       (Optional)   - JSON
 • end_date                          (Optional)   - String
 • external_id                       (Optional)   - String
-• parent_id                         (Optional)   - Int
+• parent_id                         (Optional)   - Integer
 • progress                          (Optional)   - Float
 • project_ids                       (Optional)   - Array
 • proposal_ids                      (Optional)   - Array
 • start_date                        (Optional)   - String
 • taxonomies                        (Optional)   - Array
 • title                             (Required)   - JSON
-• weight                            (Optional)   - Int
+• weight                            (Optional)   - Integer
 ----
 
 == Sample request

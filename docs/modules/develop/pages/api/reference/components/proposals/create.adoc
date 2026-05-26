@@ -6,12 +6,12 @@ When you want to add or create data in your proposals component, you need to rel
 
 [source]
 ----
-• title       (required) - 15-150 characters
-• body        (required) - minimum 15 characters
-• address     (optional) - physical address (requires geocoding)
-• latitude    (optional) - coordinate
-• longitude   (optional) - coordinate
-• taxonomies  (optional) - Taxonomies ids to assign to this proposal
+• title       (Required) - 15-150 characters
+• body        (Required) - minimum 15 characters
+• address     (Optional) - physical address (requires geocoding)
+• latitude    (Optional) - coordinate
+• longitude   (Optional) - coordinate
+• taxonomies  (Optional) - Taxonomies ids to assign to this proposal
 ----
 
 == Sample request
@@ -22,7 +22,7 @@ The `CreateProposal` mutation allows authenticated users to create new proposals
 ----
 mutation createProposal($componentId: ID!, $input: CreateProposalInput!){
   component(id: $componentId) {
-    ...on ProposalsMutation{
+    ... on ProposalsMutation {
       createProposal(input: $input) {
         id
         title {

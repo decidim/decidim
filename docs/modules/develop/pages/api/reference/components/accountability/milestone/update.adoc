@@ -17,9 +17,9 @@ The `UpdateMilestone` mutation allows authenticated administrators to update a m
 
 [source,graphql]
 ----
-mutation updateMilestone($componentId: ID!, $resultId: ID!,   $input: UpdateMilestoneInput!){
+mutation updateMilestone($componentId: ID!, $resultId: ID!, $input: UpdateMilestoneInput!){
    component(id: $componentId){
-    ...on AccountabilityMutation{
+    ... on AccountabilityMutation {
       result(id: $resultId){
       	updateMilestone(input: $input){
         	id
@@ -81,7 +81,7 @@ Sometimes, you may get a server response like:
       ],
       "path": [
         "component",
-        "budget",
+        "result",
         "updateMilestone"
       ],
       "extensions": {

@@ -6,18 +6,18 @@ When you want to update a result in your accountability component, you need to r
 
 [source]
 ----
-• decidim_accountability_status_id  (Optional)   - Int
+• decidim_accountability_status_id  (Optional)   - Integer
 • description                       (Optional)   - JSON
 • end_date                          (Optional)   - String
 • external_id                       (Optional)   - String
-• parent_id                         (Optional)   - Int
+• parent_id                         (Optional)   - Integer
 • progress                          (Optional)   - Float
 • project_ids                       (Optional)   - Array
 • proposal_ids                      (Optional)   - Array
 • start_date                        (Optional)   - String
 • taxonomies                        (Optional)   - Array
 • title                             (Optional)   - JSON
-• weight                            (Optional)   - Int
+• weight                            (Optional)   - Integer
 ----
 
 == Sample request
@@ -28,7 +28,7 @@ The `UpdateResult` mutation allows authenticated users to update results in a De
 ----
 mutation updateResult($componentId: ID!, $resultId: ID!, $input: UpdateResultInput!){
   component(id: $componentId){
-    ...on AccountabilityMutation{
+    ... on AccountabilityMutation {
       result(id: $resultId){
         update(input: $input){
           id
