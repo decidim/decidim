@@ -197,7 +197,7 @@ shared_examples "manage conference components" do
 
       it "hides the component from the menu" do
         visit decidim_conferences.conference_path(conference)
-        expect(page).to have_content decidim_escape_translated(component.name)
+        expect(page).to have_content translated_attribute(component.name)
 
         visit decidim_admin_conferences.components_path(conference)
 
@@ -212,7 +212,7 @@ shared_examples "manage conference components" do
         end
 
         visit decidim_conferences.conference_path(conference)
-        expect(page).to have_no_content decidim_escape_translated(component.name)
+        expect(page).to have_no_content translated_attribute(component.name)
       end
     end
 
