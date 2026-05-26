@@ -60,6 +60,7 @@ const createDropdown = (component) => {
   dropdownOptions.dropdown = component.dataset.target;
   dropdownOptions.hover = component.dataset.hover === "true";
   dropdownOptions.autoClose = component.dataset.autoClose === "true";
+  const addAriaRoles = component.dataset.addAriaRoles !== "false";
 
   // This snippet allows to disable the dropdown based on the current viewport
   // Just include the breakpoint where the different value will be applied from.
@@ -115,6 +116,18 @@ const createDropdown = (component) => {
   }
 
   Dropdowns.render(component.id, dropdownOptions);
+
+  if (!addAriaRoles) {
+    const dropdown = document.getElementById(dropdownOptions.dropdown);
+
+    if (dropdown) {
+      dropdown.removeAttribute("role");
+      dropdown.removeAttribute("aria-labelledby");
+      dropdown.querySelectorAll("[role='menuitem'], [role='none']").forEach((item) => {
+        item.removeAttribute("role");
+      });
+    }
+  }
 }
 
 /**
