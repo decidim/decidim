@@ -12,10 +12,9 @@
     <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4" role="menu">
       <%= yield %>
       <% unless defined?(skip_report) && skip_report %>
-        <li role="menuitem"><%= cell "decidim/report_button", resource %></li>
+        <li role="presentation"><%= cell "decidim/report_button", resource, html_options: { role: "menuitem" } %></li>
       <% end %>
-      <li role="menuitem">
-        <%= cell "decidim/follow_button", resource, large: false %></li>
+      <li role="presentation"><%= cell "decidim/follow_button", resource, large: false, html_options: { role: "menuitem" } %></li>
     </ul>
   </div>
 </div>
