@@ -6,6 +6,7 @@ module Decidim
   module Admin
     describe OfficializationsController do
       routes { Decidim::Admin::Engine.routes }
+      render_views
 
       let(:organization) { create(:organization) }
       let(:current_user) { create(:user, :admin, :confirmed, organization:) }
