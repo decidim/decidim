@@ -29,7 +29,7 @@ document.addEventListener("turbo:load", () => {
         return;
       }
 
-      const dialogTarget = document.getElementById(target.dataset.dialogOpen)
+      const dialogTarget = document.getElementById(target.dataset.dialogOpen);
       const redirectUrl = target.dataset.redirectUrl;
 
       if (!dialogTarget || !redirectUrl) {
