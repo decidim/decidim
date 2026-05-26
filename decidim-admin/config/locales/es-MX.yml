@@ -899,6 +899,7 @@ es-MX:
       officializations:
         block:
           error: Se ha producido un error al bloquear a la participante.
+          no_user: No se ha encontrado ninguna usuaria
           success: Participante bloqueada correctamente.
         bulk_action:
           block:
