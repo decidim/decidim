@@ -10,7 +10,7 @@ module Decidim
       argument :description, GraphQL::Types::JSON, description: "Description of the result", required: false
       argument :end_date, GraphQL::Types::String, description: "End date of this result(in 'dd-mm-yyyy' format)", required: false
       argument :external_id, GraphQL::Types::String, description: "External ID of this result", required: false
-      argument :parent_id, GraphQL::Types::Int,  description: "Parent id of the result", required: false
+      argument :parent_id, GraphQL::Types::Int, description: "Parent id of the result", required: false
       argument :progress, GraphQL::Types::Float, description: "Progress of this result", required: false
       argument :project_ids, [GraphQL::Types::Int], description: "Linked proposal IDs of the result", required: false
       argument :proposal_ids, [GraphQL::Types::Int], description: "Linked project IDs of the result", required: false
