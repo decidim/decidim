@@ -899,6 +899,7 @@ ca:
       officializations:
         block:
           error: Hi ha hagut un problema en bloquejar a la participant.
+          no_user: No s'ha trobat cap usuària
           success: Participant bloquejada correctament.
         bulk_action:
           block:
