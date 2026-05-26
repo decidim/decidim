@@ -53,14 +53,12 @@ document.addEventListener("turbo:load", () => {
         redirectUrlInput.value = redirectUrl;
       }
 
-      const queryString = new URLSearchParams({ "redirect_url": redirectUrl }).toString();
-
       dialogTarget.querySelectorAll("a").forEach((anchor) => {
         const currentHref = anchor.getAttribute("href");
         if (currentHref) {
-          const separator = currentHref.includes("?") ? "&" : "?";
-
-          anchor.setAttribute("href", currentHref + separator + queryString);
+          const url = new URL(currentHref, window.location.origin);
+          url.searchParams.set("redirect_url", redirectUrl);
+          anchor.setAttribute("href", url.toString());
         }
       });
     })

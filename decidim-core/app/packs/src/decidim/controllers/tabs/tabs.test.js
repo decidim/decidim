@@ -1,5 +1,5 @@
 /* global jest */
-/* eslint max-lines: ["error", 660] */
+/* eslint max-lines: ["error", 690] */
 
 import { Application } from "@hotwired/stimulus";
 import TabsController from "src/decidim/controllers/tabs/controller";
@@ -114,21 +114,21 @@ describe("TabsController", () => {
 
       application.stop();
       document.body.innerHTML = `
-  <div class="row column">
-    <ul class="tabs" role="tablist" id="focus-test-tabs" data-controller="tabs">
-      <li class="tabs-title" role="presentation">
-        <a href="#focus-panel-0" role="tab" aria-controls="focus-panel-0">Tab 1</a>
-      </li>
-      <li class="tabs-title" role="presentation">
-        <a href="#focus-panel-1" role="tab" aria-controls="focus-panel-1">Tab 2</a>
-      </li>
-    </ul>
-    <div class="tabs-content">
-      <div class="tabs-panel" id="focus-panel-0"></div>
-      <div class="tabs-panel" id="focus-panel-1"></div>
+    <div class="row column">
+      <ul class="tabs" role="tablist" id="focus-test-tabs" data-controller="tabs">
+        <li class="tabs-title" role="presentation">
+          <a href="#focus-panel-0" role="tab" aria-controls="focus-panel-0">Tab 1</a>
+        </li>
+        <li class="tabs-title" role="presentation">
+          <a href="#focus-panel-1" role="tab" aria-controls="focus-panel-1">Tab 2</a>
+        </li>
+      </ul>
+      <div class="tabs-content">
+        <div class="tabs-panel" id="focus-panel-0"></div>
+        <div class="tabs-panel" id="focus-panel-1"></div>
+      </div>
     </div>
-  </div>
-`;
+  `;
       application = Application.start();
       application.register("tabs", TabsController);
       tablistElement = document.querySelector('[data-controller="tabs"]');
@@ -137,6 +137,7 @@ describe("TabsController", () => {
         setTimeout(() => {
           const focusCalls = addSpy.mock.calls.filter((call) => call[0] === "focus");
           expect(focusCalls).toHaveLength(2);
+          addSpy.mockRestore();
           resolve();
         }, 0);
       });
@@ -171,6 +172,17 @@ describe("TabsController", () => {
       return new Promise((resolve) => {
         setTimeout(() => {
           controller = application.getControllerForElementAndIdentifier(tablistElement, "tabs");
+
+          // Spy on the ProseMirror element's focus method (jsdom doesn't change
+          // document.activeElement for non-focusable elements like <div>)
+          const proseMirror = panels[0].querySelector(".editor .ProseMirror");
+          const focusSpy = jest.spyOn(proseMirror, "focus");
+
+          // Dispatch focus event on the panel to trigger controller.onFocus
+          panels[0].dispatchEvent(new Event("focus", { bubbles: true }));
+
+          // The ProseMirror element's focus() should have been called
+          expect(focusSpy).toHaveBeenCalled();
           resolve();
         }, 0);
       });
@@ -201,6 +213,12 @@ describe("TabsController", () => {
       return new Promise((resolve) => {
         setTimeout(() => {
           controller = application.getControllerForElementAndIdentifier(tablistElement, "tabs");
+
+          // Dispatch focus event on the panel to trigger controller.onFocus
+          panels[0].dispatchEvent(new Event("focus", { bubbles: true }));
+
+          // The input element should be the active element
+          expect(document.querySelector("input")).toBe(document.activeElement);
           resolve();
         }, 0);
       });
@@ -231,6 +249,14 @@ describe("TabsController", () => {
       return new Promise((resolve) => {
         setTimeout(() => {
           controller = application.getControllerForElementAndIdentifier(tablistElement, "tabs");
+
+          // Dispatch focus event on the panel to trigger controller.onFocus
+          panels[0].dispatchEvent(new Event("focus", { bubbles: true }));
+
+          // activeElement should not have changed to a ProseMirror or input
+          expect(document.activeElement).not.toBeNull();
+          expect(document.querySelector(".ProseMirror")).not.toBe(document.activeElement);
+          expect(document.querySelector("input")).not.toBe(document.activeElement);
           resolve();
         }, 0);
       });
