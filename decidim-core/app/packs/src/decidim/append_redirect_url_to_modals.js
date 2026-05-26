@@ -49,7 +49,9 @@ document.addEventListener("turbo:load", () => {
         }
       }
 
-      redirectUrlInput.value = redirectUrl
+      if (redirectUrlInput instanceof HTMLElement) {
+        redirectUrlInput.value = redirectUrl;
+      }
 
       const queryString = new URLSearchParams({ "redirect_url": redirectUrl }).toString();
 
