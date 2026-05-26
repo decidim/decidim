@@ -3,7 +3,7 @@
 import AbideFormValidatorFixer from "src/decidim/abide_form_validator_fixer";
 
 describe("AbideFormValidatorFixer", () => {
-  let originalFoundation;
+  let originalFoundation = null;
 
   beforeEach(() => {
     originalFoundation = window.Foundation;
@@ -40,7 +40,7 @@ describe("AbideFormValidatorFixer", () => {
       removeCheckboxErrorClasses: jest.fn()
     };
 
-    const valid = window.Foundation.Abide.prototype.validateCheckbox.call(abideInstance, "largeGroup");
+    const valid = Reflect.apply(window.Foundation.Abide.prototype.validateCheckbox, abideInstance, ["largeGroup"]);
 
     expect(valid).toBe(true);
     expect(abideInstance.removeCheckboxErrorClasses).toHaveBeenCalledTimes(1);
@@ -65,7 +65,7 @@ describe("AbideFormValidatorFixer", () => {
       removeCheckboxErrorClasses: jest.fn()
     };
 
-    const valid = window.Foundation.Abide.prototype.validateCheckbox.call(abideInstance, "largeGroup");
+    const valid = Reflect.apply(window.Foundation.Abide.prototype.validateCheckbox, abideInstance, ["largeGroup"]);
 
     expect(valid).toBe(false);
     expect(abideInstance.addErrorClasses).toHaveBeenCalledTimes(3);
