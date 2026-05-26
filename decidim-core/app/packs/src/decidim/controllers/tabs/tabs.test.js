@@ -173,7 +173,7 @@ describe("TabsController", () => {
         setTimeout(() => {
           controller = application.getControllerForElementAndIdentifier(tablistElement, "tabs");
 
-          // Spy on the ProseMirror element's focus method (jsdom doesn't change
+          // Spy on the ProseMirror element's focus method (jsdom does not change
           // document.activeElement for non-focusable elements like <div>)
           const proseMirror = panels[0].querySelector(".editor .ProseMirror");
           const focusSpy = jest.spyOn(proseMirror, "focus");
