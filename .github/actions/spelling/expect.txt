@@ -906,6 +906,7 @@ traslatable
 trashable
 trgm
 trobada
+truncatable
 trobat
 tsearch
 turbolinks
