@@ -17,7 +17,7 @@ describe "Pages component" do # rubocop:disable RSpec/DescribeClass
     let!(:original_page) { create(:page, component: original_component) }
 
     it "copies the page" do
-      expect { subject }.to change(Decidim::Pages::Page, :count).by(1)
+      expect { subject }.to change { Decidim::Pages::Page.where(body: original_page.body).count }.by(1)
     end
   end
 
