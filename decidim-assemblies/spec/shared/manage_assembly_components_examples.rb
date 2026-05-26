@@ -195,7 +195,8 @@ shared_examples "manage assembly components" do
 
       it "hides the component from the menu" do
         visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
-        expect(page).to have_content decidim_escape_translated(component.name)
+        expect(page).to have_content translated(component.name)
+        expect(page.html).to include decidim_escape_translated(component.name).gsub("&quot;", "\"")
 
         visit decidim_admin_assemblies.components_path(assembly)
 
@@ -208,7 +209,7 @@ shared_examples "manage assembly components" do
         end
 
         visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
-        expect(page).to have_no_content decidim_escape_translated(component.name)
+        expect(page).to have_no_content translated(component.name)
       end
     end
 

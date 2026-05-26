@@ -312,7 +312,8 @@ shared_examples "manage process components" do
 
       it "hides the component from the menu" do
         visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
-        expect(page).to have_content decidim_escape_translated(component.name)
+        expect(page).to have_content translated(component.name)
+        expect(page.html).to include decidim_escape_translated(component.name).gsub("&quot;", "\"")
 
         visit decidim_admin_participatory_processes.components_path(participatory_process)
 
@@ -325,7 +326,7 @@ shared_examples "manage process components" do
         end
 
         visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
-        expect(page).to have_no_content decidim_escape_translated(component.name)
+        expect(page).to have_no_content translated(component.name)
       end
     end
 
