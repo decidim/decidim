@@ -42,7 +42,6 @@ export default class TabsController extends Controller {
     this.detectAndSetActiveTab();
   }
 
-
   detectAndSetActiveTab() {
     let activeLiItem = this.element.querySelector(".is-active");
     if (activeLiItem) {

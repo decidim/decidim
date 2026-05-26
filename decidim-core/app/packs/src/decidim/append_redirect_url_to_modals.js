@@ -23,7 +23,7 @@
 document.addEventListener("turbo:load", () => {
   document.querySelectorAll("[data-dialog-open]").forEach((link) => {
     link.addEventListener("click", (event) => {
-      let target = event.target.closest("a");
+      const target = event.currentTarget;
 
       if (!target) {
         return;
@@ -32,9 +32,6 @@ document.addEventListener("turbo:load", () => {
       const dialogTarget = document.getElementById(target.dataset.dialogOpen)
       const redirectUrl = target.dataset.redirectUrl;
 
-      console.log(dialogTarget)
-      console.log(redirectUrl)
-      console.log(!dialogTarget || !redirectUrl)
       if (!dialogTarget || !redirectUrl) {
         return;
       }
@@ -48,6 +45,7 @@ document.addEventListener("turbo:load", () => {
 
         if (form) {
           form.insertAdjacentHTML("beforeend", redirectUrlInput);
+          redirectUrlInput = dialogTarget.querySelector("#redirect_url");
         }
       }
 
