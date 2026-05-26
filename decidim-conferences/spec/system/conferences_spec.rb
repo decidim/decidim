@@ -192,7 +192,8 @@ describe "Conferences" do
     context "when the conference has some components" do
       it "shows the components" do
         within ".conference__nav" do
-          expect(page).to have_content(decidim_escape_translated(proposals_component.name))
+          expect(page).to have_content(translated(proposals_component.name))
+          expect(page.html).to include(decidim_escape_translated(proposals_component.name).gsub("&quot;", "\""))
           expect(page).to have_no_content(decidim_escape_translated(meetings_component.name))
         end
       end
