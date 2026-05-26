@@ -11,6 +11,7 @@ module Decidim
     #
     class UserEntityList
       include NeedsApiFilterAndOrder
+      include NeedsApiDefaultOrder
 
       def initialize
         @model_class = Decidim::UserBaseEntity
@@ -24,6 +25,7 @@ module Decidim
                  .includes(avatar_attachment: :blob)
         add_filter_keys(args[:filter])
         add_order_keys(args[:order].to_h)
+        add_default_order
         @query
       end
     end
