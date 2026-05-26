@@ -469,6 +469,53 @@ describe Decidim::Assemblies::Permissions do
 
         it_behaves_like "allows any action on subject", :space_member
       end
+
+      context "when assembly is restricted and is accessed by different space roles" do
+        let(:assembly) { create(:assembly, organization:, access_mode: :restricted) }
+
+        let(:assembly_collaborator) { create(:assembly_collaborator, assembly:) }
+        let(:assembly_moderator) { create(:assembly_moderator, assembly:) }
+        let(:assembly_evaluator) { create(:assembly_evaluator, assembly:) }
+        let(:assembly_admin) { create(:assembly_admin, assembly:) }
+
+        let!(:context) { { current_participatory_space: assembly } }
+
+        context "and user is admin" do
+          let(:user) { assembly_admin }
+          let(:action) do
+            { scope: :public, action: :read, subject: :assembly }
+          end
+
+          it { is_expected.to be true }
+        end
+
+        context "and user is collaborator" do
+          let(:user) { assembly_collaborator }
+          let(:action) do
+            { scope: :public, action: :read, subject: :assembly }
+          end
+
+          it { is_expected.to be true }
+        end
+
+        context "and user is moderator" do
+          let(:user) { assembly_moderator }
+          let(:action) do
+            { scope: :public, action: :read, subject: :assembly }
+          end
+
+          it { is_expected.to be true }
+        end
+
+        context "and user is evaluator" do
+          let(:user) { assembly_evaluator }
+          let(:action) do
+            { scope: :public, action: :read, subject: :assembly }
+          end
+
+          it { is_expected.to be true }
+        end
+      end
     end
   end
 

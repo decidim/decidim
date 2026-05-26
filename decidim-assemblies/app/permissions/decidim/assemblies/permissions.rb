@@ -120,7 +120,7 @@ module Decidim
         return true unless assembly.restricted?
         return false unless user
 
-        user.admin? || assembly.users.include?(user)
+        user.admin? || user_has_any_role?(user, assembly, broad_check: true) || assembly.users.include?(user)
       end
 
       def public_list_members_action?
