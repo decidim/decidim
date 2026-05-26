@@ -6,9 +6,9 @@ When you want to add or create a milestones in your accountability component, yo
 
 [source]
 ----
-• description                       (Required)   - JSON
-• title                             (Optional)   - JSON
-• entry_date                        (Optional)   - String
+• title                             (Required)   - JSON
+• entry_date                        (Required)   - String
+• description                       (Optional)   - JSON
 ----
 
 == Sample request
@@ -23,7 +23,6 @@ mutation createMilestone($componentId: ID!, $resultId: ID!, $input: CreateMilest
       result(id: $resultId) {
         createMilestone(input: $input) {
           id
-          url
         }
       }
     }
@@ -40,7 +39,7 @@ Example of submitted variables
   "resultId": "5",
   "input": {
     "attributes": {
-      "title": { "en": "My Result Title" },
+      "title": { "en": "My milestone title" },
       "description": { "en": "A brief description of the milestone." },
       "entryDate": "2025-12-31"
     }

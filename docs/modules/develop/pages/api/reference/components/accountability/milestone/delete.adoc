@@ -12,7 +12,6 @@ mutation deleteMilestone($componentId: ID!, $resultId: ID!, $milestoneId: ID!){
       result(id: $resultId){
         deleteMilestone(id: $milestoneId){
           id
-          url
         }
       }
     }

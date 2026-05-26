@@ -6,9 +6,9 @@ When you want to update a milestone inside your accountability component, you ne
 
 [source]
 ----
-• description                       (Required)   - JSON
 • title                             (Optional)   - JSON
 • entry_date                        (Optional)   - String
+• description                       (Optional)   - JSON
 ----
 
 == Sample request
@@ -22,8 +22,7 @@ mutation updateMilestone($componentId: ID!, $resultId: ID!, $input: UpdateMilest
     ... on AccountabilityMutation {
       result(id: $resultId){
       	updateMilestone(input: $input){
-        	id
-          url
+          id
         }
       }
     }
