@@ -849,6 +849,7 @@ en:
       officializations:
         block:
           error: There was a problem blocking the participant.
+          no_user: No user found
           success: Participant successfully blocked.
         bulk_action:
           block:
