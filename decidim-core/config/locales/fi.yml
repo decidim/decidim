@@ -1544,6 +1544,10 @@ fi:
     participatory_space_members:
       index:
         members: Jäsenet
+    participatory_spaces:
+      show:
+        restricted_space: Tämä on rajattu osallistumistila. Ainoastaan jäsenet ja hallintakäyttäjät näkevät tämän osallistumistilan ja voivat osallistua sen sisällä.
+        transparent_space: Tämä on läpinäkyvä osallistumistila. Kuka tahansa voi tarkastella osallistumistilan sisältöä, mutta ainoastaan osallistumistilan jäsenet ja hallintakäyttäjät voivat osallistua sen sisällä.
     passwords:
       update:
         error: Salasanan päivitys epäonnistui.
