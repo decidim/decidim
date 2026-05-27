@@ -78,7 +78,7 @@ const graphQLFetcher = function (graphQLParams) {
     return response.text().then(function (text) {
       try {
         return JSON.parse(text);
-      } catch (e) {
+      } catch {
         return {
           status: response.status,
           message:
