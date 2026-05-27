@@ -4,7 +4,7 @@ require "webmock/rspec"
 
 class CleanUpValidatorHtmlUri
   def self.host
-    validator_html_uri = ENV["VALIDATOR_HTML_URI"]
+    validator_html_uri = ENV.fetch("VALIDATOR_HTML_URI", nil)
     return if validator_html_uri.to_s.empty?
 
     URI.parse(validator_html_uri).host
