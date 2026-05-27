@@ -38,7 +38,7 @@ describe Decidim::Comments::UserMentionedEvent do
   describe "resource_text" do
     it "correctly renders comments with mentions" do
       expect(subject.resource_text).not_to include("gid://")
-      expect(subject.resource_text).to include(author.nickname.to_s)
+      expect(subject.resource_text).to include(author.nickname)
     end
   end
 

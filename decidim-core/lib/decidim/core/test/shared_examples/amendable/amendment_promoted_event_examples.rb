@@ -10,7 +10,7 @@ shared_examples "amendment promoted event" do
   it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
 
-  let(:emendation_author_name) { emendation.creator_author.name.to_s }
+  let(:emendation_author_name) { emendation.creator_author.name }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
   let(:emendation_author_path) { Decidim::UserPresenter.new(emendation.creator_author).profile_path }
   let(:amendable_path) { Decidim::ResourceLocatorPresenter.new(amendable).path }
