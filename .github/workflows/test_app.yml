@@ -54,7 +54,7 @@ jobs:
       PARALLEL_TEST_PROCESSORS: 3
     services:
       validator:
-        image: ghcr.io/validator/validator:latest
+        image: ${{ vars.ACTION_ACCESSIBILITY_VALIDATOR_VERSION || 'ghcr.io/validator/validator:latest' }}
         ports: ["8888:8888"]
       postgres:
         image: postgres:14

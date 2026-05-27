@@ -5,14 +5,19 @@ module.exports = {
     es6: true,
     es2021: true
   },
-  extends: ["eslint:recommended", "plugin:react/recommended", "prettier", "plugin:import/recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "prettier"
+  ],
   parserOptions: {
-    ecmaVersion: "latest",
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
       jsx: true
     },
-    sourceType: "module"
+    sourceType: "module",
+    ecmaVersion: "latest"
   },
   settings: {
     "react": {
@@ -54,11 +59,12 @@ module.exports = {
     }
   },
   plugins: [
-    "import",
     "react",
+    "import",
     "jsdoc",
     "no-relative-import-paths"
   ],
+
   globals: {
     $: false,
     jQuery: false,
@@ -299,7 +305,7 @@ module.exports = {
     "wrap-regex": "error",
     "yield-star-spacing": "error",
     yoda: "error",
-    "imports/no-named-as-default": "off",
+    "import/no-named-as-default": "off",
     "import/no-extraneous-dependencies": "off",
     "react/prefer-stateless-function": "off",
     "react/jsx-filename-extension": "off",
