@@ -55,6 +55,7 @@
     "foundation-sites": "^6.7.0",
     "graphiql": "^3.0.10",
     "graphql-ws": "^5.16.2",
+    "regenerator-runtime": "^0.14.1",
     "html5sortable": "0.10.0",
     "identity-obj-proxy": "^3.0.0",
     "jquery": "^3.2.1",
