@@ -90,13 +90,13 @@ shared_examples "Like resource system specs" do
           create(:like, resource:, author:)
           visit_resource
           within "#liker-list-#{resource.id}" do
-            expect(page).to have_content("Liked by #{author.name}")
+            expect(page).to have_text("Liked by #{author.name}")
             click_on author.name
           end
-          expect(page).to have_content("Liked by")
+          expect(page).to have_text("Liked by")
           within "#likesModal-#{resource.id}" do
-            expect(page).to have_content(author.name)
-            expect(page).to have_no_content(user.name)
+            expect(page).to have_text(author.name)
+            expect(page).to have_no_text(user.name)
           end
         end
       end
@@ -128,12 +128,12 @@ shared_examples "Like resource system specs" do
         it "can show the likes pop-up" do
           visit_resource
           within "#liker-list-#{resource.id}" do
-            expect(page).to have_content("Liked by you")
+            expect(page).to have_text("Liked by you")
             click_on "you"
           end
-          expect(page).to have_content("Liked by")
+          expect(page).to have_text("Liked by")
           within "#likesModal-#{resource.id}" do
-            expect(page).to have_content(user.name)
+            expect(page).to have_text(user.name)
           end
         end
       end

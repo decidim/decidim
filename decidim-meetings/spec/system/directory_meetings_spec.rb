@@ -26,17 +26,17 @@ describe "Global meetings directory", :slow do
 
   it "shows all meetings from all participatory spaces" do
     within ".layout-2col__main" do
-      expect(page).to have_content("First meeting")
-      expect(page).to have_content("Second meeting")
-      expect(page).to have_content("Third meeting")
+      expect(page).to have_text("First meeting")
+      expect(page).to have_text("Second meeting")
+      expect(page).to have_text("Third meeting")
     end
   end
 
   it "shows the participatory space name for each meeting in the main list" do
     within ".layout-2col__main" do
-      expect(page).to have_content translated(participatory_process1.title)
+      expect(page).to have_text translated(participatory_process1.title)
       expect(page.html).to include decidim_escape_translated(participatory_process1.title).gsub("&quot;", "\"")
-      expect(page).to have_content translated(participatory_process2.title)
+      expect(page).to have_text translated(participatory_process2.title)
       expect(page.html).to include decidim_escape_translated(participatory_process2.title).gsub("&quot;", "\"")
     end
   end

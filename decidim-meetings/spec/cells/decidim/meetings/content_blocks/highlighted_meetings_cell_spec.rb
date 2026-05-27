@@ -40,8 +40,8 @@ module Decidim
               create(:meeting, start_time: Time.zone.local(2021, 5, 30), component: meeting.component)
             end
 
-            it { expect(html).to have_content("Upcoming meetings") }
-            it { expect(html).to have_no_content("Past meetings") }
+            it { expect(html).to have_text("Upcoming meetings") }
+            it { expect(html).to have_no_text("Past meetings") }
             it { expect(meetings_ids).not_to include(item_id(moderated_meeting)) }
             it { expect(meetings_ids).not_to include(item_id(past_meeting)) }
             it { expect(meetings_ids).to include(item_id(meeting)) }
@@ -49,7 +49,7 @@ module Decidim
             it { expect(meetings_ids).not_to include(item_id(unpublished_meeting)) }
 
             it "shows the participatory space on homepage" do
-              expect(html).to have_content(translated_attribute(meeting.component.participatory_space.title))
+              expect(html).to have_text(translated_attribute(meeting.component.participatory_space.title))
               expect(html.to_s).to include(decidim_escape_translated(meeting.component.participatory_space.title).gsub("&quot;", "\""))
             end
 
@@ -68,8 +68,8 @@ module Decidim
               end
 
               it "renders past meetings" do
-                expect(html).to have_no_content("Upcoming meetings")
-                expect(html).to have_content("Past meetings")
+                expect(html).to have_no_text("Upcoming meetings")
+                expect(html).to have_text("Past meetings")
                 expect(meetings_ids).not_to include(item_id(meeting))
                 expect(meetings_ids).not_to include(item_id(second_meeting))
                 expect(meetings_ids).to include(item_id(past_meeting))

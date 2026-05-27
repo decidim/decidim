@@ -63,7 +63,7 @@ describe "Conferences" do
 
     it "lists all the highlighted conferences" do
       within "#highlighted-conferences" do
-        expect(page).to have_content(translated(promoted_conference.title, locale: :en))
+        expect(page).to have_text(translated(promoted_conference.title, locale: :en))
         expect(page).to have_css("[id^='conference_highlight']", count: 1)
       end
     end
@@ -71,14 +71,14 @@ describe "Conferences" do
     it "lists all the conferences" do
       within "#conferences-grid" do
         within "#conferences-grid h2" do
-          expect(page).to have_content("2")
+          expect(page).to have_text("2")
         end
 
-        expect(page).to have_content(translated(conference.title, locale: :en))
-        expect(page).to have_content(translated(promoted_conference.title, locale: :en))
+        expect(page).to have_text(translated(conference.title, locale: :en))
+        expect(page).to have_text(translated(promoted_conference.title, locale: :en))
         expect(page).to have_css("[id^='conference']", count: 2)
 
-        expect(page).to have_no_content(translated(unpublished_conference.title, locale: :en))
+        expect(page).to have_no_text(translated(unpublished_conference.title, locale: :en))
       end
     end
 
@@ -127,7 +127,7 @@ describe "Conferences" do
         let!(:meetings) { create_list(:meeting, 3, :published, component: meetings_component) }
 
         it "does not show the venues" do
-          expect(page).to have_no_content("Conference Venues")
+          expect(page).to have_no_text("Conference Venues")
         end
       end
 
@@ -138,7 +138,7 @@ describe "Conferences" do
           let!(:meetings) { create_list(:meeting, 3, :published, component: meetings_component) }
 
           it "does show the venues" do
-            expect(page).to have_content("Conference Venues")
+            expect(page).to have_text("Conference Venues")
           end
         end
 
@@ -146,7 +146,7 @@ describe "Conferences" do
           let!(:meetings) { create_list(:meeting, 3, :moderated, :published, component: meetings_component) }
 
           it "does not show the venues" do
-            expect(page).to have_no_content("Conference Venues")
+            expect(page).to have_no_text("Conference Venues")
           end
         end
 
@@ -154,7 +154,7 @@ describe "Conferences" do
           let!(:meetings) { create_list(:meeting, 3, published_at: nil, component: meetings_component) }
 
           it "does not show the venues" do
-            expect(page).to have_no_content("Conference Venues")
+            expect(page).to have_no_text("Conference Venues")
           end
         end
 
@@ -162,7 +162,7 @@ describe "Conferences" do
           let!(:meetings) { create_list(:meeting, 3, :published, private_meeting: true, transparent: false, component: meetings_component) }
 
           it "does not show the venues" do
-            expect(page).to have_no_content("Conference Venues")
+            expect(page).to have_no_text("Conference Venues")
           end
         end
 
@@ -170,7 +170,7 @@ describe "Conferences" do
           let!(:meetings) { create_list(:meeting, 3, :published, private_meeting: true, transparent: true, component: meetings_component) }
 
           it "does not show the venues" do
-            expect(page).to have_content("Conference Venues")
+            expect(page).to have_text("Conference Venues")
           end
         end
       end
@@ -178,12 +178,12 @@ describe "Conferences" do
 
     it "shows the details of the given conference" do
       within "[data-conference-hero]", match: :first do
-        expect(page).to have_content(translated(conference.title, locale: :en))
-        expect(page).to have_content(translated(conference.slogan, locale: :en))
+        expect(page).to have_text(translated(conference.title, locale: :en))
+        expect(page).to have_text(translated(conference.slogan, locale: :en))
       end
 
-      expect(page).to have_content(translated(conference.description, locale: :en))
-      expect(page).to have_content(translated(conference.short_description, locale: :en))
+      expect(page).to have_text(translated(conference.description, locale: :en))
+      expect(page).to have_text(translated(conference.short_description, locale: :en))
     end
 
     it_behaves_like "has embedded video in description", :description
@@ -192,9 +192,9 @@ describe "Conferences" do
     context "when the conference has some components" do
       it "shows the components" do
         within ".conference__nav" do
-          expect(page).to have_content(translated(proposals_component.name))
+          expect(page).to have_text(translated(proposals_component.name))
           expect(page.html).to include(decidim_escape_translated(proposals_component.name).gsub("&quot;", "\""))
-          expect(page).to have_no_content(decidim_escape_translated(meetings_component.name))
+          expect(page).to have_no_text(decidim_escape_translated(meetings_component.name))
         end
       end
 
@@ -206,9 +206,9 @@ describe "Conferences" do
         it "renders the component name correctly" do
           visit current_path
           within ".conference__nav-container" do
-            expect(page).to have_content(component_name)
-            expect(page).to have_no_content("&#39;")
-            expect(page).to have_no_content("&amp;#39;")
+            expect(page).to have_text(component_name)
+            expect(page).to have_no_text("&#39;")
+            expect(page).to have_no_text("&amp;#39;")
           end
         end
       end

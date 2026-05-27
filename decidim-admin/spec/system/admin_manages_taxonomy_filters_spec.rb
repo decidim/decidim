@@ -16,19 +16,19 @@ describe "Admin manages taxonomy filters" do
   end
 
   it "lists the taxonomy filters" do
-    expect(page).to have_content("Taxonomy filters")
+    expect(page).to have_text("Taxonomy filters")
     within ".table-list" do
-      expect(page).to have_content(translated(taxonomy_filter.name))
-      expect(page).to have_content(translated(taxonomy_filter_sibling.name), count: 2)
-      expect(page).to have_no_content(translated(another_taxonomy_filter.name))
+      expect(page).to have_text(translated(taxonomy_filter.name))
+      expect(page).to have_text(translated(taxonomy_filter_sibling.name), count: 2)
+      expect(page).to have_no_text(translated(another_taxonomy_filter.name))
     end
     within "tr", text: translated(taxonomy_filter.name) do
-      expect(page).to have_content("The name for regular users")
-      expect(page).to have_content("The name for admins only")
-      expect(page).to have_content("1")
+      expect(page).to have_text("The name for regular users")
+      expect(page).to have_text("The name for admins only")
+      expect(page).to have_text("1")
     end
     within "tr", text: translated(taxonomy_filter_sibling.name) do
-      expect(page).to have_content("0")
+      expect(page).to have_text("0")
     end
   end
 
@@ -40,25 +40,25 @@ describe "Admin manages taxonomy filters" do
     end
 
     it "creates the taxonomy filter" do
-      expect(page).to have_content("New taxonomy filter")
+      expect(page).to have_text("New taxonomy filter")
       expect(page).to have_field("From taxonomy", with: translated(root_taxonomy.name), disabled: true)
-      expect(page).to have_content("7 items selected")
+      expect(page).to have_text("7 items selected")
       expect(page).to have_css("#selectAll")
       uncheck "All"
-      expect(page).to have_content("0 items selected")
+      expect(page).to have_text("0 items selected")
       check "All"
-      expect(page).to have_content("7 items selected")
+      expect(page).to have_text("7 items selected")
       uncheck translated(taxonomy_with_child.name)
-      expect(page).to have_content("5 items selected")
+      expect(page).to have_text("5 items selected")
 
       fill_in_i18n :taxonomy_filter_internal_name, "#taxonomy_filter-internal_name-tabs", en: "A new filter"
       fill_in_i18n :taxonomy_filter_name, "#taxonomy_filter-name-tabs", en: "Category"
       check "All participatory processes"
       click_on "Create taxonomy filter"
-      expect(page).to have_content("Taxonomy filter created successfully")
+      expect(page).to have_text("Taxonomy filter created successfully")
       within "tr", text: translated("A new filter") do
-        expect(page).to have_content("0")
-        expect(page).to have_content("Category")
+        expect(page).to have_text("0")
+        expect(page).to have_text("Category")
       end
       expect(last_filter.filter_items.count).to eq(5)
       expect(last_filter.participatory_space_manifests).to contain_exactly("participatory_processes")
@@ -75,9 +75,9 @@ describe "Admin manages taxonomy filters" do
     end
 
     it "shows no elements found" do
-      expect(page).to have_content("Edit taxonomy filter")
+      expect(page).to have_text("Edit taxonomy filter")
       expect(page).to have_no_css("#selectAll")
-      expect(page).to have_content("No items are available for this taxonomy")
+      expect(page).to have_text("No items are available for this taxonomy")
     end
   end
 
@@ -90,9 +90,9 @@ describe "Admin manages taxonomy filters" do
     end
 
     it "edits the form" do
-      expect(page).to have_content("Edit taxonomy filter")
-      expect(page).to have_content(translated(taxonomy.name))
-      expect(page).to have_content(translated(another_taxonomy.name))
+      expect(page).to have_text("Edit taxonomy filter")
+      expect(page).to have_text(translated(taxonomy.name))
+      expect(page).to have_text(translated(another_taxonomy.name))
       uncheck translated(taxonomy.name)
       check translated(taxonomy_child.name)
       fill_in_i18n :taxonomy_filter_internal_name, "#taxonomy_filter-internal_name-tabs", en: "A new filter"
@@ -100,10 +100,10 @@ describe "Admin manages taxonomy filters" do
       uncheck "All participatory processes"
       check "All conferences"
       click_on "Update taxonomy filter"
-      expect(page).to have_content("Taxonomy filter updated successfully")
+      expect(page).to have_text("Taxonomy filter updated successfully")
       within "tr", text: translated("A new filter") do
-        expect(page).to have_content("1")
-        expect(page).to have_content(translated(taxonomy_filter.root_taxonomy.name), count: 1)
+        expect(page).to have_text("1")
+        expect(page).to have_text(translated(taxonomy_filter.root_taxonomy.name), count: 1)
       end
       expect(taxonomy_filter.filter_items.count).to eq(2)
       expect(taxonomy_filter.filter_items.pluck(:taxonomy_item_id)).to contain_exactly(another_taxonomy.id, taxonomy_child.id)
@@ -120,9 +120,9 @@ describe "Admin manages taxonomy filters" do
     end
 
     it "destroys the taxonomy filter" do
-      expect(page).to have_content("Taxonomy filter successfully destroyed")
-      expect(page).to have_no_content(translated(taxonomy_filter.name))
-      expect(page).to have_content(translated(taxonomy_filter_sibling.name))
+      expect(page).to have_text("Taxonomy filter successfully destroyed")
+      expect(page).to have_no_text(translated(taxonomy_filter.name))
+      expect(page).to have_text(translated(taxonomy_filter_sibling.name))
     end
   end
 end

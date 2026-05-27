@@ -31,11 +31,11 @@ describe "Admin manages conference publication" do
     visit decidim.root_path
     visit decidim.last_activities_path
 
-    expect(page).to have_content("New conference: #{title}")
+    expect(page).to have_text("New conference: #{title}")
 
     within "#filters" do
       find("a", class: "filter", text: "Conference", match: :first).click
     end
-    expect(page).to have_content("New conference: #{title}")
+    expect(page).to have_text("New conference: #{title}")
   end
 end

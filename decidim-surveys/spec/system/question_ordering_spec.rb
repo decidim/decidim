@@ -25,16 +25,16 @@ describe "Question ordering", "#reorder_questions" do
   end
 
   it "shows questions in the correct order" do
-    expect(page).to have_content("First question #1")
-    expect(page).to have_content("Second question #2")
+    expect(page).to have_text("First question #1")
+    expect(page).to have_text("Second question #2")
   end
 
   it "updates positions after adding a new question", :js do
     click_on "Add question"
 
-    expect(page).to have_content("First question #1")
-    expect(page).to have_content("Second question #2")
-    expect(page).to have_content("Question #3")
+    expect(page).to have_text("First question #1")
+    expect(page).to have_text("Second question #2")
+    expect(page).to have_text("Question #3")
   end
 
   it "can add and save new questions with correct positions", :js do
@@ -49,9 +49,9 @@ describe "Question ordering", "#reorder_questions" do
     click_on "Save"
     expect(page).to have_callout("Survey questions successfully saved.")
 
-    expect(page).to have_content("First question #1")
-    expect(page).to have_content("Second question #2")
-    expect(page).to have_content("Third question #3")
+    expect(page).to have_text("First question #1")
+    expect(page).to have_text("Second question #2")
+    expect(page).to have_text("Third question #3")
   end
 
   it "allows reordering a newly added question", :js do

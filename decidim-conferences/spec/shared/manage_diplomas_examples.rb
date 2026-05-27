@@ -52,7 +52,7 @@ shared_examples "manage diplomas" do
 
         it "can send the diplomas" do
           expect(page).to have_css("#send-diplomas")
-          expect(page).to have_content("Send certificates of attendance")
+          expect(page).to have_text("Send certificates of attendance")
         end
 
         it "is successfully created" do
@@ -81,7 +81,7 @@ shared_examples "manage diplomas" do
           end
 
           expect(page).to have_css("#send-diplomas.disabled")
-          expect(page).to have_content("Send certificates of attendance")
+          expect(page).to have_text("Send certificates of attendance")
         end
       end
     end
@@ -100,7 +100,7 @@ shared_examples "manage diplomas" do
         end
 
         expect(page).to have_no_css("#send-diplomas")
-        expect(page).to have_content("Certificate of attendance")
+        expect(page).to have_text("Certificate of attendance")
       end
     end
   end

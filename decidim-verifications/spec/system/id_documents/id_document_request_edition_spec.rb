@@ -46,7 +46,7 @@ describe "Identity document request edition" do
         file_name: "dni.jpg",
         remove_before: true
       )
-      expect(page).to have_content("Document successfully reuploaded")
+      expect(page).to have_text("Document successfully reuploaded")
       authorization.reload
       expect(authorization.verification_metadata["verification_type"]).to eq "online"
       expect(authorization.verification_metadata["document_number"]).to eq "XXXXXXXY"
@@ -66,14 +66,14 @@ describe "Identity document request edition" do
 
     it "allows the user to change the data" do
       expect(page).to have_css("form", text: "Request verification again")
-      expect(page).to have_no_content("Scanned copy of your document")
-      expect(page).to have_content("This is my explanation text")
+      expect(page).to have_no_text("Scanned copy of your document")
+      expect(page).to have_text("This is my explanation text")
 
       submit_upload_form(
         doc_type: "Identification number",
         doc_number: "XXXXXXXY"
       )
-      expect(page).to have_content("Document successfully reuploaded")
+      expect(page).to have_text("Document successfully reuploaded")
       authorization.reload
       expect(authorization.verification_metadata["verification_type"]).to eq "offline"
       expect(authorization.verification_metadata["document_number"]).to eq "XXXXXXXY"
@@ -95,7 +95,7 @@ describe "Identity document request edition" do
 
       it "allows the user to change the verification method" do
         expect(page).to have_css("form", text: "Request verification again")
-        expect(page).to have_no_content("Scanned copy of your document")
+        expect(page).to have_no_text("Scanned copy of your document")
         click_on "Use online verification"
 
         submit_upload_form(
@@ -105,7 +105,7 @@ describe "Identity document request edition" do
           remove_before: true
         )
 
-        expect(page).to have_content("Document successfully reuploaded")
+        expect(page).to have_text("Document successfully reuploaded")
         authorization.reload
         expect(authorization.verification_metadata["verification_type"]).to eq "online"
         expect(authorization.verification_metadata["document_number"]).to eq "XXXXXXXY"
@@ -119,14 +119,14 @@ describe "Identity document request edition" do
       it "allows the user to change the verification method" do
         expect(page).to have_css("form", text: "Request verification again")
         click_on "Use offline verification"
-        expect(page).to have_no_content("Scanned copy of your document")
+        expect(page).to have_no_text("Scanned copy of your document")
 
         submit_upload_form(
           doc_type: "Identification number",
           doc_number: "XXXXXXXY"
         )
 
-        expect(page).to have_content("Document successfully reuploaded")
+        expect(page).to have_text("Document successfully reuploaded")
         authorization.reload
         expect(authorization.verification_metadata["verification_type"]).to eq "offline"
         expect(authorization.verification_metadata["document_number"]).to eq "XXXXXXXY"

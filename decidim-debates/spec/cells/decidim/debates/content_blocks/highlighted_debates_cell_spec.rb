@@ -18,7 +18,7 @@ describe Decidim::Debates::ContentBlocks::HighlightedDebatesCell, type: :cell do
     let!(:debate) { create(:debate, title: { en: "Debate title" }, component:) }
 
     it "renders the open debate" do
-      expect(subject).to have_content("Debate title")
+      expect(subject).to have_text("Debate title")
       expect(subject).to have_css(".card__grid", count: 1)
     end
   end
@@ -31,20 +31,20 @@ describe Decidim::Debates::ContentBlocks::HighlightedDebatesCell, type: :cell do
     let!(:debate_closed) { create(:debate, title: { en: "Closed Debate" }, component:, closed_at: 1.day.ago) }
 
     it "renders only 3 most recent open debates" do
-      expect(subject).to have_no_content("Closed Debate")
+      expect(subject).to have_no_text("Closed Debate")
 
-      expect(subject).to have_no_content("Old Debate")
+      expect(subject).to have_no_text("Old Debate")
 
       expect(subject).to have_css(".card__grid", count: 3)
-      expect(subject).to have_content("Recent Debate 1")
-      expect(subject).to have_content("Recent Debate 2")
-      expect(subject).to have_content("Recent Debate 3")
+      expect(subject).to have_text("Recent Debate 1")
+      expect(subject).to have_text("Recent Debate 2")
+      expect(subject).to have_text("Recent Debate 3")
     end
   end
 
   context "with no debates" do
     it "renders nothing" do
-      expect(subject).to have_no_content("Debate title")
+      expect(subject).to have_no_text("Debate title")
       expect(subject).to have_no_css(".card__grid", count: 1)
     end
   end

@@ -47,7 +47,7 @@ describe "Participatory Process Steps" do
       it "triggers a notification" do
         wait_enqueued_jobs do
           visit decidim.notifications_path
-          expect(page).to have_content("phase is now active for")
+          expect(page).to have_text("phase is now active for")
         end
       end
     end
@@ -57,7 +57,7 @@ describe "Participatory Process Steps" do
 
       expect(page).to have_css(".participatory-space__metadata-modal__step", count: 3)
       steps.each do |step|
-        expect(page).to have_content(translated(step.title))
+        expect(page).to have_text(translated(step.title))
       end
     end
   end

@@ -5,7 +5,7 @@ shared_examples "admin is filtering participatory space users" do |label:, value
     apply_filter(label, value)
 
     within ".table-list tbody" do
-      expect(page).to have_content(compare_with.gsub("\n", " "))
+      expect(page).to have_text(compare_with.gsub("\n", " "))
       expect(page).to have_css("tr", count: 1)
     end
   end
@@ -16,7 +16,7 @@ shared_examples "admin is searching participatory space users" do
     search_by_text(value)
 
     within ".table-list tbody" do
-      expect(page).to have_content(value)
+      expect(page).to have_text(value)
       expect(page).to have_css("tr", count: 1)
     end
   end
