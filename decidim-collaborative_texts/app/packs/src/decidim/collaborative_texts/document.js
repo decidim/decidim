@@ -14,17 +14,15 @@ export default class Document {
       suggestionsBox: window.document.querySelector(this.doc.dataset.collaborativeTextsSuggestionsBoxTemplate),
       suggestionsBoxItem: window.document.querySelector(this.doc.dataset.collaborativeTextsSuggestionsBoxItemTemplate)
     }
-    try  {
+    try {
       this.active = JSON.parse(this.doc.dataset.collaborativeTextsDocument);
-      // eslint-disable-next-line no-unused-vars
-    } catch (_e) {
+    } catch {
       console.error("Error parsing collaborativeTextsDocument", this.doc.dataset.collaborativeTextsDocument);
     }
     this.i18n = {};
     try {
       this.i18n = JSON.parse(this.doc.dataset.collaborativeTextsI18n);
-      // eslint-disable-next-line no-unused-vars
-    } catch (_e) {
+    } catch {
       console.error("Error parsing collaborativeTextsI18n", this.doc.dataset.collaborativeTextsI18n);
     }
     this.csrfToken = document.querySelector("meta[name=csrf-token]") && document.querySelector('meta[name="csrf-token"]').getAttribute("content");

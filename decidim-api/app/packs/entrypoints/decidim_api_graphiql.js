@@ -75,17 +75,16 @@ const graphQLFetcher = function (graphQLParams) {
     body: JSON.stringify(graphQLParams),
     credentials: "include"
   }).then(function (response) {
-    try {
-      return response.json();
-      // eslint-disable-next-line no-unused-vars
-    } catch (error) {
-      return {
-        status: response.status,
-        message:
-          "The server responded with invalid JSON, this is probably a server-side error",
-        response: response.text()
-      };
-    }
+    return response.json().catch(function () {
+      return response.text().then(function (text) {
+        return {
+          status: response.status,
+          message:
+            "The server responded with invalid JSON, this is probably a server-side error",
+          response: text
+        };
+      });
+    });
   });
 };
 

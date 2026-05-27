@@ -1,5 +1,3 @@
-/* eslint-disable jsdoc/require-description */
-
 import Cookies from "js-cookie";
 
 const ONBOARDING_COOKIE_EXPIRY = 365;
@@ -8,8 +6,10 @@ const ONBOARDING_COOKIE_EXPIRY = 365;
 const DATA_KEY = "onboarding";
 
 /**
+ * Sets an onboarding action in a cookie when the element is clicked.
+ *
  * @param {DOMElement} element Element which provides the information for cookie about action to perform.
- * @returns {Void} Nothing
+ * @returns {Void} Nothing.
  */
 export default function setOnboardingAction(element) {
   // the dialog-open data attribute is stealing the click event

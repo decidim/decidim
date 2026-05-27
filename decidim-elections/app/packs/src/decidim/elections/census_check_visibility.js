@@ -43,8 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (data.scheduled) {
         setTimeout(updateVisibility, 4000);
       }
-      // eslint-disable-next-line no-unused-vars
-    } catch (error) {
+    } catch {
       setTimeout(updateVisibility, 4000);
     }
   };

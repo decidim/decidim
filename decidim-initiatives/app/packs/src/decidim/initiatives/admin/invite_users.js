@@ -15,8 +15,7 @@ document.addEventListener("turbo:load", () => {
 
       try {
         document.execCommand("copy");
-        // eslint-disable-next-line no-unused-vars
-      } catch (err) { }
+      } catch { }
 
       window.getSelection().removeAllRanges();
     });

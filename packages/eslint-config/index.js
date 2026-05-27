@@ -279,7 +279,7 @@ module.exports = {
     "jsdoc/require-param-type": "error",
     "jsdoc/require-returns": "error",
     "jsdoc/require-returns-type": "error",
-    "jsdoc/check-tag-names": [2, {definedTags: ["jest-environment"]}],
+    "jsdoc/check-tag-names": ["error", {definedTags: ["jest-environment"]}],
     "jsdoc/check-alignment": "warn",
     "jsdoc/require-description": "warn",
     "jsdoc/require-param-description": "warn",
