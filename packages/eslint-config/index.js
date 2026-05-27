@@ -53,7 +53,14 @@ module.exports = {
           "decidim-system/app/packs/",
           "decidim-templates/app/packs/",
           "decidim-verifications/app/packs/",
-          "node_modules/"
+          "node_modules/",
+          "packages/browserslist-config/node_modules/",
+          "packages/core/node_modules/",
+          "packages/dev/node_modules/",
+          "packages/eslint-config/node_modules/",
+          "packages/prettier-config/node_modules/",
+          "packages/stylelint-config/node_modules/",
+          "packages/webpacker/node_modules/"
         ]
       }
     }
