@@ -804,6 +804,7 @@ de:
           invitation_sent_at: Datum und Uhrzeit, an dem die Einladung versendet wurde
           invitations_count: Die Anzahl der an diesen Benutzer gesendeten Einladungen
           invited_by: Der Benutzer, der diesen Benutzer eingeladen hat
+          last_sign_in_at: Datum und Uhrzeit des letzten Logins
           locale: Die Plattformsprache, die dieser Benutzer ausgewählt hat
           managed: Ob dieser Benutzer von einem anderen Benutzer verwaltet wird
           name: Der Name des Benutzers
