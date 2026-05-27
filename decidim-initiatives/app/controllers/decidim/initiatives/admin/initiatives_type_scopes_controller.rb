@@ -95,11 +95,11 @@ module Decidim
         end
 
         def current_initiative_type_scope
-          @current_initiative_type_scope ||= InitiativesTypeScope.joins(:type).where(decidim_initiatives_types: { organization: current_organization }).find(params[:id])
+          @current_initiative_type_scope ||= InitiativesTypeScope.joins(:type).where(decidim_initiatives_types: { organization: current_organization }).find(params.expect(:id))
         end
 
         def current_initiative_type
-          @current_initiative_type ||= InitiativesType.find(params[:initiatives_type_id])
+          @current_initiative_type ||= InitiativesType.find(params.expect(:initiatives_type_id))
         end
 
         def initiative_type_scope_form

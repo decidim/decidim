@@ -95,6 +95,24 @@ describe Decidim::UploadModalCell, type: :cell do
       it "renders preview" do
         expect(subject.find("img")["src"]).to match(%r{/city.jpeg$})
       end
+
+      context "when attachment is an id document verification image" do
+        let(:user) { create(:user, :confirmed) }
+        let(:authorization) do
+          create(
+            :authorization,
+            :pending,
+            name: "id_documents",
+            user:,
+            verification_attachment: Decidim::Dev.test_file("id.jpg", "image/jpeg")
+          )
+        end
+        let(:attachments) { [authorization.verification_attachment] }
+
+        it "renders the preview from private downloads URL" do
+          expect(subject).to have_css("img[src*='/private_downloads/']")
+        end
+      end
     end
 
     context "when attachment is titled" do

@@ -29,7 +29,7 @@ module Decidim
       end
 
       def set_group
-        @group = Decidim::ParticipatoryProcessGroup.where(organization: current_organization).find(params[:id])
+        @group = Decidim::ParticipatoryProcessGroup.where(organization: current_organization).find(params.expect(:id))
       end
 
       def active_content_blocks
@@ -54,7 +54,7 @@ module Decidim
       def set_controller_breadcrumb
         context_breadcrumb_items << {
           label: translated_attribute(group.title),
-          url: participatory_process_group_path(group, locale: current_locale),
+          url: participatory_process_group_path(group),
           active: true,
           resource: group
         }

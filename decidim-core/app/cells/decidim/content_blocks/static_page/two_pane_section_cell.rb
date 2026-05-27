@@ -5,11 +5,11 @@ module Decidim
     module StaticPage
       class TwoPaneSectionCell < Decidim::ViewModel
         def left_column
-          translated_attribute(model.settings.left_column).html_safe
+          decidim_sanitize_editor_admin(translated_attribute(model.settings.left_column))
         end
 
         def right_column
-          translated_attribute(model.settings.right_column).html_safe
+          decidim_sanitize_editor_admin(translated_attribute(model.settings.right_column))
         end
       end
     end

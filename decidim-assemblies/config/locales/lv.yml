@@ -132,8 +132,6 @@ lv:
             admin: Administrators
             collaborator: Līdzizstrādātājs
             moderator: Moderators
-      titles:
-        assemblies_types: Asambleju veidi
     admin_log:
       assembly:
         create: "%{user_name} izveidoja asambleju %{resource_name}"
@@ -194,10 +192,6 @@ lv:
         working_group: Darba grupa
       index:
         title: Asambleja
-      pages:
-        user_profile:
-          member_of:
-            member_of: Dalībnieks
       show:
         duration: Ilgums
     events:
@@ -222,8 +216,6 @@ lv:
       value_types:
         assembly_presenter:
           not_found: 'Asambleja netika atrasta datubāzē (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Asamblejas veids netika atrasts datubāzē (ID: %{id})'
     menu:
       assemblies: Asambleja
     participatory_processes:

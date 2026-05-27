@@ -161,8 +161,6 @@ ro:
             collaborator: Colaborator
             evaluator: Evaluator
             moderator: Moderator
-      titles:
-        assemblies_types: Tipuri de grupuri de lucru
     admin_log:
       assembly:
         create: "%{user_name} a creat grupul de lucru %{resource_name}"
@@ -263,9 +261,6 @@ ro:
           highlighted_assemblies:
             active_spaces: Grupuri de lucru active
             see_all_spaces: Vedeți toate grupurile de lucru
-        user_profile:
-          member_of:
-            member_of: Membru al
       show:
         duration: Durată
         social_networks_title: Vizitează adunarea pe
@@ -292,8 +287,6 @@ ro:
       value_types:
         assembly_presenter:
           not_found: 'Grupul de lucru nu a fost găsit în baza de date (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Tipul de grup de lucru nu a fost găsit în baza de date (ID: %{id})'
     menu:
       assemblies: Grupuri de lucru
     participatory_processes:

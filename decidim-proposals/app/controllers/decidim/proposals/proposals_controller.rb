@@ -184,7 +184,7 @@ module Decidim
       private
 
       def search_collection
-        Proposal.where(component: current_component).published.not_hidden.with_availability(params[:filter].try(:[], :with_availability))
+        Proposal.where(component: current_component).published.not_hidden.with_availability(params.fetch(:filter, {}).fetch(:with_availability, {}))
       end
 
       def default_filter_params
@@ -212,7 +212,7 @@ module Decidim
       end
 
       def ensure_is_draft
-        @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
+        @proposal = Proposal.not_hidden.where(component: current_component).find(params.expect(:id))
         redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path unless @proposal.draft?
       end
 
@@ -271,7 +271,7 @@ module Decidim
       end
 
       def proposal_creation_params
-        params[:proposal].merge(body_template: translated_proposal_body_template)
+        params.fetch(:proposal, {}).merge(body_template: translated_proposal_body_template)
       end
 
       def tab_panel_items

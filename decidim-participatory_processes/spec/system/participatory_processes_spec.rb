@@ -270,12 +270,30 @@ describe "Participatory Processes" do
         end
 
         context "and the process has some components" do
-          let(:blocks_manifests) { [:main_data] }
+          let(:blocks_manifests) { [:hero, :main_data] }
 
           it "shows the components" do
             within ".participatory-space__nav-container" do
-              expect(page).to have_content(decidim_escape_translated(proposals_component.name))
-              expect(page).to have_no_content(decidim_escape_translated(meetings_component.name))
+              expect(page).to have_content(translated(proposals_component.name))
+              expect(page).to have_no_content(translated(meetings_component.name))
+              expect(page.html).to include decidim_escape_translated(proposals_component.name).gsub("&quot;", "\"")
+            end
+          end
+
+          it_behaves_like "accessible page"
+
+          describe "when there are special characters (', &) in the nav links" do
+            let(:participatory_space) { participatory_process }
+            let(:component_name) { "People's Budget & Ideas" }
+            let!(:proposal_component) { create(:proposal_component, name: { en: component_name }, participatory_space:) }
+
+            it "renders the component name correctly" do
+              visit current_path
+              within ".participatory-space__nav-container" do
+                expect(page).to have_content(component_name)
+                expect(page).to have_no_content("&#39;")
+                expect(page).to have_no_content("&amp;#39;")
+              end
             end
           end
 
@@ -323,6 +341,23 @@ describe "Participatory Processes" do
             expect(page).to have_no_content(translated(restricted_assembly.title))
           end
         end
+      end
+    end
+
+    context "when the participatory process is restricted" do
+      let(:blocks_manifests) { [:related_documents, :related_images] }
+      let!(:participatory_process) { create(:participatory_process, :published, :restricted, :with_content_blocks, blocks_manifests:, organization:) }
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:member) { create(:member, :published, user:, participatory_space: participatory_process) }
+      let!(:document) { create(:attachment, :with_pdf, attached_to: participatory_process) }
+
+      before do
+        login_as user, scope: :user
+        visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
+      end
+
+      it "shows the document extension in the metadata" do
+        expect(all("[data-content] .documents__container").first).to have_css(".card__list-metadata", text: "pdf")
       end
     end
   end

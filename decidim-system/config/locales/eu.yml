@@ -36,8 +36,12 @@ eu:
               must_be_ssl: Berbideratzeko URIa URI SSL izan behar da
         organization:
           attributes:
+            host:
+              invalid: baliogabea da
             password:
               secret_key: SECRET_KEY_BASE ingurunearen aldagaia definitu behar duzu eremu hau gorde ahal izateko
+            secondary_hosts:
+              invalid: baliogabea da
   decidim:
     system:
       actions:

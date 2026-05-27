@@ -8,7 +8,7 @@ module Decidim
       private
 
       def resource_path
-        Decidim::Conferences::Engine.routes.url_helpers.conference_path(model, locale: current_locale)
+        Decidim::Conferences::Engine.routes.url_helpers.conference_path(model)
       end
 
       def resource_image_url

@@ -12,11 +12,11 @@ describe "Profile" do
   context "when has casing in the nickname" do
     before do
       switch_to_host(user.organization.host)
-      visit decidim.profile_path(nickname: user.nickname.upcase, locale: I18n.locale)
+      visit decidim.profile_path(nickname: user.nickname.upcase)
     end
 
     it "downcases the path" do
-      expect(page).to have_current_path(decidim.profile_activity_path(nickname: user.nickname.downcase, locale: I18n.locale))
+      expect(page).to have_current_path(decidim.profile_activity_path(nickname: user.nickname.downcase))
     end
   end
 
@@ -52,7 +52,7 @@ describe "Profile" do
 
   context "when navigating publicly" do
     before do
-      visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+      visit decidim.profile_path(nickname: user.nickname)
     end
 
     it "is not indexable by crawlers" do
@@ -72,13 +72,13 @@ describe "Profile" do
       it "displays the correct links for profile activity" do
         visit current_path
         within "#filters" do
-          expect(page).to have_link("All activity types", href: decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale, filter: { resource_type: "all" }))
-          expect(page).to have_link("Proposal", href: decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale, filter: { resource_type: "Decidim::Proposals::Proposal" }))
-          expect(page).to have_link("Comment", href: decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale, filter: { resource_type: "Decidim::Comments::Comment" }))
-          expect(page).to have_link("Debate", href: decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale, filter: { resource_type: "Decidim::Debates::Debate" }))
-          expect(page).to have_link("Initiative", href: decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale, filter: { resource_type: "Decidim::Initiative" }))
-          expect(page).to have_link("Meeting", href: decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale, filter: { resource_type: "Decidim::Meetings::Meeting" }))
-          expect(page).to have_link("Post", href: decidim.profile_activity_path(nickname: user.nickname, locale: I18n.locale, filter: { resource_type: "Decidim::Blogs::Post" }))
+          expect(page).to have_link("All activity types", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "all" }))
+          expect(page).to have_link("Proposal", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Proposals::Proposal" }))
+          expect(page).to have_link("Comment", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Comments::Comment" }))
+          expect(page).to have_link("Debate", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Debates::Debate" }))
+          expect(page).to have_link("Initiative", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Initiative" }))
+          expect(page).to have_link("Meeting", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Meetings::Meeting" }))
+          expect(page).to have_link("Post", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Blogs::Post" }))
         end
 
         expect(page).to have_content("New comment")
@@ -147,7 +147,7 @@ describe "Profile" do
       end
 
       it "shows the number of followers and following" do
-        visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+        visit decidim.profile_path(nickname: user.nickname)
         within(".profile__details") do
           expect(page).to have_content("1 follower")
           expect(page).to have_content("2 follows")
@@ -155,7 +155,7 @@ describe "Profile" do
       end
 
       it "lists the followers" do
-        visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+        visit decidim.profile_path(nickname: user.nickname)
         click_on "Followers"
 
         expect(page).to have_content(other_user.name)
@@ -163,7 +163,7 @@ describe "Profile" do
       end
 
       it "lists the followings" do
-        visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+        visit decidim.profile_path(nickname: user.nickname)
         click_on "Follows"
 
         expect(page).to have_no_content("Some of the resources followed are not public.")
@@ -181,7 +181,7 @@ describe "Profile" do
         end
 
         it "lists only the public followings" do
-          visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+          visit decidim.profile_path(nickname: user.nickname)
           within(".profile__details") do
             expect(page).to have_content("3 follows")
           end
@@ -203,7 +203,7 @@ describe "Profile" do
         end
 
         it "lists only the unblocked followings" do
-          visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+          visit decidim.profile_path(nickname: user.nickname)
 
           click_on "Follows"
           expect(page).to have_content("Some of the resources followed are not public.")
@@ -221,7 +221,7 @@ describe "Profile" do
         end
 
         it "lists only the unblocked followers" do
-          visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+          visit decidim.profile_path(nickname: user.nickname)
 
           click_on "Followers"
           expect(page).to have_content(translated(other_user.name))
@@ -235,7 +235,7 @@ describe "Profile" do
         before do
           user.organization.update(badges_enabled: true)
           Decidim::Gamification.set_score(user, :test, 10)
-          visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+          visit decidim.profile_path(nickname: user.nickname)
         end
 
         it "shows a badges tab" do
@@ -246,7 +246,7 @@ describe "Profile" do
       context "when badges are disabled" do
         before do
           user.organization.update(badges_enabled: false)
-          visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+          visit decidim.profile_path(nickname: user.nickname)
         end
 
         it "shows a badges tab" do
@@ -261,7 +261,7 @@ describe "Profile" do
 
     context "when user is not a member of any participatory space" do
       it "does not show the member of section" do
-        visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+        visit decidim.profile_path(nickname: user.nickname)
 
         expect(page).to have_no_content("Member of")
       end
@@ -272,7 +272,7 @@ describe "Profile" do
       let!(:member) { create(:member, :published, user:, participatory_space: assembly) }
 
       it "shows the member of section with the assembly link" do
-        visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+        visit decidim.profile_path(nickname: user.nickname)
 
         expect(page).to have_content("Member of")
         expect(page).to have_link(translated(assembly.title), href: %r{/assemblies/#{assembly.slug}})
@@ -284,7 +284,7 @@ describe "Profile" do
       let!(:member) { create(:member, :published, user:, participatory_space: participatory_process) }
 
       it "shows the member of section with the process link" do
-        visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+        visit decidim.profile_path(nickname: user.nickname)
 
         expect(page).to have_content("Member of")
         expect(page).to have_link(translated(participatory_process.title), href: %r{/processes/#{participatory_process.slug}})
@@ -298,7 +298,7 @@ describe "Profile" do
       let!(:process_member) { create(:member, :published, user:, participatory_space: participatory_process) }
 
       it "shows a single member of section with both links" do
-        visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+        visit decidim.profile_path(nickname: user.nickname)
 
         expect(page).to have_content("Member of")
         expect(page).to have_link(translated(assembly.title), href: %r{/assemblies/#{assembly.slug}})
@@ -306,7 +306,7 @@ describe "Profile" do
       end
 
       it "shows only one member of header" do
-        visit decidim.profile_path(nickname: user.nickname, locale: I18n.locale)
+        visit decidim.profile_path(nickname: user.nickname)
 
         expect(page).to have_css("div.font-semibold", text: "Member of", count: 1)
       end

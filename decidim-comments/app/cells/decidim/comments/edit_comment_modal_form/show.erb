@@ -1,3 +1,5 @@
+<%= append_javascript_pack_tag "decidim_emoji" %>
+
 <%= decidim_modal id: "editCommentModal#{model.id}" do %>
   <%= decidim_form_for(form_object, url: decidim_comments.comment_path(comment), method: :put, remote: true, html: { id: nil }) do |form| %>
     <div data-dialog-container>

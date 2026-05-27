@@ -22,7 +22,7 @@ module Decidim
         end
 
         def project
-          @project ||= projects.find(params[:id])
+          @project ||= projects.find(params.expect(:id))
         end
 
         def maps_enabled?

@@ -35,6 +35,7 @@ module Decidim
 
         it "adds the core entrypoints to the shakapacker runtime configuration" do
           expect(runtime_config["default"]["entrypoints"]).to include(
+            "decidim_controllers" => "#{core_path}/app/packs/entrypoints/decidim_controllers.js",
             "decidim_core" => "#{core_path}/app/packs/entrypoints/decidim_core.js",
             "decidim_sw" => "#{core_path}/app/packs/entrypoints/decidim_sw.js",
             "decidim_conference_diploma" => "#{core_path}/app/packs/entrypoints/decidim_conference_diploma.js",

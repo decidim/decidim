@@ -24,13 +24,13 @@ describe "Conferences" do
 
   context "when there are no conferences and directly accessing from URL" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_conferences.conferences_path(locale: I18n.locale) }
+      let(:target_path) { decidim_conferences.conferences_path }
     end
   end
 
   context "when the conference does not exist" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_conferences.conference_path(99_999_999, locale: I18n.locale) }
+      let(:target_path) { decidim_conferences.conference_path(99_999_999) }
     end
   end
 
@@ -42,7 +42,7 @@ describe "Conferences" do
 
     context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_conferences.conferences_path(locale: I18n.locale) }
+        let(:target_path) { decidim_conferences.conferences_path }
       end
     end
   end
@@ -53,11 +53,11 @@ describe "Conferences" do
     let!(:unpublished_conference) { create(:conference, :unpublished, organization:) }
 
     before do
-      visit decidim_conferences.conferences_path(locale: I18n.locale)
+      visit decidim_conferences.conferences_path
     end
 
     it_behaves_like "shows contextual help" do
-      let(:index_path) { decidim_conferences.conferences_path(locale: I18n.locale) }
+      let(:index_path) { decidim_conferences.conferences_path }
       let(:manifest_name) { :conferences }
     end
 
@@ -86,7 +86,7 @@ describe "Conferences" do
       within "#conferences-grid" do
         first("[id^='conference']", text: translated(conference.title, locale: :en)).click
 
-        expect(page).to have_current_path decidim_conferences.conference_path(conference, locale: I18n.locale)
+        expect(page).to have_current_path decidim_conferences.conference_path(conference)
       end
     end
   end
@@ -95,7 +95,7 @@ describe "Conferences" do
     let(:conference) { base_conference }
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:followable) { conference }
-    let(:followable_path) { decidim_conferences.conference_path(conference, locale: I18n.locale) }
+    let(:followable_path) { decidim_conferences.conference_path(conference) }
   end
 
   describe "when going to the conference page" do
@@ -107,7 +107,7 @@ describe "Conferences" do
       create_list(:proposal, 3, component: proposals_component)
       allow(Decidim).to receive(:component_manifests).and_return([proposals_component.manifest, meetings_component.manifest])
 
-      visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+      visit decidim_conferences.conference_path(conference)
     end
 
     it "has a sidebar" do
@@ -119,7 +119,7 @@ describe "Conferences" do
         meetings.empty?
         allow(Decidim).to receive(:address).and_return("foo bar")
 
-        visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+        visit decidim_conferences.conference_path(conference)
       end
 
       context "when the meeting component is not published" do
@@ -192,8 +192,24 @@ describe "Conferences" do
     context "when the conference has some components" do
       it "shows the components" do
         within ".conference__nav" do
-          expect(page).to have_content(decidim_escape_translated(proposals_component.name))
+          expect(page).to have_content(translated(proposals_component.name))
+          expect(page.html).to include(decidim_escape_translated(proposals_component.name).gsub("&quot;", "\""))
           expect(page).to have_no_content(decidim_escape_translated(meetings_component.name))
+        end
+      end
+
+      describe "when there are special characters (', &) in the nav links" do
+        let(:participatory_space) { conference }
+        let(:component_name) { "People's Budget & Ideas" }
+        let!(:proposal_component) { create(:proposal_component, name: { en: component_name }, participatory_space:) }
+
+        it "renders the component name correctly" do
+          visit current_path
+          within ".conference__nav-container" do
+            expect(page).to have_content(component_name)
+            expect(page).to have_no_content("&#39;")
+            expect(page).to have_no_content("&amp;#39;")
+          end
         end
       end
 
@@ -224,7 +240,7 @@ describe "Conferences" do
           create(:meeting, :published, :in_person, address: "", location_hints: nil, location: "", component: other_meetings_component)
           create_list(:meeting, 3, :published, :in_person, component: meetings_component)
 
-          visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+          visit decidim_conferences.conference_path(conference)
 
           expect(page).to have_css(".conference__map-address", count: 3)
         end
@@ -236,7 +252,7 @@ describe "Conferences" do
     let!(:conference) { base_conference }
 
     before do
-      visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+      visit decidim_conferences.conference_path(conference)
     end
 
     it "has no sidebar" do

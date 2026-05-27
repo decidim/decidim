@@ -52,9 +52,9 @@ describe Decidim::SendPushNotification do
     context "with subscriptions" do
       let(:subscriptions) do
         {
-          "auth_key_1" => { "auth" => "auth_key_1", "p256dh" => "p256dh_1", "endpoint" => "endpoint_1" },
-          "auth_key_2" => { "auth" => "auth_key_2", "p256dh" => "p256dh_2", "endpoint" => "endpoint_2" },
-          "auth_key_3" => { "auth" => "auth_key_3", "p256dh" => "p256dh_3", "endpoint" => "endpoint_3" }
+          "auth_key_1" => { "auth" => "auth_key_1", "p256dh" => "p256dh_1", "endpoint" => "https://fcm.googleapis.com/fcm/send/id_1" },
+          "auth_key_2" => { "auth" => "auth_key_2", "p256dh" => "p256dh_2", "endpoint" => "https://updates.push.services.mozilla.com/wpush/v2/id_2" },
+          "auth_key_3" => { "auth" => "auth_key_3", "p256dh" => "p256dh_3", "endpoint" => "https://web.push.apple.com/id_3" }
         }
       end
 
@@ -99,11 +99,39 @@ describe Decidim::SendPushNotification do
           expect(responses.all? { |response| response.code == "201" }).to be(true)
           expect(responses.all? { |response| response.message == "Created" }).to be(true)
         end
+
+        context "when one subscription endpoint is not supported" do
+          let(:subscriptions) do
+            {
+              "auth_key_1" => { "auth" => "auth_key_1", "p256dh" => "p256dh_1", "endpoint" => "https://fcm.googleapis.com/fcm/send/id_1" },
+              "auth_key_2" => { "auth" => "auth_key_2", "p256dh" => "p256dh_2", "endpoint" => "https://example.org/subscriptions/id_2" }
+            }
+          end
+
+          it "skips unsupported endpoints" do
+            notification_payload = {
+              message:,
+              endpoint: subscriptions["auth_key_1"]["endpoint"],
+              p256dh: subscriptions["auth_key_1"]["p256dh"],
+              auth: subscriptions["auth_key_1"]["auth"],
+              vapid: a_hash_including(
+                public_key: "public_key",
+                private_key: "private_key"
+              )
+            }
+
+            expect(WebPush).to receive(:payload_send).with(notification_payload).once.and_return(double("result", message: "Created", code: "201"))
+
+            responses = subject.perform(notification, title)
+            expect(responses.size).to eq(1)
+            expect(responses.first.code).to eq("201")
+          end
+        end
       end
     end
 
     context "with subscription" do
-      let(:subscriptions) { { "auth_key_1" => { "auth" => "auth_key_1", "p256dh" => "p256dh_1", "endpoint" => "endpoint_1" } } }
+      let(:subscriptions) { { "auth_key_1" => { "auth" => "auth_key_1", "p256dh" => "p256dh_1", "endpoint" => "https://fcm.googleapis.com/fcm/send/id_1" } } }
 
       describe "#perform" do
         it "returns 201 and created if the message is sent ok" do
