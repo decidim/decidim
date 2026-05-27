@@ -1,5 +1,5 @@
 import Link from "@tiptap/extension-link";
-import { Plugin } from "prosemirror-state";
+import { Plugin, NodeSelection } from "prosemirror-state";
 
 import { getDictionary } from "src/decidim/refactor/moved/i18n";
 import InputDialog from "src/decidim/editor/common/input_dialog";
@@ -48,31 +48,55 @@ export default Link.extend({
       ...this.parent?.(),
 
       toggleLinkBubble: () => ({ dispatch }) => {
+        const { selection } = this.editor.state;
+        const isImageSelection = selection instanceof NodeSelection && selection.node.type.name === "image";
+        const imageHasLink = isImageSelection && Boolean(selection.node.attrs.href);
+
         if (dispatch) {
-          if (this.editor.isActive("link")) {
-            this.storage.bubbleMenu.show();
+          if (this.editor.isActive("link") || (isImageSelection && imageHasLink)) {
+            this.storage.bubbleMenu.handleSelectionChange(this.editor.view);
             return true;
           }
 
           this.storage.bubbleMenu.hide();
           return false;
         }
+
+        if (isImageSelection) {
+          return imageHasLink;
+        }
+
         return this.editor.isActive("link");
       },
 
       linkDialog: () => async ({ dispatch, commands }) => {
         if (dispatch) {
-          // If the cursor is within the link but the link is not selected, the
-          // link would not be correctly updated. Also if only a part of the
-          // link is selected, the link would be split to separate links, only
-          // the current selection getting the updated link URL.
-          commands.extendMarkRange("link");
+          const { state } = this.editor;
+          const { selection } = state;
+          const isImageSelection = selection instanceof NodeSelection && selection.node.type.name === "image";
+          const nodeType = (() => {
+            if (isImageSelection) {
+              return "image";
+            }
+            return "link";
+          })();
+
+          if (!isImageSelection) {
+            // If the cursor is within the link but the link is not selected, the
+            // link would not be correctly updated. Also if only a part of the
+            // link is selected, the link would be split to separate links, only
+            // the current selection getting the updated link URL.
+            commands.extendMarkRange("link");
+          }
 
           this.storage.bubbleMenu.hide();
 
           const { allowTargetControl } = this.options;
 
-          let { href, target } = this.editor.getAttributes("link");
+          let href = null;
+          let target = null;
+
+          ({ href, target } = this.editor.getAttributes(nodeType));
 
           const inputs = { href: { type: "text", label: i18n.hrefLabel } };
           if (allowTargetControl) {
@@ -96,16 +120,25 @@ export default Link.extend({
             target = null;
           }
 
+          const buildChain = () => this.editor.chain().focus(null, { scrollIntoView: false });
+
           if (dialogState !== "save") {
-            this.editor.chain().focus(null, { scrollIntoView: false }).toggleLinkBubble().run();
+            buildChain().toggleLinkBubble().run();
             return false;
           }
 
           if (!href || href.trim().length < 1) {
-            return this.editor.chain().focus(null, { scrollIntoView: false }).unsetLink().run();
+            if (isImageSelection) {
+              return buildChain().updateAttributes("image", { href: null, target: null }).run();
+            }
+            return buildChain().unsetLink().run();
           }
 
-          return this.editor.chain().focus(null, { scrollIntoView: false }).setLink({ href, target }).toggleLinkBubble().run();
+          if (isImageSelection) {
+            return buildChain().updateAttributes("image", { href: href, target }).toggleLinkBubble().run();
+          }
+
+          return buildChain().setLink({ href: href, target }).toggleLinkBubble().run();
         }
 
         return true;

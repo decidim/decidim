@@ -13,7 +13,7 @@ module Decidim
       end
 
       def component(id:)
-        context[:current_organization]&.published_components&.find(id)
+        current_organization&.published_components&.find(id)
       end
     end
   end

@@ -207,6 +207,9 @@ fi-pl:
         user:
           new: Uusi hallintakäyttäjä
         view_deleted_components: Näytä poistetut komponentit
+      admin_terms:
+        show:
+          title: Hallintakäyttäjän käyttöehdot
       admin_terms_of_service:
         accept:
           error: Hallintakäyttäjän ehtojen hyväksyminen epäonnistui.
@@ -229,6 +232,8 @@ fi-pl:
         edit:
           title: Muokkaa aluetyyppiä
           update: Päivitä
+        index:
+          title: Aluetyypit
         new:
           create: Luo aluetyyppi
           title: Uusi aluetyyppi
@@ -246,6 +251,8 @@ fi-pl:
         edit:
           title: Muokkaa aluetta
           update: Päivitä
+        index:
+          title: Alueet
         new:
           create: Luo alue
           title: Uusi alue
@@ -262,6 +269,8 @@ fi-pl:
         edit:
           title: Muokkaa kansiota
           update: Päivitä
+        index:
+          title: Liitetiedostojen kansiot
         new:
           create: Luo
           title: Uusi kansio
@@ -277,6 +286,8 @@ fi-pl:
         edit:
           title: Muokkaa liitettä
           update: Päivitä
+        index:
+          title: Liitteet
         new:
           create: Luo liite
           title: Uusi liite
@@ -285,6 +296,9 @@ fi-pl:
           success: Liite luotu onnistuneesti.
       attachments_privacy_warning:
         message: Ole varovainen, kun työskentelet liitetiedostojen kanssa yksityisessä tilassa. Kuka tahansa osallistuja voi jakaa tämän asiakirjan muille.
+      authorization_workflows:
+        index:
+          title: Tunnistautumistavat
       autocomplete:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakeaksesi.
@@ -329,6 +343,7 @@ fi-pl:
             name: Komponentin nimi
             type: Komponentin tyyppi
             visibility: Näkyvyys
+          title: Komponentit
         manage_trash:
           title: Poistetut komponentit
         new:
@@ -347,9 +362,12 @@ fi-pl:
           unpublished: Julkaisematon
       conflicts:
         attempts: Yritykset
+        edit:
+          title: Siirrä käyttäjä
         'false': 'Ei'
         index:
           text: Etsi nykyisen käyttäjän sähköpostiosoitteella, nimellä tai nimimerkillä
+          title: Vahvistusten ristiriidat
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
         transfer:
@@ -384,6 +402,7 @@ fi-pl:
           title: Odottavat moderoinnit
         show:
           dropdown: Alasvetovalikko
+          title: Hallintapaneeli
           view_more_logs: Näytä lisää lokitietoja
       domain_allowlist:
         form:
@@ -480,6 +499,8 @@ fi-pl:
         form:
           save: Tallenna
         success: Ohjeosioiden päivitys onnistui.
+        update:
+          title: Ohjeosiot
       impersonatable_users:
         index:
           filter:
@@ -495,6 +516,7 @@ fi-pl:
           promote: Korota tasoa
           search: Hae
           status: Tila
+          title: Hallinnoitavat osallistujat
           view_logs: Näytä lokitiedot
       impersonations:
         close_session:
@@ -511,6 +533,7 @@ fi-pl:
           impersonate: Esiinny käyttäjänä
           impersonate_existing_managed_user: Esiinny hallittuna käyttäjänä "%{name}"
           impersonate_existing_user: Esiinny käyttäjänä "%{name}"
+          title: Esiinny osallistujana
       imports:
         and: ja
         data_errors:
@@ -554,12 +577,17 @@ fi-pl:
           participatory_space: Etsi osallistumistila
           text: Etsi käyttäjien sähköpostiosoitteen, nimen tai nimimerkin perusteella
           user: Käyttäjä
+        index:
+          title: Hallintatoimintojen lokitiedot
         logs_list:
           no_logs_yet: Ei vielä lokitietoja.
           no_matching_logs: Lokitietoja ei löytynyt annetuilla hakukriteereillä. Yritä muuttaa hakua ja kokeile uudestaan.
       manage_trash:
         deleted_items_warning: Sivu näyttää poistettuja kohteita. Mikäli haluat tehdä muutoksia, kohteet tulee ensin palauttaa.
       managed_users:
+        impersonation_logs:
+          index:
+            title: Toisen puolesta toimimiset
         promotion:
           error: Hallitun käyttäjän oikeuksien korotuksessa tapahtui virhe.
           success: Hallitun käyttäjän taso on onnistuneesti korotettu.
@@ -567,6 +595,7 @@ fi-pl:
           new:
             explanation: Hallituille käyttäjille voidaan myöntää normaalien käyttäjien oikeudet. Tämä tarkoittaa, että heille lähetetään kutsu hakemusprosessiin ja tämän jälkeen kyseisinä tileinä ei voi enää esiintyä. Kutsutulle käyttäjälle lähetetään sähköposti, jonka avulla hän voi hyväksyä kutsusi.
             promote: Korota oikeudet
+            title: Uusi hallinnoitavan osallistujan käyttäjätason korotus
       members:
         create:
           error: Jäsenen lisääminen tähän osallistumistilaan epäonnistui.
@@ -795,6 +824,7 @@ fi-pl:
           title: Uutiskirjeiden pohjat
           use_template: Käytä tätä pohjaa
         show:
+          title: 'Esikatsele mallipohjaa: %{template_name}'
           use_template: Käytä tätä pohjaa
       newsletters:
         confirm_recipients:
@@ -820,6 +850,7 @@ fi-pl:
           confirm_delete: Haluatko varmasti poistaa tämän uutiskirjeen?
           followers: 'seuraajat '
           has_been_sent_to: 'Lähetettiin vastaanottajille: '
+          members: 'jäsenet '
           not_sent: Ei lähetetty
           participants: 'osallistujat '
           segmented_to: 'Kohdennettu vastaanottajille %{subject}: '
@@ -837,6 +868,7 @@ fi-pl:
           confirm_recipients: Vahvista vastaanottajat
           deliver: Toimita uutiskirje
           followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallisuustiloista.
+          members_help: Lähetä uutiskirje kaikille vahvistetuille osallistujille, jotka on lisätty jonkin osallistumistilan jäseniksi.
           participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallisuustiloista.
           recipients_count: Tämä uutiskirje lähetetään <strong id='recipients_count'>%{count}</strong>:lle käyttäjälle.
           select_assemblies: Valitse ryhmät
@@ -860,6 +892,7 @@ fi-pl:
           select_recipients_to_deliver: Valitse vastaanottajat
           send_me_a_test_email: Lähetä minulle testisähköposti
           subject: Otsikko
+          title: Esikatsele
         update:
           error: Tämän uutiskirjeen päivityksessä tapahtui virhe.
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
@@ -893,12 +926,15 @@ fi-pl:
           send_message: Lähetä viesti
           show_email: Näytä sähköposti
           status: Tila
+          title: Osallistujat
           unblock: Poista esto
           unofficialize: Poista virallistaminen
         new:
           badge: Virallistamismerkki
           officialize: Virallista
           title: Virallista käyttäjä "%{name}"
+        show_email:
+          title: Näytä sähköposti
         show_email_modal:
           description: Jos haluat ottaa suoraan yhteyttä osallistujaan, voit klikata Näytä-painiketta nähdäksesi hänen sähköpostiosoitteensa. Tästä toiminnosta jää jälki lokiin.
           email_address: Sähköpostiosoite
@@ -943,6 +979,7 @@ fi-pl:
           success: Organisaatio päivitetty onnistuneesti.
       organization_external_domain_allowlist:
         edit:
+          title: Sallitut ulkoiset verkko-osoitteet
           update: Päivitä
         external_domain:
           down: Alas
@@ -959,6 +996,7 @@ fi-pl:
             other: "%{count} käyttäjää muistutetaan."
         new:
           submit: Lähetä
+          title: Lähetä muistutukset
       resource_permissions:
         edit:
           submit: Lähetä
@@ -976,6 +1014,8 @@ fi-pl:
         edit:
           title: Muokkaa teematyyppiä
           update: Päivitä
+        index:
+          title: Teematyypit
         new:
           create: Luo teematyyppi
           title: Uusi teema
@@ -992,6 +1032,8 @@ fi-pl:
         edit:
           title: Muokkaa teemaa
           update: Päivitä
+        index:
+          title: Teemat
         new:
           create: Luo teema
           title: Uusi teema
@@ -1064,6 +1106,8 @@ fi-pl:
         edit:
           title: Muokkaa aihetta
           update: Päivitä aihe
+        index:
+          title: Aiheet
         new:
           create: Uusi aihe
           title: Uusi aihe
@@ -1088,6 +1132,7 @@ fi-pl:
           slug_help_html: 'Käytä tässä osoitepolkuja, ei koko URL-osoitteita. Hyväksyy kirjaimia, numeroita, viivoja ja kauttaviivoja. Arvo on aloitettava kirjaimella. Esimerkki: %{url}'
         index:
           last_notable_change: Viimeinen huomattava muutos
+          title: Sivut
         new:
           create: Uusi sivu
           title: Uusi sivu
@@ -1097,6 +1142,9 @@ fi-pl:
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
           success: Sivun päivitys onnistui.
+      statistics:
+        index:
+          title: Tilastot
       taxonomies:
         actions:
           actions: Toiminnot
@@ -1127,6 +1175,7 @@ fi-pl:
           description: Luokittelujen ja suodattimien avulla hallintakäyttäjät voivat lajitella ja järjestää sisältöä. Voit esimerkiksi määrittää luokittelun kaupunginosille ja luoda suodattimen ainoastaan rajattua aluetta koskeville kaupunginosille.
           new_taxonomy: Uusi luokittelu
           no_items_found: Hakukriteerejä vastaavia luokitteluja ei löytynyt.
+          title: Luokittelut
         name: Nimi
         new:
           create: Luo luokittelu
@@ -1171,6 +1220,7 @@ fi-pl:
           description: Luokittelun suodatin mahdollistaa hallintakäyttäjille osallistumistilojen järjestämisen ja suodatuksen luokittelun perusteella. Voit esimerkiksi lisätä maantieteellisen luokittelun asioille.
           empty: Yhtään luokitteluiden suodatinta ei ole luotu. Lisää uusia luokitteluiden suodattimia järjestääksesi tai suodattaaksesi osallistumistiloja kyseisen luokittelun mukaan.
           new_filter: Uusi suodatin
+          title: Luokittelun suodattimet kohteelle "%{taxonomy}"
         new:
           back: Takaisin
           create: Luo luokitteluiden suodatin
@@ -1187,13 +1237,17 @@ fi-pl:
           error: Luokittelun suodattimen päivittäminen epäonnistui.
           success: Luokittelun suodattimen päivittäminen onnistui.
       taxonomy_filters_selector:
+        index:
+          title: Luokittelun suodattimet
         new:
           add_new_items_html: Mikäli haluat määrittää uuden suodattimen tai suodatettavan asian, voit <a href="%{url}">muokata suodattimen asetuksia</a>.
           items_count: "%{count} kohdetta"
           save: Tallenna
+          title: Uusi luokittelun suodatinvalitsin
         show:
           items_count: "%{count} kohdetta"
           remove: Poista
+          title: Luokittelun suodatinvalitsin
         taxonomies_select:
           filters: Suodattimet
           select_filter: Valitse suodatin
@@ -1237,6 +1291,8 @@ fi-pl:
           email: Sähköposti
           name: Nimi
           role: Rooli
+        index:
+          title: Hallintakäyttäjät
         new:
           create: Kutsu
           title: Luo uusi hallintakäyttäjä
@@ -1248,6 +1304,10 @@ fi-pl:
           last_week: Viimeinen viikko
           no_users_count_statistics_yet: Käyttäjämäärätilastoja ei vielä ole.
           participants: Osallistujat
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Luokittelusuodattimien valinta on mahdollista komponentin luonnin jälkeen.
     forms:
       errors:
         impersonate_user:

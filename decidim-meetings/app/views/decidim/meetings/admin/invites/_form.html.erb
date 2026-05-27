@@ -30,7 +30,7 @@
         </div>
 
         <div class="cell attendee-fields--user-picker">
-          <% prompt_options = { url: decidim_admin.users_organization_url, placeholder: t(".select_user") } %>
+          <% prompt_options = { placeholder: t(".select_user") } %>
           <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false, class: "autocomplete-field--results-inline" }, prompt_options) do |user|
             { value: user.id, label: "#{user.name} (@#{user.nickname})" }
           end %>

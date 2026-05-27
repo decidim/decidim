@@ -3,7 +3,7 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 Gem::Specification.new do |s|
-  version = "0.32.0.dev"
+  version = "0.33.0.dev"
   s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", version
   s.add_dependency "devise-jwt", ">= 0.12.1", "< 0.14.0"
-  s.add_dependency "graphql", ">= 2.4.17", "< 2.6"
+  s.add_dependency "graphql", ">= 2.4.17", "< 2.7"
   s.add_dependency "graphql-docs", ">= 5", "< 7"
   s.add_dependency "rack-cors", ">= 1", "< 4"
 

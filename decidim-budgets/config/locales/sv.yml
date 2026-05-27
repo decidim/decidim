@@ -229,8 +229,8 @@ sv:
             one: Visa röst
             other: Visa röster
           votes_count:
-            one: Din röst på %{budget_name} har redan registrerats.
-            other: Dina %{count} röster för %{budget_name} har redan registrerats.
+            one: Din röst på %{budget_name} har registrerats.
+            other: Dina %{count} röster för %{budget_name} har registrerats.
       order_pdf:
         text: Du har röstat på följande projekt i %{space_name}
         title: Din röst har tagits emot.

@@ -420,7 +420,7 @@ en:
       withdraw:
         error: There was a problem withdrawing the amendment.
         success: The amendment has been withdrawn successfully.
-      wizard_step_form:
+      wizard:
         steps:
           '1': Create your amendment
           '2': Publish your amendment
@@ -1348,6 +1348,7 @@ en:
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         push_notifications: Push notifications
         push_notifications_reminder: To get notifications from the platform, you will need to allow them in your browser settings first.
+        push_notifications_unsupported_browser: Your browser is not supported.
         receive_notifications_about: I want to get notifications about
         update_notifications_settings: Save changes
       update:
@@ -1540,13 +1541,18 @@ en:
           %{organization_name}
         hello: Dear %{username},
         subject: Inactive account deleted
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Member of
     participatory_space_members:
       index:
         members: Members
     participatory_spaces:
       show:
-        restricted_space: This is a restricted space. Only members can view it and participate.
-        transparent_space: This is a transparent space. Anyone can view the content, but only members can participate.
+        restricted_space: This is a restricted space. Only members and administrators can view it and participate.
+        transparent_space: This is a transparent space. Anyone can view the content, but only members and administrators can participate.
     passwords:
       update:
         error: There was a problem updating the password.

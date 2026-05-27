@@ -28,6 +28,33 @@ describe "User edits a debate" do
     let(:user) { create(:user, :confirmed, organization:) }
     let(:author) { user }
 
+    context "and empties the form" do
+      it "allows submission and show errors" do
+        visit_component
+
+        click_on debate.title.values.first
+        find("#dropdown-trigger-resource-#{debate.id}").click
+        click_on "Edit"
+
+        expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+        fill_in :debate_title, with: ""
+
+        within ".edit_debate" do
+          find("*[type=submit]").click
+
+          expect(page).to have_css("div.sr-announce")
+          within "div.sr-announce" do
+            expect(page).to have_content("There are errors on the form, please correct them to continue.")
+          end
+
+          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+          expect(find("button[type='submit']")).not_to be_disabled
+        end
+      end
+    end
+
     it "allows editing my debate", :slow do
       visit_component
 

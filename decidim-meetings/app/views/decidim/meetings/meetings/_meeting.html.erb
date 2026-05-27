@@ -57,7 +57,7 @@
 
   <% if meeting.agenda.present? && meeting.agenda.visible? %>
     <section class="layout-main__section">
-      <%= render "meeting_agenda" %>
+      <%= render "decidim/meetings/meetings/meeting_agenda" %>
     </section>
   <% end %>
 
@@ -65,7 +65,7 @@
 
   <% if meeting.closed? && meeting.closing_visible? %>
     <section class="layout-main__section">
-      <%= render "meeting_minutes" %>
+      <%= render "decidim/meetings/meetings/meeting_minutes" %>
     </section>
   <% end %>
 

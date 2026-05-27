@@ -3,6 +3,7 @@ sk:
     models:
       decidim/comments/comment_by_followed_user_event: Komentár
       decidim/comments/comment_created_event: Komentár
+      decidim/comments/comment_upvoted_event: Komentár bol kladne ohodnotený
       decidim/comments/reply_created_event: Odpoveď
       decidim/comments/user_mentioned_event: Zmienka
   activerecord:
@@ -23,17 +24,46 @@ sk:
         changeset:
           comments: Komentáre
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Komentáre povolené
+            end_time: Komentáre povolené do
+            start_time: Komentáre povolené od
+      comment_thread:
+        accessibility_label: Vlákno komentárov začal/a %{full_name} dňa %{date}
+      comments:
+        create:
+          error: Pri vytváraní komentára sa vyskytol problém.
+        delete:
+          error: Komentár sa nepodarilo odstrániť.
+        update:
+          error: Pri aktualizácii komentára sa vyskytol problém.
+      comments_title: Komentár
+      last_activity:
+        new_comment: 'Nový komentár:'
       votes:
         create:
           error: Pri hlasovaní za komentár sa vyskytol problém.
     components:
       add_comment_form:
+        account_message: Prihláste sa alebo si vytvorte účet a pridajte svoj komentár.
+        add_comment: Pridať komentár
         form:
           body:
             label: Komentár
             placeholder: Čo si myslíte o tomto?
+          form_error: Text je povinný a nemôže byť dlhší ako %{length} znakov.
+          submit_reply: Zverejniť odpoveď
+          submit_root_comment: Zverejniť komentár
         opinion:
+          label: Váš názor na túto tému
+          negative: Negatívny
+          negative_selected: Váš názor na túto tému je negatívny
           neutral: Neutrálne
+          neutral_selected: Váš názor na túto tému je neutrálny
+          positive: Pozitívny
+          positive_selected: Váš názor na túto tému je pozitívny
         remaining_characters: "Zostáva %{count} znakov"
         remaining_characters_1: "Zostáva %{count} znakov"
         title: Pridajte svoj komentár
@@ -41,7 +71,28 @@ sk:
         alignment:
           against: Proti
           in_favor: Za
+        cancel_reply: Zrušiť odpoveď
+        comment_label: Komentár %{comment_id}
+        comment_label_reply: Komentár %{comment_id} (odpoveď na komentár %{parent_comment_id})
+        confirm_destroy: Naozaj chcete odstrániť tento komentár?
+        controls_label: Ovládacie prvky komentára
+        delete: Odstrániť
+        deleted_at: Komentár odstránený dňa %{date}
         deleted_user: Zmazaný účastník
+        edit: Upraviť
+        edited: Upravené
+        hide_replies:
+          one: Skryť odpoveď
+          few: Skryť %{count} odpovede
+          many: Skryť %{count} odpovedí
+          other: Skryť %{count} odpovedí
+        load_replies: Načítať odpovede
+        moderated_at: Komentár moderovaný dňa %{date}
+        replies_count:
+          one: "%{count} odpoveď"
+          few: "%{count} odpovede"
+          many: "%{count} odpovedí"
+          other: "%{count} odpovedí"
         reply: Odpovedať
         report:
           action: Nahlásiť
@@ -50,8 +101,17 @@ sk:
           description: Je tento obsah nevhodný?
           details: Ďalšie komentáre
           reasons:
+            does_not_belong: Obsahuje nezákonnú činnosť, vyhrážky samovraždou, osobné údaje alebo niečo iné, čo podľa vás nepatrí na %{organization_name}.
             offensive: Obsahuje rasizmus, sexizmus, urážky, osobné útoky, vyhrážky alebo inú podobu nenávistného prejavu.
             spam: Obsahuje clickbait, reklamy, scam alebo je to skriptovací robot.
+          title: Nahlásiť nevhodný obsah
+        show_replies:
+          one: Zobraziť odpoveď
+          few: Zobraziť %{count} odpovede
+          many: Zobraziť %{count} odpovedí
+          other: Zobraziť %{count} odpovedí
+        single_comment_link_title: Získať odkaz
+        sort_by: 'Zoradiť podľa: '
       comment_order_selector:
         order:
           best_rated: Najlepšie hodnotené
@@ -60,10 +120,64 @@ sk:
           recent: Nedávne
         title: 'Zoradiť podľa:'
       comments:
+        against: Proti
+        blocked_comments_for_unauthorized_user_warning: Ak chcete momentálne komentovať, musíte byť overený, ale môžete si prečítať predchádzajúce.
         blocked_comments_for_user_warning: V súčasnosti nemôžete komentovať, ale môžete si prečítať predchádzajúce komentáre.
+        blocked_comments_warning: Komentáre sú momentálne vypnuté, iba administrátori môžu odpovedať alebo pridávať nové.
         comment_details_title: Podrobnosti komentára
+        in_favor: Za
+        load_more_comments: Načítať ďalšie komentáre
         loading: Nahrávanie komentárov...
+        no_comments_yet: Zatiaľ žiadne komentáre
+        single_comment_warning: <a href="%{url}">Zobraziť všetky komentáre</a>
         single_comment_warning_title: Zobrazujete jeden komentár
+        title:
+          one: "%{count} komentár"
+          few: "%{count} komentárov"
+          many: "%{count} komentárov"
+          other: "%{count} komentárov"
+        top_comment_label: Najviac hlasov
+      down_vote_button:
+        label:
+          one: Tlačidlo Nepáči sa mi to. %{count} nepáči sa mi to
+          few: Tlačidlo Nepáči sa mi to. %{count} nepáči sa mi to
+          many: Tlačidlo Nepáči sa mi to. %{count} nepáči sa mi to
+          other: Tlačidlo Nepáči sa mi to. %{count} nepáči sa mi to
+        text: Nesúhlasím s týmto komentárom
+      edit_comment_modal_form:
+        close: Zavrieť
+        form:
+          body:
+            label: Komentár
+            placeholder: Čo si o tom myslíte?
+          submit: Odoslať
+        title: Upraviť svoj komentár
+      up_vote_button:
+        label:
+          one: Tlačidlo Páči sa mi to. %{count} páči sa mi to
+          few: Tlačidlo Páči sa mi to. %{count} páči sa mi to
+          many: Tlačidlo Páči sa mi to. %{count} páči sa mi to
+          other: Tlačidlo Páči sa mi to. %{count} páči sa mi to
+        text: Súhlasím s týmto komentárom
+    download_your_data:
+      help:
+        comment_votes:
+          comment: ID komentára, za ktorý sa hlasovalo
+          created_at: Dátum vytvorenia tohto hlasu
+          id: ID hlasu
+          updated_at: Dátum poslednej aktualizácie tohto hlasu
+          weight: Váha hlasu (1 pre hlas za, -1 pre hlas proti)
+        comments:
+          alignment: Či bol tento komentár za, proti alebo neutrálny
+          author: Meno účastníka, ktorý pridal tento komentár
+          body: Samotný komentár
+          commentable_id: Jedinečné ID komentovateľného objektu
+          commentable_type: Typ komentovateľného objektu (či to bol výsledok, návrh atď.)
+          created_at: Dátum vytvorenia tohto komentára
+          depth: Miesto, kde sa tento komentár nachádza v strome komentárov (či ide o odpoveď alebo odpoveď na odpoveď)
+          id: ID tohto komentára
+          locale: Lokalizácia (jazyk), ktorú mal účastník pri zanechaní tohto komentára
+          root_commentable_url: URL adresa zdroja, ktorý sa viaže k tomuto komentáru
     events:
       comments:
         comment_by_followed_user:
@@ -76,6 +190,16 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože sledujete "%{resource_title}" alebo autora. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Je nový komentár od %{author_name} na %{resource_title}
           notification_title: Je nový komentár od <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Váš komentár v „%{resource_title}“ získal negatívny hlas. Teraz má celkovo %{upvotes} pozitívnych hlasov a %{downvotes} negatívnych hlasov.
+          email_outro: Toto upozornenie ste dostali, pretože ste autorom tohto komentára.
+          email_subject: Váš komentár v „%{resource_title}“ získal negatívny hlas.
+          notification_title: Váš <a href="%{resource_path}">komentár</a> v „%{resource_title}“ získal negatívny hlas. Teraz má celkovo %{upvotes} pozitívnych hlasov a %{downvotes} negatívnych hlasov.
+        comment_upvoted:
+          email_intro: Váš komentár v „%{resource_title}“ získal pozitívny hlas. Teraz má celkovo %{upvotes} pozitívnych hlasov a %{downvotes} negatívnych hlasov.
+          email_outro: Toto upozornenie ste dostali, pretože ste autorom tohto komentára.
+          email_subject: Váš komentár v „%{resource_title}“ získal pozitívny hlas.
+          notification_title: Váš <a href="%{resource_path}">komentár</a> v „%{resource_title}“ získal pozitívny hlas. Teraz má celkovo %{upvotes} pozitívnych hlasov a %{downvotes} negatívnych hlasov.
         reply_created:
           email_intro: "%{author_name} odpovedal na váš komentár na %{resource_title}. Môžete si to prečítať na stránke:"
           email_outro: Túto notifikáciu ste dostali, pretože niekto odpovedal na Váš komentár.
@@ -86,3 +210,6 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože ste boli spomenutí na %{resource_title}.
           email_subject: Boli ste spomenutí na %{resource_title}
           notification_title: Boli ste spomenutí <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>
+  errors:
+    messages:
+      cannot_have_comments: nemôže mať komentáre

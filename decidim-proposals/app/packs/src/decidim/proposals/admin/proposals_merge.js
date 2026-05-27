@@ -1,5 +1,4 @@
 import { createDialog } from "src/decidim/a11y"
-import createEditor from "src/decidim/editor";
 import attachGeocoding from "src/decidim/geocoding/attach_input";
 import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field";
 import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocoding"
@@ -14,8 +13,6 @@ document.addEventListener("decidim:loaded", () => {
     const activateDrawerForm = () => {
       const saveForm = drawer.dialog.querySelector("#form-merge-proposals");
 
-      // Handles editor initialization
-      saveForm.querySelectorAll(".editor-container").forEach((element) => createEditor(element));
       const form = document.querySelector(".proposals_merge_form_admin");
 
       // Handles meeting checkbox

@@ -2,6 +2,7 @@
 <div class="item_show__header">
   <h1 class="item_show__header-title">
     <%= t(".title") %>
+    <%= export_dropdown(current_component, @document.id) if allowed_to? :export, :collaborative_text %>
   </h1>
 </div>
 <div class="item__edit item__edit-1col">
@@ -13,9 +14,9 @@
         <div class="card">
           <div class="card-section">
             <% if document.draft? %>
-              <%= render "draft_options", form: f %>
+              <%= render "decidim/collaborative_texts/admin/documents/draft_options", form: f %>
             <% else %>
-              <%= render "non_draft_options", form: f %>
+              <%= render "decidim/collaborative_texts/admin/documents/non_draft_options", form: f %>
             <% end %>
           </div>
         </div>

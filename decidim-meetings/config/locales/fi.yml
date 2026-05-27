@@ -355,10 +355,14 @@ fi:
           index:
             invites: Kutsut
             registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
+            title: Kutsu osallistuja
         meeting_closes:
           edit:
             close: Sulje
             title: Sulje tapaaminen
+        meeting_copies:
+          new:
+            title: Kopioi tapaaminen
         meetings:
           close:
             invalid: Tapaamisen sulkeminen epäonnistui.
@@ -391,6 +395,7 @@ fi:
             assign: Määritä
             link_a_space: Liitä osallistumistila
             private_meeting_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on yksityinen ja läpinäkymätön.
+            restricted_space_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on rajatussa osallistumistilassa.
             select: Valitse osallistumistila
             table:
               actions: Toiminnot
@@ -434,15 +439,21 @@ fi:
             invalid: Tapaamisen mielipidetiedustelun päivittäminen epäonnistui.
             success: Tapaamisen mielipidetiedustelun päivittäminen onnistui.
         poll:
+          edit:
+            title: Muokkaa mielipidetiedustelua
           form:
             announcement_html:
               - Kun kysymykseen vastataan tai se julkaistaan tai suljetaan, sitä ei voi enää muokata sen jälkeen.
               - Voit lisätä kysymyksiä milloin tahansa.
               - Tämä mielipidetiedustelu suljetaan, kun kaikkien kysymysten tulokset on julkaistu.
               - Vieraile <a href='%{admin_link}'>mielipidetiedustelun hallinnointisivulla</a> lähettääksesi kysymyksiä ja julkaistaksesi tuloksia.
+        registration_form:
+          edit_questions:
+            title: Muokkaa kysymyksiä
         registrations:
           edit:
             save: Tallenna
+            title: Ilmoittautumiset
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapaamiseen on rajoittamaton määrä paikkoja.
             invites: Kutsut

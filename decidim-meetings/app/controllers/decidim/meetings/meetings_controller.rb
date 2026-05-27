@@ -52,8 +52,7 @@ module Decidim
         @past_meetings ||= search_with(filter_params.merge(with_any_date: %w(past)))
 
         if @past_meetings.result.present?
-          params[:filter] ||= {}
-          params[:filter][:with_any_date] = %w(past)
+          params.fetch(:filter, {}).merge!(with_any_date: %w(past))
           @forced_past_meetings = true
           @search = @past_meetings
         end
@@ -204,7 +203,7 @@ module Decidim
         return @previous_space if @previous_space
         return unless params[:previous_space]
 
-        previous_space_class, previous_space_id = params[:previous_space].split("#")
+        previous_space_class, previous_space_id = params.expect(:previous_space).split("#")
 
         @previous_space = previous_space_class.constantize.find_by(id: previous_space_id)
         @previous_space
@@ -232,14 +231,14 @@ module Decidim
 
         breadcrumb = {
           label: translated_attribute(meeting.title),
-          url: Decidim::EngineRouter.main_proxy(current_component).meeting_path(meeting, locale: current_locale),
+          url: Decidim::EngineRouter.main_proxy(current_component).meeting_path(meeting),
           active: false
         }
 
         # If this meeting is being accessed from within a conference program context,
         # add program breadcrumb to maintain proper navigation hierarchy
         if conference_context?
-          program_path = decidim_conferences.conference_conference_program_path(current_participatory_space, current_component, locale: I18n.locale)
+          program_path = decidim_conferences.conference_conference_program_path(current_participatory_space, current_component)
 
           context_breadcrumb_items << {
             label: t("conference_program.index.title", scope: "decidim"),

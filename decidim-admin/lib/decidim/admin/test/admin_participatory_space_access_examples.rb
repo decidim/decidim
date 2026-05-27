@@ -11,7 +11,7 @@ end
 shared_examples "showing the unauthorized error message" do
   it "redirects to the relevant unauthorized page" do
     expect(page).to have_content("You are not authorized to perform this action")
-    expect(page).to have_current_path("/admin/")
+    expect(page).to have_current_path(decidim_admin.root_path)
   end
 end
 
@@ -40,7 +40,7 @@ shared_examples "admin participatory space access" do
 
   context "when the user is a normal user" do
     let(:user) { create(:user, :confirmed, organization:) }
-    let(:unauthorized_path) { "/" }
+    let(:unauthorized_path) { decidim.root_path }
 
     it_behaves_like "a 404 page"
   end
@@ -53,7 +53,7 @@ shared_examples "admin participatory space access" do
         visit decidim.root_path
 
         within "#admin-bar" do
-          expect(page).to have_link("Admin dashboard", href: "/admin/")
+          expect(page).to have_link("Admin dashboard", href: decidim_admin.root_path)
         end
       end
     end

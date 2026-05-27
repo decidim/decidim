@@ -88,6 +88,15 @@ describe "Admin edits documents" do
       expect(document.body).not_to eq("<p>body edited</p>")
     end
 
+    it "shows the export dropdown button" do
+      within("tr", text: "This is my document new title") do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page).to have_button(I18n.t("decidim.admin.actions.export_all"))
+    end
+
     it "can discard suggestions by creating a new version" do
       expect(document.current_version.suggestions.count).to eq(1)
       within("tr", text: "This is my document new title") do

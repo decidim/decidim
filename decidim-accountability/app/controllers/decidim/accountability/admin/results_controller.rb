@@ -90,7 +90,7 @@ module Decidim
         end
 
         def result
-          @result ||= Result.where(component: current_component).find(params[:id])
+          @result ||= Result.where(component: current_component).find(params.expect(:id))
         end
 
         def parent_result

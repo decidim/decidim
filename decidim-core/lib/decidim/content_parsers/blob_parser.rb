@@ -34,8 +34,8 @@ module Decidim
           # Group 6: Variation key for representations
           /(?<variation_part>[\w.=-]+)
         )?
-        # Group 7: Filename
-        /([\w.=-]+)
+        # Group 7: Filename (supports apostrophes inside names but not as HTML quote delimiters)
+        /((?:[^\s/"<>']|'(?=[^\s/"<>']))+)
       }x
 
       def rewrite
@@ -55,7 +55,7 @@ module Decidim
           blob =
             if type_part == "disk"
               # Disk service URL
-              decoded = ActiveStorage.verifier.verified(key_part, purpose: :blob_key).with_indifferent_access
+              decoded = ActiveStorage.verifier.verified(key_part, purpose: :blob_key)&.with_indifferent_access
               ActiveStorage::Blob.find_by(key: decoded[:key]) if decoded
             else
               # Representation or blob

@@ -45,6 +45,10 @@ module Decidim
           resources :attachments, except: [:show]
         end
 
+        resource :proposals_import, only: [:new, :create] do
+          get :component_states
+        end
+
         root to: "budgets#index"
       end
 

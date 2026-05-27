@@ -4,7 +4,7 @@ shared_examples "participatory space members" do
   let(:blocks_manifests) { [] }
   let(:organization) { create(:organization) }
   let(:user) { create(:user, organization: participatory_space.organization) }
-  let(:ceased_user) { create(:user, organization: participatory_space.organization) }
+  let(:unpublished_user) { create(:user, organization: participatory_space.organization) }
 
   before do
     switch_to_host(organization.host)
@@ -76,7 +76,7 @@ shared_examples "participatory space members" do
 
   context "when there are some published members" do
     let!(:member) { create(:member, user:, participatory_space:, published: true) }
-    let!(:ceased_member) { create(:member, user: ceased_user, participatory_space:, published: false) }
+    let!(:unpublished_member) { create(:member, user: unpublished_user, participatory_space:, published: false) }
 
     before do
       visit members_path
@@ -106,12 +106,15 @@ shared_examples "participatory space members" do
         end
       end
 
-      it "lists all the non ceased members" do
+      it "lists all the members" do
         within ".layout-main__section" do
           expect(page).to have_css(".profile__user", count: 1)
-
-          expect(page).to have_no_content(Decidim::ParticipatorySpace::MemberPresenter.new(ceased_member).name)
+          expect(page).to have_no_content(Decidim::ParticipatorySpace::MemberPresenter.new(unpublished_member).name)
         end
+
+        click_on(member.name)
+
+        expect(page).to have_content("Profile")
       end
     end
   end

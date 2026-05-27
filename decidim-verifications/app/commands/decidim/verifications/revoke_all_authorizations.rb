@@ -22,20 +22,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless @organization
 
-        auths = Decidim::Verifications::Authorizations.new(
-          organization:,
-          granted: true
-        ).query
-
-        auths.find_each do |auth|
-          Decidim.traceability.perform_action!(
-            :destroy,
-            auth,
-            current_user
-          ) do
-            auth.destroy
-          end
-        end
+        RevokeAllAuthorizationsJob.perform_later(organization, current_user)
 
         broadcast(:ok)
       end

@@ -4,7 +4,7 @@ $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 Gem::Specification.new do |s|
   s.name = "decidim-core"
-  version = "0.32.0.dev"
+  version = "0.33.0.dev"
   s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
@@ -78,8 +78,8 @@ Gem::Specification.new do |s|
   s.add_dependency "rqrcode", ">= 2.2", "< 3.3"
   s.add_dependency "ruby-vips", "~> 2.2"
   s.add_dependency "rubyXL", "~> 3.4"
-  s.add_dependency "rubyzip", "~> 2.0"
-  s.add_dependency "shakapacker", "~> 8.3.0"
+  s.add_dependency "rubyzip", ">= 2", "< 4"
+  s.add_dependency "shakapacker", "~> 9.7.0"
   s.add_dependency "valid_email2", "~> 7.0"
   s.add_dependency "web-push", "~> 3.0"
   s.add_dependency "wisper", "~> 3.0"

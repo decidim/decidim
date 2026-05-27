@@ -17,7 +17,7 @@ module Decidim
         end
 
         def meeting
-          @meeting ||= meetings.find(params[:id]) if params[:id]
+          @meeting ||= meetings.find(params.expect(:id)) if params[:id]
         end
 
         def maps_enabled?

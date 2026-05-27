@@ -46,7 +46,7 @@ module Decidim
       describe "notification_title" do
         it "is generated correctly" do
           expect(subject.notification_title)
-            .to eq("<a href=\"/profiles/#{author.nickname}\">#{author.name}</a> would like to invite you as a co-author of the proposal <a href=\"#{resource_path}\">#{resource_title}</a>.")
+            .to eq("<a href=\"/en/profiles/#{author.nickname}\">#{author.name}</a> would like to invite you as a co-author of the proposal <a href=\"#{resource_path}\">#{resource_title}</a>.")
         end
       end
     end

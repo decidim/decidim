@@ -296,16 +296,90 @@ describe "Admin manages questionnaire templates" do
     let!(:questions) { create_list(:questionnaire_question, 3, questionnaire: template.templatable) }
     let(:questionnaire) { template.templatable }
 
-    before do
-      visit decidim_admin_templates.edit_questionnaire_template_path(template)
-    end
-
     it "shows the template preview" do
+      visit decidim_admin_templates.edit_questionnaire_template_path(template)
+
       within ".questionnaire-template-preview" do
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.questions.first.body)
         expect(page).to have_field(id: "questionnaire_responses_0")
         expect(page).to have_css("button[type=submit][disabled]")
+      end
+    end
+
+    context "when the questionnaire has 2 steps" do
+      let!(:questions) { [] }
+      let!(:question) { create(:questionnaire_question, questionnaire: template.templatable) }
+      let!(:separator) { create(:questionnaire_question, :separator, questionnaire: template.templatable) }
+      let!(:second_question) { create(:questionnaire_question, questionnaire: template.templatable) }
+
+      it "shows the template preview" do
+        visit decidim_admin_templates.edit_questionnaire_template_path(template)
+
+        expect(page).to have_i18n_content(question.body)
+        expect(page).not_to have_i18n_content(second_question.body)
+        expect(page).to have_content("Step 1 of 2")
+
+        within "#step-0" do
+          expect(page).to have_button("Continue")
+          click_on "Continue"
+        end
+
+        expect(page).to have_content("Step 2 of 2")
+        expect(page).not_to have_i18n_content(question.body)
+        expect(page).to have_i18n_content(second_question.body)
+      end
+    end
+
+    context "when the questionnaire has 3 steps" do
+      let!(:questions) { [] }
+      let!(:question) { create(:questionnaire_question, questionnaire: template.templatable) }
+      let!(:separator) { create(:questionnaire_question, :separator, questionnaire: template.templatable) }
+      let!(:second_question) { create(:questionnaire_question, questionnaire: template.templatable) }
+      let!(:second_separator) { create(:questionnaire_question, :separator, questionnaire: template.templatable) }
+      let!(:third_question) { create(:questionnaire_question, questionnaire: template.templatable) }
+
+      it "shows the template preview" do
+        visit decidim_admin_templates.edit_questionnaire_template_path(template)
+
+        expect(page).to have_i18n_content(question.body)
+        expect(page).not_to have_i18n_content(second_question.body)
+        expect(page).not_to have_i18n_content(third_question.body)
+        expect(page).to have_content("Step 1 of 3")
+
+        within "#step-0" do
+          expect(page).to have_button("Continue")
+          click_on "Continue"
+        end
+
+        expect(page).to have_content("Step 2 of 3")
+        expect(page).not_to have_i18n_content(question.body)
+        expect(page).to have_i18n_content(second_question.body)
+        expect(page).not_to have_i18n_content(third_question.body)
+
+        within "#step-1" do
+          expect(page).to have_button("Back")
+          expect(page).to have_button("Continue")
+          click_on "Back"
+        end
+
+        expect(page).to have_i18n_content(question.body)
+        expect(page).not_to have_i18n_content(second_question.body)
+        expect(page).not_to have_i18n_content(third_question.body)
+        expect(page).to have_content("Step 1 of 3")
+
+        within "#step-0" do
+          click_on "Continue"
+        end
+
+        within "#step-1" do
+          click_on "Continue"
+        end
+
+        expect(page).to have_content("Step 3 of 3")
+        expect(page).not_to have_i18n_content(question.body)
+        expect(page).not_to have_i18n_content(second_question.body)
+        expect(page).to have_i18n_content(third_question.body)
       end
     end
   end

@@ -67,6 +67,7 @@ describe "Editor" do
         <!doctype html>
         <html lang="en">
         <head>
+          <meta charset="UTF-8">
           <title>Editor Test</title>
           <!--
             The CSRF token has to exist on the page for the image uploads to
@@ -76,7 +77,7 @@ describe "Editor" do
           <meta name="csrf-token" content="abcdef0123456789">
           #{meta_context}
           #{stylesheet_pack_tag "decidim_core", media: "all"}
-          #{javascript_pack_tag "decidim_core", defer: false}
+          #{javascript_pack_tag "decidim_core", "decidim_controllers", defer: false}
         </head>
         <body>
           <header>
@@ -537,6 +538,144 @@ describe "Editor" do
       expect(Decidim::EditorImage.count).to be(1)
 
       src = Decidim::EditorImage.last.attached_uploader(:file).path
+      expect_value(
+        <<~HTML
+          <p>Hello, world!</p>
+          <div class="editor-content-image" data-image="">
+            <img src="#{src}" alt="City landscape">
+          </div>
+        HTML
+      )
+    end
+
+    it "allows adding a link to an image" do
+      click_toggle("image")
+      within "[data-dialog][aria-hidden='false']" do
+        add_file("city.jpeg", "[data-dropzone]", "drop")
+        fill_in "Alternative text for the image", with: "City landscape"
+
+        within "[data-dialog-actions]" do
+          find("button[data-dropzone-save]").click
+        end
+      end
+      expect(Decidim::EditorImage.count).to be(1)
+
+      src = Decidim::EditorImage.last.attached_uploader(:file).path
+
+      # Select the image and add a link
+      within prosemirror_selector do
+        find("img").click
+      end
+
+      click_toggle("link")
+      within "[data-dialog][aria-hidden='false']" do
+        fill_in "Link URL", with: "https://example.com"
+        select "New tab", from: "Target"
+        find("button[data-action='save']").click
+      end
+      sleep 0.5
+
+      expect_value(
+        <<~HTML
+          <p>Hello, world!</p>
+          <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+            <div class="editor-content-image" data-image="">
+              <img src="#{src}" alt="City landscape">
+            </div>
+          </a>
+        HTML
+      )
+    end
+
+    it "allows editing an image link" do
+      click_toggle("image")
+      within "[data-dialog][aria-hidden='false']" do
+        add_file("city.jpeg", "[data-dropzone]", "drop")
+        fill_in "Alternative text for the image", with: "City landscape"
+
+        within "[data-dialog-actions]" do
+          find("button[data-dropzone-save]").click
+        end
+      end
+      expect(Decidim::EditorImage.count).to be(1)
+
+      src = Decidim::EditorImage.last.attached_uploader(:file).path
+
+      # Select the image and add a link
+      within prosemirror_selector do
+        find("img").click
+      end
+
+      click_toggle("link")
+      within "[data-dialog][aria-hidden='false']" do
+        fill_in "Link URL", with: "https://example.com"
+        select "New tab", from: "Target"
+        find("button[data-action='save']").click
+      end
+      sleep 0.5
+
+      # Edit the link
+      within prosemirror_selector do
+        find("img").click
+      end
+
+      click_toggle("link")
+      within "[data-dialog][aria-hidden='false']" do
+        expect(page).to have_field("Link URL", with: "https://example.com")
+        fill_in "Link URL", with: "https://docs.example.com"
+        select "Default (same tab)", from: "Target"
+        find("button[data-action='save']").click
+      end
+      sleep 0.5
+
+      expect_value(
+        <<~HTML
+          <p>Hello, world!</p>
+          <a href="https://docs.example.com">
+            <div class="editor-content-image" data-image="">
+              <img src="#{src}" alt="City landscape">
+            </div>
+          </a>
+        HTML
+      )
+    end
+
+    it "allows removing a link from an image" do
+      click_toggle("image")
+      within "[data-dialog][aria-hidden='false']" do
+        add_file("city.jpeg", "[data-dropzone]", "drop")
+        fill_in "Alternative text for the image", with: "City landscape"
+
+        within "[data-dialog-actions]" do
+          find("button[data-dropzone-save]").click
+        end
+      end
+      expect(Decidim::EditorImage.count).to be(1)
+
+      src = Decidim::EditorImage.last.attached_uploader(:file).path
+
+      # Select the image and add a link
+      within prosemirror_selector do
+        find("img").click
+      end
+
+      click_toggle("link")
+      within "[data-dialog][aria-hidden='false']" do
+        fill_in "Link URL", with: "https://example.com"
+        select "New tab", from: "Target"
+        find("button[data-action='save']").click
+      end
+      sleep 0.5
+
+      # Remove the link using the bubble menu
+      within prosemirror_selector do
+        find("img").click
+      end
+
+      within ".editor [data-bubble-menu] [data-linkbubble]" do
+        click_on "Remove"
+      end
+
       expect_value(
         <<~HTML
           <p>Hello, world!</p>

@@ -11,7 +11,7 @@
     <% response_idx = 0 %>
     <% cleaned_response_idx = 0 %>
     <% @preview_form.responses_by_step.each_with_index do |step_responses, step_index| %>
-      <div id="step-<%= step_index %>" class="<%= step_index.zero? ? "questionnaire-step" : "questionnaire-step hide" %>" data-toggler=".hide">
+      <div id="step-<%= step_index %>" class="questionnaire-step" <%= "hidden" if step_index.positive? %>>
         <div class="form__wrapper">
           <% if @preview_form.total_steps > 1 %>
             <h4>
