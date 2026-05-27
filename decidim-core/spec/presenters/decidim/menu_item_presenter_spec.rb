@@ -16,6 +16,11 @@ module Decidim
       expect(subject.render).to have_link("Foo", href: "/boo")
     end
 
+    it "adds the menuitem role to the interactive element by default" do
+      expect(subject.render).to have_css("li[role='presentation']")
+      expect(subject.render).to have_css("a[role='menuitem']")
+    end
+
     it "does not add the aria-current attribute for non-active page" do
       expect(subject.render).not_to include('aria-current="page"')
     end
@@ -47,7 +52,7 @@ module Decidim
 
       it "adds a span instead of a link" do
         expect(subject.render).to have_no_link("Foo", href: "#")
-        expect(subject.render).to have_css("span.sidebar-menu__item-disabled")
+        expect(subject.render).to have_css("li[role='presentation'] span.sidebar-menu__item-disabled[role='menuitem']")
       end
     end
   end

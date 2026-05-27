@@ -39,12 +39,12 @@ module Decidim
       end
 
       def edit
-        @organization = Organization.find(params[:id])
+        @organization = Organization.find(params.expect(:id))
         @form = form(UpdateOrganizationForm).from_model(@organization)
       end
 
       def update
-        @organization = Organization.find(params[:id])
+        @organization = Organization.find(params.expect(:id))
         @form = form(UpdateOrganizationForm).from_params(params)
 
         UpdateOrganization.call(params[:id], @form) do
@@ -61,7 +61,7 @@ module Decidim
       end
 
       def resend_invitation
-        organization = Organization.find(params[:id])
+        organization = Organization.find(params.expect(:id))
         InviteUserAgain.call(organization.users.first, "invite_admin") do
           on(:ok) do
             flash[:notice] = t("organizations.resend_invitation.success", scope: "decidim.system")

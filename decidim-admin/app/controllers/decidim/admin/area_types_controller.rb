@@ -77,7 +77,7 @@ module Decidim
       def tab_menu_name = :admin_areas_menu
 
       def area_type
-        @area_type ||= area_types.find(params[:id])
+        @area_type ||= area_types.find(params.expect(:id))
       end
 
       def area_types

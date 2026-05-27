@@ -12,9 +12,10 @@ module Decidim
     let(:user_locale) { "" }
     let(:session) { { user_locale: } }
     let(:parameters) { { locale: } }
+    let(:warden_user) { nil }
     let(:request) do
       double(
-        env: { "decidim.current_organization" => organization },
+        env: { "decidim.current_organization" => organization, "warden" => double(user: warden_user) },
         session:,
         parameters: { locale: }
       )
@@ -28,9 +29,9 @@ module Decidim
     end
 
     around do |example|
-      original_language = I18n.locale
-      example.run
-      I18n.locale = original_language
+      I18n.with_locale(I18n.locale) do
+        example.run
+      end
     end
 
     describe "#locale" do
@@ -110,43 +111,62 @@ module Decidim
         end
       end
 
+      context "when locale is provided via the authenticated user" do
+        let(:warden_user) { double(locale: "ca") }
+
+        it "returns the locale if it is available" do
+          expect(subject.locale).to eq("ca")
+        end
+
+        context "when the locale is not available" do
+          let(:warden_user) { double(locale: "fr") }
+
+          it "returns the default locale" do
+            expect(subject.locale).to eq(default_locale)
+          end
+        end
+      end
+
       context "when no locale is provided anywhere" do
         it "falls back to I18n.locale if it is available" do
-          I18n.locale = :es
-          expect(subject.locale).to eq(:es)
+          I18n.with_locale(:es) do
+            expect(subject.locale).to eq(:es)
+          end
         end
       end
 
       context "when has a precedence order" do
         it "prefers input params over request parameters over session over I18n.locale" do
-          I18n.locale = :en
+          I18n.with_locale(:en) do
+            request.session[:user_locale] = "ca"
+            request.parameters[:locale] = "es"
 
-          request.session[:user_locale] = "ca"
-          request.parameters[:locale] = "es"
-
-          # input params wins
-          expect(described_class.new(request, { locale: "en" }).locale).to eq(default_locale)
+            # input params wins
+            expect(described_class.new(request, { locale: "en" }).locale).to eq(default_locale)
+          end
         end
 
         it "uses request parameters if input params missing" do
-          I18n.locale = :en
-          request.session[:user_locale] = "ca"
-          request.parameters[:locale] = "es"
+          I18n.with_locale(:en) do
+            request.session[:user_locale] = "ca"
+            request.parameters[:locale] = "es"
 
-          expect(described_class.new(request, {}).locale).to eq("es")
+            expect(described_class.new(request, {}).locale).to eq("es")
+          end
         end
 
         it "uses session if input params and request parameters missing" do
-          I18n.locale = :en
-          request.session[:user_locale] = "ca"
+          I18n.with_locale(:en) do
+            request.session[:user_locale] = "ca"
 
-          expect(described_class.new(request, {}).locale).to eq("ca")
+            expect(described_class.new(request, {}).locale).to eq("ca")
+          end
         end
 
         it "uses I18n.locale if everything else missing" do
-          I18n.locale = :ca
-
-          expect(described_class.new(request, {}).locale).to eq(:ca)
+          I18n.with_locale(:ca) do
+            expect(described_class.new(request, {}).locale).to eq(:ca)
+          end
         end
       end
     end

@@ -104,6 +104,12 @@ fi:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Prosessiryhmä
+        with_any_access_mode:
+          label: Pääsyoikeuksien tila
+          values:
+            open: Avoimet
+            restricted: Rajoitetut
+            transparent: Läpinäkyvät
       menu:
         participatory_process_groups: Prosessiryhmät
         participatory_process_groups_submenu:
@@ -122,6 +128,7 @@ fi:
       models:
         participatory_process:
           fields:
+            access_mode: Pääsyoikeuksien tila
             actions: Toiminnot
             created_at: Luonnin ajankohta
             published: Julkaistu
@@ -228,6 +235,10 @@ fi:
         edit:
           update: Päivitä
         index:
+          access_modes:
+            open: Avoimet
+            restricted: Rajoitetut
+            transparent: Läpinäkyvät
           published: Julkaistu
           unpublished: Julkaisematon
         new:
@@ -309,6 +320,7 @@ fi:
     open_data:
       help:
         participatory_processes:
+          access_mode: Pääsyoikeuksien tila. Tämä määrittää, onko prosessi avoin, rajattu vai läpinäkyvä.
           area: Alue, jota prosessi koskee
           component_settings: Prosessin komponenttiasetukset
           created_at: Tilan luontiaika
@@ -466,17 +478,50 @@ fi:
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+          new:
+            title: Kopioi osallistumisprosessi
         participatory_process_groups:
+          edit:
+            title: Muokkaa prosessiryhmää
           form:
             metadata: Metatiedot
             title: Tietoa tästä prosessista
             visibility: Näkyvyys
+          index:
+            title: Osallistumisprosessien ryhmät
+          new:
+            title: Uusi prosessiryhmä
         participatory_process_imports:
           form:
             document_legend: Lisää asiakirja
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+          new:
+            title: Tuo osallistumisprosessi
+        participatory_process_steps:
+          edit:
+            title: Muokkaa osallistumisprosessin vaihetta
+          index:
+            title: Vaiheet
+          new:
+            title: Uusi osallistumisprosessin vaihe
+        participatory_process_user_roles:
+          edit:
+            title: Päivitä osallistumisprosessin hallintakäyttäjän tietoja
+          index:
+            title: Osallistumisprosessin hallintakäyttäjät
+          new:
+            title: Uusi osallistumisprosessin hallintakäyttäjä
         participatory_processes:
+          edit:
+            title: Tietoa tästä prosessista
           form:
+            access:
+              label: Pääsyoikeudet
+              options:
+                open: Kaikki voivat nähdä prosessin ja osallistua.
+                restricted: Ainoastaan prosessin jäsenet näkevät prosessin ja voivat osallistua.
+                transparent: Kaikki voivat nähdä prosessin, mutta ainoastaan jäsenet voivat osallistua.
+              set_this_space_as: Aseta tämän tilan pääsyoikeudet
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
             has_members_help: Voit luoda ja julkaista jäseniä
@@ -489,6 +534,12 @@ fi:
             taxonomies: Luokittelut
             title: Yleistä tietoa
             visibility: Näkyvyys
+          index:
+            title: Osallistumisprosessit
+          manage_trash:
+            title: Poistetut osallistumisprosessit
+          new:
+            title: Uusi osallistumisprosessi
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:

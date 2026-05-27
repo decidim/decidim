@@ -27,15 +27,15 @@ describe "Conference registrations" do
   let(:registration_type) { registration_types.first }
 
   def visit_conference
-    visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+    visit decidim_conferences.conference_path(conference)
   end
 
   def visit_conference_registration_types
-    visit decidim_conferences.conference_registration_types_path(conference, locale: I18n.locale)
+    visit decidim_conferences.conference_registration_types_path(conference)
   end
 
   def visit_conference_registration_type
-    visit decidim_conferences.conference_registration_type_conference_registration_path(conference_slug: conference, registration_type_id: registration_type, locale: I18n.locale)
+    visit decidim_conferences.conference_registration_type_conference_registration_path(conference_slug: conference, registration_type_id: registration_type)
   end
 
   before do
@@ -212,7 +212,7 @@ describe "Conference registrations" do
 
     it "requires the user to sign in" do
       visit_conference_registration_type
-      expect(page).to have_current_path("/users/sign_in")
+      expect(page).to have_current_path(decidim.new_user_session_path)
     end
 
     context "when the user is signed in" do

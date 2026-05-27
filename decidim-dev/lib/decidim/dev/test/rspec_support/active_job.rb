@@ -14,6 +14,11 @@ end
 RSpec.configure do |config|
   config.include ActiveJob::TestHelper
   config.include DecidimActiveJobExtensions
+
+  config.before do
+    clear_enqueued_jobs
+    clear_performed_jobs
+  end
 end
 
 ActiveJob::Base.queue_adapter = :test

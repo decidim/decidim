@@ -493,6 +493,7 @@ it:
           username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
       sessions:
         new:
+          are_you_new?: Non sei ancora registrato?
           register: Crea un account
       shared:
         newsletter_modal:
@@ -517,6 +518,9 @@ it:
     download_your_data:
       export:
         ready: Pronto
+      help:
+        users:
+          notifications_sending_frequency: La frequenza delle notifiche che questo utente riceve
     editor_images:
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
     errors:
@@ -805,6 +809,12 @@ it:
         everything_followed: Tutto ciò che seguo
         newsletter_notifications: Voglio ricevere le newsletter
         newsletters: Le Newsletter
+        notifications_sending_frequencies:
+          daily: Quotidiana
+          none: Non voglio ricevere mail
+          real_time: Tempo reale
+          weekly: Settimanale
+        notifications_sending_frequency: Con che frequenza vuoi ricevere notifiche via mail?
         own_activity: La mia attività personale, come quando qualcuno commenta la mia proposta o mi menziona
         receive_notifications_about: Voglio ricevere le notifiche
         update_notifications_settings: Salva le modifiche

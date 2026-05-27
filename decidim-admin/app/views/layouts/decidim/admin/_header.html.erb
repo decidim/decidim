@@ -5,7 +5,7 @@
 <%= apple_favicon %>
 <%= append_stylesheet_pack_tag "decidim_admin_overrides", media: "all" %>
 <%= stylesheet_pack_tag "decidim_core", "decidim_admin", media: "all" %>
-<%= javascript_pack_tag "decidim_core", "decidim_admin", defer: false %>
+<%= javascript_pack_tag "decidim_core", "decidim_controllers", "decidim_admin", defer: false %>
 <%= snippets.display(:head) %>
 
 <%= render partial: "layouts/decidim/meta_tags_context" %>

@@ -19,7 +19,7 @@ module Decidim
         subject { helper.send(:decidim_transform_image_urls, user_input, host) }
 
         it "transforms image URLs with the host" do
-          root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:)[0..-2]
+          root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:).chomp("/")
           expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG"))
           expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/56789.JPG"))
         end
@@ -30,7 +30,7 @@ module Decidim
           end
 
           it "transforms only the relative URL" do
-            root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:)[0..-2]
+            root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:).chomp("/")
 
             expect(subject).to include(%(<img src="#{root_url}/image.jpg" alt="relative" />))
             expect(subject).to include(%(<img src="https://example.com/image.jpg" alt="absolute" />))

@@ -6,7 +6,7 @@ const overrideSassRule = (modifyConfig) => {
   const sassLoaderPath = path.resolve(__dirname, "loaders/decidim-sass-loader") // eslint-disable-line no-undef
 
   const sassRule = modifyConfig.module.rules.find(
-    (rule) => rule.test.toString() === "/\\.(scss|sass)(\\.erb)?$/i"
+    (rule) => rule.test && rule.test.toString() === "/\\.(scss|sass)(\\.erb)?$/i"
   );
   if (sassRule) {
     const existingLoader = sassRule.use.find((use) => {

@@ -194,6 +194,8 @@ en:
 
             '
           scopes_explanation:
+            admin:read: Allows an user to perform admin related query operations through the GraphQL API.
+            admin:write: Allows the user to perform admin mutation operations through the GraphQL API.
             api:read: Allows the user to perform query operations through the GraphQL API.
             api:write: Allows the user to perform mutation operations through the GraphQL API.
             profile: Provides access to the user's own profile details. Only this scope is needed in case the OAuth application is only used as an identity provider or an authentication service.

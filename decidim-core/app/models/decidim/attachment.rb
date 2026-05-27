@@ -88,7 +88,7 @@ module Decidim
     # Returns String.
     def file_type
       if file?
-        url&.split(".")&.last&.split("&")&.first&.downcase
+        file.filename.extension&.downcase
       elsif link?
         "link"
       end
@@ -100,7 +100,13 @@ module Decidim
     def url
       @url ||=
         if file?
-          attached_uploader(:file).url
+          if private_download_required?
+            Decidim::Core::Engine.routes.url_helpers.private_download_path(
+              Decidim::PrivateDownload.for(self, attachment_name: :file).token
+            )
+          else
+            attached_uploader(:file).url
+          end
         elsif link?
           link
         end
@@ -143,6 +149,18 @@ module Decidim
       return true unless attached_to.respond_to?(:can_participate?)
 
       attached_to.can_participate?(user)
+    end
+
+    def private_download_authorized?(user, requested_attachment_name)
+      return false unless requested_attachment_name.to_s == "file"
+
+      can_participate?(user)
+    end
+
+    def private_download_required?
+      return attached_to.restricted? if attached_to.respond_to?(:restricted?)
+
+      attached_to.respond_to?(:component) && attached_to.component&.restricted_space?
     end
   end
 end

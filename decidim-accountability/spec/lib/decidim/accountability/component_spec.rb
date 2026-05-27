@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Accountability component" do # rubocop:disable RSpec/DescribeClass
   let!(:component) { create(:accountability_component) }
-  let(:organization) { component.organization }
+  let!(:organization) { component.organization }
   let!(:current_user) { create(:user, :confirmed, :admin, organization:) }
 
   describe "on edit", type: :system do
@@ -26,7 +26,7 @@ describe "Accountability component" do # rubocop:disable RSpec/DescribeClass
     let!(:results) { create_list(:result, 5, component:) }
 
     before do
-      clear_enqueued_jobs
+      perform_enqueued_jobs(only: [Decidim::FindAndUpdateDescendantsJob, Decidim::UpdateSearchIndexesJob])
     end
 
     describe "publish" do
@@ -36,7 +36,7 @@ describe "Accountability component" do # rubocop:disable RSpec/DescribeClass
         expect(Decidim::SearchableResource.where(resource: results)).to be_empty
         component.publish!
 
-        perform_enqueued_jobs(only: Decidim::UpdateSearchIndexesJob) do
+        perform_enqueued_jobs(only: [Decidim::FindAndUpdateDescendantsJob, Decidim::UpdateSearchIndexesJob]) do
           component.manifest.run_hooks(:publish, component)
         end
 

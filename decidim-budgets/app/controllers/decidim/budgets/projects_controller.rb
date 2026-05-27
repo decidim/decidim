@@ -84,7 +84,7 @@ module Decidim
 
         {
           label: translated_attribute(project.title),
-          url: Decidim::EngineRouter.main_proxy(current_component).budget_project_url(budget, project, locale: current_locale),
+          url: Decidim::EngineRouter.main_proxy(current_component).budget_project_url(budget, project),
           active: false,
           resource: project
         }
@@ -95,7 +95,7 @@ module Decidim
 
         {
           label: translated_attribute(budget.title),
-          url: Decidim::EngineRouter.main_proxy(current_component).budget_projects_url(budget, locale: current_locale),
+          url: Decidim::EngineRouter.main_proxy(current_component).budget_projects_url(budget),
           active: false,
           resource: budget
         }
