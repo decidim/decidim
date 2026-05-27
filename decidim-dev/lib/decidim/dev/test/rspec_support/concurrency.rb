@@ -14,9 +14,10 @@ RSpec.shared_context "with concurrency" do
     connection = ActiveRecord::Base.connection
     connection.disable_referential_integrity do
       connection.tables.each do |table_name|
-        next if connection.select_value("SELECT COUNT(*) FROM #{table_name}").zero?
+        next if table_name.in?(%w(schema_migrations ar_internal_metadata))
+        next if connection.select_value("SELECT COUNT(*) FROM #{connection.quote_table_name(table_name)}").zero?
 
-        connection.execute("TRUNCATE #{table_name} CASCADE")
+        connection.execute("TRUNCATE #{connection.quote_table_name(table_name)} CASCADE")
       end
     end
   end

@@ -192,8 +192,24 @@ describe "Conferences" do
     context "when the conference has some components" do
       it "shows the components" do
         within ".conference__nav" do
-          expect(page).to have_content(decidim_escape_translated(proposals_component.name))
+          expect(page).to have_content(translated(proposals_component.name))
+          expect(page.html).to include(decidim_escape_translated(proposals_component.name).gsub("&quot;", "\""))
           expect(page).to have_no_content(decidim_escape_translated(meetings_component.name))
+        end
+      end
+
+      describe "when there are special characters (', &) in the nav links" do
+        let(:participatory_space) { conference }
+        let(:component_name) { "People's Budget & Ideas" }
+        let!(:proposal_component) { create(:proposal_component, name: { en: component_name }, participatory_space:) }
+
+        it "renders the component name correctly" do
+          visit current_path
+          within ".conference__nav-container" do
+            expect(page).to have_content(component_name)
+            expect(page).to have_no_content("&#39;")
+            expect(page).to have_no_content("&amp;#39;")
+          end
         end
       end
 

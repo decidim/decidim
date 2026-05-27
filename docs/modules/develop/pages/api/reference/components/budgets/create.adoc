@@ -6,10 +6,10 @@ When you want to add or create data in your budget component, you need to rely o
 
 [source]
 ----
-• title                 (optional) - JSON
-• description           (optional) - JSON
-• total_budget          (optional) - Integer
-• weight                (optional) - Integer
+• title                 (Optional) - JSON
+• description           (Optional) - JSON
+• total_budget          (Optional) - Integer
+• weight                (Optional) - Integer
 ----
 
 == Sample request
