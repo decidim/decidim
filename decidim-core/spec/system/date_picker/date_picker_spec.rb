@@ -58,7 +58,7 @@ describe "Datepicker" do
           <title>Datepicker Test</title>
           #{stylesheet_pack_tag "decidim_core"}
           #{stylesheet_pack_tag "decidim_dev"}
-          #{javascript_pack_tag "decidim_core", "decidim_dev", defer: false}
+          #{javascript_pack_tag "decidim_core", "decidim_controllers", "decidim_date_picker", "decidim_dev", defer: false}
         </head>
         <body>
           #{content_wrapper}
@@ -478,7 +478,7 @@ describe "Datepicker" do
             <title>Datepicker Test</title>
             #{stylesheet_pack_tag "decidim_core"}
             #{stylesheet_pack_tag "decidim_dev"}
-            #{javascript_pack_tag "decidim_core", "decidim_dev", defer: false}
+            #{javascript_pack_tag "decidim_core", "decidim_controllers", "decidim_dev", defer: false}
           </head>
           <body>
             #{content_wrapper}
@@ -733,7 +733,7 @@ describe "Datepicker" do
             <title>Datepicker Test</title>
             #{stylesheet_pack_tag "decidim_core"}
             #{stylesheet_pack_tag "decidim_dev"}
-            #{javascript_pack_tag "decidim_core", "decidim_dev", defer: false}
+            #{javascript_pack_tag "decidim_core", "decidim_controllers", "decidim_dev", defer: false}
           </head>
           <body>
             #{content_wrapper}

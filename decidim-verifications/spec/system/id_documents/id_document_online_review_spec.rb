@@ -79,7 +79,7 @@ describe "Identity document online review" do
         relogin_as admin, scope: :user
         visit decidim_admin_id_documents.root_path
         click_on "Verification #1"
-        expect(page).to have_css("img[src*='dni.jpg']")
+        expect(page).to have_css("img[src*='/private_downloads/']")
         submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXY")
         expect(page).to have_content("Participant successfully verified")
       end
@@ -89,6 +89,22 @@ describe "Identity document online review" do
         expect(page).to have_content("Make sure the information entered is correct")
         expect(page).to have_content("Make sure the information is clearly visible in the uploaded image")
       end
+    end
+  end
+
+  context "when there are other organizations" do
+    let!(:other_organization) do
+      create(:organization, available_authorizations: ["id_documents"])
+    end
+    let(:other_admin) { create(:user, :admin, :confirmed, organization: other_organization) }
+
+    before do
+      switch_to_host(other_organization.host)
+      login_as other_admin, scope: :user
+    end
+
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_admin_id_documents.new_pending_authorization_confirmation_path(authorization.id) }
     end
   end
 

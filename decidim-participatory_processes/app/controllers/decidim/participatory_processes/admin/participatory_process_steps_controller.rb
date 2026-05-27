@@ -82,7 +82,7 @@ module Decidim
         end
 
         def find_participatory_process_step
-          @participatory_process_step = collection.find(params[:id])
+          @participatory_process_step = collection.find(params.expect(:id))
         end
 
         def set_controller_breadcrumb

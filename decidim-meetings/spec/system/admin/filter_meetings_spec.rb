@@ -115,6 +115,84 @@ describe "Admin filters meetings" do
     end
   end
 
+  context "when sorting by closed" do
+    let!(:open_a) { create(:meeting, component:, title: { en: "Open A" }) }
+    let!(:closed_b) { create(:meeting, :closed, component:, title: { en: "Closed B" }) }
+    let!(:open_c) { create(:meeting, component:, title: { en: "Open C" }) }
+    let!(:closed_d) { create(:meeting, :closed, component:, title: { en: "Closed D" }) }
+
+    before { visit_component_admin }
+
+    it "groups closed meetings first when 'Closed' is clicked" do
+      within "table thead" do
+        click_on "Closed"
+      end
+
+      titles = page.all("table tbody tr td:first-child").map(&:text)
+      closed_indices = [closed_b, closed_d].map { |m| titles.find_index { |t| t.include?(translated(m.title)) } }
+      open_indices = [open_a, open_c].map { |m| titles.find_index { |t| t.include?(translated(m.title)) } }
+      expect(closed_indices.max).to be < open_indices.min
+    end
+  end
+
+  context "when sorting by taxonomies" do
+    let(:root_taxonomy) { create(:taxonomy, organization:, name: { "en" => "Root" }) }
+    let!(:taxonomy_alpha) { create(:taxonomy, parent: root_taxonomy, organization:, name: { "en" => "Alpha topic" }) }
+    let!(:taxonomy_beta) { create(:taxonomy, parent: root_taxonomy, organization:, name: { "en" => "Beta topic" }) }
+    let!(:taxonomy_gamma) { create(:taxonomy, parent: root_taxonomy, organization:, name: { "en" => "Gamma topic" }) }
+    let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
+    let!(:filter_item_alpha) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy_alpha) }
+    let!(:filter_item_beta) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy_beta) }
+    let!(:filter_item_gamma) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy_gamma) }
+    let!(:meeting_beta) { create(:meeting, component:, title: { en: "Has beta" }, taxonomies: [taxonomy_beta]) }
+    let!(:meeting_alpha) { create(:meeting, component:, title: { en: "Has alpha" }, taxonomies: [taxonomy_alpha]) }
+    let!(:meeting_gamma) { create(:meeting, component:, title: { en: "Has gamma" }, taxonomies: [taxonomy_gamma]) }
+
+    before do
+      component.update!(settings: { taxonomy_filters: [taxonomy_filter.id] })
+      visit_component_admin
+    end
+
+    it "sorts by taxonomy name ascending when 'Taxonomies' is clicked" do
+      within "table thead" do
+        click_on "Taxonomies"
+      end
+
+      titles = page.all("table tbody tr td:first-child").map(&:text)
+      expect(titles.find_index { |t| t.include?("Has alpha") }).to be < titles.find_index { |t| t.include?("Has beta") }
+      expect(titles.find_index { |t| t.include?("Has beta") }).to be < titles.find_index { |t| t.include?("Has gamma") }
+    end
+  end
+
+  context "when sorting by title" do
+    let!(:beta_meeting) { create(:meeting, component:, title: { en: "Beta meeting" }) }
+    let!(:alpha_meeting) { create(:meeting, component:, title: { en: "Alpha meeting" }) }
+    let!(:gamma_meeting) { create(:meeting, component:, title: { en: "Gamma meeting" }) }
+
+    before { visit_component_admin }
+
+    it "sorts by title descending when 'Title' is clicked" do
+      within "table thead" do
+        click_on "Title"
+      end
+
+      titles = page.all("table tbody tr td:first-child").map(&:text)
+      expect(titles.index("Gamma meeting")).to be < titles.index("Beta meeting")
+      expect(titles.index("Beta meeting")).to be < titles.index("Alpha meeting")
+    end
+
+    it "sorts by title ascending when 'Title' is clicked twice" do
+      within "table thead" do
+        click_on "Title"
+        click_on "Title"
+      end
+
+      titles = page.all("table tbody tr td:first-child").map(&:text)
+      expect(titles.index("Alpha meeting")).to be < titles.index("Beta meeting")
+      expect(titles.index("Beta meeting")).to be < titles.index("Gamma meeting")
+    end
+  end
+
   it_behaves_like "paginating a collection" do
     let!(:collection) { create_list(:meeting, 50, component:) }
   end

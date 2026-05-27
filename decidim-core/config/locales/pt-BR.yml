@@ -2084,7 +2084,7 @@ pt-BR:
           settings: Configurações
           title: Informações sobre os cookies utilizados no site
         modal:
-          accept_all:
+          accept_all: Aceitar todas
           accept_only_essential: Aceitar apenas o essencial
           analytics:
             description: Esses cookies são usados para medir e analisar o público do site para ajudar a melhorar o site.

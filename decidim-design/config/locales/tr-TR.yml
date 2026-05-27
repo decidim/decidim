@@ -34,7 +34,6 @@ tr:
           layout_list_2: 'Öğelerin listesi (boşlukların, boşluk içindeki öğelerin vb.): sol kenarda'
           mobile: Mobil
           not_required: "Zorunlu Olmayan\nGereksiz"
-          section_p_breakpoints: 'Öğelerin duyarlı maksimum genişliğini yönetmek için, aşağıdaki kesme noktalarını belirten varsayılan "konteyner" Tailwind sınıfına güveniyoruz:'
           section_p_code: Yeni modülleri uygularken, HTML yapısını kurmak için gereken kodu size otomatik olarak sağlayan bazı yardımcılarınız vardır. Div öğelerini sınıflarla doğrudan kullanmak yerine bu yardımcıları kullanmalısınız, böylece tutarlılığı korursunuz.
           section_p_code_html: Temel düzenleri %{link_section_code} içinde bulabilirsiniz
           section_p_desktop: Masaüstü ızgara sistemi, sütunlar arasında 16 piksellik bir boşluk ve 48 piksellik sol ve sağ kenar boşlukları bulunan 12 esnek sütundan oluşur

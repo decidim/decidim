@@ -113,7 +113,7 @@ module Decidim
         end
 
         def conference_speaker
-          @conference_speaker ||= collection.find(params[:id])
+          @conference_speaker ||= collection.find(params.expect(:id))
         end
 
         def collection

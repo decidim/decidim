@@ -143,7 +143,7 @@ module Decidim
 
           # Shared methods
           def content_block
-            @content_block ||= content_blocks.find(params[:id])
+            @content_block ||= content_blocks.find(params.expect(:id))
           end
 
           def content_blocks

@@ -19,17 +19,17 @@ module Decidim
 
       def per_page
         if OPTIONS.include?(params[:per_page])
-          params[:per_page].to_i
+          params.expect(:per_page).to_i
         elsif params[:per_page]
           sorted = OPTIONS.sort
-          params[:per_page].to_i.clamp(sorted.first, sorted.last)
+          params.expect(:per_page).to_i.clamp(sorted.first, sorted.last)
         else
           OPTIONS.first
         end
       end
 
       def page_offset
-        [params[:page].to_i - 1, 0].max * per_page
+        [params.fetch(:page, 0).to_i - 1, 0].max * per_page
       end
     end
   end

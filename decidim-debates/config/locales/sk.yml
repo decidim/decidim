@@ -2,6 +2,8 @@ sk:
   activemodel:
     attributes:
       debate:
+        closed_at: Uzavreté o
+        conclusions: Závery
         description: Popis
         end_time: Končí
         information_updates: Aktualizácia Informácií
@@ -9,8 +11,10 @@ sk:
         start_time: Začiatok
         title: Názov
     models:
+      decidim/debates/close_debate_event: Debata bola uzavretá
       decidim/debates/create_debate_event: Debata
       decidim/debates/creation_disabled_event: Debaty zakázané
+      decidim/debates/creation_enabled_event: Vytváranie debát povolené
   activerecord:
     models:
       decidim/debates/debate:
@@ -19,21 +23,51 @@ sk:
         many: Debaty
         other: Debaty
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Debaty
+      tooltips:
+        deleted_debates_info: Túto debatu nie je možné odstrániť
     components:
       debates:
+        actions:
+          comment: Komentovať
+          create: Vytvoriť debatu
+          like: Páči sa mi to
+          vote_comment: Hlasovať za komentár
         name: Debaty
         settings:
           global:
             announcement: Oznámenie
+            attachments_allowed: Povoliť prílohy
+            clear_all: Vymazať všetko
             comments_enabled: Komentáre povolené
+            comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
+            define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
+            no_taxonomy_filters_found: Nenašli sa žiadne taxonomické filtre.
+            taxonomy_filters: Vyberte filtre pre komponent
+            taxonomy_filters_add: Pridať filter
           step:
             announcement: Oznámenie
             comments_blocked: Komentáre blokované
+            creation_enabled: Účastníci môžu vytvárať debaty
+            likes_blocked: Hodnotenia Páči sa mi to zablokované
+            likes_enabled: Hodnotenia Páči sa mi to povolené
     debates:
       actions:
+        close: Zavrieť
+        confirm_delete_debate: Naozaj chcete odstrániť túto debatu?
+        deleted_debate_info: Zmazanú debatu je možné obnoviť z koša.
         edit: Upraviť
+        new: Nová debata
         title: Akcie
+        view_deleted_debates: Zobraziť zmazané debaty
       admin:
+        debate_closes:
+          edit:
+            close: Zatvoriť
+            title: Zatvoriť debatu
         debates:
           create:
             invalid: Pri vytváraní debaty sa vyskytol problém.
@@ -41,19 +75,53 @@ sk:
           edit:
             title: Upraviť debatu
             update: Aktualizovať debatu
+          form:
+            add_attachments: Pridať prílohy
+            attachment_legend: Pridať dokument alebo obrázok
+            comments_visualization: Zobrazenie komentárov
+            comments_warning: Po zverejnení prvého komentára už nie je možné zmeniť vybranú možnosť zobrazenia.
+            debate_type: Typ debaty
+            edit_attachments: Upraviť prílohy
+            errors:
+              comments_layout_locked: Po zverejnení komentárov už nemôžete zmeniť rozloženie komentárov.
+            finite: Konečná (so začiatočným a koncovým časom)
+            open: Otvorená (bez začiatočného alebo koncového času)
+            single_column: 'Jeden stĺpec: Komentáre sa zobrazujú v chronologickom poradí a môžu mať odpovede.'
+            two_columns: 'Dva stĺpce: Komentáre sa zobrazujú v stĺpcoch „Za“ a „Proti“ a nemôžu mať odpovede.'
           index:
             title: Debaty
+          manage_trash:
+            title: Zmazané debaty
           new:
             create: Vytvoriť debatu
             title: Nová debata
           update:
             invalid: Pri aktualizácii debaty došlo k problému.
             success: Debata úspešne aktualizovaná
+        exports:
+          debate_comments: Komentáre
+          debates: Debaty
       admin_log:
         debate:
+          close: "%{user_name} zatvoril/a debatu %{resource_name} v priestore %{space_name}"
           create: "%{user_name} vytvoril/a debatu%{resource_name} v priestore %{space_name}"
+          restore: "%{user_name} obnovil/a debatu %{resource_name} v priestore %{space_name}"
+          soft_delete: "%{user_name} presunul/a debatu %{resource_name} v priestore %{space_name} do koša"
           update: "%{user_name} aktualizoval/a debatu %{resource_name} v priestore %{space_name}"
+      content_blocks:
+        highlighted_debates:
+          name: Debaty
+          see_all: Zobraziť všetky debaty
+      debate_m:
+        commented_time_ago: Komentované pred %{time}
       debates:
+        close:
+          invalid: Pri zatváraní debaty sa vyskytol problém.
+          success: Debata bola úspešne zatvorená.
+        close_debate_modal:
+          cancel: Zrušiť
+          description: Aké je zhrnutie alebo záver tejto debaty?
+          send: Zatvoriť debatu
         count:
           debates_count:
             one: "%{count} debata"
@@ -63,28 +131,80 @@ sk:
         create:
           invalid: Pri vytváraní debaty sa vyskytol problém.
           success: Debata úspešne vytvorená.
+        debates:
+          empty: Zatiaľ tu nie sú žiadne debaty.
+          empty_filters: Neexistujú žiadne debaty s týmito kritériami.
+        edit:
+          back: Späť
+          save: Uložiť zmeny
+          title: Upraviť debatu
         filters:
+          activity: Moja aktivita
           all: Všetko
           category: Kategória
           category_prompt: Vyberte kategóriu
+          commented: Komentované
+          my_debates: Moje debaty
           official: Oficiálni
           origin: Pôvod
+          participants: Účastníci
           search: Vyhľadávanie
+          state: Stav
+          state_values:
+            closed: Zatvorené
+            ongoing: Prebiehajúce
         index:
           new_debate: Nová debata
         new:
           back: Späť
           create: Vytvoriť
+          title: Vytvoriť novú debatu
+        orders:
+          label: Zoradiť debaty podľa
+          most_commented: Najviac komentované
+          random: Náhodné poradie
+          recent: Najnovšie
+          updated: Nedávno aktualizované
+        show:
+          close_debate: Zatvoriť
+          closed: Zatvorené
+          debate_conclusions_are: 'Debata bola zatvorená dňa %{date} s týmito závermi:'
+          edit_conclusions: Upraviť závery
+          edit_debate: Upraviť
+          not_started: Nezačaté
+          ongoing: Prebiehajúce
+          open_ended: Otvorený koniec
+          participants_count: Účastníci
+        update:
+          invalid: Pri aktualizácii debaty sa vyskytol problém.
+          success: Debata bola úspešne aktualizovaná.
+      last_activity:
+        debate_updated: 'Debata aktualizovaná:'
+        new_debate: 'Nová debata:'
       models:
         debate:
           fields:
+            end: Koniec
             end_time: Dátum ukončenia
             official_debate: Oficiálna debata
+            start: Začiatok
             start_time: Dátum začatia
+            taxonomies: Taxónomie
             title: Názov
+    download_your_data:
+      show:
+        debate_comments: Export komentárov debaty
+        debates: Export debát
     events:
       debates:
         create_debate_event:
+          space_followers:
+            email_intro: |-
+              Dobrý deň,
+              v participatívnom priestore %{participatory_space_title} bola vytvorená nová debata „%{resource_title}“, pozrite si ju a zapojte sa:
+            email_outro: Toto upozornenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Prijímanie upozornení môžete zrušiť kliknutím na predchádzajúci odkaz.
+            email_subject: Nová debata „%{resource_title}“ v priestore %{participatory_space_title}
+            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> bola vytvorená v priestore <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
           user_followers:
             email_intro: |-
               Dobrý deň,
@@ -101,6 +221,18 @@ sk:
           email_intro: 'Teraz môžete vytvoriť nové debaty v priestore %{participatory_space_title}! Zúčastnite sa na tejto stránke:'
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Debaty sú teraz k dispozícii v %{participatory_space_title}
+          notification_title: Teraz môžete začať <a href="%{resource_path}">nové debaty</a> v priestore <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        debate_closed:
+          affected_user:
+            email_intro: 'Debata „%{resource_title}“ bola zatvorená. Závery si môžete prečítať na jej stránke:'
+            email_outro: Toto upozornenie ste dostali, pretože sledujete debatu „%{resource_title}“. Sledovanie môžete zrušiť kliknutím na predchádzajúci odkaz.
+            email_subject: Debata „%{resource_title}“ bola zatvorená
+            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> bola zatvorená.
+          follower:
+            email_intro: 'Debata „%{resource_title}“ bola zatvorená. Závery si môžete prečítať na jej stránke:'
+            email_outro: Toto upozornenie ste dostali, pretože sledujete debatu „%{resource_title}“. Sledovanie môžete zrušiť kliknutím na predchádzajúci odkaz.
+            email_subject: Debata „%{resource_title}“ bola zatvorená
+            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> bola zatvorená.
     gamification:
       badges:
         commented_debates:
@@ -112,3 +244,44 @@ sk:
           name: Debaty
           next_level_in: Podieľajte sa na ďalších %{score} debatách pre dosiahnutie ďalšej úrovne!
           unearned_another: Tento účastník sa nezúčastnil na žiadnej debate. 
+          unearned_own: Zatiaľ ste sa nezúčastnili žiadnych debát.
+    open_data:
+      help:
+        debate_comments:
+          alignment: Či bol tento komentár za, proti alebo neutrálny
+          author: Meno účastníka, ktorý pridal tento komentár
+          body: Samotný komentár
+          commentable_id: Jedinečné ID komentovaného objektu
+          commentable_type: Typ komentovaného objektu (či to bol výsledok, návrh atď.)
+          created_at: Dátum vytvorenia tohto komentára
+          depth: Miesto, kde sa tento komentár nachádza v strome komentárov (či ide o odpoveď alebo odpoveď na odpoveď)
+          id: ID tohto komentára
+          locale: Jazyk (lokalizácia), ktorý mal účastník pri zanechaní tohto komentára
+          root_commentable_url: URL adresa zdroja, ktorý sa viaže k tomuto komentáru
+        debates:
+          author: Údaje o autorovi tejto debaty
+          closed_at: Dátum zatvorenia tejto debaty
+          comments: Počet komentárov v tejto debate
+          comments_enabled: Či má táto debata povolené komentáre alebo nie
+          component: Komponent, do ktorého debata patrí
+          conclusions: Závery debaty, ak bola zatvorená
+          created_at: Dátum a čas vytvorenia debaty
+          description: Popis debaty
+          end_time: Kedy táto debata končí, ak ide o otvorenú debatu a má obmedzený čas
+          follows_count: Počet sledujúcich tejto debaty
+          id: Jedinečný identifikátor debaty
+          information_updates: Aktualizácie, ktoré autor vykonal v debate
+          instructions: Aké sú pokyny na komentovanie v tejto debate
+          last_comment_at: Dátum, kedy bola táto debata naposledy komentovaná
+          last_comment_by: Údaje o poslednom komentári v rámci debaty
+          likes_count: Počet lajkov, ktoré debata má
+          participatory_space: Do ktorého priestoru (napr. participatívny proces alebo zhromaždenie) táto debata patrí
+          reference: Jedinečný identifikátor zdroja na tejto platforme
+          start_time: Kedy táto debata začína, ak ide o otvorenú debatu a má obmedzený čas
+          taxonomies: Taxonómie projektu
+          title: Názov debaty
+          updated_at: Dátum poslednej aktualizácie debaty
+          url: URL adresa, na ktorej možno túto debatu nájsť
+    statistics:
+      debates_count: Debaty
+      debates_count_tooltip: Počet uskutočnených diskusií.

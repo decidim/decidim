@@ -1,7 +1,7 @@
 {
   "name": "@decidim/core",
   "description": "The core dependencies for Decidim",
-  "version": "0.32.0-dev",
+  "version": "0.33.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
@@ -46,12 +46,10 @@
     "chart.js": "^4.4.6",
     "chartkick": "^5.0.1",
     "classnames": "^2.2.5",
-    "d3": "^7.8.5",
     "dayjs": "^1.11.0",
     "diff": "^5.0.0",
     "drag-on-drop": "^3.6.1",
     "emoji-mart": "^5.5.2",
-    "emojibase": "^6.1.0",
     "foundation-sites": "^6.7.0",
     "graphiql": "^3.0.10",
     "graphql-ws": "^5.16.2",

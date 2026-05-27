@@ -18,7 +18,7 @@ module Decidim
         end
 
         def result
-          @result ||= results.find(params[:result_id])
+          @result ||= results.find(params.expect(:result_id))
         end
 
         private
