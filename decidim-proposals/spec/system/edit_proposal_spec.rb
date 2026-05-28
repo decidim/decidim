@@ -409,4 +409,34 @@ describe "Edit proposals" do
       expect(page).to have_text("not authorized")
     end
   end
+
+  context "when the proposal has an attachment" do
+    let(:component) { create(:proposal_component, :with_attachments_allowed, participatory_space: participatory_process) }
+    let!(:proposal) { create(:proposal, users: [user], component:) }
+    let!(:document) { create(:attachment, :with_pdf, attached_to: proposal) }
+    let(:document_filename) { document.file.blob.filename.to_s }
+
+    before do
+      login_as user, scope: :user
+
+      visit_component
+      click_on proposal_title
+      find("#dropdown-trigger-resource-#{proposal.id}").click
+      click_on "Edit"
+
+      expect(page).to have_text "Edit proposal"
+    end
+
+    it "can update the title with attachments" do
+      expect(page.html).to include(document_filename)
+
+      within "form.edit_proposal" do
+        fill_in :proposal_title, with: "Updated proposal title with attachments"
+        click_on "Send"
+      end
+
+      expect(page).to have_text("Proposal successfully updated.")
+      expect(page).to have_text("Updated proposal title with attachments")
+    end
+  end
 end
