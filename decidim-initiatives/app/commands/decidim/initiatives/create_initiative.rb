@@ -33,8 +33,6 @@ module Decidim
 
         initiative = create_initiative
 
-        initiative = create_initiative
-
         if initiative.persisted?
           broadcast(:ok, initiative)
         else
