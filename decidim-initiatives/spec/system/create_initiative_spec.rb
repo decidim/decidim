@@ -752,6 +752,8 @@ describe "Initiative" do
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
+
+          expect(page).to have_select("Signature collection type")
           select("Online", from: "Signature collection type")
           select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
           find_button("Continue").click
@@ -844,6 +846,8 @@ describe "Initiative" do
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
+
+          expect(page).to have_select("Signature collection type")
           select("Online", from: "Signature collection type")
           select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
           find_button("Continue").click
@@ -869,6 +873,8 @@ describe "Initiative" do
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
+
+          expect(page).to have_select("Signature collection type")
           select("Online", from: "Signature collection type")
           select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
           find_button("Continue").click
