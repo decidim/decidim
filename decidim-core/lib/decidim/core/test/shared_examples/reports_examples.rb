@@ -18,7 +18,7 @@ shared_examples "logged in user reports content" do
           click_on "Report"
         end
 
-        expect(page).to have_content "report has been created"
+        expect(page).to have_text "report has been created"
       end
     end
   end
@@ -67,13 +67,13 @@ shared_examples "higher user role hides resource with comments" do
 
     it "hides the resource" do
       visit decidim.search_path
-      expect(page).to have_content(translated(comments.first.body))
-      expect(page).to have_content(translated(comments.second.body))
+      expect(page).to have_text(translated(comments.first.body))
+      expect(page).to have_text(translated(comments.second.body))
 
       visit reportable_path
 
-      expect(page).to have_content(translated(comments.first.body))
-      expect(page).to have_content(translated(comments.second.body))
+      expect(page).to have_text(translated(comments.first.body))
+      expect(page).to have_text(translated(comments.second.body))
 
       find("#dropdown-trigger-resource-#{reportable.id}").click
       expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
@@ -96,8 +96,8 @@ shared_examples "higher user role hides resource with comments" do
       expect(comments.second.reload).to be_hidden
 
       visit decidim.search_path
-      expect(page).to have_no_content(translated(comments.first.body))
-      expect(page).to have_no_content(translated(comments.second.body))
+      expect(page).to have_no_text(translated(comments.first.body))
+      expect(page).to have_no_text(translated(comments.second.body))
     end
   end
 end
@@ -154,7 +154,7 @@ shared_examples "reports" do
       find(%(button[data-dialog-open="flagModal"])).click
       expect(page).to have_css(".flag-modal", visible: :visible)
 
-      expect(page).to have_content "already reported"
+      expect(page).to have_text "already reported"
     end
   end
 end

@@ -53,6 +53,23 @@ jobs:
       DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
       PARALLEL_TEST_PROCESSORS: 3
     services:
+      # If you see any inconsistency between CI and local testing environment related to the accessibility validator, the best way of troubleshooting is:
+      # 1. Go to the "Raw log" of the failing action
+      # 2. Search for the version of the validator in the line
+      # > Status: Downloaded newer image for ghcr.io/validator/validator@XXX
+      # Example:
+      # > Status: Downloaded newer image for ghcr.io/validator/validator@sha256:238afea6aed5f057e90c4c3ed2b40fa1e3646d16773cdddfb2f069dc265b111b
+      # 3. Copy the version
+      # 4. Run it with docker locally
+      # ```
+      # docker run --rm -p 8888:8888 ghcr.io/validator/validator@sha256:238afea6aed5f057e90c4c3ed2b40fa1e3646d16773cdddfb2f069dc265b111b
+      # ```
+      # 5. Run the failing spec with the VALIDATOR_HTML_URI environment variable
+      # ```
+      # VALIDATOR_HTML_URI=http://127.0.0.1:8888/ CI=true bin/rspec decidim-proposals/spec/system/proposals_spec.rb -e "accessible page"
+      # ```
+      #
+      # Mind that we could not be using the latest version because there was some problem upstream (new rules, or just a bad release).
       validator:
         image: ${{ vars.ACTION_ACCESSIBILITY_VALIDATOR_VERSION || 'ghcr.io/validator/validator:latest' }}
         ports: ["8888:8888"]

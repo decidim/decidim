@@ -63,7 +63,7 @@ describe "Homepage processes content blocks" do
     fill_in "content_block[settings][max_results]", with: "1"
     click_on "Update"
 
-    expect(page).to have_content("Highlighted processes")
+    expect(page).to have_text("Highlighted processes")
     expect(highlighted_participatory_processes_content_block.reload.settings["max_results"]).to eq(1)
 
     visit decidim.root_path

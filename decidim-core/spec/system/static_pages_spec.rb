@@ -24,7 +24,7 @@ describe "Static pages" do
       visit decidim.pages_path(locale: I18n.locale)
 
       within pages_selector, text: "Pages" do
-        expect(page).to have_content translated(page3.title)
+        expect(page).to have_text translated(page3.title)
       end
     end
 
@@ -65,7 +65,7 @@ describe "Static pages" do
 
         it "disables iframe" do
           visit decidim.page_path(video_page, locale: I18n.locale)
-          expect(page).to have_content("You need to enable all cookies in order to see this content")
+          expect(page).to have_text("You need to enable all cookies in order to see this content")
           expect(page).to have_no_selector("iframe")
         end
       end
@@ -80,7 +80,7 @@ describe "Static pages" do
 
         it "shows iframe" do
           visit decidim.page_path(video_page, locale: I18n.locale)
-          expect(page).to have_no_content("You need to enable all cookies in order to see this content")
+          expect(page).to have_no_text("You need to enable all cookies in order to see this content")
           expect(page).to have_css("iframe", count: 1)
         end
       end
@@ -108,7 +108,7 @@ describe "Static pages" do
         # ActionDispatch::Cookies::CookieOverflow exception
         visit "#{decidim.pages_path(locale: I18n.locale)}?#{long_parameters}"
 
-        expect(page).to have_content(translated(organization.name))
+        expect(page).to have_text(translated(organization.name))
       end
     end
 

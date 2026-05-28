@@ -19,19 +19,19 @@ describe "Admin publish and unpublish documents" do
   end
 
   it "publishes and unpublish a document" do
-    expect(page).to have_content("Collaborative texts")
-    expect(page).to have_content("New text")
-    expect(page).to have_content("Configure")
+    expect(page).to have_text("Collaborative texts")
+    expect(page).to have_text("New text")
+    expect(page).to have_text("Configure")
 
     within "tr", text: title do
-      expect(page).to have_content("Unpublished")
+      expect(page).to have_text("Unpublished")
       find("button[data-controller='dropdown']").click
       click_on "Publish"
     end
     expect(page).to have_callout "Document successfully published"
 
     within "tr", text: title do
-      expect(page).to have_content("Published")
+      expect(page).to have_text("Published")
       find("button[data-controller='dropdown']").click
       click_on "Unpublish"
     end
@@ -44,7 +44,7 @@ describe "Admin publish and unpublish documents" do
     end
 
     it "displays unpublished documents in public view" do
-      expect(page).to have_content(title)
+      expect(page).to have_text(title)
     end
 
     context "and non-admin user" do
@@ -56,7 +56,7 @@ describe "Admin publish and unpublish documents" do
       end
 
       it "does not display unpublished documents in public view" do
-        expect(page).to have_no_content(title)
+        expect(page).to have_no_text(title)
       end
     end
   end
