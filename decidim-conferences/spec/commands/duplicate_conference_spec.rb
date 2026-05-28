@@ -42,10 +42,11 @@ module Decidim::Conferences
                                                      title: { en: "title" },
                                                      slug: "duplicated-slug",
                                                      duplicate_components?: duplicate_components
-                                                   }).with_context({
-                                                                     current_user:,
-                                                                     current_organization: organization
-                                                                   })
+                                                   })
+                                      .with_context({
+                                                      current_user:,
+                                                      current_organization: organization
+                                                    })
       end
 
       it "raises a database error due to the unique constraint including soft-deleted records" do

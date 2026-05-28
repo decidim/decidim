@@ -45,10 +45,11 @@ module Decidim::Assemblies
                                                    slug: "duplicated-slug",
                                                    duplicate_components?: duplicate_components,
                                                    duplicate_landing_page_blocks?: duplicate_landing_page_blocks
-                                                 }).with_context({
-                                                                   current_user: user,
-                                                                   current_organization: organization
-                                                                 })
+                                                 })
+                                    .with_context({
+                                                    current_user: user,
+                                                    current_organization: organization
+                                                  })
       end
 
       it "raises a database error due to the unique constraint including soft-deleted records" do
