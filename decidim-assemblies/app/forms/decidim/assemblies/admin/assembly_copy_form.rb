@@ -15,7 +15,6 @@ module Decidim
 
         attribute :slug, String
         attribute :copy_components, Boolean
-        attribute :copy_landing_page_blocks, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, translatable_presence: true

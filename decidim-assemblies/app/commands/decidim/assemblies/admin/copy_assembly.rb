@@ -29,8 +29,8 @@ module Decidim
             Assembly.transaction do
               copy_assembly
               copy_assembly_attachments
+              copy_landing_page_blocks
               copy_assembly_components if @form.copy_components?
-              copy_landing_page_blocks if @form.copy_landing_page_blocks?
             end
           end
 

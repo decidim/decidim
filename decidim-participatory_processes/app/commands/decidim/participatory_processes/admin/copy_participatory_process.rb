@@ -27,11 +27,11 @@ module Decidim
 
           Decidim.traceability.perform_action!("duplicate", @participatory_process, current_user) do
             ParticipatoryProcess.transaction do
-              copy_participatory_process
-              copy_participatory_process_attachments
-              copy_participatory_process_steps if @form.copy_steps?
-              copy_participatory_process_components if @form.copy_components?
-              copy_landing_page_blocks if @form.copy_landing_page_blocks?
+              duplicate_participatory_process
+              duplicate_participatory_process_attachments
+              duplicate_landing_page_blocks
+              duplicate_participatory_process_steps if @form.duplicate_steps?
+              duplicate_participatory_process_components if @form.duplicate_components?
             end
           end
 

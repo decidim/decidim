@@ -20,13 +20,11 @@ module Decidim::Assemblies
         title: { en: "title" },
         slug: "copied-slug",
         copy_components?: copy_components,
-        copy_landing_page_blocks?: copy_landing_page_blocks
       )
     end
 
     let(:invalid) { false }
     let(:copy_components) { false }
-    let(:copy_landing_page_blocks) { false }
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -75,20 +73,48 @@ module Decidim::Assemblies
         expect(action_log.action).to eq("duplicate")
         expect(action_log.version).to be_present
       end
+
+      describe "landing page content blocks" do
+        let(:content_block_original_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+
+        before do
+          content_block.images_container.background_image.purge
+          content_block.images_container.background_image = content_block_original_image
+          content_block.save
+          content_block.reload
+        end
+
+        it "duplicates the content_block with its attachments" do
+          expect { subject.call }.to change(Decidim::ContentBlock, :count).by(1)
+
+          old_block = Decidim::ContentBlock.unscoped.first
+          new_block = Decidim::ContentBlock.unscoped.last
+          last_assembly = Decidim::Assembly.last
+
+          expect(new_block.scope_name).to eq(old_block.scope_name)
+          expect(new_block.manifest_name).to eq(old_block.manifest_name)
+          # published_at is set in content_block factory
+          expect(new_block.published_at).not_to be_nil
+          expect(new_block.scoped_resource_id).to eq(last_assembly.id)
+          expect(new_block.attachments.length).to eq(1)
+          expect(new_block.attachments.first.name).to eq("background_image")
+          expect(new_block.images_container.attached_uploader(:background_image).url).not_to be_nil
+        end
+      end
     end
 
-    context "when copy_components exists" do
-      let(:copy_components) { true }
+    context "when duplicate_components exists" do
+      let(:duplicate_components) { true }
 
       it "duplicates an assembly and the components" do
         dummy_hook = proc {}
-        component.manifest.on :copy, &dummy_hook
+        component.manifest.on :duplicate, &dummy_hook
         expect(dummy_hook).to receive(:call).with({ new_component: an_instance_of(Decidim::Component), old_component: component })
 
         expect { subject.call }.to change(Decidim::Component, :count).by(1)
 
         last_assembly = Decidim::Assembly.last
-        last_component = Decidim::Component.all.reorder(:id).last
+        last_component = Decidim::Component.reorder(:id).last
 
         expect(last_component.participatory_space).to eq(last_assembly)
         expect(last_component.name).to eq(component.name)
@@ -96,37 +122,6 @@ module Decidim::Assemblies
         expect(last_component.settings.attributes["dummy_global_translatable_text"]).to include(component.settings.attributes["dummy_global_translatable_text"])
         expect(last_component.step_settings.keys).to eq(component.step_settings.keys)
         expect(last_component.step_settings.values).to eq(component.step_settings.values)
-      end
-    end
-
-    context "when copy_landing_page_blocks exists" do
-      let(:copy_landing_page_blocks) { true }
-      let(:original_image) do
-        Decidim::Dev.test_file("city.jpeg", "image/jpeg")
-      end
-
-      before do
-        content_block.images_container.background_image.purge
-        content_block.images_container.background_image = original_image
-        content_block.save
-        content_block.reload
-      end
-
-      it "duplicates an assembly and the content_block with its attachments" do
-        expect { subject.call }.to change(Decidim::ContentBlock, :count).by(1)
-
-        old_block = Decidim::ContentBlock.unscoped.first
-        new_block = Decidim::ContentBlock.unscoped.last
-        last_assembly = Decidim::Assembly.last
-
-        expect(new_block.scope_name).to eq(old_block.scope_name)
-        expect(new_block.manifest_name).to eq(old_block.manifest_name)
-        # published_at is set in content_block factory
-        expect(new_block.published_at).not_to be_nil
-        expect(new_block.scoped_resource_id).to eq(last_assembly.id)
-        expect(new_block.attachments.length).to eq(1)
-        expect(new_block.attachments.first.name).to eq("background_image")
-        expect(new_block.images_container.attached_uploader(:background_image).url).not_to be_nil
       end
     end
 
