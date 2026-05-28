@@ -44,7 +44,7 @@
                   <li class="dropdown__item">
                     <% if authorization.letter_sent? %>
                       <div class="dropdown__button-disabled">
-                        <%= with_tooltip t(".already_sent") do %>
+                        <%= with_tooltip t(".already_sent"), class: :left do %>
                           <%= icon "checkbox-circle-line", class: "text-gray" %>
                           <span>
                             <%= t(".mark_as_sent") %>
