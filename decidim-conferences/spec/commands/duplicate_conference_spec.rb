@@ -34,9 +34,9 @@ module Decidim::Conferences
       end
     end
 
-    context "when there is a trashed process with the same slug" do
-      let!(:trashed_process) { create(:conference, :trashed, slug: "duplicated-slug", organization:) }
-      let!(:participatory_process) { create(:conference, organization:) }
+    context "when there is a trashed space with the same slug" do
+      let!(:trashed_space) { create(:conference, :trashed, slug: "duplicated-slug", organization:) }
+
       let(:form) do
         Admin::ConferenceDuplicateForm.from_params({
                                                      title: { en: "title" },

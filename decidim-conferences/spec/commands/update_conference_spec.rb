@@ -95,6 +95,18 @@ module Decidim::Conferences
         end
       end
 
+      context "when there is a trashed space with the same slug" do
+        let!(:trashed_space) { create(:conference, :trashed, slug: "slug", organization:) }
+
+        let(:form) do
+          Admin::ConferenceForm.from_params(params.deep_merge(conference: { slug: "slug" })).with_context(context)
+        end
+
+        it "raises a database error due to the unique constraint including soft-deleted records" do
+          expect { command.call }.to broadcast(:invalid)
+        end
+      end
+
       describe "when the conference is not valid" do
         before do
           allow(form).to receive(:invalid?).and_return(false)

@@ -40,9 +40,9 @@ module Decidim::ParticipatoryProcesses
       end
     end
 
-    context "when there is a trashed process with the same slug" do
-      let!(:trashed_process) { create(:participatory_process, :trashed, :open, slug: "duplicated-slug", organization:) }
-      let!(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+    context "when there is a trashed space with the same slug" do
+      let!(:trashed_space) { create(:participatory_process, :trashed, :open, slug: "duplicated-slug", organization:) }
+
       let(:form) do
         Admin::ParticipatoryProcessDuplicateForm.from_params({
                                                                title: { en: "title" },

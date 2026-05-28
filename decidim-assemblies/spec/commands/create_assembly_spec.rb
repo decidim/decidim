@@ -22,11 +22,8 @@ module Decidim::Assemblies
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
 
-    let(:form) do
-      instance_double(
-        Admin::AssemblyForm,
-        current_user:,
-        invalid?: invalid,
+    let(:attributes) do
+      {
         title: { en: "title" },
         subtitle: { en: "subtitle" },
         weight: 1,
@@ -64,6 +61,15 @@ module Decidim::Assemblies
         instagram_handler: "lorem",
         youtube_handler: "lorem",
         github_handler: "lorem"
+      }
+    end
+
+    let(:form) do
+      instance_double(
+        Admin::AssemblyForm,
+        **attributes,
+        current_user:,
+        invalid?: invalid
       )
     end
     let(:invalid) { false }
@@ -72,6 +78,21 @@ module Decidim::Assemblies
       let(:invalid) { true }
 
       it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
+    context "when there is a trashed space with the same slug" do
+      let!(:trashed_space) { create(:assembly, :trashed, slug: "slug", organization:) }
+      let(:form) do
+        Admin::AssemblyForm.from_params(attributes)
+                           .with_context({
+                                           current_user:,
+                                           current_organization: organization
+                                         })
+      end
+
+      it "raises a database error due to the unique constraint including soft-deleted records" do
         expect { subject.call }.to broadcast(:invalid)
       end
     end
