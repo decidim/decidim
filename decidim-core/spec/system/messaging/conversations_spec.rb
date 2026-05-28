@@ -17,7 +17,7 @@ describe "Conversations" do
     it_behaves_like "accessible page"
 
     it "shows a notice informing about that" do
-      expect(page).to have_content("You have no conversations yet")
+      expect(page).to have_text("You have no conversations yet")
     end
 
     it "shows the topbar button as inactive" do
@@ -66,7 +66,7 @@ describe "Conversations" do
       context "and recipient does not follow user" do
         it "redirects user with access error" do
           expect(page).to have_no_current_path decidim.new_conversation_path(recipient_id: recipient.id)
-          expect(page).to have_content("You are not authorized to perform this action")
+          expect(page).to have_text("You are not authorized to perform this action")
         end
 
         context "and a conversation exists already" do
@@ -123,8 +123,8 @@ describe "Conversations" do
       visit_inbox
       click_on "conversation-#{conversation.id}"
 
-      expect(page).to have_content("Conversation with\n#{interlocutor.name}")
-      expect(page).to have_content("who wants apples?")
+      expect(page).to have_text("Conversation with\n#{interlocutor.name}")
+      expect(page).to have_text("who wants apples?")
     end
 
     context "and some of them are unread" do
@@ -165,7 +165,7 @@ describe "Conversations" do
       before do
         visit_inbox
         click_on "conversation-#{conversation.id}"
-        expect(page).to have_content("Send")
+        expect(page).to have_text("Send")
         field = find_field("message_body")
         field.native.send_keys message_body
       end
@@ -189,7 +189,7 @@ describe "Conversations" do
 
         it "appears as read after it is seen", :slow do
           click_on "conversation-#{conversation.id}"
-          expect(page).to have_content("Please reply!")
+          expect(page).to have_text("Please reply!")
 
           visit_inbox
           expect(page).to have_css(".conversation__item-unread", text: "")
@@ -206,13 +206,13 @@ describe "Conversations" do
       it "shows the error message modal", :slow do
         visit_inbox
         click_on "conversation-#{conversation.id}"
-        expect(page).to have_content("Send")
+        expect(page).to have_text("Send")
         field = find_field("message_body")
         field.native.send_keys message_body
-        expect(page).to have_content("0 characters left")
+        expect(page).to have_text("0 characters left")
         click_on "Send"
-        expect(page).to have_content(message)
-        expect(page).to have_no_content(overflow)
+        expect(page).to have_text(message)
+        expect(page).to have_no_text(overflow)
       end
     end
 
@@ -226,8 +226,8 @@ describe "Conversations" do
         end
 
         it "allows user to see old messages" do
-          expect(page).to have_content("Conversation with\n#{interlocutor.name}")
-          expect(page).to have_content("who wants apples?")
+          expect(page).to have_text("Conversation with\n#{interlocutor.name}")
+          expect(page).to have_text("who wants apples?")
         end
 
         it "does not show the sending form" do
@@ -251,7 +251,7 @@ describe "Conversations" do
           field = find_field("message_body")
           field.native.send_keys "Please reply!"
 
-          expect(page).to have_content("Send")
+          expect(page).to have_text("Send")
           click_on "Send"
 
           expect(page).to have_css(".conversation__message:last-child", text: "Please reply!")
@@ -285,7 +285,7 @@ describe "Conversations" do
 
         it "cannot be selected on the mentioned list", :slow do
           visit_inbox
-          expect(page).to have_content("New conversation")
+          expect(page).to have_text("New conversation")
           click_on "New conversation"
           expect(page).to have_css("#add_conversation_users")
           field = find_by_id("add_conversation_users")
@@ -312,7 +312,7 @@ describe "Conversations" do
           find("#autoComplete_list_1 li").click
 
           expect(page).to have_css(".conversation__modal-results li", count: 1)
-          expect(page).to have_content("Maria")
+          expect(page).to have_text("Maria")
           expect(page).to have_no_css("#autoComplete_list_1 li", wait: 2)
           expect(field.value).to eq("")
         end
@@ -338,8 +338,8 @@ describe "Conversations" do
 
         it "shows only the other participant name" do
           within ".conversation__participants" do
-            expect(page).to have_content(user1.name)
-            expect(page).to have_no_content(user.name)
+            expect(page).to have_text(user1.name)
+            expect(page).to have_no_text(user.name)
           end
         end
       end
@@ -351,7 +351,7 @@ describe "Conversations" do
 
         it "shows only the other participant name" do
           within ".conversation__participants" do
-            expect(page).to have_content(user1.name)
+            expect(page).to have_text(user1.name)
           end
         end
       end
@@ -363,8 +363,8 @@ describe "Conversations" do
 
         it "shows only the other participant name" do
           within "[data-interlocutors-list]" do
-            expect(page).to have_content(user1.name)
-            expect(page).to have_no_content(user.name)
+            expect(page).to have_text(user1.name)
+            expect(page).to have_no_text(user.name)
           end
         end
       end
@@ -391,10 +391,10 @@ describe "Conversations" do
 
         it "shows the other three participants names" do
           within ".conversation__participants" do
-            expect(page).to have_content(user1.name)
-            expect(page).to have_content(user2.name)
-            expect(page).to have_content(user3.name)
-            expect(page).to have_no_content(user.name)
+            expect(page).to have_text(user1.name)
+            expect(page).to have_text(user2.name)
+            expect(page).to have_text(user3.name)
+            expect(page).to have_no_text(user.name)
           end
         end
       end
@@ -406,10 +406,10 @@ describe "Conversations" do
 
         it "shows the other three participants names" do
           within ".conversation__participants" do
-            expect(page).to have_content(user1.name)
-            expect(page).to have_content(user2.name)
-            expect(page).to have_content(user3.name)
-            expect(page).to have_no_content(user.name)
+            expect(page).to have_text(user1.name)
+            expect(page).to have_text(user2.name)
+            expect(page).to have_text(user3.name)
+            expect(page).to have_no_text(user.name)
           end
         end
       end
@@ -461,16 +461,16 @@ describe "Conversations" do
 
         it "shows the other nine participants names" do
           within ".conversation__participants" do
-            expect(page).to have_content(user1.name)
-            expect(page).to have_content(user2.name)
-            expect(page).to have_content(user3.name)
-            expect(page).to have_content(user4.name)
-            expect(page).to have_content(user5.name)
-            expect(page).to have_content(user6.name)
-            expect(page).to have_content(user7.name)
-            expect(page).to have_content(user8.name)
-            expect(page).to have_content(user9.name)
-            expect(page).to have_no_content(user.name)
+            expect(page).to have_text(user1.name)
+            expect(page).to have_text(user2.name)
+            expect(page).to have_text(user3.name)
+            expect(page).to have_text(user4.name)
+            expect(page).to have_text(user5.name)
+            expect(page).to have_text(user6.name)
+            expect(page).to have_text(user7.name)
+            expect(page).to have_text(user8.name)
+            expect(page).to have_text(user9.name)
+            expect(page).to have_no_text(user.name)
           end
         end
       end
@@ -482,16 +482,16 @@ describe "Conversations" do
 
         it "shows the other nine participants names" do
           within ".conversation__participants" do
-            expect(page).to have_content(user1.name)
-            expect(page).to have_content(user2.name)
-            expect(page).to have_content(user3.name)
-            expect(page).to have_content(user4.name)
-            expect(page).to have_content(user5.name)
-            expect(page).to have_content(user6.name)
-            expect(page).to have_content(user7.name)
-            expect(page).to have_content(user8.name)
-            expect(page).to have_content(user9.name)
-            expect(page).to have_no_content(user.name)
+            expect(page).to have_text(user1.name)
+            expect(page).to have_text(user2.name)
+            expect(page).to have_text(user3.name)
+            expect(page).to have_text(user4.name)
+            expect(page).to have_text(user5.name)
+            expect(page).to have_text(user6.name)
+            expect(page).to have_text(user7.name)
+            expect(page).to have_text(user8.name)
+            expect(page).to have_text(user9.name)
+            expect(page).to have_no_text(user.name)
           end
         end
       end
@@ -525,8 +525,8 @@ describe "Conversations" do
       visit_inbox
       click_on "conversation-#{conversation.id}"
 
-      expect(page).to have_content("Conversation with\nDeleted participant")
-      expect(page).to have_content("who wants apples?")
+      expect(page).to have_text("Conversation with\nDeleted participant")
+      expect(page).to have_text("who wants apples?")
     end
   end
 

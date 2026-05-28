@@ -157,7 +157,7 @@ module Decidim
         end
 
         def proposal
-          @proposal ||= collection.find(params[:id])
+          @proposal ||= collection.find(params.expect(:id))
         end
 
         def proposal_ids

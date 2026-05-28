@@ -30,12 +30,12 @@ module Decidim
       end
 
       def edit
-        @admin = Admin.find(params[:id])
+        @admin = Admin.find(params.expect(:id))
         @form = form(AdminForm).from_model(@admin)
       end
 
       def update
-        @admin = Admin.find(params[:id])
+        @admin = Admin.find(params.expect(:id))
         @form = form(AdminForm).from_params(params)
 
         UpdateAdmin.call(@admin, @form) do
@@ -52,11 +52,11 @@ module Decidim
       end
 
       def show
-        @admin = Admin.find(params[:id])
+        @admin = Admin.find(params.expect(:id))
       end
 
       def destroy
-        @admin = Admin.find(params[:id]).destroy!
+        @admin = Admin.find(params.expect(:id)).destroy!
         flash[:notice] = I18n.t("admins.destroy.success", scope: "decidim.system")
 
         redirect_to admins_path

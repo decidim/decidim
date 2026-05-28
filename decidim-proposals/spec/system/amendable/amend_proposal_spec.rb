@@ -28,8 +28,8 @@ describe "Amend Proposal", versioning: true do
 
     it "is shown the amendments list" do
       within("#amendments") do
-        expect(page).to have_content("1 amendment")
-        expect(page).to have_content(emendation_title)
+        expect(page).to have_text("1 amendment")
+        expect(page).to have_text(emendation_title)
       end
     end
   end
@@ -90,8 +90,8 @@ describe "Amend Proposal", versioning: true do
         end
 
         it "is NOT shown the promote button" do
-          expect(page).to have_no_content("PROMOTE TO PROPOSAL")
-          expect(page).to have_no_content("You can promote this emendation and publish it as an independent proposal")
+          expect(page).to have_no_text("PROMOTE TO PROPOSAL")
+          expect(page).to have_no_text("You can promote this emendation and publish it as an independent proposal")
         end
       end
     end
@@ -112,7 +112,7 @@ describe "Amend Proposal", versioning: true do
 
           it "is shown the emendation from other user in the amendments list" do
             within "#amendment-list" do
-              expect(page).to have_content(emendation_title)
+              expect(page).to have_text(emendation_title)
             end
           end
         end
@@ -122,7 +122,7 @@ describe "Amend Proposal", versioning: true do
 
           it "is shown the emendation from other users in the amendments list" do
             within "#amendment-list" do
-              expect(page).to have_content(emendation_title)
+              expect(page).to have_text(emendation_title)
             end
           end
         end
@@ -136,7 +136,7 @@ describe "Amend Proposal", versioning: true do
         context "and visit an amendable proposal" do
           it "is shown the emendation from other users in the amendments list" do
             within "#amendment-list" do
-              expect(page).to have_content(emendation_title)
+              expect(page).to have_text(emendation_title)
             end
           end
         end
@@ -160,7 +160,7 @@ describe "Amend Proposal", versioning: true do
 
         before do
           visit proposal_path
-          expect(page).to have_content(proposal_title)
+          expect(page).to have_text(proposal_title)
         end
 
         it "is NOT shown a link to Amend it" do
@@ -185,7 +185,7 @@ describe "Amend Proposal", versioning: true do
       context "and visits an amendable proposal" do
         before do
           visit proposal_path
-          expect(page).to have_content(proposal_title)
+          expect(page).to have_text(proposal_title)
         end
 
         it "is shown a link to Amend it" do
@@ -207,22 +207,22 @@ describe "Amend Proposal", versioning: true do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           before do
-            expect(page).to have_content("Log in")
+            expect(page).to have_text("Log in")
             switch_to_host(component.organization.host)
             login_as user, scope: :user
             sleep 1
             visit proposal_path
-            expect(page).to have_content(proposal_title)
+            expect(page).to have_text(proposal_title)
             find("#dropdown-trigger-resource-#{proposal.id}").click
             click_on "Amend"
           end
 
           it "is shown the amendment create form" do
             expect(page).to have_no_css("#loginModal", visible: :visible), "Login modal was shown instead of amendment form"
-            expect(page).to have_content("Create your amendment")
+            expect(page).to have_text("Create your amendment")
             within ".new_amendment" do
-              expect(page).to have_content("Title")
-              expect(page).to have_content("Body")
+              expect(page).to have_text("Title")
+              expect(page).to have_text("Body")
               expect(page).to have_button("Create")
             end
           end
@@ -231,7 +231,7 @@ describe "Amend Proposal", versioning: true do
             before do
               login_as user, scope: :user
               visit proposal_path
-              expect(page).to have_content(proposal_title)
+              expect(page).to have_text(proposal_title)
               find("#dropdown-trigger-resource-#{proposal.id}").click
               click_on "Amend"
               within ".new_amendment" do
@@ -250,7 +250,7 @@ describe "Amend Proposal", versioning: true do
             before do
               login_as user, scope: :user
               visit proposal_path
-              expect(page).to have_content(proposal_title)
+              expect(page).to have_text(proposal_title)
               find("#dropdown-trigger-resource-#{proposal.id}").click
               click_on "Amend"
               within ".new_amendment" do
@@ -312,7 +312,7 @@ describe "Amend Proposal", versioning: true do
 
           it "is shown the amendment review form" do
             expect(page).to have_css(".edit_amendment")
-            expect(page).to have_content("Review the amendment")
+            expect(page).to have_text("Review the amendment")
             expect(page).to have_field("Title", with: emendation_title)
             expect(page).to have_field("Body", with: emendation_body)
             expect(page).to have_button("Accept amendment")
@@ -387,8 +387,8 @@ describe "Amend Proposal", versioning: true do
         end
 
         it "is shown the promote button" do
-          expect(page).to have_content("Promote to Proposal")
-          expect(page).to have_content("You can promote this emendation and publish it as an independent proposal")
+          expect(page).to have_text("Promote to Proposal")
+          expect(page).to have_text("You can promote this emendation and publish it as an independent proposal")
         end
 
         context "when the user clicks on the promote button" do
@@ -402,7 +402,7 @@ describe "Amend Proposal", versioning: true do
 
           it "is shown the Success Flash when the alert text is accepted" do
             accept_confirm
-            expect(page).to have_content("The amendment has been successfully published as a new proposal")
+            expect(page).to have_text("The amendment has been successfully published as a new proposal")
           end
 
           context "when the user visits again the rejected emendation" do
@@ -412,8 +412,8 @@ describe "Amend Proposal", versioning: true do
             end
 
             it "is NOT shown the promote button" do
-              expect(page).to have_no_content("PROMOTE TO PROPOSAL")
-              expect(page).to have_no_content("You can promote this emendation and publish it as an independent proposal")
+              expect(page).to have_no_text("PROMOTE TO PROPOSAL")
+              expect(page).to have_no_text("You can promote this emendation and publish it as an independent proposal")
             end
           end
         end
@@ -435,8 +435,8 @@ describe "Amend Proposal", versioning: true do
         end
 
         it "is NOT shown the promote button" do
-          expect(page).to have_no_content("PROMOTE TO PROPOSAL")
-          expect(page).to have_no_content("You can promote this emendation and publish it as an independent proposal")
+          expect(page).to have_no_text("PROMOTE TO PROPOSAL")
+          expect(page).to have_no_text("You can promote this emendation and publish it as an independent proposal")
         end
       end
     end
@@ -457,7 +457,7 @@ describe "Amend Proposal", versioning: true do
 
           it "is shown the emendation in the amendments list" do
             within "#amendment-list" do
-              expect(page).to have_content(emendation_title)
+              expect(page).to have_text(emendation_title)
             end
           end
         end
@@ -500,7 +500,7 @@ describe "Amend Proposal", versioning: true do
 
           it "is shown the emendation from other user in the amendments list" do
             within "#amendment-list" do
-              expect(page).to have_content(emendation_title)
+              expect(page).to have_text(emendation_title)
             end
           end
         end
@@ -510,7 +510,7 @@ describe "Amend Proposal", versioning: true do
 
           it "is shown the emendation from other users in the amendments list" do
             within "#amendment-list" do
-              expect(page).to have_content(emendation_title)
+              expect(page).to have_text(emendation_title)
             end
           end
         end
@@ -524,7 +524,7 @@ describe "Amend Proposal", versioning: true do
         context "and visit an amendable proposal" do
           it "is shown the emendation from other users in the amendments list" do
             within "#amendment-list" do
-              expect(page).to have_content(emendation_title)
+              expect(page).to have_text(emendation_title)
             end
           end
         end

@@ -13,6 +13,25 @@ module Decidim
 
         required_scopes "api:read", "api:write"
 
+        def handle_form_submission(form, &block)
+          command = block.call
+
+          result_record = nil
+
+          command.on(:ok) do |result|
+            # The result should be reloaded to reflect the associations
+            result_record = result.reload
+          end
+
+          command.on(:invalid) do
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
+          end
+
+          raise Decidim::Api::Errors::ValidationError, "Unexpected command result" if result_record.nil?
+
+          result_record
+        end
+
         def set_locale(locale:, toggle_translations:)
           raise I18n::InvalidLocale, "#{locale} is not a valid locale" unless available_locales.include?(locale)
 

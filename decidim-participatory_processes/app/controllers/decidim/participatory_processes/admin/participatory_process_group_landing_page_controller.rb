@@ -21,7 +21,7 @@ module Decidim
         end
 
         def scoped_resource
-          @scoped_resource ||= collection.find(params[:participatory_process_group_id])
+          @scoped_resource ||= collection.find(params.expect(:participatory_process_group_id))
         end
 
         def enforce_permission_to_update_resource

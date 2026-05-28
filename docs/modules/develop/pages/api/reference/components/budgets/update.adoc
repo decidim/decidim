@@ -6,10 +6,10 @@ When you want to update data in your budget component, you need to rely on the `
 
 [source]
 ----
-• title                 (optional) - JSON
-• description           (optional) - JSON
-• total_budget          (optional) - Integer
-• weight                (optional) - Integer
+• title                 (Optional) - JSON
+• description           (Optional) - JSON
+• total_budget          (Optional) - Integer
+• weight                (Optional) - Integer
 ----
 
 == Sample request
@@ -20,7 +20,7 @@ The `UpdateBudget` mutation allows authenticated users to update budgets in a De
 ----
 mutation updateBudget($componentId: ID!, $budgetId: ID!, $input: UpdateBudgetInput!){
   component(id: $componentId){
-    ...on BudgetsMutation{
+    ... on BudgetsMutation {
       budget(id: $budgetId){
         update(input: $input){
           id

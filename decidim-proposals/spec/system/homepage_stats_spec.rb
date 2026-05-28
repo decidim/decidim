@@ -21,13 +21,13 @@ describe "Homepage" do
 
   it "display unhidden proposal count" do
     within(".proposals_count") do
-      expect(page).to have_content(2)
+      expect(page).to have_text(2)
     end
   end
 
   it "display unhidden comments count" do
     within(".comments_count") do
-      expect(page).to have_content(4)
+      expect(page).to have_text(4)
     end
   end
 end

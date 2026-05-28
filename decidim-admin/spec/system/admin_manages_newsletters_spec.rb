@@ -23,7 +23,7 @@ describe "Admin manages newsletters" do
       visit decidim_admin.newsletters_path
 
       within "span[data-subscribed-count]" do
-        expect(page).to have_content(recipients_count)
+        expect(page).to have_text(recipients_count)
       end
     end
   end
@@ -80,11 +80,11 @@ describe "Admin manages newsletters" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("Preview")
-      expect(page).to have_content(translated(attributes[:subject]))
+      expect(page).to have_text("Preview")
+      expect(page).to have_text(translated(attributes[:subject]))
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:subject])} newsletter")
+      expect(page).to have_text("created the #{translated(attributes[:subject])} newsletter")
     end
   end
 
@@ -107,11 +107,11 @@ describe "Admin manages newsletters" do
     it "previews a newsletter" do
       visit decidim_admin.newsletter_path(newsletter)
 
-      expect(page).to have_content("A fancy newsletter for Sarah Kerrigan")
+      expect(page).to have_text("A fancy newsletter for Sarah Kerrigan")
       expect(page).to have_css("iframe[data-email-preview][src=\"#{decidim_admin.preview_newsletter_path(newsletter)}\"]")
 
       visit decidim_admin.preview_newsletter_path(newsletter)
-      expect(page).to have_content("Hello Sarah Kerrigan! Relevant content.")
+      expect(page).to have_text("Hello Sarah Kerrigan! Relevant content.")
     end
 
     context "when admin clicks on the 'send me a test email' button" do
@@ -122,7 +122,7 @@ describe "Admin manages newsletters" do
           click_on "Send me a test email"
         end
 
-        expect(page).to have_content("Newsletter has been sent")
+        expect(page).to have_text("Newsletter has been sent")
         expect(last_email.subject).to include("A fancy newsletter for")
       end
     end
@@ -138,7 +138,7 @@ describe "Admin manages newsletters" do
           end
         end
 
-        expect(page).to have_content("Newsletter has been sent")
+        expect(page).to have_text("Newsletter has been sent")
         expect(last_email.subject).to include("A fancy newsletter for")
       end
     end
@@ -172,11 +172,11 @@ describe "Admin manages newsletters" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("Preview")
-      expect(page).to have_content(translated(attributes[:subject]))
+      expect(page).to have_text("Preview")
+      expect(page).to have_text(translated(attributes[:subject]))
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:subject])} newsletter")
+      expect(page).to have_text("updated the #{translated(attributes[:subject])} newsletter")
     end
   end
 
@@ -221,20 +221,20 @@ describe "Admin manages newsletters" do
           end
 
           within "#recipients_count" do
-            expect(page).to have_content(recipients_count)
+            expect(page).to have_text(recipients_count)
           end
 
           within "form.newsletter_deliver .item__edit-sticky" do
             accept_confirm { click_on("Deliver newsletter") }
           end
 
-          expect(page).to have_content("Newsletters")
+          expect(page).to have_text("Newsletters")
           expect(page).to have_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
-          expect(page).to have_content("Has been sent to: All users")
-          expect(page).to have_content("5 / 5")
+          expect(page).to have_text("Has been sent to: All users")
+          expect(page).to have_text("5 / 5")
         end
       end
     end
@@ -260,7 +260,7 @@ describe "Admin manages newsletters" do
           end
 
           within "#recipients_count" do
-            expect(page).to have_content(0)
+            expect(page).to have_text(0)
           end
 
           within(".newsletter_deliver") do
@@ -268,26 +268,26 @@ describe "Admin manages newsletters" do
           end
 
           within "#recipients_count" do
-            expect(page).to have_content(recipients_count)
+            expect(page).to have_text(recipients_count)
           end
 
           click_on("Confirm recipients")
 
-          expect(page).to have_content(deliverable_users.first.name)
-          expect(page).to have_no_content(deliverable_users.last.name)
-          expect(page).to have_content(deliverable_users.first.email)
-          expect(page).to have_no_content(deliverable_users.last.email)
+          expect(page).to have_text(deliverable_users.first.name)
+          expect(page).to have_no_text(deliverable_users.last.name)
+          expect(page).to have_text(deliverable_users.first.email)
+          expect(page).to have_no_text(deliverable_users.last.email)
 
           perform_enqueued_jobs do
             accept_confirm { click_on("Deliver newsletter") }
 
-            expect(page).to have_content("Newsletters")
+            expect(page).to have_text("Newsletters")
             expect(page).to have_callout("Newsletter delivered successfully.")
           end
 
           within "tbody" do
-            expect(page).to have_content("Has been sent to: Verified users")
-            expect(page).to have_content("1 / 1")
+            expect(page).to have_text("Has been sent to: Verified users")
+            expect(page).to have_text("1 / 1")
           end
         end
       end
@@ -303,7 +303,7 @@ describe "Admin manages newsletters" do
           end
 
           within "#recipients_count" do
-            expect(page).to have_content(0)
+            expect(page).to have_text(0)
           end
 
           within(".newsletter_deliver") do
@@ -311,26 +311,26 @@ describe "Admin manages newsletters" do
           end
 
           within "#recipients_count" do
-            expect(page).to have_content(recipients_count)
+            expect(page).to have_text(recipients_count)
           end
 
           click_on("Confirm recipients")
 
-          expect(page).to have_content(deliverable_users.first.name)
-          expect(page).to have_content(deliverable_users.last.name)
-          expect(page).to have_content(deliverable_users.first.email)
-          expect(page).to have_content(deliverable_users.last.email)
+          expect(page).to have_text(deliverable_users.first.name)
+          expect(page).to have_text(deliverable_users.last.name)
+          expect(page).to have_text(deliverable_users.first.email)
+          expect(page).to have_text(deliverable_users.last.email)
 
           perform_enqueued_jobs do
             accept_confirm { click_on("Deliver newsletter") }
 
-            expect(page).to have_content("Newsletters")
+            expect(page).to have_text("Newsletters")
             expect(page).to have_callout("Newsletter delivered successfully.")
           end
 
           within "tbody" do
-            expect(page).to have_content("Has been sent to: Verified users")
-            expect(page).to have_content("2 / 2")
+            expect(page).to have_text("Has been sent to: Verified users")
+            expect(page).to have_text("2 / 2")
           end
         end
       end
@@ -353,24 +353,24 @@ describe "Admin manages newsletters" do
           end
 
           within "#recipients_count" do
-            expect(page).to have_content(recipients_count)
+            expect(page).to have_text(recipients_count)
           end
 
           click_on("Confirm recipients")
 
           deliverable_users.each do |user|
-            expect(page).to have_content(user.name)
-            expect(page).to have_content(user.email)
+            expect(page).to have_text(user.name)
+            expect(page).to have_text(user.email)
           end
 
           accept_confirm { click_on("Deliver newsletter") }
 
-          expect(page).to have_content("Newsletters")
+          expect(page).to have_text("Newsletters")
           expect(page).to have_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
-          expect(page).to have_content("5 / 5")
+          expect(page).to have_text("5 / 5")
         end
       end
 
@@ -383,10 +383,10 @@ describe "Admin manages newsletters" do
 
         it "has a working user counter" do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
-          expect(page).to have_content("This newsletter will be send to 5 users.")
+          expect(page).to have_text("This newsletter will be send to 5 users.")
           check("Send to followers")
           select_all
-          expect(page).to have_content("This newsletter will be send to 3 users.")
+          expect(page).to have_text("This newsletter will be send to 3 users.")
         end
       end
     end
@@ -402,7 +402,7 @@ describe "Admin manages newsletters" do
 
       it "has a working user counter" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
-        expect(page).to have_content("This newsletter will be send to 5 users.")
+        expect(page).to have_text("This newsletter will be send to 5 users.")
         check("Send to participants")
 
         expect(find("input[name='newsletter[send_to_participants]']")).to be_checked
@@ -410,7 +410,7 @@ describe "Admin manages newsletters" do
         plural_name = assembly.model_name.route_key
         select_id = "##{plural_name}-spaces-select"
         tom_select(select_id, option_id: translated(assembly.title))
-        expect(page).to have_content("This newsletter will be send to 0 users.")
+        expect(page).to have_text("This newsletter will be send to 0 users.")
       end
 
       it "sends to participants", :slow do
@@ -421,24 +421,24 @@ describe "Admin manages newsletters" do
 
         select_all
 
-        expect(page).to have_content("This newsletter will be send to 5 users.")
+        expect(page).to have_text("This newsletter will be send to 5 users.")
 
         click_on("Confirm recipients")
 
         deliverable_users.each do |user|
-          expect(page).to have_content(user.name)
-          expect(page).to have_content(user.email)
+          expect(page).to have_text(user.name)
+          expect(page).to have_text(user.email)
         end
 
         perform_enqueued_jobs do
           accept_confirm { click_on("Deliver newsletter") }
 
-          expect(page).to have_content("Newsletters")
+          expect(page).to have_text("Newsletters")
           expect(page).to have_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
-          expect(page).to have_content("5 / 5")
+          expect(page).to have_text("5 / 5")
         end
       end
     end
@@ -466,19 +466,19 @@ describe "Admin manages newsletters" do
         select_all
 
         within "#recipients_count" do
-          expect(page).to have_content(recipients_count)
+          expect(page).to have_text(recipients_count)
         end
 
         click_on("Confirm recipients")
 
         perform_enqueued_jobs do
           accept_confirm { click_on("Deliver newsletter") }
-          expect(page).to have_content("Newsletters")
+          expect(page).to have_text("Newsletters")
           expect(page).to have_callout("Newsletter delivered successfully.")
         end
 
         within "tbody" do
-          expect(page).to have_content("10 / 10")
+          expect(page).to have_text("10 / 10")
         end
       end
     end
@@ -505,23 +505,23 @@ describe "Admin manages newsletters" do
           select_all
 
           within "#recipients_count" do
-            expect(page).to have_content(recipients_count)
+            expect(page).to have_text(recipients_count)
           end
 
           click_on("Confirm recipients")
 
           # The users are paginated
-          expect(page).to have_content("Results per page")
-          expect(page).to have_content("Next")
+          expect(page).to have_text("Results per page")
+          expect(page).to have_text("Next")
 
           perform_enqueued_jobs do
             accept_confirm { click_on("Deliver newsletter") }
-            expect(page).to have_content("Newsletters")
+            expect(page).to have_text("Newsletters")
             expect(page).to have_callout("Newsletter delivered successfully.")
           end
 
           within "tbody" do
-            expect(page).to have_content("30 / 30")
+            expect(page).to have_text("30 / 30")
           end
         end
       end
@@ -536,14 +536,14 @@ describe "Admin manages newsletters" do
           select_all
 
           within "#recipients_count" do
-            expect(page).to have_content("0")
+            expect(page).to have_text("0")
           end
 
           click_on("Confirm recipients")
 
           # Check that no users are displayed
-          expect(page).to have_no_content("Results per page")
-          expect(page).to have_no_content("Next")
+          expect(page).to have_no_text("Results per page")
+          expect(page).to have_no_text("Next")
           within "tbody" do
             expect(page).to have_no_css("tr")
           end
@@ -563,7 +563,7 @@ describe "Admin manages newsletters" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_content("Newsletter destroyed successfully.")
+      expect(page).to have_text("Newsletter destroyed successfully.")
       expect(page).to have_no_css("tr[data-newsletter-id=\"#{newsletter.id}\"]")
     end
   end

@@ -22,7 +22,7 @@ module Decidim
     def user
       return unless params[:nickname]
 
-      @user ||= current_organization.users.find_by("nickname = ?", params[:nickname].downcase)
+      @user ||= current_organization.users.find_by("nickname = ?", params.expect(:nickname).downcase)
     end
 
     def activities

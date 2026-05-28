@@ -119,6 +119,13 @@ module Decidim
           permissions
         end
 
+        def user_can_perform_admin_actions?(user)
+          Decidim::Admin::Permissions.new(
+            user,
+            Decidim::PermissionAction.new(scope: :admin, action: :read, subject: :admin_dashboard)
+          ).permissions.allowed?
+        end
+
         def api_scope
           return :admin if determine_required_scopes.present? && determine_required_scopes.map { |scope| scope.split(":").first }.include?("admin")
 
@@ -128,7 +135,7 @@ module Decidim
 
       private
 
-      delegate :allowed_to?, :api_scope, to: :class
+      delegate :allowed_to?, :user_can_perform_admin_actions?, :api_scope, to: :class
 
       attr_reader :action
     end

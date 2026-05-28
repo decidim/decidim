@@ -77,10 +77,10 @@ describe "User activity" do
         within "#activities-container" do
           expect(page).to have_css("[data-activity]", count: 3)
 
-          expect(page).to have_content(translated(resource.title))
-          expect(page).to have_content(translated(comment.commentable.title))
-          expect(page).to have_content(translated(resource3.title))
-          expect(page).to have_no_content(translated(resource2.title))
+          expect(page).to have_text(translated(resource.title))
+          expect(page).to have_text(translated(comment.commentable.title))
+          expect(page).to have_text(translated(resource3.title))
+          expect(page).to have_no_text(translated(resource2.title))
         end
       end
     end
@@ -95,10 +95,10 @@ describe "User activity" do
       within "#activities-container" do
         expect(page).to have_css("[data-activity]", count: 2)
 
-        expect(page).to have_content(translated(resource.title))
-        expect(page).to have_content(translated(comment.commentable.title))
-        expect(page).to have_no_content(translated(resource2.title))
-        expect(page).to have_no_content(translated(resource3.title))
+        expect(page).to have_text(translated(resource.title))
+        expect(page).to have_text(translated(comment.commentable.title))
+        expect(page).to have_no_text(translated(resource2.title))
+        expect(page).to have_no_text(translated(resource3.title))
       end
     end
 

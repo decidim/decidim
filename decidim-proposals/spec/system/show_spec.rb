@@ -15,7 +15,7 @@ describe "show" do
 
   context "when shows the proposal component" do
     it "shows the proposal title" do
-      expect(page).to have_content proposal.title[I18n.locale.to_s]
+      expect(page).to have_text proposal.title[I18n.locale.to_s]
     end
   end
 end

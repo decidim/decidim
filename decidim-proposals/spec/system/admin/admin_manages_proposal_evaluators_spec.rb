@@ -48,7 +48,7 @@ describe "Admin manages proposals evaluators" do
       end
 
       it "assigns the proposals to the evaluator" do
-        expect(page).to have_content("Proposals assigned to a evaluator successfully")
+        expect(page).to have_text("Proposals assigned to a evaluator successfully")
 
         within "tr", text: translated(proposal.title) do
           expect(page).to have_css("td.evaluators-count", text: 1)
@@ -58,7 +58,7 @@ describe "Admin manages proposals evaluators" do
       it "displays log" do
         sleep 1
         visit decidim_admin.root_path
-        expect(page).to have_content("assigned the #{translated(proposal.title)} proposal to a evaluator")
+        expect(page).to have_text("assigned the #{translated(proposal.title)} proposal to a evaluator")
       end
     end
   end
@@ -84,7 +84,7 @@ describe "Admin manages proposals evaluators" do
       end
 
       it "assigns the proposals to the evaluator" do
-        expect(page).to have_content("Proposals assigned to a evaluator successfully")
+        expect(page).to have_text("Proposals assigned to a evaluator successfully")
 
         within "tr", text: translated(proposal.title) do
           expect(page).to have_css("td.evaluators-count", text: 2)
@@ -104,8 +104,8 @@ describe "Admin manages proposals evaluators" do
     end
 
     it "only shows the proposals assigned to the selected evaluator" do
-      expect(page).to have_content(translated(assigned_proposal.title))
-      expect(page).to have_content(translated(unassigned_proposal.title))
+      expect(page).to have_text(translated(assigned_proposal.title))
+      expect(page).to have_text(translated(unassigned_proposal.title))
 
       within ".filters__section" do
         find("a", text: "Filter").click
@@ -113,8 +113,8 @@ describe "Admin manages proposals evaluators" do
         find("a", text: evaluator.name).click
       end
 
-      expect(page).to have_content(translated(assigned_proposal.title))
-      expect(page).to have_no_content(translated(unassigned_proposal.title))
+      expect(page).to have_text(translated(assigned_proposal.title))
+      expect(page).to have_no_text(translated(unassigned_proposal.title))
     end
   end
 
@@ -151,7 +151,7 @@ describe "Admin manages proposals evaluators" do
       end
 
       it "unassigns the proposals from the evaluator" do
-        expect(page).to have_content("Evaluator unassigned from proposals successfully")
+        expect(page).to have_text("Evaluator unassigned from proposals successfully")
 
         within "tr", text: translated(proposal.title) do
           expect(page).to have_css("td.evaluators-count", text: 0)
@@ -186,7 +186,7 @@ describe "Admin manages proposals evaluators" do
       end
 
       it "unassigns the proposals from the evaluator" do
-        expect(page).to have_content("Evaluator unassigned from proposals successfully")
+        expect(page).to have_text("Evaluator unassigned from proposals successfully")
 
         within "tr", text: translated(proposal.title) do
           expect(page).to have_css("td.evaluators-count", text: 0)
@@ -210,14 +210,14 @@ describe "Admin manages proposals evaluators" do
 
     it "can unassign a evaluator" do
       within "#evaluators" do
-        expect(page).to have_content(evaluator.name)
+        expect(page).to have_text(evaluator.name)
 
         accept_confirm do
           find("a.red-icon").click
         end
       end
 
-      expect(page).to have_content("Evaluator unassigned from proposals successfully")
+      expect(page).to have_text("Evaluator unassigned from proposals successfully")
 
       expect(page).to have_no_selector("#evaluators")
     end

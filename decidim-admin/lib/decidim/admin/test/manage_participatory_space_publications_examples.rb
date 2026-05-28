@@ -24,7 +24,7 @@ shared_examples "manage participatory space publications" do
 
       visit public_collection_path
 
-      expect(page).to have_content(translated_attribute(participatory_space.title))
+      expect(page).to have_text(translated_attribute(participatory_space.title))
     end
   end
 
@@ -54,7 +54,7 @@ shared_examples "manage participatory space publications" do
 
       visit public_collection_path
 
-      expect(page).to have_content("The page you are looking for cannot be found")
+      expect(page).to have_text("The page you are looking for cannot be found")
     end
   end
 end

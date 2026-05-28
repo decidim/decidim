@@ -104,7 +104,7 @@ module Decidim
         end
 
         def survey
-          @survey ||= collection.find(params[:id])
+          @survey ||= collection.find(params.expect(:id))
         end
 
         def collection

@@ -3,6 +3,7 @@
 
   </div>
   <%# form_build automatically adds this tag when the editor form field is called but as this is rendered with ajax it will be ignored so we manually put here %>
+  <%= append_javascript_pack_tag "decidim_editor", defer: false %>
   <%= append_stylesheet_pack_tag "decidim_editor" %>
   <%= append_stylesheet_pack_tag "decidim_geocoding" %>
 <% end %>

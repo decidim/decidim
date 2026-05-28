@@ -18,7 +18,7 @@ describe "Admin edits documents" do
       find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
-    expect(page).to have_content("Edit collaborative texts")
+    expect(page).to have_text("Edit collaborative texts")
 
     fill_in "Title", with: "This is an edited title test"
     fill_in_editor :document_body, with: "body edited"
@@ -32,7 +32,7 @@ describe "Admin edits documents" do
       click_on "Configure"
     end
 
-    expect(page).to have_content("Configure collaborative texts")
+    expect(page).to have_text("Configure collaborative texts")
     fill_in_i18n_editor(:document_announcement, "#document-announcement-tabs", { en: "New announcement" })
 
     click_on "Update"
@@ -42,7 +42,7 @@ describe "Admin edits documents" do
     expect(document.reload.title).to eq("This is an edited title test")
     expect(document.accepting_suggestions?).to be true
     expect(document.body).to eq("<p>body edited</p>")
-    expect(document.announcement["en"]).to have_content("New announcement")
+    expect(document.announcement["en"]).to have_text("New announcement")
   end
 
   context "when title is invalid" do
@@ -72,10 +72,10 @@ describe "Admin edits documents" do
         find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
-      expect(page).to have_content("Edit collaborative texts")
+      expect(page).to have_text("Edit collaborative texts")
 
       fill_in "Title", with: "This is an edited title test"
-      expect(page).to have_content("This document has suggestions and cannot be edited directly")
+      expect(page).to have_text("This document has suggestions and cannot be edited directly")
       fill_in_editor :document_body, with: "body edited"
       uncheck "Enable suggestions"
       click_on "Update"
@@ -88,13 +88,22 @@ describe "Admin edits documents" do
       expect(document.body).not_to eq("<p>body edited</p>")
     end
 
+    it "shows the export dropdown button" do
+      within("tr", text: "This is my document new title") do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page).to have_button(I18n.t("decidim.admin.actions.export_all"))
+    end
+
     it "can discard suggestions by creating a new version" do
       expect(document.current_version.suggestions.count).to eq(1)
       within("tr", text: "This is my document new title") do
         find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
-      expect(page).to have_content("Edit collaborative texts")
+      expect(page).to have_text("Edit collaborative texts")
 
       check "Discard suggestions and create a new draft version"
       click_on "Update"
@@ -108,8 +117,8 @@ describe "Admin edits documents" do
         find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
-      expect(page).to have_content("Version 1")
-      expect(page).to have_content("Version 2")
+      expect(page).to have_text("Version 1")
+      expect(page).to have_text("Version 2")
       uncheck "Draft version"
       click_on "Update"
       expect(page).to have_callout "Document successfully updated"

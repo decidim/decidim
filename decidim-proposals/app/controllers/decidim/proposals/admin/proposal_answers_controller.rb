@@ -73,7 +73,7 @@ module Decidim
         end
 
         def proposal
-          @proposal ||= Proposal.where(component: current_component).find(params[:id])
+          @proposal ||= Proposal.where(component: current_component).find(params.expect(:id))
         end
 
         def proposals
