@@ -29,8 +29,8 @@ module Decidim
             Assembly.transaction do
               duplicate_assembly
               duplicate_assembly_attachments
+              duplicate_landing_page_blocks
               duplicate_assembly_components if @form.duplicate_components?
-              duplicate_landing_page_blocks if @form.duplicate_landing_page_blocks?
             end
           end
 
