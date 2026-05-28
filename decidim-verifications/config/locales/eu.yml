@@ -18,7 +18,7 @@ eu:
         document_type: Dokumentu mota
       id_document_upload:
         document_number: Dokumentuaren zenbakia (letraz)
-        document_type: Dokumentuaren mota
+        document_type: Dokumentu mota
         user: Parte-hartzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
       mobile_phone:
@@ -193,7 +193,7 @@ eu:
               example: |
                 john.doe@example.org
                 jane.doe@example.org
-              info: 'CSV formatudun fitxategia izan behar da zutabe bakarra duena honako helbide elektroniko honekin:'
+              info: 'CSV formatudun artxiboa izan behar da zutabe bakarra duena honako helbide elektroniko honekin:'
               submit: Igo fitxategia
               title: Inportatu errolda-datuak
               upload_new_census: Igo beste errolda bat
@@ -246,7 +246,7 @@ eu:
           config:
             edit:
               title: Nortasun agirien konfigurazioa
-              update: eguneratzearen
+              update: Eguneratu
             update:
               error: Arazo bat egon da konfigurazioa eguneratzean.
               success: Ezarpena zuzen eguneratua.
