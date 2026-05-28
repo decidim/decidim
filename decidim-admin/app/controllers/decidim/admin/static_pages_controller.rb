@@ -73,7 +73,7 @@ module Decidim
       end
 
       def update
-        @page = collection.find(params[:id])
+        @page = collection.find(params.expect(:id))
         enforce_permission_to :update, :static_page, static_page: page
         @form = form(StaticPageForm).from_params(form_params)
 

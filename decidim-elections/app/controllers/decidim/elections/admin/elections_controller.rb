@@ -160,7 +160,7 @@ module Decidim
         end
 
         def election
-          @election ||= elections.find(params[:id])
+          @election ||= elections.find(params.expect(:id))
         end
 
         def election_questions

@@ -2,17 +2,17 @@
 
 shared_examples "shows questions in an election" do
   it "shows all the questions" do
-    expect(page).to have_content(translated_attribute(election.title))
+    expect(page).to have_text(translated_attribute(election.title))
 
     within ".questions-list" do
       election.questions.each do |question|
-        expect(page).to have_content(translated_attribute(question.body))
+        expect(page).to have_text(translated_attribute(question.body))
         question.response_options.each do |option|
-          expect(page).to have_no_content(translated_attribute(option.body))
+          expect(page).to have_no_text(translated_attribute(option.body))
         end
         click_on translated_attribute(question.body)
         question.response_options.each do |option|
-          expect(page).to have_content(translated_attribute(option.body))
+          expect(page).to have_text(translated_attribute(option.body))
         end
       end
     end
@@ -21,29 +21,29 @@ end
 
 def fill_in_votes
   expect(page).to have_current_path(election_vote_path(election.questions.first))
-  expect(page).to have_content(translated_attribute(election.questions.first.body))
-  expect(page).to have_content(strip_tags(translated_attribute(election.questions.first.description)))
+  expect(page).to have_text(translated_attribute(election.questions.first.body))
+  expect(page).to have_text(strip_tags(translated_attribute(election.questions.first.description)))
   choose translated_attribute(election.questions.first.response_options.first.body)
   click_on "Next"
   expect(page).to have_current_path(election_vote_path(election.questions.second))
-  expect(page).to have_content(translated_attribute(election.questions.second.body))
-  expect(page).to have_content(strip_tags(translated_attribute(election.questions.second.description)))
+  expect(page).to have_text(translated_attribute(election.questions.second.body))
+  expect(page).to have_text(strip_tags(translated_attribute(election.questions.second.description)))
   check translated_attribute(election.questions.second.response_options.first.body)
   check translated_attribute(election.questions.second.response_options.second.body)
   click_on "Next"
   expect(page).to have_current_path(confirm_election_votes_path)
-  expect(page).to have_content("Confirm your vote")
-  expect(page).to have_content(translated_attribute(election.questions.first.body))
-  expect(page).to have_content(translated_attribute(election.questions.first.response_options.first.body))
-  expect(page).to have_no_content(translated_attribute(election.questions.first.response_options.second.body))
-  expect(page).to have_content(translated_attribute(election.questions.second.body))
-  expect(page).to have_content(translated_attribute(election.questions.second.response_options.first.body))
-  expect(page).to have_content(translated_attribute(election.questions.second.response_options.second.body))
+  expect(page).to have_text("Confirm your vote")
+  expect(page).to have_text(translated_attribute(election.questions.first.body))
+  expect(page).to have_text(translated_attribute(election.questions.first.response_options.first.body))
+  expect(page).to have_no_text(translated_attribute(election.questions.first.response_options.second.body))
+  expect(page).to have_text(translated_attribute(election.questions.second.body))
+  expect(page).to have_text(translated_attribute(election.questions.second.response_options.first.body))
+  expect(page).to have_text(translated_attribute(election.questions.second.response_options.second.body))
   click_on "Cast vote"
-  expect(page).to have_content("Your vote has been successfully cast.")
+  expect(page).to have_text("Your vote has been successfully cast.")
   click_on "Exit the voting booth"
   expect(page).to have_current_path(election_path)
-  expect(page).to have_content("You have already voted.")
+  expect(page).to have_text("You have already voted.")
   expect(election.votes.where(voter_uid:).size).to eq(3)
 end
 
@@ -62,7 +62,7 @@ shared_examples "an internal users authentication voter form" do
     expect(page).to have_current_path(election_path)
     click_on "Vote"
     expect(page).to have_current_path(new_election_vote_path)
-    expect(page).to have_content("Verify your identity")
+    expect(page).to have_text("Verify your identity")
     expect(page).to have_button("Log in")
     expect(page).to have_link("Create an account")
     click_on "Log in"
@@ -76,7 +76,7 @@ shared_examples "an internal users authentication voter form" do
     expect(page).to have_current_path(election_path)
     click_on "Vote"
     expect(page).to have_current_path(new_election_vote_path)
-    expect(page).to have_content("Verify your identity")
+    expect(page).to have_text("Verify your identity")
     expect(page).to have_button("Log in")
     expect(page).to have_link("Create an account")
     click_on "Create an account"
@@ -88,7 +88,7 @@ shared_examples "an internal users authentication voter form" do
       check "Receive an occasional newsletter with relevant information"
       click_on "Create an account"
     end
-    expect(page).to have_content("A message with a confirmation link has been sent to your email address.")
+    expect(page).to have_text("A message with a confirmation link has been sent to your email address.")
   end
 end
 
@@ -97,7 +97,7 @@ shared_examples "an internal users verification voter form" do
     expect(page).to have_current_path(election_path)
     click_on "Vote"
     expect(page).to have_current_path(new_election_vote_path)
-    expect(page).to have_content("Verify your identity")
+    expect(page).to have_text("Verify your identity")
     click_on "Verify with Example authorization"
     fill_in "Document number", with: "12345678X"
     fill_in "Postal code", with: "08002"
@@ -109,12 +109,12 @@ shared_examples "an internal users verification voter form" do
     expect(page).to have_current_path(election_path)
     click_on "Vote"
     expect(page).to have_current_path(new_election_vote_path)
-    expect(page).to have_content("Verify your identity")
+    expect(page).to have_text("Verify your identity")
     click_on "Verify with Example authorization"
     fill_in "Document number", with: "12345678X"
     fill_in "Postal code", with: "08003"
     click_on "Send"
-    expect(page).to have_content("You are not authorized to vote in this election.")
+    expect(page).to have_text("You are not authorized to vote in this election.")
   end
 end
 
@@ -122,11 +122,11 @@ shared_examples "a csv token votable election" do
   it "allows the user to vote" do
     click_on "Vote"
     expect(page).to have_current_path(new_election_vote_path)
-    expect(page).to have_content("Verify your identity")
+    expect(page).to have_text("Verify your identity")
     fill_in "Email", with: "bob@example.org"
     fill_in "Token", with: "123456"
     click_on "Access"
-    expect(page).to have_content("The email or token is not valid.")
+    expect(page).to have_text("The email or token is not valid.")
     fill_in "Email", with: election.voters.first.data["email"]
     fill_in "Token", with: election.voters.first.data["token"]
     click_on "Access"
@@ -148,7 +148,7 @@ shared_examples "a csv token votable election" do
     click_on "Next"
     expect(page).to have_current_path(confirm_election_votes_path)
     click_on "Cast vote"
-    expect(page).to have_content("There was a problem casting your vote.")
+    expect(page).to have_text("There was a problem casting your vote.")
     click_on "Edit your vote"
     expect(page).to have_current_path(election_vote_path(election.questions.first))
     expect(find("input[value='#{election.questions.first.response_options.first.id}']")).not_to be_checked
@@ -159,10 +159,10 @@ shared_examples "a csv token votable election" do
     check translated_attribute(election.questions.second.response_options.first.body)
     click_on "Next"
     click_on "Cast vote"
-    expect(page).to have_content("Your vote has been successfully cast.")
+    expect(page).to have_text("Your vote has been successfully cast.")
     click_on "Exit the voting booth"
     expect(page).to have_current_path(election_path)
-    expect(page).to have_content("You have already voted.")
+    expect(page).to have_text("You have already voted.")
     expect(election.votes.where(voter_uid:).size).to eq(2)
   end
 end
@@ -182,10 +182,10 @@ shared_examples "an editable votable election" do
     click_on "Next"
     expect(page).to have_current_path(confirm_election_votes_path)
     click_on "Cast vote"
-    expect(page).to have_content("Your vote has been successfully cast.")
+    expect(page).to have_text("Your vote has been successfully cast.")
     click_on "Exit the voting booth"
     expect(page).to have_current_path(election_path)
-    expect(page).to have_content("You have already voted.")
+    expect(page).to have_text("You have already voted.")
     expect(election.votes.where(voter_uid:).size).to eq(3)
   end
 end
@@ -195,7 +195,7 @@ shared_examples "a csv token editable votable election" do
     expect(page).to have_link("Vote")
     click_on "Vote"
     expect(page).to have_current_path(new_election_vote_path)
-    expect(page).to have_content("Verify your identity")
+    expect(page).to have_text("Verify your identity")
     fill_in "Email", with: election.voters.first.data["email"]
     fill_in "Token", with: election.voters.first.data["token"]
     click_on "Access"
@@ -210,10 +210,10 @@ shared_examples "a csv token editable votable election" do
     click_on "Next"
     expect(page).to have_current_path(confirm_election_votes_path)
     click_on "Cast vote"
-    expect(page).to have_content("Your vote has been successfully cast.")
+    expect(page).to have_text("Your vote has been successfully cast.")
     click_on "Exit the voting booth"
     expect(page).to have_current_path(election_path)
-    expect(page).to have_content("You have already voted.")
+    expect(page).to have_text("You have already voted.")
     expect(election.votes.where(voter_uid:).size).to eq(3)
   end
 end

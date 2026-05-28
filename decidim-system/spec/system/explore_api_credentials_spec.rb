@@ -26,12 +26,12 @@ describe "Explore API credentials" do
     expect(page).to have_current_path(decidim_system.api_users_path)
     within "table.stack" do
       header_cells = find_all("th")
-      expect(header_cells[0]).to have_content("Organization")
-      expect(header_cells[1]).to have_content("Name")
-      expect(header_cells[2]).to have_content("Key")
-      expect(header_cells[3]).to have_content("Secret")
-      expect(header_cells[4]).to have_content("Created at")
-      expect(header_cells[5]).to have_content("Actions")
+      expect(header_cells[0]).to have_text("Organization")
+      expect(header_cells[1]).to have_text("Name")
+      expect(header_cells[2]).to have_text("Key")
+      expect(header_cells[3]).to have_text("Secret")
+      expect(header_cells[4]).to have_text("Created at")
+      expect(header_cells[5]).to have_text("Actions")
     end
   end
 
@@ -50,9 +50,9 @@ describe "Explore API credentials" do
         api_users.each do |user|
           tr = find("td", text: user.api_key).find(:xpath, "..")
           row_cells = tr.find_all("td")
-          expect(row_cells.first).to have_content(user.organization.host)
-          expect(row_cells[1]).to have_content(user.name)
-          expect(row_cells[2]).to have_content(user.api_key)
+          expect(row_cells.first).to have_text(user.organization.host)
+          expect(row_cells[1]).to have_text(user.name)
+          expect(row_cells[2]).to have_text(user.api_key)
           expect(row_cells.last).to have_link("Remove user")
           expect(row_cells.last).to have_link("Refresh secret")
         end
@@ -62,19 +62,19 @@ describe "Explore API credentials" do
 
     it "removes the API user" do
       deleting_user = set.last
-      expect(page).to have_content(deleting_user.api_key)
+      expect(page).to have_text(deleting_user.api_key)
       within "table.stack" do
         delete_tr = find("td", text: deleting_user.api_key).find(:xpath, "..")
         within delete_tr do
           click_link_or_button "Remove user"
         end
       end
-      expect(page).to have_content("Are you sure you want to remove this API user?")
+      expect(page).to have_text("Are you sure you want to remove this API user?")
       click_link_or_button "OK"
-      expect(page).to have_content("API user successfully deleted.")
+      expect(page).to have_text("API user successfully deleted.")
       expect(page).to have_current_path(decidim_system.api_users_path)
       expect(Decidim::Api::ApiUser.count).to eq(6)
-      expect(page).to have_no_content(deleting_user.api_key)
+      expect(page).to have_no_text(deleting_user.api_key)
     end
 
     it "refreshes the secret" do
@@ -84,23 +84,23 @@ describe "Explore API credentials" do
       within refreshing_tr do
         click_link_or_button "Refresh secret"
       end
-      expect(page).to have_content("Are you sure you want to refresh the secret for this API user?")
+      expect(page).to have_text("Are you sure you want to refresh the secret for this API user?")
       click_link_or_button "OK"
-      expect(page).to have_content("Secret refreshed successfully.")
+      expect(page).to have_text("Secret refreshed successfully.")
       expect(page).to have_current_path(decidim_system.api_users_path)
       expect(Decidim::Api::ApiUser.count).to eq(7)
       within refreshing_tr do
         expect(page).to have_button("Copy secret")
       end
       click_link_or_button("Copy secret")
-      expect(page).to have_content("Copied")
+      expect(page).to have_text("Copied")
     end
 
     it "creates a new API user" do
       click_link_or_button "New API user"
       expect(page).to have_current_path(decidim_system.new_api_user_path)
-      expect(page).to have_content("Create new API user")
-      expect(page).to have_content("Select your organization")
+      expect(page).to have_text("Create new API user")
+      expect(page).to have_text("Select your organization")
       click_link_or_button "Create"
       expect(page).to have_current_path(decidim_system.new_api_user_path)
       select "#{translated(organization.name)} (#{organization.host})", from: "admin_organization"
@@ -111,19 +111,19 @@ describe "Explore API credentials" do
         expect(page).to have_css("option", text: "#{translated(organization.name)} (#{organization.host})")
       end
       click_link_or_button "Create"
-      expect(page).to have_content("API user created successfully.")
+      expect(page).to have_text("API user created successfully.")
       expect(page).to have_current_path(decidim_system.api_users_path)
       within "table.stack" do
-        expect(page).to have_content("Dummy name")
+        expect(page).to have_text("Dummy name")
         new_tr = find("td", text: "Dummy name").find(:xpath, "..")
         within new_tr do
-          expect(page).to have_content(dummy_token)
+          expect(page).to have_text(dummy_token)
           expect(page).to have_button("Copy secret")
         end
       end
       click_link_or_button "Copy secret"
       expect(page).to have_no_link("Copy secret")
-      expect(page).to have_content("Copied")
+      expect(page).to have_text("Copied")
     end
 
     it "toggles masked secret by clicking 'show password' toggler" do
@@ -131,7 +131,7 @@ describe "Explore API credentials" do
       select "#{translated(organization.name)} (#{organization.host})", from: "admin_organization"
       fill_in "Name", with: "Dummy name"
       click_link_or_button "Create"
-      expect(page).to have_content("API user created successfully.")
+      expect(page).to have_text("API user created successfully.")
 
       masked_user = Decidim::Api::ApiUser.order(:id).last
       secret_input = find("input#token_#{masked_user.id}")

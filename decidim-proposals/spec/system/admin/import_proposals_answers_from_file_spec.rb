@@ -46,12 +46,12 @@ describe "Import proposals answers from a file" do
 
   describe "import answers from a file" do
     it "has start import button" do
-      expect(page).to have_content("Import")
+      expect(page).to have_text("Import")
     end
 
     it "returns error without a file" do
       click_on "Import"
-      expect(page).to have_content("There is an error in this field")
+      expect(page).to have_text("There is an error in this field")
     end
 
     it "adds proposal answers after successfully import" do
@@ -61,7 +61,7 @@ describe "Import proposals answers from a file" do
       expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times
 
       click_on "Import"
-      expect(page).to have_content("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
+      expect(page).to have_text("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
       answers.each do |answer|
         proposal = Decidim::Proposals::Proposal.find(answer[:id])
         expect(proposal.state).to eq(answer[:state])
@@ -75,7 +75,7 @@ describe "Import proposals answers from a file" do
       File.write(json_file, JSON.pretty_generate(missing_answers))
       dynamically_attach_file(:import_file, json_file)
       click_on "Import"
-      expect(page).to have_content("Missing column answer/en. Please check that the file contains required columns.")
+      expect(page).to have_text("Missing column answer/en. Please check that the file contains required columns.")
     end
 
     context "with nested JSON" do
@@ -100,7 +100,7 @@ describe "Import proposals answers from a file" do
         expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times
 
         click_on "Import"
-        expect(page).to have_content("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
+        expect(page).to have_text("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
         answers.each do |answer|
           proposal = Decidim::Proposals::Proposal.find(answer[:id])
           expect(proposal.state).to eq(answer[:state])
@@ -114,12 +114,12 @@ describe "Import proposals answers from a file" do
 
   describe "download examples", download: true do
     it "provides example downloads" do
-      expect(page).to have_content("Download example")
+      expect(page).to have_text("Download example")
 
       click_on "Download example"
-      expect(page).to have_content("Example as CSV")
-      expect(page).to have_content("Example as JSON")
-      expect(page).to have_content("Example as Excel (.xlsx)")
+      expect(page).to have_text("Example as CSV")
+      expect(page).to have_text("Example as JSON")
+      expect(page).to have_text("Example as Excel (.xlsx)")
     end
 
     context "when downloading the examples" do

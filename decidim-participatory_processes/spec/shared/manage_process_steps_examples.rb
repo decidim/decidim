@@ -52,12 +52,12 @@ shared_examples "manage process steps examples" do
     expect(page).to have_callout("Participatory process phase successfully created.")
 
     within "#steps table" do
-      expect(page).to have_content(translated(attributes[:title]))
-      expect(page).to have_content(Time.new.utc.day)
-      expect(page).to have_content((Time.new.utc + 2.days).day)
+      expect(page).to have_text(translated(attributes[:title]))
+      expect(page).to have_text(Time.new.utc.day)
+      expect(page).to have_text((Time.new.utc + 2.days).day)
     end
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:title])} phase in")
+    expect(page).to have_text("created the #{translated(attributes[:title])} phase in")
   end
 
   it "updates a participatory_process_step", versioning: true do
@@ -78,12 +78,12 @@ shared_examples "manage process steps examples" do
     expect(page).to have_callout("Participatory process phase successfully updated.")
 
     within "#steps table" do
-      expect(page).to have_content(translated(attributes[:title]))
+      expect(page).to have_text(translated(attributes[:title]))
       click_on(translated(attributes[:title]))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("updated the #{translated(attributes[:title])} phase in")
+    expect(page).to have_text("updated the #{translated(attributes[:title])} phase in")
   end
 
   context "when deleting a participatory process step" do
@@ -102,7 +102,7 @@ shared_examples "manage process steps examples" do
       expect(page).to have_callout("Participatory process phase successfully deleted.")
 
       within "#steps table" do
-        expect(page).to have_no_content(translated(process_step2.title))
+        expect(page).to have_no_text(translated(process_step2.title))
       end
     end
   end
@@ -115,7 +115,7 @@ shared_examples "manage process steps examples" do
       end
 
       within "tr", text: translated(process_step.title) do
-        expect(page).to have_no_content("Activate")
+        expect(page).to have_no_text("Activate")
       end
     end
   end

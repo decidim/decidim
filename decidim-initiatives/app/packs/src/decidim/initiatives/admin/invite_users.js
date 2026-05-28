@@ -15,7 +15,7 @@ document.addEventListener("turbo:load", () => {
 
       try {
         document.execCommand("copy");
-      } catch (err) { }
+      } catch { }
 
       window.getSelection().removeAllRanges();
     });

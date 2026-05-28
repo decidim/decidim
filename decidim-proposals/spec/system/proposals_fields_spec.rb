@@ -63,9 +63,9 @@ describe "Proposals" do
           click_on "Publish"
 
           expect(page).to have_callout("Proposal successfully published.")
-          expect(page).to have_content("More sidewalks and less roads")
-          expect(page).to have_content("Cities need more people, not more cars")
-          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+          expect(page).to have_text("More sidewalks and less roads")
+          expect(page).to have_text("Cities need more people, not more cars")
+          expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
           expect(page).to have_author(user.name)
         end
 
@@ -78,7 +78,7 @@ describe "Proposals" do
             within ".edit_proposal" do
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
-              expect(page).to have_no_content(decidim_sanitize_translated(root_taxonomy.name))
+              expect(page).to have_no_text(decidim_sanitize_translated(root_taxonomy.name))
 
               find("*[type=submit]").click
             end
@@ -86,9 +86,9 @@ describe "Proposals" do
             click_on "Publish"
 
             expect(page).to have_callout("Proposal successfully published.")
-            expect(page).to have_content("More sidewalks and less roads")
-            expect(page).to have_content("Cities need more people, not more cars")
-            expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
+            expect(page).to have_text("More sidewalks and less roads")
+            expect(page).to have_text("Cities need more people, not more cars")
+            expect(page).to have_no_text(decidim_sanitize_translated(taxonomy.name))
             expect(page).to have_author(user.name)
           end
         end
@@ -116,7 +116,7 @@ describe "Proposals" do
               fill_in_geocoding :proposal_address, with: address
 
               expect(page).to have_css("[data-decidim-map]")
-              expect(page).to have_content("You can move the point on the map.")
+              expect(page).to have_text("You can move the point on the map.")
 
               select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
@@ -130,10 +130,10 @@ describe "Proposals" do
             click_on "Publish"
 
             expect(page).to have_callout("Proposal successfully published.")
-            expect(page).to have_content("More sidewalks and less roads")
-            expect(page).to have_content("Cities need more people, not more cars")
-            expect(page).to have_content(address)
-            expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+            expect(page).to have_text("More sidewalks and less roads")
+            expect(page).to have_text("Cities need more people, not more cars")
+            expect(page).to have_text(address)
+            expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
             expect(page).to have_author(user.name)
           end
 
@@ -175,8 +175,8 @@ describe "Proposals" do
             it "redirects to the authorization form" do
               visit_component
               click_on "New proposal"
-              expect(page).to have_content("We need to verify your identity")
-              expect(page).to have_content("Verify with Example authorization")
+              expect(page).to have_text("We need to verify your identity")
+              expect(page).to have_text("Verify with Example authorization")
             end
           end
 
@@ -197,7 +197,7 @@ describe "Proposals" do
             it "redirects to pending onboarding authorizations page" do
               visit_component
               click_on "New proposal"
-              expect(page).to have_content("You are almost ready to create a proposal")
+              expect(page).to have_text("You are almost ready to create a proposal")
               expect(page).to have_css("a[data-verification]", count: 2)
             end
           end
@@ -233,7 +233,7 @@ describe "Proposals" do
             click_on "Publish"
 
             expect(page).to have_callout("Proposal successfully published.")
-            expect(page).to have_content("Images")
+            expect(page).to have_text("Images")
 
             within "#panel-images" do
               expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)
@@ -255,29 +255,29 @@ describe "Proposals" do
 
               # Attach one card image and two document images and go to preview
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
-              expect(page).to have_content("city.jpeg")
+              expect(page).to have_text("city.jpeg")
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
-              expect(page).to have_content("city.jpeg")
-              expect(page).to have_content("city2.jpeg")
+              expect(page).to have_text("city.jpeg")
+              expect(page).to have_text("city2.jpeg")
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
-              expect(page).to have_content("city.jpeg")
-              expect(page).to have_content("city2.jpeg")
-              expect(page).to have_content("city3.jpeg")
+              expect(page).to have_text("city.jpeg")
+              expect(page).to have_text("city2.jpeg")
+              expect(page).to have_text("city3.jpeg")
 
               within ".edit_proposal" do
                 find("*[type=submit]").click
               end
 
               # From preview, go back to edit
-              expect(page).to have_content("Your proposal has not yet been published")
+              expect(page).to have_text("Your proposal has not yet been published")
               click_on "Modify the proposal"
 
               # See that the images are in correct positions and remove the card
               # image.
               within "[data-active-uploads]" do
-                expect(page).to have_content("city.jpeg")
-                expect(page).to have_content("city2.jpeg")
-                expect(page).to have_content("city3.jpeg")
+                expect(page).to have_text("city.jpeg")
+                expect(page).to have_text("city2.jpeg")
+                expect(page).to have_text("city3.jpeg")
               end
 
               within ".upload-container-for-documents" do
@@ -295,13 +295,13 @@ describe "Proposals" do
               end
 
               # From preview, go back to edit
-              expect(page).to have_content("Your proposal has not yet been published")
+              expect(page).to have_text("Your proposal has not yet been published")
               click_on "Modify the proposal"
 
               within "[data-active-uploads]" do
-                expect(page).to have_no_content("city.jpeg")
-                expect(page).to have_content("city2.jpeg")
-                expect(page).to have_content("city3.jpeg")
+                expect(page).to have_no_text("city.jpeg")
+                expect(page).to have_text("city2.jpeg")
+                expect(page).to have_text("city3.jpeg")
               end
             end
           end
@@ -341,7 +341,7 @@ describe "Proposals" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_no_content("successfully")
+          expect(page).to have_no_text("successfully")
           expect(page).to have_css("[data-alert-box].alert", text: "limit")
         end
       end

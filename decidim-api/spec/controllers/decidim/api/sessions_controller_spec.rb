@@ -40,7 +40,7 @@ describe Decidim::Api::SessionsController do
       expect(response).to have_http_status(:ok)
       token = request.env[Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]
       expect(token).to be_present
-      parsed_response_body = JSON.parse(response.body)
+      parsed_response_body = response.parsed_body
       expect(parsed_response_body["jwt_token"]).to eq(token)
     end
 
@@ -55,7 +55,7 @@ describe Decidim::Api::SessionsController do
       request.env[Warden::JWTAuth::Middleware::TokenDispatcher::ENV_KEY] = nil
       post(:create, params:)
       expect(request.env[Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]).to be_present
-      parsed_response_body = JSON.parse(response.body)
+      parsed_response_body = response.parsed_body
       expect(parsed_response_body.has_key?("jwt_token")).to be(false)
     end
   end

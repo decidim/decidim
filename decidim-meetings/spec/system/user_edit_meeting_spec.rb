@@ -41,7 +41,7 @@ describe "User edit meeting" do
       find("#dropdown-trigger-resource-#{meeting.id}").click
       click_on "Edit"
 
-      expect(page).to have_content "Edit Your Meeting"
+      expect(page).to have_text "Edit Your Meeting"
 
       within "form.meetings_form" do
         fill_in :meeting_title, with: "Dummy title2"
@@ -52,16 +52,16 @@ describe "User edit meeting" do
       end
 
       within ".flash__message" do
-        expect(page).to have_content("You have updated the meeting successfully.")
+        expect(page).to have_text("You have updated the meeting successfully.")
       end
 
-      expect(page).to have_content("Dummy title2")
-      expect(page).to have_content(new_description)
+      expect(page).to have_text("Dummy title2")
+      expect(page).to have_text(new_description)
 
       find("#dropdown-trigger-resource-#{meeting.id}").click
       click_on "Edit"
 
-      expect(page).to have_content "Edit Your Meeting"
+      expect(page).to have_text "Edit Your Meeting"
 
       within "form.meetings_form" do
         fill_in :meeting_title, with: "Dummy title3"
@@ -72,7 +72,7 @@ describe "User edit meeting" do
       end
 
       within ".flash__message" do
-        expect(page).to have_content("There was a problem updating the meeting")
+        expect(page).to have_text("There was a problem updating the meeting")
       end
     end
   end
@@ -102,10 +102,10 @@ describe "User edit meeting" do
 
           expect(page).to have_css("div.sr-announce")
           within "div.sr-announce" do
-            expect(page).to have_content("There are errors on the form, please correct them to continue.")
+            expect(page).to have_text("There are errors on the form, please correct them to continue.")
           end
 
-          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_text("There is an error in this field.")
           expect(page).to have_no_css("*[type=submit][data-disable='true']")
           expect(find("button[type='submit']")).not_to be_disabled
         end
@@ -119,7 +119,7 @@ describe "User edit meeting" do
       find("#dropdown-trigger-resource-#{meeting.id}").click
       click_on "Edit"
 
-      expect(page).to have_content "Edit Your Meeting"
+      expect(page).to have_text "Edit Your Meeting"
 
       within "form.meetings_form" do
         fill_in :meeting_title, with: new_title
@@ -129,9 +129,9 @@ describe "User edit meeting" do
         click_on "Update"
       end
 
-      expect(page).to have_content(new_title)
-      expect(page).to have_content(new_description)
-      expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+      expect(page).to have_text(new_title)
+      expect(page).to have_text(new_description)
+      expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
     end
 
     context "when using the front-end geocoder" do
@@ -154,7 +154,7 @@ describe "User edit meeting" do
           find("#dropdown-trigger-resource-#{meeting.id}").click
           click_on "Edit"
 
-          expect(page).to have_content "Edit Your Meeting"
+          expect(page).to have_text "Edit Your Meeting"
         end
       end
     end
@@ -167,14 +167,14 @@ describe "User edit meeting" do
         find("#dropdown-trigger-resource-#{meeting.id}").click
         click_on "Edit"
 
-        expect(page).to have_content "Edit Your Meeting"
+        expect(page).to have_text "Edit Your Meeting"
 
         within "form.meetings_form" do
           fill_in :meeting_description, with: " "
           click_on "Update"
         end
 
-        expect(page).to have_content("There is an error in this field.")
+        expect(page).to have_text("There is an error in this field.")
       end
     end
 
@@ -188,15 +188,15 @@ describe "User edit meeting" do
         find("#dropdown-trigger-resource-#{meeting.id}").click
         click_on "Edit"
 
-        expect(page).to have_content "Edit Your Meeting"
+        expect(page).to have_text "Edit Your Meeting"
 
         within "form.meetings_form" do
           expect(page).to have_no_css("div.editor-input")
         end
 
         within "textarea#meeting_description" do
-          expect(page).to have_content translated(meeting.description)
-          expect(page).to have_no_content '<div class="editor-input">'
+          expect(page).to have_text translated(meeting.description)
+          expect(page).to have_no_text '<div class="editor-input">'
         end
       end
     end
@@ -211,10 +211,10 @@ describe "User edit meeting" do
       visit_component
 
       click_on translated(meeting.title)
-      expect(page).to have_no_content("Edit meeting")
+      expect(page).to have_no_text("Edit meeting")
       visit "#{current_path}/edit"
 
-      expect(page).to have_content("not authorized")
+      expect(page).to have_text("not authorized")
     end
   end
 end

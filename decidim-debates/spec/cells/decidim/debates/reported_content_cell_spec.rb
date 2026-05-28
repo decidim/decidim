@@ -11,8 +11,8 @@ module Decidim::Debates
     context "when rendering" do
       it "renders the debate's title and description" do
         html = cell("decidim/reported_content", debate).call
-        expect(html).to have_content("the debate's title")
-        expect(html).to have_content("the debate's description")
+        expect(html).to have_text("the debate's title")
+        expect(html).to have_text("the debate's description")
       end
     end
   end

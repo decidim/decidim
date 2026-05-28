@@ -1,3 +1,9 @@
 <% add_decidim_page_title(t(".title")) %>
 
-<%= link_to user.email, "mailto:#{user.email}" %>
+<% if user.present? %>
+  <%= link_to user.email, "mailto:#{user.email}" %>
+<% else %>
+  <div class="flash alert my-0">
+    <%= t(".no_user") %>
+  </div>
+<% end %>

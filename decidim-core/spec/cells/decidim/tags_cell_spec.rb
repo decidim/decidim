@@ -39,13 +39,13 @@ describe Decidim::TagsCell, type: :cell do
     it "renders the taxonomy of a resource" do
       html = cell("decidim/tags", resource_taxonomies, context: { extra_classes: ["tags--resource"] }).call
       expect(html).to have_css(".tag-container.tags--resource")
-      expect(html).to have_content(decidim_sanitize_translated(taxonomy.name))
+      expect(html).to have_text(decidim_sanitize_translated(taxonomy.name))
     end
 
     it "renders the sub taxonomy of a resource" do
       html = cell("decidim/tags", resource_sub_taxonomies, context: { extra_classes: ["tags--resource"] }).call
       expect(html).to have_css(".tag-container.tags--resource")
-      expect(html).to have_content(decidim_sanitize_translated(sub_taxonomy.name))
+      expect(html).to have_text(decidim_sanitize_translated(sub_taxonomy.name))
     end
 
     it "renders the correct filtering link" do

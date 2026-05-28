@@ -45,14 +45,14 @@ module Decidim
           end
 
           def edit
-            @attachment = collection.find(params[:id])
+            @attachment = collection.find(params.expect(:id))
             enforce_permission_to(:update, :attachment, attachment:)
             @form = form(::Decidim::Admin::AttachmentForm).from_model(@attachment, attached_to:)
             render template: "decidim/admin/attachments/edit"
           end
 
           def update
-            @attachment = collection.find(params[:id])
+            @attachment = collection.find(params.expect(:id))
             enforce_permission_to(:update, :attachment, attachment:)
             @form = form(::Decidim::Admin::AttachmentForm).from_params(attachment_params, attached_to:)
 
@@ -70,7 +70,7 @@ module Decidim
           end
 
           def destroy
-            @attachment = collection.find(params[:id])
+            @attachment = collection.find(params.expect(:id))
             enforce_permission_to(:destroy, :attachment, attachment:)
 
             Decidim.traceability.perform_action!("delete", @attachment, current_user) do
@@ -113,7 +113,7 @@ module Decidim
           private
 
           def attachment_params
-            { id: params[:id] }.merge(params[:attachment].to_unsafe_h)
+            { id: params.expect(:id) }.merge(params.fetch(:attachment, {}).to_unsafe_h)
           end
         end
       end
