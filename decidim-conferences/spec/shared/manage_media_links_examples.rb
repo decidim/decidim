@@ -34,11 +34,11 @@ shared_examples "manage media links examples" do
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_conferences.conference_media_links_path(conference)
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:title])} media link")
+      expect(page).to have_text("created the #{translated(attributes[:title])} media link")
     end
   end
 
@@ -51,7 +51,7 @@ shared_examples "manage media links examples" do
 
     it "shows conference media links list" do
       within "#media_links table" do
-        expect(page).to have_content(translated(media_link.title))
+        expect(page).to have_text(translated(media_link.title))
       end
     end
 
@@ -75,10 +75,10 @@ shared_examples "manage media links examples" do
       expect(page).to have_current_path decidim_admin_conferences.conference_media_links_path(conference)
 
       within "#media_links table" do
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(media_link.title)} media link")
+      expect(page).to have_text("updated the #{translated(media_link.title)} media link")
     end
 
     it "deletes the conference media link" do
@@ -90,7 +90,7 @@ shared_examples "manage media links examples" do
       expect(page).to have_callout("Media link successfully deleted.")
 
       within "#media_links table" do
-        expect(page).to have_no_content(translated(media_link.title))
+        expect(page).to have_no_text(translated(media_link.title))
       end
     end
   end

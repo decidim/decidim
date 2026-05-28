@@ -28,29 +28,29 @@ describe "Amendment Diff", versioning: true do
       it_behaves_like "accessible page"
 
       it "shows the changed attributes compared to the last version of the amended proposal" do
-        expect(page).to have_content('Amendment to "Updated long enough title"')
+        expect(page).to have_text('Amendment to "Updated long enough title"')
 
         within "#diff-for-title-english" do
-          expect(page).to have_content("Title")
+          expect(page).to have_text("Title")
 
           within ".diff > ul > .del" do
-            expect(page).to have_content("Original long enough title")
+            expect(page).to have_text("Original long enough title")
           end
 
           within ".diff > ul > .ins" do
-            expect(page).to have_content("Amended long enough title")
+            expect(page).to have_text("Amended long enough title")
           end
         end
 
         within "#diff-for-body-english" do
-          expect(page).to have_content("Body")
+          expect(page).to have_text("Body")
 
           within ".diff > ul > .del" do
-            expect(page).to have_content("Original one liner body")
+            expect(page).to have_text("Original one liner body")
           end
 
           within ".diff > ul > .ins" do
-            expect(page).to have_content("Amended one liner body")
+            expect(page).to have_text("Amended one liner body")
           end
         end
       end
@@ -66,29 +66,29 @@ describe "Amendment Diff", versioning: true do
       end
 
       it "shows the changed attributes compared to the version of the amended proposal at the moment of making the amendment" do
-        expect(page).to have_content('Amendment to "Updated long enough title"')
+        expect(page).to have_text('Amendment to "Updated long enough title"')
 
         within "#diff-for-title-english" do
-          expect(page).to have_content("Title")
+          expect(page).to have_text("Title")
 
           within ".diff > ul > .del" do
-            expect(page).to have_content("Original long enough title")
+            expect(page).to have_text("Original long enough title")
           end
 
           within ".diff > ul > .ins" do
-            expect(page).to have_content("Amended long enough title")
+            expect(page).to have_text("Amended long enough title")
           end
         end
 
         within "#diff-for-body-english" do
-          expect(page).to have_content("Body")
+          expect(page).to have_text("Body")
 
           within ".diff > ul > .del" do
-            expect(page).to have_content("Original one liner body")
+            expect(page).to have_text("Original one liner body")
           end
 
           within ".diff > ul > .ins" do
-            expect(page).to have_content("Amended one liner body")
+            expect(page).to have_text("Amended one liner body")
           end
         end
       end
@@ -103,17 +103,17 @@ describe "Amendment Diff", versioning: true do
       end
 
       it "shows NO changes in the body" do
-        expect(page).to have_content('Amendment to "Original long enough title"')
+        expect(page).to have_text('Amendment to "Original long enough title"')
 
         within "#diff-for-body-english" do
-          expect(page).to have_content("Body")
+          expect(page).to have_text("Body")
 
           within all(".diff > ul > .ins").first do
-            expect(page).to have_content("One liner body")
+            expect(page).to have_text("One liner body")
           end
 
           within all(".diff > ul > .ins").last do
-            expect(page).to have_content("Amended")
+            expect(page).to have_text("Amended")
           end
         end
       end
@@ -145,26 +145,26 @@ describe "Amendment Diff", versioning: true do
 
       it "shows the changed attributes compared to the last version of the amended proposal", versioning: true do
         within "#diff-for-title-english" do
-          expect(page).to have_content("Title")
+          expect(page).to have_text("Title")
 
           within ".diff > ul > .del" do
-            expect(page).to have_content("Original long enough title")
+            expect(page).to have_text("Original long enough title")
           end
 
           within ".diff > ul > .ins" do
-            expect(page).to have_content("Amended long enough title")
+            expect(page).to have_text("Amended long enough title")
           end
         end
 
         within "#diff-for-body-english" do
-          expect(page).to have_content("Body")
+          expect(page).to have_text("Body")
 
           within ".diff > ul > .del" do
-            expect(page).to have_content("Original one liner body")
+            expect(page).to have_text("Original one liner body")
           end
 
           within ".diff > ul > .ins" do
-            expect(page).to have_content("Amended one liner body")
+            expect(page).to have_text("Amended one liner body")
           end
         end
       end

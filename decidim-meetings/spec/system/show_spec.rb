@@ -16,7 +16,7 @@ describe "show" do
 
   context "when shows the meeting component" do
     it "shows the meeting title" do
-      expect(page).to have_content meeting.title[I18n.locale.to_s]
+      expect(page).to have_text meeting.title[I18n.locale.to_s]
     end
 
     it "shows the meeting reference" do
@@ -36,7 +36,7 @@ describe "show" do
     end
 
     it "shows correct the time zone" do
-      expect(page).to have_content("UTC")
+      expect(page).to have_text("UTC")
     end
 
     context "when the organization has a different timezone" do
@@ -47,7 +47,7 @@ describe "show" do
       end
 
       it "shows the correct time zone" do
-        expect(page).to have_content("HST")
+        expect(page).to have_text("HST")
       end
     end
 
@@ -56,7 +56,7 @@ describe "show" do
       let!(:meeting) { create(:meeting, :published, author: user.reload, component:) }
 
       it "successfully shows the page" do
-        expect(page).to have_content("Deleted participant")
+        expect(page).to have_text("Deleted participant")
       end
     end
 

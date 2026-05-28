@@ -19,10 +19,10 @@ shared_examples "import proposals to projects" do
 
     click_on "Import proposals to projects"
 
-    expect(page).to have_content("3 proposals successfully imported")
+    expect(page).to have_text("3 proposals successfully imported")
 
     proposals.each do |project|
-      expect(page).to have_content(project.title["en"])
+      expect(page).to have_text(project.title["en"])
     end
   end
 end

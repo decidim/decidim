@@ -14,7 +14,7 @@ describe "TOS" do
   context "when in registration form" do
     it "show tos checkbox" do
       within("div#card__tos") do
-        expect(page).to have_content("Terms of Service")
+        expect(page).to have_text("Terms of Service")
         expect(page).to have_css("label[for=\"registration_user_tos_agreement\"]")
         expect(page).to have_field(id: "registration_user_tos_agreement")
       end

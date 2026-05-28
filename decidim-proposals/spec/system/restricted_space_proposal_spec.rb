@@ -24,7 +24,7 @@ describe "Restricted Space Proposal" do
     end
 
     it "disallows the access" do
-      expect(page).to have_content("You are not authorized to perform this action")
+      expect(page).to have_text("You are not authorized to perform this action")
     end
   end
 
@@ -46,7 +46,7 @@ describe "Restricted Space Proposal" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Publish your proposal")
+        expect(page).to have_text("Publish your proposal")
       end
     end
 
@@ -59,7 +59,7 @@ describe "Restricted Space Proposal" do
       end
 
       it "disallows the access" do
-        expect(page).to have_content("You are not authorized to perform this action")
+        expect(page).to have_text("You are not authorized to perform this action")
       end
     end
 
@@ -83,7 +83,7 @@ describe "Restricted Space Proposal" do
           end
 
           it "displays the proposals votes count" do
-            expect(page).to have_content("Votes")
+            expect(page).to have_text("Votes")
           end
         end
 
@@ -96,7 +96,7 @@ describe "Restricted Space Proposal" do
           end
 
           it "displays the proposals votes count" do
-            expect(page).to have_content("Votes")
+            expect(page).to have_text("Votes")
           end
         end
       end

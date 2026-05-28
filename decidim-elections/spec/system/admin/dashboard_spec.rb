@@ -27,7 +27,7 @@ describe "Dashboard" do
       expect(page).to have_field("election[title_en]", with: translated(election.title), disabled: true)
       fill_in_i18n_editor(:election_description, "#election-description-tabs", { en: "Updated description" })
       click_on "Save and continue"
-      expect(page).to have_content("Election updated successfully.")
+      expect(page).to have_text("Election updated successfully.")
       expect(election.reload.description["en"]).to eq("<p>Updated description</p>")
     end
   end
@@ -62,18 +62,18 @@ describe "Dashboard" do
     let!(:election) { create(:election, :with_token_csv_census, component:) }
 
     it "shows publish button" do
-      expect(page).to have_content("Publish")
-      expect(page).to have_content("Main")
+      expect(page).to have_text("Publish")
+      expect(page).to have_text("Main")
       expect(page).to have_link("Edit", href: %r{/admin/.*/elections/\d+/edit\z})
-      expect(page).to have_content("Questions")
+      expect(page).to have_text("Questions")
       expect(page).to have_link("Edit", href: %r{/admin/.*/elections/\d+/edit_questions\z})
-      expect(page).to have_content("Census")
+      expect(page).to have_text("Census")
       expect(page).to have_link("Edit", href: %r{/admin/.*/elections/\d+/census\z})
       expect(all("table.table-list tbody tr").count).to eq(3)
 
       emails = election.voters.map { |v| v.data["email"] }
       emails.each do |email|
-        expect(page).to have_content(email)
+        expect(page).to have_text(email)
       end
     end
   end
@@ -84,9 +84,9 @@ describe "Dashboard" do
 
     context "and the election is not started" do
       it "shows the election scheduled status" do
-        expect(page).to have_content("Scheduled")
+        expect(page).to have_text("Scheduled")
         expect(page).to have_button("Start election")
-        expect(page).to have_content("Election has not started yet.")
+        expect(page).to have_text("Election has not started yet.")
       end
     end
 
@@ -94,7 +94,7 @@ describe "Dashboard" do
       let(:start_at) { 1.day.ago }
 
       it "shows the election as ongoing" do
-        expect(page).to have_content("Ongoing")
+        expect(page).to have_text("Ongoing")
         expect(page).to have_button("End election")
       end
     end
@@ -104,10 +104,10 @@ describe "Dashboard" do
     let!(:election) { create(:election, :with_token_csv_census, :scheduled, :published, component:) }
 
     it "shows the election scheduled status" do
-      expect(page).to have_content("Scheduled")
+      expect(page).to have_text("Scheduled")
       expect(page).to have_no_button("Start election")
       expected_date = election.start_at.strftime("%d/%m/%Y %H:%M")
-      expect(page).to have_content("Start time: #{expected_date}")
+      expect(page).to have_text("Start time: #{expected_date}")
     end
   end
 
@@ -118,8 +118,8 @@ describe "Dashboard" do
       let(:start_at) { 1.day.from_now }
 
       it "shows the election scheduled status" do
-        expect(page).to have_content("Scheduled")
-        expect(page).to have_content("Election has not started yet.")
+        expect(page).to have_text("Scheduled")
+        expect(page).to have_text("Election has not started yet.")
       end
     end
 
@@ -127,17 +127,17 @@ describe "Dashboard" do
       let(:start_at) { 1.day.ago }
 
       it "shows the election as ongoing" do
-        expect(page).to have_content("Ongoing")
+        expect(page).to have_text("Ongoing")
         expect(page).to have_button("End election")
-        expect(page).to have_content("Results")
-        expect(page).to have_no_content("Election has not started yet.")
-        expect(page).to have_no_content("Publish results")
+        expect(page).to have_text("Results")
+        expect(page).to have_no_text("Election has not started yet.")
+        expect(page).to have_no_text("Publish results")
       end
 
       it "shows total votes for each question" do
         questions.each do |question|
           within("#question_#{question.id}") do
-            expect(page).to have_content("Total")
+            expect(page).to have_text("Total")
             expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
           end
         end
@@ -168,12 +168,12 @@ describe "Dashboard" do
       let(:start_at) { 1.day.from_now }
 
       it "shows the election scheduled status" do
-        expect(page).to have_content("Scheduled")
-        expect(page).to have_content("Results")
-        expect(page).to have_content("Election has not started yet.")
-        expect(page).to have_content(first_question.body["en"])
-        expect(page).to have_content(second_question.body["en"])
-        expect(page).to have_content(third_question.body["en"])
+        expect(page).to have_text("Scheduled")
+        expect(page).to have_text("Results")
+        expect(page).to have_text("Election has not started yet.")
+        expect(page).to have_text(first_question.body["en"])
+        expect(page).to have_text(second_question.body["en"])
+        expect(page).to have_text(third_question.body["en"])
         expect(page).to have_no_button("Publish results")
         expect(page).to have_no_button("Publish results")
         expect(page).to have_no_button("Enable voting")
@@ -184,14 +184,14 @@ describe "Dashboard" do
       let(:start_at) { 1.minute.ago }
 
       it "shows the election as ongoing" do
-        expect(page).to have_content("Ongoing")
+        expect(page).to have_text("Ongoing")
         expect(page).to have_button("End election")
-        expect(page).to have_content("Voting is not yet enabled for any questions.")
+        expect(page).to have_text("Voting is not yet enabled for any questions.")
       end
 
       it "shows the results message" do
-        expect(page).to have_content("Results")
-        expect(page).to have_no_content("Election has not started yet.")
+        expect(page).to have_text("Results")
+        expect(page).to have_no_text("Election has not started yet.")
         expect(page).to have_button("Publish results", count: 0, disabled: false)
         expect(page).to have_button("Publish results", count: election.questions.size, disabled: true)
         expect(page).to have_button("Enable voting", count: 3, disabled: false)
@@ -200,7 +200,7 @@ describe "Dashboard" do
       it "shows total votes for each question" do
         questions.each do |question|
           within("#question_#{question.id}") do
-            expect(page).to have_content("Total")
+            expect(page).to have_text("Total")
             expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
           end
         end
@@ -214,21 +214,21 @@ describe "Dashboard" do
         end
 
         it "marks the first question as in progress" do
-          expect(page).to have_content("Voting enabled successfully.")
+          expect(page).to have_text("Voting enabled successfully.")
           within("#question_#{first_question.id}") do
-            expect(page).to have_content("Voting in progress")
+            expect(page).to have_text("Voting in progress")
             expect(page).to have_no_button("Enable voting")
             expect(page).to have_button("Publish results", disabled: false)
           end
 
           within("#question_#{second_question.id}") do
-            expect(page).to have_no_content("Voting in progress")
+            expect(page).to have_no_text("Voting in progress")
             expect(page).to have_button("Enable voting", disabled: false)
             expect(page).to have_button("Publish results", disabled: true)
           end
 
           within("#question_#{third_question.id}") do
-            expect(page).to have_no_content("Voting in progress")
+            expect(page).to have_no_text("Voting in progress")
             expect(page).to have_button("Enable voting", disabled: false)
             expect(page).to have_button("Publish results", disabled: true)
           end
@@ -242,11 +242,11 @@ describe "Dashboard" do
           end
 
           it "shows the published results status for the first question" do
-            expect(page).to have_content("Results published successfully.")
+            expect(page).to have_text("Results published successfully.")
             within("#question_#{first_question.id}") do
-              expect(page).to have_content("Published results")
-              expect(page).to have_no_content("Enable voting")
-              expect(page).to have_no_content("Publish results")
+              expect(page).to have_text("Published results")
+              expect(page).to have_no_text("Enable voting")
+              expect(page).to have_no_text("Publish results")
             end
 
             within("#question_#{second_question.id}") do
@@ -268,18 +268,18 @@ describe "Dashboard" do
     let!(:election) { create(:election, :with_token_csv_census, :after_end, :published, component:) }
 
     it "shows the election scheduled status" do
-      expect(page).to have_content("Scheduled")
-      expect(page).to have_content("Election has not started yet.")
+      expect(page).to have_text("Scheduled")
+      expect(page).to have_text("Election has not started yet.")
     end
 
     context "and the election is started" do
       let!(:election) { create(:election, :with_token_csv_census, :after_end, :published, :ongoing, component:) }
 
       it "shows the election as ongoing" do
-        expect(page).to have_content("Ongoing")
+        expect(page).to have_text("Ongoing")
         expect(page).to have_button("End election")
-        expect(page).to have_content("Results")
-        expect(page).to have_no_content("Election has not started yet.")
+        expect(page).to have_text("Results")
+        expect(page).to have_no_text("Election has not started yet.")
         expect(page).to have_no_button("Publish results")
       end
     end
@@ -288,15 +288,15 @@ describe "Dashboard" do
       let!(:election) { create(:election, :with_token_csv_census, :after_end, :published, :ongoing, :finished, component:) }
 
       it "shows the results message" do
-        expect(page).to have_content("Results")
-        expect(page).to have_no_content("Election has not started yet.")
+        expect(page).to have_text("Results")
+        expect(page).to have_no_text("Election has not started yet.")
         expect(page).to have_button("Publish results")
       end
 
       it "shows total votes for each question" do
         questions.each do |question|
           within("#question_#{question.id}") do
-            expect(page).to have_content("Total")
+            expect(page).to have_text("Total")
             expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
           end
         end
@@ -309,7 +309,7 @@ describe "Dashboard" do
 
     it "shows the published results status" do
       within ".status-label" do
-        expect(page).to have_content("Finished")
+        expect(page).to have_text("Finished")
       end
       expect(page).to have_no_button("Results published at")
     end
@@ -317,7 +317,7 @@ describe "Dashboard" do
     it "shows total votes for each question" do
       questions.each do |question|
         within("#question_#{question.id}") do
-          expect(page).to have_content("Total")
+          expect(page).to have_text("Total")
           expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
         end
       end

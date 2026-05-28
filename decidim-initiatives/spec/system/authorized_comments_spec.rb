@@ -26,17 +26,17 @@ describe "Authorized comments" do
 
   shared_examples_for "allowed to comment" do
     it do
-      expect(page).to have_no_content("You need to be verified to comment at this moment")
+      expect(page).to have_no_text("You need to be verified to comment at this moment")
       expect(page).to have_css("form.new_comment")
     end
   end
 
   shared_examples_for "not allowed to comment" do
     it do
-      expect(page).to have_content("You need to be verified to comment at this moment")
+      expect(page).to have_text("You need to be verified to comment at this moment")
       click_on("You need to be verified to comment at this moment")
-      expect(page).to have_content("We need to verify your identity")
-      expect(page).to have_content("Verify with Example authorization")
+      expect(page).to have_text("We need to verify your identity")
+      expect(page).to have_text("Verify with Example authorization")
     end
   end
 

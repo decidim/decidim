@@ -21,7 +21,7 @@ describe "Load more comments" do
 
   context "when there are more comments than the default limit" do
     it "shows the Load more comments button" do
-      expect(page).to have_content("Load more comments")
+      expect(page).to have_text("Load more comments")
     end
 
     it "loads more comments when clicking the button", :slow do
@@ -43,7 +43,7 @@ describe "Load more comments" do
     end
 
     it "shows the Load more comments button in the correct locale" do
-      expect(page).to have_content("Cargar más comentarios")
+      expect(page).to have_text("Cargar más comentarios")
     end
 
     it "loads more comments when clicking the button in the correct locale", :slow do
