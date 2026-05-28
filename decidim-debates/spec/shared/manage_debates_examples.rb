@@ -320,6 +320,39 @@ RSpec.shared_examples "manage debates" do
       end
     end
 
+    context "when the debate has a pre-existing attachment" do
+      let!(:debate_with_attachment) { create(:debate, component: current_component) }
+      let!(:document) { create(:attachment, :with_image, attached_to: debate_with_attachment) }
+
+      before do
+        visit_component_admin
+      end
+
+      it "can edit a debate with an attachment" do
+        within "tr[data-id=\"#{debate_with_attachment.id}\"]" do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit"
+        end
+
+        expect(page.html).to include(document.file.blob.filename.to_s)
+
+        fill_in_i18n(:debate_title, "#debate-title-tabs", en: "Updated debate title with attachments")
+        click_on "Update"
+
+        expect(page).to have_callout "Debate successfully updated"
+
+        visit_component_admin
+
+        within "tr", text: "Updated debate title with attachments" do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit"
+        end
+
+        expect(page.html).to include(document.file.blob.filename.to_s)
+        expect(page).to have_field("debate_title_en", with: "Updated debate title with attachments")
+      end
+    end
+
     context "when attachments are not allowed" do
       before do
         component_settings = current_component["settings"]["global"].merge!(attachments_allowed: false)
