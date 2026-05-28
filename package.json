@@ -38,7 +38,7 @@
     "@decidim/eslint-config": "file:packages/eslint-config",
     "@decidim/prettier-config": "file:packages/prettier-config",
     "@decidim/stylelint-config": "file:packages/stylelint-config",
-    "babel-jest": "^30.2.0",
+    "babel-jest": "^30.4.1",
     "concat-stream": "^2.0.0",
     "enzyme": "^3.11.0",
     "jest": "^30.2.0",
