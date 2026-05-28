@@ -32,12 +32,10 @@ describe "Admin manages external domain list" do
     end
 
     it "reorders the elements in the list" do
-      down_buttons = page.all(".external-domains-list button.move-down-question")
-      up_buttons = page.all(".external-domains-list button.move-up-question")
       within ".external-domains-list" do
-        down_buttons[0].click
-        up_buttons[2].click # there are 6 elements in the list, but only 5 buttons of "move up", first element is on the second input
-        down_buttons[4].click # there are 6 elements in the list, but only 5 buttons of "move down", last element is on the 5th input
+        all("button.move-down-question")[0].click
+        all("button.move-up-question")[2].click # there are 6 elements in the list, but only 5 buttons of "move up", first element is on the second input
+        all("button.move-down-question")[4].click # there are 6 elements in the list, but only 5 buttons of "move down", last element is on the 5th input
       end
 
       click_on "Update"
@@ -84,13 +82,12 @@ describe "Admin manages external domain list" do
       click_on "Add to allowed list"
       click_on "Add to allowed list"
 
-      inputs = page.all(".external-domains-list input[type=text]")
-      buttons = page.all(".external-domains-list button.move-down-question")
-
       within ".external-domains-list" do
-        inputs[0].set("example.org")
-        buttons[0].click
-        inputs[1].set("decidim.org")
+        expect(page).to have_css("input[type=text]", count: 2)
+        second_input = all("input[type=text]")[1]
+        all("input[type=text]")[0].set("example.org")
+        all("button.move-down-question")[0].click
+        second_input.set("decidim.org")
       end
 
       click_on "Update"
