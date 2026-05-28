@@ -43,7 +43,7 @@ describe Decidim::ProfileCell, type: :cell do
     end
 
     it "shows the officialization name" do
-      expect(subject).to have_content(decidim_sanitize_translated(user.officialized_as))
+      expect(subject).to have_text(decidim_sanitize_translated(user.officialized_as))
     end
   end
 end

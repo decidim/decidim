@@ -16,20 +16,35 @@ describe "Blogs component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    let(:stats) { raw_stats.select { |stat| stat[0] == :blogs } }
+    let(:stats) do
+      raw_stats.select { |stat| stat[0] == :blogs }
+    end
+
     let!(:post) { create(:post, component:) }
+    let!(:another_post) { create(:post, component:) }
+
     let(:current_stat) { stats.find { |stat| stat[1][:name] == stats_name } }
+
+    describe "posts_count" do
+      let(:stats_name) { :posts_count }
+
+      it "counts posts in the component" do
+        expect(Decidim::Blogs::Post.where(component:).count).to eq 2
+        expect(subject).to eq 2
+      end
+    end
 
     describe "comments_count" do
       let(:stats_name) { :comments_count }
 
       before do
         create_list(:comment, 3, commentable: post)
+        create_list(:comment, 5, commentable: another_post)
       end
 
-      it "counts the comments" do
-        expect(Decidim::Comments::Comment.count).to eq 3
-        expect(subject).to eq 3
+      it "counts the comments across all posts in the component" do
+        expect(Decidim::Comments::Comment.count).to eq 8
+        expect(subject).to eq 8
       end
     end
   end

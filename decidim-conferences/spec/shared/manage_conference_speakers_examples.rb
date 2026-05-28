@@ -15,7 +15,7 @@ shared_examples "manage conference speakers examples" do
 
   it "shows conference speakers list" do
     within "#conference_speakers table" do
-      expect(page).to have_content(conference_speaker.full_name)
+      expect(page).to have_text(conference_speaker.full_name)
     end
   end
 
@@ -36,10 +36,10 @@ shared_examples "manage conference speakers examples" do
       expect(page).to have_current_path decidim_admin_conferences.conference_speakers_path(conference)
 
       within "#conference_speakers table" do
-        expect(page).to have_content(attributes[:full_name])
+        expect(page).to have_text(attributes[:full_name])
       end
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{attributes[:full_name]} speaker in the")
+      expect(page).to have_text("created the #{attributes[:full_name]} speaker in the")
     end
   end
 
@@ -60,7 +60,7 @@ shared_examples "manage conference speakers examples" do
       expect(page).to have_current_path decidim_admin_conferences.conference_speakers_path(conference)
 
       within "#conference_speakers table" do
-        expect(page).to have_content("#{speaker_user.name} (@#{speaker_user.nickname})")
+        expect(page).to have_text("#{speaker_user.name} (@#{speaker_user.nickname})")
       end
     end
   end
@@ -89,10 +89,10 @@ shared_examples "manage conference speakers examples" do
       expect(page).to have_current_path decidim_admin_conferences.conference_speakers_path(conference)
 
       within "#conference_speakers table" do
-        expect(page).to have_content(attributes[:full_name])
+        expect(page).to have_text(attributes[:full_name])
       end
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{conference_speaker.full_name} speaker in the")
+      expect(page).to have_text("updated the #{conference_speaker.full_name} speaker in the")
     end
 
     it "deletes the conference speaker" do
@@ -104,7 +104,7 @@ shared_examples "manage conference speakers examples" do
       expect(page).to have_callout("Conference speaker successfully deleted.")
 
       within "#conference_speakers table" do
-        expect(page).to have_no_content(conference_speaker.full_name)
+        expect(page).to have_no_text(conference_speaker.full_name)
       end
     end
   end

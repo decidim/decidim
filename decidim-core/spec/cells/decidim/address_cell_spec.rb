@@ -28,12 +28,12 @@ describe Decidim::AddressCell, type: :cell do
     end
 
     it "renders a resource address and related fields" do
-      expect(icondata_address).to have_content(address_text)
-      expect(icondata_address).to have_content(hint_text)
-      expect(icondata_address).to have_content(location_text)
+      expect(icondata_address).to have_text(address_text)
+      expect(icondata_address).to have_text(hint_text)
+      expect(icondata_address).to have_text(location_text)
       expect(icondata_address.to_s).not_to match(/<script>/i)
-      expect(icondata_address).to have_no_content(model.latitude)
-      expect(icondata_address).to have_no_content(model.longitude)
+      expect(icondata_address).to have_no_text(model.latitude)
+      expect(icondata_address).to have_no_text(model.longitude)
     end
   end
 
@@ -46,7 +46,7 @@ describe Decidim::AddressCell, type: :cell do
     end
 
     it "renders pending address text" do
-      expect(subject.find(".address__location")).to have_content(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
+      expect(subject.find(".address__location")).to have_text(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
     end
   end
 
@@ -63,14 +63,14 @@ describe Decidim::AddressCell, type: :cell do
     end
 
     it "renders the URL" do
-      expect(subject).to have_content "https://decidim.org"
+      expect(subject).to have_text "https://decidim.org"
     end
 
     context "with a malformed URL" do
       let(:online_meeting_url) { "https://decidim.org/?v=h<script>alert(1)</script>" }
 
       it "renders the escaped URL" do
-        expect(subject).to have_content "https://decidim.org/?v=h%3Cscript%3Ealert(1)%3C/script%3E"
+        expect(subject).to have_text "https://decidim.org/?v=h%3Cscript%3Ealert(1)%3C/script%3E"
       end
     end
   end

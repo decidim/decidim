@@ -86,7 +86,7 @@ module Decidim
       end
 
       def current_component
-        @current_component ||= current_participatory_space.components.find(params[:component_id])
+        @current_component ||= current_participatory_space.components.find(params.expect(:component_id))
       end
 
       def parent_path

@@ -96,9 +96,9 @@ describe "Dashboard" do
 
       it "does not allow to vote" do
         expect(page).to have_no_link("Vote")
-        expect(page).to have_no_content("You have already voted.")
+        expect(page).to have_no_text("You have already voted.")
         visit new_election_vote_path
-        expect(page).to have_content("You are not authorized to perform this action.")
+        expect(page).to have_text("You are not authorized to perform this action.")
         expect(page).to have_current_path(decidim.root_path)
       end
     end
@@ -118,7 +118,7 @@ describe "Dashboard" do
     end
 
     it "shows max_choices in question title" do
-      expect(page).to have_content("Choose your options (Max choices: 2)")
+      expect(page).to have_text("Choose your options (Max choices: 2)")
     end
 
     it "shows alert when selecting more than max_choices" do
@@ -148,14 +148,14 @@ describe "Dashboard" do
 
       click_on "Next"
 
-      expect(page).to have_content("You cannot select more than 2 options")
+      expect(page).to have_text("You cannot select more than 2 options")
     end
 
     context "when question is single_option" do
       let!(:single_question) { create(:election_question, election: election_with_limit, question_type: "single_option", body: { en: "Choose one option" }) }
 
       it "does not show max_choices for single_option questions" do
-        expect(page).to have_no_content("Choose one option (Max choices:")
+        expect(page).to have_no_text("Choose one option (Max choices:")
       end
     end
   end

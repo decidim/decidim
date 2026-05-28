@@ -97,7 +97,7 @@ module Decidim
         end
 
         def conference_params
-          { id: params[:slug] }.merge(params[:conference].to_unsafe_h)
+          { id: params[:slug] }.merge(params.fetch(:conference, {}).to_unsafe_h)
         end
       end
     end

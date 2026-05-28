@@ -276,17 +276,17 @@ en:
             email_intro: '%{author_name} has created a private note in %{resource_title}. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.'
             email_outro: You have received this notification because you can evaluate the proposal.
             email_subject: Someone left a note on proposal %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has created a private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+            notification_title: <a href="%{author_path}">%{author_name}</a> has created a private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
           proposal_note_mentioned:
-            email_intro: You have been mentioned in a private note in "%{resource_title}" by "%{author_name}" "%{author_nickname}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
+            email_intro: You have been mentioned in a private note in "%{resource_title}" by "%{author_name}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
             email_outro: You have received this notification because you have been mentioned in a private note.
             email_subject: Someone mentioned you in a note on the proposal %{resource_title}.
-            notification_title: You have been mentioned in a private note in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+            notification_title: You have been mentioned in a private note in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
           proposal_note_replied:
             email_intro: '%{author_name} has replied your private note in %{resource_title}. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.'
             email_outro: You have received this notification because you are the author of the note.
             email_subject: "%{author_name} has replied your private note in %{resource_title}."
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has replied your private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+            notification_title: <a href="%{author_path}">%{author_name}</a> has replied your private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> has accepted your invitation to become a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
@@ -303,17 +303,17 @@ en:
           email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} has been accepted to access as a contributor of the %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} has been rejected to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} has been rejected to access as a contributor of the %{resource_title} collaborative draft."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> has been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="%{resource_url}">%{resource_title}</a> collaborative draft page.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} requested access to contribute to %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: You have been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
           email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
@@ -325,10 +325,10 @@ en:
           email_subject: You have been rejected as a contributor of %{resource_title}.
           notification_title: You have been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> withdrawn the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
+          email_intro: <a href="%{author_url}">%{author_name}</a> has withdrawn the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} withdrawn the %{resource_title} collaborative draft."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>withdrawn</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_subject: "%{author_name} has withdrawn the %{resource_title} collaborative draft."
+          notification_title: <a href="%{author_path}">%{author_name}</a> has <strong>withdrawn</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         creation_enabled:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
@@ -350,10 +350,10 @@ en:
           email_subject: The %{resource_title} proposal has been merged
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been merged by an admin.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, who you are following, has published a new proposal called "%{resource_title}". Check it out and contribute:'
-          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-          email_subject: New proposal "%{resource_title}" by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was published by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: '%{author_name}, who you are following, has published a new proposal called "%{resource_title}". Check it out and contribute:'
+          email_outro: You have received this notification because you are following %{author_name}. You can stop receiving notifications following the previous link.
+          email_subject: New proposal "%{resource_title}" by %{author_name}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was published by <a href="%{author_path}">%{author_name}</a>.
         proposal_published_for_space:
           email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can stop receiving notifications following the previous link.

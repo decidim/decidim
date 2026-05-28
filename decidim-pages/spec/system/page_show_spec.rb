@@ -30,7 +30,7 @@ describe "Show a page" do
       it_behaves_like "has embedded video in description", :body
 
       it "renders the content of the page" do
-        expect(page).to have_content("Content")
+        expect(page).to have_text("Content")
       end
     end
 
@@ -43,7 +43,7 @@ describe "Show a page" do
 
       it "shows an empty page with a message" do
         within "main" do
-          expect(page).to have_content("There are no contents in this page yet.")
+          expect(page).to have_text("There are no contents in this page yet.")
         end
       end
     end
@@ -63,7 +63,7 @@ describe "Show a page" do
 
       it "shows an empty page with a message" do
         within "main" do
-          expect(page).to have_content("There are no contents in this page yet.")
+          expect(page).to have_text("There are no contents in this page yet.")
         end
       end
     end
@@ -82,7 +82,7 @@ describe "Show a page" do
           visit_component
 
           within "main" do
-            expect(page).to have_content("Content")
+            expect(page).to have_text("Content")
           end
         end
       end
