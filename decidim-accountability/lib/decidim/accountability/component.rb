@@ -59,7 +59,7 @@ Decidim.register_component(:accountability) do |component|
                           icon_name: "chat-1-line",
                           tooltip_key: "comments_count",
                           tag: :comments do |components, _start_at, _end_at|
-    Decidim::Accountability::Result.where(component: components).count
+    Decidim::Accountability::Result.where(component: components).sum(:comments_count)
   end
 
   component.settings(:step) do |settings|
