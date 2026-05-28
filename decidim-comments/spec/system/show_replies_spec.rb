@@ -14,7 +14,7 @@ describe "Show replies" do
   before do
     switch_to_host(organization.host)
     visit resource_path
-    expect(page).to have_content(translated_attribute(commentable.title))
+    expect(page).to have_text(translated_attribute(commentable.title))
   end
 
   after do
