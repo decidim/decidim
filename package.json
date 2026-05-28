@@ -44,7 +44,7 @@
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-localstorage-mock": "^2.4.26",
-    "react-test-renderer": "^19.2.4",
+    "react-test-renderer": "^19.2.6",
     "yaml-jest": "^1.2.0"
   }
 }
