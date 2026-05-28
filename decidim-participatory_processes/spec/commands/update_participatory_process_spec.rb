@@ -79,7 +79,7 @@ module Decidim::ParticipatoryProcesses
           Admin::ParticipatoryProcessForm.from_params(params.deep_merge(participatory_process: { slug: "slug" })).with_context(context)
         end
 
-        it "raises a database error due to the unique constraint including soft-deleted records" do
+        it "is not valid when the slug matches a soft-deleted space" do
           expect { command.call }.to broadcast(:invalid)
         end
       end

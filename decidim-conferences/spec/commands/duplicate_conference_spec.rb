@@ -49,7 +49,7 @@ module Decidim::Conferences
                                                     })
       end
 
-      it "raises a database error due to the unique constraint including soft-deleted records" do
+      it "broadcasts invalid because the slug is already taken by a trashed space" do
         expect { subject.call }.to broadcast(:invalid)
       end
     end

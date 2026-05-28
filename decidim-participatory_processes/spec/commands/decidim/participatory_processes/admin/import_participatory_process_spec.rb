@@ -131,7 +131,7 @@ module Decidim::ParticipatoryProcesses
                                                            })
       end
 
-      it "raises a database error due to the unique constraint including soft-deleted records" do
+      it "broadcasts invalid when a trashed space already uses the imported slug" do
         expect { described_class.new(form).call }.to broadcast(:invalid)
       end
     end

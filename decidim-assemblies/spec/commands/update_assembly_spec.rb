@@ -107,7 +107,7 @@ module Decidim::Assemblies
           Admin::AssemblyForm.from_params(params.deep_merge(assembly: { slug: "slug" })).with_context(context)
         end
 
-        it "raises a database error due to the unique constraint including soft-deleted records" do
+        it "broadcasts invalid" do
           expect { command.call }.to broadcast(:invalid)
         end
       end

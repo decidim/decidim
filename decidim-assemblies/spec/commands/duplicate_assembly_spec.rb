@@ -51,7 +51,7 @@ module Decidim::Assemblies
                                                   })
       end
 
-      it "raises a database error due to the unique constraint including soft-deleted records" do
+      it "broadcasts invalid because the duplicate slug is rejected by validation" do
         expect { subject.call }.to broadcast(:invalid)
       end
     end

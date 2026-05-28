@@ -75,7 +75,7 @@ module Decidim::ParticipatoryProcesses
                                                      })
       end
 
-      it "raises a database error due to the unique constraint including soft-deleted records" do
+      it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
       end
     end

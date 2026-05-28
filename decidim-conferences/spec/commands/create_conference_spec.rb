@@ -88,7 +88,7 @@ module Decidim::Conferences
                                            })
       end
 
-      it "raises a database error due to the unique constraint including soft-deleted records" do
+      it "broadcasts invalid when a trashed conference already has the same slug" do
         expect { subject.call }.to broadcast(:invalid)
       end
     end
