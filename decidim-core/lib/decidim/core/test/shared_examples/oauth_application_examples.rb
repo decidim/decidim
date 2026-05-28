@@ -7,7 +7,7 @@ module OAuthSystemSpecHelpers
     scope ||= self.scope
     authorization = oauth_authorization_details(scope)
     visit "/oauth/authorize?#{URI.encode_www_form(authorization[:params])}"
-    expect(page).to have_content("Log in")
+    expect(page).to have_text("Log in")
 
     within "#session_new_user" do
       fill_in :session_user_email, with: user.email
@@ -15,7 +15,7 @@ module OAuthSystemSpecHelpers
       find("*[type=submit]").click
     end
 
-    expect(page).to have_content("Logged in successfully.")
+    expect(page).to have_text("Logged in successfully.")
 
     authorization
   end
@@ -32,7 +32,7 @@ module OAuthSystemSpecHelpers
 
     click_on "Authorize application"
 
-    expect(page).to have_content("Authorization code:")
+    expect(page).to have_text("Authorization code:")
 
     page_params = Rack::Utils.parse_query(URI.parse(page.current_url).query)
     raise "Invalid OAuth state returned." if page_params["state"] != authorization[:state]

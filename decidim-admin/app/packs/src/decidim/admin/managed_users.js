@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 
 import SubformTogglerComponent from "src/decidim/admin/subform_toggler.component"
 

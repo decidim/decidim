@@ -127,7 +127,7 @@ describe "Admin manages demographic questions" do
         end
       end
 
-      expect(page).to have_no_content "Add response option"
+      expect(page).to have_no_text "Add response option"
 
       page.all(".questionnaire-question").each do |question|
         within question do
@@ -374,7 +374,7 @@ describe "Admin manages demographic questions" do
 
         expect(page).to have_nested_field("body_en", with: "Bye")
         expect(page).to have_no_selector(nested_form_field_selector("body_ca"))
-        expect(page).to have_no_content("Adeu")
+        expect(page).to have_no_text("Adeu")
       end
     end
 
@@ -391,7 +391,7 @@ describe "Admin manages demographic questions" do
           fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
         end
 
-        expect(page).to have_no_content "Add response option"
+        expect(page).to have_no_text "Add response option"
         expect(page).to have_no_select("Maximum number of choices")
       end
 
@@ -423,8 +423,8 @@ describe "Admin manages demographic questions" do
           fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
         end
 
-        expect(page).to have_no_content "Add response option"
-        expect(page).to have_no_content "Add row"
+        expect(page).to have_no_text "Add response option"
+        expect(page).to have_no_text "Add row"
         expect(page).to have_no_select("Maximum number of choices")
       end
 
@@ -479,7 +479,7 @@ describe "Admin manages demographic questions" do
         expand_all_questions
 
         within ".questionnaire-question" do
-          expect(page).to have_content("Statement*")
+          expect(page).to have_text("Statement*")
           fill_in "questions_questions_#{question.id}_body_en", with: ""
           fill_in "questions_questions_#{question.id}_max_characters", with: -3
           check "Mandatory"
@@ -491,8 +491,8 @@ describe "Admin manages demographic questions" do
         expand_all_questions
 
         expect(page).to have_callout("There was a problem saving")
-        expect(page).to have_content("cannot be blank", count: 5)
-        expect(page).to have_content("must be greater than or equal to 0", count: 1)
+        expect(page).to have_text("cannot be blank", count: 5)
+        expect(page).to have_text("must be greater than or equal to 0", count: 1)
 
         expect(page).to have_css("input[value='']")
         expect(page).to have_no_css("input[value='This is the first question']")
@@ -581,7 +581,7 @@ describe "Admin manages demographic questions" do
         expand_all_questions
 
         expect(page).to have_callout("There was a problem saving")
-        expect(page).to have_content("cannot be blank", count: 1)
+        expect(page).to have_text("cannot be blank", count: 1)
         expect(page).to have_css("input[value='']")
         expect(page).to have_no_css("input[value='This is the first title and description']")
       end
@@ -864,7 +864,7 @@ describe "Admin manages demographic questions" do
 
         context "when submitting a new question with an error" do
           before do
-            expect(page).to have_content("Add question")
+            expect(page).to have_text("Add question")
             click_on "Add question"
             click_on "Save"
 
@@ -1074,7 +1074,7 @@ describe "Admin manages demographic questions" do
 
   def expand_all_questions
     sleep(1)
-    expect(page).to have_content("Expand all questions")
+    expect(page).to have_text("Expand all questions")
     click_on "Expand all questions"
   end
 

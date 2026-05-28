@@ -32,7 +32,7 @@ describe "Explore meetings", :slow do
       expect(page).to have_selector(meetings_selector, count: meetings_count)
 
       meetings.each do |meeting|
-        expect(page).to have_content(translated(meeting.title))
+        expect(page).to have_text(translated(meeting.title))
       end
     end
 
@@ -75,7 +75,7 @@ describe "Explore meetings", :slow do
           expect(page).to have_css(meetings_selector, count: 6)
         end
 
-        expect(page).to have_content(translated(upcoming_meeting.title))
+        expect(page).to have_text(translated(upcoming_meeting.title))
       end
 
       context "when maps are enabled" do
@@ -139,7 +139,7 @@ describe "Explore meetings", :slow do
       it "does not show past meetings" do
         visit_component
         within "#meetings" do
-          expect(page).to have_no_content(translated(past_meeting.title))
+          expect(page).to have_no_text(translated(past_meeting.title))
         end
       end
     end
@@ -166,7 +166,7 @@ describe "Explore meetings", :slow do
         it "shows all the withdrawn meetings" do
           expect(page).to have_css(".card__list-metadata div", text: "Withdrawn", count: 3)
           within ".flash.info", match: :first do
-            expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
+            expect(page).to have_text("You are viewing the list of meetings withdrawn by their authors.")
           end
         end
       end
@@ -198,7 +198,7 @@ describe "Explore meetings", :slow do
 
         expect(page).to have_selector(meetings_selector, count: meetings_count - 1)
 
-        expect(page).to have_no_content(translated(meeting.title))
+        expect(page).to have_no_text(translated(meeting.title))
       end
     end
 
@@ -230,8 +230,8 @@ describe "Explore meetings", :slow do
             end
           end
 
-          expect(page).to have_no_content("Another meeting")
-          expect(page).to have_content("Foobar meeting")
+          expect(page).to have_no_text("Another meeting")
+          expect(page).to have_text("Foobar meeting")
 
           filter_params = CGI.parse(URI.parse(page.current_url).query)
           expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
@@ -258,7 +258,7 @@ describe "Explore meetings", :slow do
             expect(page).to have_css(meetings_selector, count: 1)
 
             within meetings_selector do
-              expect(page).to have_content(translated(official_meeting.title))
+              expect(page).to have_text(translated(official_meeting.title))
             end
           end
         end
@@ -286,7 +286,7 @@ describe "Explore meetings", :slow do
         end
 
         expect(page).to have_css(meetings_selector, count: 1)
-        expect(page).to have_content(translated(meetings.first.title))
+        expect(page).to have_text(translated(meetings.first.title))
       end
 
       context "when filtering by date" do
@@ -305,15 +305,15 @@ describe "Explore meetings", :slow do
           end
 
           expect(page).to have_css(meetings_selector, count: 3)
-          expect(page).to have_content(translated(past_meeting1.title))
-          expect(page).to have_no_content(translated(upcoming_meeting1.title))
+          expect(page).to have_text(translated(past_meeting1.title))
+          expect(page).to have_no_text(translated(upcoming_meeting1.title))
 
           within "#panel-dropdown-menu-date" do
             click_filter_item "Upcoming"
           end
 
-          expect(page).to have_content(translated(upcoming_meeting1.title))
-          expect(page).to have_no_content(translated(past_meeting1.title))
+          expect(page).to have_text(translated(upcoming_meeting1.title))
+          expect(page).to have_no_text(translated(past_meeting1.title))
 
           expect(page).to have_css(meetings_selector, count: 8)
 
@@ -322,8 +322,8 @@ describe "Explore meetings", :slow do
           end
 
           expect(page).to have_css(meetings_selector, count: 8)
-          expect(page).to have_content(translated(past_meeting1.title))
-          expect(page).to have_content(translated(upcoming_meeting1.title))
+          expect(page).to have_text(translated(past_meeting1.title))
+          expect(page).to have_text(translated(upcoming_meeting1.title))
         end
 
         context "when there are multiple past meetings" do
@@ -333,7 +333,7 @@ describe "Explore meetings", :slow do
               click_filter_item "Past"
             end
 
-            expect(page).to have_content(translated(past_meeting1.title))
+            expect(page).to have_text(translated(past_meeting1.title))
 
             result = page.find("#meetings .card__list-list").text
             expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
@@ -348,7 +348,7 @@ describe "Explore meetings", :slow do
               click_filter_item "Upcoming"
             end
 
-            expect(page).to have_content(translated(upcoming_meeting1.title))
+            expect(page).to have_text(translated(upcoming_meeting1.title))
 
             result = page.find("#meetings .card__list-list").text
             expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
@@ -363,7 +363,7 @@ describe "Explore meetings", :slow do
               click_filter_item "All"
             end
 
-            expect(page).to have_content(translated(past_meeting1.title))
+            expect(page).to have_text(translated(past_meeting1.title))
 
             result = page.find("#meetings .card__list-list").text
             expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))
@@ -384,7 +384,7 @@ describe "Explore meetings", :slow do
         end
 
         expect(page).to have_css(meetings_selector, count: 1)
-        expect(page).to have_content(translated(past_meeting.title))
+        expect(page).to have_text(translated(past_meeting.title))
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
         base_url = "http://#{organization.host}:#{Capybara.server_port}"
@@ -392,7 +392,7 @@ describe "Explore meetings", :slow do
         click_on "Export calendar"
         expect(page).to have_css("#calendarShare", visible: :visible)
         within("#calendarShare") do
-          expect(page).to have_content("Calendar URL")
+          expect(page).to have_text("Calendar URL")
         end
         short_url = nil
         within "#calendarShare" do
@@ -403,7 +403,7 @@ describe "Explore meetings", :slow do
 
         visit short_url
         expect(page).to have_css(meetings_selector, count: 1)
-        expect(page).to have_content(translated(past_meeting.title))
+        expect(page).to have_text(translated(past_meeting.title))
         expect(page).to have_current_path(/^#{main_component_path(component)}/)
 
         current_params = CGI.parse(URI.parse(page.current_url).query)
@@ -428,23 +428,23 @@ describe "Explore meetings", :slow do
         visit_component
 
         within ".layout-2col__aside" do
-          expect(page).to have_content "Upcoming"
-          expect(page).to have_content "Online"
+          expect(page).to have_text "Upcoming"
+          expect(page).to have_text "Online"
         end
 
         click_on "Date"
         click_on "Type"
 
         within ".layout-2col__aside" do
-          expect(page).to have_no_content "Upcoming"
-          expect(page).to have_no_content "Online"
+          expect(page).to have_no_text "Upcoming"
+          expect(page).to have_no_text "Online"
         end
 
         click_on "Type"
 
         within ".layout-2col__aside" do
-          expect(page).to have_no_content "Upcoming"
-          expect(page).to have_content "Online"
+          expect(page).to have_no_text "Upcoming"
+          expect(page).to have_text "Online"
         end
       end
     end
@@ -462,7 +462,7 @@ describe "Explore meetings", :slow do
       it "shows the correct warning" do
         visit_component
         within ".flash" do
-          expect(page).to have_content("no scheduled meetings")
+          expect(page).to have_text("no scheduled meetings")
         end
       end
     end
@@ -473,7 +473,7 @@ describe "Explore meetings", :slow do
       it "shows the correct warning" do
         visit_component
         within ".flash" do
-          expect(page).to have_content("any meeting scheduled")
+          expect(page).to have_text("any meeting scheduled")
         end
       end
     end
@@ -521,17 +521,17 @@ describe "Explore meetings", :slow do
       expect(page).to have_i18n_content(meeting.description, strip_tags: true)
       expect(page).to have_i18n_content(meeting.location, strip_tags: true)
       expect(page).to have_i18n_content(meeting.location_hints, strip_tags: true)
-      expect(page).to have_content(meeting.address)
-      expect(page).to have_content(meeting.reference)
-      expect(page).to have_content(I18n.l(meeting.start_time, format: "%H:%M"))
-      expect(page).to have_content(I18n.l(meeting.end_time, format: "%H:%M"))
-      expect(page).to have_content("UTC")
+      expect(page).to have_text(meeting.address)
+      expect(page).to have_text(meeting.reference)
+      expect(page).to have_text(I18n.l(meeting.start_time, format: "%H:%M"))
+      expect(page).to have_text(I18n.l(meeting.end_time, format: "%H:%M"))
+      expect(page).to have_text("UTC")
 
       within ".meeting__calendar-day" do
-        expect(page).to have_content(date.day)
+        expect(page).to have_text(date.day)
       end
       within ".meeting__calendar-year" do
-        expect(page).to have_content(/20\d\d/)
+        expect(page).to have_text(/20\d\d/)
       end
     end
 
@@ -543,7 +543,7 @@ describe "Explore meetings", :slow do
       end
 
       it "shows the correct time zone" do
-        expect(page).to have_content("HST")
+        expect(page).to have_text("HST")
       end
     end
 
@@ -564,7 +564,7 @@ describe "Explore meetings", :slow do
       it "shows tags for taxonomy" do
         expect(page).to have_css("[data-tags]")
         within "[data-tags]" do
-          expect(page).to have_content(decidim_escape_translated(taxonomy.name))
+          expect(page).to have_text(decidim_escape_translated(taxonomy.name))
         end
       end
 
@@ -591,9 +591,9 @@ describe "Explore meetings", :slow do
         visit_component
         click_on translated(meeting.title)
         proposals.each do |proposal|
-          expect(page).to have_content(translated(proposal.title))
-          expect(page).to have_content(proposal.creator_author.name)
-          expect(page).to have_content(proposal.votes.size)
+          expect(page).to have_text(translated(proposal.title))
+          expect(page).to have_text(proposal.creator_author.name)
+          expect(page).to have_text(proposal.votes.size)
         end
       end
     end
@@ -642,11 +642,11 @@ describe "Explore meetings", :slow do
 
       it_behaves_like "a closing report page" do
         it "shows the video url" do
-          expect(page).to have_content(video_url)
+          expect(page).to have_text(video_url)
         end
 
         it "shows the audio url" do
-          expect(page).to have_content(audio_url)
+          expect(page).to have_text(audio_url)
         end
       end
     end

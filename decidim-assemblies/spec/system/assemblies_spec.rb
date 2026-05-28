@@ -80,22 +80,22 @@ describe "Assemblies" do
 
       it "lists all the highlighted assemblies" do
         within "#highlighted-assemblies" do
-          expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
+          expect(page).to have_text(translated(promoted_assembly.title, locale: :en))
           expect(page).to have_css("[id^='assembly_highlight']", count: 1)
         end
       end
 
       it "lists the parent assemblies" do
         within "#assemblies-grid h2" do
-          expect(page).to have_content("2")
+          expect(page).to have_text("2")
         end
 
-        expect(page).to have_content(translated(assembly.title, locale: :en))
-        expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
+        expect(page).to have_text(translated(assembly.title, locale: :en))
+        expect(page).to have_text(translated(promoted_assembly.title, locale: :en))
         expect(page).to have_css("a.card__grid", count: 2)
         expect(page).to have_css(".card__grid-metadata", text: "1 assembly")
-        expect(page).to have_no_content(translated(child_assembly.title, locale: :en))
-        expect(page).to have_no_content(translated(unpublished_assembly.title, locale: :en))
+        expect(page).to have_no_text(translated(child_assembly.title, locale: :en))
+        expect(page).to have_no_text(translated(unpublished_assembly.title, locale: :en))
       end
 
       it "links to the individual assembly page" do
@@ -141,21 +141,21 @@ describe "Assemblies" do
 
         it "shows the details of the given assembly" do
           within "[data-content]" do
-            expect(page).to have_content("About this assembly")
-            expect(page).to have_content(translated(assembly.title, locale: :en))
-            expect(page).to have_content(translated(assembly.description, locale: :en))
-            expect(page).to have_content(translated(assembly.subtitle, locale: :en))
-            expect(page).to have_content(translated(assembly.short_description, locale: :en))
-            expect(page).to have_content(translated(assembly.meta_scope, locale: :en))
-            expect(page).to have_content(translated(assembly.developer_group, locale: :en))
-            expect(page).to have_content(translated(assembly.local_area, locale: :en))
-            expect(page).to have_content(translated(assembly.target, locale: :en))
-            expect(page).to have_content(translated(assembly.participatory_scope, locale: :en))
-            expect(page).to have_content(translated(assembly.participatory_structure, locale: :en))
-            expect(page).to have_content("DURATION")
-            expect(page).to have_content("CLOSING DATE")
-            expect(page).to have_content(I18n.l(assembly.duration, format: :decidim_short))
-            expect(page).to have_content(I18n.l(assembly.closing_date, format: :decidim_short))
+            expect(page).to have_text("About this assembly")
+            expect(page).to have_text(translated(assembly.title, locale: :en))
+            expect(page).to have_text(translated(assembly.description, locale: :en))
+            expect(page).to have_text(translated(assembly.subtitle, locale: :en))
+            expect(page).to have_text(translated(assembly.short_description, locale: :en))
+            expect(page).to have_text(translated(assembly.meta_scope, locale: :en))
+            expect(page).to have_text(translated(assembly.developer_group, locale: :en))
+            expect(page).to have_text(translated(assembly.local_area, locale: :en))
+            expect(page).to have_text(translated(assembly.target, locale: :en))
+            expect(page).to have_text(translated(assembly.participatory_scope, locale: :en))
+            expect(page).to have_text(translated(assembly.participatory_structure, locale: :en))
+            expect(page).to have_text("DURATION")
+            expect(page).to have_text("CLOSING DATE")
+            expect(page).to have_text(I18n.l(assembly.duration, format: :decidim_short))
+            expect(page).to have_text(I18n.l(assembly.closing_date, format: :decidim_short))
           end
         end
 
@@ -170,8 +170,8 @@ describe "Assemblies" do
 
           it "shows indefinite duration without closing date" do
             within "[data-content]" do
-              expect(page).to have_content("DURATION\nIndefinite")
-              expect(page).to have_no_content("CLOSING DATE")
+              expect(page).to have_text("DURATION\nIndefinite")
+              expect(page).to have_no_text("CLOSING DATE")
             end
           end
         end
@@ -214,9 +214,9 @@ describe "Assemblies" do
 
         it "shows the components" do
           within ".participatory-space__nav-container" do
-            expect(page).to have_content(translated(proposals_component.name))
+            expect(page).to have_text(translated(proposals_component.name))
             expect(page.html).to include(decidim_escape_translated(proposals_component.name).gsub("&quot;", "\""))
-            expect(page).to have_no_content(translated(meetings_component.name))
+            expect(page).to have_no_text(translated(meetings_component.name))
           end
         end
 
@@ -228,9 +228,9 @@ describe "Assemblies" do
           it "renders the component name correctly" do
             visit current_path
             within ".participatory-space__nav-container" do
-              expect(page).to have_content(component_name)
-              expect(page).to have_no_content("&#39;")
-              expect(page).to have_no_content("&amp;#39;")
+              expect(page).to have_text(component_name)
+              expect(page).to have_no_text("&#39;")
+              expect(page).to have_no_text("&amp;#39;")
             end
           end
         end

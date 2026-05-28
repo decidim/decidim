@@ -34,7 +34,7 @@ describe "Homepage assemblies content blocks" do
     fill_in "content_block[settings][max_results]", with: "1"
     click_on "Update"
 
-    expect(page).to have_content("Highlighted assemblies")
+    expect(page).to have_text("Highlighted assemblies")
     expect(highlighted_assemblies_content_block.reload.settings["max_results"]).to eq(1)
 
     visit decidim.root_path

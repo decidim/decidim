@@ -24,8 +24,8 @@ describe "Private meetings" do
 
           it "lists all the meetings" do
             within "#meetings" do
-              expect(page).to have_content(translated(meeting.title, locale: :en))
-              expect(page).to have_content(translated(private_meeting.title, locale: :en))
+              expect(page).to have_text(translated(meeting.title, locale: :en))
+              expect(page).to have_text(translated(private_meeting.title, locale: :en))
               expect(page).to have_selector(meetings_selector, count: 2)
             end
           end
@@ -41,8 +41,8 @@ describe "Private meetings" do
 
           it "lists all meetings that are transparent" do
             within "#meetings" do
-              expect(page).to have_content(translated(meeting.title, locale: :en))
-              expect(page).to have_content(translated(private_meeting.title, locale: :en))
+              expect(page).to have_text(translated(meeting.title, locale: :en))
+              expect(page).to have_text(translated(private_meeting.title, locale: :en))
               expect(page).to have_selector(meetings_selector, count: 2)
             end
           end
@@ -51,8 +51,8 @@ describe "Private meetings" do
             click_on(translated(private_meeting.title, locale: :en))
 
             expect(page).to have_current_path resource_locator(private_meeting).path
-            expect(page).to have_content "Private"
-            expect(page).to have_content "Transparent"
+            expect(page).to have_text "Private"
+            expect(page).to have_text "Transparent"
             expect(page).to have_no_button("Register")
           end
         end
@@ -69,10 +69,10 @@ describe "Private meetings" do
 
           it "lists only the not private meetings" do
             within "#meetings" do
-              expect(page).to have_content(translated(meeting.title, locale: :en))
+              expect(page).to have_text(translated(meeting.title, locale: :en))
               expect(page).to have_selector(meetings_selector, count: 1)
 
-              expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
+              expect(page).to have_no_text(translated(private_meeting.title, locale: :en))
             end
           end
         end
@@ -86,10 +86,10 @@ describe "Private meetings" do
 
           it "lists only the not private meetings" do
             within "#meetings" do
-              expect(page).to have_content(translated(meeting.title, locale: :en))
+              expect(page).to have_text(translated(meeting.title, locale: :en))
               expect(page).to have_selector(meetings_selector, count: 1)
 
-              expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
+              expect(page).to have_no_text(translated(private_meeting.title, locale: :en))
             end
           end
         end
@@ -104,8 +104,8 @@ describe "Private meetings" do
 
           it "lists private meetings" do
             within "#meetings" do
-              expect(page).to have_content(translated(meeting.title, locale: :en))
-              expect(page).to have_content(translated(private_meeting.title, locale: :en))
+              expect(page).to have_text(translated(meeting.title, locale: :en))
+              expect(page).to have_text(translated(private_meeting.title, locale: :en))
               expect(page).to have_selector(meetings_selector, count: 2)
             end
           end
@@ -114,7 +114,7 @@ describe "Private meetings" do
             click_on(translated(private_meeting.title, locale: :en))
 
             expect(page).to have_current_path resource_locator(private_meeting).path
-            expect(page).to have_content "Private"
+            expect(page).to have_text "Private"
             expect(page).to have_css(".button", text: "Cancel your registration")
           end
         end
@@ -134,7 +134,7 @@ describe "Private meetings" do
         end
 
         it "declines access to view the meeting" do
-          expect(page).to have_content "You are not authorized to perform this action"
+          expect(page).to have_text "You are not authorized to perform this action"
         end
       end
     end

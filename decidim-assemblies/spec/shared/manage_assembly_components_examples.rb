@@ -49,12 +49,12 @@ shared_examples "manage assembly components" do
 
     it "is successfully created" do
       expect(page).to have_callout("Component created successfully.")
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text(translated(attributes[:name]))
     end
 
     it "has a successful admin log" do
       visit decidim_admin.root_path
-      expect(page).to have_content("created #{translated(attributes[:name])} in #{translated(assembly.title)}")
+      expect(page).to have_text("created #{translated(attributes[:name])} in #{translated(assembly.title)}")
     end
 
     context "and then edit it" do
@@ -125,7 +125,7 @@ shared_examples "manage assembly components" do
       end
 
       expect(page).to have_callout("The component was updated successfully.")
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text(translated(attributes[:name]))
 
       within "tr", text: translated(attributes[:name]) do
         find("button[data-controller='dropdown']").click
@@ -141,7 +141,7 @@ shared_examples "manage assembly components" do
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated #{translated(attributes[:name])} in #{translated(assembly.title)}")
+      expect(page).to have_text("updated #{translated(attributes[:name])} in #{translated(assembly.title)}")
     end
   end
 
@@ -201,7 +201,7 @@ shared_examples "manage assembly components" do
 
       it "hides the component from the menu" do
         visit decidim_assemblies.assembly_path(assembly)
-        expect(page).to have_content translated(component.name)
+        expect(page).to have_text translated(component.name)
         expect(page.html).to include decidim_escape_translated(component.name).gsub("&quot;", "\"")
 
         visit decidim_admin_assemblies.components_path(assembly)
@@ -217,7 +217,7 @@ shared_examples "manage assembly components" do
         end
 
         visit decidim_assemblies.assembly_path(assembly)
-        expect(page).to have_no_content translated(component.name)
+        expect(page).to have_no_text translated(component.name)
       end
     end
 

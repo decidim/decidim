@@ -223,7 +223,7 @@ describe "Admin manages questionnaire templates" do
       end
 
       expect(page).to have_callout("Template copied successfully.")
-      expect(page).to have_content(template.name["en"], count: 2)
+      expect(page).to have_text(template.name["en"], count: 2)
     end
   end
 
@@ -268,7 +268,7 @@ describe "Admin manages questionnaire templates" do
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
-        expect(page).to have_content("Edit questionnaire template")
+        expect(page).to have_text("Edit questionnaire template")
       end
     end
   end
@@ -318,14 +318,14 @@ describe "Admin manages questionnaire templates" do
 
         expect(page).to have_i18n_content(question.body)
         expect(page).not_to have_i18n_content(second_question.body)
-        expect(page).to have_content("Step 1 of 2")
+        expect(page).to have_text("Step 1 of 2")
 
         within "#step-0" do
           expect(page).to have_button("Continue")
           click_on "Continue"
         end
 
-        expect(page).to have_content("Step 2 of 2")
+        expect(page).to have_text("Step 2 of 2")
         expect(page).not_to have_i18n_content(question.body)
         expect(page).to have_i18n_content(second_question.body)
       end
@@ -345,14 +345,14 @@ describe "Admin manages questionnaire templates" do
         expect(page).to have_i18n_content(question.body)
         expect(page).not_to have_i18n_content(second_question.body)
         expect(page).not_to have_i18n_content(third_question.body)
-        expect(page).to have_content("Step 1 of 3")
+        expect(page).to have_text("Step 1 of 3")
 
         within "#step-0" do
           expect(page).to have_button("Continue")
           click_on "Continue"
         end
 
-        expect(page).to have_content("Step 2 of 3")
+        expect(page).to have_text("Step 2 of 3")
         expect(page).not_to have_i18n_content(question.body)
         expect(page).to have_i18n_content(second_question.body)
         expect(page).not_to have_i18n_content(third_question.body)
@@ -366,7 +366,7 @@ describe "Admin manages questionnaire templates" do
         expect(page).to have_i18n_content(question.body)
         expect(page).not_to have_i18n_content(second_question.body)
         expect(page).not_to have_i18n_content(third_question.body)
-        expect(page).to have_content("Step 1 of 3")
+        expect(page).to have_text("Step 1 of 3")
 
         within "#step-0" do
           click_on "Continue"
@@ -376,7 +376,7 @@ describe "Admin manages questionnaire templates" do
           click_on "Continue"
         end
 
-        expect(page).to have_content("Step 3 of 3")
+        expect(page).to have_text("Step 3 of 3")
         expect(page).not_to have_i18n_content(question.body)
         expect(page).not_to have_i18n_content(second_question.body)
         expect(page).to have_i18n_content(third_question.body)
