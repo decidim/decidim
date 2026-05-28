@@ -60,8 +60,8 @@ describe "Account" do
           input_element = find("input[type='file']", visible: :all)
           input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
 
-          expect(page).to have_content("File resolution is too large", count: 1)
-          expect(page).to have_content("Validation error!")
+          expect(page).to have_text("File resolution is too large", count: 1)
+          expect(page).to have_text("Validation error!")
         end
       end
     end
@@ -78,7 +78,7 @@ describe "Account" do
           all("*[type=submit]").last.click
         end
 
-        expect(page).to have_content("Your account was successfully updated.")
+        expect(page).to have_text("Your account was successfully updated.")
 
         user.reload
 
@@ -86,8 +86,8 @@ describe "Account" do
           find("a", text: "perfil público").click
         end
 
-        expect(page).to have_content("example.org")
-        expect(page).to have_content("Serbian-American")
+        expect(page).to have_text("example.org")
+        expect(page).to have_text("Serbian-American")
 
         # The user's password should not change when they did not update it
         expect(user.reload.encrypted_password).to eq(encrypted_password)
@@ -101,7 +101,7 @@ describe "Account" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Your account was successfully updated.")
+        expect(page).to have_text("Your account was successfully updated.")
         expect(page).to have_field("user[nickname]", with: "nickname", type: "text")
       end
 
@@ -111,7 +111,7 @@ describe "Account" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Your account was successfully updated.")
+        expect(page).to have_text("Your account was successfully updated.")
         expect(page).to have_field("user[nickname]", with: "nicknamenicknamenick", type: "text")
       end
 
@@ -121,8 +121,8 @@ describe "Account" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("There was a problem updating your account.")
-        expect(page).to have_content("The nickname must be lowercase and contain no spaces")
+        expect(page).to have_text("There was a problem updating your account.")
+        expect(page).to have_text("The nickname must be lowercase and contain no spaces")
         expect(page).to have_field("user[nickname]", with: "nickName", type: "text")
       end
 
@@ -132,7 +132,7 @@ describe "Account" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("There was a problem updating your account.")
+        expect(page).to have_text("There was a problem updating your account.")
         expect(page).to have_field("user[nickname]", with: "Nickname", type: "text")
       end
 
@@ -142,7 +142,7 @@ describe "Account" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("There was a problem updating your account.")
+        expect(page).to have_text("There was a problem updating your account.")
         expect(page).to have_field("user[nickname]", with: "nick name", type: "text")
       end
     end
@@ -157,10 +157,10 @@ describe "Account" do
 
       it "toggles old and new password fields" do
         within "form.edit_user" do
-          expect(page).to have_content("10 characters minimum")
-          expect(page).to have_content("must contain at least 5 different characters")
-          expect(page).to have_content("must not be too common")
-          expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
+          expect(page).to have_text("10 characters minimum")
+          expect(page).to have_text("must contain at least 5 different characters")
+          expect(page).to have_text("must not be too common")
+          expect(page).to have_text("must be different from your name, nickname, email and the organization's host")
           expect(page).to have_field("user[password]", with: "", type: "password")
           expect(page).to have_field("user[old_password]", with: "", type: "password")
           click_on "Change password"
@@ -176,7 +176,7 @@ describe "Account" do
           find("*[type=submit]").click
         end
         expect(page).to have_field("user[password]", with: "decidim1234567890", type: "password")
-        expect(page).to have_content("is invalid")
+        expect(page).to have_text("is invalid")
       end
 
       it "changes the password with correct password" do
@@ -185,7 +185,7 @@ describe "Account" do
           fill_in "Current password", with: password
           find("*[type=submit]").click
         end
-        expect(page).to have_content("Your account was successfully updated.")
+        expect(page).to have_text("Your account was successfully updated.")
         expect(user.reload.encrypted_password).not_to eq(encrypted_password)
         expect(page).to have_no_field("user[password]", with: "", type: "password")
         expect(page).to have_no_field("user[old_password]", with: "", type: "password")
@@ -204,10 +204,10 @@ describe "Account" do
         end
 
         it "toggles the current password" do
-          expect(page).to have_content("In order to confirm the changes to your account, please provide your current password.")
+          expect(page).to have_text("In order to confirm the changes to your account, please provide your current password.")
           expect(find_by_id("user_old_password")).to be_visible
-          expect(page).to have_content "Current password"
-          expect(page).to have_no_content "Password"
+          expect(page).to have_text "Current password"
+          expect(page).to have_no_text "Password"
         end
 
         it "renders the old password with error" do
@@ -217,10 +217,10 @@ describe "Account" do
             find("*[type=submit]").click
           end
           within ".flash.alert" do
-            expect(page).to have_content "There was a problem updating your account."
+            expect(page).to have_text "There was a problem updating your account."
           end
           within ".old-user-password" do
-            expect(page).to have_content "is invalid"
+            expect(page).to have_text "is invalid"
           end
         end
       end
@@ -243,23 +243,23 @@ describe "Account" do
         end
 
         it "tells user to confirm new email" do
-          expect(page).to have_content("Email change verification")
+          expect(page).to have_text("Email change verification")
           expect(page).to have_css("#user_email[disabled='disabled']")
-          expect(page).to have_content("We have sent an email to #{pending_email} to verify your new email address")
+          expect(page).to have_text("We have sent an email to #{pending_email} to verify your new email address")
         end
 
         it "resend confirmation" do
           within "#email-change-pending" do
             click_on "Send again"
           end
-          expect(page).to have_content("Confirmation email resent successfully to #{pending_email}")
+          expect(page).to have_text("Confirmation email resent successfully to #{pending_email}")
           perform_enqueued_jobs
           perform_enqueued_jobs
 
           # the emails also include the update email notification
           expect(emails.count).to eq(3)
           visit last_email_link
-          expect(page).to have_content("Your email address has been successfully confirmed")
+          expect(page).to have_text("Your email address has been successfully confirmed")
         end
 
         it "cancels the email change" do
@@ -268,8 +268,8 @@ describe "Account" do
             click_on "cancel"
           end
 
-          expect(page).to have_content("Email change cancelled successfully")
-          expect(page).to have_no_content("Email change verification")
+          expect(page).to have_text("Email change cancelled successfully")
+          expect(page).to have_no_text("Email change verification")
           expect(Decidim::User.find(user.id).unconfirmed_email).to be_nil
         end
       end
@@ -318,7 +318,7 @@ describe "Account" do
       end
 
       it "does not display the authorizations message by default" do
-        expect(page).to have_no_content("Some data bound to your authorization will be saved for security.")
+        expect(page).to have_no_text("Some data bound to your authorization will be saved for security.")
       end
 
       it "the user can delete their account" do
@@ -329,7 +329,7 @@ describe "Account" do
 
         click_on "Yes, I want to delete my account"
 
-        expect(page).to have_content("Your account was successfully deleted.")
+        expect(page).to have_text("Your account was successfully deleted.")
 
         click_on("Log in", match: :first)
 
@@ -339,8 +339,8 @@ describe "Account" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_no_content("Signed in successfully")
-        expect(page).to have_no_content(user.name)
+        expect(page).to have_no_text("Signed in successfully")
+        expect(page).to have_no_text(user.name)
       end
 
       context "when the user has an authorization" do
@@ -349,7 +349,7 @@ describe "Account" do
         it "displays the authorizations message" do
           visit decidim.delete_account_path
 
-          expect(page).to have_content("Some data bound to your authorization will be saved for security.")
+          expect(page).to have_text("Some data bound to your authorization will be saved for security.")
         end
       end
     end

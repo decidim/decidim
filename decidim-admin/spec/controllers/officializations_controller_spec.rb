@@ -21,7 +21,7 @@ module Decidim
           it "sets a not found message" do
             get :show_email, params: { user_id: 999_999_999 }
 
-            expect(response.body).to have_content("No user found")
+            expect(response.body).to have_text("No user found")
           end
         end
 
@@ -31,7 +31,7 @@ module Decidim
           it "renders show_email template" do
             get :show_email, params: { user_id: user.id }
             expect(subject).to render_template(:show_email)
-            expect(response.body).to have_content(user.email)
+            expect(response.body).to have_text(user.email)
           end
         end
       end

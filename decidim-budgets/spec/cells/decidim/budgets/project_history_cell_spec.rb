@@ -28,8 +28,8 @@ module Decidim::Budgets
 
         it "shows related results" do
           html = cell("decidim/budgets/project_history", project).call
-          expect(html).to have_content("The proposal")
-          expect(html).to have_content("was created")
+          expect(html).to have_text("The proposal")
+          expect(html).to have_text("was created")
         end
       end
     end

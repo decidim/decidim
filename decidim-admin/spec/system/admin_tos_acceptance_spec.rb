@@ -22,7 +22,7 @@ describe "AdminTosAcceptance" do
       end
 
       it "has a message that they need to accept the admin TOS" do
-        expect(page).to have_content(review_message)
+        expect(page).to have_text(review_message)
       end
 
       it "has the main navigation empty" do
@@ -38,7 +38,7 @@ describe "AdminTosAcceptance" do
       end
 
       it "has a message that they need to accept the admin TOS" do
-        expect(page).to have_content(review_message)
+        expect(page).to have_text(review_message)
       end
     end
 
@@ -48,13 +48,13 @@ describe "AdminTosAcceptance" do
       end
 
       it "has a message that they need to accept the admin TOS" do
-        expect(page).to have_content(review_message)
+        expect(page).to have_text(review_message)
       end
 
       it "allows accepting and redirects to the previous page" do
         click_on "I agree with the terms"
-        expect(page).to have_content("New process")
-        expect(page).to have_content("Process groups")
+        expect(page).to have_text("New process")
+        expect(page).to have_text("Process groups")
       end
 
       context "with a long list of URL parameters" do
@@ -76,10 +76,10 @@ describe "AdminTosAcceptance" do
           # the parameters in the user_return_to cookie in order to avoid
           # ActionDispatch::Cookies::CookieOverflow exception
           visit "#{decidim_admin_participatory_processes.participatory_processes_path}?#{long_parameters}"
-          expect(page).to have_content(review_message)
+          expect(page).to have_text(review_message)
           click_on "I agree with the terms"
-          expect(page).to have_content("New process")
-          expect(page).to have_content("Process groups")
+          expect(page).to have_text("New process")
+          expect(page).to have_text("Process groups")
         end
       end
     end
@@ -90,18 +90,18 @@ describe "AdminTosAcceptance" do
       end
 
       it "renders the TOS page" do
-        expect(page).to have_content("Agree to the terms of service")
+        expect(page).to have_text("Agree to the terms of service")
       end
 
       it "allows accepting the terms" do
         click_on "I agree with the terms"
-        expect(page).to have_content("Statistics")
+        expect(page).to have_text("Statistics")
 
         within ".layout-nav" do
-          expect(page).to have_content("Newsletters")
-          expect(page).to have_content("Participants")
-          expect(page).to have_content("Settings")
-          expect(page).to have_content("Admin activity log")
+          expect(page).to have_text("Newsletters")
+          expect(page).to have_text("Participants")
+          expect(page).to have_text("Settings")
+          expect(page).to have_text("Admin activity log")
         end
       end
     end

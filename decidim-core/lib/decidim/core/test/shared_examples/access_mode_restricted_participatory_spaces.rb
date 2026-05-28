@@ -14,13 +14,13 @@ shared_examples "access mode restricted participatory spaces" do
     it "does not list the restricted participatory space" do
       within css_class_selector do
         within "h2" do
-          expect(page).to have_content("1")
+          expect(page).to have_text("1")
         end
 
-        expect(page).to have_content(translated(participatory_space.title, locale: :en))
+        expect(page).to have_text(translated(participatory_space.title, locale: :en))
         expect(page).to have_css(".card__grid", count: 1)
 
-        expect(page).to have_no_content(translated(restricted_participatory_space.title, locale: :en))
+        expect(page).to have_no_text(translated(restricted_participatory_space.title, locale: :en))
       end
     end
   end
@@ -36,13 +36,13 @@ shared_examples "access mode restricted participatory spaces" do
       it "does not list the restricted participatory space" do
         within css_class_selector do
           within "h2" do
-            expect(page).to have_content("1")
+            expect(page).to have_text("1")
           end
 
-          expect(page).to have_content(translated(participatory_space.title, locale: :en))
+          expect(page).to have_text(translated(participatory_space.title, locale: :en))
           expect(page).to have_css(".card__grid", count: 1)
 
-          expect(page).to have_no_content(translated(restricted_participatory_space.title, locale: :en))
+          expect(page).to have_no_text(translated(restricted_participatory_space.title, locale: :en))
         end
       end
     end
@@ -57,11 +57,11 @@ shared_examples "access mode restricted participatory spaces" do
       it "lists restricted participatory spaces" do
         within css_class_selector do
           within "h2" do
-            expect(page).to have_content("2")
+            expect(page).to have_text("2")
           end
 
-          expect(page).to have_content(translated(participatory_space.title, locale: :en))
-          expect(page).to have_content(translated(restricted_participatory_space.title, locale: :en))
+          expect(page).to have_text(translated(participatory_space.title, locale: :en))
+          expect(page).to have_text(translated(restricted_participatory_space.title, locale: :en))
           expect(page).to have_css(".card__grid", count: 2)
         end
       end
@@ -70,13 +70,13 @@ shared_examples "access mode restricted participatory spaces" do
         first(".card__grid-text", text: translated(restricted_participatory_space.title, locale: :en)).click
 
         expect(page).to have_current_path restricted_participatory_space_path
-        expect(page).to have_content "This is a restricted space"
+        expect(page).to have_text "This is a restricted space"
       end
 
       it "shows the privacy warning in attachments admin" do
         visit restricted_participatory_space_attachment_path
         within "#attachments" do
-          expect(page).to have_content(I18n.t("decidim.admin.attachments_privacy_warning.message"))
+          expect(page).to have_text(I18n.t("decidim.admin.attachments_privacy_warning.message"))
         end
       end
     end
@@ -92,11 +92,11 @@ shared_examples "access mode restricted participatory spaces" do
     it "lists restricted participatory spaces" do
       within css_class_selector do
         within "h2" do
-          expect(page).to have_content("2")
+          expect(page).to have_text("2")
         end
 
-        expect(page).to have_content(translated(participatory_space.title, locale: :en))
-        expect(page).to have_content(translated(restricted_participatory_space.title, locale: :en))
+        expect(page).to have_text(translated(participatory_space.title, locale: :en))
+        expect(page).to have_text(translated(restricted_participatory_space.title, locale: :en))
         expect(page).to have_css(".card__grid", count: 2)
       end
     end
@@ -105,7 +105,7 @@ shared_examples "access mode restricted participatory spaces" do
       first(".card__grid-text", text: translated(restricted_participatory_space.title, locale: :en)).click
 
       expect(page).to have_current_path restricted_participatory_space_path
-      expect(page).to have_content "This is a restricted space"
+      expect(page).to have_text "This is a restricted space"
     end
   end
 end
@@ -131,7 +131,7 @@ shared_examples "access mode restricted participatory spaces comments" do
   context "when the user is not logged in" do
     it "cannot access the page" do
       visit resource_path
-      expect(page).to have_content("You are not authorized to perform this action")
+      expect(page).to have_text("You are not authorized to perform this action")
     end
   end
 
@@ -143,7 +143,7 @@ shared_examples "access mode restricted participatory spaces comments" do
 
     it "can see the comments" do
       expect(page).to have_css("#comments")
-      expect(page).to have_content(comment.body["en"])
+      expect(page).to have_text(comment.body["en"])
     end
 
     it "can see the comment form" do
@@ -166,7 +166,7 @@ shared_examples "access mode restricted participatory spaces comments" do
     end
 
     it "cannot access the page" do
-      expect(page).to have_content("You are not authorized to perform this action")
+      expect(page).to have_text("You are not authorized to perform this action")
     end
   end
 end
