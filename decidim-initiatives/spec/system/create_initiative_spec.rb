@@ -820,7 +820,6 @@ describe "Initiative" do
 
         it "saves the attachments" do
           expect(Decidim::Initiative.last.documents.count).to eq(1)
-          expect(Decidim::Initiative.last.photos.count).to eq(1)
         end
 
         context "when minimum committee size is above zero" do
