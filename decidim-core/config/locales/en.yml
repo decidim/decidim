@@ -1551,8 +1551,8 @@ en:
         members: Members
     participatory_spaces:
       show:
-        restricted_space: This is a restricted space. Only members can view it and participate.
-        transparent_space: This is a transparent space. Anyone can view the content, but only members can participate.
+        restricted_space: This is a restricted space. Only members and administrators can view it and participate.
+        transparent_space: This is a transparent space. Anyone can view the content, but only members and administrators can participate.
     passwords:
       update:
         error: There was a problem updating the password.

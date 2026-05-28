@@ -17,7 +17,7 @@ module Decidim
         end
 
         def post
-          @post ||= posts.find(params[:post_id])
+          @post ||= posts.find(params.expect(:post_id))
         end
       end
     end

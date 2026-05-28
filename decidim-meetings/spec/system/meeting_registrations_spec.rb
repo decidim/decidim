@@ -63,7 +63,7 @@ describe "Meeting registrations" do
 
         expect(page).to have_no_i18n_content(question.body)
 
-        expect(page).to have_content("The form is closed and cannot be responded")
+        expect(page).to have_text("The form is closed and cannot be responded")
       end
     end
   end
@@ -98,7 +98,7 @@ describe "Meeting registrations" do
 
           expect(page).to have_no_i18n_content(question.body)
 
-          expect(page).to have_content("The form is closed and cannot be responded")
+          expect(page).to have_text("The form is closed and cannot be responded")
         end
       end
     end
@@ -120,7 +120,7 @@ describe "Meeting registrations" do
             click_on "Register"
 
             within "#loginModal" do
-              expect(page).to have_content("Forgot your password?")
+              expect(page).to have_text("Forgot your password?")
               find("[data-dialog-close='loginModal']", match: :first).click
             end
 
@@ -131,7 +131,7 @@ describe "Meeting registrations" do
             click_on "Inscriu-te"
 
             within "#loginModal" do
-              expect(page).to have_content("Has oblidat la teva contrasenya?")
+              expect(page).to have_text("Has oblidat la teva contrasenya?")
             end
           end
         end
@@ -177,8 +177,8 @@ describe "Meeting registrations" do
           click_on "Register"
 
           within "#meeting-registration-confirm-#{meeting.id}" do
-            expect(page).to have_content "A legal text"
-            expect(page).to have_content "Show my attendance publicly"
+            expect(page).to have_text "A legal text"
+            expect(page).to have_text "Show my attendance publicly"
             expect(page).to have_field("public_participation", checked: false)
             click_on "Confirm"
           end
@@ -199,7 +199,7 @@ describe "Meeting registrations" do
           click_on "Register"
 
           within "#meeting-registration-confirm-#{meeting.id}" do
-            expect(page).to have_content "Show my attendance publicly"
+            expect(page).to have_text "Show my attendance publicly"
             expect(page).to have_field("public_participation", checked: false)
             page.find("input#public_participation").click
             click_on "Confirm"
@@ -223,8 +223,8 @@ describe "Meeting registrations" do
           click_on "Register"
 
           within "#meeting-registration-confirm-#{meeting.id}" do
-            expect(page).to have_content "A legal text"
-            expect(page).to have_content "Show my attendance publicly"
+            expect(page).to have_text "A legal text"
+            expect(page).to have_text "Show my attendance publicly"
             expect(page).to have_field("public_participation", checked: false)
             click_on "Confirm"
           end
@@ -263,7 +263,7 @@ describe "Meeting registrations" do
         it "shows an empty page with a message" do
           visit questionnaire_public_path
 
-          expect(page).to have_content("No questions configured for this form yet.")
+          expect(page).to have_text("No questions configured for this form yet.")
         end
       end
 
@@ -279,7 +279,7 @@ describe "Meeting registrations" do
 
           dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"), keep_modal_open: true)
 
-          expect(page).to have_content("Validation error!")
+          expect(page).to have_text("Validation error!")
         end
 
         context "and the announcement for the meeting is configured" do
@@ -298,7 +298,7 @@ describe "Meeting registrations" do
           it "the user should not see it" do
             visit questionnaire_public_path
 
-            expect(page).to have_no_content("An important announcement")
+            expect(page).to have_no_text("An important announcement")
           end
         end
       end
@@ -318,7 +318,7 @@ describe "Meeting registrations" do
         click_on "Cancel your registration"
 
         within ".meeting__cancelation-modal" do
-          expect(page).to have_content("Are you sure you want to cancel your registration for this meeting?")
+          expect(page).to have_text("Are you sure you want to cancel your registration for this meeting?")
         end
       end
 
@@ -345,7 +345,7 @@ describe "Meeting registrations" do
           visit_meeting
 
           click_on("Your registration and QR code")
-          expect(page).to have_content(registration.code)
+          expect(page).to have_text(registration.code)
         end
       end
 
@@ -358,8 +358,8 @@ describe "Meeting registrations" do
           visit_meeting
 
           expect(page).to have_no_css(".registration_code")
-          expect(page).to have_no_content(registration.code)
-          expect(page).to have_no_content("Your registration and QR code")
+          expect(page).to have_no_text(registration.code)
+          expect(page).to have_no_text("Your registration and QR code")
         end
       end
 
@@ -374,7 +374,7 @@ describe "Meeting registrations" do
 
           expect(page).to have_no_i18n_content(question.body)
 
-          expect(page).to have_content("You have already responded this form.")
+          expect(page).to have_text("You have already responded this form.")
         end
       end
     end

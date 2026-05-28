@@ -1,13 +1,11 @@
-/* eslint-disable require-jsdoc */
-
 import "src/decidim/map/factory"
 
 /**
- * @deprecated
- *
  * This adds support for the legacy style of map configuration and the methods
  * available globally. This is not really needed unless someone is still relying
  * on these methods or the have customizations that are hard to update.
+ *
+ * @deprecated
  * @param {Object} $map A selector with the map container
  *
  * @returns {void} Nothing.

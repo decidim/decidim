@@ -30,8 +30,8 @@ shared_examples "manage taxonomy filters in settings" do
         select "A root taxonomy", from: "taxonomy_id"
         select "Internal taxonomy filter name", from: "taxonomy_filter_id"
         within "#save-taxonomy-filter-form" do
-          expect(page).to have_content("Public taxonomy filter name")
-          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+          expect(page).to have_text("Public taxonomy filter name")
+          expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
         end
         click_on "Save"
       end
@@ -84,7 +84,7 @@ shared_examples "manage taxonomy filters in settings" do
     end
 
     it "shows a configuration message" do
-      expect(page).to have_content("No taxonomy filters found.")
+      expect(page).to have_text("No taxonomy filters found.")
       expect(page).to have_link("Please define some filters for this participatory space before using this setting", href: filters_path)
     end
   end
@@ -115,7 +115,7 @@ shared_examples "manage taxonomy filters in settings" do
       expect(component.reload.settings.taxonomy_filters).to eq([another_taxonomy_filter.id.to_s])
       expect(page).to have_css("td", text: "Another taxonomy filter name")
       expect(page).to have_no_css("#taxonomy_filters-dialog-content")
-      expect(page).to have_no_content("Internal taxonomy filter name")
+      expect(page).to have_no_text("Internal taxonomy filter name")
 
       click_on "Add filter"
       within "#taxonomy_filters-dialog-content" do

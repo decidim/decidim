@@ -47,7 +47,7 @@ shared_examples "split proposals" do
         end
 
         it "creates a new proposal" do
-          expect(page).to have_content("Successfully splitted the proposals into new ones")
+          expect(page).to have_text("Successfully splitted the proposals into new ones")
           expect(page).to have_css(".table-list tbody tr", count: 2)
         end
 
@@ -58,9 +58,9 @@ shared_examples "split proposals" do
             let!(:proposals) { create_list(:proposal, 3, :with_likes, :with_votes, component: current_component) }
 
             it "does not create a new proposal and displays a validation fail message" do
-              expect(page).to have_content("There was a problem splitting the selected proposals")
-              expect(page).to have_content("Are not official")
-              expect(page).to have_content("Have received votes or likes")
+              expect(page).to have_text("There was a problem splitting the selected proposals")
+              expect(page).to have_text("Are not official")
+              expect(page).to have_text("Have received votes or likes")
             end
           end
         end

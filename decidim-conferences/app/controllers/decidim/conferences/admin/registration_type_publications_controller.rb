@@ -9,7 +9,7 @@ module Decidim
         include Concerns::ConferenceAdmin
 
         def create
-          @registration_type = collection.find(params[:registration_type_id])
+          @registration_type = collection.find(params.expect(:registration_type_id))
           enforce_permission_to :publish, :registration_type, registration_type: @registration_type
 
           PublishRegistrationType.call(@registration_type, current_user) do
@@ -26,7 +26,7 @@ module Decidim
         end
 
         def destroy
-          @registration_type = collection.find(params[:registration_type_id])
+          @registration_type = collection.find(params.expect(:registration_type_id))
           enforce_permission_to :unpublish, :registration_type, registration_type: @registration_type
 
           UnpublishRegistrationType.call(@registration_type, current_user) do

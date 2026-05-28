@@ -27,7 +27,7 @@ module Decidim
         private
 
         def process_step
-          collection.find(params[:step_id])
+          collection.find(params.expect(:step_id))
         end
 
         def collection

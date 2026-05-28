@@ -26,7 +26,7 @@ describe "Admin manages assembly admins" do
 
     it "shows assembly admin list" do
       within "#assembly_admins table" do
-        expect(page).to have_content(user.email)
+        expect(page).to have_text(user.email)
       end
     end
   end

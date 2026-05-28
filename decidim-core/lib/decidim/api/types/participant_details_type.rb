@@ -4,13 +4,14 @@ module Decidim
   module Core
     class ParticipantDetailsType < Decidim::Api::Types::BaseObject
       description "details of a participant"
+      required_scopes "api:read", "admin:read"
 
       field :email, GraphQL::Types::String, "The user's email", null: false
       field :name, GraphQL::Types::String, "The user's name", null: false
       field :nickname, GraphQL::Types::String, "The user's nickname", null: false
 
       def self.authorized?(object, context)
-        super && allowed_to?(:read, :admin_dashboard, object, context, scope: :admin)
+        super && allowed_to?(:read, :admin_dashboard, object, context)
       end
     end
   end

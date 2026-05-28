@@ -32,7 +32,7 @@ shared_examples "comments" do
         within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
           expect(page).to have_css("p.comment__as-author-name")
           within "p.comment__as-author-name" do
-            expect(page).to have_content("user_#{user.id} alert('name')")
+            expect(page).to have_text("user_#{user.id} alert('name')")
           end
         end
       end
@@ -47,8 +47,8 @@ shared_examples "comments" do
 
     within "#comments" do
       comments.each do |comment|
-        expect(page).to have_content decidim_sanitize_translated(comment.author.name).gsub("\n", " ")
-        expect(page).to have_content comment.body.values.first
+        expect(page).to have_text decidim_sanitize_translated(comment.author.name).gsub("\n", " ")
+        expect(page).to have_text comment.body.values.first
       end
     end
   end
@@ -59,7 +59,7 @@ shared_examples "comments" do
 
     visit resource_path
 
-    expect(page).to have_no_content("Comments are disabled at this time")
+    expect(page).to have_no_text("Comments are disabled at this time")
 
     expect(page).to have_css(".comment", minimum: 1)
 
@@ -77,11 +77,11 @@ shared_examples "comments" do
 
     it "displays the show replies link on comment with reply" do
       visit resource_path
-      expect(page).to have_no_content("Comments are disabled at this time")
+      expect(page).to have_no_text("Comments are disabled at this time")
       expect(page).to have_css(".comment", minimum: 1)
 
       within("#comment_#{single_comment.id}") do
-        expect(page).to have_content "1 reply"
+        expect(page).to have_text "1 reply"
       end
     end
 
@@ -93,11 +93,11 @@ shared_examples "comments" do
 
       it "displays the show replies link on comment with reply" do
         visit resource_path
-        expect(page).to have_no_content("Comments are disabled at this time")
+        expect(page).to have_no_text("Comments are disabled at this time")
         expect(page).to have_css(".comment", minimum: 1)
 
         within("#accordion-#{single_comment.id}") do
-          expect(page).to have_no_content "Hide reply"
+          expect(page).to have_no_text "Hide reply"
         end
       end
     end
@@ -114,10 +114,10 @@ shared_examples "comments" do
     it "shows only a deletion message for deleted comments" do
       expect(page).to have_css("#comment_#{deleted_comment.id}")
 
-      expect(page).to have_no_content(deleted_comment.author.name)
-      expect(page).to have_no_content(translated(deleted_comment.body))
+      expect(page).to have_no_text(deleted_comment.author.name)
+      expect(page).to have_no_text(translated(deleted_comment.body))
       within "#comment_#{deleted_comment.id}" do
-        expect(page).to have_content("Comment deleted on")
+        expect(page).to have_text("Comment deleted on")
         expect(page).to have_no_css(".comment__header")
       end
     end
@@ -135,8 +135,8 @@ shared_examples "comments" do
         within "#comment_#{deleted_comment.id}" do
           click_on "1 reply"
           expect(page).to have_css("#comment-#{deleted_comment.id}-replies")
-          expect(page).to have_content(reply.author.name)
-          expect(page).to have_content(reply.body.values.first)
+          expect(page).to have_text(reply.author.name)
+          expect(page).to have_text(reply.body.values.first)
         end
       end
     end
@@ -183,11 +183,11 @@ shared_examples "comments" do
       end
 
       it "does not show the add comment button" do
-        expect(page).to have_no_content("Add comment")
+        expect(page).to have_no_text("Add comment")
       end
 
       it "shows a message so user can Log in or create an account" do
-        expect(page).to have_content("Log in or create an account to add your comment.")
+        expect(page).to have_text("Log in or create an account to add your comment.")
       end
     end
   end
@@ -215,13 +215,13 @@ shared_examples "comments" do
       end
 
       it "does not show the add comment button" do
-        expect(page).to have_no_content("Add comment")
+        expect(page).to have_no_text("Add comment")
       end
 
       it "allows user to comment" do
         find("textarea[name='comment[body]']").set("Test comment with a computer.")
         click_on "Publish comment"
-        expect(page).to have_content("Test comment with a computer.")
+        expect(page).to have_text("Test comment with a computer.")
       end
     end
 
@@ -240,21 +240,21 @@ shared_examples "comments" do
       end
 
       it "does not show a message so user can Log in or create an account" do
-        expect(page).to have_no_content("Log in or create an account to add your comment.")
+        expect(page).to have_no_text("Log in or create an account to add your comment.")
       end
 
       it "shows a modal with the comment form" do
-        expect(page).to have_content("Add comment")
+        expect(page).to have_text("Add comment")
         click_on "Add comment"
 
-        expect(page).to have_content("Add comment")
-        expect(page).to have_content("1000 characters left")
+        expect(page).to have_text("Add comment")
+        expect(page).to have_text("1000 characters left")
         expect(page).to have_css(".add-comment form")
         expect(page).to have_css(".fullscreen")
 
         find("textarea[name='comment[body]']").set("Test comment with a mobile phone.")
         click_on "Publish comment"
-        expect(page).to have_content("Test comment with a mobile phone.")
+        expect(page).to have_text("Test comment with a mobile phone.")
       end
     end
 
@@ -279,8 +279,8 @@ shared_examples "comments" do
 
       it "shows a message indicating that comments are restricted" do
         visit resource_path
-        expect(page).to have_no_content("Comments are disabled at this time")
-        expect(page).to have_content("You need to be verified to comment at this moment")
+        expect(page).to have_no_text("Comments are disabled at this time")
+        expect(page).to have_text("You need to be verified to comment at this moment")
       end
     end
 
@@ -308,7 +308,7 @@ shared_examples "comments" do
           end
 
           within ".emoji__decidim" do
-            expect(page).to have_content(phrase)
+            expect(page).to have_text(phrase)
             # Since emoji-mart is a React component, we need to use JS to click on an emoji icon
             # as the emoji picker is a shadow DOM element.
             # The script below is trying to find the first emoji in the "Smileys & People" category and simulate
@@ -322,7 +322,7 @@ shared_examples "comments" do
           end
 
           within ".add-comment form" do
-            expect(find("textarea").value.strip).to have_content("😀")
+            expect(find("textarea").value.strip).to have_text("😀")
           end
         end
       end
@@ -351,7 +351,7 @@ shared_examples "comments" do
     context "when no default comments length specified" do
       it "displays the numbers of characters left" do
         within ".add-comment form" do
-          expect(page).to have_content("1000 characters left")
+          expect(page).to have_text("1000 characters left")
         end
       end
     end
@@ -361,7 +361,7 @@ shared_examples "comments" do
 
       it "displays the numbers of characters left" do
         within ".add-comment form" do
-          expect(page).to have_content("2000 characters left")
+          expect(page).to have_text("2000 characters left")
         end
       end
 
@@ -371,7 +371,7 @@ shared_examples "comments" do
           field.set " "
           field.native.send_keys "This is a new comment."
 
-          expect(page).to have_content("1977 characters left")
+          expect(page).to have_text("1977 characters left")
         end
       end
 
@@ -394,20 +394,20 @@ shared_examples "comments" do
             # announce the remaining characters after every keystroke.
             field.native.send_keys " Sending some new text."
             within ".remaining-character-count" do
-              expect(page).to have_content("1955 characters left") # Normal
+              expect(page).to have_text("1955 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("2000 characters left") # Screen reader
+              expect(page).to have_text("2000 characters left") # Screen reader
             end
 
             # After 10% of the total characters is reached, it should be updated
             # to the screen reader section to announce it.
             field.native.send_keys "a" * 155
             within ".remaining-character-count" do
-              expect(page).to have_content("1800 characters left") # Normal
+              expect(page).to have_text("1800 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("1800 characters left") # Screen reader
+              expect(page).to have_text("1800 characters left") # Screen reader
             end
 
             # After continuing typing after the announcement, the screen reader
@@ -415,20 +415,20 @@ shared_examples "comments" do
             # interval).
             field.native.send_keys "b"
             within ".remaining-character-count" do
-              expect(page).to have_content("1799 characters left") # Normal
+              expect(page).to have_text("1799 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("1800 characters left") # Screen reader
+              expect(page).to have_text("1800 characters left") # Screen reader
             end
 
             # When text is removed at the interval, the screen reader should
             # update back to the previous interval.
             field.native.send_keys [:backspace, :backspace, :backspace, :backspace]
             within ".remaining-character-count" do
-              expect(page).to have_content("1803 characters left") # Normal
+              expect(page).to have_text("1803 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("1800 characters left") # Screen reader
+              expect(page).to have_text("1800 characters left") # Screen reader
             end
 
             # After continuing typing after the removal of characters, we should
@@ -438,20 +438,20 @@ shared_examples "comments" do
             # - "1900 characters left" (actual 1802)
             field.native.send_keys "b"
             within ".remaining-character-count" do
-              expect(page).to have_content("1802 characters left") # Normal
+              expect(page).to have_text("1802 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("1800 characters left") # Screen reader
+              expect(page).to have_text("1800 characters left") # Screen reader
             end
 
             # After the input is blurred, the screen reader character counter
             # should show the actual amount of characters left.
             page.execute_script("document.getElementById('#{field_id}').blur()")
             within ".remaining-character-count" do
-              expect(page).to have_content("1802 characters left") # Normal
+              expect(page).to have_text("1802 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("1802 characters left") # Screen reader
+              expect(page).to have_text("1802 characters left") # Screen reader
             end
           end
         end
@@ -464,27 +464,27 @@ shared_examples "comments" do
               field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
               field.set "a" * 1989
               within ".remaining-character-count" do
-                expect(page).to have_content("11 characters left") # Normal
+                expect(page).to have_text("11 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
 
               (2..10).reverse_each do |remaining|
                 field.native.send_keys "b"
                 within ".remaining-character-count-sr" do
-                  expect(page).to have_content("#{remaining} characters left")
+                  expect(page).to have_text("#{remaining} characters left")
                 end
               end
 
               field.native.send_keys "b"
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("1 character left")
+                expect(page).to have_text("1 character left")
               end
 
               field.native.send_keys "c"
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left")
+                expect(page).to have_text("0 characters left")
               end
 
               # Test that the SR counter will stick at the last announced
@@ -498,15 +498,15 @@ shared_examples "comments" do
               page.execute_script("document.getElementById('#{field_id}').setSelectionRange(1850, 2000)")
               field.native.send_keys [:backspace]
               within ".remaining-character-count" do
-                expect(page).to have_content("150 characters left") # Normal
+                expect(page).to have_text("150 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left") # Screen reader
+                expect(page).to have_text("0 characters left") # Screen reader
               end
 
               field.native.send_keys "d"
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left")
+                expect(page).to have_text("0 characters left")
               end
             end
           end
@@ -517,10 +517,10 @@ shared_examples "comments" do
             within ".add-comment form" do
               fill_in field_id, with: "a" * 2000
               within ".remaining-character-count" do
-                expect(page).to have_content("0 characters left") # Normal
+                expect(page).to have_text("0 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left") # Screen reader
+                expect(page).to have_text("0 characters left") # Screen reader
               end
 
               # Test that the SR counter updates correctly after hitting the
@@ -528,44 +528,44 @@ shared_examples "comments" do
               page.execute_script("document.getElementById('#{field_id}').setSelectionRange(1800, 2000)")
               field.native.send_keys [:backspace]
               within ".remaining-character-count" do
-                expect(page).to have_content("200 characters left") # Normal
+                expect(page).to have_text("200 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
 
               # The SR counter should stay at the correct boundary.
               field.native.send_keys [:backspace, :backspace]
               within ".remaining-character-count" do
-                expect(page).to have_content("202 characters left") # Normal
+                expect(page).to have_text("202 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
 
               # It stays at the correct boundary when starting to type again.
               field.native.send_keys "b"
               within ".remaining-character-count" do
-                expect(page).to have_content("201 characters left") # Normal
+                expect(page).to have_text("201 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
 
               field.native.send_keys "c"
               within ".remaining-character-count" do
-                expect(page).to have_content("200 characters left") # Normal
+                expect(page).to have_text("200 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
 
               field.native.send_keys "d"
               within ".remaining-character-count" do
-                expect(page).to have_content("199 characters left") # Normal
+                expect(page).to have_text("199 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
             end
           end
@@ -579,7 +579,7 @@ shared_examples "comments" do
             visit current_path
 
             within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-              expect(page).to have_content("3000 characters left")
+              expect(page).to have_text("3000 characters left")
             end
           end
         end
@@ -631,7 +631,7 @@ shared_examples "comments" do
           click_on "Publish comment"
         end
 
-        expect(page).to have_content(content)
+        expect(page).to have_text(content)
       end
 
       it "shows comment to the user, updates the comments counter and clears the comment textarea" do
@@ -642,12 +642,12 @@ shared_examples "comments" do
 
       it "shows the entry in last activities" do
         visit decidim.last_activities_path
-        expect(page).to have_content("New comment: #{content}")
+        expect(page).to have_text("New comment: #{content}")
 
         within "#filters" do
           find("a", class: "filter", text: "Comment", match: :first).click
         end
-        expect(page).to have_content("New comment: #{content}")
+        expect(page).to have_text("New comment: #{content}")
       end
     end
 
@@ -683,25 +683,25 @@ shared_examples "comments" do
       it "displays a way to display content" do
         visit resource_path
         within "#comment_#{thread.id}" do
-          expect(page).to have_content("1 reply")
+          expect(page).to have_text("1 reply")
           click_on "1 reply"
-          expect(page).to have_content(new_reply_body)
+          expect(page).to have_text(new_reply_body)
           click_on "Reply", match: :first
-          expect(page).to have_content("Publish reply")
+          expect(page).to have_text("Publish reply")
           find("textarea[name='comment[body]']").set("Test reply comments.")
           click_on "Publish reply"
-          expect(page).to have_content("Test reply comments.")
+          expect(page).to have_text("Test reply comments.")
         end
       end
 
       it "displays a way to hide content" do
         visit resource_path
         within "#comment_#{thread.id}" do
-          expect(page).to have_content("1 reply")
+          expect(page).to have_text("1 reply")
           click_on "1 reply"
-          expect(page).to have_content(new_reply_body)
+          expect(page).to have_text(new_reply_body)
           click_on "1 reply"
-          expect(page).to have_no_content(new_reply_body)
+          expect(page).to have_no_text(new_reply_body)
         end
       end
 
@@ -711,10 +711,10 @@ shared_examples "comments" do
         it "displays the load replies button" do
           visit resource_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("3 replies")
-            expect(page).to have_no_content(new_reply_body)
+            expect(page).to have_text("3 replies")
+            expect(page).to have_no_text(new_reply_body)
             click_on "3 replies"
-            expect(page).to have_content(new_reply_body)
+            expect(page).to have_text(new_reply_body)
           end
         end
       end
@@ -761,8 +761,8 @@ shared_examples "comments" do
 
           expect(page).to have_css("#comment_#{comment.id}")
           within "#comment_#{comment.id}" do
-            expect(page).to have_content("Comment deleted on")
-            expect(page).to have_no_content comment_author.name
+            expect(page).to have_text("Comment deleted on")
+            expect(page).to have_no_text comment_author.name
             expect(page).to have_no_css(".comment__header")
           end
           expect(page).to have_css("span.comments-count", text: "3 comments")
@@ -816,14 +816,14 @@ shared_examples "comments" do
 
           it "the comment body changes" do
             within "#comment_#{comment.id}" do
-              expect(page).to have_content("This comment has been fixed")
-              expect(page).to have_no_content(comment_body)
+              expect(page).to have_text("This comment has been fixed")
+              expect(page).to have_no_text(comment_body)
             end
           end
 
           it "the header of the comment displays an edited message" do
             within "#comment_#{comment.id}" do
-              expect(page).to have_content("Edited")
+              expect(page).to have_text("Edited")
             end
           end
 
@@ -906,7 +906,7 @@ shared_examples "comments" do
             click_on "Hide"
           end
 
-          expect(page).to have_content("This resource has been hidden.")
+          expect(page).to have_text("This resource has been hidden.")
         end
       end
     end
@@ -1093,8 +1093,8 @@ shared_examples "comments blocked" do
 
       it "shows a message indicating that comments are disabled" do
         visit resource_path
-        expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
-        expect(page).to have_no_content("You need to be verified to comment at this moment")
+        expect(page).to have_text("Comments are currently disabled, only administrators can reply or post new ones.")
+        expect(page).to have_no_text("You need to be verified to comment at this moment")
       end
     end
   end
@@ -1115,7 +1115,7 @@ shared_examples "comments blocked" do
         page.find("a", text: "Comment").click
         find("textarea[name='comment[body]']").set("Test admin commenting in a closed comment.")
         click_on "Publish comment"
-        expect(page).to have_content("Test admin commenting in a closed comment.")
+        expect(page).to have_text("Test admin commenting in a closed comment.")
 
         expect(page).to have_button("Reply")
         first("button", text: "Reply").click
@@ -1124,7 +1124,7 @@ shared_examples "comments blocked" do
           find("textarea[name='comment[body]']").set("Test admin replying a closed comment.")
           click_on "Publish reply"
         end
-        expect(page).to have_content("Test admin replying a closed comment.")
+        expect(page).to have_text("Test admin replying a closed comment.")
       end
     end
 
@@ -1137,8 +1137,8 @@ shared_examples "comments blocked" do
 
       it "shows a message indicating that comments are disabled" do
         visit resource_path
-        expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
-        expect(page).to have_no_content("You need to be verified to comment at this moment")
+        expect(page).to have_text("Comments are currently disabled, only administrators can reply or post new ones.")
+        expect(page).to have_no_text("You need to be verified to comment at this moment")
       end
 
       context "when the user is an administrator" do
@@ -1166,8 +1166,8 @@ shared_examples "comments blocked" do
 
         it "cannot answer" do
           visit resource_path
-          expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
-          expect(page).to have_no_content("You need to be verified to comment at this moment")
+          expect(page).to have_text("Comments are currently disabled, only administrators can reply or post new ones.")
+          expect(page).to have_no_text("You need to be verified to comment at this moment")
           expect(page).to have_no_css("textarea#add-comment-Proposal-1")
         end
       end
@@ -1248,7 +1248,7 @@ shared_examples "comments with two columns" do
           all_comments = all(".comment-thread")
 
           expected_order.each_with_index do |comment, index|
-            expect(all_comments[index]).to have_content(comment.body["en"])
+            expect(all_comments[index]).to have_text(comment.body["en"])
           end
         end
 
@@ -1267,11 +1267,11 @@ shared_examples "comments with two columns" do
     it "displays only the single comment without columns" do
       expect(page).to have_css("#comments")
       expect(page).to have_css(".comment-thread", count: 1)
-      expect(page).to have_content("This is a single comment")
+      expect(page).to have_text("This is a single comment")
       expect(page).to have_no_css(".comments-two-columns")
-      expect(page).to have_no_content("In Favor")
-      expect(page).to have_no_content("Against")
-      expect(page).to have_no_content("You are viewing only one comment")
+      expect(page).to have_no_text("In Favor")
+      expect(page).to have_no_text("Against")
+      expect(page).to have_no_text("You are viewing only one comment")
     end
   end
 
@@ -1299,8 +1299,8 @@ shared_examples "comments with two columns" do
       add_new_comment("In favor", "This is a new comment in favor")
 
       within(".comments-section__in-favor") do
-        expect(page).to have_content("This is a new comment in favor")
-        expect(first(".comment-thread")).to have_content("This is a new comment in favor")
+        expect(page).to have_text("This is a new comment in favor")
+        expect(first(".comment-thread")).to have_text("This is a new comment in favor")
       end
     end
 
@@ -1336,7 +1336,7 @@ shared_examples "comments with two columns" do
         ]
 
         expected_order.each_with_index do |comment, index|
-          expect(all(".comment-thread")[index]).to have_content(comment.body["en"])
+          expect(all(".comment-thread")[index]).to have_text(comment.body["en"])
         end
       end
 
@@ -1387,12 +1387,12 @@ shared_examples "comments with two columns" do
       within(".comments-two-columns") do
         within(".comments-section__in-favor") do
           expect(page).to have_css(".most-upvoted-label", text: "Most upvoted")
-          expect(page).to have_content(highest_voted_comment_in_favor.body["en"])
+          expect(page).to have_text(highest_voted_comment_in_favor.body["en"])
         end
 
         within(".comments-section__against") do
           expect(page).to have_css(".most-upvoted-label", text: "Most upvoted")
-          expect(page).to have_content(highest_voted_comment_against.body["en"])
+          expect(page).to have_text(highest_voted_comment_against.body["en"])
         end
       end
     end
@@ -1401,7 +1401,7 @@ shared_examples "comments with two columns" do
   def check_comments_order(section_selector, comments)
     comments_section = all("#{section_selector} .comment-thread")
     comments.each_with_index do |comment, index|
-      expect(comments_section[index]).to have_content(comment.body["en"])
+      expect(comments_section[index]).to have_text(comment.body["en"])
     end
   end
 

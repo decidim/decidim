@@ -46,14 +46,14 @@ shared_context "with filterable context" do
   def page_has_content(text)
     text = [text] unless text.is_a?(Array)
     text.each do |t|
-      expect(page).to have_content(t)
+      expect(page).to have_text(t)
     end
   end
 
   def page_has_no_content(text)
     text = [text] unless text.is_a?(Array)
     text.each do |t|
-      expect(page).to have_no_content(t)
+      expect(page).to have_no_text(t)
     end
   end
 
