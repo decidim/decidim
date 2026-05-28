@@ -98,9 +98,9 @@ eu:
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
-        see_process: Ikusi prozesuak
+        see_process: Prozesua ikusi
         unpublish: Despublikatu
-        view_deleted_processes: Ikusi ezabatutako prozesuak
+        view_deleted_processes: Ezabatutako prozesuak ikusi
       filters:
         decidim_participatory_process_group_id_eq:
           label: Prozesu-taldeen arabera
