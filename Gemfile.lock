@@ -836,7 +836,7 @@ GEM
     ruby-vips (2.3.0)
       ffi (~> 1.12)
       logger
-    rubyXL (3.4.35)
+    rubyXL (3.4.37)
       nokogiri (>= 1.10.8)
       rubyzip (>= 3.2.2)
     rubyzip (3.3.0)
